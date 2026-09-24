@@ -433,18 +433,38 @@ def test_named_judgment_survives_broad_uncertainty():
     from quality.revise import Reviser
     from quality import schemes as SC
     lines = [c.format(w=w) for c, w in zip(LH._SCREEN_CARRIERS, ("four", "own"))]
-    for relation, expected in (("class:ASSONANCE", True), ("class:RHYME", False)):
-        row = LH.screen_pairs(["four", "own"], relation=relation)[0]
-        grade = Reviser().grade(lines, SC.mandate([[1, 2]], n_lines=2,
-                                               default_relation=relation))
-        check(f"four/own keeps the broad default's unresolved sentence and independently answers {relation}",
+    # UPDATED 2026-09-24 for the N-relation model (#375), which moved
+    # `nucleus_agreement` to "licensed" deliberately. four/own is AO~OW, a
+    # NEAR vowel: under the shipped licensed nucleus it no longer stands in
+    # ASSONANCE (was ~~class:ASSONANCE True~~), so on the default both named
+    # answers are False and the check could no longer tell "answers the
+    # named question independently" from "always says no when the broad
+    # default is unresolved". The two-sided contrast is therefore asserted
+    # at a DECLARED scalar nucleus, where the pair still stands in
+    # ASSONANCE, AND the shipped default is asserted beside it. The CLI has
+    # no nucleus coordinate, so it is checked against the shipped answer.
+    _scalar = LH.Declaration(nucleus_agreement="scalar")
+    _shipped = LH.Declaration()
+    for dname, decl, relation, expected in (
+            ("scalar", _scalar, "class:ASSONANCE", True),
+            ("scalar", _scalar, "class:RHYME", False),
+            ("licensed", _shipped, "class:ASSONANCE", False),
+            ("licensed", _shipped, "class:RHYME", False)):
+        row = LH.screen_pairs(["four", "own"], relation=relation,
+                              decl=decl)[0]
+        grade = Reviser(decl=decl).grade(
+            lines, SC.mandate([[1, 2]], n_lines=2,
+                              default_relation=relation))
+        check(f"four/own keeps the broad default's unresolved sentence and independently answers {relation} ({dname} nucleus)",
               not row["refused"] and "unresolved" in (row["reason"] or "")
               and row["undecided"]
               and row["named"] is expected and row["named_reason"] is None, row)
-        check(f"the requested {relation} agrees with the actual declared grade",
+        check(f"the requested {relation} agrees with the actual declared grade ({dname} nucleus)",
               not grade["refusals"] and len(grade["verdicts"]) == 1
               and (grade["verdicts"][0]["why"] is None) is expected,
               grade["verdicts"])
+        if decl is not _shipped:
+            continue
         rc, out, _ = run("screen", "four", "own", f"--relation={relation}")
         counts = ("1 satisfies, 0 violates, 0 refused" if expected else
                   "0 satisfies, 1 violates, 0 refused")

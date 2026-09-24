@@ -803,6 +803,14 @@ for* — a setting that admits only pairs whose two anchors are adjacent. That i
 an adjacent-syllable echo, not internal rhyme at a distance. It is not a
 parameter choice; it is the layer's subject matter being defined away.
 
+**AMENDED 2026-09-24 (doctrine 17):** ~~the crossing is at `window = 2`~~ —
+under the N-relation model (#375) no window in the sweep reaches the range on
+the first three sonnets: at window 2 the p50 family is 8 against a p50
+M_NEEDED of 6 (10 before #375). `min_p` rose, so M_NEEDED shrank; the result
+is identical under a declared scalar nucleus, so the cause is the candidate
+door and relation sets, not `nucleus_agreement`. The lever is deader, not
+alive. Pinned by `quality/test_fwer.py` section 10.
+
 ### Lever 3 — `max_span`. Self-cancelling.
 
 | `max_span` | window | p50 `m_med` | p50 `min_p` | p50 M_NEEDED | m_med/M_NEEDED |

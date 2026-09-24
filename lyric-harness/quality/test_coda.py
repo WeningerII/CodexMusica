@@ -115,21 +115,37 @@ def test_the_reported_rhymes_that_were_not_rhymes():
         r = rel(a, b)
         check(f"{a}/{b} is not RHYME", "RHYME" not in r,
               f"{total(a, b):.3f} {r} — identical nucleus, coda L against R")
-    check("and each stands in ASSONANCE (and nothing else), not rejected "
-          "(doctrine 24)",
+    # UPDATED 2026-09-24 for the N-relation model (#375), which moved
+    # `Declaration.nucleus_agreement` "scalar" -> "licensed" deliberately:
+    # RHYME and ASSONANCE now mean the vowel AGREES (identity plus the
+    # unstressed AH~IH licence), and a near vowel is judged by the registry
+    # schemas that name it instead of being rounded up to a coarse relation.
+    # `wall`/`floor` and `call`/`more` have an IDENTICAL nucleus (AO~AO) and
+    # still stand in exactly ASSONANCE. `ear`/`will` (IY~IH, 0.902) and
+    # `will`/`gun` (IH~AH, 0.657) do NOT: they were ASSONANCE only because the
+    # scalar cut rounded a near vowel up to agreement. Both halves are
+    # asserted, so a default drifting back to `scalar` fails here, and so does
+    # a licensed shape that stopped typing an identical-vowel pair.
+    check("each identical-nucleus pair stands in ASSONANCE (and nothing "
+          "else), not rejected (doctrine 24)",
           all(rel(a, b) == frozenset({"ASSONANCE"}) for a, b in
-              (("wall", "floor"), ("call", "more"), ("ear", "will"))),
+              (("wall", "floor"), ("call", "more"))),
           "ASSONANCE is a named member of the taxonomy: the graph keeps the "
           "edge and the name. A rule that deleted the category would be a "
           "worse defect than the leak.")
-    check("`will`/`gun` was ALREADY ASSONANCE and is unchanged",
-          rel("will", "gun") == frozenset({"ASSONANCE"}),
-          "the brief that opened this cell called it 'the same generosity on "
-          "L against N'. It is not: cons_sim(L,N) is 0.730, BELOW theta_coda "
-          "0.80, so the band always typed it ASSONANCE. What made it look "
-          "admitted is `check_scheme`'s collision list, which prints pairs on "
-          "`total >= 0.9` and never consults the relation — a REPORT-layer "
-          "defect, not a comparator one.")
+    scalar = Declaration(nucleus_agreement="scalar")
+    for a, b in (("ear", "will"), ("will", "gun")):
+        check(f"`{a}`/`{b}` (a NEAR vowel) is ASSONANCE under the declared "
+              f"`scalar` shape and stands in no coarse relation under the "
+              f"shipped `licensed` one (was ~~ASSONANCE~~ by default, #375)",
+              rel(a, b, scalar) == frozenset({"ASSONANCE"})
+              and rel(a, b) == frozenset(),
+              f"scalar={set(rel(a, b, scalar))}, licensed={set(rel(a, b))}. "
+              f"For will/gun: cons_sim(L,N) is 0.730, BELOW theta_coda 0.80, "
+              f"so the band never admitted it as RHYME; what made it look "
+              f"admitted is `check_scheme`'s collision list, which prints "
+              f"pairs on `total >= 0.9` and never consults the relation -- a "
+              f"REPORT-layer defect, not a comparator one.")
 
 
 # ---------------------------------------------------------------------------

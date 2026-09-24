@@ -18,10 +18,12 @@ WHAT IT MEASURES
   --grid        the 2x2: {head, tail} alignment x theta_coda {0.60, 0.80},
                 each at family={scored, candidate}. Alignment is monkeypatched
                 in-process and theta_coda is a Declaration field, so this needs
-                no shadow tree and no disk.
+                no shadow tree and no disk. Run at a DECLARED scalar nucleus
+                and scalar coda (`GRID_NUCLEUS`, 2026-09-24).
   --calibrate   the distribution of the null band-pass rate and of the
                 attainable-p / cut ratio over 30 real sonnets, which is where
-                `max_null_band_pass` comes from.
+                `max_null_band_pass` comes from. `--nucleus=scalar` measures
+                it at the grid's declared nucleus (`SCALAR_NUCLEUS_GUARD`).
 
 THE FINDING, in one line: `m` was measured, but from the pairs that SURVIVED
 the band rather than from the comparisons that were MADE, so tightening the
@@ -72,6 +74,28 @@ SATURATED = ["The rattle of the cattle in the shadow of the saddle",
              "the mellow yellow fellow with a pillow and a billow"]
 
 TAIL_ALIGNED = LH.channel_agreement
+
+#: THE NUCLEUS SHAPE THE HEAD-VS-TAIL CONTRAST IS RUN AT, DECLARED
+#: (2026-09-24). `head_agreement` below replicates the pre-b1d7f64 comparator,
+#: whose nucleus predicate is the scalar `min(vowel_sim)`, and it refuses any
+#: other shape. Since the N-relation model (#375) the shipped default is
+#: `nucleus_agreement="licensed"`, so the 2x2 no longer runs at the default:
+#: it runs at a DECLARED `scalar` nucleus and says so, the path the refusal
+#: itself names. Porting the licensed shape into `head_agreement` was the
+#: other option and was not taken -- the contrast exists to isolate ALIGNMENT,
+#: and a port would be a second comparator to keep in step with the first.
+GRID_NUCLEUS = "scalar"
+
+#: Doctrine 28's guard AT THAT BAND. `TimeDeclaration.max_null_band_pass` is
+#: a coordinate of the band (doctrine 58) and ships calibrated at the licensed
+#: nucleus (0.0252); under a scalar nucleus the null passes far more pairs and
+#: that guard refuses every item, which would read as a family-size result.
+#: MEASURED 2026-09-24 on this tree by the unchanged rule --
+#: `python3 quality/fwer_family.py --calibrate --nucleus=scalar`: 2 x max over
+#: the first 30 sonnets = 2 x 0.0395 (min 0.0126), tail alignment, theta_coda
+#: 0.80, theta 0.80, window 32. It reproduces the 2026-09-22 N-relation
+#: scalar figure recorded in `time_layer.py` (0.0790) exactly.
+SCALAR_NUCLEUS_GUARD = 0.0790
 
 
 def head_agreement(anc_a, anc_b, decl):
@@ -183,7 +207,11 @@ def run_grid(n_scram=6):
     tdecl_base = dict(theta=0.80, window=32)
     scram = scrambled_sonnets(n_scram)
     print(f"\nTHE 2x2, plus the family coordinate. alpha=0.05, "
-          f"{n_scram} word-scrambled sonnets as H0.\n")
+          f"{n_scram} word-scrambled sonnets as H0.")
+    print(f"DECLARED: nucleus_agreement={GRID_NUCLEUS!r} (head_agreement "
+          f"replicates only that shape; the shipped default is "
+          f"{Declaration().nucleus_agreement!r}), coda_agreement='scalar', "
+          f"guard max_null_band_pass={SCALAR_NUCLEUS_GUARD}.\n")
     print(f"{'family':10} {'align':5} {'th_coda':>7} | {'H0 rate':>8} "
           f"{'H0 mute':>7} | {'sat_none':>8} {'pred':>6} | {'m':>4} "
           f"{'cut':>9} | {'deg bp':>7} {'deg ref':>7} {'REAL':>6}")
@@ -193,8 +221,15 @@ def run_grid(n_scram=6):
         for align, fn in (("head", head_agreement), ("tail", TAIL_ALIGNED)):
             LH.channel_agreement = fn
             for tc in (0.60, 0.80):
-                decl = Declaration(theta_coda=tc)
-                t = TimeDeclaration(family=fam, **tdecl_base)
+                # DECLARED, not defaulted (2026-09-24): the nucleus shape
+                # `head_agreement` replicates, and the scalar coda under
+                # which `theta_coda` moves the band at all (the default coda
+                # shape is `identity`, which never reads it).
+                decl = Declaration(theta_coda=tc, coda_agreement="scalar",
+                                   nucleus_agreement=GRID_NUCLEUS)
+                t = TimeDeclaration(family=fam,
+                                    max_null_band_pass=SCALAR_NUCLEUS_GUARD,
+                                    **tdecl_base)
                 tno = TimeDeclaration(family=fam, max_null_band_pass=1.01,
                                       **tdecl_base)
                 h0s = [probe(s, decl, t) for s in scram]
@@ -242,13 +277,18 @@ def run_grid(n_scram=6):
     return rows
 
 
-def run_calibrate(n=30):
-    """Where `max_null_band_pass` comes from -- a distribution, not a guess."""
-    decl = Declaration()
+def run_calibrate(n=30, nucleus=None):
+    """Where `max_null_band_pass` comes from -- a distribution, not a guess.
+
+    `nucleus` declares `nucleus_agreement` (default: the shipped shape); it is
+    how `SCALAR_NUCLEUS_GUARD` is re-measured."""
+    decl = Declaration() if nucleus is None else Declaration(
+        nucleus_agreement=nucleus)
     t = TimeDeclaration(theta=0.80, window=32, max_null_band_pass=1.01)
     from quality.corpus import load_sonnets
     son = [l for _, l in sorted(load_sonnets().items())]
-    print(f"\nCALIBRATION. alignment=tail, theta_coda={decl.theta_coda}, "
+    print(f"\nCALIBRATION. nucleus_agreement={decl.nucleus_agreement!r}, "
+          f"alignment=tail, theta_coda={decl.theta_coda}, "
           f"theta={t.theta}, window={t.window}, null_samples={t.null_samples}")
     print(f"n = {n} Shakespeare sonnets.\n")
     bp, ratio = [], []
@@ -328,9 +368,12 @@ def run_arms(n_real=20, n_scram=20):
 
 if __name__ == "__main__":
     args = set(sys.argv[1:])
+    nuc = next((a.split("=", 1)[1] for a in sys.argv[1:]
+                if a.startswith("--nucleus=")), None)
+    args = {a for a in args if not a.startswith("--nucleus=")}
     if not args or "--grid" in args:
         run_grid()
     if not args or "--calibrate" in args:
-        run_calibrate()
+        run_calibrate(nucleus=nuc)
     if not args or "--arms" in args:
         run_arms()
