@@ -2804,8 +2804,13 @@ def test_the_whole_draft_half_reaches_the_report():
                                timeout=900)
             return p.returncode, p.stdout
 
-        rc_b, out_b = cli("brief", lyric, GAP_SCHEME, "--blueprint=" + bp_path)
-        rc_s, out_s = cli("song", bp_path, lyric, GAP_SCHEME)
+        # The file above is a printed SOURCE ([verse]/[chorus] marks), so it
+        # is declared as one: since A-3 (PR #372) a draft is read literally
+        # unless `--input-format=source` says otherwise.
+        rc_b, out_b = cli("brief", lyric, GAP_SCHEME, "--blueprint=" + bp_path,
+                          "--input-format=source")
+        rc_s, out_s = cli("song", bp_path, lyric, GAP_SCHEME,
+                          "--input-format=source")
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
 

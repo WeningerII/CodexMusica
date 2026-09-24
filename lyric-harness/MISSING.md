@@ -27016,8 +27016,9 @@ of nights. The second is the one this entry warned would weaken a guard whose
 over-inclusiveness is doctrine 16's design, and it is not what shipped.
 
 **THE FOURTH OPTION IS TO NARROW WHAT THE FINGERPRINT READS WITHOUT NARROWING
-WHAT IT COVERS.** `comparator_fingerprint_parts()` hashed all 13,161 lines of
-`lyric_harness.py`. It now hashes `quality/source_identity.definition_closure`
+WHAT IT COVERS.** `comparator_fingerprint_parts()` hashed the whole of `lyric_harness.py`
+(~~13,161 lines~~ at this close; the file has grown since, and the figure is
+struck rather than chased). It now hashes `quality/source_identity.definition_closure`
 of that file over the names the two importers actually TAKE from it —
 `quality/features.py`'s three import statements (two of them INSIDE function
 bodies) and this module's own `lyric_harness.<attr>` uses, read off their

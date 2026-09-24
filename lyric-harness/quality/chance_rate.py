@@ -351,10 +351,15 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 # E-5, 2026-09-15: `cannot_tell` omits empty-coda evidence. Re-derived via
 # python3 quality/chance_rate.py --check and quality/e5_coda_adoption.py.
 # Historical gift bands: admit 173..193, narrow 36..46; schema unchanged.
+# 2026-09-24: schema 889..914 -> 888..913, one pair fewer in EVERY cell of
+# the grid; admit and narrow held exactly. Bisected to 7d1ded93 (PR #372,
+# report C-2): an unmarked -in spelling now keeps both its dictionary and its
+# g-dropped reading, so the consensus grader refuses one pair it used to
+# admit. Measured at cd20232f (889/914 in all four cells) and at 1f9678e6.
 ADOPTED = {
     "admit": (118, 134),
     "narrow": (33, 40),
-    "schema": (889, 914),
+    "schema": (888, 913),
 }
 
 

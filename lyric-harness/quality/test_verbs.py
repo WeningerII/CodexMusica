@@ -4315,7 +4315,11 @@ def test_the_ban_is_unskippable_at_the_grading_verb_too():
     # is the ban itself.
     clean = ("dust settles on the kitchen chair\n"
              "cold rain leaves nothing left to spare\n")
-    bp = {"sections": [{"name": "V1", "function": "verse", "bars": 2,
+    # NO `function` on the section, and deliberately: declaring one REQUESTS
+    # the song-function questions (report Q20), and a hookless verse then
+    # leaves HOOK_UNDECLARED unjudged, which exits 2 before any exit-3 gate
+    # is reached. This fixture tests the ban gate and nothing else.
+    bp = {"sections": [{"name": "V1", "bars": 2,
                         "start_bar": 1,
                         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
           "lines": [{"text": "x", "bar": 1, "beat": 1.0, "duration": 4.0},

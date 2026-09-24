@@ -398,15 +398,17 @@ def test_the_bytes_behind_the_md5_are_banked():
               f"md5 {printed} -> {facts.get('draft_file')}")
         from quality.revise import draft_fingerprint
         import lyric_harness as LH
-        back = LH.load_lyric_lines(want) if os.path.exists(want) else []
+        back = LH.load_draft_lines(want) if os.path.exists(want) else []
         check("...and a later reader who loads that file gets the same "
               "population back, so the same bytes can be graded again — "
               "which is the entire point of banking them",
-              back == PROBE_LINES and draft_fingerprint(back) == printed,
+              back == ["[Verse]"] + PROBE_LINES
+              and draft_fingerprint(back) == printed,
               f"{len(back)} line(s), {draft_fingerprint(back) if back else '-'}")
-        check("...with the section marker DROPPED, because what is banked is "
-              "what was GRADED and the grader never saw it",
-              "[Verse]" not in open(want, encoding="utf-8").read()
+        check("...with the section marker KEPT, because what is banked is "
+              "what was GRADED and since A-3 (PR #372) a literal-input verb "
+              "grades that row",
+              "[Verse]" in open(want, encoding="utf-8").read()
               if os.path.exists(want) else False)
         check("the MANDATE it ran under is banked too, VERBATIM off the argv "
               "— the fact whose absence made `oar_lair.txt`'s graded mandate "

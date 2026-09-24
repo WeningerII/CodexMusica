@@ -4,6 +4,14 @@
 · **regressions:** `python3 quality/test_phonology.py` §10g–10j,
 `python3 quality/test_cym.py`.
 
+**REPINNED 2026-09-24 — ten counts, none on the shipped reading.** Report
+J-1 (`7d1ded93`, PR #372) made attested Welsh onset glides (gwl-/gwr-/gwn-,
+initial ia-/io-, w before a/e/o) consonantal in `Welsh.syllables()`. The
+depth-2, prominence-port and §9 RIME_RICHE/RHYME rows moved; every depth-1
+(SHIPPED) row, every refusal count and all of §6 held. Struck values are the
+superseded ones. The Monte Carlo columns (null med/max, excess, p) of the
+moved rows were NOT re-run and are quotable only as the pre-J-1 reading.
+
 **AND THE RUNNER CAN NOW GO RED — ADDED 2026-08-14.**
 `python3 quality/cym_rhyme_rate.py --check` compares **48 committed counts**
 from §§1, 2, 4, 5, 6, 8 and 9 against a fresh run and exits **1** when any of
@@ -107,8 +115,8 @@ two lines the form pairs.
 | reading | mandated | judged | refused | observed | null med | null max | excess | p_hi | differ |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | **depth 1 (SHIPPED)** | 54 | 51 | 3 | **100.00%** | 1.85% | 9.26% | **+90.74pp** | 0.0050 | 100.0% |
-| depth 2 (rich grade) | 54 | 51 | 3 | 88.24% | 1.85% | 7.41% | +80.83pp | 0.0050 | 100.0% |
-| **prominent (ENGLISH PORT)** | 54 | 52 | 2 | **3.85%** | 0.00% | 3.85% | **+0.00pp** | 0.0149 | 99.0% |
+| depth 2 (rich grade) | 54 | 51 | 3 | ~~88.24%~~ **94.12%** (48/51, 2026-09-24) | 1.85% | 7.41% | +80.83pp | 0.0050 | 100.0% |
+| **prominent (ENGLISH PORT)** | 54 | 52 | 2 | ~~3.85%~~ **1.92%** (1/52, 2026-09-24) | 0.00% | 3.85% | **+0.00pp** | 0.0149 | 99.0% |
 | diacritics=keep | 54 | 51 | 3 | 98.04% | 1.85% | 9.26% | +88.78pp | 0.0050 | 100.0% |
 | glide=vocalic | 54 | 54 | 0 | 96.30% | 1.85% | 9.26% | +87.04pp | 0.0050 | 100.0% |
 | glide=consonantal | 54 | 54 | 0 | 98.15% | 1.85% | 9.26% | +88.89pp | 0.0050 | 100.0% |
@@ -269,8 +277,8 @@ gap between two grades.
 | reading | mandated | judged | refused | admits |
 |---|---:|---:|---:|---:|
 | **depth 1 (SHIPPED)** | 20000 | 19656 | 344 (1.72%) | **2.111%** |
-| depth 2 (rich grade) | 20000 | 19656 | 344 (1.72%) | 1.597% |
-| prominent (ENGLISH PORT) | 20000 | 18703 | 1297 (6.49%) | 0.572% |
+| depth 2 (rich grade) | 20000 | 19656 | 344 (1.72%) | ~~1.597%~~ 1.643% (323, 2026-09-24) |
+| prominent (ENGLISH PORT) | 20000 | 18703 | 1297 (6.49%) | ~~0.572%~~ 0.658% (123, 2026-09-24) |
 | diacritics=keep | 20000 | 19656 | 344 (1.72%) | 2.050% |
 | glide=vocalic | 20000 | 19657 | 343 (1.72%) | 2.111% |
 | glide=consonantal | 20000 | 19657 | 343 (1.72%) | 2.116% |
@@ -393,9 +401,9 @@ fixture said `hoewfardd` and `rodded` where the edition prints `hoew-fardd` and
 |---|---|---:|---:|
 | cym_twm_or_nant_cywydd | depth 1 (SHIPPED) | **69/77 = 89.6%** | **0/77 = 0.0%** |
 | cym_twm_or_nant_cywydd | diacritics=keep | 61/78 = 78.2% | 0/77 = 0.0% |
-| cym_twm_or_nant_cywydd | prominent (PORT) | 1/71 = 1.4% | 0/69 = 0.0% |
+| cym_twm_or_nant_cywydd | prominent (PORT) | ~~1/71 = 1.4%~~ 0/71 = 0.0% (2026-09-24) | 0/69 = 0.0% |
 | cym_alun_strict | depth 1 | 289/775 = 37.3% | 423/771 = 54.9% |
-| cym_alun_strict | prominent (PORT) | 8/758 = 1.1% | 14/758 = 1.8% |
+| cym_alun_strict | prominent (PORT) | ~~8/758 = 1.1%~~ 6/758 = 0.8% | ~~14/758 = 1.8%~~ 10/758 = 1.3% (2026-09-24) |
 
 `cym_twm_or_nant_cywydd.txt` is ONE cywydd and its couplets sit at even line
 indices, so the parity cut is the form: **89.6% against 0.0%**, a second
@@ -463,11 +471,11 @@ corpus is full of refrains, so the same trap is live here.
 
 | file | TRUE verdicts (offsets 1–2) | REPEAT | RIME_RICHE | RHYME |
 |---|---:|---:|---:|---:|
-| cym_cynghanedd_llywelyn_goch_cywydd | 51 | 0 (0.0%) | 6 | 45 |
-| cym_song_alun | 89 | 0 (0.0%) | 10 | 79 |
+| cym_cynghanedd_llywelyn_goch_cywydd | 51 | 0 (0.0%) | ~~6~~ 4 | ~~45~~ 47 |
+| cym_song_alun | 89 | 0 (0.0%) | ~~10~~ 9 | ~~79~~ 80 |
 | cym_song_hwiangerddi | 521 | **42 (8.1%)** | 58 | 421 |
-| cym_song_mynyddog | 1106 | 39 (3.5%) | 94 | 973 |
-| cym_song_twm_or_nant | 303 | 1 (0.3%) | 37 | 265 |
+| cym_song_mynyddog | 1106 | 39 (3.5%) | ~~94~~ 82 | ~~973~~ 985 |
+| cym_song_twm_or_nant | 303 | 1 (0.3%) | ~~37~~ 33 | ~~265~~ 269 |
 
 `relation_type` types it rather than deleting it (doctrine 24), and the numbers
 say the trap is real but not dominant: 8.1% of the nursery-rhyme book's TRUE
@@ -656,7 +664,8 @@ holds; only the baseline it was pinned against has moved. `mandated` /
 `judged` / `refused` are unchanged at 1064 / 1014 / 50.
 
 `python3 quality/cynghanedd_rate.py corpus/cym_alun_strict.txt 20` →
-`caesura='search' 890/1558 = 57.1%`, which is the figure `cym.py`'s own
+`caesura='search' 890/1558 = 57.1%` (~~at the time~~; **868/1558 = 55.7% since
+J-1's glide repair, 2026-09-24**), which is the figure `cym.py`'s own
 docstring records for the class rule. **The rime path is deliberately separated
 from the cynghanedd path** so this could not move: the diacritic fold and the
 glide alternative are applied inside `rimes()` and by nothing else, and
@@ -869,9 +878,9 @@ and excess — and none reproduces `data/sources.tsv`:**
 
 | corpus | judged | `sources.tsv` still says | re-measured 2026-08-14, n=200 |
 |---|---:|---|---|
-| Alun, strict metre | 1558 | 54.1 / 24.6 / 27.8 / **+26.3** | 890 = **57.1%** / 19.4 / 21.8 / **+35.3** |
-| Twm o'r Nant cywydd | 156 | 51.3 / 26.9 / 36.5 / **+14.7** | 72 = **46.2%** / 19.2 / 26.9 / **+19.2** |
-| Llywelyn Goch cywydd, 1862 | 145 | 52.8 / 18.5 / 30.6 / **+22.2** | 64 = **44.1%** / 19.3 / 28.3 / **+15.9** |
+| Alun, strict metre | 1558 | 54.1 / 24.6 / 27.8 / **+26.3** | ~~890 = 57.1% / 19.4 / 21.8 / +35.3~~ **868 = 55.7% / 18.7 / 21.3 / +34.4** (J-1, 2026-09-24) |
+| Twm o'r Nant cywydd | 156 | 51.3 / 26.9 / 36.5 / **+14.7** | ~~72 = 46.2% / 19.2 / 26.9 / +19.2~~ **69 = 44.2% / 17.9 / 27.6 / +16.7** (J-1, 2026-09-24) |
+| Llywelyn Goch cywydd, 1862 | 145 | 52.8 / 18.5 / 30.6 / **+22.2** | ~~64 = 44.1% / 19.3 / 28.3 / +15.9~~ **63 = 43.4% / 18.6 / 26.9 / +16.5** (J-1, 2026-09-24) |
 | Twm o'r Nant *cerdd rydd* | 804 | 28.4 / 14.1 / 17.5 / **+10.8** | 228 = **28.4%** / 14.4 / 17.0 / **+11.4** |
 | Welsh *hwiangerddi* | 1712 | 13.0 / 11.4 / 13.2 / **−0.2** | 220 = **12.9%** / 10.8 / 12.3 / **+0.6** |
 | **Alun, his own hymns** | 262 | 9.7 / 7.9 / 11.1 / **−1.4** | 38 = **14.5%** / 10.7 / 14.5 / **+0.0** |

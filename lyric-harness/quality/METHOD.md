@@ -140,8 +140,10 @@ looking right.
    cynghanedd", obtained by search, is quoting the null back at itself. The
    excess over the shuffled null is the part attributable to the poet, and it
    is the only part worth reporting. Two editions, 200 shuffles each:
-   **Alun 57.1% vs null max 21.8% (+35.3); Twm o'r Nant 46.2% vs 26.9%
-   (+19.2)** — MEASURED 2026-08-13, `quality/cynghanedd_rate.py`, both at
+   **Alun 55.7% vs null max 21.3% (+34.4); Twm o'r Nant 44.2% vs 27.6%
+   (+16.7)** — REPINNED 2026-09-24 for report J-1's Welsh glide repair
+   (`7d1ded93`), from ~~Alun 57.1% vs 21.8% (+35.3); Twm 46.2% vs 26.9%
+   (+19.2)~~, MEASURED 2026-08-13, `quality/cynghanedd_rate.py`, both at
    n=200. REPINNED from Alun 54.1% / 27.8% (+26.3) and Twm 51.3% / 36.5%
    (+14.7), which are the PRE-doctrine-82 comparator's — before `extent` lost
    its default — and reproduce nowhere at head. Item 82 of this file already
