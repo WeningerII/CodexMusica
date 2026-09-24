@@ -220,18 +220,36 @@ def test_theta_for_and_its_readers():
     from quality import recover as _RC
     from quality import revise as _RV
 
+    # REPINNED 2026-09-24: ASSONANCE ~~0.82~~ -> 0.75. The N-relation model
+    # (#375) RE-ADOPTED it under the licensed nucleus: a pair now stands in
+    # ASSONANCE only when its stressed vowels are identical, and
+    # `quality/near_relation_pricing.py --check` re-derives the smallest cut
+    # under 2x the canon arm in all four cells as 0.75 (its ADOPTED_CUTS).
+    # The value is pinned here and derived there; the two must agree.
+    from quality.near_relation_pricing import ADOPTED_CUTS as _ADOPTED
     check("the shipped cut is declared per relation, not as one scalar",
-          DECL.theta_by_relation == {"ASSONANCE": 0.82, "CONSONANCE": 0.75},
-          DECL.theta_by_relation)
+          DECL.theta_by_relation == {"ASSONANCE": 0.75, "CONSONANCE": 0.75}
+          and dict(DECL.theta_by_relation) == _ADOPTED,
+          f"{DECL.theta_by_relation} (adopted by the pricing: {_ADOPTED})")
     check("CONSONANCE is written down at 0.75 rather than omitted — a "
           "measured-equal entry and an absent one are different claims "
           "(doctrine 20)",
           "CONSONANCE" in DECL.theta_by_relation)
     check("ASSONANCE is cut at its priced value (by name and on a pair "
-          "standing only in it)",
-          theta_for("ASSONANCE", DECL) == 0.82
+          "standing only in it) -- ~~0.82~~ 0.75 since 2026-09-23",
+          theta_for("ASSONANCE", DECL) == 0.75
           and theta_for({"total": 0.8, "relations": {"ASSONANCE"}},
-                        DECL) == 0.82)
+                        DECL) == 0.75)
+    # The re-adopted value happens to equal `theta_rhyme`, so the checks
+    # above can no longer tell "read the per-relation entry" from "fell
+    # back to theta_rhyme". This one can: a DECLARED non-default entry must
+    # be the value answered, by name and on a pair standing only in it.
+    _d82 = Declaration(theta_by_relation={"ASSONANCE": 0.82})
+    check("a declared per-relation entry is the cut actually read (not a "
+          "fallback that merely coincides with it)",
+          theta_for("ASSONANCE", _d82) == 0.82
+          and theta_for({"total": 0.8, "relations": {"ASSONANCE"}},
+                        _d82) == 0.82)
     check("RHYME falls back to theta_rhyme — 0.75 was calibrated ON it, and "
           "re-cutting it is a different sitting",
           theta_for("RHYME", DECL) == DECL.theta_rhyme)

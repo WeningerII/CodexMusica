@@ -246,9 +246,16 @@ def test_readable_pairs_are_untouched():
     got = [(p["lines"], p["score"],
             sorted(r for r in p["relations"] if r.isupper()))
            for p in d["pair_scores"]]
+    # REPINNED AGAIN 2026-09-24, measured on this tree: again/silt and
+    # again/rebuilt (2,3) and (2,4) were ~~["ASSONANCE"]~~ and are now [].
+    # Cause: `nucleus_agreement` became "licensed" (#375) the same day the
+    # pin above was measured; EH~IH is a NEAR vowel, and under the licensed
+    # shape ASSONANCE means the stressed vowels agree. Under a declared
+    # `nucleus_agreement="scalar"` both pairs still read ["ASSONANCE"] at
+    # the same 0.748; every score is unchanged.
     want = [((1, 2), 0.729, ["CONSONANCE"]), ((1, 3), 0.576, []),
-            ((1, 4), 0.477, []), ((2, 3), 0.748, ["ASSONANCE"]),
-            ((2, 4), 0.748, ["ASSONANCE"]),
+            ((1, 4), 0.477, []), ((2, 3), 0.748, []),
+            ((2, 4), 0.748, []),
             ((3, 4), 1.0, ["ASSONANCE", "CONSONANCE", "RHYME"])]
     check("the demo scores and COARSE relation sets reproduce (E-5: "
           "dawn/silt 0.620 -> 0.576)", got == want, f"{got}")
@@ -379,8 +386,19 @@ def test_nothing_was_lost_on_the_sonnets():
     # pair's relation SET, so readings that disagree on ANY relation refuse
     # (28 -> 39), and the coarse chain charges more pairs the schemas then
     # cannot decide (16 -> 17). Judged 1064 - 106 = 958; violations stay 7.
-    check("106 pairs refuse: 50 lexical gaps, 39 reading disagreements, 17 unresolved schema answers",
-          ref == battery.EXPECTED["refused"] == 50 + 39 + 17,
+    # REPINNED AGAIN 2026-09-24, MEASURED on this tree by this loop's
+    # refusal reasons: ~~106 = 50 + 39 + 17~~ -> 128 = 50 lexical gaps + 53
+    # reading disagreements + 25 unresolved schema answers. Cause:
+    # `nucleus_agreement` became "licensed" (#375) the same day as the pin
+    # above -- near vowels no longer carry RHYME/ASSONANCE, so a pair whose
+    # permitted readings differ only in the vowel now disagrees across
+    # readings and refuses (39 -> 53; cf. regrade_verdicts.py), and more
+    # pairs reach schemas that cannot decide (17 -> 25). The 50 lexical gaps
+    # are CMUdict's and do not move. battery.EXPECTED already carries 128.
+    check("128 pairs refuse: 50 lexical gaps, 53 reading disagreements, 25 "
+          "unresolved schema answers (~~106 = 50 + 39 + 17~~, licensed "
+          "nucleus 2026-09-24)",
+          ref == battery.EXPECTED["refused"] == 50 + 53 + 25,
           "Unknown pronunciation/schema answers remain outside rhyme failures and judged coverage")
     # 73 -> 81 -> 82: 0.60 -> 0.80 calibrated theta_coda, then scalar ->
     # identity coda_agreement. The count that matters to THIS test is
@@ -393,8 +411,10 @@ def test_nothing_was_lost_on_the_sonnets():
     check(f"the violation count is {battery.EXPECTED['violations']} "
           f"(was 73 at theta_coda 0.60, 81 at scalar coda_agreement)",
           viol == battery.EXPECTED["violations"], str(viol))
-    check("the judged denominator is 958, and every mandated pair is accounted for",
-          judged == battery.EXPECTED["judged"] == 958 and judged + ref == mandated,
+    # REPINNED 2026-09-24: ~~958~~ -> 936 = 1064 - 128, the same cause.
+    check("the judged denominator is 936 (~~958~~), and every mandated pair "
+          "is accounted for",
+          judged == battery.EXPECTED["judged"] == 936 and judged + ref == mandated,
           f"{judged}: a violation RATE is "
           f"{battery.EXPECTED['violations']}/{battery.EXPECTED['judged']} = "
           f"{battery.EXPECTED['violations']/battery.EXPECTED['judged']:.1%}")
@@ -1613,12 +1633,24 @@ def test_empty_coda_evidence_is_omitted():
         p, _, _ = LEX.transcribe(x)
         return _LH.anchor(_LH.syllabify(p))
     s = _LH.score(_w("now"), _w("why"), DECL, "now", "why")
-    check("now/why scores 0.850 and stands in RHYME and ASSONANCE with "
-          "absent coda evidence omitted (no coda consonant, so no "
-          "CONSONANCE)",
-          s["total"] == 0.850
-          and s["relations"] == frozenset({"RHYME", "ASSONANCE"}),
-          f"{s['total']} {sorted(s['relations'])}")
+    # UPDATED 2026-09-24: the RELATION half of this check moved with the
+    # N-relation model (#375), the SCORE half (E-5's point) did not. AW~AY
+    # is a near vowel (vowel_sim 0.805): under the shipped `licensed`
+    # nucleus it carries no RHYME/ASSONANCE, so now/why stands in no coarse
+    # relation (was ~~RHYME and ASSONANCE~~); under a declared `scalar`
+    # nucleus it still stands in exactly those two, at the same 0.850.
+    s_sc = _LH.score(_w("now"), _w("why"),
+                     _LH.Declaration(nucleus_agreement="scalar"),
+                     "now", "why")
+    check("now/why scores 0.850 with absent coda evidence omitted, and "
+          "stands in no coarse relation under the licensed nucleus (RHYME "
+          "and ASSONANCE under a declared scalar one; never CONSONANCE, no "
+          "coda consonant)",
+          s["total"] == 0.850 and s["relations"] == frozenset()
+          and s_sc["total"] == 0.850
+          and s_sc["relations"] == frozenset({"RHYME", "ASSONANCE"}),
+          f"licensed {s['total']} {sorted(s['relations'])}; scalar "
+          f"{s_sc['total']} {sorted(s_sc['relations'])}")
     legacy = _LH.score(_w("now"), _w("why"),
                        _LH.Declaration(coda_empty_evidence="gift"), "now", "why")
     check("explicit gift reproduces historical 0.902",
@@ -1803,7 +1835,13 @@ def test_the_default_doors_are_priced_where_they_answer():
           and "ASSONANCE x1, CONSONANCE x1" in nd
           and "L1~L3 home/alone ASSONANCE+assonance+family rhyme 0.974" in nd
           and "sun/much" not in nd and "cat/hat" not in nd
-          and "ASSONANCE 0.82" in nd and "CONSONANCE 0.75" in nd
+          # REPINNED 2026-09-24: the printed ASSONANCE cut is ~~0.82~~ 0.75,
+          # re-adopted under the licensed nucleus (#375;
+          # `near_relation_pricing.py --check`). Read from the declaration
+          # it prints, so a disclosure that stopped printing the live cut
+          # still fails.
+          and f"ASSONANCE {DECL.theta_by_relation['ASSONANCE']:.2f}" in nd
+          and "ASSONANCE 0.75" in nd and "CONSONANCE 0.75" in nd
           and "M-138" in nd and "ADMIT DOOR" not in nd
           and f"{_CR.ADOPTED['admit'][0]}..{_CR.ADOPTED['admit'][1]}" in nd,
           nd)

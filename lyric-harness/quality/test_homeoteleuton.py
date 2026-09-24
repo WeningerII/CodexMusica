@@ -81,10 +81,24 @@ def test_two_tiers_compose():
           "now forbidden", "prayer" in fs)
     check("...and the ban is deeper than the old six",
           len(fs) > 6, f"{len(fs)} forbidden")
+    # FIXED 2026-09-24: the same-spelled test here used the BARE
+    # `spelled_rime` (last vowel group), which `spelled_rime`'s own docstring
+    # says over-reaches on a word not stressed on its last group. The ban and
+    # the pair verdict both read `Reviser._spelled_rime`, anchored at the
+    # rhyming (primary-stressed) syllable: `wheelchair` is -eelchair and
+    # `alistair` -alistair there, NOT -air, so they are not homeoteleuton
+    # with `hair` and the grade files nothing on them. The N-relation model
+    # (#375) reshuffled the offer so these words now reach it, which exposed
+    # the test's predicate differing from the verdict's. The check now asks
+    # the verdict's predicate, so "the menu and the verdict cannot disagree"
+    # is literally what it tests.
+    call_rime = R._spelled_rime("hair")
+    same = [w for w in offered if R._spelled_rime(w) == call_rime]
     check("the OFFERS exclude both tiers — no same-spelled word, nothing "
           "forbidden: the menu and the verdict cannot disagree",
-          offered and all(spelled_rime(w) != "air" for w in offered)
-          and not (set(offered) & fs), offered[:6])
+          offered and not same and not (set(offered) & fs),
+          f"{offered[:6]}; same-spelled -{call_rime}: {same}; forbidden "
+          f"offered: {sorted(set(offered) & fs)}")
 
 
 def test_pair_verdicts():
@@ -194,11 +208,32 @@ def test_the_admit_coordinate():
     # gets exactly the old behaviour by SAYING SO, which is the narrowing
     # direction this file keeps available on every door. The third check
     # below is that escape, asserted rather than promised.
-    check("DECLARED admit=ASSONANCE: sun/much (0.772) is now REFUSED by "
-          "the PRICED near-relation cut, and the refusal names it — the "
-          "declared door is not a licence to skip the calibration "
-          "(~~SATISFIES on its scalar~~, M-138 priced 2026-09-02)",
-          len(v) == 1 and "ASSONANCE 0.772 < 0.82" in v[0][3], v)
+    #
+    # REPINNED AGAIN 2026-09-24 (doctrine 17): the N-relation model (#375)
+    # RE-ADOPTED ASSONANCE at ~~0.82~~ 0.75 -- under the licensed nucleus a
+    # pair stands in ASSONANCE only on an identical stressed vowel, and
+    # `quality/near_relation_pricing.py --check` re-derives 0.75 as the
+    # smallest cut under 2x the canon arm in all four cells. `sun`/`much`
+    # (0.772) clears the re-priced cut, so on the shipped declaration it
+    # SATISFIES the declared door again. The PRICE is still demonstrated,
+    # on the same pair, by declaring the superseded 0.82 cut: the refusal
+    # still names the relation and the cut, which is what shows the door
+    # reads `theta_by_relation` rather than skipping the calibration.
+    check("DECLARED admit=ASSONANCE: sun/much (0.772) SATISFIES at the "
+          "re-priced ASSONANCE cut 0.75 (~~REFUSED at 0.82~~, #375 "
+          "re-adoption 2026-09-23)",
+          not v, v)
+    priced = check_scheme(lex, draft, "AA",
+                          Declaration(admit=("RHYME", "RIME_RICHE",
+                                             "ASSONANCE"),
+                                      theta_by_relation={
+                                          "ASSONANCE": 0.82,
+                                          "CONSONANCE": 0.75}))
+    vp = [x for x in priced["violations"] if x[0] == 1 and x[1] == 2]
+    check("...and under a DECLARED 0.82 ASSONANCE cut the same pair is "
+          "REFUSED and the refusal names it — the declared door is not a "
+          "licence to skip the calibration (M-138)",
+          len(vp) == 1 and "ASSONANCE 0.772 < 0.82" in vp[0][3], vp)
     # THE CLAIM ITSELF, ON A PAIR THE CUT ADMITS. Without this the section
     # would assert only what the pricing REFUSES and would pass on a tree
     # where declaring a near relation had stopped working altogether.
@@ -209,7 +244,7 @@ def test_the_admit_coordinate():
                                             "ASSONANCE")))
     v2 = [x for x in wide2["violations"] if x[0] == 1 and x[1] == 2]
     check("DECLARED admit=ASSONANCE: chores/norm (0.932 ASSONANCE, above "
-          "the 0.82 cut) SATISFIES — the near relation is STILL a "
+          "the 0.82 cut and the 0.75 one) SATISFIES — the near relation is STILL a "
           "first-class declared move",
           not v2, v2)
     # AND THE ESCAPE HATCH IS REACHABLE: the same refused pair, same
