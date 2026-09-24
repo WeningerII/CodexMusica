@@ -2276,13 +2276,20 @@ def test_scope_reaches_the_collision_loop():
           and by_s["COLLISION_UNDECLARED"] == 49
           and by_p["COLLISION_UNDECLARED"] == 0,
           f"unscoped {dict(by_p)}  ->  scoped {dict(by_s)}")
+    # REPINNED 2026-09-24, #375's N-relation model: ~~(25, 20, 4)~~ ->
+    # (24, 21, 4). ONE pair moved kind and none left the 49: L7/L15
+    # 'can' ~ 'again' (0.936) was RHYME under `nucleus_agreement="scalar"`
+    # (AE~EH rounded up) and is CONSONANCE alone under "licensed", so its
+    # collision is a NEAR_COLLISION now. MEASURED on this tree and on #375's
+    # parent 1f9678e6, the 49 pair for pair. Still all three kinds.
     check("...and it is drawn from ALL THREE relation types, so the code is "
           "not a rename of one of them",
           (by_p["SCHEME_COLLISION"] - by_s["SCHEME_COLLISION"],
            by_p["NEAR_COLLISION"] - by_s["NEAR_COLLISION"],
            by_p["REPEAT_ACROSS_GROUPS"] - by_s["REPEAT_ACROSS_GROUPS"])
-          == (25, 20, 4),
-          "25 rhymes + 20 near-relations + 4 repeats = the 49")
+          == (24, 21, 4),
+          "24 rhymes + 21 near-relations + 4 repeats = the 49 "
+          "(~~25 + 20 + 4~~ before 2026-09-24's licensed nucleus)")
 
     # (3) WHAT THE FINDING SAYS. `FREE` is the word doctrine 28 exists to keep
     # apart from UNDECLARED, and the old rendering printed exactly it: a line

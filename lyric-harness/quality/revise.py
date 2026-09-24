@@ -1798,8 +1798,20 @@ class Reviser:
             _coarse = ((not wants and not _nondefault_struct)
                        or (bool(wants) and all(str(w).startswith("class:")
                                                for w in wants)))
-            _ambiguous = any(len(self.lex.entries.get(str(w).lower(), ())) > 1
-                             for w in (ew_i, ew_j))
+            # KEYED EXACTLY AS `coarse_relation_consensus` KEYS ITS OWN
+            # LOOKUP (fold, lower, strip boundary punctuation). This read
+            # `str(w).lower()` until 2026-09-24, so a QUOTED end word --
+            # the sonnets' `'Will'` -- missed `entries` and was never asked
+            # for consensus, while `check_scheme` (which asks every mandated
+            # pair) refused it: under #375's `nucleus_agreement="licensed"`
+            # will's reduced reading W AH0 L no longer agrees with still/
+            # kill/fulfil, and the two graders split 936/128 vs 942/122 on
+            # exactly those six pairs (sonnets 133, 134, 141).
+            from lyric_harness import fold_apostrophes as _fold
+            _ambiguous = any(
+                len(self.lex.entries.get(
+                    _fold(str(w)).lower().strip("'\".,;:!?()[]"), ())) > 1
+                for w in (ew_i, ew_j))
             if _coarse and _ambiguous:
                 _default_slots = slot_i is None or (_SL.is_default(slot_i) and _SL.is_default(slot_j))
                 from quality.rhyme_types import coarse_relation_consensus
@@ -4329,9 +4341,10 @@ class Reviser:
             phon = self._rel_phon = self._relation_phonology()
         na = _screen_not_applicable()
         found = set()
+        carriers = [_SCREEN_CARRIERS[0].format(w=a),
+                    _SCREEN_CARRIERS[1].format(w=b)]
         try:
-            st = _RL.build_stream([_SCREEN_CARRIERS[0].format(w=a),
-                                   _SCREEN_CARRIERS[1].format(w=b)], phon)
+            st = _RL.build_stream(carriers, phon)
         except Exception:
             st = None
         if st is not None:
@@ -4345,6 +4358,26 @@ class Reviser:
                     continue
                 if not isinstance(ans, _RL.Refusal) and ans is True:
                     found.add(nm)
+        if found:
+            # AND THE GRADER'S OWN JUDGE MUST FIND IT AT THAT LINE PAIR
+            # (2026-09-24). `pair_satisfies` at two forced end tokens is not
+            # the question `grade()` asks: `grade()` reads
+            # `relations.whole_vocabulary_pairs`, which judges each schema at
+            # its OWN loci. For an `any_token` figure the two disagree --
+            # MEASURED: `alliteration` (and `Kalevala alliteration (weak)`)
+            # hold of sum/save and can/case at the forced end tokens, but the
+            # whole-vocabulary judge pairs no two lines on alliteration at
+            # all (not even 'silver sun' / 'silent sea'), so `grade()` never
+            # accepts a default group through it. The field offered those
+            # words and the verdict refused them: `test_revise.py` §18
+            # counted 8 such offers of 639 on the song. A schema now enters
+            # the field only when BOTH judges hold it -- a subset of what
+            # the grader accepts at the same carrier pair.
+            # No handler: `found` is non-empty only when the stream above
+            # built, and a failure here is a real one, not a shorter field.
+            wvp = _RL.whole_vocabulary_pairs(carriers, phon,
+                                             requested_pairs={(1, 2)})
+            found &= set(wvp.get((1, 2)) or ())
         out = frozenset(found)
         store[("end-pair",) + key] = out
         if store is _END_PAIR_MEMO:
