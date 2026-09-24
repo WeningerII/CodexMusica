@@ -1131,7 +1131,8 @@ PROFILES.append(
 #: are in RESULTS_ENGLISH_NONLYRIC_2026-09-15.md~~ that adoption remains the
 #: provenance for FOUR of the five checks, and predictability's knot table was
 #: REPINNED 2026-09-16 under a moved comparator fingerprint
-#: (RESULTS_COMPARATOR_REPIN_2026-09-16.md). All five checks remain
+#: (RESULTS_COMPARATOR_REPIN_2026-09-16.md) and AGAIN 2026-09-24 under the
+#: N-relation model (receipt below). All five checks remain
 #: mandatory, tolerance 1.0, with no extrapolation beyond 10-3,244 tokens.
 #:
 #: WHAT MOVED, AND WHAT DID NOT (2026-09-16). `comparator_fingerprint()` moved,
@@ -1145,6 +1146,36 @@ PROFILES.append(
 #: token counts and the corpus is byte-identical. Adopted as a SET, not tuned
 #: (doctrine 58): the moves run in BOTH directions, so no threshold was
 #: loosened to make a check pass.
+#:
+#: WHAT MOVED, AND WHAT DID NOT (2026-09-24). The N-relation model (M-309,
+#: #375; landing through PR #380) moved `comparator_fingerprint()` again,
+#: 86812956db1e -> 1e2d0c2dc62c, on three of its seven inputs
+#: (`Declaration()`, `features.py`, the `lyric_harness.py` closure), and
+#: `length_curve_calibration.py check` refused: `RESULT: MOVED --
+#: predictability`. Over the same 8,536 items `mattr`, `fwr`, `anaphora` and
+#: `cv` re-derive to the digit, curves and held-out rates alike; n_human,
+#: lo/hi, the MATTR/TTR population and every knot ABSCISSA are unchanged.
+#: SEVEN of predictability's 21 knots moved, all at N >= 182 tokens: six
+#: DOWN and one up, so the table tightened on balance, which is the
+#: direction the per-item statistic moved (on the 6,922 items measured under
+#: both fingerprints, 2,069 read lower, 752 higher, mean -0.0178). The
+#: twelve knots through N=165 stay at 1.0, so the silence boundary did not
+#: move (1.0 through 165, first under 1.0 at 166). Re-derived as a SET by the
+#: banked procedure (`fit --seeds 200 --picks predictability=CK`) and
+#: adopted, not tuned (doctrine 58). THE SUPERSEDED KNOTS, kept legible
+#: (doctrine 17), as N: ~~2026-09-16~~ -> 2026-09-24:
+#:     182  ~~0.9406249999999972~~  0.9233516483516482
+#:     219  ~~0.9335416666666665~~  0.9333333333333333
+#:     270  ~~0.9378676470588234~~  0.9009090909090907
+#:     307  ~~0.9049783549783548~~  0.9002380952380951
+#:     357  ~~0.9049783549783548~~  0.9090909090909091
+#:     436  ~~0.8858730158730157~~  0.8751893939393938
+#:     683  ~~0.8615196078431373~~  0.8383783783783784
+#: held_out_fpr predictability ~~(2.849061513501891, 1.4088818988668295,
+#: 4.509241769270793)~~ and ANY ~~(18.66401571335758, 14.773583045954593,
+#: 23.80195610554051)~~ are superseded by the tuples below. Receipt:
+#: quality/results/n_relation_2026-09-22/curves-measurement.txt; full
+#: precision and input provenance in that directory's curve-adoption.json.
 PROFILES.append(
     Profile(
         name="lyric", unit='whole lyric sheet, 10-3244 tokens, thresholds a function of ln N',
@@ -1188,22 +1219,22 @@ PROFILES.append(
                                              (4.955827057601261, 1.0),
                                              (5.0238805208462765, 1.0),
                                              (5.10594547390058, 1.0),
-                                             (5.204006687076795, 0.9406249999999972),
+                                             (5.204006687076795, 0.9233516483516482),
                                              (5.293304824724492, 0.9285714285714286),
-                                             (5.389071729816501, 0.9335416666666665),
+                                             (5.389071729816501, 0.9333333333333333),
                                              (5.493061443340548, 0.9333333333333333),
-                                             (5.598421958998375, 0.9378676470588234),
-                                             (5.726847747587197, 0.9049783549783548),
-                                             (5.877735781779639, 0.9049783549783548),
-                                             (6.077642243349034, 0.8858730158730157),
-                                             (6.52649485957079, 0.8615196078431373)]}},
+                                             (5.598421958998375, 0.9009090909090907),
+                                             (5.726847747587197, 0.9002380952380951),
+                                             (5.877735781779639, 0.9090909090909091),
+                                             (6.077642243349034, 0.8751893939393938),
+                                             (6.52649485957079, 0.8383783783783784)]}},
         measured_auc={},
-        held_out_fpr={'ANY': (18.66401571335758, 14.773583045954593, 23.80195610554051),
+        held_out_fpr={'ANY': (18.876224663705436, 14.706711506749462, 23.952028655635036),
  'anaphora': (5.073459809061301, 3.398645369121104, 7.195041533385808),
  'line_length_cv': (5.38784457868143, 4.335087108973651, 6.712013944745906),
  'function_word_ratio': (5.127842004244493, 3.1918900906069143, 7.7374183014857785),
  'mattr': (4.862200557796703, 2.9214234943210267, 7.861976917583954),
- 'predictability': (2.849061513501891, 1.4088818988668295, 4.509241769270793)},
+ 'predictability': (3.087909801059635, 1.4265919032848167, 5.004286544609124)},
         held_out_scope={'predictability': '. This rate pools all 10-3244-token works, including lengths through 165 where '
                    'the threshold equals 1.0 and cannot fire. It is not conditional on lengths '
                    'where the check can fire.'},
@@ -1214,9 +1245,13 @@ PROFILES.append(
  '166 tokens. Full precision and input provenance for mattr, fwr, anaphora and cv in '
  'quality/results/english_nonlyric_2026-09-15/curve-adoption.json; those four re-derive BIT-FOR-BIT '
  'from the 2026-09-16 recomputation. ~~and for predictability in that same file~~ PREDICTABILITY '
- 'REPINNED 2026-09-16 under a moved comparator fingerprint, full precision in '
+ 'REPINNED 2026-09-16 under a moved comparator fingerprint, ~~full precision in '
  'quality/results/comparator_repin_2026-09-16/curve-adoption.json; five of its 21 knots moved, all '
- 'at 182 tokens and above, held-out rate 2.7698% -> 2.8491%.'))),
+ 'at 182 tokens and above, held-out rate 2.7698% -> 2.8491%~~ and REPINNED AGAIN 2026-09-24 under '
+ 'the N-relation model (M-309, #375; PR #380), full precision in '
+ 'quality/results/n_relation_2026-09-22/curve-adoption.json: seven of its 21 knots moved, all at '
+ '182 tokens and above, six down and one up; held-out rate 2.8491% -> 3.0879%. The other four '
+ 'curves re-derive to the digit under that comparator.'))),
         note=((('CURRENT 2026-09-15 measurements supersede the historical values below; prior full declarations '
  'are in quality/results/english_nonlyric_2026-09-15/profiles-before.json. CURRENT 2026-09-14 '
  'adoption supersedes every older value in the following historical note. CURRENT 2026-09-08 '
