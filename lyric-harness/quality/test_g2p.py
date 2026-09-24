@@ -407,6 +407,13 @@ _HIGH_LEXICAL_REFUSALS = {
     (66, 6, 8), (88, 5, 7), (113, 9, 11),
 }
 _LOW_LEXICAL_REFUSALS = {(113, 9, 11)}
+# REPINNED 2026-09-23 by measurement under nucleus_agreement="licensed" (a
+# near vowel no longer stands in RHYME): ~~{(45,9,11), (46,9,11)}~~ gains
+# (49,9,11) and (96,1,3); ~~five~~ letter guesses gain (26,1,3) and
+# (32,10,12). MEASURED as the nucleus alone: the same arms with
+# nucleus_agreement="scalar" declared reproduce the old two and five exactly,
+# so the added pairs are near-vowel rhymes the licensed nucleus refuses; the
+# derived layers' readings did not change.
 _DERIVED_WRONG = {(45, 9, 11), (46, 9, 11), (49, 9, 11), (96, 1, 3)}
 _LETTER_WRONG = {(10, 5, 7), (26, 1, 3), (32, 10, 12), (41, 9, 11),
                  (52, 6, 8), (66, 1, 3), (66, 6, 8)}

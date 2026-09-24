@@ -124,9 +124,12 @@ REGRADE_MOVED = {
         "2026-09-14 from ~~(47, 25, 22)~~: wide/Pylons' default relation "
         "stays unresolved in schema(s) (a75da39f, 2026-09-08)"),
     "the_frost_ledger.txt": (
-        (71, 36, 35),
+        (71, 35, 36),
         "M-144, same cause and the larger share: 35 of 71 mandated pairs "
-        "touch a binding site resolving to NO ANCHOR"),
+        "touch a binding site resolving to NO ANCHOR. MOVED AGAIN 2026-09-23 "
+        "from ~~(71, 36, 35)~~ under nucleus_agreement='licensed': "
+        "against/blaze now differ across unresolved pronunciation readings "
+        "(`against`'s two vowels) and refuse"),
 }
 
 

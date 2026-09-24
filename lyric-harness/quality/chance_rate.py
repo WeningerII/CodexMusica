@@ -446,9 +446,11 @@ NULL_LINES = 14
 # Measured by `python3 quality/chance_rate.py --null --check`.
 # RE-MEASURED the same day after `nucleus_agreement` became "licensed":
 # ~~all 0.5114/0.5332/0.5490, mandated 0.9226/0.5268/0.5595~~.
+# And after the ASSONANCE cut moved 0.82 -> 0.75 (2026-09-23): ~~all
+# 0.5009/0.5227/0.5408, mandated median 0.5208, max 0.5417~~; verdicts held.
 ADOPTED_SEPARATION = {
-    "all": {"r_obs": 0.5009, "median": 0.5227, "max": 0.5408},
-    "mandated": {"r_obs": 0.9107, "median": 0.5208, "max": 0.5417},
+    "all": {"r_obs": 0.5027, "median": 0.5236, "max": 0.5421},
+    "mandated": {"r_obs": 0.9107, "median": 0.5238, "max": 0.5476},
 }
 
 #: How far a re-derivation may sit from the pin before it is DRIFT. The figures
