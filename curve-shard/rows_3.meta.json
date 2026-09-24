@@ -1,0 +1,13 @@
+{
+  "comparator_fingerprint": "86812956db1e9b126fb0bd7a1cbd68b1ceaaaf369d64ca45f4224bf15e093558",
+  "corpus_sha256": "294831223fffe120fd4bde025619bb03e65bf5af1f3e999ec5da18ee770b40d4",
+  "items": 910,
+  "nltk": "3.10.3",
+  "population_fingerprint": "08584341b359c2b7ae51528b523a3b436e6791b83eb3e77e736378b83f3867b7",
+  "question_sha256": "d53e59446e1a8ac79e0fbacce1d57c090dd77ba3013ec280a33143c5e159af7f",
+  "row_sha256": "7a83c13f5ebee455a2c3471a90cda187e7c486e5b51f589d807506e0f9ceb863",
+  "shard": "3/6",
+  "tagger_sha256": "0189b5b3824b9c61b131d017c86749201a8e3962e089a67a811548aefcd195a3",
+  "version": 1,
+  "with_predictability": true
+}
