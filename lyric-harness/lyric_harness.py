@@ -5851,8 +5851,14 @@ def _split_by_audible_end(sch_sat):
     A RENDERING, AND THE REGISTRATION'S OWN E3 SAYS SO. Nothing here moves a
     verdict, a score, a relation or a violation; the battery's
     mandated/judged/refused/violations quadruple is byte-identical either
-    side of this function existing. MEASURED on the maintained sonnet
-    battery: 2 of 17 rescues read as end rhyme and 15 do not.
+    side of this function existing. ~~MEASURED on the maintained sonnet
+    battery: 2 of 17 rescues read as end rhyme and 15 do not.~~ REPINNED
+    2026-09-24 and MOVED OFF this docstring: that figure is the registered
+    RESCUE population's (a pair satisfied by a schema and by no coarse
+    relation), and under the N-relation model this function splits every
+    pair standing in a schema, a wider population. The registered split is
+    pinned in `quality/schema_end_reading.py` (2 of 31 audible), which
+    `--check` holds; it is not this function's figure.
 
     LAZY, AND IT CATCHES NOTHING. The first draft wrapped both the import
     and the per-name judgement in `except Exception`, on the argument that a

@@ -17120,11 +17120,11 @@ fires.**
 
 | the maintained sonnet battery | count |
 |---|--:|
-| scalar passes | 946 |
-| schema rescues **reading as END RHYME** | **2** (11.8%) |
-| schema rescues **NOT heard as end rhyme** | **15** (88.2%) |
-| violations | 4 |
-| refusals, kept apart | 97 |
+| scalar passes (coarse passes, since 2026-09-24) | ~~946~~ **896** |
+| schema rescues **reading as END RHYME** | **2** (~~11.8%~~ 6.5%) |
+| schema rescues **NOT heard as end rhyme** | ~~**15** (88.2%)~~ **29** (93.5%) |
+| violations | ~~4~~ 9 |
+| refusals, kept apart | ~~97~~ 128 |
 
 **THE QUADRUPLE IS THE CONTROL, not a coincidence**: 946 + 17 + 4 = 967 judged
 against 97 refused, which is `battery.py`'s own recorded `1,064 mandated, 967
@@ -17132,6 +17132,27 @@ judged, 97 refused, 4 violations` to the pair. A split that did not reproduce
 the oracle would be measuring a different population than the oracle does. And
 E3 is satisfied by construction and by running it: the battery's quadruple is
 byte-identical either side of the change, because the change is a rendering.
+
+**REPINNED 2026-09-24, THE N-RELATION MODEL (#375, integrated by #380), and the
+RUNNER WAS REPAIRED FIRST, because the model moved the meaning of the key it
+read before it moved any figure.** Every mandated pair is now asked every coarse
+relation AND every registry schema, so `pairs_schema_satisfied` stopped being the
+rescued subset and became every judged pair standing in a schema — 924 on the
+battery — and `--check` went red at `(3, 782, 142)`: "3" was the coarse passes
+standing in NO schema, positive and so invisible to the negative-count guard
+below. Re-numbering that would have banked a count whose meaning had changed.
+A rescue is now what the registration's H always named, **a pair satisfied by a
+schema and by no coarse relation**, read by membership (`schema_end_reading.
+schema_only()`, the same set `near_relation_pricing` calls `schema_only`); the
+three counts are derived directly and the runner REFUSES unless they close on
+`pairs_judged`. The control still holds: 896 + 31 + 9 = 936 judged against 128
+refused, `battery.py`'s repinned quadruple to the pair. **Per pair against the
+pre-model tree: all 17 rescues are still rescues with the same 2/15 split; 14
+ENTERED and none left**, every entrant a former coarse RHYME pass (0.787–0.901)
+that stands in no coarse relation once `nucleus_agreement` defaults to
+"licensed", and none of the 14 audible. The audible predicate did not move (19
+schemas either side). **H still holds and neither falsifier fires**: 2 of 31
+audible, 29 not.
 
 **SO NEARLY NINE RESCUES IN TEN WERE BEING PRINTED UNDER A HEADING A READER
 TAKES AS END RHYME**, and the schemas doing the rescuing say why — `consonance`
@@ -23366,7 +23387,14 @@ SMALLEST window retaining ≥99.0% of today's rescues on EVERY population), and
 four falsifiers. `quality/schema_window.py` runs it.
 
 **MEASURED on the maintained sonnet battery: all 17 rescues sit at line
-distance exactly 2, so retention is 100% at every declared window.** That reads
+distance exactly 2, so retention is 100% at every declared window.**
+(**REPINNED 2026-09-24**, the N-relation model: ~~17, all at distance 2~~ **31 —
+29 at distance 2, 2 at distance 1**, both closing couplets that entered the
+rescue set when the licensed-nucleus default stopped reading them as coarse
+RHYME; see M-140's repin for the rescue's definition by membership. The red
+first read 924, every pair standing in a schema, before the runner was pointed
+at that definition. E2 still fires and retention is still 100% by
+construction.) That reads
 like a free window and is not evidence for one. **E2 FIRES**: the sonnet scheme
 binds one pair at distance 1 and six at distance 2 per item, so **2 is the
 furthest a rescue COULD be**, and the retention column is 100% BY CONSTRUCTION.
