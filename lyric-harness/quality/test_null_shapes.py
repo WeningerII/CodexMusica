@@ -307,14 +307,47 @@ def coverage_refusal_sections(cov):
     from quality.phonology import get as get_phonology
     phon = get_phonology("eng")
     by = {c.schema: c for c in cov}
-    unsupported = ("cynghanedd sain", "cynghanedd sain gadwynog",
-                   "cynghanedd sain lafarog", "平仄 tonal template")
-    check("all four unimplemented full figures require implementation",
-          all(by[n].verdict == "cannot_obtain"
-              and by[n].refusal_kind == "unsupported_shape"
-              and by[n].requires_implementation
-              and by[n].remedy.startswith("IMPLEMENT ")
-              and "member" in by[n].detail for n in unsupported))
+    # 2026-09-24: THE FOUR FORMERLY UNIMPLEMENTED FULL FIGURES NOW JUDGE.
+    # Until #375 (M-309, "the four unsupported shapes ... now judge") this
+    # check read "all four unimplemented full figures require implementation"
+    # and asserted cannot_obtain / unsupported_shape / IMPLEMENT for the three
+    # sain variants and 平仄. #375 gave them member bindings
+    # (`relations.FULL_SHAPES`), so that assertion now describes a state the
+    # code deliberately left. The distinction the check exists for is kept:
+    # the sain variants MEASURE on the ledger slice (no refusal at all), 平仄
+    # now refuses for a DECLARABLE capability (its template, which a caller
+    # supplies), and a figure with no member bindings is STILL sent to
+    # IMPLEMENT — exercised through the real judge on a copy of a figure
+    # under a name outside FULL_SHAPES, since no registry schema is one now.
+    sain = ("cynghanedd sain", "cynghanedd sain gadwynog",
+            "cynghanedd sain lafarog")
+    tmpl = by["平仄 tonal template"]
+    unbound = replace(R.REGISTRY["cynghanedd sain"],
+                      name="a figure with no member bindings (test)")
+    assert unbound.name not in R.FULL_SHAPES
+    got, refusal = N.ledger_slice()
+    assert refusal is None, refusal
+    ledger_lines, ledger_phon, lang = got
+    st = N._stream_of([R.tokenise(l) for l in ledger_lines if l.strip()],
+                      ledger_phon, lang)
+    ub = N.coverage(st, schemas={unbound.name: unbound})[0]
+    check("the three sain figures now judge, 平仄 asks for a declaration, and "
+          "an unbound figure still requires implementation",
+          all(by[n].verdict != "cannot_obtain"
+              and by[n].refusal_kind != "unsupported_shape"
+              and by[n].instances > 0 for n in sain)
+          and tmpl.verdict == "cannot_obtain"
+          and tmpl.refusal_kind == "capability"
+          and not tmpl.requires_implementation
+          and "declare" in tmpl.remedy
+          and ub.verdict == "cannot_obtain"
+          and ub.refusal_kind == "unsupported_shape"
+          and ub.requires_implementation
+          and ub.remedy.startswith("IMPLEMENT ")
+          and "member" in ub.detail,
+          "; ".join(f"{n}: {by[n].verdict}/{by[n].instances}" for n in sain)
+          + f"; 平仄: {tmpl.verdict}/{tmpl.refusal_kind}; unbound: "
+          f"{ub.verdict}/{ub.refusal_kind}")
     lines = ["cat", "hat", "bat"]
     schema = R.REGISTRY["monorhyme / leash"]
     bare = R.build_stream(lines, phon, declaration={"language": "eng"})
@@ -328,11 +361,6 @@ def coverage_refusal_sections(cov):
           and "declare" in absent.remedy
           and present.instances > 0
           and present.verdict == "extendable")
-    got, refusal = N.ledger_slice()
-    assert refusal is None, refusal
-    ledger_lines, ledger_phon, lang = got
-    st = N._stream_of([R.tokenise(l) for l in ledger_lines if l.strip()],
-                      ledger_phon, lang)
     for name in ("enjambed rhyme", "linked rhyme"):
         schema = R.REGISTRY[name]
         c = by[name]
@@ -360,9 +388,17 @@ def coverage_refusal_sections(cov):
           and c.instances == sum(i.verdict is True for i in raw)
           and c.unresolved_instances == sum(i.verdict is None for i in raw))
     panel = {r.schema: r for r in N.panel_census([], {"ledger": (None, cov, None)})}
+    # 2026-09-24: the implementation-required side is `refrain by reference`
+    # (its capability is in NEVER_PROVIDED) now that #375 bound the four
+    # figures this used to name; 平仄 joins the declarable side as the
+    # capability remedy, distinct from the reading remedy.
     check("panel aggregation keeps implementation and reading remedies distinct",
-          all(panel[n].verdict == "cannot_obtain_never_provided"
-              and panel[n].detail.startswith("IMPLEMENT ") for n in unsupported)
+          panel["refrain by reference"].verdict
+          == "cannot_obtain_never_provided"
+          and panel["refrain by reference"].detail.startswith("NEVER PROVIDED")
+          and panel["平仄 tonal template"].verdict == "cannot_obtain_declarable"
+          and "declare" in panel["平仄 tonal template"].detail
+          and "resolve" not in panel["平仄 tonal template"].detail
           and all(panel[n].verdict == "cannot_obtain_declarable"
                   and "resolve" in panel[n].detail
                   for n in ("enjambed rhyme", "linked rhyme")))
