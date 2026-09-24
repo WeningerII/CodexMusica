@@ -486,7 +486,8 @@ from the table above; `song` and `short` superseded, not deleted;
 finding names the threshold evaluated at the text's length beside the
 formula (and not when a declaration override supplied the number);
 CLICHE_PAIR is a flag only at lengths where a band row measured its rate
-(50–150, 200–400) and a note elsewhere, its per-bin rate over 4–3,245
+(50–150, ~~200–400~~ 150–400 since the `song` row's 2026-09-24
+re-adoption) and a note elsewhere, its per-bin rate over 4–3,245
 owed; the planner's envelope reads the live profile (12..447 lines, the
 owner's ruling that no ceiling is typed); an exact `--lines` fixes the
 total. **What the adoption exposed and did not fix, with the logs:**

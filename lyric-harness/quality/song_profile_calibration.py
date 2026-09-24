@@ -298,7 +298,12 @@ PROFILE_PRED_MAX = {"song": None, "short": 200}
 #: `song` profile's constants for every profile.
 # Re-adopted 2026-09-14 after Unicode/apostrophe normalization, with the
 # complete profile set; printed precision follows report_period().
-PROFILE_PERIOD = {'song': (-0.021, 0.7097), 'short': (0.166, 0.0012)}
+# `song` RE-ADOPTED 2026-09-24 with its band (~~(-0.021, 0.7097)~~ over
+# 200-400): the N-relation comparator (M-309, #375; PR #380) moved the band
+# rule's answer back to 150-400, and a correlation over a band's dated
+# authors moves with the band -- 405 of 878 authors dated, anaphora still no
+# period signal (p_perm 0.7868 against a Bonferroni cut of 0.0100).
+PROFILE_PERIOD = {'song': (-0.014, 0.7868), 'short': (0.166, 0.0012)}
 #: The anaphora period rho each profile's note must keep VISIBLE as a struck
 #: figure (doctrine 17), or None where nothing was ever struck: the `song`
 #: row withdrew +0.275 on 2026-08-20; the `short` row was adopted with its

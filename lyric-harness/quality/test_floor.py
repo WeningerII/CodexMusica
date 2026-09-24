@@ -275,7 +275,8 @@ def test_cliche_pair():
           "(doctrine 22), so the finding disowns it the moment the set is "
           "replaced. Repinned 2026-09-05 (M-239): this line named ~~the "
           "6.35%~~, the 2026-08-14 150-400 point estimate; the shipped "
-          "`song` row has carried 7.64% over 200-400 since 2026-08-26 and "
+          "`song` row carried ~~7.64% over 200-400 since 2026-08-26~~ "
+          "6.78% over 150-400 since 2026-09-24, and "
           "the finding now reads both band rows' rates off the rows rather "
           "than quoting a typed number")
     # WHAT THE FLAG IS NOT. The rate licenses it to fire; it does not make
@@ -831,17 +832,23 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     # found by `quality/pin_sweep.py` (`MISSING.md` M-21) through
     # `expected_drift.py`, which re-DERIVES. A pin and a re-derivation are
     # different instruments and this file holds the first kind.
+    # REPINNED 2026-09-24 WITH THE BAND: the N-relation comparator (M-309,
+    # #375; PR #380) moved the five-check band rule's answer back to 150-400
+    # (the 150-200 predictability sub-bin now clears), so the set was
+    # re-adopted: ~~(200, 400, 2231)~~, mattr ~~0.717809720727355~~, fwr
+    # ~~0.47871873227323464~~, cv ~~0.11080070804250827~~; anaphora and
+    # predictability unmoved. quality/results/n_relation_2026-09-22/.
     check("the five song thresholds are the recorded corpus percentiles",
-          song.percentiles == {"mattr_min": 0.717809720727355,
-                               "function_word_ratio_max": 0.47871873227323464,
+          song.percentiles == {"mattr_min": 0.7127694818441452,
+                               "function_word_ratio_max": 0.4776852961798566,
                                "anaphora_max": 0.3000,
-                               "line_length_cv_min": 0.11080070804250827,
+                               "line_length_cv_min": 0.10939281388850974,
                                "predictable_pair_fraction_max": 0.9285714285714286}
-          and (song.lo, song.hi, song.n_human) == (200, 400, 2231),
-          "RE-ADOPTED 2026-09-15 after preserved apparatus annotations: "
-          "full 200-seed derivation, 200-400 tokens, 2,231 items, "
-          "MATTR window50. The 2026-09-14 CV minimum was "
-          "0.11089061090642224; the other four cuts and the band still hold. "
+          and (song.lo, song.hi, song.n_human) == (150, 400, 3533),
+          "RE-ADOPTED 2026-09-24 under the N-relation comparator: "
+          "full 200-seed derivation, 150-400 tokens, 3,533 items, "
+          "MATTR window50, from the committed provenance-verified rows. "
+          "~~2026-09-15: 200-400 tokens, 2,231 items~~. "
           "The preceding August history describes the prior "
           "population. This pins the independently recorded current tuple; "
           "the flagship-example flag above is the control against tuning it "

@@ -184,7 +184,9 @@ result from a layer that was asked and came back clean.
   the rate was measured in the two BAND rows and nowhere else, and they are
   superseded for percentiles but are still the only cliche rates the floor
   has, so the licence is: a FLAG at 50-150 tokens (`short`, 4.02%) and at
-  200-400 (`song`, 7.64%), and at an exact STANZA profile, where the
+  ~~200-400 (`song`, 7.64%)~~ 150-400 (`song`, 6.78%; the band row was
+  re-adopted there 2026-09-24 under the N-relation comparator), and at an
+  exact STANZA profile, where the
   carry-over was measured; a NOTE at every other length, including the
   lengths the `lyric` row now covers exactly but no cliche rate was ever
   taken at. Measuring it per length bin over 4-3,245 tokens is owed (M-239).

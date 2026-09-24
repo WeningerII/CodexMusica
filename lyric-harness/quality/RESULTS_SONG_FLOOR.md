@@ -1,5 +1,14 @@
 # RESULTS — the slop floor gets a song-length profile
 
+> **CURRENT ADOPTION — 2026-09-24 (§10a).** The N-relation comparator (M-309,
+> #375; PR #380) moved the unchanged five-check band rule's answer from
+> 200–400 back to **150–400 tokens, 3,533 items over 878 authors**, and the
+> stored `song` row was re-adopted there as a set from the committed,
+> provenance-verified rows in `quality/results/n_relation_2026-09-22/`. It
+> remains superseded by the live `lyric` curves for its percentiles; its
+> `cliche` rate still licenses CLICHE_PAIR where it covers a length. The
+> 2026-09-08 and 2026-09-15 banners and figures below are historical.
+
 > **CURRENT ADOPTION — 2026-09-08.** The corrected canonical work/edition
 > population contains 8,545 calibration items. The stored `song` profile was
 > re-derived at 200–450 tokens over 2,438 items, and remains superseded by
@@ -235,14 +244,16 @@ first full run, through `expected_drift.py`, which RE-DERIVES. A pin and a
 re-derivation are different instruments, and only the second can see a
 constant that has stopped describing its corpus.
 
-The unstruck `song profile` row is the stored 2026-09-15 re-adoption
-(200–400 tokens, remeasured after preserved nonlyric apparatus annotations),
-retained for drift checks and superseded by `lyric`.
-The struck rows retain the prior measured tuples.
+The unstruck `song profile` row is the stored 2026-09-24 re-adoption
+(150–400 tokens, 3,533 items, under the N-relation comparator — §10a), ~~the
+stored 2026-09-15 re-adoption (200–400 tokens, remeasured after preserved
+nonlyric apparatus annotations)~~, retained for drift checks and superseded by
+`lyric`. The struck rows retain the prior measured tuples.
 
 | | `mattr_min` | `function_word_ratio_max` | `anaphora_max` | `line_length_cv_min` | `predictable_pair_fraction_max` |
 |---|---:|---:|---:|---:|---:|
-| song profile | 0.7178 | 0.4787 | 0.3000 | 0.1108 | 0.9286 |
+| song profile | 0.7128 | 0.4777 | 0.3000 | 0.1094 | 0.9286 |
+| ~~song profile, to 2026-09-24~~ | ~~0.7178~~ | ~~0.4787~~ | 0.3000 | ~~0.1108~~ | 0.9286 |
 | ~~song profile, to 2026-09-15~~ | 0.7178 | 0.4787 | 0.3000 | ~~0.1109~~ | 0.9286 |
 | ~~song profile, to 2026-09-14~~ | ~~0.7182~~ | ~~0.4785~~ | 0.3000 | ~~0.1116~~ | ~~0.9231~~ |
 | ~~song profile, to 2026-09-08~~ | ~~0.7172~~ | ~~0.4783~~ | ~~0.3000~~ | ~~0.1111~~ | ~~0.9333~~ |
@@ -785,7 +796,8 @@ REPINNED 2026-09-05 (`MISSING.md` M-239): `exact` is no longer the test, because
 is the whole corpus `exact` is true at 25 tokens and at 2,000 — a flag on a rate
 nobody measured is the doctrine-22 error this section exists to name. The
 severity now reads **WHICH ROWS CARRY A `cliche` RATE THAT COVERS THIS LENGTH,
-superseded or not** — the two band rows, 50–150 (4.02%) and 200–400 (7.64%) —
+superseded or not** — the two band rows, 50–150 (4.02%) and ~~200–400
+(7.64%)~~ 150–400 (6.78%, since the 2026-09-24 re-adoption, §10a) —
 plus an exact STANZA profile, whose carry-over was argued and measured below:
 inside one of those, a flag; outside all of them, a NOTE that says the rate was
 never taken at this length. Measuring `CLICHE_PAIR`'s rate per length bin over
@@ -995,6 +1007,69 @@ every banked figure exactly — band, five thresholds, seven FPR medians, the
 author table and both period constants. 8,238s of population work from a cold
 memo, both times. Warm, the full `--check` is 90s and reports **asked 20,
 answered 20, refused 0 — every shipped constant reproduces.**
+
+## 10a. RE-ADOPTED 2026-09-24 — the band moved back, for the reason it moved
+
+`lo` **200 → 150**, the reverse of §10, and by the same mechanism: the rule
+(`HOM`, five checks, unchanged) reads each 50-token sub-bin's percentile
+against the band's, and §10's one refusal of 150–400 was **predictability at
+150–200, 1.0000 against 0.9375**. Under the N-relation comparator (M-309,
+#375; PR #380; comparator fingerprint `1e2d0c2dc62c`) predictability moved
+item by item — on the 6,922 items measured under both this and the previous
+comparator, 2,069 read lower and 752 higher — and the 150–200 sub-bin now
+reads **0.9286 against a band-wide 0.9286, |d| 0.0000**. Nothing about the
+rule changed; its answer did. The swept candidates, over the 8,536-item
+corpus:
+
+| candidate | n | verdict |
+|---|---:|---|
+| 50–400 | 7146 | no — mattr at 50–100 |
+| 100–400 | 5608 | no — anaphora at 100–150 |
+| **150–400** | **3533** | **OK — the widest** |
+| 150–450 | 3731 | no — mattr at 400–450 (~~predictability at 150–200~~) |
+| 200–400 | 2231 | OK, narrower |
+| 200–500 | 2569 | no — mattr at 450–500 |
+| 100–800 | 6325 | no — mattr at 100–150 |
+
+**The set, re-adopted together.** Over the old 200–400 the four cheap
+thresholds re-derive to the digit under the new comparator (predictability
+reads 0.9231 there against 0.9286), so, as in §10, the population moved and
+the statistics did not.
+
+| | shipped to 2026-09-24 | **re-adopted** | |
+|---|---:|---:|---|
+| band | 200–400 | **150–400** | moved |
+| `mattr_min` | 0.7178 | **0.7128** | moved |
+| `function_word_ratio_max` | 0.4787 | **0.4777** | moved |
+| `anaphora_max` | 0.3000 | 0.3000 | unmoved |
+| `line_length_cv_min` | 0.1108 | **0.1094** | moved |
+| `predictable_pair_fraction_max` | 0.9286 | 0.9286 | unmoved |
+| held-out FPR ANY | 20.13% [15.42–24.48] | **19.25%** [14.47–25.12] | moved |
+| held-out FPR `cliche` | 7.62% [6.05–9.05] | **6.78%** [5.41–7.89] | moved |
+| `n_human` | 2231 | **3533** | moved |
+| anaphora period (rho, p_perm) | (−0.021, 0.7097) | **(−0.014, 0.7868)** | moved |
+
+Per check the held-out medians are 4.68–5.09% against a nominal 5%. The
+period reading keeps its shape: anaphora reads no period signal (p_perm 0.7868
+against a Bonferroni cut of 0.0100), so ~~0.275~~ stays struck; no check
+survives Bonferroni over 405 dated authors.
+
+**ONE LIVE CONSEQUENCE, stated because this row is superseded for its
+PERCENTILES and not for its CLICHE RATE.** `CLICHE_PAIR`'s licence to reject
+reads which rated band row COVERS the length (§8a), so it is a FLAG again at
+150–199 tokens, as it was before 2026-08-26, now on the 6.78% measured over
+150–400 — lower than 200–400's 7.62%, the mirror of §10's 6.69% → 7.70% when
+the band last narrowed.
+
+**Provenance.** Measured from the committed rows
+`quality/results/n_relation_2026-09-22/calibration-rows.tsv` (8,536 items,
+comparator `1e2d0c2dc62c`) by `measure-song-band.txt` beside them — the
+2026-09-15 helper with only its directory changed — into `song-adoption.json`;
+the superseded row is `song-profile-before.json`; the receipt is
+`curves-measurement.txt` in the same directory. `--check`, `--check
+--without-predictability`, `expected_drift.py song_profile_calibration-fast`
+and `--profile short --check` were re-run after the adoption and are quoted
+there.
 
 ## 11. RULED 2026-09-02 — the matched class of model songs is DECLINED in the proposed design (L-4a, RULINGS WANTED #20)
 

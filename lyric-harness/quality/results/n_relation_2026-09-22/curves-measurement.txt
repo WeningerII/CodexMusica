@@ -150,8 +150,9 @@ WHAT ELSE THIS COMPARATOR FEEDS, AND WHAT WAS AND WAS NOT RE-VERIFIED.
   * `song_profile_calibration.py --check --profile short` HOLDS: "every shipped
     constant reproduces", 21 asked, 21 answered.
   * `song_profile_calibration.py --check` (profile `song`, the SUPERSEDED
-    200–400 band row, the nightly's `song` component) DRIFTS, and is NOT
-    re-pinned here.  6 values: band lo 200 -> 150, threshold mattr 0.7178 ->
+    200–400 band row, the nightly's `song` component) DRIFTED, and ~~is NOT
+    re-pinned here~~ was RE-ADOPTED AS A SET later the same day (ADDENDUM
+    below; it now reproduces every shipped constant).  6 values: band lo 200 -> 150, threshold mattr 0.7178 ->
     0.7128, fwr 0.4787 -> 0.4777, cv 0.1108 -> 0.1094, n_human 2231 -> 3533,
     anaphora period p_perm 0.7097 -> 0.7868; predictability 0.9286 and every
     held-out rate are within tolerance.  The cause is measured: the band rule
@@ -163,7 +164,8 @@ WHAT ELSE THIS COMPARATOR FEEDS, AND WHAT WAS AND WAS NOT RE-VERIFIED.
     mattr, fwr, anaphora and cv re-derive to the digit, and predictability
     reads 0.9230769230769231 against the shipped 0.9285714285714286.  Re-adopting
     that row is a band re-selection that reverses the 2026-08-26 re-adoption,
-    on a superseded row; it is a ruling, not a knot, and it is left OPEN.
+    on a superseded row; ~~it is a ruling, not a knot, and it is left OPEN~~ —
+    ruled MECHANICAL by the orchestrating session (ADDENDUM below).
     HOW THIS WAS READ, because it is not the documented procedure: both
     song_profile runs read a memo BUILT FROM THE COMMITTED ROWS above (no
     predictability recomputation: the rows' ~5.6 CPU-hours were not re-paid), whose
@@ -171,8 +173,10 @@ WHAT ELSE THIS COMPARATOR FEEDS, AND WHAT WAS AND WAS NOT RE-VERIFIED.
     cold `song_profile_calibration.py --check` would re-pay ~2.6 CPU-hours
     for the same memo.
   * The comparator pin's own contract is "at minimum length_curve check";
-    that is what backs the pin.  The `song` drift is named in its verdict so
-    the pin does not read as re-verifying a row it did not.
+    that is what backs the pin.  ~~The `song` drift is named in its verdict so
+    the pin does not read as re-verifying a row it did not.~~  The pin's
+    verdict was re-written after the ADDENDUM (same fingerprint, same
+    receipt) to say the `song` row now re-derives.
 
 COST, MEASURED (user+sys CPU from bash `time`, pool workers included):
     fit, 200 seeds, --workers 2           1,757 CPU-s   1,983 s wall
@@ -200,7 +204,125 @@ other four curves re-derive to the digit, the held-out rate stays at nominal
 per bin (4.2–5.8% from 147 tokens), and the gate reads HOLDS.  Nothing was
 tuned (doctrine 58); the superseded knots and rates stay legible in
 quality/floor.py (doctrine 17).  Open and named: E2 on `short` (+2.95, firing
-since 2026-09-08) and the superseded `song` band row's drift.
+since 2026-09-08) ~~and the superseded `song` band row's drift~~ — the `song`
+row is re-adopted in the ADDENDUM.
+
+ADDENDUM, 2026-09-24 — THE SUPERSEDED `song` BAND ROW, RE-ADOPTED AS A SET.
+
+THE RULING.  The orchestrating session ruled the drift above MECHANICAL, not
+a new ruling: the 2026-08-26 move 150-400 -> 200-400 was itself the five-check
+band rule's output under the comparator of that day (MISSING.md M-131: "200-400
+is what the rule returns"; `song_profile_calibration.py`'s own comment: "the
+five-check rule moved the band 150-400 -> 200-400"), and a MOVED row is argued
+and repinned as a set.  CHECKED BEFORE ACTING: M-131 and M-133 record the
+2026-08-26 band as the rule's answer, and a search of MISSING.md, BACKLOG.md,
+CLAUDE.md and RESULTS_SONG_FLOOR.md for an owner ruling on the band found none
+that pins 200.
+
+WHAT MOVED, AND WHY (measured).  The rule (`HOM`, five checks) is unchanged.
+Its one refusal of 150-400 on 2026-08-26 was predictability at 150-200, 1.0000
+against 0.9375; under the N-relation comparator that sub-bin reads 0.9286
+against a band-wide 0.9286, so 150-400 clears and, being wider than 200-400,
+wins.  150-450 is still refused, now by mattr at 400-450.  Over the old 200-400
+the four cheap thresholds re-derive to the digit (predictability 0.9231 there
+against 0.9286), so the population moved and the statistics did not.
+
+HOW IT WAS MEASURED.  From the committed, provenance-verified rows above, by
+`measure-song-band.txt` (beside this file): the 2026-09-15 adoption's own
+helper (quality/results/english_nonlyric_2026-09-15/measure-bands.txt) with
+only its directory changed.  It verifies the rows, rebuilds only the item
+bodies and author dates the TSV omits (refusing unless every row matches by
+tokens, file, title, lines and author), then runs the maintained `pick_band`,
+`report_fpr` (200 seeds) and `report_period` (2,000 draws).  No memo is
+involved.  Output `song-adoption.json`; the superseded row, as shipped, is
+`song-profile-before.json`.  63 CPU-s.  Its figures equal, to the printed
+digit, the earlier seeded-memo `--check`'s measured column above — two routes,
+one answer.
+
+THE SET (quality/floor.py `song`; quality/song_profile_calibration.py
+PROFILE_PERIOD), superseded -> adopted, the old values kept struck in floor.py:
+    band                 200-400             -> 150-400
+    n_human              2231 (663 authors)  -> 3533 (878 authors)
+    mattr_min            0.717809720727355   -> 0.7127694818441452
+    fwr_max              0.47871873227323464 -> 0.4776852961798566
+    anaphora_max         0.3                 =  0.3
+    cv_min               0.11080070804250827 -> 0.10939281388850974
+    predictability_max   0.9285714285714286  =  0.9285714285714286
+    held-out FPR, median [5th-95th], 200 author-held-out seeds:
+      mattr          5.05 [2.75-7.95]   -> 4.68 [2.87-8.43]
+      fwr            5.13 [3.23-8.43]   -> 4.92 [3.14-7.52]
+      anaphora       4.83 [2.94-7.82]   -> 4.71 [2.92-7.28]
+      cv             5.10 [3.32-7.16]   -> 5.09 [3.58-6.73]
+      predictability 5.05 [2.66-7.41]   -> 4.69 [2.87-6.79]
+      ANY           20.13 [15.42-24.48] -> 19.25 [14.47-25.12]
+      cliche         7.62 [6.05-9.05]   -> 6.78 [5.41-7.89]
+    anaphora period (rho, p_perm)  (-0.021, 0.7097) -> (-0.014, 0.7868)
+
+ONE LIVE CONSEQUENCE.  The row is superseded for its PERCENTILES, not for its
+CLICHE RATE: `floor.cliche_rate_rows()` licenses a CLICHE_PAIR flag wherever a
+rated band row `covers()` the length, so CLICHE_PAIR is a FLAG again on a
+150-199-token sheet (a NOTE there since 2026-08-26), on the 6.78% measured over
+150-400.  Probed: a 197-token sheet carrying three stock pairs reads
+`CLICHE_PAIR flag` now and `note` with the row's lo patched back to 200.  Of
+the banked texts under songs/ and songs/drafts/, 8 sit at 150-199 tokens and
+none changes severity.  No suite covering that region failed (below); the
+long suites (test_verbs, test_loop, test_revise, test_plan) were NOT re-run
+here — their CLICHE fixtures are 4-line / ~36-token texts under the `section`
+profile, outside the region that moved.
+
+THE CHECKS AFTER THE ADOPTION:
+  python3 quality/song_profile_calibration.py --check   (memo built from the
+    committed rows, the same bytes the 40 cold re-derivations above confirmed;
+    124 CPU-s) -> exit 0, section 6 verbatim:
+    6. WHAT floor.py SHIPS, against what the corpus says today (profile `song`)
+       band lo (tokens)                   shipped 150.0000   measured 150.0000   ok
+       band hi (tokens)                   shipped 400.0000   measured 400.0000   ok
+       MATTR window admissibility         shipped lo 150 >= window 50 (this run's band lo 150): every item is a moving average, and at exactly 50 tokens the one window IS the TTR
+       threshold mattr                    shipped 0.7128     measured 0.7128     ok
+       threshold fwr                      shipped 0.4777     measured 0.4777     ok
+       threshold anaphora                 shipped 0.3000     measured 0.3000     ok
+       threshold cv                       shipped 0.1094     measured 0.1094     ok
+       threshold predictability           shipped 0.9286     measured 0.9286     ok
+       held-out FPR mattr (%)             shipped 4.6800     measured 4.6800     ok
+       held-out FPR function_word_ratio (%) shipped 4.9200     measured 4.9200     ok
+       held-out FPR anaphora (%)          shipped 4.7100     measured 4.7100     ok
+       held-out FPR line_length_cv (%)    shipped 5.0900     measured 5.0900     ok
+       held-out FPR predictability (%)    shipped 4.6900     measured 4.6900     ok
+       held-out FPR ANY (%)               shipped 19.2500    measured 19.2500    ok
+       held-out FPR cliche (%)            shipped 6.7800     measured 6.7800     ok
+       profile n_human                    shipped 3533.0000  measured 3533.0000  ok
+       profile n_generated                shipped 0.0000     measured 0.0000     ok
+       anaphora period slope rho          shipped -0.0140    measured -0.0140    ok
+       anaphora period slope p_perm       shipped 0.7868     measured 0.7868     ok
+    
+       asked 21, answered 21, refused 0 (doctrine 79)
+       every shipped constant reproduces.
+  python3 quality/song_profile_calibration.py --check --without-predictability
+    -> exit 0: "asked 21, answered 16, refused 5 ... PARTIAL PASS: 16
+    constants judged and reproducing" (the four-check rule now also returns
+    150-400, so the shipped band and this mode's own agree; 118 CPU-s)
+  python3 quality/expected_drift.py song_profile_calibration-fast
+    -> "observed 0 drifted value(s), declared 0 ... PASS" (exit 0); no ruling
+    existed to retire, before or after (114 CPU-s)
+  python3 quality/song_profile_calibration.py --check --profile short
+    -> exit 0, "asked 21, answered 21, refused 0 ... every shipped constant
+    reproduces"
+  quality/test_floor.py (its song-row pin repinned, old tuple struck in the
+  comment), test_floor_window.py, test_production_data.py (39),
+  test_verify_entries.py (§9 mutates RESULTS_SONG_FLOOR.md's live row: all five
+  kills land) -> all pass; verify_entries.py, counters.py --check,
+  verify_doctrines.py, scripts/check_doc_paths.js -> PASS; comparator
+  fingerprint 1e2d0c2dc62c448bef24a3744ee3d0db15a17b9d381a32f4eb534e5fcfae385a,
+  unchanged (no closure input was edited).
+  Addendum cost: ~700 CPU-s (helper 63, song --check 124, fast 118,
+  expected_drift 114, short ~108, suites ~130).
+
+NOT EDITED, AND WHY.  `quality/features.py` quotes the song band (lines ~770,
+~799) and is a comparator input; editing it would move the fingerprint this
+receipt pins, so its two stale mentions are left and named here.  Dated
+2026-09-05 repin sentences elsewhere (plan.py, song_record.py,
+test_narrative.py, test_plan.py, FLOOR.md) describe the rows as of that date
+and are left as the record they are.
 
 THE FIT, VERBATIM (its print, then bash's own TIME line; the report JSON beside
 this file is its --report, reflowed by the repo's prettier — parsed, identical):

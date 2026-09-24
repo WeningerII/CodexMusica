@@ -3648,8 +3648,9 @@ cite their earlier numbers. The floor knows ~~two~~ ~~**three**~~ **three
 text lengths, and the third is a CURVE (REPINNED 2026-09-04, `MISSING.md`
 M-239)** — a 4-line quatrain, a 14-line sonnet, **and a whole lyric sheet of
 ~~150–400 tokens~~ 4–3,245 tokens whose thresholds are functions of ln N**
-(the `song` 200–400 and `short` 50–150 band rows are SUPERSEDED, kept for
-their own drift checks) — and text outside all three gets no length-sensitive
+(the `song` ~~200–400~~ 150–400 — re-adopted there 2026-09-24 when the
+N-relation comparator moved its band rule's answer back — and `short` 50–150
+band rows are SUPERSEDED, kept for their own drift checks) — and text outside all three gets no length-sensitive
 finding at all (doctrine 15); inside the sheet's range nothing is
 extrapolated any more, because there is no edge to extrapolate past. **REPINNED 2026-08-21**: ~~`floor.PROFILES` is
 `section` / `sonnet` / `song`~~ — since 2026-09-04 `PROFILES` is five rows
