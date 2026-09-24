@@ -549,8 +549,8 @@ def bank_draft(song, verb, argv, facts):
     path, why = lyric_arg(argv)
     if path is None:
         return None, why
-    # BORROWED, NOT RESPELLED, both of them — `load_lyric_lines` is the one
-    # definition of what counts as sung text and `draft_fingerprint` the one
+    # BORROWED, NOT RESPELLED, both of them — `load_draft_lines` is the one
+    # definition of what a grading verb reads and `draft_fingerprint` the one
     # definition of the identity printed above. Neither is a grader: one
     # selects lines, the other hashes them, and no verdict passes through
     # either (§5 of `test_songs_log.py` is about GRADING, and stands).
@@ -561,7 +561,10 @@ def bank_draft(song, verb, argv, facts):
     # declares `--input-format=source`, so `load_lyric_lines` -- the source
     # reader -- is no longer what the verb graded, and on any draft carrying
     # a marker the two disagree and nothing was ever banked.
-    lines = LH.load_draft_lines(path, input_format=input_format_of(argv))
+    try:
+        lines = LH.load_draft_lines(path, input_format=input_format_of(argv))
+    except ValueError as e:
+        return None, str(e)
     got = draft_fingerprint(lines)
     if got != fp:
         return None, ("%s fingerprints %s and `%s` graded %s — the input "
@@ -597,7 +600,7 @@ def bank_draft_file(song, md5, path):
          A fingerprint the log never printed is not a draft of this song,
          whatever the file contains, and banking it would invent a step.
       2. `path` FINGERPRINTS to `md5` through the harness's own two
-         definitions (`load_lyric_lines`, `draft_fingerprint`) -- the same
+         definitions (`load_draft_lines`, `draft_fingerprint`) -- the same
          borrowed pair `bank_draft` uses, never a second hash.
       3. the destination holds nothing, or holds these exact bytes.
 
@@ -614,10 +617,17 @@ def bank_draft_file(song, md5, path):
                       % (song, md5, ", ".join(held) if held else "no md5 at all"))
     import lyric_harness as LH
     from quality.revise import draft_fingerprint
+    # A recovered file is read under BOTH declared input formats: a verb run
+    # before A-3 (PR #372) graded the source reading and one run after it the
+    # literal one. Only the reading whose fingerprint EQUALS the logged md5 is
+    # banked, so trying both cannot bank bytes under a name they do not carry.
     try:
-        lines = LH.load_lyric_lines(path)
+        readings = [LH.load_draft_lines(path, input_format=f)
+                    for f in ("literal", "source")]
     except (OSError, UnicodeDecodeError) as e:
         return None, "%s cannot be read: %s" % (path, e)
+    lines = next((r for r in readings if draft_fingerprint(r) == md5),
+                 readings[1])
     got = draft_fingerprint(lines)
     if got != md5:
         return None, ("%s fingerprints %s, not %s; nothing banked under a "
@@ -1009,10 +1019,18 @@ def drafts(stream=sys.stdout):
     from quality.song_record import songs as _songs
 
     def fp_of(path):
-        try:
-            return draft_fingerprint(LH.load_lyric_lines(path))
-        except (OSError, UnicodeDecodeError):
-            return None
+        # -> the fingerprints a grading verb could have printed for this file,
+        # one per declared input format. A verb run before A-3 (PR #372) read
+        # the source form, one after it the literal form, so a committed lyric
+        # with `[Section]` marks is recoverable under the first and a banked
+        # draft holding a graded `[Verse]` row matches only the second.
+        out = set()
+        for fmt in ("literal", "source"):
+            try:
+                out.add(draft_fingerprint(LH.load_draft_lines(path, input_format=fmt)))
+            except (OSError, UnicodeDecodeError):
+                pass
+        return out
 
     def banked_fp(path):
         # A BANKED file holds exactly the graded lines, one per line, so it
@@ -1038,7 +1056,7 @@ def drafts(stream=sys.stdout):
         if not rows:
             continue
         committed = os.path.join(SONGS, song)
-        here = fp_of(committed) if os.path.exists(committed) else None
+        here = fp_of(committed) if os.path.exists(committed) else set()
         # ONE LINE PER (song, md5), COUNTED IN ROWS. The question is about a
         # set of BYTES and a `song`/`revise` pair naming the same draft is one
         # artifact seen twice; the count stays on rows because the assertion
@@ -1068,7 +1086,7 @@ def drafts(stream=sys.stdout):
                         % (said, os.path.relpath(path, ROOT)))
                 else:
                     verdict, why = "BANKED", os.path.relpath(path, ROOT)
-            elif md5 == here:
+            elif md5 in here:
                 verdict, why = "RECOVERABLE", ("no draft file; the committed "
                                                "lyric IS these bytes")
             elif grp["measured"] < DRAFT_BANKING_SINCE:

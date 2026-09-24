@@ -4,6 +4,18 @@
 · **regressions:** `python3 quality/test_phonology.py` §10g–10j,
 `python3 quality/test_cym.py`.
 
+**REPINNED 2026-09-24 — ten counts, none on the shipped reading.** Report
+J-1 (`7d1ded93`, PR #372) made attested Welsh onset glides (gwl-/gwr-/gwn-,
+initial ia-/io-, w before a/e/o) consonantal in `Welsh.syllables()`. The
+depth-2, prominence-port and §9 RIME_RICHE/RHYME rows moved; every depth-1
+(SHIPPED) row, every refusal count and all of §6 held. Struck values are the
+superseded ones. The Monte Carlo columns (null med/max, excess, p) of the
+moved rows were NOT re-run and are quotable only as the pre-J-1 reading.
+(Merge note: the N-relation model's own 2026-09-23 repin, carried in the
+same tree, DID re-run §2's Monte Carlo columns for those two rows; the
+table's struck/unstruck pairs are that run. Its §9 columns are the SET
+reading, with the exclusive-label J-1 figures quoted beside them.)
+
 **AND THE RUNNER CAN NOW GO RED — ADDED 2026-08-14.**
 `python3 quality/cym_rhyme_rate.py --check` compares **48 committed counts**
 from §§1, 2, 4, 5, 6, 8 and 9 against a fresh run and exits **1** when any of
@@ -688,7 +700,8 @@ holds; only the baseline it was pinned against has moved. `mandated` /
 `judged` / `refused` are unchanged at 1064 / 1014 / 50.
 
 `python3 quality/cynghanedd_rate.py corpus/cym_alun_strict.txt 20` →
-`caesura='search' 890/1558 = 57.1%`, which is the figure `cym.py`'s own
+`caesura='search' 890/1558 = 57.1%` (~~at the time~~; **868/1558 = 55.7% since
+J-1's glide repair, 2026-09-24**), which is the figure `cym.py`'s own
 docstring records for the class rule. **The rime path is deliberately separated
 from the cynghanedd path** so this could not move: the diacritic fold and the
 glide alternative are applied inside `rimes()` and by nothing else, and
@@ -933,9 +946,9 @@ and excess — and none reproduces `data/sources.tsv`:**
 
 | corpus | judged | `sources.tsv` still says | re-measured 2026-08-14, n=200 |
 |---|---:|---|---|
-| Alun, strict metre | 1558 | 54.1 / 24.6 / 27.8 / **+26.3** | 890 = **57.1%** / 19.4 / 21.8 / **+35.3** |
-| Twm o'r Nant cywydd | 156 | 51.3 / 26.9 / 36.5 / **+14.7** | 72 = **46.2%** / 19.2 / 26.9 / **+19.2** |
-| Llywelyn Goch cywydd, 1862 | 145 | 52.8 / 18.5 / 30.6 / **+22.2** | 64 = **44.1%** / 19.3 / 28.3 / **+15.9** |
+| Alun, strict metre | 1558 | 54.1 / 24.6 / 27.8 / **+26.3** | ~~890 = 57.1% / 19.4 / 21.8 / +35.3~~ **868 = 55.7% / 18.7 / 21.3 / +34.4** (J-1, 2026-09-24) |
+| Twm o'r Nant cywydd | 156 | 51.3 / 26.9 / 36.5 / **+14.7** | ~~72 = 46.2% / 19.2 / 26.9 / +19.2~~ **69 = 44.2% / 17.9 / 27.6 / +16.7** (J-1, 2026-09-24) |
+| Llywelyn Goch cywydd, 1862 | 145 | 52.8 / 18.5 / 30.6 / **+22.2** | ~~64 = 44.1% / 19.3 / 28.3 / +15.9~~ **63 = 43.4% / 18.6 / 26.9 / +16.5** (J-1, 2026-09-24) |
 | Twm o'r Nant *cerdd rydd* | 804 | 28.4 / 14.1 / 17.5 / **+10.8** | 228 = **28.4%** / 14.4 / 17.0 / **+11.4** |
 | Welsh *hwiangerddi* | 1712 | 13.0 / 11.4 / 13.2 / **−0.2** | 220 = **12.9%** / 10.8 / 12.3 / **+0.6** |
 | **Alun, his own hymns** | 262 | 9.7 / 7.9 / 11.1 / **−1.4** | 38 = **14.5%** / 10.7 / 14.5 / **+0.0** |

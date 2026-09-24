@@ -177,6 +177,18 @@ SATISFACTION_FINDINGS = {"REFRAIN_REPEAT", "RETURN_LOCKED", "RADIF_LICENSED"}
 COLLISION_FINDINGS = {"SCHEME_COLLISION", "NEAR_COLLISION",
                       "REPEAT_ACROSS_GROUPS", "COLLISION_UNDECLARED"}
 
+#: `quality/grid.py` function refusals whose question has NO SUBJECT in what
+#: the writer declared: a function declared once cannot return, an undeclared
+#: one has no instance, a bridge with no verse has nothing to contrast with,
+#: and "is the title in the hook" asks nothing of a song that declared no
+#: title. They are still disclosed as coverage rows (`not_requested`), but
+#: they do not withhold certification -- every other function refusal (an
+#: undeclared hook under a declared chorus, an unreadable end word, a missing
+#: rhyme key) is a requested question left unjudged and does (report Q20).
+NO_SUBJECT_REFUSALS = frozenset({"SINGLE_INSTANCE", "FUNCTION_UNDECLARED",
+                                 "NO_COMPARATOR", "REPRISE_SIDE_UNDECLARED",
+                                 "TITLE_UNDECLARED"})
+
 #: Score at or above which two lines that share NO group are reported as an
 #: unintended rhyme. IMPORTED from `lyric_harness` since 2026-08-16 rather
 #: than re-declared here: this comment already said "the two must not
@@ -3072,8 +3084,7 @@ class Reviser:
             # harness could not answer, which is exactly what Q20 required
             # coverage to carry. With no title declared either, no hook
             # question was asked of the draft at all.
-            unasked = {"FUNCTION_UNDECLARED", "SINGLE_INSTANCE", "NO_COMPARATOR",
-                       "REPRISE_SIDE_UNDECLARED", "TITLE_UNDECLARED"}
+            unasked = set(NO_SUBJECT_REFUSALS)
             if not song.title:
                 unasked.add("HOOK_UNDECLARED")
             requested = any(section.declared for section in song.sections) or bool(hooks)

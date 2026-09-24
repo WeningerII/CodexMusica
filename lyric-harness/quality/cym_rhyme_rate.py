@@ -785,6 +785,17 @@ CHECK_N = 5
 #: Doctrine 58: these are counts, and a count is a coordinate of a threshold
 #: AND of a rendering. Argue them and repin with the superseded value visible
 #: and dated (doctrine 17); do not tune `rimes()` to meet them.
+#:
+#: REPINNED 2026-09-24 -- ten figures, every one OFF the shipped reading.
+#: 7d1ded93 (PR #372, report J-1) made gwl-/gwr-/gwn-, initial ia-/io- and
+#: w before a/e/o consonantal in `Welsh.syllables()`, citing the Welsh
+#: Academy Dictionary; its commit says the calibration was not re-run. The
+#: moved rows are exactly the ones that read onsets or nuclei past the rime:
+#: depth 2, the prominence port, and REPEAT/RIME_RICHE/RHYME in §9 (an onset
+#: glide that used to be a nucleus no longer makes a pair rime riche). Every
+#: depth-1 (SHIPPED) row, every refusal count and all of §6 HOLD unchanged,
+#: so `rimes()` did not move -- the ingestion of glides did. Superseded
+#: values are kept beside each repinned literal.
 PINNED = {
     # §1 the corpus, counted -- (units, lines) per file, then the two
     # strict-metre files outside corpus/song/ as bare line counts.

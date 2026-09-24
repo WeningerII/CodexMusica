@@ -3372,7 +3372,7 @@ def test_the_grade_it_line_runs():
           "--fill=DRAFT.txt --out=BP.json" in out)
     check("...and step 2 is the grading command against BP.json, which "
           "step 1 actually writes",
-          "song BP.json DRAFT.txt" in out)
+          "song BP.json DRAFT.txt --input-format=literal" in out)
     with tempfile.TemporaryDirectory() as td:
         import json as _json
         p = make_plan(7)
