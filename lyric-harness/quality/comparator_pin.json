@@ -10,7 +10,7 @@
     "predictability_frac": "b786e21a6e2d17e283a1829d21f6365524e72c51deaf2b148423d866f778c8c9"
   },
   "pinned_on": "2026-09-24",
-  "verdict": "RESULT: HOLDS \u2014 the lyric row's 5 curves re-derive from the corpus under the N-relation comparator, after predictability (MOVED: 7 of 21 knots, all at N >= 182) was re-derived and repinned as a SET by the banked procedure (fit --seeds 200 --picks predictability=CK; 8,536 items, check --rows). Not re-verified here: the superseded song band row DRIFTS (band rule 200-400 -> 150-400), and held-out E2 on short fires (+2.95); both left open in the receipt.",
+  "verdict": "RESULT: HOLDS \u2014 the lyric row's 5 curves re-derive from the corpus under the N-relation comparator, after predictability (MOVED: 7 of 21 knots, all at N >= 182) was re-derived and repinned as a SET by the banked procedure (fit --seeds 200 --picks predictability=CK; 8,536 items, check --rows). The superseded song band row, which drifted (band rule 200-400 -> 150-400), was re-adopted as a set the same day and song_profile_calibration.py --check reproduces every constant (receipt ADDENDUM). Still open: held-out E2 on short fires (+2.95).",
   "verified_by": "quality/results/n_relation_2026-09-22/curves-measurement.txt",
   "version": 1
 }
