@@ -88,6 +88,60 @@ FIXTURE_ONLY = {
 }
 
 
+#: WHY A NAMED SCHEMA IS STILL `unvalidated`, where the reason is KNOWN and
+#: is not "nobody registered a witness" (`MISSING.md` M-313, 2026-09-25).
+#: A blocker names the coordinate that is missing; the verdicts beside it are
+#: never written here — `census()` measures them from the rows in
+#: `relations.CONTEXT_CONTROLS` on every run (doctrine 48), and a row that
+#: starts answering `[True, False]` leaves this table's text unused.
+SEMANTIC_BLOCKERS = {
+    # -- REPETITION FIGURES AND NON-ENGLISH PAIR RHYMES (M-313) -------------
+    "homoioteleuton": (
+        "the RULE is too generous (M-313 F8): `morpheme_affix` AGREE holds "
+        "when neither word carries an affix ('' == ''), so a plain rhyme "
+        "passes (Sonnet 18, day~May); and the inflectional `-er` row, which "
+        "takes no productivity test, reads the monomorphemic flatter~matter "
+        "(Sonnet 87's couplet) as one shared affix. The possessing~estimate "
+        "contrast differs in rhyme as well as affix, so it could not show "
+        "either. A finding against the rule; nothing in the morphology or a "
+        "threshold was moved (doctrine 58)."),
+    "antanaclasis": (
+        "the `sense` coordinate: `Reviser.grade` builds its own stream and "
+        "has no seam through which a caller declares senses "
+        "(`relations.declare_senses`), so both controls refuse on 'sense'. "
+        "The real witness (Sonnet 135) is registered and waits on the seam."),
+    "refrain by reference": (
+        "the `stub_resolution` coordinate: `Reviser.grade` has no seam for "
+        "`declare_stub_resolution` or a declared `line_status`, so a real "
+        "`&c.` pointer (Payne, staged corpus) and its non-referent both "
+        "refuse. The seam, not the witness, is missing."),
+    "incremental repetition": (
+        "the SCHEMA: it is registered as whole-line token equality, and its "
+        "own note says the one-slot diff R67 defines is not searched for. "
+        "The canonical instance (Tennyson, `Cannon to right/left of them`) "
+        "is therefore judged NOT to stand in it; only verbatim repetition "
+        "does. A finding against the definition, not an exhibit to swap."),
+    "qafiya (before the radif)": (
+        "the LANGUAGE coordinate: its traditions are Arabic, Persian and "
+        "Urdu only (`ara`, `fas`, `hin`); the grade route resolves English "
+        "(`revise._relation_phonology`, M-4); `ara` and `hin` declare no "
+        "phonology; and `fas` cannot decide a short-vowel qafiya from "
+        "unvocalised script. An English stand-in would fake the tradition."),
+    "dvitiyakshara-prasa": (
+        "the LANGUAGE coordinate and the SHAPE: of its four traditions "
+        "Telugu, Kannada and Tamil declare no phonology and Sanskrit's "
+        "(`san`) is unreachable, since the grade route resolves English "
+        "(M-4); and the "
+        "figure quantifies FORALL over a STANZA frame, which a two-token "
+        "mandate cannot carry (`pair_scope_representable` is False)."),
+    "monai": (
+        "the LANGUAGE coordinate and the SHAPE: Tamil declares no "
+        "phonology, the grade route resolves English (M-4), and the figure "
+        "quantifies FORALL over a STANZA frame, which a two-token mandate "
+        "cannot carry (`pair_scope_representable` is False)."),
+    # -- end of the M-313 block -------------------------------------------
+}
+
 def _full_stream():
     """A stream with every coordinate a writer CAN declare, declared."""
     stz, k, prev = [], -1, object()
@@ -243,6 +297,30 @@ def census():
                               "evidence": "DRAWABLE_EXHIBITS through declared mandate slots and Reviser.grade",
                               "blocker": None if controls == [True,False] else
                               "declared controls do not both produce definite expected verdicts"}
+        elif name in R.CONTEXT_CONTROLS and R.pair_scope_representable(sch):
+            # ONE draft, both groups in ONE mandate (`relations.CONTEXT_CONTROLS`
+            # says why these rows cannot be two-line drawable pairs); each
+            # group's own verdict is read, a refusal naming it being None.
+            lines, w, c = R.CONTEXT_CONTROLS[name]
+            m = mandate([list(w), list(c)], n_lines=len(lines),
+                        default_relation="schema:"+name)
+            got = verifier.grade(list(lines), m)
+            # A refusal that carries no `groups` key names no group, so it
+            # stands against BOTH: read as None, never as a pass.
+            controls = []
+            for lab in m.labels[:2]:
+                if any("groups" not in r or lab in (r["groups"] or ())
+                       for r in got["refusals"]):
+                    controls.append(None)
+                else:
+                    controls.append(not any(v["label"] == lab
+                                            for v in got["violations"]))
+            ok = controls == [True, False]
+            semantic[name] = {"status": "witness_and_contrast" if ok
+                              else "unvalidated", "verdicts": controls,
+                              "evidence": "CONTEXT_CONTROLS: witness and contrast groups in one mandate over one draft, through Reviser.grade",
+                              "blocker": None if ok else SEMANTIC_BLOCKERS.get(
+                                  name, "declared controls do not both produce definite expected verdicts")}
         elif name in ("symploce","analysed rhyme","blues AAB stanza","paroemion",
                        "Middle Chinese end rhyme (同用 group)"):
             semantic[name] = {"status":"regression_witness",
@@ -252,14 +330,18 @@ def census():
             semantic[name] = {"status": "unvalidated",
                               "verdicts": found["verdicts"],
                               "evidence": "WITNESS_FINDINGS through Reviser.grade",
-                              "blocker": "%s: graded %s where %s is the answer%s"
+                              "blocker": "%s: graded %s where %s is the answer%s%s"
                               % (found["ref"], found["verdicts"],
                                  found["expected"],
                                  "; " + found["refusal"][:160]
-                                 if found["refusal"] else "")}
+                                 if found["refusal"] else "",
+                                 # the known reason, where one is recorded
+                                 "; " + SEMANTIC_BLOCKERS[name]
+                                 if name in SEMANTIC_BLOCKERS else "")}
         else:
             semantic[name] = {"status":"unvalidated",
-                              "blocker":"full semantic witness and independent contrast not registered"}
+                              "blocker":SEMANTIC_BLOCKERS.get(name,
+                                  "full semantic witness and independent contrast not registered")}
     return {"live": live, "capability_live": live, "semantic_status": semantic,
             "witness_findings": findings,
             "blocked": blocked, "other_language": other,
@@ -295,6 +377,14 @@ def main():
             print(f"    {n} [{f['ref']}]: graded {f['verdicts']}, "
                   f"expected {f['expected']}"
                   + (f" — {f['refusal'][:110]}" if f["refusal"] else ""))
+    known = [(name, row) for name, row in rep["semantic_status"].items()
+             if row["status"] == "unvalidated" and name in SEMANTIC_BLOCKERS]
+    if known:
+        print(f"  of the unvalidated, {len(known)} carry a KNOWN blocker "
+              f"(SEMANTIC_BLOCKERS; verdicts measured now, witness first):")
+        for name, row in known:
+            v = f" verdicts {row['verdicts']}" if "verdicts" in row else ""
+            print(f"    {name}{v}\n      {row['blocker']}")
     if rep["other_language"]:
         print(f"  (of the askable, {len(rep['other_language'])} answer under "
               f"their OWN phonology and not English:\n   "
