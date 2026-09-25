@@ -21,8 +21,8 @@
 // See the header of scripts/build_atlas_geo.js for the measurements.
 //
 // COLOUR IS NEVER THE ONLY SIGNAL. There are more taxonomy roots than hues a
-// reader can tell apart, so each root gets a (hue, shape) pair: nine palette
-// hues from src/theme.css times circle / square / diamond (/ triangle). The
+// reader can tell apart, so each root gets a (hue, shape) pair: seven palette
+// hues from src/theme.css times circle / square / diamond / triangle. The
 // map markers, the map key, the Genres list, the location chooser and every
 // row draw the same pair from the same table, so a marker and its legend entry
 // always agree, in either theme.
@@ -32,7 +32,10 @@
 (function () {
   // ── configuration ──
 
-  var HUES = ['blue', 'red', 'green', 'amber', 'violet', 'teal', 'orange', 'indigo', 'pink'];
+  // Seven palette hues that stay apart in both themes (Dark's blue and indigo,
+  // and Light's red and orange, are too close to share a shape), times four
+  // shapes: 28 distinct pairs.
+  var HUES = ['blue', 'red', 'green', 'amber', 'violet', 'teal', 'pink'];
   var SHAPES = ['circle', 'square', 'diamond', 'triangle'];
 
   var CELL = 58; // cluster bin, px
@@ -487,6 +490,16 @@
     return { src: src, credit: String(credit), licence: String(licence), link: e.source || e.page };
   }
 
+  // One persistent live region: a re-rendered status node is often not read.
+  function announce(text) {
+    var live = $('map-live');
+    if (!live) return;
+    live.textContent = '';
+    setTimeout(function () {
+      live.textContent = text;
+    }, 30);
+  }
+
   function metaCount(v) {
     return typeof v === 'number' ? v : (v || []).length;
   }
@@ -690,6 +703,9 @@
       cy: pt.y,
       s: targetScale || Math.max(v.scale, S.baseScale * 10),
     };
+    // A narrow map's inspector is a sheet over its lower part: land a chosen
+    // tradition in the part that stays visible.
+    if (pt.id && overlay() && !el.card.hidden) to.cy = pt.y - (0.28 * S.h) / to.s;
     var t0 = performance.now(),
       D = matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 420;
     var step = function () {
@@ -1304,6 +1320,7 @@
     // Docked, the chooser gets the whole column; Back restores the tab.
     if (S.stack.tab && !overlay()) hidePanels();
     renderStack();
+    announce(plural(pts.length, 'tradition') + ' at this location. Choose one, or go back.');
     el.stack.hidden = false;
     el.list.hidden = true;
     syncSide();
@@ -1767,7 +1784,7 @@
       '</a>' +
       addControl(s) +
       '</div>';
-    h += '<div class="add-live" role="status">' + addStatus(s) + '</div>';
+    h += '<div class="add-live">' + addStatus(s) + '</div>';
     if (EMBEDDED)
       h +=
         '<button class="link-btn" type="button" data-act="genre-page">' +
@@ -2921,6 +2938,17 @@
             times: (prev.times || 0) + 1,
           }
         : { state: 'failed', times: prev.times || 0 };
+      var name = S.byId[e.data.id] ? S.byId[e.data.id].name : e.data.id;
+      announce(
+        e.data.ok
+          ? 'Added ' +
+              e.data.added +
+              (e.data.expected ? ' of ' + e.data.expected : '') +
+              ' instruments from ' +
+              name +
+              ' to Your recipe.'
+          : 'Nothing was added from ' + name + '.'
+      );
       if (S.sel && S.sel.id === e.data.id) {
         var focused = document.activeElement && document.activeElement.dataset.act === 'add';
         renderCard();
