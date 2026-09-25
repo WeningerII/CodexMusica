@@ -44,7 +44,8 @@ FAILURES = []
 #: a name leaving it is a grader change to explain, a name joining it needs a
 #: finding struck (doctrine 17/58).
 EARNED = ["Kalevala alliteration (strong)", "Kalevala alliteration (weak)",
-          "alliteration", "cynghanedd lusg", "cynghanedd sain",
+          "ablaut reduplication", "alliteration", "alliterative long line",
+          "cynghanedd groes", "cynghanedd lusg", "cynghanedd sain",
           "cynghanedd sain gadwynog", "epanalepsis", "exact reduplication",
           "leonine rhyme", "rhyming reduplication"]
 
@@ -181,12 +182,12 @@ def test_mutations():
               row["status"] == "unvalidated"
               and "no finding is recorded" in row["blocker"], row["blocker"])
         FE.FIGURE_EXHIBITS.update(copy.deepcopy(saved))
-        rec = FE.FINDINGS["ablaut reduplication"]["verdicts"]
-        FE.FINDINGS["ablaut reduplication"]["verdicts"] = (True, False)
-        row = FE.semantic_row("ablaut reduplication")
+        rec = FE.FINDINGS["平仄 tonal template"]["verdicts"]
+        FE.FINDINGS["平仄 tonal template"]["verdicts"] = (True, False)
+        row = FE.semantic_row("平仄 tonal template")
         check("a finding whose verdicts moved is reported STALE, not quoted",
               "STALE" in row["blocker"], row["blocker"][:80])
-        FE.FINDINGS["ablaut reduplication"]["verdicts"] = rec
+        FE.FINDINGS["平仄 tonal template"]["verdicts"] = rec
     finally:
         FE.FIGURE_EXHIBITS.clear()
         FE.FIGURE_EXHIBITS.update(saved)

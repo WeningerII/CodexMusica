@@ -2107,7 +2107,7 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > of them.** Full working: `quality/RESULTS_NON_HATTATAL.md`. Runners under
 > `scratchpad/cellAJ/`. Six rows appended to `data/sources.tsv`.
 >
-> **1 · It is NOT doctrine 44.** `quality/phonology/non.py` is ~~959~~ 969 lines (repinned 2026-09-24: the
+> **1 · It is NOT doctrine 44.** `quality/phonology/non.py` is ~~959~~ ~~969~~ 976 lines (repinned 2026-09-25: málfylling words carry no lift; repinned 2026-09-24: the
 > N-relation model's set-valued relation return) and
 > complete — six syllables, stuðlar/höfuðstafr, skothending, aðalhending, the
 > penultimate viðrhending, oddhending/hluthending, Snorri's málfylling list,

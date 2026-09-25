@@ -5,21 +5,24 @@ WHY THIS FILE EXISTS. `quality/schema_census.py` gives a schema semantic
 evidence only through `relations.DRAWABLE_EXHIBITS`, graded by `Reviser.grade`
 over a declared mandate. That route is a PAIR route: a mandate group is a set
 of lines, and `slots.mandate` REFUSES a within-line binding by name (it points
-at `quality/figures.py`). So the 21 schemas whose every placement is
-intra-line (`figures.intra_line_schemas()`) could never earn evidence there,
-and 20 of them sat `unvalidated` for a reason that was not about them at all.
+at `quality/figures.py`). So the schemas whose every placement is
+intra-line (`figures.intra_line_schemas()`, 20 today) could never earn
+evidence there, and all but `paroemion` sat `unvalidated` for a reason that
+was not about them at all. (21 when this file was written: `broken rhyme`
+left the roster 2026-09-25, when `a_is_split_token` stopped counting as an
+intra-line placement — its partner is on the next line, so it is graded on
+the pair route now.)
 
 THE ROUTE IS THE ONE THAT READS THEM. Each exhibit is graded by
 `figures.line_figures` — the per-line reader over `relations.realise` +
 `relations.assemble`, which is the only code in the harness that reports a
 same-line figure. NOTHING HERE RE-IMPLEMENTS A SCHEMA (doctrine 1), and
-NOTHING HERE SUPPLIES A COORDINATE THE ROUTE DOES NOT SUPPLY ITSELF, with one
-named exception: `lifts`. `figures.line_figures` calls `search_caesura` for
-itself; it does not call `search_lifts`, so on the route as shipped the two
-lift schemas REFUSE. An exhibit that declares `supply=("lifts",)` runs
-`relations.search_lifts` first — the same derivation `schema_census._full_stream`
-uses for its capability count — and the row says so. That is a finding about
-the route (FINDINGS below), not a repair of it.
+NOTHING HERE SUPPLIES A COORDINATE THE ROUTE DOES NOT SUPPLY ITSELF. Until
+2026-09-25 `lifts` was the one exception — `figures.line_figures` called
+`search_caesura` and not `search_lifts`, so the two lift schemas refused and
+the Old Norse exhibit declared `supply=("lifts",)`. The route supplies both
+frames now, so no exhibit declares a supply; `grade`'s `supply` hook is kept
+for the next coordinate the route lacks, and adding one needs a finding.
 
 PRODUCTION DOES NOT CALL THIS ROUTE. `Reviser.grade` / `revise.py` never import
 `figures`; the `recover.py` and `schemes.py` sites only NAME it in a refusal.
@@ -130,9 +133,13 @@ FIGURE_EXHIBITS = {
                     ("corpus/song/eng_oxford_william_shakespeare.txt", (195,)),
                     "Shakespeare, The Tempest I.ii (Ariel's song): the I-before-"
                     "O order R13 names (ding-dang-dong)"),
-        "contrast": (["Dong-ding, bell!"],
-                     ("constructed", "the witness with the halves swapped — "
-                      "the direction R13 forbids"), ""),
+        "contrast": (["“It’s dull,” she wept, “and so-so!”"],
+                     ("corpus/song/eng_british_lewis_carroll.txt", (2478,)),
+                     "Carroll: a reduplication with NO vowel change (OW ~ "
+                     "OW), so no I>A>O step. The forbidden REVERSED order "
+                     "cannot be the contrast on this route: `Dong-ding` and "
+                     "`Tock-tick` are unreadable whole tokens to the eng "
+                     "reader, so they grade None, not False"),
     },
     "leonine rhyme": {
         "lang": "eng", "tradition": "English leonine rhyme",
@@ -143,18 +150,6 @@ FIGURE_EXHIBITS = {
         "contrast": (["Once upon a midnight dreary, while I pondered, weak and tired,"],
                      ("constructed", "the witness with the line-end word "
                       "replaced"), ""),
-    },
-    "broken rhyme": {
-        "lang": "eng", "tradition": "English broken rhyme",
-        "witness": (["And would probably give me the roo-",
-                     'Matiz," said the Kangaroo.'],
-                    ("corpus/song/eng_british_edward_lear.txt", (82, 83)),
-                    "Lear, 'The Duck and the Kangaroo': roo-|matiz split at "
-                    "the line end, roo answered by Kangaroo"),
-        "contrast": (["And would probably give me the gout,",
-                      'Matiz," said the Kangaroo.'],
-                     ("constructed", "the split word made whole and "
-                      "unrhyming"), ""),
     },
     "Kalevala alliteration (strong)": {
         "lang": "fin", "tradition": "Finnish Kalevala vahva alkusointu",
@@ -178,7 +173,6 @@ FIGURE_EXHIBITS = {
     },
     "alliterative long line": {
         "lang": "non", "tradition": "Old Norse stuðlar / höfuðstafr",
-        "supply": ("lifts",),
         "witness": (["Vestr fórk of ver, en ek Viðris ber"],
                     ("joined", ("corpus/song/non_egils_saga_hofudlausn.txt",
                                 (38, 39))),
@@ -265,9 +259,11 @@ NO_EXHIBIT = {
         "no witness: C3 is `self_doubt=yes` and cites a WebSearch summary "
         "only; no staged handbook example of a split inside a cluster",
     "cynghanedd sain drosgl":
-        "no sourced witness (C11 is a WebSearch summary) — and see FINDINGS: "
-        "the route fires on 103 of the cywydd's 108 lines, so any contrast "
-        "would be a constructed line built to dodge an over-generous rule",
+        "no sourced witness (C11 is a WebSearch summary). The route fires on "
+        "1 of the cywydd's 108 lines (l.67 `Rhiain fain, rhy anfynych`), "
+        "and that line was FOUND BY THE GRADER, so it cannot be the witness "
+        "(this file's own rule); until 2026-09-25 the rule was the bare "
+        "onset edge and fired on 103 of 108",
     "cynghanedd sain lafarog":
         "no witness this session can classify with confidence: C10's zero-"
         "onset pivot versus a vowel-initial word whose consonants are still "
@@ -280,49 +276,6 @@ NO_EXHIBIT = {
 #: was written. If the live verdicts differ, the census blocker says the
 #: finding is STALE instead of quoting it (doctrine 17).
 FINDINGS = {
-    "ablaut reduplication": {
-        "verdicts": (False, False),
-        "text": "DirectedDiffer(order=('i','a','o')) is compared against the "
-                "phonology's nucleus symbols, which for eng are ARPABET "
-                "(ding-dong: IH vs AO). Every English nucleus is `outside the "
-                "declared order`, the read is None, and the instance is never "
-                "True — so the schema cannot fire on any English line. The "
-                "order is written in a notation no shipped phonology emits.",
-    },
-    "broken rhyme": {
-        "verdicts": (False, False),
-        "text": "two independent blockers. (1) the split fragments `roo` and "
-                "`Matiz` are UNREADABLE (build_stream.unreadable) — the line "
-                "break is not joined, so the token the figure is about has no "
-                "phonology; `probably` is unreadable in the same stream. (2) "
-                "even if read, the partner (Kangaroo) is on the NEXT line and "
-                "figures.line_figures drops every cross-line instance by "
-                "design; `a_is_split_token` makes the schema intra-line by "
-                "placement while its figure spans the break.",
-    },
-    "alliterative long line": {
-        "verdicts": (True, True),
-        "text": "the witness's True is right for the WRONG REASON. non gives "
-                "every monosyllable prominence 1 (of, en, ek included), so "
-                "search_lifts' even split picks lifts (Vestr, fórk, en, ek) "
-                "and the instance it finds is en ~ ek, zero onset with zero "
-                "onset — not the v- staves. The constructed contrast has the "
-                "same en ek and reads True too. Under a HAND-declared scansion "
-                "(declare_lifts at Vestr, ver, Viðris, ber) the pair reads "
-                "[True, False]; that scansion is this session's, not an "
-                "edition's, so it is reported and not counted (doctrine 94).",
-    },
-    "cynghanedd groes": {
-        "verdicts": (False, False),
-        "text": "SequenceEqual compares the WHOLE consonant skeleton of each "
-                "half: `A llyma fyd` -> ll m f d, `llwm i fardd` -> ll m f r "
-                "dd. R35 says the skeleton runs `up to a stress-determined "
-                "stop`, and in cytbwys acennog the consonants after the final "
-                "accented vowel are not answered; the implementation has no "
-                "stop, so a textbook acennog groes reads False at every "
-                "caesura candidate. On all 108 cywydd lines the route finds "
-                "groes on none (CYWYDD_COUNTS pins both figures).",
-    },
     "平仄 tonal template": {
         "verdicts": (None, None),
         "text": "not a grader finding: the route REFUSES (tonal_template "
@@ -355,6 +308,12 @@ def grade(name, lines, lang, supply=()):
         return None, detail
     hits = [f for fs in rep["lines"].values() for f in fs if f["schema"] == name]
     detail["instances"] = [(f["a"], f["b"]) for f in hits]
+    if not hits and detail["unreadable"]:
+        # No instance on a line with an UNREAD token is not an observed
+        # absence: the figure may sit on the word nobody read. Doctrine 20 —
+        # this was a False until 2026-09-25, and the ablaut contrast
+        # `Dong-ding` (unreadable whole) was passing as a negative on it.
+        return None, detail
     return bool(hits), detail
 
 
@@ -396,8 +355,15 @@ def semantic_row(name):
 #: `test_figure_exhibits.py`, so the sentences cannot outlive the grader
 #: (doctrine 48/58: the setting is the whole 108-line cywydd, one stream,
 #: `figures.line_figures`, cym).
-CYWYDD_COUNTS = {"cynghanedd sain drosgl": (103, 108),
-                 "cynghanedd groes": (0, 108)}
+CYWYDD_COUNTS = {"cynghanedd sain drosgl": (1, 108),
+                 "cynghanedd groes": (12, 108)}
+#: What those counts were before the 2026-09-25 repairs, kept so the move is
+#: visible (doctrine 17): sain drosgl 103 (the bare onset edge, no sain
+#: figure) and groes 0 (the whole skeleton compared, no stress stop). Against
+#: the cym module's own `cynghanedd_scan` over the same 108 lines, the route's
+#: groes 12 is the scanner's 11 plus l.86 `I Dduw Dad—addewid iawn;`, which
+#: the scanner rejects at all six caesura placements — a disagreement between
+#: two readers, recorded rather than settled here.
 
 
 def cywydd_counts():
