@@ -16,6 +16,13 @@
 //   2. Instruments still missing: Met Open Access (Musical Instruments dept,
 //      isPublicDomain only).
 //   3. Smithsonian Open Access (CC0) only when SI_API_KEY is set.
+//   4. Instruments still missing: Cleveland Museum of Art (CC0, musical
+//      instrument records), then Europeana open-reuse images (EUROPEANA_KEY,
+//      else the public demo key). Either counts only when a part of the
+//      record's title is the instrument name.
+//   5. Anything still missing, traditions first: Openverse keyword search
+//      (title must contain the name; `low` confidence). Anonymous access is
+//      200 requests/day, so each run spends at most --openverse-budget.
 //
 // The source's own license field is trusted; only Public Domain / CC0 /
 // CC BY / CC BY-SA are kept. Sources that fail (network policy, no key) are
@@ -36,6 +43,7 @@ const opts = {
   cache: null,
   concurrency: 4,
   depictsMinutes: 30,
+  openverseBudget: 190,
 };
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--limit') opts.limit = parseInt(args[++i], 10);
@@ -43,6 +51,7 @@ for (let i = 0; i < args.length; i++) {
   else if (args[i] === '--out') opts.out = args[++i];
   else if (args[i] === '--cache') opts.cache = args[++i];
   else if (args[i] === '--concurrency') opts.concurrency = parseInt(args[++i], 10);
+  else if (args[i] === '--openverse-budget') opts.openverseBudget = parseInt(args[++i], 10);
   else if (args[i] === '--depicts-minutes') opts.depictsMinutes = parseFloat(args[++i]);
 }
 
@@ -479,6 +488,178 @@ async function viaSmithsonian(entities, skipped) {
   return results;
 }
 
+// ---- Title matching for museum records ----
+// A record matches when one part of its title ("Lute or Tiorbino",
+// "Moon Lute (Yueqin)", "Sitar, Musikinstrument") is the candidate name.
+function titleParts(t) {
+  return String(t || '')
+    .split(/\s*(?:[(),/;:]|\bor\b)\s*/i)
+    .map(norm)
+    .filter(Boolean);
+}
+function titleMatches(title, cand) {
+  return titleParts(title).includes(norm(cand));
+}
+
+// Europeana rights URIs -> short license names (open ones only).
+function licenseFromUri(u) {
+  u = String(u || '');
+  if (/publicdomain\/zero/.test(u)) return 'CC0';
+  if (/publicdomain\/mark/.test(u)) return 'Public Domain';
+  if (/licenses\/by-sa\//.test(u)) return 'CC BY-SA';
+  if (/licenses\/by\//.test(u)) return 'CC BY';
+  return null;
+}
+
+// ---- Source 4: Cleveland Museum of Art Open Access (CC0, no key) ----
+async function viaCleveland(entities, skipped) {
+  const results = {};
+  try {
+    await pool(entities, opts.concurrency, async (e) => {
+      const cands = nameCandidates(e.name);
+      for (const cand of cands) {
+        const url =
+          'https://openaccess-api.clevelandart.org/api/artworks/?cc0=1&has_image=1' +
+          '&type=Musical%20Instrument&limit=20&q=' +
+          encodeURIComponent(cand);
+        const d = await cached('cma:' + cand, () => tryJson(url));
+        const a = ((d && d.data) || []).find(
+          (x) => x.share_license_status === 'CC0' && titleMatches(x.title, cand)
+        );
+        const img = a && a.images && (a.images.web || a.images.print);
+        if (!img) continue;
+        results[e.key] = {
+          source: 'cleveland_open_access',
+          source_page: a.url,
+          image_url: (a.images.print || a.images.web).url,
+          thumb_url: img.url,
+          license: 'CC0',
+          license_raw: 'CC0 (Cleveland Museum of Art Open Access)',
+          credit: 'The Cleveland Museum of Art' + (a.creditline ? ', ' + a.creditline : ''),
+          match_confidence: cand === cands[0] ? 'medium' : 'low',
+          matched_label: a.title,
+        };
+        return;
+      }
+    });
+  } catch (e) {
+    skipped.push({ source: 'cleveland_open_access', reason: e.message });
+  } finally {
+    saveCache();
+  }
+  return results;
+}
+
+// Europeana titles cross languages ("timpani" is also Italian for a door
+// tympanum), so a record must be catalogued as a musical instrument: a MIMO
+// (Hornbostel-Sachs) concept, or a concept label naming an instrument.
+function isInstrumentRecord(x) {
+  if ((x.edmConcept || []).some((c) => /mimo-db\.eu/.test(c))) return true;
+  return (x.edmConceptLabel || []).some((l) =>
+    /instrument|soitin|инструмент/i.test(String(l && l.def))
+  );
+}
+
+// ---- Source 5: Europeana (open-reuse images; EUROPEANA_KEY, else the
+// public demo key) ----
+async function viaEuropeana(entities, skipped) {
+  const results = {};
+  const key = process.env.EUROPEANA_KEY || 'api2demo';
+  try {
+    await pool(entities, opts.concurrency, async (e) => {
+      const cands = nameCandidates(e.name);
+      for (const cand of cands) {
+        const url =
+          'https://api.europeana.eu/record/v2/search.json?reusability=open&qf=TYPE%3AIMAGE' +
+          '&rows=20&wskey=' +
+          key +
+          '&query=' +
+          encodeURIComponent('title:"' + cand + '"');
+        const d = await cached('eu:' + cand, () => tryJson(url));
+        const a = ((d && d.items) || []).find(
+          (x) =>
+            isInstrumentRecord(x) &&
+            (x.title || []).some((t) => titleMatches(t, cand)) &&
+            licenseFromUri((x.rights || [])[0]) &&
+            (x.edmIsShownBy || x.edmPreview)
+        );
+        if (!a) continue;
+        const rights = (a.rights || [])[0];
+        results[e.key] = {
+          source: 'europeana',
+          source_page: stripTracking(a.guid),
+          image_url: (a.edmIsShownBy || a.edmPreview)[0],
+          thumb_url: (a.edmPreview || a.edmIsShownBy)[0],
+          license: licenseFromUri(rights),
+          license_raw: rights,
+          credit: ((a.dataProvider || [])[0] || 'Europeana') + ' via Europeana',
+          match_confidence: cand === cands[0] ? 'medium' : 'low',
+          matched_label: (a.title || [])[0],
+        };
+        return;
+      }
+    });
+  } catch (e) {
+    skipped.push({ source: 'europeana', reason: e.message });
+  } finally {
+    saveCache();
+  }
+  return results;
+}
+
+// ---- Source 6: Openverse (no key; anonymous callers get 200 requests a
+// day, so it spends at most --openverse-budget uncached lookups per run) ----
+const OV_LICENSE = { cc0: 'CC0', pdm: 'Public Domain', by: 'CC BY', 'by-sa': 'CC BY-SA' };
+async function viaOpenverse(entities, skipped) {
+  const results = {};
+  let budget = opts.openverseBudget;
+  try {
+    for (const e of entities) {
+      const cand = nameCandidates(e.name)[0];
+      if (!cand) continue;
+      const q = e.kind === 'tradition' ? cand + ' music' : cand;
+      const key = 'ov:' + q;
+      if (!(key in cache)) {
+        if (budget <= 0) break;
+        budget--;
+        await sleep(3100); // anonymous burst limit: 20/min
+      }
+      const url =
+        'https://api.openverse.org/v1/images/?license=cc0,pdm,by,by-sa&page_size=20&mature=false&q=' +
+        encodeURIComponent(q);
+      let d;
+      try {
+        d = await cached(key, () => getJson(url));
+      } catch (err) {
+        if (/http_429|http_401|http_403/.test(err.message)) {
+          skipped.push({ source: 'openverse', reason: err.message + ' (daily limit)' });
+          break;
+        }
+        continue;
+      }
+      // The title has to name the thing, not just sit near it in search.
+      const hit = ((d && d.results) || []).find(
+        (r) => OV_LICENSE[r.license] && (' ' + norm(r.title) + ' ').includes(' ' + norm(cand) + ' ')
+      );
+      if (!hit) continue;
+      results[e.key] = {
+        source: 'openverse',
+        source_page: hit.foreign_landing_url,
+        image_url: stripTracking(hit.url),
+        thumb_url: hit.thumbnail || hit.url,
+        license: OV_LICENSE[hit.license],
+        license_raw: (hit.license + ' ' + (hit.license_version || '')).trim(),
+        credit: (hit.creator || 'Unknown') + ' via ' + (hit.source || hit.provider || 'Openverse'),
+        match_confidence: 'low',
+        matched_label: hit.title,
+      };
+    }
+  } finally {
+    saveCache();
+  }
+  return results;
+}
+
 // ---- Main ----
 function loadEntities() {
   const list = [];
@@ -502,6 +683,14 @@ async function main() {
   const missingInstruments = () => entities.filter((e) => e.kind === 'instrument' && !found[e.key]);
   Object.assign(found, await viaMet(missingInstruments(), skipped));
   Object.assign(found, await viaSmithsonian(missingInstruments(), skipped));
+  Object.assign(found, await viaCleveland(missingInstruments(), skipped));
+  Object.assign(found, await viaEuropeana(missingInstruments(), skipped));
+  // Openverse's small daily allowance goes to traditions first: museums
+  // only ever cover instruments.
+  const missing = entities
+    .filter((e) => !found[e.key])
+    .sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'tradition' ? -1 : 1));
+  Object.assign(found, await viaOpenverse(missing, skipped));
 
   const images = entities
     .filter((e) => found[e.key])
