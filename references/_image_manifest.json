@@ -23,19 +23,19 @@
     },
     "tradition": {
       "total": 2588,
-      "with_image": 587,
+      "with_image": 674,
       "by_source": {
-        "wikidata_commons": 384,
-        "wikidata_performer": 87,
+        "wikidata_commons": 389,
+        "wikidata_performer": 169,
         "commons_depicts": 99,
         "openverse": 16,
         "commons_search": 1
       },
       "by_license": {
-        "CC BY-SA": 315,
-        "Public Domain": 88,
-        "CC BY": 152,
-        "CC0": 32
+        "CC BY-SA": 364,
+        "Public Domain": 98,
+        "CC BY": 176,
+        "CC0": 36
       }
     }
   },
@@ -11529,6 +11529,21 @@
       "matched_label": "African popular music"
     },
     {
+      "id": "aggrotech",
+      "kind": "tradition",
+      "name": "Aggrotech",
+      "source": "wikidata_performer",
+      "wikidata": "Q1091450",
+      "source_page": "https://commons.wikimedia.org/wiki/File:13-03-23_e-tropolis_Centhron_01.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/51/13-03-23_e-tropolis_Centhron_01.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/13-03-23_e-tropolis_Centhron_01.jpg/500px-13-03-23_e-tropolis_Centhron_01.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Achim Raschka (talk)",
+      "match_confidence": "medium",
+      "matched_label": "Centhron (aggrotech performer)"
+    },
+    {
       "id": "albanian_iso_polyphony",
       "kind": "tradition",
       "name": "Albanian iso-polyphony",
@@ -11694,6 +11709,36 @@
       "matched_label": "huayno"
     },
     {
+      "id": "anison",
+      "kind": "tradition",
+      "name": "Anison (Japanese anime theme song)",
+      "source": "wikidata_performer",
+      "wikidata": "Q608862",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Mamiko_Noto_at_Otakon_20070722.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Mamiko_Noto_at_Otakon_20070722.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Mamiko_Noto_at_Otakon_20070722.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Willsun (talk)",
+      "match_confidence": "medium",
+      "matched_label": "Mamiko Noto (anime song performer)"
+    },
+    {
+      "id": "anison_anime_song",
+      "kind": "tradition",
+      "name": "Anison (anime song)",
+      "source": "wikidata_performer",
+      "wikidata": "Q608862",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Mamiko_Noto_at_Otakon_20070722.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Mamiko_Noto_at_Otakon_20070722.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Mamiko_Noto_at_Otakon_20070722.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Willsun (talk)",
+      "match_confidence": "medium",
+      "matched_label": "Mamiko Noto (anime song performer)"
+    },
+    {
       "id": "antifolk_nyc",
       "kind": "tradition",
       "name": "Anti-folk",
@@ -11722,6 +11767,21 @@
       "credit": "さくまひろこ",
       "match_confidence": "medium",
       "matched_label": "Takashima Shinji (album-oriented rock performer)"
+    },
+    {
+      "id": "arab_pop",
+      "kind": "tradition",
+      "name": "Arab Pop",
+      "source": "wikidata_commons",
+      "wikidata": "Q624081",
+      "source_page": "https://commons.wikimedia.org/wiki/File:%D8%B4%D9%8A%D8%B1%D9%8A%D9%86.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/%D8%B4%D9%8A%D8%B1%D9%8A%D9%86.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/%D8%B4%D9%8A%D8%B1%D9%8A%D9%86.jpg/500px-%D8%B4%D9%8A%D8%B1%D9%8A%D9%86.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 3.0",
+      "credit": "Arab Idol",
+      "match_confidence": "medium",
+      "matched_label": "Arabic pop"
     },
     {
       "id": "arab_tarab",
@@ -11798,6 +11858,21 @@
       "matched_label": "Armenian folk music"
     },
     {
+      "id": "arrocha",
+      "kind": "tradition",
+      "name": "Arrocha",
+      "source": "wikidata_performer",
+      "wikidata": "Q2863648",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Pablo_do_arrocha.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Pablo_do_arrocha.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Pablo_do_arrocha.jpg/500px-Pablo_do_arrocha.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Turismo Bahia",
+      "match_confidence": "medium",
+      "matched_label": "Pablo (arrocha performer)"
+    },
+    {
       "id": "ars_nova_french",
       "kind": "tradition",
       "name": "Ars Nova (fourteenth-century French)",
@@ -11826,6 +11901,21 @@
       "credit": "Scarf2048",
       "match_confidence": "medium",
       "matched_label": "Montaigne (art pop performer)"
+    },
+    {
+      "id": "art_punk",
+      "kind": "tradition",
+      "name": "Art Punk",
+      "source": "wikidata_performer",
+      "wikidata": "Q659599",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Wire_sept_2013.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Wire_sept_2013.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Wire_sept_2013.jpg/500px-Wire_sept_2013.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 2.0",
+      "credit": "Fergus Kelly",
+      "match_confidence": "medium",
+      "matched_label": "Wire (art punk performer)"
     },
     {
       "id": "art_rock",
@@ -11871,6 +11961,21 @@
       "credit": "Dan Monceaux",
       "match_confidence": "medium",
       "matched_label": "Australian hip-hop"
+    },
+    {
+      "id": "austropop",
+      "kind": "tradition",
+      "name": "Austropop",
+      "source": "wikidata_performer",
+      "wikidata": "Q700423",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Voodoo_J%C3%BCrgens_Amadeus_Awards_2017_a.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Voodoo_J%C3%BCrgens_Amadeus_Awards_2017_a.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Voodoo_J%C3%BCrgens_Amadeus_Awards_2017_a.jpg/500px-Voodoo_J%C3%BCrgens_Amadeus_Awards_2017_a.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Manfred Werner (Tsui)",
+      "match_confidence": "medium",
+      "matched_label": "Voodoo Jürgens (Austropop performer)"
     },
     {
       "id": "avant_metal_classic",
@@ -12081,6 +12186,21 @@
       "credit": "Lunchbox LP from Culver City, CA, USA",
       "match_confidence": "medium",
       "matched_label": "Banda Carnaval (banda music performer)"
+    },
+    {
+      "id": "barbershop",
+      "kind": "tradition",
+      "name": "Barbershop Harmony",
+      "source": "wikidata_performer",
+      "wikidata": "Q807820",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Fritzell_%26_Rippe_After_Shave.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Fritzell_%26_Rippe_After_Shave.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Fritzell_%26_Rippe_After_Shave.jpg/500px-Fritzell_%26_Rippe_After_Shave.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Slevjuret",
+      "match_confidence": "medium",
+      "matched_label": "After Shave (barbershop music performer)"
     },
     {
       "id": "barbershop_quartet",
@@ -12502,6 +12622,21 @@
       "matched_label": "breakcore"
     },
     {
+      "id": "brega_paraense",
+      "kind": "tradition",
+      "name": "Brega paraense (guitar-led Pará brega)",
+      "source": "wikidata_performer",
+      "wikidata": "Q8251828",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Kim_Marques_(4993351957).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Kim_Marques_%284993351957%29.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Kim_Marques_%284993351957%29.jpg/500px-Kim_Marques_%284993351957%29.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 2.0",
+      "credit": "Produção Cultural no Brasil",
+      "match_confidence": "medium",
+      "matched_label": "Kim Marques (brega pop performer)"
+    },
+    {
       "id": "brega_tecnobrega",
       "kind": "tradition",
       "name": "Brega and tecnobrega (Belém-Pará)",
@@ -12770,6 +12905,21 @@
       "matched_label": "canzone napoletana"
     },
     {
+      "id": "capoeira",
+      "kind": "tradition",
+      "name": "Capoeira roda music",
+      "source": "wikidata_commons",
+      "wikidata": "Q4306588",
+      "source_page": "https://commons.wikimedia.org/wiki/File:MESTRE_RAFAEL_AKYNO_(FOTOS_AUTORIZADAS)_2.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/MESTRE_RAFAEL_AKYNO_%28FOTOS_AUTORIZADAS%29_2.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/MESTRE_RAFAEL_AKYNO_%28FOTOS_AUTORIZADAS%29_2.jpg/500px-MESTRE_RAFAEL_AKYNO_%28FOTOS_AUTORIZADAS%29_2.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Rafael Deminicis",
+      "match_confidence": "medium",
+      "matched_label": "capoeira music"
+    },
+    {
       "id": "capoeira_music",
       "kind": "tradition",
       "name": "Capoeira music",
@@ -12800,6 +12950,21 @@
       "matched_label": "carimbó"
     },
     {
+      "id": "celtic_rock",
+      "kind": "tradition",
+      "name": "Celtic Rock",
+      "source": "wikidata_performer",
+      "wikidata": "Q2662148",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Blacksheep_festival_2014_rs_FR_1720.JPG",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Blacksheep_festival_2014_rs_FR_1720.JPG",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Blacksheep_festival_2014_rs_FR_1720.JPG/500px-Blacksheep_festival_2014_rs_FR_1720.JPG",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Rs-foto",
+      "match_confidence": "medium",
+      "matched_label": "Horslips (Celtic rock performer)"
+    },
+    {
       "id": "chacarera_argentina",
       "kind": "tradition",
       "name": "Chacarera (Argentine northwest)",
@@ -12828,6 +12993,21 @@
       "credit": "Pflatau",
       "match_confidence": "high",
       "matched_label": "chacarera"
+    },
+    {
+      "id": "chalga",
+      "kind": "tradition",
+      "name": "Chalga",
+      "source": "wikidata_performer",
+      "wikidata": "Q870340",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Galenanagradi.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Galenanagradi.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Galenanagradi.jpg/500px-Galenanagradi.jpg",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Vhdjv",
+      "match_confidence": "medium",
+      "matched_label": "Galena (chalga performer)"
     },
     {
       "id": "chamame_argentine",
@@ -12950,6 +13130,21 @@
       "matched_label": "Chicano rock"
     },
     {
+      "id": "chicano_rap",
+      "kind": "tradition",
+      "name": "Chicano rap",
+      "source": "wikidata_performer",
+      "wikidata": "Q1399695",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Akwid.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Akwid.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Akwid.jpg/500px-Akwid.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "Hector Sanchez",
+      "match_confidence": "medium",
+      "matched_label": "Akwid (Chicano rap performer)"
+    },
+    {
       "id": "chicha",
       "kind": "tradition",
       "name": "Chicha (Peruvian Amazonian psychedelic cumbia)",
@@ -13025,6 +13220,21 @@
       "matched_label": "chiptune"
     },
     {
+      "id": "choral",
+      "kind": "tradition",
+      "name": "Choral (Western art choral singing)",
+      "source": "wikidata_performer",
+      "wikidata": "Q1076513",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Thomas_Tallis.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Thomas_Tallis.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Thomas_Tallis.jpg",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Wikimedia Commons contributor",
+      "match_confidence": "medium",
+      "matched_label": "Thomas Tallis (choral music performer)"
+    },
+    {
       "id": "choro",
       "kind": "tradition",
       "name": "Choro",
@@ -13068,6 +13278,21 @@
       "credit": "Breezy Baldwin",
       "match_confidence": "medium",
       "matched_label": "Christian rock"
+    },
+    {
+      "id": "chutney_bhojpuri",
+      "kind": "tradition",
+      "name": "Chutney (Trinidad-Guyana Bhojpuri dance song)",
+      "source": "wikidata_performer",
+      "wikidata": "Q1090048",
+      "source_page": "https://commons.wikimedia.org/wiki/File:RakeshYankaranatCSM.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/RakeshYankaranatCSM.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/RakeshYankaranatCSM.jpg/500px-RakeshYankaranatCSM.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Ganganathlal",
+      "match_confidence": "medium",
+      "matched_label": "Rakesh Yankaran (chutney music performer)"
     },
     {
       "id": "chutney_indo_caribbean",
@@ -13220,6 +13445,21 @@
       "matched_label": "Annarce (conscious hip-hop performer)"
     },
     {
+      "id": "contemporary_worship",
+      "kind": "tradition",
+      "name": "Contemporary Worship",
+      "source": "wikidata_performer",
+      "wikidata": "Q1339121",
+      "source_page": "https://commons.wikimedia.org/wiki/File:DarleneZschech2.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/DarleneZschech2.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/DarleneZschech2.jpg/500px-DarleneZschech2.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Hillsfan",
+      "match_confidence": "medium",
+      "matched_label": "Darlene Zschech (contemporary worship music performer)"
+    },
+    {
       "id": "cool_jazz_west_coast",
       "kind": "tradition",
       "name": "Cool jazz / West Coast",
@@ -13280,6 +13520,36 @@
       "matched_label": "country music"
     },
     {
+      "id": "country_blues",
+      "kind": "tradition",
+      "name": "Country Blues",
+      "source": "wikidata_performer",
+      "wikidata": "Q649823",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Cannon%27sJugStompers.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Cannon%27sJugStompers.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Cannon%27sJugStompers.jpg",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Herald Mosley",
+      "match_confidence": "medium",
+      "matched_label": "Gus Cannon (country blues performer)"
+    },
+    {
+      "id": "country_rap",
+      "kind": "tradition",
+      "name": "Country Rap",
+      "source": "wikidata_performer",
+      "wikidata": "Q2706919",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Denny_Strickland_Country_Rap_artist_Nashville_2025_celebrity_musician_outing.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Denny_Strickland_Country_Rap_artist_Nashville_2025_celebrity_musician_outing.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Denny_Strickland_Country_Rap_artist_Nashville_2025_celebrity_musician_outing.jpg/500px-Denny_Strickland_Country_Rap_artist_Nashville_2025_celebrity_musician_outing.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Celebphoto54321",
+      "match_confidence": "medium",
+      "matched_label": "Denny Strickland (country rap performer)"
+    },
+    {
       "id": "country_rap_hick_hop",
       "kind": "tradition",
       "name": "Country rap (hick-hop)",
@@ -13325,6 +13595,51 @@
       "matched_label": "coupé-décalé"
     },
     {
+      "id": "cowpunk",
+      "kind": "tradition",
+      "name": "Cowpunk",
+      "source": "wikidata_performer",
+      "wikidata": "Q2268922",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Mojo_Nixon_SXSW_2022_(51990280419)_(cropped).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Mojo_Nixon_SXSW_2022_%2851990280419%29_%28cropped%29.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Mojo_Nixon_SXSW_2022_%2851990280419%29_%28cropped%29.jpg/500px-Mojo_Nixon_SXSW_2022_%2851990280419%29_%28cropped%29.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 2.0",
+      "credit": "- EMR -",
+      "match_confidence": "medium",
+      "matched_label": "Mojo Nixon (cowpunk performer)"
+    },
+    {
+      "id": "crossover_thrash",
+      "kind": "tradition",
+      "name": "Crossover Thrash",
+      "source": "wikidata_performer",
+      "wikidata": "Q932977",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Soziedad_Alkoholika_Santurtzi_2010.JPG",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Soziedad_Alkoholika_Santurtzi_2010.JPG",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Soziedad_Alkoholika_Santurtzi_2010.JPG/500px-Soziedad_Alkoholika_Santurtzi_2010.JPG",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Fernando",
+      "match_confidence": "medium",
+      "matched_label": "Soziedad Alkoholika (crossover thrash performer)"
+    },
+    {
+      "id": "crunkcore",
+      "kind": "tradition",
+      "name": "Crunkcore",
+      "source": "wikidata_performer",
+      "wikidata": "Q2426383",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Blood_on_the_dance_floor_2011.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Blood_on_the_dance_floor_2011.png",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Blood_on_the_dance_floor_2011.png/500px-Blood_on_the_dance_floor_2011.png",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "\"chriichriix\" on YouTube",
+      "match_confidence": "medium",
+      "matched_label": "Blood on the Dance Floor (crunkcore performer)"
+    },
+    {
       "id": "crust_punk",
       "kind": "tradition",
       "name": "Crust punk (D-beat-derived UK 80s)",
@@ -13338,6 +13653,21 @@
       "credit": "brandi666",
       "match_confidence": "high",
       "matched_label": "crust punk"
+    },
+    {
+      "id": "cuarteto",
+      "kind": "tradition",
+      "name": "Cuarteto Cordobés",
+      "source": "wikidata_performer",
+      "wikidata": "Q155119",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Mona_Jimenez_-_oct2008_(6).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Mona_Jimenez_-_oct2008_%286%29.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Mona_Jimenez_-_oct2008_%286%29.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Roblespepe",
+      "match_confidence": "medium",
+      "matched_label": "La Mona Jiménez (cuarteto performer)"
     },
     {
       "id": "cuban_rumba",
@@ -13355,6 +13685,21 @@
       "matched_label": "Cuban rumba"
     },
     {
+      "id": "cubaton",
+      "kind": "tradition",
+      "name": "Cubatón",
+      "source": "wikidata_performer",
+      "wikidata": "Q108297222",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Maxima_Alerta_@_SOB%27s_in_NYC.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Maxima_Alerta_%40_SOB%27s_in_NYC.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Maxima_Alerta_%40_SOB%27s_in_NYC.jpg/500px-Maxima_Alerta_%40_SOB%27s_in_NYC.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Actor1962",
+      "match_confidence": "medium",
+      "matched_label": "Máxima Alerta (cubaton performer)"
+    },
+    {
       "id": "cueca_chilena",
       "kind": "tradition",
       "name": "Cueca (Chilean national)",
@@ -13368,6 +13713,21 @@
       "credit": "Manuel Antonio Caro",
       "match_confidence": "high",
       "matched_label": "cueca"
+    },
+    {
+      "id": "cumbia_amazonica",
+      "kind": "tradition",
+      "name": "Cumbia amazónica",
+      "source": "wikidata_performer",
+      "wikidata": "Q5643186",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Los_Wembler%27s_de_Iquitos_Music_Peru_Smithsonian_Folk_Festival_Washington_DC_7244_(19424197806).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Los_Wembler%27s_de_Iquitos_Music_Peru_Smithsonian_Folk_Festival_Washington_DC_7244_%2819424197806%29.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Los_Wembler%27s_de_Iquitos_Music_Peru_Smithsonian_Folk_Festival_Washington_DC_7244_%2819424197806%29.jpg/500px-Los_Wembler%27s_de_Iquitos_Music_Peru_Smithsonian_Folk_Festival_Washington_DC_7244_%2819424197806%29.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "bobistraveling",
+      "match_confidence": "medium",
+      "matched_label": "Los Wembler's de Iquitos (cumbia amazónica performer)"
     },
     {
       "id": "cumbia_andina_mexicana",
@@ -13442,6 +13802,66 @@
       "credit": "Montecruz Foto",
       "match_confidence": "medium",
       "matched_label": "Los Mirlos (Peruvian cumbia performer)"
+    },
+    {
+      "id": "cumbia_pop",
+      "kind": "tradition",
+      "name": "Cumbia pop",
+      "source": "wikidata_performer",
+      "wikidata": "Q21059341",
+      "source_page": "https://commons.wikimedia.org/wiki/File:TocoParaVos2.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/TocoParaVos2.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/TocoParaVos2.jpg/500px-TocoParaVos2.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "https://rateyourmusic.com/release/album/toco-para-vos/_tocoparavos/",
+      "match_confidence": "medium",
+      "matched_label": "Toco Para Vos (cumbia pop performer)"
+    },
+    {
+      "id": "cumbia_surena",
+      "kind": "tradition",
+      "name": "Cumbia sureña",
+      "source": "wikidata_performer",
+      "wikidata": "Q5794690",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Katy_Jara_(MAG).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Katy_Jara_%28MAG%29.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Katy_Jara_%28MAG%29.jpg/500px-Katy_Jara_%28MAG%29.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 3.0",
+      "credit": "MARCO ANTONIO GUERRERO",
+      "match_confidence": "medium",
+      "matched_label": "Katy Jara (cumbia sureña performer)"
+    },
+    {
+      "id": "cumbia_villera",
+      "kind": "tradition",
+      "name": "Cumbia villera",
+      "source": "wikidata_performer",
+      "wikidata": "Q1143752",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Damas_gratis_003.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Damas_gratis_003.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Damas_gratis_003.jpg/500px-Damas_gratis_003.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Original uploader was TIP-XL",
+      "match_confidence": "medium",
+      "matched_label": "Damas Gratis (cumbia villera performer)"
+    },
+    {
+      "id": "cybergrind",
+      "kind": "tradition",
+      "name": "Cybergrind",
+      "source": "wikidata_performer",
+      "wikidata": "Q3008180",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Jade_Weapon_at_Liberation_Weekend_II_(2026)_01.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Jade_Weapon_at_Liberation_Weekend_II_%282026%29_01.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Jade_Weapon_at_Liberation_Weekend_II_%282026%29_01.jpg/500px-Jade_Weapon_at_Liberation_Weekend_II_%282026%29_01.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 4.0",
+      "credit": "Kloppervok",
+      "match_confidence": "medium",
+      "matched_label": "Jade Weapon (cybergrind performer)"
     },
     {
       "id": "d_beat",
@@ -13547,6 +13967,36 @@
       "credit": "Rassya LN22",
       "match_confidence": "medium",
       "matched_label": "koplo"
+    },
+    {
+      "id": "dansband",
+      "kind": "tradition",
+      "name": "Dansband",
+      "source": "wikidata_performer",
+      "wikidata": "Q105757139",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Sven-Ingvars_2016-5.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Sven-Ingvars_2016-5.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Sven-Ingvars_2016-5.jpg/500px-Sven-Ingvars_2016-5.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Frankie Fouganthin",
+      "match_confidence": "medium",
+      "matched_label": "Sven-Ingvars (dansband music performer)"
+    },
+    {
+      "id": "darkstep",
+      "kind": "tradition",
+      "name": "Darkstep",
+      "source": "wikidata_performer",
+      "wikidata": "Q1166321",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Nanotek.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Nanotek.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Nanotek.jpg/500px-Nanotek.jpg",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Markcnz",
+      "match_confidence": "medium",
+      "matched_label": "Nanotek (darkstep performer)"
     },
     {
       "id": "darkwave",
@@ -13789,6 +14239,21 @@
       "matched_label": "doom metal"
     },
     {
+      "id": "downtempo",
+      "kind": "tradition",
+      "name": "Downtempo",
+      "source": "wikidata_performer",
+      "wikidata": "Q251192",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Mike_patton.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Mike_patton.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Mike_patton.jpg/500px-Mike_patton.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Gabriele Bartolucci",
+      "match_confidence": "medium",
+      "matched_label": "Lovage (downtempo performer)"
+    },
+    {
       "id": "dream_pop",
       "kind": "tradition",
       "name": "Dream pop",
@@ -13969,6 +14434,21 @@
       "matched_label": "dubstep"
     },
     {
+      "id": "dubtronica",
+      "kind": "tradition",
+      "name": "Dubtronica",
+      "source": "wikidata_performer",
+      "wikidata": "Q2478478",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Mountain_of_Love.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Mountain_of_Love.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Mountain_of_Love.jpg/500px-Mountain_of_Love.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 3.0",
+      "credit": "MartinPaulEve",
+      "match_confidence": "medium",
+      "matched_label": "Mountain of Love (dubtronica performer)"
+    },
+    {
       "id": "dutch_house",
       "kind": "tradition",
       "name": "Dutch House",
@@ -13982,6 +14462,21 @@
       "credit": "Q1q2q3qwertz",
       "match_confidence": "high",
       "matched_label": "Dutch house"
+    },
+    {
+      "id": "dutch_pop",
+      "kind": "tradition",
+      "name": "Nederpop (Dutch pop)",
+      "source": "wikidata_performer",
+      "wikidata": "Q1936659",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Rob_de_Nijs.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Rob_de_Nijs.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Rob_de_Nijs.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Raymond Nieuwenburg",
+      "match_confidence": "medium",
+      "matched_label": "Rob de Nijs (Nederpop performer)"
     },
     {
       "id": "early_music",
@@ -14074,6 +14569,21 @@
       "matched_label": "electro house"
     },
     {
+      "id": "electro_industrial",
+      "kind": "tradition",
+      "name": "Electro-Industrial",
+      "source": "wikidata_performer",
+      "wikidata": "Q1403744",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Hocico_Live_At_Lunario_Mexico_DF.JPG",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Hocico_Live_At_Lunario_Mexico_DF.JPG",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Hocico_Live_At_Lunario_Mexico_DF.JPG/500px-Hocico_Live_At_Lunario_Mexico_DF.JPG",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Conin",
+      "match_confidence": "medium",
+      "matched_label": "Hocico (electro-industrial performer)"
+    },
+    {
       "id": "electroclash",
       "kind": "tradition",
       "name": "Electroclash",
@@ -14089,6 +14599,36 @@
       "matched_label": "electroclash"
     },
     {
+      "id": "electronic",
+      "kind": "tradition",
+      "name": "Electronic",
+      "source": "wikidata_commons",
+      "wikidata": "Q9778",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1st_commercial_Moog_synthesizer_(1964,_commissioned_by_the_Alwin_Nikolai_Dance_Theater_of_NY)_@_Stearns_Collection_(Stearns_2035),_University_of_Michigan.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/1st_commercial_Moog_synthesizer_%281964%2C_commissioned_by_the_Alwin_Nikolai_Dance_Theater_of_NY%29_%40_Stearns_Collection_%28Stearns_2035%29%2C_University_of_Michigan.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/1st_commercial_Moog_synthesizer_%281964%2C_commissioned_by_the_Alwin_Nikolai_Dance_Theater_of_NY%29_%40_Stearns_Collection_%28Stearns_2035%29%2C_University_of_Michigan.jpg/500px-1st_commercial_Moog_synthesizer_%281964%2C_commissioned_by_the_Alwin_Nikolai_Dance_Theater_of_NY%29_%40_Stearns_Collection_%28Stearns_2035%29%2C_University_of_Michigan.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 2.0",
+      "credit": "Chad",
+      "match_confidence": "medium",
+      "matched_label": "electronic music"
+    },
+    {
+      "id": "electronicore",
+      "kind": "tradition",
+      "name": "Electronicore (Metalcore Hybrid)",
+      "source": "wikidata_performer",
+      "wikidata": "Q2084353",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Palisades_(band)_live_2013.JPG",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Palisades_%28band%29_live_2013.JPG",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Palisades_%28band%29_live_2013.JPG/500px-Palisades_%28band%29_live_2013.JPG",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Goroth",
+      "match_confidence": "medium",
+      "matched_label": "Palisades (electronicore performer)"
+    },
+    {
       "id": "electropunk",
       "kind": "tradition",
       "name": "Electropunk",
@@ -14102,6 +14642,21 @@
       "credit": "Bobo Boom",
       "match_confidence": "medium",
       "matched_label": "synth-punk"
+    },
+    {
+      "id": "electroswing",
+      "kind": "tradition",
+      "name": "Electro Swing",
+      "source": "wikidata_performer",
+      "wikidata": "Q602561",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Andrew_%22Andy%22_Stanley_and_Matthew_%22Matt%22_Handley_in_a_press_photo..jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Andrew_%22Andy%22_Stanley_and_Matthew_%22Matt%22_Handley_in_a_press_photo..jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Andrew_%22Andy%22_Stanley_and_Matthew_%22Matt%22_Handley_in_a_press_photo..jpg/500px-Andrew_%22Andy%22_Stanley_and_Matthew_%22Matt%22_Handley_in_a_press_photo..jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Goodquestionla",
+      "match_confidence": "medium",
+      "matched_label": "Yolanda Be Cool (electro swing performer)"
     },
     {
       "id": "embolada",
@@ -14179,6 +14734,21 @@
       "matched_label": "You Yokoyama (enka performer)"
     },
     {
+      "id": "ethereal_wave",
+      "kind": "tradition",
+      "name": "Ethereal Wave",
+      "source": "wikidata_performer",
+      "wikidata": "Q284543",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Brendan_Perry_2019.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Brendan_Perry_2019.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Brendan_Perry_2019.jpg/500px-Brendan_Perry_2019.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "Dirk Haun",
+      "match_confidence": "medium",
+      "matched_label": "Brendan Perry (ethereal wave performer)"
+    },
+    {
       "id": "ethio_jazz",
       "kind": "tradition",
       "name": "Ethio-jazz",
@@ -14192,6 +14762,36 @@
       "credit": "Marc Sabatella",
       "match_confidence": "medium",
       "matched_label": "Mahmoud Ahmed (Ethio-jazz performer)"
+    },
+    {
+      "id": "eurobeat",
+      "kind": "tradition",
+      "name": "Eurobeat",
+      "source": "wikidata_performer",
+      "wikidata": "Q848852",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Dave_Rodgers.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Dave_Rodgers.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Dave_Rodgers.jpg/500px-Dave_Rodgers.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Soppakanuuna",
+      "match_confidence": "medium",
+      "matched_label": "Dave Rodgers (Eurobeat performer)"
+    },
+    {
+      "id": "europop",
+      "kind": "tradition",
+      "name": "Europop",
+      "source": "wikidata_performer",
+      "wikidata": "Q517415",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Dolly_Style_at_Rockbj%C3%B6rnen_2024.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Dolly_Style_at_Rockbj%C3%B6rnen_2024.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Dolly_Style_at_Rockbj%C3%B6rnen_2024.jpg/500px-Dolly_Style_at_Rockbj%C3%B6rnen_2024.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 4.0",
+      "credit": "Jytte Lindberg",
+      "match_confidence": "medium",
+      "matched_label": "Dolly Style (Europop performer)"
     },
     {
       "id": "experimental_rock",
@@ -14644,6 +15244,21 @@
       "matched_label": "Abass Akande Obesere (fuji music performer)"
     },
     {
+      "id": "fuji_music",
+      "kind": "tradition",
+      "name": "Fújì Music (Yoruba Muslim percussion pop)",
+      "source": "wikidata_performer",
+      "wikidata": "Q3509353",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Obesere.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Obesere.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Obesere.jpg/500px-Obesere.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 3.0",
+      "credit": "ENIOLA BADMUS TV",
+      "match_confidence": "medium",
+      "matched_label": "Abass Akande Obesere (fuji music performer)"
+    },
+    {
       "id": "funana",
       "kind": "tradition",
       "name": "Funaná",
@@ -14687,6 +15302,21 @@
       "credit": "Chris Hakkens",
       "match_confidence": "medium",
       "matched_label": "funk"
+    },
+    {
+      "id": "funk_melody",
+      "kind": "tradition",
+      "name": "Funk Melody",
+      "source": "wikidata_performer",
+      "wikidata": "Q10286515",
+      "source_page": "https://commons.wikimedia.org/wiki/File:MC_Sap%C3%A3o.jpeg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/MC_Sap%C3%A3o.jpeg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/MC_Sap%C3%A3o.jpeg/500px-MC_Sap%C3%A3o.jpeg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 2.0",
+      "credit": "Patricia Figueira",
+      "match_confidence": "medium",
+      "matched_label": "Jefferson Luiz Fernandes (funk melody performer)"
     },
     {
       "id": "fusion_70s_electric",
@@ -15229,6 +15859,21 @@
       "matched_label": "Diamond Five (hard bop performer)"
     },
     {
+      "id": "hard_dance",
+      "kind": "tradition",
+      "name": "Hard Dance",
+      "source": "wikidata_performer",
+      "wikidata": "Q1033912",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Airbeat_One_2015_Technoboy_by_Denis_Apel-1683.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Airbeat_One_2015_Technoboy_by_Denis_Apel-1683.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Airbeat_One_2015_Technoboy_by_Denis_Apel-1683.jpg/500px-Airbeat_One_2015_Technoboy_by_Denis_Apel-1683.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Denis Apel",
+      "match_confidence": "medium",
+      "matched_label": "Technoboy (hard dance performer)"
+    },
+    {
       "id": "hard_rock",
       "kind": "tradition",
       "name": "Hard rock",
@@ -15257,6 +15902,21 @@
       "credit": "Charlestpt",
       "match_confidence": "medium",
       "matched_label": "I Hate Models (hard techno performer)"
+    },
+    {
+      "id": "hard_trance",
+      "kind": "tradition",
+      "name": "Hard Trance",
+      "source": "wikidata_performer",
+      "wikidata": "Q832665",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bounce_-_2016255022841_2016-09-10_Sunshine_Live_-_Die_2000er_Live_on_Stage_-_Sven_-_1D_X_II_-_0956_-_AK8I9264_mod.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Brooklyn_Bounce_-_2016255022841_2016-09-10_Sunshine_Live_-_Die_2000er_Live_on_Stage_-_Sven_-_1D_X_II_-_0956_-_AK8I9264_mod.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Brooklyn_Bounce_-_2016255022841_2016-09-10_Sunshine_Live_-_Die_2000er_Live_on_Stage_-_Sven_-_1D_X_II_-_0956_-_AK8I9264_mod.jpg/500px-Brooklyn_Bounce_-_2016255022841_2016-09-10_Sunshine_Live_-_Die_2000er_Live_on_Stage_-_Sven_-_1D_X_II_-_0956_-_AK8I9264_mod.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Sven Mandel",
+      "match_confidence": "medium",
+      "matched_label": "Brooklyn Bounce (hard trance performer)"
     },
     {
       "id": "hardanger_fiddle",
@@ -15584,6 +16244,21 @@
       "credit": "Scott Dudelson",
       "match_confidence": "high",
       "matched_label": "indie rock"
+    },
+    {
+      "id": "indietronica",
+      "kind": "tradition",
+      "name": "Indietronica",
+      "source": "wikidata_performer",
+      "wikidata": "Q325397",
+      "source_page": "https://commons.wikimedia.org/wiki/File:A_R_I_Z_O_N_A_in_a_2019_interview_for_Popdust.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/A_R_I_Z_O_N_A_in_a_2019_interview_for_Popdust.png",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/A_R_I_Z_O_N_A_in_a_2019_interview_for_Popdust.png/500px-A_R_I_Z_O_N_A_in_a_2019_interview_for_Popdust.png",
+      "license": "CC BY",
+      "license_raw": "CC BY 3.0",
+      "credit": "POPDUST",
+      "match_confidence": "medium",
+      "matched_label": "Arizona (indietronica performer)"
     },
     {
       "id": "industrial",
@@ -16021,6 +16696,21 @@
       "matched_label": "kawina"
     },
     {
+      "id": "khaliji",
+      "kind": "tradition",
+      "name": "Khalījī (Gulf dance song)",
+      "source": "wikidata_performer",
+      "wikidata": "Q585588",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Abdel_Karim_Abdel_Kader.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Abdel_Karim_Abdel_Kader.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Abdel_Karim_Abdel_Kader.jpg/500px-Abdel_Karim_Abdel_Kader.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "Ra'ed Qutena",
+      "match_confidence": "medium",
+      "matched_label": "Abdulkareem Abdulqadir (Khaliji performer)"
+    },
+    {
       "id": "khaliji_gulf",
       "kind": "tradition",
       "name": "Khaliji (Arabian Gulf music)",
@@ -16183,6 +16873,21 @@
       "matched_label": "Vasilis Karras (laïko performer)"
     },
     {
+      "id": "laiko_modern",
+      "kind": "tradition",
+      "name": "Laïkó (modern Greek popular song)",
+      "source": "wikidata_performer",
+      "wikidata": "Q2087267",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Vasilis_Karras_@_Politia_Live_Clubbing.JPG",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Vasilis_Karras_%40_Politia_Live_Clubbing.JPG",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Vasilis_Karras_%40_Politia_Live_Clubbing.JPG/500px-Vasilis_Karras_%40_Politia_Live_Clubbing.JPG",
+      "license": "CC BY",
+      "license_raw": "CC BY 3.0",
+      "credit": "Erud",
+      "match_confidence": "medium",
+      "matched_label": "Vasilis Karras (laïko performer)"
+    },
+    {
       "id": "lambada",
       "kind": "tradition",
       "name": "Lambada",
@@ -16226,6 +16931,21 @@
       "credit": "Soycuyano",
       "match_confidence": "medium",
       "matched_label": "Latin alternative"
+    },
+    {
+      "id": "latin_ballad",
+      "kind": "tradition",
+      "name": "Latin Ballad (balada romántica)",
+      "source": "wikidata_performer",
+      "wikidata": "Q6496560",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Singer_Emmanuel.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Singer_Emmanuel.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Singer_Emmanuel.jpg/500px-Singer_Emmanuel.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 3.0",
+      "credit": "FESTIVALDEVINACHILE",
+      "match_confidence": "medium",
+      "matched_label": "Emmanuel (Latin ballad performer)"
     },
     {
       "id": "latin_jazz",
@@ -16363,6 +17083,21 @@
       "matched_label": "dohori"
     },
     {
+      "id": "louisiana_blues",
+      "kind": "tradition",
+      "name": "Louisiana Blues",
+      "source": "wikidata_performer",
+      "wikidata": "Q515074",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Tuts_Washington_at_piano.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Tuts_Washington_at_piano.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Tuts_Washington_at_piano.jpg/500px-Tuts_Washington_at_piano.jpg",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Alan Robinson for US National Park Service",
+      "match_confidence": "medium",
+      "matched_label": "Tuts Washington (Louisiana blues performer)"
+    },
+    {
       "id": "lovers_rock",
       "kind": "tradition",
       "name": "Lovers' rock",
@@ -16391,6 +17126,21 @@
       "credit": "Unknown authorUnknown author",
       "match_confidence": "medium",
       "matched_label": "madrigal"
+    },
+    {
+      "id": "malaysian_pop",
+      "kind": "tradition",
+      "name": "Malaysian pop (pop Melayu / muzik pop Malaysia)",
+      "source": "wikidata_performer",
+      "wikidata": "Q6742070",
+      "source_page": "https://commons.wikimedia.org/wiki/File:KLP48_in_Animangaki_2024_(Elley_Amanda_Wong).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/KLP48_in_Animangaki_2024_%28Elley_Amanda_Wong%29.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/KLP48_in_Animangaki_2024_%28Elley_Amanda_Wong%29.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Alancwl1989",
+      "match_confidence": "medium",
+      "matched_label": "Elley Amanda Wong (Malaysian popular music performer)"
     },
     {
       "id": "malhun_maghrebi",
@@ -16618,6 +17368,21 @@
       "matched_label": "mbube"
     },
     {
+      "id": "medieval_rock",
+      "kind": "tradition",
+      "name": "Medieval Rock (Mittelalter-Rock)",
+      "source": "wikidata_performer",
+      "wikidata": "Q641318",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Cultus_Ferox_live_@_Crana_Historica_2010.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Cultus_Ferox_live_%40_Crana_Historica_2010.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Cultus_Ferox_live_%40_Crana_Historica_2010.jpg/500px-Cultus_Ferox_live_%40_Crana_Historica_2010.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Trollhead",
+      "match_confidence": "medium",
+      "matched_label": "Cultus Ferox (medieval folk rock performer)"
+    },
+    {
       "id": "melodic_death_metal",
       "kind": "tradition",
       "name": "Melodic death metal",
@@ -16676,6 +17441,21 @@
       "credit": "Sumita Roy Dutta",
       "match_confidence": "medium",
       "matched_label": "metal music"
+    },
+    {
+      "id": "mexican_rock",
+      "kind": "tradition",
+      "name": "Mexican Rock",
+      "source": "wikidata_performer",
+      "wikidata": "Q3437861",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Ricardo_Flores_%27El_Abul%C3%B3n%27_(cropped).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Ricardo_Flores_%27El_Abul%C3%B3n%27_%28cropped%29.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Ricardo_Flores_%27El_Abul%C3%B3n%27_%28cropped%29.jpg/500px-Ricardo_Flores_%27El_Abul%C3%B3n%27_%28cropped%29.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "LESSING HERNÁNDEZ / Secretaria de Cultura CDMX",
+      "match_confidence": "medium",
+      "matched_label": "Víctimas del Doctor Parroco (Mexican rock music performer)"
     },
     {
       "id": "microhouse",
@@ -16858,6 +17638,21 @@
       "matched_label": "morna"
     },
     {
+      "id": "moroccan_pop",
+      "kind": "tradition",
+      "name": "Moroccan Pop",
+      "source": "wikidata_performer",
+      "wikidata": "Q16977816",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Mr_Sufian_in_the_Shooting_for_Helk_Studio.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Mr_Sufian_in_the_Shooting_for_Helk_Studio.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Mr_Sufian_in_the_Shooting_for_Helk_Studio.jpg/500px-Mr_Sufian_in_the_Shooting_for_Helk_Studio.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Othmanebenjelloun",
+      "match_confidence": "medium",
+      "matched_label": "Mr Sufian (Moroccan pop performer)"
+    },
+    {
       "id": "motswako",
       "kind": "tradition",
       "name": "Motswako",
@@ -17023,6 +17818,21 @@
       "matched_label": "Ndombolo"
     },
     {
+      "id": "nederpop",
+      "kind": "tradition",
+      "name": "Nederpop",
+      "source": "wikidata_performer",
+      "wikidata": "Q1936659",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Rob_de_Nijs.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Rob_de_Nijs.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Rob_de_Nijs.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Raymond Nieuwenburg",
+      "match_confidence": "medium",
+      "matched_label": "Rob de Nijs (Nederpop performer)"
+    },
+    {
       "id": "neo_soul",
       "kind": "tradition",
       "name": "Neo Soul",
@@ -17051,6 +17861,21 @@
       "credit": "Mika-photography",
       "match_confidence": "high",
       "matched_label": "neo soul"
+    },
+    {
+      "id": "neo_swing",
+      "kind": "tradition",
+      "name": "Neo-Swing",
+      "source": "wikidata_performer",
+      "wikidata": "Q447962",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Hipster_Daddy-O_and_the_Handgrenades_May_2018.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Hipster_Daddy-O_and_the_Handgrenades_May_2018.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Hipster_Daddy-O_and_the_Handgrenades_May_2018.jpg/500px-Hipster_Daddy-O_and_the_Handgrenades_May_2018.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "TLEBSACK",
+      "match_confidence": "medium",
+      "matched_label": "Hipster Daddy-O and the Handgrenades (swing revival performer)"
     },
     {
       "id": "neoclassical_metal",
@@ -17173,6 +17998,21 @@
       "matched_label": "Neue Volksmusik"
     },
     {
+      "id": "new_acoustic",
+      "kind": "tradition",
+      "name": "New Acoustic",
+      "source": "wikidata_performer",
+      "wikidata": "Q7005181",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Don_Ross_2009.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Don_Ross_2009.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Don_Ross_2009.jpg/500px-Don_Ross_2009.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Matthias Tietz",
+      "match_confidence": "medium",
+      "matched_label": "Don Ross (new acoustic music performer)"
+    },
+    {
       "id": "new_age",
       "kind": "tradition",
       "name": "New Age",
@@ -17217,6 +18057,21 @@
       "matched_label": "New Orleans Jazz Fest 2009"
     },
     {
+      "id": "new_rave",
+      "kind": "tradition",
+      "name": "New Rave",
+      "source": "wikidata_performer",
+      "wikidata": "Q1995980",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shitdisco.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Shitdisco.png",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Shitdisco.png/500px-Shitdisco.png",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "frank hommel",
+      "match_confidence": "medium",
+      "matched_label": "Shitdisco (new rave performer)"
+    },
+    {
       "id": "new_romantic",
       "kind": "tradition",
       "name": "New Romanticism (New Romantic)",
@@ -17245,6 +18100,21 @@
       "credit": "Ailura",
       "match_confidence": "medium",
       "matched_label": "new wave"
+    },
+    {
+      "id": "nintendocore",
+      "kind": "tradition",
+      "name": "Nintendocore",
+      "source": "wikidata_performer",
+      "wikidata": "Q2035976",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Devilish_gloomy_1.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Devilish_gloomy_1.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Devilish_gloomy_1.jpg",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "devilish gloomy",
+      "match_confidence": "medium",
+      "matched_label": "Devilish Gloomy (Nintendocore performer)"
     },
     {
       "id": "noise_music",
@@ -17307,6 +18177,21 @@
       "matched_label": "Los Tigres del Norte (norteño performer)"
     },
     {
+      "id": "northern_soul",
+      "kind": "tradition",
+      "name": "Northern Soul",
+      "source": "wikidata_performer",
+      "wikidata": "Q1928583",
+      "source_page": "https://commons.wikimedia.org/wiki/File:LittleRoyal.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/LittleRoyal.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/LittleRoyal.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Elster000",
+      "match_confidence": "medium",
+      "matched_label": "Little Royal and The Swingmasters (Northern soul performer)"
+    },
+    {
       "id": "northern_soul_motown",
       "kind": "tradition",
       "name": "Northern soul and Motown",
@@ -17335,6 +18220,36 @@
       "credit": "Bø Museum",
       "match_confidence": "medium",
       "matched_label": "Norwegian folk music"
+    },
+    {
+      "id": "nouvelle_chanson_francaise",
+      "kind": "tradition",
+      "name": "Nouvelle Chanson Française",
+      "source": "wikidata_performer",
+      "wikidata": "Q2002705",
+      "source_page": "https://commons.wikimedia.org/wiki/File:BB_Brunes_-_F%C3%AAte_de_l%27Humanit%C3%A9_2012_-_028.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/BB_Brunes_-_F%C3%AAte_de_l%27Humanit%C3%A9_2012_-_028.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/BB_Brunes_-_F%C3%AAte_de_l%27Humanit%C3%A9_2012_-_028.jpg/500px-BB_Brunes_-_F%C3%AAte_de_l%27Humanit%C3%A9_2012_-_028.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Thesupermat",
+      "match_confidence": "medium",
+      "matched_label": "Adrien Gallo (nouvelle chanson performer)"
+    },
+    {
+      "id": "novelty_song",
+      "kind": "tradition",
+      "name": "Novelty Song",
+      "source": "wikidata_performer",
+      "wikidata": "Q1151663",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Staysman_at_Spydeberg_Rock_in_2026_(cropped).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Staysman_at_Spydeberg_Rock_in_2026_%28cropped%29.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Staysman_at_Spydeberg_Rock_in_2026_%28cropped%29.jpg/500px-Staysman_at_Spydeberg_Rock_in_2026_%28cropped%29.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Premeditated",
+      "match_confidence": "medium",
+      "matched_label": "Staysman (novelty music performer)"
     },
     {
       "id": "nu_jazz_2000s",
@@ -17472,6 +18387,21 @@
       "matched_label": "onkyokei"
     },
     {
+      "id": "operatic_pop",
+      "kind": "tradition",
+      "name": "Operatic Pop",
+      "source": "wikidata_performer",
+      "wikidata": "Q2336819",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Dimash_en_Concierto.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Dimash_en_Concierto.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Dimash_en_Concierto.jpg/500px-Dimash_en_Concierto.jpg",
+      "license": "CC0",
+      "license_raw": "CC0",
+      "credit": "Elena2200",
+      "match_confidence": "medium",
+      "matched_label": "Dimash Qudaibergen (operatic pop performer)"
+    },
+    {
       "id": "opm",
       "kind": "tradition",
       "name": "OPM (Original Pilipino Music)",
@@ -17562,6 +18492,21 @@
       "matched_label": "pagode"
     },
     {
+      "id": "pakistani_pop",
+      "kind": "tradition",
+      "name": "Pakistani Pop",
+      "source": "wikidata_commons",
+      "wikidata": "Q7125908",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Atif_Aslam_at_o2_arena_on_22_april_2012.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Atif_Aslam_at_o2_arena_on_22_april_2012.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Atif_Aslam_at_o2_arena_on_22_april_2012.jpg/500px-Atif_Aslam_at_o2_arena_on_22_april_2012.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Ayyazji",
+      "match_confidence": "medium",
+      "matched_label": "Pakistani popular music"
+    },
+    {
       "id": "pansori",
       "kind": "tradition",
       "name": "Pansori",
@@ -17622,6 +18567,21 @@
       "matched_label": "Philadelphia soul"
     },
     {
+      "id": "piano_rock",
+      "kind": "tradition",
+      "name": "Piano Rock",
+      "source": "wikidata_performer",
+      "wikidata": "Q2090023",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Augustana_-_Chicago_2010.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Augustana_-_Chicago_2010.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Augustana_-_Chicago_2010.jpg/500px-Augustana_-_Chicago_2010.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 2.0",
+      "credit": "Richard Cornish from Chicago, USA",
+      "match_confidence": "medium",
+      "matched_label": "Augustana (piano rock performer)"
+    },
+    {
       "id": "piedmont_blues",
       "kind": "tradition",
       "name": "Piedmont blues",
@@ -17667,6 +18627,36 @@
       "matched_label": "piphat"
     },
     {
+      "id": "pirate_metal",
+      "kind": "tradition",
+      "name": "Pirate Metal",
+      "source": "wikidata_performer",
+      "wikidata": "Q3389124",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Lagerstein_Dark_Troll_2017_14.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Lagerstein_Dark_Troll_2017_14.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Lagerstein_Dark_Troll_2017_14.jpg/500px-Lagerstein_Dark_Troll_2017_14.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "S. Bollmann",
+      "match_confidence": "medium",
+      "matched_label": "Lagerstein (pirate metal performer)"
+    },
+    {
+      "id": "piseiro",
+      "kind": "tradition",
+      "name": "Piseiro",
+      "source": "wikidata_performer",
+      "wikidata": "Q108857881",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Jo%C3%A3o_Gomes.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Jo%C3%A3o_Gomes.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Jo%C3%A3o_Gomes.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 3.0",
+      "credit": "Lucas Silva Mariano",
+      "match_confidence": "medium",
+      "matched_label": "João Gomes (piseiro performer)"
+    },
+    {
       "id": "pop",
       "kind": "tradition",
       "name": "Pop",
@@ -17695,6 +18685,21 @@
       "credit": "Sven-Sebastian Sajak (Sven0705)",
       "match_confidence": "high",
       "matched_label": "pop-punk"
+    },
+    {
+      "id": "popera",
+      "kind": "tradition",
+      "name": "Popera (classical crossover)",
+      "source": "wikidata_performer",
+      "wikidata": "Q2336819",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Dimash_en_Concierto.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Dimash_en_Concierto.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Dimash_en_Concierto.jpg/500px-Dimash_en_Concierto.jpg",
+      "license": "CC0",
+      "license_raw": "CC0",
+      "credit": "Elena2200",
+      "match_confidence": "medium",
+      "matched_label": "Dimash Qudaibergen (operatic pop performer)"
     },
     {
       "id": "porro",
@@ -17802,6 +18807,21 @@
       "matched_label": "power metal"
     },
     {
+      "id": "power_noise",
+      "kind": "tradition",
+      "name": "Power Noise",
+      "source": "wikidata_performer",
+      "wikidata": "Q1913888",
+      "source_page": "https://commons.wikimedia.org/wiki/File:13-03-23_e-tropolis_Nachtmahr_02.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/13-03-23_e-tropolis_Nachtmahr_02.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/13-03-23_e-tropolis_Nachtmahr_02.jpg/500px-13-03-23_e-tropolis_Nachtmahr_02.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Achim Raschka (talk)",
+      "match_confidence": "medium",
+      "matched_label": "Nachtmahr (power noise performer)"
+    },
+    {
       "id": "power_pop",
       "kind": "tradition",
       "name": "Power pop",
@@ -17845,6 +18865,21 @@
       "credit": "Hadassah Photostorie group",
       "match_confidence": "medium",
       "matched_label": "contemporary worship music"
+    },
+    {
+      "id": "progressive_house",
+      "kind": "tradition",
+      "name": "Progressive House",
+      "source": "wikidata_performer",
+      "wikidata": "Q915152",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Arty_(musician).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Arty_%28musician%29.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Arty_%28musician%29.jpg/500px-Arty_%28musician%29.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 4.0",
+      "credit": "Arty",
+      "match_confidence": "medium",
+      "matched_label": "Arty (progressive house performer)"
     },
     {
       "id": "progressive_metal_classic",
@@ -17952,6 +18987,21 @@
       "matched_label": "psychedelic rock"
     },
     {
+      "id": "psychedelic_soul",
+      "kind": "tradition",
+      "name": "Psychedelic Soul",
+      "source": "wikidata_performer",
+      "wikidata": "Q2743435",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Chambers_Brothers_1970.JPG",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Chambers_Brothers_1970.JPG",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Chambers_Brothers_1970.JPG/500px-Chambers_Brothers_1970.JPG",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Agency for the Performing Arts, Inc.",
+      "match_confidence": "medium",
+      "matched_label": "The Chambers Brothers (psychedelic soul performer)"
+    },
+    {
       "id": "psychobilly",
       "kind": "tradition",
       "name": "Psychobilly",
@@ -18054,6 +19104,21 @@
       "credit": "Icebox",
       "match_confidence": "high",
       "matched_label": "rage"
+    },
+    {
+      "id": "ragga",
+      "kind": "tradition",
+      "name": "Ragga",
+      "source": "wikidata_performer",
+      "wikidata": "Q740911",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Vavamuffin.JPG",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Vavamuffin.JPG",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Vavamuffin.JPG/500px-Vavamuffin.JPG",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 2.5",
+      "credit": "DaguS",
+      "match_confidence": "medium",
+      "matched_label": "Vavamuffin (ragga performer)"
     },
     {
       "id": "ragga_jungle",
@@ -18565,6 +19630,21 @@
       "matched_label": "samba de roda"
     },
     {
+      "id": "samba_enredo",
+      "kind": "tradition",
+      "name": "Samba-Enredo (escola de samba competition theme samba)",
+      "source": "wikidata_performer",
+      "wikidata": "Q3470692",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gusttavo_Clar%C3%A3o_EBC.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Gusttavo_Clar%C3%A3o_EBC.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Gusttavo_Clar%C3%A3o_EBC.jpg/500px-Gusttavo_Clar%C3%A3o_EBC.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 3.0 br",
+      "credit": "Empresa Brasil de Comunicação - EBC",
+      "match_confidence": "medium",
+      "matched_label": "Gusttavo Clarão (samba-enredo performer)"
+    },
+    {
       "id": "samba_rock",
       "kind": "tradition",
       "name": "Samba Rock",
@@ -18592,6 +19672,21 @@
       "credit": "LAMARA BERGA via flickr",
       "match_confidence": "low",
       "matched_label": "Samul nori"
+    },
+    {
+      "id": "scam_rap",
+      "kind": "tradition",
+      "name": "Scam Rap",
+      "source": "wikidata_performer",
+      "wikidata": "Q122143484",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Teejayx6_laced_visuals.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Teejayx6_laced_visuals.png",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Teejayx6_laced_visuals.png/500px-Teejayx6_laced_visuals.png",
+      "license": "CC BY",
+      "license_raw": "CC BY 3.0",
+      "credit": "Laced Visuals",
+      "match_confidence": "medium",
+      "matched_label": "Teejayx6 (scam rap performer)"
     },
     {
       "id": "schlager_german",
@@ -18682,6 +19777,21 @@
       "credit": "HelenOnline",
       "match_confidence": "high",
       "matched_label": "sega"
+    },
+    {
+      "id": "seggae",
+      "kind": "tradition",
+      "name": "Seggae",
+      "source": "wikidata_performer",
+      "wikidata": "Q3477737",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Blakkayo.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Blakkayo.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Blakkayo.jpg/500px-Blakkayo.jpg",
+      "license": "CC0",
+      "license_raw": "CC0",
+      "credit": "Damsb",
+      "match_confidence": "medium",
+      "matched_label": "Blakkayo (seggae performer)"
     },
     {
       "id": "sertanejo",
@@ -18922,6 +20032,21 @@
       "credit": "Miles Gehm from San Jose, USA",
       "match_confidence": "medium",
       "matched_label": "ska"
+    },
+    {
+      "id": "skate_punk",
+      "kind": "tradition",
+      "name": "Skate Punk",
+      "source": "wikidata_performer",
+      "wikidata": "Q828305",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Dave_raun_lagwagon.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Dave_raun_lagwagon.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Dave_raun_lagwagon.jpg/500px-Dave_raun_lagwagon.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "Scott Murry",
+      "match_confidence": "medium",
+      "matched_label": "Dave Raun (skate punk performer)"
     },
     {
       "id": "skiffle",
@@ -19418,6 +20543,51 @@
       "matched_label": "surf music"
     },
     {
+      "id": "swamp_pop",
+      "kind": "tradition",
+      "name": "Louisiana Swamp Pop",
+      "source": "wikidata_commons",
+      "wikidata": "Q106522115",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Swamp_pop_musician_Jivin%27_Gene,_c._1959.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Swamp_pop_musician_Jivin%27_Gene%2C_c._1959.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Swamp_pop_musician_Jivin%27_Gene%2C_c._1959.jpg",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "The original uploader was Skb8721 at English Wikipedia.",
+      "match_confidence": "medium",
+      "matched_label": "swamp pop"
+    },
+    {
+      "id": "swamp_rock",
+      "kind": "tradition",
+      "name": "Swamp rock",
+      "source": "wikidata_performer",
+      "wikidata": "Q675553",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Tommy_McLain.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Tommy_McLain.png",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Tommy_McLain.png/500px-Tommy_McLain.png",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Jamie/Guyden Distributing Corporation",
+      "match_confidence": "medium",
+      "matched_label": "Tommy McLain (swamp rock performer)"
+    },
+    {
+      "id": "swing_house",
+      "kind": "tradition",
+      "name": "Swing House",
+      "source": "wikidata_performer",
+      "wikidata": "Q602561",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Andrew_%22Andy%22_Stanley_and_Matthew_%22Matt%22_Handley_in_a_press_photo..jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Andrew_%22Andy%22_Stanley_and_Matthew_%22Matt%22_Handley_in_a_press_photo..jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Andrew_%22Andy%22_Stanley_and_Matthew_%22Matt%22_Handley_in_a_press_photo..jpg/500px-Andrew_%22Andy%22_Stanley_and_Matthew_%22Matt%22_Handley_in_a_press_photo..jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Goodquestionla",
+      "match_confidence": "medium",
+      "matched_label": "Yolanda Be Cool (electro swing performer)"
+    },
+    {
       "id": "symphonic_metal_classic",
       "kind": "tradition",
       "name": "Symphonic metal",
@@ -19523,6 +20693,21 @@
       "matched_label": "tarantella"
     },
     {
+      "id": "tech_trance",
+      "kind": "tradition",
+      "name": "Tech Trance",
+      "source": "wikidata_performer",
+      "wikidata": "Q2302695",
+      "source_page": "https://commons.wikimedia.org/wiki/File:MarcoV_2007.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/MarcoV_2007.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/MarcoV_2007.jpg/500px-MarcoV_2007.jpg",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Rickysts at English Wikipedia",
+      "match_confidence": "medium",
+      "matched_label": "Marco V (tech trance performer)"
+    },
+    {
       "id": "techno",
       "kind": "tradition",
       "name": "Techno",
@@ -19583,6 +20768,21 @@
       "matched_label": "tecnocumbia"
     },
     {
+      "id": "tejano",
+      "kind": "tradition",
+      "name": "Tejano (Tejano pop and orquesta)",
+      "source": "wikidata_performer",
+      "wikidata": "Q431415",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Jennifer_Pe%C3%B1a_cropped.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Jennifer_Pe%C3%B1a_cropped.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Jennifer_Pe%C3%B1a_cropped.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "derivative work: Tabercil (talk) Jennifer_Peña.jpg: ares415",
+      "match_confidence": "medium",
+      "matched_label": "Jennifer Peña (tejano music performer)"
+    },
+    {
       "id": "texas_blues",
       "kind": "tradition",
       "name": "Texas Blues",
@@ -19641,6 +20841,21 @@
       "credit": "Melakuweb",
       "match_confidence": "medium",
       "matched_label": "Dawit Nega (Tigrinya music performer)"
+    },
+    {
+      "id": "timba",
+      "kind": "tradition",
+      "name": "Timba",
+      "source": "wikidata_performer",
+      "wikidata": "Q371745",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Maikel_Blanco_Cuevas_(1).JPG",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Maikel_Blanco_Cuevas_%281%29.JPG",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Maikel_Blanco_Cuevas_%281%29.JPG/500px-Maikel_Blanco_Cuevas_%281%29.JPG",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Jpbazard Jean-Pierre Bazard",
+      "match_confidence": "medium",
+      "matched_label": "Maikel Blanco (timba performer)"
     },
     {
       "id": "tinku_bolivia",
@@ -19718,6 +20933,21 @@
       "matched_label": "trip hop"
     },
     {
+      "id": "tropical_house",
+      "kind": "tradition",
+      "name": "Tropical House",
+      "source": "wikidata_performer",
+      "wikidata": "Q18342587",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Kungs_in_interview_with_Dance_FM.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Kungs_in_interview_with_Dance_FM.png",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Kungs_in_interview_with_Dance_FM.png/500px-Kungs_in_interview_with_Dance_FM.png",
+      "license": "CC BY",
+      "license_raw": "CC BY 3.0",
+      "credit": "Dance FM",
+      "match_confidence": "medium",
+      "matched_label": "Kungs (tropical house performer)"
+    },
+    {
       "id": "tropicalia",
       "kind": "tradition",
       "name": "Tropicália",
@@ -19746,6 +20976,51 @@
       "credit": "Kaloian Santos Cabrera",
       "match_confidence": "medium",
       "matched_label": "trova"
+    },
+    {
+      "id": "turbo_folk",
+      "kind": "tradition",
+      "name": "Turbo-folk",
+      "source": "wikidata_performer",
+      "wikidata": "Q786815",
+      "source_page": "https://commons.wikimedia.org/wiki/File:RodoljubRokiVulovic.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/99/RodoljubRokiVulovic.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/RodoljubRokiVulovic.jpg/500px-RodoljubRokiVulovic.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "AtheerHasWiFi",
+      "match_confidence": "medium",
+      "matched_label": "Rodoljub Vulović (turbo-folk performer)"
+    },
+    {
+      "id": "turkish_folk",
+      "kind": "tradition",
+      "name": "Turkish Folk (Türk Halk Müziği)",
+      "source": "wikidata_performer",
+      "wikidata": "Q1810546",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Guler-duman.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Guler-duman.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Guler-duman.jpg/500px-Guler-duman.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Mkkarakus",
+      "match_confidence": "medium",
+      "matched_label": "Güler Duman (Turkish folk music performer)"
+    },
+    {
+      "id": "turkish_pop",
+      "kind": "tradition",
+      "name": "Turkish Pop",
+      "source": "wikidata_performer",
+      "wikidata": "Q7855391",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Aynur_Ayd%C4%B1n_2011_(1)_-_cropped.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Aynur_Ayd%C4%B1n_2011_%281%29_-_cropped.png",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Aynur_Ayd%C4%B1n_2011_%281%29_-_cropped.png",
+      "license": "CC BY",
+      "license_raw": "CC BY 3.0",
+      "credit": "Aynur Aydın",
+      "match_confidence": "medium",
+      "matched_label": "Aynur Aydın (Turkish pop performer)"
     },
     {
       "id": "turntablism",
@@ -19973,6 +21248,21 @@
       "matched_label": "viking metal"
     },
     {
+      "id": "vispop",
+      "kind": "tradition",
+      "name": "Vispop",
+      "source": "wikidata_performer",
+      "wikidata": "Q963369",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Kenneth_G%C3%A4rdestad_head_to_waist_2016_(cropped).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Kenneth_G%C3%A4rdestad_head_to_waist_2016_%28cropped%29.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Kenneth_G%C3%A4rdestad_head_to_waist_2016_%28cropped%29.jpg/500px-Kenneth_G%C3%A4rdestad_head_to_waist_2016_%28cropped%29.jpg",
+      "license": "CC0",
+      "license_raw": "CC0",
+      "credit": "AleWi",
+      "match_confidence": "medium",
+      "matched_label": "Kenneth Gärdestad (vispop performer)"
+    },
+    {
       "id": "visual_kei",
       "kind": "tradition",
       "name": "Visual kei",
@@ -20046,6 +21336,21 @@
       "credit": "weekly dig",
       "match_confidence": "medium",
       "matched_label": "wonky"
+    },
+    {
+      "id": "worldbeat_80s",
+      "kind": "tradition",
+      "name": "Worldbeat",
+      "source": "wikidata_performer",
+      "wikidata": "Q2064394",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Obo_Addy.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Obo_Addy.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Obo_Addy.jpg/500px-Obo_Addy.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "K. Kendall",
+      "match_confidence": "medium",
+      "matched_label": "Obo Addy (worldbeat performer)"
     },
     {
       "id": "ye_ye",
