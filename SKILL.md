@@ -648,7 +648,8 @@ checker must still print `{"totalIssues":0,…}`.
 path). Don't hand-edit the duplicated pieces independently:
 - **Tradition signatures** live canonically in `references/_tradition_signatures.json`;
   `node scripts/build_signatures.js` regenerates the `app.js` inline copy from it. Never
-  edit the `app.js` `TRADITION_SIGNATURES` block by hand.
+  edit the `app.js` `TRADITION_SIGNATURES` block by hand. Adding a token means classing it
+  in `references/_soundword_vocab.json` and, if it is cultural, ruling the pair (I8).
 - `scripts/equivalence.js` (in `npm test` and `build.js`) executes both the browser
   functions (in jsdom) and the node primitives on shared fixtures and fails if their
   descriptor sets or preface picks diverge — behavioral parity, not just textual. <!-- @promise: browser-node-parity --> If you
@@ -712,6 +713,16 @@ re-run the checker.
   punctuation are stripped — an unruled collision fails `check_duplicates.js`, whether it
   is one record too many or two different things a reader cannot tell apart. Adjudicated
   pairs live in `scripts/_duplicate_rulings.json`. <!-- @promise: no-duplicate-entities -->
+- I8 Every cultural token on a tradition's signature carries a written verdict, and no token
+  ruled false survives in the signature table or in any copy of it the product publishes. A token
+  is cultural when `references/_soundword_vocab.json` classes it so (it names a people, place,
+  language, religion or named cultural tradition); each such (tradition, token) pair is ruled
+  `attested`, `loose` or `false` against that tradition's own catalog prose in
+  `references/_signature_rulings.json`, and a false pair is deleted from
+  `references/_tradition_signatures.json`. `scripts/check_signature_tokens.js` fails on an
+  unruled cultural pair, on a false pair still in the table, the `src/app.js` mirror or
+  `codex.html`, and on any signature token the vocabulary does not class — so a new cultural
+  claim cannot land unread. <!-- @promise: signature-attribution-ruled -->
 
 ### Invariant checker (verified — clean on shipped data; flags injected damage)
 

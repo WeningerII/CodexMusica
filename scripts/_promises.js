@@ -39,6 +39,18 @@ module.exports = [
       'no two entities of one kind share a display label once case, accents and punctuation are stripped (unruled collisions fail the gate)',
   },
   {
+    id: 'signature-attribution-ruled',
+    doc: 'SKILL.md',
+    gate: 'check_signature_tokens.js',
+    // "any copy of it the product publishes" rather than "anything the product
+    // publishes": the gate reads the table and its two published copies
+    // (src/app.js, codex.html). A preface label whose id happens to spell a
+    // ruled-out token (andalusi_nuba's bendir still auto-derives the preface
+    // `sufi-mystical` from other words) is a different channel it does not read.
+    claim:
+      'every cultural token on a tradition carries a written verdict, and no token ruled false survives in the signature table or in any copy of it the product publishes',
+  },
+  {
     id: 'catalog-counts',
     doc: 'SKILL.md',
     gate: 'check_docs.js',
