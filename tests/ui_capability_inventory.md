@@ -1822,6 +1822,194 @@ precondition: empty
 notes: Kept alongside the exact returns in one declaration in the harness's spelling (e.g. 5.head,13.head); Declare these exact returns keeps placed ones.
 ```
 
+## Genre page redesign (2026-09-25)
+
+The Genre page (`src/pages/genre.js`, `src/pages/genre.css`): a Browse column (the 25 taxonomy roots, the current branch, Find a sound) beside the catalogue (Start exploring / All genres, List or Grid), with Your recipe as the shell's sidebar. On a fresh session Start exploring opens the first starter recipe (Delta blues) in place, so its five detail tabs resolve under `empty`. Selectors below are presence checks; the interactions were exercised in Chromium for the PR (targets filter and rank, tab keys, both instrument destinations, View on map and back, list position on return).
+
+```yaml
+name: genre-view-tabs
+kind: widget
+selector: '#surface-genre [data-ui="genre-view-tab"]'
+surface: Genre — Start exploring / All genres (tab list; Arrow keys, Home, End)
+implementation: genre-view-tab and gpTabKeys in src/pages/genre.js
+status: reachable
+precondition: empty
+notes: A search always shows All genres; the six starter recipes, Suggestions for this recipe (when Your recipe has a primary genre) and Browse all live under Start exploring.
+```
+
+```yaml
+name: genre-layout-list-grid
+kind: widget
+selector: '#surface-genre [data-ui="genre-layout"]'
+surface: Genre — List / Grid (the same rows as cards; an open genre spans the grid)
+implementation: genre-layout in src/pages/genre.js; remembered as the layout preference codex-layout:genre-view, cleared by Reset layout
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-browse-roots
+kind: data-action
+selector: '#genre-browse [data-ui="genre-branch"]'
+surface: Genre — Browse column: the taxonomy roots (ten, then All 25 categories), a branch's children, Back; counts include cross-listed members and equal the list they open
+implementation: gpBrowse / gpMembership in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-browse-all-roots
+kind: data-action
+selector: '#genre-browse [data-ui="genre-roots"]'
+surface: Genre — Browse: All 25 categories / Fewer categories
+implementation: genre-roots in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-browse-disclosure
+kind: widget
+selector: '#genre-browse [data-ui="genre-browse-toggle"]'
+surface: Genre — narrow catalogue (phones, or the editor open beside it): Categories & find a sound, naming the branch and targets in force; Browse tree stays in the heading row
+implementation: genre-browse-toggle in src/pages/genre.js; shown by the discovery container query in src/pages/genre.css
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-find-a-sound
+kind: widget
+selector: '#genre-browse input[type="range"][data-axis]'
+surface: Genre — Find a sound: one compact row per sound characteristic, its two ends either side of the slider (acoustic ——o—— processed / synthesized); three shown, All 13 characteristics for the rest. Moving, clicking or Enter applies a target; an applied row is outlined, bolds the end it leans to, shows its ×, and its value is the slider's value text and a chip above the list. The characteristic's name is the slider's label and tooltip. A Browse column too narrow for the ends beside the slider stacks them above it
+implementation: gpApplyAxis / gpResults in src/pages/genre.js — keeps genres within one step of every target and ranks by total distance, the engine's --axis-target rule (scripts/search.js findClosestTraditionByAxis)
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-find-a-sound-all-13
+kind: data-action
+selector: '#genre-browse [data-ui="genre-axes"]'
+surface: Genre — Find a sound: All 13 characteristics / Fewer characteristics
+implementation: genre-axes in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-find-a-sound-clear
+kind: data-action
+selector: '#genre-browse .gp-axis-clear'
+surface: Genre — Find a sound: clear one target (the × on an applied row, and the matching chip above the list); Reset clears all
+implementation: genre-sound-clear / genre-sound-reset in src/pages/genre.js
+status: reachable
+precondition: empty
+notes: The per-row clear is rendered hidden until its target applies (presence check only). Reset and Match a sound are disabled, with the hint "Choose a target, then match.", until one applies.
+```
+
+```yaml
+name: genre-find-a-sound-match
+kind: data-action
+selector: '#genre-browse [data-ui="genre-sound-match"]'
+surface: Genre — Match a sound: opens the genre closest to the targets (first of the ranked All genres list)
+implementation: genre-sound-match in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-detail-tabs
+kind: widget
+selector: '#genre-detail [role="tab"][data-ui="genre-tab"]'
+surface: Genre detail — Overview / Sound profile / Instruments / Similar sounds / Background (tab list; Arrow keys, Home, End)
+implementation: gpDetail / gpSetTab in src/pages/genre.js
+status: reachable
+precondition: empty
+notes: Opens in place in its row, or at the top when the genre is not in the current list (a deep link, Similar sounds, the Map). Close (Esc) returns focus to the row it came from and puts it back in view.
+```
+
+```yaml
+name: genre-detail-sound-targets-from-profile
+kind: data-action
+selector: '#genre-detail [data-ui="genre-sound-from"]'
+surface: Genre detail — Sound profile / Similar sounds: Use as sound targets (sets all 13 targets to this genre's profile and lists the genres within one step)
+implementation: genre-sound-from in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-detail-instrument-destination
+kind: widget
+selector: '#genre-detail #gp-inst-dest'
+surface: Genre detail — Instruments: "Add single instruments to" this genre (set up as it plays it; the group is created if absent), another genre already in Your recipe, or an independent instrument
+implementation: gpInstruments / gpAddInstrument in src/pages/genre.js — the canonical addInstrumentFromPicker path; the toast names the destination
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-detail-instrument-add
+kind: data-action
+selector: '#genre-detail [data-ui="genre-inst-add"]'
+surface: Genre detail — Instruments: Add one instrument to the chosen destination (also Inspect on the Instrument page, Listen, and Add the whole ensemble)
+implementation: gpAddInstrument in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-detail-view-on-map
+kind: data-action
+selector: '#genre-detail [data-ui="genre-map"]'
+surface: Genre detail — View on map: the Map opens with this tradition selected; the toast offers Back to <genre>, and Back or the Genre tab return to the same detail
+implementation: gpViewOnMap in src/pages/genre.js (the atlas's ?trad= deep link)
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-detail-background-references
+kind: widget
+selector: '#genre-detail #gp-panel-background'
+surface: Genre detail — Background: About, Lineage, Classification (primary path and cross-listings, "not a claim of historical descent"), Recordings & references (the catalog's exemplar artists with Listen searches; catalog status). Nothing is added that the catalog does not hold
+implementation: gpBackground in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-row-open
+kind: widget
+selector: '#genre-list .gp-row .gp-open'
+surface: Genre — a list row: picture, name, branch, description; the text column fills the row up to Listen and Add to recipe, and the chevron sits at the row's right edge. The name button opens the details in place (keyboard route); a click anywhere else on the row that is not a control does the same
+implementation: gpRow and the row click listener in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-media-photo-or-glyph
+kind: widget
+selector: '#surface-genre .gp-media'
+surface: Genre — a genre's picture in rows, cards and details. When references/_image_manifest.json is served (PR #389), a tradition with an entry shows its thumb_url with "Photo: <credit> · <licence>" (linked to the source page in the details); without an entry, without the manifest (a 404 is one quiet request, no script error), or when the image fails to load, the tradition's glyphs show whole and no credit is left behind
+implementation: gpLoadOptional / gpIndexImages / gpImage / gpMedia and the image error listener in src/pages/genre.js
+status: reachable
+precondition: empty
+notes: Presence check only (the glyph fallback always renders). The photo path was exercised in Chromium with PR #389's manifest served and the thumbnails stubbed, since the sandbox cannot reach Wikimedia.
+```
+
+```yaml
+name: genre-explore-map
+kind: data-action
+selector: '#genre-browse [data-ui="genre-explore-map"]'
+surface: Genre — Browse column: Explore the map
+implementation: genre-explore-map in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
 ## Map page (2026-09-25)
 
 The Map page redesign (`docs/ui-foundation.md` → Map). Everything below lives

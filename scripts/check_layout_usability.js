@@ -124,11 +124,26 @@ async function noOverflow(page) {
       await page.locator('.sb-card').first().waitFor({ state: 'attached' });
       if (width < 900) await page.locator('[data-ui="session"]').click();
       else {
+        // The recipe column may sit on either side (recipe: 'sidebar' or
+        // 'sidebar-right'). Narrow it first — a right-hand column can open at
+        // its maximum — then widen it back, proving both directions.
         const split = page.getByRole('separator', { name: 'Resize recipe sidebar' });
-        const before = await page.locator('#workspace-sidebar').boundingBox();
-        await split.press('ArrowRight');
+        const sidebar = page.locator('#workspace-sidebar');
+        const before = await sidebar.boundingBox();
+        const onRight = before.x > width / 2;
+        await split.press(onRight ? 'ArrowRight' : 'ArrowLeft');
         await settle(page);
-        assert.ok((await page.locator('#workspace-sidebar').boundingBox()).width > before.width);
+        const narrowed = await sidebar.boundingBox();
+        assert.ok(
+          narrowed.width < before.width,
+          `recipe splitter must narrow the ${onRight ? 'right' : 'left'}-hand column`
+        );
+        await split.press(onRight ? 'ArrowLeft' : 'ArrowRight');
+        await settle(page);
+        assert.ok(
+          (await sidebar.boundingBox()).width > narrowed.width,
+          `recipe splitter must widen the ${onRight ? 'right' : 'left'}-hand column`
+        );
         await split.press('Home');
       }
       const card = page.locator('.sb-card').first();

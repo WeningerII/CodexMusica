@@ -80,6 +80,21 @@ def line_figures(stream, names=None, keep_refusals=True):
                          else ()) for n in asked) \
             and stream.supply("caesura").state != "present":
         R.search_caesura(stream)
+    # THE LIFT FRAME, ON THE SAME TERMS (2026-09-25). `alliterative long line`
+    # and `fourth lift must not alliterate` refuse without `frames.lifts`, and
+    # this function supplied the caesura and not the lifts, so on the route
+    # as shipped both REFUSED on every stream (`quality/figure_exhibits.py`
+    # had to call `search_lifts` itself and recorded that as a FINDING).
+    # `search_lifts` reads the phonology's own prominence; its two counts
+    # (lifts per half-line, halves per line) are the Germanic long-line
+    # convention, which is exactly the form the two lift schemas name, so the
+    # defaults are the schemas' own and not a choice made here. Called after
+    # the caesura, because a present caesura is the split it prefers, and
+    # never over a caller's own declaration (doctrine 1).
+    if any("lifts" in (R.REGISTRY[n].capabilities() if n in R.REGISTRY
+                       else ()) for n in asked) \
+            and stream.supply("lifts").state != "present":
+        R.search_lifts(stream)
     out, refused = {}, []
     for name in asked:
         sch = R.REGISTRY.get(name)
