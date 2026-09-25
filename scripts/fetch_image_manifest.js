@@ -302,6 +302,11 @@ async function commonsDepicts(matches) {
   return { tried: done, of: todo.length };
 }
 
+// Commons appends utm_* tracking parameters to file URLs; drop them.
+function stripTracking(u) {
+  return u && u.replace(/\?utm_[^#]*$/, '');
+}
+
 async function commonsInfo(files) {
   const out = {};
   for (const batch of chunk([...new Set(files)], 50)) {
@@ -330,8 +335,8 @@ async function commonsInfo(files) {
       out[title.replace(/_/g, ' ')] = {
         license_raw: (em.LicenseShortName && em.LicenseShortName.value) || '',
         author: stripHtml((em.Artist && em.Artist.value) || (em.Credit && em.Credit.value) || ''),
-        image_url: ii.url,
-        thumb_url: ii.thumburl || ii.url,
+        image_url: stripTracking(ii.url),
+        thumb_url: stripTracking(ii.thumburl || ii.url),
         source_page: ii.descriptionurl,
       };
     }
