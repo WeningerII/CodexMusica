@@ -45,9 +45,13 @@
 // CC BY / CC BY-SA are kept. Sources that fail (network policy, no key) are
 // recorded under `skipped_sources` and the run carries on.
 //
-// Usage: node scripts/fetch_image_manifest.js [--limit N] [--kind instrument|tradition]
-//        [--cache FILE] [--out FILE] [--fresh] [--depicts-minutes N]
+// Usage: node scripts/fetch_image_manifest.js [--offset N] [--limit N]
+//        [--kind instrument|tradition] [--cache FILE] [--out FILE] [--fresh] [--depicts-minutes N]
 //        [--category-minutes N] [--search-minutes N] [--openverse-budget N]
+//
+// --kind, --offset and --limit narrow which index entries a run looks up
+// (offset/limit count within each kind's index), so a long fill can run in
+// chunks; entries outside that scope are kept as they are.
 
 const fs = require('fs');
 const path = require('path');
@@ -56,6 +60,7 @@ const ROOT = path.join(__dirname, '..');
 const args = process.argv.slice(2);
 const opts = {
   limit: Infinity,
+  offset: 0,
   kind: null,
   out: path.join(ROOT, 'references', '_image_manifest.json'),
   cache: null,
@@ -68,6 +73,7 @@ const opts = {
 };
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--limit') opts.limit = parseInt(args[++i], 10);
+  else if (args[i] === '--offset') opts.offset = parseInt(args[++i], 10);
   else if (args[i] === '--kind') opts.kind = args[++i];
   else if (args[i] === '--out') opts.out = args[++i];
   else if (args[i] === '--cache') opts.cache = args[++i];
@@ -154,10 +160,16 @@ if (opts.cache && fs.existsSync(opts.cache))
 function saveCache() {
   if (opts.cache) fs.writeFileSync(opts.cache, JSON.stringify(cache));
 }
+// Saved every few new entries too, so a run cut short keeps most lookups.
+let unsaved = 0;
 async function cached(key, fn) {
   if (key in cache) return cache[key];
   const v = await fn();
   cache[key] = v;
+  if (++unsaved >= 25) {
+    unsaved = 0;
+    saveCache();
+  }
   return v;
 }
 
@@ -922,10 +934,12 @@ async function viaOpenverse(entities, skipped) {
 // named instrument or tradition (a logo, map or place; a different
 // instrument or genre; or nothing that can be confirmed). Keyed by entity,
 // valued by the rejected image's file name, so a regeneration drops the
-// same pick again but still takes a different image for that entity.
+// same pick again but still takes a different image for that entity. A
+// list rejects several picks for one entity.
 // Commons depicts (P180) fallbacks, alias-matched Wikidata items, museum
 // title matches and Openverse hits are not verified here; review new ones.
 const REJECTED = {
+  'instrument:bandola_andina': ['Bandolallanera.jpg', 'Bandola_dusepo.jpg'],
   'instrument:barrel_organ': 'Barrel_piano_-_Λατέρνα(laterna).JPG',
   'instrument:bassanello': 'Guizza_foto_storica_chiesa_Bassanello_vista_aerea.jpg',
   'instrument:been_snake_charmer': 'Rudraveena1.JPG',
@@ -938,11 +952,18 @@ const REJECTED = {
   'instrument:crotales': 'Cymbales-E_12567-img_2793.jpg',
   'instrument:cuatro_pr': 'Cuatro_Ramon_Blanco.jpg',
   'instrument:dan_tam_thap_luc': 'Hammered_dulcimer.JPG',
-  'instrument:fiddle': '1918.381_print.jpg',
+  'instrument:fiddle': [
+    '1918.381_print.jpg',
+    'originaal?id=fe7aeb84-ad51-4ef2-a992-eccde92163d8',
+    'Bow_Fiddle_Rock_East.jpg',
+  ],
+  'instrument:gaita_colombiana': 'Gaita_galega.jpg',
   'instrument:gaku_biwa': '곡경비파_(2).JPG',
+  'instrument:gamelan_balinese_full': 'dia-1980.09.0009.A-001.jpg',
+  'instrument:gamelan_javanese_full': 'dia-1980.09.0009.A-001.jpg',
   'instrument:gender': '1968.07.0001a.jpg',
   'instrument:gijak_turkmen': 'Ghaychak.jpg',
-  'instrument:harmonium_indian': '134286.jpg',
+  'instrument:harmonium_indian': ['134286.jpg', '0331wTuAoqHH?dimension=1200x1200'],
   'instrument:harpa': 'zoom',
   'instrument:hydraulis': 'Paseo_de_la_Guarania.png',
   'instrument:irish_wooden_flute': 'Charles_Nicholson00.jpg',
@@ -951,8 +972,12 @@ const REJECTED = {
   'instrument:kenong': 'Karawitan_Junior.jpg',
   'instrument:kuzhal': 'The_Tribal_Triumph.jpg',
   'instrument:marimba_centroamericana': 'Esmeraldian_(Afro-Ecuadorian)_marimba.jpg',
-  'instrument:marimba_orchestral': 'Esmeraldian_(Afro-Ecuadorian)_marimba.jpg',
-  'instrument:melodeon_diatonic': 'New_Haven_Melodeon,_Mission_Mill_Museum.jpg',
+  'instrument:marimba_orchestral': [
+    'Esmeraldian_(Afro-Ecuadorian)_marimba.jpg',
+    'MUS805A.jpg',
+    'zoom',
+  ],
+  'instrument:melodeon_diatonic': ['New_Haven_Melodeon,_Mission_Mill_Museum.jpg', '134275.jpg'],
   'instrument:naghara_azerbaijani': 'Nagara,_MDMB_945.jpg',
   'instrument:organistrum':
     'Chiesa_di_San_Maurizio_-_Museo_della_Musica_in_Venice_-_Ghironda_1850_.jpg',
@@ -960,24 +985,33 @@ const REJECTED = {
   'instrument:pyeonjong': 'Bianzhong.jpg',
   'instrument:quern_grindstone': 'MM+19490(1).jpg',
   'instrument:rabel_castellano': 'Encuentro_homenaje_en_Valdeolea.jpg',
-  'instrument:rebab': 'DP252791.jpg',
+  'instrument:rebab': ['DP252791.jpg', 'image.jpg'],
   'instrument:riq': 'Pair_of_dafs.jpg',
   'instrument:sambuca_ancient': 'Fresco_of_women_listening_to_a_private_musical_performance.jpg',
   'instrument:sanj':
     'Musicians_of_the_Akbar\'s_naqqāra-khāna,_from_painting_"An_Attempt_on_Akbar\'s_Life"-Akbarnama.jpg',
+  'instrument:santur': 'Greek_Santur.jpg',
+  'instrument:semi_hollow_bass': 'GMFT3-2_piles_of_semi-hollow_bodies,_in_work_in_process.jpg',
   'instrument:shabbaba': 'midp89.4.444.jpg',
   'instrument:shawm': 'MUS478A5.jpg',
   'instrument:shudraga': 'Mongolian_lute,_circa_1279-1368,_Tomb_of_Wang_Qing.jpg',
-  'instrument:tambura_balkan': 'DP-24037-001.jpg',
+  'instrument:tambura_balkan': [
+    'DP-24037-001.jpg',
+    'Indian_string_instruments_-_Saravati_vina,_Bin_or_Rudra_veena,_Esraj_or_Diltuba,_Tambura,_Fiddle_or_Violin,_Sitar,_Surbahar,_Sarangi,_Tambura_-_Harmonium,_Tabla_-_MIM_Brussels_(2018-05-26_10.41.21_by_Miguel_Discart_@Flickr_46273431562).jpg',
+  ],
   'instrument:tanbur_maltese': 'midp89.4.1384.jpg',
-  'instrument:tar_frame_drum': 'Tār_MET_midp89.4.1858.jpg',
+  'instrument:tar_frame_drum': ['Tār_MET_midp89.4.1858.jpg', 'midp89.4.1858.jpg'],
   'instrument:tilinca': 'f39862d97cfc43a99c4150501a9be23a.jpg',
   'instrument:trumpet': 'MUS1129A.jpg',
   'instrument:tubular_bells': 'Windchimes_02.jpg',
+  'instrument:veena': [
+    'Icon_of_person_playing_Indian_instrument_Veena.svg',
+    'Woman_with_veena,_Crafts_Museum,_New_Delhi,_India.jpg',
+  ],
   'instrument:villu_pattu_bow': 'ഓണവില്ല്_ഉപയോഗിച്ചുള്ള_പാട്ട്൧.resized.jpg',
   'instrument:vladimirskiy_rozhok': 'Рагаи_и_коленами.jpg',
   'instrument:xalam': 'Diffa_Niger_Griot_DSC_0177.jpg',
-  'instrument:xylophone': 'MUS786A.jpg',
+  'instrument:xylophone': ['MUS786A.jpg', '1949.15.0030.jpg'],
   'instrument:zokra': 'Zournas.jpg',
   'tradition:afro_punk': 'Punks_SP.jpg',
   'tradition:afrobeat': 'Kalakuta_Queens.jpg',
@@ -1100,21 +1134,24 @@ function isRejected(key, imageUrl) {
       .split('/')
       .pop()
   );
-  return REJECTED[key] === file;
+  return [].concat(REJECTED[key] || []).includes(file);
 }
 
 // ---- Main ----
+// Every catalog entity, each marked whether this run's --kind / --offset /
+// --limit scope covers it.
 function loadEntities() {
   const list = [];
   for (const [kind, file] of [
     ['instrument', 'api/instruments/index.json'],
     ['tradition', 'api/traditions/index.json'],
   ]) {
-    if (opts.kind && opts.kind !== kind) continue;
     const idx = JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'));
-    for (const it of idx.items.slice(0, opts.limit)) {
+    for (const [i, it] of idx.items.entries()) {
       const e = { key: kind + ':' + it.id, id: it.id, kind, name: it.name };
-      if (kind === 'instrument') {
+      e.inScope =
+        (!opts.kind || opts.kind === kind) && i >= opts.offset && i < opts.offset + opts.limit;
+      if (kind === 'instrument' && e.inScope) {
         const rec = JSON.parse(
           fs.readFileSync(path.join(ROOT, 'api/instruments', it.id + '.json'))
         );
@@ -1141,7 +1178,7 @@ async function main() {
   const existing = loadExisting();
   const kept = {};
   for (const img of existing.images) kept[img.kind + ':' + img.id] = img;
-  const entities = all.filter((e) => !kept[e.key]);
+  const entities = all.filter((e) => e.inScope && !kept[e.key]);
   const skipped = [];
   const found = {};
   // A reviewed rejection leaves the entity open for the next source.

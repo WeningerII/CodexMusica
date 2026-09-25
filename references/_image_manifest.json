@@ -4,19 +4,21 @@
   "coverage": {
     "instrument": {
       "total": 1467,
-      "with_image": 702,
+      "with_image": 738,
       "by_source": {
-        "wikidata_commons": 595,
-        "met_open_access": 78,
+        "wikidata_commons": 613,
+        "met_open_access": 81,
         "commons_depicts": 22,
-        "europeana": 6,
+        "commons_category": 6,
+        "europeana": 8,
+        "commons_search": 7,
         "cleveland_open_access": 1
       },
       "by_license": {
-        "CC BY-SA": 379,
-        "Public Domain": 115,
-        "CC0": 133,
-        "CC BY": 75
+        "CC BY-SA": 403,
+        "Public Domain": 117,
+        "CC0": 138,
+        "CC BY": 80
       }
     },
     "tradition": {
@@ -38,7 +40,7 @@
   "skipped_sources": [
     {
       "source": "smithsonian_open_access",
-      "reason": "no SI_API_KEY"
+      "reason": "http_429"
     }
   ],
   "images": [
@@ -521,6 +523,21 @@
       "matched_label": "axatse"
     },
     {
+      "id": "baglamas",
+      "kind": "instrument",
+      "name": "Baglamás (Greek miniature bouzouki)",
+      "source": "wikidata_commons",
+      "wikidata": "Q528239",
+      "source_page": "https://commons.wikimedia.org/wiki/File:GreekBaglama1.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/GreekBaglama1.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/GreekBaglama1.jpg/500px-GreekBaglama1.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "No machine-readable author provided. Arent assumed (based on copyright claims).",
+      "match_confidence": "medium",
+      "matched_label": "baglamas"
+    },
+    {
       "id": "bajo_sexto",
       "kind": "instrument",
       "name": "Bajo sexto",
@@ -623,6 +640,21 @@
       "credit": "LopezRoaJuan",
       "match_confidence": "medium",
       "matched_label": "bandola (Llanos)"
+    },
+    {
+      "id": "bandolim",
+      "kind": "instrument",
+      "name": "Bandolim (Brazilian mandolin)",
+      "source": "commons_category",
+      "wikidata": "Q2882376",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Adamor_do_Bandolim.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Adamor_do_Bandolim.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Adamor_do_Bandolim.jpg/500px-Adamor_do_Bandolim.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "JaderMoreira",
+      "match_confidence": "medium",
+      "matched_label": "Bandolim"
     },
     {
       "id": "bandoneon",
@@ -1296,6 +1328,36 @@
       "matched_label": "cabrette"
     },
     {
+      "id": "cajon_peruano",
+      "kind": "instrument",
+      "name": "Cajón peruano (Peruvian box drum)",
+      "source": "wikidata_commons",
+      "wikidata": "Q748455",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Homemade_caj%C3%B3n.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Homemade_caj%C3%B3n.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Homemade_caj%C3%B3n.jpg/500px-Homemade_caj%C3%B3n.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Luislema",
+      "match_confidence": "medium",
+      "matched_label": "cajón"
+    },
+    {
+      "id": "cajun_accordion",
+      "kind": "instrument",
+      "name": "Cajun single-row diatonic accordion",
+      "source": "wikidata_commons",
+      "wikidata": "Q1026087",
+      "source_page": "https://commons.wikimedia.org/wiki/File:AccordionFront.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/AccordionFront.png",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/AccordionFront.png/500px-AccordionFront.png",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Michael miceli",
+      "match_confidence": "medium",
+      "matched_label": "Cajun accordion"
+    },
+    {
       "id": "caval_romanian",
       "kind": "instrument",
       "name": "Caval (Romanian five-hole duct shepherd flute)",
@@ -1370,6 +1432,21 @@
       "matched_label": "cello"
     },
     {
+      "id": "celtic_harp",
+      "kind": "instrument",
+      "name": "Celtic / lever harp (clàrsach)",
+      "source": "wikidata_commons",
+      "wikidata": "Q1288250",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Celtic_harp_dsc05425.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Celtic_harp_dsc05425.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Celtic_harp_dsc05425.jpg/500px-Celtic_harp_dsc05425.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "David Monniaux",
+      "match_confidence": "medium",
+      "matched_label": "celtic harp"
+    },
+    {
       "id": "chabrette",
       "kind": "instrument",
       "name": "Chabrette (Limousin mouth-blown bagpipe)",
@@ -1398,6 +1475,21 @@
       "credit": "Ctac",
       "match_confidence": "high",
       "matched_label": "chang"
+    },
+    {
+      "id": "chapei_lute",
+      "kind": "instrument",
+      "name": "Chapei dang veng (Cambodian two-string lute)",
+      "source": "wikidata_commons",
+      "wikidata": "Q2957508",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Cambodian_musician_playing_Chapey,_1880.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Cambodian_musician_playing_Chapey%2C_1880.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Cambodian_musician_playing_Chapey%2C_1880.jpg/500px-Cambodian_musician_playing_Chapey%2C_1880.jpg",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Émile Gsell (1838-1879)",
+      "match_confidence": "medium",
+      "matched_label": "chapey"
     },
     {
       "id": "chapman_stick",
@@ -1563,6 +1655,20 @@
       "credit": "Original uploader was Dani4P at it.wikipedia",
       "match_confidence": "medium",
       "matched_label": "chitarra battente"
+    },
+    {
+      "id": "choir_ensemble",
+      "kind": "instrument",
+      "name": "Choir / vocal ensemble",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Deutsches_Jazzfestival_2015_-_AACM_Vocal_Ensemble_-_Dee_Alexander_-_02.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Deutsches_Jazzfestival_2015_-_AACM_Vocal_Ensemble_-_Dee_Alexander_-_02.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Deutsches_Jazzfestival_2015_-_AACM_Vocal_Ensemble_-_Dee_Alexander_-_02.jpg/500px-Deutsches_Jazzfestival_2015_-_AACM_Vocal_Ensemble_-_Dee_Alexander_-_02.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Oliver Abels",
+      "match_confidence": "low",
+      "matched_label": "Deutsches Jazzfestival 2015 - AACM Vocal Ensemble - Dee Alexander - 02.jpg"
     },
     {
       "id": "chonguri",
@@ -1843,6 +1949,36 @@
       "credit": "Original uploader was User:Opa at hu.wikipedia",
       "match_confidence": "high",
       "matched_label": "colascione"
+    },
+    {
+      "id": "combo_organ",
+      "kind": "instrument",
+      "name": "Combo organ (transistor-divider)",
+      "source": "commons_category",
+      "wikidata": "Q5150931",
+      "source_page": "https://commons.wikimedia.org/wiki/File:CRB_Elettronica_Diamond_700_combo_organ_(2012-07-08_09.10.51_by_Ville_Hyv%C3%B6nen)_clip.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/CRB_Elettronica_Diamond_700_combo_organ_%282012-07-08_09.10.51_by_Ville_Hyv%C3%B6nen%29_clip.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/CRB_Elettronica_Diamond_700_combo_organ_%282012-07-08_09.10.51_by_Ville_Hyv%C3%B6nen%29_clip.jpg/500px-CRB_Elettronica_Diamond_700_combo_organ_%282012-07-08_09.10.51_by_Ville_Hyv%C3%B6nen%29_clip.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "CRB Elettronica Diamond 700 combo organ (2012-07-08 09.10.51 by Ville Hyvönen).jpg: Ville Hyvönen from Helsinki, Finland derivative work: User:Clusternote",
+      "match_confidence": "medium",
+      "matched_label": "combo organ"
+    },
+    {
+      "id": "concert_harp",
+      "kind": "instrument",
+      "name": "Concert pedal harp",
+      "source": "wikidata_commons",
+      "wikidata": "Q1231959",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Salvi_harp_Diana.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Salvi_harp_Diana.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Salvi_harp_Diana.jpg/500px-Salvi_harp_Diana.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "N.S.M. s.p.a.",
+      "match_confidence": "medium",
+      "matched_label": "pedal harp"
     },
     {
       "id": "concert_zither_alpine",
@@ -2126,6 +2262,21 @@
       "credit": "Wikimedia Commons contributor",
       "match_confidence": "high",
       "matched_label": "cuíca"
+    },
+    {
+      "id": "cumbus",
+      "kind": "instrument",
+      "name": "Çümbüş (Turkish banjo-bodied lute)",
+      "source": "wikidata_commons",
+      "wikidata": "Q516559",
+      "source_page": "https://commons.wikimedia.org/wiki/File:TurkishMandolinBanjo.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/TurkishMandolinBanjo.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/TurkishMandolinBanjo.jpg/500px-TurkishMandolinBanjo.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "User:Arent",
+      "match_confidence": "medium",
+      "matched_label": "cümbüş"
     },
     {
       "id": "dabakan",
@@ -2828,6 +2979,21 @@
       "matched_label": "Dung Chen"
     },
     {
+      "id": "dunun",
+      "kind": "instrument",
+      "name": "Dunun family (West African bass drums)",
+      "source": "commons_category",
+      "wikidata": "Q3511343",
+      "source_page": "https://commons.wikimedia.org/wiki/File:A_colorful_Dunun.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/A_colorful_Dunun.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/A_colorful_Dunun.jpg/500px-A_colorful_Dunun.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "MKwadyo",
+      "match_confidence": "medium",
+      "matched_label": "dunun"
+    },
+    {
       "id": "dutar",
       "kind": "instrument",
       "name": "Dutār (Central Asian two-string long-necked lute)",
@@ -2873,6 +3039,20 @@
       "matched_label": "dvojnice"
     },
     {
+      "id": "ektara",
+      "kind": "instrument",
+      "name": "Ektara (Indian/Bengali one-string drone)",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Vandari_Abdul_Jabbar,_folk_singer_singing_with_musical_instrument_%27Ektara%27,_Bangladesh.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Vandari_Abdul_Jabbar%2C_folk_singer_singing_with_musical_instrument_%27Ektara%27%2C_Bangladesh.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Vandari_Abdul_Jabbar%2C_folk_singer_singing_with_musical_instrument_%27Ektara%27%2C_Bangladesh.jpg/500px-Vandari_Abdul_Jabbar%2C_folk_singer_singing_with_musical_instrument_%27Ektara%27%2C_Bangladesh.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Salim Khandoker",
+      "match_confidence": "medium",
+      "matched_label": "Vandari Abdul Jabbar, folk singer singing with musical instrument 'Ektara', Bangladesh.jpg"
+    },
+    {
       "id": "ekwe",
       "kind": "instrument",
       "name": "Ekwe (Igbo wooden slit drum)",
@@ -2886,6 +3066,20 @@
       "credit": "Umasoyee",
       "match_confidence": "high",
       "matched_label": "ekwe"
+    },
+    {
+      "id": "electric_bass",
+      "kind": "instrument",
+      "name": "Solid-body electric bass",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Rob_Allen_Solid_4_Electric_Bass_Guitar_(8308114913).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Rob_Allen_Solid_4_Electric_Bass_Guitar_%288308114913%29.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Rob_Allen_Solid_4_Electric_Bass_Guitar_%288308114913%29.jpg/500px-Rob_Allen_Solid_4_Electric_Bass_Guitar_%288308114913%29.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "Ethan Prater from San Bruno, CA, USA",
+      "match_confidence": "low",
+      "matched_label": "Rob Allen Solid 4 Electric Bass Guitar (8308114913).jpg"
     },
     {
       "id": "electric_mandolin",
@@ -3255,6 +3449,21 @@
       "matched_label": "French Horn"
     },
     {
+      "id": "fretless_bass",
+      "kind": "instrument",
+      "name": "Fretless electric bass",
+      "source": "wikidata_commons",
+      "wikidata": "Q932855",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Fretlessghostlio.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Fretlessghostlio.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Fretlessghostlio.jpg/500px-Fretlessghostlio.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Ghostlio",
+      "match_confidence": "medium",
+      "matched_label": "fretless bass"
+    },
+    {
       "id": "frula",
       "kind": "instrument",
       "name": "Frula (Serbian six-hole duct flute)",
@@ -3328,6 +3537,21 @@
       "credit": "No machine-readable author provided. Arent assumed (based on copyright claims).",
       "match_confidence": "high",
       "matched_label": "gadulka"
+    },
+    {
+      "id": "gaida_bulgarian",
+      "kind": "instrument",
+      "name": "Gaida bulgarian (Balkan pipes)",
+      "source": "wikidata_commons",
+      "wikidata": "Q1422412",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gaida_speler.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Gaida_speler.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Gaida_speler.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.5",
+      "credit": "Jeffrey De Keyser at nl.wikipedia",
+      "match_confidence": "medium",
+      "matched_label": "gaida"
     },
     {
       "id": "gaita_asturiana",
@@ -4058,6 +4282,21 @@
       "matched_label": "Pianet"
     },
     {
+      "id": "hosho",
+      "kind": "instrument",
+      "name": "Hosho (Shona gourd rattle)",
+      "source": "commons_category",
+      "wikidata": "Q3786848",
+      "source_page": "https://commons.wikimedia.org/wiki/File:AFRO_BREEZE_MBIRA_AND_HOSHO_POSE.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/AFRO_BREEZE_MBIRA_AND_HOSHO_POSE.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/AFRO_BREEZE_MBIRA_AND_HOSHO_POSE.jpg/500px-AFRO_BREEZE_MBIRA_AND_HOSHO_POSE.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Malante",
+      "match_confidence": "medium",
+      "matched_label": "hosho"
+    },
+    {
       "id": "hulusi",
       "kind": "instrument",
       "name": "Hulusi (Chinese gourd reed pipe)",
@@ -4355,6 +4594,21 @@
       "credit": "HeungSoon",
       "match_confidence": "medium",
       "matched_label": "jing"
+    },
+    {
+      "id": "jinghu",
+      "kind": "instrument",
+      "name": "Jīnghú (Beijing-opera bamboo fiddle)",
+      "source": "wikidata_commons",
+      "wikidata": "Q873588",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Jinghu.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Jinghu.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Jinghu.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "三山 義継",
+      "match_confidence": "medium",
+      "matched_label": "jinghu"
     },
     {
       "id": "jouhikko",
@@ -4700,6 +4954,21 @@
       "matched_label": "Kendara"
     },
     {
+      "id": "kenong",
+      "kind": "instrument",
+      "name": "Kenong (gamelan large-pot gong)",
+      "source": "commons_category",
+      "wikidata": "Q6391285",
+      "source_page": "https://commons.wikimedia.org/wiki/File:COLLECTIE_TROPENMUSEUM_Man_die_de_kenong_bespeelt_in_een_gamelanorkest_TMnr_20000373.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/COLLECTIE_TROPENMUSEUM_Man_die_de_kenong_bespeelt_in_een_gamelanorkest_TMnr_20000373.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/COLLECTIE_TROPENMUSEUM_Man_die_de_kenong_bespeelt_in_een_gamelanorkest_TMnr_20000373.jpg/500px-COLLECTIE_TROPENMUSEUM_Man_die_de_kenong_bespeelt_in_een_gamelanorkest_TMnr_20000373.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Drs E.L. (Ernst) Heins (Fotograaf/photographer).",
+      "match_confidence": "medium",
+      "matched_label": "kenong"
+    },
+    {
       "id": "kethuk",
       "kind": "instrument",
       "name": "Kethuk (small Javanese kettle gong)",
@@ -4757,6 +5026,21 @@
       "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
       "match_confidence": "medium",
       "matched_label": "Khāēn"
+    },
+    {
+      "id": "khartal",
+      "kind": "instrument",
+      "name": "Khartāl (Rajasthani wooden castanet pair)",
+      "source": "wikidata_commons",
+      "wikidata": "Q3193614",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Khartal.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Khartal.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Khartal.jpg/500px-Khartal.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Imagedb",
+      "match_confidence": "medium",
+      "matched_label": "Khartal"
     },
     {
       "id": "khim",
@@ -5237,6 +5521,21 @@
       "matched_label": "kukkuma"
     },
     {
+      "id": "kulintang_set",
+      "kind": "instrument",
+      "name": "Kulintang gong row (Mindanao)",
+      "source": "wikidata_commons",
+      "wikidata": "Q1791487",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Kulintang_11.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Kulintang_11.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Kulintang_11.jpg/500px-Kulintang_11.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 2.5",
+      "credit": "Wikimedia Commons contributor",
+      "match_confidence": "medium",
+      "matched_label": "kulintang"
+    },
+    {
       "id": "kundu",
       "kind": "instrument",
       "name": "Kundu (Papua New Guinean hourglass drum)",
@@ -5548,6 +5847,20 @@
       "credit": "shearsha",
       "match_confidence": "high",
       "matched_label": "lusheng"
+    },
+    {
+      "id": "lute_renaissance",
+      "kind": "instrument",
+      "name": "Renaissance lute",
+      "source": "met_open_access",
+      "source_page": "https://www.metmuseum.org/art/collection/search/500554",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/DT202030.jpg",
+      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/DT202030.jpg",
+      "license": "CC0",
+      "license_raw": "Public Domain (Met Open Access, CC0)",
+      "credit": "The Metropolitan Museum of Art, Gift of Joseph W. Drexel, 1889",
+      "match_confidence": "low",
+      "matched_label": "Lute"
     },
     {
       "id": "lyra_pontiaki",
@@ -6238,6 +6551,20 @@
       "matched_label": "natural horn"
     },
     {
+      "id": "natural_trumpet",
+      "kind": "instrument",
+      "name": "Natural / baroque trumpet",
+      "source": "met_open_access",
+      "source_page": "https://www.metmuseum.org/art/collection/search/503971",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/DP220760.jpg",
+      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/DP220760.jpg",
+      "license": "CC0",
+      "license_raw": "Public Domain (Met Open Access, CC0)",
+      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
+      "match_confidence": "low",
+      "matched_label": "Natural Trumpet"
+    },
+    {
       "id": "ney",
       "kind": "instrument",
       "name": "Nāy / nay (Persian/Arab end-blown reed flute)",
@@ -6472,6 +6799,21 @@
       "credit": "Dopehat39",
       "match_confidence": "high",
       "matched_label": "ōtsuzumi"
+    },
+    {
+      "id": "oud",
+      "kind": "instrument",
+      "name": "ʿŪd (Arab/Mediterranean fretless lute)",
+      "source": "wikidata_commons",
+      "wikidata": "Q191000",
+      "source_page": "https://commons.wikimedia.org/wiki/File:%C5%AAd_MET_DP340079.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/%C5%AAd_MET_DP340079.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/%C5%AAd_MET_DP340079.jpg/500px-%C5%AAd_MET_DP340079.jpg",
+      "license": "CC0",
+      "license_raw": "CC0",
+      "credit": "Creator:Manol (Emmanuel Venios)",
+      "match_confidence": "medium",
+      "matched_label": "oud"
     },
     {
       "id": "outi",
@@ -7423,6 +7765,21 @@
       "matched_label": "bones"
     },
     {
+      "id": "rompler_workstation",
+      "kind": "instrument",
+      "name": "ROM-playback workstation / arranger keyboard",
+      "source": "commons_category",
+      "wikidata": "Q1753848",
+      "source_page": "https://commons.wikimedia.org/wiki/File:KORG_KROSS_Music_Workstation_-_angled_left_-_2014_NAMM_Show_(by_Matt_Vanacoro).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/KORG_KROSS_Music_Workstation_-_angled_left_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/KORG_KROSS_Music_Workstation_-_angled_left_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-KORG_KROSS_Music_Workstation_-_angled_left_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "Matt Vanacoro",
+      "match_confidence": "medium",
+      "matched_label": "music workstation"
+    },
+    {
       "id": "roneat_ek",
       "kind": "instrument",
       "name": "Roneat ek (Khmer high-pitched bamboo xylophone)",
@@ -7496,6 +7853,21 @@
       "credit": "Unnamed photographer, released into public domain by Metropolitan Museum of Art",
       "match_confidence": "high",
       "matched_label": "rubab"
+    },
+    {
+      "id": "rudra_veena",
+      "kind": "instrument",
+      "name": "Rudra vīṇā (dhrupad bin)",
+      "source": "wikidata_commons",
+      "wikidata": "Q5266546",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Rudraveena1.JPG",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Rudraveena1.JPG",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Rudraveena1.JPG/500px-Rudraveena1.JPG",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Fotokannan",
+      "match_confidence": "medium",
+      "matched_label": "rudra veena"
     },
     {
       "id": "ryuteki",
@@ -7646,6 +8018,20 @@
       "credit": "Xavier Serra from Cardedeu, Spain",
       "match_confidence": "medium",
       "matched_label": "santoor"
+    },
+    {
+      "id": "santur",
+      "kind": "instrument",
+      "name": "Santūr (Persian hammered dulcimer)",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Santur_Persian_Musical-Instrument-Photo-by_Dena_Barmas.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Santur_Persian_Musical-Instrument-Photo-by_Dena_Barmas.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Santur_Persian_Musical-Instrument-Photo-by_Dena_Barmas.jpg/500px-Santur_Persian_Musical-Instrument-Photo-by_Dena_Barmas.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "PersianDutchNetwork",
+      "match_confidence": "low",
+      "matched_label": "Santur Persian Musical-Instrument-Photo-by Dena Barmas.jpg"
     },
     {
       "id": "sanxian",
@@ -7913,6 +8299,20 @@
       "matched_label": "willow flute"
     },
     {
+      "id": "semi_hollow",
+      "kind": "instrument",
+      "name": "Semi-hollow electric guitar",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:GMFT3-2_piles_of_semi-hollow_bodies,_in_work_in_process.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/GMFT3-2_piles_of_semi-hollow_bodies%2C_in_work_in_process.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/GMFT3-2_piles_of_semi-hollow_bodies%2C_in_work_in_process.jpg/500px-GMFT3-2_piles_of_semi-hollow_bodies%2C_in_work_in_process.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "Lindsey Turner",
+      "match_confidence": "low",
+      "matched_label": "GMFT3-2 piles of semi-hollow bodies, in work in process.jpg"
+    },
+    {
       "id": "seperewa",
       "kind": "instrument",
       "name": "Seperewa (Akan/Asante harp-lute)",
@@ -7999,6 +8399,20 @@
       "credit": "DO'Neil at English Wikipedia",
       "match_confidence": "high",
       "matched_label": "shamisen"
+    },
+    {
+      "id": "shawm",
+      "kind": "instrument",
+      "name": "Shawm (renaissance double reed)",
+      "source": "met_open_access",
+      "source_page": "https://www.metmuseum.org/art/collection/search/501915",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/MUS343A.JPG",
+      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/MUS343A.JPG",
+      "license": "CC0",
+      "license_raw": "Public Domain (Met Open Access, CC0)",
+      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
+      "match_confidence": "medium",
+      "matched_label": "Shawm"
     },
     {
       "id": "shehnai",
@@ -8132,6 +8546,21 @@
       "credit": "Wikimedia Commons contributor",
       "match_confidence": "high",
       "matched_label": "sihu"
+    },
+    {
+      "id": "siku_panpipes",
+      "kind": "instrument",
+      "name": "Siku panpipes (Andean Aymara)",
+      "source": "wikidata_commons",
+      "wikidata": "Q905244",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Siku_(10).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Siku_%2810%29.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Siku_%2810%29.jpg/500px-Siku_%2810%29.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Gianni Careddu",
+      "match_confidence": "medium",
+      "matched_label": "sikus"
     },
     {
       "id": "simsimiyya",
@@ -8448,6 +8877,20 @@
       "matched_label": "stomp box"
     },
     {
+      "id": "stonemason_chisel",
+      "kind": "instrument",
+      "name": "Stonemason hammer & chisel",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/91619/SMVK_EM_objekt_1606463",
+      "image_url": "https://collections.smvk.se/carlotta-em/web/image/zoom/4549031/dia-1904.21.2002-2167PL.18.jpg",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fcollections.smvk.se%2Fcarlotta-em%2Fweb%2Fimage%2Fzoom%2F4549031%2Fdia-1904.21.2002-2167PL.18.jpg&type=IMAGE",
+      "license": "CC0",
+      "license_raw": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "credit": "Museum of Ethnography via Europeana",
+      "match_confidence": "low",
+      "matched_label": "verktyg, mejsel, chisel"
+    },
+    {
       "id": "streichmelodion",
       "kind": "instrument",
       "name": "Streichmelodion / Breitoline (fretted bowed zither)",
@@ -8748,6 +9191,21 @@
       "matched_label": "taiko"
     },
     {
+      "id": "tambora_dominicana",
+      "kind": "instrument",
+      "name": "Tambora dominicana (Dominican double-headed barrel drum)",
+      "source": "wikidata_commons",
+      "wikidata": "Q1458221",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Tambora_dominicana.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Tambora_dominicana.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Tambora_dominicana.jpg/500px-Tambora_dominicana.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Qerrek",
+      "match_confidence": "medium",
+      "matched_label": "tambora"
+    },
+    {
       "id": "tamborim",
       "kind": "instrument",
       "name": "Tamborim (compact frame, Brazilian)",
@@ -8938,6 +9396,21 @@
       "credit": "Unknown authorUnknown author",
       "match_confidence": "medium",
       "matched_label": "Tasa"
+    },
+    {
+      "id": "tassa_drum",
+      "kind": "instrument",
+      "name": "Tassa drum (Indo-Trinidadian)",
+      "source": "wikidata_commons",
+      "wikidata": "Q7687617",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Trinidad_and_Tobago_Sweet_Tassa.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Trinidad_and_Tobago_Sweet_Tassa.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Trinidad_and_Tobago_Sweet_Tassa.jpg/500px-Trinidad_and_Tobago_Sweet_Tassa.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Chrisbal",
+      "match_confidence": "medium",
+      "matched_label": "tassa"
     },
     {
       "id": "taus",
@@ -9329,6 +9802,21 @@
       "matched_label": "toy piano"
     },
     {
+      "id": "train_whistle",
+      "kind": "instrument",
+      "name": "Steam train whistle",
+      "source": "wikidata_commons",
+      "wikidata": "Q18669788",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Sifflet_trois_tons_locomotive_MSP.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Sifflet_trois_tons_locomotive_MSP.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Sifflet_trois_tons_locomotive_MSP.jpg/500px-Sifflet_trois_tons_locomotive_MSP.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Didier Duforest",
+      "match_confidence": "medium",
+      "matched_label": "train whistle"
+    },
+    {
       "id": "trembita",
       "kind": "instrument",
       "name": "Trembita (Hutsul Carpathian long wooden horn)",
@@ -9446,6 +9934,20 @@
       "credit": "Christian Pirkl",
       "match_confidence": "medium",
       "matched_label": "trompeta china"
+    },
+    {
+      "id": "trumpet",
+      "kind": "instrument",
+      "name": "Trumpet / cornet / flugelhorn",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/91616/arme_object_AM010895",
+      "image_url": "https://mm.dimu.org/image/022sAYkKHHrV?dimension=1200x1200",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fmm.dimu.org%2Fimage%2F022sAYkKHHrV%3Fdimension%3D1200x1200&type=IMAGE",
+      "license": "CC BY",
+      "license_raw": "http://creativecommons.org/licenses/by/4.0/",
+      "credit": "Army Museum via Europeana",
+      "match_confidence": "low",
+      "matched_label": "Trumpet"
     },
     {
       "id": "tsuur",
@@ -9595,6 +10097,20 @@
       "credit": "WmArbaugh",
       "match_confidence": "medium",
       "matched_label": "turntable"
+    },
+    {
+      "id": "twelve_string_electric",
+      "kind": "instrument",
+      "name": "Twelve-string electric guitar",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1967_Rickenbacker_360-12_12_string_electric_guitar_owned_and_photographed_by_Greg_Field.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/1967_Rickenbacker_360-12_12_string_electric_guitar_owned_and_photographed_by_Greg_Field.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/1967_Rickenbacker_360-12_12_string_electric_guitar_owned_and_photographed_by_Greg_Field.jpg/500px-1967_Rickenbacker_360-12_12_string_electric_guitar_owned_and_photographed_by_Greg_Field.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Outerrealm",
+      "match_confidence": "low",
+      "matched_label": "1967 Rickenbacker 360-12 12 string electric guitar owned and photographed by Greg Field.jpg"
     },
     {
       "id": "txalaparta",
@@ -9833,6 +10349,20 @@
       "credit": "Wikimedia Commons contributor",
       "match_confidence": "high",
       "matched_label": "vielle"
+    },
+    {
+      "id": "vihuela_mexicana",
+      "kind": "instrument",
+      "name": "Vihuela (Mexican mariachi)",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Guadalupe_vihuela,_Mus%C3%A9e_Jacquemart-Andr%C3%A9_(cropped_%26_added_shadow).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Guadalupe_vihuela%2C_Mus%C3%A9e_Jacquemart-Andr%C3%A9_%28cropped_%26_added_shadow%29.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Guadalupe_vihuela%2C_Mus%C3%A9e_Jacquemart-Andr%C3%A9_%28cropped_%26_added_shadow%29.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "GuadalupeVihuela.png: Matthias GruberOriginal uploader was Matthias Gruber at de.wikipedia derivative work: Clusternote",
+      "match_confidence": "medium",
+      "matched_label": "Guadalupe vihuela, Musée Jacquemart-André (cropped & added shadow).jpg"
     },
     {
       "id": "viola_amarantina",
