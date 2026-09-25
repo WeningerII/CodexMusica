@@ -1475,10 +1475,14 @@ body.workbench {
 .workbench .sb-trad-header {
   min-width: 0;
 }
+/* Row 2 is task picker | character counter | Ask. The counter is hidden until
+   the field is 70% full, and an empty grid track is still flanked by two column
+   gaps, so the gap between row-2 items is carried as a left margin instead:
+   with the counter away, Ask sits exactly where it did before it existed. */
 .chat-bar {
   display: grid !important;
-  grid-template-columns: minmax(0, 1fr) auto !important;
-  gap: 8px !important;
+  grid-template-columns: minmax(0, 1fr) auto auto !important;
+  gap: 8px 0 !important;
 }
 .chat-input {
   grid-column: 1/-1;
@@ -1493,9 +1497,16 @@ body.workbench {
   min-width: 0;
   max-width: 100%;
 }
-.chat-send {
+.chat-bar .chat-count {
   grid-row: 2;
   grid-column: 2;
+  align-self: center;
+  margin-left: 8px;
+}
+.chat-send {
+  grid-row: 2;
+  grid-column: 3;
+  margin-left: 8px;
 }
 .ui-wheel,
 .genre-web {
