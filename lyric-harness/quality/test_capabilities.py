@@ -456,6 +456,44 @@ def test_the_whole_registry():
     check("3 answer under their OWN phonology, which is a language "
           "coordinate (M-4) and not a gap in the registry",
           len(rep["other_language"]) == 3, rep["other_language"])
+    # M-311. A census-only witness (monorhyme over a stanza, a chain across
+    # two, a deprecated schema the draw pool must not certify)
+    # is graded with the sections it needs, and must answer exhibit-yes,
+    # contrast-no exactly as a DRAWABLE_EXHIBITS row does.
+    framed = {n: rep["semantic_status"][n].get("verdicts")
+              for n in R.CENSUS_EXHIBITS}
+    check("every CENSUS_EXHIBITS row answers [True, False] through "
+          "Reviser.grade with its declared sections, if any (M-311)",
+          all(v == [True, False] for v in framed.values()), framed)
+    # ...and a recorded grader finding stays a finding only while the grader
+    # is still wrong. The day a repair makes a row answer as expected this
+    # goes red, so the row moves to the exhibit tables instead of sitting
+    # here as evidence of a defect that no longer exists (doctrine 17).
+    fixed = [n for n, f in rep["witness_findings"]
+             if f["verdicts"] and f["verdicts"] == f["expected"]]
+    check("every `relations.WITNESS_FINDINGS` row is still graded wrongly "
+          "or refused — a repaired one belongs in DRAWABLE_EXHIBITS or "
+          "CENSUS_EXHIBITS (M-311)", not fixed, fixed)
+    # The check above covers a finding only if the census graded it, so the
+    # census must re-grade EVERY name in the table, not the ones it prints.
+    graded = sorted(n for n, _ in rep["witness_findings"])
+    check("...and the census re-grades every `WITNESS_FINDINGS` name, so the "
+          "check above reaches each of them (M-311)",
+          graded == sorted(R.WITNESS_FINDINGS), graded)
+    # F7: `enjambed rhyme` was once counted validated on a LINKED-rhyme
+    # witness (the same Torry Anderson pair as `linked rhyme`). It must stay
+    # out of the exhibit tables and unvalidated while the schema still
+    # accepts that linked pair — the row above goes red the day it does not.
+    enj = dict(rep["witness_findings"]).get("enjambed rhyme") or {}
+    check("`enjambed rhyme` is a finding, not a witness: absent from "
+          "DRAWABLE_EXHIBITS, unvalidated, and still accepting the "
+          "linked-not-enjambed pair it must refuse (M-311 F7)",
+          "enjambed rhyme" not in R.DRAWABLE_EXHIBITS
+          and rep["semantic_status"]["enjambed rhyme"]["status"]
+          == "unvalidated"
+          and enj.get("verdicts", [None])[0] is True
+          and enj.get("expected", [None])[0] is False,
+          enj)
     # THE COUNT ABOVE IS 77 AND THREE OF THE 77 ARE LIVE ON A FIXTURE. That
     # was true before 2026-08-23 too -- `earlier` and `poet` have always been
     # constructed inputs -- and the census did not say so, so "77 askable"
