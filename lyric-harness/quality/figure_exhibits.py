@@ -289,16 +289,6 @@ FINDINGS = {
                 "True — so the schema cannot fire on any English line. The "
                 "order is written in a notation no shipped phonology emits.",
     },
-    "leonine rhyme": {
-        "verdicts": (False, False),
-        "text": "half_line_a is anchored `last_stressed`, magnitude 1; "
-                "half_line_b is anchored `word_end`, magnitude 1. For a "
-                "feminine rhyme the two members are then the STRESSED "
-                "syllable of dreary (IH R) against the UNSTRESSED final "
-                "syllable of weary (IY) — never equal. Every caesura "
-                "candidate search_caesura offers reads nucleus/coda False, "
-                "so the route cannot see the canonical English leonine line.",
-    },
     "broken rhyme": {
         "verdicts": (False, False),
         "text": "two independent blockers. (1) the split fragments `roo` and "

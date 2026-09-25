@@ -46,7 +46,7 @@ FAILURES = []
 EARNED = ["Kalevala alliteration (strong)", "Kalevala alliteration (weak)",
           "alliteration", "cynghanedd lusg", "cynghanedd sain",
           "cynghanedd sain gadwynog", "epanalepsis", "exact reduplication",
-          "rhyming reduplication"]
+          "leonine rhyme", "rhyming reduplication"]
 
 
 def check(name, cond, detail=""):
@@ -181,12 +181,12 @@ def test_mutations():
               row["status"] == "unvalidated"
               and "no finding is recorded" in row["blocker"], row["blocker"])
         FE.FIGURE_EXHIBITS.update(copy.deepcopy(saved))
-        rec = FE.FINDINGS["leonine rhyme"]["verdicts"]
-        FE.FINDINGS["leonine rhyme"]["verdicts"] = (True, False)
-        row = FE.semantic_row("leonine rhyme")
+        rec = FE.FINDINGS["ablaut reduplication"]["verdicts"]
+        FE.FINDINGS["ablaut reduplication"]["verdicts"] = (True, False)
+        row = FE.semantic_row("ablaut reduplication")
         check("a finding whose verdicts moved is reported STALE, not quoted",
               "STALE" in row["blocker"], row["blocker"][:80])
-        FE.FINDINGS["leonine rhyme"]["verdicts"] = rec
+        FE.FINDINGS["ablaut reduplication"]["verdicts"] = rec
     finally:
         FE.FIGURE_EXHIBITS.clear()
         FE.FIGURE_EXHIBITS.update(saved)

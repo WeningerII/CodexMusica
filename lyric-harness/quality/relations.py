@@ -4861,15 +4861,23 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="leonine rhyme",
-    spans=(SpanRule("half_line_a", "last_stressed", -1, 1),
-           SpanRule("half_line_b", "word_end", -1, 1)),
-    align="flush_left",
-    channels=(ChannelRule("nucleus", AGREE, "first"),
-              ChannelRule("coda", AGREE, "first")),
+    spans=(SpanRule("half_line_a", "last_stressed", 1, "to_word_end"),
+           SpanRule("half_line_b", "last_stressed", 1, "to_word_end")),
+    align="anchor",
+    channels=(ChannelRule("nucleus", AGREE, "each"),
+              ChannelRule("coda", AGREE, "each")),
+    unmatched="forbid",
     placement=(Placement("same_line"), Placement("at_caesura")),
     identity=(DISTINCT,),
     note="requires the caesura, so it REFUSES where none is printed, declared "
-         "or searched -- doctrine 55."))
+         "or searched -- doctrine 55. BOTH MEMBERS ARE ANCHORED AT THEIR "
+         "HALF'S LAST STRESS AND RUN TO THE WORD END (fixed 2026-09-25, "
+         "quality/figure_exhibits.py FINDINGS): member B was `word_end`, one "
+         "syllable, so a feminine rhyme compared the STRESSED syllable of "
+         "the caesura word with the UNSTRESSED last syllable of the line and "
+         "Poe's dreary/weary could never answer. `unmatched='forbid'` keeps "
+         "a monosyllable from matching the head of a longer tail "
+         "(I / tired)."))
 
 declare(RelationSchema(
     name="cross rhyme",
