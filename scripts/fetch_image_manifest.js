@@ -9,6 +9,10 @@
 //      musical instruments / music genres; accept a name only when exactly
 //      one such item carries it. Take its P18 image, then read license + author from the Commons API
 //      (imageinfo/extmetadata, 50 titles per call).
+//      Several in-class items sharing a name: take the one whose main label
+//      is the name, else the only one with an image; otherwise skip. Items
+//      with no P18 fall back to the top Commons file tagged as depicting
+//      them (P180), under a time budget (--depicts-minutes, default 30).
 //   2. Instruments still missing: Met Open Access (Musical Instruments dept,
 //      isPublicDomain only).
 //   3. Smithsonian Open Access (CC0) only when SI_API_KEY is set.
@@ -31,6 +35,7 @@ const opts = {
   out: path.join(ROOT, 'references', '_image_manifest.json'),
   cache: null,
   concurrency: 4,
+  depictsMinutes: 30,
 };
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--limit') opts.limit = parseInt(args[++i], 10);
@@ -38,6 +43,7 @@ for (let i = 0; i < args.length; i++) {
   else if (args[i] === '--out') opts.out = args[++i];
   else if (args[i] === '--cache') opts.cache = args[++i];
   else if (args[i] === '--concurrency') opts.concurrency = parseInt(args[++i], 10);
+  else if (args[i] === '--depicts-minutes') opts.depictsMinutes = parseFloat(args[++i]);
 }
 
 const UA = 'CodexMusica-image-manifest/1.0 (https://github.com/WeningerII/CodexMusica)';
@@ -66,8 +72,8 @@ async function getJson(url, attempt = 0, body = null) {
     if (attempt < 2) return sleep(2000 * (attempt + 1)).then(() => getJson(url, attempt + 1, body));
     throw new Error('network: ' + ((e.cause && e.cause.message) || e.message));
   }
-  if ((res.status === 429 || res.status >= 500) && attempt < 3) {
-    await sleep(5000 * 2 ** attempt);
+  if ((res.status === 429 || res.status >= 500) && attempt < 5) {
+    await sleep(3000 * 2 ** attempt + Math.random() * 2000);
     return getJson(url, attempt + 1, body);
   }
   if (!res.ok) throw new Error('http_' + res.status);
@@ -178,14 +184,16 @@ function sparqlString(s) {
 // label or alias equals one of them, with its P18 image if it has one.
 async function sparqlLabelHits(labels, kind) {
   const query =
-    'SELECT ?lab ?item ?itemLabel ?img WHERE { VALUES ?lab { ' +
+    'SELECT ?lab ?item ?itemLabel ?img ?main WHERE { VALUES ?lab { ' +
     labels.map(sparqlString).join(' ') +
-    ' } ?item rdfs:label|skos:altLabel ?lab . ?item wdt:P31?/wdt:P279* wd:' +
+    ' } { ?item rdfs:label ?lab . BIND(true AS ?main) } UNION' +
+    ' { ?item skos:altLabel ?lab . BIND(false AS ?main) }' +
+    ' ?item wdt:P31?/wdt:P279* wd:' +
     WD_CLASS[kind] +
     ' . OPTIONAL { ?item wdt:P18 ?img } ' +
     'SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } }';
   // POST: a GET carrying 150 labels overflows the request line (HTTP 431).
-  const data = await cached('sparql:' + kind + ':' + labels.join('|'), () =>
+  const data = await cached('sparql2:' + kind + ':' + labels.join('|'), () =>
     getJson(
       'https://query.wikidata.org/sparql?format=json',
       0,
@@ -196,12 +204,24 @@ async function sparqlLabelHits(labels, kind) {
     label: b.lab.value,
     qid: b.item.value.replace(/^.*\//, ''),
     itemLabel: b.itemLabel && b.itemLabel.value,
+    main: b.main && b.main.value === 'true',
     file: b.img && decodeURIComponent(b.img.value.replace(/^.*\/Special:FilePath\//, '')),
   }));
 }
 
-// A name matches when exactly one in-class item carries it (any case
-// variant); several items sharing it is ambiguous and skipped.
+// Pick one item for a name. One in-class item carrying it wins outright.
+// Several: the single one whose main label (not an alias) is the name, else
+// the single one with an image; otherwise ambiguous and skipped.
+function resolveHits(hits) {
+  const qids = [...new Set(hits.map((h) => h.qid))];
+  if (qids.length === 1) return { qid: qids[0], tiebreak: false };
+  for (const pick of [(h) => h.main, (h) => h.file]) {
+    const q = [...new Set(hits.filter(pick).map((h) => h.qid))];
+    if (q.length === 1) return { qid: q[0], tiebreak: true };
+  }
+  return null;
+}
+
 async function wikidataMatches(entities) {
   const out = {};
   for (const kind of Object.keys(WD_CLASS)) {
@@ -215,26 +235,60 @@ async function wikidataMatches(entities) {
       saveCache();
     }
     for (const e of mine) {
-      for (const cand of nameCandidates(e.name)) {
+      const cands = nameCandidates(e.name);
+      for (const cand of cands) {
         const hits = caseVariants(cand).flatMap((v) => byLabel[v] || []);
-        const qids = [...new Set(hits.map((h) => h.qid))];
-        if (qids.length > 1) break; // ambiguous: skip rather than guess
-        if (qids.length === 1) {
-          const withImg = hits.find((h) => h.file);
-          if (withImg) {
-            out[e.key] = {
-              qid: qids[0],
-              label: withImg.itemLabel || withImg.label,
-              file: withImg.file,
-              confidence: cand === nameCandidates(e.name)[0] ? 'high' : 'medium',
-            };
-          }
-          break;
-        }
+        if (!hits.length) continue;
+        const r = resolveHits(hits);
+        if (!r) break; // ambiguous: skip rather than guess
+        const mineHits = hits.filter((h) => h.qid === r.qid);
+        const withImg = mineHits.find((h) => h.file);
+        out[e.key] = {
+          qid: r.qid,
+          label: mineHits[0].itemLabel || mineHits[0].label,
+          file: withImg ? withImg.file : null,
+          confidence: cand === cands[0] && !r.tiebreak ? 'high' : 'medium',
+        };
+        break;
       }
     }
   }
   return out;
+}
+
+// Items with no P18: the top Commons file whose structured data says it
+// depicts (P180) that exact item. Commons rate-limits hard, so this pass
+// runs under a time budget and caches, so a rerun continues where it stopped.
+const IMAGE_EXT = /\.(jpe?g|png|gif|svg|tiff?|webp)$/i;
+async function commonsDepicts(matches) {
+  const deadline = Date.now() + opts.depictsMinutes * 60000;
+  const todo = Object.values(matches).filter((m) => !m.file);
+  let done = 0;
+  await pool(todo, 2, async (m) => {
+    if (!('depicts:' + m.qid in cache) && Date.now() > deadline) return;
+    const url =
+      'https://commons.wikimedia.org/w/api.php?action=query&format=json&list=search' +
+      '&srnamespace=6&srlimit=5&srsearch=' +
+      encodeURIComponent('haswbstatement:P180=' + m.qid);
+    let data;
+    try {
+      data = await cached('depicts:' + m.qid, () => tryJson(url));
+    } catch {
+      return; // rate-limited past retries: leave for the next run
+    }
+    done++;
+    if (done % 50 === 0) saveCache();
+    const hit = ((data && data.query && data.query.search) || []).find((r) =>
+      IMAGE_EXT.test(r.title)
+    );
+    if (hit) {
+      m.file = hit.title.replace(/^File:/, '');
+      m.confidence = 'medium';
+      m.via = 'depicts';
+    }
+  });
+  saveCache();
+  return { tried: done, of: todo.length };
 }
 
 async function commonsInfo(files) {
@@ -247,7 +301,12 @@ async function commonsInfo(files) {
       THUMB_WIDTH +
       '&titles=' +
       encodeURIComponent(batch.map((f) => 'File:' + f).join('|'));
-    const data = await getJson(url);
+    let data;
+    try {
+      data = await cached('ii:' + batch.join('|'), () => getJson(url));
+    } catch {
+      continue; // one batch lost to rate limiting; the rest still count
+    }
     const q = data.query || {};
     // Map normalized titles back to the P18 spelling.
     const back = {};
@@ -274,6 +333,8 @@ async function viaWikidata(entities, skipped) {
   let matches;
   try {
     matches = await wikidataMatches(entities);
+    const d = await commonsDepicts(matches);
+    console.error(`commons depicts fallback: ${d.tried}/${d.of} items looked up`);
   } catch (e) {
     skipped.push({ source: 'wikidata', reason: e.message });
     return results;
@@ -282,17 +343,22 @@ async function viaWikidata(entities, skipped) {
   }
   let info;
   try {
-    info = await commonsInfo(Object.values(matches).map((m) => m.file));
+    info = await commonsInfo(
+      Object.values(matches)
+        .map((m) => m.file)
+        .filter(Boolean)
+    );
   } catch (e) {
     skipped.push({ source: 'wikimedia_commons', reason: e.message });
     return results;
   }
   for (const [key, m] of Object.entries(matches)) {
+    if (!m.file) continue;
     const meta = info[m.file.replace(/_/g, ' ')];
     const license = meta && classifyLicense(meta.license_raw);
     if (!license) continue;
     results[key] = {
-      source: 'wikidata_commons',
+      source: m.via === 'depicts' ? 'commons_depicts' : 'wikidata_commons',
       wikidata: m.qid,
       source_page: meta.source_page,
       image_url: meta.image_url,
