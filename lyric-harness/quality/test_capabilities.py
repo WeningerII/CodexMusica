@@ -481,10 +481,83 @@ def test_the_whole_registry():
                for n in rep["fixture_only"]}))
 
 
+
+def test_semantic_witnesses_m311():
+    """9. `MISSING.md` M-311: the repetition figures and the non-English
+    pair rhymes — which carry a quoted witness and contrast through the
+    grade route, and, for the rest, that each recorded blocker still names
+    what actually stops it (doctrine 48: the reason is re-derived, not
+    trusted)."""
+    print("\n9. M-311 — repetition figures and non-English pair rhymes")
+    from quality import schema_census as CEN
+    from quality.phonology import declared
+    from quality.revise import Reviser
+    from quality.schemes import mandate
+    sem = CEN.census()["semantic_status"]
+    ok = ("anadiplosis", "polyptoton", "repetition", "epistrophe / radif",
+          "homoioteleuton")
+    check("five carry a quoted witness AND an independent contrast through "
+          "`Reviser.grade` — verdicts exactly [True, False]",
+          all(sem[n]["status"] == "witness_and_contrast" for n in ok),
+          {n: sem[n].get("verdicts") for n in ok})
+    stale = sorted(n for n in CEN.SEMANTIC_BLOCKERS
+                   if sem[n]["status"] != "unvalidated")
+    check("every recorded blocker still blocks: a schema that starts "
+          "answering has its blocker text removed, not left standing",
+          not stale, stale)
+    rv = Reviser()
+
+    def _grade(name, lines, *groups):
+        m = mandate([list(g) for g in groups], n_lines=len(lines),
+                    default_relation="schema:" + name)
+        return rv.grade(list(lines), m)
+    ep_lines = R.CONTEXT_CONTROLS["epistrophe / radif"][0]
+    g = _grade("epistrophe / radif", ep_lines[1:], ("1", "2"))
+    check("WHY epistrophe is a context row: its two-line contrast, alone, "
+          "REFUSES on an empty `refrain_tail` frame rather than violating",
+          g["refusals"] and "refrain_tail" in g["refusals"][0]["reason"]
+          and not g["violations"],
+          [r["reason"][:90] for r in g["refusals"]])
+    check("WHY homoioteleuton is a context row: it is `forbidden`, and the "
+          "drawable table admits no forbidden name",
+          R.REGISTRY["homoioteleuton"].normative == "forbidden"
+          and "homoioteleuton" not in R.DRAWABLE_EXHIBITS)
+    for name, cap in (("antanaclasis", "'sense'"),
+                      ("refrain by reference", "'stub_resolution'")):
+        lines, w, c = R.CONTEXT_CONTROLS[name]
+        g = _grade(name, lines, w, c)
+        check(f"{name}: both controls REFUSE and the refusal names {cap} — "
+              f"the grade route has no seam to declare it",
+              sem[name].get("verdicts") == [None, None]
+              and all(cap in r["reason"] for r in g["refusals"]),
+              [r["reason"][:90] for r in g["refusals"]])
+    check("incremental repetition: the canonical one-substitution instance "
+          "is judged, definitely, NOT to stand in it — the finding",
+          sem["incremental repetition"].get("verdicts", [None])[0] is False,
+          sem["incremental repetition"].get("verdicts"))
+    langs = {n: {t.lang for t in R.REGISTRY[n].traditions}
+             for n in ("qafiya (before the radif)", "dvitiyakshara-prasa",
+                       "monai")}
+    have = set(declared())
+    check("the language premises: qafiya's traditions are ara/fas/hin; "
+          "dvitiyakshara-prasa's and monai's are Dravidian or Sanskrit; of "
+          "those only fas and san have a phonology",
+          langs["qafiya (before the radif)"] == {"ara", "fas", "hin"}
+          and langs["dvitiyakshara-prasa"] == {"tel", "kan", "san", "tam"}
+          and langs["monai"] == {"tam"}
+          and set().union(*langs.values()) & have == {"fas", "san"},
+          (langs, sorted(have)))
+    check("the shape premise: monai and dvitiyakshara-prasa quantify over "
+          "a stanza, which a two-token mandate cannot carry",
+          not R.pair_scope_representable(R.REGISTRY["monai"])
+          and not R.pair_scope_representable(
+              R.REGISTRY["dvitiyakshara-prasa"]))
+
 if __name__ == "__main__":
     for fn in (test_orthography, test_delivery, test_stub_resolution,
                test_senses, test_period_surface, test_lifts,
-               test_beat_and_selectivity, test_the_whole_registry):
+               test_beat_and_selectivity, test_the_whole_registry,
+               test_semantic_witnesses_m311):
         fn()
     print("=" * 62)
     if FAILURES:

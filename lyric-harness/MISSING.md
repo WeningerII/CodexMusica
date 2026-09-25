@@ -28310,3 +28310,100 @@ candidate A's day; they name the same gate and are not re-dated. The strikes
 added on the review say 2026-09-25.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~364~~ -> **365**.
+
+### M-311 · Twelve schema names asked for a witness and a contrast: five now carry quoted ones, and the other seven are blocked by named coordinates, one of them a definition that rejects its own canonical instance `PARTIAL` 2026-09-25 — one of four parallel sessions working through the census's `unvalidated` list
+
+**THE ASK.** `python3 quality/schema_census.py` listed 55 names as
+`unvalidated`. This session took the repetition and rhetorical pair figures
+(anadiplosis, antanaclasis, epistrophe / radif, homoioteleuton, incremental
+repetition, polyptoton, refrain by reference, repetition) and the non-English
+pair rhymes (dvitiyakshara-prasa, monai, qafiya (before the radif), radif).
+The bar was the census's own: grade the controls through `Reviser.grade` and
+get exactly `[True, False]`. For the non-English names the witness had to be
+real, cited, and graded under that language's own phonology, or the blocker
+recorded. No constant or threshold was moved (doctrine 58), and a failing
+exhibit was not swapped for one that passes.
+
+**WHAT IS BUILT.**
+- Every line in the new exhibits is QUOTED from a public-domain source, witness
+  and contrast alike (doctrine 94). The rows already in the table are
+  constructed; these are not. Sources are named beside each row in
+  `quality/relations.py`.
+- `DRAWABLE_EXHIBITS` gains **anadiplosis** (Keats, "Ode to a Nightingale", the
+  `forlorn` seam), **polyptoton** (Sonnet 142, sin~sinful against sin~state)
+  and **repetition** (Frost, "Stopping by Woods", the repeated last line
+  against keep~sleep). They are one contiguous, commented block.
+- `relations.CONTEXT_CONTROLS` is new. It holds rows of `(lines, witness
+  slots, contrast slots)`, and the census grades both groups in ONE mandate
+  over one draft. It takes the names that cannot be a two-line drawable row:
+  - **epistrophe / radif** (Merchant of Venice 5.1, the `ring` speech). Its
+    `refrain_tail` frame is computed from the union of the mandated lines, so
+    a two-line contrast has an EMPTY frame and REFUSES rather than
+    violating. A line without the refrain counts as a negative only in a
+    song that carries a refrain.
+  - **homoioteleuton** (Sonnet 87, possessing~releasing against
+    possessing~estimate). The name is `forbidden`, and
+    `quality/test_mandate_relation.py` keeps forbidden names out of the
+    drawable table.
+  - the three failing attempts below. The census MEASURES their verdicts on
+    every run, so no sentence has to be trusted for them (doctrine 48).
+- `schema_census.SEMANTIC_BLOCKERS` gives the known reason for each of the
+  seven, and the report prints it next to the verdicts it measured.
+  `quality/test_capabilities.py` §9 pins the five `[True, False]` rows, each
+  blocker's premise, and a check that no blocker survives the schema it
+  describes starting to answer.
+
+**FINDINGS, each with the verdicts the census re-derives (witness, contrast):**
+1. **incremental repetition — the definition rejects its own canonical
+   instance.** Tennyson's `Cannon to right of them, / Cannon to left of them,`
+   comes from `corpus/song/eng_british_alfred_tennyson.txt`. RHYME_CANON R67
+   defines the figure as "repetition-with-one-controlled substitution". The
+   schema is registered as whole-line token equality, and its own note says
+   the one-slot diff is not searched for. So the witness is judged, as a
+   definite verdict, to be NOT an instance: `[False, False]`. Only verbatim
+   repetition satisfies the schema, and that is `repetition`. The first two
+   witnesses tried were Child 12 ("Lord Randal") and Chambers's "Young
+   Randal" (staged). Both REFUSED on Scots spellings CMUdict cannot read
+   (`hae`, `awa'`), and neither was used.
+2. **antanaclasis — the grade route has no `sense` seam.** Sonnet 135
+   (`Will` against `Will`) gives `[None, None]`: both refuse on `'sense'`.
+   `relations.declare_senses` exists, but `Reviser.grade` builds its own
+   stream and no mandate or argument can reach that declaration.
+3. **refrain by reference — the same defect for `stub_resolution`.** Payne,
+   "My Boyhood's Home" (`corpus/song/eng_parlour_john_howard_payne.txt`),
+   uses the printed `&c.` pointer against its referent and against a verse
+   line. Both refuse: `[None, None]`.
+4. **epistrophe / radif — a two-line negative cannot be reached** (the
+   structural reason above). Resolved by the context row, not by a threshold.
+5. **qafiya (before the radif) — the LANGUAGE coordinate.** Its traditions
+   are `ara`, `fas` and `hin` only. The grade route resolves English
+   (`revise._relation_phonology`, M-4). `ara` and `hin` declare no phonology.
+   `quality/phonology/fas.py` refuses, by design, to decide a short-vowel
+   qāfiya from unvocalised script, and the qāfiya of Hafez's first ghazal
+   (مشکل / دل) is exactly that case. An English stand-in would fake the
+   tradition, so no row was added.
+6. **dvitiyakshara-prasa and monai — LANGUAGE and SHAPE.** Telugu, Kannada
+   and Tamil declare no phonology. Sanskrit does (`san`), but the grade route
+   cannot reach it. Both figures quantify FORALL over a STANZA frame, which
+   `pair_scope_representable` rejects for a two-token mandate. So no row was
+   added: without a phonology no witness can be graded under the language's
+   own sound.
+7. **radif — not a registry name.** `radif` exists only as a
+   `rhyme_types` RhymeType label. The ghazal's radif is registered as
+   `epistrophe / radif` (Persian radīf is one of its traditions), and it is
+   covered there by an English witness. The census cannot count a separate
+   `radif`, and one was not invented.
+
+**THE CENSUS, before and after** (`python3 quality/schema_census.py`, the
+semantic line): `{'unvalidated': 55, 'regression_witness': 5,
+'witness_and_contrast': 18}` -> `{'unvalidated': 50, 'regression_witness': 5,
+'witness_and_contrast': 23}`. Sibling sessions working other groups move the
+same line. The census re-derives it on every run.
+
+**NOT DONE.** The `sense` and `stub_resolution` seams on the grade route.
+A slot-diff definition of incremental repetition. A language coordinate on
+`Reviser` (M-4). Tamil, Telugu and Kannada phonologies. A Persian witness
+for `epistrophe / radif` graded under `fas` (the English one stands in for
+the English tradition only, and says so).
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~365~~ -> **366**.
