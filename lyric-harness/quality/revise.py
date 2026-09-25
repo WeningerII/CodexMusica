@@ -4458,8 +4458,15 @@ class Reviser:
             # the grader accepts at the same carrier pair.
             # No handler: `found` is non-empty only when the stream above
             # built, and a failure here is a real one, not a shorter field.
+            #
+            # ONLY `found` IS ASKED (2026-09-25, `MISSING.md` M-311). The
+            # intersection below reads no other schema's verdict and the
+            # judge answers each schema on its own, so asking the rest of the
+            # registry changed nothing but the cost -- 72% of the sampled
+            # time of `test_revise.py` §24, whose field this is.
             wvp = _RL.whole_vocabulary_pairs(carriers, phon,
-                                             requested_pairs={(1, 2)})
+                                             requested_pairs={(1, 2)},
+                                             schemas=found)
             found &= set(wvp.get((1, 2)) or ())
         out = frozenset(found)
         store[("end-pair",) + key] = out

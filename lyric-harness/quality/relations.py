@@ -6953,7 +6953,8 @@ class VocabularyPairResults(dict):
 
 
 def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
-                           requested_pairs=None, line_status=None):
+                           requested_pairs=None, line_status=None,
+                           schemas=None):
     """Every 1-based line pair, with EVERY registered schema true of it
     -> {(i, j): [canonical schema names, sorted]}.
 
@@ -6977,10 +6978,23 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
     MEMOISED on declared coordinates — see `_WVP_MEMO` above.
     `requested_pairs` is an optional collection of 1-based cross-line pairs:
     unrequested pairs are absent, not measured false.
+
+    `schemas` is an optional collection of `REGISTRY` names: only those are
+    asked, and every other schema is ABSENT from the answer (not measured
+    false, not refused). Each asked schema's answer is the one the full call
+    gives it, because the loop below judges every schema on its own
+    `line_pairs_for` call over the same stream, and nothing one schema's
+    judgement does is read by another's (2026-09-25, `MISSING.md` M-311:
+    the candidate field, `revise.Reviser._end_pair_schemas`, needs the
+    verdict of the few schemas its end-token screen found, and asked the
+    whole registry per candidate). `quality/test_relations.py` X9b pins it.
     """
     requested_pairs = _normalise_pair_query(requested_pairs, len(text_lines))
+    names = sorted(REGISTRY) if schemas is None else sorted(set(schemas))
     memo_key = _wvp_key(text_lines, phon, sections, bearing, requested_pairs,
                         line_status)
+    if memo_key is not None and schemas is not None:
+        memo_key = memo_key + (("schemas",) + tuple(names),)
     if memo_key is not None and memo_key in _WVP_MEMO:
         c = _WVP_MEMO[memo_key]
         return VocabularyPairResults(c, c.undecided, c.refused, c.lines)
@@ -6999,7 +7013,7 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
     if bearing:
         mark_refrain_tail(stream, lines=sorted(bearing))
     out, undecided, refused, lines = {}, {}, {}, {}
-    for name in sorted(REGISTRY):
+    for name in names:
         ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=True,
                             requested_pairs=requested_pairs)
         if isinstance(ps, Refusal):
