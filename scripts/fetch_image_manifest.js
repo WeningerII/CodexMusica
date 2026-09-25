@@ -21,8 +21,12 @@
 //      else the public demo key). Either counts only when a part of the
 //      record's title is the instrument name.
 //   5. Anything still missing, traditions first: Openverse keyword search
-//      (title must contain the name; `low` confidence). Anonymous access is
-//      200 requests/day, so each run spends at most --openverse-budget.
+//      (title must start with the name or say "<name> music"; `low`
+//      confidence). Anonymous access is 200 requests/day, so each run spends
+//      at most --openverse-budget.
+//
+// Picks a manual accuracy pass rejected (REJECTED below) are dropped as each
+// source reports, so the entity stays open for the next source.
 //
 // The source's own license field is trusted; only Public Domain / CC0 /
 // CC BY / CC BY-SA are kept. Sources that fail (network policy, no key) are
@@ -61,7 +65,12 @@ const THUMB_WIDTH = 400;
 // ---- HTTP ----
 // Node's fetch ignores HTTPS_PROXY unless NODE_USE_ENV_PROXY is set at
 // startup, so re-run under it when a proxy is configured.
-if ((process.env.HTTPS_PROXY || process.env.https_proxy) && !process.env.NODE_USE_ENV_PROXY) {
+// Only when run directly: requiring this module must not spawn a process.
+if (
+  require.main === module &&
+  (process.env.HTTPS_PROXY || process.env.https_proxy) &&
+  !process.env.NODE_USE_ENV_PROXY
+) {
   const r = require('child_process').spawnSync(process.execPath, process.argv.slice(1), {
     stdio: 'inherit',
     env: { ...process.env, NODE_USE_ENV_PROXY: '1', NODE_NO_WARNINGS: '1' },
@@ -263,11 +272,14 @@ async function wikidataMatches(entities) {
         if (!r) break; // ambiguous: skip rather than guess
         const mineHits = hits.filter((h) => h.qid === r.qid);
         const withImg = mineHits.find((h) => h.file);
+        // An alias can name a broader or different item ("been" is also an
+        // alias of the rudra veena), so only a main-label match is `high`.
+        const byMainLabel = mineHits.some((h) => h.main);
         out[e.key] = {
           qid: r.qid,
           label: mineHits[0].itemLabel || mineHits[0].label,
           file: withImg ? withImg.file : null,
-          confidence: cand === cands[0] && !r.tiebreak ? 'high' : 'medium',
+          confidence: cand === cands[0] && !r.tiebreak && byMainLabel ? 'high' : 'medium',
         };
         break;
       }
@@ -637,10 +649,18 @@ async function viaOpenverse(entities, skipped) {
         }
         continue;
       }
-      // The title has to name the thing, not just sit near it in search.
-      const hit = ((d && d.results) || []).find(
-        (r) => OV_LICENSE[r.license] && (' ' + norm(r.title) + ' ').includes(' ' + norm(cand) + ' ')
-      );
+      // The title has to name the thing, not just sit near it in search:
+      // it starts with the name ("Samul nori", "Koto by ...") or says
+      // "<name> music". A name buried mid-title ("Tango footwork", "Ravel
+      // Bolero", "#Kompa") matched unrelated photos in the audit.
+      const n = norm(cand);
+      const hit = ((d && d.results) || []).find((r) => {
+        const t = norm(r.title);
+        return (
+          OV_LICENSE[r.license] &&
+          (t === n || t.startsWith(n + ' ') || (' ' + t + ' ').includes(' ' + n + ' music '))
+        );
+      });
       if (!hit) continue;
       results[e.key] = {
         source: 'openverse',
@@ -658,6 +678,192 @@ async function viaOpenverse(entities, skipped) {
     saveCache();
   }
   return results;
+}
+
+// ---- Reviewed rejections ----
+// Matches a manual accuracy pass found wrong: the image does not show the
+// named instrument or tradition (a logo, map or place; a different
+// instrument or genre; or nothing that can be confirmed). Keyed by entity,
+// valued by the rejected image's file name, so a regeneration drops the
+// same pick again but still takes a different image for that entity.
+// Commons depicts (P180) fallbacks, alias-matched Wikidata items, museum
+// title matches and Openverse hits are not verified here; review new ones.
+const REJECTED = {
+  'instrument:barrel_organ': 'Barrel_piano_-_Λατέρνα(laterna).JPG',
+  'instrument:bassanello': 'Guizza_foto_storica_chiesa_Bassanello_vista_aerea.jpg',
+  'instrument:been_snake_charmer': 'Rudraveena1.JPG',
+  'instrument:burundi_royal_drums':
+    'Bundesarchiv_Bild_105-DOA0543,_Deutsch-Ostafrika,_Ngoma-Schlagen.jpg',
+  'instrument:byzantine_lyra': 'Gdulka-bow_copy.jpg',
+  'instrument:castanets': 'default.jpg',
+  'instrument:contrabass_oboe': "Contrabass_oboe's_range.png",
+  'instrument:cornet': '8a55c0382a904e3eac317bd76dcedc5e.jpg',
+  'instrument:crotales': 'Cymbales-E_12567-img_2793.jpg',
+  'instrument:cuatro_pr': 'Cuatro_Ramon_Blanco.jpg',
+  'instrument:dan_tam_thap_luc': 'Hammered_dulcimer.JPG',
+  'instrument:fiddle': '1918.381_print.jpg',
+  'instrument:gaku_biwa': '곡경비파_(2).JPG',
+  'instrument:gender': '1968.07.0001a.jpg',
+  'instrument:gijak_turkmen': 'Ghaychak.jpg',
+  'instrument:harmonium_indian': '134286.jpg',
+  'instrument:harpa': 'zoom',
+  'instrument:hydraulis': 'Paseo_de_la_Guarania.png',
+  'instrument:irish_wooden_flute': 'Charles_Nicholson00.jpg',
+  'instrument:kalangu': 'Afrobeats_Molo_strings.jpg',
+  'instrument:kempyang': 'Wayang_Ruwatan_by_Anom_Harya.jpg',
+  'instrument:kenong': 'Karawitan_Junior.jpg',
+  'instrument:kuzhal': 'The_Tribal_Triumph.jpg',
+  'instrument:marimba_centroamericana': 'Esmeraldian_(Afro-Ecuadorian)_marimba.jpg',
+  'instrument:marimba_orchestral': 'Esmeraldian_(Afro-Ecuadorian)_marimba.jpg',
+  'instrument:melodeon_diatonic': 'New_Haven_Melodeon,_Mission_Mill_Museum.jpg',
+  'instrument:naghara_azerbaijani': 'Nagara,_MDMB_945.jpg',
+  'instrument:organistrum':
+    'Chiesa_di_San_Maurizio_-_Museo_della_Musica_in_Venice_-_Ghironda_1850_.jpg',
+  'instrument:pibgorn': 'Welshbagpipe.jpg',
+  'instrument:pyeonjong': 'Bianzhong.jpg',
+  'instrument:quern_grindstone': 'MM+19490(1).jpg',
+  'instrument:rabel_castellano': 'Encuentro_homenaje_en_Valdeolea.jpg',
+  'instrument:rebab': 'DP252791.jpg',
+  'instrument:riq': 'Pair_of_dafs.jpg',
+  'instrument:sambuca_ancient': 'Fresco_of_women_listening_to_a_private_musical_performance.jpg',
+  'instrument:sanj':
+    'Musicians_of_the_Akbar\'s_naqqāra-khāna,_from_painting_"An_Attempt_on_Akbar\'s_Life"-Akbarnama.jpg',
+  'instrument:shabbaba': 'midp89.4.444.jpg',
+  'instrument:shawm': 'MUS478A5.jpg',
+  'instrument:shudraga': 'Mongolian_lute,_circa_1279-1368,_Tomb_of_Wang_Qing.jpg',
+  'instrument:tambura_balkan': 'DP-24037-001.jpg',
+  'instrument:tanbur_maltese': 'midp89.4.1384.jpg',
+  'instrument:tar_frame_drum': 'Tār_MET_midp89.4.1858.jpg',
+  'instrument:tilinca': 'f39862d97cfc43a99c4150501a9be23a.jpg',
+  'instrument:trumpet': 'MUS1129A.jpg',
+  'instrument:tubular_bells': 'Windchimes_02.jpg',
+  'instrument:villu_pattu_bow': 'ഓണവില്ല്_ഉപയോഗിച്ചുള്ള_പാട്ട്൧.resized.jpg',
+  'instrument:vladimirskiy_rozhok': 'Рагаи_и_коленами.jpg',
+  'instrument:xalam': 'Diffa_Niger_Griot_DSC_0177.jpg',
+  'instrument:xylophone': 'MUS786A.jpg',
+  'instrument:zokra': 'Zournas.jpg',
+  'tradition:afro_punk': 'Punks_SP.jpg',
+  'tradition:afrobeat': 'Kalakuta_Queens.jpg',
+  'tradition:amapiano': 'Mr_Julz_photo.jpg',
+  'tradition:anadolu_rock': 'The_shadows_2009_Brussels.JPG',
+  'tradition:anatolian_rock': 'The_shadows_2009_Brussels.JPG',
+  'tradition:art_pop': 'Cowgirl_Clue.png',
+  'tradition:austropop': 'I_AM_FROM_AUSTRIA_-_Das_Musical_in_Japan.jpg',
+  'tradition:bachata': '10805456595_1fce3f7fa1_b.jpg',
+  'tradition:banda_sinaloense':
+    "Thales_Tkzin_na_extinta_banda_L'aventura_se_apresentando_na_Pré-Bienal_da_UBES_no_colégio_Floriano_Cavalcanti_em_2016.jpg",
+  'tradition:bassline': 'How_to_make_that_bassline_logo_honlapra.png',
+  'tradition:bassline_uk': 'How_to_make_that_bassline_logo_honlapra.png',
+  'tradition:bhangra_modern': 'Bhangra_Dance_Performed_by_Girls.jpg',
+  'tradition:bomba': 'Tamborbomba.png',
+  'tradition:bomba_puertorican': 'Tamborbomba.png',
+  'tradition:bubblegum_pop': 'Travelling_funfair,_Bemmely_Hills.jpg',
+  'tradition:c_pop': 'Chinese_music_icon.png',
+  'tradition:cantopop':
+    'Anita_Mui_Yim-fong_(梅艷芳)_Statue_at_Hong_Kong_Garden_of_Stars_(Ank_Kumar,_Infosys_Limited)_02.jpg',
+  'tradition:champeta': '2025-07-06_15-03-41-Champeta-por-David-Ramirez-Ordonez.jpg',
+  'tradition:champeta_cartagenera': '2025-07-06_15-03-41-Champeta-por-David-Ramirez-Ordonez.jpg',
+  'tradition:chicano_rap': 'ChicanoRap.jpg',
+  'tradition:chilean_rock': 'Los_Vanders_2020.jpg',
+  'tradition:chilena': 'Jose_hernandez_bajista_del_grupo_dueño_y_fundador.jpg',
+  'tradition:christian_country': '90.5_KJIC_Official_Logo.png',
+  'tradition:conjunto': '1977_torres_de_almagro._jpg.webp',
+  'tradition:copla_andaluza': 'Placa_Conmemorativa_Concha_Piquer_Gran_Via.jpg',
+  'tradition:corridos_belicos': 'CLAZI.jpg',
+  'tradition:country_gospel': '90.5_KJIC_Official_Logo.png',
+  'tradition:cowboy_song': 'Hank_Williams_Promotional_Photo.jpg',
+  'tradition:cowboy_western': 'Hank_Williams_Promotional_Photo.jpg',
+  'tradition:cumbia_chilena': 'BANDA_RIO_CLARO.png',
+  'tradition:cumbia_sonidera': 'Diálogo_abierto_Sonideros.jpg',
+  'tradition:danzon': 'Zapatos_para_danzón,_03.jpg',
+  'tradition:downtempo': 'Popovka,_Kazantip,_Crimea,_Sunset_party.jpg',
+  'tradition:drill': 'Forja_&_Sonido.png',
+  'tradition:drumstep': 'Permutation.jpg',
+  'tradition:electro': 'Electrograph.png',
+  'tradition:ethereal_wave': "Symphony_of_Us,_Love's_Chosen_tune.jpg",
+  'tradition:festejo': 'De_la_serie_Mojigangas_de_Alvarado_3.tif',
+  'tradition:festejo_afroperuano': 'De_la_serie_Mojigangas_de_Alvarado_3.tif',
+  'tradition:folk_noir': 'Sol_Invictus_Live.jpg',
+  'tradition:footwork': '7771148116_f3b47e9283_b.jpg',
+  'tradition:freestyle': 'Exhibición_de_Deportes_Urbanos_-_evento_(23).jpg',
+  'tradition:freestyle_music': 'Exhibición_de_Deportes_Urbanos_-_evento_(23).jpg',
+  'tradition:fusion': '12348323204_a3b7c94021_b.jpg',
+  'tradition:garage_rock': "17_bv_de_l'Hôtel_de_ville,_Vichy_-_porte_de_garage_rock_&_love_.jpg",
+  'tradition:glitchcore': 'Roblox.jpg',
+  'tradition:gqom':
+    '77tunes_Home_of_Hiphop_Music,_News,_Gqom,_Afro_House,_Amapiano,_Hiphopza,_Zamusic,_Fakaza_Music_SaHipHop_&_Entertainment.jpg',
+  'tradition:hawaiian_hip_hop': 'Flag_of_Hawaii.svg',
+  'tradition:hindustani_sarod':
+    'Ashwini_Bhide-Deshpande_(Hindustani_classical_music_vocalist)_01.JPG',
+  'tradition:house': 'CERVEJARIA_DO_GORDO.jpg',
+  'tradition:indietronica': 'Cowgirl_Clue.png',
+  'tradition:iraqi_maqam': 'مقتنيات_الفنان_اسماعيل_الفحّام.jpg',
+  'tradition:irish_pub_song': 'Drinking-_song_-_Zichy,_Mihály_-_1874.jpg',
+  'tradition:iskelma': 'Und_abends_in_die_Scala.jpg',
+  'tradition:islamic_recitation_mujawwad': 'A_Musical_Gathering_-_Ottoman,_18th_century.jpg',
+  'tradition:japanese_nagauta_kabuki': 'Sake_Cup_by_Santō_Kyōden.png',
+  'tradition:jersey_club':
+    'Front_angle_view_from_Market_Street_of_World_Cup_Corner_Mural_-_Unicorn151.jpg',
+  'tradition:kapa_haka':
+    'Christopher_Luxon_and_Chris_Hipkins_2023_-_State_Opening_of_the_54th_Parliament.jpg',
+  'tradition:kompa': '19274857288_047f213e12_b.jpg',
+  'tradition:kulintang': 'Agung_11.jpg',
+  'tradition:kundiman':
+    '03032jfEspana_Boulevard_Landmarks_Barangays_Lacson_Blumentritt_Sampaloc_Manilafvf_14.jpg',
+  'tradition:latin_rock': 'Gustavo_Cerati.jpg',
+  'tradition:lounge_exotica': 'Hertie_School_lounge.jpg',
+  'tradition:lounge_music': 'Hertie_School_lounge.jpg',
+  'tradition:makossa': '5897939613_6721c5937f_b.jpg',
+  'tradition:malaysian_pop': 'Malaysian_music_icon.jpg',
+  'tradition:maltese_ghana': 'Ghana_Zejrun_Monument.jpeg',
+  'tradition:mambo': '16064357976_0cba928e5f_b.jpg',
+  'tradition:manguebeat':
+    'Caranguejo_com_Cerébro_Monumento_ao_Manguebeat,_Rua_da_Aurora,_Recife_-_PE_(52181075136).jpg',
+  'tradition:microhouse': "Lakay_Ago_Nature's_Park_La_Union-10.jpg",
+  'tradition:minnesang': 'Joseph_Knippenberg,_Rheinisches_Bildarchiv,_rba_225486_kni.jpg',
+  'tradition:negro_spiritual': 'Kurt_Carr_and_the_Kurt_Carr_Singers_perform_at_the_White_House.jpg',
+  'tradition:new_jack_swing': '캣츠아이(KATSEYE)_뮤직뱅크_출근길,_분위기로_올킬.jpg',
+  'tradition:no_wave': 'Billy_Nomates_op_het_Valkhof_Festival_2022.jpg',
+  'tradition:nortec': 'Industriegebiet_Wellsee_2012;_37.jpg',
+  'tradition:norteno': 'TERRITORIA_STICKERS.jpg',
+  'tradition:opera_seria_baroque':
+    'Armida,_opera_seria_in_3_atti,_ridotto_per_il_piano_forte_-_btv1b10071060n_(038_of_226).jpg',
+  'tradition:plena_puertorican': 'Baile_De_Loiza_Aldea.gif',
+  'tradition:post_disco': 'Kuda_Lumping_Wanita_-_Lampung_-_2019.jpg',
+  'tradition:progressive_house': 'Kazantip,_Popovka,_Crimea,_Dance_party,_Techno_music.jpg',
+  'tradition:punta': 'Map_of_Carib_Land_after_Treaty_of_1773.png',
+  'tradition:punta_garifuna': 'Map_of_Carib_Land_after_Treaty_of_1773.png',
+  'tradition:red_dirt': 'CSR007_SA_2020.jpg',
+  'tradition:sean_nos_singing': 'Nioclás_Tóibín_plaque.png',
+  'tradition:skiffle': "Cannon'sJugStompers.jpg",
+  'tradition:sonidero':
+    'Rótulos_de_grupos_musicales_en_un_muro_del_tercer_anillo_(Aguascalientes)_02.jpg',
+  'tradition:southern_trap':
+    'M-Audio_Trigger_Finger_Pro_-_angled_-_2014_NAMM_Show_(by_Matt_Vanacoro).jpg',
+  'tradition:spirituals': 'Shri_Krishna_Balaram_Mandir.jpg',
+  'tradition:spirituals_african_american': 'Shri_Krishna_Balaram_Mandir.jpg',
+  'tradition:synthcore': 'Fischerspooner_NYC_2005.jpg',
+  'tradition:technical_death_metal': 'Opeth_münchen_06.12.2008._8_(B&W).jpg',
+  'tradition:timba': 'Münchner_Ruhestörung_30.09.2019.jpg',
+  'tradition:trallalero':
+    'Map_Folklore_I_1990_-_Polivocalità_-_Touring_Club_Italiano_CART-TEM-096_(cropped).jpg',
+  'tradition:trap': 'M-Audio_Trigger_Finger_Pro_-_angled_-_2014_NAMM_Show_(by_Matt_Vanacoro).jpg',
+  'tradition:tribal_house': 'Potters_house.jpg',
+  'tradition:tropical_bolero': '14045089766_54dbf6318a_b.jpg',
+  'tradition:turbo_folk': 'Zdravo_Đorđe,_Džej_Ramadanovski,_Dorćol,_Jevrejska_2,_2021.jpg',
+  'tradition:turk_sanat_muzigi': 'Aleppomusic.jpg',
+  'tradition:western_music': 'Hank_Williams_Promotional_Photo.jpg',
+  'tradition:yacht_rock': 'Beach_Boys_Good_Vibrations_from_Central_Park_1971.jpg',
+  'tradition:zouglou_ivorian':
+    "Demi_ensemble_de_la_loge_des_invitées_d'honneur_et_de_la_marraine_Dominique_Ouattara.jpg",
+};
+function isRejected(key, imageUrl) {
+  const file = decodeURIComponent(
+    String(imageUrl || '')
+      .split('/')
+      .pop()
+  );
+  return REJECTED[key] === file;
 }
 
 // ---- Main ----
@@ -679,18 +885,24 @@ function loadEntities() {
 async function main() {
   const entities = loadEntities();
   const skipped = [];
-  const found = await viaWikidata(entities, skipped);
+  const found = {};
+  // A reviewed rejection leaves the entity open for the next source.
+  const take = (results) => {
+    for (const [key, hit] of Object.entries(results))
+      if (!isRejected(key, hit.image_url)) found[key] = hit;
+  };
+  take(await viaWikidata(entities, skipped));
   const missingInstruments = () => entities.filter((e) => e.kind === 'instrument' && !found[e.key]);
-  Object.assign(found, await viaMet(missingInstruments(), skipped));
-  Object.assign(found, await viaSmithsonian(missingInstruments(), skipped));
-  Object.assign(found, await viaCleveland(missingInstruments(), skipped));
-  Object.assign(found, await viaEuropeana(missingInstruments(), skipped));
+  take(await viaMet(missingInstruments(), skipped));
+  take(await viaSmithsonian(missingInstruments(), skipped));
+  take(await viaCleveland(missingInstruments(), skipped));
+  take(await viaEuropeana(missingInstruments(), skipped));
   // Openverse's small daily allowance goes to traditions first: museums
   // only ever cover instruments.
   const missing = entities
     .filter((e) => !found[e.key])
     .sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'tradition' ? -1 : 1));
-  Object.assign(found, await viaOpenverse(missing, skipped));
+  take(await viaOpenverse(missing, skipped));
 
   const images = entities
     .filter((e) => found[e.key])
@@ -730,4 +942,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { classifyLicense, nameCandidates, norm };
+module.exports = { classifyLicense, nameCandidates, norm, isRejected, REJECTED };
