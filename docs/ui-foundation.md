@@ -44,9 +44,8 @@ A page registers once, at load, from its own file:
 ```js
 uiRegisterPage({
   id: 'genre', // one of genre | instrument | map | lyrics
-  recipe: 'sidebar', // or 'dock': how Your recipe is presented on this route
-  dockHeight: 'clamp(200px, 24vh, 320px)', // optional, with 'dock': default height (CSS length)
-  dockMin: 200, // optional, with 'dock': smallest height the resize handle allows (px)
+  recipe: 'sidebar', // 'sidebar-right' or 'dock': how Your recipe is presented on this route
+  dockHeight: 'clamp(220px, 24vh, 320px)', // optional, with 'dock': default height on this route (CSS length)
   mount(surface) {}, // build the page once inside <section id="surface-genre">
   render() {}, // show current state; called on every visit and refresh
   layout() {}, // page-specific UILayout panes, once, after the shell's
@@ -56,8 +55,9 @@ uiRegisterPage({
 });
 ```
 
-The shell refuses an unknown route, a second registration, and an action name
-the shell or another page already owns. Route order, labels, icons and colours
+The shell refuses an unknown route, a second registration, an unknown `recipe`
+presentation (`UI_RECIPE_MODES`: `sidebar`, `sidebar-right`, `dock`), and an
+action name the shell or another page already owns. Route order, labels, icons and colours
 are the shell's (`UI_ROUTES`); deep links are `codex.html#genre|instrument|map|lyrics`
 and `codex.html?trad=<id>` (opens that tradition's Genre detail once and leaves the
 URL; adds nothing; an explicit `#section` wins).
@@ -98,16 +98,66 @@ editor, on every route. Nothing copies or snapshots them. The panel is headed
 "Your recipe"; a tradition's stock recipe on the Map is labelled "Default
 recipe" and is a different object (copying it never touches Your recipe).
 
-- `recipe: 'sidebar'` — a column, resizable (drag or arrow keys on its
-  separator), collapsible to a rail from its header, both remembered.
-- `recipe: 'dock'` — a strip under the page (the Map uses it): actions and name,
-  the recipe tree, and the preview side by side; resizable from its top edge
-  (drag or Up/Down), collapsible to its header. The editor opens beside the page.
-  A page may give the dock a height-aware default (`dockHeight`, a CSS length)
-  and a lower resize floor (`dockMin`); otherwise 320 px and 300 px. A height the
-  user dragged to is one remembered preference and wins on every docked page.
-- Below 900 px — the Recipe sheet (header button). On the Map and Lyrics the
+- `recipe: 'sidebar'` (the default) — a column on the left, resizable (drag or
+  arrow keys on its separator), collapsible to a rail from its header, both
+  remembered.
+- `recipe: 'sidebar-right'` — the same column on the right of the page (Genre's
+  reference): resizable from its left edge (its width is its own remembered
+  preference), collapsible to a rail at the right edge. The editor opens between
+  the page and Your recipe; from 900 to 1250 px it overlays the page instead.
+- `recipe: 'dock'` — a compact strip under the page (Instrument's and the Map's
+  references), 220 px by default so the page — the map — keeps the screen: the
+  header row carries the session name, counts, Autosaved, AI recipe and Open
+  full editor; below it the recipe rows | Recording environment and Suggestions
+  | Recipe preview (one line) and Copy recipe, each column scrolling on its own.
+  Resizable from its top edge (drag or Up/Down, 220 px to 70 % of the
+  workspace), collapsible to its header. The editor opens beside the page.
+  A page may give its dock a height-aware default (`dockHeight`, a CSS length;
+  the Instrument page asks for `clamp(220px, 24vh, 320px)`). A height the user
+  dragged to is one remembered preference and wins on every docked page.
+- Below 900 px — the Recipe sheet (header button). Its toolbar carries AI
+  recipe, Add genre, Add instrument and Close; the recipe bar (count, Undo,
+  Redo, Copy recipe, expand) is pinned to its bottom. On the Map and Lyrics the
   sheet stops at 60 % of the height so the map and the document stay usable.
+
+What the panel shows, in every presentation (page owners do not restyle it;
+ask the integration owner):
+
+- **Header** — "Your recipe", the Autosaved status (the header's `#ui-autosave`
+  stays the live region and steps aside visually while the panel shows it),
+  Filter instruments (reveals `#sidebar-filter-input`; closing it clears the
+  filter), collapse.
+- **Session** — the name with its rename pencil, and "n genres · m instruments".
+- **Genres** — each genre a card: drag grip, glyphs, name (the collapse toggle),
+  Primary on the first, and a … menu: Make primary genre, Move up, Move down,
+  Remove genre. Each instrument row: icon, catalog name, its current character
+  word, **Edit** (opens the editor on it) and a … menu: Duplicate, Pin to top,
+  Move to genre…, Explore variations, Find similar instruments, Remove — each
+  the editor's own command (`handleAction`). Rows still drag to another genre,
+  and genres to a new order. "+ Add instrument" adds to that genre; below the
+  genres, Add another genre (`#btn-traditions`) and Add independent instrument
+  (`#btn-add`).
+- **Suggestions for this recipe** — the existing suggestion (a genre close in
+  sound to the primary, Try another, Add), closed until opened.
+- **Recording environment** — Room, Tuning and a Signal chain summary of the
+  card the recipe's environment is really rendered from (`envCardOf`, the rule
+  every output format uses), labelled "From <instrument> · <genre>". Each row
+  opens the editor on that card at Environment (Room and Tuning with their
+  picker open) or Signal chain.
+- **Recipe preview** — the format (Rich, Tags, Prose, Compact; the same
+  `app.recipeStackFormat` the full-recipe dialog uses), the first lines with a
+  control to show all, "n / 1,000 characters", Open full recipe, and Copy recipe
+  (copies the format shown).
+- **AI recipe** — opens the one AI writer; "Describe a change to this recipe…"
+  sends the request with the current recipe attached (as Lyrics' "Use current
+  recipe" does). The writer's reply is offered with its own "Use recipe", which
+  Undo reverses.
+
+Menus in the panel are `[data-menu-toggle]` buttons naming a hidden
+`role="menu"` element through `aria-controls`; the shell opens one at a time
+beside its trigger, moves between items with Up/Down/Home/End, and closes it on
+an item, a click elsewhere or Escape (first in the Escape order, focus back to
+the trigger). A page may use the same pattern for its own menus.
 
 The editor's tabs are Character, Parts, Environment, Signal chain and Output
 (ids `preface`, `parts`, `env`, `chain`, `stack`).
@@ -140,7 +190,7 @@ panel, editor, dialogs, AI writer).
 ## Layers, keyboard and focus
 
 Escape closes the topmost layer only and returns focus to what opened it: a
-dialog (src/app.js), then More, the AI writer, the Recipe sheet (below
+dialog (src/app.js), then an open … menu in Your recipe, then More, the AI writer, the Recipe sheet (below
 900 px), the editor, then the page's own `escape()` (Genre: the inline tree,
 then a genre's detail; Instrument: the preview). Back and Forward step between
 sections. Dragging keeps working and every drag has a keyboard or button
@@ -172,13 +222,14 @@ Nothing below is implemented by the foundation. Each item needs real wiring,
 an entry in `tests/ui_capability_inventory.md`, and a gate where it is a claim.
 
 - **Genre** — the reference layout (Browse column, Start exploring / All genres,
-  recipe sidebar on the right); List/Grid; "Find a sound" with the 13
+  recipe sidebar on the right: set `recipe: 'sidebar-right'` in the
+  `uiRegisterPage` call in `src/pages/genre.js`); List/Grid; "Find a sound" with the 13
   characteristics as applied, clearable controls; Overview / Sound profile /
   Instruments / Similar sounds / Background tabs; recordings and references
   only from real sources; an explicit destination when adding one instrument
   from a genre's roster (today it follows the Instrument page's "Add to").
 - **Instrument** — catalogue, full-settings inspector and recipe dock
-  (`recipe: 'dock'` is available); configure-before-add that carries the shown
+  (set `recipe: 'dock'` in `src/pages/instrument.js`); configure-before-add that carries the shown
   variants into the named destination; "Not set" and expanded materials in the
   inspector; the 15 sound-property filters as disclosures; Similar instruments
   in the inspector.
