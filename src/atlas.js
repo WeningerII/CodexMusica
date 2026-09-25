@@ -1727,7 +1727,7 @@
         ? 'Added ' + a.added + ' of ' + plural(a.expected, 'instrument') + ' to Your recipe'
         : 'Added ' + plural(a.added, 'instrument') + ' to Your recipe') +
       (a.times > 1 ? ' (' + a.times + ' times)' : '') +
-      '. Undo is in the app.</span></div>'
+      '. Use Undo in the header to reverse this.</span></div>'
     );
   }
 

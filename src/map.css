@@ -83,7 +83,9 @@ svg:not(.mark) {
   text-decoration: none;
 }
 .brand-mark {
-  stroke: var(--cm-route-map) !important;
+  display: block;
+  flex: none;
+  border-radius: 4px;
 }
 .brand-name {
   font-weight: 700;
