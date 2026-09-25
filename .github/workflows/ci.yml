@@ -1841,9 +1841,9 @@ jobs:
       # ADVERSARY 4's AIM. Added 2026-08-14. 0.06 CPU-s — the cheapest step in
       # this job and, per CPU-second, the most informative one in the file.
       #
-      # quality/mutate.py declares 58 mutations (33 M-series, 25 Q-series,
-      # across 7 target files) and every one is anchored on an EXACT TEXT MATCH
-      # in the file it mutates — not a name, not a line number, a literal
+      # quality/mutate.py declares ~~58~~ 59 mutations (33 M-series, ~~25~~ 26
+      # Q-series, across 7 target files; 59 since QR8, 2026-09-25, M-310) and
+      # every one is anchored on an EXACT TEXT MATCH in the file it mutates — not a name, not a line number, a literal
       # source fragment. So an ordinary, correct, well-reviewed edit to a
       # comparator silently DETACHES the mutation that was measuring that
       # comparator's test coverage. Nothing else in the repo notices: the
@@ -1854,7 +1854,7 @@ jobs:
       #
       # THREE DRIFTED IN 24 HOURS. That is this repo's measured rate, not a
       # hypothetical, and it is why `--dry-run` earns a step of its own:
-      # it re-reads the shipped sources and re-applies all 58 anchors, so it
+      # it re-reads the shipped sources and re-applies all ~~58~~ 59 anchors, so it
       # answers "is adversary 4 still pointed at the code?" FROM THE CODE on
       # every run. It is the only carrier of that fact that cannot be silenced
       # by writing a file — a committed score can be repinned, an anchor that
@@ -1868,7 +1868,7 @@ jobs:
       # and a green run reports red. DO NOT PIPE THIS STEP. It is deliberately
       # run bare, and this comment is here so the next person to "just add a
       # `| tail`" finds out from the file rather than from a red build.
-      - name: Mutation anchors still apply (all 58 — adversary 4 is still aimed at the code)
+      - name: Mutation anchors still apply (all 59 — adversary 4 is still aimed at the code)
         if: always()
         working-directory: lyric-harness
         run: python3 quality/mutate.py --dry-run
@@ -3469,7 +3469,7 @@ jobs:
           # reports SURVIVED. That is a coverage hole manufactured by a
           # scheduling change, which is the one outcome worse than a slow
           # sweep.
-          # THE COST IS CADENCE AND IS NOT HIDDEN: 58 mutations at N=4 is
+          # THE COST IS CADENCE AND IS NOT HIDDEN: ~~58~~ 59 mutations at N=4 is
           # ~14-15 a night, and each is asked every FOURTH night rather than
           # every second. The stride is round-robin, so N=4 splits each old
           # half in two and the heavy half's mass splits with it.

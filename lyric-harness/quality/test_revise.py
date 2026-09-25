@@ -1160,7 +1160,12 @@ def test_the_four_rejections_on_the_songs_own_shape():
           str(b33.forbidden_modal))
     res = R.verify(lines, sub(target, f"{prefix} {modal[0]}"),
                    m, targeted=[target])
-    check("MODAL — L33 takes the most frequent word in its field, rejected",
+    # Label ~~"L33 takes the most frequent word in its field"~~ restated
+    # 2026-09-25 (`MISSING.md` M-310): the head is ranked by the song-corpus
+    # conditional, not by frequency, and `modal[0]` is simply its first
+    # word other than L33's own end word.
+    check("MODAL — L33 takes the first word of its field's forbidden head, "
+          "rejected",
           not res["accepted"] and res.get("modal_violations"),
           res["reasons"][0][:120])
 
@@ -1554,8 +1559,11 @@ def test_the_modal_set_against_a_declared_reference():
     #
     # GREEN UNDER THE EVIDENCE-GATED HEAD, 2026-09-24: FORBIDDEN 127/127
     # (100.0%) against OFFERED 68/72 (94.4%); way/day 63/63 against 22/24,
-    # `thing` 32/32 against 23/24, `spring` 32/32 against 23/24, every
-    # defined field "ban denser", none inverted.
+    # `thing` 32/32 against 23/24, `spring` 32/32 against 23/24, ~~every
+    # defined field "ban denser"~~ "ban denser" on the three non-empty
+    # defined fields (the other two, `can` and `frame`/`name`/`flame`, are
+    # 0/0 on both sides and print no per-field verdict; corrected
+    # 2026-09-25), none inverted.
     #
     # WHAT THIS CHECK NOW IS, SAID PLAINLY -- the three things that are true
     # of that green and would be misread if left unsaid:

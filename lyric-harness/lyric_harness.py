@@ -8678,7 +8678,11 @@ def main():
                   f"{relation_label(c['relations'])}{fl}")
         # WHICH ORDERING THIS IS, AND THE OTHER ONE — FIXED 2026-08-15.
         # THE DEFECT: this verb ranks by RHYME SCORE and the loop's modal
-        # exclusion ranks by FREQUENCY, and neither said so. They are two
+        # exclusion ~~ranks by FREQUENCY~~ ranks by the song-corpus
+        # conditional (tier 1 bans the same-spelled class without limit;
+        # tier 2 bans at most `modal_exclusion` partners, ranked by that
+        # conditional and evidence-gated since 2026-09-25, `MISSING.md`
+        # M-310; struck 2026-09-25), and neither said so. They are two
         # answers to one question — "is this rhyme too predictable" — and the
         # one a writer can reach from the command line is NOT the one the
         # grader enforces. MEASURED on 'lines': this verb's top 7 is
@@ -8703,7 +8707,8 @@ def main():
         # `"--modal" in args` is an exact membership test, so the `=`
         # spelling every sibling flag on this file accepts fell through and
         # the run came back BYTE-IDENTICAL to passing no flag at all: the
-        # caller who asked for the FREQUENCY-ranked forbidden set was handed
+        # caller who asked for the ~~FREQUENCY-ranked~~ modal forbidden set
+        # (conditional-ranked; struck 2026-09-25, M-310) was handed
         # the RHYME-SCORE list, which is the exact substitution §22 exists to
         # stop. It takes no value, so a value is refused rather than guessed.
         _modal_eq = [a for a in args if a.startswith("--modal=")]

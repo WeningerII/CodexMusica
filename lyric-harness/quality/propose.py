@@ -845,10 +845,12 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
         # which the song table has seen answer these calls, with no
         # same-spelled member, comes back with an empty head and a full
         # offer. ~~"Either nothing in the lexicon answers this line's groups
-        # at all ... or the modal exclusion is declared at 0"~~ listed the
-        # possible causes and said none of them applied; a sentence that
-        # lists every cause is "cannot tell" dressed as an answer (doctrine
-        # 28), and the brief KNOWS which one it is. So it now carries the
+        # at all ... or the modal exclusion is declared at 0"~~ listed ~~the
+        # possible causes~~ two causes (NO_ANSWER, DECLARED_ZERO) and said
+        # none of them applied — it never listed DECLARED_RELATION, which
+        # predates the gate (corrected 2026-09-25); a sentence that offers
+        # causes joined by "either ... or" is "cannot tell" dressed as an
+        # answer (doctrine 28), and the brief KNOWS which one it is. So it now carries the
         # cause as data (`Brief.empty_head_cause`, one of
         # `revise.EMPTY_HEAD_CAUSES`) and this states THAT one.
         if getattr(brief, "field_computed", False):

@@ -2887,7 +2887,11 @@ def test_the_candidate_field_says_which_ordering_it_is():
     print("\n22. `candidates --modal` — two orderings, one question, and the "
           "verb now says which it answered (FIXED 2026-08-15)")
     # THE DEFECT: this verb ranks by RHYME SCORE; the loop's modal exclusion
-    # ranks by FREQUENCY over the grader-accepted pool. Two answers to "is
+    # ~~ranks by FREQUENCY~~ ranks by the song-corpus conditional over the
+    # grader-accepted pool (tier 1 bans the same-spelled class without
+    # limit; tier 2 bans at most `modal_exclusion` partners, ranked by that
+    # conditional and evidence-gated since 2026-09-25, `MISSING.md` M-310;
+    # struck 2026-09-25). Two answers to "is
     # this rhyme too predictable", and the one reachable from the command
     # line is not the one the grader enforces. Found by using the verb to
     # pre-screen a rhyme and having the loop reject the result anyway.

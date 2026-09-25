@@ -33,11 +33,19 @@ THE THREE RULES IT ENFORCES
        from the optimum: pass the band, but not by taking the modal candidate."
 
    So when a rhyme needs fixing, the brief does not say "make it rhyme better".
-   It supplies the candidate field, and then NAMES THE MOST FREQUENT MEMBERS OF
-   THAT FIELD AS FORBIDDEN. Passing the band by taking `fire`/`desire` is
-   exactly the failure the whole quality layer was built to detect, and a
-   revision loop that recommends it would manufacture the slop the floor
-   rejects.
+   It supplies the candidate field, and then NAMES ~~THE MOST FREQUENT MEMBERS
+   OF THAT FIELD~~ THE MOST PREDICTABLE MEMBERS OF THAT FIELD AS FORBIDDEN, in
+   two tiers: tier 1 bans the same-spelled class without limit, and tier 2
+   bans at most `modal_exclusion` differently-spelled partners, ranked by the
+   song-corpus conditional and EVIDENCE-GATED since 2026-09-25 (`ff740121`,
+   written 2026-09-24 as the ban-repair panel's candidate A): only partners
+   the song table has seen realised as the call's rhyme can enter it
+   (`MISSING.md` M-310). Struck 2026-09-25: "most frequent" had been false
+   since 2026-08-11, when the ranking became the conditional, and the struck
+   sentence survived the gate's own rewrite of the comments below it. Passing
+   the band by taking `fire`/`desire` is exactly the failure the whole quality
+   layer was built to detect, and a revision loop that recommends it would
+   manufacture the slop the floor rejects.
 
    `verify()` enforces the exclusion: a revision that lands on a modal
    candidate is REJECTED even though it passes the band.
@@ -638,9 +646,12 @@ class Brief:
     #: WHICH CAUSE EMPTIED A COMPUTED HEAD — one of `EMPTY_HEAD_CAUSES`,
     #: set beside `field_computed` and only when `forbidden_modal` came back
     #: empty; "" everywhere else. Added 2026-09-24 (`MISSING.md` M-310,
-    #: doctrine 28): the renderer's sentence listed every possible cause
-    #: joined by "either ... or" and said none of them applied, and the
-    #: evidence-gated head added a third. The brief KNOWS which one it is —
+    #: doctrine 28): the renderer's sentence ~~listed every possible cause~~
+    #: listed two causes (NO_ANSWER, DECLARED_ZERO) joined by "either ...
+    #: or" and said none of them applied — it never listed
+    #: DECLARED_RELATION, which predates the gate (corrected 2026-09-25 on
+    #: the doctrine/accuracy review) — and the evidence-gated head added
+    #: UNEVIDENCED. The brief KNOWS which one it is —
     #: `Reviser.empty_head_cause` reads it off the same ranking the head was
     #: cut from — so the writer is told that one, as DATA, because
     #: `propose.py` imports only `re`.
@@ -834,7 +845,9 @@ class Brief:
 #:                     corpus — the evidence-gated head (2026-09-24) has
 #:                     nothing to hold. Exact, not a bound: the ranking sorts
 #:                     on that count first, and the gate stops at the first
-#:                     member without one.
+#:                     ~~member~~ ranked word, member or not, without one
+#:                     (every word after it has none either; corrected
+#:                     2026-09-25).
 EMPTY_HEAD_CAUSES = ("DECLARED_RELATION", "NO_ANSWER", "DECLARED_ZERO",
                      "UNEVIDENCED")
 

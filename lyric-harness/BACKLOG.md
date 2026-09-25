@@ -1763,18 +1763,32 @@ until ruled.
    `modal_exclusion` would move from "exactly k" to "at most k, evidenced
    partners only": tier 2 empty wherever the song table has no realised
    partner for the call, and a call absent from the table gets no tier-2 ban
-   at all.~~ RULED 2026-09-25 BY THE OWNER, verbatim: *"go ahead, the
-   tier-2 change is fine"*. Not a delegation ruling: the owner was shown the
-   consequence and accepted it. What was accepted, measured 2026-09-24
-   (`MISSING.md` M-310): 5,027 of 13,835 line-final word types (36.3%) have
-   no realised partner at all, so tier 2 is empty for them by construction —
-   14,689 of 248,106 line-final tokens (5.9%) by use weight. A seeded
-   sample (150 types uniform, 150 by use) puts the share whose GATED tier 2
-   is empty at 69.3% of types (95% CI 61.5–76.2) and 20.7% by use (15.0–27.8)
-   — most of the difference being calls whose every realised partner is
-   same-spelled and so still banned by tier 1 — and the share with NO ban of
-   either tier at 16.7% of types and 2.7% by use. Tier 1 is unchanged. The
-   gate landed on `fix/w-ban-gate` for PR #380.
+   at all.~~ RULED 2026-09-25 (about 01:00 UTC) BY THE OWNER, verbatim:
+   *"go ahead, the tier-2 change is fine"*. Not a delegation ruling: the
+   owner was shown ~~the consequence and accepted it~~ the ban-repair
+   panel's figures for the consequence and accepted the change. ~~What was
+   accepted, measured 2026-09-24 (`MISSING.md` M-310): 5,027 of 13,835
+   line-final word types (36.3%) have no realised partner at all, so tier 2
+   is empty for them by construction — 14,689 of 248,106 line-final tokens
+   (5.9%) by use weight. A seeded sample (150 types uniform, 150 by use)
+   puts the share whose GATED tier 2 is empty at 69.3% of types (95% CI
+   61.5–76.2) and 20.7% by use (15.0–27.8) — most of the difference being
+   calls whose every realised partner is same-spelled and so still banned by
+   tier 1 — and the share with NO ban of either tier at 16.7% of types and
+   2.7% by use.~~ (Struck 2026-09-25 on the doctrine/accuracy review: those
+   figures were measured AFTER the ruling and dated as if before it; they
+   were never what the owner was shown.) WHAT THE OWNER WAS SHOWN — candidate
+   A's figures: ~40% of the in-table call types (40.4% of 8,809) have no
+   differently-spelled evidenced partner (9.3% by realised-pair weight);
+   calls absent from the song table get no tier-2 ban at all; and the
+   pivot-field menu shift. MEASURED 2026-09-25, AFTER THE RULING — disclosed
+   to the owner after the ruling; not separately ruled on (`MISSING.md`
+   M-310): 5,027 of 13,835 line-final word types (36.3%) — 14,689 of 248,106
+   line-final tokens (5.9%) by use — have no realised partner at all; a
+   seeded sample (150 types uniform, 150 by use) puts tier 2 empty for 69.3%
+   of types (95% CI 61.5–76.2) and 20.7% by use (15.0–27.8), and NO ban of
+   either tier for 16.7% of types and 2.7% by use. Tier 1 is unchanged. The
+   gate landed on `fix/w-ban-gate` for PR #380 (`ff740121`, 2026-09-25).
 26. **A frequency-of-rhyme fallback for calls the song table cannot
    evidence?** Under the evidence gate (row 25) a call with no realised
    partner gets no tier-2 ban, so common differently-spelled perfect rhymes

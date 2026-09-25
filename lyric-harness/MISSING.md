@@ -28022,7 +28022,7 @@ sitting as the J-1 glide repin of it and of `cynghanedd_rate.py` recorded
 under N-1. `RESULTS_CYM_RHYME.md` §2, §5, §8 and §9 carry the dated notes.
 
 
-### M-310 · The modal ban's second tier backed off to GLOBAL word frequency where the song corpus had little evidence for the call, so on `thing` it forbade `it`/`is`/`in`/`this` and offered `anything` — the ban was less dense in the rhyme than the menu it left `CLOSED` 2026-09-24 — found by `quality/test_revise.py` §22 going red on the N-relation model (#380); fixed by the evidence-gated head, accepted by the owner 2026-09-25
+### M-310 · The modal ban's second tier backed off to GLOBAL word frequency where the song corpus had little evidence for the call, so on `thing` it forbade `it`/`is`/`in`/`this` and offered `anything` — the ban was less dense in the rhyme than the menu it left `CLOSED` ~~2026-09-24~~ 2026-09-25 — found by `quality/test_revise.py` §22 going red on the N-relation model (#380); fixed by the evidence-gated head, accepted by the owner 2026-09-25
 
 **THE DEFECT.** `Reviser._rank_field_compute` in `quality/revise.py` sorts a
 field on (−conditional count, `lex.freq_rank`, position), and tier 2 of the
@@ -28045,7 +28045,7 @@ ranking, and false of the ban it filled.
 **MEASURED at `f58ecf59` (candidate C of the ban-repair panel, 2026-09-24),
 shipped `Declaration()`, via `Reviser().joint_field([...])`** (each word:
 conditional count, global rank, coarse relations to the call). Every head word,
-count, rank and first offer below was RE-MEASURED 2026-09-24 on `be0529b5` (the
+count, rank and first offer below was RE-MEASURED ~~2026-09-24~~ 2026-09-25 on `be0529b5` (the
 same ban) and is identical; the relation labels are C's and were not re-run:
 
 | call | the tier-2 head | first offered |
@@ -28065,7 +28065,7 @@ defined INVERTED.
 `thing`/`it` (`Nothing here but the smallest thing` / `and every word I said of
 it`, satisfied only through registry schemas — `assonance`, `chain rhyme
 (rap)` — and no coarse relation) filed MODAL_RHYME: *"'it' is
-one of the 6 most-predictable answers to 'thing'"* — re-measured 2026-09-24 on
+one of the 6 most-predictable answers to 'thing'"* — re-measured ~~2026-09-24~~ 2026-09-25 on
 the ungated tree. "Most predictable" there meant zero song-corpus observations
 plus rank 6 in English. `thing`/`anything` (RHYME, RIME_RICHE) earned no note.
 `quality/loop.py` pursues MODAL_RHYME mandatorily, so the loop moved a writer
@@ -28081,14 +28081,15 @@ until the licensed nucleus, `mandate_from_graph` put `thing` and `spring` only
 into groups whose calls spanned six to nine distinct tails, where no word can
 agree with every call and the reference is undefined.
 
-**THE FIX — THE HEAD IS EVIDENCE-GATED (`ff740121` on `fix/w-ban-gate`, for PR #380).**
+**THE FIX — THE HEAD IS EVIDENCE-GATED (`ff740121` on `fix/w-ban-gate`, 2026-09-25, for PR #380; written 2026-09-24 as the ban-repair panel's candidate A, `c3fe8a33`).**
 `_rank_field_compute` admits a word to tier 2 only when `cond[w] > 0`, the
 ranking's own primary key: the song table has seen it realised as a rhyme
 partner of (one of) the calls. `modal_exclusion` stays the CEILING and nothing
 replaces it; a thin table gives a shorter head, an empty table an empty one.
 Because the ranking sorts on that count first, the gated head is a PREFIX of
 the old head: bans only SHRINK, no pair gains a note, and no capacity witness
-can turn dirty (measured below). Tier 1 (HOMEOTELEUTON) is untouched — it bans
+can turn dirty (~~measured below~~ measured: CAPACITY under TESTED, below —
+the pointer named a measurement this entry did not carry until 2026-09-25). Tier 1 (HOMEOTELEUTON) is untouched — it bans
 by spelling and never read the table. Zero-evidence words stay in the ranked
 remainder, in their old order, for the OFFER. Consistent surfaces, one commit (`ff740121`); the §22 restatement is `57927dfd` and the mutation `b0657fe8`:
 
@@ -28110,7 +28111,34 @@ remainder, in their old order, for the OFFER. Consistent surfaces, one commit (`
 - `ReviseDeclaration.modal_exclusion`, `Brief.forbidden_modal`, the
   `joint_field` / `modal_field` / `_rank_field_compute` comments, CLAUDE.md's
   two-tier paragraph and doctrine 48, each ~~old~~ new. "Ranked by FREQUENCY"
-  was already false from 2026-08-11 and is struck where it stood.
+  was already false from 2026-08-11 and ~~is struck where it stood~~ is
+  struck at those sites. THE CLAIM WAS WIDER THAN THE STRIKE (the
+  doctrine/accuracy review, 2026-09-25): present-tense copies survived, and
+  are now struck the same way, each saying that tier 1 bans the
+  same-spelled class without limit and tier 2 bans at most
+  `modal_exclusion` partners, ranked by the song-corpus conditional and
+  evidence-gated since 2026-09-25 — the `quality/revise.py` module
+  docstring ("NAMES THE MOST FREQUENT MEMBERS OF THAT FIELD AS FORBIDDEN"),
+  `quality/verify_doctrines.py` REGISTRY[9], CLAUDE.md's `candidates`
+  paragraph (two sentences, "ranks by FREQUENCY" and "the FREQUENCY-ranked
+  forbidden set") and its doctrine-9 paragraph (whose tier-2 clause read as
+  the whole ban), the two `candidates --modal` comments in
+  `lyric_harness.py` `main()` (outside the comparator closure: the
+  fingerprint re-measured `1e2d0c2d…385a`, unchanged), `quality/test_verbs.py`
+  §22's comment, and the label of `quality/test_revise.py`'s L33 MODAL check.
+  LEFT AS THEY ARE, deliberately, because none states the old mechanism in
+  the present tense: `quality/frequency.py`'s `eng` block (past tense and
+  true of its date; its present-tense sentence describes the RANKING, which
+  still backs off to `freq_rank` for the offer); the title of
+  `quality/RESULTS_SONG_FREQUENCY.md`, which quotes "the most frequent
+  band-passing candidate" as the question that document answered with the
+  conditional; `predictability_frac`'s "frequency-ranked candidate field" in
+  `quality/song_profile_calibration.py` (floor.py's PREDICTABLE_RHYME, not
+  this ban, and a comparator-fingerprint input); BACKLOG RULINGS WANTED
+  #26's "most frequent rhymes" (candidate B's proposal, not the ban); dated
+  logs under `quality/results/`; and older dated MISSING entries (e.g.
+  M-185's "frequency-filled head") describing the head as it was on their
+  date.
 
 **WHAT §22 SAID, AND THE MEASUREMENT REPAIR THAT LANDED WITH THE FIX.** §22
 pooled every briefed field: ~~FORBIDDEN 190/1505 (12.6%) against OFFERED 90/492
@@ -28134,11 +28162,16 @@ grafted onto the gate and credited in §22's comment; doctrines 20, 28, 94):
 - the per-field series, the ban's AND the menu's off-reference words, and the
   refused count print on every run.
 
-Restated, dated 2026-09-24: **RED at `f58ecf59`**, FORBIDDEN 127/135 (94.1%)
-against OFFERED 68/72 (94.4%), `thing` and `spring` INVERTED (re-measured on
-`be0529b5`: identical, 24 fields refused carrying 1,050 banned and 331
-offered); **GREEN under the gate**, FORBIDDEN 127/127 (100.0%) against 68/72
-(94.4%), every defined field "ban denser", 24 refused carrying 1,023 banned
+Restated, ~~dated 2026-09-24~~ on candidate C's argument of 2026-09-24: **RED at
+`f58ecf59`**, FORBIDDEN 127/135 (94.1%) against OFFERED 68/72 (94.4%), `thing`
+and `spring` INVERTED (C, 2026-09-24; re-measured 2026-09-25 on `be0529b5`:
+identical, 24 fields refused carrying 1,050 banned and 331 offered); **GREEN
+under the gate** (measured 2026-09-25), FORBIDDEN 127/127 (100.0%) against
+68/72 (94.4%), ~~every defined field "ban denser"~~ "ban denser" on the three
+non-empty defined fields (`way`/`day`, `thing`, `spring`; the other two
+defined fields, `can` and `frame`/`name`/`flame`, are 0/0 on both sides and
+print no per-field verdict — corrected 2026-09-25, and `57927dfd`'s commit
+message carries the same overstatement), 24 refused carrying 1,023 banned
 and 349 offered. §22's old `'ear'` disclosure is struck on its own cause: it
 described `examples/never_been_to_a_scene.txt`, which was deleted on
 2026-08-12 by `11aa19bd` — `793afe67` repointed §22 at `quality/fixtures/mandate_song.txt`
@@ -28171,10 +28204,26 @@ tier 2 shrank to its three evidenced partners (aim, claim, proclaim), `him`
 joined its menu at offer 13, and `made`, the 24th and last offer, fell out.
 127 further pairs keep their bucket and shift rank. No pair gained a note.
 
-**WHAT THE OWNER ACCEPTED — THE POLICY CONSEQUENCE, 2026-09-25.** Owner,
-verbatim: *"go ahead, the tier-2 change is fine"* (`BACKLOG.md` RULINGS WANTED
-#25). `modal_exclusion` moves from "exactly k" to "at most k, evidenced partners
-only". MEASURED 2026-09-24 over `data/song_endword_en.tsv`: **5,027 of 13,835
+**~~WHAT THE OWNER ACCEPTED — THE POLICY CONSEQUENCE, 2026-09-25.~~ THE
+OWNER'S RULING, THE BASIS IT WAS MADE ON, AND WHAT WAS MEASURED AFTER IT.**
+(Restated 2026-09-25 on the doctrine/accuracy review of this branch: the
+struck heading and the struck date below presented figures measured AFTER
+the ruling as what the owner accepted, and dated them 2026-09-24, before
+it.) Owner, verbatim, 2026-09-25 at about 01:00 UTC: *"go ahead, the tier-2
+change is fine"* (`BACKLOG.md` RULINGS WANTED #25). `modal_exclusion` moves
+from "exactly k" to "at most k, evidenced partners only".
+
+WHAT THE OWNER HAD BEEN SHOWN when ruling — the ban-repair panel's
+candidate-A figures: **~40% of the in-table call types (40.4% of the 8,809
+call types in the song pair table) have no differently-spelled evidenced
+partner** (**9.3%** weighted by realised pair count); **calls absent from
+the song table get no tier-2 ban at all**; and **the pivot-field menu
+shift** — `fixed`/`chipped`/`slipped` now opens `is, this, with, get`,
+`yard`/`fall` opens `on, was`.
+
+MEASURED 2026-09-25, AFTER THE RULING — DISCLOSED TO THE OWNER AFTER THE
+RULING (about 03:15 UTC); NOT SEPARATELY RULED ON. ~~MEASURED 2026-09-24~~
+Over `data/song_endword_en.tsv`: **5,027 of 13,835
 line-final word types (36.3%) have no realised partner at all**, so their tier 2
 is empty by construction — **14,689 of 248,106 line-final tokens (5.9%)** by use
 weight. The gated tier 2 is also empty where every realised partner shares the
@@ -28185,17 +28234,24 @@ reads: **tier 2 empty for 104/150 types (69.3%, 95% CI 61.5–76.2)** — 55 wit
 no realised partner, 47 whose realised partners are all same-spelled, 2 whose
 evidenced partners are not field members — and **31/150 by use (20.7%, 95% CI
 15.0–27.8)**; **no ban of either tier for 25/150 types (16.7%) and 4/150 by use
-(2.7%)**; tier 2 full (six) for 7/150 types and 75/150 by use. Before the gate
-tier 2 was full wherever the field had six differently-spelled members. Calls
-absent from the song table get no tier-2 ban at all. Common, differently-spelled perfect rhymes of calls
-the table has never seen are OFFERED rather than banned. On pivot fields with no
-common rhyme the words that left the head now LEAD the menu: over §22's 29
-fields, 9 changed, 35 words left heads and 15 of them are now in their field's
-first six offers — `fixed`/`chipped`/`slipped` opens `is, this, with, get`
-(it opened `if, think, did, his`), `yard`/`fall` opens `on, was`. §22 refuses
-pivot fields, so no instrument there sees this. A frequency-of-rhyme fallback
-for unevidenced calls (the panel's candidate B) is a separate decision nobody
-has made (`BACKLOG.md` RULINGS WANTED #26).
+(2.7%)**; tier 2 full (six) for 7/150 types and 75/150 by use. The sampled
+empty-tier-2 share is LARGER than the ~40% / 9.3% the ruling was made on, and
+it is a different population: the panel's 40.4% is taken over the call types
+that ARE in the table — every one of which has a realised partner (13,835 −
+5,027 = 8,808 of the line-final types here) — and counts those whose partners
+are all same-spelled, so it does not overlap the 5,027 no-partner types; its
+9.3% is weighted by realised pair count, not by line-final tokens.
+
+Before the gate tier 2 was full wherever the field had six differently-spelled
+members. Common, differently-spelled perfect rhymes of calls the table has never
+seen are OFFERED rather than banned. On pivot fields with no common rhyme the
+words that left the head now LEAD the menu (the shift above;
+`fixed`/`chipped`/`slipped` opened `if, think, did, his` before): counted
+2026-09-25 over §22's 29 fields, 9 changed, 35 words left heads and 15 of them
+are now in their field's first six offers. §22 refuses pivot fields, so no
+instrument there sees this. A frequency-of-rhyme fallback for unevidenced calls
+(the panel's candidate B) is a separate decision nobody has made (`BACKLOG.md`
+RULINGS WANTED #26).
 
 **TESTED.** `quality/test_homeoteleuton.py` §6 pins the gate directly: no word
 in a tier-2 head has a zero conditional (over `thing`, `spring`, `way`, `sane`,
@@ -28205,11 +28261,35 @@ MODAL_RHYME, every MODAL_RHYME names a realised count above zero, and a real
 brief on an unevidenced call (`window`) states UNEVIDENCED. `quality/test_revise.py`
 §22 pins it as a contrast. `quality/mutate.py` QR8 deletes the gate condition;
 `mutate.py --only QR8 QR2` (bounded to those two suites, `test_revise.py` at
-shard 3/4, 2026-09-24) reports **2/2 caught, 0 SURVIVED**: QR8 by §6 and by
+shard 3/4, ~~2026-09-24~~ 2026-09-25) reports **2/2 caught, 0 SURVIVED**: QR8 by §6 and by
 §22 — which, planted by hand, fails with `thing` and `spring` re-INVERTED at
 32/36 against 23/24 — and QR2 (`k` forced to 0) still by `test_revise.py`.
 `quality/test_propose.py` §2 pins that the renderer's
 causes ARE `EMPTY_HEAD_CAUSES` and each states itself alone.
+
+WHAT WAS NOT RE-RUN, HOW THE CHANGE SHIPS, AND CAPACITY (disclosed 2026-09-25
+on the doctrine/accuracy review, where they had gone unsaid):
+
+- MUTATION, BOUNDED: the mutate suite was run only for QR8 and QR2
+  (`TEST_REVISE_SHARD=3/4`). QR1 and QR3–QR7 also declare `test_revise.py` in
+  their subsets — and `test_revise.py` going green puts it back in their
+  detector sets — and were NOT re-run here; the nightly mutation job
+  (`quality/test_mutation.py --shard`, date-rotated) will measure them.
+- FOUR COMMITS, NOT ONE BATCH: the change ships as `ff740121` (the gate),
+  `57927dfd` (§22 restated), `b0657fe8` (QR8) and `f6adafb8` (this entry),
+  plus the review's record corrections. `ff740121` ALONE LEAVES §22 RED — the
+  pooled statistic reads FORBIDDEN 190/1470 against OFFERED 90/523 there —
+  and the restatement lands in `57927dfd`.
+- CAPACITY, measured 2026-09-25 on the gated tree: `quality/verify_capacity.py`
+  **81/81** under Python 3.11.15 (the receipt validates by `--check`),
+  `quality/capacity.py --check` **PASS** (tier 1 re-derived over 12,387
+  families, ADOPTED constants compared, 6 witnesses re-graded, all clean), and
+  `data/rhyme_capacity_eng.tsv`'s sha256 unchanged (`fec757a4…`). This is what
+  THE FIX's "measured" points at. The receipt is a LOCAL one: the gate moved
+  the capacity certification identity (`revise.py` is one of its sources), so
+  the release-image recertification happens in CI's `capacity-proof` and
+  `lyrics-image` jobs, which refuse the stale seed and re-measure the all-81
+  proof.
 
 **NOT CLAIMED.** How many call words INVERTED across the lexicon before the fix
 — never measured; the exposure figures above bound the population the gate
@@ -28217,5 +28297,16 @@ EMPTIED, not the population that inverted. The restated contrast rests on three
 non-empty fields of one fixture. The reference counts a promoted final `-ing`
 as identity (`thinking` is PROMOTED_RHYME to `thing` under M-309), which is
 part of why the menu reads dense.
+
+**DATES — ONE CONVENTION FOR THIS ENTRY (2026-09-25).** UTC, and a tree
+state is dated by the commit that landed it. The ban-repair panel wrote and
+measured on 2026-09-24 (candidate A `c3fe8a33`, candidate C `93851954`, the
+`f58ecf59` figures). The gate commit `ff740121` (2026-09-25T01:40Z), the
+owner's ruling (about 01:00 UTC), every figure re-measured on this branch,
+and this entry's closure are 2026-09-25; each date that said otherwise is
+struck above. The comments `ff740121`–`b0657fe8` wrote into the code and
+tests date the gate, and some figures measured under it, 2026-09-24 —
+candidate A's day; they name the same gate and are not re-dated. The strikes
+added on the review say 2026-09-25.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~364~~ -> **365**.
