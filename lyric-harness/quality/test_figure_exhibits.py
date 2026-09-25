@@ -75,6 +75,13 @@ def test_roster():
           intra - cov == {"paroemion"}, sorted(intra - cov))
     check("no name is both exhibited and declared exhibit-less",
           not set(FE.FIGURE_EXHIBITS) & set(FE.NO_EXHIBIT))
+    # DECLARERS may only hold SOURCED tables (review of #396, 2026-09-25):
+    # a declarer from anywhere else would let an exhibit declare a table no
+    # source stands behind, and the census would still count it.
+    check("every exhibit declarer is a sourced table's",
+          all(f.__module__.endswith("sourced_tables")
+              for f in FE.DECLARERS.values()),
+          {k: f.__module__ for k, f in FE.DECLARERS.items()})
 
 
 def test_phonology_is_the_traditions():

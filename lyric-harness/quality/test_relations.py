@@ -156,6 +156,14 @@ _STALE_COUNT = re.compile(
     r"|`schema:`)"
     r"|\b(?:all|ALL|All|of the|OF THE|the|THE|its) 77\b(?!\d|[.,]\d|%|~|-)")
 _DATE = re.compile(r"20\d\d-\d\d-\d\d")
+#: The key form, `schemas:` or `"schemas":` followed by the superseded
+#: count, which the prose pattern above does not read (review of #396,
+#: 2026-09-25).
+_STALE_COUNT_KEY = re.compile(r"\bschemas?\b[`'\"]?\s*:\s*`?77\b(?!\d)")
+#: The day the registry went 77 -> 78 (commit a61fe4e69). A date is evidence
+#: that a 77 is history only if it is on or before this day: a later date
+#: stamped beside an unstruck 77 is a live false claim with a date on it.
+_REGISTRY_77_UNTIL = "2026-09-15"
 _STRUCK = re.compile(r"~~(?:(?!\n\s*\n).)*?~~", re.S)
 #: DATED FILES: a record of the day it names, true of that day's registry.
 #: A path carrying a date (`quality/results/*_2026-..`), a RESULTS or
@@ -207,14 +215,16 @@ def stale_registry_count_sites(root, extra=None):
         clean = _STRUCK.sub(lambda m: "\n" * m.group(0).count("\n"), text)
         raw, lines = text.split("\n"), clean.split("\n")
         for i, ln in enumerate(lines):
-            if not _STALE_COUNT.search(ln) or re.search(rf"\b{cur}\b", ln):
+            if not (_STALE_COUNT.search(ln) or _STALE_COUNT_KEY.search(ln)) \
+                    or re.search(rf"\b{cur}\b", ln):
                 continue
             window = []
             for r in reversed(raw[max(0, i - 3):i + 1]):
                 if window and not r.strip().strip("#").strip():
                     break
                 window.append(r)
-            if not any(_DATE.search(r) for r in window):
+            if not any(d <= _REGISTRY_77_UNTIL for r in window
+                       for d in _DATE.findall(r)):
                 out.append(f"{rel}:{i + 1}")
     return out, len(texts)
 
@@ -270,11 +280,20 @@ def test_inventory():
     _planted = stale_registry_count_sites(_root, extra={
         "quality/planted.py": "# the %d schemas are all in the default\n"
                               % STALE_REGISTRY_COUNT,
+        # a LATER date does not make an unstruck 77 history
+        "quality/planted_dated.py": "# As of 2026-09-25 the registry has "
+                                    "%d schemas.\n" % STALE_REGISTRY_COUNT,
+        # the key form
+        "quality/planted_key.py": "# PINNED already pins `schemas: %d`.\n"
+                                  % STALE_REGISTRY_COUNT,
         "quality/planted_ok.py": "# the ~~77~~ 78 schemas, and 77 before "
                                  "2026-09-15\n"})[0]
     check("...and the search can fail: a planted live claim is caught and a "
-          "struck or dated one is not",
-          _planted == ["quality/planted.py:1"], _planted)
+          "struck or dated one is not, and a date after the 77 -> 78 day "
+          "does not excuse one",
+          sorted(_planted) == ["quality/planted.py:1",
+                               "quality/planted_dated.py:1",
+                               "quality/planted_key.py:1"], _planted)
     _gone = [p for p in STALE_COUNT_QUOTED if not os.path.exists(
         os.path.join(_root, p))]
     check("...and every verbatim-quotation exemption still names a real "

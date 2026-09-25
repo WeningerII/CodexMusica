@@ -2170,7 +2170,7 @@ class Reviser:
         # mandate itself -- was flagged as a violation under the default
         # "unlicensed" setting, and `revise_loop` would then try to "fix" a
         # refrain that was already correct.
-        # ALL 77 SCHEMAS ARE IN THE DEFAULT — 2026-08-25, OWNER RULING, the
+        # ALL SCHEMAS (~~77~~ 78) ARE IN THE DEFAULT — ruling 2026-08-25, OWNER RULING, the
         # second half of the instruction whose first half widened the admit
         # set to all four classes on 2026-08-22 (`MISSING.md` M-116, task
         # #86). A mandated pair that declared NO relation and NO structure is

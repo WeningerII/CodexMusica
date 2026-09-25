@@ -629,7 +629,7 @@ def report(registry=None, out=None):
 # WHAT IS DELIBERATELY NOT PINNED, AND WHY.
 #
 #   1. THE SCHEMA COUNT AND THE INDEX ROW COUNT.  `audit_register.PINNED`
-#      already pins `schemas: 77` and `index_rows: 601`.  Pinning them here as
+#      already pins `schemas: ~~77~~ 78` and `index_rows: 601`.  Pinning them here as
 #      well would be one fact in two media with no grep that finds both, which
 #      is `MISSING.md` M-21's own subject; so both are DERIVED here as
 #      denominators and neither appears as a pin.  `pair_shaped` and
@@ -643,7 +643,7 @@ def report(registry=None, out=None):
 #      sitting that adds a survey row repins in both files. This sentence is
 #      the second medium saying so.
 #
-#   2. PER-SCHEMA CITE COUNTS, as 77 separate pins.  They are printed on every
+#   2. PER-SCHEMA CITE COUNTS, one pin per schema.  They are printed on every
 #      run and returned by `shapes()`, but the schema-to-index attribution is
 #      `quality/canon_sources.py`'s subject and `audit_register` already pins
 #      its verdict counts (`traditions_external/project/cannot_tell`).  A third
