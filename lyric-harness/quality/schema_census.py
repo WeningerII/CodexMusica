@@ -74,7 +74,7 @@ BY_LANGUAGE = {
 #: that would lift it and why it was not written.
 #:
 #: ~~FIVE~~ FOUR SINCE 2026-09-25. `平仄 tonal template` left this key when
-#: `quality/sourced_tables.py` shipped Wang Li's 五絕 base patterns: the census
+#: `quality/sourced_tables.py` shipped Wang Li's 五絕 仄起 pattern: the census
 #: now declares the SOURCED 仄起 template over 登鸛雀樓 where it declared an
 #: all-中 fixture, and the schema answers on a table this repo ships. Its row
 #: read: "the `tonal_template` declaration — the regulated-verse 平/仄 pattern

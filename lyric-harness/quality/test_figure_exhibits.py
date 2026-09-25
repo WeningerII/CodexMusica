@@ -47,7 +47,11 @@ EARNED = ["Kalevala alliteration (strong)", "Kalevala alliteration (weak)",
           "ablaut reduplication", "alliteration", "alliterative long line",
           "cynghanedd groes", "cynghanedd lusg", "cynghanedd sain",
           "cynghanedd sain drosgl", "cynghanedd sain gadwynog", "epanalepsis", "exact reduplication",
-          "leonine rhyme", "rhyming reduplication"]
+          "leonine rhyme", "rhyming reduplication",
+          # joined 2026-09-25 (review of #396): its FINDING (the route
+          # refused for want of a sourced template) was struck when the
+          # exhibit began declaring `quality/sourced_tables.py`'s table.
+          "平仄 tonal template"]
 
 
 def check(name, cond, detail=""):
@@ -161,6 +165,12 @@ def test_census_reads_this_route():
           f"{earned}")
     check("every earned row graded exactly [True, False]",
           all(rep[n]["verdicts"] == [True, False] for n in earned))
+    _, d = FE.grade_exhibit("平仄 tonal template")
+    check("the 平仄 witness holds on EVERY line of 登鸛雀樓 and the contrast "
+          "on none, under the sourced template",
+          d["witness"].get("lines_held") == [1, 2, 3, 4]
+          and d["contrast"].get("lines_held") == [],
+          (d["witness"].get("lines_held"), d["contrast"].get("lines_held")))
     # The census prints witness_and_contrast split by evidence route, so the
     # figures reader (which revise.py never calls) is never read as the
     # production grade route. The split must partition the total, put
@@ -202,13 +212,39 @@ def test_mutations():
               "says no finding is recorded",
               row["status"] == "unvalidated"
               and "no finding is recorded" in row["blocker"], row["blocker"])
-        FE.FIGURE_EXHIBITS.update(copy.deepcopy(saved))
-        rec = FE.FINDINGS["平仄 tonal template"]["verdicts"]
-        FE.FINDINGS["平仄 tonal template"]["verdicts"] = (True, False)
-        row = FE.semantic_row("平仄 tonal template")
+        # A FINDING RECORDED AT OTHER VERDICTS than the live ones. The one
+        # real finding this used (平仄's) was struck 2026-09-25, so one is
+        # planted against the mutated alliteration row above, whose live
+        # verdicts are [False, False].
+        FE.FINDINGS["alliteration"] = {"verdicts": (True, False),
+                                       "text": "planted by the mutation"}
+        row = FE.semantic_row("alliteration")
         check("a finding whose verdicts moved is reported STALE, not quoted",
               "STALE" in row["blocker"], row["blocker"][:80])
-        FE.FINDINGS["平仄 tonal template"]["verdicts"] = rec
+        del FE.FINDINGS["alliteration"]
+        FE.FIGURE_EXHIBITS.update(copy.deepcopy(saved))
+        # THE SOURCED DECLARATION IS LOAD-BEARING: the same 平仄 exhibit with
+        # no table declared refuses on both controls, and the strict 正格
+        # (licences removed) holds only lines 1-2 of the witness, a mixed
+        # read and so None. The licence is the source's and it does work.
+        ex = FE.FIGURE_EXHIBITS["平仄 tonal template"]
+        del ex["declare"]
+        row = FE.semantic_row("平仄 tonal template")
+        check("the 平仄 exhibit with no sourced table declared -> [None, "
+              "None], unvalidated", row["status"] == "unvalidated"
+              and row["verdicts"] == [None, None], row.get("verdicts"))
+        FE.FIGURE_EXHIBITS.update(copy.deepcopy(saved))
+        from quality import sourced_tables as ST
+        saved_decl = dict(FE.DECLARERS)
+        FE.DECLARERS["tonal_template"] = (
+            lambda st, form: ST.declare_regulated_template(st, form, True))
+        v, d = FE.grade_exhibit("平仄 tonal template")
+        check("...and under the strict 正格 the witness is a MIXED read "
+              "(欲窮千里目 fails), so None and not True",
+              v[0] is None and d["witness"]["lines_held"] == [1, 2],
+              (v, d["witness"].get("lines_held")))
+        FE.DECLARERS.clear()
+        FE.DECLARERS.update(saved_decl)
     finally:
         FE.FIGURE_EXHIBITS.clear()
         FE.FIGURE_EXHIBITS.update(saved)

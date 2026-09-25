@@ -143,6 +143,82 @@ QUATRAIN = ["The cat sat on the mat", "He wore a funny hat",
             "I sang beneath the moon", "And whistled her a tune"]
 
 
+#: THE SUPERSEDED REGISTRY SIZE, and where it may still be written. The
+#: registry went 77 -> 78 on 2026-09-15 (a61fe4e69, M-40); 77 is the value a
+#: tired edit leaves standing, so it is the one searched for (the pattern is
+#: the claim's shapes: `77 schemas`, `77 live`, `all 77`, `the 77`, ...).
+#: The compound `77-schema door` is NOT matched: it is M-116's ruling name
+#: (2026-08-25) and MISSING.md M-140's title, a name rather than a count.
+STALE_REGISTRY_COUNT = 77
+_STALE_COUNT = re.compile(
+    r"(?<![\d.,~])\b77\b(?!\d|[.,]\d|%|~|-)\s*"
+    r"(?:(?:schemas?|SCHEMAS|live|askable|figures|names|NAMES|relations)\b"
+    r"|`schema:`)"
+    r"|\b(?:all|ALL|All|of the|OF THE|the|THE|its) 77\b(?!\d|[.,]\d|%|~|-)")
+_DATE = re.compile(r"20\d\d-\d\d-\d\d")
+_STRUCK = re.compile(r"~~(?:(?!\n\s*\n).)*?~~", re.S)
+#: DATED FILES: a record of the day it names, true of that day's registry.
+#: A path carrying a date (`quality/results/*_2026-..`), a RESULTS or
+#: PREREGISTRATION document, the 2026-08-10 coverage report, and the two
+#: registers, whose every entry is dated and whose live claims
+#: `verify_entries.py` re-derives.
+_DATED_FILE = re.compile(r"20\d\d-\d\d-\d\d|RESULTS|PREREGISTRATION|"
+                         r"^quality/RHYME_COVERAGE\.md$|^MISSING\.md$|"
+                         r"^BACKLOG\.md$")
+#: VERBATIM QUOTATIONS of an earlier literal, which a strike would falsify.
+STALE_COUNT_QUOTED = {
+    "quality/audit_register.py": "The literal here was `traditions declared "
+                                 "on\n    %d schemas and populated on ZERO`"
+                                 % STALE_REGISTRY_COUNT,
+}
+
+
+def stale_registry_count_sites(root, extra=None):
+    """-> (["path:line", ...], files scanned): every line stating the
+    superseded registry size as a live claim. A line is history, and passes,
+    when the figure is struck (`~~77~~`, a strike may wrap), when the line
+    also states the current size, or when a date stamps it — on the line or
+    within the three lines above it in the same paragraph (doctrine 17)."""
+    import subprocess
+    try:
+        files = subprocess.run(["git", "ls-files", "*.py", "*.md"], cwd=root,
+                               capture_output=True, text=True,
+                               check=True).stdout.split("\n")
+    except (OSError, subprocess.CalledProcessError):
+        files = [os.path.relpath(os.path.join(d, f), root)
+                 for d, _, fs in os.walk(root) for f in fs
+                 if f.endswith((".py", ".md"))]
+    texts = {}
+    for rel in sorted(set(f for f in files if f)):
+        if _DATED_FILE.search(rel) or rel.startswith("corpus/"):
+            continue
+        try:
+            with open(os.path.join(root, rel), encoding="utf-8") as fh:
+                texts[rel] = fh.read()
+        except (OSError, UnicodeDecodeError):
+            continue
+    texts.update(extra or {})
+    cur = str(len(R.REGISTRY))
+    out = []
+    for rel, text in texts.items():
+        if rel in STALE_COUNT_QUOTED:
+            text = text.replace(STALE_COUNT_QUOTED[rel],
+                                "\n" * STALE_COUNT_QUOTED[rel].count("\n"))
+        clean = _STRUCK.sub(lambda m: "\n" * m.group(0).count("\n"), text)
+        raw, lines = text.split("\n"), clean.split("\n")
+        for i, ln in enumerate(lines):
+            if not _STALE_COUNT.search(ln) or re.search(rf"\b{cur}\b", ln):
+                continue
+            window = []
+            for r in reversed(raw[max(0, i - 3):i + 1]):
+                if window and not r.strip().strip("#").strip():
+                    break
+                window.append(r)
+            if not any(_DATE.search(r) for r in window):
+                out.append(f"{rel}:{i + 1}")
+    return out, len(texts)
+
+
 def test_inventory():
     print("\n0. the inventory — DECLARED, REACHABLE and RUNNING are three "
           "different numbers")
@@ -182,6 +258,27 @@ def test_inventory():
     check(f"every live prose site stating the registry size says {_n}, "
           f"read back from {len(_sites)} files (doctrine 48)", not _bad,
           f"stale or missing: {_bad}")
+    # THE NEGATIVE HALF (review of #396, 2026-09-25). The read-back above
+    # holds the sites it names; it cannot see a site it does not name, and
+    # the review found eleven more still saying 77. So the superseded count
+    # is also searched for EVERYWHERE, and may stand only as history.
+    _stale, _scanned = stale_registry_count_sites(_root)
+    check(f"no live, unstruck '{STALE_REGISTRY_COUNT} schemas' claim in the "
+          f"{_scanned} tracked .py/.md files outside the dated records "
+          f"(doctrine 17)", _scanned > 100 and not _stale,
+          "; ".join(_stale[:8]))
+    _planted = stale_registry_count_sites(_root, extra={
+        "quality/planted.py": "# the %d schemas are all in the default\n"
+                              % STALE_REGISTRY_COUNT,
+        "quality/planted_ok.py": "# the ~~77~~ 78 schemas, and 77 before "
+                                 "2026-09-15\n"})[0]
+    check("...and the search can fail: a planted live claim is caught and a "
+          "struck or dated one is not",
+          _planted == ["quality/planted.py:1"], _planted)
+    _gone = [p for p in STALE_COUNT_QUOTED if not os.path.exists(
+        os.path.join(_root, p))]
+    check("...and every verbatim-quotation exemption still names a real "
+          "file", not _gone, _gone)
     check("4 named QUERIES are recorded as NOT types", len(R.QUERIES) == 4)
     check("the entry point is build_stream(), not Stream.from_lines",
           not hasattr(R.Stream, "from_lines") and callable(R.build_stream))
@@ -895,8 +992,8 @@ def test_refusal_is_not_false():
 
 
 # ---------------------------------------------------------------------------
-# The refusal was FIRST-HIT. Three sections, from a census of all 77 schemas
-# run 2026-08-13:
+# The refusal was FIRST-HIT. Three sections, from a census run 2026-08-13 of
+# all 77 schemas:
 #
 #   1. `realise()` named the alphabetically-first missing capability and
 #      returned, so a schema wanting two reported one.
@@ -1339,7 +1436,8 @@ def test_rhyme_constraints_unreadable_nucleus():
 
 
 def test_traditions():
-    """M-15. `traditions` was declared on 77 schemas and populated on ZERO."""
+    """M-15, until 2026-08-11: `traditions` was declared on 77 schemas and
+    populated on ZERO."""
     print("\nM-15. traditions — SOURCED, honestly EMPTY, and the four scopes")
     sourced = [n for n, s in R.REGISTRY.items() if s.traditions]
     check(f"every one of the {len(R.REGISTRY)} schemas is either SOURCED "

@@ -1080,7 +1080,7 @@ def _place_group(group, rng, max_token, used):
 
     A PLACEMENT PER MEMBER, uniform over what the grading path can resolve.
     Per member and not per group, because the mixed case is real and is the
-    one no letter scheme can express: 8 of the registry's ~~77~~ 78 schemas
+    one no letter scheme can express: ~~8~~ 7 of the registry's ~~77~~ 78 schemas
     anchor their two members differently (`spans[0].anchor !=
     spans[-1].anchor`; `choices.placements.measure` prints the live count),
     and linked rhyme binds a line-final to

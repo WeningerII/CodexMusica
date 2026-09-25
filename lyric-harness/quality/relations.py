@@ -2733,7 +2733,7 @@ def mirrored(a, b, a_keys, b_keys):
     members come from DIFFERENT rules, so (b, a) is generally NOT enumerated
     and the skip DELETED the instance instead of canonicalising it.
 
-    Measured on `metidja.txt` (16 non-blank lines, `eng`, 48 of the 77
+    Measured on `metidja.txt` (16 non-blank lines, `eng`, 48 of the 77 before 2026-08-22,
     schemas realising): the rule drops 14,254 candidate pairs whose mirror is
     a candidate, and RECOVERS 114 instances the positional rule deleted.
 
@@ -5968,7 +5968,7 @@ def check_inert(stream):
 
 
 # ---------------------------------------------------------------------------
-# 11. TRADITIONS.  M-15: `RelationSchema.traditions` was declared on all 77
+# 11. TRADITIONS.  M-15: `RelationSchema.traditions` was declared on all 77 (until 2026-08-11)
 #     schemas and populated on ZERO, so "Middle Chinese end rhyme (同用 group)"
 #     fired on four lines of English and nothing in the output could say that
 #     the RULE SHAPE had matched and the tradition had not (doctrine 43).
@@ -6980,12 +6980,14 @@ def print_relation_report(rep, limit=None):
 #
 # WHAT THIS FUNCTION DOES NOT CLAIM.  Only ~~29 of the 77~~ 30 of the 78
 # schemas declare `both_line_final` (29 with positive polarity), which is the
-# placement a `--groups=` mandate expresses; ~~19~~ 20 more are cross-line at
-# some other placement, ~~19~~ 20 are INTRA-line figures by a placement in
-# `rhyme_types.INTRA_LINE_PLACEMENTS` (a property of one line, which no pair
-# mandate can ask about), and ~~10~~ 8 declare no placement at all
-# (re-derived 2026-09-25 from `s.placement`; the four sets partition the
-# registry).  Routing here does not make an intra-line
+# placement a `--groups=` mandate expresses; ~~19~~ ~~20~~ 21 more are
+# cross-line at some other placement, ~~19~~ ~~20~~ 19 are INTRA-line figures
+# by a placement in `rhyme_types.INTRA_LINE_PLACEMENTS` (a property of one
+# line, which no pair mandate can ask about), and ~~10~~ 8 declare no
+# placement at all (re-derived 2026-09-25 from `s.placement`; the four sets
+# partition the registry; re-derived again the same day after #392 took
+# `a_is_split_token` off the intra-line placements, which moved `broken
+# rhyme` from the intra-line set to the cross-line one).  Routing here does not make an intra-line
 # figure into a rhyme relation — it makes every schema whose instances ARE
 # line pairs answerable, and leaves the rest to refuse honestly with their
 # placement named.
@@ -8501,7 +8503,7 @@ _PAIR_MEMO = collections.OrderedDict()
 #: oldest rows go and the pair is re-scored.  The CAP IS NOT CHANGED HERE —
 #: changing it is a behaviour change with its own record — and the scaling
 #: question is filed under M-240 (OPEN), the grader's own pair guard, which
-#: is where the cost of long drafts is being priced.  Slots: the 77
+#: is where the cost of long drafts is being priced.  Slots: the ~~77~~ 78
 #: registered schemas plus the declared ones a mandate can name, under one
 #: declaration, with room for a second declaration in the same process.
 PAIR_MEMO_CAP = 4_096         # (line pair, signature) rows per (schema, stream) slot

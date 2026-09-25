@@ -20,6 +20,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from quality import door_census as DC  # noqa: E402
+from quality.relations import REGISTRY as DC_REGISTRY  # noqa: E402
 
 FAILED = []
 
@@ -139,7 +140,7 @@ def main():
     nested = [r for r in rows
               if r["func"] == "check_scheme.ok"]
     check("3", "`check_scheme.ok` is a real site and it is nested inside a "
-          "function that consults the 77",
+          "function that consults the %d" % len(DC_REGISTRY),
           len(nested) == 1 and nested[0]["sees_77"],
           f"{[(r['path'], r['func'], r['sees_77']) for r in nested]}")
     check("3", "without inheritance it reads as blind — which is what the "
@@ -157,7 +158,7 @@ def main():
 
     print("\n3b. the ONE-HOP call resolution is exactly one hop")
     # A site can reach the judge through a HELPER — `Reviser.group_merges`
-    # asks the 77 via `Reviser._schema_satisfies`, memoised, and a scope-chain
+    # asks the ~~77~~ 78 via `Reviser._schema_satisfies`, memoised, and a scope-chain
     # detector reported it blind. Unlimited depth would credit half the module
     # through any path, so the bound is asserted here rather than trusted.
     check("3b", "a helper the site CALLS counts",

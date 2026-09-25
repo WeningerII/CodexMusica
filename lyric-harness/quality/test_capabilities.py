@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Regressions for the DECLARED-COORDINATE CONSTRUCTORS — the seven
-capabilities that stood between `quality/relations.REGISTRY`'s 77 schemas and
-a judge, closed 2026-08-22 on the owner's ruling "all 77, no exceptions". The
+capabilities that stood between `quality/relations.REGISTRY`'s schemas and a
+judge (77 on 2026-08-22), closed 2026-08-22 on the owner's ruling "all 77, no exceptions". The
 registry now holds ~~77~~ 78 (M-40, a61fe4e69); §8 counts it as
 `len(R.REGISTRY)`.
 
@@ -497,7 +497,7 @@ def test_the_whole_registry():
           and enj.get("expected", [None])[0] is False,
           enj)
     # THE COUNT ABOVE ~~IS 77~~ WAS 77 (IT IS `len(R.REGISTRY)`, 78 SINCE M-40)
-    # AND THREE OF THE 77 WERE LIVE ON A FIXTURE. That
+    # AND THREE OF THOSE WERE LIVE ON A FIXTURE. That
     # was true before 2026-08-23 too -- `earlier` and `poet` have always been
     # constructed inputs -- and the census did not say so, so "77 askable"
     # read as "77 working". `proest` joined them the day the invented Welsh
@@ -505,9 +505,11 @@ def test_the_whole_registry():
     # cannot quietly disappear from the report the way it was never in it.
     #
     # ~~FIVE~~ FOUR SINCE 2026-09-25: `平仄 tonal template` left the list when
-    # `quality/sourced_tables.py` shipped Wang Li's 五絕 patterns and the
+    # `quality/sourced_tables.py` shipped Wang Li's 五絕 仄起 pattern and the
     # census began declaring the sourced one. The list SHRINKS only by a
-    # table; the other four still name what they wait for.
+    # table; the other four still name what they wait for. Its witness is
+    # graded on the figures route (`quality/figure_exhibits.py`), which
+    # declares the sourced table there (review of #396).
     check(f"...and the census NAMES the ones that answer only on a fixture it "
           f"declares itself — {len(R.REGISTRY)} askable is not "
           f"{len(R.REGISTRY)} shipped, and the report has to be the thing "
@@ -522,11 +524,17 @@ def test_the_whole_registry():
           and all("Not written" in v for v in ST.UNSOURCED.values()),
           str(sorted(ST.UNSOURCED)))
     row = rep["semantic_status"]["平仄 tonal template"]
+    from quality import figure_exhibits as FE
     check("...and the schema that left carries a witness AND a contrast "
-          "graded through the SOURCED table, not the census fixture",
+          "graded through the SOURCED table, not the census fixture, on the "
+          "figures route that declares it",
           row["status"] == "witness_and_contrast"
           and row["verdicts"] == [True, False]
-          and "sourced_tables" in row["evidence"], str(row))
+          and row["evidence"] == FE.EVIDENCE
+          and FE.FIGURE_EXHIBITS["平仄 tonal template"]["declare"]
+          == ("tonal_template", ST.TONAL_FORM)
+          and FE.DECLARERS["tonal_template"]
+          is ST.declare_regulated_template, str(row))
     # NAMING THE COORDINATE, not just the schema. A reason that says "needs
     # more work" is the bare verdict doctrine 20 refuses; a reason that names
     # `earlier`, `poet` or `quotient:vowel_class` tells a caller with the
@@ -665,9 +673,21 @@ def test_sourced_tonal_template():
           "undecided: the licence is the source's, and it is doing work",
           got.lines == {1, 2} and got.undecided_lines == {4},
           f"held {sorted(got.lines)}, undecided {sorted(got.undecided_lines)}")
-    got, _ = held(ST.TONAL_WITNESS, form="五絕 平起 首句不入韻")
-    check("...and the same poem held to the 平起 pattern fits no line",
-          got.lines == set(), sorted(got.lines))
+    # ~~"...and the same poem held to the 平起 pattern fits no line"~~ —
+    # struck 2026-09-25 (review of #396): the 平起 forms are no longer
+    # shipped, because their 中 licences were not in what was read.
+    refused = {}
+    for form in ST.REFUSED_FORMS:
+        try:
+            ST.regulated_template(form)
+            refused[form] = "ANSWERED"
+        except KeyError as e:
+            refused[form] = str(e)
+    check("the three 五絕 forms whose licences were not read REFUSE, and say "
+          "why, rather than answering on a pattern derived by 對/粘",
+          len(ST.REFUSED_FORMS) == 3 and sorted(ST.WUJUE) == [ST.TONAL_FORM]
+          and all("REFUSED, not derived" in v for v in refused.values()),
+          refused)
     try:
         ST.regulated_template("七絕 仄起 首句入韻")
         ok = False

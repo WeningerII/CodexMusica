@@ -56,10 +56,10 @@ identical under both readings -- which is precisely why it has to be written
 down: the correct rule is currently indistinguishable from the wrong one by its
 output, and the coincidence is one declaration away from ending.
 
-WHAT READING ALL 77 TURNED UP, and each one is asserted somewhere rather than
+WHAT READING ALL 77 TURNED UP (2026-08-22), and each one is asserted somewhere rather than
 left as prose (doctrine 48):
 
-  * `Figure.nodes`, `Figure.edges` and `Figure.template` are declared on all 77
+  * `Figure.nodes`, `Figure.edges` and `Figure.template` are declared on all ~~77~~ 78
     schemas and READ BY NOTHING IN THE REPOSITORY except this module.
     `realise()`/`assemble()` branch on `quantifier`, `k`, `fraction` and
     `frame`; `evaluate(schema, a, b, stream)` takes exactly two spans.  So the
@@ -432,7 +432,7 @@ def census(registry=None):
 
 
 def survey_coverage(registry=None):
-    """-> how much of `quality/canon_index.tsv` the 77 schemas between them cite.
+    """-> how much of `quality/canon_index.tsv` the ~~77~~ 78 schemas between them cite.
 
     THE INDEX IS ASKED, NOT PARSED HERE.  `quality/canon_sources.index()` owns
     the reader and `cell_of()` owns the cell prefix rule; a second TSV reader in
@@ -745,7 +745,7 @@ PINNED_PLACEMENT_PROFILE = (
 #: selective, as against the `beat` capability gate, which is the half that
 #: makes an UNDECLARED one refuse. Every other row is unchanged.
 
-#: THE FIGURE CENSUS: 13 distinct signatures over the 77 schemas.  Pinned as
+#: THE FIGURE CENSUS: 13 distinct signatures over the ~~77~~ 78 schemas.  Pinned as
 #: the SIGNATURE and not as `_fmt_fig`'s rendering of it, so a cosmetic change
 #: to the printed wording cannot turn this gate red -- a gate that goes red on
 #: a rewording is a gate people learn to skip (`audit_register.PINNED`

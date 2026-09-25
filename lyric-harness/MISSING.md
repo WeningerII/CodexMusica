@@ -28617,11 +28617,14 @@ semantic line): `{'unvalidated': 55, 'regression_witness': 5,
 'witness_and_contrast': 23}`~~ (this branch alone, before review) ->
 ~~`{'unvalidated': 41, 'regression_witness': 5, 'witness_and_contrast': 32}`~~
 on the integrated tree (M-311's ten witnesses, and this entry's four once
-homoioteleuton became finding 8) -> **`{'unvalidated': 27,
-'regression_witness': 5, 'witness_and_contrast': 46}`** once the intra-line
+homoioteleuton became finding 8) -> ~~`{'unvalidated': 27,
+'regression_witness': 5, 'witness_and_contrast': 46}`~~ once the intra-line
 figures route (`quality/figure_exhibits.py`) joined it: 32 on the grade route
-(28 DRAWABLE_EXHIBITS, 3 CENSUS_EXHIBITS, 1 CONTEXT_CONTROLS) and 14 on the
-figures reader, per the census's `witness_routes`. Sibling sessions working other groups move
+(28 DRAWABLE_EXHIBITS, 3 CENSUS_EXHIBITS, 1 CONTEXT_CONTROLS) and ~~14~~ on the
+figures reader, per the census's `witness_routes` -> **`{'unvalidated': 26,
+'regression_witness': 5, 'witness_and_contrast': 47}`**, 32 + 15, once #396's
+`平仄 tonal template` exhibit began declaring the sourced table
+(`quality/sourced_tables.py`, 2026-09-25) and earned on the figures reader. Sibling sessions working other groups move
 the same line. The census re-derives it on every run.
 
 **TESTED WHILE OPEN.** `quality/test_capabilities.py` §9 names this entry

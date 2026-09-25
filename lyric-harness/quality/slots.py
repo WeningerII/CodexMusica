@@ -29,11 +29,13 @@ has carried it since 2026-08-10: a member is found by a `SpanRule` — a LOCUS
 (where to look), an ANCHOR (what fixes the span's origin inside it), a
 DIRECTION and a MAGNITUDE — and its own census is the argument for this
 module's existence.  Over the ~~77~~ 78 registered schemas' ~~154~~ 156 member
-rules the anchors are `word_start` ~~64~~ 66, `last_stressed` ~~58~~ 60,
-`word_end` 15, `searched` 8, `none` ~~6~~ 4, `final_unstressed` 2, `penult` 1
-(re-derived 2026-09-25, after M-40's `chain rhyme (interlocking scheme)`): the vocabulary is almost evenly
+rules the anchors are `word_start` ~~64~~ 66, `last_stressed` ~~58~~ ~~60~~ 61,
+`word_end` ~~15~~ 14, `searched` 8, `none` ~~6~~ 4, `final_unstressed` 2, `penult` 1
+(re-derived 2026-09-25, after M-40's `chain rhyme (interlocking scheme)`, and
+again after #392 re-anchored `leonine rhyme`'s second member at its half's
+last stress): the vocabulary is almost evenly
 split between reading from the FRONT of a word and reading from the BACK, and
-8 schemas are MIXED — one member anchored at each end, which no global
+~~8~~ 7 schemas are MIXED — one member anchored at each end, which no global
 alignment setting can express (amphisbaenic rhyme is `word_start` against
 `word_end`; linked rhyme is a line-final against a line-INITIAL).  This module
 imports the named rule constants from `quality/span_rules.py`, the leaf

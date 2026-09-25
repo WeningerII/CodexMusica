@@ -174,7 +174,7 @@ def test_both_directions():
               RS.needs_arity_extension(s) is want)
 
     # -- THE GENEROSITY CONTROL.  Over the REAL registry each predicate must
-    #    return both answers. A predicate that answered one way for all 77
+    #    return both answers. A predicate that answered one way for all ~~77~~ 78
     #    would satisfy every count in this file and have looked at nothing.
     sh = RS.shapes()
     for key in ("pair_shaped", "arity_extension", "span_shaped"):
@@ -533,7 +533,8 @@ def test_quantifier_vocabulary_is_one_table():
           C.canonical_quantifier("pair") == "exists"
           and C.canonical_quantifier("count_fraction") == "fraction"
           and C.canonical_quantifier("exists") == "exists")
-    check("EVERY one of the 77 figures resolves through that one table",
+    check(f"EVERY one of the {len(R.REGISTRY)} figures resolves through "
+          "that one table",
           all(s.figure.canonical_quantifier() in C.QUANTIFIERS
               for s in R.REGISTRY.values()))
     # THE GATE FAILS IN BOTH DIRECTIONS.
@@ -543,8 +544,9 @@ def test_quantifier_vocabulary_is_one_table():
             check("Figure refuses %r" % bad, False, "it constructed")
         except C.QuantifierRefused:
             check("a Figure declaring %r REFUSES AT CONSTRUCTION, so a typo "
-                  "in one of 77 schemas cannot fall through assemble()'s "
-                  "if/elif to a silent no-op (defect P15's shape)" % bad, True)
+                  "in one of %d schemas cannot fall through assemble()'s "
+                  "if/elif to a silent no-op (defect P15's shape)"
+                  % (bad, len(R.REGISTRY)), True)
     check("...and a good one still constructs",
           R.Figure(quantifier="forall").canonical_quantifier() == "forall")
     # THE BOUND ON THE PROXY.

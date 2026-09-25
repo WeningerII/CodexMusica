@@ -2277,7 +2277,7 @@ PINNED = {
     # gate on two relations it was never priced on -- and both instruments
     # pointed at that door still spell the pre-widening one.
     # ~~196~~ -> 197: M-139, the door moved TWICE (M-59's four relations,
-    # M-116's 77 schemas) and 17 of 19 pair-satisfaction sites moved
+    # M-116's 77 schemas, 2026-08-25) and 17 of 19 pair-satisfaction sites moved
     # neither time. `quality/door_census.py` is the census and the gate.
     # ~~207~~ -> 208: M-150, the working order's LAST step had no gate —
     # a rendered song presented with its convergence state unsaid reads

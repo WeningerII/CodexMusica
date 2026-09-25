@@ -23,6 +23,12 @@ NOTHING HERE SUPPLIES A COORDINATE THE ROUTE DOES NOT SUPPLY ITSELF. Until
 the Old Norse exhibit declared `supply=("lifts",)`. The route supplies both
 frames now, so no exhibit declares a supply; `grade`'s `supply` hook is kept
 for the next coordinate the route lacks, and adding one needs a finding.
+ONE DECLARATION IS NOT A SUPPLY (2026-09-25, review of #396): a 平仄 template
+is the FORM's and no route can compute it, so the `平仄 tonal template`
+exhibit declares the SOURCED table (`DECLARERS` -> `quality/sourced_tables.py`)
+and nothing else may be declared. That exhibit is also the one that is not a
+single line: the template is indexed by line, so its witness is the whole
+quatrain and it is read with `whole=True`.
 
 PRODUCTION DOES NOT CALL THIS ROUTE. `Reviser.grade` / `revise.py` never import
 `figures`; the `recover.py` and `schemes.py` sites only NAME it in a refusal.
@@ -68,6 +74,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from quality import figures as F                            # noqa: E402
 from quality import relations as R                          # noqa: E402
 from quality.phonology import get as get_phonology          # noqa: E402
+from quality import sourced_tables as _ST                   # noqa: E402
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -258,17 +265,29 @@ FIGURE_EXHIBITS = {
                      ("constructed", "wen -> deg: the rhyme on the penult "
                       "removed"), ""),
     },
+    # THE ONE EXHIBIT THAT DECLARES A TABLE (2026-09-25, review of #396).
+    # A 平仄 template is the FORM's and arrives only by declaration, so the
+    # route answers nothing until one is declared; `declare` names the
+    # SOURCED table (`quality/sourced_tables.py`, Wang Li's 五絕 仄起 首句
+    # 不入韻, the one form whose licences were read) and never a pattern
+    # typed here. The template is indexed by line, so the exhibit is the
+    # whole quatrain, and `whole` makes it answer for the poem: True only if
+    # EVERY line holds, False only if none does, None for a mixed read.
     "平仄 tonal template": {
         "lang": "ltc", "tradition": "Chinese 平仄",
-        "witness": (["白日依山盡"],
-                    ("quoted", "王之渙 登鸛雀樓 l.1 (Tang, public domain); "
-                     "not a staged file, so not checked verbatim"),
-                    "graded against a SOURCED template only — none is on "
-                    "main, so nothing is declared and the route refuses"),
-        "contrast": (["白日依山盡"],
-                     ("quoted", "the same line"),
-                     "to be graded against a sourced template it breaks, "
-                     "once one exists"),
+        "declare": ("tonal_template", _ST.TONAL_FORM),
+        "whole": True,
+        "witness": (list(_ST.TONAL_WITNESS),
+                    ("quoted", "王之渙 登鸛雀樓, all four lines (Tang, public "
+                     "domain); not a staged file, so not checked verbatim"),
+                    "a 五絕 仄起 首句不入韻: every line fits Wang Li's pattern, "
+                    "and 更 (a 多音字 split 平/仄) falls on a slot the source "
+                    "marks free"),
+        "contrast": (list(_ST.TONAL_CONTRAST),
+                     ("constructed", "the witness with each couplet's two "
+                      "lines swapped: the same twenty characters and tone "
+                      "readings, and 對 puts each line's opposite in its "
+                      "slot"), ""),
     },
 }
 
@@ -300,26 +319,36 @@ NO_EXHIBIT = {
 #: schema; `verdicts` is what was MEASURED (witness, contrast) when the text
 #: was written. If the live verdicts differ, the census blocker says the
 #: finding is STALE instead of quoting it (doctrine 17).
-FINDINGS = {
-    "平仄 tonal template": {
-        "verdicts": (None, None),
-        "text": "not a grader finding: the route REFUSES (tonal_template "
-                "absent) because no sourced 平仄 template is on main, and "
-                "this file will not declare one (the census's all-中 "
-                "template is a fixture, doctrine 94). Lifts when a sourced "
-                "table lands: declare it in `grade` for this exhibit.",
-    },
-}
+#: ~~`平仄 tonal template`, verdicts (None, None): "the route REFUSES
+#: (tonal_template absent) because no sourced 平仄 template is on main ...
+#: Lifts when a sourced table lands: declare it in `grade` for this
+#: exhibit."~~ LIFTED 2026-09-25: `quality/sourced_tables.py` landed and the
+#: exhibit declares it (`declare` above); the row is earned, not a finding.
+FINDINGS = {}
 
 
-def grade(name, lines, lang, supply=()):
+#: The declarations an exhibit may make, each a SOURCED table's own
+#: declarer. Anything else refuses: a pattern typed into an exhibit would be
+#: the census fixture again (doctrine 94).
+DECLARERS = {"tonal_template": _ST.declare_regulated_template}
+
+
+def grade(name, lines, lang, supply=(), declare=None, whole=False):
     """-> (verdict, detail). True/False on the figures route; None = refused.
 
     One stream per exhibit, built under the exhibit's own phonology, and the
-    ONLY extra call is a declared `supply` the route does not make itself.
+    ONLY extra calls are a declared `supply` the route does not make itself
+    and a `declare` of a SOURCED table (`DECLARERS`). `whole` reads the
+    exhibit as one text: True iff every line carries the figure, False iff
+    none does, None for a mixed read (doctrine 20).
     """
     st = R.build_stream(list(lines), get_phonology(lang),
                         declaration={"language": lang})
+    if declare is not None:
+        kind, arg = declare
+        if kind not in DECLARERS:
+            raise ValueError(f"no sourced declarer for {kind!r}")
+        DECLARERS[kind](st, arg)
     for cap in supply:
         if cap == "lifts":
             R.search_lifts(st)
@@ -333,6 +362,15 @@ def grade(name, lines, lang, supply=()):
         return None, detail
     hits = [f for fs in rep["lines"].values() for f in fs if f["schema"] == name]
     detail["instances"] = [(f["a"], f["b"]) for f in hits]
+    if whole:
+        held = {ln for ln, fs in rep["lines"].items()
+                if any(f["schema"] == name for f in fs)}
+        detail["lines_held"] = sorted(held)
+        if held == set(range(1, len(lines) + 1)):
+            return True, detail
+        if held or detail["unreadable"]:
+            return None, detail
+        return False, detail
     if not hits and detail["unreadable"]:
         # No instance on a line with an UNREAD token is not an observed
         # absence: the figure may sit on the word nobody read. Doctrine 20 —
@@ -344,9 +382,10 @@ def grade(name, lines, lang, supply=()):
 
 def grade_exhibit(name):
     ex = FIGURE_EXHIBITS[name]
-    sup = ex.get("supply", ())
-    w, wd = grade(name, ex["witness"][0], ex["lang"], sup)
-    c, cd = grade(name, ex["contrast"][0], ex["lang"], sup)
+    kw = {"supply": ex.get("supply", ()), "declare": ex.get("declare"),
+          "whole": ex.get("whole", False)}
+    w, wd = grade(name, ex["witness"][0], ex["lang"], **kw)
+    c, cd = grade(name, ex["contrast"][0], ex["lang"], **kw)
     return [w, c], {"witness": wd, "contrast": cd}
 
 

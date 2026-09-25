@@ -2607,7 +2607,7 @@ class Reviser:
                 # `break`, which made the SCHEMA half of the default
                 # unaskable here: (b) asked `decl.admit` alone, four
                 # relations, while `grade()` accepts on those OR on any of
-                # the 77 schemas since M-116.
+                # the ~~77~~ 78 schemas since M-116.
                 #
                 # (a) IS THE CHEAP ONE AND IT IS CHECKED FIRST. A pair that
                 # is not a collision fails outright and no rescue applies --
@@ -2615,7 +2615,7 @@ class Reviser:
                 # already emitting, which is the honesty argument this
                 # method's docstring makes.
                 #
-                # THE 77 ARE ASKED ONLY FOR (b)'s SURVIVORS, and MEASURED
+                # THE ~~77~~ 78 ARE ASKED ONLY FOR (b)'s SURVIVORS, and MEASURED
                 # that is almost never: over 400,000 random CMUdict pairs
                 # (seed 20260810) 2,576 clear `THETA_COLLISION`, and of
                 # those exactly **2 (0.08%)** type NO_RELATION -- which is
