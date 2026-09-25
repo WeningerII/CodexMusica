@@ -28451,3 +28451,55 @@ mosaic rhyme, offbeat internal rhyme, parechesis / general consonance,
 sung-delivery rhyme, transformative / bent rhyme, wrenched rhyme.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~365~~ -> **366**.
+
+### M-312 · The candidate field asked the whole schema registry per candidate to read the verdict of the one or two schemas its screen had found, so `test_revise.py` §24 ran 712 s on CI and held the revision-loop shard at 22 of 30 minutes `CLOSED` 2026-09-25 — found by profiling the section the ci.yml comment named as the cost to cut after #380 raised the timeout ~~20~~ -> 30
+
+**THE COST.** `Reviser._end_pair_schemas` (`quality/revise.py`, added by the
+N-relation model, #380) decides whether a candidate enters a call word's
+field through a registry schema. It screens every schema at the two carrier
+line ends (`relations.pair_satisfies`), and when that `found` set is non-empty
+it asks the grader's own judge, `relations.whole_vocabulary_pairs`, and keeps
+`found & wvp[(1, 2)]`. The judge was asked about EVERY registry schema, once
+per candidate, and the intersection read only the few in `found`. §24
+(`test_why_a_collision_earns_no_field`) builds the complete field of four
+call words — roughly 15,000 pending candidates each — so it paid that for
+every candidate with a non-empty screen. py-spy on the section: 78.9% of
+samples under `whole_vocabulary_pairs`.
+
+**THE FIX.** `whole_vocabulary_pairs` takes an optional `schemas=` subset and
+asks only those names; the field passes `schemas=found`. Each schema is
+judged by its own `line_pairs_for` call over one stream, so an asked schema
+gets the answer the full call gives it; the subset is part of the memo key,
+so a restricted answer is never served to a full caller.
+`quality/test_relations.py` X9b pins both, and each of its two one-line
+mutants turns it red.
+
+**MEASURED** (same box, BEFORE and AFTER concurrent, cold caches; receipt
+`quality/results/revise_perf_2026-09-25/measurement.txt`): shard 1/4 of
+`test_revise.py` **1250 s -> 569 s**, §24 **820.8 s -> 160.7 s**; the whole
+file **2067 s -> 1093 s**, and `test_the_field_says_which_door_it_was_read_at`
+315.1 s -> 60.1 s with it. The floor is now
+`test_the_group_grader_reproduces_check_scheme` (~160 s), which this does not
+touch.
+
+**RESULTS UNCHANGED.** 9,000 sampled `_end_pair_schemas` answers over six
+call words are byte-identical before and after (1,493 of them non-empty);
+`test_revise.py`'s output is identical line for line apart from its timings;
+`check_comparator_pin.py` HOLDS at `1e2d0c2d…385a`. No cap, depth, threshold
+or budget moved (doctrine 58), and the field still judges every candidate.
+
+**LEFT OPEN, BY NAME.** (1) The revision-loop `timeout-minutes` (~~20~~ -> 30)
+is not changed here; whether it comes back down is the coordinator's call on
+these figures. (2) The remaining per-candidate cost is the screen itself
+(`pair_satisfies` over every applicable schema, 41.5% of §24's samples after)
+and the carrier stream build (19.7%, mostly re-syllabifying the carrier's
+fixed words). Caching either one reaches into the phonology's mutable lexicon
+state, and this change was scoped to what could be proven result-identical.
+
+**ON REVIEW (2026-09-25).** `schemas=` names are checked against `REGISTRY`
+before anything is asked; an unknown name raises `ValueError` naming every
+such name, where it used to surface as a bare `KeyError` from inside the
+loop. X9b gained the check. This entry was written as M-311 and renumbered
+~~M-311~~ M-312 on integration, because #394 landed its own M-311 first.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~366~~ -> **367**.
