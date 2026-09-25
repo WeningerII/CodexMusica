@@ -418,9 +418,10 @@ async function loadDelta(page) {
       await page.click('button[data-view="genre"]');
       await page.click('[data-ui="recipe-collapse"]');
       const collapsed = await panelBox();
-      // Either side: Genre may present the column left ('sidebar') or right.
+      // Either side: Genre may present the column left ('sidebar') or right
+      // ('sidebar-right').
       check(
-        collapsed.mode === 'sidebar' || collapsed.mode === 'sidebar-right',
+        collapsed.mode.startsWith('sidebar'),
         `I. the Genre page shows Your recipe as ${collapsed.mode}`
       );
       check(collapsed.width <= 64, `I. collapsing Your recipe left it ${collapsed.width}px wide`);

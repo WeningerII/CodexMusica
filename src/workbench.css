@@ -2351,10 +2351,9 @@ body.workbench {
     grid-template-areas:
       'head head head'
       'tree context preview';
-    /* Compact by default so the page (the map) keeps the screen; a page may
-       ask for a height-aware default (dockHeight → --dock-default). The top
+    /* Compact by default so the page (the map) keeps the screen; the top
        edge resizes it (220px up to 70% of the workspace). */
-    height: var(--dock-height, var(--dock-default, 220px)) !important;
+    height: var(--dock-height, 220px) !important;
     border-right: 0;
     border-top: 1px solid var(--cm-border);
   }

@@ -45,7 +45,6 @@ A page registers once, at load, from its own file:
 uiRegisterPage({
   id: 'genre', // one of genre | instrument | map | lyrics
   recipe: 'sidebar', // 'sidebar-right' or 'dock': how Your recipe is presented on this route
-  dockHeight: 'clamp(220px, 24vh, 320px)', // optional, with 'dock': default height on this route (CSS length)
   mount(surface) {}, // build the page once inside <section id="surface-genre">
   render() {}, // show current state; called on every visit and refresh
   layout() {}, // page-specific UILayout panes, once, after the shell's
@@ -112,9 +111,6 @@ recipe" and is a different object (copying it never touches Your recipe).
   | Recipe preview (one line) and Copy recipe, each column scrolling on its own.
   Resizable from its top edge (drag or Up/Down, 220 px to 70 % of the
   workspace), collapsible to its header. The editor opens beside the page.
-  A page may give its dock a height-aware default (`dockHeight`, a CSS length;
-  the Instrument page asks for `clamp(220px, 24vh, 320px)`). A height the user
-  dragged to is one remembered preference and wins on every docked page.
 - Below 900 px — the Recipe sheet (header button). Its toolbar carries AI
   recipe, Add genre, Add instrument and Close; the recipe bar (count, Undo,
   Redo, Copy recipe, expand) is pinned to its bottom. On the Map and Lyrics the

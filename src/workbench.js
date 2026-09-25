@@ -87,9 +87,6 @@ const UI_SHELL_ACTIONS = new Set([
 //   id            one of UI_ROUTES
 //   recipe?       'sidebar' (default, left), 'sidebar-right' or 'dock': how
 //                 Your recipe is presented on this route (UI_RECIPE_MODES)
-//   dockHeight?   with recipe 'dock': the dock's default height on this route,
-//                 a CSS length (e.g. 'clamp(220px, 24vh, 320px)'); a height
-//                 the user dragged to still wins. Default 220px.
 //   mount(surface)  build the page once inside <section id="surface-<id>">
 //   render?()     show current state; called on every visit and refresh
 //   layout?()     page-specific UILayout panes, called once after the shell's
@@ -106,8 +103,6 @@ function uiRegisterPage(page) {
       throw Error('Action already owned: ' + name);
     UI_PAGE_ACTIONS[name] = page.actions[name];
   }
-  if (page.dockHeight != null && typeof page.dockHeight !== 'string')
-    throw Error('dockHeight must be a CSS length: ' + page.id);
   UI_PAGES[page.id] = page;
 }
 const $ui = (id) => document.getElementById(id);
@@ -181,11 +176,6 @@ function uiApplyRecipeMode() {
   const collapsed = !!uiRecipeCollapsed[mode]?.get();
   document.body.dataset.recipe = mode;
   document.body.classList.toggle('recipe-collapsed', collapsed);
-  // A docked page may size its own default (see dockHeight). Set per route,
-  // so the Map keeps the compact 220px default while another page asks for more.
-  const dockHeight = mode === 'dock' && UI_PAGES[UI.view]?.dockHeight;
-  if (dockHeight) document.body.style.setProperty('--dock-default', dockHeight);
-  else document.body.style.removeProperty('--dock-default');
   const toggle = document.querySelector('[data-ui="recipe-collapse"]');
   if (toggle) {
     const label = (collapsed ? 'Expand' : 'Collapse') + ' Your recipe';
@@ -1161,7 +1151,7 @@ function uiLayoutControls() {
     limits: () => [320, Math.min(700, innerWidth * 0.45)],
     enabled: () => innerWidth >= 900 && document.body.classList.contains('editor-open'),
   });
-  // The docked presentation (the Map, the Instrument page) resizes from its top edge.
+  // The docked presentation (the Map) resizes from its top edge.
   UILayout.splitter({
     container: workspace,
     panel: sidebar,
