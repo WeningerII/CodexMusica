@@ -1,6 +1,6 @@
 {
   "_doc": "Per-pair rulings on the CULTURAL tokens in references/_tradition_signatures.json, read by scripts/check_signature_tokens.js. A token is cultural when references/_soundword_vocab.json classes it so: it claims a tradition belongs to, descends from, or is shaped by a specific culture, people, place, language, religion or rite, or a named cultural tradition. Every (tradition, cultural token) pair on a real tradition id carries a ruling here, and a pair with no ruling BLOCKS the gate, so a new cultural claim cannot land unread. Each pair is ruled against the tradition's OWN catalog prose (name, lineage and description as published in api/browse.json, i.e. references/05_traditions.js lineage + references/06_extras.js description, plus its exemplars, parent tree node and crossRefs), never outside knowledge. Truth is a property of the PAIR: one token can be attested on one tradition and false on another, so a token is never deleted wholesale. Verdicts: 'attested' - the prose names or plainly entails the culture or lineage; 'loose' - an umbrella, ancestral or diaspora link the prose supports, kept; 'false' - deleted from the signature table and so from the src/app.js mirror, codex.html, the atlas and the connector, and the gate fails if it comes back. Style tokens (genre and idiom words, Western art-music periods, generic function words, species-only materials) are classed in the vocabulary but not ruled here.",
-  "_fields": "tradition: a tradition id. token: the signature token exactly as written. verdict: attested | loose | false. tier (false only): core - no documented link; contradicted - the prose distinguishes or excludes it, and the evidence quotes that prose verbatim; boundary - a neighbouring culture or lineage the prose does not claim. evidence: the prose the ruling rests on - verbatim quotes, and for core and boundary the fields read and why none links. flag (optional): a reading the owner may want to revisit; it never changes the verdict - iberian-celtic-compound-reading (the token is read as its gloss states, Iberian + Celtic, e.g. Galicia/Asturias, so one half alone does not attest it), gospel-rooted-black-church-reading (attested as Southern Protestant gospel; false under a strict Black-church-descent reading), gospel-rooted-direction (kept on the Black-church umbrella though gospel proper is the record's descendant), prose-silent-world-plausible (false on this record's prose though plausible from outside knowledge; the fix, if wanted, is to say so in the prose).",
+  "_fields": "tradition: a tradition id. token: the signature token exactly as written. verdict: attested | loose | false. tier (false only): core - no documented link; contradicted - the prose distinguishes or excludes it, and the evidence quotes that prose verbatim; boundary - a neighbouring culture or lineage the prose does not claim. evidence: the prose the ruling rests on - verbatim quotes, and for core and boundary the fields read and why none links. flag (optional): a reading the owner may want to revisit; it never changes the verdict - iberian-celtic-compound-reading (the token is read as its gloss states, Iberian + Celtic, e.g. Galicia/Asturias, so one half alone does not attest it), gospel-rooted-direction (kept on the Black-church umbrella though gospel proper is the record's descendant), prose-silent-world-plausible (false on this record's prose though plausible from outside knowledge; the fix, if wanted, is to say so in the prose).",
   "rulings": [
     {
       "tradition": "afrobeat",
@@ -432,8 +432,9 @@
     {
       "tradition": "bluegrass_gospel",
       "token": "gospel-rooted",
-      "verdict": "attested",
-      "evidence": "Name \"Bluegrass gospel\"; description: \"gospel-themed song repertoire from shape-note and sacred-song traditions\"; lineage: \"applied to Protestant Christian sacred-song repertoire\"; parent node Southern gospel (\"White-Southern-US gospel sub-tradition descended from Sacred-Harp shape-note congregational singing\"). Attested in the gloss's Southern-Protestant sense. Owner note: the root is white Southern gospel, not Black-church descent; if gospel-rooted is narrowed to the Black-church reading, this pair becomes false:boundary."
+      "verdict": "false",
+      "tier": "boundary",
+      "evidence": "Fields read: name, lineage, description, exemplars (The Stanley Brothers, Doyle Lawson and Quicksilver, Ralph Stanley), parent node ritualDevotional.christianGospel.southernGospel, crossRefs (improvOnFrame.bluegrass). The record is bluegrass applied to white Southern sacred song: lineage \"Bluegrass-derived sacred-song tradition that emerged alongside secular bluegrass\", \"preserves the high-lonesome harmony vocal aesthetic of bluegrass applied to Protestant Christian sacred-song repertoire\"; description \"gospel-themed song repertoire from shape-note and sacred-song traditions\"; its parent node is Southern gospel, \"White-Southern-US gospel sub-tradition descended from Sacred-Harp shape-note congregational singing\". No Black church, African-American or Black gospel source is named. Read as a claim of Black-church descent, gospel-rooted names a neighbouring lineage the record does not claim (same ruling as sacred_harp_singing; its parent-node siblings southern_gospel and southern_gospel_quartet state the distinction outright)."
     },
     {
       "tradition": "boduberu",
@@ -785,7 +786,7 @@
       "tradition": "carnatic_instrumental",
       "token": "Hindu-ritual",
       "verdict": "loose",
-      "evidence": "The record names the temple instrument \"nadaswaram (temple double-reed)\" and the devotional composers \"the Tamil Nadu trinity of Tyagaraja, Muthuswami Dikshitar, and Syama Sastri\"; crossRefs ritualDevotional.hindu. The tradition itself is concert instrumental music, so the Hindu devotional context is its repertoire and temple-instrument lineage: loose, kept."
+      "evidence": "Devotional repertoire and a temple instrument, not ritual function. The record names \"nadaswaram (temple double-reed)\" among its instruments and plays \"the same 72-melakarta-and-kriti repertoire as the vocal tradition\", \"compositions across the kriti-varnam-tillana repertoire\"; the catalog's own kriti record defines the kriti as a \"Three-section structure (pallavi / anupallavi / charanam) on devotional Hindu poetry\". The tradition itself is concert instrumental music, so the Hindu devotional context is its repertoire and temple-instrument lineage: loose, kept. The keep rests on what the prose names, not on the record's crossRef to ritualDevotional.hindu, whose node text does not name Carnatic instrumental music."
     },
     {
       "tradition": "carnatic_instrumental",
@@ -816,7 +817,7 @@
       "tradition": "carnatic_vocal",
       "token": "Hindu-ritual",
       "verdict": "loose",
-      "evidence": "Devotional-canon link, not ritual context. The record names the Hindu devotional composer canon (\"Purandara Dasa\", \"the trinity of Tyagaraja, Muthuswami Dikshitar, and Syama Sastri\") and \"Sanskrit\", and the source record cross-references \"ritualDevotional.hindu\"; but it explicitly sets its own performance outside temple ritual: \"distinguished from temple kriti and javali by concert-not-temple performance context\". Kept as a loose devotional-lineage link."
+      "evidence": "Devotional repertoire, not ritual context. The record is \"centered on composed kriti repertoire\", \"lead vocal performance of fixed kritis (composed three-section pallavi-anupallavi-charanam pieces in specific raga and tala)\", on \"the kriti-composition canon of the early-19th-century Trinity\", and the catalog's own kriti record defines that form as a \"Three-section structure (pallavi / anupallavi / charanam) on devotional Hindu poetry\". But the record sets its own performance outside temple ritual: \"distinguished from temple kriti and javali by concert-not-temple performance context\". Kept as a loose devotional-repertoire link. The keep rests on the repertoire the prose names, not on the record's crossRef to ritualDevotional.hindu, whose node text does not name Carnatic vocal music."
     },
     {
       "tradition": "carnatic_vocal",
@@ -976,6 +977,12 @@
       "evidence": "Fields read: name, lineage, description, exemplars (Muddy Waters, Howlin’ Wolf, Little Walter), parent node functionalSong.bluesElectric, crossRefs (improvOnFrame.americanJazz). The record roots the tradition in Delta blues — \"urban transformation of Mississippi-Delta blues following the Great Migration\" — with \"Repertoire: 12-bar blues, rhumba-blues (Latin-influenced), shuffle blues\". No church, gospel, hymn or sacred source is named (no match for gospel/church/sacred/spiritual/hymn). Black gospel is a sibling African-American lineage the record does not claim. Check: the only other hit is the record's family field \"blues_gospel\", a shared catalog family bucket, not a lineage statement."
     },
     {
+      "tradition": "chicago_blues",
+      "token": "marine-band-tradition",
+      "verdict": "loose",
+      "evidence": "Material-provenance word. The prose names the harmonica: \"amplified harmonica (cross-harp, played through guitar amp)\", \"Little Walter (Chicago amplified-harmonica)\". The record's harmonica leaves its comb at the catalog default, \"Pearwood (sealed, Marine Band canon)\" (02_instruments.js pearwood_comb, default), and its maker at the default \"Hohner Marine Band 1896 (canonical blues — Trossingen Germany)\"; the prose names no make. Default material of an instrument the prose names, not a lineage it states: loose, kept (as symphonic / bosnian-source)."
+    },
+    {
       "tradition": "child_ballad_revival",
       "token": "Irish-traditional",
       "verdict": "false",
@@ -1110,7 +1117,7 @@
       "tradition": "contemporary_rb_late_90s_2000s",
       "token": "gospel-rooted",
       "verdict": "loose",
-      "evidence": "Ancestral link through the soul lineage the record names, not a direct gospel claim: it \"bridged classic-Motown-and-Philly-soul lineage to 2010s-modern-R&B and trap-soul\" with \"melismatic R&B vocal phrasing\" and \"traditional R&B vocal performance\"; the source record configures its voice as \"gospel_pentecostal_tradition\". Gospel itself is not named in the prose."
+      "evidence": "Ancestral link through the soul lineage the record names, not a direct gospel claim: it \"bridged classic-Motown-and-Philly-soul lineage to 2010s-modern-R&B and trap-soul\" with \"melismatic R&B vocal phrasing\" and \"traditional R&B vocal performance\"; its parent node functionalSong.soulRb is defined as \"Gospel-derived secular Black American song\" and lists \"classic R&B, modern R&B\". The source record configures its voice as \"gospel_pentecostal_tradition\". Gospel itself is not named in the prose (same treatment as modern_rb and philly_soul_intl)."
     },
     {
       "tradition": "contemporary_urban_gospel",
@@ -1149,7 +1156,7 @@
       "tradition": "dadra",
       "token": "Hindu-ritual",
       "verdict": "loose",
-      "evidence": "Lineage: \"romantic-and-devotional Brij Bhasha and Awadhi lyrical content\"; description: \"sharing thumri’s romantic / devotional poetic register\"; crossRefs ritualDevotional.hindu. Devotional register, not ritual function: loose, kept."
+      "evidence": "Devotional register, not ritual function. Lineage: \"romantic-and-devotional Brij Bhasha and Awadhi lyrical content\"; description: \"sharing thumri’s romantic / devotional poetic register\", \"Often performed as concert closer following a thumri set\". The catalog's thumri record names what that register addresses: \"repertoire addressing romantic-Krishna and viraha (separation-from-lover) thematic material\". Loose, kept (as thumri). The keep rests on the devotional register the prose names, not on the record's crossRef to ritualDevotional.hindu, whose node text does not name dadra."
     },
     {
       "tradition": "dadra",
@@ -1177,6 +1184,12 @@
       "verdict": "false",
       "tier": "boundary",
       "evidence": "Fields read: name, lineage, description, exemplars, parent node, crossRefs. The record assigns its Indian strand to rhythm and its melody elsewhere: \"fusion of Indian filmi rhythmic foundation (the dang-dut onomatopoeic name describes the Indian-tabla-derived rhythmic pattern), Malay popular song melodic vocabulary\"; \"melismatic vocal delivery with maqam-influenced ornamentation\". Raga is never named. Organisation by raga is a neighbouring South Asian system the record does not claim."
+    },
+    {
+      "tradition": "delta_blues",
+      "token": "marine-band-tradition",
+      "verdict": "loose",
+      "evidence": "Material-provenance word. The source record's instruments are voice, acoustic_resonator_steel and harmonica, and its harmonica leaves the comb at the catalog default, \"Pearwood (sealed, Marine Band canon)\" (02_instruments.js pearwood_comb, default), which also emits the key's pearwood. Default material of the record's own configured instrument, not a lineage the prose states: loose, kept (as symphonic / bosnian-source). Weakest of the material keeps: the prose names no harmonica (\"Solo male vocal-with-acoustic-guitar form\", \"slide-guitar-and-vocal solo and small-ensemble repertoire\"), though it does not exclude one, so the harmonica itself is configuration the prose does not mention."
     },
     {
       "tradition": "dene_handgame",
@@ -1648,7 +1661,7 @@
       "tradition": "garifuna_paranda",
       "token": "African-traditional",
       "verdict": "loose",
-      "evidence": "Diaspora link only: the people are named \"Garifuna (Black-Carib)\" and the source record files it under \"ritualDevotional.afroDiasporic\" with crossRef \"balladPoetry.westAfricanGriot\"; but the form itself is a \"Spanish-Latin-influenced acoustic-guitar\" ballad set apart from the drum tradition (\"rather than ensemble drum-and-chorus context\"), and no traditional African source is named."
+      "evidence": "Diaspora link only: the people are named \"Garifuna (Black-Carib)\" and the source record files it under \"ritualDevotional.afroDiasporic\" with crossRef \"balladPoetry.westAfricanGriot\"; but the form itself is a \"Spanish-Latin-influenced acoustic-guitar\" ballad set apart from the drum tradition (\"rather than ensemble drum-and-chorus context\"), and no traditional African source is named. The keep rests on the record's own ethnonym and parent node, not on the crossRef, whose node text does not name the Garifuna."
     },
     {
       "tradition": "garifuna_paranda",
@@ -1886,7 +1899,7 @@
       "tradition": "hindustani",
       "token": "Hindu-ritual",
       "verdict": "loose",
-      "evidence": "Hindu is named as one strand of a court (not ritual) tradition: \"codified 13th-15th century onward through Sufi-Hindu syncretic court traditions in Delhi, Lahore, Agra, and Lucknow\"; \"Distinguished from Carnatic by Persian-Sufi-and-Mughal influence\". No temple or rite is named. Syncretic-devotional umbrella, not ritual function: loose, kept (as khayal)."
+      "evidence": "Hindu is named as one strand of a court (not ritual) tradition: \"codified 13th-15th century onward through Sufi-Hindu syncretic court traditions in Delhi, Lahore, Agra, and Lucknow\"; \"Distinguished from Carnatic by Persian-Sufi-and-Mughal influence\". No temple or rite is named. Syncretic-devotional umbrella, not ritual function: loose, kept. (Unlike khayal, whose prose names no Hindu content and which is false:boundary, this record names the Hindu strand itself.)"
     },
     {
       "tradition": "hindustani",
@@ -2354,8 +2367,9 @@
     {
       "tradition": "khayal",
       "token": "Hindu-ritual",
-      "verdict": "loose",
-      "evidence": "The record frames khayal as court art music (\"displacing dhrupad as the primary court-art tradition\"), but its crossRefs include ritualDevotional.hindu (and ritualDevotional.sufi). Devotional context is an umbrella link, not ritual function: loose, kept. Check: weakest keep in the Hindustani group. Name, lineage and description are silent on Hindu, temple or devotion; the keep rests only on the record's own crossRef to ritualDevotional.hindu. Compare tappa (no such crossRef), ruled false:boundary."
+      "verdict": "false",
+      "tier": "boundary",
+      "evidence": "Fields read: name, lineage, description, exemplars, parent node improvOnFrame.indianClassicalImprov, crossRefs (ritualDevotional.hindu, ritualDevotional.sufi). The record frames khayal as court art music: \"displacing dhrupad as the primary court-art tradition\", \"codified through the Gwalior, Agra, Kirana, Patiala, Atrauli-Jaipur gharana lineages\"; no ritual, temple, devotional or Hindu content is named. The crossRef to ritualDevotional.hindu does not supply one: that node's text (\"kirtan, bhajan, abhang, dhrupad-bhakti, Tamil Saiva, ārtī, Vedic chant\") does not name khayal, and a crossRef alone to a neighbouring node is not a claim of lineage (same ruling as tarab_egyptian and hasidic_niggun on ritualDevotional.sufi). Hindu devotional music is a neighbouring South Asian lineage the record does not claim (same ruling as tappa)."
     },
     {
       "tradition": "khayal",
@@ -2697,6 +2711,13 @@
       "evidence": "Fields read: name, lineage, description (api/browse.json = 05_traditions.js lineage + 06_extras.js description), plus published parent/crossRefs/exemplars. The record is Mandarin-language pop: \"Mandarin-language mainstream Chinese-language pop tradition codified through 1980s Taiwan\", \"Mandarin pop with hip-hop and R&B production\". Nothing Japanese or court-music is named."
     },
     {
+      "tradition": "manhattan_chamber_loft",
+      "token": "vintage-steinway",
+      "verdict": "false",
+      "tier": "core",
+      "evidence": "Fields read: name, lineage, description, exemplars (Bang on a Can All-Stars, David Lang, Steve Reich, Meredith Monk), parent node artMusic.westernCommonPractice, crossRefs, and the instrument config. The prose is about a recording aesthetic (\"Manhattan-loft-school chamber-recording aesthetic\", \"characterized by ensemble close-tracking, dry-room aesthetic, and minimalist compositional architecture\") and names no piano at all, let alone a maker, make or hammer. Config considered: the record lists grand_piano and pins keyboard_technique and piano_pitch_standard, but no hammer variant. The token matches the unpinned 02_instruments.js hammer variant \"Vintage Steinway pre-WWII (compression-wired wool)\". No documented link (same ruling as italo_house_piano / japanese-factory)."
+    },
+    {
       "tradition": "maracatu",
       "token": "samba-batería",
       "verdict": "false",
@@ -2870,8 +2891,10 @@
     {
       "tradition": "naat_devotional",
       "token": "sufi-mystical",
-      "verdict": "loose",
-      "evidence": "Islamic devotional umbrella with a documented Sufi relation: prose \"Pan-Islamic devotional poetry-recitation tradition in praise of the Prophet Muhammad\", \"performed at Mawlid an-Nabi celebrations, milad-un-Nabi processions\"; published crossRef \"ritualDevotional.sufi\", whose node lists \"Maghreb madih\" (praise-of-the-Prophet song) and \"Indian-and-Pakistani qawwali\" as Sufi devotional; exemplar \"Sabri Brothers\" (a qawwali ensemble). Sufi is not named in the prose itself."
+      "verdict": "false",
+      "tier": "boundary",
+      "evidence": "Fields read: name, lineage, description, exemplars (Sabri Brothers, Saber Koti, Tahir Qadri), parent node ritualDevotional.islamic, crossRefs (ritualDevotional.sufi). The record is Islamic praise-poetry recitation: \"Pan-Islamic devotional poetry-recitation tradition in praise of the Prophet Muhammad\", \"performed at Mawlid an-Nabi celebrations, milad-un-Nabi processions, private home and mosque gatherings\", \"codified through the Urdu-language naat khwani tradition in Pakistan and India\"; its parent node lists it as Islamic recitation (\"naʿat poetic praise-of-the-prophet\"). Sufi or mystical is never named. The only link is the crossRef to ritualDevotional.sufi, whose text (\"Indian-and-Pakistani qawwali, Mevlevi sama, Maghreb madih, Arab inshad, dhikr remembrance-ceremonies\") does not name naat; reading madih or qawwali as the same practice, or the exemplar Sabri Brothers as a qawwali ensemble, is outside knowledge. A crossRef alone to a neighbouring node is not a claim of lineage (same ruling as khayal / Hindu-ritual and tarab_egyptian). Owner note: the catalog's praiseSong.indianSubcontinent node groups \"Sufi munajat and naat praise of God-and-Prophet\", but this record neither sits under nor cross-references that node; linking it, or stating the Sufi strand in the prose, would re-rule the pair.",
+      "flag": "prose-silent-world-plausible"
     },
     {
       "tradition": "ndombolo",
@@ -3715,16 +3738,16 @@
     {
       "tradition": "southern_gospel",
       "token": "gospel-rooted",
-      "verdict": "attested",
-      "evidence": "Name \"Southern gospel piano-bass\"; description \"Southern gospel tradition (1900s-onward, Stamps-Baxter Music Company shape-note convention origin\"; lineage \"White Southern Protestant sacred-music\". The vocabulary gloss covers Southern Protestant church song. Caveat: the record excludes Black-church descent (\"Distinguished from Black-Pentecostal-gospel by quartet-not-congregation format, country-music-adjacent harmonic vocabulary, white Southern Baptist denomination context\"), so under the narrower reading of this token as a claim of Black-church descent this pair would be false:contradicted.",
-      "flag": "gospel-rooted-black-church-reading"
+      "verdict": "false",
+      "tier": "contradicted",
+      "evidence": "Read as a claim of Black-church descent, the token is excluded by the record itself: description \"Distinguished from Black-Pentecostal-gospel by quartet-not-congregation format, country-music-adjacent harmonic vocabulary, white Southern Baptist denomination context\". Its own gospel is white Southern gospel: lineage \"White Southern Protestant sacred-music piano-and-bass-accompanied solo and small-ensemble tradition descended from the same Stamps-Baxter and Vaughan shape-note songbook lineage as Southern gospel quartet\"; parent node Southern gospel (\"White-Southern-US gospel sub-tradition descended from Sacred-Harp shape-note congregational singing\"). Black-church song is the lineage the record sets itself apart from (same reading as sacred_harp_singing and bluegrass_gospel)."
     },
     {
       "tradition": "southern_gospel_quartet",
       "token": "gospel-rooted",
-      "verdict": "attested",
-      "evidence": "Name \"Southern gospel quartet\"; lineage \"White-Southern shape-note male-quartet gospel tradition\"; description \"Southern-Protestant-revival-meeting performance contexts\". The vocabulary gloss covers Southern Protestant church song. Caveat: the record excludes Black-church descent (\"Distinguished from Black gospel by white-Southern-Protestant tradition and shape-note-pedagogy heritage\"), so under the narrower reading of this token as a claim of Black-church descent this is false:contradicted (same flag as southern_gospel).",
-      "flag": "gospel-rooted-black-church-reading"
+      "verdict": "false",
+      "tier": "contradicted",
+      "evidence": "Read as a claim of Black-church descent, the token is excluded by the record itself: description \"Distinguished from Black gospel by white-Southern-Protestant tradition and shape-note-pedagogy heritage\". Its own gospel is white Southern shape-note gospel: lineage \"White-Southern shape-note male-quartet gospel tradition\"; description \"the white-Southern-US shape-note quartet gospel tradition\". Its crossRef to ritualDevotional.christianGospel.blackGospel points at the neighbouring node the record distinguishes itself from, not at a lineage it claims (same reading as southern_gospel)."
     },
     {
       "tradition": "southern_soul",
@@ -3743,8 +3766,15 @@
       "tradition": "spirituals_african_american",
       "token": "gospel-rooted",
       "verdict": "loose",
-      "evidence": "Umbrella holds, the narrow genre does not. The record is \"African-American sacred song tradition with origins in enslaved-people Christian conversion encounter\", combining West-African vocal practice \"with Christian biblical-narrative content adopted from Protestant hymnody\", i.e. African-American Protestant church song, which is how the token gloss defines gospel; the source record files it under \"ritualDevotional.christianGospel.spirituals\". But gospel as a genre is its descendant, not its root: \"Distinguished from later black gospel by absence of formal song-structure-and-chord-progression (gospel-proper begins with Thomas A. Dorsey 1930s composing tradition)\" and \"Lineage forward feeds black gospel\". Kept as an umbrella (Black-church song) link; under a strict genre reading this would be false:contradicted by those two quotes.",
+      "evidence": "Umbrella holds, the narrow genre does not. The record is \"African-American sacred song tradition with origins in enslaved-people Christian conversion encounter\", combining West-African vocal practice \"with Christian biblical-narrative content adopted from Protestant hymnody\", i.e. the African-American (Black-church) sacred song the token claims descent from; the source record files it under \"ritualDevotional.christianGospel.spirituals\". But gospel as a genre is its descendant, not its root: \"Distinguished from later black gospel by absence of formal song-structure-and-chord-progression (gospel-proper begins with Thomas A. Dorsey 1930s composing tradition)\" and \"Lineage forward feeds black gospel\". Kept as an umbrella (Black-church song) link; under a strict genre reading this would be false:contradicted by those two quotes.",
       "flag": "gospel-rooted-direction"
+    },
+    {
+      "tradition": "stride_piano",
+      "token": "vintage-steinway",
+      "verdict": "false",
+      "tier": "core",
+      "evidence": "Fields read: name, lineage, description, exemplars (James P. Johnson, Willie The Lion Smith, Fats Waller, Luckey Roberts, Eubie Blake, Art Tatum), parent node improvOnFrame.americanJazz.stridePiano, crossRefs, and the instrument config. The prose is about a Harlem piano idiom (\"1920s-1940s Harlem virtuoso solo-piano tradition\", \"the African-American virtuoso solo-piano tradition that bridges ragtime and jazz piano\") and names no piano maker, make, hammer or felt. Config considered: the record lists grand_piano and upright_piano and pins keyboard_technique, piano_pitch_standard, upright_use and upright_piano_size, but no hammer variant. The token matches the unpinned 02_instruments.js hammer variant \"Vintage Steinway pre-WWII (compression-wired wool)\". No documented link (same ruling as italo_house_piano / japanese-factory)."
     },
     {
       "tradition": "string_quartet",

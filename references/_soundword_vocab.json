@@ -1,6 +1,6 @@
 {
-  "_doc": "Every token on a real tradition id in references/_tradition_signatures.json, classed. Read by scripts/check_signature_tokens.js, which fails on a signature token this file does not class, so a new token - cultural or not - cannot slip in unclassified. Classes: 'cultural' - claims the tradition belongs to, descends from, or is shaped by a specific culture, people, place, language, religion or rite, or a named cultural tradition (ethnonyms and places, languages, specific religions and liturgies, named lineages such as gagaku-foundational or samba-foundation, culture-specific form names, and materials that name a place, maker or people rather than a species); every (tradition, cultural token) pair must carry a ruling in references/_signature_rulings.json. 'style' - a cross-cultural genre or idiom descriptor (jazz, funk-derived, rock-context), a Western art-music period or training word (baroque-*, classical, romantic), a generic function word naming no specific religion (devotional, liturgical, ceremonial), a species-only material (sitka-spruce, keyaki) or a gear line; recorded here, not ruled per pair and not gated beyond classification. 'sonic' - a sound, technique, texture, form, affect, instrument, material or production word. Where a token is ambiguous between cultural and style it is cultural only if it names a specific people, place, language, religion or named cultural tradition.",
-  "_fields": "class: cultural | style | sonic. kind (cultural, style): ethnonym-place | religion-rite | named-lineage | material-provenance - what the claim is about. group (style): genre-idiom | art-music-period | generic-function | species-material | gear-lineage. gloss: what the token claims. note (optional): why a borderline token sits in its class.",
+  "_doc": "Every token on a real tradition id in references/_tradition_signatures.json, classed. Read by scripts/check_signature_tokens.js, which fails on a signature token this file does not class, so a new token - cultural or not - cannot slip in unclassified. Classes: 'cultural' - claims the tradition belongs to, descends from, or is shaped by a specific culture, people, place, language, religion or rite, or a named cultural tradition (ethnonyms and places, languages, specific religions and liturgies, named lineages such as gagaku-foundational or samba-foundation, culture-specific form names, and materials that name a place, maker or people rather than a species); every (tradition, cultural token) pair must carry a ruling in references/_signature_rulings.json. 'style' - a cross-cultural genre or idiom descriptor (jazz, funk-derived, rock-context), a Western art-music period or training word (baroque-*, classical, romantic), a generic function word naming no specific religion (devotional, liturgical, ceremonial) or a species-only material (sitka-spruce, keyaki); recorded here, not ruled per pair and not gated beyond classification. 'sonic' - a sound, technique, texture, form, affect, instrument, material or production word. Where a token is ambiguous between cultural and style it is cultural only if it names a specific people, place, language, religion or named cultural tradition.",
+  "_fields": "class: cultural | style | sonic. kind (cultural, style): ethnonym-place | religion-rite | named-lineage | material-provenance - what the claim is about. group (style): genre-idiom | art-music-period | generic-function | species-material. gloss: what the token claims. note (optional): why a borderline token sits in its class.",
   "tokens": {
     "17-ply": {
       "class": "sonic"
@@ -877,8 +877,8 @@
     "gospel-rooted": {
       "class": "cultural",
       "kind": "religion-rite",
-      "gloss": "claims roots in gospel music (African-American / Southern Protestant church song)",
-      "note": "kept cultural: read as a claim of descent from Black-church / Southern Protestant church song, unlike the idiom words gospel-runs / gospel-friendly, which are style"
+      "gloss": "claims roots in gospel music as Black-church (African-American church) song",
+      "note": "kept cultural: read as a claim of descent from Black-church (African-American) church song, unlike the idiom words gospel-runs / gospel-friendly, which are style. White Southern gospel and Sacred Harp shape-note hymnody are neighbouring lineages, not this claim"
     },
     "gospel-runs": {
       "class": "style",
@@ -1357,11 +1357,10 @@
       "gloss": "names the Mari people (Volga-Finnic, Mari El, Russia)"
     },
     "marine-band-tradition": {
-      "class": "style",
-      "kind": "named-lineage",
-      "group": "gear-lineage",
-      "gloss": "names the Hohner Marine Band harmonica lineage (German diatonic harmonica, 1896); also readable as a military-band tradition",
-      "note": "names a harmonica model line (Hohner Marine Band), i.e. a piece of gear, not a people, place, language, religion or named cultural tradition; same footing as vintage-steinway"
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims the Hohner Marine Band harmonica lineage (a named maker's model line, Trossingen, Germany, 1896)",
+      "note": "cultural as a material that names a maker, per this file's _doc; it comes from the harmonica comb variant \"Pearwood (sealed, Marine Band canon)\", the catalog default"
     },
     "maroon": {
       "class": "cultural",
@@ -1995,7 +1994,7 @@
     },
     "sprechgesang-vocal": {
       "class": "sonic",
-      "note": "loanword technique term in general use (speech-song), like glissando/tremolo"
+      "note": "stays sonic: names a vocal delivery (speech-song, between speaking and singing) by its German art-music term, the way glissando and tremolo name techniques by Italian ones. The word is in general musical use, and its carriers (art_rock, post_punk, talking_blues_dustbowl, chanson_classique) use it for the delivery, not to claim a German school. Unlike kurinuki-construction, which names a making technique specific to Japanese taiko, the technique is not tied to one people or place. Borderline: reclass it cultural if the Schoenberg / Second Viennese School lineage is what it is meant to claim"
     },
     "staggered": {
       "class": "sonic"
@@ -2257,8 +2256,10 @@
       "class": "sonic"
     },
     "vintage-steinway": {
-      "class": "sonic",
-      "note": "kept sonic: a piano make names no people, place, language, religion or cultural lineage"
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims a vintage pre-WWII Steinway piano hammer (a named maker)",
+      "note": "cultural as a material that names a maker, per this file's _doc (like japanese-factory and cremonese-pre-1750); it comes from the grand_piano hammer variant \"Vintage Steinway pre-WWII (compression-wired wool)\""
     },
     "vinyl-sampled": {
       "class": "sonic"

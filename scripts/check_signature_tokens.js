@@ -12,7 +12,7 @@
 // published. src/atlas.js indexes the table for search and ranks kin by it,
 // and the connector and the app derive preface labels from it, so a wrong
 // token reads to a user as the catalog's own statement. The first full pass
-// found 235 such claims that the tradition's own prose contradicts or never
+// found 242 such claims that the tradition's own prose contradicts or never
 // makes: a Yolŋu didgeridoo tagged `celtic` and `Scottish-influenced`, powwow
 // and Inuit katajjaq tagged `African-derived`, guqin and samul nori tagged
 // with a Japanese court-music foundation. Nothing checked them, because the

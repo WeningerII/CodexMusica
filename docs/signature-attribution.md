@@ -4,10 +4,12 @@
 
 ## What is ruled, and where
 
-- `references/_soundword_vocab.json` classes every token on a real tradition id: 144 cultural, 57 style, 410 sonic (611 tokens). A token is cultural when it names a specific people, place, language, religion or rite, or a named cultural tradition; genre and idiom words, Western art-music periods, generic function words and species-only materials are style, recorded but not ruled per pair.
-- `references/_signature_rulings.json` rules every (tradition, cultural token) pair, 680 in all, against that tradition's own name, lineage and description (as `api/browse.json` publishes them), exemplars, parent tree node and crossRefs. Truth is a property of the pair: `dhrupad-suited` is attested on `dhrupad` and false on `kriti`, whose record sets itself against the Hindustani forms dhrupad belongs to; `celtic` is attested on `breton_folk` and false on `didgeridoo_yidaki_solo`. No token is removed wholesale.
-- Verdicts: 360 attested, 85 loose (an umbrella, ancestral or diaspora link the prose supports; kept), 235 false. False tiers: 69 core (no documented link), 46 contradicted (the prose distinguishes or excludes it, quoted verbatim in the ruling), 120 boundary (a neighbouring culture or lineage the prose does not claim).
-- The 235 false pairs, on 145 entries, are deleted from the table and so from the `src/app.js` mirror and `codex.html`. Nothing else in the table changed. No entry is left empty; `finnish_kantele_folk` and `swedish_nyckelharpa_folk` are left with one token each (`lament-leaning`), and no replacement tokens were invented.
+- `references/_soundword_vocab.json` classes every token on a real tradition id: 146 cultural, 56 style, 409 sonic (611 tokens). A token is cultural when it names a specific people, place, language, religion or rite, or a named cultural tradition; genre and idiom words, Western art-music periods, generic function words and species-only materials are style, recorded but not ruled per pair.
+- `references/_signature_rulings.json` rules every (tradition, cultural token) pair, 684 in all, against that tradition's own name, lineage and description (as `api/browse.json` publishes them), exemplars, parent tree node and crossRefs. Truth is a property of the pair: `dhrupad-suited` is attested on `dhrupad` and false on `kriti`, whose record sets itself against the Hindustani forms dhrupad belongs to; `celtic` is attested on `breton_folk` and false on `didgeridoo_yidaki_solo`. No token is removed wholesale.
+- Verdicts: 357 attested, 85 loose (an umbrella, ancestral or diaspora link the prose supports; kept), 242 false. False tiers: 71 core (no documented link), 48 contradicted (the prose distinguishes or excludes it, quoted verbatim in the ruling), 123 boundary (a neighbouring culture or lineage the prose does not claim).
+- A crossRef alone is not a claim of lineage. A kept pair that leans on a crossRef needs the linked node's text to name the practice (`bhajan` and `kirtan` / `raga-bound` via praiseSong.indianSubcontinent, `islamic_anasheed` and `malhun_maghrebi` / `sufi-mystical` via ritualDevotional.sufi); `khayal` / `Hindu-ritual` and `naat_devotional` / `sufi-mystical` rested on a bare crossRef and are false:boundary. `carnatic_vocal`, `carnatic_instrumental` and `dadra` / `Hindu-ritual` stay loose on what their own prose names (the kriti repertoire, a temple instrument, thumri's register), not on their crossRef.
+- Materials that name a maker are cultural, as the vocabulary's own rule says: `vintage-steinway` (a Steinway hammer) and `marine-band-tradition` (the Hohner Marine Band harmonica line) are classed `material-provenance` and ruled like `japanese-factory`. Where the record pins no such variant and its prose names no maker, the pair is false:core (`stride_piano`, `manhattan_chamber_loft` / `vintage-steinway`); where the record's configured instrument defaults to the variant, it is loose (`chicago_blues`, `delta_blues` / `marine-band-tradition`, as `symphonic` / `bosnian-source`).
+- The 242 false pairs, on 151 entries, are deleted from the table and so from the `src/app.js` mirror and `codex.html`. Nothing else in the table changed. No entry is left empty; `finnish_kantele_folk` and `swedish_nyckelharpa_folk` are left with one token each (`lament-leaning`), and no replacement tokens were invented.
 - `scripts/check_signature_tokens.js` (promise `signature-attribution-ruled`, SKILL.md I8) fails on an unruled cultural pair, on a false pair still in the table, `src/app.js` or `codex.html`, and on a signature token the vocabulary does not class. It runs in the CI `gate` job beside `node scripts/build_signatures.js --check`, and `npm run faults` plants a restored false pair and an unruled cultural pair to prove it goes red.
 
 False pairs by token (core / contradicted / boundary):
@@ -16,18 +18,18 @@ False pairs by token (core / contradicted / boundary):
 |---|---|---|---|---|
 | `iberian-celtic` | 34 | 18 | 1 | 15 |
 | `gagaku-foundational` | 16 | 4 | 3 | 9 |
+| `sufi-mystical` | 16 | 2 | 3 | 11 |
 | `dhrupad-suited` | 15 | 0 | 5 | 10 |
-| `sufi-mystical` | 15 | 2 | 3 | 10 |
 | `samba-foundation` | 14 | 3 | 6 | 5 |
 | `Turkish-makam-base` | 12 | 1 | 3 | 8 |
 | `sacred-Latin` | 11 | 5 | 3 | 3 |
 | `celtic` | 10 | 9 | 0 | 1 |
+| `gospel-rooted` | 10 | 3 | 3 | 4 |
 | `Scottish-influenced` | 10 | 2 | 4 | 4 |
+| `Hindu-ritual` | 9 | 1 | 2 | 6 |
 | `Irish-traditional` | 9 | 2 | 2 | 5 |
 | `english-folk` | 8 | 2 | 2 | 4 |
-| `Hindu-ritual` | 8 | 1 | 2 | 5 |
 | `German-traditional` | 7 | 4 | 0 | 3 |
-| `gospel-rooted` | 7 | 3 | 1 | 3 |
 | `samba-batería` | 6 | 0 | 2 | 4 |
 | `samba-foundational` | 6 | 0 | 2 | 4 |
 | `classical-radif` | 5 | 0 | 0 | 5 |
@@ -42,6 +44,7 @@ False pairs by token (core / contradicted / boundary):
 | `italian` | 2 | 2 | 0 | 0 |
 | `pan-African` | 2 | 2 | 0 | 0 |
 | `urban-Greek` | 2 | 0 | 0 | 2 |
+| `vintage-steinway` | 2 | 2 | 0 | 0 |
 | `asian-laminated` | 1 | 1 | 0 | 0 |
 | `asian-spruce` | 1 | 1 | 0 | 0 |
 | `Chinese-classical` | 1 | 0 | 0 | 1 |
@@ -54,7 +57,7 @@ False pairs by token (core / contradicted / boundary):
 
 ## Recipe changes
 
-Every seeded recipe was rendered through the connector engine (`mcp/engine.js` `startRecipe` + `renderRecipe`) in all four formats, on the base commit and on this branch. 96 entries render differently, in every format (compact 96, prose 96, rich 96, tags 96); all other entries, including 49 that lost a false pair, render byte-identically. No card's parts, room, chain or tuning moved: every change is an auto-derived preface label, 276 card labels in all. The app renders the same strings (`scripts/check_app_parity.js`, catalog-wide).
+Every seeded recipe was rendered through the connector engine (`mcp/engine.js` `startRecipe` + `renderRecipe`) in all four formats, on the base commit and on this branch. 99 entries render differently, in every format (compact 99, prose 99, rich 99, tags 99); all other entries, including 52 that lost a false pair, render byte-identically. No card's parts, room, chain or tuning moved: every change is an auto-derived preface label, 285 card labels in all. The app renders the same strings (`scripts/check_app_parity.js`, catalog-wide).
 
 **Responsible pair(s)** are measured, not inferred: on the base commit each false pair was removed ALONE and the entry re-rendered; a pair is listed for a card when its removal alone moves that card's label. Removing all of an entry's false pairs together reproduces this branch's render exactly for every entry. A card with no single responsible pair (marked *joint*) moves only when two or more pairs go together. 17 card label(s) are joint.
 
@@ -71,6 +74,10 @@ Label = the preface id the renderer prints before the instrument's short name (e
 |  |  | electric_guitar_single_coil: `sermonizing` → `gurgling` | `gospel-rooted` |
 | `pentecostal_gospel` (Black Pentecostal gospel) | `sacred-Latin` (core) | choir_pentecostal_cogic: `doxological` → `challenging` | `sacred-Latin` |
 |  |  | choir_southern_black_gospel: `penitential` → `devoted` | `sacred-Latin` |
+| `southern_gospel` (Southern gospel piano-bass) | `gospel-rooted` (contradicted) | voice: `paschal` → `annunciatory` | `gospel-rooted` |
+|  |  | upright_piano: `messianic` → `paschal` | `gospel-rooted` |
+|  |  | upright_bass: `struggling` → `doxological` | `gospel-rooted` |
+|  |  | pump_organ_harmonium: `annunciatory` → `messianic` | `gospel-rooted` |
 | `gothic_rock` (Gothic rock) | `German-traditional` (core), `sacred-Latin` (core) | voice: `intoxicating` → `knee-buckling` | `German-traditional` |
 |  |  | electric_guitar_single_coil: `knee-buckling` → `intoxicating` | `German-traditional` |
 |  |  | drum_kit: `struggimento` → `brooding` | `German-traditional` |
@@ -234,10 +241,15 @@ Label = the preface id the renderer prints before the instrument's short name (e
 | `russian_orthodox_chant` (Russian Orthodox liturgical chant) | `gospel-rooted` (core), `sacred-Latin` (contradicted) | choir_ensemble: `messianic` → `annunciatory` | `gospel-rooted` |
 |  |  | voice: `paschal` → `messianic` | `gospel-rooted` |
 |  |  | choir_russian_orthodox: `annunciatory` → `paschal` | `gospel-rooted` |
-| `khayal` (Khayal (Hindustani classical vocal)) | `dhrupad-suited` (contradicted) | voice: `bandish-locking` → `shamanic` | `dhrupad-suited` |
-|  |  | tabla: `shanti` → `bandish-locking` | `dhrupad-suited` |
-|  |  | tanpura: `tantric` → `raga-melismatic` | `dhrupad-suited` |
-|  |  | sarangi: `shamanic` → `elevating` | `dhrupad-suited` |
+| `southern_gospel_quartet` (Southern gospel quartet) | `gospel-rooted` (contradicted) | voice: `paschal` → `annunciatory` | `gospel-rooted` |
+|  |  | grand_piano: `messianic` → `paschal` | `gospel-rooted` |
+|  |  | choir_ensemble: `struggling` → `doxological` | `gospel-rooted` |
+| `bluegrass_gospel` (Bluegrass gospel) | `gospel-rooted` (boundary) | mandolin: `messianic` → `annunciatory` | `gospel-rooted` |
+|  |  | fiddle: `struggling` → `asymmetric-rolling` | `gospel-rooted` |
+|  |  | upright_bass: `annunciatory` → `doxological` | `gospel-rooted` |
+| `khayal` (Khayal (Hindustani classical vocal)) | `Hindu-ritual` (boundary), `dhrupad-suited` (contradicted) | tabla: `shanti` → `raga-melismatic` | `dhrupad-suited` |
+|  |  | tanpura: `tantric` → `shamanic` | `dhrupad-suited` |
+|  |  | sarangi: `shamanic` → `elevating` | `Hindu-ritual`, `dhrupad-suited` |
 | `tappa` (Tappa (Punjabi-origin Hindustani semi-classical)) | `Hindu-ritual` (boundary), `dhrupad-suited` (boundary) | tabla: `shanti` → `raga-melismatic` | `dhrupad-suited` |
 |  |  | sarangi: `shamanic` → `elevating` | `Hindu-ritual`, `dhrupad-suited` |
 | `dadra` (Dadra (Hindustani semi-classical light-vocal)) | `dhrupad-suited` (boundary) | voice: `rasa` → `oracular` | `dhrupad-suited` |
@@ -357,12 +369,13 @@ Pairs removed on a changed entry whose removal alone moves no label: 28 (they ar
 
 ### New labels named for another culture
 
-Removing a false pair does not choose the new label; the preface matcher does, from the words the card has left. 33 card labels now land on a preface that is new to the entry and whose own id or note names a culture or tradition the entry's prose does not claim. These come from the preface lexicon's token lists (mostly style words such as `court-ceremonial`, `devotional`, `ritual`), not from the signature table, so this pass does not gate them. Hand-reviewed from each preface's id and note; not exhaustive.
+Removing a false pair does not choose the new label; the preface matcher does, from the words the card has left. 34 card labels now land on a preface that is new to the entry and whose own id or note names a culture or tradition the entry's prose does not claim. These come from the preface lexicon's token lists (mostly style words such as `court-ceremonial`, `devotional`, `ritual`), not from the signature table, so this pass does not gate them. Hand-reviewed from each preface's id and note; not exhaustive.
 
 | entry | card | label now | the label names | was |
 |---|---|---|---|---|
 | `swedish_nyckelharpa_folk` | nyckelharpa | `alap-unfolding` | slow exposition of a raga | `nordic-droning` |
 | `sacred_harp_singing` | choir_sacred_harp | `asymmetric-rolling` | Korean janggu pattern | `repentant` |
+| `bluegrass_gospel` | fiddle | `asymmetric-rolling` | Korean janggu pattern | `struggling` |
 | `sikh_gurmat_sangeet` | tabla | `asymmetric-rolling` | Korean janggu pattern | `tantric` |
 | `sikh_gurmat_sangeet` | dilruba | `gamak` | Carnatic-style oscillating ornament | `circling` |
 | `morna` | classical_nylon_string_guitar | `choro-bantering` | id names Brazilian choro | `saudade` |
@@ -399,9 +412,10 @@ One more, moved rather than new: `andalusi_nuba` still renders a `sufi-mystical`
 
 ### Readings the owner may want to revisit
 
-- `gospel-rooted` is ruled in its gloss's sense, descent from Black-church or Southern Protestant church song. Under a stricter Black-church-descent reading, `southern_gospel` and `southern_gospel_quartet` (attested; both records distinguish themselves from Black gospel) would be false:contradicted. Under a strict genre reading (gospel proper), `spirituals_african_american` and `jubilee_quartet` (loose, kept on the Black-church umbrella) would be false:contradicted, because both records make gospel their descendant. The rulings carry `flag` fields naming these readings.
+- `gospel-rooted` is ruled on one reading throughout, a claim of Black-church (African-American church song) descent, and its gloss says so. On that reading `southern_gospel` and `southern_gospel_quartet` are false:contradicted (each record distinguishes itself from Black gospel in its own words) and `bluegrass_gospel` and `sacred_harp_singing` are false:boundary (white Southern shape-note lineages that name no Black-church source). A broader reading that also counted white Southern Protestant church song would keep those four. Under a strict genre reading (gospel proper), `spirituals_african_american` and `jubilee_quartet` (loose, kept on the Black-church umbrella) would be false:contradicted, because both records make gospel their descendant; the rulings carry `flag: gospel-rooted-direction` for them.
 - `iberian-celtic` is ruled as the compound its gloss states (Iberian + Celtic, e.g. Galicia and Asturias), so one half alone does not attest it. Under an Iberian-OR-Celtic reading, several boundary pairs (fado, celtic_irish_trad, breton_folk, welsh_hymn_balladry and others) would be loose.
-- Four pairs are false on the prose but plausible from outside knowledge (`flag: prose-silent-world-plausible`): `persian_dastgah` / `sufi-mystical`, `sikh_gurmat_sangeet` / `dhrupad-suited`, `historical_informed_performance` / `sacred-Latin`, `string_quartet` / `cremonese-pre-1750`. The alternative fix is to state the link in the record's prose and re-rule the pair. The same holds for `sardinian_polyphony` / `sacred-Latin` (the cuncordu Holy-Week Latin repertoire).
+- Five pairs are false on the prose but plausible from outside knowledge (`flag: prose-silent-world-plausible`): `persian_dastgah` / `sufi-mystical`, `sikh_gurmat_sangeet` / `dhrupad-suited`, `historical_informed_performance` / `sacred-Latin`, `string_quartet` / `cremonese-pre-1750`, `naat_devotional` / `sufi-mystical` (the catalog's praiseSong.indianSubcontinent node groups "Sufi munajat and naat praise", but the record does not link that node). The alternative fix is to state the link in the record's prose and re-rule the pair. The same holds for `sardinian_polyphony` / `sacred-Latin` (the cuncordu Holy-Week Latin repertoire).
+- Weaker keeps, left as ruled: `historical_informed_performance` / `Italian-baroque` is attested only through who an exemplar is (René Jacobs's Cavalli operas), the kind of inference rejected for `anglican_choral_cathedral` and `sardinian_polyphony` / `sacred-Latin`; `fado_coimbra_university` / `fado-lead` is loose although the record distinguishes itself from the Lisbon lead voice on exactly that axis (its mirror, `fado` / `university-fado`, is false:contradicted); `mandopop` / `Chinese-classical` is loose on "Chinese pentatonic phrasing" alone, while `cantopop`, `k_pop_modern` and `j_pop_classic` are false:boundary for their classical tokens; `delta_blues` / `marine-band-tradition` is loose on the default comb of a harmonica its prose never names.
 
 ### Configuration the prose does not support
 
@@ -411,6 +425,7 @@ Many false tokens trace to a record's own instrument picks, which this pass does
 - `voice_tradition` pinned to `hindustani_dhrupad_tradition` on `bhajan`, `kirtan` and `sikh_gurmat_sangeet`; `voice_microtone` `shruti_inflected` on `bhangra_modern`.
 - `ney_lineage` pinned to `ney_sufi_mevlevi` on `arab_tarab` and `tarab_egyptian`.
 - `pandeiro_context` pinned to `pandeiro_samba` on `embolada`.
+- `delta_blues` configures a harmonica its prose never names ("Solo male vocal-with-acoustic-guitar form"); its `marine-band-tradition`, `pearwood` and `brass` tokens come from that harmonica's default comb and reeds.
 - `fado`'s voice pins the Connemara sean-nós ornament catalog, and its tuning (shared with `basque_kantautor`) is the minority-language kantautor tuning; `basque_kantautor` configures a Galician gaita its prose distinguishes it from.
 
 ### Taxonomy
@@ -426,13 +441,13 @@ Many false tokens trace to a record's own instrument picks, which this pass does
 ### Style pairs
 
 This pass fixes **cultural** attributions only. The `style` class of
-`references/_soundword_vocab.json` (57 tokens: genre / idiom descriptors, Western art-music periods and
-training, generic function words, species-only materials, one gear lineage) is **recorded but not ruled and
+`references/_soundword_vocab.json` (56 tokens: genre / idiom descriptors, Western art-music periods and
+training, generic function words, species-only materials) is **recorded but not ruled and
 not gated**, and no style pair is deleted here. This list is for the owner. It collects the style pairs whose
 tradition's own catalog prose (name, lineage and description in `api/browse.json`) plainly contradicts them
 or gives no link to them. It does not rule every style pair.
 
-- 101 pairs across 74 entries and 25 tokens, out of 774 style-class pairs on in-catalog keys.
+- 101 pairs across 74 entries and 25 tokens, out of 772 style-class pairs on in-catalog keys.
 - **contradicted** (52): the prose excludes the claim or dates the tradition before the idiom existed. Each row quotes that prose verbatim.
 - **no link** (49): the prose places the tradition somewhere else and never names the idiom or function. Each row quotes the context.
 - The reference dates for the idioms come from the catalog's own records: funk, "Funk (codified 1965-1971" (`funk`), and folk rock, "codified mid-1965 through 1972" (`folk_rock`).

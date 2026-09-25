@@ -779,9 +779,12 @@ record(
     .filter((t) => vocab[t].class === 'cultural')
     .sort();
   const trad = 'bluegrass';
-  const tok = cultural.find((t) => !sigs[trad].includes(t) && !ruled.has(trad + '\u0000' + t));
-  if (!Array.isArray(sigs[trad]) || !tok)
-    throw new Error('faults: could not stage an unruled cultural pair on bluegrass');
+  // Check the tradition is still signed BEFORE reading its list, so a lost
+  // signature stops with the "could not stage" message, not a TypeError.
+  const tok = Array.isArray(sigs[trad])
+    ? cultural.find((t) => !sigs[trad].includes(t) && !ruled.has(trad + '\u0000' + t))
+    : undefined;
+  if (!tok) throw new Error('faults: could not stage an unruled cultural pair on bluegrass');
   sigs[trad].push(tok);
   fs.writeFileSync(f, JSON.stringify(sigs, null, 2) + '\n');
   record(
