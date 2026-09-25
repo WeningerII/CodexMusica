@@ -357,6 +357,146 @@ function lyMemberWord(model, m) {
 const lyMemberLabel = (m) =>
   /^T\d+$/.test(m.place) ? `word ${m.place.slice(1)}` : LY_PLACES[m.place] || m.place;
 
+// A declared melody (lyric-harness/MELODY.md), written in the draft without
+// brackets inside the line: '4/4 — groups 2+2 — 2 bars — subdivision 2 —
+// 432.5:3 rest:1 487.2:4'. Returns the harness JSON shape, or an error that
+// names the rule it breaks; nothing is simplified or filled in.
+function lyParseMelody(value) {
+  const parts = String(value || '')
+    .split(/\s+—\s+/)
+    .map((p) => p.trim());
+  const out = { meter: null, bars: null, subdivision: null, notes: [] };
+  for (const p of parts) {
+    let m;
+    if ((m = /^(\d{1,2})\/(\d{1,2})$/.exec(p)))
+      out.meter = { beats: Number(m[1]), unit: Number(m[2]), groups: null };
+    else if ((m = /^groups? ([\d+]+)$/i.exec(p))) out.groups = m[1].split('+').map(Number);
+    else if ((m = /^(\d+) bars?$/i.exec(p))) out.bars = Number(m[1]);
+    else if ((m = /^subdivision (\d+)$/i.exec(p))) out.subdivision = Number(m[1]);
+    else if (p)
+      out.notes = p.split(/\s+/).map((tok) => {
+        const n = /^(rest|[\d.]+):(\d+)$/i.exec(tok);
+        return n
+          ? { pitch_hz: /^rest$/i.test(n[1]) ? null : Number(n[1]), ticks: Number(n[2]) }
+          : { bad: tok };
+      });
+  }
+  const fail = (error) => ({ error });
+  if (!out.meter) return fail('Declare the meter as beats/unit, e.g. 4/4.');
+  const groups =
+    out.groups || (out.meter.beats % 3 === 0 ? Array(out.meter.beats / 3).fill(3) : null);
+  if (
+    !groups ||
+    groups.some((g) => g !== 2 && g !== 3) ||
+    groups.reduce((t, g) => t + g, 0) !== out.meter.beats
+  )
+    return fail(`Beat groups must be 2s and 3s that sum to ${out.meter.beats} (e.g. groups 2+2).`);
+  out.meter.groups = groups;
+  if (!Number.isInteger(out.bars) || out.bars < 1)
+    return fail('Bars per line must be a whole number of at least 1.');
+  if (![1, 2, 4].includes(out.subdivision)) return fail('Subdivision is 1, 2 or 4 ticks per beat.');
+  const bad = out.notes.find(
+    (n) =>
+      n.bad ||
+      !(n.pitch_hz === null || (Number.isFinite(n.pitch_hz) && n.pitch_hz > 0)) ||
+      !Number.isInteger(n.ticks) ||
+      n.ticks < 1
+  );
+  if (!out.notes.length || bad)
+    return fail(
+      `Write each event as hertz:ticks or rest:ticks${bad?.bad ? ` (“${bad.bad}” is not one)` : ''}.`
+    );
+  if (!out.notes.some((n) => n.pitch_hz !== null))
+    return fail('A phrase needs at least one pitched note.');
+  const want = out.bars * out.meter.beats * out.subdivision;
+  const got = out.notes.reduce((t, n) => t + n.ticks, 0);
+  if (got !== want)
+    return fail(
+      `The events last ${got} ticks; ${out.bars} × ${out.meter.beats} × ${out.subdivision} = ${want} are needed.`
+    );
+  delete out.groups;
+  return { melody: out };
+}
+const lyMelodyText = (m) =>
+  [
+    `${m.meter.beats}/${m.meter.unit}`,
+    `groups ${m.meter.groups.join('+')}`,
+    lyPlural(m.bars, 'bar'),
+    `subdivision ${m.subdivision}`,
+    m.notes.map((n) => `${n.pitch_hz === null ? 'rest' : n.pitch_hz}:${n.ticks}`).join(' '),
+  ].join(LY_DASH);
+// The story plan (the harness's `narrative`): one atom per sung section, a
+// junction before every atom after the first. A record, not a gate.
+const LY_ATOMS = [
+  'ESTABLISH',
+  'COMPLICATE',
+  'TURN',
+  'DWELL',
+  'ANCHOR',
+  'JUDGE',
+  'RESOLVE',
+  'DEPART',
+];
+const LY_JUNCTIONS = ['THEREFORE', 'BUT', 'AND_THEN', 'MEANWHILE', 'ELABORATE', 'JUXTAPOSE'];
+function lyParseNarrative(value) {
+  const v = String(value || '').trim();
+  if (/^off$/i.test(v)) return { off: true, steps: [] };
+  const steps = v.split(',').map((p, k) => {
+    const [atom, junction] = p.trim().split('/');
+    return {
+      atom,
+      junction: junction || null,
+      ok: LY_ATOMS.includes(atom) && (k === 0 ? !junction : LY_JUNCTIONS.includes(junction)),
+    };
+  });
+  return { steps, ok: steps.every((x) => x.ok) };
+}
+
+// Everything declared on this page, as the exact values the lyric tools take,
+// so the writer never has to reinterpret a [SETUP] line.
+function lyWriterDeclarations(model) {
+  const one = (key) => lySetupOf(model, key)[0]?.value;
+  const d = {};
+  if (one('title')) d.title = one('title');
+  const hook = lySetupOf(model, 'hook')[0];
+  if (hook?.line) d.hook_line = hook.line;
+  if (one('narrative')) d.narrative = one('narrative');
+  const mel = one('melody') && lyParseMelody(one('melody'));
+  if (mel?.melody) d.melody = mel.melody; // the tools take this object as a JSON string
+  if (one('relation')) d.relation = one('relation');
+  if (one('rhyme groups')) d.groups = one('rhyme groups');
+  if (one('returns')) d.returns = one('returns');
+  if (model.voices) d.voices = true;
+  const readings = lySetupOf(model, 'reading').filter((r) => !r.malformed);
+  const chosen = readings
+    .filter((r) => r.state === 'declared')
+    .map((r) => ({
+      line: r.line,
+      token: r.token,
+      word: r.word,
+      phones: r.phones,
+      basis: r.basis,
+      source: r.source,
+    }));
+  if (chosen.length) d.pronunciations = chosen;
+  const open = readings
+    .filter((r) => r.state !== 'declared')
+    .map((r) => ({
+      line: r.line,
+      token: r.token,
+      word: r.word,
+      state: r.state === 'uncertain' ? 'uncertain' : 'needs a choice',
+    }));
+  if (open.length) d.readings_not_chosen = open;
+  const req = lySetupOf(model, 'require').map((x) => x.value),
+    avoid = lySetupOf(model, 'avoid').map((x) => x.value);
+  if (req.length) d.must_include = req;
+  if (avoid.length) d.avoid = avoid;
+  return Object.keys(d).length
+    ? `\n\nDeclared on the Lyrics page (exact values for the lyric tools; never guess a reading that is not chosen):\n${JSON.stringify(d)}`
+    : '';
+}
+
 // Title in a line: the harness's normalised word-subsequence test, either way.
 function lyContainsRun(hay, needle) {
   if (!needle.length || needle.length > hay.length) return false;
@@ -575,6 +715,56 @@ function lyLocalChecks(model) {
       text: 'Undeclared sections stay undeclared: no tempo or meter is assumed for them.',
       actions: [['ly-tool', 'Open rhythm', 'music', 'rhythm']],
     });
+  const melody = lySetupOf(model, 'melody')[0];
+  if (melody) {
+    const m = lyParseMelody(melody.value);
+    if (m.error)
+      add({
+        id: 'melody',
+        tone: 'input',
+        category: 'Melody',
+        title: 'The declared melody cannot be used',
+        where: 'Rhythm & placement',
+        lines: [],
+        text: m.error,
+        actions: [['ly-tool', 'Open rhythm', 'music', 'rhythm']],
+      });
+    else {
+      const clash = model.sections.filter(
+        (s) =>
+          s.header?.meter && s.header.meter !== `${m.melody.meter.beats}/${m.melody.meter.unit}`
+      );
+      if (clash.length)
+        add({
+          id: 'melody-meter',
+          tone: 'note',
+          category: 'Melody',
+          title: `The melody is in ${m.melody.meter.beats}/${m.melody.meter.unit}; ${lyPlural(clash.length, 'section header')} declare another meter`,
+          where: clash.map((s) => s.title).join(', '),
+          lines: [],
+          text: 'The harness takes the meter from a declared melody, which repeats for every line. Both are kept as written.',
+          actions: [['ly-tool', 'Open rhythm', 'music', 'rhythm']],
+        });
+    }
+  }
+  const story = lySetupOf(model, 'narrative')[0];
+  if (story) {
+    const n = lyParseNarrative(story.value);
+    const sung = model.sections.filter((s) => s.sung.length).length;
+    if (!n.off && (!n.ok || n.steps.length !== sung))
+      add({
+        id: 'narrative',
+        tone: 'input',
+        category: 'Story',
+        title: !n.ok
+          ? 'The story plan cannot be read'
+          : `The story plan names ${lyPlural(n.steps.length, 'section')}; the song has ${sung}`,
+        where: 'Structure & story',
+        lines: [],
+        text: 'One story job per sung section, with a junction before every job after the first. Change the plan or the sections so they agree.',
+        actions: [['ly-tool', 'Open story', 'list', 'structure']],
+      });
+  }
   for (const st of model.stamps)
     add({
       id: `stamp:${st.i}`,
@@ -798,14 +988,40 @@ function lyRunChecks(model) {
         actions: [['ly-tool', 'See all checks', 'circle-check', 'checks']],
       });
   }
+  for (const t of run.tools || [])
+    for (const f of [].concat(t.folded || []))
+      if (f && f.verdict === 'rejected') {
+        const ns = [f.line, ...(f.members || [])].filter((x) => typeof x === 'number');
+        add({
+          id: `folded:${t.name}:${ns.join(',')}:${f.round ?? ''}`,
+          tone: 'issue',
+          category: 'Rejected answer',
+          title: `The writer's answer for ${ns.length ? lyLineRef(ns) : 'a line'} was rejected`,
+          where: 'Writer run',
+          lines: ns,
+          text:
+            [f.answer ? `It answered “${f.answer}”.` : '', ...(f.reasons || [])]
+              .filter(Boolean)
+              .join(' ') || 'Rejected by the run’s verification.',
+          actions: [['ly-open-writer', 'Open the writer', 'message-circle', '']],
+        });
+      }
+  const asked = [...(run.tools || [])].reverse().find((t) => t.asked)?.asked;
+  const askedLines = asked
+    ? [asked.line, ...(asked.lines || []), ...(asked.members || [])].filter(
+        (x) => typeof x === 'number'
+      )
+    : [];
   if (lyric.state && lyric.resumable !== false && !chatState.busy)
     add({
       id: 'waiting',
       tone: 'input',
       category: 'Writer',
-      title: 'The writer is waiting for an answer',
+      title: askedLines.length
+        ? `The writer is waiting for an answer about ${lyLineRef(askedLines)}`
+        : 'The writer is waiting for an answer',
       where: 'Writer run',
-      lines: [],
+      lines: askedLines,
       text: 'The run asked a question and is paused until it gets an answer. Nothing continues on its own.',
       actions: [['ly-open-writer', 'Answer in the writer', 'message-circle', '']],
     });
@@ -1731,7 +1947,26 @@ function lyToolStructure(model) {
     model.sections.length
       ? `<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Section</th><th>Declared lines</th><th>Lines</th><th><span class="ly-sr">Actions</span></th></tr></thead><tbody>${rows}</tbody></table></div>`
       : ''
-  }<p class="ly-note">Names and declared sizes are written into each section header, where the writer reads them. Story roles and section-to-section intentions come from the writer’s plan (Song → Plan); they are planning information, not a certified plot.</p>`;
+  }<p class="ly-note">Names and declared sizes are written into each section header, where the writer reads them.</p>${lyStoryHtml(model)}`;
+}
+function lyStoryHtml(model) {
+  const sung = model.sections.filter((s) => s.sung.length);
+  const d = lySetupOf(model, 'narrative')[0];
+  const plan = d ? lyParseNarrative(d.value) : null;
+  const opt = (list, value, blank) =>
+    `<option value="">${blank}</option>` +
+    list.map((x) => `<option${x === value ? ' selected' : ''}>${x}</option>`).join('');
+  const rows = sung
+    .map((s, k) => {
+      const step = plan && !plan.off ? plan.steps[k] : null;
+      return `<tr data-story="${k}"><th scope="row">${esc(s.title)}</th><td>${k ? `<select class="cm-select" data-story-field="junction" aria-label="${esc(s.title)} enters by">${opt(LY_JUNCTIONS, step?.junction, '—')}</select>` : '<span class="ly-note">first</span>'}</td><td><select class="cm-select" data-story-field="atom" aria-label="${esc(s.title)} story job">${opt(LY_ATOMS, step?.atom, 'Not declared')}</select></td></tr>`;
+    })
+    .join('');
+  return `<h4 class="ly-h4">Story plan</h4><p class="ly-note">${plan?.off ? 'Declared off: no story layer.' : d ? `Declared: ${esc(d.value)}` : 'Not declared: a new plan from the writer draws one job per sung section.'} A record for the writer, not a gate — nothing grades a draft against its story plan, and the page does not judge the plot.</p>${
+    sung.length
+      ? `<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Section</th><th>Enters by</th><th>Job</th></tr></thead><tbody>${rows}</tbody></table></div>`
+      : ''
+  }<div class="ly-actions">${lyBtn('ly-story-save', 'Save story plan', 'check', { cls: 'cm-btn cm-btn-tonal', extra: sung.length ? '' : 'disabled' })}${lyBtn('ly-story-off', 'Turn the story layer off', '', { cls: 'cm-btn cm-btn-outline' })}${d ? lyBtn('ly-story-clear', 'Clear', '', { cls: 'cm-btn' }) : ''}</div><p class="ly-note" id="ly-story-error" role="alert"></p>`;
 }
 function lyToolRhymes(model) {
   const rel = lySetupOf(model, 'relation')[0]?.value || '';
@@ -1793,7 +2028,36 @@ function lyToolRhythm(model) {
       return `<tr data-sec="${s.index}"${LY.picks.rhythmSec === s.index ? ' class="is-picked"' : ''}><th scope="row">${esc(s.title)}</th><td><input class="cm-input ly-in" data-rhythm="meter" value="${esc(h.meter || '')}" placeholder="Not declared" pattern="\\d+/\\d+" aria-label="${esc(s.title)} meter, e.g. 4/4"></td><td><input class="cm-input ly-in ly-num-in" type="number" min="1" max="999" data-rhythm="bars" value="${h.bars ?? ''}" placeholder="—" aria-label="${esc(s.title)} bars"></td><td><select class="cm-select" data-rhythm="pickup" aria-label="${esc(s.title)} pickup">${pickups.map((p) => `<option value="${esc(p)}"${(h.pickup || '') === p ? ' selected' : ''}>${esc(p || 'No pickup declared')}</option>`).join('')}${custom ? `<option selected value="${esc(h.pickup)}">${esc(h.pickup)}</option>` : ''}</select></td><td>${lyBtn('ly-rhythm-save', 'Save', 'check', { id: s.index, cls: 'cm-btn cm-btn-outline' })}</td></tr>`;
     })
     .join('');
-  return `${model.sections.length ? `<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Section</th><th>Meter</th><th>Bars</th><th>Pickup</th><th><span class="ly-sr">Save</span></th></tr></thead><tbody>${rows}</tbody></table></div>` : '<p class="ly-note">Add a section first; rhythm is declared per section header.</p>'}<p class="ly-note">Declared values only. No tempo is assumed and no performed rhythm is inferred from the words; leave a field empty to keep it undeclared. The declaration is written into the section header the way the harness writes it (e.g. [CHORUS — 5 lines — 5 bars of 7/8, one-beat pickup]).</p>`;
+  return `${model.sections.length ? `<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Section</th><th>Meter</th><th>Bars</th><th>Pickup</th><th><span class="ly-sr">Save</span></th></tr></thead><tbody>${rows}</tbody></table></div>` : '<p class="ly-note">Add a section first; rhythm is declared per section header.</p>'}<p class="ly-note">Declared values only. No tempo is assumed and no performed rhythm is inferred from the words; leave a field empty to keep it undeclared. The declaration is written into the section header the way the harness writes it (e.g. [CHORUS — 5 lines — 5 bars of 7/8, one-beat pickup]).</p>${lyMelodyHtml(model)}`;
+}
+function lyMelodyHtml(model) {
+  const d = lySetupOf(model, 'melody')[0];
+  const parsed = d ? lyParseMelody(d.value) : null;
+  const m = parsed?.melody;
+  const draft =
+    LY.picks.melody ||
+    (m
+      ? {
+          meter: `${m.meter.beats}/${m.meter.unit}`,
+          groups: m.meter.groups.join('+'),
+          bars: String(m.bars),
+          subdivision: String(m.subdivision),
+          events: m.notes
+            .map((n) => `${n.pitch_hz === null ? 'rest' : n.pitch_hz}:${n.ticks}`)
+            .join(' '),
+        }
+      : { meter: '', groups: '', bars: '', subdivision: '2', events: '' });
+  const status = !d
+    ? lyStatus('', 'Not declared')
+    : m
+      ? lyStatus('success', 'Declared')
+      : lyStatus('warning', 'Cannot be used');
+  return `<details class="cm-accordion ly-melody"${d || LY.picks.melodyOpen ? ' open' : ''}><summary>Declared melody (optional, advanced) ${status}</summary>
+<p class="ly-note">One repeating monophonic phrase, sung once per line. The writer plans meter, phrase length and subdivision from it. It is an instruction, not a recording: pitch, underlay and performance are not certified by any grade.</p>
+<div class="ly-form"><label class="ly-label" for="ly-mel-meter">Meter, beat groups, bars per line and ticks per beat</label><input class="cm-input ly-num-in" id="ly-mel-meter" placeholder="4/4" value="${esc(draft.meter)}" aria-label="Meter"><input class="cm-input ly-num-in" id="ly-mel-groups" placeholder="2+2" value="${esc(draft.groups)}" aria-label="Beat groups (2s and 3s)"><input class="cm-input ly-num-in" id="ly-mel-bars" type="number" min="1" placeholder="bars" value="${esc(draft.bars)}" aria-label="Bars per line"><select class="cm-select" id="ly-mel-sub" aria-label="Ticks per beat">${['1', '2', '4'].map((v) => `<option${draft.subdivision === v ? ' selected' : ''}>${v}</option>`).join('')}</select></div>
+<div class="ly-form"><label class="ly-label" for="ly-mel-events">Events in order: hertz:ticks, or rest:ticks</label><input class="cm-input" id="ly-mel-events" placeholder="440:4 rest:2 493.9:2 440:8" value="${esc(draft.events)}"></div>
+<p class="ly-note" id="ly-mel-status" role="status">${esc(parsed?.error || (m ? `${m.notes.reduce((t, n) => t + n.ticks, 0)} ticks · ${lyPlural(m.notes.filter((n) => n.pitch_hz !== null).length, 'note')}, ${lyPlural(m.notes.filter((n) => n.pitch_hz === null).length, 'rest')}` : ''))}</p>
+<div class="ly-actions">${lyBtn('ly-melody-save', 'Save melody', 'check', { cls: 'cm-btn cm-btn-tonal' })}${d ? lyBtn('ly-melody-clear', 'Remove melody', 'trash-2', { cls: 'cm-btn' }) : ''}</div></details>`;
 }
 function lyToolPronunciation(model) {
   const readings = lySetupOf(model, 'reading');
@@ -1838,6 +2102,22 @@ function lyToolPronunciation(model) {
       : '<p class="ly-note">Write some lines first.</p>'
   }<p class="ly-note">Language: the harness reads Latin-script words; letters outside that repertoire are not read as words. Parentheses are ${model.voices ? 'declared sung' : 'unsung asides'} (see Returns & voices).</p></section></div>`;
 }
+function lyPlacedHtml(model) {
+  const pick = LY.picks;
+  const line = model.sung[pick.placedLine - 1] ? pick.placedLine : model.sung[0]?.n || 0;
+  const toks = line ? lyTokens(model.sung[line - 1].text, model.voices) : [];
+  const places =
+    [
+      ['head', 'first word'],
+      ['line', 'whole line'],
+      ['endword', 'last word'],
+    ]
+      .map(([v, l]) => `<option value="${v}">${l}</option>`)
+      .join('') +
+    toks.map((t, i) => `<option value="T${i + 1}">word ${i + 1} · ${esc(t)}</option>`).join('');
+  const members = pick.placedMembers || [];
+  return `<h4 class="ly-h4">Placed returns</h4><p class="ly-note">The same words at a place in different lines — a head that returns while the tail changes. Declared in the harness’s spelling (e.g. 1.head,3.head); the writer’s run judges them by placement.</p><div class="ly-form"><select class="cm-select" id="ly-placed-line" aria-label="Line">${lyLineOptions(model, line)}</select><select class="cm-select" id="ly-placed-place" aria-label="Place">${places}</select>${lyBtn('ly-placed-add', 'Add member', 'plus', { cls: 'cm-btn cm-btn-outline', extra: line ? '' : 'disabled' })}</div><div class="ly-pending">${members.length ? `<span class="ly-chips">${members.map((m) => `<span class="cm-chip ly-member">L${m.line} · ${esc(lyMemberLabel(m))} · “${esc(String(lyMemberWord(model, m) || '').slice(0, 40))}”</span>`).join('<span aria-hidden="true">=</span>')}</span>` : '<span class="ly-note">No members yet.</span>'}</div><div class="ly-actions">${lyBtn('ly-placed-save', 'Save placed return', 'repeat', { cls: 'cm-btn cm-btn-tonal', extra: members.length > 1 ? '' : 'disabled' })}${lyBtn('ly-placed-clear', 'Clear', '', { cls: 'cm-btn', extra: members.length ? '' : 'disabled' })}</div>`;
+}
 function lyToolReturns(model) {
   const sectionReturns = model.sections.filter((s) => s.uses > 1);
   const repeats = model.repeats;
@@ -1861,7 +2141,7 @@ function lyToolReturns(model) {
     repeats.length
       ? `<ul class="ly-plain">${repeats.map((r) => `<li>“${esc(r.text.slice(0, 80))}” — ${esc(lyLineRef(r.lines))}</li>`).join('')}</ul>`
       : '<p class="ly-note">No line repeats word for word.</p>'
-  }<p class="ly-note">Counted by exact text on this page. Intentional repeats are kept as they are.</p><p><strong>Declared returns:</strong> ${esc(declared || 'none')}</p><div class="ly-actions">${lyBtn('ly-returns-declare', 'Declare these exact returns', 'repeat', { cls: 'cm-btn cm-btn-outline', extra: repeats.length ? '' : 'disabled' })}${declared ? lyBtn('ly-returns-clear', 'Clear', '', { cls: 'cm-btn' }) : ''}</div><p class="ly-note">Placed returns — the same words at the head of different lines — are declared to the writer in the same spelling (e.g. 1.head,3.head); the writer’s run judges them by placement.</p></section>
+  }<p class="ly-note">Counted by exact text on this page. Intentional repeats are kept as they are.</p><p><strong>Declared returns:</strong> ${esc(declared || 'none')}</p><div class="ly-actions">${lyBtn('ly-returns-declare', 'Declare these exact returns', 'repeat', { cls: 'cm-btn cm-btn-outline', extra: repeats.length ? '' : 'disabled' })}${declared ? lyBtn('ly-returns-clear', 'Clear', '', { cls: 'cm-btn' }) : ''}</div>${lyPlacedHtml(model)}</section>
 <section><h4 class="ly-h4">Voices</h4><fieldset class="ly-fieldset"><legend>Parenthesised text</legend><label class="ly-radio"><input type="radio" name="ly-voices" value="unsung"${model.voices ? '' : ' checked'}> Unsung asides (default)</label><label class="ly-radio"><input type="radio" name="ly-voices" value="sung"${model.voices ? ' checked' : ''}> Sung — a second voice or call-and-response</label></fieldset>${
     parens.length
       ? `<ul class="ly-plain">${parens.map((r) => `<li>Line ${r.n}: ${esc(r.text.slice(0, 80))} <small>(${model.voices ? 'second voice, sung' : 'aside, unsung'})</small></li>`).join('')}</ul>`
@@ -1918,13 +2198,11 @@ function lyRenderTools(items) {
   // Bring the selected tab into view inside its own scrolling row.
   const tab = document.querySelector(`.ly-tool-tabs [data-id="${LY.tool}"]`);
   const row = tab?.parentElement;
-  if (
-    tab &&
-    row &&
-    (tab.offsetLeft < row.scrollLeft ||
-      tab.offsetLeft + tab.offsetWidth > row.scrollLeft + row.clientWidth)
-  )
-    row.scrollLeft = tab.offsetLeft - 12;
+  if (tab && row) {
+    const r = tab.getBoundingClientRect(),
+      p = row.getBoundingClientRect();
+    if (r.left < p.left || r.right > p.right) row.scrollLeft += r.left - p.left - 12;
+  }
   const model = LY.model;
   const body = $ui('ly-tool-body');
   const html = {
@@ -2109,7 +2387,7 @@ function lyAskWriter(domain, message) {
   $ui('chat-input').focus();
   return true;
 }
-const lyDraftForWriter = () => lyDraft().value;
+const lyDraftForWriter = () => lyDraft().value + lyWriterDeclarations(lyParse(lyDraft().value));
 
 // ── Menus ─────────────────────────────────────────────────────────────────
 function lyCloseMenus(except = '') {
@@ -2601,6 +2879,11 @@ const LY_ACTIONS = {
   'ly-hook-save'() {
     const n = Number($ui('ly-hook-in').value);
     const text = LY.model.sung[n - 1]?.text;
+    if (text?.includes(']'))
+      return showToast(
+        'This line contains “]”, which cannot be kept inside a setup line.',
+        'error'
+      );
     lySetupCommit(
       'hook',
       text ? [lyQuote(text)] : [],
@@ -2664,6 +2947,9 @@ const LY_ACTIONS = {
     const word = row && lyTokens(row.text, model.voices)[token - 1];
     const err = $ui('ly-reading-error');
     if (!row || !word) return (err.textContent = 'Choose a sung word.');
+    if (row.text.includes(']'))
+      return (err.textContent =
+        'This line contains “]”, which cannot be kept inside a setup line. Declare its reading to the writer in the conversation instead.');
     const kind = document.querySelector('input[name="ly-reading-kind"]:checked')?.value || 'choice';
     const data = { token, word, line: row.text, kind };
     if (kind === 'declared') {
@@ -2694,9 +2980,94 @@ const LY_ACTIONS = {
     );
   },
   'ly-returns-declare'() {
-    const groups = LY.model.repeats.map((r) => r.lines.map((line) => ({ line, place: 'end' })));
-    if (!groups.length) return;
-    lySetupCommit('returns', [lyGroupsText(groups)], 'Exact returns declared.');
+    const placed = lySetupOf(LY.model, 'returns')
+      .flatMap((d) => lyParseGroups(d.value))
+      .filter((g) => g.some((m) => m.place && m.place !== 'end'));
+    const exact = LY.model.repeats.map((r) => r.lines.map((line) => ({ line, place: 'end' })));
+    if (!exact.length) return;
+    lySetupCommit(
+      'returns',
+      [lyGroupsText([...exact, ...placed])],
+      placed.length ? 'Exact returns declared; placed returns kept.' : 'Exact returns declared.'
+    );
+  },
+  'ly-melody-save'() {
+    const v = (id) => $ui(id).value.trim();
+    const text = [
+      v('ly-mel-meter'),
+      v('ly-mel-groups') && `groups ${v('ly-mel-groups')}`,
+      v('ly-mel-bars') && `${v('ly-mel-bars')} bars`,
+      `subdivision ${v('ly-mel-sub')}`,
+      v('ly-mel-events'),
+    ]
+      .filter(Boolean)
+      .join(LY_DASH);
+    LY.picks.melody = {
+      meter: v('ly-mel-meter'),
+      groups: v('ly-mel-groups'),
+      bars: v('ly-mel-bars'),
+      subdivision: v('ly-mel-sub'),
+      events: v('ly-mel-events'),
+    };
+    LY.picks.melodyOpen = true;
+    const m = lyParseMelody(text);
+    if (m.error) {
+      $ui('ly-mel-status').textContent = m.error;
+      return;
+    }
+    LY.picks.melody = null;
+    lySetupCommit('melody', [lyMelodyText(m.melody)], 'Melody declared.');
+  },
+  'ly-melody-clear'() {
+    LY.picks.melody = null;
+    lySetupCommit('melody', [], 'Melody removed.');
+  },
+  'ly-story-save'() {
+    const rows = [...document.querySelectorAll('#ly-tool-body tr[data-story]')];
+    const steps = rows.map((tr, k) => ({
+      atom: tr.querySelector('[data-story-field="atom"]').value,
+      junction: k ? tr.querySelector('[data-story-field="junction"]').value : '',
+    }));
+    const missing = steps.findIndex((x, k) => !x.atom || (k && !x.junction));
+    if (missing >= 0) {
+      $ui('ly-story-error').textContent =
+        `Choose a job${missing ? ' and how it enters' : ''} for every sung section (row ${missing + 1} is incomplete).`;
+      return;
+    }
+    lySetupCommit(
+      'narrative',
+      [steps.map((x, k) => (k ? `${x.atom}/${x.junction}` : x.atom)).join(',')],
+      'Story plan declared.'
+    );
+  },
+  'ly-story-off'() {
+    lySetupCommit('narrative', ['off'], 'The story layer is declared off.');
+  },
+  'ly-story-clear'() {
+    lySetupCommit('narrative', [], 'Story plan no longer declared.');
+  },
+  'ly-placed-add'() {
+    const line = Number($ui('ly-placed-line').value);
+    const place = $ui('ly-placed-place').value;
+    if (!line) return;
+    LY.picks.placedMembers = LY.picks.placedMembers || [];
+    if (!LY.picks.placedMembers.some((x) => x.line === line && x.place === place))
+      LY.picks.placedMembers.push({ line, place });
+    LY.picks.placedLine = line;
+    lyRefresh(true);
+    uiFocus($ui('ly-placed-line'));
+  },
+  'ly-placed-clear'() {
+    LY.picks.placedMembers = [];
+    lyRefresh(true);
+  },
+  'ly-placed-save'() {
+    const members = LY.picks.placedMembers || [];
+    if (members.length < 2) return;
+    const groups = lySetupOf(LY.model, 'returns').flatMap((d) => lyParseGroups(d.value));
+    groups.push(members);
+    LY.picks.placedMembers = [];
+    lySetupCommit('returns', [lyGroupsText(groups)], 'Placed return declared.');
   },
   'ly-returns-clear'() {
     lySetupCommit('returns', [], 'Returns no longer declared.');
@@ -2803,6 +3174,10 @@ function lyWire(surface) {
       LY.picks.linkLine = Number(t.value);
       lyRefresh(true);
       uiFocus($ui('ly-link-line'));
+    } else if (t.id === 'ly-placed-line') {
+      LY.picks.placedLine = Number(t.value);
+      lyRefresh(true);
+      uiFocus($ui('ly-placed-line'));
     } else if (t.id === 'ly-reading-line') {
       LY.picks.readingLine = Number(t.value);
       LY.picks.readingToken = 0;

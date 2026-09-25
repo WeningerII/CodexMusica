@@ -1535,12 +1535,12 @@ notes: Above 1000px (outline) and 760px (side panel) of page width; Reset layout
 ```yaml
 name: lyrics-declared-melody
 kind: widget
-selector: '#surface-lyrics'
-surface: Lyrics — optional declared melody in Rhythm & placement
-implementation: src/pages/lyrics.js (pending)
-status: pending
+selector: '#ly-tools [data-ui="ly-tool"][data-id="rhythm"]'
+surface: Lyrics — Rhythm & placement → Declared melody (optional, advanced): meter, beat groups, bars per line, ticks per beat and the note/rest events
+implementation: lyMelodyHtml / lyParseMelody / ly-melody-save in src/pages/lyrics.js
+status: reachable
 precondition: empty
-notes: Not built yet. The harness accepts a declared melody (mcp/lyric_tools.js melodyField); the page has no editor for it.
+notes: Validated to lyric-harness/MELODY.md (groups of 2 and 3 summing to the beats, subdivision 1/2/4, events summing to bars × beats × subdivision, at least one pitch) and passed to the writer as the tools' melody object. Labelled as an instruction; pitch, underlay and performance are not certified.
 ```
 
 ```yaml
@@ -1557,12 +1557,12 @@ notes: Not built yet: rhythm is declared per section header only.
 ```yaml
 name: lyrics-story-intentions
 kind: widget
-selector: '#surface-lyrics'
-surface: Lyrics — section roles and section-to-section intentions as editable declarations
-implementation: src/pages/lyrics.js (pending)
-status: pending
+selector: '#ly-tools [data-ui="ly-tool"][data-id="structure"]'
+surface: Lyrics — Structure & story → Story plan: one job per sung section and the junction it enters by; Turn the story layer off; Clear
+implementation: lyStoryHtml / lyParseNarrative / ly-story-save in src/pages/lyrics.js
+status: reachable
 precondition: empty
-notes: Shown read-only from the writer's plan (Song → Plan); not editable on the page yet.
+notes: Written in the harness's narrative spelling (ESTABLISH,COMPLICATE/BUT,…). A record for the writer, not a gate; a plan whose count no longer matches the sung sections is listed under Needs input.
 ```
 
 ```yaml
@@ -1574,4 +1574,15 @@ implementation: src/pages/lyrics.js (pending)
 status: pending
 precondition: empty
 notes: The page shows that the writer is waiting and opens the Writer panel to answer; the question text itself arrives only in the conversation.
+```
+
+```yaml
+name: lyrics-placed-returns
+kind: data-action
+selector: '#ly-tools [data-ui="ly-tool"][data-id="returns"]'
+surface: Lyrics — Returns & voices → Placed returns: members at a place (first word, whole line, last word, word n) across lines
+implementation: lyPlacedHtml / ly-placed-save in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Kept alongside the exact returns in one declaration in the harness's spelling (e.g. 5.head,13.head); Declare these exact returns keeps placed ones.
 ```
