@@ -46,7 +46,7 @@ FAILURES = []
 EARNED = ["Kalevala alliteration (strong)", "Kalevala alliteration (weak)",
           "ablaut reduplication", "alliteration", "alliterative long line",
           "cynghanedd groes", "cynghanedd lusg", "cynghanedd sain",
-          "cynghanedd sain gadwynog", "epanalepsis", "exact reduplication",
+          "cynghanedd sain drosgl", "cynghanedd sain gadwynog", "epanalepsis", "exact reduplication",
           "leonine rhyme", "rhyming reduplication"]
 
 
@@ -141,8 +141,8 @@ def test_cywydd_counts():
     live = FE.cywydd_counts()
     for n, want in FE.CYWYDD_COUNTS.items():
         check(f"{n}: {want[0]} of {want[1]} lines", live[n] == want, live[n])
-    txt = FE.NO_EXHIBIT["cynghanedd sain drosgl"]
-    check("the sain-drosgl reason quotes the pinned count",
+    txt = FE.FIGURE_EXHIBITS["cynghanedd sain drosgl"]["contrast"][2]
+    check("the sain-drosgl contrast note quotes the pinned count",
           f"{FE.CYWYDD_COUNTS['cynghanedd sain drosgl'][0]} of the cywydd's "
           f"{FE.CYWYDD_COUNTS['cynghanedd sain drosgl'][1]}" in txt)
 

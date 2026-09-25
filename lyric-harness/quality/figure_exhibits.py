@@ -205,6 +205,31 @@ FIGURE_EXHIBITS = {
                      ("constructed", "glod -> fri: the odl kept, the "
                       "alliterating third member removed"), ""),
     },
+    "cynghanedd sain drosgl": {
+        "lang": "cym", "tradition": "Welsh cynghanedd sain drosgl",
+        "witness": (["Y marchog dyledog daid"],
+                    ("quoted", "Guto'r Glyn, 'Moliant i Syr Rhisiart Gethin' "
+                     "l.11, ed. Barry J. Lewis, Gwaith Guto'r Glyn (CAWCS, "
+                     "gutorglyn.net), poem 1; read from the TEI source "
+                     "mirrored at github.com/casglur/django-gutorglyn-2 "
+                     "(SDPublisher/gutorglyn/texts/guto001.xml @cae45bdf). "
+                     "Not a staged file: the edition's text is editorial "
+                     "copyright, so ONE line is quoted, never staged"),
+                    "THE EDITOR'S classification, not this session's: the "
+                    "note to l.11 says both manuscript readings (`dyledog "
+                    "daid` / `blodeuog blaid`) are acceptable 'o ran y mesur "
+                    "a'r gynghanedd' and give 'sain drosgl'. marchog ~ "
+                    "dyledog odl; dyledog, stressed on -le-, answered on its "
+                    "word-initial d- by daid"),
+        "contrast": (["Llewelyn Goch, gloch dy glod;"],
+                     (_CYWYDD, (59,)),
+                     _CYWYDD_CITE + ": plain sain (this file's own sain "
+                     "witness) — the middle word `gloch` is a monosyllable, "
+                     "so word start and stress coincide and nothing is "
+                     "relocated. The route finds drosgl on 9 of the "
+                     "cywydd's 108 lines (CYWYDD_COUNTS); none is claimed, "
+                     "because the grader found them"),
+    },
     "cynghanedd sain gadwynog": {
         "lang": "cym", "tradition": "Welsh cynghanedd sain gadwynog",
         "witness": (["Uwch dy fedd, hoew annedd haul,"],
@@ -258,12 +283,6 @@ NO_EXHIBIT = {
     "cynghanedd groes o gyswllt":
         "no witness: C3 is `self_doubt=yes` and cites a WebSearch summary "
         "only; no staged handbook example of a split inside a cluster",
-    "cynghanedd sain drosgl":
-        "no sourced witness (C11 is a WebSearch summary). The route fires on "
-        "1 of the cywydd's 108 lines (l.67 `Rhiain fain, rhy anfynych`), "
-        "and that line was FOUND BY THE GRADER, so it cannot be the witness "
-        "(this file's own rule); until 2026-09-25 the rule was the bare "
-        "onset edge and fired on 103 of 108",
     "cynghanedd sain lafarog":
         "no witness this session can classify with confidence: C10's zero-"
         "onset pivot versus a vowel-initial word whose consonants are still "
@@ -355,11 +374,13 @@ def semantic_row(name):
 #: `test_figure_exhibits.py`, so the sentences cannot outlive the grader
 #: (doctrine 48/58: the setting is the whole 108-line cywydd, one stream,
 #: `figures.line_figures`, cym).
-CYWYDD_COUNTS = {"cynghanedd sain drosgl": (1, 108),
+CYWYDD_COUNTS = {"cynghanedd sain drosgl": (9, 108),
                  "cynghanedd groes": (12, 108)}
 #: What those counts were before the 2026-09-25 repairs, kept so the move is
 #: visible (doctrine 17): sain drosgl 103 (the bare onset edge, no sain
-#: figure) and groes 0 (the whole skeleton compared, no stress stop). Against
+#: figure), then 1 the same day with the relocation tested on the LAST word
+#: — which the sourced witness (Gwaith Guto'r Glyn 1.11n) showed to be the
+#: wrong word — and groes 0 (the whole skeleton compared, no stress stop). Against
 #: the cym module's own `cynghanedd_scan` over the same 108 lines, the route's
 #: groes 12 is the scanner's 11 plus l.86 `I Dduw Dad—addewid iawn;`, which
 #: the scanner rejects at all six caesura placements — a disagreement between

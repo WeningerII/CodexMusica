@@ -5251,8 +5251,9 @@ declare(RelationSchema(
          "this span pair. Until 2026-09-25 it was the bare edge -- any two "
          "words of a line whose onsets agreed at those two anchors -- and it "
          "fired on 103 of the Llywelyn Goch cywydd's 108 lines. The answering "
-         "edge also requires the stressed syllable NOT to be word-initial: "
-         "where the two anchors coincide the figure is plain sain."))
+         "edge also requires the MIDDLE word's stress NOT to be word-initial "
+         "(Gwaith Guto'r Glyn 1.11n: `Y marchog dyledog daid`); where the two "
+         "anchors coincide the figure is plain sain."))
 
 declare(RelationSchema(
     name="cynghanedd lusg",
@@ -7661,13 +7662,22 @@ def _token_edge_schema(label, schema):
                        figure=PAIR), None
     if label == "drosgl":
         # The schema's own span pair: the middle word's START answered at the
-        # last word's STRESSED syllable (two anchors, one relation). Where the
-        # stressed syllable IS the word's first, the two anchors name one
-        # place and the figure is plain sain's alliteration, not the clumsy
-        # relocation this name exists for -- measured, that coincidence was
-        # 32 of the 33 lines the figure found on the cywydd.
+        # last word's STRESSED syllable (two anchors, one relation). What makes
+        # it clumsy is the MIDDLE word: it is answered from its word start
+        # although its stress falls later, so the answering consonants sit in
+        # an unstressed syllable. Sourced 2026-09-25: Barry J. Lewis's note to
+        # Gwaith Guto'r Glyn poem 1 l.11 calls `Y marchog dyledog daid` (and
+        # the variant `...blodeuog blaid`) sain drosgl -- `dyledog` stressed
+        # on -le-, answered on its d-. Where the middle word's stress IS
+        # word-initial (a monosyllable such as `gloch`) the anchors coincide
+        # and the figure is plain sain. (First written the same day against
+        # the LAST word's stress, which rejected the editor's own example.)
         def relocated(sa, sb, stream):
-            return stream.units[sb.idx[0]].tok_syl > 0
+            u = stream.units[sa.idx[0]]
+            ids = stream.tokens.get((u.line, u.token), ())
+            stressed = [stream.units[i].tok_syl for i in ids
+                        if stream.units[i].syl.prominence == 1]
+            return bool(stressed) and min(stressed) > 0
         return replace(schema, placement=(), figure=PAIR), relocated
     if label == "zero-onset link":
         # Two ABSENT onsets agreeing is the link (the schema's own note);
