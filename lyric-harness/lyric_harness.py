@@ -6591,7 +6591,8 @@ VERB_LAYERS = (
     ("partition", "quality/schemes.py", "set partitions, Bell numbers"),
     ("refrain", "quality/schemes.py", "A-1 notation: the VERBATIM return"),
     ("cycle", "quality/meter.py", "exact-rational metric cycles"),
-    ("relations", "quality/relations.py", "77 named relation schemas"),
+    ("relations", "quality/relations.py", "~~77~~ 78 named relation "
+     "schemas (`len(relations.REGISTRY)` is the count)"),
     ("brief / verify / song", "quality/revise.py",
      "the revision loop -- song adds a structural pre-check against "
      "quality/grid.py, then shares this same report"),
@@ -10392,8 +10393,9 @@ def main():
               "every schema with no bounded line-distance placement, and "
               "`internal rhyme` to sit BELOW chance at lift 0.897.")
         print("   2. CLAIMS ABOUT A TRADITION — unless the row says so. "
-              f"scope: {scope}. `traditions` is now sourced on 75 of 77 "
-              "schemas (M-15 closed), so a hit is labelled IN TRADITION, "
+              f"scope: {scope}. `traditions` is now sourced on "
+              f"{sum(1 for _s in RL.REGISTRY.values() if _s.traditions)} of "
+              f"{len(RL.REGISTRY)} schemas (M-15 closed), so a hit is labelled IN TRADITION, "
               "[RULE SHAPE ONLY], [SOURCE SILENT] where the citing canon "
               "entry names no tradition, or [UNSOURCED SCHEMA]. When 'Middle "
               "Chinese end rhyme (同用 group)' fires on English the RULE "

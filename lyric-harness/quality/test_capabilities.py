@@ -454,7 +454,8 @@ def test_the_whole_registry():
     check("3 answer under their OWN phonology, which is a language "
           "coordinate (M-4) and not a gap in the registry",
           len(rep["other_language"]) == 3, rep["other_language"])
-    # THE COUNT ABOVE IS 77 AND THREE OF THE 77 ARE LIVE ON A FIXTURE. That
+    # THE COUNT ABOVE ~~IS 77~~ WAS 77 (IT IS `len(R.REGISTRY)`, 78 SINCE M-40)
+    # AND THREE OF THE 77 WERE LIVE ON A FIXTURE. That
     # was true before 2026-08-23 too -- `earlier` and `poet` have always been
     # constructed inputs -- and the census did not say so, so "77 askable"
     # read as "77 working". `proest` joined them the day the invented Welsh

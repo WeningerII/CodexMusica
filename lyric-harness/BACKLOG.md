@@ -415,7 +415,7 @@ Three mutations confirm it is not vacuous: restoring the first-language guess,
 dropping `cym` from the attestation set, and ignoring the declared language
 fail 2, 8 and 9 checks respectively.
 
-### 2.5 · ~~`RelationSchema.traditions` is declared on 77 schemas, populated on 0~~ — **75 of 77 populated** `M-15` — `CLOSED 2026-08-21`
+### 2.5 · ~~`RelationSchema.traditions` is declared on 77 schemas, populated on 0~~ — **~~75 of 77~~ 76 of 78 populated** (measured 2026-09-25) `M-15` — `CLOSED 2026-08-21`
 **TASK DISCHARGED — ~~`M-15` STAYS OPEN~~ (M-15 CLOSED 2026-09-06 with M-15a: the survey is inlined as `quality/canon_index.tsv` and `Tradition.witness` is derived from it).** The task was *populate the field*, and
 75 of 77 schemas now carry traditions — 298 distinct `Tradition` rows, 319
 attachments, taken from `quality/RHYME_CANON.md` rather than invented from

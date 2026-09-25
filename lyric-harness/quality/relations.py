@@ -2145,8 +2145,8 @@ class Figure:
     template: object = None        # 平仄: one member against a declared pattern
 
     def __post_init__(self):
-        # Validated HERE, at the declaration, so a typo in one of 77 schemas
-        # refuses at import rather than falling through `assemble()`'s
+        # Validated HERE, at the declaration, so a typo in one of ~~77~~ 78
+        # schemas refuses at import rather than falling through `assemble()`'s
         # if/elif chain to silent no-op (the shape `unmatched` was fixed for
         # in `RelationSchema.__post_init__`, defect P15).
         object.__setattr__(self, "quantifier",
@@ -2163,7 +2163,7 @@ PAIR = Figure()
 #: What `unmatched` may say about the material the alignment left over, and
 #: THE LIST IS MEASURED AGAINST `evaluate()` RATHER THAN RECALLED (defect P15).
 #: The field's own comment used to read `exclude | differ | forbid`: 'differ'
-#: is implemented by nothing and declared by none of the 77 schemas, while
+#: is implemented by nothing and declared by none of the ~~77~~ 78 schemas, while
 #: 'require_a' and 'require_b' -- the two values `evaluate()` actually branches
 #: on, and the only thing keeping semirhyme and apocopated rhyme from
 #: collapsing into perfect rhyme -- were absent from the vocabulary they
@@ -2196,7 +2196,7 @@ class RelationSchema:
     def __post_init__(self):
         # `unmatched` had FOUR implemented values and its own comment named
         # three, one of which -- 'differ' -- is implemented nowhere and
-        # declared by none of the 77 schemas (defect P15).  An undeclared value
+        # declared by none of the ~~77~~ 78 schemas (defect P15).  An undeclared value
         # silently took the 'exclude' path, so a typo and a policy read the
         # same.  Refuse at construction, where the declaration is written.
         if self.unmatched not in UNMATCHED:
@@ -2657,8 +2657,8 @@ def mirrored(a, b, a_keys, b_keys):
 
     `realise()` skipped every pair whose A-member started after its B-member,
     on the stated ground that "members are in TEXT ORDER".  On a SYMMETRIC
-    schema -- `spans[0] == spans[1]`, 60 of the 77 shipped -- that is exact
-    de-duplication: A and B are the same list, so (b, a) is enumerated too and
+    schema -- `spans[0] == spans[1]`, ~~60 of the 77~~ 61 of the 78 shipped --
+    that is exact de-duplication: A and B are the same list, so (b, a) is enumerated too and
     one of the two orderings has to go.  On an ASYMMETRIC schema the two
     members come from DIFFERENT rules, so (b, a) is generally NOT enumerated
     and the skip DELETED the instance instead of canonicalising it.
@@ -6872,11 +6872,14 @@ def print_relation_report(rep, limit=None):
 # The null sweep still decides what the harness may assert on its OWN
 # initiative.  It does not decide what a writer may ask for by name.
 #
-# WHAT THIS FUNCTION DOES NOT CLAIM.  Only 29 of the 77 schemas declare
-# `both_line_final`, which is the placement a `--groups=` mandate expresses;
-# 19 more are cross-line at some other placement, 19 are INTRA-line figures
-# (a property of one line, which no pair mandate can ask about), and 10
-# declare no placement at all.  Routing here does not make an intra-line
+# WHAT THIS FUNCTION DOES NOT CLAIM.  Only ~~29 of the 77~~ 30 of the 78
+# schemas declare `both_line_final` (29 with positive polarity), which is the
+# placement a `--groups=` mandate expresses; ~~19~~ 20 more are cross-line at
+# some other placement, ~~19~~ 20 are INTRA-line figures by a placement in
+# `rhyme_types.INTRA_LINE_PLACEMENTS` (a property of one line, which no pair
+# mandate can ask about), and ~~10~~ 8 declare no placement at all
+# (re-derived 2026-09-25 from `s.placement`; the four sets partition the
+# registry).  Routing here does not make an intra-line
 # figure into a rhyme relation — it makes every schema whose instances ARE
 # line pairs answerable, and leaves the rest to refuse honestly with their
 # placement named.

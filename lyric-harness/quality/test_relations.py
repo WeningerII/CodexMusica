@@ -19,6 +19,7 @@ Run: python3 quality/test_relations.py
 """
 import dataclasses
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -148,6 +149,39 @@ def test_inventory():
     check("78 schemas are declared", len(R.REGISTRY) == 78,
           f"{len(R.REGISTRY)} in REGISTRY; all_schemas() is the accessor. "
           f"There is no SCHEMAS attribute and never was.")
+    # THE PROSE THAT STATES THE REGISTRY'S SIZE IS HELD TO IT (2026-09-25,
+    # doctrine 48). The registry went 77 -> 78 on 2026-09-15 (M-40, commit
+    # a61fe4e69, `chain rhyme (interlocking scheme)`) and live prose went on
+    # saying 77 for ten days, because the pin above was the only instrument
+    # and nothing tied a sentence to it. Every live site now carries the
+    # superseded figure struck (doctrine 17) and the current one after it;
+    # this reads each current figure back, so the next declared schema turns
+    # this red at every site that must be re-read, not at none of them.
+    _n = len(R.REGISTRY)
+    _sites = {
+        "lyric_harness.py": r"~~77~~ (\d+) named relation",
+        "CLAUDE.md": r"~~77~~ (\d+)",
+        "MISSING.md": r"~~77~~ (\d+) schemas since M-40",
+        "quality/figures.py": r"~~77~~ (\d+)",
+        "quality/plan.py": r"~~77~~ (\d+)",
+        "quality/relations.py": r"~~77~~ (\d+)",
+        "quality/relations_null.py": r"~~77~~\s+(?:#:\s+)?(\d+)",
+        "quality/rhyme_types.py": r"~~77~~ (\d+)",
+        "quality/slots.py": r"~~77~~ (\d+)",
+        "quality/test_capabilities.py": r"~~77~~ (\d+)",
+        "quality/test_null_shapes.py": r"~~77~~ (\d+)",
+        "quality/schema_census.py": r"which is (\d+)\s+since M-40",
+    }
+    _root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    _bad = {}
+    for _rel, _pat in _sites.items():
+        with open(os.path.join(_root, _rel), encoding="utf-8") as _fh:
+            _got = [int(x) for x in re.findall(_pat, _fh.read())]
+        if not _got or any(x != _n for x in _got):
+            _bad[_rel] = _got
+    check(f"every live prose site stating the registry size says {_n}, "
+          f"read back from {len(_sites)} files (doctrine 48)", not _bad,
+          f"stale or missing: {_bad}")
     check("4 named QUERIES are recorded as NOT types", len(R.QUERIES) == 4)
     check("the entry point is build_stream(), not Stream.from_lines",
           not hasattr(R.Stream, "from_lines") and callable(R.build_stream))
@@ -924,7 +958,8 @@ def test_refusal_names_every_missing_capability():
         out = R.realise(s, st)
         if want and (not isinstance(out, R.Refusal) or out.missing != want):
             disagree.append(n)
-    check("`missing` equals `provides`'s own answer for all 77 schemas",
+    check(f"`missing` equals `provides`'s own answer for all "
+          f"{len(R.REGISTRY)} schemas",
           not disagree, f"disagreements: {disagree}")
 
     check("`.complete` separates a capability refusal from every other kind",
@@ -1307,8 +1342,8 @@ def test_traditions():
     """M-15. `traditions` was declared on 77 schemas and populated on ZERO."""
     print("\nM-15. traditions — SOURCED, honestly EMPTY, and the four scopes")
     sourced = [n for n, s in R.REGISTRY.items() if s.traditions]
-    check("every one of the 77 schemas is either SOURCED or listed in "
-          "UNSOURCED with a reason",
+    check(f"every one of the {len(R.REGISTRY)} schemas is either SOURCED "
+          "or listed in UNSOURCED with a reason",
           len(sourced) + len(R.UNSOURCED) == 78
           and not (set(sourced) & set(R.UNSOURCED))
           and all(R.UNSOURCED.values()),
@@ -1323,7 +1358,8 @@ def test_traditions():
           "a tradition read off a schema NAME is the gabay higaad error "
           "(RHYME_CANON §0): that entry was reconstructed from this repo's "
           "own modules and read back as external confirmation.")
-    check("SOMALI is scoped to ZERO of the 77, which is what the source says",
+    check(f"SOMALI is scoped to ZERO of the {len(R.REGISTRY)}, which is "
+          "what the source says",
           R.tradition_report("som")["in_tradition"] == [],
           "RHYME_CANON §0 and §5.4: `gabay higaad` has no source in the 601 "
           "at all and Somali appears in no inventory cell. The mechanical "
@@ -1768,8 +1804,9 @@ def test_known_open_defects():
           all(i.a.head() <= i.b.head() for i in _ord)
           and R.order_burden(R.REGISTRY["perfect rhyme"],
                              stream(QUATRAIN))["recovered_instances"] == 0,
-          "60 of the 77 schemas have spans[0] == spans[1], so A and B are the "
-          "same list and (b, a) is always enumerated too. Every count this "
+          f"{sum(1 for s in R.REGISTRY.values() if s.spans[0] == s.spans[1])}"
+          f" of the {len(R.REGISTRY)} schemas have spans[0] == spans[1], so "
+          "A and B are the same list and (b, a) is always enumerated too. Every count this "
           "repo has taken over a symmetric schema is unmoved, which is the "
           "precondition for touching this at all.")
     _ls = _lyric_stream()
@@ -1782,11 +1819,12 @@ def test_known_open_defects():
           and sum(b["recovered_instances"] for b in _burd.values()) == 103
           and sum(b["recovered_true"] for b in _burd.values()) == 65
           and not any(b["symmetric"] for b in _rec.values()),
-          f"metidja.txt, all 77 schemas: "
+          f"metidja.txt, all {len(R.REGISTRY)} schemas: "
           f"{sum(b['recovered_instances'] for b in _burd.values())} "
           f"instances recovered over {len(_rec)} schemas "
           f"({', '.join(sorted(_rec))}), {sum(b['recovered_true'] for b in _burd.values())} "
-          f"of them TRUE, and ZERO on any of the 60 symmetric schemas. On an "
+          f"of them TRUE, and ZERO on any of the "
+          f"{len(R.REGISTRY) - len(_asym)} symmetric schemas. On an "
           f"asymmetric schema the two members come from DIFFERENT rules, so "
           f"(b, a) is generally not enumerated and there was nothing to "
           f"de-duplicate — the skip was pure loss. `mirrored()` drops a "
@@ -2482,7 +2520,8 @@ def _eng_corpus_stream(name):
 
 
 def _split(st):
-    """(fired, refused, ran-and-found-nothing) over all 77, doctrine 79."""
+    """(fired, refused, ran-and-found-nothing) over all ~~77~~ 78
+    (`len(R.REGISTRY)`), doctrine 79."""
     f = r = n = 0
     for s in R.REGISTRY.values():
         out = R.realise(s, st, keep="all")

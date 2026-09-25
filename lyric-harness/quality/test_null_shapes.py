@@ -25,7 +25,7 @@ somebody thought would be nice to have.
 §5-8 are the relations layer, added when `relations_null.py` grew a census
 and a whole-registry sweep. THREE of the 77 schemas in `relations.REGISTRY`
 had a hand-written arm; 74 shipped a printed instance count with no matched
-control, and the census exists to say WHICH OF FIVE REASONS applies to each,
+control (the registry is ~~77~~ 78 since M-40, a61fe4e69, so ~~74~~ 75 now), and the census exists to say WHICH OF FIVE REASONS applies to each,
 because they have five different remedies (doctrine 44).
 
   5. THE GUARDS MUST NOT DISQUALIFY THE ARMS THE FILE ALREADY REPORTS.

@@ -105,9 +105,9 @@ print([(s, R.order_burden(R.REGISTRY[s], R.build_stream(N._read(p,l), g(la), \
 declaration={'language':la}))['recovered_instances']) \
 for p,la,l,s,_,_ in N.ARMS])"
 
-THREE ARMS IS THREE OF SEVENTY-SEVEN, AND SAYING SO IS SECTIONS 6-8.
-`R.REGISTRY` declares 77 schemas.  The table above controls three.  The other
-74 shipped a PRINTED INSTANCE COUNT -- `relations FILE`,
+THREE ARMS IS THREE OF ~~SEVENTY-SEVEN~~ SEVENTY-EIGHT, AND SAYING SO IS
+SECTIONS 6-8.  `R.REGISTRY` declares ~~77~~ 78 schemas (M-40 added the 78th,
+a61fe4e69).  The table above controls three.  The other ~~74~~ 75 shipped a PRINTED INSTANCE COUNT -- `relations FILE`,
 `python3 quality/relations.py FILE`, both of which print a per-schema count
 and then a paragraph telling the reader that a count is not evidence -- with
 no matched control behind it.  That is the same defect this file was written
@@ -898,8 +898,8 @@ ARMS = (
      ("within_line_shuffle", "line_permutation", "global_redeal")),
 )
 
-#: The schemas the hand-written arms above control.  THREE, out of the 77 in
-#: `R.REGISTRY` -- so 74 named relations shipped with a printed instance count
+#: The schemas the hand-written arms above control.  THREE, out of the ~~77~~
+#: 78 in `R.REGISTRY` (M-40, a61fe4e69) -- so ~~74~~ 75 named relations shipped with a printed instance count
 #: (`relations FILE`, `quality/relations.py FILE`) and no matched control
 #: behind it.  Sections 6-8 exist because "nobody got to it" is only one of
 #: the four reasons for that, and the four have completely different remedies
