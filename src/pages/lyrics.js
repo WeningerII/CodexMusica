@@ -1959,8 +1959,30 @@ function lyRefresh(now = false) {
   const draft = lyDraft();
   if (!draft) return;
   if (draft.value !== LY.text) {
+    const prev = LY.model;
+    const next = lyParse(draft.value);
+    // The shell puts a writer's lyrics in place whole (automatically, or by
+    // "Use these lyrics"); that text has no [SETUP] lines. Put the person's
+    // declarations back, visibly, once per reply, so Undo can step past it.
+    if (
+      prev?.setup.length &&
+      !next.setup.length &&
+      next.sung.length &&
+      LY.run?.final &&
+      !LY.run.setupKept &&
+      lySame(lySungTexts(next), LY.run.final)
+    ) {
+      LY.run.setupKept = true;
+      LY.text = draft.value;
+      LY.model = next;
+      lyCommit(
+        lyKeepSetup(prev, draft.value),
+        'The writer’s lyrics are in; your setup lines were kept.'
+      );
+      return;
+    }
     LY.text = draft.value;
-    LY.model = lyParse(draft.value);
+    LY.model = next;
     // A text change can invalidate an earlier check result; failures are
     // re-derived on the next attempt, never kept as a verdict on new text.
     for (const [id, out] of Object.entries(LY.outcomes))
@@ -2835,11 +2857,8 @@ function lyWire(surface) {
   const shellReceive = window.uiReceiveReply;
   if (typeof shellReceive === 'function' && !shellReceive.lyWrapped) {
     const wrapped = function (payload, request) {
-      const base =
-        UI.lyricRequest && request?.request_id === UI.lyricRequest.id ? UI.lyricRequest.text : null;
       const result = shellReceive.apply(this, arguments);
       try {
-        lyKeepSetupAfterWriter(base);
         lyReceive(payload, request);
       } catch (err) {
         console.error('Lyrics page could not read the reply:', err);
@@ -2849,15 +2868,6 @@ function lyWire(surface) {
     wrapped.lyWrapped = true;
     window.uiReceiveReply = wrapped;
   }
-}
-// The shell may put a writer's lyrics in place of an unchanged draft; that
-// text has no [SETUP] lines. Put the person's declarations back, visibly.
-function lyKeepSetupAfterWriter(base) {
-  if (base == null) return;
-  const before = lyParse(base);
-  const now = lyDraft().value;
-  if (!before.setup.length || now === base || lyParse(now).setup.length) return;
-  lyCommit(lyKeepSetup(before, now), 'The writer’s lyrics are in; your setup lines were kept.');
 }
 uiRegisterPage({
   id: 'lyrics',
