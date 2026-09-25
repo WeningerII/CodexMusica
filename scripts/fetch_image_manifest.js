@@ -345,7 +345,10 @@ const NOT_A_PICTURE =
 const PHOTO_EXT = /\.(jpe?g|png|webp)$/i;
 function pickableFile(title) {
   const t = title.replace(/^File:/, '');
-  return PHOTO_EXT.test(t) && !NOT_A_PICTURE.test(t.replace(/[_.-]/g, ' '));
+  // "(03 of 37)": one page of a digitised book or score.
+  return (
+    PHOTO_EXT.test(t) && !NOT_A_PICTURE.test(t.replace(/[_.-]/g, ' ')) && !/\d+ of \d+\)/.test(t)
+  );
 }
 function hasWords(hay, needle) {
   const n = norm(needle);
