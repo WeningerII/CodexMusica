@@ -6953,7 +6953,8 @@ class VocabularyPairResults(dict):
 
 
 def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
-                           requested_pairs=None, line_status=None):
+                           requested_pairs=None, line_status=None,
+                           schemas=None):
     """Every 1-based line pair, with EVERY registered schema true of it
     -> {(i, j): [canonical schema names, sorted]}.
 
@@ -6977,10 +6978,28 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
     MEMOISED on declared coordinates — see `_WVP_MEMO` above.
     `requested_pairs` is an optional collection of 1-based cross-line pairs:
     unrequested pairs are absent, not measured false.
+
+    `schemas` is an optional collection of `REGISTRY` names: only those are
+    asked, and every other schema is ABSENT from the answer (not measured
+    false, not refused). Each asked schema's answer is the one the full call
+    gives it, because the loop below judges every schema on its own
+    `line_pairs_for` call over the same stream, and nothing one schema's
+    judgement does is read by another's (2026-09-25, `MISSING.md` M-312:
+    the candidate field, `revise.Reviser._end_pair_schemas`, needs the
+    verdict of the few schemas its end-token screen found, and asked the
+    whole registry per candidate). `quality/test_relations.py` X9b pins it.
+    A name not in `REGISTRY` raises `ValueError` naming every such name.
     """
     requested_pairs = _normalise_pair_query(requested_pairs, len(text_lines))
+    names = sorted(REGISTRY) if schemas is None else sorted(set(schemas))
+    unknown = [n for n in names if n not in REGISTRY]
+    if unknown:
+        raise ValueError(f"whole_vocabulary_pairs: schemas= names not in "
+                         f"REGISTRY: {unknown}")
     memo_key = _wvp_key(text_lines, phon, sections, bearing, requested_pairs,
                         line_status)
+    if memo_key is not None and schemas is not None:
+        memo_key = memo_key + (("schemas",) + tuple(names),)
     if memo_key is not None and memo_key in _WVP_MEMO:
         c = _WVP_MEMO[memo_key]
         return VocabularyPairResults(c, c.undecided, c.refused, c.lines)
@@ -6999,7 +7018,7 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
     if bearing:
         mark_refrain_tail(stream, lines=sorted(bearing))
     out, undecided, refused, lines = {}, {}, {}, {}
-    for name in sorted(REGISTRY):
+    for name in names:
         ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=True,
                             requested_pairs=requested_pairs)
         if isinstance(ps, Refusal):
@@ -7452,7 +7471,81 @@ DRAWABLE_EXHIBITS = {
     "subtractive rhyme": (
         ("he feared", "a year", "1", "2"),
         ("a year", "he feared", "1", "2")),
-    # -- REPETITION AND RHETORICAL PAIR FIGURES (M-311, 2026-09-25) --------
+    # ── ENGLISH END / PAIR RHYMES (2026-09-25, `MISSING.md` M-311) ─────────
+    # One contiguous block so sibling blocks merge beside it. Every EXHIBIT
+    # is a real line pair already in this repository's public-domain corpus
+    # (file:line in the comment); every CONTRAST changes the fewest words
+    # needed to remove the property the schema tests, and is constructed
+    # (doctrine 94: it proves the judge can say no, never that a tradition
+    # does). A witness found by mining the corpus with the judge itself is
+    # marked INCIDENTAL where the poem's own rhyme is elsewhere — it shows
+    # the judge on real text, not the poet's intent. Rows the grader gets
+    # WRONG are not here (§13 would go red); they are `WITNESS_FINDINGS`.
+    "additive rhyme": (
+        # Carroll, "Beautiful Soup" — eng_british_lewis_carroll.txt:129-130,
+        # both lines verbatim from this repository's edition, which prints
+        # "two / Pennyworth": two ~ Soup, the coda S added to open UW. No
+        # claim is made about which words the author meant to rhyme.
+        ("Who would not give all else for two",
+         "Pennyworth only of beautiful Soup?", "1", "2"),
+        ("Who would not give all else for two",
+         "Pennyworth only of beautiful stew?", "1", "2")),
+    "amphisbaenic rhyme": (
+        # Lowell — eng_american_james_russell_lowell.txt:760-761; own ~
+        # know is OW N ~ N OW. INCIDENTAL: the stanza rhymes own/alone.
+        ("Great feelings hath she of her own,",
+         "Which lesser souls may never know;", "1", "2"),
+        ("Great feelings hath she of her own,",
+         "Which lesser souls may never go;", "1", "2")),
+    "apocopated rhyme": (
+        # Marston — eng_hbv_philip_bourke_marston.txt:34-35, the poem's
+        # own word-and-its-stem echo (scheming/schemes, saying/say). The
+        # first member overhangs; the contrast is the same pair reversed,
+        # which is semirhyme (the subtractive row's precedent).
+        ("A little time for saying", "Words the heart breaks to say;",
+         "1", "2"),
+        ("Words the heart breaks to say;", "A little time for saying",
+         "1", "2")),
+    "cross rhyme": (
+        # Poe, "The Raven" — eng_american_edgar_allan_poe.txt:24-25: the
+        # line-end December against ember, the fifth word of the next.
+        ("Ah, distinctly I remember, it was in the bleak December,",
+         "And each separate dying ember wrought its ghost upon the floor.",
+         "1", "2.T5"),
+        ("Ah, distinctly I remember, it was in the bleak December,",
+         "And each separate dying candle wrought its ghost upon the floor.",
+         "1", "2.T5")),
+    # `enjambed rhyme` WAS HERE on the linked-rhyme pair below and is not:
+    # that pair is a linked rhyme, so it counted the schema validated on a
+    # witness of a different figure. It is `WITNESS_FINDINGS` F7.
+    "linked rhyme": (
+        # Torry Anderson — eng_celtic_msm_rev_t_g_torry_anderson.txt:96-97,
+        # lie ~ My, bound at the next line's HEAD. INCIDENTAL. `Our` was the
+        # first contrast tried and REFUSES (CMUdict: AW1 ER0 / AA1 R).
+        ("I ask no willow where I lie,", "My mourner let the mermaid be,",
+         "1", "2.head"),
+        ("I ask no willow where I lie,", "No mourner let the mermaid be,",
+         "1", "2.head")),
+    "reverse rhyme": (
+        # Whittier, "The Ship-Builders" —
+        # eng_american_john_greenleaf_whittier.txt:480-481: peel ~ peak,
+        # onset and nucleus agreeing (the registry's bat/back shape).
+        # INCIDENTAL across the stanza's beak/peak, peel/keel.
+        ("Of Northern ice may peel;", "The sunken rock and coral peak",
+         "1", "2"),
+        ("Of Northern ice may peel;", "The sunken rock and coral reef",
+         "1", "2")),
+    "syllabic rhyme": (
+        # R. E. White — eng_pah_richard_edward_white.txt:106,108, the two
+        # A-position line ends: beauty ~ army agree only on the final
+        # unstressed IY. INCIDENTAL: the stanza's rhyme is to-day ~ bay
+        # (:109,111), and beauty returns as itself (:110).
+        ("Gazed they on this scene of beauty", "As Portala and his army,",
+         "1", "2"),
+        ("Gazed they on this scene of beauty",
+         "As Portala and his soldiers,", "1", "2")),
+    # ── end of the English end / pair rhymes block ────────────────────────
+    # -- REPETITION AND RHETORICAL PAIR FIGURES (M-313, 2026-09-25) --------
     # Unlike the rows above, every line here is QUOTED from a public-domain
     # poem, witness and contrast alike, so the exhibit is an instance of the
     # tradition and not a constructed input (doctrine 94). The contrast is
@@ -7466,8 +7559,9 @@ DRAWABLE_EXHIBITS = {
     #   repetition   Frost, "Stopping by Woods on a Snowy Evening" (1923,
     #                US public domain since 2019), lines 15-16; contrast =
     #                lines 14-15, keep~sleep (a rhyme, not a repetition).
-    # `epistrophe / radif` and `homoioteleuton` are in `CONTEXT_CONTROLS`
-    # below, and M-311 says why they cannot be rows here.
+    # `epistrophe / radif` is in `CONTEXT_CONTROLS` below and the forbidden
+    # `homoioteleuton` in `WITNESS_FINDINGS` above (M-313 F8, on review);
+    # M-313 says why neither can be a row here.
     "anadiplosis": (
         ("Of perilous seas, in faery lands forlorn.",
          "Forlorn! the very word is like a bell", "1", "2"),
@@ -7483,12 +7577,169 @@ DRAWABLE_EXHIBITS = {
          "And miles to go before I sleep.", "1", "2"),
         ("But I have promises to keep,",
          "And miles to go before I sleep,", "1", "2")),
-    # -- end of the M-311 block --------------------------------------------
+    # -- end of the M-313 block --------------------------------------------
+}
+
+
+#: SEMANTIC EVIDENCE THE DRAW POOL MAY NOT HOLD (`MISSING.md` M-311).
+#: `DRAWABLE_EXHIBITS` is also the certified set (test_mandate_relation
+#: §10/§12/§13 read it so), which bars two kinds of witness: a figure a
+#: two-line, frame-less draft cannot carry, and a schema whose `normative`
+#: status is forbidden or deprecated. `schema_census` grades each row here
+#: exactly as it grades that table — one group, `default_relation=
+#: "schema:<name>"`, `Reviser.grade` — but hands the grade the `sections`
+#: a frame needs and as many lines as the figure quantifies over.
+#: `monorhyme / leash` is `forall` over a STANZA, so a two-token mandate
+#: cannot preserve its scope (`pair_scope_representable` says False and
+#: the census would never ask); the interlocking chain rhyme needs two
+#: stanzas; `trite rhyme` is deprecated. Each row is `(lines, slots,
+#: sections)`; sections are the edition's own [VERSE] breaks, never
+#: invented (the M-39(b) rule `Reviser.grade` states), or None.
+CENSUS_EXHIBITS = {
+    "chain rhyme (interlocking scheme)": (
+        # Shelley, "Ode to the West Wind" —
+        # eng_british_percy_bysshe_shelley.txt:2586,2589: dead ~ red, the
+        # terza-rima link out of one tercet into the next ([VERSE 1]/[2]).
+        # The contrast is the same two lines in ONE stanza: the rhyme
+        # stands and the chain does not.
+        (("Thou from whose unseen presence the leaves dead",
+          "Yellow, and black, and pale, and hectic red,"),
+         ("1", "2"), ("1", "2")),
+        (("Thou from whose unseen presence the leaves dead",
+          "Yellow, and black, and pale, and hectic red,"),
+         ("1", "2"), ("1", "1"))),
+    "monorhyme / leash": (
+        # Tennyson, "The Eagle", second tercet —
+        # eng_british_alfred_tennyson.txt:1234-1236: crawls/walls/falls.
+        (("The wrinkled sea beneath him crawls;",
+          "He watches from his mountain walls,",
+          "And like a thunderbolt he falls."),
+         ("1", "2", "3"), ("a", "a", "a")),
+        (("The wrinkled sea beneath him crawls;",
+          "He watches from his mountain walls,",
+          "And like a thunderbolt he drops."),
+         ("1", "2", "3"), ("a", "a", "a"))),
+    "trite rhyme": (
+        # Poe, "Annabel Lee" — eng_american_edgar_allan_poe.txt:201,204:
+        # love ~ above, on the declared cliché list. The contrast is the
+        # same stanza's we ~ sea (:202,205): a perfect rhyme NOT on it.
+        (("But our love it was stronger by far than the love",
+          "And neither the angels in heaven above,"), ("1", "2"), None),
+        (("Of those who were older than we--",
+          "Nor the demons down under the sea,"), ("1", "2"), None)),
+}
+
+
+#: ROWS THE GRADER ANSWERS WRONGLY, KEPT AND RE-GRADED (`MISSING.md` M-311).
+#: A wrong verdict is a finding, never a reason to swap the exhibit or move
+#: a threshold (doctrine 58), so each row stays here with the verdict it
+#: SHOULD get and `schema_census` re-derives what it DOES get on every run
+#: (doctrine 48) — the day the judge is repaired, the row says so. Each row
+#: is `(lines, slots, sections, expected)`. A name with no rows is blocked
+#: before any row could be graded; `schema_census` names the capability
+#: the grade route cannot be handed.
+WITNESS_FINDINGS = {
+    "chain rhyme (rap)": ("M-311 F3", (
+        # CONSTRUCTED (doctrine 94): no public-domain rap is quotable. The
+        # pre-2026-09-08 exhibit row, kept word for word.
+        (("the kitchen light was fading fast",
+          "a silver ship went sailing past"), ("1", "2"), None, True),
+        (("the kitchen light was fading fast", "go slow"),
+         ("1", "2"), None, False))),
+    "enjambed rhyme": (
+        "M-311 F7 (schema cannot distinguish enjambed from linked rhyme)", (
+        # Torry Anderson — eng_celtic_msm_rev_t_g_torry_anderson.txt:96-97,
+        # the `linked rhyme` exhibit: lie ~ My is bound at the next line's
+        # HEAD word and borrows nothing across the break, so an enjambed
+        # judge must say no; the pair spans (line end ~ a 1-3 syllable run
+        # in the next line) take a one-word head as such a run and say yes.
+        # There is no exhibit row: an enjambed rhyme's borrowed unit needs a
+        # third member (E33) this pair model does not hold, so no real pair
+        # could show it apart from linked rhyme. The second row is the
+        # constructed one-word contrast (doctrine 94), kept to show the
+        # schema CAN say no — the defect is the linked reading, not a judge
+        # that answers yes to everything.
+        (("I ask no willow where I lie,", "My mourner let the mermaid be,"),
+         ("1", "2"), None, False),
+        (("I ask no willow where I lie,", "No mourner let the mermaid be,"),
+         ("1", "2"), None, False))),
+    "eye rhyme": ("M-311 F5", (
+        # Shakespeare, Sonnet 116 — corpus/sonnets.txt:1995,1997.
+        (("Admit impediments. Love is not love",
+          "Or bends with the remover to remove:"), ("1", "2"), None, True),
+        (("Admit impediments. Love is not love",
+          "Or bends with the remover to depart:"), ("1", "2"), None,
+         False))),
+    "holorhyme": ("M-311 F2", (
+        # The textbook oronym (E34), and a real pair that is NOT one: a
+        # line and its own tail — Lear, eng_british_edward_lear.txt:37-38.
+        (("I scream", "ice cream"), ("1", "2"), None, True),
+        (("With a ring at the end of his nose,", "His nose,"),
+         ("1", "2"), None, False))),
+    "monorhyme / leash": ("M-311 F6", (
+        # The Eagle's FIRST tercet (:1230-1232); hands has a second
+        # CMUdict reading (HH AE1 N Z), and perfect rhyme refuses it too.
+        (("He clasps the crag with crooked hands;",
+          "Close to the sun in lonely lands,",
+          "Ringed with the azure world, he stands."),
+         ("1", "2", "3"), ("a", "a", "a"), True),)),
+    "mosaic rhyme": ("M-311 F1", (
+        # Gilbert, "The Pirates of Penzance" (1879), the Major-General's
+        # strategy ~ sat a gee; then Telfer,
+        # eng_celtic_msm_james_telfer.txt:58-59, a one-word rhyme.
+        (("In short, when I've a smattering of elemental strategy,",
+          "You'll say a better Major-General has never sat a gee."),
+         ("1", "2"), None, True),
+        (('"Sweet summer now is by,', "And cauld winter is nigh,"),
+         ("1", "2"), None, False))),
+    "offbeat internal rhyme": ("M-311 F5", ()),
+    "parechesis / general consonance": ("M-311 F4", (
+        # Kingsley, "The Sands of Dee" —
+        # eng_british_charles_kingsley.txt:608-609; its one-word
+        # contrast; and Browning, eng_british_robert_browning.txt:85-86.
+        (("And o'er and o'er the sand,", "And round and round the sand,"),
+         ("1", "2"), None, True),
+        (("And o'er and o'er the sand,", "And round and round the hill,"),
+         ("1", "2"), None, False),
+        (("Day!", "Faster and more fast,"), ("1", "2"), None, False))),
+    "sung-delivery rhyme": ("M-311 F5", ()),
+    "transformative / bent rhyme": ("M-311 F5", ()),
+    "wrenched rhyme": ("M-311 F5", ()),
+    # -- HOMOIOTELEUTON (M-313 F8, 2026-09-25, on review) ------------------
+    # Every line QUOTED, as `corpus/sonnets.txt` prints it (doctrine 94).
+    # Sonnet 87, :1500-1502: possessing~releasing share `-ing` and no stem
+    # (the witness), and possessing~estimate is the quatrain's other rhyme
+    # (differs in affix and in rhyme, so it proves only that the judge can
+    # say no). The two rows after it are what show the rule too generous:
+    # Sonnet 87's own couplet, :1512-1513, flatter~matter — two
+    # monomorphemic words that the segmenter reads as `flat`+`-er` and
+    # `matt`+`-er` (the inflectional rows take no productivity test,
+    # `quality/morphology.py`) — and Sonnet 18, :327,329, day~May, where
+    # NEITHER word carries an affix and `morpheme_affix` AGREE still holds
+    # ('' == ''). Both are rhymes, not homoioteleuton, and both grade True.
+    # No morphology rule or threshold moved (doctrine 58).
+    "homoioteleuton": (
+        "M-313 F8 (morpheme_affix AGREE passes a plain rhyme)", (
+        (("Farewell! thou art too dear for my possessing,",
+          "And like enough thou know’st thy estimate,",
+          "The charter of thy worth gives thee releasing;"),
+         ("1", "3"), None, True),
+        (("Farewell! thou art too dear for my possessing,",
+          "And like enough thou know’st thy estimate,"),
+         ("1", "2"), None, False),
+        (("Thus have I had thee, as a dream doth flatter,",
+          "In sleep a king, but waking no such matter."),
+         ("1", "2"), None, False),
+        (("Shall I compare thee to a summer’s day?",
+          "Thou art more lovely and more temperate:",
+          "Rough winds do shake the darling buds of May,"),
+         ("1", "3"), None, False))),
+    # -- end of the M-313 block --------------------------------------------
 }
 
 
 #: WITNESS AND CONTRAST IN ONE DRAFT, for the schemas whose evidence cannot
-#: be a bare two-line `DRAWABLE_EXHIBITS` row (`MISSING.md` M-311). Each row
+#: be a bare two-line `DRAWABLE_EXHIBITS` row (`MISSING.md` M-313). Each row
 #: is `(lines, witness_slots, contrast_slots)`; `schema_census` grades ONE
 #: mandate carrying both groups over `lines` through `Reviser.grade` and
 #: reads each group's own verdict. Three reasons a name is here and not
@@ -7503,12 +7754,14 @@ DRAWABLE_EXHIBITS = {
 #:     beside the witness. No default was moved to get here (doctrine 58).
 #:   * it is `forbidden` or `deprecated`: `test_mandate_relation.py` keeps
 #:     those out of the drawable table, and a semantic witness is still owed.
+#:     (~~`homoioteleuton`~~ was the one such row; on review it is a grader
+#:     finding in `WITNESS_FINDINGS`, M-313 F8, and no row here is now.)
 #:   * the attempt FAILS today and the census must re-derive that, not a
 #:     sentence (doctrine 48). Those rows stay `unvalidated` and
 #:     `schema_census.SEMANTIC_BLOCKERS` names why.
 #: Every line is quoted from a public-domain source, named per row.
 CONTEXT_CONTROLS = {
-    # -- REPETITION AND RHETORICAL PAIR FIGURES (M-311, 2026-09-25) --------
+    # -- REPETITION AND RHETORICAL PAIR FIGURES (M-313, 2026-09-25) --------
     # Shakespeare, The Merchant of Venice, 5.1, Bassanio's "If you did know
     # to whom I gave the ring" speech: its last two `ring` lines and the
     # line that breaks the run.
@@ -7517,21 +7770,16 @@ CONTEXT_CONTROLS = {
          "When naught would be accepted but the ring,",
          "You would abate the strength of your displeasure."),
         ("1", "2"), ("2", "3")),
-    # Shakespeare, Sonnet 87 (1609), lines 1-3: possessing~releasing agree
-    # on the affix `-ing` and on nothing of the stem; estimate is the
-    # quatrain's other rhyme.
-    "homoioteleuton": (
-        ("Farewell! thou art too dear for my possessing,",
-         "And like enough thou know'st thy estimate:",
-         "The charter of thy worth gives thee releasing;"),
-        ("1", "3"), ("1", "2")),
-    # FAILING, recorded (M-311). Shakespeare, Sonnet 135 (1609), lines 1-2:
+    # `homoioteleuton` WAS HERE, counted validated on possessing~estimate
+    # alone: a contrast that differs in affix AND rhyme cannot show the
+    # rule is too generous. It is `WITNESS_FINDINGS` (M-313 F8) now.
+    # FAILING, recorded (M-313). Shakespeare, Sonnet 135 (1609), lines 1-2:
     # `Will` the name against `Will` the desire; contrast Will~hast.
     "antanaclasis": (
         ("Whoever hath her wish, thou hast thy Will,",
          "And Will to boot, and Will in overplus;"),
         ("1.T8", "2.T2"), ("1.T6", "2.T2")),
-    # FAILING, recorded (M-311). Tennyson, "The Charge of the Light
+    # FAILING, recorded (M-313). Tennyson, "The Charge of the Light
     # Brigade" (1854), stanza 3 as staged in
     # `corpus/song/eng_british_alfred_tennyson.txt`: lines 1, 2 and 6 of the
     # stanza (the lines between hold words CMUdict cannot read).
@@ -7540,7 +7788,7 @@ CONTEXT_CONTROLS = {
          "Cannon to left of them,",
          "Boldly they rode and well,"),
         ("1", "2"), ("1", "3")),
-    # FAILING, recorded (M-311). Payne, "My Boyhood's Home", as staged in
+    # FAILING, recorded (M-313). Payne, "My Boyhood's Home", as staged in
     # `corpus/song/eng_parlour_john_howard_payne.txt` (Beadle's Dime Song
     # Book No. 4, 1860): the chorus pointer printed `&c.`, the line it
     # points at, and a verse line it does not.
@@ -7549,7 +7797,7 @@ CONTEXT_CONTROLS = {
          "I come to thee from war’s dread school,",
          "My boyhood’s home, &c."),
         ("1", "3"), ("2", "3")),
-    # -- end of the M-311 block --------------------------------------------
+    # -- end of the M-313 block --------------------------------------------
 }
 
 

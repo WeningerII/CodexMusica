@@ -3041,6 +3041,80 @@ def test_the_judge_memo_answers_identical_calls_only():
     RT._WVP_MEMO.clear()
 
 
+def test_a_schema_subset_is_the_full_answer_restricted():
+    """X9b. `whole_vocabulary_pairs(..., schemas=S)` (2026-09-25, `MISSING.md`
+    M-312): the candidate field asks the judge about the one or two schemas
+    its end-token screen found, and the answer must be the FULL call's answer
+    read at S -- the same pairs, undecided pairs, refusals and line figures
+    for every name in S, and nothing for any name outside it.
+
+    FOUR CHECKS, each killed by a one-line mutant: ignoring `schemas` gives
+    names outside S (check 2); keying the memo without it serves the
+    restricted answer to the next full caller (check 3). Check 1 is the
+    non-vacuity proof: S is drawn from what the full call FOUND, so the
+    comparison examines true pairs, not an empty dict against an empty dict.
+    ~~FOUR~~ FIVE CHECKS since the review (2026-09-25): check 5 asks for a
+    name `REGISTRY` does not hold, which must raise `ValueError` naming it
+    rather than a bare `KeyError` from inside the loop.
+    """
+    import quality.relations as RT
+    from quality import phonology as PH
+    phon = PH.get("eng")
+    lines = ("the river took the bridge at dawn",
+             "and no one saw the water again",
+             "the cattle waded through the silt",
+             "past every fence the county rebuilt",
+             "we carry the evening to the will",
+             "and no one had to tell us about wall")
+    RT._WVP_MEMO.clear()
+    full = RT.whole_vocabulary_pairs(lines, phon)
+    found = sorted({n for v in full.values() for n in v})
+    subset = set(found[::2]) | set(sorted(full.refused)[:1]) \
+        | {sorted(set(RT.REGISTRY) - set(found) - set(full.refused))[0]}
+
+    def at(d):
+        out = {}
+        for k, v in d.items():
+            kept = [n for n in v if n in subset]
+            if kept:
+                out[k] = kept
+        return out
+
+    RT._WVP_MEMO.clear()
+    sub = RT.whole_vocabulary_pairs(lines, phon, schemas=subset)
+    check("the subset examines real verdicts: at least two schemas true of "
+          "some pair, and a refusing schema, are in it",
+          len(found[::2]) >= 2 and len(sub) >= 1 and bool(sub.refused),
+          f"{len(found)} schemas true of some pair on the full call; "
+          f"subset {sorted(subset)}")
+    check("each asked schema's answer is the full call's, and no other "
+          "schema appears",
+          dict(sub) == at(full) and sub.undecided == at(full.undecided)
+          and sub.lines == at(full.lines)
+          and sorted(sub.refused) == sorted(n for n in full.refused
+                                            if n in subset),
+          f"subset {dict(sub)} against the full call read at the subset "
+          f"{at(full)}")
+    again = RT.whole_vocabulary_pairs(lines, phon)
+    check("the memo keeps the two apart: a full call after a restricted one "
+          "is answered in full",
+          dict(again) == dict(full) and sorted(again.refused)
+          == sorted(full.refused), f"{len(again)} pairs against {len(full)}")
+    sub2 = RT.whole_vocabulary_pairs(lines, phon, schemas=sorted(subset))
+    check("and the subset is a SET: its order and spelling do not move the "
+          "answer or the key",
+          dict(sub2) == dict(sub) and len(RT._WVP_MEMO) == 2,
+          f"{len(RT._WVP_MEMO)} memo entries")
+    try:
+        RT.whole_vocabulary_pairs(lines, phon, schemas={"no such schema"})
+        err = ""
+    except ValueError as e:
+        err = str(e)
+    check("an unknown schema name is refused by name, not a bare KeyError",
+          "'no such schema'" in err, err or "no ValueError raised")
+    RT._WVP_MEMO.clear()
+
+
 # ---------------------------------------------------------------------------
 # X10. The pair guard fires BEFORE `evaluate()` — M-244's cost, closed
 # ---------------------------------------------------------------------------
@@ -3432,6 +3506,7 @@ if __name__ == "__main__":
     test_orthography_surface_is_declarable()
     test_frequency_refusal_is_measured_against_the_shipped_tables()
     test_the_judge_memo_answers_identical_calls_only()
+    test_a_schema_subset_is_the_full_answer_restricted()
     test_the_pair_guard_refuses_before_it_evaluates()
     test_every_schema_judges_and_no_differ_only_excludes()
     print("=" * 66)
