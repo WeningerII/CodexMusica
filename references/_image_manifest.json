@@ -19,16 +19,16 @@
     },
     "tradition": {
       "total": 2588,
-      "with_image": 556,
+      "with_image": 567,
       "by_source": {
         "wikidata_commons": 409,
-        "commons_depicts": 147
+        "commons_depicts": 158
       },
       "by_license": {
-        "CC BY-SA": 304,
-        "Public Domain": 92,
+        "CC BY-SA": 311,
+        "Public Domain": 94,
         "CC BY": 126,
-        "CC0": 34
+        "CC0": 36
       }
     }
   },
@@ -11114,6 +11114,21 @@
       "matched_label": "Afro-punk"
     },
     {
+      "id": "afro_soul",
+      "kind": "tradition",
+      "name": "Afro soul",
+      "source": "commons_depicts",
+      "wikidata": "Q16024685",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Cysoul_01.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/51/Cysoul_01.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Cysoul_01.jpg/500px-Cysoul_01.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "BACHELOR45",
+      "match_confidence": "medium",
+      "matched_label": "Afro-soul"
+    },
+    {
       "id": "afrobeat",
       "kind": "tradition",
       "name": "Afrobeat",
@@ -12179,6 +12194,21 @@
       "matched_label": "Franco-Flemish School"
     },
     {
+      "id": "c_pop",
+      "kind": "tradition",
+      "name": "C-Pop (Chinese-Language Popular Song)",
+      "source": "commons_depicts",
+      "wikidata": "Q1192110",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Chinese_music_icon.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Chinese_music_icon.png",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Chinese_music_icon.png/500px-Chinese_music_icon.png",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Loukus999",
+      "match_confidence": "medium",
+      "matched_label": "C-pop"
+    },
+    {
       "id": "cajun",
       "kind": "tradition",
       "name": "Cajun",
@@ -12552,6 +12582,21 @@
       "credit": "Mike Cicchetti from United States",
       "match_confidence": "high",
       "matched_label": "chillwave"
+    },
+    {
+      "id": "chinese_opera",
+      "kind": "tradition",
+      "name": "Chinese Opera (xiqu regional traditions)",
+      "source": "commons_depicts",
+      "wikidata": "Q737994",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Li_Yunxiao_Yue_Opera_performance.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Li_Yunxiao_Yue_Opera_performance.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Li_Yunxiao_Yue_Opera_performance.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Irukaka",
+      "match_confidence": "medium",
+      "matched_label": "Chinese opera"
     },
     {
       "id": "chiptune_8bit",
@@ -12957,6 +13002,21 @@
       "credit": "MusicFolck",
       "match_confidence": "medium",
       "matched_label": "cumbia andina mexicana"
+    },
+    {
+      "id": "cumbia_argentina",
+      "kind": "tradition",
+      "name": "Cumbia Argentina",
+      "source": "commons_depicts",
+      "wikidata": "Q4789437",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Copas_y_ceniceros.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Copas_y_ceniceros.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Copas_y_ceniceros.jpg/500px-Copas_y_ceniceros.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Arístides Prando",
+      "match_confidence": "medium",
+      "matched_label": "Argentine cumbia"
     },
     {
       "id": "cumbia_chilena",
@@ -15224,6 +15284,21 @@
       "matched_label": "jazz"
     },
     {
+      "id": "jazz_funk",
+      "kind": "tradition",
+      "name": "Jazz-Funk",
+      "source": "commons_depicts",
+      "wikidata": "Q38656",
+      "source_page": "https://commons.wikimedia.org/wiki/File:SUPER_BAD_The_Band.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/SUPER_BAD_The_Band.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/SUPER_BAD_The_Band.jpg/500px-SUPER_BAD_The_Band.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Marco Caponi",
+      "match_confidence": "medium",
+      "matched_label": "jazz-funk"
+    },
+    {
       "id": "jazz_fusion",
       "kind": "tradition",
       "name": "Jazz Fusion (electric jazz-rock idiom)",
@@ -15749,6 +15824,21 @@
       "matched_label": "lounge music"
     },
     {
+      "id": "madrigal",
+      "kind": "tradition",
+      "name": "Madrigal",
+      "source": "commons_depicts",
+      "wikidata": "Q193217",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Nielsen_Fonteiio_Libro_Madrigali.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Nielsen_Fonteiio_Libro_Madrigali.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Nielsen_Fonteiio_Libro_Madrigali.jpg/500px-Nielsen_Fonteiio_Libro_Madrigali.jpg",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Unknown authorUnknown author",
+      "match_confidence": "medium",
+      "matched_label": "madrigal"
+    },
+    {
       "id": "malaysian_pop",
       "kind": "tradition",
       "name": "Malaysian pop (pop Melayu / muzik pop Malaysia)",
@@ -15929,6 +16019,21 @@
       "matched_label": "mathcore"
     },
     {
+      "id": "mbube",
+      "kind": "tradition",
+      "name": "Mbube",
+      "source": "commons_depicts",
+      "wikidata": "Q6799787",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Solomon_Linda_and_the_Tokens.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Solomon_Linda_and_the_Tokens.png",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Solomon_Linda_and_the_Tokens.png/500px-Solomon_Linda_and_the_Tokens.png",
+      "license": "CC0",
+      "license_raw": "CC0",
+      "credit": "DannyRogers800",
+      "match_confidence": "medium",
+      "matched_label": "mbube"
+    },
+    {
       "id": "melodic_death_metal",
       "kind": "tradition",
       "name": "Melodic death metal",
@@ -16047,6 +16152,21 @@
       "credit": "Victormontero10",
       "match_confidence": "medium",
       "matched_label": "minimal techno"
+    },
+    {
+      "id": "minnesang",
+      "kind": "tradition",
+      "name": "Minnesang",
+      "source": "commons_depicts",
+      "wikidata": "Q830634",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Joseph_Knippenberg,_Rheinisches_Bildarchiv,_rba_225486_kni.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Joseph_Knippenberg%2C_Rheinisches_Bildarchiv%2C_rba_225486_kni.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Joseph_Knippenberg%2C_Rheinisches_Bildarchiv%2C_rba_225486_kni.jpg/500px-Joseph_Knippenberg%2C_Rheinisches_Bildarchiv%2C_rba_225486_kni.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Joseph Knippenberg",
+      "match_confidence": "medium",
+      "matched_label": "Minnesang"
     },
     {
       "id": "modal_jazz",
@@ -16182,6 +16302,21 @@
       "credit": "Niamfrifruli",
       "match_confidence": "medium",
       "matched_label": "murga uruguaya"
+    },
+    {
+      "id": "music_hall",
+      "kind": "tradition",
+      "name": "Music Hall",
+      "source": "commons_depicts",
+      "wikidata": "Q940462",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Poster_for_the_touring_revue_%22Town_Topics%22,_United_Kingdom,_1914.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Poster_for_the_touring_revue_%22Town_Topics%22%2C_United_Kingdom%2C_1914.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Poster_for_the_touring_revue_%22Town_Topics%22%2C_United_Kingdom%2C_1914.jpg/500px-Poster_for_the_touring_revue_%22Town_Topics%22%2C_United_Kingdom%2C_1914.jpg",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Unknown authorUnknown author",
+      "match_confidence": "medium",
+      "matched_label": "music hall"
     },
     {
       "id": "musica_llanera",
@@ -18794,6 +18929,21 @@
       "matched_label": "tecno brega"
     },
     {
+      "id": "tecnocumbia",
+      "kind": "tradition",
+      "name": "Tecnocumbia",
+      "source": "commons_depicts",
+      "wikidata": "Q7692752",
+      "source_page": "https://commons.wikimedia.org/wiki/File:BANDA_TORO_EN_DIRECTO.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/BANDA_TORO_EN_DIRECTO.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/BANDA_TORO_EN_DIRECTO.jpg/500px-BANDA_TORO_EN_DIRECTO.jpg",
+      "license": "CC0",
+      "license_raw": "CC0",
+      "credit": "Vmikemorfin",
+      "match_confidence": "medium",
+      "matched_label": "tecnocumbia"
+    },
+    {
       "id": "texas_blues",
       "kind": "tradition",
       "name": "Texas Blues",
@@ -19032,6 +19182,21 @@
       "credit": "Timrek2011",
       "match_confidence": "high",
       "matched_label": "turntablism"
+    },
+    {
+      "id": "tuvalu_fatele",
+      "kind": "tradition",
+      "name": "Fatele (Tuvalu communal dance-song)",
+      "source": "commons_depicts",
+      "wikidata": "Q17048829",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Fatele_Funafuti_Tuvalu.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Fatele_Funafuti_Tuvalu.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Fatele_Funafuti_Tuvalu.jpg/500px-Fatele_Funafuti_Tuvalu.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "JialiangGao",
+      "match_confidence": "medium",
+      "matched_label": "Fatele"
     },
     {
       "id": "tuvan_throat",
