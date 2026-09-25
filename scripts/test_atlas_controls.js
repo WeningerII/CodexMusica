@@ -254,3 +254,54 @@ test('collection detail can return, close, and clear without a stale back button
   f.escape();
   assert.equal(f.$('#thread-card').hidden, true);
 });
+
+test('a route and a filter are never active together, in either order', async (t) => {
+  const f = await fixture(t);
+  const { $, click } = f;
+  const pickRoute = (i = 0) => {
+    click('#t-routes');
+    click('[data-route="' + i + '"]');
+    assert.equal($('#route-chip').hidden, false, 'A chosen route shows its chip');
+    assert.equal($('#active-filters').hidden, true);
+  };
+  const noRoute = (how) => {
+    assert.equal($('#route-chip').hidden, true, how + ' must clear the route chip');
+    assert.equal($('#route-chip').textContent, '');
+    assert.equal($('#active-filters').hidden, false, how + ' shows its own filter chip');
+    click('#t-routes');
+    assert.equal($('[data-route][aria-current="true"]'), null, how + ' deselects the route row');
+    click('#clear-filters');
+    assert.equal($('#active-filters').hidden, true);
+    assert.equal($('#route-chip').hidden, true, 'Clear filters leaves no route behind');
+  };
+
+  pickRoute();
+  click('#t-territories');
+  click('[data-root="' + $('[data-root]').dataset.root + '"]');
+  noRoute('Choosing a genre group');
+
+  pickRoute(1);
+  f.collection();
+  assert.equal($('#t-threads').dataset.active, 'true');
+  noRoute('Choosing a collection');
+
+  pickRoute(2);
+  f.query('Delta blues');
+  assert.match($('#filter-summary').textContent, /Search: Delta blues/);
+  noRoute('Typing a search');
+
+  pickRoute(3);
+  $('#search').value = '';
+  $('#search').dispatchEvent(new f.w.Event('focus'));
+  f.tick();
+  assert.equal($('#route-chip').hidden, false, 'Focusing an empty search keeps the route');
+
+  click('#t-territories');
+  click('[data-root="' + $('[data-root]').dataset.root + '"]');
+  assert.equal($('#t-territories').dataset.active, 'true');
+  click('#t-routes');
+  click('[data-route="4"]');
+  assert.equal($('#t-territories').dataset.active, 'false', 'Choosing a route clears the group');
+  assert.equal($('#active-filters').hidden, true);
+  assert.equal($('#route-chip').hidden, false);
+});
