@@ -1,5 +1,5 @@
 /* exported uiLyricsWaiting */
-/* global $ui, UI, UILayout, _chatSyncCount, app, chatState, compileRecipeStack, copyToClipboard, esc, icon, pushHistory, showToast, uiButton, uiChatOpen, uiEmptyState, uiFocus, uiNavigate, uiNewTask, uiRegisterPage, uiSaveLyrics, uiSwitchChat */
+/* global $ui, UI, UILayout, _chatSyncCount, app, chatState, compileRecipeStack, confirmDialog, copyToClipboard, esc, icon, pushHistory, showToast, uiButton, uiChatOpen, uiEmptyState, uiFocus, uiNavigate, uiNewTask, uiRegisterPage, uiSaveLyrics, uiSwitchChat */
 /* Lyrics page. Owned by the Lyrics page worker; see docs/ui-foundation.md.
 
    THE DRAFT IS THE ONE SOURCE OF TRUTH. Everything this page shows is read
@@ -857,21 +857,76 @@ function lyRunLines(artifact) {
   if (typeof artifact.text === 'string') return lyParse(artifact.text).sung.map((r) => r.text);
   return null;
 }
-function lyRunStatus(run) {
+// The [SETUP] rows of a draft, order-free: the declarations a run was given.
+const lySetupKey = (model) =>
+  model.setup
+    .map((s) => s.raw.trim())
+    .sort()
+    .join('\n');
+// Rows in one setup key and not the other, for a refusal that names them.
+function lySetupDiff(before, after) {
+  const a = before ? before.split('\n') : [],
+    b = after ? after.split('\n') : [];
+  return {
+    added: b.filter((r) => !a.includes(r)),
+    removed: a.filter((r) => !b.includes(r)),
+  };
+}
+// Is the writer conversation this run came from still the live one? A page
+// helper that starts new work resets it (uiNewTask → _chatReset clears
+// chatState.lyric); switching writers and back restores the same record.
+function lyRunLive(run) {
+  if (!run) return false;
+  if (run.generation === chatState.generation) return true;
+  return !!run.lyric && JSON.stringify(run.lyric) === JSON.stringify(chatState.lyric);
+}
+// Waiting, parked and uncertain are read only from the live conversation.
+const lyLiveWaiting = (lyric = chatState.lyric) => !!lyric?.state && lyric.resumable !== false;
+// Certified means the run certified THIS text: its accepted draft is the
+// current sung text and the current [SETUP] rows are the ones it was given.
+function lyRunCurrent(run, model = LY.model) {
+  const sung = !!run?.final && !!model && lySame(lySungTexts(model), run.final);
+  const known = run?.baseSetup != null;
+  return { sung, known, setup: known && !!model && lySetupKey(model) === run.baseSetup };
+}
+// What the reply itself reported, with no reference to the current draft.
+function lyRunOutcome(run) {
   if (!run) return null;
   const a = run.artifact;
   if (run.recoveryExport) return { tone: 'warning', word: 'Recovered export · not graded' };
   if (a?.certified === true && run.completion?.certified === true)
-    return { tone: 'success', word: 'Finished · certified' };
-  if (a)
+    return { tone: 'success', word: 'Finished · certified', certified: true };
+  if (a) {
+    const why = String(a.status || run.stopped || '')
+      .replace(/_/g, ' ')
+      .trim()
+      .toLowerCase();
     return {
       tone: 'warning',
-      word: `Unfinished · ${String(a.status || run.stopped || 'not certified').replace(/_/g, ' ')}`,
+      word:
+        !why || /^(lyrics )?(unfinished|not certified)$/.test(why)
+          ? 'Unfinished'
+          : why === 'finished'
+            ? 'Finished · not certified'
+            : `Unfinished · ${why}`,
     };
+  }
   if (run.error) return { tone: 'danger', word: 'Stopped with an error' };
-  if (run.lyric?.state && run.lyric.resumable !== false)
+  if (lyRunLive(run) && lyLiveWaiting(run.lyric))
     return { tone: 'info', word: 'Waiting for your answer' };
+  if (run.lyric?.state && run.lyric.resumable !== false)
+    return { tone: '', word: 'Earlier question archived' };
   return { tone: '', word: 'Reply without a draft' };
+}
+// The run's status as it bears on the draft now in the editor.
+function lyRunStatus(run, model = LY.model) {
+  const out = lyRunOutcome(run);
+  if (!out?.certified) return out;
+  const cur = lyRunCurrent(run, model);
+  if (cur.sung && cur.setup) return out;
+  if (cur.sung && !cur.known)
+    return { tone: 'warning', word: 'Certified · its declarations are unknown here' };
+  return { tone: 'warning', word: 'Last run certified an earlier draft' };
 }
 function lyRunChecks(model) {
   const run = LY.run;
@@ -881,6 +936,9 @@ function lyRunChecks(model) {
   const stale =
     !!run.final && !lySame(current, run.final) && !(run.base && lySame(current, run.base));
   const add = (item) => items.push({ source: 'run', stale, ...item });
+  // Findings the reply reported stay; what is live (open lines, a waiting
+  // question) is read only while its conversation is still the live one.
+  const live = lyRunLive(run);
   const lyric = run.lyric || {};
   const standing = Array.isArray(lyric.standing) ? lyric.standing : [];
   const reasonsFor = (n) => standing.filter((s) => new RegExp(`\\bL${n}\\b`).test(String(s)));
@@ -891,8 +949,14 @@ function lyRunChecks(model) {
       const n = k + 1;
       const id = `p:${run.id}:${n}`;
       const out = LY.outcomes[id];
-      if (out?.state === 'applied' || out?.state === 'kept') return;
-      if (current[k] === line && !out) return; // already in the draft (the shell applied it)
+      if (out?.state === 'kept') return;
+      // Already in the draft (applied here or by the shell). After Undo the
+      // line differs again, so the suggestion comes back.
+      if (current[k] === line) return;
+      if (out?.state === 'applied') {
+        if (!lySame(current, out.before || [])) return; // your own line went in
+        delete LY.outcomes[id];
+      }
       add({
         id,
         tone: 'issue',
@@ -902,7 +966,7 @@ function lyRunChecks(model) {
         lines: [n],
         text:
           reasonsFor(n).join(' ') ||
-          `From the writer’s run (${lyRunStatus(run).word}). Check & apply compares it with your current draft first.`,
+          `From the writer’s run (it reported: ${lyRunOutcome(run).word}, for its own draft). Check & apply first confirms your line, the line numbering and your [SETUP] declarations are unchanged, and that this page’s exact checks find no new issue.`,
         original: run.base[k],
         proposal: line,
         decision: { run: run.id, n },
@@ -915,7 +979,9 @@ function lyRunChecks(model) {
     !lySame(run.final, current)
   ) {
     const id = `w:${run.id}`;
-    if (!LY.outcomes[id] || LY.outcomes[id].state === 'failed')
+    const out = LY.outcomes[id];
+    if (out?.state === 'applied' && lySame(current, out.before || [])) delete LY.outcomes[id];
+    if (!['kept', 'applied'].includes(LY.outcomes[id]?.state))
       add({
         id,
         tone: 'issue',
@@ -932,7 +998,7 @@ function lyRunChecks(model) {
       });
   }
   // Lines the run left open, and its standing findings.
-  const open = Array.isArray(lyric.open) ? lyric.open : [];
+  const open = live && Array.isArray(lyric.open) ? lyric.open : [];
   for (const n of open)
     add({
       id: `open:${n}`,
@@ -1082,7 +1148,7 @@ function lyRunChecks(model) {
         (x) => typeof x === 'number'
       )
     : [];
-  if (lyric.state && lyric.resumable !== false && !chatState.busy)
+  if (live && lyLiveWaiting(chatState.lyric) && !chatState.busy)
     add({
       id: 'waiting',
       tone: 'input',
@@ -1111,8 +1177,8 @@ function lyRunChecks(model) {
       text: 'The reply is incomplete for that reason, not finished.',
       actions: [['ly-open-writer', 'Open the writer', 'message-circle', '']],
     });
-  const status = lyRunStatus(run);
-  if (status?.tone === 'success' && run.final && lySame(run.final, current))
+  const cur = lyRunCurrent(run, model);
+  if (lyRunOutcome(run)?.certified && cur.sung && cur.setup)
     add({
       id: 'certified',
       tone: 'note',
@@ -1120,8 +1186,23 @@ function lyRunChecks(model) {
       title: 'The writer’s run finished with its requested checks passed',
       where: 'Writer run',
       lines: [],
-      text: 'It passed the checks it was asked, under its declared readings, for exactly this draft. It is not a quality score or a performed-rhythm guarantee.',
+      text: 'It passed the checks it was asked, under its declared readings, for exactly this draft: the same sung lines and the same [SETUP] declarations. It is not a quality score or a performed-rhythm guarantee.',
       actions: [],
+    });
+  else if (lyRunOutcome(run)?.certified)
+    add({
+      id: 'certified-earlier',
+      tone: 'note',
+      category: 'Writer',
+      title: 'The last run certified an earlier draft',
+      where: 'Writer run',
+      lines: [],
+      text: !cur.sung
+        ? 'Its sung lines differ from your draft now, so its certification does not cover this text. Ask the writer to review the current draft.'
+        : cur.known
+          ? 'Your [SETUP] declarations changed after you asked, so its certification does not cover them. Ask the writer to review the current draft.'
+          : 'This reply came without the request it answered, so the declarations it was given are unknown here.',
+      actions: [['ly-ask-review', 'Ask the writer to review', 'sparkles', '']],
     });
   return items;
 }
@@ -1134,9 +1215,49 @@ function lyItems() {
 }
 
 // ── Check & apply ─────────────────────────────────────────────────────────
-// Verifies the exact suggestion against the CURRENT draft and its
-// declarations, then commits it as one undoable change — or keeps the
-// original and says why. Nothing is cached between the check and the write.
+// Verifies the exact suggestion against the CURRENT draft before one undoable
+// write: the line and the numbering are the ones the writer was given, the
+// [SETUP] declarations are the ones it was given, and this page's exact local
+// checks find no issue the change would add. Otherwise it keeps the original
+// and says why. Nothing is cached between the check and the write. It does
+// not re-grade rhyme or meter; only a writer run judges those.
+const lyIssueKey = (i) => `${i.id}|${i.title}|${i.where}`;
+// Issue items `text` would add over `model`, by this page's exact checks.
+function lyNewIssues(model, text) {
+  const before = new Set(
+    lyLocalChecks(model)
+      .filter((i) => i.tone === 'issue')
+      .map(lyIssueKey)
+  );
+  return lyLocalChecks(lyParse(text)).filter(
+    (i) => i.tone === 'issue' && !before.has(lyIssueKey(i))
+  );
+}
+function lyDeclarationRefusal(run, model) {
+  if (run.baseSetup == null)
+    return 'The request this reply answered is not known here, so the declarations it was checked against are unknown. Nothing was changed. Ask the writer to review the current draft.';
+  const now = lySetupKey(model);
+  if (now === run.baseSetup) return '';
+  const { added, removed } = lySetupDiff(run.baseSetup, now);
+  const list = (rows) =>
+    rows
+      .slice(0, 3)
+      .map((r) => r.replace(/^\[SETUP\s+—\s+/i, '').replace(/\]$/, ''))
+      .join('; ') + (rows.length > 3 ? ` and ${rows.length - 3} more` : '');
+  const what = [
+    added.length ? `added ${list(added)}` : '',
+    removed.length ? `removed ${list(removed)}` : '',
+  ]
+    .filter(Boolean)
+    .join('; ');
+  return `Your [SETUP] declarations changed after you asked the writer (${what}), so this suggestion was never checked against them. Nothing was changed. Ask the writer to review the current draft.`;
+}
+function lyIssueRefusal(issues, kept) {
+  return `Applying it would add ${lyPlural(issues.length, 'issue')} this page checks: ${issues
+    .slice(0, 3)
+    .map((i) => i.title)
+    .join('; ')}${issues.length > 3 ? '; …' : ''}. ${kept}`;
+}
 function lyCheckApply(item) {
   const run = LY.run;
   const fail = (message) => {
@@ -1149,17 +1270,28 @@ function lyCheckApply(item) {
   const model = lyParse(lyDraft().value);
   const current = lySungTexts(model);
   if (item.decision.whole) {
-    if (run.base && !lySame(current, run.base))
-      return fail(
-        'Your draft changed after you asked the writer, so its draft would overwrite those edits. Your draft was kept. Ask the writer to review the current draft, or copy what you need from Compare.'
-      );
-    lyCommit(
-      lyReplaceSung(model, item.whole, lyKeepSetup(model, run.wholeText || item.whole.join('\n'))),
-      'The writer’s draft is in place. Undo restores yours.'
+    const next = lyReplaceSung(
+      model,
+      item.whole,
+      lyKeepSetup(model, run.wholeText || item.whole.join('\n'))
     );
+    // With no request on record there is nothing to compare against: the
+    // action is labelled a replacement, and says it was not checked.
+    if (run.base) {
+      if (!lySame(current, run.base))
+        return fail(
+          'Your draft changed after you asked the writer, so its draft would overwrite those edits. Your draft was kept. Ask the writer to review the current draft, or copy what you need from Compare.'
+        );
+      const decl = lyDeclarationRefusal(run, model);
+      if (decl) return fail(decl);
+      const issues = lyNewIssues(model, next);
+      if (issues.length) return fail(lyIssueRefusal(issues, 'Your draft was kept.'));
+    }
+    lyCommit(next, 'The writer’s draft is in place. Undo restores yours.');
     LY.outcomes[item.id] = {
       state: 'applied',
       message: 'Applied as one change. Undo restores your draft.',
+      before: current,
     };
     lyRenderReview();
     return true;
@@ -1177,6 +1309,18 @@ function lyCheckApply(item) {
   const text = String(item.proposal);
   if (!text.trim() || /[\r\n]/.test(text) || LY_BRACKET.test(text.trim()))
     return fail('The suggestion is not a single sung line. Nothing was changed.');
+  const row = model.sung[k];
+  const rows = model.text.split('\n');
+  rows[row.i] = rows[row.i].replace(row.text, () => text.trim());
+  const next = rows.join('\n');
+  // A line of your own is an ordinary, unchecked edit (it says so); only the
+  // writer's suggestion is held to the declarations and the local checks.
+  if (!item.own) {
+    const decl = lyDeclarationRefusal(run, model);
+    if (decl) return fail(decl.replace('Nothing was changed.', 'Your line was kept.'));
+    const issues = lyNewIssues(model, next);
+    if (issues.length) return fail(lyIssueRefusal(issues, 'Your line was kept.'));
+  }
   // Declarations bound to the old text stop applying once it changes.
   const notes = [];
   const others = current.filter((t, j) => j !== k && t === run.base[k]).length;
@@ -1190,13 +1334,11 @@ function lyCheckApply(item) {
     if (hook && hook.line === run.base[k])
       notes.push('This was the hook line; choose the hook again.');
   }
-  const row = model.sung[k];
-  const rows = model.text.split('\n');
-  rows[row.i] = rows[row.i].replace(row.text, () => text.trim());
-  lyCommit(rows.join('\n'), `Line ${n} updated. Undo restores it.`);
+  lyCommit(next, `Line ${n} updated. Undo restores it.`);
   LY.outcomes[item.id] = {
     state: 'applied',
     message: ['Applied. Undo restores the original.', ...notes].join(' '),
+    before: current,
   };
   LY.activeLine = n;
   lyRenderReview();
@@ -1616,8 +1758,9 @@ function lyRenderSong(items) {
     .join('');
 }
 function lyPlanHtml() {
-  const task = LY.run?.task || chatState.task;
-  const lyric = LY.run?.lyric || chatState.lyric;
+  const live = lyRunLive(LY.run);
+  const task = chatState.task?.domain === 'lyrics' ? chatState.task : live ? LY.run.task : null;
+  const lyric = chatState.lyric || (live ? LY.run.lyric : null);
   const w = task?.domain === 'lyrics' ? task.workflow : null;
   const decl = lyric?.decl && typeof lyric.decl === 'object' ? lyric.decl : null;
   if (!w && !decl)
@@ -1780,7 +1923,9 @@ function lyRenderStatus() {
 
 // ── Review: one active decision at a time ─────────────────────────────────
 function lyRecoveryState() {
-  const lyric = chatState.lyric || LY.run?.lyric || null;
+  // Only the live conversation: a reset (new work from a page helper) clears
+  // chatState.lyric, and an archived run is not waiting for anything here.
+  const lyric = chatState.lyric || null;
   const lyricChat = (chatState.task?.domain || chatState.pending?.domain) === 'lyrics' || !!lyric;
   const s = {
     busy: chatState.busy && lyricChat,
@@ -1814,13 +1959,24 @@ function lyItemHtml(item, count, index) {
     if (own !== undefined)
       html += `<div class="ly-own"><label for="ly-own-input">Your line ${n}</label><input id="ly-own-input" class="cm-input" data-id="${esc(item.id)}" value="${esc(own)}"><div class="ly-actions">${lyBtn('ly-own-check', 'Ask the writer to check it', 'sparkles', { id: item.id, cls: 'cm-btn cm-btn-tonal' })}${lyBtn('ly-own-put', 'Put it in my draft (unchecked)', 'pencil', { id: item.id, cls: 'cm-btn cm-btn-outline' })}${lyBtn('ly-own-cancel', 'Cancel', '', { id: item.id, cls: 'cm-btn' })}</div><p class="ly-note">The writer checks it against the current draft and its declarations; putting it in yourself is an ordinary edit that nothing has checked.</p></div>`;
     else
-      html += `<div class="ly-actions">${lyBtn('ly-apply', 'Check & apply', 'check', { id: item.id, cls: 'cm-btn cm-btn-primary' })}${lyBtn('ly-own', 'Write my own', 'pencil', { id: item.id, cls: 'cm-btn cm-btn-outline' })}${lyBtn('ly-keep', 'Keep mine', '', { id: item.id, cls: 'cm-btn' })}</div><p class="ly-note">Check & apply compares this suggestion with your current draft and its declarations first. If the line or its numbering changed, your original stays and the reason is shown.</p>`;
+      html += `<div class="ly-actions">${lyBtn('ly-apply', 'Check & apply', 'check', { id: item.id, cls: 'cm-btn cm-btn-primary' })}${lyBtn('ly-own', 'Write my own', 'pencil', { id: item.id, cls: 'cm-btn cm-btn-outline' })}${lyBtn('ly-keep', 'Keep mine', '', { id: item.id, cls: 'cm-btn cm-btn-outline' })}</div><p class="ly-note">Check & apply first confirms that line ${n}, the line numbering and your [SETUP] declarations are the ones the writer was given, and that this page’s exact checks find no new issue in the result. If any of that fails, your original stays and the reason is shown. It does not re-grade rhyme or meter.</p>`;
     const partners = lyPartners(n);
     html += `<div class="ly-actions ly-secondary">${lyBtn('ly-explore', 'Explore rhyme words', 'search', { id: n, cls: 'ly-link-btn' })}${partners.length ? lyBtn('ly-rewrite-group', partners.length === 1 ? 'Rewrite both lines' : 'Rewrite the linked lines', 'repeat', { id: [n, ...partners].join(','), cls: 'ly-link-btn' }) : ''}</div>`;
   } else if (item.whole) {
     if (out?.state === 'failed')
       html += `<div class="ly-outcome" data-tone="danger" role="alert">${icon('circle-alert', 16)}<span><strong>Not applied.</strong> ${esc(out.message)}</span></div>`;
-    html += `<details class="ly-whole"><summary>Compare with your draft</summary><div class="ly-compare ly-compare-whole"><div class="ly-orig"><span>Your draft</span><pre>${esc(lySungTexts(LY.model).join('\n'))}</pre></div><div class="ly-sugg"><span>Writer’s draft</span><pre>${esc(item.whole.join('\n'))}</pre></div></div></details><div class="ly-actions">${lyBtn('ly-apply', 'Check & apply', 'check', { id: item.id, cls: 'cm-btn cm-btn-primary' })}${lyBtn('ly-keep', 'Keep mine', '', { id: item.id, cls: 'cm-btn' })}</div><p class="ly-note">Applies only if your draft is still the one you asked about, as one change that Undo reverses.</p>`;
+    html += `<details class="ly-whole"><summary>Compare with your draft</summary><div class="ly-compare ly-compare-whole"><div class="ly-orig"><span>Your draft</span><pre>${esc(lySungTexts(LY.model).join('\n'))}</pre></div><div class="ly-sugg"><span>Writer’s draft</span><pre>${esc(item.whole.join('\n'))}</pre></div></div></details><div class="ly-actions">${
+      LY.run?.base
+        ? lyBtn('ly-apply', 'Check & apply', 'check', { id: item.id, cls: 'cm-btn cm-btn-primary' })
+        : lyBtn('ly-apply', 'Replace with the writer’s draft', 'file-text', {
+            id: item.id,
+            cls: 'cm-btn cm-btn-primary',
+          })
+    }${lyBtn('ly-keep', 'Keep mine', '', { id: item.id, cls: 'cm-btn cm-btn-outline' })}</div><p class="ly-note">${
+      LY.run?.base
+        ? 'Applies only if your sung lines and [SETUP] declarations are still the ones you asked about and this page’s exact checks find no new issue, as one change that Undo reverses.'
+        : 'Nothing checks this: the reply came without the draft it was asked about. It replaces your sung lines as one change that Undo reverses; your headers and [SETUP] lines stay where the line counts allow.'
+    }</p>`;
   }
   if (item.answer) {
     if (item.question)
@@ -1832,7 +1988,7 @@ function lyItemHtml(item, count, index) {
       )
       .join(
         ''
-      )}<div class="ly-actions">${lyBtn('ly-answer', 'Put my answer in the writer', 'message-circle', { cls: 'cm-btn cm-btn-tonal' })}</div><p class="ly-note">Opens the same conversation with your answer filled in; nothing is sent until you press Ask. The run checks the answer against the current draft and its declarations.</p></div>`;
+      )}<div class="ly-actions">${lyBtn('ly-answer', 'Put my answer in the writer', 'message-circle', { cls: 'cm-btn cm-btn-tonal' })}</div><p class="ly-note">Opens the same, still-waiting conversation with your answer filled in; nothing is sent until you press Ask. The run checks the answer against the current draft and its declarations.</p></div>`;
   }
   if (item.actions?.length)
     html += `<div class="ly-actions">${item.actions.map(([act, label, ic, id]) => lyBtn(act, label, ic, { id, cls: 'cm-btn cm-btn-outline' })).join('')}</div>`;
@@ -1964,7 +2120,7 @@ function lyRenderHistory() {
         cls: 'cm-btn cm-btn-outline',
       })
     );
-  if (lyric?.state && lyric.resumable !== false && !rec.busy)
+  if (lyLiveWaiting(lyric) && !rec.busy)
     card(
       'info',
       'circle-question-mark',
@@ -2357,24 +2513,33 @@ function lyRefresh(now = false) {
     const prev = LY.model;
     const next = lyParse(draft.value);
     // The shell puts a writer's lyrics in place whole (automatically, or by
-    // "Use these lyrics"); that text has no [SETUP] lines. Put the person's
-    // declarations back, visibly, once per reply, so Undo can step past it.
+    // "Use these lyrics"); that text has no [SETUP] lines and its own (or no)
+    // headers. Where the line counts match, put only the sung lines into the
+    // person's draft, so headers, declared sizes, bars, meter and setup
+    // survive; otherwise keep at least the setup. Visibly, once per reply,
+    // as its own step so Undo can step past it.
+    const run = LY.run;
     if (
-      prev?.setup.length &&
-      !next.setup.length &&
+      (prev?.setup.length || prev?.sections.some((sec) => sec.header)) &&
+      run?.final &&
+      !run.restored &&
+      draft.value === run.wholeText &&
       next.sung.length &&
-      LY.run?.final &&
-      !LY.run.setupKept &&
-      lySame(lySungTexts(next), LY.run.final)
+      lySame(lySungTexts(next), run.final)
     ) {
-      LY.run.setupKept = true;
+      run.restored = true;
+      const restored = lyReplaceSung(prev, run.final, lyKeepSetup(prev, draft.value));
       LY.text = draft.value;
       LY.model = next;
-      lyCommit(
-        lyKeepSetup(prev, draft.value),
-        'The writer’s lyrics are in; your setup lines were kept.'
-      );
-      return;
+      if (restored !== draft.value) {
+        lyCommit(
+          restored,
+          prev.sung.length === run.final.length
+            ? 'The writer’s lines are in; your headers and setup lines were kept.'
+            : 'The writer’s lyrics are in; your setup lines were kept.'
+        );
+        return;
+      }
     }
     LY.text = draft.value;
     LY.model = next;
@@ -2465,12 +2630,16 @@ function lyReceive(payload, request) {
       : null);
   const matches = request?.request_id && UI.lyricRequest?.id === request.request_id;
   const tools = Array.isArray(payload.tools) ? payload.tools : [];
+  // The request as it was sent: its sung lines and its [SETUP] rows. The
+  // stored text keeps the rows; the writer was given their values as JSON.
+  const asked = matches ? lyParse(UI.lyricRequest.text || '') : null;
   const coverageTool = [...tools]
     .reverse()
     .find((t) => t?.coverage && typeof t.coverage === 'object');
   LY.run = {
     id: ++lyRunSeq,
     at: Date.now(),
+    generation: chatState.generation,
     artifact: payload.artifact || null,
     completion: payload.completion || null,
     lyric: payload.lyric || chatState.lyric || null,
@@ -2489,7 +2658,8 @@ function lyReceive(payload, request) {
         : final
           ? final.join('\n')
           : null,
-    base: matches ? lyParse(UI.lyricRequest.text || '').sung.map((r) => r.text) : null,
+    base: asked ? lySungTexts(asked) : null,
+    baseSetup: asked ? lySetupKey(asked) : null,
   };
   LY.reviewTab = 'issue';
   LY.reviewAt = 0;
@@ -2497,16 +2667,53 @@ function lyReceive(payload, request) {
 }
 
 // ── Writer prompts (sent only when the person presses Ask) ─────────────────
-function lyAskWriter(domain, message) {
+// Every helper here starts new work: uiNewTask → _chatReset clears the live
+// conversation. A run waiting for an answer, or parked with open lines, would
+// be archived by that (or lost, with no saved copy), so ask first.
+async function lyConfirmReset() {
+  const lyric = chatState.lyric;
+  if (chatState.busy || !(lyLiveWaiting(lyric) || lyric?.parked)) return true;
+  const saved = !!(chatState.continuationId || chatState.pending);
+  const what = lyric.parked
+    ? `The writer’s run is parked with ${lyPlural((lyric.open || []).length, 'open line')}.`
+    : 'The writer is waiting for your answer.';
+  const ok = await confirmDialog({
+    title: 'Start a new writer conversation?',
+    message: `${what} This starts a new conversation, which ${saved ? 'archives that run under History → Saved runs' : 'ends that run: this browser has no saved copy of it'}. It can no longer be answered or continued from this page.`,
+    confirmLabel: saved ? 'Archive it and start' : 'End it and start',
+    cancelLabel: 'Keep the run',
+  });
+  if (!ok) showToast('Kept the waiting run. Answer it in the writer, or start new work later.');
+  return ok;
+}
+async function lyNewTask(domain) {
+  if (!(await lyConfirmReset())) return false;
   lyShowPane('writer');
-  if (!uiNewTask(domain)) return false;
+  const ok = uiNewTask(domain);
+  lyRefresh(true);
+  return ok;
+}
+async function lyAskWriter(domain, message) {
+  if (!(await lyNewTask(domain))) return false;
   $ui('chat-input').value = message;
   // A script write fires no input event; see _chatSyncCount in src/app.js.
   _chatSyncCount();
   $ui('chat-input').focus();
   return true;
 }
-const lyDraftForWriter = () => lyDraft().value + lyWriterDeclarations(lyParse(lyDraft().value));
+// What the writer is sent. [SETUP] rows stay in the stored draft only: the
+// harness reads every whole-line bracket as a section mark (lyric_recover →
+// quality/recover.py _sections_from_marks), so a [SETUP] row would open a
+// section. Their values travel in the JSON declarations block instead.
+function lyWriterText(text) {
+  const rows = String(text || '')
+    .split('\n')
+    .filter((r) => !LY_SETUP.test(r.trim()));
+  while (rows.length && !rows[0].trim()) rows.shift();
+  return rows.join('\n');
+}
+const lyDraftForWriter = (text = lyDraft().value) =>
+  lyWriterText(text) + lyWriterDeclarations(lyParse(text));
 
 // ── Menus ─────────────────────────────────────────────────────────────────
 function lyCloseMenus(except = '') {
@@ -2591,15 +2798,13 @@ const LY_ACTIONS = {
     uiNavigate('genre');
     document.body.classList.add('assistant-open');
   },
-  'new-lyrics'() {
+  async 'new-lyrics'() {
     lyCloseMenus();
-    lyShowPane('writer');
-    uiNewTask('lyrics');
+    await lyNewTask('lyrics');
   },
-  'edit-lyrics'() {
+  async 'edit-lyrics'() {
     lyCloseMenus();
-    lyShowPane('writer');
-    if (!uiNewTask('lyrics-edit')) return;
+    if (!(await lyNewTask('lyrics-edit'))) return;
     $ui('chat-input').value = 'Edit these lyrics:\n' + lyDraftForWriter();
     // maxlength does not bind a script write, so a long draft lands PAST
     // the wall; the counter is what says so before the server refuses it.
@@ -2867,7 +3072,7 @@ const LY_ACTIONS = {
     const text = ($ui('ly-own-input')?.value || '').trim();
     if (!item || !text) return;
     const n = item.decision.n;
-    lyAskWriter(
+    return lyAskWriter(
       'lyrics-edit',
       `Check this replacement for line ${n} against the current draft and its declarations. If it fails, keep the original line and say why.\nLine ${n} now: ${lySungTexts(LY.model)[n - 1] ?? item.original}\nReplacement: ${text}\n\nCurrent draft:\n${lyDraftForWriter()}`
     );
@@ -2876,7 +3081,7 @@ const LY_ACTIONS = {
     const item = lyItem(id);
     const text = ($ui('ly-own-input')?.value || '').trim();
     if (!item || !text) return;
-    if (lyCheckApply({ ...item, proposal: text })) {
+    if (lyCheckApply({ ...item, proposal: text, own: true })) {
       LY.outcomes[id].message =
         'Your own line is in the draft. Nothing has checked it; Undo restores the original.';
       delete LY.own[id];
@@ -2896,7 +3101,7 @@ const LY_ACTIONS = {
   },
   'ly-rewrite-group'(id) {
     const ns = id.split(',').map(Number);
-    lyAskWriter(
+    return lyAskWriter(
       'lyrics-edit',
       `Rewrite ${lyLineRef(ns)} together so they keep their rhyme link and every other declaration. Change no other line.\n\nCurrent draft:\n${lyDraftForWriter()}`
     );
@@ -2905,7 +3110,7 @@ const LY_ACTIONS = {
     lyScrollToLine(Number(id));
   },
   'ly-ask-review'() {
-    lyAskWriter(
+    return lyAskWriter(
       'lyrics-edit',
       `Review these lyrics against their section headers and [SETUP] declarations. Report every finding, what could not be judged, and what input is missing. Do not rewrite anything yet.\n\n${lyDraftForWriter()}`
     );
@@ -3028,7 +3233,7 @@ const LY_ACTIONS = {
     const also = $ui('ly-explore-with').value.trim();
     if (!w) return $ui('ly-explore-in').focus();
     LY.picks.explore = w;
-    lyAskWriter(
+    return lyAskWriter(
       'lyrics-edit',
       `Screen rhyme candidates for “${w}”${also ? ` that also ${also}` : ''} in this draft. List full matches separately from partial matches, and say which requirement each partial match misses. Do not change the draft.\n\n${lyDraftForWriter()}`
     );
@@ -3093,7 +3298,7 @@ const LY_ACTIONS = {
     );
   },
   'ly-reading-ask'() {
-    lyAskWriter(
+    return lyAskWriter(
       'lyrics-edit',
       `List the dictionary pronunciation options (pronunciation_options) for the words whose [SETUP — reading] says “needs a choice”. Do not choose for me and do not rewrite the lyrics.\n\n${lyDraftForWriter()}`
     );
@@ -3159,6 +3364,14 @@ const LY_ACTIONS = {
     );
   },
   'ly-answer'() {
+    // Only into the conversation that asked: never a fresh one.
+    if (!lyRunLive(LY.run) || !lyLiveWaiting()) {
+      showToast(
+        'That question belongs to a conversation that has been archived. Nothing was filled in.',
+        'error'
+      );
+      return lyRefresh(true);
+    }
     const rows = [...document.querySelectorAll('#ly-review [data-answer]')].map((i) => ({
       n: Number(i.dataset.answer),
       text: i.value.trim(),
@@ -3417,6 +3630,18 @@ function lyWire(surface) {
     items[next]?.focus();
     e.preventDefault();
   });
+  // The shell hands a reply over while its request still reads busy
+  // (uiReceiveReply runs before _chatSetBusy(false)). Re-render when the
+  // dock's busy state flips, so "Writer running" never outlives the request
+  // and a waiting question shows as soon as the writer is idle.
+  const dock = $ui('chat-dock');
+  let busy = chatState.busy;
+  if (dock && typeof MutationObserver === 'function')
+    new MutationObserver(() => {
+      if (chatState.busy === busy) return;
+      busy = chatState.busy;
+      if (LY.model) lyRefresh();
+    }).observe(dock, { attributes: true, attributeFilter: ['class'] });
   // The shell hands every writer reply to uiReceiveReply; read it after.
   const shellReceive = window.uiReceiveReply;
   if (typeof shellReceive === 'function' && !shellReceive.lyWrapped) {
@@ -3466,6 +3691,9 @@ uiRegisterPage({
         null
       );
     lyRefresh(true);
+    // Navigation renders the page before it switches the dock to the lyric
+    // conversation; read the live conversation again once it has.
+    setTimeout(() => LY.model && lyRefresh(true), 0);
   },
   // Page geometry: the song outline and the side panel resize from their
   // inner edges (drag or arrow keys; Home resets), above 1100px.
