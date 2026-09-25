@@ -123,7 +123,7 @@
     "traditionId": "andalusi_nuba",
     "instrumentId": "rebab",
     "instrumentClass": "bowed_string",
-    "expectedPreface": "andalusi-modal"
+    "expectedPreface": "kakaki-heralding"
   },
   {
     "traditionId": "arab_tarab",
@@ -159,7 +159,7 @@
     "traditionId": "anglican_choral_evensong",
     "instrumentId": "pipe_organ",
     "instrumentClass": "keyboard_acoustic",
-    "expectedPreface": "messianic"
+    "expectedPreface": "annunciatory"
   },
   {
     "traditionId": "aor",
@@ -225,7 +225,7 @@
     "traditionId": "bhajan",
     "instrumentId": "harmonium_indian",
     "instrumentClass": "free_reed",
-    "expectedPreface": "shanti"
+    "expectedPreface": "circling"
   },
   {
     "traditionId": "bothy_ballad_doric",
@@ -309,13 +309,13 @@
     "traditionId": "anglican_choral_evensong",
     "instrumentId": "choir_cathedral_satb",
     "instrumentClass": "vocal_choir",
-    "expectedPreface": "messianic"
+    "expectedPreface": "annunciatory"
   },
   {
     "traditionId": "anglican_choral_evensong",
     "instrumentId": "choir_ensemble",
     "instrumentClass": "vocal_choir",
-    "expectedPreface": "messianic"
+    "expectedPreface": "annunciatory"
   },
   {
     "traditionId": "barbershop_quartet",

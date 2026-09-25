@@ -1,0 +1,2362 @@
+{
+  "_doc": "Every token on a real tradition id in references/_tradition_signatures.json, classed. Read by scripts/check_signature_tokens.js, which fails on a signature token this file does not class, so a new token - cultural or not - cannot slip in unclassified. Classes: 'cultural' - claims the tradition belongs to, descends from, or is shaped by a specific culture, people, place, language, religion or rite, or a named cultural tradition (ethnonyms and places, languages, specific religions and liturgies, named lineages such as gagaku-foundational or samba-foundation, culture-specific form names, and materials that name a place, maker or people rather than a species); every (tradition, cultural token) pair must carry a ruling in references/_signature_rulings.json. 'style' - a cross-cultural genre or idiom descriptor (jazz, funk-derived, rock-context), a Western art-music period or training word (baroque-*, classical, romantic), a generic function word naming no specific religion (devotional, liturgical, ceremonial), a species-only material (sitka-spruce, keyaki) or a gear line; recorded here, not ruled per pair and not gated beyond classification. 'sonic' - a sound, technique, texture, form, affect, instrument, material or production word. Where a token is ambiguous between cultural and style it is cultural only if it names a specific people, place, language, religion or named cultural tradition.",
+  "_fields": "class: cultural | style | sonic. kind (cultural, style): ethnonym-place | religion-rite | named-lineage | material-provenance - what the claim is about. group (style): genre-idiom | art-music-period | generic-function | species-material | gear-lineage. gloss: what the token claims. note (optional): why a borderline token sits in its class.",
+  "tokens": {
+    "17-ply": {
+      "class": "sonic"
+    },
+    "18-ply": {
+      "class": "sonic"
+    },
+    "7-ply": {
+      "class": "sonic"
+    },
+    "African-craft": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims an African craft / instrument-making lineage"
+    },
+    "African-derived": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims derivation from African musical traditions (Africa or the African diaspora)"
+    },
+    "African-traditional": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims the tradition is, or descends from, traditional African music"
+    },
+    "Chinese-classical": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Chinese classical lineage"
+    },
+    "German-traditional": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims German / Austro-German traditional lineage"
+    },
+    "Hindu-ritual": {
+      "class": "cultural",
+      "kind": "religion-rite",
+      "gloss": "claims a Hindu ritual / devotional context"
+    },
+    "Irish-traditional": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Irish traditional-music lineage"
+    },
+    "Italian-baroque": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Italian Baroque lineage (Monteverdi / Corelli / Vivaldi school)",
+      "note": "kept cultural: names a place (Italy) on top of the period; the bare baroque-* period words are style"
+    },
+    "Japanese-classical": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Japanese classical (hogaku / court) lineage"
+    },
+    "Korean-classical": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Korean classical (gugak / jeongak) lineage"
+    },
+    "Middle-Eastern": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Middle-Eastern lineage (Arab, Persian, Turkish, Levantine sphere)"
+    },
+    "Scottish-influenced": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Scottish musical influence"
+    },
+    "Turkish-makam-base": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims a Turkish / Ottoman makam modal basis"
+    },
+    "a-415": {
+      "class": "sonic"
+    },
+    "a-440": {
+      "class": "sonic"
+    },
+    "a-442": {
+      "class": "sonic"
+    },
+    "accordion": {
+      "class": "sonic"
+    },
+    "acoustic-only": {
+      "class": "sonic"
+    },
+    "aged-felt": {
+      "class": "sonic"
+    },
+    "aleke": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names aleke, the Guianese Maroon popular-music genre"
+    },
+    "aluminum-wound": {
+      "class": "sonic"
+    },
+    "amber-tinted": {
+      "class": "sonic"
+    },
+    "ambient": {
+      "class": "sonic",
+      "note": "texture word (on ambient traditions only); no cultural origin claim"
+    },
+    "anent": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names anent, the Shuar intimate ritual song"
+    },
+    "answering-assistant": {
+      "class": "sonic"
+    },
+    "arabic-maqam": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims the Arabic maqam modal system"
+    },
+    "archive-recital": {
+      "class": "sonic"
+    },
+    "articulated": {
+      "class": "sonic"
+    },
+    "asian-laminated": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims Asian laminated construction"
+    },
+    "asian-spruce": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims Asian-sourced spruce"
+    },
+    "aurally-tuned": {
+      "class": "sonic"
+    },
+    "autobiographical": {
+      "class": "sonic"
+    },
+    "avaz-ornamentation": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names Persian avaz vocal ornamentation"
+    },
+    "backbeat": {
+      "class": "sonic"
+    },
+    "bag-fed": {
+      "class": "sonic"
+    },
+    "bagshy": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names the bagshy (Turkmen bard) tradition"
+    },
+    "bamboo-flutes": {
+      "class": "sonic"
+    },
+    "baroque-leaning": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims European Baroque (c.1600-1750) lineage"
+    },
+    "baroque-pitch": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims European Baroque pitch practice (A=415 etc.)"
+    },
+    "baroque-recipe": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims a European Baroque (varnish/string) recipe"
+    },
+    "baroque-setup": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims a European Baroque instrument set-up"
+    },
+    "baroque-soloistic": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims European Baroque soloistic style"
+    },
+    "basotho": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Basotho people (Lesotho)"
+    },
+    "bass-drum": {
+      "class": "sonic"
+    },
+    "beater-struck": {
+      "class": "sonic"
+    },
+    "beef-gut": {
+      "class": "sonic"
+    },
+    "bellows-driven": {
+      "class": "sonic"
+    },
+    "bhutanese": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Bhutan / the Bhutanese"
+    },
+    "birch-laminated": {
+      "class": "sonic"
+    },
+    "blues-derived": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims derivation from the blues (African-American genre lineage)",
+      "note": "genre-derivation claim of the same shape as funk-derived (style); blues family (bluesy / blues-inflected / blues-shouter are style). Unlike gospel-rooted it names no church or religion"
+    },
+    "blues-inflected": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims blues inflection (African-American genre lineage)"
+    },
+    "blues-shouter": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims the blues-shouter vocal lineage (Kansas City / jump-blues shouters)"
+    },
+    "bluesy": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "blues idiom adjective (implies blues lineage); blue-note feel reading possible"
+    },
+    "boat-shaped": {
+      "class": "sonic"
+    },
+    "bosavi": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Bosavi (Kaluli) people / Mount Bosavi, Papua New Guinea"
+    },
+    "bosnian-source": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims Bosnian-sourced tonewood (place of origin)"
+    },
+    "bowed": {
+      "class": "sonic"
+    },
+    "bowed-strings": {
+      "class": "sonic"
+    },
+    "bowl-lyre": {
+      "class": "sonic"
+    },
+    "brass": {
+      "class": "sonic"
+    },
+    "brass-cymbals": {
+      "class": "sonic"
+    },
+    "breath-driven": {
+      "class": "sonic"
+    },
+    "breath-heavy": {
+      "class": "sonic"
+    },
+    "breathing": {
+      "class": "sonic"
+    },
+    "breathing-rhythm": {
+      "class": "sonic"
+    },
+    "breathy-low": {
+      "class": "sonic"
+    },
+    "bright-high-register": {
+      "class": "sonic"
+    },
+    "bright-modern": {
+      "class": "sonic"
+    },
+    "bright-uniform": {
+      "class": "sonic"
+    },
+    "burundian": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Burundi"
+    },
+    "busoga": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Busoga (Basoga people, Uganda)"
+    },
+    "buzzing-membrane": {
+      "class": "sonic"
+    },
+    "buzzing-resonators": {
+      "class": "sonic"
+    },
+    "call-response": {
+      "class": "sonic",
+      "note": "technique found across cultures"
+    },
+    "cante-jondo": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names cante jondo, the deep song of Andalusian flamenco"
+    },
+    "carnatic": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims South Indian (Carnatic) classical lineage"
+    },
+    "celtic": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims a Celtic lineage (Irish, Scottish, Welsh, Breton, Cornish, Manx, Galician/Asturian)"
+    },
+    "central-asian": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Central Asia"
+    },
+    "ceremonial": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "generic-function",
+      "gloss": "claims a ceremonial / ritual function (civic or religious)"
+    },
+    "chant-foundational": {
+      "class": "sonic",
+      "note": "vocal form (chant) found across cultures; names no religion"
+    },
+    "chanted-poetry": {
+      "class": "sonic"
+    },
+    "characterful-uneven": {
+      "class": "sonic"
+    },
+    "characteristic-cry": {
+      "class": "sonic"
+    },
+    "chesols": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names chesols, the Palauan solo-chant genre"
+    },
+    "chewa": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Chewa people (Malawi, Zambia, Mozambique)"
+    },
+    "choir-blendable": {
+      "class": "sonic"
+    },
+    "chopi": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Chopi people (Mozambique)"
+    },
+    "choral": {
+      "class": "sonic"
+    },
+    "choral-response": {
+      "class": "sonic"
+    },
+    "chorus-chant": {
+      "class": "sonic",
+      "note": "vocal form"
+    },
+    "chukchi": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Chukchi people (Chukotka, NE Siberia)"
+    },
+    "cinnabar-loaded": {
+      "class": "sonic"
+    },
+    "circular-breathing": {
+      "class": "sonic"
+    },
+    "classical": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "Western art-music (classical) lineage as the catalog uses it; generic \"art music\" register reading possible"
+    },
+    "classical-jazz": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims a classical-jazz (swing-era / mainstream jazz) lineage",
+      "note": "jazz family: names a jazz idiom (swing-era / mainstream), no people, place or religion"
+    },
+    "classical-radif": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims a classical radif basis (the canonical repertoire of Persian classical music)"
+    },
+    "classical-trained": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims Western classical (conservatory) training; generic register reading possible"
+    },
+    "close": {
+      "class": "sonic"
+    },
+    "close-harmony": {
+      "class": "sonic"
+    },
+    "cluster-hammered": {
+      "class": "sonic"
+    },
+    "coconut-wood": {
+      "class": "sonic",
+      "note": "material (no place named)"
+    },
+    "combined-percussion": {
+      "class": "sonic"
+    },
+    "compact": {
+      "class": "sonic"
+    },
+    "compression-wired": {
+      "class": "sonic"
+    },
+    "concussion-idiophone": {
+      "class": "sonic"
+    },
+    "conga-influenced": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims Afro-Cuban conga-drum influence"
+    },
+    "congregation-loud": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "generic-function",
+      "gloss": "implies a worshipping congregation (church / religious assembly) setting; loudness reading possible"
+    },
+    "contemplative": {
+      "class": "sonic",
+      "note": "affect"
+    },
+    "contemporary-classical": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims Western contemporary art-music lineage"
+    },
+    "continuous-air": {
+      "class": "sonic"
+    },
+    "continuous-phonation": {
+      "class": "sonic"
+    },
+    "contrasting-registers": {
+      "class": "sonic"
+    },
+    "controlled-decay": {
+      "class": "sonic"
+    },
+    "copper-wound": {
+      "class": "sonic"
+    },
+    "country-twang": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims country-music (US) twang lineage"
+    },
+    "court-ceremonial": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "generic-function",
+      "gloss": "claims a royal / princely court ceremonial context"
+    },
+    "cremonese-pre-1750": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims Cremonese (Cremona, Italy) pre-1750 violin-making lineage"
+    },
+    "crescendo-build": {
+      "class": "sonic"
+    },
+    "crisp-consonant-articulation": {
+      "class": "sonic"
+    },
+    "cupped-hands": {
+      "class": "sonic"
+    },
+    "cutting": {
+      "class": "sonic"
+    },
+    "cyclic": {
+      "class": "sonic"
+    },
+    "cymbal": {
+      "class": "sonic"
+    },
+    "dakpa": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Dakpa subgroup of the Banda people (Central African Republic)"
+    },
+    "damped": {
+      "class": "sonic"
+    },
+    "dance": {
+      "class": "sonic"
+    },
+    "dance-driving": {
+      "class": "sonic"
+    },
+    "dance-friendly": {
+      "class": "sonic"
+    },
+    "dance-pulse": {
+      "class": "sonic"
+    },
+    "dance-rhythm": {
+      "class": "sonic"
+    },
+    "dance-song": {
+      "class": "sonic",
+      "note": "song function"
+    },
+    "dark": {
+      "class": "sonic"
+    },
+    "dark-romantic": {
+      "class": "sonic",
+      "note": "affect adjective used across cultures (tango, bambuco, emo, doom); not the Romantic era"
+    },
+    "dark-uneven": {
+      "class": "sonic"
+    },
+    "dastgah": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names the Persian dastgah modal system"
+    },
+    "declaimed": {
+      "class": "sonic"
+    },
+    "deep-bass": {
+      "class": "sonic"
+    },
+    "dene": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Dene peoples (northern Canada)"
+    },
+    "devotional": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "generic-function",
+      "gloss": "claims a religious-devotional function or context (no religion named; sonic \"devout affect\" reading possible)"
+    },
+    "dhrupad-suited": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims fit with dhrupad, the Hindustani (North Indian) classical genre"
+    },
+    "diaphragmatic": {
+      "class": "sonic"
+    },
+    "dinka": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Dinka people (South Sudan)"
+    },
+    "distorted": {
+      "class": "sonic"
+    },
+    "double-headed": {
+      "class": "sonic"
+    },
+    "driving": {
+      "class": "sonic"
+    },
+    "drone-foundation": {
+      "class": "sonic"
+    },
+    "drone-like": {
+      "class": "sonic"
+    },
+    "drum-ensemble": {
+      "class": "sonic"
+    },
+    "drum-pulse": {
+      "class": "sonic"
+    },
+    "drum-resonator": {
+      "class": "sonic"
+    },
+    "drumming": {
+      "class": "sonic"
+    },
+    "drums": {
+      "class": "sonic"
+    },
+    "dry": {
+      "class": "sonic"
+    },
+    "dry-stick": {
+      "class": "sonic"
+    },
+    "dub-friendly": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims affinity with dub (Jamaican studio lineage); affordance reading possible"
+    },
+    "duet": {
+      "class": "sonic"
+    },
+    "duet-game": {
+      "class": "sonic"
+    },
+    "dynamic-arc-foundational": {
+      "class": "sonic"
+    },
+    "ebonite": {
+      "class": "sonic"
+    },
+    "ecstatic": {
+      "class": "sonic",
+      "note": "affect"
+    },
+    "edge-blown": {
+      "class": "sonic"
+    },
+    "electric": {
+      "class": "sonic"
+    },
+    "english-folk": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims English folk-song lineage"
+    },
+    "ensemble": {
+      "class": "sonic"
+    },
+    "enunciated-diction": {
+      "class": "sonic"
+    },
+    "eucalyptus-tetrodonta": {
+      "class": "style",
+      "kind": "material-provenance",
+      "group": "species-material",
+      "gloss": "Darwin stringybark, native to northern Australia (termite-hollowed yidaki wood)"
+    },
+    "european-alpine": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims European Alpine lineage (Austria, Switzerland, Bavaria, Tyrol)"
+    },
+    "european-folk": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims European folk lineage"
+    },
+    "european-orchestral": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims European orchestral-tradition lineage",
+      "note": "kept cultural: names a place (Europe); ambiguous tokens stay cultural when they name a place"
+    },
+    "facing-rows": {
+      "class": "sonic"
+    },
+    "fado-lead": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims fado (Portuguese, Lisbon) lead-vocal lineage"
+    },
+    "fang": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Fang people (Gabon, Equatorial Guinea, Cameroon)"
+    },
+    "fast-attack-transient": {
+      "class": "sonic"
+    },
+    "fast-tremolo": {
+      "class": "sonic"
+    },
+    "festive": {
+      "class": "sonic",
+      "note": "affect/function"
+    },
+    "fingerpicked": {
+      "class": "sonic"
+    },
+    "fingertip": {
+      "class": "sonic"
+    },
+    "firm-felt": {
+      "class": "sonic"
+    },
+    "first-person-narrative": {
+      "class": "sonic"
+    },
+    "five-string": {
+      "class": "sonic"
+    },
+    "five-strings": {
+      "class": "sonic"
+    },
+    "flamed-figure": {
+      "class": "sonic"
+    },
+    "flamenco-classical": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims classical flamenco (Andalusian) lineage"
+    },
+    "flamenco-deep": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims deep (jondo) flamenco lineage"
+    },
+    "flute-tone": {
+      "class": "sonic"
+    },
+    "folk": {
+      "class": "sonic",
+      "note": "register word used across cultures in this catalog (country, tango, jibaro, mande_griot ...); names no culture"
+    },
+    "folk-rock": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims folk-rock lineage (1960s US/UK genre)"
+    },
+    "folk-shrill": {
+      "class": "sonic",
+      "note": "timbre descriptor; names no culture"
+    },
+    "folk-tradition": {
+      "class": "sonic",
+      "note": "register word used across cultures (bluegrass, gnawa, hiragasy ...); names no culture"
+    },
+    "folkloric": {
+      "class": "sonic",
+      "note": "register word used across cultures; names no culture"
+    },
+    "foundational-bass": {
+      "class": "sonic"
+    },
+    "foundational-sub": {
+      "class": "sonic"
+    },
+    "four-layer-system": {
+      "class": "sonic"
+    },
+    "fourteen-step": {
+      "class": "sonic"
+    },
+    "frame-drum": {
+      "class": "sonic"
+    },
+    "free-rhythm": {
+      "class": "sonic"
+    },
+    "french": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims French origin or character"
+    },
+    "french-musette-ready": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims affinity with French (Parisian) bal-musette accordion style"
+    },
+    "french-renaissance": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims French Renaissance lineage",
+      "note": "kept cultural: names a place (France) on top of the period"
+    },
+    "french-trad": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims French traditional-music lineage"
+    },
+    "full-lathed": {
+      "class": "sonic"
+    },
+    "full-perimeter": {
+      "class": "sonic"
+    },
+    "funk-derived": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims derivation from funk (African-American genre lineage, late 1960s on)"
+    },
+    "funk-friendly": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims affinity with funk; affordance reading possible",
+      "note": "funk family (funk-derived / funky are style)"
+    },
+    "funky": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "funk idiom adjective (implies funk lineage); generic groove-feel reading possible"
+    },
+    "gaelic-tradition": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims a Gaelic-language (Irish or Scottish Gaelic) tradition"
+    },
+    "gagaku-foundational": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims a foundation in gagaku, the Japanese imperial court music"
+    },
+    "galeazzi-1791": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "cites Francesco Galeazzi's 1791 Italian violin treatise (named Italian source)"
+    },
+    "gamaka-ornamentation": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names gamaka, Indian (esp. Carnatic) oscillating ornamentation"
+    },
+    "gimped": {
+      "class": "sonic"
+    },
+    "glassy": {
+      "class": "sonic"
+    },
+    "glissando-heavy": {
+      "class": "sonic"
+    },
+    "goatskin": {
+      "class": "sonic"
+    },
+    "goblet-shells": {
+      "class": "sonic"
+    },
+    "gospel-friendly": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "genre-idiom",
+      "gloss": "claims affinity with the gospel (Protestant church-song) idiom; affordance reading possible"
+    },
+    "gospel-pentecostal": {
+      "class": "cultural",
+      "kind": "religion-rite",
+      "gloss": "claims Pentecostal gospel lineage",
+      "note": "kept cultural: names a specific religious movement (Pentecostalism), unlike the generic gospel-runs / gospel-friendly idiom words"
+    },
+    "gospel-rooted": {
+      "class": "cultural",
+      "kind": "religion-rite",
+      "gloss": "claims roots in gospel music (African-American / Southern Protestant church song)",
+      "note": "kept cultural: read as a claim of descent from Black-church / Southern Protestant church song, unlike the idiom words gospel-runs / gospel-friendly, which are style"
+    },
+    "gospel-runs": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "genre-idiom",
+      "gloss": "claims gospel-church vocal runs (names the African-American Protestant gospel idiom)"
+    },
+    "gourd-trumpets": {
+      "class": "sonic"
+    },
+    "graduated-registers": {
+      "class": "sonic"
+    },
+    "gray-iron": {
+      "class": "sonic"
+    },
+    "greenlandic": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Greenland / Kalaallit"
+    },
+    "gritty": {
+      "class": "sonic"
+    },
+    "group-shouts": {
+      "class": "sonic"
+    },
+    "group-singing": {
+      "class": "sonic"
+    },
+    "group-vocals": {
+      "class": "sonic"
+    },
+    "growly": {
+      "class": "sonic"
+    },
+    "gulf": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Arabian (Persian) Gulf region"
+    },
+    "gut-membrane": {
+      "class": "sonic"
+    },
+    "gypsy-andalusian": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Andalusian Gitano (Spanish Romani) lineage"
+    },
+    "haida": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Haida people (Haida Gwaii, Pacific Northwest)"
+    },
+    "half-rectified": {
+      "class": "sonic"
+    },
+    "half-sung": {
+      "class": "sonic"
+    },
+    "hand-claps": {
+      "class": "sonic"
+    },
+    "hand-hammered": {
+      "class": "sonic"
+    },
+    "hand-percussion": {
+      "class": "sonic"
+    },
+    "hand-struck": {
+      "class": "sonic"
+    },
+    "handheld": {
+      "class": "sonic"
+    },
+    "hard-rock-maple": {
+      "class": "sonic",
+      "note": "tonewood species (Acer saccharum), not the hard-rock genre"
+    },
+    "hard-rubber": {
+      "class": "sonic"
+    },
+    "harmonizing-foundational": {
+      "class": "sonic"
+    },
+    "harmony-stacked-multi-part": {
+      "class": "sonic"
+    },
+    "harp": {
+      "class": "sonic"
+    },
+    "harp-song": {
+      "class": "sonic"
+    },
+    "haunted-romantic": {
+      "class": "sonic",
+      "note": "affect adjective; not the Romantic era"
+    },
+    "heroic-narrative": {
+      "class": "sonic",
+      "note": "form"
+    },
+    "heroic-poetry": {
+      "class": "sonic",
+      "note": "form"
+    },
+    "hide-head": {
+      "class": "sonic"
+    },
+    "high-falsetto": {
+      "class": "sonic"
+    },
+    "high-frequency": {
+      "class": "sonic"
+    },
+    "high-gain-cascading-saturation": {
+      "class": "sonic"
+    },
+    "high-gain-cascading-tube-stages": {
+      "class": "sonic"
+    },
+    "high-gain-saturation": {
+      "class": "sonic"
+    },
+    "high-register": {
+      "class": "sonic"
+    },
+    "high-twist": {
+      "class": "sonic"
+    },
+    "himalayan": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Himalayan region"
+    },
+    "hindustani": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims North Indian (Hindustani) classical lineage"
+    },
+    "historical-gut": {
+      "class": "sonic",
+      "note": "material"
+    },
+    "hocket": {
+      "class": "sonic",
+      "note": "general technique term (interlocking single notes) used cross-culturally"
+    },
+    "hollow": {
+      "class": "sonic"
+    },
+    "hollow-tube": {
+      "class": "sonic"
+    },
+    "hollowed-wood": {
+      "class": "sonic"
+    },
+    "horn-flutes": {
+      "class": "sonic"
+    },
+    "horn-polyphony": {
+      "class": "sonic"
+    },
+    "hot-pressed": {
+      "class": "sonic"
+    },
+    "hourglass-shell": {
+      "class": "sonic"
+    },
+    "iberian-celtic": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims an Iberian-Celtic lineage (compound: Iberian peninsula + Celtic, e.g. Galicia/Asturias)"
+    },
+    "interlocking": {
+      "class": "sonic"
+    },
+    "intimate": {
+      "class": "sonic"
+    },
+    "intimate-aspirated": {
+      "class": "sonic"
+    },
+    "inuit-throat-singing": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Inuit throat-singing (katajjaq) lineage"
+    },
+    "italian": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Italian origin or character"
+    },
+    "italian-alpine-spruce": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims Italian Alpine spruce tonewood (place of origin)"
+    },
+    "italian-recipe": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims an Italian (varnish) recipe"
+    },
+    "japanese-factory": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims Japanese factory manufacture"
+    },
+    "jazz": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "names jazz (African-American genre lineage)"
+    },
+    "jazz-friendly": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims affinity with the jazz idiom (African-American lineage); affordance reading possible"
+    },
+    "jazz-improvisation": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims jazz-style improvisation",
+      "note": "jazz family (jazz / jazz-influenced / jazz-friendly / scat are style)"
+    },
+    "jazz-influenced": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims jazz influence (African-American genre lineage)"
+    },
+    "jazz-trained": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims jazz-trained performers (African-American genre lineage)",
+      "note": "jazz family (jazz / jazz-influenced / jazz-friendly / scat are style)"
+    },
+    "kargyraa": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names kargyraa, the Tuvan low throat-singing style"
+    },
+    "katajjaq": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names katajjaq, the Inuit throat-singing game"
+    },
+    "katta-ashula": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names katta ashula, the Fergana Valley (Uzbek / Tajik) vocal art"
+    },
+    "kawina": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names kawina, the Surinamese Creole song genre"
+    },
+    "keyaki": {
+      "class": "style",
+      "kind": "material-provenance",
+      "group": "species-material",
+      "gloss": "Japanese-language name for zelkova wood (taiko shells)"
+    },
+    "khoomei": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names khoomei, Tuvan / Mongolian throat singing"
+    },
+    "khyal": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names khyal, the Hindustani classical vocal genre"
+    },
+    "kiribati": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Kiribati / I-Kiribati"
+    },
+    "klezmer-tradition": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims klezmer (Ashkenazi Jewish instrumental) lineage"
+    },
+    "koryak": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Koryak people (Kamchatka, NE Siberia)"
+    },
+    "kriti-form": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names kriti, the Carnatic (South Indian) composition form"
+    },
+    "kurinuki-construction": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "Japanese-language term for single-log hollowed taiko construction",
+      "note": "kept cultural: the Japanese-language name of a Japanese taiko-making technique (single-log hollowing, kurinuki-daiko), not a species"
+    },
+    "lacquer-voiced": {
+      "class": "sonic"
+    },
+    "lakalaka": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names lakalaka, the Tongan sung-speech-dance genre"
+    },
+    "lamb-gut": {
+      "class": "sonic"
+    },
+    "lamb-gut-core": {
+      "class": "sonic"
+    },
+    "lament-leaning": {
+      "class": "sonic"
+    },
+    "lament-wail": {
+      "class": "sonic"
+    },
+    "large-and-small-drums": {
+      "class": "sonic"
+    },
+    "large-diameter": {
+      "class": "sonic"
+    },
+    "late-Romantic-onward": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims descent from the late-Romantic era of European art music (late 19th c. on)"
+    },
+    "late-baroque": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims late European Baroque lineage",
+      "note": "baroque-* period qualifier (style, like every baroque-* word)"
+    },
+    "layered": {
+      "class": "sonic"
+    },
+    "layered-ambient": {
+      "class": "sonic",
+      "note": "texture descriptor"
+    },
+    "layered-rhythm": {
+      "class": "sonic"
+    },
+    "lead": {
+      "class": "sonic"
+    },
+    "lead-melody": {
+      "class": "sonic"
+    },
+    "lead-trumpet": {
+      "class": "sonic"
+    },
+    "leader-and-chorus": {
+      "class": "sonic"
+    },
+    "light-attack": {
+      "class": "sonic"
+    },
+    "lighter-bass-bar": {
+      "class": "sonic"
+    },
+    "linda": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Linda subgroup of the Banda people (Central African Republic)"
+    },
+    "liturgical": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "generic-function",
+      "gloss": "claims use in, or descent from, formal religious liturgy (no religion named)"
+    },
+    "live-duet": {
+      "class": "sonic"
+    },
+    "live-ensemble": {
+      "class": "sonic"
+    },
+    "live-take": {
+      "class": "sonic"
+    },
+    "lizard-skin": {
+      "class": "sonic"
+    },
+    "longer-neck": {
+      "class": "sonic"
+    },
+    "loud-soft-loud-structure": {
+      "class": "sonic"
+    },
+    "low-end-heavy": {
+      "class": "sonic"
+    },
+    "low-fundamental-tuning": {
+      "class": "sonic"
+    },
+    "low-mid-rich": {
+      "class": "sonic"
+    },
+    "low-mid-thick": {
+      "class": "sonic"
+    },
+    "low-projection-volume": {
+      "class": "sonic"
+    },
+    "low-register": {
+      "class": "sonic"
+    },
+    "low-thump": {
+      "class": "sonic"
+    },
+    "lower-tension": {
+      "class": "sonic"
+    },
+    "lush-ambient": {
+      "class": "sonic",
+      "note": "texture descriptor"
+    },
+    "lyon": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims Lyon (France) gut strings (historic string type named for Lyon)"
+    },
+    "machine-hammered": {
+      "class": "sonic"
+    },
+    "madi": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Ma'di people (Uganda / South Sudan)"
+    },
+    "malagasy": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Malagasy people / Madagascar"
+    },
+    "malawi": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Malawi"
+    },
+    "maldivian": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Maldives / Maldivians"
+    },
+    "maltese-ghana": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names ghana, the Maltese folk-song genre"
+    },
+    "march-pulse": {
+      "class": "sonic"
+    },
+    "marching": {
+      "class": "sonic",
+      "note": "descriptor"
+    },
+    "marching-bateria": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "Portuguese/Spanish 'bateria' (drum section); read as a samba-school bateria it is a Brazilian lineage claim"
+    },
+    "mari": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Mari people (Volga-Finnic, Mari El, Russia)"
+    },
+    "marine-band-tradition": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "gear-lineage",
+      "gloss": "names the Hohner Marine Band harmonica lineage (German diatonic harmonica, 1896); also readable as a military-band tradition",
+      "note": "names a harmonica model line (Hohner Marine Band), i.e. a piece of gear, not a people, place, language, religion or named cultural tradition; same footing as vintage-steinway"
+    },
+    "maroon": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Maroon peoples (e.g. Guianese Maroons of Suriname / French Guiana)"
+    },
+    "masked-dance": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "generic-function",
+      "gloss": "claims a masked (ritual) dance practice"
+    },
+    "medieval": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims European medieval lineage"
+    },
+    "meditative-tempo": {
+      "class": "sonic",
+      "note": "tempo/affect"
+    },
+    "meend-ornamentation": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names meend, Hindustani glide ornamentation"
+    },
+    "melismatic": {
+      "class": "sonic"
+    },
+    "melismatic-raw": {
+      "class": "sonic"
+    },
+    "mellow": {
+      "class": "sonic"
+    },
+    "melodic": {
+      "class": "sonic"
+    },
+    "membrane": {
+      "class": "sonic"
+    },
+    "membrane-resonance": {
+      "class": "sonic"
+    },
+    "metal-context": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims a heavy-metal context (UK/US genre lineage)"
+    },
+    "metal-salt-loaded": {
+      "class": "sonic"
+    },
+    "metal-strip-wound": {
+      "class": "sonic"
+    },
+    "metal-tin": {
+      "class": "sonic"
+    },
+    "metal-vessel": {
+      "class": "sonic"
+    },
+    "metallic": {
+      "class": "sonic",
+      "note": "timbre descriptor (also on metal-vessel/tin instruments), not the metal genre"
+    },
+    "metallic-accent": {
+      "class": "sonic"
+    },
+    "microtonal-bend": {
+      "class": "sonic"
+    },
+    "mid-baroque-period": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims mid European Baroque lineage",
+      "note": "baroque-* period qualifier (style, like every baroque-* word)"
+    },
+    "military-tight": {
+      "class": "sonic",
+      "note": "descriptor"
+    },
+    "mineral-pigment-lake": {
+      "class": "sonic"
+    },
+    "minimal": {
+      "class": "sonic"
+    },
+    "modal-improvisation": {
+      "class": "sonic"
+    },
+    "modal-non-rough": {
+      "class": "sonic"
+    },
+    "modern-classical": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims Western modern art-music lineage"
+    },
+    "modern-pitch": {
+      "class": "sonic",
+      "note": "pitch standard"
+    },
+    "modern-setup": {
+      "class": "sonic",
+      "note": "set-up"
+    },
+    "monastic-chant": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "generic-function",
+      "gloss": "claims monastic (religious-order) chant lineage (no religion named)"
+    },
+    "mournful": {
+      "class": "sonic"
+    },
+    "multi-pitch-simultaneous": {
+      "class": "sonic"
+    },
+    "multipart": {
+      "class": "sonic"
+    },
+    "muted": {
+      "class": "sonic"
+    },
+    "mwinoghe": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names mwinoghe, the northern Malawian drum-dance"
+    },
+    "nampet": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names nampet, the Shuar festive song genre"
+    },
+    "nasal-tone": {
+      "class": "sonic"
+    },
+    "naturally-reverberant": {
+      "class": "sonic"
+    },
+    "nenets": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Nenets people (Arctic Russia)"
+    },
+    "nganasan": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Nganasan people (Taymyr, Siberia)"
+    },
+    "no-chinrest": {
+      "class": "sonic"
+    },
+    "north-australia": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims northern-Australian Aboriginal origin (Arnhem Land, Daly/Wadeye, Kimberley)"
+    },
+    "northeast-arnhem": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Northeast Arnhem Land (Yolngu, Australia) origin"
+    },
+    "norway-spruce": {
+      "class": "style",
+      "kind": "material-provenance",
+      "group": "species-material",
+      "gloss": "tonewood species Picea abies; its common name carries a place (Norway)"
+    },
+    "ob-ugric": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Ob-Ugric peoples (Khanty and Mansi, western Siberia)"
+    },
+    "oil-base-coat": {
+      "class": "sonic"
+    },
+    "oil-varnish": {
+      "class": "sonic"
+    },
+    "open-chord-ringing-overtones": {
+      "class": "sonic"
+    },
+    "open-tone": {
+      "class": "sonic"
+    },
+    "oral-tradition": {
+      "class": "sonic",
+      "note": "transmission mode, universal; names no culture"
+    },
+    "ornament-heavy": {
+      "class": "sonic"
+    },
+    "ornamental-melismatic": {
+      "class": "sonic"
+    },
+    "ornamented": {
+      "class": "sonic"
+    },
+    "overlapping": {
+      "class": "sonic"
+    },
+    "overtone-singing": {
+      "class": "sonic",
+      "note": "general technique (not a named culture-specific style)"
+    },
+    "paired": {
+      "class": "sonic"
+    },
+    "paired-drums": {
+      "class": "sonic"
+    },
+    "paired-rods": {
+      "class": "sonic"
+    },
+    "paired-sticks": {
+      "class": "sonic"
+    },
+    "palauan": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Palau"
+    },
+    "pan-African": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims membership of a pan-African (continental Africa + diaspora) musical sphere"
+    },
+    "parixara": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names parixara, the Makushi-Wapichana song-dance (Guiana highlands)"
+    },
+    "partner-struck": {
+      "class": "sonic"
+    },
+    "pearwood": {
+      "class": "sonic"
+    },
+    "pedal-steel-twang": {
+      "class": "sonic",
+      "note": "instrument + timbre descriptor"
+    },
+    "pentatonic": {
+      "class": "sonic"
+    },
+    "percussive-attack": {
+      "class": "sonic"
+    },
+    "period-performance": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "claims historically-informed (European early-music) performance-practice lineage"
+    },
+    "period-rosin": {
+      "class": "sonic",
+      "note": "material"
+    },
+    "persian-classical": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Persian classical (dastgah/radif) lineage"
+    },
+    "persian-melismatic": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Persian (avaz-style) melismatic vocal lineage"
+    },
+    "personal-song": {
+      "class": "sonic",
+      "note": "song function"
+    },
+    "picked": {
+      "class": "sonic"
+    },
+    "pin-lathed": {
+      "class": "sonic"
+    },
+    "pistoy": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims Pistoy basses (historic gut-string type named for Pistoia, Italy)"
+    },
+    "plain-gut": {
+      "class": "sonic"
+    },
+    "plucked": {
+      "class": "sonic"
+    },
+    "polyphonic": {
+      "class": "sonic"
+    },
+    "pop": {
+      "class": "sonic",
+      "note": "register word (popular music); names no culture"
+    },
+    "praise-poetry": {
+      "class": "sonic",
+      "note": "form found across cultures"
+    },
+    "pre-1700-period": {
+      "class": "sonic",
+      "note": "date range"
+    },
+    "pre-1940-period": {
+      "class": "sonic",
+      "note": "date range"
+    },
+    "pre-modern": {
+      "class": "sonic",
+      "note": "date range"
+    },
+    "pre-war": {
+      "class": "sonic",
+      "note": "date range"
+    },
+    "pressed": {
+      "class": "sonic"
+    },
+    "projecting": {
+      "class": "sonic"
+    },
+    "qawwali": {
+      "class": "cultural",
+      "kind": "religion-rite",
+      "gloss": "names qawwali, the Sufi devotional song of South Asia (Chishti lineage)"
+    },
+    "quartersawn-maple": {
+      "class": "sonic"
+    },
+    "quartertone": {
+      "class": "sonic"
+    },
+    "quiet": {
+      "class": "sonic"
+    },
+    "raga-bound": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims organisation by raga (the South Asian modal system)"
+    },
+    "raga-improvisation": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims raga-based improvisation (South Asian)"
+    },
+    "random-pattern": {
+      "class": "sonic"
+    },
+    "rapid-tremolo": {
+      "class": "sonic"
+    },
+    "rasping": {
+      "class": "sonic"
+    },
+    "rattle": {
+      "class": "sonic"
+    },
+    "rectified": {
+      "class": "sonic"
+    },
+    "red-dyed": {
+      "class": "sonic"
+    },
+    "reed-ensemble": {
+      "class": "sonic"
+    },
+    "reed-tone": {
+      "class": "sonic"
+    },
+    "resonant": {
+      "class": "sonic"
+    },
+    "resonant-clack": {
+      "class": "sonic"
+    },
+    "reverberant": {
+      "class": "sonic"
+    },
+    "rhythm-section-pocket": {
+      "class": "sonic"
+    },
+    "rhythmic": {
+      "class": "sonic"
+    },
+    "rhythmic-speech": {
+      "class": "sonic"
+    },
+    "rim-struck": {
+      "class": "sonic"
+    },
+    "ringing": {
+      "class": "sonic"
+    },
+    "ritual": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "generic-function",
+      "gloss": "claims a ritual (religious / ceremonial) function"
+    },
+    "ritual-song": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "generic-function",
+      "gloss": "claims a ritual-song function"
+    },
+    "rock": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "names rock (Anglo-American genre lineage)"
+    },
+    "rock-context": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "claims a rock-music context (Anglo-American genre lineage)",
+      "note": "rock family (rock / folk-rock / metal-context are style)"
+    },
+    "romantic": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "art-music-period",
+      "gloss": "Romantic-era (19th-c. European art-music) lineage; affect reading \"romantic\" possible"
+    },
+    "room-forward": {
+      "class": "sonic"
+    },
+    "rope-tension": {
+      "class": "sonic"
+    },
+    "rough": {
+      "class": "sonic"
+    },
+    "round": {
+      "class": "sonic"
+    },
+    "royal-drums": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "generic-function",
+      "gloss": "claims a royal-court drum institution"
+    },
+    "rwandan": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Rwanda"
+    },
+    "sacred-Latin": {
+      "class": "cultural",
+      "kind": "religion-rite",
+      "gloss": "claims a Latin-rite (Roman Catholic, Latin-language) sacred lineage"
+    },
+    "sacred-traditional": {
+      "class": "style",
+      "kind": "religion-rite",
+      "group": "generic-function",
+      "gloss": "claims a sacred (religious) traditional function (no religion named)"
+    },
+    "samba-batería": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims the samba-school bateria (Brazilian samba percussion) lineage"
+    },
+    "samba-foundation": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims a samba (Brazilian) foundation"
+    },
+    "samba-foundational": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims a samba (Brazilian) foundation"
+    },
+    "sample-foundational": {
+      "class": "sonic"
+    },
+    "sao-tome": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Sao Tome (Sao Tome and Principe)"
+    },
+    "scat": {
+      "class": "style",
+      "kind": "named-lineage",
+      "group": "genre-idiom",
+      "gloss": "names jazz scat singing (implies jazz lineage)"
+    },
+    "sean-nos": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names sean-nos, Irish-Gaelic unaccompanied song"
+    },
+    "seed-rattles": {
+      "class": "sonic"
+    },
+    "selknam": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Selk'nam people (Tierra del Fuego)"
+    },
+    "seychellois": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Seychelles"
+    },
+    "shaken": {
+      "class": "sonic"
+    },
+    "shallow-cup": {
+      "class": "sonic"
+    },
+    "shallow-frame": {
+      "class": "sonic"
+    },
+    "shaped-rim": {
+      "class": "sonic"
+    },
+    "sharp": {
+      "class": "sonic"
+    },
+    "sheep-gut": {
+      "class": "sonic"
+    },
+    "sheet-bronze": {
+      "class": "sonic"
+    },
+    "short-neck": {
+      "class": "sonic"
+    },
+    "shorter-fingerboard": {
+      "class": "sonic"
+    },
+    "shouted": {
+      "class": "sonic"
+    },
+    "shuar": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Shuar people (Ecuadorian / Peruvian Amazon)"
+    },
+    "silver-wound": {
+      "class": "sonic"
+    },
+    "singing-sustain": {
+      "class": "sonic"
+    },
+    "single-log": {
+      "class": "sonic"
+    },
+    "single-string": {
+      "class": "sonic"
+    },
+    "sitka-spruce": {
+      "class": "style",
+      "kind": "material-provenance",
+      "group": "species-material",
+      "gloss": "tonewood species Picea sitchensis; its common name carries a place (Sitka, Alaska)"
+    },
+    "skin-head": {
+      "class": "sonic"
+    },
+    "skin-heads": {
+      "class": "sonic"
+    },
+    "slide": {
+      "class": "sonic"
+    },
+    "slovak": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Slovakia / Slovaks"
+    },
+    "small-vocal-ensemble": {
+      "class": "sonic"
+    },
+    "smoothed": {
+      "class": "sonic"
+    },
+    "soft-felt": {
+      "class": "sonic"
+    },
+    "soft-onset": {
+      "class": "sonic"
+    },
+    "softer-tone": {
+      "class": "sonic"
+    },
+    "solo": {
+      "class": "sonic"
+    },
+    "solo-chant": {
+      "class": "sonic",
+      "note": "vocal form"
+    },
+    "song": {
+      "class": "sonic"
+    },
+    "song-accompaniment": {
+      "class": "sonic"
+    },
+    "south-indian": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims South Indian origin"
+    },
+    "southern-Italian": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims southern-Italian lineage (Naples, Sicily, Calabria, Apulia/Salento)"
+    },
+    "sparse": {
+      "class": "sonic"
+    },
+    "speech-derived": {
+      "class": "sonic"
+    },
+    "speech-like": {
+      "class": "sonic"
+    },
+    "speech-mimicking": {
+      "class": "sonic"
+    },
+    "speech-mimicry": {
+      "class": "sonic"
+    },
+    "sprechgesang-vocal": {
+      "class": "sonic",
+      "note": "loanword technique term in general use (speech-song), like glissando/tremolo"
+    },
+    "staggered": {
+      "class": "sonic"
+    },
+    "standard-tuned": {
+      "class": "sonic"
+    },
+    "standing-player": {
+      "class": "sonic"
+    },
+    "stick-definition": {
+      "class": "sonic"
+    },
+    "stick-struck": {
+      "class": "sonic"
+    },
+    "stick-timekeeper": {
+      "class": "sonic"
+    },
+    "sticks": {
+      "class": "sonic"
+    },
+    "struck": {
+      "class": "sonic"
+    },
+    "strummed": {
+      "class": "sonic"
+    },
+    "sub-bass": {
+      "class": "sonic"
+    },
+    "sub-bass-foundational": {
+      "class": "sonic"
+    },
+    "sub-driven": {
+      "class": "sonic"
+    },
+    "sub-fundamental-buzz": {
+      "class": "sonic"
+    },
+    "sub-heavy": {
+      "class": "sonic"
+    },
+    "subharmonic": {
+      "class": "sonic"
+    },
+    "sufi": {
+      "class": "cultural",
+      "kind": "religion-rite",
+      "gloss": "claims a Sufi (Islamic mystical) context"
+    },
+    "sufi-devotional": {
+      "class": "cultural",
+      "kind": "religion-rite",
+      "gloss": "claims a Sufi devotional context"
+    },
+    "sufi-mystical": {
+      "class": "cultural",
+      "kind": "religion-rite",
+      "gloss": "claims a Sufi (Islamic mystical) lineage or character"
+    },
+    "sugarbag-beeswax": {
+      "class": "style",
+      "kind": "material-provenance",
+      "group": "species-material",
+      "gloss": "Australian Aboriginal English 'sugarbag' (native-bee) wax for the yidaki mouthpiece"
+    },
+    "sung": {
+      "class": "sonic"
+    },
+    "sung-dialogue": {
+      "class": "sonic"
+    },
+    "sung-narration": {
+      "class": "sonic"
+    },
+    "surface-noise-bedded": {
+      "class": "sonic"
+    },
+    "sustained": {
+      "class": "sonic"
+    },
+    "sustained-high-register": {
+      "class": "sonic"
+    },
+    "sustained-projection": {
+      "class": "sonic"
+    },
+    "sustained-tone": {
+      "class": "sonic"
+    },
+    "swelling": {
+      "class": "sonic"
+    },
+    "swung": {
+      "class": "sonic",
+      "note": "rhythmic-feel technique"
+    },
+    "sygyt": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names sygyt, the Tuvan whistle-register throat-singing style"
+    },
+    "symmetric-pattern": {
+      "class": "sonic"
+    },
+    "synchronized": {
+      "class": "sonic"
+    },
+    "synthesized": {
+      "class": "sonic"
+    },
+    "synthetic": {
+      "class": "sonic"
+    },
+    "tajik-falak": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names falak, the Tajik (Pamir / Badakhshan) mountain-song genre"
+    },
+    "talk-sung-articulation": {
+      "class": "sonic"
+    },
+    "tall-shell": {
+      "class": "sonic"
+    },
+    "tarab": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names tarab, the Arab aesthetic of musical ecstasy (Egyptian/Levantine/Iraqi art music)"
+    },
+    "theatre": {
+      "class": "sonic",
+      "note": "form"
+    },
+    "three-drummers": {
+      "class": "sonic"
+    },
+    "three-drums": {
+      "class": "sonic"
+    },
+    "thunderous": {
+      "class": "sonic"
+    },
+    "tibesti": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Tibesti massif region (Chad/Libya; Teda-Tubu peoples)"
+    },
+    "tight-backbore": {
+      "class": "sonic"
+    },
+    "tight-low-end": {
+      "class": "sonic"
+    },
+    "tight-rhythmic-articulation": {
+      "class": "sonic"
+    },
+    "timorese": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Timor / the Timorese"
+    },
+    "tin-drum": {
+      "class": "sonic"
+    },
+    "tonal-groove": {
+      "class": "sonic"
+    },
+    "transient-grab-aggressive": {
+      "class": "sonic"
+    },
+    "transient-sharp": {
+      "class": "sonic"
+    },
+    "transitional": {
+      "class": "sonic",
+      "note": "period-neutral descriptor"
+    },
+    "treble-extended": {
+      "class": "sonic"
+    },
+    "tremolo": {
+      "class": "sonic"
+    },
+    "turkmen": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Turkmen people / Turkmenistan"
+    },
+    "turkmen-bagshy": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names the Turkmen bagshy bardic lineage"
+    },
+    "tuvalu": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Tuvalu"
+    },
+    "tuvan-whistle": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims Tuvan throat-singing lineage (sygyt whistle register)"
+    },
+    "twangy-foundational": {
+      "class": "sonic",
+      "note": "timbre descriptor"
+    },
+    "two-string": {
+      "class": "sonic"
+    },
+    "two-string-bass": {
+      "class": "sonic"
+    },
+    "udmurt-krez": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "names krez, the North Udmurt vocal genre (Udmurt people, Volga-Ural)"
+    },
+    "unaccompanied": {
+      "class": "sonic"
+    },
+    "university-fado": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims Coimbra university-fado (Portuguese) lineage"
+    },
+    "unlathed-bell": {
+      "class": "sonic"
+    },
+    "unsplit": {
+      "class": "sonic"
+    },
+    "urban-Greek": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "claims urban-Greek lineage (rebetiko/laiko sphere: Piraeus, Athens, Smyrna)"
+    },
+    "val-di-fiemme": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims Val di Fiemme (Trentino, Italy) spruce tonewood"
+    },
+    "valley-tonga": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Valley (Gwembe) Tonga people (Zambia / Zimbabwe)"
+    },
+    "venice-catlin": {
+      "class": "cultural",
+      "kind": "material-provenance",
+      "gloss": "claims Venice catlin gut strings (historic Venetian string type)"
+    },
+    "vibrato-rich": {
+      "class": "sonic"
+    },
+    "vibrato-y": {
+      "class": "sonic"
+    },
+    "vintage-steinway": {
+      "class": "sonic",
+      "note": "kept sonic: a piano make names no people, place, language, religion or cultural lineage"
+    },
+    "vinyl-sampled": {
+      "class": "sonic"
+    },
+    "virtuoso": {
+      "class": "sonic"
+    },
+    "vocal-accompaniment": {
+      "class": "sonic"
+    },
+    "voice-shaped-pitch": {
+      "class": "sonic"
+    },
+    "walking": {
+      "class": "sonic"
+    },
+    "walking-bass": {
+      "class": "sonic",
+      "note": "bass technique"
+    },
+    "warm-glowing": {
+      "class": "sonic"
+    },
+    "warmed": {
+      "class": "sonic"
+    },
+    "water-percussion": {
+      "class": "sonic"
+    },
+    "water-struck": {
+      "class": "sonic"
+    },
+    "wayapi": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Wayapi people (French Guiana / Amapa, Brazil)"
+    },
+    "welcome-song": {
+      "class": "sonic",
+      "note": "song function"
+    },
+    "whispered": {
+      "class": "sonic"
+    },
+    "whistle": {
+      "class": "sonic"
+    },
+    "whole-lamb-method": {
+      "class": "sonic"
+    },
+    "wind-driven": {
+      "class": "sonic"
+    },
+    "women-singing": {
+      "class": "sonic",
+      "note": "performer gender, not culture"
+    },
+    "wooden": {
+      "class": "sonic"
+    },
+    "wooden-box": {
+      "class": "sonic"
+    },
+    "wooden-click": {
+      "class": "sonic"
+    },
+    "wooden-frame": {
+      "class": "sonic"
+    },
+    "wooden-neck": {
+      "class": "sonic"
+    },
+    "wooden-shell": {
+      "class": "sonic"
+    },
+    "xylophone-ensemble": {
+      "class": "sonic"
+    },
+    "yap": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names Yap (Federated States of Micronesia)"
+    },
+    "yidaki-canon": {
+      "class": "cultural",
+      "kind": "named-lineage",
+      "gloss": "claims the yidaki (Yolngu didgeridoo) canon"
+    },
+    "yupik": {
+      "class": "cultural",
+      "kind": "ethnonym-place",
+      "gloss": "names the Yup'ik / Yupik peoples (Alaska, Chukotka)"
+    },
+    "zelkova": {
+      "class": "style",
+      "kind": "material-provenance",
+      "group": "species-material",
+      "gloss": "Zelkova serrata (Japanese keyaki) wood; listed as culture-bearing in the prior audit"
+    }
+  }
+}

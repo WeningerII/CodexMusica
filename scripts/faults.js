@@ -31,6 +31,8 @@
 //   connector over-cascades -> check_edit_parity.js (guard the app has, the connector lacked)
 //   renderer fork drift -> check_edit_differential.js (one engine's copy changes, the other's doesn't)
 //   input outside closure -> check_build_closure.js  (CI would skip a rebuild it needed)
+//   false cultural claim  -> check_signature_tokens.js (a pair ruled false is back in the table)
+//   unruled cultural pair -> check_signature_tokens.js (a cultural token lands with no verdict)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -721,6 +723,74 @@ record(
       /zz_fault_dupe/
     );
   }
+}
+
+// 25. A cultural claim ruled false comes back -> check_signature_tokens.js
+//     The defect this gate exists for: a token the tradition's own prose rules
+//     out (a Yolŋu didgeridoo tagged `celtic`) returns to the signature table,
+//     where the atlas, the connector and the app all publish it. Planted in the
+//     JSON ONLY — src/app.js and codex.html keep the clean block — so the catch
+//     has to come from the gate reading the table itself, not from the mirror
+//     parity check, which is a different gate with its own failure message.
+//     The pair is read from the rulings file rather than typed here, so the
+//     class keeps planting a real false pair whatever the rulings become.
+{
+  const d = mkenv(['scripts', 'references', 'src', 'codex.html']);
+  const rulings = JSON.parse(
+    fs.readFileSync(path.join(d, 'references/_signature_rulings.json'), 'utf8')
+  ).rulings;
+  const f = path.join(d, 'references/_tradition_signatures.json');
+  const sigs = JSON.parse(fs.readFileSync(f, 'utf8'));
+  const r = rulings.find(
+    (x) =>
+      x.verdict === 'false' &&
+      Array.isArray(sigs[x.tradition]) &&
+      !sigs[x.tradition].includes(x.token)
+  );
+  if (!r) throw new Error('faults: no false signature ruling to restore');
+  sigs[r.tradition].push(r.token);
+  fs.writeFileSync(f, JSON.stringify(sigs, null, 2) + '\n');
+  const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  record(
+    'signature-false-pair-restored -> check_signature_tokens.js',
+    gate(d, ['scripts/check_signature_tokens.js']),
+    new RegExp(`FALSE_SURVIVES[\\s\\S]*${esc(r.tradition)} / ${esc(r.token)} \\(ruled false`)
+  );
+}
+
+// 25b. A new cultural claim lands with no ruling -> check_signature_tokens.js
+//      The other half of the promise: a cultural token cannot reach a tradition
+//      unread. Adds a cultural token the vocabulary knows to a signed tradition
+//      that has no ruling for it — the shape of an honest edit that skipped the
+//      ruling, not a typo the vocabulary would catch as UNCLASSED.
+{
+  const d = mkenv(['scripts', 'references', 'src', 'codex.html']);
+  const vocab = JSON.parse(
+    fs.readFileSync(path.join(d, 'references/_soundword_vocab.json'), 'utf8')
+  ).tokens;
+  const ruled = new Set(
+    JSON.parse(
+      fs.readFileSync(path.join(d, 'references/_signature_rulings.json'), 'utf8')
+    ).rulings.map((x) => x.tradition + '\u0000' + x.token)
+  );
+  const f = path.join(d, 'references/_tradition_signatures.json');
+  const sigs = JSON.parse(fs.readFileSync(f, 'utf8'));
+  const cultural = Object.keys(vocab)
+    .filter((t) => vocab[t].class === 'cultural')
+    .sort();
+  const trad = 'bluegrass';
+  const tok = cultural.find((t) => !sigs[trad].includes(t) && !ruled.has(trad + '\u0000' + t));
+  if (!Array.isArray(sigs[trad]) || !tok)
+    throw new Error('faults: could not stage an unruled cultural pair on bluegrass');
+  sigs[trad].push(tok);
+  fs.writeFileSync(f, JSON.stringify(sigs, null, 2) + '\n');
+  record(
+    'signature-pair-unruled -> check_signature_tokens.js',
+    gate(d, ['scripts/check_signature_tokens.js']),
+    new RegExp(
+      `UNRULED[\\s\\S]*${trad} / ${tok.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}: cultural token with no ruling`
+    )
+  );
 }
 
 // Connector contract classes. These stage `mcp` (see mkenv: source copied,

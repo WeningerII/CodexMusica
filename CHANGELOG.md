@@ -6,6 +6,30 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — 235 cultural claims the catalog's own prose contradicts or never makes are gone from the tradition signatures
+
+`references/_tradition_signatures.json` tagged a Yolŋu didgeridoo `celtic` and
+`Scottish-influenced`, powwow and Inuit katajjaq `African-derived`, guqin and
+samul nori with a Japanese court-music foundation (`gagaku-foundational`), and
+Carnatic forms `dhrupad-suited`. Those words are published: the atlas searches
+and ranks kin by them, and the connector and the app derive preface labels from
+them, so samul nori rendered "wabi-sabi jing" and Finnish kantele "hiraeth
+voice". Every token on a real tradition id is now classed cultural, style or
+sonic in `references/_soundword_vocab.json`, and every (tradition, cultural
+token) pair — 680 — carries a verdict against that tradition's own name,
+lineage and description in `references/_signature_rulings.json`: 360 attested,
+85 loose (kept), 235 false (69 core, 46 contradicted, 120 boundary) on 145
+entries. The false pairs are deleted from the table and its `src/app.js` and
+`codex.html` copies; nothing else in the table moved. The new gate
+`scripts/check_signature_tokens.js` (promise `signature-attribution-ruled`)
+fails on an unruled cultural pair, a false pair in any copy, or an unclassed
+token, and runs in the CI `gate` job with `build_signatures.js --check`, which
+its header had always said CI ran. 96 entries' seeded recipes change, every
+change an auto-derived preface label and none a part, room, chain or tuning;
+five preface fixtures were re-blessed to what the regression reported. Each
+change is listed with the pair that moved it in `docs/signature-attribution.md`,
+with the style-word pairs and new labels left for the owner.
+
 ### Fixed — the connector's session-contract refusal names its field, and rime riche reads the word's own onset
 
 Two defects found by writing a twelve-line song through the hosted connector

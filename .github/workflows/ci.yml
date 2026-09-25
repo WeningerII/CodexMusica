@@ -545,6 +545,19 @@ jobs:
       - name: Validate references
         run: npm run validate
 
+      # The signature table's cultural claims are published (atlas search and
+      # kin, connector and app preface labels), so they are gated on the PR that
+      # changes them, not weekly. The first step holds every cultural pair to a
+      # written ruling and keeps a pair ruled false out of the table, src/app.js
+      # and codex.html; the second is the JSON <-> app.js mirror parity that
+      # build_signatures.js's header always said CI ran and nothing did (only
+      # tandem's schedule-gated copy compared them).
+      - name: Signature attribution (every cultural pair ruled, no false pair published)
+        run: node scripts/check_signature_tokens.js
+
+      - name: Signature mirror parity (src/app.js TRADITION_SIGNATURES == the JSON)
+        run: node scripts/build_signatures.js --check
+
       - name: Docs drift + documented-command validity
         run: npm run check-docs
 
