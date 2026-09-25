@@ -14695,13 +14695,19 @@ function showToast(msg, kind, action) {
     b.type = 'button';
     b.className = 'toast-action';
     b.textContent = action.label;
-    b.addEventListener('click', () => { t.classList.remove('show', 'has-action'); action.run(); }, { once: true });
+    b.addEventListener('click', () => { hideToast(t); action.run(); }, { once: true });
     t.appendChild(b);
     t.classList.add('has-action');
   }
   t.classList.add('show');
   if (toastT) clearTimeout(toastT);
-  toastT = setTimeout(() => t.classList.remove('show', 'has-action'), UI_TIMING_MS.TOAST_LIFETIME * (action ? 3 : 1));
+  toastT = setTimeout(() => hideToast(t), UI_TIMING_MS.TOAST_LIFETIME * (action ? 3 : 1));
+}
+// The action leaves with the toast. Left behind at opacity 0 it would still
+// take a click at bottom centre and run Undo or Retry unseen.
+function hideToast(t) {
+  t.classList.remove('show', 'has-action');
+  t.querySelector('.toast-action')?.remove();
 }
 
 // ---- Clipboard helper ----
