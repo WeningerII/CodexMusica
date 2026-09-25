@@ -912,8 +912,7 @@ function lyRunOutcome(run) {
     };
   }
   if (run.error) return { tone: 'danger', word: 'Stopped with an error' };
-  if (lyRunLive(run) && lyLiveWaiting(run.lyric))
-    return { tone: 'info', word: 'Waiting for your answer' };
+  if (lyRunLive(run) && lyLiveWaiting()) return { tone: 'info', word: 'Waiting for your answer' };
   if (run.lyric?.state && run.lyric.resumable !== false)
     return { tone: '', word: 'Earlier question archived' };
   return { tone: '', word: 'Reply without a draft' };

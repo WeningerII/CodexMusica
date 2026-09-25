@@ -1626,7 +1626,7 @@ surface: Lyrics — Write with AI → Edit this draft; Writer panel → Edit thi
 implementation: edit-lyrics in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: The prefill is a script write; _chatSyncCount keeps the counter honest past the ceiling (scripts/check_chat_counter.js). Every text this page sends the writer leaves out the [SETUP] rows, because the harness reads each whole-line bracket as a section mark (lyric-harness/quality/recover.py); their values travel in the JSON declarations block, and the rows stay in the stored draft. Before a helper starts a new conversation over a run that is waiting or parked, it asks, and says the run will be archived (or ended when no saved copy exists).
+notes: The prefill is a script write; _chatSyncCount keeps the counter honest past the ceiling (scripts/check_chat_counter.js). Every text this page sends the writer leaves out the [SETUP] rows, because the harness reads each whole-line bracket as a section mark (lyric-harness/quality/recover.py); their values travel in the JSON declarations block, and the rows stay in the stored draft. Before a helper starts a new conversation over a run that is waiting or parked, it asks, and says the run will be archived (or ended when no saved copy exists). Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
 ```
 
 ```yaml
@@ -1657,7 +1657,7 @@ surface: Lyrics — Review: Issues / Needs input / Notes with counts; one item a
 implementation: lyRenderReview in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Missing input (open readings, broken links, unjudged coverage, a waiting question) is its own tab, distinct from defects and advisory notes. Run findings are labelled as the writer's and marked stale once the draft moves on. "Finished · certified" (header, History and the Review note) holds only while the sung lines equal the certified draft and the [SETUP] rows equal the request's; otherwise it reads "Last run certified an earlier draft".
+notes: Missing input (open readings, broken links, unjudged coverage, a waiting question) is its own tab, distinct from defects and advisory notes. Run findings are labelled as the writer's and marked stale once the draft moves on. "Finished · certified" (header, History and the Review note) holds only while the sung lines equal the certified draft and the [SETUP] rows equal the request's; otherwise it reads "Last run certified an earlier draft". Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
 ```
 
 ```yaml
@@ -1668,7 +1668,7 @@ surface: Lyrics — Review → a writer suggestion: Original / Suggested, Check 
 implementation: lyCheckApply in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Check & apply re-reads the current draft and verifies the exact suggestion against it (same line text, same numbering, a single sung line), refuses when the [SETUP] rows differ from the ones the request carried, and refuses when this page's exact local checks find an issue the change would add, before one undoable write; on failure the original stays and the reason is shown. It does not re-grade rhyme or meter. A whole writer draft that came without its request is labelled "Replace with the writer's draft" and says it is unchecked. Undo brings an applied suggestion back. Manual edits clear earlier check results. Selector anchors the Issues tab; suggestion cards exist only after a writer reply.
+notes: Check & apply re-reads the current draft and verifies the exact suggestion against it (same line text, same numbering, a single sung line), refuses when the [SETUP] rows differ from the ones the request carried, and refuses when this page's exact local checks find an issue the change would add, before one undoable write; on failure the original stays and the reason is shown. It does not re-grade rhyme or meter. A whole writer draft that came without its request is labelled "Replace with the writer's draft" and says it is unchecked. Undo brings an applied suggestion back. Manual edits clear earlier check results. Selector anchors the Issues tab; suggestion cards exist only after a writer reply. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
 ```
 
 ```yaml
@@ -1679,7 +1679,7 @@ surface: Lyrics — History & recovery: writer status (running, interrupted with
 implementation: lyRenderHistory in src/pages/lyrics.js; recovery through #chat-recover (src/app.js)
 status: reachable
 precondition: empty
-notes: Recover reads the saved outcome and never re-sends; an uncertain or capacity-stopped run has no resume button. Nothing unresolved is shown as finished. Waiting, parked and uncertain are read only from the live conversation (chatState.lyric), so a run archived by a reset is never shown as waiting or resumable.
+notes: Recover reads the saved outcome and never re-sends; an uncertain or capacity-stopped run has no resume button. Nothing unresolved is shown as finished. Waiting, parked and uncertain are read only from the live conversation (chatState.lyric), so a run archived by a reset is never shown as waiting or resumable. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
 ```
 
 ```yaml
@@ -1808,7 +1808,7 @@ surface: Lyrics — Review → Needs input → "The writer is waiting for an ans
 implementation: lyRunChecks (waiting item) and ly-answer in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Continues the same conversation (uiChatOpen, no reset) with the answer filled in as L<n> rows; nothing is sent until Ask. Selector anchors the Needs input tab; the item exists only while a run waits in the live conversation, and the action refuses once that conversation has been reset.
+notes: Continues the same conversation (uiChatOpen, no reset) with the answer filled in as L<n> rows; nothing is sent until Ask. Selector anchors the Needs input tab; the item exists only while a run waits in the live conversation, and the action refuses once that conversation has been reset. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
 ```
 
 ```yaml
