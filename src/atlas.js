@@ -221,6 +221,7 @@
       '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>',
     external:
       '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
+    play: '<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg>',
     plus: '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>',
     check:
       '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
@@ -1701,7 +1702,7 @@
         ? 'Add again'
         : a && a.state === 'failed'
           ? 'Retry adding'
-          : 'Add genre') +
+          : 'Add to recipe') +
       '</button>'
     );
   }
@@ -1779,7 +1780,9 @@
     h +=
       '<div class="card-actions"><a class="cm-btn cm-btn-outline" href="https://www.youtube.com/results?search_query=' +
       encodeURIComponent(s.name + ' music') +
-      '" target="_blank" rel="noopener" title="Opens a YouTube search in a new tab">Listen ' +
+      '" target="_blank" rel="noopener" title="Opens a YouTube search in a new tab">' +
+      ICON.play +
+      'Listen ' +
       ICON.external +
       '</a>' +
       addControl(s) +
@@ -2161,12 +2164,22 @@
     }
     S.qmatch = ql ? ids : null;
 
+    // Search and genre groups combine: say what the map actually lights.
+    var lit = 0;
+    ids.forEach(function (id) {
+      if (!S.focus.size || S.focus.has(S.byId[id].root)) lit++;
+    });
+    var litNote = S.focus.size
+      ? plural(lit, 'match', 'matches') + ' in the chosen genre groups lit on the map'
+      : 'all lit on the map';
     var h = '';
     if (all.length)
       h +=
         '<div class="results-head">' +
         plural(all.length, 'name, place or id match', 'name, place or id matches') +
-        (all.length > 12 ? ' · first 12 below, all lit on the map' : '') +
+        (all.length > 12 ? ' · first 12 below' : '') +
+        ' · ' +
+        litNote +
         '</div>';
     h += all
       .slice(0, 12)
@@ -2193,9 +2206,12 @@
         (tokenHit.count
           ? '+' +
             plural(tokenHit.count, 'more tradition') +
-            ' lit on the map because a sound word in their recipe contains “' +
+            ' match because a sound word in their recipe contains “' +
             esc(ql) +
-            '” — matched by descriptor, not by name.'
+            '” — by descriptor, not by name' +
+            (S.focus.size
+              ? '; the map lights those in the chosen genre groups.'
+              : '; all lit on the map.')
           : 'These sound words belong to the traditions already listed.') +
         '</div></div>';
     }
@@ -2368,7 +2384,7 @@
     var chips = [];
     var chip = function (text, kind, title) {
       return (
-        '<span class="filter-chip" title="' +
+        '<span class="cm-chip active filter-chip" title="' +
         esc(title || text) +
         '">' +
         esc(text) +

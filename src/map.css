@@ -100,21 +100,9 @@ svg:not(.mark) {
 }
 .searchwrap {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 0 1 480px;
+  flex: 0 1 520px;
   min-width: 200px;
   height: 44px;
-  padding: 0 14px;
-  border: 1px solid var(--cm-border);
-  border-radius: var(--cm-radius-md);
-  background: var(--cm-surface-subtle);
-  color: var(--cm-text-muted);
-}
-.searchwrap:focus-within {
-  border-color: var(--cm-focus);
-  box-shadow: 0 0 0 1px var(--cm-focus);
 }
 #search {
   flex: 1;
@@ -194,19 +182,12 @@ svg:not(.mark) {
   min-width: 0;
 }
 .filter-chip {
-  display: inline-flex;
-  align-items: center;
   gap: 2px;
-  min-height: 36px;
   max-width: 280px;
-  padding: 0 2px 0 12px;
-  border: 1px solid var(--cm-accent);
-  border-radius: var(--cm-radius-pill);
-  background: var(--cm-accent-soft);
-  color: var(--cm-accent-text);
-  font-size: var(--cm-text-sm);
+  padding-right: 2px;
   font-weight: 500;
   overflow-wrap: anywhere;
+  cursor: default;
 }
 .filter-chip button {
   display: inline-grid;
@@ -352,21 +333,13 @@ svg:not(.mark) {
 }
 .side-tab {
   position: relative;
-  display: inline-flex;
-  align-items: center;
   justify-content: center;
   gap: 6px;
   min-height: 48px;
   padding: 0 9px;
-  border: 0;
-  border-bottom: 3px solid transparent;
-  background: transparent;
-  color: var(--cm-text-secondary);
-  font-weight: 500;
   white-space: nowrap;
 }
 .side-tab:hover {
-  background: var(--cm-hover);
   color: var(--cm-text);
 }
 .side-tab[aria-expanded='true'] {
