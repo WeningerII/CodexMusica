@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""HOW MANY OF THE 77 SCHEMAS CAN BE ASKED, AND WHAT BLOCKS THE REST.
+"""HOW MANY OF THE ~~77~~ SCHEMAS CAN BE ASKED, AND WHAT BLOCKS THE REST.
+
+THE COUNT IS PRINTED, NOT WRITTEN HERE (2026-09-25, doctrine 48): `main()`
+prints `REGISTRY <n> schemas` from `len(relations.REGISTRY)`, which is 78
+since M-40 declared `chain rhyme (interlocking scheme)` (commit a61fe4e69,
+2026-09-15), and `test_relations.py` pins that figure. This title said 77
+for ten days after it stopped being true.
 
 An instrument, not a scratch script (doctrine 69): the figure is quoted in
 `MISSING.md` M-59 and in `CLAUDE.md`, and a number in prose that nothing
@@ -54,21 +60,27 @@ BY_LANGUAGE = {
 }
 
 #: THE SCHEMAS THAT ANSWER ONLY BECAUSE THIS CENSUS DECLARED A FIXTURE, and
-#: the whole reason this key exists (2026-08-23). `census()` reports 77 live,
-#: and three of those 77 are live on a constructed input (doctrine 94) rather
+#: the whole reason this key exists (2026-08-23). `census()` reported 77 live,
+#: and three of those 77 were live on a constructed input (doctrine 94) rather
 #: than on anything this repo ships. A count that does not say so invites
 #: exactly one misreading -- "77 working" -- and the misreading is the kind
 #: this file was built to prevent, so the report NAMES them and `main()`
 #: prints them under their own heading.
 #:
 #: Each is askable. Each REFUSES, correctly and by name, for a caller who
-#: does not declare the resource. What is missing in all three cases is a
-#: sourced TABLE, not code (doctrine 44).
+#: does not declare the resource. What is missing in every case is a
+#: sourced TABLE, not code (doctrine 44) — and for `proest` the table's shape
+#: as well; `quality/sourced_tables.UNSOURCED` names, per schema, the source
+#: that would lift it and why it was not written.
+#:
+#: ~~FIVE~~ FOUR SINCE 2026-09-25. `平仄 tonal template` left this key when
+#: `quality/sourced_tables.py` shipped Wang Li's 五絕 base patterns: the census
+#: now declares the SOURCED 仄起 template over 登鸛雀樓 where it declared an
+#: all-中 fixture, and the schema answers on a table this repo ships. Its row
+#: read: "the `tonal_template` declaration — the regulated-verse 平/仄 pattern
+#: is the FORM's, never the text's, so it arrives only by declaration; this
+#: census declares an all-中 template over a real couplet."
 FIXTURE_ONLY = {
-    "平仄 tonal template": "the `tonal_template` declaration — the regulated-"
-                          "verse 平/仄 pattern is the FORM's, never the text's, "
-                          "so it arrives only by declaration; this census "
-                          "declares an all-中 template over a real couplet.",
     "rhyming slang": "the `slang` projected surface — this census declares "
                     "a constructed projection only. No sourced slang register "
                     "ships here; ordinary lexical data cannot supply it.",
@@ -146,19 +158,20 @@ def _other_language_live():
     from quality import quotients as _Q
     #: DECLARED HERE AND NOWHERE ELSE (doctrine 94). See FIXTURE_ONLY.
     fixtures = {"cym": {"quotients": {"vowel_class": _Q.vowel_class}}}
-    #: The 平仄 template is the FORM's, never the text's: this census
+    #: The 平仄 template is the FORM's, never the text's. ~~This census
     #: declares an all-中 (either-tone) template over a real pentasyllabic
-    #: couplet so the seam is exercised (doctrine 94, as FIXTURE_ONLY).
-    lines_for = {"ltc": ["白日依山盡", "黃河入海流"]}
-    templates = {"ltc": {0: "中中中中中", 1: "中中中中中"}}
+    #: couplet~~ — since 2026-09-25 it declares the SOURCED pattern
+    #: (`quality/sourced_tables.py`, Wang Li's 五絕 仄起) over the poem that
+    #: pattern is the form of, so the capability is a shipped table's.
+    from quality import sourced_tables as _ST
+    lines_for = {"ltc": list(_ST.TONAL_WITNESS)}
     for lang, names in BY_LANGUAGE.items():
         try:
             st = R.build_stream(
                 lines_for.get(lang, ["a b", "c d"]), get_phonology(lang),
                 declaration=dict({"language": lang}, **fixtures.get(lang, {})))
-            if lang in templates:
-                R.declare_tonal_template(st, templates[lang],
-                                         source="this census, a fixture")
+            if lang == "ltc":
+                _ST.declare_regulated_template(st, _ST.TONAL_FORM)
         except Exception:
             continue
         for n in names:
@@ -184,10 +197,12 @@ def census():
             blocked[name] = miss
     # Capability availability is not an executable positive witness. Every
     # schema carries a separate semantic validation record; missing witnesses
-    # remain visible release work instead of being folded into "77 live".
+    # remain visible release work instead of being folded into ~~"77 live"~~
+    # one "N live" figure.
     semantic = {}
     from quality.revise import Reviser
     from quality.schemes import mandate
+    from quality.sourced_tables import SOURCED_EXHIBITS
     verifier = Reviser()
     for name, sch in sorted(R.REGISTRY.items()):
         if not R.figure_pair_representable(sch) and name not in R.FULL_SHAPES:
@@ -204,6 +219,17 @@ def census():
                               "evidence": "DRAWABLE_EXHIBITS through declared mandate slots and Reviser.grade",
                               "blocker": None if controls == [True,False] else
                               "declared controls do not both produce definite expected verdicts"}
+        elif name in SOURCED_EXHIBITS:
+            # A declared TEMPLATE or SURFACE cannot ride `Reviser.grade`,
+            # which builds its own English stream; these grade through the
+            # sourced table on a stream that carries it (2026-09-25).
+            evidence, run = SOURCED_EXHIBITS[name]
+            controls = run()
+            semantic[name] = {"status": "witness_and_contrast" if controls == [True,False]
+                              else "unvalidated", "verdicts": controls,
+                              "evidence": evidence,
+                              "blocker": None if controls == [True,False] else
+                              "sourced controls do not both produce definite expected verdicts"}
         elif name in ("symploce","analysed rhyme","blues AAB stanza","paroemion",
                        "Middle Chinese end rhyme (同用 group)"):
             semantic[name] = {"status":"regression_witness",
@@ -245,16 +271,19 @@ def main():
           f"by `quality/figures.py`,\n   not by a mandate — a pair of lines "
           f"cannot stand in a one-line figure)")
     # THE LINE THAT KEEPS THE COUNT HONEST (2026-08-23). Without it a reader
-    # takes "ASKABLE: 77" for "77 working", and three of them answer only
-    # because this file declared a fixture for them.
+    # takes "ASKABLE: 77" for "77 working" (the registry's size then), and
+    # some of them answer only because this file declared a fixture for them.
     if rep["fixture_only"]:
         print(f"\n  OF THE ASKABLE, {len(rep['fixture_only'])} ANSWER ONLY ON "
               f"A FIXTURE THIS CENSUS DECLARES (doctrine 94).\n  They are "
               f"askable and they REFUSE, correctly and by name, for a caller "
               f"who does not\n  declare the resource. What is missing is a "
               f"sourced TABLE, not code (doctrine 44):")
+        from quality.sourced_tables import UNSOURCED
         for nm in rep["fixture_only"]:
             print(f"    {nm}\n      {FIXTURE_ONLY[nm]}")
+            if nm in UNSOURCED:
+                print(f"      SOURCE NEEDED: {UNSOURCED[nm]}")
     if rep["blocked"]:
         from collections import Counter
         print("\n  WHAT IS LEFT, and what each one needs:")

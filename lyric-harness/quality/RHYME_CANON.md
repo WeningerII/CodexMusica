@@ -193,6 +193,10 @@ consonance*
   the differing channel carries a SECOND agreement requirement on a feature of itself."
 - from: C23 C46 (and C24 supplies the partition; see D-grain)
 - witness: 3 cited indices — external 3.
+- **no sourced table (2026-09-25):** `quality/sourced_tables.UNSOURCED['proest']`. Needs a Welsh
+  vowel-quantity description (e.g. Morris-Jones, *A Welsh Grammar*, 1913; Thorne, *A Comprehensive
+  Welsh Grammar*, 1993), and the declared quotient is `nucleus -> class` while those grammars state
+  length by the FOLLOWING consonant, so the table's shape is part of what is missing.
 - Forced twice from two Celtic branches independently. The previous canon's #100 has the length
   clause (reconstructed correctly from repo code) but not the lleddf/talgron clause, and does not
   register that the predicate shape — *differ-but-agree-on-a-feature-of-the-difference* — is a
@@ -487,6 +491,15 @@ chan quantitative template · 音数律 · 음보율 · 시조 종장 제약*
   (Korean).
 - from: X14 I71 I60 I61 X31 X51 X52 I63
 - witness: 8 cited indices — external 7, project 1. names outside this project: sina.com, AVPoetica, PyThaiNLP, medium.com. only-this-project: I61.
+- **sourced table (2026-09-25):** `quality/sourced_tables.py` `WUJUE` — the four 五言絕句
+  base patterns (仄起/平起 × 首句入韻/不入韻) from Wang Li 王力, 《詩詞格律》 (Beijing: 中華書局,
+  1962; rev. 1977), ch. 2 「律詩的平仄」; the same patterns in his 《漢語詩律學》 (1958), ch. 1.
+  **Pages not verified**: the text was unreachable from the sourcing session, and the line types,
+  the 仄起 quatrain with its bracketed licences `(仄)仄平平仄，平平仄仄平 / (平)平平仄仄，(仄)仄仄平平`,
+  and the 對/粘 rules were checked against search results quoting Wang Li. The bracketed positions
+  are `中`; the other three quatrains carry the base pattern only. 七言 is not shipped. Witness:
+  登鸛雀樓 holds on all four lines; contrast: its couplets' lines swapped hold on none
+  (`schema_census.py`, `test_capabilities.py` §9).
 
 **R45 · required tonal OPPOSITION across a line pair** *對 duì · 對仗's tone half ·
 luật's đối clause*
@@ -949,6 +962,10 @@ historical rhyme · dialect rhyme · conventional-licence rhyme · rime normande
   readings preserve the 入聲 stop codas Mandarin lost, so the same poem rhymes differently.
   from: S107 X62 ✓E21 ✓E22 ✓E23 X137
 - witness: 6 cited indices — external 4, project 2. names outside this project: encyclopedia.com, etudes-litteraires.com. only-this-project: X62 E22.
+- **no sourced table (2026-09-25):** `quality/sourced_tables.UNSOURCED` rows for `historical rhyme`
+  and `dialect rhyme` name the reconstructions that would lift them (Dobson 1968; Crystal 2016;
+  Johnston in *The Edinburgh History of the Scots Language*, 1997). None was reachable, and
+  `declared_inputs.PeriodPhonology` refuses a pronunciation written from memory.
 **R112 · relaxation of a channel in a declared direction** *cynghanedd lusg wyrdro*
 - "the vowel channel is RELAXED in a specified direction: a diphthong in the goben is answered by a
   near or reduced vowel" (`C15`). A directional, non-symmetric grain. from: C15
@@ -1076,6 +1093,10 @@ bai crych a llyfn · bai twyll gynghanedd*
   `E67`: "the relation is lexical substitution licensed by a rhyme that is never spoken."
 - from: ✓E67
 - witness: 1 cited indices — external 1.
+- **no sourced table (2026-09-25):** `quality/sourced_tables.UNSOURCED['rhyming slang']`. Hotten
+  (1859), 'Glossary of the Rhyming Slang', or Franklyn (1961) would source it; only full phrases
+  could be corroborated, and on a full phrase the slang surface equals the phonemic one, so a
+  witness would pass for the wrong reason (doctrine 41). A CLIPPED form is what the table needs.
 - Visible to the synthesis and dropped from its 106. Recorded here because it is the limiting case
   of R68's shape — a relation with an argument outside the text — arrived at from the other
   direction, and because it is the only structure in the 601 whose *evidence is systematically

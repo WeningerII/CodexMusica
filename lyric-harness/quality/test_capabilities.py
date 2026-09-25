@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Regressions for the DECLARED-COORDINATE CONSTRUCTORS — the seven
 capabilities that stood between `quality/relations.REGISTRY`'s 77 schemas and
-a judge, closed 2026-08-22 on the owner's ruling "all 77, no exceptions".
+a judge, closed 2026-08-22 on the owner's ruling "all 77, no exceptions". The
+registry now holds ~~77~~ 78 (M-40, a61fe4e69); §8 counts it as
+`len(R.REGISTRY)`.
 
 WHAT EVERY SECTION HERE ASSERTS, and it is the same shape each time because
 the shape is the point:
@@ -458,13 +460,30 @@ def test_the_whole_registry():
     # read as "77 working". `proest` joined them the day the invented Welsh
     # circumflex rule came out of `cym.Welsh`. Pinned here so the disclosure
     # cannot quietly disappear from the report the way it was never in it.
-    check("...and the census NAMES the ones that answer only on a fixture it "
-          "declares itself — 77 askable is not 77 shipped, and the report "
-          "has to be the thing that says so (doctrine 94)",
+    #
+    # ~~FIVE~~ FOUR SINCE 2026-09-25: `平仄 tonal template` left the list when
+    # `quality/sourced_tables.py` shipped Wang Li's 五絕 patterns and the
+    # census began declaring the sourced one. The list SHRINKS only by a
+    # table; the other four still name what they wait for.
+    check(f"...and the census NAMES the ones that answer only on a fixture it "
+          f"declares itself — {len(R.REGISTRY)} askable is not "
+          f"{len(R.REGISTRY)} shipped, and the report has to be the thing "
+          f"that says so (doctrine 94)",
           rep["fixture_only"] == ["dialect rhyme", "historical rhyme",
-                                  "proest", "rhyming slang",
-                                  "平仄 tonal template"],
+                                  "proest", "rhyming slang"],
           str(rep["fixture_only"]))
+    from quality import sourced_tables as ST
+    check("...and each of the four has a written SOURCE-NEEDED row naming "
+          "the published work that would lift it (doctrine 39)",
+          sorted(ST.UNSOURCED) == rep["fixture_only"]
+          and all("Not written" in v for v in ST.UNSOURCED.values()),
+          str(sorted(ST.UNSOURCED)))
+    row = rep["semantic_status"]["平仄 tonal template"]
+    check("...and the schema that left carries a witness AND a contrast "
+          "graded through the SOURCED table, not the census fixture",
+          row["status"] == "witness_and_contrast"
+          and row["verdicts"] == [True, False]
+          and "sourced_tables" in row["evidence"], str(row))
     # NAMING THE COORDINATE, not just the schema. A reason that says "needs
     # more work" is the bare verdict doctrine 20 refuses; a reason that names
     # `earlier`, `poet` or `quotient:vowel_class` tells a caller with the
@@ -481,10 +500,54 @@ def test_the_whole_registry():
                for n in rep["fixture_only"]}))
 
 
+def test_sourced_tonal_template():
+    print("\n9. THE 平仄 TEMPLATE FROM A SOURCED TABLE (Wang Li, 五絕)")
+    from quality import sourced_tables as ST
+    from quality.phonology import get as get_phonology
+    ltc = get_phonology("ltc")
+    tmpl = R.REGISTRY["平仄 tonal template"]
+
+    def held(lines, form=ST.TONAL_FORM, strict=False):
+        st = R.build_stream(list(lines), ltc, declaration={"language": "ltc"})
+        info = ST.declare_regulated_template(st, form, strict)
+        got = R.line_pairs_for(tmpl, st)
+        return got, info
+
+    got, info = held(ST.TONAL_WITNESS)
+    check("登鸛雀樓 fits the SOURCED 仄起 pattern on all four lines, 更 (a "
+          "多音字) on a slot the source marks free",
+          got.lines == {1, 2, 3, 4} and not got.undecided_lines,
+          f"held {sorted(got.lines)}, undecided {sorted(got.undecided_lines)}")
+    check("...and the declaration's source names the form and Wang Li, not "
+          "the caller", "Wang Li" in info["source"]
+          and ST.TONAL_FORM in info["source"], info["source"])
+    got, _ = held(ST.TONAL_CONTRAST)
+    check("the CONTRAST — each couplet's lines swapped, the same tone "
+          "readings — fits on NO line",
+          got.lines == set() and not got.undecided_lines,
+          f"held {sorted(got.lines)}, undecided {sorted(got.undecided_lines)}")
+    got, _ = held(ST.TONAL_WITNESS, strict=True)
+    check("the strict 正格 (licences removed) fails 欲窮千里目 and leaves 更 "
+          "undecided: the licence is the source's, and it is doing work",
+          got.lines == {1, 2} and got.undecided_lines == {4},
+          f"held {sorted(got.lines)}, undecided {sorted(got.undecided_lines)}")
+    got, _ = held(ST.TONAL_WITNESS, form="五絕 平起 首句不入韻")
+    check("...and the same poem held to the 平起 pattern fits no line",
+          got.lines == set(), sorted(got.lines))
+    try:
+        ST.regulated_template("七絕 仄起 首句入韻")
+        ok = False
+    except KeyError as e:
+        ok = "not a sourced form" in str(e)
+    check("a form the table does not source (七言) REFUSES rather than being "
+          "derived here", ok)
+
+
 if __name__ == "__main__":
     for fn in (test_orthography, test_delivery, test_stub_resolution,
                test_senses, test_period_surface, test_lifts,
-               test_beat_and_selectivity, test_the_whole_registry):
+               test_beat_and_selectivity, test_the_whole_registry,
+               test_sourced_tonal_template):
         fn()
     print("=" * 62)
     if FAILURES:
