@@ -40,7 +40,7 @@ function renderInstrumentDiscovery() {
       .map((id) => `<option value="${esc(id)}">${esc(Tradition(id)?.name || id)}</option>`)
       .join('');
   dest.value = old || '';
-  host.innerHTML = `<div class="axis-filter-pills">${INSTRUMENT_FILTER_PILLS.map((p) => `<button class="${app.instrumentAxisFilters.has(p.id) ? 'active' : ''}" data-ui="instrument-filter" data-id="${esc(p.id)}" aria-pressed="${app.instrumentAxisFilters.has(p.id)}">${esc(p.label)}</button>`).join('')}${app.instrumentAxisFilters.size ? uiButton('clear-filters', 'Clear filters', 'x') : ''}</div><div class="discovery-grid"><nav class="catalog-categories" aria-label="Instrument categories">${fam ? `<div class="category-heading">${uiButton('instrument-back', UI.instrumentClass ? 'Back to ' + fam.name : 'All instruments', 'arrow-left')}<strong>${esc(UI.instrumentClass ? UI.instrumentClass.replaceAll('_', ' ') : fam.name)}</strong></div>` : ''}<div class="branch-key">${sectors.map((s) => `<button data-ui="${fam ? 'instrument-class' : 'instrument-family'}" data-id="${esc(s.id)}"${fam ? ` aria-pressed="${UI.instrumentClass === s.id}"` : ''}>${!fam ? familyImage(s.id, 24) : ''}<span>${esc(s.name)}</span></button>`).join('')}</div></nav><div class="catalog-list"><div class="catalog-count">${filtered.length} instruments${UI.instrumentClass ? ' · ' + esc(UI.instrumentClass.replaceAll('_', ' ')) : ''}</div>${filtered
+  host.innerHTML = `<div class="axis-filter-pills">${INSTRUMENT_FILTER_PILLS.map((p) => `<button class="cm-chip${app.instrumentAxisFilters.has(p.id) ? ' active' : ''}" data-ui="instrument-filter" data-id="${esc(p.id)}" aria-pressed="${app.instrumentAxisFilters.has(p.id)}">${esc(p.label)}</button>`).join('')}${app.instrumentAxisFilters.size ? uiButton('clear-filters', 'Clear filters', 'x') : ''}</div><div class="discovery-grid"><nav class="catalog-categories" aria-label="Instrument categories">${fam ? `<div class="category-heading">${uiButton('instrument-back', UI.instrumentClass ? 'Back to ' + fam.name : 'All instruments', 'arrow-left')}<strong>${esc(UI.instrumentClass ? UI.instrumentClass.replaceAll('_', ' ') : fam.name)}</strong></div>` : ''}<div class="branch-key">${sectors.map((s) => `<button data-ui="${fam ? 'instrument-class' : 'instrument-family'}" data-id="${esc(s.id)}"${fam ? ` aria-pressed="${UI.instrumentClass === s.id}"` : ''}>${!fam ? familyImage(s.id, 24) : ''}<span>${esc(s.name)}</span></button>`).join('')}</div></nav><div class="catalog-list"><div class="catalog-count">${filtered.length} instruments${UI.instrumentClass ? ' · ' + esc(UI.instrumentClass.replaceAll('_', ' ')) : ''}</div>${filtered
     .slice(0, UI.limit)
     .map(
       (i) =>
@@ -91,7 +91,7 @@ function uiInspectInstrument(id) {
     )
       .map(
         (p) =>
-          `<details><summary>${esc(p.name || p.id)} · ${p.variants.length} options</summary><p>${p.variants
+          `<details class="cm-accordion"><summary>${esc(p.name || p.id)} · ${p.variants.length} options</summary><p>${p.variants
             .slice(0, 20)
             .map((v) => esc(v.name || v.id))
             .join(' · ')}</p></details>`
@@ -108,7 +108,7 @@ function uiInspectInstrument(id) {
 uiRegisterPage({
   id: 'instrument',
   mount(surface) {
-    surface.innerHTML = `<div class="discovery-toolbar"><label class="ui-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="destination">Add to<select id="instrument-destination" aria-label="Add instrument to"></select></label></div><div id="instrument-preview" hidden></div><div id="instrument-body"></div>`;
+    surface.innerHTML = `<div class="discovery-toolbar"><label class="ui-search cm-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="destination">Add to<select id="instrument-destination" class="cm-select" aria-label="Add instrument to"></select></label></div><div id="instrument-preview" hidden></div><div id="instrument-body"></div>`;
     $ui('instrument-search').addEventListener('input', () => {
       UI.limit = 50;
       renderInstrumentDiscovery();

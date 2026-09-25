@@ -88,7 +88,7 @@ function renderGenreWeb(id) {
     near = findSimilar(id, 8),
     added = app.cards.some((c) => c.traditionId === id);
   $ui('genre-body').innerHTML =
-    `<div class="genre-selected"><div class="selected-head">${uiButton('genre-close', 'Back', 'arrow-left')}<h2>${traditionGlyphsHTML(id, 32)}${esc(t.name)}</h2>${listenLink(t.name)}${uiButton('genre-add', added ? 'Add again' : 'Add genre', 'plus', `data-id="${esc(id)}"`)}</div><div class="genre-facts"><details><summary>About ${esc(t.name)}</summary><p>${esc(ext.description || t.lineage || '')}</p></details><details><summary>Sound profile</summary>${AXIS_DEFINITIONS.map((ax) => `<div class="profile-row"><span>${esc(ax.name)}</span><span>${esc(axisLabel(ax, ext.axes?.[ax.id] || 0))}</span></div>`).join('')}</details><details open><summary>Instruments</summary><div class="genre-instruments">${(t.instruments || []).map((i) => `<div>${image(i, 26)}<button data-ui="instrument-inspect" data-id="${esc(i)}">${esc(Inst(i)?.name || i)}</button>${listenLink(Inst(i)?.name || i, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i)}"`)}</div>`).join('')}</div></details><details><summary>Related genres · sound similarity</summary>${near
+    `<div class="genre-selected"><div class="selected-head">${uiButton('genre-close', 'Back', 'arrow-left')}<h2>${traditionGlyphsHTML(id, 32)}${esc(t.name)}</h2>${listenLink(t.name)}${uiButton('genre-add', added ? 'Add again' : 'Add genre', 'plus', `data-id="${esc(id)}"`)}</div><div class="genre-facts"><details class="cm-accordion"><summary>About ${esc(t.name)}</summary><p>${esc(ext.description || t.lineage || '')}</p></details><details class="cm-accordion"><summary>Sound profile</summary>${AXIS_DEFINITIONS.map((ax) => `<div class="profile-row"><span>${esc(ax.name)}</span><span>${esc(axisLabel(ax, ext.axes?.[ax.id] || 0))}</span></div>`).join('')}</details><details class="cm-accordion" open><summary>Instruments</summary><div class="genre-instruments">${(t.instruments || []).map((i) => `<div>${image(i, 26)}<button data-ui="instrument-inspect" data-id="${esc(i)}">${esc(Inst(i)?.name || i)}</button>${listenLink(Inst(i)?.name || i, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i)}"`)}</div>`).join('')}</div></details><details class="cm-accordion"><summary>Related genres · sound similarity</summary>${near
       .map((n) => {
         const other = Tradition(n.id);
         return `<div class="related-row"><button data-ui="genre-select" data-id="${esc(n.id)}">${traditionGlyphsHTML(n.id, 24)}${esc(other.name)}</button><span>${getMatchingAxes(
@@ -103,7 +103,7 @@ function renderGenreWeb(id) {
       })
       .join(
         ''
-      )}</details>${(ext.crossRefs || []).length ? `<details><summary>Also belongs to</summary>${ext.crossRefs.map((id) => uiButton('genre-branch', getTreeNode(id)?.name || id, 'layers', `data-id="${esc(id)}"`)).join('')}</details>` : ''}</div></div>`;
+      )}</details>${(ext.crossRefs || []).length ? `<details class="cm-accordion"><summary>Also belongs to</summary>${ext.crossRefs.map((id) => uiButton('genre-branch', getTreeNode(id)?.name || id, 'layers', `data-id="${esc(id)}"`)).join('')}</details>` : ''}</div></div>`;
 }
 // Back from a genre's detail to the list, returning focus to its row.
 function uiGenreBack() {
@@ -115,7 +115,7 @@ function uiGenreBack() {
 uiRegisterPage({
   id: 'genre',
   mount(surface) {
-    surface.innerHTML = `<div class="discovery-toolbar"><label class="ui-search">${icon('search', 20)}<input id="genre-search" type="search" placeholder="Search genres" aria-label="Search genres"></label>${uiButton('genre-tree', 'Browse tree', 'list')}${uiButton('ai', 'AI recipe', 'message-circle')}</div><div id="genre-body"></div>`;
+    surface.innerHTML = `<div class="discovery-toolbar"><label class="ui-search cm-search">${icon('search', 20)}<input id="genre-search" type="search" placeholder="Search genres" aria-label="Search genres"></label>${uiButton('genre-tree', 'Browse tree', 'list')}${uiButton('ai', 'AI recipe', 'message-circle')}</div><div id="genre-body"></div>`;
     $ui('genre-search').addEventListener('input', () => {
       UI.genre = null;
       UI.limit = 50;

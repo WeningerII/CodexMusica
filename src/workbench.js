@@ -445,7 +445,8 @@ function uiStart() {
   // One brand asset: the approved mark (assets/icon-192.png, pinned by
   // scripts/build_favicon.js) beside the wordmark, in both themes.
   header.innerHTML = `<a class="ui-brand" href="codex.html" aria-label="Codex Musica"><img class="ui-brand-mark" src="assets/icon-192.png" alt="" width="28" height="28"><span class="ui-brand-name">Codex Musica</span></a><nav aria-label="Main sections">${UI_ROUTES.map(
-    ([v, l, i]) => `<button data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`
+    ([v, l, i]) =>
+      `<button class="cm-tab" data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`
   ).join(
     ''
   )}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button><span id="ui-autosave" class="cm-status" role="status" aria-live="polite"></span>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved sessions', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal')}</div>`;
