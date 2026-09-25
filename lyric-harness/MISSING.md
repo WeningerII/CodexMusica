@@ -28400,6 +28400,14 @@ semantic line): `{'unvalidated': 55, 'regression_witness': 5,
 'witness_and_contrast': 23}`. Sibling sessions working other groups move the
 same line. The census re-derives it on every run.
 
+**TESTED WHILE OPEN.** `quality/test_capabilities.py` §9 names this entry
+and guards what is BUILT: the five `[True, False]` rows. It also pins each
+blocker's PREMISE (the refusal names `sense` / `stub_resolution`, the
+language sets, the stanza shape, the refused two-line epistrophe contrast)
+and checks that no blocker text outlives the schema starting to answer. The
+entry stays `PARTIAL` because the seven blocked names below are open. The
+test pins why they are blocked. It does not claim they are fixed.
+
 **NOT DONE.** The `sense` and `stub_resolution` seams on the grade route.
 A slot-diff definition of incremental repetition. A language coordinate on
 `Reviser` (M-4). Tamil, Telugu and Kannada phonologies. A Persian witness
