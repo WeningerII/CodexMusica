@@ -140,7 +140,7 @@ CORE = ("M1", "M5", "M9")
 #
 # PER SERIES, not one total, because the two series erode differently. The 33
 # `M*` are the 2026-08-11 band/comparator set in `lyric_harness.py` and
-# `battery.py`; the ~~24~~ 25 `Q*` are the quality layer, added 2026-08-13 to close
+# `battery.py`; the ~~24~~ ~~25~~ 26 `Q*` are the quality layer, added 2026-08-13 to close
 # doctrine 94's gap, and they are the ones sitting in files five sibling lots
 # edit hourly. One total would let the Q block shrink while the M block grew.
 #
@@ -162,8 +162,12 @@ CORE = ("M1", "M5", "M9")
 # so removing either alone leaves the other covering it, and only a mutation
 # that removes both proves the pair is load-bearing. Caught by
 # `test_revise.py` in a bounded 634s subset run.
-DECLARED_TOTAL = 58
-DECLARED_BY_SERIES = {"M": 33, "Q": 25}
+#
+# `Q` 25 -> 26 is QR8 (2026-09-24, `MISSING.md` M-310): the evidence gate on
+# tier 2 of the modal ban deleted, so the head refills from global
+# frequency. Added in the same commit as this line, which is the ritual.
+DECLARED_TOTAL = 59
+DECLARED_BY_SERIES = {"M": 33, "Q": 26}
 
 #: The layer vocabulary is CLAUDE.md's own triage rule, and a mutation runner
 #: that only mutates the layer its author was thinking about measures that

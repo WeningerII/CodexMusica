@@ -1146,6 +1146,29 @@ MUTATIONS = [
             "it, on a witness built for the purpose because the shipped song "
             "has no finding whose locations repeat a line."),
     ),
+    # THE EVIDENCE GATE (2026-09-24, `MISSING.md` M-310). Tier 2 of the
+    # two-tier ban admits a word to the head only when the song table has
+    # seen it realised as the call's rhyme partner. Doctrine 48: a gate that
+    # lives in one boolean clause is prose until a mutation proves something
+    # notices its removal.
+    Mutation(
+        name="QR8", layer="value", file=REVISE,
+        old="            if len(head) >= k or cond.get(w, 0) <= 0:",
+        new="            if len(head) >= k:",
+        subset=_q("test_homeoteleuton.py", "test_revise.py"),
+        rationale=(
+            "The evidence gate deleted: tier 2 fills its `modal_exclusion` "
+            "slots from the global-frequency BACKOFF again wherever the song "
+            "table knows fewer partners, so `thing`'s head goes back to "
+            "plaything/everything/it/is/in/this, `anything` is offered, and "
+            "MODAL_RHYME tells a writer `it` is one of the six most-"
+            "predictable answers to `thing` on zero observations. STRICTER "
+            "direction (the ban only grows), so any positive check on a "
+            "clean pair still passes; only a check that asks WHAT the head "
+            "holds can see it. `test_homeoteleuton.py` §6 asks that directly "
+            "and `test_revise.py` §22 sees it as `thing`/`spring` "
+            "re-inverting to 32/36 against a 23/24 menu."),
+    ),
 
     # ------------------------------- quality/schemes.py (mandate semantics)
     # `Mandate.requirement` is the closed-set answer the whole loop is built
