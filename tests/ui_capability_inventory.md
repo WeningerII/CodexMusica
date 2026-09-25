@@ -1356,6 +1356,17 @@ precondition: instrument picker open, similar drill-down active
 ```
 
 ```yaml
+name: instrument-inspector-character-browser
+kind: widget
+selector: '#instrument-preview details.ip-pcat[data-ip-pcat]'
+surface: Instrument inspector → Character — the character category browser (the editor's 16 categories with glyphs and counts, Expand all / Collapse all, Recently used; searching shows every hit grouped by category)
+implementation: ipRenderCharacter / ipPrefaceCategory over prefaceGroups, PREFACE_CAT_ORDER, prefaceGlyphsHTML and load/recordPrefaceRecent (src/app.js); a pick runs ip-preface → inverseConfigureForPreface on the preview
+status: reachable
+precondition: instrument picker open, similar drill-down active
+notes: Same grouping, search predicate and recents as the editor's Browse modal (renderPrefaceModalBody); categories render their chips when opened.
+```
+
+```yaml
 name: instrument-inspector-environment
 kind: widget
 selector: '#instrument-preview select[data-ip-env="room"]'

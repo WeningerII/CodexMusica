@@ -731,6 +731,65 @@
   align-items: center;
   gap: 6px;
 }
+/* Character browser: the editor's categories, as disclosures. */
+.ip-pref-browser {
+  display: flex;
+  flex-direction: column;
+}
+.ip-pref-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin-bottom: 4px;
+}
+.ip-pref-bar > .ip-muted {
+  flex: 1;
+}
+.ip-pref-recent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 0 10px;
+}
+.ip-pcat {
+  border-top: 1px solid var(--cm-border-subtle);
+}
+.ip-pcat > summary,
+.ip-pcat > h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  margin: 0;
+  color: var(--cm-text);
+  font-size: var(--cm-text-sm);
+  font-weight: 600;
+}
+.ip-pcat > summary {
+  cursor: pointer;
+}
+.ip-pcat-name {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.ip-pcat-count {
+  color: var(--cm-text-muted);
+  font-size: var(--cm-text-xs);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+.ip-pcat-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 0 10px;
+}
+.ip-pchip {
+  min-height: 32px;
+  padding: 4px 10px;
+}
 .ip-field-wide {
   flex-direction: column;
   align-items: stretch;
@@ -1025,6 +1084,9 @@ details.ip-changes[open] .ip-changes-sum > span:last-child {
   #surface-instrument .listen,
   .ip-row > [data-ui='instrument-add'],
   .ip-sim > [data-ui='instrument-add'] {
+    min-height: 44px;
+  }
+  .ip-pchip {
     min-height: 44px;
   }
   .ip-opt {
