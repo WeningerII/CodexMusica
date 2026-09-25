@@ -3087,7 +3087,20 @@ jobs:
     # both suites side by side; DEALT FOUR WAYS since 2026-09-05 (`MISSING.md`
     # M-244): each shard runs its residue of `test_revise` and of `test_loop`
     # at once, through `quality/shard.py`. Headroom, not a budget.
-    timeout-minutes: 20
+    #
+    # ~~timeout-minutes: 20~~ -> 30, 2026-09-25 (PR #380, the N-relation
+    # model). TIMED, not guessed: under the N-relation door shard 1/4's
+    # `test_revise` ran 1173s (SECTION COST total 1164.6s) on run 36060623999,
+    # and ONE section, `test_why_a_collision_earns_no_field`, was 712.1s of it
+    # -- the floor a shard count cannot beat. The same shard on main (#385's
+    # run 36069881514) ran `test_revise` in about 4 minutes. At 20 minutes the
+    # shard passed once at 19.8 min and was cancelled twice at 20.1-20.2 min
+    # with every section it reached passing. Nothing is skipped and no check
+    # moves: the job's work grew, so its headroom grows with it. The slowdown
+    # itself is a real cost of the model and is OPEN, not waved through: that
+    # section's cost under the new door is the thing to cut, after which this
+    # headroom can come back down.
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
