@@ -24,7 +24,7 @@ uiRegisterPage({
       }
       if (e.data?.type === 'genre-web' && typeof e.data.id === 'string') {
         UI.genre = e.data.id;
-        uiNavigate('genre');
+        uiNavigate('genre', { push: true });
       }
     });
   },

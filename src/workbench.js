@@ -77,8 +77,15 @@ const UI_SHELL_ACTIONS = new Set([
   'theme',
   'recipe-collapse',
 ]);
-// Page interface: { id, mount(surface), render?(), layout?(), resetLayout?(),
-// actions?: { [data-ui name]: (id, button, event) => void|Promise } }.
+// Page interface (docs/ui-foundation.md has the full contract):
+//   id            one of UI_ROUTES
+//   recipe?       'sidebar' (default) or 'dock': how Your recipe is presented
+//   mount(surface)  build the page once inside <section id="surface-<id>">
+//   render?()     show current state; called on every visit and refresh
+//   layout?()     page-specific UILayout panes, called once after the shell's
+//   resetLayout?()  extra work for Reset layout (the Map tells its iframe)
+//   escape?()     close what this page opened (last in the Escape order)
+//   actions?      { [data-ui name]: (id, button, event) => void | Promise }
 function uiRegisterPage(page) {
   if (!UI_ROUTES.some(([id]) => id === page.id)) throw Error('Unknown route: ' + page.id);
   if (UI_PAGES[page.id]) throw Error('Route registered twice: ' + page.id);
@@ -540,11 +547,11 @@ function uiStart() {
         break;
       case 'genre-nav':
         UI.genre = null;
-        uiNavigate('genre');
+        uiNavigate('genre', { push: true });
         break;
       case 'instrument-nav':
         app._addToTradition = null;
-        uiNavigate('instrument');
+        uiNavigate('instrument', { push: true });
         break;
       case 'instrument-add':
         await uiAddInstrument(id);
@@ -690,7 +697,14 @@ function uiStart() {
   UI.ready = true;
   uiLayoutControls();
   renderAll();
-  uiNavigate(location.hash.slice(1) || 'genre');
+  // codex.html?trad=<id> (the standalone atlas links here) opens that
+  // tradition's Genre detail. It adds nothing by itself: Add stays explicit,
+  // so a reload or a shared link can never duplicate an ensemble.
+  const deep = new URLSearchParams(location.search).get('trad');
+  if (deep && Tradition(deep)) {
+    UI.genre = deep;
+    uiNavigate('genre');
+  } else uiNavigate(location.hash.slice(1) || 'genre');
 }
 
 // ── Layers ── Escape closes the topmost open layer only and returns focus to

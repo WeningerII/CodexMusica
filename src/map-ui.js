@@ -44,7 +44,9 @@ document.addEventListener('click', (e) => {
   if (!a) return;
   const url = new URL(a.href, location.href);
   if (url.pathname.endsWith('codex.html') && url.searchParams.has('trad')) {
-    if (parent === window) return;
+    // Only the app's Map view (atlas.html?embedded=1) adds in place; framed
+    // anywhere else, the link opens the app like any other link.
+    if (parent === window || new URLSearchParams(location.search).get('embedded') !== '1') return;
     e.preventDefault();
     parent.postMessage({ type: 'add-genre', id: url.searchParams.get('trad') }, location.origin);
     a.dataset.adding = url.searchParams.get('trad');

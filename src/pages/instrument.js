@@ -102,7 +102,7 @@ function uiInspectInstrument(id) {
           `<div class="catalog-row"><button data-ui="instrument-inspect" data-id="${esc(n.id)}">${image(n.id, 24)}${esc(n.name)}</button>${listenLink(n.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(n.id)}"`)}</div>`
       )
       .join('')}`;
-  uiNavigate('instrument');
+  uiNavigate('instrument', { push: true });
   $ui('instrument-preview').scrollIntoView({ block: 'start', behavior: 'smooth' });
 }
 uiRegisterPage({

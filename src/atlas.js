@@ -72,6 +72,12 @@
   var INLINE =
     typeof window !== 'undefined' && window.__ATLAS_DATA__ ? window.__ATLAS_DATA__ : null;
   var CODEX_URL = (INLINE && INLINE.codexUrl) || 'codex.html';
+  // The app's Map view loads the atlas as atlas.html?embedded=1. Being framed
+  // is not enough: a published Artifact is framed by a host that is not the app.
+  var EMBEDDED =
+    typeof window !== 'undefined' &&
+    window.parent !== window &&
+    new URLSearchParams(location.search).get('embedded') === '1';
 
   // Canvas colours that depend on the theme are read from the shared tokens in
   // src/theme.css (Light or Dark, see src/theme.js) and re-read on a change.
@@ -1324,7 +1330,11 @@
       CODEX_URL +
       '?trad=' +
       encodeURIComponent(s.id) +
-      '">Add to your recipe</a>' +
+      '">' +
+      // Embedded in the app's Map view the link adds to the recipe there
+      // (src/map-ui.js); on its own it opens the app at this tradition.
+      (EMBEDDED ? 'Add to your recipe' : 'Open in Codex Musica') +
+      '</a>' +
       '<button class="btn-secondary" data-act="copy">' +
       esc(S.copyLabel || 'Copy default recipe') +
       '</button></div>';
