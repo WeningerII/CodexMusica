@@ -545,7 +545,13 @@ async function loadDelta(page) {
       const split = page.getByRole('separator', { name: 'Resize recipe sidebar' });
       const w0 = (await page.locator('#workspace-sidebar').boundingBox()).width;
       await split.press('ArrowLeft');
-      await page.waitForTimeout(150);
+      await page
+        .waitForFunction(
+          (w) => document.getElementById('workspace-sidebar').getBoundingClientRect().width > w,
+          w0,
+          { timeout: 5000 }
+        )
+        .catch(() => {});
       const w1 = (await page.locator('#workspace-sidebar').boundingBox()).width;
       check(w1 > w0, `M. ArrowLeft on the right-hand splitter did not widen it (${w0} → ${w1})`);
       await split.press('Home');
@@ -649,7 +655,13 @@ async function loadDelta(page) {
         'B. System did not follow a dark operating system'
       );
       await page.emulateMedia({ colorScheme: 'light' });
-      await page.waitForTimeout(150);
+      // Wait for the change listener rather than a fixed delay: under a loaded
+      // CI runner 150 ms was not always enough for the media event to land.
+      await page
+        .waitForFunction(() => document.documentElement.dataset.theme === 'light', null, {
+          timeout: 5000,
+        })
+        .catch(() => {});
       check(
         (await page.evaluate(() => document.documentElement.dataset.theme)) === 'light',
         'B. System did not follow the operating system switching to light'
