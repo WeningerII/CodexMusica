@@ -19146,6 +19146,7 @@ async function _chatRecover(generation = chatState.generation) {
         chatState.pending = null;
         const input = _chatEl('chat-input');
         if (input) input.value = job.message || 'Continue.';
+        _chatSyncCount();
         _chatSave();
         _chatAppend('<div class="chat-msg chat-msg-note">Recovered the last completed exchange. You can continue from it.</div>');
         return;
@@ -19341,6 +19342,78 @@ function _chatSetBusy(busy) {
   if (recover) recover.disabled = busy;
 }
 
+// ── the character counter ────────────────────────────────────────────────────
+//
+// `maxlength` is a SILENT wall: at the ceiling the browser simply stops
+// accepting keystrokes — no message, no cursor change, nothing to distinguish a
+// full field from a broken page. Someone pasting a real brief hits it mid-word
+// and has no way to know why. This is the missing feedback.
+//
+// THE CEILING IS READ FROM THE ATTRIBUTE, never declared here. That attribute is
+// already pinned to the server's CHAT_MAX_MESSAGE by mcp/test.mjs, so sourcing
+// it from the DOM means the counter cannot describe a bound different from the
+// one actually enforced — there is no second number for a future raise to
+// forget. Raise maxlength alone and this follows it.
+//
+// Bands and thresholds match .rp-count in the sidebar recipe preview. Same
+// shape of fact, so the same convention.
+//
+// maxlength only stops TYPING. An assignment to .value is not held to it, and
+// the workbench fills the field that way (Edit lyrics prefills the whole
+// draft), so the field can hold more than the server will take — mcp/chat.js
+// refuses anything past CHAT_MAX_MESSAGE outright. That is its own band,
+// `over`, and it must never be reported as "limit reached": telling someone
+// they are AT the wall when they are four hundred characters past it is the
+// counter lying.
+//
+// EVERY SCRIPT WRITE TO #chat-input MUST CALL _chatSyncCount(). An assignment
+// fires no `input` event, so the listener in initChatDock never hears it. The
+// writes today: _chatSubmit (clears it), _chatRecover (restores the saved
+// message), and in src/workbench.js uiSwitchChat (restores a writer's draft)
+// plus the Edit lyrics / Use current recipe prefills.
+const CHAT_COUNT_AMBER = 0.7;
+const CHAT_COUNT_RED = 0.9;
+
+// Last band announced, so the live region speaks on CROSSINGS rather than on
+// keystrokes — a handful of utterances per message at most, instead of one per
+// character, which is the difference between useful and unusable.
+let _chatCountBand = '';
+
+function _chatSyncCount() {
+  const input = _chatEl('chat-input');
+  const out = _chatEl('chat-count');
+  if (!input || !out) return;
+  // .maxLength is -1 when the attribute is absent. No ceiling, nothing to count
+  // — and notably not a reason to show "N / -1".
+  const max = input.maxLength;
+  const len = input.value.length;
+  const ratio = max > 0 ? len / max : 0;
+  out.textContent = max > 0 ? len + ' / ' + max : '';
+  out.hidden = ratio < CHAT_COUNT_AMBER;
+  out.classList.toggle('is-amber', ratio >= CHAT_COUNT_AMBER && ratio < CHAT_COUNT_RED);
+  out.classList.toggle('is-red', ratio >= CHAT_COUNT_RED);
+
+  // `full` is its own band and not just the top of red: "300 characters
+  // remaining" and "you cannot type another character" are different facts, and
+  // the second is the one someone needs to hear. `over` is a third fact again.
+  let band = '';
+  if (max > 0 && len > max) band = 'over';
+  else if (max > 0 && len === max) band = 'full';
+  else if (ratio >= CHAT_COUNT_RED) band = 'red';
+  else if (ratio >= CHAT_COUNT_AMBER) band = 'amber';
+
+  if (band === _chatCountBand) return;
+  _chatCountBand = band;
+  const sr = _chatEl('chat-count-sr');
+  if (!sr) return;
+  // Emptying this announces nothing, which is what dropping back under the
+  // first band should do.
+  if (!band) sr.textContent = '';
+  else if (band === 'over') sr.textContent = `${len - max} characters over the ${max}-character limit.`;
+  else if (band === 'full') sr.textContent = `Character limit reached — ${max} of ${max}.`;
+  else sr.textContent = `${max - len} characters remaining.`;
+}
+
 function _chatReset() {
   const previous = chatState.pending || (chatState.continuationId ? {request_id:chatState.continuationId,domain:chatState.task?.domain,message:'Saved conversation'} : null);
   if (previous) chatState.archives = [...chatState.archives, previous].slice(-8);
@@ -19392,6 +19465,9 @@ async function _chatSubmit(e) {
   _chatOpenPanel();
   _chatAppend(`<div class="chat-msg chat-msg-you">${esc(message)}</div>`);
   if (input) input.value = '';
+  // Clearing the field programmatically fires no `input` event, so the counter
+  // would otherwise stay stuck on the length of the message just sent.
+  _chatSyncCount();
   _chatSetBusy(true);
   const note = _chatAppend('<div class="chat-msg chat-msg-note">Working on your request…</div>');
   const controller = new AbortController();
@@ -19446,6 +19522,17 @@ function initChatDock() {
   if (chatState.pending) _chatRecover();
   _chatSetBusy(chatState.busy);
   form.addEventListener('submit', _chatSubmit);
+  const input = _chatEl('chat-input');
+  if (input) {
+    // `input` and not `keyup`: it is the one event that covers paste, cut,
+    // drag-drop, autofill, undo and an IME commit as well as typing — and paste
+    // is precisely the case that lands at the ceiling in a single step.
+    input.addEventListener('input', _chatSyncCount);
+    // Sync once at boot too. A soft reload restores the field's value in some
+    // browsers, and a restored 4000-character draft should come back with its
+    // counter already showing rather than waiting for the next keystroke.
+    _chatSyncCount();
+  }
   const collapse = _chatEl('chat-collapse');
   if (collapse) collapse.addEventListener('click', () => {
     const panel = _chatEl('chat-panel');

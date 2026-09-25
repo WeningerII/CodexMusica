@@ -1,6 +1,6 @@
 /* exported UI, UI_ICONS, uiStart, uiReceiveReply, uiOpenSurface, uiSync */
 /* global UILayout */
-/* global _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, Catalog, FamName, INSTRUMENT_FILTER_PILLS, Inst, Tradition, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, addInstrumentFromPicker, app, axisLabel, chatState, compileRecipeStack, copyToClipboard, countDescendantLeaves, esc, familyImage, findSimilar, findSimilarInstruments, getChildren, getMatchingAxes, getRoots, getTreeNode, icon, image, importTraditionWithFeedback, isMobileLayout, normalizeSearch, normalizeWorkspaceCards, passesInstrumentFilter, pushHistory, redo, renderAll, renderDetail, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, undo */
+/* global _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, Catalog, FamName, INSTRUMENT_FILTER_PILLS, Inst, Tradition, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, axisLabel, chatState, compileRecipeStack, copyToClipboard, countDescendantLeaves, esc, familyImage, findSimilar, findSimilarInstruments, getChildren, getMatchingAxes, getRoots, getTreeNode, icon, image, importTraditionWithFeedback, isMobileLayout, normalizeSearch, normalizeWorkspaceCards, passesInstrumentFilter, pushHistory, redo, renderAll, renderDetail, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, undo */
 /* Shared discovery and writing workspace. Built alongside the canonical app and catalog. */
 'use strict';
 const UI = {
@@ -412,6 +412,8 @@ function uiSwitchChat(target) {
     : target;
   if (next?.log) $ui('chat-log').append(next.log);
   $ui('chat-input').value = next?.input || '';
+  // A script write fires no `input` event; see _chatSyncCount in src/app.js.
+  _chatSyncCount();
   _chatSetBusy(false);
   uiUpdatePrompt();
   if (!next?.log && (chatState.pending || chatState.continuationId)) {
@@ -708,6 +710,9 @@ function uiStart() {
       case 'edit-lyrics':
         if (!uiNewTask('lyrics-edit')) break;
         $ui('chat-input').value = 'Edit these lyrics:\n' + $ui('lyrics-draft').value;
+        // maxlength does not bind a script write, so a long draft lands PAST
+        // the wall; the counter is what says so before the server refuses it.
+        _chatSyncCount();
         break;
       case 'attach-recipe':
         if (!uiSwitchChat('lyrics')) {
@@ -717,6 +722,7 @@ function uiStart() {
         $ui('chat-input').value =
           'Write lyrics for this recording recipe:\n' +
           compileRecipeStack(app.cards, 'rich', { ceiling: 1000 });
+        _chatSyncCount();
         $ui('chat-input').focus();
         break;
       case 'copy-lyrics':
