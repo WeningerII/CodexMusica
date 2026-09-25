@@ -45,6 +45,8 @@ A page registers once, at load, from its own file:
 uiRegisterPage({
   id: 'genre', // one of genre | instrument | map | lyrics
   recipe: 'sidebar', // or 'dock': how Your recipe is presented on this route
+  dockHeight: 'clamp(200px, 24vh, 320px)', // optional, with 'dock': default height (CSS length)
+  dockMin: 200, // optional, with 'dock': smallest height the resize handle allows (px)
   mount(surface) {}, // build the page once inside <section id="surface-genre">
   render() {}, // show current state; called on every visit and refresh
   layout() {}, // page-specific UILayout panes, once, after the shell's
@@ -101,6 +103,9 @@ recipe" and is a different object (copying it never touches Your recipe).
 - `recipe: 'dock'` — a strip under the page (the Map uses it): actions and name,
   the recipe tree, and the preview side by side; resizable from its top edge
   (drag or Up/Down), collapsible to its header. The editor opens beside the page.
+  A page may give the dock a height-aware default (`dockHeight`, a CSS length)
+  and a lower resize floor (`dockMin`); otherwise 320 px and 300 px. A height the
+  user dragged to is one remembered preference and wins on every docked page.
 - Below 900 px — the Recipe sheet (header button). On the Map and Lyrics the
   sheet stops at 60 % of the height so the map and the document stay usable.
 

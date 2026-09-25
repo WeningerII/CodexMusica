@@ -1666,7 +1666,7 @@ body.workbench {
     display: grid !important;
     grid-template-columns: minmax(220px, 260px) minmax(0, 1fr) minmax(260px, 380px);
     grid-template-rows: auto auto auto auto minmax(0, 1fr);
-    height: var(--dock-height, 320px) !important;
+    height: var(--dock-height, var(--dock-default, 320px)) !important;
     border-right: 0;
     border-top: 1px solid var(--cm-border);
   }
@@ -1676,6 +1676,15 @@ body.workbench {
   .workbench[data-recipe='dock'] .recipe-panel-head {
     grid-row: 1;
     grid-column: 1 / -1;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  /* A dock shorter than its left column (about 300px; see dockHeight/dockMin)
+     scrolls as a whole, and its header, with the collapse control, stays put. */
+  .workbench[data-recipe='dock']:not(.recipe-collapsed) .workspace #workspace-sidebar {
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
   }
   .workbench[data-recipe='dock'] .session-actions {
     grid-row: 2;

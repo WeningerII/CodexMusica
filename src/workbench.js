@@ -80,6 +80,11 @@ const UI_SHELL_ACTIONS = new Set([
 // Page interface (docs/ui-foundation.md has the full contract):
 //   id            one of UI_ROUTES
 //   recipe?       'sidebar' (default) or 'dock': how Your recipe is presented
+//   dockHeight?   with recipe 'dock': the dock's default height, a CSS length
+//                 (e.g. 'clamp(200px, 24vh, 320px)'); a height the user set
+//                 by dragging still wins. Default 320px.
+//   dockMin?      with recipe 'dock': the smallest height (px) the resize
+//                 handle allows on this route. Default 300.
 //   mount(surface)  build the page once inside <section id="surface-<id>">
 //   render?()     show current state; called on every visit and refresh
 //   layout?()     page-specific UILayout panes, called once after the shell's
@@ -94,6 +99,10 @@ function uiRegisterPage(page) {
       throw Error('Action already owned: ' + name);
     UI_PAGE_ACTIONS[name] = page.actions[name];
   }
+  if (page.dockHeight != null && typeof page.dockHeight !== 'string')
+    throw Error('dockHeight must be a CSS length: ' + page.id);
+  if (page.dockMin != null && !(Number.isFinite(page.dockMin) && page.dockMin > 0))
+    throw Error('dockMin must be a positive number of pixels: ' + page.id);
   UI_PAGES[page.id] = page;
 }
 const $ui = (id) => document.getElementById(id);
@@ -158,6 +167,11 @@ function uiApplyRecipeMode() {
   const collapsed = !!uiRecipeCollapsed[mode]?.get();
   document.body.dataset.recipe = mode;
   document.body.classList.toggle('recipe-collapsed', collapsed);
+  // A docked page may size its own default (see dockHeight). Set per route,
+  // so the Map keeps the 320px default while another page asks for less.
+  const dockHeight = mode === 'dock' && UI_PAGES[UI.view]?.dockHeight;
+  if (dockHeight) document.body.style.setProperty('--dock-default', dockHeight);
+  else document.body.style.removeProperty('--dock-default');
   const toggle = document.querySelector('[data-ui="recipe-collapse"]');
   if (toggle) {
     const label = (collapsed ? 'Expand' : 'Collapse') + ' Your recipe';
@@ -789,7 +803,7 @@ function uiLayoutControls() {
     limits: () => [320, Math.min(700, innerWidth * 0.45)],
     enabled: () => innerWidth >= 900 && document.body.classList.contains('editor-open'),
   });
-  // The docked presentation (the Map) resizes from its top edge.
+  // The docked presentation (the Map, the Instrument page) resizes from its top edge.
   UILayout.splitter({
     container: workspace,
     panel: sidebar,
@@ -797,7 +811,10 @@ function uiLayoutControls() {
     property: '--dock-height',
     title: 'Resize Your recipe',
     side: 'top',
-    limits: () => [300, Math.max(300, Math.round(workspace.clientHeight * 0.7))],
+    limits: () => {
+      const min = UI_PAGES[UI.view]?.dockMin ?? 300;
+      return [min, Math.max(min, Math.round(workspace.clientHeight * 0.7))];
+    },
     enabled: () => innerWidth >= 900 && uiRecipeMode() === 'dock' && !uiRecipeCollapsed.dock?.get(),
   });
   for (const [route] of UI_ROUTES) UI_PAGES[route]?.layout?.();
