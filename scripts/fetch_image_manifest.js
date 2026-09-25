@@ -44,6 +44,9 @@ const opts = {
   concurrency: 4,
   depictsMinutes: 30,
   openverseBudget: 190,
+  categoryMinutes: 30,
+  searchMinutes: 45,
+  fresh: false,
 };
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--limit') opts.limit = parseInt(args[++i], 10);
@@ -53,6 +56,9 @@ for (let i = 0; i < args.length; i++) {
   else if (args[i] === '--concurrency') opts.concurrency = parseInt(args[++i], 10);
   else if (args[i] === '--openverse-budget') opts.openverseBudget = parseInt(args[++i], 10);
   else if (args[i] === '--depicts-minutes') opts.depictsMinutes = parseFloat(args[++i]);
+  else if (args[i] === '--category-minutes') opts.categoryMinutes = parseFloat(args[++i]);
+  else if (args[i] === '--search-minutes') opts.searchMinutes = parseFloat(args[++i]);
+  else if (args[i] === '--fresh') opts.fresh = true;
 }
 
 const UA = 'CodexMusica-image-manifest/1.0 (https://github.com/WeningerII/CodexMusica)';
@@ -154,6 +160,22 @@ function nameCandidates(name) {
   return [...out].filter((s) => norm(s).length >= 3);
 }
 
+// Round 2 widens the search past the display name: the catalog's `short`
+// name ("oud" for "ʿŪd (Arab/Mediterranean fretless lute)"), the id read as
+// words, each side of "X and Y", and "<name> music" for traditions. The
+// display name comes first, so an entity it already matched keeps that
+// match. Parenthesised text is left out: it is as often a qualifier
+// ("bass", "Persian", "country") as a native name.
+function allCandidates(e) {
+  const out = new Set(nameCandidates(e.name));
+  if (e.short) for (const c of nameCandidates(e.short)) out.add(c);
+  out.add(e.id.replace(/_/g, ' '));
+  for (const c of [...out]) for (const part of c.split(/\s+and\s+/i)) out.add(part);
+  if (e.kind === 'tradition') for (const c of [...out]) out.add(c + ' music');
+  // Bare years, eras and very short fragments name nothing on their own.
+  return [...out].filter((s) => norm(s).length >= 3 && !/\d{3}/.test(s));
+}
+
 // ---- Licenses ----
 function classifyLicense(short) {
   const s = String(short || '')
@@ -193,16 +215,16 @@ function sparqlString(s) {
 // label or alias equals one of them, with its P18 image if it has one.
 async function sparqlLabelHits(labels, kind) {
   const query =
-    'SELECT ?lab ?item ?itemLabel ?img ?main WHERE { VALUES ?lab { ' +
+    'SELECT ?lab ?item ?itemLabel ?img ?cat ?main WHERE { VALUES ?lab { ' +
     labels.map(sparqlString).join(' ') +
     ' } { ?item rdfs:label ?lab . BIND(true AS ?main) } UNION' +
     ' { ?item skos:altLabel ?lab . BIND(false AS ?main) }' +
     ' ?item wdt:P31?/wdt:P279* wd:' +
     WD_CLASS[kind] +
-    ' . OPTIONAL { ?item wdt:P18 ?img } ' +
+    ' . OPTIONAL { ?item wdt:P18 ?img } OPTIONAL { ?item wdt:P373 ?cat } ' +
     'SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } }';
   // POST: a GET carrying 150 labels overflows the request line (HTTP 431).
-  const data = await cached('sparql2:' + kind + ':' + labels.join('|'), () =>
+  const data = await cached('sparql3:' + kind + ':' + labels.join('|'), () =>
     getJson(
       'https://query.wikidata.org/sparql?format=json',
       0,
@@ -215,6 +237,7 @@ async function sparqlLabelHits(labels, kind) {
     itemLabel: b.itemLabel && b.itemLabel.value,
     main: b.main && b.main.value === 'true',
     file: b.img && decodeURIComponent(b.img.value.replace(/^.*\/Special:FilePath\//, '')),
+    category: b.cat && b.cat.value,
   }));
 }
 
@@ -235,9 +258,7 @@ async function wikidataMatches(entities) {
   const out = {};
   for (const kind of Object.keys(WD_CLASS)) {
     const mine = entities.filter((e) => e.kind === kind);
-    const allLabels = [
-      ...new Set(mine.flatMap((e) => nameCandidates(e.name).flatMap(caseVariants))),
-    ];
+    const allLabels = [...new Set(mine.flatMap((e) => allCandidates(e).flatMap(caseVariants)))];
     const byLabel = {};
     // A batch the endpoint times out on is split in half and retried.
     const run = async (batch) => {
@@ -255,7 +276,8 @@ async function wikidataMatches(entities) {
     };
     for (const batch of chunk(allLabels, 60)) await run(batch);
     for (const e of mine) {
-      const cands = nameCandidates(e.name);
+      const cands = allCandidates(e);
+      const primary = nameCandidates(e.name)[0];
       for (const cand of cands) {
         const hits = caseVariants(cand).flatMap((v) => byLabel[v] || []);
         if (!hits.length) continue;
@@ -263,11 +285,14 @@ async function wikidataMatches(entities) {
         if (!r) break; // ambiguous: skip rather than guess
         const mineHits = hits.filter((h) => h.qid === r.qid);
         const withImg = mineHits.find((h) => h.file);
+        const withCat = mineHits.find((h) => h.category);
         out[e.key] = {
           qid: r.qid,
+          kind,
           label: mineHits[0].itemLabel || mineHits[0].label,
           file: withImg ? withImg.file : null,
-          confidence: cand === cands[0] && !r.tiebreak ? 'high' : 'medium',
+          category: withCat ? withCat.category : null,
+          confidence: cand === primary && !r.tiebreak ? 'high' : 'medium',
         };
         break;
       }
@@ -309,6 +334,117 @@ async function commonsDepicts(matches) {
   });
   saveCache();
   return { tried: done, of: todo.length };
+}
+
+// Round 2. Items with no P18 but a Commons category (P373): the category is
+// the item's own gallery, so a file filed in it is confirmed by its own
+// categories. Take the one whose title names the item, else the first
+// openly licensed photo by title order; maps, logos, flags, scans of scores
+// and non-image media never count.
+const NOT_A_PICTURE =
+  /\b(map|karte|carte|mapa|logo|flag|coat of arms|locator|signature|diagram|chart|score|sheet music|partitura|stamp|cover|poster|label|disc|record|tomb|grave)\b/i;
+const PHOTO_EXT = /\.(jpe?g|png|webp)$/i;
+function pickableFile(title) {
+  const t = title.replace(/^File:/, '');
+  return PHOTO_EXT.test(t) && !NOT_A_PICTURE.test(t.replace(/[_.-]/g, ' '));
+}
+function hasWords(hay, needle) {
+  const n = norm(needle);
+  return n.length >= 3 && (' ' + norm(hay) + ' ').includes(' ' + n + ' ');
+}
+async function commonsCategory(matches) {
+  const deadline = Date.now() + opts.categoryMinutes * 60000;
+  const todo = Object.values(matches).filter((m) => !m.file && m.category);
+  let done = 0;
+  await pool(todo, 2, async (m) => {
+    const key = 'cat:' + m.category;
+    if (!(key in cache) && Date.now() > deadline) return;
+    const url =
+      'https://commons.wikimedia.org/w/api.php?action=query&format=json' +
+      '&generator=categorymembers&gcmtype=file&gcmlimit=50&gcmtitle=' +
+      encodeURIComponent('Category:' + m.category) +
+      '&prop=imageinfo&iiprop=extmetadata&iiextmetadatafilter=LicenseShortName';
+    let data;
+    try {
+      data = await cached(key, () => tryJson(url));
+    } catch {
+      return;
+    }
+    if (++done % 25 === 0) saveCache();
+    const pages = Object.values((data && data.query && data.query.pages) || {})
+      .filter((p) => pickableFile(p.title))
+      .filter((p) => {
+        const em = (((p.imageinfo || [])[0] || {}).extmetadata || {}).LicenseShortName;
+        return classifyLicense(em && em.value);
+      })
+      .sort((a, b) => (a.title < b.title ? -1 : a.title > b.title ? 1 : 0));
+    const named = pages.find((p) => hasWords(p.title, m.label));
+    const pick = named || pages[0];
+    if (!pick) return;
+    m.file = pick.title.replace(/^File:/, '');
+    m.confidence = named ? 'medium' : 'low';
+    m.via = 'category';
+  });
+  saveCache();
+  return { tried: done, of: todo.length };
+}
+
+// Round 2, traditions only. A genre item with no picture of its own: a
+// photo of a performer whose Wikidata record names that genre (P136), taken
+// only from people and musical groups listing at most three genres, so the
+// genre is one that defines them. The best-known such performer (most
+// sitelinks) wins.
+async function genrePerformers(matches) {
+  const todo = Object.values(matches).filter((m) => !m.file && m.kind === 'tradition');
+  const byGenre = {};
+  const run = async (batch) => {
+    const query =
+      'SELECT ?genre ?p ?pLabel ?img ?links (COUNT(DISTINCT ?g2) AS ?ng) WHERE { VALUES ?genre { ' +
+      batch.map((q) => 'wd:' + q).join(' ') +
+      ' } ?p wdt:P136 ?genre ; wdt:P18 ?img ; wikibase:sitelinks ?links ; wdt:P136 ?g2 .' +
+      ' { ?p wdt:P31 wd:Q5 } UNION { ?p wdt:P31/wdt:P279* wd:Q215380 }' +
+      ' SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } }' +
+      ' GROUP BY ?genre ?p ?pLabel ?img ?links';
+    let data;
+    try {
+      data = await cached('performers:' + batch.join('|'), () =>
+        getJson(
+          'https://query.wikidata.org/sparql?format=json',
+          0,
+          'query=' + encodeURIComponent(query)
+        )
+      );
+    } catch (e) {
+      if (batch.length < 2) return;
+      const mid = batch.length >> 1;
+      await run(batch.slice(0, mid));
+      return run(batch.slice(mid));
+    }
+    for (const b of data.results.bindings) {
+      if (Number(b.ng.value) > 3) continue;
+      (byGenre[b.genre.value.replace(/^.*\//, '')] ||= []).push({
+        qid: b.p.value.replace(/^.*\//, ''),
+        label: b.pLabel && b.pLabel.value,
+        links: Number(b.links.value),
+        file: decodeURIComponent(b.img.value.replace(/^.*\/Special:FilePath\//, '')),
+      });
+    }
+    saveCache();
+  };
+  for (const batch of chunk([...new Set(todo.map((m) => m.qid))], 25)) await run(batch);
+  let found = 0;
+  for (const m of todo) {
+    const ps = (byGenre[m.qid] || [])
+      .filter((p) => pickableFile(p.file) && !/^Q\d+$/.test(p.label || 'Q0'))
+      .sort((a, b) => b.links - a.links || (a.qid < b.qid ? -1 : 1));
+    if (!ps.length) continue;
+    m.file = ps[0].file;
+    m.confidence = 'medium';
+    m.via = 'performer';
+    m.label = ps[0].label + ' (' + m.label + ' performer)';
+    found++;
+  }
+  return { found, of: todo.length };
 }
 
 // Commons appends utm_* tracking parameters to file URLs; drop them.
@@ -353,13 +489,23 @@ async function commonsInfo(files) {
   return out;
 }
 
+const SOURCE_BY_VIA = {
+  depicts: 'commons_depicts',
+  category: 'commons_category',
+  performer: 'wikidata_performer',
+};
+
 async function viaWikidata(entities, skipped) {
   const results = {};
   let matches;
   try {
     matches = await wikidataMatches(entities);
+    const c = await commonsCategory(matches);
+    console.error(`commons category fallback: ${c.tried}/${c.of} categories read`);
     const d = await commonsDepicts(matches);
     console.error(`commons depicts fallback: ${d.tried}/${d.of} items looked up`);
+    const g = await genrePerformers(matches);
+    console.error(`genre performer fallback: ${g.found}/${g.of} traditions`);
   } catch (e) {
     skipped.push({ source: 'wikidata', reason: e.message });
     return results;
@@ -383,7 +529,7 @@ async function viaWikidata(entities, skipped) {
     const license = meta && classifyLicense(meta.license_raw);
     if (!license) continue;
     results[key] = {
-      source: m.via === 'depicts' ? 'commons_depicts' : 'wikidata_commons',
+      source: SOURCE_BY_VIA[m.via] || 'wikidata_commons',
       wikidata: m.qid,
       source_page: meta.source_page,
       image_url: meta.image_url,
@@ -403,7 +549,7 @@ async function viaMet(entities, skipped) {
   const results = {};
   try {
     await pool(entities, opts.concurrency, async (e) => {
-      for (const cand of nameCandidates(e.name)) {
+      for (const cand of allCandidates(e)) {
         const url =
           'https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=18&hasImages=true&q=' +
           encodeURIComponent(cand);
@@ -426,7 +572,7 @@ async function viaMet(entities, skipped) {
             credit: o.creditLine
               ? 'The Metropolitan Museum of Art, ' + o.creditLine
               : 'The Metropolitan Museum of Art',
-            match_confidence: cand === nameCandidates(e.name)[0] ? 'medium' : 'low',
+            match_confidence: cand === allCandidates(e)[0] ? 'medium' : 'low',
             matched_label: o.title || o.objectName,
           };
           return;
@@ -441,24 +587,26 @@ async function viaMet(entities, skipped) {
   return results;
 }
 
-// ---- Source 3: Smithsonian Open Access (needs SI_API_KEY) ----
+// ---- Source 3: Smithsonian Open Access (SI_API_KEY, else api.data.gov's
+// DEMO_KEY, which allows a few dozen calls an hour: the first refusal ends
+// the pass and the cache keeps what was read) ----
 async function viaSmithsonian(entities, skipped) {
-  const key = process.env.SI_API_KEY;
+  const key = process.env.SI_API_KEY || 'DEMO_KEY';
   const results = {};
-  if (!key) {
-    skipped.push({ source: 'smithsonian_open_access', reason: 'no SI_API_KEY' });
-    return results;
-  }
   try {
-    await pool(entities, opts.concurrency, async (e) => {
+    await pool(entities, key === 'DEMO_KEY' ? 1 : opts.concurrency, async (e) => {
       const q = `"${e.name}" AND online_media_type:"Images" AND unit_code:"NMAH"`;
       const url =
         'https://api.si.edu/openaccess/api/v1.0/search?rows=5&api_key=' +
         key +
         '&q=' +
         encodeURIComponent(q);
-      const data = await cached('si:' + e.name, () => tryJson(url));
-      for (const row of (data.response && data.response.rows) || []) {
+      const data = await cached('si:' + e.name, async () => {
+        const res = await fetch(url, { headers: { 'User-Agent': UA } });
+        if (res.status === 429 || res.status === 403) throw new Error('http_' + res.status);
+        return res.ok ? res.json() : null;
+      });
+      for (const row of (data && data.response && data.response.rows) || []) {
         if (norm(row.title) !== norm(e.name)) continue;
         const media =
           row.content &&
@@ -516,7 +664,7 @@ async function viaCleveland(entities, skipped) {
   const results = {};
   try {
     await pool(entities, opts.concurrency, async (e) => {
-      const cands = nameCandidates(e.name);
+      const cands = allCandidates(e);
       for (const cand of cands) {
         const url =
           'https://openaccess-api.clevelandart.org/api/artworks/?cc0=1&has_image=1' +
@@ -567,7 +715,7 @@ async function viaEuropeana(entities, skipped) {
   const key = process.env.EUROPEANA_KEY || 'api2demo';
   try {
     await pool(entities, opts.concurrency, async (e) => {
-      const cands = nameCandidates(e.name);
+      const cands = allCandidates(e);
       for (const cand of cands) {
         const url =
           'https://api.europeana.eu/record/v2/search.json?reusability=open&qf=TYPE%3AIMAGE' +
@@ -601,6 +749,76 @@ async function viaEuropeana(entities, skipped) {
     });
   } catch (e) {
     skipped.push({ source: 'europeana', reason: e.message });
+  } finally {
+    saveCache();
+  }
+  return results;
+}
+
+// ---- Round 2 source: Commons full-text search per catalog name ----
+// Entities nothing else matched. A file counts only when its own title AND
+// its own categories (or description) name the thing, and its categories or
+// description are about music, so a village or a surname sharing the name
+// never passes. Commons throttles hard: the pass runs under a time budget
+// (--search-minutes) and caches, so a rerun continues where it stopped.
+const MUSICAL =
+  /\b(music\w*|musical instruments?|instruments?|drums?|percussion|lutes?|fiddles?|flutes?|guitars?|harps?|zithers?|violins?|horns?|trumpets?|oboes?|bagpipes?|singers?|singing|songs?|bands?|orchestras?|ensembles?|concerts?|festivals?|musicians?|performers?|choirs?|dances?)\b/i;
+async function viaCommonsSearch(entities, skipped) {
+  const results = {};
+  const deadline = Date.now() + opts.searchMinutes * 60000;
+  try {
+    await pool(entities, 2, async (e) => {
+      const primary = nameCandidates(e.name);
+      const cands = [...new Set([...primary, ...(e.short ? nameCandidates(e.short) : [])])];
+      for (const cand of cands) {
+        const key = 'cs:' + cand;
+        if (!(key in cache) && Date.now() > deadline) return;
+        const url =
+          'https://commons.wikimedia.org/w/api.php?action=query&format=json' +
+          '&generator=search&gsrnamespace=6&gsrlimit=10&gsrsearch=' +
+          encodeURIComponent('intitle:"' + cand + '" filetype:bitmap') +
+          '&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=' +
+          THUMB_WIDTH +
+          '&iiextmetadatafilter=LicenseShortName|Artist|Credit|Categories|ImageDescription';
+        let data;
+        try {
+          data = await cached(key, () => tryJson(url));
+        } catch {
+          return;
+        }
+        const pages = Object.values((data && data.query && data.query.pages) || {}).sort(
+          (a, b) => (a.index || 0) - (b.index || 0)
+        );
+        for (const p of pages) {
+          const ii = (p.imageinfo || [])[0];
+          if (!ii || !pickableFile(p.title) || !hasWords(p.title, cand)) continue;
+          const em = ii.extmetadata || {};
+          const license_raw = (em.LicenseShortName && em.LicenseShortName.value) || '';
+          const license = classifyLicense(license_raw);
+          if (!license) continue;
+          const cats = String((em.Categories && em.Categories.value) || '').replace(/\|/g, ' | ');
+          const desc = stripHtml(em.ImageDescription && em.ImageDescription.value);
+          if (!hasWords(cats, cand) && !hasWords(desc, cand)) continue;
+          if (!MUSICAL.test(cats + ' ' + desc)) continue;
+          results[e.key] = {
+            source: 'commons_search',
+            source_page: ii.descriptionurl,
+            image_url: stripTracking(ii.url),
+            thumb_url: stripTracking(ii.thumburl || ii.url),
+            license,
+            license_raw,
+            credit:
+              stripHtml((em.Artist && em.Artist.value) || (em.Credit && em.Credit.value) || '') ||
+              'Wikimedia Commons contributor',
+            match_confidence: cand === primary[0] ? 'medium' : 'low',
+            matched_label: p.title.replace(/^File:/, ''),
+          };
+          return;
+        }
+      }
+    });
+  } catch (e) {
+    skipped.push({ source: 'commons_search', reason: e.message });
   } finally {
     saveCache();
   }
@@ -670,14 +888,35 @@ function loadEntities() {
     if (opts.kind && opts.kind !== kind) continue;
     const idx = JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'));
     for (const it of idx.items.slice(0, opts.limit)) {
-      list.push({ key: kind + ':' + it.id, id: it.id, kind, name: it.name });
+      const e = { key: kind + ':' + it.id, id: it.id, kind, name: it.name };
+      if (kind === 'instrument') {
+        const rec = JSON.parse(
+          fs.readFileSync(path.join(ROOT, 'api/instruments', it.id + '.json'))
+        );
+        if (rec.short) e.short = rec.short;
+      }
+      list.push(e);
     }
   }
   return list;
 }
 
+// Entries already in the manifest are kept as they are (an accuracy pass
+// may have corrected or pruned them by hand); a run only looks for the
+// entities still missing. --fresh ignores the existing file and rebuilds
+// every entry from the sources.
+function loadExisting() {
+  if (opts.fresh || !fs.existsSync(opts.out)) return { images: [], skipped: [] };
+  const m = JSON.parse(fs.readFileSync(opts.out, 'utf8'));
+  return { images: m.images || [], skipped: m.skipped_sources || [] };
+}
+
 async function main() {
-  const entities = loadEntities();
+  const all = loadEntities();
+  const existing = loadExisting();
+  const kept = {};
+  for (const img of existing.images) kept[img.kind + ':' + img.id] = img;
+  const entities = all.filter((e) => !kept[e.key]);
   const skipped = [];
   const found = await viaWikidata(entities, skipped);
   const missingInstruments = () => entities.filter((e) => e.kind === 'instrument' && !found[e.key]);
@@ -685,6 +924,16 @@ async function main() {
   Object.assign(found, await viaSmithsonian(missingInstruments(), skipped));
   Object.assign(found, await viaCleveland(missingInstruments(), skipped));
   Object.assign(found, await viaEuropeana(missingInstruments(), skipped));
+  // Commons search: instruments first, whose names are the more distinctive.
+  Object.assign(
+    found,
+    await viaCommonsSearch(
+      entities
+        .filter((e) => !found[e.key])
+        .sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'instrument' ? -1 : 1)),
+      skipped
+    )
+  );
   // Openverse's small daily allowance goes to traditions first: museums
   // only ever cover instruments.
   const missing = entities
@@ -692,14 +941,14 @@ async function main() {
     .sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'tradition' ? -1 : 1));
   Object.assign(found, await viaOpenverse(missing, skipped));
 
-  const images = entities
-    .filter((e) => found[e.key])
-    .map((e) => ({ id: e.id, kind: e.kind, name: e.name, ...found[e.key] }))
+  const images = all
+    .filter((e) => kept[e.key] || found[e.key])
+    .map((e) => kept[e.key] || { id: e.id, kind: e.kind, name: e.name, ...found[e.key] })
     .sort((a, b) => (a.kind + a.id < b.kind + b.id ? -1 : a.kind + a.id > b.kind + b.id ? 1 : 0));
 
   const coverage = {};
   for (const kind of ['instrument', 'tradition']) {
-    const total = entities.filter((e) => e.kind === kind).length;
+    const total = all.filter((e) => e.kind === kind).length;
     const mine = images.filter((i) => i.kind === kind);
     const by = (f) => mine.reduce((acc, i) => ((acc[i[f]] = (acc[i[f]] || 0) + 1), acc), {});
     coverage[kind] = {
