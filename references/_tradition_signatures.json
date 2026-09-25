@@ -77,7 +77,6 @@
     "folk-tradition",
     "dance-driving",
     "dance-friendly",
-    "iberian-celtic",
     "rapid-tremolo"
   ],
   "mariachi": [
@@ -85,7 +84,6 @@
     "folk-tradition",
     "dance-driving",
     "dance-friendly",
-    "iberian-celtic",
     "characteristic-cry"
   ],
   "ranchera": [
@@ -93,15 +91,13 @@
     "folk-tradition",
     "dance-driving",
     "dance-friendly",
-    "iberian-celtic",
     "characteristic-cry"
   ],
   "corrido": [
     "folk",
     "folk-tradition",
     "dance-driving",
-    "dance-friendly",
-    "iberian-celtic"
+    "dance-friendly"
   ],
   "singer_songwriter": [
     "folk",
@@ -170,7 +166,6 @@
     "blues-derived",
     "blues-inflected",
     "bluesy",
-    "gospel-rooted",
     "slide",
     "glissando-heavy",
     "mournful",
@@ -190,7 +185,6 @@
     "blues-derived",
     "blues-inflected",
     "bluesy",
-    "gospel-rooted",
     "slide",
     "glissando-heavy",
     "mournful",
@@ -210,7 +204,6 @@
     "liturgical",
     "sacred-traditional",
     "ceremonial",
-    "sacred-Latin",
     "blues-shouter",
     "shouted",
     "gospel-pentecostal",
@@ -219,7 +212,6 @@
     "call-response"
   ],
   "southern_gospel": [
-    "gospel-rooted",
     "gospel-runs",
     "gospel-friendly",
     "devotional",
@@ -263,7 +255,6 @@
     "jazz-friendly",
     "classical-jazz",
     "swung",
-    "vintage-steinway",
     "pre-war",
     "compression-wired",
     "aged-felt",
@@ -325,9 +316,7 @@
     "marching-bateria",
     "singing-sustain",
     "low-fundamental-tuning",
-    "sacred-Latin",
     "romantic",
-    "German-traditional",
     "liturgical",
     "intimate-aspirated",
     "breathy-low"
@@ -450,8 +439,7 @@
     "jazz-friendly",
     "jazz-friendly",
     "classical-jazz",
-    "swung",
-    "italian"
+    "swung"
   ],
   "thai_classical": [
     "naturally-reverberant",
@@ -562,7 +550,6 @@
     "sub-driven",
     "sustained-high-register",
     "low-fundamental-tuning",
-    "Italian-baroque",
     "German-traditional",
     "mournful",
     "rapid-tremolo",
@@ -618,7 +605,6 @@
     "flamed-figure",
     "oil-varnish",
     "modern-setup",
-    "cremonese-pre-1750",
     "a-442",
     "european-orchestral"
   ],
@@ -665,7 +651,6 @@
     "metal-strip-wound",
     "transitional",
     "lyon",
-    "french-renaissance",
     "cremonese-pre-1750",
     "four-layer-system",
     "italian-alpine-spruce",
@@ -712,7 +697,6 @@
     "Japanese-classical"
   ],
   "beijing_opera": [
-    "gagaku-foundational",
     "naturally-reverberant",
     "minimal",
     "drone-foundation",
@@ -724,7 +708,6 @@
     "crisp-consonant-articulation"
   ],
   "cantonese_opera": [
-    "gagaku-foundational",
     "naturally-reverberant",
     "minimal",
     "drone-foundation",
@@ -754,8 +737,6 @@
   ],
   "hindustani_sarod": [
     "raga-bound",
-    "dhrupad-suited",
-    "Hindu-ritual",
     "drone-foundation",
     "drone-like",
     "ornamental-melismatic",
@@ -766,7 +747,6 @@
     "contemplative",
     "dynamic-arc-foundational",
     "crescendo-build",
-    "khyal",
     "raga-improvisation"
   ],
   "garage_rock": [
@@ -848,7 +828,6 @@
     "cutting",
     "sub-driven",
     "sub-bass-foundational",
-    "German-traditional",
     "rhythmic-speech",
     "sub-heavy",
     "sub-fundamental-buzz",
@@ -866,7 +845,6 @@
     "sub-bass",
     "folk-shrill",
     "sustained-high-register",
-    "gospel-rooted",
     "high-falsetto",
     "gospel-runs",
     "blues-shouter"
@@ -979,7 +957,6 @@
     "drone-foundation",
     "sustained-tone",
     "low-fundamental-tuning",
-    "German-traditional",
     "reverberant",
     "high-gain-cascading-saturation",
     "naturally-reverberant",
@@ -1130,7 +1107,6 @@
     "ornament-heavy",
     "ceremonial",
     "court-ceremonial",
-    "Hindu-ritual",
     "sacred-traditional",
     "meditative-tempo",
     "contemplative",
@@ -1144,9 +1120,6 @@
   ],
   "fado": [
     "fado-lead",
-    "university-fado",
-    "iberian-celtic",
-    "celtic",
     "lament-leaning",
     "mournful",
     "lament-wail",
@@ -1155,20 +1128,13 @@
     "ornamental-melismatic"
   ],
   "morna": [
-    "fado-lead",
-    "university-fado",
-    "iberian-celtic",
-    "celtic",
     "lament-leaning",
     "mournful",
     "lament-wail"
   ],
   "celtic_irish_trad": [
     "celtic",
-    "iberian-celtic",
     "Irish-traditional",
-    "Scottish-influenced",
-    "english-folk",
     "folk",
     "folk-tradition",
     "lament-wail",
@@ -1184,7 +1150,6 @@
     "folkloric",
     "folk-tradition",
     "ornamental-melismatic",
-    "sufi-mystical",
     "devotional",
     "court-ceremonial",
     "ebonite",
@@ -1193,7 +1158,6 @@
     "klezmer-tradition"
   ],
   "shape_note": [
-    "sacred-Latin",
     "sacred-traditional",
     "liturgical",
     "medieval",
@@ -1355,7 +1319,6 @@
     "transient-grab-aggressive",
     "growly",
     "sub-bass",
-    "German-traditional",
     "sheet-bronze",
     "machine-hammered",
     "cutting",
@@ -1436,14 +1399,12 @@
     "funky"
   ],
   "tango": [
-    "iberian-celtic",
     "folk",
     "folk-tradition",
     "dark-romantic",
     "lament-leaning"
   ],
   "milonga": [
-    "iberian-celtic",
     "folk",
     "folk-tradition",
     "dark-romantic",
@@ -1461,7 +1422,6 @@
   "pagode": [
     "samba-foundation",
     "samba-foundational",
-    "samba-batería",
     "dance-driving",
     "dance-rhythm",
     "swung"
@@ -1517,7 +1477,6 @@
     "ornamental-melismatic",
     "sustained-tone",
     "sustained-projection",
-    "sacred-Latin",
     "liturgical",
     "medieval",
     "devotional",
@@ -1601,7 +1560,6 @@
     "African-traditional",
     "African-derived",
     "pan-African",
-    "African-craft",
     "dance-rhythm"
   ],
   "chimurenga": [
@@ -1646,7 +1604,6 @@
     "African-traditional",
     "African-derived",
     "pan-African",
-    "African-craft",
     "dance-driving"
   ],
   "gnawa": [
@@ -1658,38 +1615,31 @@
   ],
   "rai": [
     "Middle-Eastern",
-    "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
     "dance-driving"
   ],
   "andalusi_nuba": [
     "Middle-Eastern",
-    "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
-    "sufi-mystical",
     "glissando-heavy",
     "lament-wail",
     "devotional",
     "court-ceremonial"
   ],
   "arab_tarab": [
-    "sufi-mystical",
     "ornamental-melismatic",
     "melismatic",
     "ornament-heavy",
-    "classical-radif",
     "Middle-Eastern",
     "devotional",
     "court-ceremonial"
   ],
   "persian_dastgah": [
     "Middle-Eastern",
-    "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
-    "sufi-mystical",
     "devotional",
     "court-ceremonial",
     "dastgah",
@@ -1708,7 +1658,6 @@
   ],
   "ghazal": [
     "Middle-Eastern",
-    "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy"
   ],
@@ -1729,7 +1678,6 @@
   ],
   "thumri": [
     "raga-bound",
-    "dhrupad-suited",
     "Hindu-ritual",
     "drone-foundation",
     "drone-like",
@@ -1742,7 +1690,6 @@
   ],
   "carnatic_vocal": [
     "raga-bound",
-    "dhrupad-suited",
     "Hindu-ritual",
     "drone-foundation",
     "drone-like",
@@ -1756,7 +1703,6 @@
   ],
   "carnatic_instrumental": [
     "raga-bound",
-    "dhrupad-suited",
     "Hindu-ritual",
     "drone-foundation",
     "drone-like",
@@ -1767,7 +1713,6 @@
   ],
   "bhajan": [
     "raga-bound",
-    "dhrupad-suited",
     "Hindu-ritual",
     "devotional",
     "drone-foundation",
@@ -1777,7 +1722,6 @@
   ],
   "kirtan": [
     "raga-bound",
-    "dhrupad-suited",
     "Hindu-ritual",
     "devotional",
     "drone-foundation",
@@ -1786,8 +1730,6 @@
     "contemplative"
   ],
   "bhangra_modern": [
-    "raga-bound",
-    "Hindu-ritual",
     "melismatic",
     "ornamental-melismatic",
     "dance-driving"
@@ -1801,7 +1743,6 @@
     "Chinese-classical"
   ],
   "guqin": [
-    "gagaku-foundational",
     "naturally-reverberant",
     "minimal",
     "drone-foundation",
@@ -1809,7 +1750,6 @@
     "Chinese-classical"
   ],
   "wenrenyue": [
-    "gagaku-foundational",
     "naturally-reverberant",
     "minimal",
     "drone-foundation",
@@ -1817,7 +1757,6 @@
     "Chinese-classical"
   ],
   "shakuhachi_honkyoku": [
-    "gagaku-foundational",
     "naturally-reverberant",
     "minimal",
     "drone-foundation",
@@ -1840,7 +1779,6 @@
     "sustained-projection"
   ],
   "samul_nori": [
-    "gagaku-foundational",
     "naturally-reverberant",
     "minimal",
     "ceremonial"
@@ -1875,8 +1813,6 @@
     "minimal"
   ],
   "dangdut": [
-    "raga-bound",
-    "Hindu-ritual",
     "melismatic",
     "ornamental-melismatic",
     "dance-driving"
@@ -1892,9 +1828,6 @@
     "ceremonial",
     "sacred-traditional",
     "drone-foundation",
-    "African-traditional",
-    "African-derived",
-    "pan-African",
     "declaimed",
     "rhythmic-speech"
   ],
@@ -1906,7 +1839,6 @@
     "sustained-tone"
   ],
   "bambuco": [
-    "iberian-celtic",
     "folk",
     "folk-tradition",
     "dark-romantic",
@@ -2119,7 +2051,6 @@
     "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
-    "iberian-celtic",
     "melismatic"
   ],
   "laiko": [
@@ -2127,15 +2058,12 @@
     "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
-    "iberian-celtic",
     "melismatic"
   ],
   "sevdalinka": [
-    "urban-Greek",
     "Turkish-makam-base",
     "ornamental-melismatic",
-    "ornament-heavy",
-    "iberian-celtic"
+    "ornament-heavy"
   ],
   "bulgarian_womens_choir": [
     "drone-foundation",
@@ -2166,12 +2094,10 @@
     "sustained-projection"
   ],
   "byzantine_chant": [
-    "gospel-rooted",
     "gospel-runs",
     "gospel-friendly",
     "devotional",
     "congregation-loud",
-    "sacred-Latin",
     "liturgical",
     "medieval",
     "ornamental-melismatic",
@@ -2224,7 +2150,6 @@
     "folkloric",
     "walking",
     "dance-friendly",
-    "German-traditional",
     "twangy-foundational",
     "country-twang",
     "pedal-steel-twang"
@@ -2293,9 +2218,6 @@
     "ceremonial",
     "sacred-traditional",
     "drone-foundation",
-    "African-traditional",
-    "African-derived",
-    "pan-African",
     "katajjaq",
     "inuit-throat-singing",
     "duet-game",
@@ -2309,7 +2231,6 @@
     "smoothed",
     "jazz-friendly",
     "warmed",
-    "italian",
     "breathy-low",
     "close-harmony",
     "intimate-aspirated",
@@ -2395,19 +2316,16 @@
     "smoothed",
     "synthesized",
     "synthetic",
-    "gagaku-foundational",
     "close-harmony",
     "close",
     "singing-sustain",
     "warm-glowing",
-    "vibrato-y",
-    "Japanese-classical"
+    "vibrato-y"
   ],
   "enka": [
     "smoothed",
     "synthesized",
     "synthetic",
-    "gagaku-foundational",
     "close-harmony",
     "Japanese-classical"
   ],
@@ -2415,31 +2333,24 @@
     "smoothed",
     "synthesized",
     "synthetic",
-    "gagaku-foundational",
-    "close-harmony",
-    "Japanese-classical"
+    "close-harmony"
   ],
   "shibuya_kei": [
     "smoothed",
     "synthesized",
     "synthetic",
-    "gagaku-foundational",
-    "close-harmony",
-    "Japanese-classical"
+    "close-harmony"
   ],
   "k_pop_modern": [
     "smoothed",
     "synthesized",
     "synthetic",
-    "gagaku-foundational",
-    "close-harmony",
-    "Korean-classical"
+    "close-harmony"
   ],
   "mandopop": [
     "smoothed",
     "synthesized",
     "synthetic",
-    "gagaku-foundational",
     "close-harmony",
     "Chinese-classical"
   ],
@@ -2447,24 +2358,19 @@
     "smoothed",
     "synthesized",
     "synthetic",
-    "gagaku-foundational",
-    "close-harmony",
-    "Chinese-classical"
+    "close-harmony"
   ],
   "vocaloid_synth_voice": [
     "smoothed",
     "synthesized",
     "synthetic",
-    "gagaku-foundational",
-    "close-harmony",
-    "Japanese-classical"
+    "close-harmony"
   ],
   "chanson_pop_modern": [
     "smoothed",
     "synthesized",
     "synthetic",
     "dance-friendly",
-    "french-musette-ready",
     "french",
     "french-trad",
     "romantic",
@@ -2478,10 +2384,6 @@
     "talk-sung-articulation"
   ],
   "cantautore_italiano": [
-    "fado-lead",
-    "university-fado",
-    "iberian-celtic",
-    "celtic",
     "lament-leaning",
     "mournful",
     "italian",
@@ -2494,7 +2396,6 @@
     "synthesized",
     "synthetic",
     "dance-friendly",
-    "french-musette-ready",
     "German-traditional",
     "late-Romantic-onward"
   ],
@@ -2503,7 +2404,6 @@
     "synthesized",
     "synthetic",
     "dance-friendly",
-    "french-musette-ready",
     "intimate-aspirated"
   ],
   "scandi_pop": [
@@ -2511,24 +2411,19 @@
     "synthesized",
     "synthetic",
     "dance-friendly",
-    "french-musette-ready",
-    "late-Romantic-onward",
-    "German-traditional"
+    "late-Romantic-onward"
   ],
   "russian_estrada": [
     "smoothed",
     "synthesized",
     "synthetic",
-    "dance-friendly",
-    "french-musette-ready"
+    "dance-friendly"
   ],
   "portuguese_pop_modern": [
-    "iberian-celtic",
     "smoothed",
     "dance-friendly"
   ],
   "spanish_cancion_pop": [
-    "iberian-celtic",
     "smoothed",
     "dance-friendly"
   ],
@@ -2537,8 +2432,6 @@
     "smoothed",
     "dance-friendly",
     "celtic",
-    "Irish-traditional",
-    "Scottish-influenced",
     "european-folk",
     "folk-tradition",
     "folkloric",
@@ -2546,7 +2439,6 @@
     "talk-sung-articulation"
   ],
   "basque_kantautor": [
-    "iberian-celtic",
     "smoothed",
     "dance-friendly",
     "half-sung",
@@ -2654,57 +2546,49 @@
     "dance-driving",
     "dance-rhythm",
     "swung",
-    "funk-derived",
-    "samba-foundation"
+    "funk-derived"
   ],
   "cumbia_peruvian": [
     "dance-driving",
     "dance-rhythm",
     "swung",
-    "funk-derived",
-    "samba-foundation"
+    "funk-derived"
   ],
   "vallenato": [
     "dance-driving",
     "dance-rhythm",
     "swung",
-    "funk-derived",
-    "samba-foundation"
+    "funk-derived"
   ],
   "joropo": [
     "dance-driving",
     "dance-rhythm",
     "swung",
-    "funk-derived",
-    "samba-foundation"
+    "funk-derived"
   ],
   "merengue_dominicano": [
     "dance-driving",
     "dance-rhythm",
     "swung",
-    "funk-derived",
-    "samba-foundation"
+    "funk-derived"
   ],
   "candombe_uruguayan": [
     "dance-driving",
     "dance-rhythm",
     "swung",
-    "funk-derived",
-    "samba-foundation"
+    "funk-derived"
   ],
   "forro_brasileiro": [
     "dance-driving",
     "dance-rhythm",
     "swung",
-    "funk-derived",
-    "samba-foundation"
+    "funk-derived"
   ],
   "marinera": [
     "dance-driving",
     "dance-rhythm",
     "swung",
-    "funk-derived",
-    "samba-foundation"
+    "funk-derived"
   ],
   "psytrance": [
     "dance-driving",
@@ -2861,7 +2745,6 @@
     "dark-romantic",
     "lament-leaning",
     "folk-tradition",
-    "iberian-celtic",
     "rough",
     "breathy-low",
     "gritty",
@@ -2891,7 +2774,6 @@
     "talk-sung-articulation"
   ],
   "cantorial_khazonus": [
-    "sufi-mystical",
     "ornamental-melismatic",
     "devotional",
     "sacred-traditional",
@@ -2902,7 +2784,6 @@
     "chant-foundational"
   ],
   "hasidic_niggun": [
-    "sufi-mystical",
     "ornamental-melismatic",
     "devotional",
     "sacred-traditional",
@@ -2910,7 +2791,6 @@
     "court-ceremonial"
   ],
   "yemenite_torah_cantillation": [
-    "sufi-mystical",
     "ornamental-melismatic",
     "devotional",
     "sacred-traditional",
@@ -2919,7 +2799,6 @@
     "chant-foundational"
   ],
   "sephardi_bakkashot": [
-    "sufi-mystical",
     "ornamental-melismatic",
     "devotional",
     "sacred-traditional",
@@ -2927,7 +2806,6 @@
     "court-ceremonial"
   ],
   "quranic_recitation_tajweed": [
-    "sufi-mystical",
     "ornamental-melismatic",
     "devotional",
     "sacred-traditional",
@@ -2936,7 +2814,6 @@
     "rapid-tremolo"
   ],
   "naat_devotional": [
-    "sufi-mystical",
     "ornamental-melismatic",
     "devotional",
     "sacred-traditional",
@@ -2946,7 +2823,6 @@
     "chorus-chant"
   ],
   "athan_call_prayer": [
-    "sufi-mystical",
     "ornamental-melismatic",
     "devotional",
     "sacred-traditional",
@@ -3044,14 +2920,11 @@
   ],
   "uilleann_pipe_solo": [
     "celtic",
-    "Scottish-influenced",
     "drone-foundation",
     "drone-like",
     "folk-tradition"
   ],
   "didgeridoo_yidaki_solo": [
-    "celtic",
-    "Scottish-influenced",
     "drone-foundation",
     "drone-like",
     "folk-tradition",
@@ -3063,7 +2936,6 @@
   ],
   "galician_pipe_solo": [
     "celtic",
-    "Scottish-influenced",
     "drone-foundation",
     "drone-like",
     "folk-tradition"
@@ -3121,7 +2993,6 @@
     "folk-tradition",
     "intimate-aspirated",
     "speech-derived",
-    "sacred-Latin",
     "lament-leaning"
   ],
   "indie_folk_2000s": [
@@ -3152,10 +3023,7 @@
   ],
   "sean_nos_solo": [
     "celtic",
-    "iberian-celtic",
     "Irish-traditional",
-    "Scottish-influenced",
-    "english-folk",
     "lament-leaning",
     "sean-nos",
     "unaccompanied",
@@ -3165,47 +3033,30 @@
   ],
   "bothy_ballad_doric": [
     "celtic",
-    "iberian-celtic",
-    "Irish-traditional",
     "Scottish-influenced",
-    "english-folk",
     "lament-leaning"
   ],
   "child_ballad_revival": [
     "celtic",
-    "iberian-celtic",
-    "Irish-traditional",
     "Scottish-influenced",
     "english-folk",
     "lament-leaning"
   ],
   "english_broadside_revival": [
-    "celtic",
-    "iberian-celtic",
-    "Irish-traditional",
-    "Scottish-influenced",
     "english-folk",
     "lament-leaning"
   ],
   "welsh_hymn_balladry": [
     "celtic",
-    "iberian-celtic",
-    "Irish-traditional",
-    "Scottish-influenced",
-    "english-folk",
     "lament-leaning"
   ],
   "cape_breton_milling": [
     "celtic",
-    "iberian-celtic",
-    "Irish-traditional",
     "Scottish-influenced",
-    "english-folk",
     "lament-leaning"
   ],
   "newfoundland_outport": [
     "celtic",
-    "iberian-celtic",
     "Irish-traditional",
     "Scottish-influenced",
     "english-folk",
@@ -3256,10 +3107,6 @@
     "sprechgesang-vocal"
   ],
   "chanson_classique": [
-    "fado-lead",
-    "university-fado",
-    "iberian-celtic",
-    "celtic",
     "lament-leaning",
     "mournful",
     "french",
@@ -3271,16 +3118,10 @@
   "fado_coimbra_university": [
     "fado-lead",
     "university-fado",
-    "iberian-celtic",
-    "celtic",
     "lament-leaning",
     "mournful"
   ],
   "greek_entechno": [
-    "fado-lead",
-    "university-fado",
-    "iberian-celtic",
-    "celtic",
     "lament-leaning",
     "mournful"
   ],
@@ -3362,9 +3203,6 @@
     "hot-pressed",
     "firm-felt",
     "bright-modern",
-    "japanese-factory",
-    "asian-spruce",
-    "asian-laminated",
     "birch-laminated",
     "a-440"
   ],
@@ -3386,12 +3224,10 @@
     "ceremonial"
   ],
   "sacred_harp_singing": [
-    "gospel-rooted",
     "gospel-runs",
     "gospel-friendly",
     "devotional",
     "congregation-loud",
-    "sacred-Latin",
     "liturgical",
     "medieval",
     "sacred-traditional",
@@ -3400,12 +3236,10 @@
     "harmonizing-foundational"
   ],
   "anglican_choral_evensong": [
-    "gospel-rooted",
     "gospel-runs",
     "gospel-friendly",
     "devotional",
     "congregation-loud",
-    "sacred-Latin",
     "liturgical",
     "medieval",
     "sacred-traditional",
@@ -3414,12 +3248,10 @@
     "sustained-high-register"
   ],
   "russian_orthodox_chant": [
-    "gospel-rooted",
     "gospel-runs",
     "gospel-friendly",
     "devotional",
     "congregation-loud",
-    "sacred-Latin",
     "liturgical",
     "medieval",
     "mournful",
@@ -3565,7 +3397,6 @@
     "liturgical"
   ],
   "southern_gospel_quartet": [
-    "gospel-rooted",
     "gospel-runs",
     "gospel-friendly",
     "devotional",
@@ -3577,7 +3408,6 @@
     "harmony-stacked-multi-part"
   ],
   "bluegrass_gospel": [
-    "gospel-rooted",
     "gospel-runs",
     "gospel-friendly",
     "devotional",
@@ -3791,8 +3621,6 @@
   ],
   "khayal": [
     "raga-bound",
-    "dhrupad-suited",
-    "Hindu-ritual",
     "drone-foundation",
     "drone-like",
     "ornamental-melismatic",
@@ -3804,8 +3632,6 @@
   ],
   "tappa": [
     "raga-bound",
-    "dhrupad-suited",
-    "Hindu-ritual",
     "drone-foundation",
     "drone-like",
     "ornamental-melismatic",
@@ -3817,7 +3643,6 @@
   ],
   "dadra": [
     "raga-bound",
-    "dhrupad-suited",
     "Hindu-ritual",
     "drone-foundation",
     "drone-like",
@@ -3826,8 +3651,6 @@
   ],
   "tarana": [
     "raga-bound",
-    "dhrupad-suited",
-    "Hindu-ritual",
     "drone-foundation",
     "drone-like",
     "ornamental-melismatic",
@@ -3835,7 +3658,6 @@
   ],
   "kriti": [
     "raga-bound",
-    "dhrupad-suited",
     "Hindu-ritual",
     "devotional",
     "drone-foundation",
@@ -3843,7 +3665,6 @@
   ],
   "padam": [
     "raga-bound",
-    "dhrupad-suited",
     "Hindu-ritual",
     "devotional",
     "drone-foundation",
@@ -3851,15 +3672,12 @@
   ],
   "javali": [
     "raga-bound",
-    "dhrupad-suited",
-    "Hindu-ritual",
     "devotional",
     "drone-foundation",
     "sacred-traditional"
   ],
   "tillana": [
     "raga-bound",
-    "dhrupad-suited",
     "Hindu-ritual",
     "devotional",
     "drone-foundation",
@@ -3867,8 +3685,6 @@
   ],
   "sikh_gurmat_sangeet": [
     "raga-bound",
-    "dhrupad-suited",
-    "Hindu-ritual",
     "devotional",
     "drone-foundation",
     "sacred-traditional"
@@ -3884,9 +3700,6 @@
     "court-ceremonial"
   ],
   "tropicalia": [
-    "samba-foundation",
-    "samba-foundational",
-    "samba-batería",
     "dance-driving",
     "dance-rhythm",
     "swung"
@@ -3900,16 +3713,11 @@
     "swung"
   ],
   "maracatu": [
-    "samba-foundation",
-    "samba-foundational",
-    "samba-batería",
     "dance-driving",
     "dance-rhythm",
     "swung"
   ],
   "frevo": [
-    "samba-foundation",
-    "samba-foundational",
     "samba-batería",
     "dance-driving",
     "dance-rhythm",
@@ -3924,9 +3732,6 @@
     "swung"
   ],
   "sertanejo": [
-    "samba-foundation",
-    "samba-foundational",
-    "samba-batería",
     "dance-driving",
     "dance-rhythm",
     "swung"
@@ -3939,17 +3744,11 @@
     "devotional"
   ],
   "baiao": [
-    "samba-foundation",
-    "samba-foundational",
-    "samba-batería",
     "dance-driving",
     "dance-rhythm",
     "swung"
   ],
   "embolada": [
-    "samba-foundation",
-    "samba-foundational",
-    "samba-batería",
     "dance-driving",
     "dance-rhythm",
     "swung"
@@ -3976,7 +3775,6 @@
     "dance-driving"
   ],
   "jibaro": [
-    "iberian-celtic",
     "folk",
     "folk-tradition",
     "dark-romantic",
@@ -4040,31 +3838,26 @@
   ],
   "shaabi_egyptian": [
     "Middle-Eastern",
-    "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
     "dance-driving"
   ],
   "mahraganat": [
     "Middle-Eastern",
-    "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
     "dance-driving"
   ],
   "chaabi_moroccan": [
     "Middle-Eastern",
-    "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
     "dance-driving"
   ],
   "tarab_egyptian": [
-    "sufi-mystical",
     "ornamental-melismatic",
     "melismatic",
     "ornament-heavy",
-    "classical-radif",
     "Middle-Eastern",
     "devotional",
     "court-ceremonial"
@@ -4078,21 +3871,18 @@
   ],
   "mizrahi_israeli": [
     "Middle-Eastern",
-    "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
     "dance-driving"
   ],
   "persian_pop_los_angeles": [
     "Middle-Eastern",
-    "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
     "dance-driving"
   ],
   "lebanese_pop_tarab": [
     "Middle-Eastern",
-    "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
     "dance-driving"
@@ -4102,17 +3892,14 @@
     "ornamental-melismatic",
     "melismatic",
     "ornament-heavy",
-    "classical-radif",
     "Middle-Eastern",
     "devotional",
     "court-ceremonial"
   ],
   "iraqi_maqam": [
-    "sufi-mystical",
     "ornamental-melismatic",
     "melismatic",
     "ornament-heavy",
-    "classical-radif",
     "Middle-Eastern",
     "devotional",
     "court-ceremonial",
@@ -4289,7 +4076,6 @@
     "baroque-soloistic",
     "Italian-baroque",
     "medieval",
-    "sacred-Latin",
     "classical",
     "liturgical",
     "devotional",
@@ -4304,14 +4090,12 @@
     "dark-romantic",
     "late-Romantic-onward",
     "contemporary-classical",
-    "sacred-Latin",
     "liturgical",
     "medieval",
     "devotional",
     "sacred-traditional",
     "ceremonial",
     "court-ceremonial",
-    "German-traditional",
     "marching"
   ],
   "manhattan_chamber_loft": [
@@ -4322,14 +4106,12 @@
     "late-Romantic-onward",
     "contemporary-classical",
     "haunted-romantic",
-    "vintage-steinway",
     "pre-war",
     "18-ply",
     "aged-felt",
     "a-440"
   ],
   "chinese_traditional_ensemble": [
-    "gagaku-foundational",
     "naturally-reverberant",
     "minimal",
     "drone-foundation",
@@ -4344,26 +4126,15 @@
     "minimal"
   ],
   "bengali_baul": [
-    "raga-bound",
     "Hindu-ritual",
     "devotional",
     "melismatic",
     "folk-tradition"
   ],
   "finnish_kantele_folk": [
-    "celtic",
-    "iberian-celtic",
-    "Irish-traditional",
-    "Scottish-influenced",
-    "english-folk",
     "lament-leaning"
   ],
   "swedish_nyckelharpa_folk": [
-    "celtic",
-    "iberian-celtic",
-    "Irish-traditional",
-    "Scottish-influenced",
-    "english-folk",
     "lament-leaning"
   ],
   "russian_byliny": [
@@ -4385,7 +4156,6 @@
     "folkloric",
     "folk-tradition",
     "ornamental-melismatic",
-    "sufi-mystical",
     "devotional",
     "court-ceremonial"
   ],
@@ -4397,24 +4167,17 @@
   ],
   "breton_folk": [
     "celtic",
-    "iberian-celtic",
-    "Irish-traditional",
     "Scottish-influenced",
-    "english-folk",
     "lament-leaning"
   ],
   "italian_southern_folk": [
-    "urban-Greek",
-    "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
-    "iberian-celtic",
     "italian",
     "italian",
     "southern-Italian"
   ],
   "japanese_taiko_ensemble": [
-    "gagaku-foundational",
     "naturally-reverberant",
     "minimal",
     "ceremonial",
@@ -4425,19 +4188,15 @@
   ],
   "armenian_traditional": [
     "Middle-Eastern",
-    "Turkish-makam-base",
     "ornamental-melismatic",
     "ornament-heavy",
-    "sufi-mystical",
     "devotional",
     "court-ceremonial"
   ],
   "turkish_romani_cumbus": [
-    "sufi-mystical",
     "ornamental-melismatic",
     "melismatic",
     "ornament-heavy",
-    "classical-radif",
     "Middle-Eastern",
     "devotional",
     "court-ceremonial"
@@ -4476,7 +4235,6 @@
     "tight-low-end"
   ],
   "tango_traditional": [
-    "iberian-celtic",
     "folk",
     "folk-tradition",
     "dark-romantic",

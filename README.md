@@ -69,6 +69,7 @@ Every operation is an `npm run` script (see `package.json`):
 | `npm run check:names` | Name-isolation gate: renames every OTHER tradition with an adversarial era/gear payload and asserts the sampled tradition's compiled config is unchanged <!-- @promise: name-isolation --> |
 | `npm run check:atlas` | Atlas gate: basemap, coordinates and tree are fresh, and every sidecar the atlas fetches exists, is tracked, and is a path GitHub Pages will serve (the `.nojekyll` marker keeps Jekyll from dropping `references/_tradition_signatures.json`) |
 | `npm run check:publish` | Publish-guard gate: replays the sync-pages race in a synthetic repo and asserts a superseded build stands down while a legitimate one still publishes |
+| `npm run check:signatures` | Signature-attribution gate: every cultural token on a tradition's signature carries a verdict in `references/_signature_rulings.json`, no pair ruled false survives in the table, the `src/app.js` mirror or `codex.html`, and every signature token is classed in `references/_soundword_vocab.json`; then the table↔`app.js` mirror parity check |
 | `npm run check:promises` | Promise→gate coverage: every documented promise has a gate and vice-versa (0 orphans) |
 | `npm run check:fresh` | Reproducibility gate: rebuilds `api/`+`codex.html` and byte-diffs vs the committed copy <!-- @promise: artifact-reproducible --> |
 | `npm run faults` | Fault-injection: plants a defect per gate-class and asserts each gate catches it <!-- @promise: gates-two-sided --> |
