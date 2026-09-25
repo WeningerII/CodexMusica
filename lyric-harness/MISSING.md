@@ -28311,7 +28311,148 @@ added on the review say 2026-09-25.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~364~~ -> **365**.
 
-### M-311 · The candidate field asked the whole schema registry per candidate to read the verdict of the one or two schemas its screen had found, so `test_revise.py` §24 ran 712 s on CI and held the revision-loop shard at 22 of 30 minutes `CLOSED` 2026-09-25 — found by profiling the section the ci.yml comment named as the cost to cut after #380 raised the timeout ~~20~~ -> 30
+### M-311 · Twenty English pair-rhyme schemas carried no semantic evidence; ~~eleven~~ ten now answer a real witness and a minimal contrast, and six of the rest are GRADER FINDINGS — three rules too generous, one figure that can never assemble, two negatives the route cannot reach — plus four schemas the grade route cannot be handed the declaration they need, and one schema that cannot tell itself from linked rhyme `PARTIAL` 2026-09-25 — the coordinator's split of the 55 unvalidated schemas, English end/pair rhymes
+
+**THE GAP.** `quality/schema_census.py` printed, at `e08cd207`:
+
+    semantic validation (separate from capability): {'unvalidated': 55, 'regression_witness': 5, 'witness_and_contrast': 18}
+
+A schema earns `witness_and_contrast` when an exhibit graded through
+`Reviser.grade` (one group, `default_relation="schema:<name>"`) is satisfied
+and a contrast is violated. This sitting's share was twenty English
+end/pair schemas (the brief says nineteen and names twenty). Where one
+exists, every exhibit is a real line pair from this repository's
+public-domain corpus, cited `file:line` beside its row in
+`quality/relations.py`; each contrast changes the fewest words that remove
+the tested property and is constructed (doctrine 94). SEVERAL WITNESSES
+WERE FOUND BY MINING the corpus with the judge's own `line_pairs_for`, then
+read against the canon definition; that selects for pairs the judge
+accepts, so a mined witness shows the judge on real text and says nothing
+about its false negatives, and each is marked INCIDENTAL where the poem's
+own rhyme lies elsewhere.
+
+**BUILT.** Three tables, one contiguous block each, re-graded by the census
+on every run (doctrine 48 — no verdict below is typed by hand; each is what
+`python3 quality/schema_census.py` prints):
+
+- ~~nine~~ seven rows appended to `relations.DRAWABLE_EXHIBITS` — additive
+  (Carroll, two~Soup), amphisbaenic (Lowell, own~know), apocopated (Marston,
+  saying~say), cross (Poe, December~ember at `2.T5`), ~~enjambed and~~
+  linked (Torry Anderson, lie~My), reverse (Whittier, peel~peak), syllabic
+  (R. E. White, beauty~army); each `[True, False]`, and each also passes
+  `quality/test_mandate_relation.py` §13 inside its one-stanza frame.
+  CORRECTED ON REVIEW, 2026-09-25: *nine* was already a miscount of the
+  EIGHT schemas the block held, and the eighth, `enjambed rhyme`, has left
+  it — its exhibit was the same Torry Anderson pair as `linked rhyme`'s, a
+  linked rhyme, so the census counted enjambed validated on a witness of a
+  different figure. It is F7 below;
+- `relations.CENSUS_EXHIBITS`, evidence the draw pool may not hold, because
+  `DRAWABLE_EXHIBITS` is also the certified set (§12 there refuses a
+  deprecated name in it): `monorhyme / leash` (Tennyson, "The Eagle",
+  crawls/walls/falls, `forall` over a stanza so `pair_scope_representable`
+  is False and a two-line row could never be asked), `chain rhyme
+  (interlocking scheme)` (Shelley, "Ode to the West Wind", dead~red across
+  the edition's own [VERSE] break; the contrast is the same two lines in one
+  stanza), `trite rhyme` (Poe, "Annabel Lee", love~above against the same
+  stanza's we~sea) — graded with the sections the frame needs;
+- `relations.WITNESS_FINDINGS`, every row the grader answers wrongly, with
+  the verdict it should get. `quality/test_capabilities.py` §8 goes red the
+  day one of them answers as expected, so a repaired row moves to the
+  exhibit tables instead of standing as evidence of a defect that is gone
+  (doctrine 17).
+
+After, printed by the same command:
+
+    semantic validation (separate from capability): {'unvalidated': 45, 'regression_witness': 5, 'witness_and_contrast': 28}
+
+(The first draft of this entry quoted unvalidated ~~44~~ and
+witness_and_contrast ~~29~~, which counted F7's linked-rhyme pair as an
+enjambed witness.)
+
+**THE FINDINGS**, each re-graded by the census (exhibit first):
+
+- **F1 — mosaic rhyme is too generous: `[True, True]`.** Gilbert's
+  strategy~"sat a gee" (The Pirates of Penzance, 1879) is satisfied; so is
+  Telfer's "Sweet summer now is by, / And cauld winter is nigh"
+  (`corpus/song/eng_celtic_msm_james_telfer.txt`:58-59), a one-word rhyme.
+  The second span is a `free_run` of 2-5 syllables, `flush_right`,
+  `unmatched='exclude'`, so it reaches back over "is" and
+  `word_count_differs` holds, while the rhyme sits wholly inside "nigh".
+  The registry's own note calls the juncture CONSTITUTIVE; this judge
+  accepts a juncture the rhyme never crosses. Wilbye's Amaryllis~"will is"
+  was tried and is FALSE, correctly: its codas are S against Z.
+- **F2 — holorhyme answers backwards: `[False, True]`.** The textbook
+  oronym "I scream"~"ice cream" (the same phonemes AY S K R IY M) is
+  violated: the per-syllable onset/coda channels compare each word's own
+  syllabification (AY | S K R IY M against AY S | K R IY M), and a holorhyme
+  exists only by crossing word boundaries. Lear's "With a ring at the end of
+  his nose, / His nose," (`corpus/song/eng_british_edward_lear.txt`:37-38),
+  a line and its own tail, is satisfied, because `flush_right` with
+  `unmatched='exclude'` never asks the rest of the longer line to match.
+  Separately, any line holding a word with two CMUdict readings ("the")
+  refuses: "the knight rode"~"the night rowed" REFUSES where "knight
+  rode"~"night rowed" is satisfied.
+- **F3 — chain rhyme (rap) can never assemble: `[False, False]`.** On the
+  constructed pre-2026-09-08 exhibit ("fading fast"~"sailing past"),
+  `realise` returns 13 edges, 7 True and 6 None; `assemble`'s `forall`
+  keeps a frame only when the surviving edges form ONE connected component,
+  and the overlapping `free_run` candidates of one line pair form several,
+  so `line_pairs_for` returns the empty set. No public-domain rap is
+  quotable, so the row is constructed (doctrine 94).
+- **F4 — parechesis cannot say no on real lines, and says yes to one
+  consonant: `[True, None, True]`.** Kingsley's "And o'er and o'er the sand,
+  / And round and round the sand," (`corpus/song/eng_british_charles_kingsley.txt`:608-609)
+  is satisfied; the one-word contrast "…round the hill," REFUSES, as does
+  every contrast tried that keeps "and"/"the" — the whole-line `line` span
+  goes undecided whenever a word's two readings disagree on the verdict, so
+  a definite negative is reachable only on lines free of such words
+  ("cold cattle"~"warm sheep" is violated). Browning's "Day! / Faster and
+  more fast," (`corpus/song/eng_british_robert_browning.txt`:85-86) is
+  satisfied: one consonant, D, is a subsequence of the next line. No minimum
+  length is declared, and none is proposed here (doctrine 58).
+- **F5 — five schemas the grade route cannot be handed their surface.**
+  `Reviser.grade` takes lines, a mandate, a profile and sections; there is no
+  parameter through which a caller declares `orthography` (eye rhyme — the
+  Sonnet 116 pair love~remove, `corpus/sonnets.txt`:1995,1997, refuses
+  `[None, None]`), `beat` (offbeat internal rhyme), `sung` (sung-delivery
+  rhyme) or `delivered` (transformative / bent, wrenched). Each refuses by
+  name before any row can be graded, which is the honest answer (doctrine
+  20); what is missing is the declaration channel, not a witness.
+- **F6 — a monorhyme refused on a dialect variant, schema-independent.**
+  The Eagle's FIRST tercet (hands/lands/stands) REFUSES: CMUdict gives
+  `hands` a second reading, HH AE1 N Z, which disagrees with `lands`, so
+  `perfect rhyme` refuses the same pair. The second tercet is the exhibit;
+  the first stays in `WITNESS_FINDINGS` so the refusal is not lost.
+
+- **F7 — enjambed rhyme cannot be told from linked rhyme: `[True, False]`
+  where `[False, False]` is the answer.** ~~RECORDED, NOT A VERDICT. On every
+  row tried, `enjambed rhyme` and `linked rhyme` answer alike~~ — that was
+  recorded here while the same pair stood in `DRAWABLE_EXHIBITS` as the
+  witness for BOTH, so the census counted enjambed rhyme validated on a
+  linked rhyme. Torry Anderson's "I ask no willow where I lie, / My mourner
+  let the mermaid be," (`corpus/song/eng_celtic_msm_rev_t_g_torry_anderson.txt`:96-97)
+  binds lie~My at the next line's HEAD word and borrows nothing across the
+  break, so an enjambed judge must say no; the schema's second span, a
+  `free_run` of 1-3 syllables in the next line, takes a one-word head as
+  such a run and says yes. The constructed one-word contrast ("No
+  mourner…") is violated, correctly, and stays as the second row so the
+  finding is the linked reading and not a judge that says yes to
+  everything. There is NO exhibit row: E33 (Turco) glosses enjambed rhyme
+  as using "first sound of next line to make rhyming unit", which needs a
+  third member the pair model does not hold, so no real pair can show the
+  schema apart from `linked rhyme`. Whether the schema needs that member is
+  a registry question for a ruling.
+
+**STILL OPEN.** F1-F4 and F6 are judge or phonology repairs, the
+declaration channel of F5 is an interface change, and F7 is a registry
+ruling; none is attempted here. ~~Nine~~ Ten of the twenty remain
+`unvalidated`: chain rhyme (rap), enjambed rhyme, eye rhyme, holorhyme,
+mosaic rhyme, offbeat internal rhyme, parechesis / general consonance,
+sung-delivery rhyme, transformative / bent rhyme, wrenched rhyme.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~365~~ -> **366**.
+
+### M-312 · The candidate field asked the whole schema registry per candidate to read the verdict of the one or two schemas its screen had found, so `test_revise.py` §24 ran 712 s on CI and held the revision-loop shard at 22 of 30 minutes `CLOSED` 2026-09-25 — found by profiling the section the ci.yml comment named as the cost to cut after #380 raised the timeout ~~20~~ -> 30
 
 **THE COST.** `Reviser._end_pair_schemas` (`quality/revise.py`, added by the
 N-relation model, #380) decides whether a candidate enters a call word's
@@ -28355,4 +28496,10 @@ and the carrier stream build (19.7%, mostly re-syllabifying the carrier's
 fixed words). Caching either one reaches into the phonology's mutable lexicon
 state, and this change was scoped to what could be proven result-identical.
 
-**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~365~~ -> **366**.
+**ON REVIEW (2026-09-25).** `schemas=` names are checked against `REGISTRY`
+before anything is asked; an unknown name raises `ValueError` naming every
+such name, where it used to surface as a bare `KeyError` from inside the
+loop. X9b gained the check. This entry was written as M-311 and renumbered
+~~M-311~~ M-312 on integration, because #394 landed its own M-311 first.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~366~~ -> **367**.

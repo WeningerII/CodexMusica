@@ -4459,7 +4459,7 @@ class Reviser:
             # No handler: `found` is non-empty only when the stream above
             # built, and a failure here is a real one, not a shorter field.
             #
-            # ONLY `found` IS ASKED (2026-09-25, `MISSING.md` M-311). The
+            # ONLY `found` IS ASKED (2026-09-25, `MISSING.md` M-312). The
             # intersection below reads no other schema's verdict and the
             # judge answers each schema on its own, so asking the rest of the
             # registry changed nothing but the cost -- 72% of the sampled

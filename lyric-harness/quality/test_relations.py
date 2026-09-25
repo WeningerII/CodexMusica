@@ -3043,7 +3043,7 @@ def test_the_judge_memo_answers_identical_calls_only():
 
 def test_a_schema_subset_is_the_full_answer_restricted():
     """X9b. `whole_vocabulary_pairs(..., schemas=S)` (2026-09-25, `MISSING.md`
-    M-311): the candidate field asks the judge about the one or two schemas
+    M-312): the candidate field asks the judge about the one or two schemas
     its end-token screen found, and the answer must be the FULL call's answer
     read at S -- the same pairs, undecided pairs, refusals and line figures
     for every name in S, and nothing for any name outside it.
@@ -3053,6 +3053,9 @@ def test_a_schema_subset_is_the_full_answer_restricted():
     restricted answer to the next full caller (check 3). Check 1 is the
     non-vacuity proof: S is drawn from what the full call FOUND, so the
     comparison examines true pairs, not an empty dict against an empty dict.
+    ~~FOUR~~ FIVE CHECKS since the review (2026-09-25): check 5 asks for a
+    name `REGISTRY` does not hold, which must raise `ValueError` naming it
+    rather than a bare `KeyError` from inside the loop.
     """
     import quality.relations as RT
     from quality import phonology as PH
@@ -3102,6 +3105,13 @@ def test_a_schema_subset_is_the_full_answer_restricted():
           "answer or the key",
           dict(sub2) == dict(sub) and len(RT._WVP_MEMO) == 2,
           f"{len(RT._WVP_MEMO)} memo entries")
+    try:
+        RT.whole_vocabulary_pairs(lines, phon, schemas={"no such schema"})
+        err = ""
+    except ValueError as e:
+        err = str(e)
+    check("an unknown schema name is refused by name, not a bare KeyError",
+          "'no such schema'" in err, err or "no ValueError raised")
     RT._WVP_MEMO.clear()
 
 

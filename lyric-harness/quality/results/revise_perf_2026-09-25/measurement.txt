@@ -1,7 +1,7 @@
-THE REVISE PATH UNDER THE N-RELATION MODEL -- BEFORE/AFTER, 2026-09-25 (MISSING.md M-311)
+THE REVISE PATH UNDER THE N-RELATION MODEL -- BEFORE/AFTER, 2026-09-25 (MISSING.md M-312)
 
 BASE   e08cd207 (main after #380 and #390), in a separate worktree
-AFTER  the same tree plus M-311's change: `Reviser._end_pair_schemas` asks
+AFTER  the same tree plus M-312's change: `Reviser._end_pair_schemas` asks
        `relations.whole_vocabulary_pairs` about the schemas its end-token
        screen found (`schemas=found`), not the whole registry.
 
