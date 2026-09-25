@@ -193,6 +193,8 @@ consonance*
   the differing channel carries a SECOND agreement requirement on a feature of itself."
 - from: C23 C46 (and C24 supplies the partition; see D-grain)
 - witness: 3 cited indices — external 3.
+- **no sourced table:** `quality/sourced_tables.UNSOURCED['proest']` names the grammar that would
+  lift it, and why the declared quotient's shape (nucleus only) cannot hold the rule it states.
 - Forced twice from two Celtic branches independently. The previous canon's #100 has the length
   clause (reconstructed correctly from repo code) but not the lleddf/talgron clause, and does not
   register that the predicate shape — *differ-but-agree-on-a-feature-of-the-difference* — is a
@@ -487,6 +489,16 @@ chan quantitative template · 音数律 · 음보율 · 시조 종장 제약*
   (Korean).
 - from: X14 I71 I60 I61 X31 X51 X52 I63
 - witness: 8 cited indices — external 7, project 1. names outside this project: sina.com, AVPoetica, PyThaiNLP, medium.com. only-this-project: I61.
+- **sourced table (2026-09-25):** `quality/sourced_tables.py` `WUJUE` — ~~the four 五言絕句
+  base patterns (仄起/平起 × 首句入韻/不入韻)~~ ONE 五言絕句 base pattern, 仄起 首句不入韻, attributed
+  to Wang Li 王力, 《詩詞格律》 (Beijing: 中華書局, 1962; rev. 1977), ch. 2 「律詩的平仄」; the same
+  patterns in his 《漢語詩律學》 (1958), ch. 1. **Neither book was read**: what was read is search-result
+  text quoting him for the tangshui 「王力诗词格律浅读」 page and 蔡振念's NCKU paper (`data/sources.tsv`
+  `NOTE:pingze-wujue-wang-li-as-read`) — the line types, the 仄起 quatrain with its bracketed licences
+  `(仄)仄平平仄，平平仄仄平 / (平)平平仄仄，(仄)仄仄平平`, and the 對/粘 rules. The bracketed positions
+  are `中`. The other three quatrains are REFUSED (`REFUSED_FORMS`): their 中 licences were not in
+  what was read. 七言 is not shipped. Witness: 登鸛雀樓 holds on all four lines; contrast: its
+  couplets' lines swapped hold on none (`quality/figure_exhibits.py`, `test_capabilities.py` §10).
 
 **R45 · required tonal OPPOSITION across a line pair** *對 duì · 對仗's tone half ·
 luật's đối clause*
@@ -949,6 +961,8 @@ historical rhyme · dialect rhyme · conventional-licence rhyme · rime normande
   readings preserve the 入聲 stop codas Mandarin lost, so the same poem rhymes differently.
   from: S107 X62 ✓E21 ✓E22 ✓E23 X137
 - witness: 6 cited indices — external 4, project 2. names outside this project: encyclopedia.com, etudes-litteraires.com. only-this-project: X62 E22.
+- **no sourced table:** `quality/sourced_tables.UNSOURCED` rows for `historical rhyme` and
+  `dialect rhyme` name the reconstructions that would lift them; none could be read.
 **R112 · relaxation of a channel in a declared direction** *cynghanedd lusg wyrdro*
 - "the vowel channel is RELAXED in a specified direction: a diphthong in the goben is answered by a
   near or reduced vowel" (`C15`). A directional, non-symmetric grain. from: C15
@@ -1076,6 +1090,9 @@ bai crych a llyfn · bai twyll gynghanedd*
   `E67`: "the relation is lexical substitution licensed by a rhyme that is never spoken."
 - from: ✓E67
 - witness: 1 cited indices — external 1.
+- **no sourced table:** `quality/sourced_tables.UNSOURCED['rhyming slang']` names the glossary that
+  would lift it; a witness needs an attested CLIPPED form, since on a full phrase the slang surface
+  equals the phonemic one (doctrine 41).
 - Visible to the synthesis and dropped from its 106. Recorded here because it is the limiting case
   of R68's shape — a relation with an argument outside the text — arrived at from the other
   direction, and because it is the only structure in the 601 whose *evidence is systematically
@@ -1585,13 +1602,13 @@ A single external witness among thirty cited indices is not the same claim as th
 `- witness:` line under each entry in §2 prints the whole count vector and never a verdict
 alone. The 1 that reach none is named rather than counted:
 
-- **R89** (line 820): `S68` tashrīʿ / tawʾam — Attested in the maqāma/badīʿ tradition; NOT independently verified this session — flag as recall, and as the least certain entry in the Arabic set.
+- **R89** (line 832): `S68` tashrīʿ / tawʾam — Attested in the maqāma/badīʿ tradition; NOT independently verified this session — flag as recall, and as the least certain entry in the Arabic set.
 
 ### 8.5 A PRIMARY source, with its date, for the entries that have one
 
 This file carried **zero publication-year tokens across 94 KB**, which was the sharpest single
 finding of the provenance audit — and it is a claim in the PAST TENSE: today it carries
-**23** across **128 KB**, so the finding is preserved as history and the current reading is
+**27** across **130 KB**, so the finding is preserved as history and the current reading is
 beside it. **9** indices resolve to a primary source that is not merely
 named but **stored in this repository and quotable**. Each row is re-checked on every render by
 running the command in its last column against the named file; 9 of 9 pass today.
@@ -1736,13 +1753,13 @@ take a different remedy: a search, not a coinage label.
 
 `Tradition.witness` is now tri-state and DERIVED at import from this index and the canon
 entry's own `from:` line — never typed into a table, because a citation typed by hand is the
-defect this whole section exists to close. Over **298 distinct traditions on 319 attachments**:
+defect this whole section exists to close. Over **299 distinct traditions on 320 attachments**:
 
 | verdict | n |
 |---|---:|
 | externally witnessed | **212** |
 | **this project's own** | **26** |
-| cannot be told | **60** |
+| cannot be told | **61** |
 
 A canon entry names its traditions in an alias line and its indices in a `from:` line and
 NEVER attributes one to the other, so a per-name citation would be a fabrication. Two
@@ -1810,7 +1827,7 @@ The traditions whose only witness is this project, listed for the same reason as
    any kind and a neighbour's was read onto them.
 4. **It does not touch `gabay higaad`.** §0 records that Somali appears in no inventory cell and
    that the name entered the canon from repo doctrine alone. There is no index to inline and no
-   witness to recover; `relations.py` scopes Somali to zero of the 77 schemas, which is what the
+   witness to recover; `relations.py` scopes Somali to zero of the ~~77~~ 78 schemas, which is what the
    source says, and the mechanical form of that is a zero rather than a plausible list.
 5. **It does not check its own CONSTRUCTION, and re-running it never will.** Every figure above
    is computed, which closes the transcription defect and no other. `--render` reproduced this

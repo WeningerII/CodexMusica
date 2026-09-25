@@ -56,10 +56,10 @@ identical under both readings -- which is precisely why it has to be written
 down: the correct rule is currently indistinguishable from the wrong one by its
 output, and the coincidence is one declaration away from ending.
 
-WHAT READING ALL 77 TURNED UP, and each one is asserted somewhere rather than
+WHAT READING ALL 77 TURNED UP (2026-08-22), and each one is asserted somewhere rather than
 left as prose (doctrine 48):
 
-  * `Figure.nodes`, `Figure.edges` and `Figure.template` are declared on all 77
+  * `Figure.nodes`, `Figure.edges` and `Figure.template` are declared on all ~~77~~ 78
     schemas and READ BY NOTHING IN THE REPOSITORY except this module.
     `realise()`/`assemble()` branch on `quantifier`, `k`, `fraction` and
     `frame`; `evaluate(schema, a, b, stream)` takes exactly two spans.  So the
@@ -432,7 +432,7 @@ def census(registry=None):
 
 
 def survey_coverage(registry=None):
-    """-> how much of `quality/canon_index.tsv` the 77 schemas between them cite.
+    """-> how much of `quality/canon_index.tsv` the ~~77~~ 78 schemas between them cite.
 
     THE INDEX IS ASKED, NOT PARSED HERE.  `quality/canon_sources.index()` owns
     the reader and `cell_of()` owns the cell prefix rule; a second TSV reader in
@@ -629,7 +629,7 @@ def report(registry=None, out=None):
 # WHAT IS DELIBERATELY NOT PINNED, AND WHY.
 #
 #   1. THE SCHEMA COUNT AND THE INDEX ROW COUNT.  `audit_register.PINNED`
-#      already pins `schemas: 77` and `index_rows: 601`.  Pinning them here as
+#      already pins `schemas: ~~77~~ 78` and `index_rows: 601`.  Pinning them here as
 #      well would be one fact in two media with no grep that finds both, which
 #      is `MISSING.md` M-21's own subject; so both are DERIVED here as
 #      denominators and neither appears as a pin.  `pair_shaped` and
@@ -643,7 +643,7 @@ def report(registry=None, out=None):
 #      sitting that adds a survey row repins in both files. This sentence is
 #      the second medium saying so.
 #
-#   2. PER-SCHEMA CITE COUNTS, as 77 separate pins.  They are printed on every
+#   2. PER-SCHEMA CITE COUNTS, one pin per schema.  They are printed on every
 #      run and returned by `shapes()`, but the schema-to-index attribution is
 #      `quality/canon_sources.py`'s subject and `audit_register` already pins
 #      its verdict counts (`traditions_external/project/cannot_tell`).  A third
@@ -745,7 +745,7 @@ PINNED_PLACEMENT_PROFILE = (
 #: selective, as against the `beat` capability gate, which is the half that
 #: makes an UNDECLARED one refuse. Every other row is unchanged.
 
-#: THE FIGURE CENSUS: 13 distinct signatures over the 77 schemas.  Pinned as
+#: THE FIGURE CENSUS: 13 distinct signatures over the ~~77~~ 78 schemas.  Pinned as
 #: the SIGNATURE and not as `_fmt_fig`'s rendering of it, so a cosmetic change
 #: to the printed wording cannot turn this gate red -- a gate that goes red on
 #: a rewording is a gate people learn to skip (`audit_register.PINNED`

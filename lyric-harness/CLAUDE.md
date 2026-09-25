@@ -393,10 +393,15 @@ projection wearing the doctrine's name.
 **THE VOCABULARY WAS ALREADY ON DISK AND REACHABLE BY ALMOST NOTHING.**
 `quality/relations.py`'s `SpanRule` — locus, anchor, direction, magnitude —
 has carried it since 2026-08-10, and its own census is the argument: over the
-77 schemas' 154 member rules the anchors are `word_start` 64, `last_stressed`
-58, `word_end` 15, `searched` 8, `none` 6, `final_unstressed` 2, `penult` 1.
-Nearly half the vocabulary reads from the FRONT of a word, and **8 schemas are
-MIXED** — one member at each end, which no global alignment value can express.
+~~77~~ 78 schemas' ~~154~~ 156 member rules the anchors are `word_start`
+~~64~~ 66, `last_stressed` ~~58~~ ~~60~~ 61, `word_end` ~~15~~ 14, `searched` 8, `none`
+~~6~~ 4, `final_unstressed` 2, `penult` 1 (re-derived 2026-09-25 from
+`s.spans[*].anchor` over `relations.REGISTRY`, and again the same day after
+#392 re-anchored `leonine rhyme`'s second member from `word_end` to
+`last_stressed`).
+Nearly half the vocabulary reads from the FRONT of a word, and **~~8~~ 7 schemas
+are MIXED** — one member at each end, which no global alignment value can
+express (`leonine rhyme` left the set with that re-anchoring).
 It was reachable only through a `schema:` mandate; the default grading path
 reached none of it. `grade()` said so in its own comment, one line above the
 hardcoded `position="end"` it was diagnosing.
@@ -535,8 +540,9 @@ line, because nothing else was sayable), and groups came from an RGS code,
 which is a PARTITION, so doctrine 2's own overlapping cliques were declarable
 and never drawable.
 **PLACEMENT IS DRAWN PER MEMBER**, uniform over what the grading path
-resolves — per member because 8 of the 77 schemas anchor one member at each
-end of a word. MEASURED over ~~200~~ 400 seeds: `end` takes ~~9.6%~~ **8.5%**
+resolves — per member because ~~8~~ 7 of the ~~77~~ 78 schemas anchor one member at
+each end of a word (`spans[0].anchor != spans[-1].anchor`;
+`choices.placements.measure` prints the live count). MEASURED over ~~200~~ 400 seeds: `end` takes ~~9.6%~~ **8.5%**
 of members (REPINNED 2026-08-23 with M-80's word-keying: once a WORD is bound
 its other names are excluded, and the last word carries two names against the
 six that carry one each). The consequence is DISCLOSED in `choices.placements`
@@ -959,7 +965,7 @@ relation, `grade()` routes through `satisfies_relation` and **never consults
 said anything.~~ **STRUCK with the same date and for the same reason, twice
 over**: the door is not 2-name (M-59, all four of `ADMITTABLE_RELATIONS`), and
 the one case it governs — where nobody said anything — is precisely the case
-M-116 then handed ALL 77 SCHEMAS, so the silent case is now judged by
+M-116 then handed ALL ~~77~~ 78 SCHEMAS, so the silent case is now judged by
 `admits(s, theta, decl.admit)` OR `relations.whole_vocabulary_pairs` and is the
 WIDEST door in the tree rather than the narrowest. Its chance rate is
 `quality/chance_rate.py` and is priced by nothing (`MISSING.md` M-138, M-140).
@@ -1014,7 +1020,7 @@ looking exactly like a site that never needed to move.
 pair-satisfaction sites and TWO reached the complete default** — `check_scheme`
 and `Reviser.grade`, which are two because they are ONE judge deliberately
 called twice (doctrine 1). Six dispositions, never summed past the partition:
-FULL / INCOMPLETE / PER_WORD (holds a word, and the 77 judge LINE PAIRS, so it
+FULL / INCOMPLETE / PER_WORD (holds a word, and the ~~77~~ 78 judge LINE PAIRS, so it
 cannot ask) / RENDERING / VALIDATION / ARGUED.
 **THE SHARPEST INSTANCE WAS THE WRITER'S OWN CANDIDATE FIELD.**
 `Reviser._field` promises in capitals that *"THE BRIEF AND THE VERDICT HAVE TO
@@ -1114,7 +1120,8 @@ Python. Validated at DECLARATION time through `Mandate.__post_init__`, which is
 the one place every construction passes through (`mandate()` is not: `plan.py`,
 the tests and the re-open path all build `Mandate` directly).
 **AND THE `schema:` NAMESPACE IS JUDGED SINCE 2026-08-22 — ALL 77 NAMES
-(owner ruling, `MISSING.md` M-59).** Those names RESOLVED 77/77 through the
+(owner ruling, `MISSING.md` M-59); ~~77~~ 78 today, M-40's `chain rhyme
+(interlocking scheme)` included (`rhyme_types.schema_relation_names()`).** Those names RESOLVED 77/77 through the
 vocabulary and were judged 0/77: `satisfies_relation` refused them for a
 shape reason and a policy reason, and only the shape reason was real.
 **Shape:** a `RelationSchema` is evaluated by `relations.realise()` over a
@@ -1129,7 +1136,7 @@ this harness may ASSERT unprompted; it does not govern what a writer may ASK
 FOR by name.**
 **2026-09-08 AUDIT CORRECTION: all 77 names remain addressable; 73 have executable semantics and 4 explicitly refuse unsupported full shapes/templates.** The four are `cynghanedd sain`, `cynghanedd sain gadwynog`, `cynghanedd sain lafarog`, and `平仄 tonal template`. Capability availability did not prove those semantics. Of the 73 executable registrations, 18 have maintained positive/contrast witnesses through the actual grade route, 5 have dedicated full-figure/native regressions, and 50 remain unvalidated named semantics. This is not a claim that all 73 are production-qualified. **2026-09-25 (`MISSING.md` M-313):** the 18 above is the 2026-09-08 count and is kept as that day's figure (doctrine 17); the witness count has moved since, and `python3 quality/schema_census.py` prints the current one: this sentence does not, because parallel sessions move it (doctrine 48). **Historical 2026-08-22 capability census: 77 available capabilities, not zero semantic blockers** (`python3 quality/schema_census.py` re-derives it; `quality/test_capabilities.py` §8 pins it). Seven capabilities stood in the way at the last count and every one closed by building the CONSTRUCTOR that lets a caller DECLARE the coordinate, never by inferring it: `declare_senses`, `declare_stub_resolution`, `declare_period_surface`, `declare_beat`, `declare_lifts`/`search_lifts`, and `declare_delivery` for the delivered/sung surfaces. Doctrine 4 is untouched — its own words were then "no beat grid without audio OR A DECLARED TEMPO" (amended 2026-08-23 to name the DECLARED TEMPO alone: audio left the project's vocabulary by owner ruling, and the quote here is kept as the historical wording), so an INFERRED grid is still refused and `frames.beat` is still None by default. Two schemas also needed a PREDICATE rather than a capability: a bare `requires=` gate cannot make a schema selective, and stamping it would have labelled every perfect rhyme trite and every internal rhyme offbeat — which `UNPROVIDABLE` predicted in as many words.
 **2026-09-08 oracle correction:** the maintained sonnet battery has **1,064 mandated pairs, 967 judged, 97 refused, and 4 violations**. Preserving pronunciation and schema uncertainty withdrew 47 unsupported judgments; the smaller violation count is a coverage correction, not evidence of improved writing or recalibrated thresholds. `quality/production_relation_oracle.json` records the pair-level causes.
-**WHAT ROUTING BUYS, counted apart (doctrine 79) — 35 of the 77 were live in a mandate at the halfway mark.** 33 out of the box, plus 2 (`epistrophe / radif`,
+**WHAT ROUTING BUYS, counted apart (doctrine 79) — 35 of the 77 then (78 since M-40) were live in a mandate at the halfway mark.** 33 out of the box, plus 2 (`epistrophe / radif`,
 `qafiya (before the radif)`) that this same lot turned on by calling
 `relations.mark_refrain_tail` when a declared schema needs the frame — and
 passing `lines=` THE MANDATE'S OWN GROUPS rather than `None`, because that

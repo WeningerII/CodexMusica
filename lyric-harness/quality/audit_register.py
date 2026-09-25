@@ -44,7 +44,7 @@ WHAT IT DOES, in the order the errors were actually found:
      where two entries quote incompatible sizes for what they call one corpus.
 
   4. PROVENANCE.  `quality/RHYME_CANON.md` records 117 named structures with
-     `from:` lines, and `quality/relations.py` hangs 298 Tradition rows off 77
+     `from:` lines, and `quality/relations.py` hangs ~~298~~ 299 Tradition rows off ~~77~~ 78
      schemas. For each name: is there a witness that is not this project? An
      honest "unsourced" is the deliverable. A plausible fill is the
      `gabay higaad` error — a name reconstructed from this repo's own modules
@@ -2048,8 +2048,12 @@ def coverage():
 PINNED = {
     # -- RHYME_CANON.md, as the §2-block detector reads it -------------------
     "canon_entries": 117,
-    "canon_unsourced": 113,
-    "canon_year_tokens": 23,
+    # REPINNED 2026-09-25 from ~~113~~ / ~~23~~: R44 gained its first
+    # published source (Wang Li's 五絕 patterns, `quality/sourced_tables.py`),
+    # which is one entry leaving the unsourced set and four year tokens
+    # (1962, 1977, 1958, and the 2026 date of the note) entering the file.
+    "canon_unsourced": 112,
+    "canon_year_tokens": 27,
     "canon_refs_singleline": 611,
     "canon_refs_multiline": 654,
     "canon_distinct_indices": 555,
@@ -2273,7 +2277,7 @@ PINNED = {
     # gate on two relations it was never priced on -- and both instruments
     # pointed at that door still spell the pre-widening one.
     # ~~196~~ -> 197: M-139, the door moved TWICE (M-59's four relations,
-    # M-116's 77 schemas) and 17 of 19 pair-satisfaction sites moved
+    # M-116's 77 schemas, 2026-08-25) and 17 of 19 pair-satisfaction sites moved
     # neither time. `quality/door_census.py` is the census and the gate.
     # ~~207~~ -> 208: M-150, the working order's LAST step had no gate —
     # a rendered song presented with its convergence state unsaid reads

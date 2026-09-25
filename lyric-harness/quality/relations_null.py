@@ -105,9 +105,9 @@ print([(s, R.order_burden(R.REGISTRY[s], R.build_stream(N._read(p,l), g(la), \
 declaration={'language':la}))['recovered_instances']) \
 for p,la,l,s,_,_ in N.ARMS])"
 
-THREE ARMS IS THREE OF SEVENTY-SEVEN, AND SAYING SO IS SECTIONS 6-8.
-`R.REGISTRY` declares 77 schemas.  The table above controls three.  The other
-74 shipped a PRINTED INSTANCE COUNT -- `relations FILE`,
+THREE ARMS IS THREE OF ~~SEVENTY-SEVEN~~ SEVENTY-EIGHT, AND SAYING SO IS
+SECTIONS 6-8.  `R.REGISTRY` declares ~~77~~ 78 schemas (M-40 added the 78th,
+a61fe4e69).  The table above controls three.  The other ~~74~~ 75 shipped a PRINTED INSTANCE COUNT -- `relations FILE`,
 `python3 quality/relations.py FILE`, both of which print a per-schema count
 and then a paragraph telling the reader that a count is not evidence -- with
 no matched control behind it.  That is the same defect this file was written
@@ -186,12 +186,12 @@ THAT WHOLE PARAGRAPH IS THE 34-SCHEMA READING AND IT IS SUPERSEDED BY SECTION
 because every figure in it is still true OF ITS OWN POPULATION -- one 40-line
 English slice at n=10, read by `_read`, with nothing declared -- and because
 two of its coordinates turned out to be doing work nobody had counted.  The
-panel is 77 schemas over NINE SLICES in EIGHT LANGUAGES at n=200, with the
+2026-08-22 panel is 77 schemas over NINE SLICES in EIGHT LANGUAGES at n=200, with the
 declarable frames declared and re-declared on every replicate: 2,344 rows,
 56,723 CPU-seconds.  `quality/RESULTS_RELATIONS_NULL.md` is the write-up and
 carries the table of what moved.  The headlines:
 
-  * 50 of the 77 are SWEPT.  17 clear their own null INSIDE THEIR OWN DECLARED
+  * 50 of the 77 (2026-08-22) are SWEPT.  17 clear their own null INSIDE THEIR OWN DECLARED
     TRADITION and are named there; 11 more clear only where
     `tradition_scope` is not `in_tradition`, and the two sets are never summed
     (doctrine 43/79).  19 are swept and sit at or below chance; 3 fire and no
@@ -232,7 +232,7 @@ asks the DERIVATION to answer to a MEASUREMENT rather than the other way round
 (doctrine 68).
 
 Run: python3 quality/relations_null.py             (all three arms, ~25 min)
-     python3 quality/relations_null.py --panel     (section 9, all 77, hours)
+     python3 quality/relations_null.py --panel     (section 9, all ~~77~~ 78, hours)
      python3 quality/relations_null.py --arm=0 --null=global_redeal
      python3 quality/relations_null.py --coverage  (the census, instant)
      python3 quality/relations_null.py --verify    (the ledger, ~5 s, CI)
@@ -898,8 +898,8 @@ ARMS = (
      ("within_line_shuffle", "line_permutation", "global_redeal")),
 )
 
-#: The schemas the hand-written arms above control.  THREE, out of the 77 in
-#: `R.REGISTRY` -- so 74 named relations shipped with a printed instance count
+#: The schemas the hand-written arms above control.  THREE, out of the ~~77~~
+#: 78 in `R.REGISTRY` (M-40, a61fe4e69) -- so ~~74~~ 75 named relations shipped with a printed instance count
 #: (`relations FILE`, `quality/relations.py FILE`) and no matched control
 #: behind it.  Sections 6-8 exist because "nobody got to it" is only one of
 #: the four reasons for that, and the four have completely different remedies
@@ -1592,7 +1592,7 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
 # could not be wrong because nothing compared it to anything: doctrine 48, in
 # the census that was written to enforce doctrine 44.
 #
-# WHAT THIS SECTION MAKES FAIL.  A frozen ledger of the verdict for all 77
+# WHAT THIS SECTION MAKES FAIL.  A frozen ledger of the verdict for all ~~77~~ 78
 # schemas on ONE NAMED SLICE, plus the two sets in which the census's
 # NOMINATION and the sweep's MEASUREMENT disagree, plus `verify_extension()`
 # which diffs the recorded against the recomputed and returns a complaint per
@@ -2340,7 +2340,7 @@ def sensitivity(lines, phon, schema, statistic, language, chans=None,
 
 
 # ---------------------------------------------------------------------------
-# 9. THE PANEL — ALL 77, EACH ASKED IN ITS OWN DECLARED TRADITION
+# 9. THE PANEL — ALL ~~77~~ 78, EACH ASKED IN ITS OWN DECLARED TRADITION
 # ---------------------------------------------------------------------------
 #
 # WHAT WAS WRONG WITH 34.  Sections 6-8 sort the registry into six verdicts and
@@ -2354,7 +2354,7 @@ def sensitivity(lines, phon, schema, statistic, language, chans=None,
 #     the rule shape matched and the tradition did not (doctrine 43).  A null
 #     on such a row is a real measurement of a real number and it is NOT a
 #     measurement of the relation the canon names.
-#   * THE DECLARATION.  26 of the 77 REFUSE on that slice for want of a
+#   * THE DECLARATION.  26 of the 77 (2026-08-22) REFUSE on that slice for want of a
 #     capability, and `Stream.provides` answers False for `caesura` and
 #     `refrain_tail` on every stream nobody prepared — even though this repo
 #     SHIPS the three calls that supply them (`search_caesura`,
@@ -3450,7 +3450,7 @@ USAGE = """quality/relations_null.py - matched controls for relations.py
                          --n=, --limit= and --budget=.
   --sensitivity          the planted-locality detection floor per schema
                          (doctrines 31/76), printed beside the sweep
-  --panel                ALL 77 schemas over the whole PANEL (section 9): one
+  --panel                ALL ~~77~~ 78 schemas over the whole PANEL (section 9): one
                          slice per language this repo has a phonology AND a
                          corpus for, with the declarable frames declared and
                          re-declared on every replicate.  Prints the eight-way

@@ -677,6 +677,12 @@ so nothing here is being tested green while the gap is open — the entry closes
 when the grading path consults the registry, which is the relation ladder's
 own destination and not a fix this entry can make alone.
 
+2026-09-25: the two paragraphs above are kept as written. The registry is now
+~~77~~ 78 schemas since M-40 (`chain rhyme (interlocking scheme)`, a61fe4e69),
+and `quality/test_relations.py:148` (§0, `test_inventory`) pins that size; the
+schemas declaring a `Tradition(lang='eng')` are now ~~58~~ 59, measured, with
+no check pinning that count.
+
 ### E-3 · ~~Internal rhyme is two-line only~~ Internal rhyme has two windows and neither is declared ~~`PARTIAL`~~ `CLOSED` 2026-09-06 — both windows declared, the third axis renamed
 **CLOSED 2026-09-06 — THE THREE CORRECTIONS ABOVE ARE EACH A COORDINATE NOW.** (1) `rhyme_density(lex, lines, decl, window=1)`: the LINE DISTANCE cross-line matches are asked at, default 1 so every earlier reading is byte-identical, 0 for within-line only, N for every pair at distance 1..N, returned as `"window"` beside the numbers; the `density` verb takes `--window=N`, refuses a non-integer, a negative and an unknown flag at exit 2 in the one shape, and PRINTS the window on every run, default included, beside the sentence that the `internal rhyme` schema asks song-wide. (2) `internal_matches(max_span=3)` — the SYLLABLE cap under its own name; the word `window` no longer appears in that signature, and the docstring says whose coordinate the line window is. (3) The `internal rhyme` schema note states its frame — the WHOLE SONG, `Figure(frame='song')`, stanza breaks crossed — and names the other reader's declared window, so the two answers carry their coordinates. Measured on a three-line fixture whose first and third lines share two internal families and whose second shares nothing: `--window=1` finds no cross-line match, `--window=2` raises L1 and L3, `--window=0` is nowhere above 1. `quality/test_verbs.py` §58 (8 checks) is the first test to name E-3 — CITED → GUARDED, as the last line below asked.
 
@@ -3868,7 +3874,7 @@ stotra/pada literature — Vedānta Deśika, Bilvamaṅgala, the Gosvāmins,
 `m` 1,078 times and `ṃ` 3 times; the Caurapañcāśikā does the opposite. A
 final-akṣara rhyme key is **not comparable across DCS texts without folding**.
 
-### M-15 · `RelationSchema.traditions` — ~~declared on 77 schemas and populated on ZERO~~ **75 of 77 populated, and the SOURCE is the gap** ~~`PARTIAL`~~ `CLOSED` 2026-09-06 with M-15a
+### M-15 · `RelationSchema.traditions` — ~~declared on 77 schemas and populated on ZERO~~ **~~75 of 77~~ 76 of 78 populated (measured 2026-09-25), and the SOURCE is the gap** ~~`PARTIAL`~~ `CLOSED` 2026-09-06 with M-15a
 **CLOSED 2026-09-06 — RECORD ONLY.** The only half this entry held open was the source gap, and that half is M-15a's, closed the same day (the survey inlined as `quality/canon_index.tsv`, the witness derived from it). The two schemas with no tradition, `blues AAB stanza` and `refrain by reference`, are unchanged and are the census's own reading, not an omission.
 
 The ZERO was left standing as live heading text under a blockquote that already
@@ -28611,11 +28617,14 @@ semantic line): `{'unvalidated': 55, 'regression_witness': 5,
 'witness_and_contrast': 23}`~~ (this branch alone, before review) ->
 ~~`{'unvalidated': 41, 'regression_witness': 5, 'witness_and_contrast': 32}`~~
 on the integrated tree (M-311's ten witnesses, and this entry's four once
-homoioteleuton became finding 8) -> **`{'unvalidated': 27,
-'regression_witness': 5, 'witness_and_contrast': 46}`** once the intra-line
+homoioteleuton became finding 8) -> ~~`{'unvalidated': 27,
+'regression_witness': 5, 'witness_and_contrast': 46}`~~ once the intra-line
 figures route (`quality/figure_exhibits.py`) joined it: 32 on the grade route
-(28 DRAWABLE_EXHIBITS, 3 CENSUS_EXHIBITS, 1 CONTEXT_CONTROLS) and 14 on the
-figures reader, per the census's `witness_routes`. Sibling sessions working other groups move
+(28 DRAWABLE_EXHIBITS, 3 CENSUS_EXHIBITS, 1 CONTEXT_CONTROLS) and ~~14~~ on the
+figures reader, per the census's `witness_routes` -> **`{'unvalidated': 26,
+'regression_witness': 5, 'witness_and_contrast': 47}`**, 32 + 15, once #396's
+`平仄 tonal template` exhibit began declaring the sourced table
+(`quality/sourced_tables.py`, 2026-09-25) and earned on the figures reader. Sibling sessions working other groups move
 the same line. The census re-derives it on every run.
 
 **TESTED WHILE OPEN.** `quality/test_capabilities.py` §9 names this entry
