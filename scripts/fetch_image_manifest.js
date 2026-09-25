@@ -230,10 +230,21 @@ async function wikidataMatches(entities) {
       ...new Set(mine.flatMap((e) => nameCandidates(e.name).flatMap(caseVariants))),
     ];
     const byLabel = {};
-    for (const batch of chunk(allLabels, 150)) {
-      for (const h of await sparqlLabelHits(batch, kind)) (byLabel[h.label] ||= []).push(h);
+    // A batch the endpoint times out on is split in half and retried.
+    const run = async (batch) => {
+      let hits;
+      try {
+        hits = await sparqlLabelHits(batch, kind);
+      } catch (e) {
+        if (batch.length < 8) throw e;
+        const mid = batch.length >> 1;
+        await run(batch.slice(0, mid));
+        return run(batch.slice(mid));
+      }
+      for (const h of hits) (byLabel[h.label] ||= []).push(h);
       saveCache();
-    }
+    };
+    for (const batch of chunk(allLabels, 60)) await run(batch);
     for (const e of mine) {
       const cands = nameCandidates(e.name);
       for (const cand of cands) {
