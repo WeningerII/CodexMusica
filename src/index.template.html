@@ -1801,15 +1801,17 @@ body.is-dnd-active * { cursor: grabbing !important; }
 </div>
 
 <main class="workspace">
-  <aside id="workspace-sidebar" aria-label="Workspace navigation">
-    <!-- Three zones: a fixed top (workspace name + filter), a scrolling middle
-         (#sidebar-scroll: tradition groups + suggest-a-staple), and a fixed
-         bottom (recipe stack). The middle is the only scroll region, which is
-         what lets the genre headers stick to the top and the recipe stack stay
-         pinned to the bottom — both always reachable regardless of list length. -->
+  <aside id="workspace-sidebar" aria-label="Your recipe">
+    <!-- Three zones: a fixed top (session name), a scrolling middle
+         (#sidebar-scroll: filter, genre groups, suggestions — the shell adds
+         Add genre / Add instrument and Recording environment), and a fixed
+         bottom (recipe preview). The middle is the only scroll region, which is
+         what lets the genre headers stick to the top and the recipe preview stay
+         pinned to the bottom — both always reachable regardless of list length.
+         src/workbench.js arranges these per presentation (sidebar or dock). -->
     <div id="sidebar-header"></div>
-    <div id="sidebar-filter"></div>
     <div id="sidebar-scroll">
+      <div id="sidebar-filter"></div>
       <div id="sidebar-traditions"></div>
       <div id="sidebar-staple"></div>
     </div>

@@ -189,71 +189,6 @@ h3 {
 .session-actions [data-ui='close-session'] {
   display: none;
 }
-#sidebar-header {
-  padding: 18px 18px 8px !important;
-}
-#sidebar-filter {
-  padding: 8px 16px !important;
-}
-#sidebar-scroll {
-  flex: 1;
-  min-height: 0;
-  overflow: auto !important;
-  padding: 8px 12px !important;
-}
-#sidebar-recipe-preview {
-  position: relative !important;
-  bottom: auto !important;
-  left: auto !important;
-  right: auto !important;
-  flex: none;
-  max-height: 32vh;
-  overflow: auto;
-  background: var(--cm-surface) !important;
-}
-.rp-text {
-  font-family: Arial, sans-serif !important;
-  font-size: 14px !important;
-  line-height: 1.5 !important;
-  max-height: 140px;
-}
-.rp-head {
-  padding: 10px 12px !important;
-  gap: 6px !important;
-}
-.rp-label {
-  font-size: 12px !important;
-}
-.rp-count {
-  white-space: nowrap;
-  font-size: 12px !important;
-}
-.sb-card {
-  padding: 10px 6px !important;
-  min-height: 64px;
-}
-.sb-card-row > .sb-card {
-  padding-right: 64px !important;
-}
-.sb-card-thumb {
-  width: 36px !important;
-  height: 36px !important;
-}
-.sb-card-line2 {
-  font-size: 12px !important;
-}
-.sb-preface {
-  color: var(--cm-emphasis) !important;
-}
-.sb-name {
-  font-size: 15px !important;
-}
-.sb-card.is-selected {
-  background: var(--cm-accent-soft) !important;
-}
-.sb-staple {
-  padding: 12px !important;
-}
 #discovery {
   container-type: inline-size;
   container-name: discovery;
@@ -1100,9 +1035,6 @@ body.workbench {
 .workbench .session-actions button {
   min-height: 44px;
 }
-.workbench .rp-text {
-  padding: 12px 14px !important;
-}
 .workbench .ui-surface {
   scrollbar-gutter: stable;
 }
@@ -1578,70 +1510,820 @@ body.workbench {
   }
 }
 
-/* ── Foundation: the recipe panel (#workspace-sidebar) on every route ──
+/* ── Your recipe (#workspace-sidebar) on every route ──
    One panel, one editor (#workspace-detail), presented per route through
-   body[data-recipe]: 'sidebar' (a resizable, collapsible column) or 'dock'
-   (a resizable, collapsible strip under the page — the Map). Below 900px it
-   is the Recipe sheet; on the Map and Lyrics the sheet stops short of the
-   top so the map and the document stay on screen and usable above it. */
+   body[data-recipe]: 'sidebar' (a column on the left), 'sidebar-right' (a
+   column on the right — Genre) or 'dock' (a strip under the page — Instrument,
+   Map). Below 900px it is the Recipe sheet; on the Map and Lyrics the sheet
+   stops short of the top so the map and the document stay usable above it.
+   The same pieces in every form: header (Your recipe, Autosaved), session
+   name and counts, genres with their instrument rows, Add, Suggestions,
+   Recording environment, Recipe preview with Copy recipe, and the AI entry.
+   src/workbench.js (uiPlaceRecipeParts) moves the shell's pieces per form. */
+.workbench #workspace-sidebar {
+  color: var(--cm-text);
+  background: var(--cm-surface) !important;
+}
 .recipe-panel-head {
+  /* A container, so a narrow column can move Autosaved to its own line. */
+  container: recipe-head / inline-size;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   flex: none;
-  min-height: 52px;
-  padding: 4px 4px 4px 16px;
-  border-bottom: 1px solid var(--cm-border-subtle);
+  min-height: 56px;
+  padding: 8px 8px 0 20px;
   background: var(--cm-surface);
 }
 .recipe-panel-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  flex: 1;
   margin: 0;
   color: var(--cm-text);
-  font: 600 var(--cm-text-lg) var(--cm-font);
+  font: 600 var(--cm-text-xl) / 1.2 var(--cm-font);
   white-space: nowrap;
 }
-.recipe-panel-title svg {
-  color: var(--cm-accent);
+.recipe-session:empty {
+  display: none;
+}
+.recipe-autosave[hidden],
+.recipe-open-editor {
+  display: none;
+}
+.recipe-autosave {
+  flex: none;
+}
+@container recipe-head (max-width: 300px) {
+  .recipe-autosave {
+    order: 10;
+    margin: -8px 0 4px -8px;
+  }
+}
+.recipe-panel-head [data-ui='recipe-collapse'] {
+  flex: none;
+  color: var(--cm-text-secondary);
+}
+/* The session: name (rename pencil) and what is in it. */
+.workbench #sidebar-header {
+  padding: 2px 20px 0 !important;
+}
+.workbench #sidebar-header .ws-label {
+  display: none;
+}
+.workbench #sidebar-header .ws-name-row {
+  justify-content: flex-start;
+  gap: 4px;
+}
+.workbench #sidebar-header h2.ws-name,
+.workbench #sidebar-header .ws-name-input {
+  flex: 0 1 auto;
+  color: var(--cm-text);
+  font: 600 var(--cm-text-lg) / 1.3 var(--cm-font) !important;
+}
+.workbench #sidebar-header .ws-rename {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: var(--cm-radius-md);
+  color: var(--cm-text-secondary);
 }
 .recipe-panel-meta {
-  flex: 1;
-  min-width: 0;
+  flex: none;
+  margin: 0 20px 8px;
   color: var(--cm-text-muted);
-  font-size: var(--cm-text-sm);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font: var(--cm-text-sm) / 1.4 var(--cm-font);
+}
+.recipe-panel-meta:empty {
+  display: none;
 }
 #recipe-empty {
-  margin: 8px 12px;
+  margin: 8px 16px;
 }
 #recipe-empty[hidden] {
   display: none;
 }
+/* The scrolling middle: filter, genres, Add, Suggestions, environment. */
+.workbench #sidebar-scroll {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: auto !important;
+  padding: 4px 16px 16px !important;
+}
+.workbench #sidebar-filter:empty,
+.workbench:not(.recipe-filter-open) #sidebar-filter {
+  display: none;
+}
+.recipe-filter-toggle[hidden] {
+  display: none;
+}
+.recipe-filter-toggle[aria-expanded='true'] {
+  background: var(--cm-accent-soft);
+  color: var(--cm-accent-text);
+}
+.workbench .sidebar-search input {
+  min-height: 36px;
+  border: 1px solid var(--cm-border-subtle);
+  border-radius: var(--cm-radius-md);
+  background: var(--cm-surface-subtle);
+  color: var(--cm-text);
+  font: var(--cm-text-md) var(--cm-font);
+}
+.workbench #sidebar-traditions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.workbench #sidebar-traditions:empty {
+  display: none;
+}
+/* A genre: a card holding its header, its instrument rows and its Add. */
+.workbench .sb-tradition-group {
+  margin: 0 !important;
+  padding: 4px 4px 6px;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-lg);
+  background: var(--cm-surface);
+}
+.workbench #sidebar-scroll .sb-tradition-header {
+  /* Stuck headers cover the column's top padding too. */
+  top: -4px;
+}
+.workbench .sb-tradition-header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 2px;
+  min-height: 48px;
+  padding: 2px 2px 2px 4px;
+  border-radius: var(--cm-radius-lg) var(--cm-radius-lg) 0 0;
+  background: var(--cm-surface);
+  cursor: default;
+}
+.workbench .sb-tradition-header.has-open-menu,
+.workbench .sb-card-row.has-open-menu {
+  position: relative;
+  z-index: 6;
+}
+.sb-tradition-glyphs {
+  display: inline-flex;
+  flex: none;
+  gap: 2px;
+}
+.sb-tradition-toggle {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  min-height: 40px;
+  padding: 4px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-link);
+  font: 600 var(--cm-text-lg) / 1.25 var(--cm-font);
+  text-align: left;
+  cursor: pointer;
+}
+.workbench .sb-tradition-toggle .sb-tradition-name {
+  flex: 0 1 auto;
+  min-width: 0;
+  color: inherit;
+  font: inherit;
+}
+.workbench .sb-status-pill.primary {
+  flex: none;
+  padding: 1px 7px;
+  border-radius: var(--cm-radius-pill);
+  background: var(--cm-accent-soft);
+  color: var(--cm-accent-text);
+  font: 600 var(--cm-text-xs) var(--cm-font);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.workbench .sb-tradition-toggle .sb-tradition-count {
+  flex: none;
+  margin-left: auto;
+  color: var(--cm-text-muted);
+  font: 500 var(--cm-text-xs) var(--cm-font);
+}
+.workbench .sb-tradition-group:not(.is-collapsed) .sb-tradition-count {
+  display: none;
+}
+.workbench .sb-tradition-toggle .sb-chev {
+  flex: none;
+  color: var(--cm-text-secondary);
+  transform: rotate(180deg);
+}
+.workbench .sb-tradition-group.is-collapsed .sb-tradition-toggle .sb-chev {
+  transform: none;
+}
+.sb-more {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-text-secondary);
+  cursor: pointer;
+}
+.sb-more:hover,
+.sb-more[aria-expanded='true'] {
+  background: var(--cm-hover);
+  color: var(--cm-text);
+}
+/* Instrument rows: icon, name over its character word, Edit, … */
+.workbench .sb-tradition-cards {
+  gap: 0;
+}
+.workbench .sb-card-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  border-radius: var(--cm-radius-md);
+}
+.workbench .sb-card-row:hover,
+.workbench .sb-card-row:has(> .sb-card.is-selected) {
+  background: var(--cm-hover);
+}
+.workbench .sb-card-row:has(> .sb-card.is-selected) {
+  background: var(--cm-accent-soft);
+}
+.workbench .sb-card-row > .sb-card {
+  grid-area: 1 / 1;
+  gap: 10px;
+  min-height: 52px;
+  padding: 6px 4px !important;
+  border-radius: var(--cm-radius-md);
+  background: transparent !important;
+  color: var(--cm-text);
+}
+.workbench .sb-card-row > #detail-view {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+.workbench .sb-card .sb-drag-hint {
+  width: 14px;
+  opacity: 0;
+}
+.workbench .sb-card-row:hover .sb-drag-hint,
+.workbench .sb-card:focus-visible .sb-drag-hint {
+  opacity: 1;
+}
+@media (hover: none) {
+  .workbench .sb-card .sb-drag-hint {
+    opacity: 0.6;
+  }
+}
+.workbench .sb-card-thumb {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: var(--cm-radius-md);
+}
+.workbench .sb-card-thumb svg,
+.workbench .sb-card-thumb img {
+  width: 28px;
+  height: 28px;
+}
+.workbench .sb-card-text {
+  gap: 1px;
+}
+.workbench .sb-card-line1,
+.workbench .sb-card-line2 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.workbench .sb-card-line1 .sb-name {
+  color: var(--cm-text);
+  font: 500 var(--cm-text-md) / 1.3 var(--cm-font);
+}
+.workbench .sb-card-line2 .sb-preface,
+.workbench .sb-card-line2 .sb-family {
+  color: var(--cm-text-muted);
+  font: var(--cm-text-sm) / 1.3 var(--cm-font);
+  font-style: normal;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.workbench .sb-card-pin {
+  margin: 0;
+  color: var(--cm-accent);
+}
+.workbench .sb-card-actions {
+  grid-area: 1 / 2;
+  align-self: center;
+  justify-self: end;
+  margin: 0;
+  gap: 0;
+}
+.sb-card-edit {
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-link);
+  font: 500 var(--cm-text-md) var(--cm-font);
+  cursor: pointer;
+}
+.sb-card-edit:hover {
+  background: var(--cm-accent-soft);
+}
+/* A row's or genre's … menu. Fixed beside its trigger (UILayout.anchor). */
+.workbench .sb-menu {
+  z-index: 80;
+  min-width: 220px;
+  padding: 6px;
+}
+.workbench .sb-menu [role='menuitem'] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  height: auto;
+  min-height: 40px;
+  margin: 0;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-text);
+  font: var(--cm-text-md) var(--cm-font);
+  text-align: left;
+  opacity: 1;
+  cursor: pointer;
+}
+.workbench .sb-menu [role='menuitem'] svg {
+  color: var(--cm-text-secondary);
+}
+.workbench .sb-menu [role='menuitem']:hover:not(:disabled) {
+  background: var(--cm-hover);
+}
+.workbench .sb-menu [role='menuitem']:disabled {
+  color: var(--cm-text-disabled);
+  cursor: default;
+}
+.workbench .sb-menu [role='menuitem'].is-danger,
+.workbench .sb-menu [role='menuitem'].is-danger svg {
+  color: var(--cm-danger-text);
+}
+/* Add: to a genre (inside it), another genre, an independent instrument. */
+.workbench .sb-add-to-tradition,
+.recipe-add-row > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: 40px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-link);
+  font: 500 var(--cm-text-md) var(--cm-font);
+  cursor: pointer;
+}
+.workbench .sb-add-to-tradition {
+  width: 100%;
+  margin-top: 2px;
+}
+.workbench .sb-add-to-tradition:hover,
+.recipe-add-row > button:hover {
+  background: var(--cm-accent-soft);
+  color: var(--cm-link);
+}
+.recipe-add-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: -6px;
+}
+/* After the genres, and never below the fold: with a long recipe the row
+   rides the bottom edge of the scrolling column until its place comes up. */
+.workbench #sidebar-scroll > .recipe-add-row {
+  position: sticky;
+  /* Past the column's own bottom padding, to its very edge. */
+  bottom: -16px;
+  z-index: 3;
+  padding: 2px 0 4px;
+  background: var(--cm-surface);
+  box-shadow: 0 -1px 0 var(--cm-border-subtle);
+}
+/* Suggestions and Recording environment. */
+.recipe-context {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.recipe-context[hidden] {
+  display: none;
+}
+.workbench #sidebar-staple:empty {
+  display: none;
+}
+.workbench .sb-staple {
+  gap: 0;
+  padding: 2px 6px !important;
+  border: 1px solid var(--cm-border-subtle);
+  border-radius: var(--cm-radius-lg);
+  background: var(--cm-surface-subtle);
+}
+.workbench .sb-staple-head {
+  gap: 2px;
+}
+.sb-staple-toggle {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 4px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-text);
+  font: 600 var(--cm-text-md) var(--cm-font);
+  text-align: left;
+  cursor: pointer;
+}
+.sb-staple-icon {
+  display: inline-flex;
+  color: var(--cm-amber);
+}
+.sb-staple-toggle .sb-chev {
+  margin-left: auto;
+  color: var(--cm-text-secondary);
+}
+.sb-staple.is-open .sb-staple-toggle .sb-chev {
+  transform: rotate(180deg);
+}
+.workbench .sb-staple-refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  color: var(--cm-text-secondary);
+}
+.workbench .sb-staple-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 0 4px 10px 32px;
+}
+.workbench .sb-staple-body[hidden] {
+  display: none;
+}
+.sb-staple-text {
+  margin: 0;
+  color: var(--cm-text-secondary);
+  font: var(--cm-text-sm) / 1.45 var(--cm-font);
+}
+.workbench .sb-staple-name {
+  color: var(--cm-text);
+  font-style: normal;
+  font-weight: 600;
+}
+.workbench .sb-staple-add {
+  min-height: 40px;
+  padding: 6px 12px;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-md);
+  background: var(--cm-surface);
+  color: var(--cm-link);
+  font: 500 var(--cm-text-md) var(--cm-font);
+  text-align: left;
+}
+.workbench .sb-staple-add:hover {
+  background: var(--cm-accent-soft);
+}
+.recipe-env-head {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.recipe-env-head h3 {
+  margin: 0;
+  color: var(--cm-text);
+  font: 600 var(--cm-text-lg) / 1.3 var(--cm-font);
+}
+.recipe-env-head .cm-btn-icon,
+.recipe-panel-head .cm-btn-icon {
+  min-width: 36px;
+  min-height: 36px;
+  padding: 6px;
+}
+.recipe-env-rows {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-lg);
+  overflow: hidden;
+}
+.recipe-env-row {
+  display: grid;
+  grid-template-columns: 20px minmax(76px, auto) minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 6px 10px 6px 12px;
+  border: 0;
+  border-top: 1px solid var(--cm-border-subtle);
+  background: var(--cm-surface);
+  color: var(--cm-text);
+  font: var(--cm-text-md) var(--cm-font);
+  text-align: left;
+  cursor: pointer;
+}
+.recipe-env-row:first-child {
+  border-top: 0;
+}
+.recipe-env-row:hover {
+  background: var(--cm-hover);
+}
+.recipe-env-row > svg {
+  color: var(--cm-text-muted);
+}
+.recipe-env-icon {
+  display: inline-flex;
+}
+.recipe-env-icon[data-kind='room'] {
+  color: var(--cm-orange);
+}
+.recipe-env-icon[data-kind='tuning'] {
+  color: var(--cm-violet);
+}
+.recipe-env-icon[data-kind='chain'] {
+  color: var(--cm-blue);
+}
+.recipe-env-value {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--cm-link);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.recipe-env-value.is-unset {
+  color: var(--cm-text-muted);
+  font-style: italic;
+}
+.recipe-env-source {
+  margin: 6px 2px 0;
+  color: var(--cm-text-muted);
+  font: var(--cm-text-sm) / 1.4 var(--cm-font);
+}
+/* Recipe preview: one grid (.rp-head takes part through display: contents). */
+.workbench #sidebar-recipe-preview {
+  position: relative !important;
+  inset: auto !important;
+  display: grid !important;
+  flex: none;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-areas:
+    'label format expand'
+    'text text text'
+    'count open open'
+    'copy copy copy';
+  align-items: center;
+  gap: 8px;
+  max-height: none;
+  padding: 14px 16px 8px !important;
+  overflow: visible;
+  border-top: 1px solid var(--cm-border) !important;
+  background: var(--cm-surface) !important;
+  box-shadow: none;
+}
+.workbench #sidebar-recipe-preview:empty {
+  display: none !important;
+}
+.workbench #sidebar-recipe-preview .rp-head {
+  display: contents !important;
+}
+.workbench #sidebar-recipe-preview .rp-label {
+  grid-area: label;
+  display: block;
+  margin: 0;
+  color: var(--cm-text) !important;
+  font: 600 var(--cm-text-lg) / 1.3 var(--cm-font) !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  min-width: 0;
+}
+.rp-format {
+  grid-area: format;
+  justify-self: end;
+  min-height: 36px;
+  padding: 4px 8px;
+  font-size: var(--cm-text-md);
+}
+.workbench #sidebar-recipe-preview .rp-text,
+.workbench #sidebar-recipe-preview .rp-empty {
+  grid-area: text;
+  display: block;
+  max-height: calc(1.5em * 3 + 20px);
+  margin: 0;
+  padding: 10px 12px !important;
+  overflow: hidden;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-md);
+  color: var(--cm-text-secondary);
+  font: var(--cm-text-md) / 1.5 var(--cm-font) !important;
+  -webkit-mask-image: linear-gradient(#000 55%, transparent);
+  mask-image: linear-gradient(#000 55%, transparent);
+}
+.workbench #sidebar-recipe-preview.is-expanded .rp-text {
+  max-height: 40vh;
+  overflow: auto;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.workbench #sidebar-recipe-preview .rp-count {
+  grid-area: count;
+  min-width: 0;
+  margin: 0;
+  color: var(--cm-text-muted);
+  font: var(--cm-text-sm) var(--cm-font) !important;
+  font-variant-numeric: tabular-nums;
+}
+.workbench #sidebar-recipe-preview .rp-expand {
+  grid-area: expand;
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  color: var(--cm-text-secondary);
+}
+.workbench #sidebar-recipe-preview .rp-expand svg {
+  transform: none;
+}
+.workbench #sidebar-recipe-preview.is-expanded .rp-expand svg {
+  transform: rotate(180deg);
+}
+.workbench #sidebar-recipe-preview .rp-open {
+  grid-area: open;
+  display: inline-flex;
+  justify-self: end;
+  min-height: 32px;
+  padding: 4px 2px !important;
+  border: 0 !important;
+  background: none !important;
+  color: var(--cm-link) !important;
+  font: 500 var(--cm-text-sm) var(--cm-font) !important;
+}
+.workbench #sidebar-recipe-preview [data-proxy='btn-undo'] {
+  grid-area: undo;
+}
+.workbench #sidebar-recipe-preview [data-proxy='btn-redo'] {
+  grid-area: redo;
+}
+.rp-copy {
+  grid-area: copy;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: var(--cm-surface-inverse);
+  color: var(--cm-text-inverse);
+  font: 600 var(--cm-text-lg) var(--cm-font);
+  cursor: pointer;
+}
+.workbench .rp-copy:hover {
+  background: color-mix(in srgb, var(--cm-surface-inverse) 86%, var(--cm-canvas));
+  color: var(--cm-text-inverse);
+}
+/* The AI recipe entry: the shared writer, started from this recipe. */
+.recipe-ai {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+  margin: 0;
+  padding: 2px 16px 12px;
+  background: var(--cm-surface);
+}
+.recipe-ai-open {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 4px 6px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-link);
+  font: 500 var(--cm-text-md) var(--cm-font);
+  cursor: pointer;
+}
+.recipe-ai-open svg {
+  color: var(--cm-violet);
+}
+.recipe-ai-field {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+.recipe-ai-field .cm-input {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding-right: 48px;
+}
+.recipe-ai-send {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  color: var(--cm-text-secondary);
+}
 @media (min-width: 900px) {
-  .workbench[data-recipe='sidebar'].recipe-collapsed .workspace {
+  .workbench .session-actions {
+    display: none;
+  }
+  /* Your recipe shows the Autosaved status while it is open; the header's
+     copy (the live region) steps aside visually but keeps announcing. */
+  .workbench:not(.recipe-collapsed) .ui-tools #ui-autosave {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .workbench.recipe-collapsed .recipe-autosave {
+    display: none;
+  }
+  /* Collapsed: a rail with only its expand control (sidebars), or the header
+     row alone (dock). */
+  .workbench[data-recipe='sidebar'].recipe-collapsed .workspace,
+  .workbench[data-recipe='sidebar-right'].recipe-collapsed .workspace {
     --recipe-col: 56px;
   }
   .workbench.recipe-collapsed #workspace-sidebar > :not(.recipe-panel-head) {
     display: none !important;
   }
-  .workbench[data-recipe='sidebar'].recipe-collapsed .recipe-panel-head {
+  .workbench:is([data-recipe='sidebar'], [data-recipe='sidebar-right']).recipe-collapsed
+    .recipe-panel-head {
     flex-direction: column;
     padding: 6px;
-    border-bottom: 0;
   }
-  .workbench[data-recipe='sidebar'].recipe-collapsed .recipe-panel-title,
-  .workbench[data-recipe='sidebar'].recipe-collapsed .recipe-panel-meta {
+  .workbench:is([data-recipe='sidebar'], [data-recipe='sidebar-right']).recipe-collapsed
+    .recipe-panel-head
+    > :not([data-ui='recipe-collapse']) {
     position: absolute;
     clip-path: inset(50%);
     white-space: nowrap;
     pointer-events: none;
   }
-  /* The dock: the page keeps the top of the workspace, the recipe the strip
-     below it, and the editor opens beside the page rather than over it. */
+  /* sidebar-right: the page, then the editor when open, then Your recipe. */
+  .workbench[data-recipe='sidebar-right'] .workspace {
+    --recipe-right: clamp(280px, var(--sidebar-right-width, 360px), 40vw);
+    grid-template-columns: minmax(0, 1fr) var(--recipe-col, var(--recipe-right));
+  }
+  .workbench[data-recipe='sidebar-right'] #discovery {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .workbench[data-recipe='sidebar-right'] .workspace #workspace-sidebar {
+    grid-row: 1;
+    grid-column: -2 / -1;
+    border-right: 0;
+    border-left: 1px solid var(--cm-border);
+  }
+  .workbench[data-recipe='sidebar-right'].editor-open .workspace {
+    grid-template-columns:
+      minmax(0, 1fr) clamp(320px, var(--detail-width, 440px), 40vw)
+      var(--recipe-col, var(--recipe-right));
+  }
+  .workbench[data-recipe='sidebar-right'].editor-open #workspace-detail {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  /* The dock: the page keeps the top of the workspace, Your recipe the strip
+     below it — recipe rows | Recording environment | Recipe preview — and the
+     editor opens beside the page rather than over it. */
   .workbench[data-recipe='dock'] .workspace {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr) auto;
@@ -1664,8 +2346,13 @@ body.workbench {
     grid-row: 2;
     grid-column: 1 / -1;
     display: grid !important;
-    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr) minmax(260px, 380px);
-    grid-template-rows: auto auto auto minmax(0, 1fr);
+    grid-template-columns: minmax(300px, 1.2fr) minmax(260px, 1fr) minmax(300px, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas:
+      'head head head'
+      'tree context preview';
+    /* Compact by default so the page (the map) keeps the screen; the top
+       edge resizes it (220px up to 70% of the workspace). */
     height: var(--dock-height, 220px) !important;
     border-right: 0;
     border-top: 1px solid var(--cm-border);
@@ -1674,60 +2361,190 @@ body.workbench {
     height: auto !important;
   }
   .workbench[data-recipe='dock'] .recipe-panel-head {
-    grid-row: 1;
-    grid-column: 1 / -1;
+    grid-area: head;
+    gap: 12px;
+    min-height: 44px;
+    padding: 4px 8px 4px 20px;
+    border-bottom: 1px solid var(--cm-border-subtle);
   }
-  .workbench[data-recipe='dock'] .session-actions {
-    grid-row: 2;
-    grid-column: 1;
-    gap: 2px 4px;
-    padding: 4px 8px;
+  .workbench[data-recipe='dock'] .recipe-panel-title {
+    flex: none;
+    font-size: var(--cm-text-lg);
   }
-  /* The session name sits in the header row, as in the reference, so the
-     strip stays short: the left column keeps only the actions and filter. */
-  .workbench[data-recipe='dock'] #sidebar-header {
-    grid-row: 1;
-    grid-column: 2;
-    align-self: center;
+  .workbench[data-recipe='dock'] .recipe-session {
     display: flex;
+    flex: 1;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     min-width: 0;
-    padding: 0 16px;
-    z-index: 1;
   }
-  .workbench[data-recipe='dock'] #sidebar-header .ws-name {
-    font-size: 16px;
+  .workbench[data-recipe='dock'] #sidebar-header {
+    padding: 0 !important;
+    min-width: 0;
   }
-  .workbench[data-recipe='dock'].recipe-collapsed #sidebar-header {
-    display: flex !important;
+  .workbench[data-recipe='dock'] #sidebar-header h2.ws-name {
+    color: var(--cm-text-secondary);
+    font: 500 var(--cm-text-md) var(--cm-font) !important;
   }
-  .workbench[data-recipe='dock'] #sidebar-filter {
-    grid-row: 3;
-    grid-column: 1;
-    padding: 2px 16px 8px;
+  .workbench[data-recipe='dock'] .recipe-panel-meta {
+    margin: 0;
+    white-space: nowrap;
   }
-  .workbench[data-recipe='dock'] #sidebar-scroll,
+  .workbench[data-recipe='dock'] .recipe-open-editor {
+    display: inline-flex;
+    min-height: 36px;
+    padding: 4px 12px;
+  }
   .workbench[data-recipe='dock'] #recipe-empty {
+    grid-column: 1 / -1;
     grid-row: 2 / -1;
-    grid-column: 2;
+  }
+  .workbench[data-recipe='dock'] #sidebar-scroll {
+    grid-area: tree;
+    gap: 6px;
+    padding: 6px 12px 8px !important;
+  }
+  .workbench[data-recipe='dock'] .sb-tradition-header {
+    min-height: 40px;
+  }
+  .workbench[data-recipe='dock'] .sb-card-row > .sb-card {
+    min-height: 44px;
+    padding: 3px 4px !important;
+  }
+  .workbench[data-recipe='dock'] .sb-card-thumb {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .workbench[data-recipe='dock'] .sb-tradition-group {
+    border: 0;
+    padding: 0;
+  }
+  .workbench[data-recipe='dock'] #sidebar-scroll .sb-tradition-header {
+    top: -6px;
+  }
+  .workbench[data-recipe='dock'] #sidebar-scroll > .recipe-add-row {
+    bottom: -8px;
+  }
+  .workbench[data-recipe='dock'] .recipe-add-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 0;
+  }
+  .workbench[data-recipe='dock'] .recipe-context {
+    grid-area: context;
     min-height: 0;
+    overflow: auto;
+    gap: 10px;
+    padding: 8px 16px 10px;
     border-left: 1px solid var(--cm-border-subtle);
+  }
+  .workbench[data-recipe='dock'] .recipe-context .recipe-env {
+    order: -1;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-head h3,
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-label {
+    font-size: var(--cm-text-md) !important;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-head .cm-btn-icon {
+    min-width: 32px;
+    min-height: 32px;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-rows {
+    margin-top: 4px;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-row {
+    min-height: 34px;
+    padding: 4px 10px 4px 12px;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-source {
+    margin-top: 4px;
   }
   .workbench[data-recipe='dock'] #sidebar-recipe-preview {
-    grid-row: 2 / -1;
-    grid-column: 3;
-    max-height: none;
+    grid-area: preview;
+    align-content: start;
     min-height: 0;
+    overflow: auto;
+    gap: 6px;
+    padding: 8px 16px !important;
+    border-top: 0 !important;
     border-left: 1px solid var(--cm-border-subtle);
   }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-format {
+    min-height: 32px;
+  }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-text {
+    max-height: calc(1.5em + 18px);
+    padding: 8px 10px !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview.is-expanded .rp-text {
+    max-height: 40vh;
+    white-space: normal;
+  }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-open {
+    min-height: 24px;
+  }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-copy {
+    min-height: 40px;
+  }
+  /* AI recipe sits in the dock's header row; its field is the sidebar's. */
+  .workbench[data-recipe='dock'] .recipe-panel-head > .recipe-ai {
+    padding: 0;
+    background: none;
+  }
+  .workbench[data-recipe='dock'] .recipe-panel-head > .recipe-ai .recipe-ai-field {
+    display: none;
+  }
 }
+/* 900–1250px: the editor overlays the page (see above); on the right-hand
+   form it stops at Your recipe instead of covering it. */
+@media (min-width: 900px) and (max-width: 1250px) {
+  .workbench[data-recipe='sidebar-right'].editor-open .workspace {
+    grid-template-columns: minmax(0, 1fr) var(--recipe-col, var(--recipe-right));
+  }
+  .workbench[data-recipe='sidebar-right'].editor-open #workspace-detail {
+    grid-row: auto;
+    grid-column: auto;
+    right: var(--recipe-col, var(--recipe-right));
+  }
+}
+@media (min-width: 1100px) {
+  .workbench.assistant-open:not(.assistant-floating):not(
+      [data-view='lyrics']
+    )[data-recipe='sidebar-right']
+    .workspace {
+    grid-template-columns: minmax(0, 1fr) var(--recipe-col, var(--recipe-right)) 480px;
+  }
+}
+@media (min-width: 1500px) {
+  .workbench.assistant-open.editor-open:not(.assistant-floating):not(
+      [data-view='lyrics']
+    )[data-recipe='sidebar-right']
+    .workspace {
+    grid-template-columns:
+      minmax(0, 1fr) clamp(320px, var(--detail-width, 440px), 30vw)
+      var(--recipe-col, clamp(280px, var(--sidebar-right-width, 360px), 22vw)) 480px;
+  }
+}
+/* The Recipe sheet (below 900px): its toolbar carries AI recipe, Add genre,
+   Add instrument and Close; the recipe bar is pinned to its bottom edge with
+   the count, Undo, Redo, Copy recipe and the expander in one row. */
 @media (max-width: 899px) {
-  [data-ui='recipe-collapse'] {
+  [data-ui='recipe-collapse'],
+  .recipe-autosave,
+  .workbench .recipe-ai,
+  .workbench .recipe-add-row:empty {
     display: none !important;
   }
   .recipe-panel-head {
     min-height: 44px;
+    padding: 6px 16px 0;
+  }
+  .recipe-panel-title {
+    font-size: var(--cm-text-lg);
   }
   .workbench[data-view='map'].session-open .workspace #workspace-sidebar,
   .workbench[data-view='lyrics'].session-open .workspace #workspace-sidebar {
@@ -1736,6 +2553,65 @@ body.workbench {
     border-top: 1px solid var(--cm-border);
     border-radius: var(--cm-radius-lg) var(--cm-radius-lg) 0 0;
     box-shadow: var(--cm-shadow-3) !important;
+  }
+  .workbench .sb-card-edit,
+  .workbench .sb-more,
+  .workbench .sb-add-to-tradition,
+  .workbench .sb-tradition-toggle,
+  .workbench .recipe-env-row,
+  .workbench .recipe-env-head .cm-btn-icon,
+  .workbench .sb-staple-refresh,
+  .workbench .sb-staple-add,
+  .workbench #sidebar-header .ws-rename {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .workbench .sb-menu [role='menuitem'] {
+    min-height: 44px;
+  }
+  .workbench #sidebar-recipe-preview {
+    grid-template-columns: minmax(0, 1fr) auto auto auto auto;
+    grid-template-areas:
+      'count undo redo copy expand'
+      'text text text text text'
+      'format format open open open';
+    gap: 4px 2px;
+    padding: 6px 12px calc(6px + env(safe-area-inset-bottom, 0px)) !important;
+    box-shadow: var(--cm-shadow-2);
+  }
+  .workbench #sidebar-recipe-preview .rp-label,
+  .workbench #sidebar-recipe-preview .rp-count-unit,
+  .workbench #sidebar-recipe-preview .rp-copy-label {
+    display: none;
+  }
+  .workbench #sidebar-recipe-preview .rp-copy {
+    min-width: 44px;
+    padding: 8px;
+    background: none;
+    color: var(--cm-text-secondary);
+  }
+  .workbench #sidebar-recipe-preview .rp-expand {
+    width: 44px;
+    height: 44px;
+  }
+  .workbench #sidebar-recipe-preview:not(.is-expanded) .rp-text,
+  .workbench #sidebar-recipe-preview:not(.is-expanded) .rp-empty,
+  .workbench #sidebar-recipe-preview:not(.is-expanded) .rp-open,
+  .workbench #sidebar-recipe-preview:not(.is-expanded) .rp-format {
+    display: none !important;
+  }
+  .workbench #sidebar-recipe-preview.is-expanded .rp-text {
+    -webkit-mask-image: none;
+    mask-image: none;
+    max-height: 40vh;
+    overflow: auto;
+  }
+  .workbench #sidebar-recipe-preview .rp-format {
+    justify-self: start;
+    min-height: 44px;
+  }
+  .workbench #sidebar-recipe-preview .rp-open {
+    min-height: 44px;
   }
 }
 
@@ -1808,5 +2684,14 @@ body.workbench {
 @container editor (max-width: 380px) {
   .chain-flow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* A landscape phone scrolls the whole sheet; the recipe bar rides its bottom
+   edge (sticky) rather than sitting after the recipe. */
+@media (max-width: 899px) and (max-height: 500px) {
+  .workbench.session-open #sidebar-recipe-preview {
+    position: sticky !important;
+    bottom: 0 !important;
+    z-index: 2;
   }
 }

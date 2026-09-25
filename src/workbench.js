@@ -1,6 +1,6 @@
 /* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport */
 /* global UILayout */
-/* global Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
+/* global ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
    canonical app (src/app.js) and catalog, which stay the only engine.
@@ -49,6 +49,9 @@ const UI_ROUTES = [
 ];
 const UI_PAGES = {};
 const UI_PAGE_ACTIONS = {};
+// How a route presents Your recipe (docs/ui-foundation.md): a column on the
+// left, a column on the right, or a strip under the page.
+const UI_RECIPE_MODES = ['sidebar', 'sidebar-right', 'dock'];
 // Actions the shell's own click handler owns. A page that registers one of
 // these names would silently never run, so registration refuses it.
 const UI_SHELL_ACTIONS = new Set([
@@ -76,10 +79,14 @@ const UI_SHELL_ACTIONS = new Set([
   'new-recipe',
   'theme',
   'recipe-collapse',
+  'recipe-env',
+  'recipe-open-editor',
+  'recipe-filter',
 ]);
 // Page interface (docs/ui-foundation.md has the full contract):
 //   id            one of UI_ROUTES
-//   recipe?       'sidebar' (default) or 'dock': how Your recipe is presented
+//   recipe?       'sidebar' (default, left), 'sidebar-right' or 'dock': how
+//                 Your recipe is presented on this route (UI_RECIPE_MODES)
 //   mount(surface)  build the page once inside <section id="surface-<id>">
 //   render?()     show current state; called on every visit and refresh
 //   layout?()     page-specific UILayout panes, called once after the shell's
@@ -89,6 +96,8 @@ const UI_SHELL_ACTIONS = new Set([
 function uiRegisterPage(page) {
   if (!UI_ROUTES.some(([id]) => id === page.id)) throw Error('Unknown route: ' + page.id);
   if (UI_PAGES[page.id]) throw Error('Route registered twice: ' + page.id);
+  if (page.recipe !== undefined && !UI_RECIPE_MODES.includes(page.recipe))
+    throw Error('Unknown recipe presentation: ' + page.recipe);
   for (const name of Object.keys(page.actions || {})) {
     if (UI_SHELL_ACTIONS.has(name) || UI_PAGE_ACTIONS[name])
       throw Error('Action already owned: ' + name);
@@ -146,9 +155,18 @@ function uiNavigate(view, { push = false } = {}) {
 // ── Recipe panel ── #workspace-sidebar is the one recipe workspace on every
 // route: the same cards, the same editor (#workspace-detail) and the same
 // commands. A page only chooses how it is presented: page.recipe is
-// 'sidebar' (the default) or 'dock' (a resizable strip under the page).
-// Below 900px it is always the Recipe sheet. Collapsing is a remembered
-// layout preference per presentation, cleared by Reset layout.
+// 'sidebar' (a column on the left, the default), 'sidebar-right' (a column on
+// the right) or 'dock' (a resizable strip under the page). Below 900px it is
+// always the Recipe sheet. Collapsing is a remembered layout preference per
+// presentation, cleared by Reset layout.
+//
+// The panel reads, top to bottom: Your recipe + Autosaved; the session name
+// and "n genres · m instruments"; each genre with its instrument rows (Edit
+// and a … menu per row, src/app.js renders them); Add another genre / Add
+// independent instrument; Suggestions for this recipe; Recording environment
+// (from the card the recipe's environment really comes from, envCardOf);
+// Recipe preview with its format, count, Open full recipe and Copy recipe;
+// and the AI recipe entry. The dock lays the same pieces side by side.
 const uiRecipeCollapsed = {};
 function uiRecipeMode() {
   return UI_PAGES[UI.view]?.recipe || 'sidebar';
@@ -164,35 +182,250 @@ function uiApplyRecipeMode() {
     toggle.setAttribute('aria-expanded', String(!collapsed));
     toggle.setAttribute('aria-label', label);
     toggle.dataset.tooltip = label;
-    toggle.innerHTML = icon(
-      mode === 'dock'
-        ? collapsed
-          ? 'panel-bottom'
-          : 'chevron-down'
-        : collapsed
-          ? 'panel-left-open'
-          : 'panel-left-close',
-      18
-    );
+    const glyph = {
+      dock: collapsed ? 'panel-bottom' : 'chevron-down',
+      'sidebar-right': collapsed ? 'panel-right-open' : 'panel-right-close',
+      sidebar: collapsed ? 'panel-left-open' : 'panel-left-close',
+    }[mode];
+    toggle.innerHTML = icon(glyph, 18);
   }
+  uiPlaceRecipeParts();
   UILayout.refresh();
+}
+// Arranges the shell's own pieces of the panel for the current presentation.
+// The same nodes move; nothing is copied, so every handler stays attached.
+//   phone      Add genre / Add instrument ride the sheet's top toolbar, where
+//              a thumb reaches them without scrolling the recipe.
+//   dock       the session name, counts and AI recipe sit in the header row,
+//              and Suggestions + Recording environment form the middle column.
+//   otherwise  the name under the header; Add, Suggestions and Recording
+//              environment follow the genres in the scrolling column.
+function uiPlaceRecipeParts() {
+  const panel = $ui('workspace-sidebar');
+  if (!panel || !$ui('recipe-add-row')) return;
+  const phone = isMobileLayout();
+  const dock = !phone && uiRecipeMode() === 'dock';
+  const actions = $ui('recipe-actions');
+  const addHost = phone ? actions : $ui('recipe-add-row');
+  const before = phone ? actions.querySelector('[data-ui="close-session"]') : null;
+  for (const id of ['btn-traditions', 'btn-add']) {
+    const node = $ui(id);
+    if (node && (node.parentElement !== addHost || phone)) addHost.insertBefore(node, before);
+  }
+  uiLabelAddButtons(phone);
+  const session = $ui('recipe-session');
+  const header = $ui('sidebar-header'),
+    meta = $ui('recipe-panel-meta');
+  if (dock) {
+    if (header.parentElement !== session) session.append(header, meta);
+  } else if (header.parentElement === session) {
+    panel.insertBefore(header, $ui('recipe-empty'));
+    panel.insertBefore(meta, $ui('recipe-empty'));
+  }
+  // The dock is a compact strip (the map stays prominent): AI recipe rides
+  // its header row; the full "Describe a change" field is the sidebar's.
+  const ai = $ui('recipe-ai');
+  if (dock) {
+    if (ai.parentElement !== session.parentElement)
+      session.parentElement.insertBefore(ai, document.querySelector('.recipe-open-editor'));
+  } else if (ai.previousElementSibling !== $ui('sidebar-recipe-preview')) {
+    $ui('sidebar-recipe-preview').after(ai);
+  }
+  const context = $ui('recipe-context');
+  if (dock) {
+    if (context.parentElement !== panel) panel.insertBefore(context, $ui('sidebar-recipe-preview'));
+  } else if (context.parentElement !== $ui('sidebar-scroll')) {
+    $ui('sidebar-scroll').append(context);
+  }
+}
+// The two native add controls (#btn-traditions, #btn-add) keep their ids and
+// handlers wherever they sit; only the words follow the place and the recipe.
+function uiLabelAddButtons(phone = isMobileLayout()) {
+  const genres = new Set(app.cards.map((c) => c.traditionId).filter(Boolean)).size;
+  const set = (id, text, label) => {
+    const node = $ui(id);
+    if (!node) return;
+    const html = `${icon('plus', 18)}<span>${esc(text)}</span>`;
+    if (node.innerHTML !== html) node.innerHTML = html;
+    node.setAttribute('aria-label', label);
+  };
+  set(
+    'btn-traditions',
+    phone ? 'Add genre' : genres ? 'Add another genre' : 'Add a genre',
+    genres ? 'Add another genre' : 'Add a genre'
+  );
+  set(
+    'btn-add',
+    phone ? 'Add instrument' : 'Add independent instrument',
+    'Add an independent instrument'
+  );
 }
 function uiRecipePanelSetup() {
   const panel = $ui('workspace-sidebar');
   const head = document.createElement('div');
   head.className = 'recipe-panel-head';
-  head.innerHTML = `<h2 class="recipe-panel-title">${icon('layers', 18)}<span>Your recipe</span></h2><span class="recipe-panel-meta" id="recipe-panel-meta"></span><button type="button" class="cm-btn cm-btn-icon" data-ui="recipe-collapse" aria-controls="workspace-sidebar"></button>`;
+  head.innerHTML =
+    `<h2 class="recipe-panel-title"><span>Your recipe</span></h2>` +
+    `<div class="recipe-session" id="recipe-session"></div>` +
+    // A mirror of the header's autosave status (#ui-autosave stays the one
+    // live region); src/workbench.css shows one of the two, never both.
+    `<span id="recipe-autosave" class="cm-status recipe-autosave" hidden></span>` +
+    `<button type="button" class="cm-btn cm-btn-outline recipe-open-editor" data-ui="recipe-open-editor">${icon('maximize-2', 16)}<span>Open full editor</span></button>` +
+    // Filter instruments: the field under the header, shown on request (and
+    // whenever a filter is in force, so a filtered tree always says so).
+    `<button type="button" class="cm-btn cm-btn-icon recipe-filter-toggle" data-ui="recipe-filter" aria-controls="sidebar-filter" aria-expanded="false" aria-label="Filter instruments" data-tooltip="Filter instruments">${icon('search', 18)}</button>` +
+    `<button type="button" class="cm-btn cm-btn-icon" data-ui="recipe-collapse" aria-controls="workspace-sidebar"></button>`;
   panel.prepend(head);
+  const meta = document.createElement('p');
+  meta.id = 'recipe-panel-meta';
+  meta.className = 'recipe-panel-meta';
+  $ui('sidebar-header').after(meta);
   const empty = document.createElement('div');
   empty.id = 'recipe-empty';
   empty.className = 'cm-empty';
   empty.hidden = true;
   empty.innerHTML = `<strong>No instruments yet</strong><span>Add a genre to bring in its whole ensemble, or add single instruments. Every addition can be undone.</span><div class="cm-empty-actions">${uiButton('genre-nav', 'Browse genres', 'tag')}${uiButton('surprise', 'Surprise me', 'shuffle')}</div>`;
-  $ui('sidebar-header').after(empty);
-  for (const mode of ['sidebar', 'dock'])
+  meta.after(empty);
+  // After the genres: the two add controls (moved in by uiPlaceRecipeParts).
+  const add = document.createElement('div');
+  add.id = 'recipe-add-row';
+  add.className = 'recipe-add-row';
+  $ui('sidebar-traditions').after(add);
+  // Suggestions (src/app.js renders #sidebar-staple) and Recording
+  // environment travel together: after the genres, or the dock's middle column.
+  const context = document.createElement('div');
+  context.id = 'recipe-context';
+  context.className = 'recipe-context';
+  const env = document.createElement('section');
+  env.id = 'recipe-env';
+  env.className = 'recipe-env';
+  env.setAttribute('aria-labelledby', 'recipe-env-title');
+  context.append($ui('sidebar-staple'), env);
+  add.after(context);
+  // The AI recipe entry: the shared writer, started from this recipe.
+  const ai = document.createElement('form');
+  ai.id = 'recipe-ai';
+  ai.className = 'recipe-ai';
+  ai.setAttribute('aria-label', 'AI recipe');
+  ai.innerHTML =
+    `<button type="button" class="recipe-ai-open" data-ui="ai" aria-label="AI recipe" data-tooltip="Open the AI recipe writer">${icon('sparkles', 16)}<span>AI recipe</span></button>` +
+    `<div class="recipe-ai-field"><input type="text" id="recipe-ai-input" class="cm-input" maxlength="4000" autocomplete="off" aria-label="Describe a change to this recipe" placeholder="Describe a change to this recipe…">` +
+    `<button type="submit" class="cm-btn cm-btn-icon recipe-ai-send" aria-label="Send to the AI recipe writer" data-tooltip="Send to the AI recipe writer">${icon('send', 18)}</button></div>`;
+  $ui('sidebar-recipe-preview').after(ai);
+  ai.addEventListener('submit', (e) => {
+    e.preventDefault();
+    uiRecipeAskAI(e.submitter || ai.querySelector('.recipe-ai-send'));
+  });
+  for (const mode of UI_RECIPE_MODES)
     uiRecipeCollapsed[mode] = UILayout.remember('recipe-collapsed-' + mode, false, () =>
       uiApplyRecipeMode()
     );
+  // Crossing 900px moves the add controls between the sheet and the panel.
+  matchMedia('(max-width: 899px)').addEventListener?.('change', () => uiPlaceRecipeParts());
+}
+// Sends "Describe a change to this recipe…" to the one recipe writer. The
+// writer keeps its own conversation, so the request carries the current
+// recipe with it (as the Lyrics page's "Use current recipe" does); what comes
+// back is offered with the writer's own "Use recipe", which Undo reverses.
+function uiRecipeAskAI(opener) {
+  const input = $ui('recipe-ai-input');
+  const wish = input.value.trim();
+  UI.assistantOpener = opener;
+  if (!wish) {
+    uiChatOpen();
+    return;
+  }
+  if (chatState.busy) {
+    showToast('A request is running. Its progress remains in the conversation.', 'error');
+    uiChatOpen();
+    return;
+  }
+  if (!uiChatOpen()) return;
+  const domain = $ui('chat-domain');
+  if (!chatState.task && domain.value === 'recipe-browse') domain.value = 'recipe';
+  const current = app.cards.length ? compileRecipeStack(app.cards, 'rich', { ceiling: 1000 }) : '';
+  $ui('chat-input').value = current
+    ? `Change this recording recipe: ${wish}\n\nCurrent recipe:\n${current}`
+    : wish;
+  _chatSyncCount();
+  input.value = '';
+  $ui('chat-form').requestSubmit();
+}
+// "Recording environment": room, tuning and signal chain of the card the
+// recipe's environment is rendered from — envCardOf, the same rule every
+// output format uses — named with its instrument and genre.
+const UI_ENV_ROWS = [
+  ['room', 'Room', 'house', 'env'],
+  ['tuning', 'Tuning', 'tuning-fork', 'env'],
+  ['chain', 'Signal chain', 'settings', 'chain'],
+];
+function uiRecipeEnvHTML() {
+  const card = envCardOf(app.cards);
+  if (!card) return '';
+  const inst = Inst(card.instrumentId),
+    trad = card.traditionId ? Tradition(card.traditionId) : null;
+  const who = esc((inst && (inst.name || inst.short)) || card.instrumentId);
+  const has = !!(
+    card.room ||
+    card.tuning ||
+    Object.values(card.chain || {}).some((v) => (Array.isArray(v) ? v.length : v))
+  );
+  // Every set stage, in chain order; the summary names each by its kind
+  // ("Ribbon") or its name without the parenthesis, the tooltip in full.
+  const stages = CHAIN_SECTIONS.flatMap((sec) =>
+    (sec.multiSelect ? card.chain?.[sec.id] || [] : [card.chain?.[sec.id]].filter(Boolean))
+      .map((id) => ChainItem(sec.id, id))
+      .filter(Boolean)
+  );
+  const values = {
+    room: card.room ? Room(card.room)?.name : '',
+    tuning: card.tuning ? Tuning(card.tuning)?.name : '',
+    chain: stages.map((it) => it.family || it.name.replace(/\s*\(.*\)\s*$/, '')).join(' · '),
+  };
+  const full = stages.map((it) => it.name).join(' · ');
+  const rows = UI_ENV_ROWS.map(([id, label, ic, tab]) => {
+    const value = values[id];
+    const title = id === 'chain' && stages.length ? ` data-tooltip="${esc(full)}"` : '';
+    return `<button type="button" class="recipe-env-row" data-ui="recipe-env" data-id="${id}" data-tab="${tab}" aria-label="${label}: ${esc((id === 'chain' ? full : value) || 'Not set')}. Edit in ${tab === 'chain' ? 'Signal chain' : 'Environment'}"${title}><span class="recipe-env-icon" data-kind="${id}">${icon(ic, 18)}</span><span class="recipe-env-label">${label}</span><span class="recipe-env-value${value ? '' : ' is-unset'}">${esc(value || 'Not set')}</span>${icon('chevron-right', 16)}</button>`;
+  }).join('');
+  const source = has
+    ? `From ${who}${trad ? ` · ${esc(trad.name)}` : ' · independent'}`
+    : `Not set on any instrument yet. Set it on ${who}.`;
+  return (
+    `<div class="recipe-env-head"><h3 id="recipe-env-title">Recording environment</h3>` +
+    `<button type="button" class="cm-btn cm-btn-icon" data-ui="recipe-env" data-id="env" data-tab="env" aria-label="Edit the recording environment" data-tooltip="Edit the recording environment">${icon('pencil', 16)}</button></div>` +
+    `<div class="recipe-env-rows">${rows}</div>` +
+    `<p class="recipe-env-source" data-tooltip="Every recipe format renders the room, tuning and signal chain of this one card">${source}</p>`
+  );
+}
+// Opens the shared editor on the environment's source card, at the tab (and,
+// for Room and Tuning, the open picker) that the row names.
+function uiOpenEnvironment(which) {
+  const card = envCardOf(app.cards);
+  if (!card) return;
+  card._uiTab = which === 'chain' ? 'chain' : 'env';
+  card.editingEnv = which === 'room' || which === 'tuning' ? which : null;
+  uiOpenEditor(card.id);
+  if (isMobileLayout()) {
+    renderSidebarTraditions();
+    _revealSelectedCard();
+  } else if (card.editingEnv) {
+    document
+      .querySelector(`#detail-view [data-toggle-env="${card.editingEnv}"]`)
+      ?.scrollIntoView({ block: 'start' });
+  }
+}
+function uiSyncRecipeFilter() {
+  const toggle = document.querySelector('[data-ui="recipe-filter"]');
+  if (app.sidebarFilter) document.body.classList.add('recipe-filter-open');
+  const open = document.body.classList.contains('recipe-filter-open');
+  toggle.setAttribute('aria-expanded', String(open));
+  toggle.hidden = app.cards.length === 0;
+}
+function uiRecipeSummary() {
+  const n = app.cards.length;
+  const g = new Set(app.cards.map((c) => c.traditionId).filter(Boolean)).size;
+  return `${g} ${g === 1 ? 'genre' : 'genres'} · ${n} ${n === 1 ? 'instrument' : 'instruments'}`;
 }
 function uiListen() {
   const c = app.cards.find((c) => c.id === app.selected);
@@ -206,8 +439,21 @@ function uiSync() {
   );
   $ui('ui-count').textContent = String(app.cards.length);
   const n = app.cards.length;
-  $ui('recipe-panel-meta').textContent = n + (n === 1 ? ' instrument' : ' instruments');
+  document.body.classList.toggle('recipe-is-empty', n === 0);
+  $ui('recipe-panel-meta').textContent = n ? uiRecipeSummary() : '';
+  uiSyncRecipeFilter();
+  document.querySelector('[data-ui="recipe-open-editor"]').disabled = n === 0;
   $ui('recipe-empty').hidden = n > 0;
+  $ui('recipe-context').hidden = n === 0;
+  const env = uiRecipeEnvHTML();
+  if ($ui('recipe-env')._html !== env) {
+    $ui('recipe-env').innerHTML = env;
+    $ui('recipe-env')._html = env;
+  }
+  $ui('recipe-ai-input').placeholder = n
+    ? 'Describe a change to this recipe…'
+    : 'Describe the recording you want…';
+  uiLabelAddButtons();
   const detail = $ui('detail-view');
   if (detail && !detail.querySelector('.ui-detail-tools')) {
     const bar = document.createElement('div');
@@ -486,7 +732,10 @@ function uiStart() {
   assistant.innerHTML = `<div class="assistant-toolbar"><strong>AI recipe</strong>${uiButton('new-recipe', 'New recipe', 'plus')}${uiButton('close-ai', 'Close', 'x')}</div>`;
   assistant.append($ui('chat-dock'));
   document.body.append(assistant);
+  // The Recipe sheet's toolbar on a phone (hidden in the desktop panel, where
+  // the AI entry and the add controls have their own places).
   const quick = document.createElement('div');
+  quick.id = 'recipe-actions';
   quick.className = 'session-actions';
   quick.innerHTML =
     uiButton('ai', 'AI recipe', 'message-circle') +
@@ -638,6 +887,28 @@ function uiStart() {
         UITheme.set(id);
         uiSyncThemeControl();
         break;
+      case 'recipe-filter': {
+        // Closing the field clears what it filtered, so no row stays hidden
+        // behind a control that is no longer on screen.
+        const open = !document.body.classList.contains('recipe-filter-open');
+        document.body.classList.toggle('recipe-filter-open', open);
+        if (!open && app.sidebarFilter) {
+          app.sidebarFilter = '';
+          renderSidebar();
+        }
+        uiSyncRecipeFilter();
+        if (open) $ui('sidebar-filter-input')?.focus();
+        break;
+      }
+      case 'recipe-env':
+        uiOpenEnvironment(id);
+        break;
+      case 'recipe-open-editor': {
+        const card = app.cards.find((c) => c.id === app.selected) || app.cards[0];
+        if (card) uiOpenEditor(card.id);
+        uiFocus(document.querySelector('#detail-view .detail-tab.is-active'));
+        break;
+      }
       case 'recipe-collapse': {
         const pref = uiRecipeCollapsed[uiRecipeMode()];
         pref.set(!pref.get());
@@ -698,6 +969,7 @@ function uiStart() {
   uiUpdatePrompt();
   UI.ready = true;
   uiLayoutControls();
+  uiMenuControls();
   renderAll();
   // codex.html?trad=<id> (the standalone atlas links here) opens that
   // tradition's Genre detail. It adds nothing by itself: Add stays explicit,
@@ -745,7 +1017,9 @@ function uiEscape(e) {
   if (e.defaultPrevented || UI.escapeOwned) return;
   if (document.documentElement.classList.contains('layout-dragging')) return;
   const body = document.body;
-  if (!$ui('ui-menu').hidden) {
+  if (uiMenuOpen) {
+    uiCloseMenu(true);
+  } else if (!$ui('ui-menu').hidden) {
     uiSetMenu(false);
     uiFocus(document.querySelector('[data-ui="menu"]'));
   } else if (body.classList.contains('assistant-open')) {
@@ -763,6 +1037,73 @@ function uiEscape(e) {
     UI_PAGES[UI.view]?.escape?.();
   }
 }
+// ── Menus in Your recipe ── A [data-menu-toggle] button opens the menu its
+// aria-controls names (a .cm-menu with role="menu", rendered hidden next to
+// it by src/app.js): one open at a time, placed beside its trigger, Up/Down
+// between items, closed by an item, a click elsewhere or Escape (which
+// returns focus to the trigger).
+let uiMenuOpen = null;
+function uiCloseMenu(focusTrigger) {
+  if (!uiMenuOpen) return;
+  const { menu, trigger, stop } = uiMenuOpen;
+  uiMenuOpen = null;
+  stop();
+  menu.hidden = true;
+  menu.closest('.sb-tradition-header, .sb-card-row')?.classList.remove('has-open-menu');
+  trigger.setAttribute('aria-expanded', 'false');
+  if (focusTrigger) uiFocus(trigger);
+}
+function uiToggleMenu(trigger) {
+  const menu = $ui(trigger.getAttribute('aria-controls'));
+  const same = uiMenuOpen?.menu === menu;
+  uiCloseMenu(false);
+  if (same || !menu) return;
+  menu.hidden = false;
+  menu.closest('.sb-tradition-header, .sb-card-row')?.classList.add('has-open-menu');
+  trigger.setAttribute('aria-expanded', 'true');
+  uiMenuOpen = { menu, trigger, stop: UILayout.anchor(menu, trigger, { align: 'end' }) };
+  menu.querySelector('[role="menuitem"]:not(:disabled)')?.focus({ preventScroll: true });
+}
+function uiMenuControls() {
+  document.addEventListener(
+    'click',
+    (e) => {
+      const trigger = e.target.closest('[data-menu-toggle]');
+      if (trigger) {
+        // Captured here, so the genre header under it does not also toggle.
+        e.stopPropagation();
+        uiSetMenu(false);
+        uiToggleMenu(trigger);
+        return;
+      }
+      if (!uiMenuOpen) return;
+      // An item runs its own handler (bound on the item) and then closes the
+      // menu; a click anywhere else just closes it.
+      const item = e.target.closest('[role="menuitem"]');
+      if (item && uiMenuOpen.menu.contains(item)) setTimeout(() => uiCloseMenu(false));
+      else if (!uiMenuOpen.menu.contains(e.target)) uiCloseMenu(false);
+    },
+    true
+  );
+  document.addEventListener('keydown', (e) => {
+    if (!uiMenuOpen || !['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key)) return;
+    const items = [...uiMenuOpen.menu.querySelectorAll('[role="menuitem"]:not(:disabled)')];
+    if (!items.length || !uiMenuOpen.menu.contains(document.activeElement)) return;
+    e.preventDefault();
+    const at = items.indexOf(document.activeElement);
+    const next =
+      e.key === 'Home'
+        ? 0
+        : e.key === 'End'
+          ? items.length - 1
+          : (at + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
+    items[next].focus();
+  });
+  // A menu whose tree was repainted under it has nothing left to close.
+  new MutationObserver(() => {
+    if (uiMenuOpen && !uiMenuOpen.menu.isConnected) uiCloseMenu(false);
+  }).observe($ui('workspace-sidebar'), { childList: true, subtree: true });
+}
 function uiLayoutControls() {
   UILayout.tooltips();
   const workspace = document.querySelector('.workspace');
@@ -778,6 +1119,21 @@ function uiLayoutControls() {
     limits: () => [220, Math.min(520, innerWidth * 0.35)],
     enabled: () =>
       innerWidth >= 900 && uiRecipeMode() === 'sidebar' && !uiRecipeCollapsed.sidebar?.get(),
+  });
+  // The right-hand column resizes from its left edge; its width is its own
+  // remembered preference, independent of the left-hand column's.
+  UILayout.splitter({
+    container: workspace,
+    panel: sidebar,
+    key: 'sidebar-right',
+    property: '--sidebar-right-width',
+    title: 'Resize recipe sidebar',
+    side: 'left',
+    limits: () => [280, Math.min(560, innerWidth * 0.4)],
+    enabled: () =>
+      innerWidth >= 900 &&
+      uiRecipeMode() === 'sidebar-right' &&
+      !uiRecipeCollapsed['sidebar-right']?.get(),
   });
   UILayout.splitter({
     container: workspace,
@@ -900,6 +1256,17 @@ const UI_ICONS = {
   'panel-left-open': uiSvg(
     '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path><path d="m14 9 3 3-3 3"></path>'
   ),
+  'panel-right-close': uiSvg(
+    '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="m8 9 3 3-3 3"></path>'
+  ),
+  'panel-right-open': uiSvg(
+    '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="m10 15-3-3 3-3"></path>'
+  ),
+  send: uiSvg(
+    '<path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path>'
+  ),
+  // A tuning fork: two tines over a stem (drawn for the shell, Lucide style).
+  'tuning-fork': uiSvg('<path d="M8 2v7a4 4 0 0 0 8 0V2"></path><path d="M12 13v9"></path>'),
   'panel-bottom': uiSvg(
     '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 15h18"></path>'
   ),
@@ -1023,10 +1390,15 @@ function uiRenderAutosave(state) {
   const el = $ui('ui-autosave'),
     def = UI_AUTOSAVE_STATES[state];
   if (!el || !def || el.dataset.state === state) return;
-  el.dataset.state = state;
-  el.dataset.tone = def[0];
-  el.dataset.tooltip = def[3];
-  el.innerHTML = `${icon(def[1], 16)}<span class="ui-autosave-text">${esc(def[2])}</span>`;
+  // The header status is the live region; Your recipe shows the same words.
+  for (const node of [el, $ui('recipe-autosave')]) {
+    if (!node) continue;
+    node.hidden = false;
+    node.dataset.state = state;
+    node.dataset.tone = def[0];
+    node.dataset.tooltip = def[3];
+    node.innerHTML = `${icon(def[1], 16)}<span class="ui-autosave-text">${esc(def[2])}</span>`;
+  }
 }
 function uiShowStorageConflict() {
   if ($ui('storage-conflict')) return;
