@@ -80,6 +80,7 @@
     "assets:fetch:emoji": "node scripts/fetch_emoji.js",
     "assets:fetch:icons": "node scripts/fetch_icons.js",
     "assets:fetch:commons": "node scripts/fetch_commons.js",
+    "assets:fetch:images": "node scripts/fetch_image_manifest.js",
     "check:mobile": "node scripts/check_mobile_layout.js",
     "check:cli": "node scripts/check_cli_output.js",
     "check:differential": "node scripts/check_edit_differential.js",
