@@ -271,8 +271,17 @@ def test_the_prefix_pin():
     # 2026-09-08: light/shore's broad default contains unresolved schemas;
     # the repaired judge refuses instead of asserting a clean non-rhyme.
     # Keep that uncertainty in both outputs; the BANK append cannot erase it.
-    summary = ("0 banned, 1 refused, 0 clean and rhyming, "
-               "0 clean and ADMITTED as a near relation, 0 clean but not a rhyme")
+    # 2026-09-24, THE N-RELATION MODEL (#375): `screen` lists EVERY relation
+    # a pair stands in, so its summary buckets are now "standing in at least
+    # one relation" / "standing in none", and a row is `refused` only when
+    # the lexicon cannot read an end word (`screen_pairs`: `_sc is None`).
+    # light/shore reads, stands in no relation, and its unresolved default
+    # schemas ride the row as `grade: ...` — asserted by the next check, so
+    # the uncertainty is still kept, just no longer counted as a refusal.
+    # superseded: "0 banned, 1 refused, 0 clean and rhyming, 0 clean and
+    # ADMITTED as a near relation, 0 clean but not a rhyme" (2026-09-08).
+    summary = ("0 banned, 0 refused, 0 standing in at least one relation, "
+               "1 standing in none")
     check("the banned/clean summary line is present, unchanged, and "
           "appears in neither the appended block nor a second time",
           summary in base and with_bank.count(summary) == 1

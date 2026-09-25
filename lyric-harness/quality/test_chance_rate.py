@@ -2,7 +2,8 @@
 """Regressions for `quality/chance_rate.py` (`MISSING.md` M-138 / M-140).
 
 The module's whole claim is that it reads the door from the DECLARATION and
-measures three doors APART. Both halves are the exact defects M-138 names in
+counts every pair in EVERY relation it stands in — the coarse relations and
+the registry schemas alike, one default door. Both halves are the exact defects M-138 names in
 its two sibling instruments — `redteam_band.py` spells the narrow pair as a
 LITERAL, `negative_control.py` OMITS `relations=` — and neither of those sites
 has a check that would notice. So §2 here is a MUTATION on the declaration: if
@@ -28,7 +29,7 @@ N = 300
 
 def _reader_disagreements(lex, shipped):
     """-> how many of the shipped draw's pairs the two READERS judge
-    differently, by score or by relation.
+    differently, by score or by relation SET.
 
     The two are `line anchor + best_score` (what `grade()` runs) and
     `word anchor + score` (what a one-word verb runs), and they are a
@@ -55,7 +56,7 @@ def _reader_disagreements(lex, shipped):
                 except (KeyError, IndexError, ValueError):
                     s = None
             got[(a, b)] = None if s is None else (round(s["total"], 6),
-                                                  s["relation"])
+                                                  frozenset(s["relations"]))
         seen[name] = got
     one, two = seen[CR.SHIPPED.reader], seen["word anchor + score"]
     return sum(1 for k in one if one[k] != two[k])
@@ -74,40 +75,38 @@ def main():
     shipped = CR.Sampler(CR.SHIPPED.seed, N, CR.SHIPPED.population,
                          CR.SHIPPED.reader)
 
-    print("1. the three counts are three counts, and they partition")
+    print("1. drawn/refused/judged partition; the relation counts OVERLAP")
     m = CR.measure(shipped, lex, L.Declaration())
     check("1", "drawn is accounted for: refused + judged == drawn",
           m["refused"] + m["judged"] == m["drawn"],
           f"{m['refused']} + {m['judged']} == {m['drawn']}")
-    check("1", "ADMIT-only and both partition the ADMIT count — the split is "
-          "reported, not merely printed",
-          m["admit_only"] + m["both"] == m["admit"],
-          f"{m['admit_only']} + {m['both']} == {m['admit']}")
-    check("1", "...and SCHEMA-only and both partition the SCHEMA count",
-          m["schema_only"] + m["both"] == m["schema"],
-          f"{m['schema_only']} + {m['both']} == {m['schema']}")
-    check("1", "the two doors are NOT the same door — `both` is a proper "
-          "subset of each, so summing them would double-count (doctrine 79)",
-          m["both"] < m["admit"] and m["both"] < m["schema"],
-          f"admit {m['admit']}  schema {m['schema']}  both {m['both']}")
+    check("1", "ANY is the union of the coarse and schema families — at "
+          "least each, at most their sum (a pair stands in both)",
+          max(m["admit"], m["schema"]) <= m["any"]
+          <= m["admit"] + m["schema"],
+          f"admit {m['admit']}  schema {m['schema']}  any {m['any']}")
+    check("1", "a pair is counted in EVERY relation it stands in, so the "
+          "per-relation counts sum past ANY (they are not a partition)",
+          sum(m["relations"].values()) > m["any"],
+          f"sum {sum(m['relations'].values())} > any {m['any']}")
+    check("1", "the RHYME family is a subset of the admitted coarse family "
+          "at the default admit set",
+          m["rhyme"] <= m["admit"], f"rhyme {m['rhyme']}  admit {m['admit']}")
 
-    print("\n2. MUTATION — the door is READ from the declaration, and "
-          "narrowing it moves the ADMIT arm onto the NARROW arm")
-    # `redteam_band.py:421` spells `("RHYME", "RIME_RICHE")` as a literal, so
-    # this mutation would leave it byte-identical. That is the defect; this is
-    # the check that this module does not share it.
+    print("\n2. MUTATION — the admit set is READ from the declaration, and "
+          "narrowing it to the rhyme family lands ADMIT on RHYME")
     narrowed = L.Declaration(admit=tuple(sorted(L.RHYME_RELATIONS)))
     m2 = CR.measure(shipped, lex, narrowed)
-    check("2", "the ADMIT arm FALLS when `decl.admit` is narrowed",
+    check("2", "the ADMIT count FALLS when `decl.admit` is narrowed",
           m2["admit"] < m["admit"],
           f"{m2['admit']} against {m['admit']}")
-    check("2", "...and lands exactly on the historical two, which is what "
+    check("2", "...and lands exactly on the rhyme family, which is what "
           "'reads the declaration' MEANS here",
-          m2["admit"] == m2["narrow"] == m["narrow"],
-          f"admit {m2['admit']}  narrow {m2['narrow']}  "
-          f"shipped narrow {m['narrow']}")
-    check("2", "...while the SCHEMA arm does NOT move, because the 77 are a "
-          "different door and `admit` is not their coordinate",
+          m2["admit"] == m2["rhyme"] == m["rhyme"],
+          f"admit {m2['admit']}  rhyme {m2['rhyme']}  "
+          f"shipped rhyme {m['rhyme']}")
+    check("2", "...while the SCHEMA count does NOT move: `admit` narrows the "
+          "coarse relations only, and every schema is still asked",
           m2["schema"] == m["schema"],
           f"{m2['schema']} == {m['schema']}")
 
@@ -133,8 +132,9 @@ def main():
     # differ and no longer do. The coordinate is pinned where it lives now.
     # E-5, 2026-09-15: python3 quality/test_chance_rate.py measured 71,
     # previously 69, after empty-coda evidence was omitted. Same draw.
+    # 2026-09-22: compared on the relation SET (N-relation model); still 71.
     check("3", "the two readers disagree on 71 of the 300 pairs' SCORE or "
-          "RELATION — the reader is a real coordinate, measured on the "
+          "RELATION SET — the reader is a real coordinate, measured on the "
           "judgement and not on a count that happens to coincide",
           _reader_disagreements(lex, shipped) == 71,
           f"{_reader_disagreements(lex, shipped)} of {N}")
@@ -175,26 +175,25 @@ def main():
     from quality.revise import _relation_phonology
     hit = RF.whole_vocabulary_pairs(["running", "singing"],
                                     _relation_phonology()).get((1, 2)) or []
-    # REPINNED 2026-09-01 (`MISSING.md` M-140, ruled under the owner's
-    # delegation): this check ASSERTED the defect — `homoioteleuton`, the
-    # tier-1 ban itself, returned by the silent default as a reason a pair
-    # is satisfied. The default reads `normative` now and declines the
-    # four disowned names; the pin is inverted, and the sweep's own count
-    # of forbidden answers must read ZERO on both arms.
-    check("5", "...and the ONE JUDGE no longer returns a `forbidden` schema "
-          "as a reason a mandated pair is satisfied — the tier-1 ban's own "
-          "canonical example answers without the ban's name in the list",
-          "homoioteleuton" not in hit
-          and not any(n in hit for n in disowned),
-          f"running/singing -> {hit}")
-    check("5", "the instrument COUNTS that rather than asserting it: the "
-          "forbidden-answer and sole-satisfier counts over the sweep are "
-          "both 0 under the ruling, where the sole count alone was 0 before "
-          "(doctrine 20 kept M-140 filed LATENT until the default was made "
-          "to CLAIM what it claims)",
-          m["schema_any_forbidden"] == 0 and m["schema_sole_forbidden"] == 0,
-          f"answered on {m['schema_any_forbidden']}, sole on "
-          f"{m['schema_sole_forbidden']}")
+    # REPINNED 2026-09-22 (N-relation model): the judge now reports EVERY
+    # schema that HOLDS of a pair, a disowned one included — holding is a
+    # fact about the sound and the ban is a separate layer. What M-140
+    # requires is that a disowned schema never SATISFIES, and this
+    # instrument now enforces that in its own door count.
+    check("5", "the ONE JUDGE reports a disowned schema when it HOLDS — the "
+          "tier-1 ban's own canonical example stands in homoioteleuton",
+          "homoioteleuton" in hit, f"running/singing -> {hit}")
+    small = CR.Sampler(shipped.seed, 60, shipped.population, shipped.reader)
+    ms = CR.measure(small, lex, L.Declaration())
+    phon = _relation_phonology()
+    held = sum(1 for a, b in small.pairs(lex)
+               if RF.whole_vocabulary_pairs([a, b], phon).get((1, 2)))
+    check("5", "the instrument COUNTS disowned answers and never lets one "
+          "satisfy: every pair where a schema holds is in SCHEMA or in the "
+          "only-disowned count, never both",
+          ms["schema"] + ms["schema_sole_forbidden"] == held,
+          f"schema {ms['schema']} + only-disowned "
+          f"{ms['schema_sole_forbidden']} == held {held}")
 
     print("\n6. the shipped cell is the same DRAW adversary 3 makes")
     check("6", "`Sampler.pairs` reproduces `redteam_band.sample_pairs` — one "

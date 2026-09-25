@@ -397,12 +397,36 @@ when the instrument's H0 output is ≥ 0.883.
 
 ### 2.1 Cynghanedd — doctrine 57 reproduces exactly; THREE OF THE FOUR BLOCKS BELOW DO NOT
 
+> **REPINNED 2026-09-23 — EVERY ROW IN THE BLOCKS BELOW IS NOW SUPERSEDED**
+> (doctrine 17). main `7d1ded93` (2026-09-22, report J-1) made `w` before
+> a/e/o, initial `ia-`/`io-` and `gwl-/gwr-/gwn-` consonantal and dropped
+> semivowel onsets from `skeleton()`; `cynghanedd_rate.py --check` went red
+> on 12 of 22 and is repinned. Re-run at n=200 on both editions:
+>
+> ```
+> Gwaith Alun, 1558 lines
+>   caesura='search'  R_obs 55.7%  null median 18.7%, min 15.9%, max 21.3%
+>                     excess over null MAX +34.4 pp   p = 0.005  <- AT THE FLOOR
+>   caesura='marked'  R_obs  5.5%  null median  5.0%, min  3.9%, max  6.2%
+>                     below its own null max           p = 0.109
+> Twm o'r Nant, 156 lines
+>   caesura='search'  R_obs 44.2%  null median 17.9%, min 10.9%, max 27.6%
+>                     excess over null MAX +16.7 pp   p = 0.005  <- AT THE FLOOR
+>   caesura='marked'  R_obs  0.6%  null median  3.8%, min  1.3%, max  7.7%
+>                     BELOW chance                    p = 1.000
+> ```
+>
+> The search excess shrank on both editions (+35.3 → +34.4, +19.2 → +16.7)
+> and both still clear the null max at the floor, so the doctrine-57 finding
+> stands. `marked` still separates from nothing.
+
 > **THE `marked` ROWS IN THE 2026-08-13 REPIN ARE THEMSELVES SUPERSEDED
 > 2026-08-28 (`MISSING.md` M-7).** The dash left the default caesura mark
 > set — `cym.CAESURA_MARKS` is `/` and `|`, and an edition that prints the
-> gwant declares it — so at head Alun `marked` reads **6.7% (104/1558,
+> gwant declares it — so ~~at head~~ on 2026-08-28 Alun `marked` read **6.7% (104/1558,
 > all llusg) against null median 5.7%, max 7.3%: −0.6 pp BELOW its own
-> null max, p 0.040**, and Twm reads 2.6% (4/156), p 1.000. The 8.3% row's
+> null max, p 0.040**, and Twm read 2.6% (4/156), p 1.000 (both superseded
+> 2026-09-23, above). The 8.3% row's
 > +0.8-over-max was carried entirely by dash-split croes/traws, and the
 > old nulls carried 4–5 dash-artifact hits per replicate of their own
 > (`shuffled()` keeps dash-carrying raw tokens). The `search` rows are

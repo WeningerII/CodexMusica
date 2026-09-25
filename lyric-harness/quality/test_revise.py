@@ -689,7 +689,8 @@ def test_the_song_the_loop_could_not_grade():
                  if coarse_relation_consensus(
                      R.lex, lines[c["lines"][0] - 1], lines[c["lines"][1] - 1],
                      R.decl, promote=R.decl.final_promotion,
-                     relation=c["relation"], min_score=THETA_COLLISION) is True}
+                     relation=set(c["relations"]) or None,
+                     min_score=THETA_COLLISION) is True}
     check("the partition reproduces mandated verdicts and confirmed collisions",
           (rep["pairs_mandated"], rep["pairs_judged"], rep["pairs_refused"],
            len(rep["violations"])) == (8, 8, 0, 0)
@@ -1014,8 +1015,11 @@ def test_the_field_is_the_graders_own_field():
     for w in scal._field_one("light"):
         ax, wa = scal._word_anchors("light")
         ay, wb = scal._word_anchors(w)
+        # `relations=` the DECLARED door: omitted, `admits` now means every
+        # admittable relation, which is not the door this arm narrows to.
         if not admits(best_score(ax, ay, scal.decl, wa, wb),
-                      scal.decl.theta_rhyme):
+                      scal.decl.theta_rhyme,
+                      relations=frozenset(scal.decl.admit)):
             raw_rejected.append(w)
     check("the legacy scalar generator still produces hints outside the declared rhyme door",
           bool(raw_rejected), raw_rejected[:8])
@@ -1078,9 +1082,10 @@ def test_no_joint_candidate_was_a_coordinate_of_a_literal():
             # A check that verifies the field against a door the verdict
             # abandoned on 2026-08-22 passes exactly while the field is
             # broken, which is what all three were doing.
-            if not admits(best_score(ax, ay, R.decl, wa, wb),
-                          R.decl.theta_rhyme,
-                          relations=frozenset(R.decl.admit)):
+            # THE GRADER'S DEFAULT PREDICATE IS EVERY RELATION: an admitted
+            # coarse relation at its cut, or a registry schema at the two
+            # line ends (`Reviser._offerable`, the field's own predicate).
+            if not R._offerable(c, w, best_score(ax, ay, R.decl, wa, wb)):
                 FAILURES.append("joint field member fails the grader")
                 break
     check("every one of them passes the grader against every call",
@@ -1155,7 +1160,12 @@ def test_the_four_rejections_on_the_songs_own_shape():
           str(b33.forbidden_modal))
     res = R.verify(lines, sub(target, f"{prefix} {modal[0]}"),
                    m, targeted=[target])
-    check("MODAL — L33 takes the most frequent word in its field, rejected",
+    # Label ~~"L33 takes the most frequent word in its field"~~ restated
+    # 2026-09-25 (`MISSING.md` M-310): the head is ranked by the song-corpus
+    # conditional, not by frequency, and `modal[0]` is simply its first
+    # word other than L33's own end word.
+    check("MODAL — L33 takes the first word of its field's forbidden head, "
+          "rejected",
           not res["accepted"] and res.get("modal_violations"),
           res["reasons"][0][:120])
 
@@ -1275,8 +1285,8 @@ def test_what_the_loop_can_say_on_the_declared_mandate():
           f"merged group -- a property of this fixture's incidental word "
           f"choices, not of the merge detector.)")
     check("some of them are outright REPEAT, the refrain itself",
-          sum(1 for c in ret if c["relation"] == "REPEAT") >= 4,
-          f"{sum(1 for c in ret if c['relation'] == 'REPEAT')} of the "
+          sum(1 for c in ret if "REPEAT" in c["relations"]) >= 4,
+          f"{sum(1 for c in ret if 'REPEAT' in c['relations'])} of the "
           f"chorus's returns are an IDENTICAL end word. Doctrine 3 calls "
           f"REPEAT the REQUIREMENT across chorus instances, and "
           f"`repeat_licence` defaults to 'unlicensed', so the derived-cover "
@@ -1324,7 +1334,8 @@ def test_the_collision_set_is_partitioned_not_silenced():
                  if coarse_relation_consensus(
                      R.lex, lines[c["lines"][0] - 1], lines[c["lines"][1] - 1],
                      R.decl, promote=R.decl.final_promotion,
-                     relation=c["relation"], min_score=THETA_COLLISION) is True}
+                     relation=set(c["relations"]) or None,
+                     min_score=THETA_COLLISION) is True}
     check("the raw scheme's confirmed collisions equal the consensus-confirmed part of the note inventory",
           {(a, b) for a, b, _, _, _ in cs["collisions"]} == confirmed
           and confirmed <= edges,
@@ -1341,8 +1352,10 @@ def test_the_collision_set_is_partitioned_not_silenced():
     near = by.get("NEAR_COLLISION", 0)
     check("a near-relation is no longer reported as an unintended RHYME",
           near > 0 and all(
-              R._collision_code(c["relation"]) == "NEAR_COLLISION"
-              for c in rep["collisions"] if c["relation"] in NEAR_RELATIONS),
+              R._collision_code(c["relations"]) == "NEAR_COLLISION"
+              for c in rep["collisions"]
+              if set(c["relations"]) & NEAR_RELATIONS
+              and not set(c["relations"]) & (RHYME_RELATIONS | {"REPEAT"})),
           f"{by} -- {near} of {len(edges)} collisions are pairs `grade()` "
           f"would call a VIOLATION if they were mandated, because the "
           f"collision cut is the scalar alone and the mandate cut is "
@@ -1484,14 +1497,126 @@ def test_the_modal_set_against_a_declared_reference():
         return (a[0][-1]["nucleus"], tuple(a[0][-1]["coda"])) if a and a[0] \
             else None
 
-    seen, tot, ident = set(), 0, 0
-    off_tot, off_ident = 0, 0
+    # THE POPULATION IS RESTATED 2026-09-24 (`MISSING.md` M-310). The
+    # restatement is candidate C's argument from the ban-repair panel of
+    # that day, grafted onto the evidence-gated ban (candidate A) and
+    # credited here: ~~AND THE RESTATEMENT IS STILL RED ON THE HEAD IT WAS
+    # WRITTEN ON~~ -- it was red at `f58ecf59` for the ban's reason, and it
+    # is GREEN under the evidence-gated head; both figures are below. Two
+    # things change in the measurement and neither is the ban.
+    #
+    # (1) THE REFERENCE IS JUDGED ONLY WHERE IT IS DEFINED. A word counts as
+    # identity when it agrees with EVERY call word on the tail-aligned
+    # nucleus AND coda. When the calls do not share one tail, no word can
+    # (a tail is one value; it cannot equal two), so on such a field both
+    # numerators are zero BY CONSTRUCTION, whatever the ban does, and the
+    # field contributes nothing but DENOMINATORS -- tier 1's unbounded
+    # homoeoteleuton class to the ban, `offered` at most to the menu. The
+    # pooled figure over them measured the SIZE of ban against menu, not
+    # identity. Doctrine 20: inconclusive by construction is not null;
+    # doctrine 28: "cannot tell" is not "none"; doctrine 94: the reference
+    # line must need no judgement, and where no word could meet it there is
+    # no reference line to hold the ban against. Those fields are REFUSED
+    # and counted in the output, never dropped silently (doctrine 79). The
+    # selector reads the CALLS only -- never the ban or the menu -- so it
+    # cannot choose the population by the result it is about to measure
+    # (doctrine 27's shape). Measured at f58ecf59: 24 of 29 distinct fields
+    # refused, carrying 1,050 banned and 331 offered words and zero
+    # identity on either side; under the gate (2026-09-24), 24 of 29,
+    # carrying 1,023 banned and 349 offered.
+    #
+    # (2) "DISTINCT FIELDS" IS DEDUPED ON THE SET OF CALLS. It was keyed on
+    # the ORDERED tuple, so a field whose calls came in another order was
+    # counted again: 34 rows were 29 fields, and the five repeats
+    # (way/day, cold/told/..., night/light/..., can/again/..., frame/name/
+    # ...) are byte-identical bans and menus, as a conjunction must be.
+    # This decided the verdict at f58ecf59, which is why it is recorded:
+    # over the defined fields with way/day counted TWICE the contrast
+    # PASSED, ~~FORBIDDEN 190/198 (96.0%) against OFFERED 90/96 (93.8%)~~;
+    # counted once it FAILED, 127/135 (94.1%) against 68/72 (94.4%). That
+    # pass was the double count, and this check does not ship on it.
+    #
+    # WHAT WAS RED, AND WHY IT WAS THE BAN AND NOT THE MEASUREMENT. The
+    # per-field series at f58ecf59 (re-measured 2026-09-24 on `be0529b5`,
+    # the same ban): way/day ban 63/63 against menu 22/24; `thing` 32/36
+    # against 23/24 and `spring` 32/36 against 23/24, INVERTED. Tier 2
+    # sorted on (-conditional count, `lex.freq_rank`, order) and took the
+    # first `modal_exclusion` members; with little or no song-corpus
+    # evidence for the call, the remaining head slots went to global rank,
+    # and the top of a global rank is function words -- `it` (rank 6, no
+    # coarse relation to `thing` at all), `is`, `in`, `this` for `thing`;
+    # `is`, `in`, `with`, `get` for `spring` -- while `anything` (rank 142;
+    # RHYME and RIME_RICHE to `thing`) was OFFERED. `modal_field`'s own
+    # docstring names that as the failure the conditional was wired to
+    # end. The fallback is OLD (candidate C measured `thing`'s head at
+    # 1f9678e6 as plaything/everything/is/in/can/with); this section never
+    # saw it because until the N-relation model (#380) the graph put
+    # `thing` and `spring` only in groups of six to nine distinct tails,
+    # all refused under (1). ~~Filed OPEN as M-310, to be fixed in the
+    # BAN.~~ FIXED IN THE BAN 2026-09-24: tier 2 is EVIDENCE-GATED
+    # (`Reviser._rank_field_compute`: a word enters the head only with a
+    # realised count above zero), and M-310 is CLOSED by it.
+    #
+    # GREEN UNDER THE EVIDENCE-GATED HEAD, 2026-09-24: FORBIDDEN 127/127
+    # (100.0%) against OFFERED 68/72 (94.4%); way/day 63/63 against 22/24,
+    # `thing` 32/32 against 23/24, `spring` 32/32 against 23/24, ~~every
+    # defined field "ban denser"~~ "ban denser" on the three non-empty
+    # defined fields (the other two, `can` and `frame`/`name`/`flame`, are
+    # 0/0 on both sides and print no per-field verdict; corrected
+    # 2026-09-25), none inverted.
+    #
+    # WHAT THIS CHECK NOW IS, SAID PLAINLY -- the three things that are true
+    # of that green and would be misread if left unsaid:
+    #   (a) UNDER THE GATE, TIER 2 IS STRICT IDENTITY BY CONSTRUCTION. Every
+    #       tier-2 word is a realised partner in `song_rhymepair_en.tsv`,
+    #       whose key is identity from the last stressed vowel onward
+    #       (`build_song_frequency.rime_key`), which is this reference's
+    #       tail and more. So on a defined field the ban's tier-2 half
+    #       cannot miss the reference (short of a pronunciation-variant
+    #       disagreement between the table and `line_anchors`), and this
+    #       section is no longer an independent measurement of tier 2: it
+    #       is a REGRESSION PIN OF THE GATE. Deleting the gate condition
+    #       re-inverts `thing` and `spring` to 32/36 -- `quality/mutate.py`
+    #       QR8, killed here and by `test_homeoteleuton.py` §6.
+    #   (b) THE POOLED MARGIN RESTS ON FOUR OFF-REFERENCE MENU WORDS, and
+    #       all four are lexicon artifacts, not words a writer would use:
+    #       `de` and `ne` on way/day, `ng` on `thing` and on `spring`
+    #       (measured 2026-09-24; the per-field output names them on every
+    #       run). Filter them and the menu reads 68/68, a TIE AT THE
+    #       CEILING.
+    #   (c) THE CEILING-TIE RULE, SETTLED HERE rather than left to a strict
+    #       '>' to read a tie as red without saying so. Where BOTH the ban
+    #       and the menu agree with the reference on every word, the
+    #       contrast has no power: "denser than" cannot be shown by an
+    #       instrument whose two readings are pinned at its maximum.
+    #       Doctrine 20: inconclusive by construction is not a verdict, and
+    #       the refusal names the INSTRUMENT, not the ban, as what needs
+    #       fixing. So a ceiling tie is REFUSED -- this check reports it as
+    #       CANNOT DISCRIMINATE, by name, and stays RED, because a green
+    #       here is a claim that the ban is denser and a saturated
+    #       instrument cannot make it. A tie BELOW the ceiling is an
+    #       ordinary FAIL (the ban is not denser). The day the lexicon's
+    #       two-letter artifacts leave the menu, this section goes red with
+    #       that sentence, and the move is a new reference, not a looser
+    #       comparison.
+    #
+    # THE WHOLE-POPULATION FIGURES, KEPT (doctrine 17): at f58ecf59
+    # ~~FORBIDDEN 190/1505 (12.6%) against OFFERED 90/492 (18.3%)~~, FAIL;
+    # at 1f9678e6 ~~126/629 (20.0%) against 6/270 (2.2%)~~, PASS -- and the
+    # pass rested on the MENU, not the ban: way/day's ban was 63/63 in both,
+    # and its menu went from 3/24 identity (scalar nucleus, near-vowel
+    # offers) to 22/24 (licensed nucleus, perfect rhymes). Under the gate
+    # the pooled reading is ~~FORBIDDEN 190/1470 (12.9%) against OFFERED
+    # 90/523 (17.2%)~~ (candidate A's measurement), still FAIL on the pool,
+    # which is (1)'s point: the pool measures size, not identity.
+    seen, tot = set(), 0
+    defined, refused = [], []
     for b in R.brief(lines, m):
         calls = tuple(dict.fromkeys(
             w for _, _, cl in b.must_answer for _, w in cl if w))
-        if not calls or calls in seen:
+        if not calls or frozenset(calls) in seen:
             continue
-        seen.add(calls)
+        seen.add(frozenset(calls))
         # THE `w == cur` SKIP IS GONE — 2026-08-16. It was written when
         # `forbidden_modal` also carried the INCUMBENT, where it correctly
         # removed an entry that was on the list for the other rule. The two
@@ -1499,16 +1624,18 @@ def test_the_modal_set_against_a_declared_reference():
         # the skip removed nothing but LEGITIMATE head members — understating
         # the very set this section exists to characterise. Measured: it
         # discarded 10 genuine head words from the sample.
-        for w in b.forbidden_modal:
-            tot += 1
-            if all(tail(c) is not None and tail(c) == tail(w) for c in calls):
-                ident += 1
+        tot += len(b.forbidden_modal)
+        tails = {tail(c) for c in calls}
+        if len(tails) != 1 or None in tails:
+            refused.append((len(b.forbidden_modal), len(b.candidates)))
+            continue
+        (t,) = tails
         # THE OFFERED HALF, ADDED 2026-08-26 (`MISSING.md` M-139) so the
         # claim below can be a CONTRAST rather than a share. See there.
-        for w in b.candidates:
-            off_tot += 1
-            if all(tail(c) is not None and tail(c) == tail(w) for c in calls):
-                off_ident += 1
+        defined.append((calls, list(b.forbidden_modal),
+                        [w for w in b.forbidden_modal if tail(w) == t],
+                        list(b.candidates),
+                        [w for w in b.candidates if tail(w) == t]))
     check("the modal set is real: it is the head of the grader's own field",
           tot >= 40, f"{tot} forbidden words over {len(seen)} distinct fields")
     # WIRED 2026-08-11: the ranking is now primarily the call-conditional
@@ -1517,12 +1644,20 @@ def test_the_modal_set_against_a_declared_reference():
     # shifting from a MINORITY strict-identity share (under the old global
     # word-count ranking) to a much larger one is the fix working as
     # intended -- doctrine 9 wants the exclusion pointed at the rhyme a
-    # writer actually reaches for, not merely a common word. A residual
+    # writer actually reaches for, not merely a common word. ~~A residual
     # share below 100% is still expected and correct (doctrine 94: the band
     # exists to admit slant rhyme, and the conditional's own backoff to
     # freq_rank for unobserved candidates keeps some non-identity words in
-    # the forbidden set), so the bar here is the OLD threshold's mirror
-    # image rather than a claim of near-total identity.
+    # the forbidden set)~~ -- STRUCK 2026-09-24 (`MISSING.md` M-310), a
+    # premise falsified twice over (doctrine 17). "Keeps SOME non-identity
+    # words" under-read the backoff: where the conditional was thin it
+    # filled most of the head, and on `thing`/`spring` it made the ban LESS
+    # dense in identity than the menu. And the backoff no longer reaches the
+    # head at all (the gate), so on the fields where the reference is
+    # defined the ban now reads 127/127 -- 100%, which "below 100% is
+    # expected" said it would not. The bar was, and stays, the OLD
+    # threshold's mirror image rather than a claim of near-total identity:
+    # a CONTRAST against the menu, not a share.
     # ~~"and now AT LEAST A QUARTER of it is a strict-identity rhyme" /
     # `ident * 4 >= tot`~~ -- STRUCK 2026-08-26 (`MISSING.md` M-139), and it
     # is REPLACED BY A CONTRAST rather than retuned, because the quarter was
@@ -1546,24 +1681,86 @@ def test_the_modal_set_against_a_declared_reference():
     # not want hard numbers anywhere"), it cannot go stale when the door
     # moves again, and it is strictly harder to satisfy by accident than a
     # one-sided fraction.
+    #
+    # ~~"What the residual non-identity share prices, unchanged from before:
+    # on group H six forbidden words include will/their/there/here/year/
+    # email against 'ear' ... cluster_sim(['R'],['L']) = 0.9875"~~ -- STRUCK
+    # 2026-09-24 from the printed detail (candidate C's finding), and the
+    # CAUSE is the fixture, not the ban: it was measured on
+    # `examples/never_been_to_a_scene.txt`, which `11aa19bd` deleted on
+    # 2026-08-12, and `793afe67` repointed this section the same day at
+    # `quality/fixtures/mandate_song.txt`, which has no 'ear' anywhere
+    # (verified 2026-09-24: 0 occurrences). So the sentence had printed on
+    # every run for six weeks about a group that no longer exists (doctrine
+    # 17). The evidence-gated head did not remove will/their/there/email
+    # from anything this section reads -- they were not there to remove --
+    # and no claim is made here about what `ear`'s head holds today. The
+    # inversion the detail names now is DERIVED from the run, not typed.
+    def share(a, n):
+        return f"{a}/{n} ({100.0 * a / n:.1f}%)" if n else f"{a}/{n}"
+
+    ident = sum(len(r[2]) for r in defined)
+    d_tot = sum(len(r[1]) for r in defined)
+    off_ident = sum(len(r[4]) for r in defined)
+    off_tot = sum(len(r[3]) for r in defined)
+    series, inverted = [], []
+    for calls, ban, ban_i, menu, menu_i in defined:
+        if not ban and not menu:
+            continue
+        lhs, rhs = len(ban_i) * len(menu), len(menu_i) * len(ban)
+        if not (ban and menu):
+            verdict = "one side empty"
+        elif lhs < rhs:
+            inverted.append("/".join(calls))
+            verdict = ("INVERTED, the ban's off-reference words are "
+                       f"{[w for w in ban if w not in ban_i]}")
+        elif lhs > rhs:
+            verdict = "ban denser"
+        elif len(ban_i) == len(ban):
+            verdict = "tied AT THE CEILING, cannot discriminate"
+        else:
+            verdict = "tied"
+        series.append(f"{'/'.join(calls)}: ban {share(len(ban_i), len(ban))}"
+                      f" vs menu {share(len(menu_i), len(menu))}, {verdict}"
+                      + (f"; the menu's off-reference words are "
+                         f"{[w for w in menu if w not in menu_i]}"
+                         if len(menu_i) < len(menu) else ""))
+    # THE CEILING-TIE RULE (settled 2026-09-24; the argument is (c) in the
+    # population comment above): both halves at 100% is REFUSED as CANNOT
+    # DISCRIMINATE and stays red, by name -- never read as red by a strict
+    # '>' without saying why, and never read as green.
+    ceiling_tie = (d_tot > 0 and off_tot > 0 and ident == d_tot
+                   and off_ident == off_tot)
     check("the ban is denser in strict identity than the menu it leaves -- "
           "doctrine 9 pointed at the rhyme, not at common words",
-          off_tot > 0 and tot > 0
-          and (ident / tot) > (off_ident / off_tot),
-          f"FORBIDDEN {ident}/{tot} ({100.0 * ident / tot:.1f}%) against "
-          f"OFFERED {off_ident}/{off_tot} "
-          f"({100.0 * off_ident / off_tot:.1f}%) agreeing with their call "
-          f"on the tail-aligned nucleus AND coda by strict identity. The "
-          f"reference is declared as a REFERENCE, not as truth (doctrine "
-          f"94) -- the band exists to admit slant rhyme, so neither share "
-          f"should be 100% and the CONTRAST is what carries the claim. What "
-          f"the residual non-identity share prices, unchanged from before: "
-          f"on group H six forbidden words include will/their/there/here/"
-          f"year/email against 'ear' when the conditional has no data for "
-          f"it, because cluster_sim(['R'],['L']) = 0.9875, so the "
-          f"conjunctive coda rule cannot separate a lateral coda from a "
-          f"rhotic one, and no value of theta_coda reaches it. Not this "
-          f"cell's file to fix")
+          off_tot > 0 and d_tot > 0 and not ceiling_tie
+          and ident * off_tot > off_ident * d_tot,
+          f"over the {len(defined)} of {len(seen)} distinct fields where the "
+          f"reference is DEFINED (every call shares one tail): FORBIDDEN "
+          f"{share(ident, d_tot)} against OFFERED {share(off_ident, off_tot)}"
+          f" agreeing with every call on the tail-aligned nucleus AND coda "
+          f"by strict identity. PER FIELD: " + "; ".join(series or ["none"])
+          + f". REFUSED {len(refused)} fields whose calls have more than one "
+          f"tail, carrying {sum(r[0] for r in refused)} banned and "
+          f"{sum(r[1] for r in refused)} offered words: no word can agree "
+          f"with all their calls, so they are no evidence either way "
+          f"(doctrine 20). The reference is declared as a REFERENCE, not as "
+          f"truth (doctrine 94), and the CONTRAST is what carries the claim "
+          f"~~-- the band exists to admit slant rhyme, so neither share "
+          f"should be 100%~~ (struck 2026-09-24: under the EVIDENCE-GATED "
+          f"head the ban reads 100% on these fields, because every tier-2 "
+          f"word is a realised perfect-rhyme partner, identity by "
+          f"construction -- so this is now a REGRESSION PIN OF THE GATE; "
+          f"deleting the gate re-inverts thing/spring). "
+          + ("CANNOT DISCRIMINATE: the ban AND the menu are both at the "
+             "ceiling, so the contrast has no power and is REFUSED as a "
+             "verdict (doctrine 20) -- the INSTRUMENT needs a new reference, "
+             "the ban is not shown denser. " if ceiling_tie else "")
+          + (f"INVERTED on {inverted}: tier 2 banning words the song corpus "
+             f"has no evidence for (`MISSING.md` M-310, CLOSED 2026-09-24 by "
+             f"the evidence gate -- an inversion here is that gate "
+             f"regressing, a defect in the BAN)"
+             if inverted else "No defined field inverts"))
 
 
 def test_meter_folds_into_the_same_finding_set():
@@ -2268,13 +2465,20 @@ def test_scope_reaches_the_collision_loop():
           and by_s["COLLISION_UNDECLARED"] == 49
           and by_p["COLLISION_UNDECLARED"] == 0,
           f"unscoped {dict(by_p)}  ->  scoped {dict(by_s)}")
+    # REPINNED 2026-09-24, #375's N-relation model: ~~(25, 20, 4)~~ ->
+    # (24, 21, 4). ONE pair moved kind and none left the 49: L7/L15
+    # 'can' ~ 'again' (0.936) was RHYME under `nucleus_agreement="scalar"`
+    # (AE~EH rounded up) and is CONSONANCE alone under "licensed", so its
+    # collision is a NEAR_COLLISION now. MEASURED on this tree and on #375's
+    # parent 1f9678e6, the 49 pair for pair. Still all three kinds.
     check("...and it is drawn from ALL THREE relation types, so the code is "
           "not a rename of one of them",
           (by_p["SCHEME_COLLISION"] - by_s["SCHEME_COLLISION"],
            by_p["NEAR_COLLISION"] - by_s["NEAR_COLLISION"],
            by_p["REPEAT_ACROSS_GROUPS"] - by_s["REPEAT_ACROSS_GROUPS"])
-          == (25, 20, 4),
-          "25 rhymes + 20 near-relations + 4 repeats = the 49")
+          == (24, 21, 4),
+          "24 rhymes + 21 near-relations + 4 repeats = the 49 "
+          "(~~25 + 20 + 4~~ before 2026-09-24's licensed nucleus)")
 
     # (3) WHAT THE FINDING SAYS. `FREE` is the word doctrine 28 exists to keep
     # apart from UNDECLARED, and the old rendering printed exactly it: a line
@@ -2804,9 +3008,12 @@ def test_the_whole_draft_half_reaches_the_report():
                                timeout=900)
             return p.returncode, p.stdout
 
-        # The file above is a printed SOURCE ([verse]/[chorus] marks), so it
-        # is declared as one: since A-3 (PR #372) a draft is read literally
-        # unless `--input-format=source` says otherwise.
+        # The fixture file carries `[verse]`/`[chorus]` section marks, which
+        # is SOURCE apparatus: since report A-3 (7d1ded93) a draft is read
+        # LITERALLY unless `--input-format=source` declares otherwise, so
+        # without the declaration the two marks are two more lyric lines and
+        # the 4-letter scheme is refused against a 6-line draft before any
+        # finding is computed. The declaration is the file's own truth.
         rc_b, out_b = cli("brief", lyric, GAP_SCHEME, "--blueprint=" + bp_path,
                           "--input-format=source")
         rc_s, out_s = cli("song", bp_path, lyric, GAP_SCHEME,
@@ -3530,7 +3737,7 @@ def test_the_mandate_block_is_gated_on_the_mandate():
     check("the TIER-1 PROMPT -- the surface a writer actually reads -- no "
           "longer claims no group was declared, and states the group instead",
           "(no rhyme group declared for this line)" not in p1
-          and "group A [1, 2] at its end word — this line must rhyme with: "
+          and "group A [1, 2] at its end word — this line must stand in at least one relation with: "
           "L2 ('stairs')" in p1,
           [l.strip() for l in p1.splitlines()
            if "group" in l and "rhyme" in l][:2])
@@ -3848,7 +4055,7 @@ def test_a_return_is_not_rendered_as_a_rhyme():
 
     `Brief.must_answer` is `(label, members, [(line, endword), ...])`. There
     is no requirement in that tuple, so BOTH renderers printed one sentence
-    over all three: "this line must rhyme with: L19 ('ear')". That is not a
+    over all three: "this line must stand in at least one relation with: L19 ('ear')". That is not a
     lighter wording of the mandate, it is A DIFFERENT AND STRICTLY WEAKER
     REQUIREMENT — a writer who answers it with a rhyme has not returned, and
     `RETURN_NOT_VERBATIM` is a FLAG, so the loop rejects the very answer its
@@ -3906,17 +4113,17 @@ def test_a_return_is_not_rendered_as_a_rhyme():
     # this in the TIER 2 prompt, so all three are pinned.
     s = str(b3)
     check("`Brief.__str__` says the line must BE the other one, word for "
-          "word, and no longer says 'must rhyme with'",
+          "word, and no longer states a relation obligation",
           "group A [1, 3] is a RETURN" in s and "must BE L1 ('given')" in s
           and "not merely a rhyme" in s
-          and "group A [1, 3] — this line must rhyme with" not in s,
+          and "group A [1, 3] — this line must stand in at least one relation with" not in s,
           [l.strip() for l in s.splitlines() if "group A" in l])
 
     p1 = _PR.render_line(b3, DEC, whole=())
     check("the TIER 1 prompt says the same",
           "group A [1, 3] is a RETURN" in p1
           and "the same line word for word" in p1
-          and "must rhyme with: L1" not in p1,
+          and "at least one relation with: L1" not in p1,
           [l.strip() for l in p1.splitlines() if "group A" in l])
     # The consequence is hard-wrapped across three lines, so it is asserted
     # against the whitespace-collapsed text -- pinning the sentence and not
@@ -3940,7 +4147,7 @@ def test_a_return_is_not_rendered_as_a_rhyme():
           "found it on, and it renders the mandate through the SAME block",
           "group A [1, 3] is a RETURN" in p2
           and "the same line word for word" in p2
-          and "must rhyme with: L1" not in p2,
+          and "at least one relation with: L1" not in p2,
           [l.strip() for l in p2.splitlines() if "group A" in l])
 
     # CONTROL ON THE RENDERERS -- the ordinary sentence is not gone, it is
@@ -3948,9 +4155,10 @@ def test_a_return_is_not_rendered_as_a_rhyme():
     p4 = _PR.render_line(b4, DEC, whole=())
     # REPINNED 2026-09-02 with §40's: M-184 puts the binding PLACE in the
     # group sentence, so the ordinary spelling carries "at its end word".
-    check("CONTROL: an ordinary group still renders 'must rhyme with', and "
+    check("CONTROL: an ordinary group still renders its relation "
+          "obligation, and "
           "is not relabelled a return",
-          "group B [2, 4] at its end word — this line must rhyme with: "
+          "group B [2, 4] at its end word — this line must stand in at least one relation with: "
           "L2 ('light')" in p4
           and "RETURN" not in p4.split("THE RHYME MANDATE")[-1].split(
               "OFFERED")[0],
@@ -4079,9 +4287,10 @@ def test_a_report_says_when_the_named_pair_is_not_the_evidence():
     check("CONTROL: the verdict itself is untouched -- same score, same "
           "relation, same `why`; only the report gained a sentence",
           abs(v["score"] - s["total"]) < 1e-12
-          and v["relation"] == s["relation"]
-          and all(v[k] == without_note[k] for k in ("score", "relation", "why")),
-          f"score={v['score']:.3f} relation={v['relation']} why={v['why']!r}")
+          and set(s["relations"]) <= set(v["relations"])
+          and all(v[k] == without_note[k]
+                  for k in ("score", "relations", "why")),
+          f"score={v['score']:.3f} relations={v['relations']} why={v['why']!r}")
 
 
 def test_a_refusal_speaks_for_one_group_not_the_pair():
@@ -4152,55 +4361,46 @@ def test_a_refusal_speaks_for_one_group_not_the_pair():
 
 
 def test_the_field_says_which_door_it_was_read_at():
-    """§45 — `MISSING.md` M-139's PER_WORD disclosure, and it is checked at
-    every site that renders a candidate field.
-
-    WHY THIS IS NOT §7c's JOB, stated because the two look alike.
-    `quality/test_propose.py` §7c pins the STAND-IN's field list to `Brief`'s,
-    so a coordinate `Brief` grows and a stub does not is a red check. That is
-    necessary and it is not sufficient, and §7c's own comment says so: the
-    renderers read through `getattr`, so a renderer that never ASKS for the
-    field produces exactly the prompt it produced before. MEASURED on seven
-    mutations of this repair — a renderer dropped, the coordinate forced
-    shut, the `getattr` default collapsed to `""`, the third state deleted —
-    §7c stays GREEN on 7 of 7 and this section fails on 7 of 7.
+    """§45 — the candidate field is read at the GRADER'S door, which is
+    every relation: an admitted coarse relation at its cut OR any registry
+    schema at the two line ends (`Reviser._field_one`). A narrowed `admit`
+    shuts the schema half exactly as it shuts it in `grade()`. With the
+    field consulting the schemas, no renderer discloses a skipped route.
     """
-    print("\n45. the candidate field says which DOOR it was read at "
-          "(M-139)")
+    print("\n45. the candidate field is read at the grader's door -- every "
+          "relation, schemas included")
     import io as _io
     import subprocess as _sp
-    from quality.revise import schema_route_lines
-    from quality.relations import (SCHEMA_ROUTE_NOTE as NOTE,
-                                   SCHEMA_ROUTE_UNKNOWN as UNK)
     from quality import propose as PR
     from quality.loop import GroupBrief, AnchorSlot
-    from lyric_harness import Declaration
+    from lyric_harness import Declaration, admits_decl, best_score
 
-    def flat(t):
-        return " ".join(t.split())
-
-    KEY, UKEY = NOTE[:44], UNK[:44]
-
-    # -- 45a THE TWO ARMS, and NO NUMBER IN THE CHECK. One draft, two
-    # declarations, opposite renderings. The disclosure is true exactly when
-    # `grade()`'s rescue is live, which is what "the brief and the verdict
-    # ask the same question" means for this coordinate -- and both readings
-    # come from ONE function, `Reviser.schema_route_open`.
     A = Reviser()
     B = Reviser(decl=Declaration(admit=frozenset({"RHYME"})))
-    ba = [x for x in A.brief(CLICHE, "ABAB") if x.candidates][0]
-    bb = [x for x in B.brief(CLICHE, "ABAB") if x.candidates][0]
-    check("a field built under the DEFAULT door says the 77 were not asked",
-          ba.schema_route_note == NOTE)
-    check("a field built under a NARROWED `admit` says NOTHING -- the route "
-          "is shut and the field's door IS the verdict's door",
-          bb.schema_route_note == "")
-    check("the two arms RENDER differently: a coordinate that changes no "
-          "output is one the writer cannot act on (doctrine 1)",
-          PR.render_line(ba, CLICHE) != PR.render_line(bb, CLICHE))
 
-    # -- 45b THE RENDERER CENSUS, DRIVEN. Not a count read off the source:
-    # every site is run and its output read.
+    # -- 45a THE SCHEMA HALF IS IN THE FIELD, and only under the default.
+    call = "sight"
+    fa = A._field_one(call)
+    anc_c, lab_c = A._word_anchors(call)
+
+    def coarse(rv, w):
+        anc_w, lab_w = rv._word_anchors(w)
+        return admits_decl(best_score(anc_c, anc_w, rv.decl, lab_c, lab_w),
+                           rv.decl)
+    schema_only = [w for w in fa if not coarse(A, w)]
+    check("the default field offers partners that stand in a registry "
+          "schema and in no admitted coarse relation",
+          len(schema_only) > 0
+          and all(A._end_pair_schemas(call, w) for w in schema_only[:20]),
+          f"{len(schema_only)} of {len(fa)}: {schema_only[:6]}")
+    fb = B._field_one(call)
+    check("a NARROWED admit shuts the schema half: every word in that field "
+          "passes the narrowed coarse door",
+          fb and all(coarse(B, w) for w in fb), f"{len(fb)} words")
+
+    # -- 45b NO RENDERER DISCLOSES A SKIPPED ROUTE any more.
+    OLD = "77-SCHEMA HALF OF THE DEFAULT"
+    ba = [x for x in A.brief(CLICHE, "ABAB") if x.candidates][0]
     buf = _io.StringIO()
     A.report(CLICHE, "ABAB", stream=buf)
     gb = GroupBrief(pivot_line_no=3, pivot_text=CLICHE[2],
@@ -4213,86 +4413,58 @@ def test_the_field_says_which_door_it_was_read_at():
     tmp = os.path.join(tempfile.gettempdir(), "m139_cliche.txt")
     with open(tmp, "w", encoding="utf-8") as fh:
         fh.write("\n".join(CLICHE) + "\n")
-    cli = _sp.run([sys.executable,
-                   os.path.join(HERE, "..", "lyric_harness.py"),
-                   "brief", tmp, "ABAB"],
-                  capture_output=True, text=True, timeout=900).stdout
+    proc = _sp.run([sys.executable,
+                    os.path.join(HERE, "..", "lyric_harness.py"),
+                    "brief", tmp, "ABAB"],
+                   capture_output=True, text=True, timeout=900)
     sites = {
-        "revise.Brief.__str__": flat(str(ba)).count(KEY),
-        "revise.Reviser.report": flat(buf.getvalue()).count(KEY),
-        "propose.render_line": flat(PR.render_line(ba, CLICHE)).count(KEY),
-        "propose.render_group": flat(PR.render_group(gb)).count(KEY),
-        "lyric_harness._print_brief_report": flat(cli).count(KEY),
+        "revise.Brief.__str__": str(ba),
+        "revise.Reviser.report": buf.getvalue(),
+        "propose.render_line": PR.render_line(ba, CLICHE),
+        "propose.render_group": PR.render_group(gb),
+        "lyric_harness._print_brief_report": proc.stdout,
     }
-    for name in sorted(sites):
-        check(f"{name} discloses the door", sites[name] >= 1,
-              f"{sites[name]} occurrence(s)")
-    # THE ONE COUNT THAT IS ONE QUESTION. The others are NOT summed
-    # (doctrine 79): `report` prints the report-level line and every brief's
-    # own, the CLI prints one per field-bearing line, and those denominators
-    # differ. A tier-2 prompt renders TWO options lists through one
-    # `_offered_block`, and both must carry it.
-    check("`render_group` discloses on BOTH of its options lists -- the "
-          "pivot's and the member's",
-          sites["propose.render_group"] == 2,
-          f"{sites['propose.render_group']} of 2")
-    check("every renderer of a candidate field discloses the door; none is "
-          "silent", all(sites.values()), f"{sites}")
+    check("the CLI brief ran (a renderer that crashes discloses nothing and "
+          "proves nothing)", proc.returncode in (0, 1, 3) and proc.stdout,
+          proc.stderr[-300:])
+    check("no renderer prints the old skipped-route disclosure",
+          not any(OLD in " ".join(t.split()) for t in sites.values()),
+          [k for k, t in sites.items() if OLD in " ".join(t.split())])
 
-    # -- 45c THREE STATES, AND THE THIRD IS THE ONE A `bool` WOULD EAT.
-    check("`None` renders the UNKNOWN sentence, not silence",
-          bool(schema_route_lines(None))
-          and UKEY in flat(" ".join(schema_route_lines(None))))
-    check("`\"\"` renders silence -- the route is SHUT and nothing is owed",
-          schema_route_lines("") == [])
-    check("the two are DIFFERENT renderings: inconclusive is not null "
-          "(doctrine 20)",
-          schema_route_lines(None) != schema_route_lines(""))
-
-    class Stale:
-        """A stand-in that predates the coordinate -- §7c's own hazard."""
-        line_no, text, findings, keep = 1, "x", [], []
-        candidates = ["a", "b"]
-        forbidden_modal, must_answer, joint_conflict = [], [], False
-        must_rhyme_with = None
-        field_declaration = "field_depth=?, field_band=?"
-
-    stale = flat(PR.render_line(Stale(), CLICHE))
-    check("a stand-in that has NOT grown the coordinate renders the UNKNOWN "
-          "sentence and never silence -- the `getattr` default is not `\"\"`",
-          UKEY in stale and KEY not in stale)
-
-    # -- 45d THE SENTENCE'S CLAIM IS TRUE OF THE POPULATION IT IS MADE
-    # ABOUT. It says a 77-rescued pair may be unreachable from the field AT
-    # ANY DEPTH; the warrant is that such a pair fails on the SCALAR, and a
-    # field is built from words that CLEAR the band. Measured here rather
-    # than asserted, on a shipped fixture, with its own denominator printed
-    # so an empty population cannot read as a pass (doctrine 20).
+    # -- 45c THE FIELD AGREES WITH THE GRADE ON SCHEMA-ONLY PAIRS. On a
+    # shipped fixture, every mandated pair the grade accepts ONLY through a
+    # schema whose partner is in the engine's pool for the call (the bound
+    # on what the field judges) is in that call's field.
     lines = [l.rstrip() for l in
              open(os.path.join(HERE, "fixtures", "song.txt"),
                   encoding="utf-8").read().splitlines()
              if l.strip() and not l.strip().startswith("[")]
     cover = [[2, 4], [1, 3]]
     rep = A.grade(lines, cover)
-    ss = rep["pairs_schema_satisfied"]
-    check("the fixture still REACHES the 77-only route -- an empty "
-          "population would make the check below vacuous",
-          len(ss) >= 1, f"{len(ss)} of {rep['pairs_mandated']} mandated")
+    only = [v for v in rep["verdicts"]
+            if v["why"] is None and not v["admitted"] and v.get("schemas")]
     m = A.mandate(lines, cover)
     _a, endwords, _r, _mx = A._matrix(lines)
-    unreachable = 0
-    for e in ss:
-        i, j = e["lines"]
-        k = [x for x in range(len(m.groups)) if m.labels[x] == e["label"]][0]
-        wi = A._slot_word(lines, m, k, i, endwords)
-        wj = A._slot_word(lines, m, k, j, endwords)
-        fi = {w.lower() for w in A._field_one(wi)}
-        fj = {w.lower() for w in A._field_one(wj)}
-        if wj.lower() not in fi and wi.lower() not in fj:
-            unreachable += 1
-    check("every 77-only pair is ABSENT from the complete-pool field of "
-          "BOTH its words, so 'not askable at any depth' is measured",
-          unreachable == len(ss), f"{unreachable} of {len(ss)}")
+    pooled = reached = 0
+    for v in only:
+        i, j = v["lines"]
+        wi, wj = (A._slot_word(lines, m, v["group"], x, endwords)
+                  for x in (i, j))
+        pool = {c["word"] for c in A.engine.candidates(
+            wi, n=len(A.engine.index) + 1)["candidates"]}
+        if wj.lower() not in pool:
+            continue
+        pooled += 1
+        schemas_here = A._end_pair_schemas(wi, wj.lower())
+        if (wj.lower() in {w.lower() for w in A._field_one(wi)}
+                or not schemas_here):
+            reached += 1
+    check("every schema-only pair inside the engine's pool is offerable "
+          "(or its end words alone stand in no schema -- the line pair's "
+          "schema is not an end-word relation)",
+          reached == pooled,
+          f"{reached} of {pooled} pooled; {len(only)} schema-only pairs of "
+          f"{rep['pairs_mandated']} mandated")
 
 
 def test_a_field_is_per_place_not_per_line():

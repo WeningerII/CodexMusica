@@ -1,16 +1,16 @@
 {
-  "fingerprint": "86812956db1e9b126fb0bd7a1cbd68b1ceaaaf369d64ca45f4224bf15e093558",
+  "fingerprint": "1e2d0c2dc62c448bef24a3744ee3d0db15a17b9d381a32f4eb534e5fcfae385a",
   "parts": {
-    "Declaration()": "db8bdd242c8fb5f5bfa9cc3fd388f8343b798d50f7383e07fac2649771e45578",
+    "Declaration()": "054feccad3ba480d1116f1758bb0022e58f1bb850a68b70d74c42b0f638b38ca",
     "_couplet_pairs": "942c42ed7326bedcc27b0e8b42671b4094c225d7b5773fec1227c3350c8e5a86",
     "cmudict.dict": "449bfdeafc1c748d11f822c78b4a77981a82635f5f6b7729253a9790d3683b85",
-    "features.py": "fc9ab65a01e8ffe311dba9c35d6f785a999feaa74c1584f71e62163ab533e8e4",
-    "lyric_harness.py closure": "a9a5f5d5a79e067a0bdb71f89bf7d0ac54eb485dcac7cc7c9feec8ee46b7f836",
+    "features.py": "80e6fb9f6df23662f16f61819eb4ee40f55e5fda0974ae20ef92db3e70888db1",
+    "lyric_harness.py closure": "6e22af09684145be67e90185054a9b4588069e25ac5642400a743f713eef1db0",
     "opensubtitles_en_50k.tsv": "1869ef3c76633403756cd7922c98599567e5a6f1a3f2c6e8eac0b894b955dc09",
     "predictability_frac": "b786e21a6e2d17e283a1829d21f6365524e72c51deaf2b148423d866f778c8c9"
   },
   "pinned_on": "2026-09-24",
-  "verdict": "RESULT: HOLDS \u2014 the lyric row's 5 curves re-derive from the corpus under the C-2 comparator (8,536 items, rebuilt memo, six-shard compute + check --rows)",
-  "verified_by": "quality/results/c2_comparator_repin_2026-09-24/curve-check.txt",
+  "verdict": "RESULT: HOLDS \u2014 the lyric row's 5 curves re-derive from the corpus under the N-relation comparator, after predictability (MOVED: 7 of 21 knots, all at N >= 182) was re-derived and repinned as a SET by the banked procedure (fit --seeds 200 --picks predictability=CK; 8,536 items, check --rows). The superseded song band row, which drifted (band rule 200-400 -> 150-400), was re-adopted as a set the same day and song_profile_calibration.py --check reproduces every constant (receipt ADDENDUM). Still open: held-out E2 on short fires (+2.95).",
+  "verified_by": "quality/results/n_relation_2026-09-22/curves-measurement.txt",
   "version": 1
 }

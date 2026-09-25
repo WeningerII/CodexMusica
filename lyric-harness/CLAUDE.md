@@ -734,9 +734,11 @@ readable words into 12,387 first-reading construction families. Spelling-class
 counts are upper bounds for those pools, not earned-chain witnesses.
 All 81 families at the 20-class certification floor have rebuilt witnesses
 under explicit class:RHYME and the unchanged two-tier ban. The deepest
-certified chain is 22, held by TWO families, `IY` and `IY-Z`; 22 is a
-witnessed lower bound, not a maximum-clique proof. **REPINNED 2026-09-16 with
-E-5, superseding a 23 that IY-Z witnessed alone** — struck here rather than
+certified chain is 39, held by ONE family, `EH-R`; 39 is a
+witnessed lower bound, not a maximum-clique proof. **REPINNED 2026-09-24 with
+the N-relation model's re-certified `data/rhyme_capacity_eng.tsv`, superseding
+~~22, held by TWO families, `IY` and `IY-Z`~~; that 22 was REPINNED 2026-09-16
+with E-5, superseding a 23 that IY-Z witnessed alone** — struck here rather than
 inline, because `test_verify_entries.py` §8 mutates this exact sentence to
 prove the claim is re-derived from the artifact and not retyped, and a strike
 inside it breaks the anchor it mutates. Removing the empty-coda evidence bonus moved
@@ -838,10 +840,20 @@ rejections are enforced and each is a silent failure mode:
   - a revision that touches lines nobody targeted
   - a revision that restructures rather than revises
 Doctrine 9 is the load-bearing one and it is now mechanical: a flagged
-rhyme gets its candidate field with the MOST FREQUENT band-passing
-members marked FORBIDDEN, and verify() rejects a revision that lands on
-one. Passing the band by reaching for fire/desire is the slop direction,
-so a loop that recommended it would manufacture what the floor rejects.
+rhyme gets its candidate field with ~~the MOST FREQUENT band-passing
+members~~ the MOST PREDICTABLE band-passing members — ~~the partners the
+song corpus has seen realised as the call's rhyme, never a word it has no
+evidence for (2026-09-24, `MISSING.md` M-310)~~ tier 1, the same-spelled
+class, banned by spelling without limit and with no evidence asked (so
+`sane`'s -ane words are forbidden on an empty table); and tier 2, at most
+`modal_exclusion` differently-spelled partners, ranked by the song-corpus
+conditional and EVIDENCE-GATED since 2026-09-25: for TIER 2 only, the
+partners the song corpus has seen realised as the call's rhyme, never a
+word it has no evidence for (`MISSING.md` M-310; qualified 2026-09-25 —
+the struck clause read as if it described the whole ban) — marked
+FORBIDDEN, and verify() rejects a revision that lands on one. Passing the band by
+reaching for fire/desire is the slop direction, so a loop that
+recommended it would manufacture what the floor rejects.
 `modal_exclusion=0` disables the rule and is reachable so the defect is
 demonstrable; it is not the default.
 
@@ -854,9 +866,41 @@ time. Tier 1: HOMEOTELEUTON — a partner on the SAME SPELLED ENDING
 (`lyric_harness.spelled_rime`: silent-e folds, y is a vowel letter, w is
 not) is banned outright, whatever the corpus frequency, and the pair
 check reads the spellings directly so no finite field can shelter one.
-Tier 2: the top `modal_exclusion` of the DIFFERENTLY-spelled remainder.
-Both tiers land in `joint_field`'s forbidden set (the offers) AND the
-proactive pair check (`HOMEOTELEUTON` / `MODAL_RHYME` notes, both in
+Tier 2: ~~the top `modal_exclusion` of the DIFFERENTLY-spelled remainder~~
+**AT MOST `modal_exclusion` of the DIFFERENTLY-spelled remainder, and only
+partners the song table has seen realised as the call's rhyme** (the
+EVIDENCE-GATED head, `quality/revise.py` `_rank_field_compute`,
+~~2026-09-24~~ landed 2026-09-25 as `ff740121`, written 2026-09-24 as the
+ban-repair panel's candidate A; `MISSING.md` M-310). **OWNER RULING
+2026-09-25 (about 01:00 UTC), verbatim: *"go ahead, the tier-2 change is
+fine"*** — accepting that `modal_exclusion` moves from "exactly k" to "at
+most k, evidenced partners only", and that tier 2 is EMPTY for a call the
+song table has no evidence for. The old reading filled
+the slots the table could not from a global frequency rank, so `thing`'s
+head held `it`/`is`/`in`/`this` while `anything` was offered, and
+MODAL_RHYME called `it` one of the six most-predictable answers to `thing`
+on zero observations. ~~What the ruling accepts, measured 2026-09-24 (M-310):
+36.3% of line-final word types (5.9% of line-final tokens) have no realised
+partner, so their tier 2 is empty by construction; counting the calls whose
+every realised partner is same-spelled (still banned, by tier 1), a seeded
+sample puts the empty-tier-2 share at ~69% of types and ~21% by use weight,
+and the share with NO ban of either tier at ~17% of types and ~3% by use.~~
+(Struck 2026-09-25: those figures were measured AFTER the ruling, not before
+it, and were never what the owner was shown.) WHAT THE OWNER WAS SHOWN when
+ruling — the ban-repair panel's candidate-A figures: ~40% of the in-table
+call types (40.4% of 8,809) have no differently-spelled evidenced partner
+(9.3% by realised-pair weight); calls absent from the song table get no
+tier-2 ban at all; and the pivot-field menu shift (M-310). MEASURED
+2026-09-25, AFTER THE RULING — disclosed to the owner after the ruling; not
+separately ruled on (M-310): 36.3% of line-final word types (5.9% of
+line-final tokens) have no realised partner at all; a seeded sample puts
+tier 2 empty for 69.3% of types (95% CI 61.5–76.2) and 20.7% by use
+(15.0–27.8), and NO ban of either tier for 16.7% of types and 2.7% by use.
+Tier 1 is unchanged.
+A frequency-of-rhyme fallback for unevidenced calls is a SEPARATE decision
+nobody has made (`BACKLOG.md` RULINGS WANTED #26). Both tiers land in
+`joint_field`'s forbidden set (the offers) AND the proactive pair check
+(`HOMEOTELEUTON` / `MODAL_RHYME` notes, both in
 `MANDATORY_PURSUE` — unskippable). The counterweight that keeps the ban
 from closing rhyme classes is `Declaration.admit`: what satisfies a
 mandate is a DECLARED set. **THE DEFAULT IS ALL FOUR SINCE 2026-08-22
@@ -2008,8 +2052,12 @@ what proved length is the coverage lever and the SPEC is the defect lever.
 
 **`candidates` AND THE LOOP ANSWERED ONE QUESTION TWO WAYS — FIXED
 2026-08-15, FOUND BY PRE-SCREENING A RHYME WITH THE WRONG LIST.** The verb
-ranks by RHYME SCORE; the modal exclusion ranks by FREQUENCY over the words
-the GRADER would accept. Neither said so, and the one a writer can reach from
+ranks by RHYME SCORE; the modal exclusion ~~ranks by FREQUENCY~~ ranks by the
+song-corpus conditional over the words the GRADER would accept — tier 1
+bans the same-spelled class without limit, and tier 2 bans at most
+`modal_exclusion` partners, ranked by that conditional and EVIDENCE-GATED
+since 2026-09-25 (`MISSING.md` M-310; struck 2026-09-25 — "FREQUENCY" had
+been false since 2026-08-11). Neither said so, and the one a writer can reach from
 the command line is not the one `verify()` enforces. MEASURED on `lines`: the
 verb's top 7 is signs/mines/designs/shines/headlines/airlines/whines against
 the loop's shines/signs/designs/vines/declines/pines — **three in common**.
@@ -2757,8 +2805,9 @@ through unchanged because the message was never the problem.
 **TWO OF THE FIFTEEN ANSWERED AT EXIT 0, AND THOSE ARE THE BAD ONES.**
 `candidates --modal=yes` was BYTE-IDENTICAL to passing no flag — `"--modal" in
 args` is an exact membership test, so the `=` spelling every sibling accepts
-fell through and the caller who asked for the FREQUENCY-ranked forbidden set
-was handed the RHYME-SCORE list, which is the precise substitution §22 exists
+fell through and the caller who asked for the ~~FREQUENCY-ranked~~ modal
+forbidden set (ranked by the song-corpus conditional; struck 2026-09-25,
+`MISSING.md` M-310) was handed the RHYME-SCORE list, which is the precise substitution §22 exists
 to stop. And `refrain zzznotaform` printed `rhyme partition: AAABCDEFCGH` — an
 eleven-line poem made of the letters of the typo — because
 `REFRAIN_FORMS.get(name, name)` is a silent downgrade in a verb that prints its
@@ -3259,10 +3308,24 @@ from the first run — do not drift from these either:**, merged into one run.)
 
 48. **Doctrine 9 is only real once it is mechanical.** "Push away from the
    optimum" sat in this file as a sentence for the whole project. It is now a
-   number -- modal_exclusion -- and an enforcement: the brief names the most
-   frequent band-passing candidates as FORBIDDEN and verify() rejects a
-   revision that takes one. A principle that lives only in prose gets followed
-   exactly as often as someone remembers it.
+   number -- modal_exclusion -- and an enforcement: the brief names ~~the most
+   frequent band-passing candidates~~ the same-spelled class (tier 1, without
+   limit, evidence or none) and at most modal_exclusion of the most
+   PREDICTABLE differently-spelled band-passing candidates (tier 2) --
+   ~~partners the song corpus has seen realised as the call's rhyme, and no
+   others~~ for TIER 2, partners the song corpus has seen realised as the
+   call's rhyme, ranked by the song-corpus conditional, and no others (qualified
+   2026-09-25: the struck clause read as the whole ban, and tier 1 still
+   forbids same-spelled words the corpus has never seen; evidence-gated
+   ~~2026-09-24~~ 2026-09-25, `MISSING.md` M-310; accepted by the owner
+   2026-09-25, *"go ahead, the tier-2 change is fine"*) -- as FORBIDDEN and
+   verify() rejects a revision that takes one. ("Most frequent" was already
+   stale from 2026-08-11, when the ranking became the song-corpus
+   conditional; the head kept filling from global frequency where that table
+   ran out until ~~2026-09-24~~ 2026-09-25.) A principle that lives only in prose gets followed
+   exactly as often as someone remembers it -- which is why the gate itself
+   is pinned by `quality/test_homeoteleuton.py` §6 and a mutation, not by
+   this sentence.
 
 62. **The tradition frequently states the rule you were about to invent.**
    Snorri's own Háttatal prose supplies two things a modern summary omits, and
@@ -3646,8 +3709,9 @@ cite their earlier numbers. The floor knows ~~two~~ ~~**three**~~ **three
 text lengths, and the third is a CURVE (REPINNED 2026-09-04, `MISSING.md`
 M-239)** — a 4-line quatrain, a 14-line sonnet, **and a whole lyric sheet of
 ~~150–400 tokens~~ 4–3,245 tokens whose thresholds are functions of ln N**
-(the `song` 200–400 and `short` 50–150 band rows are SUPERSEDED, kept for
-their own drift checks) — and text outside all three gets no length-sensitive
+(the `song` ~~200–400~~ 150–400 — re-adopted there 2026-09-24 when the
+N-relation comparator moved its band rule's answer back — and `short` 50–150
+band rows are SUPERSEDED, kept for their own drift checks) — and text outside all three gets no length-sensitive
 finding at all (doctrine 15); inside the sheet's range nothing is
 extrapolated any more, because there is no edge to extrapolate past. **REPINNED 2026-08-21**: ~~`floor.PROFILES` is
 `section` / `sonnet` / `song`~~ — since 2026-09-04 `PROFILES` is five rows
@@ -3692,9 +3756,12 @@ rather than this paragraph — a roster copied into two files drifts in both.
    shipped default (`min_confidence="high"`); only `"low"` reaches the
    letter-to-sound layer, which `test_g2p.py`'s
    `test_letter_layer_costs_more_than_it_buys` measures as net harmful (it
-   answers Shakespeare's own real refusals wrong **50.0%** of the time — 5 of
-   the 10 pairs only it can judge — against **5.1%** for the derived layers,
-   2 of 39, a **9.8x** gap. REPINNED 2026-08-13, and ~~"about 40% ... against
+   answers Shakespeare's own real refusals wrong ~~**50.0%**~~ **70.0%** of the
+   time — ~~5~~ 7 of the 10 pairs only it can judge — against ~~**5.1%**~~
+   **10.3%** for the derived layers, ~~2~~ 4 of 39, a ~~**9.8x**~~ **6.8x** gap
+   (REPINNED 2026-09-24 from `test_g2p.py` §10's run under the rhyme-family
+   door: #375's N-relation model, `nucleus_agreement="licensed"` above all,
+   charges two more pairs in each arm; the kind difference stands). REPINNED 2026-08-13, and ~~"about 40% ... against
    ~3%"~~ were BOTH stale by the same 2026-08-11 coda-identity fix that moved
    §9 from 38/39 to 37/39 and never reached §10's MESSAGE STRING, which quoted
    the literal `1/39 = 3%` — doctrine 48 inside an f-string. §10 now COMPUTES

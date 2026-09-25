@@ -2107,7 +2107,8 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > of them.** Full working: `quality/RESULTS_NON_HATTATAL.md`. Runners under
 > `scratchpad/cellAJ/`. Six rows appended to `data/sources.tsv`.
 >
-> **1 · It is NOT doctrine 44.** `quality/phonology/non.py` is 959 lines and
+> **1 · It is NOT doctrine 44.** `quality/phonology/non.py` is ~~959~~ 969 lines (repinned 2026-09-24: the
+> N-relation model's set-valued relation return) and
 > complete — six syllables, stuðlar/höfuðstafr, skothending, aðalhending, the
 > penultimate viðrhending, oddhending/hluthending, Snorri's málfylling list,
 > moraic weight, and a tri-state that refuses on a merged vowel. 16 of 16
@@ -3663,7 +3664,12 @@ the default flips the same call to croes), §10c/§10k rewritten to declare
 what they read, `test_relations.py` X4 repointed at `caesura_re` plus the
 shared-default pin. `RESULTS_CYM_RHYME.md` §11a and `NULL_AUDIT.md` §2.1
 carry dated repin notes; `relations.mark_printed_caesura`'s docstring no
-longer claims cym carries three marks. **One remainder is NAMED rather than
+longer claims cym carries three marks.
+**REPINNED AGAIN 2026-09-23** after main `7d1ded93`'s J-1 glide change moved
+both `search` rows and both `marked` rows: Alun marked ~~104/1558 = 6.7%~~
+**85/1558 = 5.5%** (all llusg; null median 5.0%, max 6.2%, p 0.109), Twm
+marked ~~4/156~~ **1/156 = 0.6%** (p 1.000); the search headlines are now
+55.7% and 44.2% (N-1). `cynghanedd_rate.py --check` holds the counts. **One remainder is NAMED rather than
 silent (doctrine 20): the CLI `cynghanedd` verb reaches neither `caesura`
 nor the new `marks` — a pre-existing entrance gap M-7 widens by one
 coordinate — recorded as M-151.**
@@ -3910,7 +3916,7 @@ a `__main__` and keep it as a comparison runner.
 > **DECIDED 2026-08-11, and "genuinely stranded" no longer holds.** The file
 > now has an `if __name__ == "__main__"`, and it
 > has callers: `quality/relations.py` and `quality/test_relations.py`.
-> **REPINNED 2026-08-15, AND AGAIN 2026-08-22: `quality/rhyme_constraints.py` is ~~1,652~~ **1,738** lines (repinned 2026-08-22: the M-38 quantifier reconciliation added the shared vocabulary table, the `Selection.__post_init__` gate and their comments. The argument this figure supports — that the module is large and is KEPT on a stated ground — never rested on the third digit)
+> **REPINNED 2026-08-15, AND AGAIN 2026-08-22: `quality/rhyme_constraints.py` is ~~1,652~~ ~~1,738~~ **1,741** lines (repinned 2026-09-24 for the N-relation model's relation sets; repinned 2026-08-22: the M-38 quantifier reconciliation added the shared vocabulary table, the `Selection.__post_init__` gate and their comments. The argument this figure supports — that the module is large and is KEPT on a stated ground — never rested on the third digit)
 > lines** — ~~1,566~~ when this block was written (`ade8546`, 2026-08-11),
 > ~~1,609~~ later the same day (`e4cdf72`), ~~1,607~~ on 2026-08-12
 > (`11aa19b`), ~~1,611~~ 2026-08-13 (`010f7a7`) to 2026-08-15. The +41 is
@@ -4162,6 +4168,35 @@ and the new `corpus/song/cym_song_alun.txt` are **the same book** — same poet,
 same 1909 Ab Owen volume, same transcriber, same flattened-ASCII orthography,
 same checker, same within-line-shuffle null, same seed.
 
+**REPINNED 2026-09-23 — THE TABLE BELOW MOVED AGAIN, AND IS KEPT VISIBLE AS
+SUPERSEDED (doctrine 17).** main `7d1ded93` (2026-09-22, report item J-1) made
+`w` before a/e/o, word-initial `ia-`/`io-` and `gwl-`/`gwr-`/`gwn-`
+consonantal in `cym.syllables()` and dropped semivowel onsets from
+`skeleton()`, and never repinned `quality/cynghanedd_rate.py` (`--check` red
+on 12 of 22 on origin/main, green at `7d1ded93^`) or
+`quality/cym_rhyme_rate.py` (10 of 48). Both are repinned. All seven rows
+re-run the same day at `caesura='search'`, 200 shuffles, seed 20260810, same
+command, same bytes, and the excess column again differences the values AS
+PRINTED:
+
+|                            | n judged | observed | null max |    excess |         p |
+| -------------------------- | -------: | -------: | -------: | --------: | --------: |
+| Alun, strict metre         |     1558 |    55.7% |    21.3% | **+34.4** |     floor |
+| Twm o'r Nant cywydd        |      156 |    44.2% |    27.6% | **+16.6** |     floor |
+| Llywelyn Goch cywydd, 1862 |      145 |    43.4% |    26.9% | **+16.5** |     floor |
+| Twm o'r Nant _cerdd rydd_  |      804 |    27.9% |    16.7% | **+11.2** |     floor |
+| Welsh hwiangerddi          |     1712 |    12.0% |    11.7% |      +0.3 |     floor |
+| **Alun, his own hymns**    |      262 |    14.1% |    14.5% |  **−0.4** | **0.020** |
+| Mynyddog, song             |     2893 |     7.2% |     8.4% |      −1.2 |     0.647 |
+
+(hits 868, 69, 63, 224, 205, 37, 208; null medians 18.7, 17.9, 18.6, 14.2,
+10.2, 10.7, 7.3. The runner, at full precision, prints +16.7 and +16.6 for
+the two cywydd rows.) **Every row fell and the ORDER held**: strict metre ≫
+_cerdd rydd_ ≫ nursery verse, hymn and song, so the finding stands. Alun's
+hymns now sit **below** the null max (−0.4, p 0.020 — three of 200 shuffles
+reached 14.1%), which is the "at chance" reading stated more plainly, not a
+new effect.
+
 **RE-MEASURED 2026-08-11 AND THE WHOLE TABLE MOVED.** The figures this entry
 shipped were taken before doctrine 82 — before `skeleton()`'s terminus became a
 property of the DIWEDDEB and `extent` lost its default. Every row below is
@@ -4217,7 +4252,9 @@ beside a null; here SPECIFICITY was what needed showing.
 > rather than smoothed, because a p of 0.015 sitting on a zero excess is
 > precisely the pair a reader would otherwise quote selectively (doctrine 57).
 > The conclusion rests on the excess column, all seven rows of it, and the
-> gradient +35.3 → +19.3 → +15.8 → +11.4 → +0.6 → +0.0 → −0.7 is the finding.
+> gradient ~~+35.3 → +19.3 → +15.8 → +11.4 → +0.6 → +0.0 → −0.7~~
+> **+34.4 → +16.6 → +16.5 → +11.2 → +0.3 → −0.4 → −1.2** (repinned
+> 2026-09-23, above) is the finding.
 
 ### N-2 · Doctrine 65 corroborated at scale, not merely defended `CLOSED` — with the headline `UNVERIFIABLE`
 ~~`cym` reads all five new Welsh files at **100.00%** — 0 unreadable tokens in
@@ -6668,7 +6705,7 @@ capability is promoted to measured by this documentation repair, and blocked
 schemas remain separate from measured zeroes. No new heuristic or panel
 coordinate is invented to clear a blocker.
 
-### M-35 · A pair can stand in many relations at once, and the mandate can hold one per group — with identical groups silently deduped `OPEN`
+### M-35 · A pair can stand in many relations at once, and the mandate can hold one per group — with identical groups silently deduped ~~`OPEN`~~ `CLOSED` 2026-09-23 by M-309 (a group may now require several relations and a structure together; every pair carries its full relation set)
 
 **RULED 2026-09-18 UNDER THE OWNER'S DELEGATION: THE GRADER GETS THE TRADITION
 COORDINATE, AND THE EDGE IS THE UNIT.** Two things are settled here. First, the
@@ -15280,8 +15317,13 @@ the last place still stating the old one (doctrine 17/58).
 candidate is refused by a NAMED sub-bin — 50-400 and 100-800 and 200-500 on
 mattr, 100-400 on anaphora, ~~150-400~~ and 150-450 on predictability.
 
-**SUPERSEDED 2026-09-04, PINNED HERE 2026-09-05 (M-239).** The 200-400 band is
-still the `song` row's own band and its drift check still re-derives it, but
+**SUPERSEDED 2026-09-04, PINNED HERE 2026-09-05 (M-239).** The ~~200-400 band is
+still~~ 200-400 band WAS the `song` row's own band until 2026-09-24 — **the
+N-relation comparator (M-309, #375; PR #380) moved this entry's one refusal
+away: the 150-200 predictability sub-bin now reads 0.9286 against a band-wide
+0.9286, so the same five-check rule returns 150-400 again and the row was
+re-adopted there as a set** (3,533 items, `quality/RESULTS_SONG_FLOOR.md`
+§10a) — and its drift check still re-derives it, but
 the row is not applied to anything: `Profile.superseded_by="lyric"`, and
 `declaration_for` picks from `live_profiles()` — `section`, `sonnet`, `lyric`.
 The live lyric-sheet profile is `lyric`, 4-3,245 tokens over 8,667 items, whose
@@ -17083,11 +17125,11 @@ fires.**
 
 | the maintained sonnet battery | count |
 |---|--:|
-| scalar passes | 946 |
-| schema rescues **reading as END RHYME** | **2** (11.8%) |
-| schema rescues **NOT heard as end rhyme** | **15** (88.2%) |
-| violations | 4 |
-| refusals, kept apart | 97 |
+| scalar passes (coarse passes, since 2026-09-24) | ~~946~~ **896** |
+| schema rescues **reading as END RHYME** | **2** (~~11.8%~~ 6.5%) |
+| schema rescues **NOT heard as end rhyme** | ~~**15** (88.2%)~~ **29** (93.5%) |
+| violations | ~~4~~ 9 |
+| refusals, kept apart | ~~97~~ 128 |
 
 **THE QUADRUPLE IS THE CONTROL, not a coincidence**: 946 + 17 + 4 = 967 judged
 against 97 refused, which is `battery.py`'s own recorded `1,064 mandated, 967
@@ -17095,6 +17137,27 @@ judged, 97 refused, 4 violations` to the pair. A split that did not reproduce
 the oracle would be measuring a different population than the oracle does. And
 E3 is satisfied by construction and by running it: the battery's quadruple is
 byte-identical either side of the change, because the change is a rendering.
+
+**REPINNED 2026-09-24, THE N-RELATION MODEL (#375, integrated by #380), and the
+RUNNER WAS REPAIRED FIRST, because the model moved the meaning of the key it
+read before it moved any figure.** Every mandated pair is now asked every coarse
+relation AND every registry schema, so `pairs_schema_satisfied` stopped being the
+rescued subset and became every judged pair standing in a schema — 924 on the
+battery — and `--check` went red at `(3, 782, 142)`: "3" was the coarse passes
+standing in NO schema, positive and so invisible to the negative-count guard
+below. Re-numbering that would have banked a count whose meaning had changed.
+A rescue is now what the registration's H always named, **a pair satisfied by a
+schema and by no coarse relation**, read by membership (`schema_end_reading.
+schema_only()`, the same set `near_relation_pricing` calls `schema_only`); the
+three counts are derived directly and the runner REFUSES unless they close on
+`pairs_judged`. The control still holds: 896 + 31 + 9 = 936 judged against 128
+refused, `battery.py`'s repinned quadruple to the pair. **Per pair against the
+pre-model tree: all 17 rescues are still rescues with the same 2/15 split; 14
+ENTERED and none left**, every entrant a former coarse RHYME pass (0.787–0.901)
+that stands in no coarse relation once `nucleus_agreement` defaults to
+"licensed", and none of the 14 audible. The audible predicate did not move (19
+schemas either side). **H still holds and neither falsifier fires**: 2 of 31
+audible, 29 not.
 
 **SO NEARLY NINE RESCUES IN TEN WERE BEING PRINTED UNDER A HEADING A READER
 TAKES AS END RHYME**, and the schemas doing the rescuing say why — `consonance`
@@ -23329,7 +23392,14 @@ SMALLEST window retaining ≥99.0% of today's rescues on EVERY population), and
 four falsifiers. `quality/schema_window.py` runs it.
 
 **MEASURED on the maintained sonnet battery: all 17 rescues sit at line
-distance exactly 2, so retention is 100% at every declared window.** That reads
+distance exactly 2, so retention is 100% at every declared window.**
+(**REPINNED 2026-09-24**, the N-relation model: ~~17, all at distance 2~~ **31 —
+29 at distance 2, 2 at distance 1**, both closing couplets that entered the
+rescue set when the licensed-nucleus default stopped reading them as coarse
+RHYME; see M-140's repin for the rescue's definition by membership. The red
+first read 924, every pair standing in a schema, before the runner was pointed
+at that definition. E2 still fires and retention is still 100% by
+construction.) That reads
 like a free window and is not evidence for one. **E2 FIRES**: the sonnet scheme
 binds one pair at distance 1 and six at distance 2 per item, so **2 is the
 furthest a rescue COULD be**, and the retention column is 100% BY CONSTRUCTION.
@@ -23461,7 +23531,8 @@ each 200-seed fit ~25 min.
   tie-break still hands a 14-line 118-token text to the sonnet.
 * `CLICHE_PAIR` reads no percentile, and under a profile whose range is the
   corpus `exact` is true at 25 tokens and 2,000: it is a FLAG only at
-  lengths where a band row measured its rate (50–150, 200–400) or under a
+  lengths where a band row measured its rate (50–150, ~~200–400~~ 150–400
+  since the `song` row's 2026-09-24 re-adoption) or under a
   stanza profile as before, a NOTE elsewhere that says so; its per-bin
   rate over 4–3,245 is OWED here.
 * The planner's envelope reads live sheet profiles: `song_line_counts`
@@ -26471,7 +26542,7 @@ A second, narrower path reaches the same refusal without any exception: a child 
 
 **WHAT WAS REMOVED.** (1) `quality/figures.findings` (37 lines, and its `__all__` entry) — it built `LINE_FIGURE` and `LINE_FIGURE_REFUSED` tuples in the shape `quality/revise.Finding` takes, and **`LINE_FIGURE` appears nowhere else in the repository**: a producer of a code nothing reads. Nothing in `MISSING.md` or `BACKLOG.md` names it as pending work, so no future was invented for it either (doctrine 20). (2) `quality/song_profile_calibration.historical_items_in` (14 lines) and (3) `quality/meter_bands.historical_lyric_lines` (10 lines) — each sits directly beside its live successor (`items_in`, `lyric_lines`) and claims historical reproduction; **no pinned figure names either one, no test exercises either one, and the record mentions neither**, so the reproduction claim had no consumer and no check. Git history holds them. (4) `mcp/chatgpt_sessions.js` no longer exists and `mcp/chatgpt_tools.js` no longer exists: the 7- and 5-line `Temporary import compatibility` shims from #276's rename, `workflow_sessions.js` and `workflow_tools.js` export every name they re-exported, and **nothing in the tree imports either shim** — `mcp/test_chatgpt.mjs` imports the successors directly, and `server_http.js`'s `/mcp/chatgpt` strings are route paths, not module paths.
 
-**TWO CANDIDATES WERE DECLINED, on the record's own terms rather than on taste.** `quality/internal_rhyme_rate.py` (406 lines) reads as a whole dead module, and its own preregistration says it is *retired as a standalone instrument **in the same commit that lands its successor***. The successor — the web-wide placement work — has not landed. Deleting it now would make that sentence false and would strand five frozen evidence manifests that record the file's sha256. `quality/coverage_log.inspect_codes` (25 lines) is named twice by `quality/COVERAGE_PREREGISTRATION.md`, once as *until the measurement is rebuilt on `inspect_codes()`* — it is the declared basis of a rebuild that is owed, which is a different thing from unused.
+**TWO CANDIDATES WERE DECLINED, on the record's own terms rather than on taste.** `quality/internal_rhyme_rate.py` (~~406~~ 411 lines, repinned 2026-09-24 for the N-relation model) reads as a whole dead module, and its own preregistration says it is *retired as a standalone instrument **in the same commit that lands its successor***. The successor — the web-wide placement work — has not landed. Deleting it now would make that sentence false and would strand five frozen evidence manifests that record the file's sha256. `quality/coverage_log.inspect_codes` (25 lines) is named twice by `quality/COVERAGE_PREREGISTRATION.md`, once as *until the measurement is rebuilt on `inspect_codes()`* — it is the declared basis of a rebuild that is owed, which is a different thing from unused.
 
 **THE FALSE POSITIVE, AND IT WOULD HAVE BROKEN SOMETHING.** `quality.capacity.corpus_files` sits in the same NOWHERE bucket and **is live**: `quality/corpus_manifest.py` imports `quality.capacity` by module name and reaches the function through `hasattr(mod, "corpus_files")`, a declared protocol hook no static sweep can see. `counters.py` warns about exactly this — *a NOWHERE symbol may still be reached by a `getattr` this sweep refused* — and the warning is not decorative. **The bucket is a queue of questions, not a delete list**, and the difference is one `hasattr` that a confident reader would have stepped straight past. Every symbol removed above was checked against the dynamic-dispatch sites and against the bare identifier repo-wide before it was cut.
 
@@ -27617,6 +27688,17 @@ the superseded values stay visible beside the new ones:
   `propose_batch` and measure the claim there; a run that never reaches the door
   within its bound fails naming the walk. `test_run_continuation` runs ~10 min
   where it ran 2–4 — 46 harness hops — recorded here, not claimed cheap.
+  *Repinned 2026-09-24 for M-309's N-relation model:* the plan no longer
+  DRAWS a relation per group (seed 1 drew light and perfect rhyme for two
+  end-bound groups; it now draws none and judges every group against every
+  relation), so L1 is no longer a joint-conflict pivot and the door is again
+  the run's FIRST question — ~~continuation 8 / 16, briefs
+  [5, 6, 11, 14, 15, 17, 20, 21, 24], 336,837 state bytes, [21, 24] re-asked
+  30 continuations later~~ **continuation 0 at both attempt counts, briefs
+  [1, 5, 6, 14, 15, 17, 19, 21, 23], the first seven admitted (314,780 state
+  bytes), [21, 23] re-asked on the second batch [2, 7, 16, 18, 20, 21, 23] at
+  continuation 4**. `test_run_continuation`'s bounds tighten with it (door
+  ~~18~~ 2, tail ~~32~~ 8, the pre-M-305 value), and it runs ~5 min.
 
 The trajectory shift itself is RECORDED, not claimed correct: an earlier
 endpoint that used to be answered through its later mate is now a pivot in its
@@ -27890,3 +27972,341 @@ different build.
 
 **363** with this entry (2026-09-22).
 
+### M-309 · Every pair was forced into ONE rhyme relation and graded by four coarse boxes, with the 77 schemas as a rescue — the foundation behind a week of one-pair fixes `CLOSED` 2026-09-23 — found writing a love song through the connector: the screen typed `kitchen`/`listen` as `RHYME 1.000`
+
+**THE DEFECT.** A pair stands in many relations at once — a perfect rhyme is
+also assonance and consonance; rime riche is also rhyme — but the engine
+decided ONE: `score()` started every pair as `RHYME` and overwrote it
+(conjunctive band, then identity band); `best_score` kept the argmax's one
+label; `admits()` asked whether that label was in a 4-name set above one
+scalar; `satisfies_relation` compared a class by EQUALITY; `classify_pair`
+named one alignment with one exclusive cell per syllable; and the 77 registry
+schemas were consulted only for pairs the coarse check had already failed
+(3.32% of mandated pairs), while the planner drew ONE schema per group. To
+rank relations on one axis the engine needed a similarity score, so near
+misses rounded up to the top label. Measured examples, all wrong before:
+`kitchen`/`listen` RHYME (a promoted final `-en`, and the CH/S between the
+vowels read as the next syllable's onset and ignored), `bread`/`lid`,
+`bud`/`red`, `black`/`thick` RHYME (near vowels over the scalar nucleus cut).
+Entries that patched this at one label boundary each: M-37, M-59, M-126,
+M-136, M-175, M-189, M-306.
+
+**THE REPAIR.** Each coarse relation is an independent predicate and a pair
+carries the SET (`s["relations"]`; the key `relation` is gone), unioned over
+every reading and span (`relation_totals`); relations are admitted by
+membership at their own cuts (`admitted_relations`, `admits_decl`). Every
+mandated pair in `check_scheme` and `Reviser.grade` is judged against every
+registry schema, always; disowned schemas are recorded but never satisfy.
+Coarse relations start on a lexically stressed syllable; agreement on a
+promoted final is its own relation, `PROMOTED_RHYME`; consonants between
+vowels inside the rhyme are compared; vowel agreement is identity plus the
+AH~IH ingestion licence (`nucleus_agreement="licensed"`), the near vowel
+now being judged by the schemas that name it. Class relations are
+membership; named types return every name a coordinate satisfies; the
+assonance/consonance schemas no longer require the other channel to differ;
+the four unsupported shapes and `refrain by reference` now judge; the
+planner draws no relation; a group may require several relations and a
+structure together; screen, offers, recover, the phonology `relation_type`s
+and every measurement instrument moved to sets, and their pins were
+re-measured.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~363~~ -> **364**.
+
+**2026-09-23, one instrument the sentence above missed.** "Every measurement
+instrument moved to sets, and their pins were re-measured" was not yet true of
+`quality/cym_rhyme_rate.py`: its §9 moved to the set but `PINNED["s9"]` was
+left at the exclusive-label counts, so `--check` failed there. Repinned from
+its own run with the superseded rows kept (RIME_RICHE now counts the REPEATs
+and RHYME equals the TRUE total; TRUE and REPEAT unchanged), in the same
+sitting as the J-1 glide repin of it and of `cynghanedd_rate.py` recorded
+under N-1. `RESULTS_CYM_RHYME.md` §2, §5, §8 and §9 carry the dated notes.
+
+
+### M-310 · The modal ban's second tier backed off to GLOBAL word frequency where the song corpus had little evidence for the call, so on `thing` it forbade `it`/`is`/`in`/`this` and offered `anything` — the ban was less dense in the rhyme than the menu it left `CLOSED` ~~2026-09-24~~ 2026-09-25 — found by `quality/test_revise.py` §22 going red on the N-relation model (#380); fixed by the evidence-gated head, accepted by the owner 2026-09-25
+
+**THE DEFECT.** `Reviser._rank_field_compute` in `quality/revise.py` sorts a
+field on (−conditional count, `lex.freq_rank`, position), and tier 2 of the
+owner's two-tier ban (2026-08-18) forbade the first `modal_exclusion` (6)
+members of the differently-spelled remainder. The conditional is the
+song-corpus table P(partner | call); a candidate it has never seen scores 0 and
+is ordered by `lex.freq_rank`, a rank over all spoken English. When a call had
+fewer than six observed partners in its own field, global rank filled the rest
+of the head, and over the default door (ASSONANCE admitted at its own cut,
+every registry schema judging since M-309) the top of a global rank is function
+words. `modal_field`'s own docstring names this as the failure the conditional
+was wired to end: a global unigram rank *"spends the head of a rhyme field"* on
+function words, *"because the head of any unigram list is function words"*.
+Doctrine 9 says the ban must point at the modal RHYME; here it pointed at the
+commonest words that happened to be admitted. `joint_field`'s docstring had
+said since 2026-08-11 that the backoff is *"not a claim that it is
+unpredictable, only that this table has no evidence either way"* — true of the
+ranking, and false of the ban it filled.
+
+**MEASURED at `f58ecf59` (candidate C of the ban-repair panel, 2026-09-24),
+shipped `Declaration()`, via `Reviser().joint_field([...])`** (each word:
+conditional count, global rank, coarse relations to the call). Every head word,
+count, rank and first offer below was RE-MEASURED ~~2026-09-24~~ 2026-09-25 on `be0529b5` (the
+same ban) and is identical; the relation labels are C's and were not re-run:
+
+| call | the tier-2 head | first offered |
+|---|---|---|
+| `thing` | plaything (2, 27656, RHYME), everything (1, 174, RHYME), **it (0, 6, NONE: admitted by a registry schema only)**, **is (0, 11, ASSONANCE)**, **in (0, 12, ASSONANCE)**, **this (0, 16, ASSONANCE)** | **anything (0, 142, RHYME + RIME_RICHE)**, thinking (0, 373, PROMOTED_RHYME), drinking (0, 1152) |
+| `spring` | everything (9, 174), anything (7, 142), **is (0, 11)**, **in (0, 12)**, **with (0, 34)**, **get (0, 44)**, the last four ASSONANCE only | thinking (0, 373, PROMOTED_RHYME), drinking (0, 1152) |
+| `way` + `day` (the control) | they (127), obey (92), prey (74), yesterday (52), grey (52), shea (36) | hey (0, 101), ok (0, 214), anyway (0, 429) |
+
+The control is the argument. Where the conditional fills all six slots the
+head is all rhyme; where it fills two, four slots went to function words. In
+§22's strict-identity reference (tail-aligned nucleus AND coda): `way`/`day` ban
+63/63 against menu 22/24, `thing` ban **32/36 against menu 23/24**, `spring`
+**32/36 against 23/24**. Two of the three fields where the reference is
+defined INVERTED.
+
+**THE WRITER SAW IT.** `earned_pair_ban` on the satisfied mandated pair
+`thing`/`it` (`Nothing here but the smallest thing` / `and every word I said of
+it`, satisfied only through registry schemas — `assonance`, `chain rhyme
+(rap)` — and no coarse relation) filed MODAL_RHYME: *"'it' is
+one of the 6 most-predictable answers to 'thing'"* — re-measured ~~2026-09-24~~ 2026-09-25 on
+the ungated tree. "Most predictable" there meant zero song-corpus observations
+plus rank 6 in English. `thing`/`anything` (RHYME, RIME_RICHE) earned no note.
+`quality/loop.py` pursues MODAL_RHYME mandatorily, so the loop moved a writer
+off `it` while leaving `anything` on the menu. The bank carried two more such
+notes, both on zero realised pairs and both named per pair below: `one`/`sane`
+(the_frost_ledger) and `there`/`varnish` (the_river_keeps_the_score).
+
+**THE DEFECT IS OLD, AND THIS IS WHY §22 NEVER SAW IT.** Candidate C measured
+`thing`'s head at `1f9678e6` (before #380) as plaything, everything, **is, in,
+can, with**, with `anything` offered — by calling `joint_field` from a scratch
+script, not a repo instrument, and not re-measured here. §22 could not see it:
+until the licensed nucleus, `mandate_from_graph` put `thing` and `spring` only
+into groups whose calls spanned six to nine distinct tails, where no word can
+agree with every call and the reference is undefined.
+
+**THE FIX — THE HEAD IS EVIDENCE-GATED (`ff740121` on `fix/w-ban-gate`, 2026-09-25, for PR #380; written 2026-09-24 as the ban-repair panel's candidate A, `c3fe8a33`).**
+`_rank_field_compute` admits a word to tier 2 only when `cond[w] > 0`, the
+ranking's own primary key: the song table has seen it realised as a rhyme
+partner of (one of) the calls. `modal_exclusion` stays the CEILING and nothing
+replaces it; a thin table gives a shorter head, an empty table an empty one.
+Because the ranking sorts on that count first, the gated head is a PREFIX of
+the old head: bans only SHRINK, no pair gains a note, and no capacity witness
+can turn dirty (~~measured below~~ measured: CAPACITY under TESTED, below —
+the pointer named a measurement this entry did not carry until 2026-09-25). Tier 1 (HOMEOTELEUTON) is untouched — it bans
+by spelling and never read the table. Zero-evidence words stay in the ranked
+remainder, in their old order, for the OFFER. Consistent surfaces, one commit (`ff740121`); the §22 restatement is `57927dfd` and the mutation `b0657fe8`:
+
+- `_offer_reopens`: a call with no count beside the offered word is outside
+  that word's head EXACTLY, so it no longer drops the word (§51's exact door
+  check still passes);
+- `earned_pair_ban` / MODAL_RHYME: the note names the head's actual size and
+  the realised count behind the claim — *"'away' is one of the 6
+  most-predictable answers to 'obey' — realised as its rhyme partner 63
+  time(s) in the song corpus"* — so a ban that says "most predictable" states
+  its evidence;
+- `Brief.empty_head_cause` / `Reviser.empty_head_cause` /
+  `revise.EMPTY_HEAD_CAUSES`, and `quality/propose.py`'s empty-head sentence:
+  the prompt used to say *"Either nothing in the lexicon answers ... or the
+  modal exclusion is declared at 0"* on every empty head — a list of guesses,
+  and after the gate a list missing the commonest cause. The brief now states
+  WHICH of four causes holds (DECLARED_RELATION, NO_ANSWER, DECLARED_ZERO,
+  UNEVIDENCED), read off the same memoised ranking (doctrine 28);
+- `ReviseDeclaration.modal_exclusion`, `Brief.forbidden_modal`, the
+  `joint_field` / `modal_field` / `_rank_field_compute` comments, CLAUDE.md's
+  two-tier paragraph and doctrine 48, each ~~old~~ new. "Ranked by FREQUENCY"
+  was already false from 2026-08-11 and ~~is struck where it stood~~ is
+  struck at those sites. THE CLAIM WAS WIDER THAN THE STRIKE (the
+  doctrine/accuracy review, 2026-09-25): present-tense copies survived, and
+  are now struck the same way, each saying that tier 1 bans the
+  same-spelled class without limit and tier 2 bans at most
+  `modal_exclusion` partners, ranked by the song-corpus conditional and
+  evidence-gated since 2026-09-25 — the `quality/revise.py` module
+  docstring ("NAMES THE MOST FREQUENT MEMBERS OF THAT FIELD AS FORBIDDEN"),
+  `quality/verify_doctrines.py` REGISTRY[9], CLAUDE.md's `candidates`
+  paragraph (two sentences, "ranks by FREQUENCY" and "the FREQUENCY-ranked
+  forbidden set") and its doctrine-9 paragraph (whose tier-2 clause read as
+  the whole ban), the two `candidates --modal` comments in
+  `lyric_harness.py` `main()` (outside the comparator closure: the
+  fingerprint re-measured `1e2d0c2d…385a`, unchanged), `quality/test_verbs.py`
+  §22's comment, and the label of `quality/test_revise.py`'s L33 MODAL check.
+  LEFT AS THEY ARE, deliberately, because none states the old mechanism in
+  the present tense: `quality/frequency.py`'s `eng` block (past tense and
+  true of its date; its present-tense sentence describes the RANKING, which
+  still backs off to `freq_rank` for the offer); the title of
+  `quality/RESULTS_SONG_FREQUENCY.md`, which quotes "the most frequent
+  band-passing candidate" as the question that document answered with the
+  conditional; `predictability_frac`'s "frequency-ranked candidate field" in
+  `quality/song_profile_calibration.py` (floor.py's PREDICTABLE_RHYME, not
+  this ban, and a comparator-fingerprint input); BACKLOG RULINGS WANTED
+  #26's "most frequent rhymes" (candidate B's proposal, not the ban); dated
+  logs under `quality/results/`; and older dated MISSING entries (e.g.
+  M-185's "frequency-filled head") describing the head as it was on their
+  date.
+
+**WHAT §22 SAID, AND THE MEASUREMENT REPAIR THAT LANDED WITH THE FIX.** §22
+pooled every briefed field: ~~FORBIDDEN 190/1505 (12.6%) against OFFERED 90/492
+(18.3%)~~ at `f58ecf59`, FAIL; ~~126/629 (20.0%) against 6/270 (2.2%)~~ at
+`1f9678e6`, PASS. Neither verdict was about the ban. At `f58ecf59`, 28 of 34
+rows (24 of 29 distinct fields) have calls with more than one tail; there both
+numerators are zero by construction and the fields add only denominators. The
+rest was `way`/`day`'s MENU: its ban was 63/63 in both states, and its menu
+went from 3/24 identity to 22/24. The gate alone left the pooled figure red
+(~~190/1470 (12.9%) against 90/523 (17.2%)~~, candidate A's measurement),
+because the pool measures size. §22 is restated (candidate C's argument,
+grafted onto the gate and credited in §22's comment; doctrines 20, 28, 94):
+
+- the population is the fields where the reference is DEFINED (every call
+  shares one tail); the selector reads the calls only; refused fields are
+  counted and printed;
+- "distinct fields" is deduped on the SET of calls — the ordered key counted
+  five byte-identical fields twice, and with `way`/`day` counted twice the
+  restated contrast would have PASSED at `f58ecf59` (~~190/198 against
+  90/96~~) on the double count alone;
+- the per-field series, the ban's AND the menu's off-reference words, and the
+  refused count print on every run.
+
+Restated, ~~dated 2026-09-24~~ on candidate C's argument of 2026-09-24: **RED at
+`f58ecf59`**, FORBIDDEN 127/135 (94.1%) against OFFERED 68/72 (94.4%), `thing`
+and `spring` INVERTED (C, 2026-09-24; re-measured 2026-09-25 on `be0529b5`:
+identical, 24 fields refused carrying 1,050 banned and 331 offered); **GREEN
+under the gate** (measured 2026-09-25), FORBIDDEN 127/127 (100.0%) against
+68/72 (94.4%), ~~every defined field "ban denser"~~ "ban denser" on the three
+non-empty defined fields (`way`/`day`, `thing`, `spring`; the other two
+defined fields, `can` and `frame`/`name`/`flame`, are 0/0 on both sides and
+print no per-field verdict — corrected 2026-09-25, and `57927dfd`'s commit
+message carries the same overstatement), 24 refused carrying 1,023 banned
+and 349 offered. §22's old `'ear'` disclosure is struck on its own cause: it
+described `examples/never_been_to_a_scene.txt`, which was deleted on
+2026-08-12 by `11aa19bd` — `793afe67` repointed §22 at `quality/fixtures/mandate_song.txt`
+the same day, which has no `ear` (0 occurrences) — not anything the gate did.
+
+**THREE THINGS TRUE OF THAT GREEN, SAID IN §22 ITSELF.** (a) Under the gate,
+tier 2 is strict identity BY CONSTRUCTION — every tier-2 word is a realised
+partner in a table keyed on identity from the last stressed vowel onward — so
+§22 is now a REGRESSION PIN OF THE GATE, not an independent measurement of tier
+2. (b) The pooled margin rests on four off-reference menu words, all lexicon
+artifacts: `de` and `ne` (`way`/`day`), `ng` (`thing`, `spring`). Filter them
+and the menu reads 68/68. (c) THE CEILING-TIE RULE IS SETTLED: both halves at
+100% is REFUSED as CANNOT DISCRIMINATE and stays red, by name (doctrine 20) —
+a saturated instrument cannot show "denser", and the remedy then is a new
+reference, never a looser comparison.
+
+**THE BANK (`quality/ban_convergence.py`), MEASURED PER PAIR BOTH SIDES.**
+The pin had been written from the WIP commit `599a5d96` as ~~banned 4, head 4,
+tail 240, outside 214~~ and never held: `f58ecf59` measured banned 5, head 5,
+tail 241, outside 212 (rc=1), and a per-pair run on `be0529b5` reproduces it.
+Gated: **banned 3, head 3, tail 240, outside 215**; every other total holds.
+Three pairs move, each with ZERO realised pairs in the song table in either
+direction: `there`/`varnish` (the_river_keeps_the_score L3/L5) HEAD(5) ->
+OUTSIDE — base filed *"'There' is one of the 6 most-predictable answers to
+'varnish'"*, `varnish`'s tier 2 being your, not, don, there, got, where on no
+evidence; `one`/`sane` (the_frost_ledger L16/L17) HEAD(35) -> OUTSIDE —
+`sane`'s tier 2 was in, on, don, can, they, one; and `same`/`made`
+(i_am_not_leaving L9/L12) TAIL(49) -> OUTSIDE with no ban involved: `same`'s
+tier 2 shrank to its three evidenced partners (aim, claim, proclaim), `him`
+joined its menu at offer 13, and `made`, the 24th and last offer, fell out.
+127 further pairs keep their bucket and shift rank. No pair gained a note.
+
+**~~WHAT THE OWNER ACCEPTED — THE POLICY CONSEQUENCE, 2026-09-25.~~ THE
+OWNER'S RULING, THE BASIS IT WAS MADE ON, AND WHAT WAS MEASURED AFTER IT.**
+(Restated 2026-09-25 on the doctrine/accuracy review of this branch: the
+struck heading and the struck date below presented figures measured AFTER
+the ruling as what the owner accepted, and dated them 2026-09-24, before
+it.) Owner, verbatim, 2026-09-25 at about 01:00 UTC: *"go ahead, the tier-2
+change is fine"* (`BACKLOG.md` RULINGS WANTED #25). `modal_exclusion` moves
+from "exactly k" to "at most k, evidenced partners only".
+
+WHAT THE OWNER HAD BEEN SHOWN when ruling — the ban-repair panel's
+candidate-A figures: **~40% of the in-table call types (40.4% of the 8,809
+call types in the song pair table) have no differently-spelled evidenced
+partner** (**9.3%** weighted by realised pair count); **calls absent from
+the song table get no tier-2 ban at all**; and **the pivot-field menu
+shift** — `fixed`/`chipped`/`slipped` now opens `is, this, with, get`,
+`yard`/`fall` opens `on, was`.
+
+MEASURED 2026-09-25, AFTER THE RULING — DISCLOSED TO THE OWNER AFTER THE
+RULING (about 03:15 UTC); NOT SEPARATELY RULED ON. ~~MEASURED 2026-09-24~~
+Over `data/song_endword_en.tsv`: **5,027 of 13,835
+line-final word types (36.3%) have no realised partner at all**, so their tier 2
+is empty by construction — **14,689 of 248,106 line-final tokens (5.9%)** by use
+weight. The gated tier 2 is also empty where every realised partner shares the
+call's spelled ending (those stay banned, by tier 1) or is not a field member,
+so a seeded sample of the gated ranking itself (`Reviser._rank_field_compute`,
+seed 20260924, 150 types drawn uniformly and 150 by line-final token count)
+reads: **tier 2 empty for 104/150 types (69.3%, 95% CI 61.5–76.2)** — 55 with
+no realised partner, 47 whose realised partners are all same-spelled, 2 whose
+evidenced partners are not field members — and **31/150 by use (20.7%, 95% CI
+15.0–27.8)**; **no ban of either tier for 25/150 types (16.7%) and 4/150 by use
+(2.7%)**; tier 2 full (six) for 7/150 types and 75/150 by use. The sampled
+empty-tier-2 share is LARGER than the ~40% / 9.3% the ruling was made on, and
+it is a different population: the panel's 40.4% is taken over the call types
+that ARE in the table — every one of which has a realised partner (13,835 −
+5,027 = 8,808 of the line-final types here) — and counts those whose partners
+are all same-spelled, so it does not overlap the 5,027 no-partner types; its
+9.3% is weighted by realised pair count, not by line-final tokens.
+
+Before the gate tier 2 was full wherever the field had six differently-spelled
+members. Common, differently-spelled perfect rhymes of calls the table has never
+seen are OFFERED rather than banned. On pivot fields with no common rhyme the
+words that left the head now LEAD the menu (the shift above;
+`fixed`/`chipped`/`slipped` opened `if, think, did, his` before): counted
+2026-09-25 over §22's 29 fields, 9 changed, 35 words left heads and 15 of them
+are now in their field's first six offers. §22 refuses pivot fields, so no
+instrument there sees this. A frequency-of-rhyme fallback for unevidenced calls
+(the panel's candidate B) is a separate decision nobody has made (`BACKLOG.md`
+RULINGS WANTED #26).
+
+**TESTED.** `quality/test_homeoteleuton.py` §6 pins the gate directly: no word
+in a tier-2 head has a zero conditional (over `thing`, `spring`, `way`, `sane`,
+`varnish`), `thing`'s head holds none of it/is/in/this, tier 1 still bans
+`sane`'s -ane class on an empty table, the satisfied pair `thing`/`it` files no
+MODAL_RHYME, every MODAL_RHYME names a realised count above zero, and a real
+brief on an unevidenced call (`window`) states UNEVIDENCED. `quality/test_revise.py`
+§22 pins it as a contrast. `quality/mutate.py` QR8 deletes the gate condition;
+`mutate.py --only QR8 QR2` (bounded to those two suites, `test_revise.py` at
+shard 3/4, ~~2026-09-24~~ 2026-09-25) reports **2/2 caught, 0 SURVIVED**: QR8 by §6 and by
+§22 — which, planted by hand, fails with `thing` and `spring` re-INVERTED at
+32/36 against 23/24 — and QR2 (`k` forced to 0) still by `test_revise.py`.
+`quality/test_propose.py` §2 pins that the renderer's
+causes ARE `EMPTY_HEAD_CAUSES` and each states itself alone.
+
+WHAT WAS NOT RE-RUN, HOW THE CHANGE SHIPS, AND CAPACITY (disclosed 2026-09-25
+on the doctrine/accuracy review, where they had gone unsaid):
+
+- MUTATION, BOUNDED: the mutate suite was run only for QR8 and QR2
+  (`TEST_REVISE_SHARD=3/4`). QR1 and QR3–QR7 also declare `test_revise.py` in
+  their subsets — and `test_revise.py` going green puts it back in their
+  detector sets — and were NOT re-run here; the nightly mutation job
+  (`quality/test_mutation.py --shard`, date-rotated) will measure them.
+- FOUR COMMITS, NOT ONE BATCH: the change ships as `ff740121` (the gate),
+  `57927dfd` (§22 restated), `b0657fe8` (QR8) and `f6adafb8` (this entry),
+  plus the review's record corrections. `ff740121` ALONE LEAVES §22 RED — the
+  pooled statistic reads FORBIDDEN 190/1470 against OFFERED 90/523 there —
+  and the restatement lands in `57927dfd`.
+- CAPACITY, measured 2026-09-25 on the gated tree: `quality/verify_capacity.py`
+  **81/81** under Python 3.11.15 (the receipt validates by `--check`),
+  `quality/capacity.py --check` **PASS** (tier 1 re-derived over 12,387
+  families, ADOPTED constants compared, 6 witnesses re-graded, all clean), and
+  `data/rhyme_capacity_eng.tsv`'s sha256 unchanged (`fec757a4…`). This is what
+  THE FIX's "measured" points at. The receipt is a LOCAL one: the gate moved
+  the capacity certification identity (`revise.py` is one of its sources), so
+  the release-image recertification happens in CI's `capacity-proof` and
+  `lyrics-image` jobs, which refuse the stale seed and re-measure the all-81
+  proof.
+
+**NOT CLAIMED.** How many call words INVERTED across the lexicon before the fix
+— never measured; the exposure figures above bound the population the gate
+EMPTIED, not the population that inverted. The restated contrast rests on three
+non-empty fields of one fixture. The reference counts a promoted final `-ing`
+as identity (`thinking` is PROMOTED_RHYME to `thing` under M-309), which is
+part of why the menu reads dense.
+
+**DATES — ONE CONVENTION FOR THIS ENTRY (2026-09-25).** UTC, and a tree
+state is dated by the commit that landed it. The ban-repair panel wrote and
+measured on 2026-09-24 (candidate A `c3fe8a33`, candidate C `93851954`, the
+`f58ecf59` figures). The gate commit `ff740121` (2026-09-25T01:40Z), the
+owner's ruling (about 01:00 UTC), every figure re-measured on this branch,
+and this entry's closure are 2026-09-25; each date that said otherwise is
+struck above. The comments `ff740121`–`b0657fe8` wrote into the code and
+tests date the gate, and some figures measured under it, 2026-09-24 —
+candidate A's day; they name the same gate and are not re-dated. The strikes
+added on the review say 2026-09-25.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~364~~ -> **365**.

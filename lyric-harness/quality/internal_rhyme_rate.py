@@ -117,16 +117,17 @@ def measure_quatrain(lex, decl, lines, _keep_both_final=False):
     totals = [0] * len(lines)
     kept = Counter()          # line distance -> kept pair count
     excl = Counter()          # "both_final" / "repeat"
-    rels = Counter()          # relation -> kept pair count
+    rels = Counter()          # relation -> kept pairs standing in it (a pair
+    #                           counts in EVERY relation it stands in)
     for i, line in enumerate(lines):
         picked, nA, _ = internal_matches(lex, line, decl)
         totals[i] = nA
         for p in picked:
-            if p["relation"] == "REPEAT":
+            if "REPEAT" in p["relations"]:
                 excl["repeat"] += 1
                 continue
             kept[0] += 1
-            rels[p["relation"]] += 1
+            rels.update(p["relations"])
             covered[i].update(range(*p["a_syll"]))
             covered[i].update(range(*p["b_syll"]))
     for i in range(len(lines)):
@@ -134,7 +135,7 @@ def measure_quatrain(lex, decl, lines, _keep_both_final=False):
             picked, nA, nB = internal_matches(lex, lines[i], decl,
                                               text_b=lines[j])
             for p in picked:
-                if p["relation"] == "REPEAT":
+                if "REPEAT" in p["relations"]:
                     excl["repeat"] += 1
                     continue
                 if p["a_syll"][1] == nA and p["b_syll"][1] == nB:
@@ -142,7 +143,7 @@ def measure_quatrain(lex, decl, lines, _keep_both_final=False):
                     if not _keep_both_final:
                         continue
                 kept[j - i] += 1
-                rels[p["relation"]] += 1
+                rels.update(p["relations"])
                 covered[i].update(range(*p["a_syll"]))
                 covered[j].update(range(*p["b_syll"]))
     return {
@@ -221,10 +222,13 @@ def summarize(results):
         "kept_d2": kept.get(2, 0), "kept_d3": kept.get(3, 0),
         "excl_both_final": excl.get("both_final", 0),
         "excl_repeat": excl.get("repeat", 0),
+        # Per relation; a pair counts in every relation it stands in, so
+        # these columns overlap and may sum past the kept count.
         "rel_rhyme": rels.get("RHYME", 0),
         "rel_rime_riche": rels.get("RIME_RICHE", 0),
         "rel_assonance": rels.get("ASSONANCE", 0),
         "rel_consonance": rels.get("CONSONANCE", 0),
+        "rel_promoted_rhyme": rels.get("PROMOTED_RHYME", 0),
         "zero_den_quatrains": zero_den,
     }
 
@@ -232,6 +236,7 @@ def summarize(results):
 COLUMNS = ("arm rep seed n_quatrains num den rate q25 q50 q75 "
            "kept_d0 kept_d1 kept_d2 kept_d3 excl_both_final excl_repeat "
            "rel_rhyme rel_rime_riche rel_assonance rel_consonance "
+           "rel_promoted_rhyme "
            "zero_den_quatrains identity_shuffles low_movable "
            "syll_drift").split()
 

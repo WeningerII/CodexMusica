@@ -480,7 +480,8 @@ verdict against the song corpus is `quality/floor.py`'s ~~song profile, which
 already runs inside `song`~~ **lyric-sheet profile** — REPINNED 2026-09-05
 (`MISSING.md` M-239): the live row is `lyric`, 4–3,245 tokens, whose five
 thresholds are functions of ln N evaluated at the sheet's own length; `song`
-(200–400) and `short` (50–150) are superseded and never applied.
+(~~200–400~~ 150–400 since its 2026-09-24 re-adoption) and `short` (50–150)
+are superseded and never applied.
 
 **AND THE FIRST RUN DID NOT FLATTER THE NEWEST SONG.** On concreteness —
 pre-registered as HIGHER in the survived/human class — `carry_it_over.txt` is
@@ -491,7 +492,7 @@ sixth has since been banked; turn_the_wheel's own 3.909818 has not moved
 rhyme predictability — pre-registered as LOWER —
 ~~`keep_the_light.txt` sits lowest at 0.816206~~ [RESULTS: rhyme_predictability_mean keep_the_light.txt]
 (SUPERSEDED 2026-08-25: it held that floor among the six then banked;
-`wheat_mane.txt` now sits lowest at 0.609665 [RESULTS: rhyme_predictability_mean wheat_mane.txt],
+`wheat_mane.txt` now sits lowest at ~~0.609665~~ 0.621400 (re-banked 2026-09-24, see below) [RESULTS: rhyme_predictability_mean wheat_mane.txt],
 and keep_the_light's own reading ~~has not moved~~ moved on 2026-09-16, see
 below).
 Both readings ran against the story I had been telling, which is the point of
@@ -520,6 +521,35 @@ ratio and the rest re-derive byte-identical -- `turn_the_wheel.txt` still reads
 the rhyme scalar rather than a corpus load, a tokeniser or a staging
 difference, and it is why the rows could be re-banked rather than argued about.
 Re-banked with `--write` on a clean tree, never by editing a number.
+
+**THE SERIES MOVED AGAIN 2026-09-24, AND THE N-RELATION MODEL IS WHY.**
+`--check` went red on `rhyme_predictability_mean` and `_min` for all 16 songs
+at once, against the rows banked at `8da7d43c`. The songs' bytes are
+untouched; what moved is #375 (`MISSING.md` M-309): a pair now carries the
+SET of relations it stands in, `quality/features.py`'s `RhymeField` admits a
+candidate by `admits_decl` (any admitted relation at its own cut) rather than
+by one scalar over `theta_rhyme`, and vowel agreement is identity plus the
+declared licence (`nucleus_agreement="licensed"`). That changes which words
+count as a line-end's rhyme field, so predictability moves in both
+directions: `wheat_mane.txt` 0.609665 -> 0.621400
+[RESULTS: rhyme_predictability_mean wheat_mane.txt], `taught_me_time.txt`
+0.864157 -> 0.836892 [RESULTS: rhyme_predictability_mean taught_me_time.txt],
+and the largest move in `_min`, `till_the_light_comes_home.txt` 0.467228 ->
+0.200000 [RESULTS: rhyme_predictability_min till_the_light_comes_home.txt].
+NO OTHER FEATURE MOVED — concreteness, mattr and the rest re-derive
+byte-identical, which is what places the cause in the rhyme layer.
+
+ONE BANKED ROW WAS NOT A MEASUREMENT. The `8da7d43c` row for
+`carry_it_over.txt` reads `concreteness_mean` 9.999999, and so does the
+`dca37e1-WORKING` row before it. 9.999999 is the value
+`quality/test_songs_record.py` §3 plants in the newest row to prove `--check`
+is two-sided; it restores the file in a `finally`, which a killed process
+(a CI or shell timeout mid-run) never reaches, so the planted value survives
+into the working tree and was banked with it. The series is append-only, so
+those rows stay; the `6059e09c` rows re-derive 3.043667
+[RESULTS: concreteness_mean carry_it_over.txt], the value every earlier row
+carries. Re-banked with `--write` on a clean tree at `6059e09c`. The
+per-song sections above quote the values banked at their own time.
 
 A comparison in this file must carry a `[RESULTS: <column> <song>]` citation
 that resolves, or `--claims` fails. That check is aimed at the narrator.

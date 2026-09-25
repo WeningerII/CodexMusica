@@ -19,7 +19,7 @@ import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from lyric_harness import (Declaration, Lexicon, RHYME_RELATIONS,  # noqa: E402
+from lyric_harness import (Declaration, Lexicon,  # noqa: E402
                            fold_apostrophes, line_tokens)
 from quality.rhyme_types import coarse_relation_consensus  # noqa: E402
 
@@ -32,18 +32,16 @@ class OrganizationDeclaration:
     n_perm: int = 999
     seed: int = 20260915
     end_window: int = 4
-    theta: float = 0.80
     end_statistic: str = "lag_max"
 
     def __post_init__(self):
         if self.end_statistic not in ("edge_count", "lag_max"):
             raise ValueError("end_statistic must be edge_count or lag_max")
-        for name in ("alpha", "theta"):
-            v = getattr(self, name)
-            if isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v):
-                raise ValueError(f"{name} must be finite")
-        if not 0 < self.alpha < 1 or not 0 <= self.theta <= 1:
-            raise ValueError("alpha must be in (0,1) and theta in [0,1]")
+        v = self.alpha
+        if isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v):
+            raise ValueError("alpha must be finite")
+        if not 0 < self.alpha < 1:
+            raise ValueError("alpha must be in (0,1)")
         for name, minimum in (("n_perm", 1), ("end_window", 1), ("seed", 0)):
             v = getattr(self, name)
             if type(v) is not int or v < minimum:
@@ -166,26 +164,48 @@ def analyze_graph(matrix, lengths, declaration=None):
 
 
 class WordGraph:
-    """Cache unordered token verdicts without choosing a favorable reading."""
+    """Token pairs typed by EVERY coarse relation they stand in.
 
-    def __init__(self, lex, declaration=None, theta=0.80):
+    An edge may carry several relations at once (a perfect rhyme is also
+    assonance and consonance). Each relation is decided at its own declared
+    cut (`Declaration.theta_by_relation`) and must hold under every
+    pronunciation reading (unanimity; a split is unresolved, never a guess).
+    `relation()` is the "stands in any" view the organisation test reads;
+    `relations()` and `build(relation=...)` give each relation its own graph.
+    """
+
+    def __init__(self, lex, declaration=None, relations=None):
         self.lex = lex
-        self.declaration = replace(declaration or Declaration(),
-                                   admit=tuple(sorted(RHYME_RELATIONS)))
-        self.theta = theta
+        self.declaration = declaration or Declaration()
+        self.admitted = tuple(sorted(relations or self.declaration.admit))
         self.cache = {}
 
-    def relation(self, a, b):
+    def relations(self, a, b):
+        """-> (held, unresolved): frozensets of the admitted relations the
+        pair stands in under every reading, and those the readings split on
+        or cannot read. A repeated word is typed as no sound relation."""
         if a == b:
-            return 0  # repetitions stay present but cannot be a rhyme edge
+            return frozenset(), frozenset()
         key = tuple(sorted((a, b)))
         if key not in self.cache:
-            value = coarse_relation_consensus(
-                self.lex, *key, self.declaration, min_score=self.theta)
-            self.cache[key] = -1 if value is None else int(value)
+            got = coarse_relation_consensus(
+                self.lex, *key, self.declaration, per_relation=True)
+            got = got if isinstance(got, dict) else {
+                n: got for n in self.admitted}
+            held = {n for n in self.admitted if got.get(n) is True}
+            open_ = {n for n in self.admitted if got.get(n) is None}
+            self.cache[key] = (frozenset(held), frozenset(open_))
         return self.cache[key]
 
-    def build(self, lines):
+    def relation(self, a, b, relation=None):
+        """-> 1 when the pair stands in `relation` (default: ANY admitted
+        relation), 0 when it does not, -1 when that cannot be told."""
+        held, open_ = self.relations(a, b)
+        if relation is not None:
+            return 1 if relation in held else -1 if relation in open_ else 0
+        return 1 if held else -1 if open_ else 0
+
+    def build(self, lines, relation=None):
         tokens, lengths = [], []
         for line in lines:
             words = [fold_apostrophes(w).lower() for w in
@@ -196,18 +216,18 @@ class WordGraph:
             lengths.append(len(words))
         a = np.zeros((len(tokens), len(tokens)), dtype=np.int8)
         for i, j in combinations(range(len(tokens)), 2):
-            a[i, j] = a[j, i] = self.relation(tokens[i], tokens[j])
+            a[i, j] = a[j, i] = self.relation(tokens[i], tokens[j], relation)
         return a, lengths, tokens
 
-    def analyze(self, lines, declaration=None):
-        d = declaration or OrganizationDeclaration(theta=self.theta)
-        if d.theta != self.theta:
-            raise ValueError("graph and test must use the same declared threshold")
-        a, lengths, tokens = self.build(lines)
+    def analyze(self, lines, declaration=None, relation=None):
+        d = declaration or OrganizationDeclaration()
+        a, lengths, tokens = self.build(lines, relation)
         result = analyze_graph(a, lengths, d)
         result["phonology"] = {
             "language": "eng", "pronunciations": "unanimous lexical-reading verdict",
             "scope": "affirmed relations only; unresolved pairs are not negative relations",
+            "edge": (f"stands in {relation}" if relation else
+                     "stands in ANY of " + ", ".join(self.admitted)),
             "declaration": asdict(self.declaration),
             "strip_parens": self.lex.strip_parens,
         }

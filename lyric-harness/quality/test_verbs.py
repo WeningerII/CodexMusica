@@ -2887,7 +2887,11 @@ def test_the_candidate_field_says_which_ordering_it_is():
     print("\n22. `candidates --modal` — two orderings, one question, and the "
           "verb now says which it answered (FIXED 2026-08-15)")
     # THE DEFECT: this verb ranks by RHYME SCORE; the loop's modal exclusion
-    # ranks by FREQUENCY over the grader-accepted pool. Two answers to "is
+    # ~~ranks by FREQUENCY~~ ranks by the song-corpus conditional over the
+    # grader-accepted pool (tier 1 bans the same-spelled class without
+    # limit; tier 2 bans at most `modal_exclusion` partners, ranked by that
+    # conditional and evidence-gated since 2026-09-25, `MISSING.md` M-310;
+    # struck 2026-09-25). Two answers to "is
     # this rhyme too predictable", and the one reachable from the command
     # line is not the one the grader enforces. Found by using the verb to
     # pre-screen a rhyme and having the loop reject the result anyway.
@@ -3319,8 +3323,12 @@ def test_the_named_pair_disclosure_survives_the_module_boundary():
     # `report_pair`'s own docstring says it RELABELS rather than suppressing
     # the number, so a verdict that changed here would mean the alias had
     # done something else as well.
-    check("the verdict beside it is unchanged — 1.0 REPEAT on the named pair",
-          "(counting/counting): 1.0  REPEAT" in out,
+    # The label lists EVERY relation the pair stands in (N-relation
+    # model), so REPEAT sits among them rather than alone.
+    check("the verdict beside it is unchanged — 1.0, REPEAT among the "
+          "named pair's relations",
+          re.search(r"\(counting/counting\): 1\.0  \S*\bREPEAT\b", out)
+          is not None,
           "the alias fixed a report, and a verdict moving would say otherwise")
 
 
@@ -3610,7 +3618,10 @@ def test_the_collision_cut_is_one_constant_and_cannot_drift():
     src = open(os.path.join(root, "lyric_harness.py"), encoding="utf-8").read()
     check("and the llusg threshold is still a SEPARATE literal, deliberately "
           "not bound to it",
-          len(re.findall(r'if s\["total"\] >= 0\.9:', src)) == 1,
+          # The llusg rhyme is a RELATION test at this literal cut since
+          # 2026-09-22 (a scalar alone admitted assonance as the rhyme).
+          len(re.findall(r'admits\(s, 0\.9, relations=RHYME_RELATIONS\)',
+                         src)) == 1,
           "one question, one coordinate — the collision cut and a Welsh "
           "imitation's rhyme test are not the same setting")
 
@@ -4384,7 +4395,8 @@ def test_a_song_wide_relation_may_not_stand_beside_a_structure():
     judged — while STRUCTURE_UNCALIBRATED fires in BOTH, so the disclosure
     vouched for a coordinate that graded nothing.
     """
-    print("\n44. a song-wide relation beside a declared structure REFUSES")
+    print("\n44. a song-wide relation beside a declared structure is JUDGED "
+          "with it, never dropped")
     import tempfile
     lines = ["the night was cold and bright", "we held each other tight",
              "we walked beneath the sun", "and rivers ran with silver"]
@@ -4402,33 +4414,52 @@ def test_a_song_wide_relation_may_not_stand_beside_a_structure():
         rc, out, _ = run("brief", path, "--groups=1,2;3,4",
                          "--structures=B:kalevala-alliteration",
                          "--relation=type:pararhyme")
-        check("...and declaring a SONG-WIDE relation beside it REFUSES at "
-              "exit 2 rather than letting the relation win in silence",
-              rc == 2 and "song-wide relation" in out)
+        # REPOINTED 2026-09-22 (the N-relation model, `quality/schemes.py`):
+        # a song-wide relation beside a declared structure is a CONJUNCTION
+        # now, not a refusal — the structured group's pairs must satisfy
+        # BOTH, so neither coordinate can win in silence. Asserted by the
+        # structured group B being CHARGED under the song-wide relation
+        # while its structure is still disclosed.
+        #
+        # EXIT CODE CORRECTED 2026-09-24: the repoint above asserted `rc == 3`,
+        # but `brief` is the advisory verb and exits 0 on a graded draft
+        # whatever its flags — only `song`'s gates (and `plan`'s refusals)
+        # exit 3; the CONTROL check in `test_the_structures_spelling_reaches_the_verbs`
+        # already pins `rcr == 0` beside a SCHEME_VIOLATION flag. The charge
+        # is asserted on the MACHINE RESULT instead: certified coverage and a
+        # FLAG SCHEME_VIOLATION on exactly [3, 4] — the structured group —
+        # so the check still fails if the relation is dropped for group B.
+        _res = _machine_result(out)
+        _flags = [(f["code"], f["locations"]) for f in _res.get("findings", [])
+                  if f.get("severity") == "flag"]
+        check("...and declaring a SONG-WIDE relation beside it JUDGES BOTH: "
+              "the structured group's pair is charged under the relation "
+              "while the structure is still graded and disclosed",
+              rc == 0 and _res.get("coverage", {}).get("certified") is True
+              and ("SCHEME_VIOLATION", [3, 4]) in _flags
+              and "L3 and L4 are both in group B" in out
+              and "'type:pararhyme'" in out
+              and "STRUCTURE_UNCALIBRATED" in out)
         check("...naming both coordinates, so the caller can see which two "
-              "collided", "'type:pararhyme'" in out
+              "were judged", "'type:pararhyme'" in out
               and "'kalevala-alliteration'" in out)
-        check("...and naming the spelling that DOES express the mixed "
-              "intent, so the refusal costs no capability",
-              "--relations=" in out)
-        # THE HEADLINE IS THE OTHER HALF. `NoMandate` covers two different
-        # answers and one headline over both said the wrong one.
-        check("the refusal does NOT claim the caller declared nothing — "
-              "they declared groups, a structure and a relation "
-              "(doctrine 20)",
+        check("...and the song-wide relation reaches the UNstructured group "
+              "too — a relation beside a structure is never dropped",
+              "L1 and L2 are both in group A" in out)
+        check("nothing claims the caller declared nothing — they declared "
+              "groups, a structure and a relation (doctrine 20)",
               "given nothing to check against" not in out)
         rc_e, out_e, _ = run("brief", path)
         check("...while a genuinely empty mandate DOES still say exactly "
               "that, which is the control that keeps the split honest",
               rc_e == 2
               and "given nothing to check against" in out_e)
-        # A PER-GROUP relation beside a structure on ANOTHER group is the
-        # intent the refusal points at, and it must still be reachable.
+        # A PER-GROUP relation beside a structure on ANOTHER group is still
+        # reachable.
         rc_p, out_p, _ = run("brief", path, "--groups=1,2;3,4",
                              "--structures=B:kalevala-alliteration",
                              "--relations=A:type:pararhyme")
-        check("...and the per-group spelling the refusal recommends is "
-              "ACCEPTED, so the advice is not a dead end",
+        check("...and the per-group spelling is ACCEPTED on its own",
               rc_p == 0 and "STRUCTURE_UNCALIBRATED" in out_p)
     finally:
         os.unlink(path)
@@ -4981,16 +5012,26 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
                        f"--blueprint={bpath}", "--subdivision", "2",
                        "--max-rounds=1", "--attempts=0", "--backtrack=0",
                        f"--propose=defer:{st}")
+    # ~~UNRESOLVED: L4, L8~~ -> L4, L8, L15, L16, L17 (2026-09-23, N-relation
+    # model). Group G binds 15.T7 'plea', L16 'quay', 17.T3 'tree'; CMUdict
+    # reads 'quay' K IY1 and K EY1. Main scored plea/KAY 0.787 as RHYME
+    # (IY~EY); vowel agreement is now identity, so that reading stands in NO
+    # relation while K IY1 is RHYME — the verdict differs across unresolved
+    # readings and both (15,16) and (16,17) are REFUSED for G, not passed.
+    _R3 = _machine_result(out3)
     m3 = re.search(r"\[FINISHED — declared mandate — exit (\d) — (\w+) after "
-                   r"(\d+) round\(s\) — UNRESOLVED: L4, L8 — WHOLE-DRAFT FLAG: "
+                   r"(\d+) round\(s\) — UNRESOLVED: L4, L8, L15, L16, L17 — "
+                   r"WHOLE-DRAFT FLAG: "
                    r"([^\]—]+) — COVERAGE UNCERTIFIED: [^\]]+\]", out3)
     check("under defer: the stamp carries `— WHOLE-DRAFT FLAG: "
           "TITLE_NOT_IN_HOOK` beside the unresolved reading targets and "
           "uncertified coverage, and its exit is the process's 3",
           rc3 == 3 and m3 is not None and m3.group(1) == "3"
           and m3.group(4).strip() == "TITLE_NOT_IN_HOOK"
-          and _machine_result(out3).get('unresolved_lines') == [4, 8]
-          and _machine_result(out3).get('coverage', {}).get('certified') is False,
+          and _R3.get('unresolved_lines') == [4, 8, 15, 16, 17]
+          and _R3.get('coverage', {}).get('certified') is False
+          and {"rhyme:15:16:6", "rhyme:16:17:6"}
+          <= set(_R3.get('coverage', {}).get('refused_obligations') or ()),
           m3.group(0) if m3 else out3[-300:])
     st0 = os.path.join(d, "state0.json")
     bp0 = os.path.join(HERE, "..", "songs", "keep_the_light.blueprint.json")
@@ -5190,8 +5231,10 @@ def test_the_plan_report_discloses_density_and_audibility():
           and au['end_bound'] == (au['audible'] + au['bare']
                                  + len(au['inaudible']) + len(au['unclassified'])),
           f"{m2.group(0)[:90] if m2 else 'no AUDIBLE line'}")
-    check("...and says it is a record, not a gate — the dice are untouched",
-          "A record, not a gate" in out)
+    check("...and says it is a record, not a gate, and that no relation is "
+          "drawn — a bare group is judged against every relation",
+          "A record, not a gate" in out and "no relation is drawn" in out
+          and "RELATION: none declared and none drawn" in out)
     # An explicit global relation was previously called a bare default and
     # described as drawn. Exercise the actual CLI with that different route.
     rc_declared, out_declared, _ = run(
@@ -5204,13 +5247,17 @@ def test_the_plan_report_discloses_density_and_audibility():
           and declared['bare'] == declared['audible'] == 0
           and declared['unclassified'] == ['class:CONSONANCE'] * declared['end_bound']
           and '0 on the bare default' in out_declared
-          and 'relations were declared, not drawn' in out_declared,
+          and 'DECLARED, not sampled' in out_declared
+          and 'none declared and none drawn' not in out_declared,
           str(declared))
     brief = plan.get("writer_brief", "")
     check("the writer brief carried in the blueprint has the legend and the "
           "capacity line the writer reads (M-192)",
           "Where a binding sits" in brief
-          and "What each named relation asks" in brief
+          # No relation is drawn (N-relation model): the bare plan names
+          # none, and each group is briefed to stand in at least one.
+          and "What each named relation asks" not in brief
+          and "must stand in at least one relation" in brief
           and re.search(r"^\s+up to \d+ syllables a line after the pickup; "
                         r"the calibrated band asks at least \d+$", brief, re.M)
           is not None)
@@ -5233,7 +5280,13 @@ def test_the_batch_door_asks_independent_lines_together():
         fh.write("\n".join([
             "we carried every box across the yard",
             "the morning light was thin and cold as tea",
-            "she counted out the coins upon the bench",
+            # ~~bench~~ -> floor (2026-09-23, N-relation model): RHYME now
+            # needs vowel IDENTITY, so bench's whole perfect-rhyme field is
+            # the 8 modal -ench words and L4's brief offers nothing (it goes
+            # to the group backtrack, not the batch). Main's field for bench
+            # was lunch/inch/branch… — not rhymes. `floor` keeps a non-modal
+            # perfect field (yore, war, four…) and a modal one (door).
+            "she counted out the coins upon the floor",
             "the radio was playing to the moon",
             "a letter came addressed to no one here",
             "the kettle hummed along beside the drum",
@@ -5265,7 +5318,7 @@ def test_the_batch_door_asks_independent_lines_together():
     # A row set missing a member REFUSES, and nothing is folded.
     st["pending"]["answer"] = ("L2: the morning light was thin and hit us "
                                "hard\nL4: she reached inside the drawer "
-                               "and found a wrench\nL6: the kettle hummed "
+                               "and found a door\nL6: the kettle hummed "
                                "along beside the drum")
     json.dump(st, open(state, "w"))
     rc2, out2, _ = run("revise", draft, *mand, f"--propose=defer:{state}",
@@ -5281,7 +5334,7 @@ def test_the_batch_door_asks_independent_lines_together():
     # carrying its round-1 rejection.
     st["pending"]["answer"] = ("L2: the morning light was thin and hit us "
                                "hard\nL4: she reached inside the drawer "
-                               "and found a wrench\nL6: the kettle hummed "
+                               "and found a door\nL6: the kettle hummed "
                                "along beside the drum\nL8: and nobody "
                                "remembered where the light")
     json.dump(st, open(state, "w"))
@@ -5595,6 +5648,18 @@ def test_density_declares_its_line_window():
                                LH.Declaration(), window=2)
         check("the API returns the window it read, beside the numbers",
               res["window"] == 2, res["window"])
+        # PER RELATION (the N-relation model): each relation a match stands
+        # in gets its own coverage; `overall` is their union, so no
+        # relation's share exceeds it. lamp/damp and out/stout are perfect
+        # rhymes, so RHYME, ASSONANCE and CONSONANCE each carry them.
+        br = res["by_relation"]
+        check("density is reported PER RELATION — a perfect-rhyme match "
+              "counts toward RHYME, ASSONANCE and CONSONANCE alike — and no "
+              "relation's share exceeds the union `overall`",
+              br and set(br) <= set(LH.ADMITTABLE_RELATIONS) | {"REPEAT"}
+              and {"RHYME", "ASSONANCE", "CONSONANCE"} <= set(br)
+              and max(br.values()) <= res["overall"],
+              f"{br} overall {res['overall']}")
     finally:
         os.unlink(tmp.name)
     from quality import relations as RL
@@ -5768,8 +5833,17 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     #     F) and wins the batch's independence walk over L8, which used to
     #     stand in the batch only because the (7, 8) finding sat on it alone.
     #     Every value below is re-measured on that trajectory; none is loosened.
+    # THE RELATION IS DECLARED (2026-09-23, N-relation model). The planner
+    # no longer DRAWS a relation per group (seed 7 used to draw perfect /
+    # interlaced / internal rhyme, pantun, light, family), so under the
+    # default every group here is satisfied by some schema or REFUSED as
+    # undecided, and the loop's only open question is L3's return (a single
+    # `propose`, measured). Declaring `--relation=RHYME` on every call
+    # restores violated groups on L5 and L7, which is what this parity
+    # check needs: the batch below is re-measured under it, not assumed.
+    REL = "--relation=RHYME"
     st = os.path.join(tmpd, "state.json")
-    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12",
+    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12", REL,
                      f"--propose=defer:{st}", expect_rc=4)
     with _io.open(st, encoding="utf-8") as fh:
         stj = json.load(fh)
@@ -5782,7 +5856,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           f"{rc} {pend.get('kind')} {members}")
     # while nothing has moved, the state and the file are the same draft
     rc, out, _ = run("tryline", draft, "5", "Stay by the door and pray",
-                     "--seed=7", "--lines=12", f"--propose=defer:{st}",
+                     "--seed=7", "--lines=12", REL, f"--propose=defer:{st}",
                      expect_rc=0)
     row = _machine_result(out)
     check("asked through the state, the verb says WHICH draft it read and "
@@ -5801,7 +5875,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # in the -out field the C mandate offers and NOT on the forbidden modal
     # list ('doubt', 'out', ... are REJECTED as the slop direction).
     rc, out, _ = run("tryline", draft, "7", "hold the door for drought",
-                     "--seed=7", "--lines=12", f"--propose=defer:{st}",
+                     "--seed=7", "--lines=12", REL, f"--propose=defer:{st}",
                      expect_rc=0)
     row = _machine_result(out)
     l7_before = bool(row.get("accepted"))
@@ -5809,7 +5883,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           "way, and ACCEPTED", rc == 0 and row.get("against") == "state"
           and row.get("moves") == [7] and l7_before, out[-400:])
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
-                     "--seed=7", "--lines=12", "--propose=stub",
+                     "--seed=7", "--lines=12", REL, "--propose=stub",
                      expect_rc=2)
     check("a proposer spelling on tryline REFUSES — defer:PATH is the one "
           "value it takes", rc == 2 and "defer:PATH" in out, out[-300:])
@@ -5819,12 +5893,12 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     ol[0] = "the water holds the night"
     _io.open(other, "w", encoding="utf-8").write("\n".join(ol) + "\n")
     rc, out, _ = run("tryline", other, "3", "nothing here is very still",
-                     "--seed=7", "--lines=12", f"--propose=defer:{st}",
+                     "--seed=7", "--lines=12", REL, f"--propose=defer:{st}",
                      expect_rc=2)
     check("a state started on a DIFFERENT handed-in draft REFUSES by name",
           rc == 2 and "DIFFERENT handed-in draft" in out, out[-300:])
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
-                     "--seed=7", "--lines=12",
+                     "--seed=7", "--lines=12", REL,
                      f"--propose=defer:{os.path.join(tmpd, 'nope.json')}",
                      expect_rc=2)
     check("a state that does not exist REFUSES — nothing has been briefed",
@@ -5837,7 +5911,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
                                 "L7: hold the door for drought")
     with _io.open(st, "w", encoding="utf-8") as fh:
         json.dump(stj, fh)
-    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12",
+    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12", REL,
                      f"--propose=defer:{st}", expect_rc=4)
     with _io.open(st, encoding="utf-8") as fh:
         stj = json.load(fh)
@@ -5861,12 +5935,12 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           f"{verdicts} vs tryline {l7_before}")
     # NOW the file is a draft the loop no longer holds
     rc, out, _ = run("tryline", draft, "9", "carry the cold light",
-                     "--seed=7", "--lines=12", expect_rc=2)
+                     "--seed=7", "--lines=12", REL, expect_rc=2)
     check("asked against the FILE once the state has moved past it, the "
           "verb REFUSES and names the state to ask instead",
           rc == 2 and "past this file" in out and st in out, out[-400:])
     rc, out, _ = run("tryline", draft, "9", "carry the cold light",
-                     "--seed=7", "--lines=12", f"--propose=defer:{st}")
+                     "--seed=7", "--lines=12", REL, f"--propose=defer:{st}")
     row = _machine_result(out)
     check("asked through the state, it answers against the CURRENT draft "
           "and says which lines moved",
@@ -5897,7 +5971,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     with _io.open(bad, "w", encoding="utf-8") as fh:
         json.dump(bj, fh)
     rc, out, _ = run("tryline", draft, "9", "carry the cold light",
-                     "--seed=7", "--lines=12", f"--propose=defer:{bad}",
+                     "--seed=7", "--lines=12", REL, f"--propose=defer:{bad}",
                      expect_rc=2)
     check("a state whose open brief was asked on a different draft than "
           "it now holds REFUSES rather than reads a verdict off it",
@@ -5995,8 +6069,14 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
               and coverage.get("certified") is False
               and bool(coverage.get("refused_obligations"))
               and coverage.get("pairs_mandated") == 9
-              and coverage.get("pairs_judged") == 3
-              and coverage.get("pairs_refused") == 6,
+              # REPINNED 2026-09-22 (N-relation model), MEASURED by this
+              # run: ~~3/6~~ -> 2/7. The reading-consensus check is
+              # membership over the pair's relation SET now, so one more
+              # pair whose endpoint readings disagree on a relation is
+              # refused rather than judged (the battery moved 28 -> 39 the
+              # same way).
+              and coverage.get("pairs_judged") == 2
+              and coverage.get("pairs_refused") == 7,
               f"final lines={len(completed.get('final_draft', []))}; "
               f"judged/refused={coverage.get('pairs_judged')}/"
               f"{coverage.get('pairs_refused')}")

@@ -163,7 +163,7 @@ BANK = ("stone rain door light road name fire glass train hill salt wire "
 # as the old filler (1, 2, 1, 2, 1, 1, plus the bank word). Every position
 # now carries a content word. These are readable placeholders, not lyrics
 # required to satisfy the drawn relations or the quality floor.
-DUMMY_PREFIX = "birds carry bright morning bells strike "
+DUMMY_PREFIX = "birds lantern bright morning bells strike "
 
 
 def dummy_draft(plan, unambiguous=False):
@@ -297,7 +297,7 @@ def _round_trip_fixture_checks(R):
         if place in ("head", "headrime", "T1"):
             check(f"M-146: repeated {place} is judged and violates, not refused",
                   bool(grade["violations"])
-                  and grade["verdicts"][0]["relation"] == "REPEAT")
+                  and "REPEAT" in grade["verdicts"][0]["relations"])
 
     # The old fixture is an adversary, not an alternative accepted input.
     # Its same-length function words must still refuse; the phonology's
@@ -359,7 +359,8 @@ def _round_trip_one(seed):
     draft = dummy_draft(plan, unambiguous=True)
     # A free-run schema reads interior tokens too. Fix the fixture's
     # performance readings there as well as choosing unambiguous end words;
-    # otherwise carry introduces lexical uncertainty into a shape test.
+    # otherwise a future dictionary update can introduce lexical uncertainty
+    # into a shape test even though today's prefix is single-reading.
     import copy
     from quality.pronunciation import validate_choices
     from quality.revise import Reviser
@@ -1096,13 +1097,21 @@ def test_the_measure():
     # and not the habit. The habit is: after touching `plan.py`'s imports,
     # diff `grep -oE '_RL\.[a-zA-Z_]+' quality/plan.py | sort -u` against
     # this set BEFORE pushing.
-    ALLOWED_FROM_RELATIONS = {"DRAWABLE_SCHEMAS", "drawable_traits",
+    # 2026-09-22: THE PLANNER DRAWS NO RELATION. `DRAWABLE_SCHEMAS`,
+    # `drawable_traits` and `audible_as_end_rhyme` left this list with the
+    # draw (the pool and the end-pool narrowing are gone); `planning_traits`
+    # is `drawable_traits` over every registry schema, read only to check a
+    # DECLARED relation's feasibility. `tokenise` is the pure regex
+    # tokeniser the draft work-bound admission (`draft_work_bound`) reads
+    # when a phonology declares no tokens — it was named by plan.py before
+    # this list was told (red at f05dbf71), and it opens nothing.
+    ALLOWED_FROM_RELATIONS = {"planning_traits",
                               "CHANNEL_DOMAINS", "pair_bindable",
                               "REGISTRY", "overhang_member",
                               "unsatisfiable_pairs", "group_satisfiable",
                               "identity_forced", "placement_bindable",
                               "POSITION_PLACEMENT_KINDS", "planning_work_bound",
-                              "audible_as_end_rhyme"}
+                              "tokenise"}
     # The operational admission bound counts registry candidate positions;
     # it never builds a phonological stream or reads corpus/dictionary data.
     # `placement_bindable` joined 2026-09-03 (M-206) as `pair_bindable`'s
@@ -1223,7 +1232,7 @@ def test_the_measure():
           "from quality and opens no file, which is why it is the "
           "easiest admission this guard has ruled on",
           nar_names <= ALLOWED_FROM_NARRATIVE, f"names {sorted(nar_names)}")
-    check("...and from `relations` ONLY the adopted drawable pool, never "
+    check("...and from `relations` ONLY declared tables and pure predicates, never "
           "the stream builder or a realiser — `relations` reaches the "
           "phonology, which opens the dictionary",
           rel_names <= ALLOWED_FROM_RELATIONS, f"names {sorted(rel_names)}")
@@ -1542,11 +1551,10 @@ def test_the_writers_declaration():
     Neither is sampled. ~~The planner does not pick a relation -- putting
     `type:pararhyme` on a group nobody asked for is the "move 37" ban pointed
     at rhyme instead of at shape~~ -- SUPERSEDED BY OWNER RULING 2026-08-25
-    (M-117, §14 below): when the writer declares nothing, each group DRAWS
-    its relation from the certified pool, and the drawn coordinate rides the
-    grading command as `--relations=` (plural, per group). What survives is
-    PRECEDENCE: the writer's own `--relation=` (singular, global) is CARRIED,
-    never sampled over, and declaring it silences the draw.
+    (M-117), and that draw was itself removed 2026-09-22: the planner picks
+    no relation, and a group the writer declared nothing for is judged
+    against every relation. The writer's own `--relation=` (singular,
+    global) is CARRIED, never sampled over.
     """
     print("\n9. the writer's declaration (M-55)")
     import quality.plan as P
@@ -1554,12 +1562,13 @@ def test_the_writers_declaration():
     base = P.make_plan(11)
     check("a plan with NO declaration carries empty WRITER coordinates — "
           "`relation` and `functions` stay unimputed — and its GRADE IT "
-          "line carries no `--relation=` (the writer's singular spelling); "
-          "what it does carry is `--relations=`, the DRAWN per-group "
-          "coordinate (M-117), which is the planner's, not the writer's",
+          "line carries no `--relation=` (the writer's singular spelling) "
+          "and, since the planner draws no relation (2026-09-22), no "
+          "`--relations=` either: every group is judged against every "
+          "relation",
           base["relation"] == "" and base["functions"] == []
           and "--relation=" not in P.grading_command(base)
-          and "--relations=" in P.grading_command(base))
+          and "--relations=" not in P.grading_command(base))
 
     m = P.make_plan(11, relation="type:rime riche")
     check("a declared relation is STORED NAMESPACED, so the value the plan "
@@ -3073,175 +3082,111 @@ def test_the_end_rhyme_pass_is_additive(FAILURES=None):
 
 
 def test_the_relation_draw():
-    """§14 — the planner draws each group's relation from the certified
-    pool (M-117, the owner's "now do the planner too"), and the adoption
-    re-derives against the declared witness so the pool cannot drift."""
-    print("\n-- 14. the relation draw: certified pool, carried to the "
-          "grade, silent under a writer's declaration --")
+    """§14 — NO RELATION IS DRAWN (2026-09-22). Every group the writer
+    declared nothing for is judged against every coarse relation and every
+    registry schema; a DECLARED relation is carried to the grade and checked
+    for feasibility on every group at once, from the schemas' own claims."""
+    print("\n-- 14. no relation is drawn; a declared one is carried and "
+          "checked --")
     from quality import relations as RL
     from quality import rhyme_types as RT
-    check("the ADOPTED drawable pool re-derives from the declared witness "
-          "— a moved pool is a moved witness or a moved registry, and "
-          "either must fail loud rather than drift (the meter-bands "
-          "adoption pattern)",
-          tuple(RL.DRAWABLE_SCHEMAS) == RL.derive_drawable_schemas(),
-          "adoption drifted from derivation")
     pl = PLN.make_plan(7)
-    n_groups = len(pl["groups"].split(";"))
-    drawn = pl.get("relations") or {}
-    check("a plan draws relations for its groups and every drawn name "
-          "resolves in the `schema` namespace",
-          drawn and all(RT.resolve_relation(v)[1] == "schema"
-                        for v in drawn.values()),
-          f"{len(drawn)} drawn over {n_groups} groups")
-    check("every drawn label is a label the mandate itself would generate "
-          "— `PLN.SC.label`, one definition, no respelling",
-          set(drawn) <= {PLN.SC.label((k,)) for k in range(n_groups)},
-          f"labels {sorted(drawn)[:6]}")
-    check("the grading command CARRIES the draw — a declared coordinate "
-          "read by nothing is the defect this repo has an instrument for",
-          "--relations=" in PLN.grading_command(pl),
+    check("a plan with no declaration carries NO per-group relation, and "
+          "its choice record says every group is judged against every "
+          "relation",
+          pl.get("relations") == {}
+          and pl["choices"]["relations"]["chosen_from"].startswith(
+              "NOT DRAWN — every group is judged against the whole "
+              "vocabulary"),
+          str(pl.get("relations")))
+    check("...so the grading command narrows nothing: no --relations= and "
+          "no --relation=",
+          "--relations=" not in PLN.grading_command(pl)
+          and "--relation=" not in PLN.grading_command(pl),
           PLN.grading_command(pl)[-80:])
-    check("the draw is DISCLOSED in choices, like every other draw",
-          "relations" in pl["choices"]
-          and pl["choices"]["relations"]["value"] == drawn,
-          "choices.relations missing or diverged")
+    check("...and the brief asks each group to stand in AT LEAST ONE "
+          "relation, naming the whole vocabulary",
+          "must stand in at least one relation" in PLN.writer_brief(pl))
     pl2 = PLN.make_plan(7, relation="class:ASSONANCE")
-    check("a writer's own --relation SILENCES the draw — a declared "
-          "coordinate is carried, never sampled over (M-55)",
-          pl2.get("relations") == {} and pl2["relation"],
-          f"drew {len(pl2.get('relations') or {})} despite a declaration")
-    check("the draw consumes entropy AFTER every existing draw, so the "
-          "seed's SHAPE is byte-identical to the pre-draw planner's — "
-          "groups, returns and meter unmoved between the two calls above",
-          pl["groups"] == pl2["groups"] and pl["returns"] == pl2["returns"],
+    check("a writer's own --relation is CARRIED to the grade (M-55) and "
+          "still draws nothing per group",
+          pl2.get("relations") == {} and pl2["relation"]
+          and "--relation=class:ASSONANCE" in PLN.grading_command(pl2),
+          PLN.grading_command(pl2)[-80:])
+    check("declaring a relation moves no draw: the seed's SHAPE is "
+          "byte-identical with and without it",
+          pl["groups"] == pl2["groups"] and pl["returns"] == pl2["returns"]
+          and pl["narrative"] == pl2["narrative"],
           "shape moved with the relation coordinate")
-    # THE CONJUNCTION GATE (M-118, widened by M-119, rebuilt as a GRAPH by
-    # M-122): before M-118, 39 of 40 seeds drew a jointly unsatisfiable
-    # schema conjunction; after M-119's locus-derived widening, 53 of 60
-    # STILL did (117 adjacency violations, 32 transitive contradictions),
-    # because `adjacent_lines` is a gap constraint spelled as a placement
-    # KIND and EQUALITY IS TRANSITIVE where a per-pair ledger is not. The
-    # check replays the gate's own three rules — gap, pairwise exact-match
-    # on (pair, channel, coord), and the union-find closure — over fresh
-    # draws with the registry's own coordinates, so a schema whose traits
-    # move re-asks the question rather than trusting the draw-time filter.
+    check("the declared relation resolves in its namespace",
+          RT.resolve_relation(pl2["relation"]) == ("ASSONANCE", "class"))
+
+    # THE FEASIBILITY TRAITS, over EVERY registry schema (no draw pool).
     from itertools import combinations
-    traits = RL.drawable_traits()
-    # THE DERIVATION PINS. Without these, a derivation that quietly drops
-    # a coordinate leaves the replay below vacuously green. M-119's two
-    # survive re-expressed in the triples format; M-122 adds the three
-    # facts its rebuild was filed on.
+    traits = RL.planning_traits()
+    check("planning_traits covers every registry schema — a declared "
+          "schema is never refused for lacking a 'certified' contract",
+          set(traits) == set(RL.REGISTRY), f"{len(traits)} of {len(RL.REGISTRY)}")
     cc = traits["cluster consonance / skothending span"]
-    check("M-119's coordinates survive the M-122 rekeying — cluster "
-          "consonance claims nucleus-Differ at the anchor (finality read "
-          "from the span locus, no placement row), anaphora token-Agree "
-          "at the head, head rhyme (positional) token-Differ at the head",
-          ("nucleus", "anchor", "Differ") in cc["claims"]
+    check("the claims carry NO exclusion-only Differ: cluster consonance "
+          "and assonance claim nothing of the other channel (a pair that "
+          "also rhymes stands in them), while anaphora keeps its head "
+          "token-Agree and head rhyme its head token-Differ",
+          not any(c[2] == "Differ" for c in cc["claims"])
+          and not any(c[0] == "coda" and c[2] == "Differ"
+                      for c in traits["assonance"]["claims"])
           and ("token", "head", "Agree") in traits["anaphora"]["claims"]
           and ("token", "head", "Differ")
           in traits["head rhyme (positional)"]["claims"],
-          f"cc {cc}, anaphora {traits['anaphora']}, "
-          f"head rhyme {traits['head rhyme (positional)']}")
+          f"cc {cc}, assonance {traits['assonance']}")
     check("M-122(a): `adjacent_lines` is read as gap 1 — interlaced "
-          "rhyme's whole reach, a placement KIND the flat dict could not "
-          "carry (117 violations over sixty seeds before this)",
-          traits["interlaced rhyme"]["gap"] == 1,
-          traits["interlaced rhyme"])
+          "rhyme's whole reach",
+          traits["interlaced rhyme"]["gap"] == 1, traits["interlaced rhyme"])
     pr = traits["perfect rhyme"]["claims"]
     check("M-122(b): perfect rhyme carries TWO onset rules at two "
-          "coordinates — Agree at post, Differ at the anchor — which the "
-          "old per-channel dict collapsed into one, inflating the honest "
-          "pre-fix count from 53 to a false 56",
+          "coordinates — Agree at post, Differ at the anchor (its "
+          "DEFINITIONAL different onset)",
           ("onset", "post", "Agree") in pr
           and ("onset", "anchor", "Differ") in pr, pr)
-    # REPOINTED 2026-09-05 (`MISSING.md` M-245): semirhyme's coda rule is
-    # `PrefixAgree` at the `cluster` scope now — the shorter word's
-    # post-vocalic cluster OPENS the longer's — and a prefix agreement is
-    # NOT an equality: [M] opens [M,B] and [M,S,T] while those two do not
-    # open each other, so it must NOT compose into rime riche's transitive
-    # chain, and the claim's predicate name says so. The split this check
-    # was written for (anchor against final) is unchanged.
-    check("M-122(c): the syllable coordinate SPLITS what the dict "
-          "conflated — semirhyme's coda claim rides the anchor (as a "
-          "PREFIX agreement since M-245, which the transitive closure "
-          "correctly does not read as equality) while light rhyme's "
-          "rides the written-out final syllable",
+    check("M-122(c): semirhyme's coda claim rides the anchor as a PREFIX "
+          "agreement while light rhyme's rides the final syllable",
           ("coda", "anchor", "PrefixAgree") in traits["semirhyme"]["claims"]
           and ("coda", "anchor", "Agree")
           not in traits["semirhyme"]["claims"]
-          and ("coda", "final", "Agree") in traits["light rhyme"]["claims"]
-          and ("coda", "anchor", "Agree")
-          not in traits["light rhyme"]["claims"],
-          f"semirhyme {traits['semirhyme']}, "
-          f"light {traits['light rhyme']}")
-
-    # M-123's derivation pins: a Differ claim is a disequality clique, a
-    # clique needs one distinct value per member, and the adopted
-    # CHANNEL_DOMAINS table is what tells the gate a channel is finite.
-    check("M-123: the adopted domain table says prominence is BINARY and "
-          "nucleus is the 15-vowel inventory (measured over all 126,052 "
-          "syllabifiable lexicon words; the eng adapter constructs "
-          "prominence as `1 if stress in (1,2) else 0`), and light rhyme "
-          "carries the prominence-Differ claim that caps its groups at 2",
+          and ("coda", "final", "Agree") in traits["light rhyme"]["claims"],
+          f"semirhyme {traits['semirhyme']}, light {traits['light rhyme']}")
+    check("M-123: prominence is BINARY, nucleus the 15-vowel inventory, and "
+          "light rhyme's DEFINITIONAL prominence-Differ caps its groups at 2",
           len(RL.CHANNEL_DOMAINS["prominence"]) == 2
           and len(RL.CHANNEL_DOMAINS["nucleus"]) == 15
           and ("prominence", "final", "Differ")
           in traits["light rhyme"]["claims"],
           f"domains {[(k, len(v)) for k, v in RL.CHANNEL_DOMAINS.items()]}")
-    check("M-123's second face: `PresentVsAbsent` IS a Differ on a "
-          "presence bit — subtractive rhyme's claims carry the derived "
-          "(coda_presence, anchor, Differ) with a binary domain, and a "
-          "coda-Agree schema projects the Agree edge onto the same "
-          "derived channel so the parity closure can see equal codas "
-          "contradict a presence split",
+    check("M-123's second face: subtractive rhyme's PresentVsAbsent is a "
+          "binary presence Differ, and a coda-Agree schema projects onto it",
           ("coda_presence", "anchor", "Differ")
           in traits["subtractive rhyme"]["claims"]
           and ("coda_presence", "anchor", "Agree")
           in traits["perfect rhyme"]["claims"]
-          and len(RL.CHANNEL_DOMAINS["coda_presence"]) == 2,
-          f"subtractive {traits['subtractive rhyme']['claims']}")
-    check("M-125: span LENGTH is a hidden equality channel and the "
-          "schema's own `unmatched` coordinate declares it — perfect "
-          "rhyme and rime riche (forbid) claim length-Agree at the ends, "
-          "semirhyme (require_b) claims length-Differ, so the "
-          "Equal-Equal-Differ triangle {perfect 13~14, rime riche 13~17, "
-          "semirhyme 14~17} that no words can close is caught by the "
-          "existing closure with no new machinery",
-          ("span_length", "end", "Agree")
-          in traits["perfect rhyme"]["claims"]
-          and ("span_length", "end", "Agree")
-          in traits["rime riche"]["claims"]
-          and ("span_length", "end", "Differ")
-          in traits["semirhyme"]["claims"]
+          and len(RL.CHANNEL_DOMAINS["coda_presence"]) == 2)
+    check("M-125: span length is claimed from `unmatched` — perfect rhyme "
+          "and rime riche Agree, semirhyme Differs, assonance claims none",
+          ("span_length", "end", "Agree") in traits["perfect rhyme"]["claims"]
+          and ("span_length", "end", "Agree") in traits["rime riche"]["claims"]
+          and ("span_length", "end", "Differ") in traits["semirhyme"]["claims"]
           and not any(c[0] == "span_length"
-                      for c in traits["assonance"]["claims"]),
-          f"semirhyme {traits['semirhyme']['claims']}")
-    from quality import floor as FLR
-    # The LIVE sheet profile, at a DERIVED length — the planner's own idiom
-    # since M-239: a curve needs N tokens and a plan has lines, so the
-    # total times the measured tokens-per-line band's midpoint stands in.
-    _aprof = next(p for p in FLR.PROFILES
-                  if p.n_lines == 0 and not p.superseded_by)
-    from quality import plan as _PLN
-    _tlo, _thi = _PLN.tokens_per_line_band()
-    _amax = FLR.FloorDeclaration().resolve(
-        "anaphora_max", _aprof, max(1, int(round(24 * (_tlo + _thi) / 2))))
-    check("M-125(b): the forced-opener ceiling is READ from the floor's "
-          "own lyric-sheet profile (n_lines == 0, never by name — the "
-          "M-106 idiom), so the gate and ANAPHORA_OVERLOAD cannot hold "
-          "two thresholds",
-          _amax is not None and 0 < _amax < 1, _amax)
+                      for c in traits["assonance"]["claims"]))
     from quality import phonology as PHON
     _eng = PHON.get("eng")
     _pvals = {s.prominence for w in ("spring", "raining", "carpenter",
                                      "understand", "overflow", "tell")
               for s in _eng.syllabify(w)}
-    check("M-123: the phonology the judge grades through emits prominence "
-          "values from exactly the adopted domain — a probe over stressed "
-          "and unstressed syllables reaches both values and nothing else",
-          _pvals == set(RL.CHANNEL_DOMAINS["prominence"]), _pvals)
+    check("M-123: the judge's phonology emits prominence from exactly the "
+          "adopted domain", _pvals == set(RL.CHANNEL_DOMAINS["prominence"]),
+          _pvals)
 
+    # THE GATE, REPLAYED over DECLARED relations: a plan that ships with a
+    # declared schema never carries a conjunction its own claims forbid.
     def _pfind(par, x):
         p = 0
         while True:
@@ -3250,124 +3195,88 @@ def test_the_relation_draw():
                 return x, p
             x, p = nx, p ^ xp
 
-    n_adj = n_pair = n_trans = n_over = n_parity = n_open = 0
-    for sd in (4, 7, 11, 19, 23, 31):
-        p3 = PLN.make_plan(sd)
-        r3 = p3.get("relations") or {}
-        gl3 = [tuple(sorted({int(str(m).split(".")[0])
-                             for m in g.split(",")}))
-               for g in p3["groups"].split(";")]
-        pairc = {}
-        eqp = {}
-        nep = {}
-        for gi, g in enumerate(gl3):
-            nm = r3.get(PLN.SC.label((gi,)))
-            if not nm:
+    n_adj = n_pair = n_trans = n_over = n_parity = 0
+    shipped = refused = 0
+    for rel in ("schema:perfect rhyme", "schema:light rhyme",
+                "schema:interlaced rhyme"):
+        for sd in (4, 7, 11):
+            try:
+                p3 = PLN.make_plan(sd, relation=rel)
+            except PLN.PlanRefused:
+                refused += 1
                 continue
-            t = traits[nm.split(":", 1)[1]]
-            pairs = list(combinations(g, 2))
-            if t["gap"] is not None and any(
-                    b - a > t["gap"] for a, b in pairs):
-                n_adj += 1
-            for ch, co, pred in t["claims"]:
-                dom = RL.CHANNEL_DOMAINS.get(ch)
-                if pred == "Differ" and dom is not None \
-                        and len(g) > len(dom):
-                    n_over += 1
-                for p in pairs:
-                    if pairc.get((p, ch, co)) not in (None, pred):
-                        n_pair += 1
-                    pairc[(p, ch, co)] = pred
-                key = (ch, co)
-                binary = dom is not None and len(dom) == 2
-                if pred == "Agree" or (pred == "Differ" and binary):
-                    w = 0 if pred == "Agree" else 1
-                    par = eqp.setdefault(key, {})
-                    for a, b in pairs:
-                        ra, pa = _pfind(par, a)
-                        rb, pb = _pfind(par, b)
-                        if ra == rb:
-                            if pa ^ pb != w:
-                                n_parity += 1
-                        else:
-                            par[ra] = (rb, pa ^ pb ^ w)
-                elif pred == "Differ":
-                    nep.setdefault(key, []).extend(pairs)
-        for key, ne in nep.items():
-            par = eqp.get(key, {})
-            for a, b in ne:
-                ra, pa = _pfind(par, a)
-                rb, pb = _pfind(par, b)
-                if ra == rb and not (pa ^ pb):
-                    n_trans += 1
-        par = eqp.get(("token", "head"), {})
-        _nodes = set(par) | {pp[0] for pp in par.values()}
-        _szs = {}
-        for _n in _nodes:
-            _r, _ = _pfind(par, _n)
-            _szs[_r] = _szs.get(_r, 0) + 1
-        _cap = int(_amax * int(p3["total_lines"]) + 1e-9)
-        if _szs and max(_szs.values()) > _cap:
-            n_open += 1
-    check("no drawn conjunction violates a schema's own gap ceiling, puts "
-          "opposite predicates on one (pair, channel, coordinate), closes "
-          "an equality chain a Differ claim demands open, outnumbers a "
-          "finite channel domain, forces a parity cycle on a binary one, "
-          "or forces more identical line-openers than the floor's own "
-          "ANAPHORA_OVERLOAD share admits — the measured 39-of-40 "
-          "(M-118), 53-of-60 (M-122: 117 adjacency, 32 transitive), "
-          "40-of-60 (M-123: 74 impossible prominence cliques) and M-125 "
-          "(seed 32's forced 9-of-21 openers and its length triangle) "
-          "defects all read ZERO through the gate",
-          n_adj == 0 and n_pair == 0 and n_trans == 0
-          and n_over == 0 and n_parity == 0 and n_open == 0,
-          f"adjacency {n_adj}, pairwise {n_pair}, transitive {n_trans}, "
-          f"oversize {n_over}, parity {n_parity}, opener {n_open} over "
-          f"six seeds")
+            shipped += 1
+            t = traits[rel.split(":", 1)[1]]
+            gl3 = [tuple(sorted({int(str(m).split(".")[0])
+                                 for m in g.split(",")}))
+                   for g in p3["groups"].split(";")]
+            pairc, eqp, nep = {}, {}, {}
+            for g in gl3:
+                pairs = list(combinations(g, 2))
+                if t["gap"] is not None and any(
+                        b2 - a2 > t["gap"] for a2, b2 in pairs):
+                    n_adj += 1
+                for ch, co, pred in t["claims"]:
+                    dom = RL.CHANNEL_DOMAINS.get(ch)
+                    if pred == "Differ" and dom is not None \
+                            and len(g) > len(dom):
+                        n_over += 1
+                    for p in pairs:
+                        if pairc.get((p, ch, co)) not in (None, pred):
+                            n_pair += 1
+                        pairc[(p, ch, co)] = pred
+                    key = (ch, co)
+                    binary = dom is not None and len(dom) == 2
+                    if pred == "Agree" or (pred == "Differ" and binary):
+                        w = 0 if pred == "Agree" else 1
+                        par = eqp.setdefault(key, {})
+                        for a2, b2 in pairs:
+                            ra, pa = _pfind(par, a2)
+                            rb, pb = _pfind(par, b2)
+                            if ra == rb:
+                                if pa ^ pb != w:
+                                    n_parity += 1
+                            else:
+                                par[ra] = (rb, pa ^ pb ^ w)
+                    elif pred == "Differ":
+                        nep.setdefault(key, []).extend(pairs)
+            for key, ne in nep.items():
+                par = eqp.get(key, {})
+                for a2, b2 in ne:
+                    ra, pa = _pfind(par, a2)
+                    rb, pb = _pfind(par, b2)
+                    if ra == rb and not (pa ^ pb):
+                        n_trans += 1
+    check("every plan that SHIPS with a declared schema respects that "
+          "schema's gap, pairwise claims, transitive closure, finite "
+          "domains and parity; the rest REFUSE rather than ship "
+          "unsatisfiable", shipped + refused == 9 and shipped > 0
+          and n_adj == n_pair == n_trans == n_over == n_parity == 0,
+          f"shipped {shipped}, refused {refused}; adjacency {n_adj}, "
+          f"pairwise {n_pair}, transitive {n_trans}, oversize {n_over}, "
+          f"parity {n_parity}")
 
-    # M-149(a): THE DRAW CONSULTS THE SPAN SHAPE. A group binding declared
-    # tokens is judged by the pair route (`relations.pair_satisfies`), and
-    # that route refuses by name every schema whose member spans cannot
-    # bind ONE token — so drawing one onto a slotted group manufactures a
-    # disclosed refusal no writing can close. MEASURED before the filter:
-    # 354 such (draw, placement) conjunctions over seeds 1-60, every seed
-    # affected. The draw consults the judge's own predicate
-    # (`relations.pair_bindable`, one definition — doctrine 1), so the
-    # conjunction is unsampleable BY CONSTRUCTION; the mutation is
-    # dropping the `_slotted_g` filter in `plan.py`, which reds the sweep
-    # check below (hand-proven on the day it shipped).
-    unbindable = tuple(n for n in RL.DRAWABLE_SCHEMAS
-                       if not RL.pair_bindable(RL.REGISTRY[n]))
-    check("the pair-unbindable subset of the drawable pool is DERIVED "
-          "from the registry's own span rules: the two drawable free-run "
-          "searchers remain; chain rhyme and monai are figure-level relations",
-          unbindable == ("compound / phrasal rhyme", "multisyllabic rhyme")
-          and all(n in RL.REGISTRY and n not in RL.DRAWABLE_SCHEMAS
-                  and not RL.pair_bindable(RL.REGISTRY[n])
-                  for n in ("chain rhyme (rap)", "monai")),
-          f"{unbindable}")
+    # M-149(a): a declared schema no single token can carry may not bind a
+    # slotted group — the planner refuses rather than ship the conjunction.
+    unbindable = tuple(sorted(n for n in RL.REGISTRY
+                              if RL.pair_scope_representable(RL.REGISTRY[n])
+                              and not RL.pair_bindable(RL.REGISTRY[n])))
+    check("the pair-unbindable schemas are DERIVED from the registry's own "
+          "span rules (free-run searchers, line-head indices, whole lines)",
+          {"compound / phrasal rhyme", "multisyllabic rhyme",
+           "mosaic rhyme", "epistrophe / radif"} <= set(unbindable)
+          and "perfect rhyme" not in unbindable, f"{unbindable}")
     leaked = []
-    for _seed in (1, 2, 7, 23, 37, 56):
-        _pl = PLN.make_plan(_seed, form="verse-chorus")
-        _rels = _pl.get("relations") or {}
-        _gs = [g.split(",") for g in _pl["groups"].split(";")]
-        for _gi, _g in enumerate(_gs):
-            _want = _rels.get(PLN.SC.label((_gi,)), "")
-            if not _want.startswith("schema:"):
-                continue
-            if not any("." in m and m.split(".", 1)[1] != "end"
-                       for m in _g):
-                continue
-            if not RL.pair_bindable(RL.REGISTRY[_want[len("schema:"):]]):
-                leaked.append((_seed, _g, _want))
-    check("no slotted group draws a schema the pair route cannot bind "
-          "there — six seeds (including the four that leaked most before "
-          "the filter), zero conjunctions",
-          not leaked, leaked[:4])
-    check("...and the unbindable schemas STAY drawable at default slots — "
-          "the filter narrows the slotted pool, it does not delete "
-          "names from the certified adoption",
-          set(unbindable) <= set(RL.DRAWABLE_SCHEMAS))
+    for _seed in (1, 2, 7):
+        try:
+            _pl = PLN.make_plan(_seed, relation="schema:multisyllabic rhyme")
+        except PLN.PlanRefused:
+            continue
+        for _g in (g.split(",") for g in _pl["groups"].split(";")):
+            if any("." in m and m.split(".", 1)[1] != "end" for m in _g):
+                leaked.append((_seed, _g))
+    check("a declared pair-unbindable schema never ships on a slotted "
+          "group", not leaked, leaked[:4])
 
 
 def test_the_bound_share():
@@ -3576,12 +3485,12 @@ def test_the_overhang_group():
           and "SLOTS_EXCEEDED" in {f.code for f in fits[0].findings}
           and not fits[0].satisfiable and fits[1].satisfiable)
     check("the registry's own coordinate is what says so — semirhyme "
-          "demands member 2 overhang, and it is the ONE drawable schema "
-          "that demands an overhang at all",
+          "demands member 2 overhang, apocopated rhyme member 1, and they "
+          "are the only two schemas in the registry that demand one",
           RL.overhang_member(SEMI) == 2
-          and [n for n in RL.DRAWABLE_SCHEMAS
-               if RL.overhang_member(RL.REGISTRY[n]) is not None]
-          == ["semirhyme"])
+          and sorted(n for n in RL.REGISTRY
+                     if RL.overhang_member(RL.REGISTRY[n]) is not None)
+          == ["apocopated rhyme", "semirhyme"])
     check("a PAIR is satisfiable and 3+ members are not, by the count the "
           "gate and the draw both read — C(k-1, 2), so 0 / 1 / 3 / 6 at "
           "k = 2 / 3 / 4 / 5",
@@ -3596,36 +3505,24 @@ def test_the_overhang_group():
           "cap on every group)",
           RL.unsatisfiable_pairs(RL.REGISTRY["consonance"], 9) == 0
           and RL.group_satisfiable(RL.REGISTRY["consonance"], 9))
-    #: THE POPULATION FIRST, so this section cannot pass by examining
-    #: nothing (the vacuity defect this suite's own §4 exists for): the
-    #: draw must still REACH semirhyme, or "no impossible group" would be
-    #: true of a planner that had simply deleted the schema.
-    seen, bad, sizes = 0, [], {}
-    for seed in range(1, 41):
-        pl = PLN.make_plan(seed)
-        rel = pl.get("relations") or {}
-        groups = [g for g in str(pl.get("groups") or "").split(";")
-                  if g.strip()]
-        for gi, g in enumerate(groups):
-            nm = rel.get(SC.label((gi,)), "")
-            if not nm.startswith("schema:"):
-                continue
-            s = RL.REGISTRY.get(nm.split(":", 1)[1])
-            if s is None or RL.overhang_member(s) is None:
-                continue
-            seen += 1
-            k = len([m for m in g.split(",") if m.strip()])
-            sizes[k] = sizes.get(k, 0) + 1
-            if k >= 3:
-                bad.append((seed, SC.label((gi,)), k))
-    check("the draw still REACHES the schema — it is narrowed to pairs, "
-          "not deleted from the vocabulary (doctrine 24: a rule that "
-          "would remove a category relabels instead)",
-          seen > 0, f"{seen} overhang group(s) over seeds 1-40")
-    check("...and every one of them is a PAIR: no seed draws a group its "
-          "own declared schema contradicts",
-          not bad and set(sizes) == {2},
-          f"sizes {dict(sorted(sizes.items()))}, impossible {bad[:4]}")
+    #: NO RELATION IS DRAWN (2026-09-22), so the schema reaches a plan only
+    #: by DECLARATION, and a declared overhang schema binds every group:
+    #: the planner must REFUSE a plan with a 3+ group rather than ship it.
+    shipped_bad, refused = [], 0
+    for seed in range(1, 9):
+        try:
+            pl = PLN.make_plan(seed, relation="schema:semirhyme")
+        except PLN.PlanRefused as exc:
+            refused += "cannot bind group" in str(exc)
+            continue
+        for g in str(pl.get("groups") or "").split(";"):
+            if len([m for m in g.split(",") if m.strip()]) >= 3:
+                shipped_bad.append((seed, g))
+    check("a DECLARED overhang schema never ships on a group its own "
+          "ordering contradicts: over seeds 1-8 every plan with a 3+ group "
+          "refuses by name, and none ships one",
+          not shipped_bad and refused > 0,
+          f"refused {refused}, shipped impossible {shipped_bad[:3]}")
     #: AND THE GATE IS TWO-SIDED — a PLANTED impossible group must fire it,
     #: or "0 findings" is a check that cannot fail.
     pl = PLN.make_plan(3)
@@ -3649,34 +3546,29 @@ def test_the_overhang_group():
           "GROUP_CONTRADICTS_ITSELF" in PLN.JOINT_CODES)
     #: M-175, the same family one layer out: the contradiction is not inside
     #: the group, it is between the MANDATE and the FLOOR.
-    check("`anaphora` is the one drawable schema whose identity rule "
-          "demands the SAME TOKEN — read off `identity`, never off the "
-          "name, and `consonance` is the control that does not",
+    check("the schemas whose identity rule demands the SAME TOKEN are read "
+          "off `identity`, never off the name — anaphora among them, and "
+          "`consonance` is the control that does not",
           RL.identity_forced(RL.REGISTRY["anaphora"])
           and not RL.identity_forced(RL.REGISTRY["consonance"])
-          and [n for n in RL.DRAWABLE_SCHEMAS
-               if RL.identity_forced(RL.REGISTRY[n])] == ["anaphora"])
+          and {"anaphora", "repetition", "epistrophe / radif"}
+          <= {n for n in RL.REGISTRY if RL.identity_forced(RL.REGISTRY[n])})
     ends = 0
-    for seed in range(1, 41):
-        pl2 = PLN.make_plan(seed)
-        rel2 = pl2.get("relations") or {}
-        for gi, g in enumerate([x for x in str(pl2.get("groups") or "")
-                                .split(";") if x.strip()]):
-            nm = rel2.get(SC.label((gi,)), "")
-            if not nm.startswith("schema:"):
-                continue
-            s2 = RL.REGISTRY.get(nm.split(":", 1)[1])
-            if s2 is None or not RL.identity_forced(s2):
-                continue
+    for seed in range(1, 9):
+        try:
+            pl2 = PLN.make_plan(seed, relation="schema:anaphora")
+        except PLN.PlanRefused:
+            continue
+        for g in [x for x in str(pl2.get("groups") or "").split(";")
+                  if x.strip()]:
             if sum(1 for m in g.split(",")
                    if (m.strip().split(".", 1)[1] if "." in m else "end")
                    in ("end", "endword")) >= 2:
                 ends += 1
-    check("no seed binds a same-token schema at two line ENDS — satisfying "
-          "one means both lines end on the same word, which "
+    check("no plan SHIPS a declared same-token schema at two line ENDS — "
+          "satisfying one means both lines end on the same word, which "
           "`floor.REPEAT_IN_VERSE` flags on a layer that never reads the "
-          "mandate, so the only legal answer trips another gate",
-          ends == 0, f"{ends} such group(s) over seeds 1-40")
+          "mandate", ends == 0, f"{ends} such group(s) over seeds 1-8")
     gs2 = [g for g in str(pl["groups"]).split(";") if g.strip()]
     idx2 = next(i for i, g in enumerate(gs2)
                 if sum(1 for m in g.split(",")
@@ -3710,14 +3602,15 @@ def test_the_placement_route(FAILURES=None):
     # and no word in English could have closed it, because the defect is the
     # PLACEMENT and not the word.
     # ===================================================================
-    check("the registry is what says so — 4 of the drawable schemas declare "
-          "a placement rule a pair of LINE ENDS cannot satisfy, and they are "
-          "the negated `both_line_final`, the two `both_line_initial` and "
-          "the `neither_line_final` one",
-          sorted(n for n in RL.DRAWABLE_SCHEMAS
-                 if not RL.placement_bindable(RL.REGISTRY[n], ("end", "end")))
-          == ["anaphora", "head rhyme (positional)", "interlaced rhyme",
-              "internal rhyme"])
+    check("the registry is what says so — among the token-bindable schemas, "
+          "exactly these declare a placement rule a pair of LINE ENDS "
+          "cannot satisfy",
+          sorted(n for n in RL.REGISTRY
+                 if RL.pair_bindable(RL.REGISTRY[n])
+                 and not RL.placement_bindable(RL.REGISTRY[n], ("end", "end")))
+          == ["anadiplosis", "anaphora", "cross rhyme",
+              "head rhyme (positional)", "interlaced rhyme",
+              "internal rhyme", "linked rhyme"])
     check("...and the predicate is not a blanket refusal — the SAME four "
           "answer True at the placements their own definitions name, and "
           "`internal rhyme` is bindable at an internal slot, which is the "
@@ -3754,68 +3647,49 @@ def test_the_placement_route(FAILURES=None):
               os.path.join(os.path.dirname(PLN.__file__), "plan.py"),
               encoding="utf-8").read())
 
-    seeds = list(range(1, 61))
-    plans = {}
+    # NO RELATION IS DRAWN (2026-09-22): a schema reaches a group only by
+    # DECLARATION, so the filter is exercised on a declared schema whose
+    # placement two line ends cannot satisfy. The gate must refuse such a
+    # plan by name, never ship it.
+    seeds = list(range(1, 21))
+    shipped, refused = {}, 0
     for sd in seeds:
         try:
-            plans[sd] = PLN.make_plan(seed=sd)
-        except Exception:
-            pass
-    check("0 seeds are LOST to this filter — the bare default is always in "
-          "the pool, so a group whose placements refuse every schema still "
-          "draws a relation",
-          len(plans) == len(seeds), f"{len(plans)} of {len(seeds)}")
-    live = [(sd, f) for sd, pl in plans.items() for f in PLN.joint_findings(pl)
+            shipped[sd] = PLN.make_plan(seed=sd,
+                                        relation="schema:internal rhyme")
+        except PLN.PlanRefused:
+            refused += 1
+    live = [(sd, f) for sd, pl in shipped.items()
+            for f in PLN.joint_findings(pl)
             if f[0] == "PLACEMENT_CONTRADICTS_SCHEMA"]
-    check("...and 0 plans carry the finding, so the gate is satisfied BY "
-          "CONSTRUCTION and a MUTATION is the only way to fire it",
-          not live, live[:2])
+    check("a DECLARED `internal rhyme` never ships on a group of line ENDS: "
+          "every plan either refuses or carries no such group, so the gate "
+          "is satisfied BY CONSTRUCTION",
+          not live and refused + len(shipped) == len(seeds),
+          f"refused {refused}, shipped {len(shipped)}, live {live[:2]}")
 
-    # THE MUTATION: the DRAW loses the filter, the GATE keeps it. Patching
-    # `placement_bindable` alone would disable both (doctrine 1 working), so
-    # the gate is stubbed out of `make_plan` and re-run afterwards on the
-    # plans the mutant draw shipped.
-    #
-    # AND SINCE 2026-09-18 IT MUST ALSO LIFT M-120's END NARROWING, which
-    # is a fact about the two rules and not a convenience. This filter
-    # runs on ALL-DEFAULT groups, and an all-default group is END-BOUND by
-    # construction — so M-120's pool at exactly those groups is the six
-    # audible schemas, and every one of the six passes
-    # `placement_bindable(("end", "end"))`, because agreeing on nucleus
-    # and coda at the line-final token is a stronger demand than being
-    # allowed to sit there. M-120 SUBSUMES M-206 at the only groups M-206
-    # guards, so with the narrowing in place this mutation fired on 0 of
-    # 60 seeds and the check below read GREEN for the wrong reason — the
-    # placement filter looking unnecessary is not the placement filter
-    # working. Both are lifted here so the count measures M-206's own
-    # rule, and the subsumption is the reason to keep M-206 rather than
-    # to drop it: widen `audible_as_end_rhyme` by one schema whose
-    # placement rule two ends cannot satisfy and it is load-bearing again
-    # the same hour.
+    # THE MUTATION: the planner's filter is lifted and the joint gate is
+    # stubbed out of `make_plan`; the real gate, re-run on what the mutant
+    # shipped, must then fire.
     _pb, _jf = RL.placement_bindable, PLN.joint_findings
-    _ap206 = PLN._audible_end_pool
     RL.placement_bindable = lambda *a, **k: True
     PLN.joint_findings = lambda plan: []
-    PLN._audible_end_pool = lambda: tuple(RL.DRAWABLE_SCHEMAS)
     try:
         mut = {}
         for sd in seeds:
             try:
-                mut[sd] = PLN.make_plan(seed=sd)
+                mut[sd] = PLN.make_plan(seed=sd,
+                                        relation="schema:internal rhyme")
             except Exception:
                 pass
     finally:
         RL.placement_bindable, PLN.joint_findings = _pb, _jf
-        PLN._audible_end_pool = _ap206
     fired = {sd: [f for f in PLN.joint_findings(pl)
                   if f[0] == "PLACEMENT_CONTRADICTS_SCHEMA"]
              for sd, pl in mut.items()}
     hit = [sd for sd, fs in fired.items() if fs]
-    check("the MUTATION fires it on most of the sweep — the pre-repair "
-          "planner handed the writer a group no vocabulary can close on "
-          "more than half of all seeds",
-          len(hit) > len(mut) // 2,
-          f"{len(hit)} of {len(mut)} seeds, "
+    check("the MUTATION fires the gate on the plans it lets through",
+          len(hit) > 0, f"{len(hit)} of {len(mut)} seeds, "
           f"{sum(len(f) for f in fired.values())} finding(s)")
     ex = fired[hit[0]][0] if hit else None
     check("...and the finding names the schema, the members and the "
@@ -3950,248 +3824,40 @@ def test_the_delegated_rulings(FAILURES=None):
           aud.get("perfect rhyme") is True and aud.get("rime riche") is True
           and aud.get("consonance") is False and aud.get("assonance") is False
           and aud.get("anaphora") is False, f"{aud}")
-    # ═══ MISSING.md M-120 — FLIPPED 2026-09-18, THE DAY THE RULING LANDED ═══
-    # This block PINNED THE ABSENCE until today: the drawable pool was
-    # unfiltered, audibility was a RECORD (M-192's disclosure) and nothing
-    # ruled on it. The owner's delegation ruled (RULINGS WANTED #6 and #18):
-    # AT THE LINE END THE POOL NARROWS TO THE AUDIBLE FAMILY, everywhere else
-    # M-117's uniform draw over the full certified pool is untouched. What is
-    # pinned now is that ruling and nothing wider — four claims, each with the
-    # mutation that removes it:
-    #   (1) the narrowing itself: no end-bound group over seeds 1-40 draws a
-    #       relation a listener does not hear as the lines rhyming;
-    #   (2) the DERIVATION: the end pool is `audible_as_end_rhyme` over
-    #       `DRAWABLE_SCHEMAS` read at call time, never a six written down —
-    #       move the predicate and the pool moves, which a hand list cannot;
-    #   (3) NON-END PLACEMENT IS UNTOUCHED: a group with a member inside a
-    #       line still draws from all 18, inaudible names included;
-    #   (4) a declared `--relation=` still wins and suppresses the draw.
-    # What M-120 still owns, and why the entry does NOT close here: the
-    # narrowing is a DRAW-TIME pool, not a refusal — no `JOINT_CODES` member
-    # refuses a plan for audibility and no `SWEEP_MEASURES` name selects on
-    # it, so a hand-written `--relation=` or `--groups=` still puts whatever
-    # it likes on a line end and the grader stays the final word.
-    m120_inaudible = [n for n in RL.DRAWABLE_SCHEMAS
-                      if not RL.audible_as_end_rhyme(RL.REGISTRY[n])]
-    drawable_aud = [n for n in RL.DRAWABLE_SCHEMAS
-                    if RL.audible_as_end_rhyme(RL.REGISTRY[n])]
-    check("M-120: the drawable pool holds BOTH kinds — 12 of 18 certified "
-          "schemas are inaudible at a line end — which is why narrowing the "
-          "END pool is a rule and not a no-op",
-          0 < len(drawable_aud) < len(RL.DRAWABLE_SCHEMAS)
-          and len(m120_inaudible) == len(RL.DRAWABLE_SCHEMAS)
-          - len(drawable_aud),
-          f"{len(drawable_aud)} audible / {len(m120_inaudible)} inaudible "
-          f"of {len(RL.DRAWABLE_SCHEMAS)}: {drawable_aud}")
-    # ── (1) THE NARROWING ──
-    m120_bad = {k: p["choices"]["audible"]["inaudible"]
-                for k, p in plans.items() if p["choices"]["audible"]["inaudible"]}
+    # ═══ MISSING.md M-120 — SUPERSEDED 2026-09-22: NO RELATION IS DRAWN ═══
+    # The end-pool narrowing narrowed a DRAW, and the planner draws no
+    # relation now: every group a writer declared nothing for is judged
+    # against every coarse relation and every registry schema, so whether a
+    # pair's relations include one heard as end rhyme is decided by the
+    # words and reported per pair (`relations.audible_relations`).
     m120_eb = sum(p["choices"]["audible"]["end_bound"] for p in plans.values())
     m120_bare = sum(p["choices"]["audible"]["bare"] for p in plans.values())
-    check("...and NO plan over seeds 1-40 now draws an inaudible relation at "
-          "an END-BOUND group: 156 end-bound groups, 0 inaudible, 40 of 40 "
-          "plans free of one — against 87 of 156 (55.8%) and 3 of 40 free "
-          "the hour before the ruling (M-192 measured 149 of 250, 59.6% and "
-          "0 of 40 on the 22-schema pool it had)",
-          m120_bad == {} and m120_eb > 0,
-          f"{m120_eb} end-bound groups over seeds 1-40, "
-          f"{sum(len(v) for v in m120_bad.values())} inaudible, "
-          f"{40 - len(m120_bad)} of 40 plans free")
-    check("...and the BARE DEFAULT survives the narrowing at a line end — "
-          "the pool narrowed, it was not replaced by an all-schema mandate, "
-          "and the dice stay flat over whatever pool applies (doctrine 19)",
-          m120_bare > 0,
-          f"{m120_bare} of {m120_eb} end-bound groups on the bare default")
-    # AND THE DICE STAY FLAT OVER THE NARROWED POOL, WHICH IS A BOUND AND
-    # NOT A TASTE. Uniform over pool-plus-default means the bare default is
-    # drawn 1 time in len(pool)+1 per group; the conjunction gate can only
-    # SHRINK a group's accepted subset, never grow it, so the bare share at
-    # a line end cannot sit BELOW 1/(end pool + 1) = 1/7 = 14.3% however the
-    # gate rules. Measured 34.6% (54 of 156), above the floor exactly
-    # because the gate rejects audible candidates on some groups. This is
-    # the clause that catches a narrowing that also REWEIGHTED — a draw
-    # preferring a schema wherever one survives keeps the bare default in
-    # the pool and still drops the share to 10.3%, under the floor.
-    m120_webn = sum(1 for p in plans.values()
-                    for gi, g in enumerate(p["groups"].split(";"))
-                    if g.strip()
-                    and not _PL._end_bound_group([m.strip()
-                                                  for m in g.split(",")]))
-    m120_webbare = sum(
-        1 for p in plans.values()
-        for gi, g in enumerate(p["groups"].split(";"))
-        if g.strip()
-        and not _PL._end_bound_group([m.strip() for m in g.split(",")])
-        and not (p.get("relations") or {}).get(PLN.SC.label((gi,))))
-    check("...and the DICE STAY FLAT over whichever pool applies: the bare "
-          "default is 1 draw in len(pool)+1 and the conjunction gate can "
-          "only shrink a group's subset, so its share at a line end cannot "
-          "fall below 1/(end pool + 1) — and it does not, while the same "
-          "default is correspondingly RARER across the web, where the pool "
-          "is three times the size",
-          m120_bare / m120_eb >= 1 / (len(drawable_aud) + 1)
-          and m120_webbare / m120_webn < m120_bare / m120_eb,
-          f"bare {100 * m120_bare / m120_eb:.1f}% of {m120_eb} end-bound "
-          f"groups (floor 1/{len(drawable_aud) + 1} = "
-          f"{100 / (len(drawable_aud) + 1):.1f}%), "
-          f"{100 * m120_webbare / m120_webn:.1f}% of {m120_webn} off the "
-          f"line end (floor 1/{len(RL.DRAWABLE_SCHEMAS) + 1} = "
-          f"{100 / (len(RL.DRAWABLE_SCHEMAS) + 1):.1f}%)")
-    # AND THE MUTANT THAT PROVES IT IS THE BARE DEFAULT HOLDING THE POOL
-    # OPEN, not luck: hand the draw an EMPTY audible pool. If the bare
-    # default were still seeded into every group's pool the planner plans
-    # all 40 seeds with every end-bound group bare; if the narrowing had
-    # replaced the pool rather than shrunk it, `_ok` is empty at the first
-    # end-bound group and `make_plan` REFUSES — which is exactly what a
-    # source mutant that drops the bare default at a line end does. This is
-    # M-117's own "the bare default keeps the pool non-empty by
-    # construction" asked at pool size ZERO, the size the narrowing could
-    # reach the day a registry edit leaves nothing audible.
-    real_pool = _PL._audible_end_pool
-    try:
-        _PL._audible_end_pool = lambda: ()
-        mut_empty = {k: make_plan(seed=k)["choices"]["audible"] for k in SEEDS}
-    except Exception as _exc:
-        mut_empty = {"refused": repr(_exc)[:90]}
-    finally:
-        _PL._audible_end_pool = real_pool
-    check("...and an EMPTY end pool still plans every seed, with every "
-          "end-bound group on the bare default — the narrowing SHRANK the "
-          "pool, it did not replace it, and the bare default is what keeps "
-          "a narrowed pool non-empty by construction (M-117)",
-          len(mut_empty) == len(SEEDS)
-          and all(v["bare"] == v["end_bound"] and v["audible"] == 0
-                  and not v["inaudible"] for v in mut_empty.values()),
-          f"empty end pool: {len(mut_empty)} of 40 seeds planned, "
-          f"{sum(v['bare'] for v in mut_empty.values() if isinstance(v, dict) and 'bare' in v)} "
-          f"bare of {m120_eb} end-bound groups")
-    # THE MUTATION: hand the draw the FULL pool at a line end and the
-    # inaudible end relations come straight back. Nothing else is touched,
-    # so this isolates the narrowing from every other filter the draw runs.
-    try:
-        _PL._audible_end_pool = lambda: tuple(RL.DRAWABLE_SCHEMAS)
-        mut_full = {k: make_plan(seed=k)["choices"]["audible"] for k in SEEDS}
-    finally:
-        _PL._audible_end_pool = real_pool
-    mut_bad = sum(len(v["inaudible"]) for v in mut_full.values())
-    mut_free = sum(1 for v in mut_full.values() if not v["inaudible"])
-    check("...the MUTATION that un-narrows the end pool brings every one of "
-          "them back, so the narrowing is READ rather than an accident of "
-          "which schemas happen to survive the conjunction gate",
-          mut_bad > 0 and mut_free < len(SEEDS),
-          f"un-narrowed: {mut_bad} inaudible end relations, "
-          f"{mut_free} of 40 plans free")
-    # ── (2) THE DERIVATION, AND IT IS THE POINT ──
-    disc = plans[7]["choices"]["relations"]["end_narrowing"]
-    check("...the narrowing is DISCLOSED on the plan the way every other "
-          "draw is — how many groups drew at a line end, the end pool "
-          "against the certified pool, the names it held, and the predicate "
-          "that derived them",
-          disc["end_pool"] == len(drawable_aud)
-          and disc["full_pool"] == len(RL.DRAWABLE_SCHEMAS)
-          and list(disc["end_pool_names"]) == drawable_aud
-          and disc["derived_by"] == "relations.audible_as_end_rhyme"
-          and all(p["choices"]["relations"]["end_narrowing"]["end_bound_groups"]
-                  == p["choices"]["audible"]["end_bound"]
-                  for p in plans.values()),
-          f"{disc['end_pool']} of {disc['full_pool']}, by "
-          f"{disc['derived_by']}")
-    # THE MUTATION THAT ONLY A DERIVATION SURVIVES: move the PREDICATE, not
-    # the planner. A hand-written six in `plan.py` would be blind to this;
-    # a derivation admits the newly-audible schema to the end pool the same
-    # call, and the dice can then put it on a line end.
-    real_aud = RL.audible_as_end_rhyme
-    try:
-        RL.audible_as_end_rhyme = (
-            lambda sch: real_aud(sch) or sch.name == "consonance")
-        mut_wide = {k: make_plan(seed=k) for k in SEEDS}
-    finally:
-        RL.audible_as_end_rhyme = real_aud
-    wide_disc = mut_wide[7]["choices"]["relations"]["end_narrowing"]
-    wide_drawn = {v.split(":", 1)[1] for p in mut_wide.values()
-                  for v in (p.get("relations") or {}).values()}
-    wide_at_end = any(
-        "consonance" == (p.get("relations") or {}).get(PLN.SC.label((gi,)), "")
-        .split(":")[-1]
-        and _PL._end_bound_group([m.strip() for m in g.split(",")])
-        for p in mut_wide.values()
-        for gi, g in enumerate(p["groups"].split(";")) if g.strip())
-    check("...and MOVING THE PREDICATE moves the pool, which is the whole "
-          "reason the six are not written down here: teach "
-          "`audible_as_end_rhyme` to hear consonance and the end pool grows "
-          "to 7 with nothing in plan.py edited, and the dice put consonance "
-          "on a line end",
-          wide_disc["end_pool"] == len(drawable_aud) + 1
-          and "consonance" in wide_disc["end_pool_names"]
-          and wide_at_end and "consonance" in wide_drawn,
-          f"widened end pool {wide_disc['end_pool']}, consonance at a line "
-          f"end: {wide_at_end}")
-    # ── (3) EVERY OTHER PLACEMENT KEEPS THE FULL POOL ──
-    def _web_inaudible(p):
-        rels = p.get("relations") or {}
-        out = []
-        for gi, g in enumerate(p["groups"].split(";")):
-            if not g.strip():
-                continue
-            if _PL._end_bound_group([m.strip() for m in g.split(",")]):
-                continue
-            nm = rels.get(PLN.SC.label((gi,)), "")
-            nm = nm.split(":", 1)[1] if ":" in nm else ""
-            sch = RL.REGISTRY.get(nm)
-            if sch is not None and not RL.audible_as_end_rhyme(sch):
-                out.append(nm)
-        return out
-    web = {k: _web_inaudible(p) for k, p in plans.items()}
-    check("...and a group with ONE member inside a line keeps the FULL "
-          "certified pool: M-117's uniform draw is untouched off the line "
-          "end, and the schemas the end no longer hears are still drawn "
-          "across the web where they are exactly the figure they are named "
-          "for",
-          sum(len(v) for v in web.values()) > 0
-          and len({n for v in web.values() for n in v}) >= 3,
-          f"{sum(len(v) for v in web.values())} inaudible-at-an-end names "
-          f"still drawn off the line end over seeds 1-40: "
-          f"{sorted({n for v in web.values() for n in v})[:6]}")
-    # THE MUTATION: narrow EVERYWHERE — declare every group end-bound — and
-    # the web loses the twelve, which is the over-reach this claim forbids.
-    real_eb = _PL._end_bound_group
-    try:
-        _PL._end_bound_group = lambda members: True
-        mut_all = {k: make_plan(seed=k) for k in SEEDS}
-    finally:
-        _PL._end_bound_group = real_eb
-    mut_web = sum(len(_web_inaudible(p)) for p in mut_all.values())
-    check("...the MUTATION that narrows EVERY placement strips them from the "
-          "web, so this check would catch a ruling applied too widely as "
-          "surely as one applied not at all",
-          mut_web == 0,
-          f"narrowed everywhere: {mut_web} inaudible names left off the "
-          f"line end")
-    # ── (4) A DECLARED RELATION STILL WINS ──
+    check("M-120 superseded: over seeds 1-40 every END-BOUND group is bare "
+          "(judged against every relation) — 156 end-bound groups, 156 "
+          "bare, none carries an audible or inaudible drawn schema",
+          m120_eb == m120_bare == 156
+          and not any(p["choices"]["audible"]["inaudible"]
+                      or p["choices"]["audible"]["audible"]
+                      for p in plans.values())
+          and "end_narrowing" not in plans[7]["choices"]["relations"],
+          f"{m120_eb} end-bound, {m120_bare} bare")
+    check("...and no planner function narrows an end pool any more",
+          not hasattr(_PL, "_audible_end_pool"))
     m120_decl = make_plan(seed=7, relation="schema:consonance")
-    check("...and a declared --relation STILL WINS: the planner draws "
-          "nothing, narrows nothing and discloses no narrowing, because a "
-          "declared coordinate is carried and never sampled over (M-55) — "
-          "the ruling narrows the DICE, it does not overrule the writer",
+    m120_perf = make_plan(seed=7, relation="schema:perfect rhyme")
+    check("a DECLARED relation is carried, never sampled over (M-55), and "
+          "the audibility record reads IT: consonance is not heard as end "
+          "rhyme, perfect rhyme is",
           m120_decl.get("relations") == {}
-          and "end_narrowing" not in m120_decl["choices"]["relations"]
           and "NOT DRAWN" in m120_decl["choices"]["relations"]["chosen_from"]
-          and m120_decl["relation"] == "schema:consonance",
-          f"drew {len(m120_decl.get('relations') or {})}; "
-          f"{m120_decl['choices']['relations']['chosen_from'][:44]}")
-    check("...and that check is not vacuous — the SAME seed with nothing "
-          "declared draws relations and discloses the narrowing, which is "
-          "the state this one asserts a declaration suppresses",
-          (plans[7].get("relations") or {}) != {}
-          and "end_narrowing" in plans[7]["choices"]["relations"],
-          f"undeclared seed 7 draws {len(plans[7]['relations'])} relations")
-    # ── WHAT M-120 STILL OWNS ──
-    check("...and the narrowing stays a DRAW-TIME POOL, not a refusal: no "
-          "JOINT_CODES member refuses a plan for audibility and no "
-          "SWEEP_MEASURES name selects on it, so a hand-written --relation "
-          "or --groups still puts what it likes on a line end and the "
-          "grader stays the final word (M-73). M-120 is not closed by the "
-          "narrowing alone",
+          and m120_decl["relation"] == "schema:consonance"
+          and m120_decl["choices"]["audible"]["inaudible"] == ["consonance"] * 2
+          and m120_perf["choices"]["audible"]["audible"] == 2,
+          f"{m120_decl['choices']['audible']} / "
+          f"{m120_perf['choices']['audible']}")
+    check("...and audibility stays a RECORD, not a refusal: no JOINT_CODES "
+          "member refuses a plan for audibility and no SWEEP_MEASURES name "
+          "selects on it (M-73)",
           not any("audib" in c.lower() for c in PLN.JOINT_CODES)
           and not any("audib" in m.lower() for m in PLN.SWEEP_MEASURES),
           f"{len(PLN.JOINT_CODES)} joint codes, "
@@ -4203,23 +3869,17 @@ def test_the_delegated_rulings(FAILURES=None):
         + len(p["choices"]["audible"]["inaudible"])
         == p["choices"]["audible"]["end_bound"]
         for p in plans.values())
-    # REPINNED 2026-09-18 WITH THE M-120 RULING. This check used to read
-    # non-vacuity off the INAUDIBLE cell — "the dice can put an inaudible
-    # relation on a line end" — and the ruling below has emptied that cell
-    # on purpose: 0 of 156 end-bound groups over seeds 1-40, against 87
-    # the hour before. Leaving the old clause would have made M-120's own
-    # success read as this check's failure. Non-vacuity is now read off the
-    # two cells the ruling LEAVES populated (audible and the bare default),
-    # and that the third is reachable at all is pinned where it belongs —
-    # by M-120's un-narrowing mutation below, which fills it again.
+    # REPINNED 2026-09-22: undeclared plans populate only the BARE cell
+    # (no relation is drawn); the audible and inaudible cells are read off
+    # the two DECLARED plans above.
     check("...every plan discloses its end-bound groups PARTITIONED — "
           "audible / bare default / inaudible — and the partition is a pure "
           "function of the emitted plan, never summed past itself "
           "(doctrine 79)",
           parts_ok and any(p["choices"]["audible"]["bare"] > 0
                            for p in plans.values())
-          and any(p["choices"]["audible"]["audible"] > 0
-                  for p in plans.values()))
+          and all(p["choices"]["audible"] == _PL.audible_share(p)
+                  for p in (m120_decl, m120_perf)))
     legend_ok, cap_ok, headers_ok = True, True, True
     for k, p in plans.items():
         brief = p["writer_brief"]

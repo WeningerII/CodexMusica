@@ -75,6 +75,13 @@ halves reported:
 `identity` is 18x cleaner on false positives and deletes near rhyme, which is
 exactly what doctrine 94 says a band tuned to agree with identity would do. It
 is reachable, not proposed.
+
+AMENDED 2026-09-24: the default is now `licensed`, not ~~`scalar`~~ -- the
+N-relation model (#375) moved it deliberately, because a pair now stands in
+every relation it supports and a near vowel is judged by the registry schemas
+that name it rather than rounded up to RHYME. The checks that price 0.600
+below are claims about the `scalar` shape and now declare it; checks beside
+them pin what the shipped `licensed` default does with the same pairs.
 """
 
 import itertools
@@ -97,6 +104,10 @@ N_SONNETS = 60
 FAILURES = []
 LEX = Lexicon()
 DECL = Declaration()
+#: The scalar SHAPE, declared. It was the default until the N-relation model
+#: (#375) moved `nucleus_agreement` to "licensed"; the checks that price the
+#: 0.600 cut are claims about this shape and say so.
+SCALAR = Declaration(nucleus_agreement="scalar")
 REDUCED = {"AH", "IH"}
 
 
@@ -118,7 +129,8 @@ def anchor_of(word):
 def rel(a, b, decl=None):
     d = decl or DECL
     aa, bb = anchor_of(a), anchor_of(b)
-    return score(aa, bb, d, a, b)["relation"]
+    # EVERY coarse relation the pair stands in: a set, never one label.
+    return score(aa, bb, d, a, b)["relations"]
 
 
 def aligned(a, b):
@@ -160,25 +172,42 @@ def test_the_threshold_is_a_list_not_an_intuition():
 
 def test_the_priced_cost_of_leaving_it_at_060():
     print("\n2. what 0.600 costs, asserted rather than described")
+    # UPDATED 2026-09-24 (the N-relation model, #375): these checks price the
+    # SCALAR shape, and `scalar` is no longer the default --
+    # `Declaration.nucleus_agreement` became "licensed" deliberately (see its
+    # comment in lyric_harness.py). The cost of 0.600 is a property of the
+    # scalar shape, so it is asserted under a DECLARED `scalar` rather than
+    # under whatever the default happens to be; the two checks after them pin
+    # what the shipped `licensed` default does with the same two pairs.
     n_fo = vowel_sim("AY", "AH")
     check("`five`/`of` is typed RHYME, at nucleus 0.603 against 0.600",
-          rel("five", "of") == "RHYME" and abs(n_fo - 0.603) < 5e-4,
+          "RHYME" in rel("five", "of", SCALAR) and abs(n_fo - 0.603) < 5e-4,
           f"vowel_sim(AY, AH) = {n_fo:.3f}. A margin of 0.003 is a coin flip "
           f"wearing a verdict, and this check exists so that it is VISIBLE "
           f"rather than hidden. It is the declared cost of the incumbent, not "
           f"a defect this file is asking someone to fix quietly.")
     n_bb = vowel_sim("EH", "IY")
     check("`bed`/`bead` AGREE on the nucleus at 0.758",
-          all(channel_agreement(anchor_of("bed"), anchor_of("bead"), DECL)
+          all(channel_agreement(anchor_of("bed"), anchor_of("bead"), SCALAR)
               [:1]) and abs(n_bb - 0.758) < 5e-4,
           f"vowel_sim(EH, IY) = {n_bb:.3f}, comfortably clear of the cut. The "
           f"pair types as CONSONANCE only because the CODAS differ; on the "
           f"nucleus channel alone the harness says a short front vowel and a "
           f"long one agree.")
+    raised = Declaration(theta_nucleus=0.70, nucleus_agreement="scalar")
     check("...and raising the threshold is REACHABLE, so the cost is "
           "demonstrable (doctrine 84)",
-          rel("five", "of", Declaration(theta_nucleus=0.70)) != "RHYME",
-          f"at 0.70 it is {rel('five', 'of', Declaration(theta_nucleus=0.70))}")
+          "RHYME" not in rel("five", "of", raised),
+          f"at 0.70 it is {rel('five', 'of', raised)}")
+    check("the SHIPPED `licensed` default does not type `five`/`of` RHYME",
+          "RHYME" not in rel("five", "of"),
+          f"{rel('five', 'of')}. AY~AH is neither identical nor the licensed "
+          f"unstressed AH~IH, so the coin flip above is no longer the "
+          f"shipped verdict -- it is the scalar shape's, reachable by "
+          f"declaring it.")
+    check("...nor let `bed`/`bead` agree on the nucleus",
+          not channel_agreement(anchor_of("bed"), anchor_of("bead"),
+                                DECL)[0])
 
 
 # ---------------------------------------------------------------------------
@@ -189,8 +218,14 @@ def test_the_shape_is_declared():
     print("\n3. `nucleus_agreement` — the SHAPE of the question, not the cut "
           "(doctrine 1)")
     d = Declaration()
-    check("it defaults to `scalar`, the present behaviour",
-          d.nucleus_agreement == "scalar", repr(d.nucleus_agreement))
+    # UPDATED 2026-09-24: the default moved `scalar` -> `licensed` with the
+    # N-relation model (#375), deliberately -- a near vowel is now judged by
+    # the registry schemas that name it rather than rounded up to RHYME.
+    # Still two-sided: a default quietly reverting to `scalar` (the
+    # `quality/mutate.py` mutant) fails here.
+    check("it defaults to `licensed`, the N-relation model's shape (was "
+          "~~`scalar`~~, #375)",
+          d.nucleus_agreement == "licensed", repr(d.nucleus_agreement))
     check("the licence defaults to exactly one pair, AH~IH",
           tuple(map(tuple, d.nucleus_licence)) == (("AH", "IH"),),
           f"{d.nucleus_licence!r}. Not a judgement about English: see check 4.")
@@ -216,7 +251,7 @@ def test_the_shape_is_declared():
     ident = Declaration(nucleus_agreement="identity")
     lic = Declaration(nucleus_agreement="licensed")
     check("`identity` is reachable and refuses `five`/`of`",
-          rel("five", "of", ident) != "RHYME",
+          "RHYME" not in rel("five", "of", ident),
           f"{rel('five', 'of', ident)}. This is the red team's REFERENCE LINE "
           f"promoted from a number inside a script to a shape a caller can "
           f"select — which is what makes 'identity would delete slant rhyme' "
@@ -226,24 +261,36 @@ def test_the_shape_is_declared():
                                 ident)[0])
     check("`identity` still admits a perfect rhyme, so it is a shape and not "
           "an off switch",
-          rel("nation", "station", ident) == "RHYME")
+          "RHYME" in rel("nation", "station", ident))
     check("`licensed` admits `graces`/`faces` where `identity` refuses it",
-          rel("graces", "faces", lic) == "RHYME"
-          and rel("graces", "faces", ident) != "RHYME",
+          "RHYME" in rel("graces", "faces", lic)
+          and "RHYME" not in rel("graces", "faces", ident),
           f"licensed={rel('graces', 'faces', lic)}, "
           f"identity={rel('graces', 'faces', ident)} — the two-tier rule, and "
           f"the tier it adds is one pair wide")
     check("the licence does NOT reach a stressed pair: `bed`/`bead` stays "
           "refused under `licensed`",
           not channel_agreement(anchor_of("bed"), anchor_of("bead"), lic)[0])
-    check("the shipped `scalar` shape is unaffected by the licence "
-          "coordinates",
-          rel("graces", "faces") == rel("graces", "faces",
-                                        Declaration(nucleus_licence=())),
+    # UPDATED 2026-09-24: this used to read the DEFAULT as the scalar shape.
+    # Since #375 the default is `licensed`, so the scalar claim is asserted
+    # under a declared `scalar`, and the opposite claim -- the licence IS
+    # load-bearing on the shipped default -- is asserted beside it.
+    check("the `scalar` shape is unaffected by the licence coordinates",
+          rel("graces", "faces", SCALAR) == rel(
+              "graces", "faces",
+              Declaration(nucleus_agreement="scalar", nucleus_licence=())),
           "at 0.60 the licensed pair already clears the scalar cut "
-          "(AH~IH = 0.657), so the licence is a NO-OP on the default and only "
-          "becomes load-bearing under a tightening. Said out loud so nobody "
-          "reads it as a shipped behaviour change.")
+          "(AH~IH = 0.657), so under `scalar` the licence is a NO-OP and "
+          "only becomes load-bearing under a tightening.")
+    check("...but on the SHIPPED `licensed` default the licence IS "
+          "load-bearing: emptying it refuses `graces`/`faces` RHYME",
+          "RHYME" in rel("graces", "faces")
+          and "RHYME" not in rel("graces", "faces",
+                                 Declaration(nucleus_licence=())),
+          f"default={rel('graces', 'faces')}, "
+          f"licence=()={rel('graces', 'faces', Declaration(nucleus_licence=()))}"
+          f" -- a shipped behaviour, said out loud because the sentence "
+          f"above used to say the opposite of the default.")
 
 
 # ---------------------------------------------------------------------------
@@ -337,9 +384,9 @@ def test_the_sonnets_cannot_price_this_channel():
           f"dialect, dictionary and metre is not a true-positive cost: it "
           f"prices the `dialect` coordinate, not `theta_nucleus`.")
     check("the reduced-vowel cases are the ones the licence exists for",
-          all(rel(*nm.split("/"),
+          all("RHYME" not in rel(*nm.split("/"),
                   Declaration(theta_nucleus=0.70,
-                              nucleus_agreement="scalar")) != "RHYME"
+                              nucleus_agreement="scalar"))
               for nm in sorted(set(schwa))[:3]),
           f"{sorted(set(schwa))[:6]} — refused by a bare tightening. In each "
           f"the offending SYLLABLE is AH0 against IH0 in an unstressed "

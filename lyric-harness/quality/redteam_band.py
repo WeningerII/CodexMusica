@@ -75,6 +75,17 @@ a setting, and here no setting produces it. The DIRECTION and the SIZE of the
 calibration's effect stand — false positives fall 3.0x — and the digit does
 not.
 
+**REPINNED 2026-09-22 (the N-relation model): ~~2.00% (60 of 3,000)~~ ->
+~~0.20% (6 of 3,000)~~ -> 0.00% (0 of 3,000) and ~~2.10% (84 of 4,000)~~ ->
+~~0.18% (7 of 4,000)~~ -> 0.00% (0 of 4,000)** — the second step the same
+day, when `nucleus_agreement` became "licensed": RHYME now needs the nucleus
+IDENTICAL (bar the unstressed AH~IH licence), which is nearly the reference. The
+statistic is now "RHYME is in the harness's relation SET and not in strict
+identity's", both sides being sets; RHYME needs a lexically stressed first
+syllable and every consonant after the first nucleus (interior onsets
+included) to agree, and the reference line reads the same consonant channel.
+Measured by `python3 quality/redteam_band.py 4000` and `... 3000`.
+
 **REPINNED 2026-08-14: ~~3.57% (107 of 3,000)~~ -> 2.00% (60 of 3,000) and
 ~~3.60% (144 of 4,000)~~ -> 2.10% (84 of 4,000).** The superseded pair is kept
 struck rather than overwritten (doctrine 17), because it is still the correct
@@ -137,10 +148,19 @@ def anchor_of(lex, word):
     return L.anchor(L.syllabify(phones))
 
 
-def identity_label(a, b):
-    """The band's verdict under STRICT IDENTITY, tail-aligned. No judgement.
+#: The relations strict identity can decide, and so the ones this reference
+#: line scores the harness on.
+REFERENCE_RELATIONS = ("RHYME", "ASSONANCE", "CONSONANCE")
 
-    -> 'RHYME' / 'ASSONANCE' / 'CONSONANCE' / 'NO_RELATION'
+
+def identity_relations(a, b):
+    """EVERY relation STRICT IDENTITY supports, tail-aligned. No judgement.
+
+    -> frozenset of 'RHYME' / 'ASSONANCE' / 'CONSONANCE' (empty: none), or
+    None when there is nothing to compare. A pair whose nucleus and coda both
+    agree stands in all three — a perfect rhyme is also assonance and
+    consonance — so the reference is a SET, never one label. CONSONANCE needs
+    a consonant to agree on, as the comparator's does.
 
     Two absent codas AGREE (doctrine 25): `see`/`free` is a perfect rhyme and
     reading empty-vs-empty as disagreement would delete every open-syllable
@@ -151,14 +171,23 @@ def identity_label(a, b):
         return None
     ta, tb = a[-n:], b[-n:]
     nuc = all(ta[i]["nucleus"] == tb[i]["nucleus"] for i in range(n))
-    cod = all(tuple(ta[i]["coda"]) == tuple(tb[i]["coda"]) for i in range(n))
+    # the consonant channel: every coda AND every onset after the first
+    # compared syllable (ki-tchen/li-sten differ in an onset, not a coda)
+    cod = (all(tuple(ta[i]["coda"]) == tuple(tb[i]["coda"]) for i in range(n))
+           and all(tuple(ta[i].get("onset") or ()) == tuple(tb[i].get("onset")
+                                                            or ())
+                   for i in range(1, n)))
+    has_consonant = (any(ta[i]["coda"] or tb[i]["coda"] for i in range(n))
+                     or any(ta[i].get("onset") or tb[i].get("onset")
+                            for i in range(1, n)))
+    out = set()
     if nuc and cod:
-        return "RHYME"
+        out.add("RHYME")
     if nuc:
-        return "ASSONANCE"
-    if cod:
-        return "CONSONANCE"
-    return "NO_RELATION"
+        out.add("ASSONANCE")
+    if cod and has_consonant:
+        out.add("CONSONANCE")
+    return frozenset(out)
 
 
 def margin(a, b, decl):
@@ -343,7 +372,7 @@ def shape_price(decl, pos, neg_anchors, half):
         if k % 2 != half:
             continue
         tot += 1
-        if identity_label(aa, bb) == "RHYME":
+        if "RHYME" in (identity_relations(aa, bb) or ()):
             continue
         if all(L.channel_agreement(aa, bb, decl)):
             fp += 1
@@ -363,6 +392,9 @@ def run(n_pairs=4000):
     rng = random.Random(SEED)
     pairs = sample_pairs(lex, n_pairs, rng)
 
+    # PER RELATION, each a 2x2 of (identity holds it, harness holds it): a
+    # pair carries a SET on both sides, so a pair can be a true positive for
+    # ASSONANCE and a false positive for RHYME at once.
     conf = Counter()
     generous = []          # harness says RHYME, identity does not
     refused = 0
@@ -373,31 +405,35 @@ def run(n_pairs=4000):
             refused += 1
             continue
         anchors.append((aa, bb))
-        truth = identity_label(aa, bb)
-        got = L.score(aa, bb, decl, a, b)["relation"]
-        conf[(truth, got)] += 1
-        if got in ("RHYME", "RIME_RICHE") and truth != "RHYME":
+        truth = identity_relations(aa, bb) or frozenset()
+        rels = L.score(aa, bb, decl, a, b)["relations"]
+        got = {r for r in REFERENCE_RELATIONS if r in rels}
+        if rels & L.RHYME_RELATIONS:
+            got.add("RHYME")
+        conf["judged"] += 1
+        for r in REFERENCE_RELATIONS:
+            conf[(r, r in truth, r in got)] += 1
+        if "RHYME" in got and "RHYME" not in truth:
             nuc, cod = margin(aa, bb, decl)
             generous.append((min(nuc - decl.theta_nucleus,
                                  cod - decl.theta_coda), nuc, cod,
-                             a, b, truth))
+                             a, b, L.relation_label(truth)))
 
-    judged = sum(conf.values())
+    judged = conf["judged"]
     print(f"RED TEAM · conjunctive band · seed {SEED}")
     print(f"  pairs drawn {len(pairs)}   judged {judged}   "
           f"refused by CMUdict {refused}")
     print(f"  reference line: STRICT IDENTITY of tail-aligned nucleus and "
           f"coda. Not ground truth for RHYME -- see this file's docstring.")
     print()
-    labels = ["RHYME", "ASSONANCE", "CONSONANCE", "NO_RELATION"]
-    hdr = "identity vs harness"
-    print(f"  {hdr:<22}" + "".join(f"{g[:11]:>12}"
-                                   for g in labels + ["other"]))
-    for t in labels:
-        row = [conf[(t, g)] for g in labels]
-        other = sum(v for (tt, gg), v in conf.items()
-                    if tt == t and gg not in labels)
-        print(f"  {t:<22}" + "".join(f"{v:>12,}" for v in row + [other]))
+    print("  PER RELATION, identity vs harness (a pair counts in every "
+          "relation on each side; rows overlap by design)")
+    print(f"  {'relation':<12}{'both':>10}{'harness only':>14}"
+          f"{'identity only':>15}{'neither':>10}")
+    for r in REFERENCE_RELATIONS:
+        print(f"  {r:<12}{conf[(r, True, True)]:>10,}"
+              f"{conf[(r, False, True)]:>14,}{conf[(r, True, False)]:>15,}"
+              f"{conf[(r, False, False)]:>10,}")
 
     print()
     print(f"  ADMITTED AS RHYME WHERE IDENTITY SAYS OTHERWISE: "
@@ -411,25 +447,21 @@ def run(n_pairs=4000):
 
     print()
     print("  THETA SWEEP -- doctrine 22: a threshold is a RATE, not a point.")
-    # WHICH DOOR THIS SWEEP READS, SAID ON THE REPORT (2026-09-01, `MISSING.md`
-    # M-138 ruled under the owner's delegation): the NARROW relation set
-    # {RHYME, RIME_RICHE} of the comparator's own band — adversary 3's
-    # subject — and not `decl.admit` (M-59) nor the 77-schema default
-    # (M-116). The chance rate of THOSE doors is `quality/chance_rate.py`'s
-    # question and is not this instrument's to answer; pricing a near
-    # relation's admission is the calibration M-138 asks for and this sweep
-    # cannot supply.
-    print("  DOOR READ: the comparator's NARROW band {RHYME, RIME_RICHE} at "
-          "each theta -- not `decl.admit`, not the 77-schema default; "
-          "those doors' chance rates are quality/chance_rate.py's.")
+    # WHICH RELATION THIS SWEEP READS, SAID ON THE REPORT: whether RHYME (any
+    # of `RHYME_RELATIONS`) is IN the pair's relation set — adversary 3's
+    # subject. The other relations and the schemas are consulted for every
+    # pair by the grader; their chance rates are `quality/chance_rate.py`'s.
+    print("  RELATION READ: the RHYME family of the comparator's relation set "
+          "at each theta -- the other relations' and the schemas' chance "
+          "rates are quality/chance_rate.py's.")
     print(f"  {'theta_nucleus':>14}{'admitted RHYME':>18}"
           f"{'vs identity RHYME':>20}{'excess':>10}")
-    id_rhyme = sum(v for (t, _), v in conf.items() if t == "RHYME")
+    id_rhyme = conf[("RHYME", True, True)] + conf[("RHYME", True, False)]
     for th in (0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.90, 1.00):
         d2 = L.Declaration(theta_nucleus=th)
         k = 0
         for aa, bb in anchors:
-            if L.score(aa, bb, d2)["relation"] in ("RHYME", "RIME_RICHE"):
+            if L.score(aa, bb, d2)["relations"] & L.RHYME_RELATIONS:
                 k += 1
         mark = "  <- shipped" if abs(th - decl.theta_nucleus) < 1e-9 else ""
         print(f"  {th:>14.2f}{k:>18,}{id_rhyme:>20,}"

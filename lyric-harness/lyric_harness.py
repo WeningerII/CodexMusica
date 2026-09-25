@@ -407,14 +407,20 @@ def channel_profile(profile):
 # validator cannot drift (doctrine 1). They lived 2,000 lines below
 # the class until 2026-08-22, which is why the default was a
 # hand-typed literal that could disagree with the validator.
-RHYME_RELATIONS = {"RHYME", "RIME_RICHE"}
-#: Named relations the conjunctive band produces that are NOT rhyme. They are
-#: members of the taxonomy, not failures, and consumers that ask "is this a
-#: rhyme?" must answer no while the graph keeps the name.
+#: PROMOTED_RHYME is rhyme on a PROMOTED final syllable — the bare
+#: line-final syllable `Declaration.final_promotion` stresses because sung
+#: verse does (argument/spent on -ment). It is its own relation, not RHYME:
+#: the lexical stress is elsewhere. A pair may stand in it and in any other.
+RHYME_RELATIONS = {"RHYME", "RIME_RICHE", "PROMOTED_RHYME"}
+#: The near relations: nucleus agreement (ASSONANCE) and consonant agreement
+#: (CONSONANCE). Each is an independent predicate — a perfect rhyme stands in
+#: both as well as in RHYME. "Is this a rhyme?" is
+#: `bool(relations & RHYME_RELATIONS)`, never "which box is it in".
 NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
 
-#: What a Declaration may ADMIT as satisfying a mandate (`Declaration.admit`).
-#: The default is the historical pair; the near relations are LEGAL DECLARED
+#: What a Declaration may ADMIT as satisfying a mandate (`Declaration.admit`);
+#: a pair satisfies when ANY relation it stands in is admitted at its cut.
+#: ~~The default is the historical pair~~; the near relations are LEGAL DECLARED
 #: MOVES — the owner's 2026-08-18 finding: a 601-entry world survey
 #: (quality/RHYME_CANON.md), ~116 canonical structures, 49 named engine
 #: types, and the grader's door admitted two. ~~Widening is BY
@@ -422,7 +428,7 @@ NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
 #: violates, because a mandate satisfied by any near-miss is the
 #: sun/much leak wearing a liberty's name.~~ STRUCK BY THE OWNER
 #: 2026-08-22. The sun/much leak was closed by the CONJUNCTIVE BAND,
-#: which RELABELS the pair as ASSONANCE (doctrines 3/24) — it was never
+#: under which the pair stands in ASSONANCE and not RHYME — it was never
 #: this door that closed it, and citing the closed leak to keep the
 #: door shut charged the same defect twice. `Declaration.admit` now
 #: DEFAULTS to this whole set; narrowing stays available and is the
@@ -442,16 +448,14 @@ CODA_EMPTY_EVIDENCE = frozenset({"gift", "zero", "cannot_tell"})
 def admit_is_default(decl):
     """True when the declaration's admit set is the derived default.
 
-    THE ONE GATE ON THE WHOLE-VOCABULARY RESCUE (M-116, refined
-    2026-08-25 under the owner's M-121 delegation): the rescue is the
-    reading of a mandate that declared NOTHING, and a caller who NARROWED
-    `Declaration.admit` has declared a door — "a cell that genuinely wants
-    perfect rhyme only says so and gets exactly the old behaviour" has
-    been this file's standing sentence since the ban shipped, and a rescue
-    that overrode the narrowing would be a declared coordinate silently
-    outranked by another layer's default (doctrine 1). One definition,
-    consulted by BOTH readers of the default (`check_scheme` here and
-    `quality.revise.grade`), so they cannot drift about when it applies.
+    Every mandated pair is judged against every relation — the coarse ones
+    and every registry schema — and its schema names are recorded whatever
+    the declaration says. What this gate decides is whether a SCHEMA counts
+    toward satisfaction: a caller who NARROWED `Declaration.admit` has
+    declared which relations satisfy ("a cell that genuinely wants perfect
+    rhyme only says so"), and a schema overriding that narrowing would be a
+    declared coordinate silently outranked (doctrine 1). One definition,
+    read by `check_scheme` here and `quality.revise.grade`.
     """
     return frozenset(decl.admit) == ADMITTABLE_RELATIONS
 
@@ -571,8 +575,14 @@ class Declaration:
     # re-cutting them is a different sitting with a different canon arm.
     # An empty dict restores the pre-pricing behaviour exactly, which is the
     # narrowing direction this file keeps available on every door.
+    # ASSONANCE RE-ADOPTED 2026-09-23 at ~~0.82~~ -> 0.75: under the licensed
+    # nucleus (identity + the unstressed AH~IH licence) a pair stands in
+    # ASSONANCE only when its stressed vowels are identical, and
+    # `quality/near_relation_pricing.py --check` re-derives the smallest cut
+    # on the preregistered sweep under 2x the canon arm in all four cells as
+    # 0.75 (the 0.82 cut read 0.76x..0.93x). Same rule, same target.
     theta_by_relation: dict = field(default_factory=lambda: {
-        "ASSONANCE": 0.82, "CONSONANCE": 0.75,
+        "ASSONANCE": 0.75, "CONSONANCE": 0.75,
     })
     # `theta_repeat_onset: float = 0.95` STOOD HERE UNTIL 2026-08-15, described
     # as "onset similarity above which full identity is REPEAT/rime riche
@@ -705,10 +715,10 @@ class Declaration:
     # already pays the full true-positive cost and still admits `wall`/`floor`.
     # There is no cut that buys the fix, which is why this is a SHAPE change.
     #
-    # Doctrine 24 still governs the consequence: this decides RHYME vs
-    # ASSONANCE, it does not reject. `wall`/`floor` is ASSONANCE now -- a named
-    # member of the taxonomy, identical nucleus, differing coda -- not a
-    # non-relation, and the graph keeps the edge and the name.
+    # Doctrine 24 still governs the consequence: this decides whether the
+    # pair stands in RHYME (and CONSONANCE), it does not reject. `wall`/`floor`
+    # stands in ASSONANCE -- identical nucleus, differing coda -- not in
+    # RHYME, and the graph keeps the edge and the name.
     coda_agreement: str = "identity"          # "scalar"|"identity"|"licensed"
     # Unordered consonant pairs that AGREE in a coda without being identical.
     #
@@ -816,7 +826,16 @@ class Declaration:
     #               to agree with identity would do. Reachable so the claim is
     #               checkable, NOT proposed.
     #   "licensed"  identity plus `nucleus_licence`, the two-tier rule.
-    nucleus_agreement: str = "scalar"          # "scalar"|"identity"|"licensed"
+    #               THE DEFAULT SINCE THE N-RELATION MODEL. The objection
+    #               above to identity was that it "deletes every near rhyme"
+    #               — true only while a pair could hold ONE relation, so a
+    #               near rhyme had to be typed RHYME or fail. A pair now
+    #               stands in every relation it supports and is judged
+    #               against every registry schema, so a near vowel is judged
+    #               by the schemas that name it (family, slant...) and RHYME
+    #               and ASSONANCE mean the vowel agrees: bread/lid, bud/red
+    #               and black/thick no longer round up to RHYME.
+    nucleus_agreement: str = "licensed"        # "scalar"|"identity"|"licensed"
     # Unordered vowel pairs that AGREE without being identical, for the
     # `licensed` shape. The default holds exactly one pair and it is not a
     # judgement about English: CMUdict writes ONE reduced vowel two ways, and
@@ -870,7 +889,8 @@ class Declaration:
     #         through `trailing_syllable_penalty`, rather than twice.
     #   tail  rhyme is a suffix relation, so the last syllables must face each
     #         other. This is what the BAND asks, and the band is what decides
-    #         RHYME vs ASSONANCE vs CONSONANCE.
+    #         which of RHYME, ASSONANCE and CONSONANCE the pair stands in
+    #         (any number of them, each its own predicate).
     # The scalar is a magnitude and the band is a verdict; they are allowed to
     # read the same anchors differently as long as which one does what is
     # DECLARED. Before this field it was not.
@@ -2719,6 +2739,7 @@ def line_anchors(lex, text, promote=False, endpoint_pronunciations=None):
             if len(a) >= 2:
                 last_syl = dict(a[-1])
                 last_syl["stress"] = 1
+                last_syl["promoted"] = True
                 promoted.append([last_syl])
         anchors.extend(promoted)
     # dedup identical anchors
@@ -3055,7 +3076,7 @@ class Scored(dict):
         formats the object rather than digging out `["total"]` cannot print a
         bare number by accident.
 
-    Everything a reader did before still works: `s["total"]`, `s["relation"]`,
+    Everything a reader did before still works: `s["total"]`, `s["relations"]`,
     `s["flags"]`, `s["spans"]["a"]`. Nothing about the verdict moves; this is
     a reporting change and `battery.py` is the pin on that (test 7 of
     `quality/test_spans.py`).
@@ -3087,8 +3108,8 @@ class Scored(dict):
         return self["total"]
 
     @property
-    def relation(self):
-        return self["relation"]
+    def relations(self):
+        return self["relations"]
 
     @property
     def spans(self):
@@ -3102,7 +3123,7 @@ class Scored(dict):
 
     def __str__(self):
         note = spans_note(self)
-        head = f"{self['total']}  {self['relation']}"
+        head = f"{self['total']}  {relation_label(self)}"
         return f"{head}   {note}" if note else head
 
 
@@ -3163,7 +3184,7 @@ def report_pair(s, word_a, word_b, indent="        "):
     suppressing the number, because the mosaic reach is correct behaviour and
     only the report was wrong.
     """
-    head = f"({word_a}/{word_b}): {s['total']}  {s['relation']}"
+    head = f"({word_a}/{word_b}): {s['total']}  {relation_label(s)}"
     sp = (s or {}).get("spans")
     if not sp:
         return [head]
@@ -3223,16 +3244,28 @@ def best_score(ancs_a, ancs_b, decl, word_a=None, word_b=None, profile=None):
     cand_a = ancs_a or [[]]
     cand_b = ancs_b or [[]]
     best, won, ties, k = None, (None, None), 0, 0
+    rel_totals = {}
     for aa in cand_a:
         for ab in cand_b:
             k += 1
             s = score(aa, ab, decl, word_a, word_b, profile=profile)
+            # EVERY reading counts toward the relations the pair stands in:
+            # a relation one pronunciation or span supports is not thrown
+            # away because another comparison scored higher.
+            for r in s["relations"]:
+                if r not in rel_totals or s["total"] > rel_totals[r]:
+                    rel_totals[r] = s["total"]
             if best is None or s["total"] > best["total"]:
                 best, won, ties = s, (aa, ab), 1
             elif s["total"] == best["total"]:
                 ties += 1
     if best is None:
         return best
+    best = dict(best)
+    if NO_ANCHOR in rel_totals and len(rel_totals) > 1:
+        rel_totals.pop(NO_ANCHOR)
+    best["relations"] = frozenset(rel_totals)
+    best["relation_totals"] = rel_totals
     pa, pb = span_provenance(won[0]), span_provenance(won[1])
     mosaic_a = bool(pa and not pa["endword_only"])
     mosaic_b = bool(pb and not pb["endword_only"])
@@ -3324,8 +3357,10 @@ def spelled_rime(word, stress_from_end=None):
     different-spelling pairs (bone/sown, prayer/hair) are where a writer
     has actually reached, and they are judged by the frequency tier
     instead. y counts as a vowel letter (day/way share 'ay'); w does not
-    (sown's rime is 'own'). Only ever consulted on pairs the comparator
-    already ADMITS, so eye-rhymes (come/home) never reach it.
+    (sown's rime is 'own'). Consulted on mandated pairs the grade found
+    SATISFIED — standing in any admitted relation, coarse or schema — so an
+    eye-rhyme (come/home) reaches it only when its sound stands in some
+    relation, and is then banned by its spelling like any other.
 
     `stress_from_end` anchors the rime at the RHYMING syllable, counted in
     vowel groups from the end (1 = the last), exactly as the approved
@@ -3374,29 +3409,87 @@ def spelled_rime(word, stress_from_end=None):
     return w[start:]
 
 
-def admits(s, theta, relations=None):
-    """Does this scored pair count as satisfying a mandate at `theta`?
+def admits(s, theta, relations=None, cuts=None):
+    """Does this scored pair stand in ANY allowed relation at its cut?
 
-    Two conditions, and the second is what the conjunctive band adds: the
-    scalar has to clear the band AND the relation has to be in the admitted
-    set. Before this, an ASSONANCE edge whose nucleus carried it over theta
-    was admitted as rhyme -- that is the sun/much leak, and it lives here
-    rather than in the comparator.
-
-    `relations` is `Declaration.admit` when a declaration is in play and
-    None everywhere else — None means the historical {RHYME, RIME_RICHE},
-    so every caller that never learned the coordinate behaves byte-for-byte
-    as it always has. A declared set is validated against
-    ADMITTABLE_RELATIONS by the Declaration, not re-checked here.
+    `bool(admitted_relations(...))`: the pair satisfies when at least one
+    relation it stands in is allowed and its total clears that relation's
+    cut (`cuts[rel]`, else `theta`). `relations` narrows which relations
+    may count — `Declaration.admit` when a declaration is in play; None
+    means every one of ADMITTABLE_RELATIONS. A declared set is validated
+    by the Declaration, not re-checked here.
     """
-    rel = RHYME_RELATIONS if relations is None else relations
-    return s is not None and s["total"] >= theta and \
-        s["relation"] in rel
+    return bool(admitted_relations(s, theta, relations, cuts))
+
+
+def relation_label(s_or_rels):
+    """-> the relations a pair stands in, printable: `ASSONANCE+RHYME`, or
+    `NO_RELATION` for none. A display of the SET, never a choice from it."""
+    rels = (s_or_rels.get("relations", ()) if isinstance(s_or_rels, dict)
+            else (s_or_rels or ()))
+    return "+".join(sorted(rels)) if rels else "NO_RELATION"
+
+
+def relation_totals(s):
+    """-> {relation: scalar} — the best total at which the pair stands in
+    each relation it stands in. A plain `score()` has one total for all of
+    them; a `best_score()` search keeps, per relation, the best comparison
+    that supports THAT relation."""
+    if s is None:
+        return {}
+    rt = s.get("relation_totals")
+    if rt is not None:
+        return rt
+    return {r: s["total"] for r in s.get("relations", ())}
+
+
+def admitted_relations(s, theta, relations=None, cuts=None):
+    """-> the set of relations this scored pair satisfies at the cuts.
+
+    A pair is judged in EVERY relation it stands in, each at its own cut
+    (`cuts[rel]`, else `theta`); the answer is the set, never one label.
+    `relations` narrows which relations may count (None = every admittable
+    relation)."""
+    if s is None:
+        return frozenset()
+    allowed = ADMITTABLE_RELATIONS if relations is None else relations
+    cuts = cuts or {}
+    return frozenset(r for r, t in relation_totals(s).items()
+                     if r in allowed and t >= cuts.get(r, theta))
+
+
+def unadmitted_reason(s, decl):
+    """-> the sentence for a pair that stands in NO admitted relation at its
+    cut, saying WHICH of the two it is: none of the relations the pair
+    stands in is in `decl.admit`, or each admitted one it stands in is
+    below its own cut (named, with the total that supports it)."""
+    head = (f"{relation_label(s)}: no admitted relation at its cut "
+            f"(theta_rhyme={decl.theta_rhyme}; per-relation cuts "
+            f"{dict(decl.theta_by_relation)})")
+    rt = relation_totals(s)
+    adm = sorted(r for r in rt if r in decl.admit)
+    if not adm:
+        return (f"{head} — none of the relations it stands in is in the "
+                f"declared admit set {sorted(decl.admit)}")
+    return (f"{head} — below the cut of every admitted relation it stands "
+            f"in: " + ", ".join(
+                f"{r} {rt[r]} < "
+                f"{decl.theta_by_relation.get(r, decl.theta_rhyme)}"
+                for r in adm))
+
+
+def admits_decl(s, decl, relations=None):
+    """`admits` at a Declaration's own admit set and per-relation cuts."""
+    return admits(s, decl.theta_rhyme,
+                  relations=(frozenset(decl.admit) if relations is None
+                             else relations),
+                  cuts=decl.theta_by_relation)
 
 
 def theta_for(s, decl):
-    """-> the cut THIS pair is judged at: `decl.theta_by_relation` for its
-    relation, `decl.theta_rhyme` otherwise.
+    """-> the cut THIS pair is judged at. Given a relation NAME, that
+    relation's cut (`decl.theta_by_relation`, else `decl.theta_rhyme`);
+    given a scored pair, the LOWEST cut among the relations it stands in.
 
     A SEPARATE FUNCTION RATHER THAN A PARAMETER OF `admits()`, deliberately.
     `admits()` is ONE predicate with ONE definition and twenty callers, most
@@ -3414,7 +3507,7 @@ def theta_for(s, decl):
 
       `check_scheme`'s violation chain and its transitivity closure (here),
       `quality.revise.Reviser.grade`'s violation chain,
-      `quality.revise.Reviser._field` at `field_band="grader"`, whose own
+      `quality.revise.Reviser._field_split` (the `field_band="grader"` arm), whose own
         docstring promises it asks the verdict's question (M-139 fixed the
         same site for the same class of miss once already), and
       `quality.recover.recover`'s edge admit, which is the FOURTH and
@@ -3425,10 +3518,11 @@ def theta_for(s, decl):
         when its caller declared no `theta`; a declared flat cut still wins,
         because that is a caller stating the coordinate.
 
-    and the sites that DO NOT read it, each because it is asking something
-    else, are `negative_control.py` (the control of the BAND — folding a
-    mandate cut in would change what it is a control of, doctrine 14),
-    `redteam_band.py` (adversary 3's subject is the NARROW door and it says
+    (each reads the cut through `theta_for`, `admits_decl` or
+    `decl.theta_by_relation`; `negative_control.py` joined them 2026-09-22,
+    reading the declaration's own cuts through `admits_decl`), and the sites
+    that DO NOT read it, each because it is asking something else, are
+    `redteam_band.py` (adversary 3's subject is the band itself and it says
     so), `_derive_mandate`'s clique graph (it takes its own `theta` as an
     argument and answers "which lines already rhyme", not "is this mandate
     satisfied"), and the collision cuts, which are a scalar question at
@@ -3439,7 +3533,13 @@ def theta_for(s, decl):
     """
     if s is None:
         return decl.theta_rhyme
-    return decl.theta_by_relation.get(s["relation"], decl.theta_rhyme)
+    if isinstance(s, str):
+        return decl.theta_by_relation.get(s, decl.theta_rhyme)
+    # A pair stands in several relations, each with its own cut; the cut a
+    # pair is judged at is the LOWEST among the relations it stands in.
+    return min((decl.theta_by_relation.get(r, decl.theta_rhyme)
+                for r in s.get("relations", ()) if r in ADMITTABLE_RELATIONS),
+               default=decl.theta_rhyme)
 
 #: THE UNINTENDED-RHYME CUT, and it lives HERE because two modules apply it to
 #: the same question and one definition is the only thing that keeps them
@@ -3620,6 +3720,19 @@ def channel_agreement(anc_a, anc_b, decl):
         # suite would report that as strength.
         codas = [float("inf") if coda_agrees([x], [y], decl)
                  else float("-inf") for x, y in zip(ta, tb)]
+    # EVERY CONSONANT AFTER THE FIRST COMPARED NUCLEUS IS PART OF THE RHYME.
+    # Syllabification hands an intervocalic consonant to the NEXT syllable's
+    # onset (ki·tchen, li·sten), so reading codas alone let `kitchen`/`listen`
+    # (CH against S) and `pepper`/`letter` pass as full agreement. Only the
+    # onset of the first compared syllable is outside the rhyme; the onsets
+    # of the syllables after it are compared under the same shape as codas.
+    for i in range(1, n):
+        oa, ob = list(ta[i].get("onset") or []), list(tb[i].get("onset") or [])
+        if decl.coda_agreement == "scalar":
+            codas.append(1.0 if (not oa and not ob) else cluster_sim(oa, ob))
+        else:
+            codas.append(float("inf") if coda_agrees(
+                [{"coda": oa}], [{"coda": ob}], decl) else float("-inf"))
     return nuc >= decl.theta_nucleus, min(codas) >= decl.theta_coda
 
 
@@ -3638,10 +3751,13 @@ def _own_onset(syl):
 
 def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
     """Score two anchors. Returns dict with total, per-channel sub-scores,
-    relation (RHYME / REPEAT / RIME_RICHE band flags), and value flags."""
-    out = {"total": 0.0, "syllables": [], "relation": "RHYME", "flags": []}
+    `relations` (the FROZENSET of every coarse relation the pair stands in,
+    each an independent predicate: RHYME, RIME_RICHE, PROMOTED_RHYME,
+    ASSONANCE, CONSONANCE, REPEAT), and value flags."""
+    out = {"total": 0.0, "syllables": [], "relations": frozenset(),
+           "flags": []}
     if not anc_a or not anc_b:
-        out["relation"] = "NO_ANCHOR"
+        out["relations"] = frozenset({NO_ANCHOR})
         return out
     # WHICH END THE COMPARISON ALIGNS FROM IS A DECLARED COORDINATE, and it is
     # deliberately NOT the same as `channel_agreement`'s. See
@@ -3780,21 +3896,47 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
         # off an `assonance`-profile call see that the coda was never asked.
         out["flags"].append(
             "conjunctive band: off (profile coda weight 0.0 — RHYME here "
-            "is nucleus agreement only; ASSONANCE/CONSONANCE cannot be "
-            "emitted, M-136 (2))")
-    if conj and out["relation"] == "RHYME":
-        nuc_ok, coda_ok = channel_agreement(anc_a, anc_b, decl)
-        if nuc_ok and not coda_ok:
-            out["relation"] = "ASSONANCE"
-            out["flags"].append(
-                "conjunctive band: nucleus agrees, coda does not")
-        elif coda_ok and not nuc_ok:
-            out["relation"] = "CONSONANCE"
-            out["flags"].append(
-                "conjunctive band: coda agrees, nucleus does not")
-        elif not nuc_ok and not coda_ok:
-            out["relation"] = "NO_RELATION"
-            out["flags"].append("conjunctive band: neither channel agrees")
+            "is not gated on channel agreement, M-136 (2))")
+    # A PAIR STANDS IN EVERY RELATION ITS SOUND SUPPORTS, NOT IN ONE.
+    # Each relation is its own predicate over the channels, computed
+    # independently: a perfect rhyme is also assonance and consonance,
+    # rime riche is also rhyme. Nothing here picks one label or lets one
+    # relation overwrite another; which of them a mandate accepts is the
+    # admit set's question (`admits`), and bans are the floor's.
+    nuc_ok, coda_ok = channel_agreement(anc_a, anc_b, decl)
+    _m = min(len(anc_a), len(anc_b))
+    _ta, _tb = anc_a[-_m:], anc_b[-_m:]
+    has_consonant = any(x["coda"] or y["coda"] for x, y in zip(_ta, _tb)) \
+        or any((_ta[i].get("onset") or _tb[i].get("onset"))
+               for i in range(1, _m))
+    # THE COARSE RELATIONS START ON A STRESSED SYLLABLE IN BOTH MEMBERS.
+    # A span whose first compared syllable is unstressed (`-chen`/`-sten`,
+    # the last syllable of `kitchen`/`listen`) agrees only in weak
+    # syllables: that is the registry's `syllabic rhyme`, judged there, not
+    # RHYME, ASSONANCE or CONSONANCE here.
+    # A syllable whose stress was PROMOTED (the bare line-final syllable
+    # `Declaration.final_promotion` adds) is not a lexically stressed one:
+    # agreement from it is the registry's syllabic/wrenched rhyme.
+    stressed = bool(_m) and all(
+        x.get("stress", 0) > 0 and not x.get("promoted")
+        for x in (_ta[0], _tb[0]))
+    if _m and (_ta[0].get("promoted") or _tb[0].get("promoted")):
+        out["flags"].append("promoted final: agreement on a promoted "
+                            "syllable is not a coarse relation")
+    rels = set()
+    if stressed and (not conj or (nuc_ok and coda_ok)):
+        rels.add("RHYME")
+    if (not stressed and _m
+            and (_ta[0].get("promoted") or _tb[0].get("promoted"))
+            and all(x.get("stress", 0) > 0 for x in (_ta[0], _tb[0]))
+            and (not conj or (nuc_ok and coda_ok))):
+        rels.add("PROMOTED_RHYME")
+    if stressed and nuc_ok:
+        rels.add("ASSONANCE")
+    if stressed and coda_ok and has_consonant:
+        rels.add("CONSONANCE")
+    if not rels:
+        out["flags"].append("conjunctive band: neither channel agrees")
 
     # band-pass: identity is not rhyme
     if not (word_a and word_b):
@@ -3827,10 +3969,10 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
             and _own_onset(anc_a[i]) == _own_onset(anc_b[i])
             for i in range(n)))
         if wa == wb:
-            out["relation"] = "REPEAT"
+            rels.add("REPEAT")
             out["flags"].append("identical_word")
-        elif full_identity:
-            out["relation"] = "RIME_RICHE"
+        elif full_identity and stressed:
+            rels.add("RIME_RICHE")
             out["flags"].append("band_edge: identical sound, different word")
         if frozenset((la, lb)) in CLICHE_PAIRS:
             out["flags"].append("cliche_pair")
@@ -3842,6 +3984,7 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
         _suf = shared_ending(la, lb)
         if _suf:
             out["flags"].append(f"shared_suffix: -{_suf}")
+    out["relations"] = frozenset(rels)
     return out
 
 
@@ -3922,6 +4065,12 @@ SHARED_ENDING_CASES = (
 
 def ending_carries_the_rhyme(word_a, word_b, lex=None, decl=None, suffix=None):
     """Is the shared ending the WHOLE of the rhyme? -> (verdict, ending, why).
+
+    "The rhyme" here is the agreement at the pair's END — whatever relations
+    the pair stands in there (RHYME, ASSONANCE, CONSONANCE alike); the
+    question is whether that ending agreement is ONLY the shared grammatical
+    ending. It is decided in the spelling, so it answers once for all of
+    them.
 
     THE OWNER'S RULING, 2026-08-24 (`MISSING.md` M-90), verbatim: the finding
     should fire *"only when the ending is the whole of the rhyme"*.
@@ -4020,16 +4169,22 @@ class CandidateEngine:
             if word == query_word:
                 continue
             s = score(anc_q, anc, self.decl, query_word, word)
-            if s["relation"] == "RIME_RICHE" and not include_perfect:
+            if "RIME_RICHE" in s["relations"] and not include_perfect:
                 continue
             if s["total"] >= self.decl.theta_rhyme - 0.15:
                 scored.append((s["total"], rank, word, s))
         scored.sort(key=lambda t: (-t[0], t[1]))
         out = []
         for tot, rank, word, s in scored[:n]:
-            tier = ("perfect" if tot >= 0.97 else
-                    "strong" if tot >= self.decl.theta_rhyme else "slant")
-            out.append({"word": word, "score": tot, "tier": tier,
+            # EVERY relation the candidate stands in with the query, each at
+            # its own cut (a perfect rhyme is also assonance and
+            # consonance); no scalar tier stands in for them.
+            rels = set(admitted_relations(s, self.decl.theta_rhyme,
+                                          cuts=self.decl.theta_by_relation))
+            if "REPEAT" in s["relations"]:
+                rels.add("REPEAT")
+            out.append({"word": word, "score": tot,
+                        "relations": sorted(rels),
                         "flags": s["flags"]})
         return {"query": text, "anchor_syllables": len(anc_q),
                 "oov": oov, "candidates": out}
@@ -4154,7 +4309,7 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                 reading_verdict = coarse_relation_consensus(
                     lex, lines[i], lines[j], decl, profile=profile,
                     promote=decl.final_promotion,
-                    relation=None if same else s["relation"],
+                    relation=None if same else s["relations"],
                     min_score=None if same else THETA_COLLISION)
             s["reading_verdict"] = reading_verdict
             if same:
@@ -4167,63 +4322,31 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                                   "the declared relation; the reading is unresolved."})
                     refused.add((i + 1, j + 1))
                     continue
-                if s["relation"] == "REPEAT":
+                if "REPEAT" in s["relations"]:
+                    # Identity has its own licence machinery (doctrine 3):
+                    # the same word at two ends of a rhyme group is charged
+                    # by the floor's rule, whatever else the pair is.
                     violations.append(
                         (i + 1, j + 1, s["total"],
                          "REPEAT not rhyme (identical word)"))
                 elif reading_verdict is True:
                     continue
-                elif admits(s, theta_for(s, decl), relations=frozenset(decl.admit)):
+                elif admits_decl(s, decl):
                     violations.append((i + 1, j + 1, s["total"],
                         "No permitted endpoint reading satisfies the declaration"))
-                elif s["relation"] in NEAR_RELATIONS and \
-                        s["relation"] not in decl.admit:
-                    # An ADMITTED near relation falls through to `admits()`
-                    # below and satisfies on its scalar — the declared
-                    # widening (`Declaration.admit`), never the default.
-                    violations.append(
-                        (i + 1, j + 1, s["total"],
-                         f"{s['relation']} not rhyme (conjunctive band; "
-                         f"not in the declared admit set)"))
-                elif s["relation"] == NO_ANCHOR:
+                elif NO_ANCHOR in s["relations"]:
                     # Unreachable via an unreadable END word (those are already
                     # in `refusals`); reachable if a line has no word tokens.
                     violations.append(
                         (i + 1, j + 1, s["total"],
                          "NO_ANCHOR: nothing to compare (not a rhyme verdict)"))
-                elif s["total"] < theta_for(s, decl):
-                    # THE CUT IS PER RELATION SINCE 2026-09-02 (M-138,
-                    # priced). The message names the relation's own cut,
-                    # because `below theta_rhyme=0.75` on a pair judged at
-                    # 0.82 is a report line that cannot be reproduced from
-                    # the number beside it (doctrine 58/91).
-                    _th = theta_for(s, decl)
+                else:
+                    # Charged here only on the coarse relations; the schema
+                    # pass below judges every mandated pair against the
+                    # whole vocabulary and clears any pair a schema holds.
                     violations.append(
                         (i + 1, j + 1, s["total"],
-                         f"below theta_rhyme={decl.theta_rhyme}"
-                         if _th == decl.theta_rhyme else
-                         f"below theta({s['relation']})={_th} "
-                         f"(theta_rhyme={decl.theta_rhyme}; the near "
-                         f"relations carry their own priced cut, M-138)"))
-                elif not admits(s, theta_for(s, decl),
-                                relations=frozenset(decl.admit)):
-                    # THE SECOND COPY OF THE SAME BLACKLIST, and it had the
-                    # same hole. See `quality/revise.py`'s `grade()` for the
-                    # measurement (`debenture`/`thermco`, 0.788 against theta
-                    # 0.75, "neither channel agrees", reported as no
-                    # violation). `NO_RELATION` is not REPEAT, not in
-                    # NEAR_RELATIONS, not NO_ANCHOR, and can sit above theta —
-                    # so it fell out of an enumerated chain into silence.
-                    #
-                    # THAT THIS LIST EXISTS TWICE IS THE STANDING DEFECT and
-                    # is left standing deliberately: `grade()` and
-                    # `check_scheme` are two readers of one question and the
-                    # record already says they must not drift, so both ends
-                    # move together here rather than one being taught to call
-                    # the other in the same commit that fixes what they say.
-                    violations.append(
-                        (i + 1, j + 1, s["total"],
-                         f"{s['relation']} not rhyme (conjunctive band)"))
+                         unadmitted_reason(s, decl)))
             else:
                 if s["total"] >= THETA_COLLISION and reading_verdict is True:
                     # THE CUT IS THE NAMED CONSTANT SINCE 2026-08-16 —
@@ -4240,55 +4363,76 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     # looked like the coda channel admitting `will`/`gun` was
                     # actually this loop printing an ASSONANCE edge under a
                     # RHYME-shaped message). The caller filters on
-                    # `s["relation"]` now instead of assuming every member is
-                    # a rhyme; `quality/revise.py`'s collision partition
+                    # `s["relations"] & RHYME_RELATIONS` now instead of
+                    # assuming every member is a rhyme; `quality/revise.py`'s collision partition
                     # already did this independently and this brings the raw
                     # `scheme`/`song` CLI print into agreement with it.
                     collisions.append(
-                        (i + 1, j + 1, s["total"], s["relation"],
+                        (i + 1, j + 1, s["total"], relation_label(s),
                          "unintended rhyme across scheme letters"
-                         if s["relation"] in ("RHYME", "RIME_RICHE")
-                         else f"unintended {s['relation']} across scheme "
-                              f"letters, NOT a rhyme"))
-    # ALL 77 SCHEMAS ARE IN THE DEFAULT — 2026-08-25, OWNER RULING
-    # (`MISSING.md` M-116, task #86's second half). A mandated pair the
-    # scalar chain above charged is satisfied when its two lines stand in
-    # ANY schema the vocabulary names, judged by
+                         if s["relations"] & RHYME_RELATIONS
+                         else f"unintended {relation_label(s)} across "
+                              f"scheme letters, NOT a rhyme"))
+    # ALL 77 SCHEMAS ARE IN THE DEFAULT (M-116), judged by
     # `relations.whole_vocabulary_pairs` — THE SAME CALL
-    # `quality.revise.grade` makes, so the standing two-copy defect this
-    # block's own comment names cannot add a third copy: both readers
-    # consult one judge (doctrine 1). REPEAT stays a violation — identity
-    # has its own licence machinery (doctrine 3). LAZY: a draft with no
-    # scalar-chain violations pays nothing. Satisfied pairs move to
-    # `pairs_schema_satisfied` with the schemas that answered, because a
-    # pass under an uncalibrated-laziness relation must stay tellable from
-    # a scalar pass (the `STRUCTURE_UNCALIBRATED` contract).
-    # ...AND ONLY UNDER THE DEFAULT DOOR (2026-08-25): a caller who
-    # NARROWED `decl.admit` has declared what satisfies them, and the
-    # rescue does not override a declaration — `admit_is_default` is the
-    # one definition of the gate, shared with `quality.revise.grade`.
+    # `quality.revise.grade` makes, so the two readers consult one judge
+    # (doctrine 1). REPEAT stays a violation — identity has its own licence
+    # machinery (doctrine 3). A caller who NARROWED `decl.admit` has
+    # declared which relations satisfy; `admit_is_default` is that gate,
+    # shared with `quality.revise.grade`.
+    # EVERY MANDATED PAIR IS JUDGED AGAINST THE WHOLE VOCABULARY, ALWAYS.
+    # The schemas are not a rescue for pairs the coarse chain charged: each
+    # mandated pair's relation set is the coarse relations it stands in PLUS
+    # every schema its two lines stand in, and the pair is satisfied when
+    # that set holds any relation the declaration admits. A declaration
+    # that NARROWED `decl.admit` has said which coarse relations count; the
+    # schema names are still recorded for every pair.
     schema_satisfied = []
-    if violations and admit_is_default(decl):
+    pair_schemas = {}
+    _asked = {pr for pr in ((i + 1, j + 1) for i, j in mandated)
+              if pr not in refused}
+    if _asked:
         from quality import phonology as _PH
         from quality.relations import whole_vocabulary_pairs as _WVP
         _wvp = _WVP(list(lines), _PH.get("eng"),
                     bearing={x for pr in mandated for x in pr},
-                    requested_pairs={(v[0], v[1]) for v in violations
-                                     if not v[3].startswith("REPEAT")})
+                    requested_pairs=_asked)
+        from quality.relations import REGISTRY as _REG
+        for pr in sorted(_asked):
+            if pr in _wvp:
+                pair_schemas[pr] = sorted(_wvp[pr])
+                # Every schema the pair stands in is recorded; a schema the
+                # registry disowns (forbidden / deprecated — homoioteleuton
+                # is the ban itself) is a relation, never a satisfaction.
+                _sat = [n for n in pair_schemas[pr]
+                        if _REG[n].normative not in ("forbidden",
+                                                     "deprecated")]
+                if _sat:
+                    schema_satisfied.append({"lines": pr,
+                                             "satisfied_by": _sat})
         _kept = []
         for v in violations:
-            if (not v[3].startswith("REPEAT")) and (v[0], v[1]) in _wvp:
-                schema_satisfied.append(
-                    {"lines": (v[0], v[1]),
-                     "satisfied_by": sorted(_wvp[(v[0], v[1])])})
-            elif (not v[3].startswith("REPEAT")) and (v[0], v[1]) in _wvp.undecided:
-                names = _wvp.undecided[(v[0], v[1])]
-                refusals.append({"lines": (v[0], v[1]),
+            pr = (v[0], v[1])
+            if v[3].startswith("REPEAT"):
+                _kept.append(v)
+            elif pr in {tuple(d["lines"]) for d in schema_satisfied} \
+                    and admit_is_default(decl):
+                continue
+            elif admit_is_default(decl) and [
+                    n for n in _wvp.undecided.get(pr, ())
+                    if _REG[n].normative not in ("forbidden", "deprecated")]:
+                # Refused only when an undecided schema could SATISFY the
+                # pair (the same rule as `Reviser.grade`); a disowned one
+                # cannot, and with every satisfier decided False it fails.
+                names = [n for n in _wvp.undecided[pr]
+                         if _REG[n].normative not in ("forbidden",
+                                                      "deprecated")]
+                refusals.append({"lines": pr,
                     "endwords": (endwords[v[0]-1], endwords[v[1]-1]),
                     "unreadable": [], "schemas": sorted(names),
                     "reason": "Default relation remains unresolved in applicable schemas: "
                               + ", ".join(sorted(names))})
-                refused.add((v[0], v[1]))
+                refused.add(pr)
             else:
                 _kept.append(v)
         violations = _kept
@@ -4299,15 +4443,17 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
     #
     # AND IT MANUFACTURED ONE OUT OF A PAIR THIS FUNCTION HAD ALREADY PASSED,
     # UNTIL 2026-08-26 (`MISSING.md` M-139). `ok()` asked `admits()` at
-    # `decl.admit` — four relations — thirty lines under the block that
-    # rescues a pair on ANY of the 77 schemas (M-116). So a mandated pair the
+    # `decl.admit` — the coarse relations — thirty lines under the block
+    # that satisfies a pair on ANY of the 77 schemas (M-116). So a pair the
     # whole-vocabulary default satisfied was an ABSENT EDGE here, and a
     # triangle with two scalar edges and one schema edge was counted as a
     # transitivity defect: the same function reporting the pair satisfied and
-    # the triangle broken, on one run. `_schema_ok` is the rescued set, read
-    # from `schema_satisfied` above rather than re-derived, so the two
+    # the triangle broken, on one run. `_schema_ok` is the set of pairs
+    # standing in a schema, read from `schema_satisfied` above rather than
+    # re-derived, so the two
     # readings cannot drift (doctrine 1) and no second stream is built.
-    _schema_ok = {tuple(d["lines"]) for d in schema_satisfied}
+    _schema_ok = ({tuple(d["lines"]) for d in schema_satisfied}
+                  if admit_is_default(decl) else set())
     defect = 0
     unknown_triangles = 0
     groups = {}
@@ -4326,8 +4472,7 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                         # moves and this closure does not move with it — a
                         # pair reported satisfied above and absent as an edge
                         # here, on one run.
-                        return admits(s, theta_for(s, decl),
-                                      relations=frozenset(decl.admit)) \
+                        return admits_decl(s, decl) \
                             or (min(x, y) + 1, max(x, y) + 1) in _schema_ok
                     if any((min(x, y) + 1, max(x, y) + 1) in refused
                            for x, y in ((i1, i2), (i2, i3), (i1, i3))):
@@ -4340,7 +4485,9 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
             "pair_scores": [
                 {"lines": (i + 1, j + 1), "endwords": (endwords[i], endwords[j]),
                  "score": matrix[i][j]["total"],
-                 "relation": matrix[i][j]["relation"],
+                 "relations": sorted(
+                     set(matrix[i][j]["relations"])
+                     | set(pair_schemas.get((i + 1, j + 1), ()))),
                  "reading_verdict": matrix[i][j].get("reading_verdict"),
                  "flags": matrix[i][j]["flags"],
                  # The number's PROVENANCE, beside the number. `endwords` is
@@ -4444,8 +4591,8 @@ def rhyme_graph(lex, lines, decl, theta=None, profile=None):
             s = best_score(data[i]["anchor"], data[j]["anchor"], decl,
                            data[i]["endword"], data[j]["endword"],
                            profile=profile)
-            if admits(s, theta) or s["relation"] == "REPEAT":
-                edges.append((i, j, s["total"], s["relation"]))
+            if admits(s, theta) or "REPEAT" in s["relations"]:
+                edges.append((i, j, s["total"], relation_label(s)))
                 # A parallel list, index-aligned with `edges`, because the
                 # edge tuple's arity is pinned by a regression test and an
                 # edge weight that quietly grew a fifth field would break a
@@ -4524,9 +4671,9 @@ def infer_chains(lex, lines, decl, theta_chain=None, comparator=None):
             # fitted path was measured band-off against a band-on hand-set
             # baseline, which conflates two separate changes.
             ok = (best is not None and best >= theta_chain
-                  and s["relation"] in RHYME_RELATIONS)
-            return ok or s["relation"] == "REPEAT"
-        return admits(s, theta_chain) or s["relation"] == "REPEAT"
+                  and bool(s["relations"] & ADMITTABLE_RELATIONS))
+            return ok or "REPEAT" in s["relations"]
+        return admits(s, theta_chain) or "REPEAT" in s["relations"]
 
     chains = []
     members, fillers, pending = [0], [], None
@@ -4783,7 +4930,10 @@ def internal_matches(lex, text_a, decl, text_b=None, theta=None,
                 continue          # a word cannot rhyme with itself
             s = score(A[i:j], B[k:m], decl,
                       _span_words(A, i, j), _span_words(B, k, m))
-            if s["total"] >= theta or s["relation"] == "RIME_RICHE":
+            # A span pair is a match when it stands in ANY admittable
+            # relation at the cut (RIME_RICHE at any scalar); the match
+            # carries EVERY relation it stands in, never one label.
+            if admits(s, theta) or "RIME_RICHE" in s["relations"]:
                 cands.append((s["total"], (j - i) + (m - k),
                               i, j, k, m, s))
     cands.sort(key=lambda t: (-t[0], -t[1]))
@@ -4797,7 +4947,7 @@ def internal_matches(lex, text_a, decl, text_b=None, theta=None,
         used_b.update(range(k, m))
         picked.append({"a": _span_words(A, i, j), "a_syll": (i, j),
                        "b": _span_words(B, k, m), "b_syll": (k, m),
-                       "score": tot, "relation": s["relation"],
+                       "score": tot, "relations": sorted(s["relations"]),
                        "flags": s["flags"]})
     return picked, len(A), len(B)
 
@@ -4813,6 +4963,10 @@ def rhyme_density(lex, lines, decl, theta=None, window=1):
     while `quality/relations.py`'s `internal rhyme` schema answered
     song-wide, and nothing said which window a number came from.
 
+    `overall` is the union over every relation a match stands in;
+    `by_relation` is each relation's own coverage (a perfect-rhyme match
+    counts toward RHYME, ASSONANCE and CONSONANCE alike).
+
     `internal_matches` reads `word_syllable_map`, so an unreadable word is not
     in the denominator OR the numerator -- the density is computed over the
     readable part of the line and printed as if it were the line. Measured: two
@@ -4822,6 +4976,14 @@ def rhyme_density(lex, lines, decl, theta=None, window=1):
     """
     per_line = []
     matched = [set() for _ in lines]
+    # PER RELATION, TOO: a match stands in every relation it supports, so
+    # each relation gets its own coverage; `overall` is their union.
+    by_rel = {}
+
+    def _mark(rels, idx, span):
+        for r in rels:
+            by_rel.setdefault(r, [set() for _ in lines])[idx].update(
+                range(*span))
     totals = []
     for idx, line in enumerate(lines):
         picked, nA, _ = internal_matches(lex, line, decl, theta=theta)
@@ -4829,6 +4991,8 @@ def rhyme_density(lex, lines, decl, theta=None, window=1):
         for p in picked:
             matched[idx].update(range(*p["a_syll"]))
             matched[idx].update(range(*p["b_syll"]))
+            _mark(p["relations"], idx, p["a_syll"])
+            _mark(p["relations"], idx, p["b_syll"])
     if not isinstance(window, int) or window < 0:
         raise ValueError(f"window must be a non-negative line distance, "
                          f"not {window!r}")
@@ -4840,13 +5004,19 @@ def rhyme_density(lex, lines, decl, theta=None, window=1):
             for p in picked:
                 matched[idx].update(range(*p["a_syll"]))
                 matched[idx + d].update(range(*p["b_syll"]))
+                _mark(p["relations"], idx, p["a_syll"])
+                _mark(p["relations"], idx + d, p["b_syll"])
     for idx in range(len(lines)):
         d = len(matched[idx]) / totals[idx] if totals[idx] else 0.0
         per_line.append(round(d, 3))
     overall = (sum(len(m) for m in matched) / sum(totals)
                if sum(totals) else 0.0)
     records = readability_records(lex, lines)
+    _den = sum(totals)
+    by_relation = {r: round(sum(len(m) for m in ms) / _den, 3) if _den
+                   else 0.0 for r, ms in sorted(by_rel.items())}
     return {"per_line": per_line, "overall": round(overall, 3),
+            "by_relation": by_relation,
             "window": window,
             "readability": records,
             "unreadable": [{"line": r["line"], "words": r["unreadable"],
@@ -5217,9 +5387,13 @@ def check_cynghanedd(lex, text, decl, language="cym", caesura="marked",
             if s["stress"] in (1, 2) and o2 and s["onset"] == o2:
                 link = s["word"]
                 break
-        if s12["total"] >= decl.theta_rhyme and link:
+        # Parts 1-2 must STAND IN a rhyme relation at its cut, not merely
+        # clear a scalar: an assonant-only pair is not the sain's rhyme.
+        if admits(s12, decl.theta_rhyme, relations=RHYME_RELATIONS,
+                  cuts=decl.theta_by_relation) and link:
             found.append(("sain",
-                          f"parts 1-2 rhyme at {s12['total']}, part-3 "
+                          f"parts 1-2 rhyme ({relation_label(s12)}) at "
+                          f"{s12['total']}, part-3 "
                           f"link on onset {o2} at '{link}'"))
     sylls = word_syllable_map(lex, text)
     if len(sylls) >= 3 and sylls[-1]["stress"] == 0:
@@ -5231,11 +5405,12 @@ def check_cynghanedd(lex, text, decl, language="cym", caesura="marked",
             for i in range(limit):
                 if sylls[i]["stress"] in (1, 2):
                     s = score(pen, [sylls[i]], decl)
-                    if s["total"] >= 0.9:
+                    if admits(s, 0.9, relations=RHYME_RELATIONS):
                         found.append(
                             ("llusg",
                              f"penult of '{final_word}' rhymes "
-                             f"'{sylls[i]['word']}' at {s['total']}"))
+                             f"'{sylls[i]['word']}' "
+                             f"({relation_label(s)}) at {s['total']}"))
                         break
     return {"language": "eng",
             "phonology": "CMUdict General American — ENGLISH IMITATION of a "
@@ -5531,7 +5706,7 @@ def rollup_findings(briefs):
 
 def _fmt_score(w1, w2, s):
     lines = [f"{w1}  ~  {w2}",
-             f"  total: {s['total']}   relation: {s['relation']}"]
+             f"  total: {s['total']}   relations: {relation_label(s)}"]
     note = spans_note(s)
     if note:
         lines.append(f"  {note}")
@@ -5574,40 +5749,35 @@ _SCREEN_CARRIERS = ("we carry the evening to the {w}",
                     "and no one had to tell us about {w}")
 
 
-def door_chance_note(door, entry=None):
-    """-> one phrase pricing a DEFAULT DOOR by its PINNED chance rate, for a
-    report line that names a pair the door let through.
+def door_chance_note(door="any", entry=None):
+    """-> one phrase pricing a RELATION FAMILY of the one default door by
+    its PINNED chance rate, for a report line that names pairs standing in
+    that family.
 
-    THE FIGURE IS READ, NEVER RETYPED (standing rule 3, doctrine 1):
-    `quality/chance_rate.py` adopts a BAND of counts over its declared 2x2
-    sampler grid (`ADOPTED`), and this phrase renders that band against the
-    grid's own draw size and the battery's canon arm (`CANON_RATE`), so a
-    repin there moves every report here. The rates are against DRAWN pairs
-    (the admit arm's own denominator is JUDGED, a few pairs fewer, so the
-    admit rate reads a hair LOW here — stated so it is not mistaken for
-    the instrument's own figure). Both doors are UNPRICED: this is the
-    disclosure `MISSING.md` M-138 / M-140 owed a reader of a rescued pair,
-    and it moves no verdict (2026-09-02).
+    ONE DOOR, COUNTED PER FAMILY (`quality/chance_rate.py`). Every pair is
+    judged against every relation; `any` is the default door (at least one
+    relation holds), and `admit` (the coarse relations at their cuts),
+    `rhyme` (`RHYME_RELATIONS`) and `schema` (registry schemas) are families
+    inside it, overlapping, never rival doors and never a rescue.
+
+    THE FIGURE IS READ, NEVER RETYPED (standing rule 3, doctrine 1): the
+    band is `chance_rate.ADOPTED[door]` over its sampler grid, rendered
+    against the grid's draw size and the canon arm (`CANON_RATE`), so a
+    repin there moves every report here. A disclosure; it moves no verdict.
     """
     from quality import chance_rate as _CR
     lo, hi = _CR.ADOPTED[door]
     n = _CR.SHIPPED.n
     canon = _CR.CANON_RATE
-    entry = entry or {"admit": "M-138", "schema": "M-140",
-                      "narrow": "M-138"}.get(door, "M-138")
-    # PRICED OR UNPRICED IS NOW A REAL DISTINCTION AND THE PHRASE MAKES IT
-    # (2026-09-02). Until today both doors were unpriced and this sentence
-    # said so for both. The ADMIT door has since been priced —
-    # `quality/NEAR_RELATION_PRICING_PREREGISTRATION.md`, falsifier E1,
-    # ASSONANCE cut at 0.82 — and leaving the old wording would be a
-    # disclosure that outlived the gap it disclosed, which is doctrine 17's
-    # own subject and the species of stale claim this repository strikes on
-    # sight. The SCHEMA door is genuinely still unpriced (M-140), so the
-    # two doors say different things because they ARE different.
+    entry = entry or {"admit": "M-138", "rhyme": "M-138",
+                      "schema": "M-140", "any": "M-140"}.get(door, "M-138")
+    # The coarse families carry priced per-relation cuts (M-138,
+    # `Declaration.theta_by_relation`); the schema family is unpriced
+    # (M-140), and so is `any`, which contains it.
     priced = ("PRICED (M-138, quality/RESULTS_NEAR_RELATION_PRICING.md — "
-              "the near relations carry their own cut, "
+              "each coarse relation carries its own cut, "
               "`Declaration.theta_by_relation`)"
-              if door == "admit" else f"UNPRICED ({entry})")
+              if door in ("admit", "rhyme") else f"UNPRICED ({entry})")
     return (f"chance rate is PINNED at {lo}..{hi} of {n:,} random CMUdict "
             f"pairs ({lo / n:.1%}–{hi / n:.1%}, "
             f"{lo / n / canon:.1f}–{hi / n / canon:.1f}x the sonnet canon "
@@ -5615,54 +5785,64 @@ def door_chance_note(door, entry=None):
             f"sampler grid) and {priced}")
 
 
-def schema_default_disclosure(sch_sat):
-    """-> the `SCHEMA DEFAULT` report lines for `grade()`'s
-    `pairs_schema_satisfied`, or None when the list is empty.
+def _record_schemas(r):
+    """-> the registry schema names a `pairs_schema_satisfied` record (or a
+    verdict) stands in: its `schemas` when it carries them, else the
+    registry names in `satisfied_by` (which also lists coarse relations)."""
+    if r.get("schemas") is not None:
+        return list(r["schemas"])
+    return [n for n in (r.get("satisfied_by") or ())
+            if n not in ADMITTABLE_RELATIONS and n not in (
+                "REPEAT", NO_ANCHOR)]
 
-    THE WHOLE-VOCABULARY DEFAULT, DISCLOSED (M-116, owner ruling
-    2026-08-25). A pair the scalar door failed and a schema satisfied is a
-    PASS, and a silent one reads exactly like a scalar pass — so each is
-    named with the schema that answered, because laziness at these
-    relations is UNCALIBRATED and a reader must be able to tell the two
-    passes apart. The second line (2026-09-02, M-140's disclosure half)
-    prices the door: the schema door's PINNED chance rate stands beside
-    the rescue so a reader can weigh a schema-rescued pair against how
-    often that door answers two random words. Text only; nothing here
-    gates.
+
+def schema_default_disclosure(sch_sat):
+    """-> the `SCHEMA RELATIONS` report lines for `grade()`'s
+    `pairs_schema_satisfied`, or None when no pair stands in a schema.
+
+    EVERY MANDATED PAIR IS JUDGED AGAINST THE WHOLE VOCABULARY (M-116), so
+    this is not a rescue list: it names, for every pair that stands in any
+    registry schema, EVERY schema it stands in, beside the coarse relations
+    the verdict already carries. Laziness at these relations is
+    UNCALIBRATED and the schema family's chance rate is printed beside
+    them. Text only; nothing here gates.
     """
-    if not sch_sat:
+    recs = [dict(r, schemas=_record_schemas(r)) for r in (sch_sat or ())]
+    recs = [r for r in recs if r["schemas"]]
+    if not recs:
         return None
     egs = "; ".join(
         f"L{r['lines'][0]}~L{r['lines'][1]} (group "
-        f"{r['label']}) via {r['satisfied_by'][0]}"
-        for r in sch_sat[:4])
-    aud, inaud = _split_by_audible_end(sch_sat)
-    return (f"  SCHEMA DEFAULT: {len(sch_sat)} mandated pair(s) "
-            f"satisfied by the whole-vocabulary default, not the "
-            f"scalar door — {egs}"
-            + (" …" if len(sch_sat) > 4 else "")
+        f"{r.get('label', '?')}): {', '.join(r['schemas'])}"
+        for r in recs[:4])
+    aud, inaud = _split_by_audible_end(recs)
+    return (f"  SCHEMA RELATIONS: {len(recs)} mandated pair(s) stand in at "
+            f"least one registry schema (every pair is judged against "
+            f"every schema, beside the coarse relations) — {egs}"
+            + (" …" if len(recs) > 4 else "")
             + " — laziness at these relations is UNCALIBRATED; "
             "declaring a relation narrows (M-116)\n"
             f"    of those, {len(aud)} read as END RHYME and {len(inaud)} "
-            f"do NOT — two counts, never summed (M-140): an answering "
-            f"schema is the end-rhyme reading only when BOTH its spans sit "
-            f"at the line-final token and it requires the nucleus AND the "
-            f"coda to agree. The rest are real relations this grade judges "
+            f"do NOT — two counts, never summed (M-140): a schema is the "
+            f"end-rhyme reading only when BOTH its spans sit at the "
+            f"line-final token and it requires the nucleus AND the coda to "
+            f"agree. The rest are real relations this grade judges "
             f"correctly and a listener does not hear as the lines rhyming."
             + (("\n    not heard as end rhyme: "
-                + "; ".join(f"L{r['lines'][0]}~L{r['lines'][1]} via "
-                            f"{r['satisfied_by'][0]}" for r in inaud[:4])
+                + "; ".join(f"L{r['lines'][0]}~L{r['lines'][1]}: "
+                            f"{', '.join(r['schemas'])}" for r in inaud[:4])
                 + (" …" if len(inaud) > 4 else "")) if inaud else "")
             + "\n"
-            f"    (that door's {door_chance_note('schema')})")
+            f"    (the schema family's {door_chance_note('schema')})")
 
 
 def _split_by_audible_end(sch_sat):
-    """-> (audible, not_audible) over `pairs_schema_satisfied` records.
+    """-> (audible, not_audible) over `pairs_schema_satisfied` records —
+    EVERY mandated pair that stands in a schema, not a rescued subset.
 
     `MISSING.md` M-140's reporting rule, registered in
     `quality/SCHEMA_END_READING_PREREGISTRATION.md` before it was measured.
-    A rescue is the END-RHYME READING when ANY answering schema is one
+    A pair is the END-RHYME READING when ANY schema it stands in is one
     `relations.audible_as_end_rhyme` accepts — M-120's derivation, both
     member spans at the line-final token and nucleus AND coda required to
     agree. `any` is the conservative direction: it can only move a pair into
@@ -5671,8 +5851,14 @@ def _split_by_audible_end(sch_sat):
     A RENDERING, AND THE REGISTRATION'S OWN E3 SAYS SO. Nothing here moves a
     verdict, a score, a relation or a violation; the battery's
     mandated/judged/refused/violations quadruple is byte-identical either
-    side of this function existing. MEASURED on the maintained sonnet
-    battery: 2 of 17 rescues read as end rhyme and 15 do not.
+    side of this function existing. ~~MEASURED on the maintained sonnet
+    battery: 2 of 17 rescues read as end rhyme and 15 do not.~~ REPINNED
+    2026-09-24 and MOVED OFF this docstring: that figure is the registered
+    RESCUE population's (a pair satisfied by a schema and by no coarse
+    relation), and under the N-relation model this function splits every
+    pair standing in a schema, a wider population. The registered split is
+    pinned in `quality/schema_end_reading.py` (2 of 31 audible), which
+    `--check` holds; it is not this function's figure.
 
     LAZY, AND IT CATCHES NOTHING. The first draft wrapped both the import
     and the per-name judgement in `except Exception`, on the argument that a
@@ -5682,9 +5868,8 @@ def _split_by_audible_end(sch_sat):
     over, because both handlers were guarding conditions that cannot occur:
 
       * the IMPORT is already paid by the caller. `sch_sat` is non-empty
-        only when `grade()` ran the whole-vocabulary rescue, which imports
-        from this same module; a draft with a rescue has already proven the
-        import.
+        only when `grade()` judged pairs against the whole vocabulary, which
+        imports from this same module.
       * an UNRESOLVABLE NAME never reaches the judge. `REGISTRY.get` returns
         None for it and the `is not None` test below is what makes it count
         as not audible — which is the behaviour the forgiving handler was
@@ -5699,57 +5884,57 @@ def _split_by_audible_end(sch_sat):
     audible, rest = [], []
     for r in sch_sat:
         hit = any(_REG.get(n) is not None and _aud(_REG[n])
-                  for n in (r.get("satisfied_by") or ()))
+                  for n in _record_schemas(r))
         (audible if hit else rest).append(r)
     return audible, rest
 
 
 def near_relation_default_disclosure(verdicts, theta, *, default_groups=None,
                                      cuts=None):
-    """-> the `ADMIT DOOR` report line for `grade()`'s verdicts, or None
-    when no mandated pair was satisfied AS A NEAR RELATION.
+    """-> the `NEAR ONLY` report line for `grade()`'s verdicts, or None when
+    no satisfied mandated pair stands in a near relation WITHOUT any rhyme
+    relation.
 
-    THE WIDENED DOOR, PRICED WHERE IT ANSWERED (2026-09-02, `MISSING.md`
-    M-138's disclosure half). Since M-59 a bare group is satisfied by
-    ASSONANCE or CONSONANCE on `theta_rhyme` alone, a cut calibrated on
-    neither, and the grade printed such a pass exactly like a RHYME pass.
-    Each is counted here by its relation, with the door's PINNED chance
-    rate beside it. Pairs a schema rescued are NOT in this count — they
-    are the `SCHEMA DEFAULT` line's, and the two are never summed
-    (doctrine 79). A disclosure: the verdicts are read, not moved.
-
-    Production supplies the groups using the default admission route and
-    the active declaration's cuts. Named relations and structures have
-    their own judges and must not be credited to this scalar door. Grade
-    verdicts already carry one-based line numbers.
+    A pair stands in every relation its sound supports, so a perfect rhyme
+    is ALSO assonance and consonance and is not counted here. What this
+    line names is the set-logic fact a reader needs: satisfied pairs whose
+    COARSE relations include ASSONANCE or CONSONANCE and none of
+    `RHYME_RELATIONS`, each printed with its FULL relation set and the cut
+    each near relation was judged at (M-138). A disclosure: the verdicts
+    are read, not moved. Grade verdicts carry one-based line numbers.
     """
+    def _coarse(v):
+        # The coarse relations the verdict ADMITTED at their cuts when it
+        # says so; else the coarse names in its relation set.
+        if v.get("admitted") is not None:
+            return set(v["admitted"])
+        return set(v.get("relations") or ()) & ADMITTABLE_RELATIONS
     near = [v for v in (verdicts or ())
-            if v.get("why") is None and not v.get("satisfied_by")
-            and v.get("relation") in NEAR_RELATIONS
+            if v.get("why") is None
+            and not _coarse(v) & RHYME_RELATIONS
+            and _coarse(v) & NEAR_RELATIONS
             and (default_groups is None or v.get("group") in default_groups)]
     if not near:
         return None
     by = {}
     for v in near:
-        by[v["relation"]] = by.get(v["relation"], 0) + 1
+        for r in _coarse(v) & NEAR_RELATIONS:
+            by[r] = by.get(r, 0) + 1
     egs = "; ".join(
         f"L{v['lines'][0]}~L{v['lines'][1]} "
-        f"{v['endwords'][0]}/{v['endwords'][1]} {v['relation']} "
+        f"{v['endwords'][0]}/{v['endwords'][1]} "
+        f"{relation_label(v.get('relations') or _coarse(v))} "
         f"{v['score']:.3f}" for v in near[:4])
-    # ~~"on theta_rhyme={theta} alone — a cut never priced on these
-    # relations"~~ STRUCK 2026-09-02: it IS priced now, and the line names
-    # the cut each relation was actually judged at rather than a
-    # `theta_rhyme` that no near relation reads any more (doctrine 58/91 —
-    # a number in a report must be reproducible from the report).
     declared = _declared_cuts() if cuts is None else cuts
     active = {k: declared.get(k, theta) for k in by}
     cuts_text = ", ".join(f"{k} {v}" for k, v in sorted(active.items()))
     priced = all(v == _declared_cuts().get(k, Declaration().theta_rhyme)
                  for k, v in active.items())
-    chance = (f"that door's {door_chance_note('admit')}" if priced else
-              "chance rate is not established here for these custom cuts")
-    return (f"  ADMIT DOOR: {len(near)} mandated pair(s) satisfied as a "
-            f"near relation ("
+    chance = (f"the coarse family's {door_chance_note('admit')}" if priced
+              else "chance rate is not established here for these custom "
+                   "cuts")
+    return (f"  NEAR ONLY: {len(near)} mandated pair(s) satisfied standing "
+            f"in a near relation and in NO rhyme relation ("
             + ", ".join(f"{k} x{by[k]}" for k in sorted(by))
             + (") on the priced near-relation cut" if priced else
                ") on the declared custom near-relation cut")
@@ -5833,6 +6018,82 @@ def anchor_disclosure_lines(lex, words):
     return out
 
 
+_SCREEN_NA = None
+
+
+def _screen_not_applicable():
+    """-> the registry schemas that CANNOT hold between two line-final end
+    words at all: a schema no single token can carry (`pair_bindable`
+    False — a stream, stanza or multi-member figure) or one whose own
+    placement two line ends can never satisfy (`placement_bindable` False —
+    internal, head, cross...). A pair of end words is judged against every
+    OTHER schema; these are named once in the screen's header."""
+    global _SCREEN_NA
+    if _SCREEN_NA is None:
+        from quality import relations as _RLn
+        na = set()
+        # No handler: both predicates answer for every registered schema
+        # (measured 2026-09-22), and a broad `except` here would turn a real
+        # failure into a silently shortened vocabulary (test_verbs §12).
+        for nm, sch in _RLn.REGISTRY.items():
+            if not (_RLn.pair_bindable(sch)
+                    and _RLn.placement_bindable(sch, ("end", "end"))):
+                na.add(nm)
+        _SCREEN_NA = frozenset(na)
+    return _SCREEN_NA
+
+
+_PAIR_PHON = None
+
+
+def end_pair_relations(a, b, lex, decl):
+    """-> {'score', 'coarse', 'schemas', 'undecided'}: EVERY relation two
+    words stand in as the end words of two lines.
+
+    `coarse` is every coarse relation `best_score` finds at its own cut in
+    `decl.admit` (plus REPEAT for an identical word); `schemas` is every
+    registry schema true AT THE TWO END TOKENS of the screen's carrier
+    lines (never on the scaffold); `undecided` names the schemas that could
+    not decide at the pair. Schemas that cannot hold between two line-final
+    words (`_screen_not_applicable`) and disowned ones are not asked.
+    `score` is the best_score dict, or None when an end word is unreadable.
+    """
+    global _PAIR_PHON
+    from quality import relations as _RLall
+    la = _SCREEN_CARRIERS[0].format(w=a)
+    lb = _SCREEN_CARRIERS[1].format(w=b)
+    ancs_a, ew_a, _ = line_anchors(lex, la, promote=decl.final_promotion)
+    ancs_b, ew_b, _ = line_anchors(lex, lb, promote=decl.final_promotion)
+    sc = (best_score(ancs_a, ancs_b, decl, ew_a, ew_b)
+          if ancs_a and ancs_b else None)
+    coarse = sorted(admitted_relations(
+        sc, decl.theta_rhyme, frozenset(decl.admit),
+        decl.theta_by_relation)) if sc else []
+    if sc and "REPEAT" in sc["relations"]:
+        coarse.append("REPEAT")
+    if _PAIR_PHON is None:
+        from quality.revise import _relation_phonology as _RPh
+        _PAIR_PHON = _RPh()
+    schemas, undecided = [], []
+    # The stream is built from the two carrier lines, which are readable by
+    # construction; an unreadable END word reaches the judge as a Refusal
+    # per schema (listed as undecided below), never as an exception.
+    pst = _RLall.build_stream([la, lb], _PAIR_PHON)
+    for nm in sorted(_RLall.REGISTRY):
+        sch = _RLall.REGISTRY[nm]
+        if sch.normative in ("forbidden", "deprecated"):
+            continue
+        if nm in _screen_not_applicable():
+            continue
+        ans = _RLall.pair_satisfies(sch, pst, (0, -1), (1, -1))
+        if isinstance(ans, _RLall.Refusal) or ans is None:
+            undecided.append(nm)
+        elif ans:
+            schemas.append(nm)
+    return {"score": sc, "coarse": coarse, "schemas": schemas,
+            "undecided": undecided}
+
+
 def screen_pairs(words, lex=None, decl=None, relation=None):
     """Every unordered pair among `words`, judged by the REAL grader on a
     minimal mandated pair — the same `Reviser.inspect` the `song` verb
@@ -5848,19 +6109,16 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
     position 'end' — THE QUESTION THE GRADE WILL ASK of a mandate
     declaring that relation — and the row carries `named`
     (True/False/None) and `named_reason` (the judge's own refusal
-    sentence when None). Without it the verdict column is the COARSE
-    class, which is a different question: measured on one draft,
-    `rain`/`reign` screens RHYME and satisfies `type:rime riche` while
-    `cellar`/`seller` screened RIME_RICHE and (before M-58's judge
-    repair) violated it — both directions live at once.
+    sentence when None). Without it the row lists EVERY relation the pair
+    stands in — `rain`/`reign` stands in RHYME and RIME_RICHE (and
+    ASSONANCE, CONSONANCE) at once; nothing picks one of them.
 
     -> list of dicts, one per pair in declared order:
-       a, b, relation, score, why, codes (the SCREEN_PAIR_CODES present),
-       refused (bool), reason (the grader's own refusal sentence or None),
-       schema_scaffold (M-113: the schema names when the pair was satisfied
-       by the 77-schema default rather than the door — evidence read off
-       the CARRIER LINES, which are scaffolding, so at this surface it is
-       not evidence about the pair).
+       a, b, relations (EVERY relation the pair stands in: the admitted
+       coarse relations plus every registry schema true at the two end
+       tokens), coarse_relations, schema_relations, undecided (schemas
+       that could not decide at the pair, by name), score, why, codes (the
+       SCREEN_PAIR_CODES present), refused (bool), reason.
     A banned pair is an ANSWER (refused=False, codes non-empty); refusal
     is reserved for what the grader itself refuses to judge (doctrine 28).
     """
@@ -5892,6 +6150,9 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
     for i in range(len(words)):
         for j in range(i + 1, len(words)):
             a, b = words[i], words[j]
+            _er = end_pair_relations(a, b, rv.lex, rv.decl)
+            _sc, _coarse = _er["score"], _er["coarse"]
+            _schemas, _undecided = _er["schemas"], _er["undecided"]
             found = rv.inspect(
                 [_SCREEN_CARRIERS[0].format(w=a),
                  _SCREEN_CARRIERS[1].format(w=b)],
@@ -5900,17 +6161,24 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
             codes = sorted({f.code for fs in found["per_line"].values()
                             for f in fs if f.code in SCREEN_PAIR_CODES})
             row = {"a": a, "b": b, "codes": codes, "refused": False,
-                   "reason": None, "relation": None, "score": None,
-                   "why": None, "schema_scaffold": [],
+                   "reason": None,
+                   "relations": sorted(set(_coarse) | set(_schemas)),
+                   "coarse_relations": _coarse,
+                   "schema_relations": _schemas,
+                   "undecided": _undecided,
+                   "score": _sc["total"] if _sc else None,
+                   "why": None,
                    "flags": [], "coda_no_evidence": False,
                    "spans": None, "attribution": "",
                    "named": None, "named_reason": None}
-            if g["refusals"]:
+            if _sc is None:
                 row["refused"] = True
+                row["reason"] = (g["refusals"][0]["reason"] if g["refusals"]
+                                 else "an end word the lexicon cannot read")
+            elif g["refusals"]:
                 row["reason"] = g["refusals"][0]["reason"]
-            elif g["verdicts"]:
+            if g["verdicts"]:
                 v = g["verdicts"][0]
-                row["relation"] = v["relation"]
                 row["score"] = v["score"]
                 row["why"] = v["why"]
                 row["spans"] = v.get("spans")
@@ -5922,15 +6190,6 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                 row["flags"] = list(v.get("flags") or [])
                 row["coda_no_evidence"] = any(
                     f.startswith("coda: no evidence") for f in row["flags"])
-                # M-113: `pairs_schema_satisfied` is the RESCUE set — the
-                # scalar door failed and a schema satisfied. On carrier
-                # lines the schemas' evidence is the SCAFFOLD ("we carry
-                # the evening to the ..."), so a rescue here says nothing
-                # about the pair, and the caller renders it as a non-rhyme
-                # with the names disclosed rather than as CLEAN.
-                if g["pairs_schema_satisfied"]:
-                    row["schema_scaffold"] = list(
-                        g["pairs_schema_satisfied"][0]["satisfied_by"])
             # M-58 item 3: the NAMED verdict, judged exactly as a mandate
             # declaring this relation will judge the pair — same function,
             # same position, so the screen's answer and the grade's cannot
@@ -5970,7 +6229,7 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                 else:
                     try:
                         row["named"] = _RT.satisfies_relation(
-                            relation, row["relation"], a, b, _phon,
+                            relation, frozenset(_coarse), a, b, _phon,
                             position="end")
                     except _RT.RelationRefused as e:
                         row["named"] = None
@@ -6094,8 +6353,11 @@ the quality layer (each says which module answered):
                           judged by the song grader itself on a minimal
                           mandated pair (same Reviser, same declaration),
                           relaying only pair-scoped findings —
-                          HOMEOTELEUTON, MODAL_RHYME — plus the verdict
-                          and the grader's own refusals. A banned pair is
+                          HOMEOTELEUTON, MODAL_RHYME — plus EVERY relation
+                          the pair stands in (each coarse relation at its
+                          cut and every registry schema judged at the two
+                          end tokens) and the grader's own refusals. A
+                          banned pair is
                           an ANSWER, exit 0. Promoted from an operator's
                           scratch script 2026-08-18 (the
                           no-private-instruments rule): this exact check
@@ -6163,8 +6425,12 @@ the quality layer (each says which module answered):
                           --relations=LABEL:NAME,... declares which RELATION
                           each group demands, and --relation=NAME declares
                           one for the whole mandate (every group that does
-                          not override). The vocabulary is
-                          quality.rhyme_types.relation_vocabulary() -- 4
+                          not override). A group that declares none is
+                          judged against EVERY relation -- each coarse
+                          relation and every registry schema -- and is
+                          satisfied by any one its pairs stand in. The
+                          vocabulary is
+                          quality.rhyme_types.relation_vocabulary() -- the
                           coarse classes and every named cell -- and a name
                           in two namespaces must say which (type:NAME /
                           schema:NAME / class:NAME, M-37). A group may not
@@ -6313,9 +6579,10 @@ VERB_LAYERS = (
     ("demo", "lyric_harness.py", "the acceptance suite"),
     ("wiring", "lyric_harness.py", "this map, checked against the dispatch"),
     ("types", "quality/rhyme_types.py", "9-axis coordinate + anchor"),
-    ("screen", "quality/revise.py", "pair ban screening -- the song "
-     "grader on a minimal mandated pair; --bank adds quality/cross_song.py's "
-     "cross-song disclosure"),
+    ("screen", "quality/revise.py", "pair screening -- every relation "
+     "each pair stands in, plus the song grader's bans on a minimal "
+     "mandated pair; --bank adds quality/cross_song.py's cross-song "
+     "disclosure"),
     ("recover", "quality/recover.py", "structure recovery -- the second "
      "door: a pasted song's sections, syllables and rhyme web, each "
      "coordinate with how it was obtained"),
@@ -8402,13 +8669,20 @@ def main():
                   f"close.")
             sys.exit(2)
         print(f"candidates for '{word}' "
-              f"(anchor {res['anchor_syllables']} syllable(s)):")
+              f"(anchor {res['anchor_syllables']} syllable(s)); each is "
+              f"listed with EVERY coarse relation it stands in with the "
+              f"query at that relation's cut:")
         for c in res["candidates"]:
             fl = f"   [{', '.join(c['flags'])}]" if c["flags"] else ""
-            print(f"  {c['score']:.3f}  {c['tier']:<8} {c['word']}{fl}")
+            print(f"  {c['score']:.3f}  {c['word']}  "
+                  f"{relation_label(c['relations'])}{fl}")
         # WHICH ORDERING THIS IS, AND THE OTHER ONE — FIXED 2026-08-15.
         # THE DEFECT: this verb ranks by RHYME SCORE and the loop's modal
-        # exclusion ranks by FREQUENCY, and neither said so. They are two
+        # exclusion ~~ranks by FREQUENCY~~ ranks by the song-corpus
+        # conditional (tier 1 bans the same-spelled class without limit;
+        # tier 2 bans at most `modal_exclusion` partners, ranked by that
+        # conditional and evidence-gated since 2026-09-25, `MISSING.md`
+        # M-310; struck 2026-09-25), and neither said so. They are two
         # answers to one question — "is this rhyme too predictable" — and the
         # one a writer can reach from the command line is NOT the one the
         # grader enforces. MEASURED on 'lines': this verb's top 7 is
@@ -8419,15 +8693,22 @@ def main():
         # question, one reading, and where there are two they are declared).
         # `modal_field` is the LOOP'S OWN method, called here rather than
         # reimplemented, so the two cannot drift.
+        # "ranked by FREQUENCY" was false from 2026-08-11 (the conditional)
+        # and the set's SIZE stopped being fixed on 2026-09-24 (the
+        # evidence gate, `MISSING.md` M-310); the printed sentence says both.
         print(f"\n  ORDERED BY RHYME SCORE, high to low. This is NOT the "
               f"order doctrine 9 forbids on: `--modal` prints the loop's own "
-              f"set, which is ranked by FREQUENCY over the words the GRADER "
-              f"would accept, and the two lists differ.")
+              f"set, which is ~~ranked by FREQUENCY~~ ranked by how often the "
+              f"song corpus realised each word as this one's rhyme partner, "
+              f"and holds only words that count has seen (evidence-gated "
+              f"2026-09-24), over the words the GRADER would accept; the two "
+              f"lists differ.")
         # A BARE FLAG, AND `--modal=yes` WAS SILENTLY NOT IT — 2026-08-15.
         # `"--modal" in args` is an exact membership test, so the `=`
         # spelling every sibling flag on this file accepts fell through and
         # the run came back BYTE-IDENTICAL to passing no flag at all: the
-        # caller who asked for the FREQUENCY-ranked forbidden set was handed
+        # caller who asked for the ~~FREQUENCY-ranked~~ modal forbidden set
+        # (conditional-ranked; struck 2026-09-25, M-310) was handed
         # the RHYME-SCORE list, which is the exact substitution §22 exists to
         # stop. It takes no value, so a value is refused rather than guessed.
         _modal_eq = [a for a in args if a.startswith("--modal=")]
@@ -8435,7 +8716,8 @@ def main():
             _refuse(f"--modal takes no value; got {_modal_eq[0]!r}",
                     detail=["usage: candidates W [n] --modal",
                             "bare `--modal` prints the loop's own "
-                            "FREQUENCY-ranked forbidden set; without it the "
+                            "~~FREQUENCY-ranked~~ evidence-ranked forbidden "
+                            "set; without it the "
                             "list is ranked by RHYME SCORE, and the two "
                             "differ (doctrine 9)."])
         if "--modal" in args:
@@ -8495,7 +8777,8 @@ def main():
     elif cmd == "internal":
         picked, nA, _ = internal_matches(lex, " ".join(args[1:]), decl)
         for p in picked:
-            print(f"  {p['a']} ~ {p['b']}  {p['score']}  {p['relation']}")
+            print(f"  {p['a']} ~ {p['b']}  {p['score']}  "
+                  f"{relation_label(set(p['relations']))}")
         if not picked:
             print("  no internal matches")
 
@@ -8529,7 +8812,10 @@ def main():
               f"(relations) asks song-wide")
         for i, d in enumerate(res["per_line"]):
             print(f"  L{i+1}: {d}")
-        print(f"  overall density: {res['overall']}")
+        print(f"  overall density: {res['overall']} (union over every "
+              f"relation a match stands in)")
+        for r, d in res["by_relation"].items():
+            print(f"    {r}: {d}")
         for u in res["unreadable"]:
             print(f"  UNREADABLE L{u['line']}: {u['words']} "
                   f"(not in the numerator or the denominator)")
@@ -8656,6 +8942,9 @@ def main():
         for u in g["unreadable_nodes"]:
             print(f"  UNREADABLE L{u['line']} ({u['endword']}): "
                   f"{u['reason']}")
+        print("  an edge is a pair standing in ANY admittable relation at "
+              "its cut (or REPEAT); each edge lists EVERY relation it "
+              "stands in")
         for k, (i, j, sc, rel) in enumerate(g["edges"]):
             print(f"  L{i+1}({g['endwords'][i]}) -- L{j+1}"
                   f"({g['endwords'][j]})  {sc}  {rel}")
@@ -8689,6 +8978,8 @@ def main():
         th = (_number_or_refuse(args[2], float, "chains THETA",
                                 "chains FILE [theta]")
               if len(args) > 2 else None)
+        print("  a chain links lines whose end words stand in ANY "
+              "admittable relation (or REPEAT), not only RHYME")
         for ch in infer_chains(lex, lines, decl, theta_chain=th):
             single = ch["length"] == 1
             tag = ("free " if single else
@@ -8779,7 +9070,7 @@ def main():
         print(f"scheme {scheme}  endwords {res['endwords']}")
         for p in res["pair_scores"]:
             head, *rest = report_pair(
-                {"total": p["score"], "relation": p["relation"],
+                {"total": p["score"], "relations": p["relations"],
                  "spans": p["spans"]},
                 p["endwords"][0], p["endwords"][1])
             print(f"  L{p['lines'][0]}-L{p['lines'][1]} {head}"
@@ -9069,7 +9360,9 @@ def main():
                       f"(a registered anchor has no referent in one member "
                       f"— a refusal, not a no)")
         else:
-            names = t.names()
+            # EVERY name the pair supports, over EVERY alignment
+            # `classify_pair` tried — not the one alignment it kept.
+            names = t.every_name()
         if position is None:
             # An INCOMPLETE coordinate is not an unnamed one. Say which axis
             # is missing and how many names need it, derived from the table
@@ -9111,7 +9404,18 @@ def main():
                       f"come from outside {lang!r}):")
                 for _l in _lab:
                     print(f"    - {_l}")
-        print(f"  verdict: {t.verdict()}   alliterates: {t.alliterates()}")
+        # EVERY relation this coordinate answers, side by side — no single
+        # verdict line stands in for them.
+        print("  relations: " + ", ".join(
+            f"{k}={v}" for k, v in t.relations().items()))
+        if lang == "eng":
+            _er = end_pair_relations(w1.split()[-1], w2.split()[-1], lex,
+                                     decl)
+            print(f"  as two line-final words — coarse relations: "
+                  f"{', '.join(_er['coarse']) or 'none'}; registry schemas: "
+                  f"{', '.join(_er['schemas']) or 'none'}"
+                  + (f"; undecided: {len(_er['undecided'])}"
+                     if _er["undecided"] else ""))
         route = getattr(t, "route", None)
         if route:
             print(f"  route: {route}   "
@@ -9269,38 +9573,24 @@ def main():
         rows = screen_pairs(words, lex=lex, decl=decl, relation=screen_rel)
         n_banned = sum(1 for r in rows if r["codes"])
         n_ref = sum(1 for r in rows if r["refused"])
-        # M-113: CLEAN answered two questions — a clean RHYME and a clean
-        # NON-RHYME — and a family got built on the conflation (matinee's
-        # round-3 grade: three violations, all screened CLEAN). The two are
-        # separate counts now and the status says which (doctrine 79 at a
-        # verdict instead of a count).
-        n_rhyme = sum(1 for r in rows
-                      if not r["codes"] and not r["refused"]
-                      and r["why"] is None and not r["schema_scaffold"]
-                      and r["relation"] in RHYME_RELATIONS)
-        # ADMITTED NEAR RELATIONS ARE THEIR OWN COUNT (M-189): they were
-        # summed into `n_rhyme` and printed as rhymes.
-        n_near = sum(1 for r in rows
-                     if not r["codes"] and not r["refused"]
-                     and r["why"] is None and not r["schema_scaffold"]
-                     and r["relation"] not in RHYME_RELATIONS)
-        n_non = len(rows) - n_banned - n_ref - n_rhyme - n_near
+        n_rel = sum(1 for r in rows
+                    if not r["codes"] and not r["refused"] and r["relations"])
+        n_non = len(rows) - n_banned - n_ref - n_rel
         print(f"  SCREEN: {len(rows)} pair(s) from {len(words)} word(s) — "
-              f"the song grader on a minimal mandated pair each, under "
-              f"the active declaration; only pair-scoped findings are "
-              f"relayed ({', '.join(SCREEN_PAIR_CODES)}), the carrier "
-              f"lines are scaffolding")
+              f"each pair listed with EVERY relation it stands in: the "
+              f"coarse relations its end words hold at their cuts and "
+              f"every registry schema judged at the two end tokens; bans "
+              f"({', '.join(SCREEN_PAIR_CODES)}) are relayed separately")
+        _na = sorted(_screen_not_applicable())
+        print(f"  NOT APPLICABLE to two line-final end words "
+              f"({len(_na)} schemas — stream, stanza, figure or placement "
+              f"forms no pair of end words can instantiate): "
+              f"{', '.join(_na)}")
         if screen_rel:
             print(f"  NAMED  : every pair is ALSO judged under "
                   f"{screen_rel!r} at position 'end' — the question a "
                   f"mandate declaring it will ask (same judge, same "
                   f"coordinate, so screen and grade cannot drift)")
-        else:
-            print(f"  (the verdict column is the COARSE class; a mandate "
-                  f"declaring a NAMED relation is judged by that name's "
-                  f"own cell, which can answer differently in both "
-                  f"directions — screen with --relation=NAME to ask the "
-                  f"grade's question, M-58)")
         w = max(len(f"{r['a']} ~ {r['b']}") for r in rows)
         for r in rows:
             pair = f"{r['a']} ~ {r['b']}".ljust(w)
@@ -9318,53 +9608,29 @@ def main():
                     named_status = f"  |  {screen_rel} REFUSED: {_nr[:110]}"
             if r["refused"]:
                 print(f"  {pair}  REFUSED — {r['reason']}{named_status}")
-            else:
-                verdict = f"{r['relation']} {r['score']:.3f}"
-                # `why is None` is the GRADE's own satisfaction marker —
-                # read it rather than re-listing the admit set here, so a
-                # widened `Declaration.admit` flows through untouched.
-                # `schema_scaffold` non-empty means the satisfaction came
-                # from the 77-schema default reading the CARRIER lines,
-                # which are scaffolding — not evidence about the pair.
-                if r["codes"]:
-                    status = f"BANNED: {', '.join(r['codes'])}"
-                elif (r["why"] is None and not r["schema_scaffold"]
-                      and r["relation"] in RHYME_RELATIONS):
-                    status = "CLEAN — RHYMES"
-                elif r["why"] is None and not r["schema_scaffold"]:
-                    # ADMITTED IS NOT RHYMES (M-189, 2026-09-01). Since the
-                    # admit door widened to all four classes (M-59) a pair
-                    # the comparator TYPES as ASSONANCE or CONSONANCE is
-                    # satisfied at a bare group and was printed "CLEAN —
-                    # RHYMES" — the same row that says it VIOLATES
-                    # class:RHYME. Said as what it is, with the consequence.
-                    status = (f"CLEAN — ADMITTED as {r['relation']} (a "
-                              f"near relation the default door admits; a "
-                              f"schema or class that needs the nucleus and "
-                              f"coda to agree will charge it; that door's "
-                              f"{door_chance_note('admit')})")
-                elif r["schema_scaffold"]:
-                    status = (f"CLEAN — DOES NOT RHYME as a pair (the "
-                              f"schema default answered on the SCAFFOLD: "
-                              f"{', '.join(r['schema_scaffold'])})")
-                else:
-                    status = f"CLEAN — DOES NOT RHYME ({r['why']})"
-                if r["coda_no_evidence"]:
-                    # E-5, the cheap half (2026-09-02): the verdict stands;
-                    # the reader learns what part of it is unsupported.
-                    _cf = next(f for f in r["flags"]
-                               if f.startswith("coda: no evidence"))
-                    status += f"  |  {_cf}"
-                print(f"  {pair}  {verdict}  {status}"
-                      f"{r['attribution']}{named_status}")
-        print(f"  {n_banned} banned, {n_ref} refused, {n_rhyme} clean and "
-              f"rhyming, {n_near} clean and ADMITTED as a near relation, "
-              f"{n_non} clean but not a rhyme — a banned pair is "
-              f"an ANSWER; an admitted near relation passes a bare group "
-              f"and fails any schema or class that needs the rhyme; a "
-              f"clean non-rhyme is not banned AND not a family (the "
-              f"mandate will charge it); refusal is the grader's own "
-              f"(doctrine 28)")
+                continue
+            rels = ", ".join(r["relations"]) if r["relations"] else "none"
+            status = f"{len(r['relations'])} relation(s): {rels}"
+            if r["codes"]:
+                status = f"BANNED: {', '.join(r['codes'])}  |  " + status
+            if r["undecided"]:
+                status += (f"  |  {len(r['undecided'])} undecided at the "
+                           f"pair: {', '.join(r['undecided'])}")
+            if r["coda_no_evidence"]:
+                _cf = next(f for f in r["flags"]
+                           if f.startswith("coda: no evidence"))
+                status += f"  |  {_cf}"
+            # The grader's own sentence on the minimal mandated pair: why a
+            # bare group would charge it, or which of its schemas it could
+            # not resolve — beside the relation list, never instead of it.
+            if r["why"]:
+                status += f"  |  grade: {r['why']}"
+            elif r["reason"]:
+                status += f"  |  grade: {r['reason']}"
+            print(f"  {pair}  {r['score']:.3f}  {status}"
+                  f"{r['attribution']}{named_status}")
+        print(f"  {n_banned} banned, {n_ref} refused, {n_rel} standing in "
+              f"at least one relation, {n_non} standing in none")
         if screen_rel:
             print(f"  NAMED COUNTS: "
                   f"{sum(r['named'] is True for r in rows)} satisfies, "
@@ -9376,6 +9642,20 @@ def main():
         # same reason the bank block below is: a report, not a verdict.
         for _l in anchor_disclosure_lines(lex, words):
             print(_l)
+        # THE PAIRS, MACHINE-READABLE: every relation each pair stands in,
+        # read by the connector off the authenticated record rather than
+        # parsed out of the table above. Printed before the bank block so
+        # the un-flagged output stays a prefix of the flagged one.
+        _lyric_result(status="screened", pairs=[
+            {"a": r["a"], "b": r["b"], "relations": list(r["relations"]),
+             "coarse_relations": list(r["coarse_relations"]),
+             "schema_relations": list(r["schema_relations"]),
+             "undecided": list(r["undecided"]), "score": r["score"],
+             "codes": list(r["codes"]), "refused": r["refused"],
+             "reason": r["reason"], "why": r["why"],
+             **({"named": r["named"], "named_reason": r["named_reason"]}
+                if screen_rel else {})}
+            for r in rows])
         # AFTER EVERYTHING, AND THAT POSITION IS THE POINT. The block is
         # appended below the verdict table and below the summary counts so
         # that it structurally CANNOT reach either: the disclosure is a
@@ -9415,9 +9695,12 @@ def main():
                   f"needs distinct spellings), chain_lo is the size of a "
                   f"witness clique THE GRADER ITSELF accepted")
             print(f"  relation: {', '.join(_rels)} — a capacity is a "
-                  f"coordinate of its relation (M-41); the other "
-                  f"partitions are `python3 quality/capacity.py "
-                  f"--families=RELATION`, uncertified")
+                  f"coordinate of its relation (M-41) and covers THAT "
+                  f"relation's partition only; family members also stand "
+                  f"in every other relation their sound supports, which "
+                  f"this table does not count. The other partitions are "
+                  f"`python3 quality/capacity.py --families=RELATION`, "
+                  f"uncertified")
             for r in rows[:n]:
                 lo = (f"chain_lo {r['chain_lo']}" if r["certified"]
                       else "uncertified (below the certification floor)")
@@ -9449,7 +9732,9 @@ def main():
             mine = rv._spelled_rime(word)
             mates = classes.get(mine, [])
             print(f"  CAPACITY of {word!r}: family {label} under "
-                  f"relation {CAP.ADOPTED_RELATION} — "
+                  f"relation {CAP.ADOPTED_RELATION} (that relation's "
+                  f"partition only; the pairs stand in other relations "
+                  f"too) — "
                   f"{sum(len(v) for v in classes.values())} word(s), "
                   f"{len(classes)} spelling class(es) = chain_hi "
                   f"{len(classes)}")
@@ -9505,7 +9790,7 @@ def main():
         # the layer; `--narrative=ATOM,ATOM/JUNCTION,...` declares the
         # line-up — one atom per SUNG section in order, the first bare,
         # each later one carrying its inbound junction after a slash.
-        # No flag leaves the default: the planner draws.
+        # No flag leaves the default: the planner draws the narrative.
         narrative_raw = _flag_value(rest, "--narrative")
         sweep_raw = _flag_value(rest, "--sweep")
         want_raw = _flag_value(rest, "--want")
@@ -9660,6 +9945,11 @@ def main():
             print(f"  RELATION: every mandated group is judged under "
                   f"{the_plan['relation']!r} — DECLARED, not sampled; the "
                   f"planner never picks a relation.")
+        else:
+            print("  RELATION: none declared and none drawn — every "
+                  "mandated group is judged against EVERY relation (each "
+                  "coarse relation and every registry schema) and is "
+                  "satisfied by any one its pairs stand in.")
         if the_plan.get("functions"):
             print(f"  ROSTER: {', '.join(the_plan['functions'])} — an "
                   f"ALLOW-LIST, checked against each function's own "
@@ -9699,10 +9989,9 @@ def main():
                   f"{len(_au['unclassified'])} explicit class/type declaration(s) "
                   f"outside this schema-only inventory ("
                   f"{', '.join(sorted(set(_au['unclassified']))) or 'none'}). "
-                  f"A record, not a gate (M-192); "
-                  + ("relations were declared, not drawn."
-                     if the_plan.get('relation') else
-                     "the dice are uniform over the certified schema pool."))
+                  f"A record, not a gate (M-192); no relation is drawn: "
+                  f"a bare group is judged against EVERY relation, coarse "
+                  f"and schema, and stands in any its pairs support.")
         # M-112: the mandate's own weight on each section, said out loud.
         # The series' third song cleared every gate with a chorus binding
         # 23 of ~31 sung tokens and nothing had disclosed the share — it
@@ -9822,7 +10111,10 @@ def main():
         cov = SC.Cover(n_lines=len(lines),
                        groups=[sorted(c) for c in g["cliques"]])
         part = cov.to_partition()
-        print(f"lines {len(lines)}   cliques {len(g['cliques'])}")
+        print(f"lines {len(lines)}   cliques {len(g['cliques'])}   "
+              f"(edges: ANY admittable relation at its cut — one "
+              f"partition over the union of the relations, not one per "
+              f"relation)")
         if part is None:
             print("  NO LETTER SCHEME EXISTS for this text.")
             print("  The maximal cliques OVERLAP, so no assignment of one "
@@ -11401,9 +11693,9 @@ def main():
             same argument `_say_blueprint` is: the disclosure is about the
             CALL, not about the draft, so it is a printed line and never a
             `Finding` (a caller scans `whole` for things wrong with the
-            song). Nothing is printed when nothing was declared — the coarse
-            `Declaration.admit` path is the default and announcing a default
-            on every run buries the line that matters."""
+            song). Nothing is printed when nothing was declared — judging
+            every group against every relation is the default and announcing
+            a default on every run buries the line that matters."""
             if m is None or isinstance(m, (str, list)):
                 return                     # a bare spec: no relation on it
             dflt_ = getattr(m, "default_relation", "")
@@ -11415,14 +11707,15 @@ def main():
             if dflt_:
                 print(f"  RELATION: every group is judged under "
                       f"{dflt_!r} unless it declares its own — the named "
-                      f"engine's own coordinate, not the scalar "
-                      f"comparator's admit set.")
+                      f"relation's own judge, which narrows the default "
+                      f"of every relation.")
             for lab, rel in per:
                 print(f"  RELATION: group {lab!r} is judged under {rel!r}.")
             if not dflt_:
-                print(f"  ...and every OTHER group takes the coarse admit "
-                      f"set, which is what a mandate declaring no relation "
-                      f"has always used.")
+                print(f"  ...and every OTHER group is judged against "
+                      f"EVERY relation — each coarse relation at its cut "
+                      f"and every registry schema — and is satisfied by any "
+                      f"one its pairs stand in.")
 
         def _print_brief_report(lines, scheme, blueprint):
             """`brief`'s own report, factored out so `song` can print the
@@ -11543,17 +11836,14 @@ def main():
                     else:
                         _answer = "SATISFIED — required verbatim return"
                     print(f"    L{_i}~L{_j}: {_answer}")
-            # THE WHOLE-VOCABULARY DEFAULT, DISCLOSED (M-116, owner ruling
-            # 2026-08-25). A pair the scalar door failed and a schema
-            # satisfied is a PASS, and a silent one reads exactly like a
-            # scalar pass — so each is named here with the schema that
-            # answered, because laziness at these relations is UNCALIBRATED
-            # and a reader must be able to tell the two passes apart.
-            # ONE DEFINITION EACH (2026-09-02): the text lives in
+            # THE WHOLE VOCABULARY, DISCLOSED (M-116). Every mandated pair
+            # is judged against every relation; the SCHEMA RELATIONS line
+            # names every schema each pair stands in (laziness at them is
+            # UNCALIBRATED), and NEAR ONLY names satisfied pairs standing
+            # in a near relation and no rhyme relation. The text lives in
             # `schema_default_disclosure` / `near_relation_default_disclosure`
-            # so a test can pin the rendering without a `finish` run, and
-            # each line now carries its door's PINNED chance rate (M-138 /
-            # M-140's disclosure halves). Neither line gates anything.
+            # so a test can pin it; each carries its family's PINNED chance
+            # rate (M-138 / M-140). Neither line gates anything.
             _g = found.get("grade") or {}
             _sd = schema_default_disclosure(
                 _g.get("pairs_schema_satisfied") or [])
@@ -11632,7 +11922,8 @@ def main():
                 graded = rv.grade(lines, scheme)
                 for v in graded["violations"]:
                     i, j = v["lines"]
-                    s = {"total": v["score"], "relation": v["relation"],
+                    s = {"total": v["score"],
+                         "relations": v.get("relations", ()),
                          "spans": v.get("spans")}
                     span_by_pair[(i, j)] = (v, s)
             except Exception:                # pragma: no cover
@@ -11968,14 +12259,9 @@ def main():
                         print(f"      {_l}")
                 if b.candidates:
                     print(f"      offered: {', '.join(b.candidates[:12])}")
-                    # RENDER SITE 6 OF 6. `_print_brief_report` is a SECOND
-                    # renderer of a `Brief` -- it restates `Brief.__str__`'s
-                    # per-line block rather than calling it -- so a rule
-                    # added to one and not the other vanishes from the verb
-                    # a writer actually runs (`MISSING.md` M-139).
-                    from quality.revise import schema_route_lines as _SRL
-                    for _l in _SRL(b.schema_route_note, "      "):
-                        print(_l)
+                    # (The schema-route note rendered here was the 77-schema
+                    # RESCUE's disclosure; every pair is judged against the
+                    # whole vocabulary now, so `Brief` carries no such note.)
             _print_whole()
             return _counts()
 
@@ -12304,6 +12590,9 @@ def main():
                     if finish_plan.get("relation"):
                         _synth.append(
                             f"--relation={finish_plan['relation']}")
+                    # Only DECLARED relations are carried: the planner
+                    # draws none, so a plan with no declaration grades
+                    # every group against every relation.
                     if finish_plan.get("relations"):
                         _synth.append("--relations=" + ",".join(
                             f"{k}:{v}" for k, v in
@@ -13101,7 +13390,8 @@ def main():
             print(f"{q}:")
             for c in res["candidates"]:
                 fl = f"   [{', '.join(c['flags'])}]" if c["flags"] else ""
-                print(f"  {c['score']:.3f}  {c['tier']:<8} {c['word']}{fl}")
+                print(f"  {c['score']:.3f}  {c['word']}  "
+                      f"{relation_label(c['relations'])}{fl}")
         print("\n--- scheme check: AABB with a planted failure ---")
         lines = ["The river took the bridge at dawn",
                  "and no one saw the water again",
@@ -13111,7 +13401,7 @@ def main():
         for p in res["pair_scores"]:
             print(f"  L{p['lines'][0]}-L{p['lines'][1]} "
                   f"({p['endwords'][0]}/{p['endwords'][1]}): "
-                  f"{p['score']}  {p['relation']}")
+                  f"{p['score']}  {relation_label(set(p['relations']))}")
             if p["spans_note"]:
                 print(f"        {p['spans_note']}")
         print(f"  violations: {res['violations']}")
@@ -13193,16 +13483,18 @@ def cli():
         # be a verdict wearing the wrong coordinate (doctrine 1).
         if "candidate explosion" not in str(e):
             raise
-        _refuse(f"the rhyme-schema default door refused this draft: {e}",
-                detail=["the 77-schema door considers every candidate pair "
+        _refuse(f"the whole-vocabulary judgment refused this draft: {e}",
+                detail=["judging every pair against every registry schema "
+                        "considers every candidate pair "
                         "over the whole draft, so its cost grows with the "
                         "SQUARE of the line count and it stops at a declared "
                         "pair guard (`relations.realise`, max_pairs). "
                         "MEASURED on the planner's fixture draft: 53 lines "
                         "56 s, 108 lines 330 s, 144 lines refused.",
                         "declare a relation per group (`--relation=` / "
-                        "`--relations=`) so the schema door is not consulted, "
-                        "or grade a shorter draft. A schema door that scales "
+                        "`--relations=`) so the registry is not searched "
+                        "song-wide, or grade a shorter draft. A whole-"
+                        "vocabulary judgment that scales "
                         "is `MISSING.md` M-240, open."])
     except LexicalAssetUnavailable as e:
         _refuse(str(e))
@@ -13220,12 +13512,12 @@ def cli():
                 detail=["the path is read relative to the working directory, "
                         "not to any file already handed in."])
     except IndexError as e:
-        # The verb is the first token that is not a GLOBAL flag
-        # (`--fallback=`, `--voices`, `--input-format=` precede it).
-        at = next((i for i, a in enumerate(sys.argv[1:], 1)
-                   if not a.startswith("--")), None)
-        verb = sys.argv[at] if at is not None else "(no verb)"
-        n = max(0, len(sys.argv) - (at or len(sys.argv)) - 1)
+        # The verb is the first argument that is not a global flag
+        # (`--input-format=`, `--fallback=`, ... ride ahead of it).
+        _pos = [i for i, a in enumerate(sys.argv[1:], 1)
+                if not a.startswith("--")]
+        verb = sys.argv[_pos[0]] if _pos else "(no verb)"
+        n = max(0, len(sys.argv) - 1 - _pos[0]) if _pos else 0
         _refuse(f"{verb} — ran out of arguments at {n} given",
                 detail=["`--help` prints every verb's usage line; `wiring` "
                         "prints which verb runs on which layer.",

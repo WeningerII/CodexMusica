@@ -431,7 +431,7 @@ def test_fin_the_refusal_is_derived_and_named():
 def test_fin_w_and_v_are_one_phoneme_in_the_rime():
     print("\n13. Finnish: <w> and <v> are allographs, MIXED in one book (M-5)")
     check("`Wäinämöisen` and `Väinämöisen` are the same word for the rime",
-          F.relation_type("Wäinämöisen", "Väinämöisen") == "REPEAT")
+          "REPEAT" in F.relation_type("Wäinämöisen", "Väinämöisen"))
     check("the fold is DECLARED", fin.FOLD_W_TO_V is True)
     check("and it is OFF by default in alliteration, because the recorded "
           "rates are coordinates of the unfolded reading (doctrine 58)",
@@ -511,18 +511,25 @@ def test_fin_w_and_v_are_one_phoneme_in_the_rime():
 
 def test_fin_relation_types_separate_grammar_from_choice():
     print("\n14. Finnish: agglutination gets its own type (doctrine 24)")
-    check("`metsässä : kädessä` is a SUFFIX_RHYME — the whole agreement is "
-          "the inessive ending",
-          F.relation_type("metsässä", "kädessä") == "SUFFIX_RHYME")
-    check("`kulta : tulta` is NOT, though it shares `ulta`, which ENDS with "
-          "the partitive `ta` — the test is exact membership",
-          F.relation_type("kulta", "tulta") == "RIME_RICHE")
-    check("`yksinään : itsekään` is a plain RHYME",
-          F.relation_type("yksinään", "itsekään") == "RHYME")
-    check("identity is REPEAT, never rhyme (doctrine 3)",
-          F.relation_type("muu", "muu") == "REPEAT")
-    check("a non-rhyme is NONE, and a refusal is None",
-          F.relation_type("katoaa", "suruinen") == "NONE"
+    # REPINNED 2026-09-22: relation_type returns the SET of relations the
+    # pair stands in (each an independent predicate), not the first match.
+    check("`metsässä : kädessä` stands in SUFFIX_RHYME — the whole agreement "
+          "is the inessive ending — and in rhyme and rime riche besides",
+          F.relation_type("metsässä", "kädessä")
+          == frozenset({"SUFFIX_RHYME", "RIME_RICHE", "RHYME"}),
+          str(F.relation_type("metsässä", "kädessä")))
+    check("`kulta : tulta` is NOT a suffix rhyme, though it shares `ulta`, "
+          "which ENDS with the partitive `ta` — the test is exact membership",
+          F.relation_type("kulta", "tulta")
+          == frozenset({"RIME_RICHE", "RHYME"}))
+    check("`yksinään : itsekään` is a plain RHYME and nothing more",
+          F.relation_type("yksinään", "itsekään") == frozenset({"RHYME"}))
+    check("identity is REPEAT — and a repeat is also rime riche and rhyme "
+          "on the rime (doctrine 3 keeps REPEAT typed, not hidden)",
+          F.relation_type("muu", "muu") == frozenset({"REPEAT", "RIME_RICHE", "RHYME"}))
+    check("a non-rhyme stands in no relation (empty set), and a refusal is "
+          "None",
+          F.relation_type("katoaa", "suruinen") == frozenset()
           and F.relation_type("neitosien", "sydämen") is None)
     check("SUFFIXES is a declared list, part of the phonology (doctrine 46)",
           "ssä" in fin.SUFFIXES and "nen" in fin.SUFFIXES)

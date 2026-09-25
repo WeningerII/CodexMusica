@@ -90,9 +90,9 @@ def test_constructed_oov_final():
     s = best_score(*[line_anchors(LEX, t)[0] for t in (OOV_A, OOV_B)],
                    DECL, "zzzqx", "zzzqx")
     check("the comparator refuses rather than scoring",
-          s["relation"] == "NO_ANCHOR")
+          s["relations"] == frozenset({"NO_ANCHOR"}))
     check("even two IDENTICAL unreadable words are not called REPEAT",
-          s["relation"] != "REPEAT",
+          "REPEAT" not in s["relations"],
           "REPEAT would assert the sounds are equal, which is unknown")
 
     res = check_scheme(LEX, [OOV_A, OOV_B], "AA", DECL)
@@ -177,7 +177,7 @@ def test_real_corpus_line():
     check("the refusal is recorded", res["pairs_refused"] == 1
           and res["pairs_judged"] == 0)
     check("the harness does not claim they rhyme either",
-          all(p["relation"] == "NO_ANCHOR" for p in res["pair_scores"]),
+          all(p["relations"] == ["NO_ANCHOR"] for p in res["pair_scores"]),
           "refusing is not the same as answering no, and not the same as yes")
 
     subs = substitution_report(LEX, [a, b])
@@ -214,9 +214,13 @@ def test_readable_pairs_are_untouched():
     aa, _, _ = line_anchors(LEX, OK_A)
     bb, _, _ = line_anchors(LEX, OK_B)
     s = best_score(aa, bb, DECL, "cat", "hat")
-    check("cat/hat still scores exactly 1.0 RHYME",
-          s["total"] == 1.0 and s["relation"] == "RHYME" and s["flags"] == [],
-          f"{s['total']} {s['relation']} {s['flags']}")
+    check("cat/hat still scores exactly 1.0 and stands in RHYME (and "
+          "ASSONANCE and CONSONANCE — a perfect rhyme is all three)",
+          s["total"] == 1.0
+          and s["relations"] == frozenset({"RHYME", "ASSONANCE",
+                                           "CONSONANCE"})
+          and s["flags"] == [],
+          f"{s['total']} {sorted(s['relations'])} {s['flags']}")
 
     res = check_scheme(LEX, [OK_A, OK_B], "AA", DECL)
     check("a readable mandated pair has no violation and no refusal",
@@ -235,11 +239,35 @@ def test_readable_pairs_are_untouched():
             "the cattle waded through the silt",
             "past every fence the county rebuilt"]
     d = check_scheme(LEX, demo, "AABB", DECL)
-    got = [(p["lines"], p["score"], p["relation"]) for p in d["pair_scores"]]
-    want = [((1, 2), 0.729, "CONSONANCE"), ((1, 3), 0.576, "NO_RELATION"),
-            ((1, 4), 0.477, "NO_RELATION"), ((2, 3), 0.748, "ASSONANCE"),
-            ((2, 4), 0.748, "ASSONANCE"), ((3, 4), 1.0, "RHYME")]
-    check("the demo scores reproduce (E-5: dawn/silt 0.620 -> 0.576)", got == want, f"{got}")
+    # REPINNED 2026-09-22 (N-relation model), measured: each pair lists
+    # EVERY relation it stands in — coarse and registry schema — so
+    # silt/rebuilt is RHYME and ASSONANCE and CONSONANCE and nine schemas,
+    # and the two NO_RELATION pairs are empty sets.
+    got = [(p["lines"], p["score"],
+            sorted(r for r in p["relations"] if r.isupper()))
+           for p in d["pair_scores"]]
+    # REPINNED AGAIN 2026-09-24, measured on this tree: again/silt and
+    # again/rebuilt (2,3) and (2,4) were ~~["ASSONANCE"]~~ and are now [].
+    # Cause: `nucleus_agreement` became "licensed" (#375) the same day the
+    # pin above was measured; EH~IH is a NEAR vowel, and under the licensed
+    # shape ASSONANCE means the stressed vowels agree. Under a declared
+    # `nucleus_agreement="scalar"` both pairs still read ["ASSONANCE"] at
+    # the same 0.748; every score is unchanged.
+    want = [((1, 2), 0.729, ["CONSONANCE"]), ((1, 3), 0.576, []),
+            ((1, 4), 0.477, []), ((2, 3), 0.748, []),
+            ((2, 4), 0.748, []),
+            ((3, 4), 1.0, ["ASSONANCE", "CONSONANCE", "RHYME"])]
+    check("the demo scores and COARSE relation sets reproduce (E-5: "
+          "dawn/silt 0.620 -> 0.576)", got == want, f"{got}")
+    _p34 = next(p for p in d["pair_scores"] if p["lines"] == (3, 4))
+    _p12 = next(p for p in d["pair_scores"] if p["lines"] == (1, 2))
+    check("...and every pair's relations include the SCHEMAS it stands in, "
+          "not only the coarse ones: silt/rebuilt stands in `perfect rhyme` "
+          "and `assonance` and `consonance`; dawn/again in `consonance`",
+          {"perfect rhyme", "assonance", "consonance"} <= set(_p34["relations"])
+          and "consonance" in _p12["relations"]
+          and "perfect rhyme" not in _p12["relations"],
+          f"{_p34['relations']} / {_p12['relations']}")
     # RESTATED 2026-08-18: the refusal now NAMES the declared door — the
     # admit set (`Declaration.admit`) a near relation could have entered
     # through. Same verdict, same score, same relation; only the sentence
@@ -279,7 +307,8 @@ def test_readable_pairs_are_untouched():
     # narrowing that still admits CONSONANCE refuses on the SCALAR; the
     # 2-relation rhyme-only door refuses on the RELATION.
     check("under the whole-vocabulary DEFAULT the demo's old violation is "
-          "SATISFIED by schema, and the rescue says which one answered",
+          "SATISFIED, and the pair's schema record names the schemas it "
+          "stands in",
           d["violations"] == []
           and any(s["lines"] == (1, 2) and "consonance" in s["satisfied_by"]
                   for s in d["pairs_schema_satisfied"]),
@@ -299,15 +328,18 @@ def test_readable_pairs_are_untouched():
           [v[:3] for v in _narrow["violations"]]
           == [v[:3] for v in _scal["violations"]]
           == [(1, 2, 0.729)]
-          and "admit set" in _narrow["violations"][0][3]
-          and "theta_rhyme" in _scal["violations"][0][3],
+          and "is in the declared admit set" in _narrow["violations"][0][3]
+          and "below the cut of every admitted relation it stands in: "
+              "CONSONANCE 0.729 < 0.75" in _scal["violations"][0][3],
           f"narrowed: {_narrow['violations'][0][3]!r}; "
           f"scalar-door: {_scal['violations'][0][3]!r}")
     check("the demo refuses nothing", d["pairs_refused"] == 0)
 
     g = rhyme_graph(LEX, demo, DECL)
-    check("the demo graph is unchanged",
-          g["edges"] == [(2, 3, 1.0, "RHYME")] and g["cliques"] == [[2, 3]]
+    check("the demo graph is unchanged (its one edge labelled with EVERY "
+          "relation it stands in)",
+          g["edges"] == [(2, 3, 1.0, "ASSONANCE+CONSONANCE+RHYME")]
+          and g["cliques"] == [[2, 3]]
           and g["pairs_refused"] == 0)
 
     # word_syllable_map must not have moved for readable text: it feeds
@@ -348,8 +380,25 @@ def test_nothing_was_lost_on_the_sonnets():
     check(f"violations + refusals == the recorded total",
           viol + ref == battery.EXPECTED["violations"] + battery.EXPECTED["refused"],
           f"{viol} + {ref} -- nothing was invented and nothing vanished")
-    check("94 pairs refuse: 50 lexical gaps, 28 reading disagreements, 16 unresolved schema answers",
-          ref == battery.EXPECTED["refused"] == 50 + 28 + 16,
+    # REPINNED 2026-09-22 (N-relation model), MEASURED by this loop: 106
+    # refusals = 50 lexical gaps + 39 reading disagreements + 17 unresolved
+    # schema answers. The reading-consensus check is now membership over the
+    # pair's relation SET, so readings that disagree on ANY relation refuse
+    # (28 -> 39), and the coarse chain charges more pairs the schemas then
+    # cannot decide (16 -> 17). Judged 1064 - 106 = 958; violations stay 7.
+    # REPINNED AGAIN 2026-09-24, MEASURED on this tree by this loop's
+    # refusal reasons: ~~106 = 50 + 39 + 17~~ -> 128 = 50 lexical gaps + 53
+    # reading disagreements + 25 unresolved schema answers. Cause:
+    # `nucleus_agreement` became "licensed" (#375) the same day as the pin
+    # above -- near vowels no longer carry RHYME/ASSONANCE, so a pair whose
+    # permitted readings differ only in the vowel now disagrees across
+    # readings and refuses (39 -> 53; cf. regrade_verdicts.py), and more
+    # pairs reach schemas that cannot decide (17 -> 25). The 50 lexical gaps
+    # are CMUdict's and do not move. battery.EXPECTED already carries 128.
+    check("128 pairs refuse: 50 lexical gaps, 53 reading disagreements, 25 "
+          "unresolved schema answers (~~106 = 50 + 39 + 17~~, licensed "
+          "nucleus 2026-09-24)",
+          ref == battery.EXPECTED["refused"] == 50 + 53 + 25,
           "Unknown pronunciation/schema answers remain outside rhyme failures and judged coverage")
     # 73 -> 81 -> 82: 0.60 -> 0.80 calibrated theta_coda, then scalar ->
     # identity coda_agreement. The count that matters to THIS test is
@@ -362,8 +411,10 @@ def test_nothing_was_lost_on_the_sonnets():
     check(f"the violation count is {battery.EXPECTED['violations']} "
           f"(was 73 at theta_coda 0.60, 81 at scalar coda_agreement)",
           viol == battery.EXPECTED["violations"], str(viol))
-    check("the judged denominator is 970, and every mandated pair is accounted for",
-          judged == battery.EXPECTED["judged"] and judged + ref == mandated,
+    # REPINNED 2026-09-24: ~~958~~ -> 936 = 1064 - 128, the same cause.
+    check("the judged denominator is 936 (~~958~~), and every mandated pair "
+          "is accounted for",
+          judged == battery.EXPECTED["judged"] == 936 and judged + ref == mandated,
           f"{judged}: a violation RATE is "
           f"{battery.EXPECTED['violations']}/{battery.EXPECTED['judged']} = "
           f"{battery.EXPECTED['violations']/battery.EXPECTED['judged']:.1%}")
@@ -1038,8 +1089,8 @@ def test_the_manufactured_rhyme_is_refused():
           aa == [] and bb == [], f"{len(aa)} / {len(bb)} anchors")
     s = best_score(aa, bb, DECL, la, lb)
     check("so the comparator returns NO_ANCHOR, not a rhyme it invented",
-          s["relation"] == "NO_ANCHOR" and s["total"] == 0.0,
-          f"{s['relation']} {s['total']} — it used to pass the band on a "
+          s["relations"] == frozenset({"NO_ANCHOR"}) and s["total"] == 0.0,
+          f"{sorted(s['relations'])} {s['total']} — it used to pass the band on a "
           f"schwa shared by every participle in the file")
     res = check_scheme(LEX, [a, b], "AA", DECL)
     check("and the pair is REFUSED, not counted as a violation",
@@ -1553,20 +1604,24 @@ def test_a_wordless_score_says_identity_was_not_asked():
     a = _LH.anchor(_LH.syllabify(p1))
     wordless = _LH.score(a, a, DECL)
     worded = _LH.score(a, a, DECL, "light", "light")
-    check("wordless: RHYME, with the disclosure on its flags",
-          wordless["relation"] == "RHYME"
+    check("wordless: RHYME and no REPEAT, with the disclosure on its flags",
+          "RHYME" in wordless["relations"]
+          and "REPEAT" not in wordless["relations"]
           and "identity: not asked (words omitted)" in wordless["flags"],
-          f"{wordless['relation']} {wordless['flags']}")
-    check("worded: REPEAT, and no such flag",
-          worded["relation"] == "REPEAT"
+          f"{sorted(wordless['relations'])} {wordless['flags']}")
+    check("worded: REPEAT (beside the sound relations it also stands in), "
+          "and no such flag",
+          "REPEAT" in worded["relations"]
+          and worded["relations"] - {"REPEAT"} == wordless["relations"]
           and not any("not asked" in f for f in worded["flags"]),
-          f"{worded['relation']} {worded['flags']}")
+          f"{sorted(worded['relations'])} {worded['flags']}")
     aa, _, _ = line_anchors(LEX, OK_A)
     bb, _, _ = line_anchors(LEX, OK_B)
     s2 = best_score(aa, bb, DECL, "cat", "hat")
     check("the tripwire above is untouched: a worded best_score carries no "
           "disclosure and cat/hat is still a clean 1.0 RHYME",
-          s2["total"] == 1.0 and s2["relation"] == "RHYME" and s2["flags"] == [])
+          s2["total"] == 1.0 and "RHYME" in s2["relations"]
+          and s2["flags"] == [])
 
 
 def test_empty_coda_evidence_is_omitted():
@@ -1578,13 +1633,28 @@ def test_empty_coda_evidence_is_omitted():
         p, _, _ = LEX.transcribe(x)
         return _LH.anchor(_LH.syllabify(p))
     s = _LH.score(_w("now"), _w("why"), DECL, "now", "why")
-    check("now/why scores 0.850 RHYME with absent coda evidence omitted",
-          s["total"] == 0.850 and s["relation"] == "RHYME",
-          f"{s['total']} {s['relation']}")
+    # UPDATED 2026-09-24: the RELATION half of this check moved with the
+    # N-relation model (#375), the SCORE half (E-5's point) did not. AW~AY
+    # is a near vowel (vowel_sim 0.805): under the shipped `licensed`
+    # nucleus it carries no RHYME/ASSONANCE, so now/why stands in no coarse
+    # relation (was ~~RHYME and ASSONANCE~~); under a declared `scalar`
+    # nucleus it still stands in exactly those two, at the same 0.850.
+    s_sc = _LH.score(_w("now"), _w("why"),
+                     _LH.Declaration(nucleus_agreement="scalar"),
+                     "now", "why")
+    check("now/why scores 0.850 with absent coda evidence omitted, and "
+          "stands in no coarse relation under the licensed nucleus (RHYME "
+          "and ASSONANCE under a declared scalar one; never CONSONANCE, no "
+          "coda consonant)",
+          s["total"] == 0.850 and s["relations"] == frozenset()
+          and s_sc["total"] == 0.850
+          and s_sc["relations"] == frozenset({"RHYME", "ASSONANCE"}),
+          f"licensed {s['total']} {sorted(s['relations'])}; scalar "
+          f"{s_sc['total']} {sorted(s_sc['relations'])}")
     legacy = _LH.score(_w("now"), _w("why"),
                        _LH.Declaration(coda_empty_evidence="gift"), "now", "why")
     check("explicit gift reproduces historical 0.902",
-          legacy["total"] == 0.902 and legacy["relation"] == s["relation"], legacy)
+          legacy["total"] == 0.902 and legacy["relations"] == s["relations"], legacy)
     _cf = [f for f in s["flags"] if f.startswith("coda: no evidence")]
     check("disclosure names historical contribution and the adopted rule",
           len(_cf) == 1 and "0.350 of the historical gift total" in _cf[0]
@@ -1593,17 +1663,17 @@ def test_empty_coda_evidence_is_omitted():
     c = _LH.score(_w("cat"), _w("hat"), DECL, "cat", "hat")
     check("control: cat/hat — codas heard on both sides — carries no such "
           "flag and is still a clean 1.0 RHYME",
-          c["total"] == 1.0 and c["relation"] == "RHYME" and c["flags"] == [],
-          f"{c['total']} {c['relation']} {c['flags']}")
+          c["total"] == 1.0 and "RHYME" in c["relations"] and c["flags"] == [],
+          f"{c['total']} {sorted(c['relations'])} {c['flags']}")
     # THE AGREEMENT SIDE IS UNTOUCHED: `see`/`free` is a rhyme because
     # `coda_agrees` on empty/empty is CORRECT, and the disclosure rides
     # beside that verdict rather than against it.
     f = _LH.score(_w("see"), _w("free"), DECL, "see", "free")
     check("see/free is still 1.0 RHYME (the agreement side is correct and "
           "untouched) and carries the same disclosure",
-          f["total"] == 1.0 and f["relation"] == "RHYME"
+          f["total"] == 1.0 and "RHYME" in f["relations"]
           and any(x.startswith("coda: no evidence") for x in f["flags"]),
-          f"{f['total']} {f['relation']} {f['flags']}")
+          f"{f['total']} {sorted(f['relations'])} {f['flags']}")
     # The screen reads the grade's verdict, which now CARRIES the
     # comparator's flags (`quality/revise.py` grade verdicts, `flags`), so
     # a CLEAN row can say what part of it is unsupported.
@@ -1614,7 +1684,7 @@ def test_empty_coda_evidence_is_omitted():
           and rows[0]["coda_no_evidence"] is True
           and any(x.startswith("coda: no evidence")
                   for x in rows[0]["flags"]),
-          f"{rows[0]['relation']} {rows[0]['score']} {rows[0]['flags']}")
+          f"{rows[0]['relations']} {rows[0]['score']} {rows[0]['flags']}")
     rows = _LH.screen_pairs(["cat", "hat"], lex=LEX, decl=DECL)
     check("control: `screen cat hat` sets no `coda_no_evidence` and its "
           "verdict-carried flags are empty",
@@ -1639,43 +1709,43 @@ def test_the_assonance_profile_says_the_band_is_off():
                   profile="assonance")
     check("sun/much under the assonance profile is still 1.0 RHYME "
           "(M-136's measured row, not moved)",
-          a["total"] == 1.0 and a["relation"] == "RHYME",
-          f"{a['total']} {a['relation']}")
+          a["total"] == 1.0 and "RHYME" in a["relations"],
+          f"{a['total']} {sorted(a['relations'])}")
     check("...with the band-off disclosure on its flags",
           any(f.startswith("conjunctive band: off (profile coda weight 0.0")
               for f in a["flags"]), a["flags"])
     d = _LH.score(_w("sun"), _w("much"), DECL, "sun", "much")
     check("control: the default profile still types sun/much ASSONANCE "
           "0.772 and carries no band-off flag",
-          d["total"] == 0.772 and d["relation"] == "ASSONANCE"
+          d["total"] == 0.772 and d["relations"] == frozenset({"ASSONANCE"})
           and not any("band: off" in f for f in d["flags"]),
-          f"{d['total']} {d['relation']} {d['flags']}")
+          f"{d['total']} {sorted(d['relations'])} {d['flags']}")
     off = _LH.score(_w("sun"), _w("much"),
                     Declaration(conjunctive_band=False), "sun", "much")
     check("control: a DECLARATION that switches the band off is not a "
           "profile switching it off — no flag, the declared coordinate "
           "speaks for itself (doctrine 1)",
-          off["relation"] == "RHYME"
+          "RHYME" in off["relations"]
           and not any("band: off" in f for f in off["flags"]),
-          f"{off['relation']} {off['flags']}")
+          f"{sorted(off['relations'])} {off['flags']}")
 
 
 def test_the_default_doors_are_priced_where_they_answer():
-    print("\n16. the two default doors carry their PINNED chance rate where "
-          "a rescued pair is reported, and neither line gates "
-          "(`MISSING.md` M-138 / M-140, the disclosure halves, 2026-09-02)")
+    print("\n16. every relation FAMILY of the one default door carries its "
+          "PINNED chance rate where its pairs are reported, and no line "
+          "gates (`MISSING.md` M-138 / M-140, the disclosure halves)")
     import lyric_harness as _LH
     from quality import chance_rate as _CR
     n = _CR.SHIPPED.n
-    # ~~both doors asserted "UNPRICED"~~ REPINNED 2026-09-02 (doctrine 17).
-    # The ADMIT door is PRICED as of `MISSING.md` M-138's pricing sitting
-    # (`quality/RESULTS_NEAR_RELATION_PRICING.md`, falsifier E1); the SCHEMA
-    # door is genuinely still unpriced (M-140). The two words are the
-    # discriminating coordinate now, so the check asserts them APART — a
-    # loop asserting one word over both doors is what let the old wording
-    # go stale in the first place.
+    # ONE DOOR, COUNTED PER FAMILY (REPINNED 2026-09-22, N-relation model):
+    # `any` is the default door; `admit` (coarse relations at their cuts)
+    # and `rhyme` are PRICED by the per-relation cuts (M-138); `schema` and
+    # `any`, which contains it, are UNPRICED (M-140). Asserted APART, so a
+    # wording that outlives its gap on one family fails here.
     for door, entry, word in (("schema", "M-140", "UNPRICED"),
-                              ("admit", "M-138", "PRICED")):
+                              ("any", "M-140", "UNPRICED"),
+                              ("admit", "M-138", "PRICED"),
+                              ("rhyme", "M-138", "PRICED")):
         lo, hi = _CR.ADOPTED[door]
         note = _LH.door_chance_note(door)
         check(f"`door_chance_note({door!r})` renders the ADOPTED band "
@@ -1683,91 +1753,99 @@ def test_the_default_doors_are_priced_where_they_answer():
               f"from `chance_rate.py`, never retyped",
               f"{lo}..{hi} of {n:,}" in note and entry in note
               and f"{lo / n:.1%}" in note and word in note, note)
-    check("the two doors do NOT say the same thing about pricing — the "
-          "admit door was priced 2026-09-02 and the schema door was not, "
-          "and a disclosure that outlived its gap is the defect this pin "
-          "exists to catch (doctrine 17)",
+    check("the families do NOT say the same thing about pricing — the coarse "
+          "cuts were priced 2026-09-02 and the schemas were not (doctrine 17)",
           "UNPRICED" in _LH.door_chance_note("schema")
           and "UNPRICED" not in _LH.door_chance_note("admit"))
-    check("an empty rescue list renders NOTHING (no line where nothing "
-          "was rescued — doctrine 20 in the other direction)",
-          _LH.schema_default_disclosure([]) is None)
+    check("a list with no pair standing in a schema renders NOTHING "
+          "(doctrine 20 in the other direction)",
+          _LH.schema_default_disclosure([]) is None
+          and _LH.schema_default_disclosure(
+              [{"lines": (1, 2), "label": "A",
+                "satisfied_by": ["RHYME", "ASSONANCE"]}]) is None)
     sd = _LH.schema_default_disclosure(
         [{"lines": (1, 3), "label": "A",
-          "satisfied_by": ["pararhyme", "consonance"]}])
-    check("a schema-rescued pair's `SCHEMA DEFAULT` line names the pair "
-          "and the schema, and the door's chance rate stands beside it",
-          sd is not None and "SCHEMA DEFAULT: 1 mandated pair(s)" in sd
-          and "L1~L3 (group A) via pararhyme" in sd
+          "satisfied_by": ["CONSONANCE", "pararhyme", "consonance"]}])
+    check("a pair's `SCHEMA RELATIONS` line names the pair and EVERY schema "
+          "it stands in (not only the first, and not the coarse names), with "
+          "the schema family's chance rate beside it — and no rescue framing",
+          sd is not None and "SCHEMA RELATIONS: 1 mandated pair(s)" in sd
+          and "L1~L3 (group A): pararhyme, consonance" in sd
+          and "CONSONANCE" not in sd.split("—")[1]
+          and "rescue" not in sd and "scalar door" not in sd
           and "M-116" in sd and "M-140" in sd
           and f"{_CR.ADOPTED['schema'][0]}..{_CR.ADOPTED['schema'][1]}" in sd,
           sd)
 
     # MISSING.md M-140, registered in
     # `quality/SCHEMA_END_READING_PREREGISTRATION.md` before it was measured.
-    # THE SPLIT IS THE POINT AND IT MUST HAVE BOTH SIDES: a rescue reads as
-    # END RHYME only when an answering schema puts both spans at the
+    # THE SPLIT IS THE POINT AND IT MUST HAVE BOTH SIDES: a pair reads as
+    # END RHYME only when a schema it stands in puts both spans at the
     # line-final token AND requires the nucleus and the coda to agree.
-    # `pararhyme` keeps the coda and changes the nucleus, so the pair above
-    # is NOT the end-rhyme reading, and the line must say so rather than
-    # print it under a heading a reader takes as end rhyme.
-    check("M-140: a rescue by a schema a listener does not hear as end "
-          "rhyme is counted apart, and named",
+    # Neither `pararhyme` nor `consonance` requires the nucleus.
+    check("M-140: a pair standing only in schemas a listener does not hear "
+          "as end rhyme is counted apart, and named",
           "0 read as END RHYME and 1 do NOT" in sd
-          and "not heard as end rhyme: L1~L3 via pararhyme" in sd
+          and "not heard as end rhyme: L1~L3: pararhyme, consonance" in sd
           and "never summed" in sd,
           sd)
-    # AND THE OTHER SIDE OF THE SPLIT IS NOT EMPTY, which is falsifier E2:
-    # a split that only ever lands one way is not a split. `perfect rhyme`
-    # is the canonical audible schema.
     sd_aud = _LH.schema_default_disclosure(
-        [{"lines": (2, 4), "label": "B", "satisfied_by": ["perfect rhyme"]}])
-    check("M-140: a rescue by an AUDIBLE schema lands in the other half, so "
-          "the split has both sides (falsifier E2 does not fire)",
+        [{"lines": (2, 4), "label": "B", "schemas": ["perfect rhyme",
+                                                     "assonance"]}])
+    check("M-140: a pair standing in an AUDIBLE schema lands in the other "
+          "half, so the split has both sides (falsifier E2 does not fire); "
+          "a record's own `schemas` key is read when present",
           sd_aud is not None
+          and "L2~L4 (group B): perfect rhyme, assonance" in sd_aud
           and "1 read as END RHYME and 0 do NOT" in sd_aud
           and "not heard as end rhyme" not in sd_aud,
           sd_aud)
-    # AND AN UNRESOLVABLE NAME IS NOT AUDIBLE AND DOES NOT CRASH THE GRADE.
-    # A disclosure that raises would be a worse defect than the one it
-    # discloses, so the classifier is forgiving in the direction that
-    # under-claims.
     sd_bad = _LH.schema_default_disclosure(
         [{"lines": (1, 2), "label": "C", "satisfied_by": ["no such schema"]}])
     check("M-140: a name the registry cannot resolve counts as NOT audible "
           "rather than raising",
           sd_bad is not None and "0 read as END RHYME and 1 do NOT" in sd_bad,
           sd_bad)
+    # Grade verdicts carry EVERY relation (`relations`) and the coarse ones
+    # admitted at their cuts (`admitted`). NEAR ONLY names satisfied pairs
+    # whose admitted coarse relations include a near relation and NO rhyme
+    # relation; a perfect rhyme is also assonance and is not counted.
     verd = [
         {"lines": (1, 3), "endwords": ("home", "alone"),
-         "relation": "ASSONANCE", "score": 0.974, "why": None},
+         "relations": ["ASSONANCE", "assonance", "family rhyme"],
+         "admitted": ["ASSONANCE"], "score": 0.974, "why": None},
         {"lines": (2, 4), "endwords": ("cat", "hat"),
-         "relation": "RHYME", "score": 1.0, "why": None},
+         "relations": ["ASSONANCE", "CONSONANCE", "RHYME"],
+         "admitted": ["ASSONANCE", "CONSONANCE", "RHYME"],
+         "score": 1.0, "why": None},
         {"lines": (5, 7), "endwords": ("sun", "much"),
-         "relation": "ASSONANCE", "score": 0.772, "why": "x",
-         "satisfied_by": ["assonance"]},
+         "relations": ["ASSONANCE", "assonance"], "admitted": [],
+         "score": 0.772, "why": "x"},
         {"lines": (6, 8), "endwords": ("bad", "bat"),
-         "relation": "CONSONANCE", "score": 0.8, "why": None},
+         "relations": ["CONSONANCE"], "admitted": ["CONSONANCE"],
+         "score": 0.8, "why": None},
     ]
     nd = _LH.near_relation_default_disclosure(verd, 0.75)
-    check("the `ADMIT DOOR` line counts ONLY pairs satisfied AS a near "
-          "relation on theta alone — not the RHYME pass, not the "
-          "schema-rescued pair (never summed, doctrine 79) — by relation, "
-          "with the admit door's chance rate beside it",
-          nd is not None and "ADMIT DOOR: 2 mandated pair(s)" in nd
+    check("the `NEAR ONLY` line counts ONLY satisfied pairs standing in a "
+          "near relation and in NO rhyme relation — not cat/hat (a perfect "
+          "rhyme is also assonance), not the unsatisfied sun/much — by "
+          "relation, each printed with its FULL relation set, with the "
+          "coarse family's chance rate beside it",
+          nd is not None and "NEAR ONLY: 2 mandated pair(s)" in nd
           and "ASSONANCE x1, CONSONANCE x1" in nd
-          and "L1~L3 home/alone ASSONANCE 0.974" in nd
+          and "L1~L3 home/alone ASSONANCE+assonance+family rhyme 0.974" in nd
           and "sun/much" not in nd and "cat/hat" not in nd
-          # ~~"theta_rhyme=0.75" in nd~~ REPINNED 2026-09-02: no near
-          # relation is judged at `theta_rhyme` any more, so a line saying
-          # so would be unreproducible from the number beside it
-          # (doctrine 58/91). The line names the cut EACH relation was
-          # actually judged at, read from the Declaration.
-          and "ASSONANCE 0.82" in nd and "CONSONANCE 0.75" in nd
-          and "M-138" in nd
+          # REPINNED 2026-09-24: the printed ASSONANCE cut is ~~0.82~~ 0.75,
+          # re-adopted under the licensed nucleus (#375;
+          # `near_relation_pricing.py --check`). Read from the declaration
+          # it prints, so a disclosure that stopped printing the live cut
+          # still fails.
+          and f"ASSONANCE {DECL.theta_by_relation['ASSONANCE']:.2f}" in nd
+          and "ASSONANCE 0.75" in nd and "CONSONANCE 0.75" in nd
+          and "M-138" in nd and "ADMIT DOOR" not in nd
           and f"{_CR.ADOPTED['admit'][0]}..{_CR.ADOPTED['admit'][1]}" in nd,
           nd)
-    check("control: verdicts with no near-relation pass render NOTHING",
+    check("control: verdicts with no near-only pass render NOTHING",
           _LH.near_relation_default_disclosure(verd[1:3], 0.75) is None)
     # The grade verdict now CARRIES the comparator's flags (E-5 / M-136),
     # and the M-136 (1) disclosure reaches a verdict only when identity was
@@ -1775,11 +1853,16 @@ def test_the_default_doors_are_priced_where_they_answer():
     # absent, which is the control this pin is worth.
     rows = _LH.screen_pairs(["home", "alone"], lex=LEX, decl=DECL)
     check("the grade's verdict carries `flags` and, with the words in "
-          "hand, no `identity: not asked` — production asks",
+          "hand, no `identity: not asked` — production asks; the row lists "
+          "EVERY relation (coarse ASSONANCE and the `assonance` schema)",
           isinstance(rows[0]["flags"], list)
           and not any("not asked" in f for f in rows[0]["flags"])
-          and rows[0]["relation"] == "ASSONANCE" and rows[0]["why"] is None,
-          f"{rows[0]['relation']} {rows[0]['flags']}")
+          and rows[0]["coarse_relations"] == ["ASSONANCE"]
+          and "assonance" in rows[0]["schema_relations"]
+          and set(rows[0]["relations"]) == (set(rows[0]["coarse_relations"])
+                                            | set(rows[0]["schema_relations"]))
+          and rows[0]["why"] is None,
+          f"{rows[0]['relations']} {rows[0]['flags']}")
 
 
 if __name__ == "__main__":

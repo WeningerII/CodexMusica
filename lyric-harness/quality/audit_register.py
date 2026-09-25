@@ -1228,19 +1228,21 @@ def _cli_score(a, b):
                        cwd=ROOT, capture_output=True, text=True, timeout=300)
     txt = p.stdout
     tot = re.search(r"total:\s*([\d.]+)", txt)
-    rel = re.search(r"relation:\s*(\w+)", txt)
+    # the verb prints the pair's relation SET (`relations: A+B`)
+    rel = re.search(r"relations:\s*([\w+]+)", txt)
     nuc = re.search(r"nucleus\s+([\d.]+)", txt)
     return ((float(tot.group(1)) if tot else None),
-            (rel.group(1) if rel else None),
+            (frozenset(rel.group(1).split("+")) if rel else None),
             (float(nuc.group(1)) if nuc else None), txt.strip())
 
 
 def _d_now_why():
     tot, rel, nuc, _ = _cli_score("now", "why")
-    ok = _tol(0.850, tot, abs_=0.0005) and rel == "RHYME"
+    ok = _tol(0.850, tot, abs_=0.0005) and rel is not None and "RHYME" in rel
     return (CONFIRMED if ok else MOVED), \
-        "now ~ why total %s relation %s (empty coda omitted from evidence; agreement unchanged)" % (tot, rel), \
-        "now ~ why scores 0.850 and types RHYME (historical gift: 0.902)"
+        "now ~ why total %s relations %s (empty coda omitted from evidence; agreement unchanged)" \
+        % (tot, "+".join(sorted(rel or ()))), \
+        "now ~ why scores 0.850 and stands in RHYME (historical gift: 0.902)"
 
 
 def _d_five_of():
@@ -2447,7 +2449,7 @@ PINNED = {
     # `pins_per_line` is a MAXIMUM and accepted 0 of 39 seeds. The
     # calibration that would reopen the band is an owner ruling and is left
     # OPEN), pin told in the entry's own sitting.
-    "coverage_entries": 363,  # REPINNED 2026-09-22: M-308 the two connector addresses; from ~~362~~ (M-307 the cancelled nightlies, same day); from ~~361~~; previously 2026-09-21: M-306 session refusal + own onset; from ~~360~~ (M-305, same day); previously 2026-09-20 (M-304) from ~~358~~, 2026-09-19 from ~~357~~ ~~356~~ ~~355~~ ~~354~~ ~~353~~ ~~352~~ ~~351~~ ~~349~~ ~~350~~ ~~240~~ ~~253~~ ~~254~~ ~~255~~ ~~256~~ ~~257~~ ~~259~~ ~~260~~ ~~261~~ ~~262~~ ~~263~~ ~~264~~ ~~265~~ ~~266~~ ~~267~~ ~~268~~ ~~269~~ ~~270~~ ~~274~~ ~~275~~ ~~276~~ ~~277~~ ~~278~~ ~~279~~ ~~280~~ ~~281~~ ~~283~~ ~~284~~ ~~285~~ ~~286~~ ~~287~~ ~~288~~ ~~289~~ ~~290~~ ~~291~~ ~~292~~ ~~293~~ ~~296~~ ~~297~~ ~~298~~ ~~299~~ ~~300~~ ~~301~~ ~~302~~ ~~303~~ ~~304~~ ~~305~~ ~~306~~ ~~307~~ ~~308~~ ~~309~~ ~~310~~ ~~311~~ ~~312~~ ~~313~~ ~~314~~ ~~315~~ ~~316~~ ~~317~~ ~~318~~ ~~320~~ ~~321~~ ~~323~~ ~~324~~ ~~325~~ ~~326~~ ~~327~~ ~~328~~ ~~329~~ ~~330~~ ~~331~~ ~~332~~ ~~333~~ ~~335~~ ~~336~~ ~~337~~ ~~338~~ ~~339~~ ~~340~~ ~~341~~ ~~342~~ ~~343~~ ~~344~~ ~~345~~ ~~346~~ ~~347~~ ~~348~~: M-183..M-296 (M-205 entered late)
+    "coverage_entries": 365,  # REPINNED 2026-09-24: M-310 the evidence-gated modal ban; from ~~364~~ (2026-09-23: M-309 the N-relation model; from ~~363~~ (2026-09-22: M-308 the two connector addresses; from ~~362~~ (M-307 the cancelled nightlies, same day); from ~~361~~; previously 2026-09-21: M-306 session refusal + own onset; from ~~360~~ (M-305, same day); previously 2026-09-20 (M-304) from ~~358~~, 2026-09-19 from ~~357~~ ~~356~~ ~~355~~ ~~354~~ ~~353~~ ~~352~~ ~~351~~ ~~349~~ ~~350~~ ~~240~~ ~~253~~ ~~254~~ ~~255~~ ~~256~~ ~~257~~ ~~259~~ ~~260~~ ~~261~~ ~~262~~ ~~263~~ ~~264~~ ~~265~~ ~~266~~ ~~267~~ ~~268~~ ~~269~~ ~~270~~ ~~274~~ ~~275~~ ~~276~~ ~~277~~ ~~278~~ ~~279~~ ~~280~~ ~~281~~ ~~283~~ ~~284~~ ~~285~~ ~~286~~ ~~287~~ ~~288~~ ~~289~~ ~~290~~ ~~291~~ ~~292~~ ~~293~~ ~~296~~ ~~297~~ ~~298~~ ~~299~~ ~~300~~ ~~301~~ ~~302~~ ~~303~~ ~~304~~ ~~305~~ ~~306~~ ~~307~~ ~~308~~ ~~309~~ ~~310~~ ~~311~~ ~~312~~ ~~313~~ ~~314~~ ~~315~~ ~~316~~ ~~317~~ ~~318~~ ~~320~~ ~~321~~ ~~323~~ ~~324~~ ~~325~~ ~~326~~ ~~327~~ ~~328~~ ~~329~~ ~~330~~ ~~331~~ ~~332~~ ~~333~~ ~~335~~ ~~336~~ ~~337~~ ~~338~~ ~~339~~ ~~340~~ ~~341~~ ~~342~~ ~~343~~ ~~344~~ ~~345~~ ~~346~~ ~~347~~ ~~348~~: M-183..M-296 (M-205 entered late)
                               # (the delegation sitting: the loop trio, the
                               # whole-draft exit, the deploy, the staged
                               # resources, the connector coordinates, the

@@ -275,8 +275,13 @@ REGISTRY = {
         "cross-tradition arm is a choice made at the point of designing the "
         "run, and there is no artifact left behind by its absence."),
     9: (MECHANICAL, "python3 quality/test_revise.py", CITED,
-        "modal_exclusion: the brief marks the most frequent band-passing "
-        "candidates FORBIDDEN and verify() rejects a revision that lands on "
+        "modal_exclusion: the brief marks ~~the most frequent band-passing "
+        "candidates~~ the most predictable band-passing candidates "
+        "FORBIDDEN -- tier 1 bans the same-spelled class without limit, "
+        "tier 2 bans at most modal_exclusion partners, ranked by the "
+        "song-corpus conditional and evidence-gated since 2026-09-25 "
+        "(MISSING.md M-310; struck 2026-09-25, 'most frequent' was false "
+        "from 2026-08-11) -- and verify() rejects a revision that lands on "
         "one. ~15 min -- not a per-PR gate."),
     10: (ASSERTED, None, None,
          "the AUCs are now PINNED cold -- quality/test_discriminate.py grades "

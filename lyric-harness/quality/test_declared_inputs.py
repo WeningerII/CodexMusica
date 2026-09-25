@@ -395,11 +395,15 @@ def test_every_declared_coordinate_is_read():
                      word_a="light", word_b="light")
         rich = score(_anc("bear"), _anc("bare"), d,
                      word_a="bear", word_b="bare")
+        # Each is one relation the pair stands in, among others: light/light
+        # is REPEAT and also RHYME; bear/bare is RIME_RICHE and also RHYME.
         check("REPEAT and RIME_RICHE are decided by EXACT identity, which is "
               "why no threshold governs them",
-              same["relation"] == "REPEAT"
-              and rich["relation"] == "RIME_RICHE",
-              f"{same['relation']} / {rich['relation']}")
+              "REPEAT" in same["relations"]
+              and "RIME_RICHE" in rich["relations"]
+              and "RIME_RICHE" not in same["relations"]
+              and "REPEAT" not in rich["relations"],
+              f"{sorted(same['relations'])} / {sorted(rich['relations'])}")
 
     from quality.rhyme_constraints import Declaration as RCDecl
     check("and `rhyme_constraints.Declaration` no longer offers a `tie_break` "

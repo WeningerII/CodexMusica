@@ -38,5 +38,6 @@ EMPTY CELLS (honest, waiting on infrastructure or history):
     8,758 lines, are on disk. Live exemplars: Gwaith Alun 1909,
     `corpus/cym_alun_strict.txt`, 1,558 strict-metre lines, 55.7% answered in
     search mode against a 200-shuffle null max of 21.3%, p at the floor
-    (~~57.1% / 21.8%~~ before J-1's glide repair, 2026-09-24); and
+    (REPINNED 2026-09-23 after `7d1ded93`'s J-1 glide change; ~~57.1% against
+    21.8%~~); and
     Llywelyn Goch's cywydd, `corpus/song/cym_cynghanedd_llywelyn_goch_cywydd.txt`.

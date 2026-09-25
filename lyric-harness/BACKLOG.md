@@ -932,7 +932,7 @@ the runner rather than inside the canon.
 the repair is partial.
 
 ### 4.4 · ~~`rhyme_constraints.py` — 1,325 stranded lines~~ `DECIDED 2026-08-11`
-~~The only genuinely stranded module.~~ `quality/rhyme_constraints.py` is ~~1,652~~ **1,738** lines (repinned 2026-08-22: the M-38 quantifier reconciliation added the shared vocabulary table, the `Selection.__post_init__` gate and their comments. The argument this figure supports — that the module is large and is KEPT on a stated ground — never rested on the third digit) (~~1,566~~, ~~1,609~~, ~~1,611~~ — 2026-08-15's dead-coordinate lot removed the `tie_break` knob and stated its rule at the two enforcing sites, and wired `surfaces` — the inert-coordinate cell added the `Span.unit` and `Span.terminator` docstrings, which is growth in the file's OWN account of why it is kept; the 2026-08-13 doc-cleanup cell added four more correcting a comment that compared this module's exit behaviour to `battery.py`'s, which stopped holding at `9396946`).
+~~The only genuinely stranded module.~~ `quality/rhyme_constraints.py` is ~~1,652~~ ~~1,738~~ **1,741** lines (repinned 2026-09-24 for the N-relation model's relation sets; repinned 2026-08-22: the M-38 quantifier reconciliation added the shared vocabulary table, the `Selection.__post_init__` gate and their comments. The argument this figure supports — that the module is large and is KEPT on a stated ground — never rested on the third digit) (~~1,566~~, ~~1,609~~, ~~1,611~~ — 2026-08-15's dead-coordinate lot removed the `tie_break` knob and stated its rule at the two enforcing sites, and wired `surfaces` — the inert-coordinate cell added the `Span.unit` and `Span.terminator` docstrings, which is growth in the file's OWN account of why it is kept; the 2026-08-13 doc-cleanup cell added four more correcting a comment that compared this module's exit behaviour to `battery.py`'s, which stopped holding at `9396946`).
 It has an `if __name__ == "__main__"` and non-test callers.
 (The line count is now stated in a sentence naming exactly ONE module, because
 `python3 quality/verify_entries.py`'s `MODULE_LINE_COUNT` shape REFUSES a count
@@ -1471,7 +1471,7 @@ either.
 `meter.py` and `fit.py` between them expose no pitch, scale, mode or tuning
 object. 12-TET assumed by omission (B-2). No tempo (C-5), which `fit.py` states
 in its own refusal: *"a note DURATION is not [a coordinate], because there is no
-tempo"*. The floor has ~~two~~ ~~**three** length profiles — the third is the whole-sheet `song` profile, 2026-08-11~~ **five rows since 2026-09-04, THREE LIVE — REPINNED 2026-09-05 (`MISSING.md` M-239): `live_profiles()` is `section`, `sonnet`, `lyric`, and the whole-sheet profile is `lyric`, 4–3,245 tokens, whose five thresholds are curves in ln N; the band rows `song` (200–400) and `short` (50–150) stay in `PROFILES` with `superseded_by="lyric"` for their own drift checks and are never applied** — and ~~L-4 records what they are~~ L-4 closed 2026-08-21 on saying "two"; L-4a carries the real residue (no generated class).
+tempo"*. The floor has ~~two~~ ~~**three** length profiles — the third is the whole-sheet `song` profile, 2026-08-11~~ **five rows since 2026-09-04, THREE LIVE — REPINNED 2026-09-05 (`MISSING.md` M-239): `live_profiles()` is `section`, `sonnet`, `lyric`, and the whole-sheet profile is `lyric`, 4–3,245 tokens, whose five thresholds are curves in ln N; the band rows `song` (~~200–400~~ 150–400 since its 2026-09-24 re-adoption) and `short` (50–150) stay in `PROFILES` with `superseded_by="lyric"` for their own drift checks and are never applied** — and ~~L-4 records what they are~~ L-4 closed 2026-08-21 on saying "two"; L-4a carries the real residue (no generated class).
 
 **MOVED OUT ON 2026-08-11 — three absences that were FILLED and stayed on the
 list.** This section exists so absences "are not mistaken for" debt or defects.
@@ -1759,6 +1759,50 @@ until ruled.
    declared words, and a reader took it for the judge reading the whole
    phrase (M-245's finding). Rendering only; the ruling is whether the
    line prints the judge's own reads or is dropped under a schema verdict.
+25. ~~**M-310 — may tier 2 of the modal ban be EVIDENCE-GATED?**
+   `modal_exclusion` would move from "exactly k" to "at most k, evidenced
+   partners only": tier 2 empty wherever the song table has no realised
+   partner for the call, and a call absent from the table gets no tier-2 ban
+   at all.~~ RULED 2026-09-25 (about 01:00 UTC) BY THE OWNER, verbatim:
+   *"go ahead, the tier-2 change is fine"*. Not a delegation ruling: the
+   owner was shown ~~the consequence and accepted it~~ the ban-repair
+   panel's figures for the consequence and accepted the change. ~~What was
+   accepted, measured 2026-09-24 (`MISSING.md` M-310): 5,027 of 13,835
+   line-final word types (36.3%) have no realised partner at all, so tier 2
+   is empty for them by construction — 14,689 of 248,106 line-final tokens
+   (5.9%) by use weight. A seeded sample (150 types uniform, 150 by use)
+   puts the share whose GATED tier 2 is empty at 69.3% of types (95% CI
+   61.5–76.2) and 20.7% by use (15.0–27.8) — most of the difference being
+   calls whose every realised partner is same-spelled and so still banned by
+   tier 1 — and the share with NO ban of either tier at 16.7% of types and
+   2.7% by use.~~ (Struck 2026-09-25 on the doctrine/accuracy review: those
+   figures were measured AFTER the ruling and dated as if before it; they
+   were never what the owner was shown.) WHAT THE OWNER WAS SHOWN — candidate
+   A's figures: ~40% of the in-table call types (40.4% of 8,809) have no
+   differently-spelled evidenced partner (9.3% by realised-pair weight);
+   calls absent from the song table get no tier-2 ban at all; and the
+   pivot-field menu shift. MEASURED 2026-09-25, AFTER THE RULING — disclosed
+   to the owner after the ruling; not separately ruled on (`MISSING.md`
+   M-310): 5,027 of 13,835 line-final word types (36.3%) — 14,689 of 248,106
+   line-final tokens (5.9%) by use — have no realised partner at all; a
+   seeded sample (150 types uniform, 150 by use) puts tier 2 empty for 69.3%
+   of types (95% CI 61.5–76.2) and 20.7% by use (15.0–27.8), and NO ban of
+   either tier for 16.7% of types and 2.7% by use. Tier 1 is unchanged. The
+   gate landed on `fix/w-ban-gate` for PR #380 (`ff740121`, 2026-09-25).
+26. **A frequency-of-rhyme fallback for calls the song table cannot
+   evidence?** Under the evidence gate (row 25) a call with no realised
+   partner gets no tier-2 ban, so common differently-spelled perfect rhymes
+   of an unseen call are OFFERED rather than banned. The ban-repair panel's
+   candidate B (2026-09-24) filled those slots with the most frequent
+   band-passing RHYMES of the call instead. The panel rejected it as the fix
+   for #380 — its §22 pass came from the menu collapsing (`thing`'s menu
+   23/24 -> 0/24 identity), it turned ~20 green checks red, dirtied 4 of 6
+   capacity witnesses and banned 76 pairs across 12 of 15 exit-0 songs —
+   and "most frequent rhyme" is measured nowhere as a predictor of what a
+   writer reaches for (`RESULTS_SONG_FREQUENCY.md` measures only the
+   conditional). The ruling is whether such a fallback should exist at all,
+   and if so under what measured predictor. Not a recommendation; nothing is
+   built on it.
 
 ## RULINGS TAKEN UNDER DELEGATION — 2026-09-18
 
@@ -1966,7 +2010,7 @@ number there is the same question.
 | M-54 | PARTIAL | RULING · S | plan, grade | LIKELY STALE on items 2–3 (cells derived, `placement_findings` read by the grader); what remains is the outro/coda mutual exclusion and M-56's kinds on `refrain`/`hook`. | Lifting the exclusion changes the planner's distribution over 84 of 84 outro plans. |
 | E-5 | OPEN | RULING · S | grade, screen, CI | The `cannot_tell` arm was built, measured and REFUSED because ONE pair of 979 left the admitted set against a registration that said ANY; a preregistered TOLERANCE is what is missing. | A number nobody has earned the right to choose (doctrine 58). |
 | D-2 | PARTIAL | RULING · S | grade, plan | Hook DENSITY has no declared coordinate and no band; hook-as-melody is B-1's. | Picking the density coordinate by fiat is doctrine 19's error. |
-| M-35 | OPEN | BUILD · L | grade, revise, plan | A labelled-edge representation with parallel edges; two `Mandate` groups over an identical line set silently dedupe to one. | Makes the approved step 4 larger than scoped; scope is a ruling before a build. |
+| M-35 | ~~OPEN~~ CLOSED 2026-09-23 by M-309 (queue row reconciled 2026-09-24: #375 struck the register heading and not this row, which `backlog_status.py --check` read as a new silent disagreement) | BUILD · L | grade, revise, plan | ~~A labelled-edge representation with parallel edges; two `Mandate` groups over an identical line set silently dedupe to one.~~ A group may now require several relations and a structure together and every pair carries its full relation set (M-309); the declared relation is part of `schemes.mandate`'s dedupe key, so two groups over one line set dedupe only when they ask the same question. | Makes the approved step 4 larger than scoped; scope is a ruling before a build. |
 | M-44 | PARTIAL | BUILD · M | grade, revise | Cross-tradition names still fire on English pairs (`adalhending` on mother/brother) because the grader has no `tradition_scope`. | Waits on M-35's tradition-coordinate ruling. |
 | K-1a | OPEN | RULING · L | corpus, record | The declared `source_type` third axis — a vocabulary the owner must name before the TSV is built. | The smallest honest fix is complete; the full fix is 12–20 h and explicitly waits on the ruling. |
 | K-6 | OPEN | RULING · M | corpus, record, CI | LIKELY STALE in part (`non_` is 7 files); the live residue is the nine-status vocabulary with no declared home and no drift check. | The entry says the owner names the vocabulary before anyone rebuilds the table. |
@@ -2146,18 +2190,18 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 44 OPEN / 33 PARTIAL / 1 BLOCKED / 270 CLOSED / 15 RESOLVED = 363 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 43 OPEN / 33 PARTIAL / 1 BLOCKED / 273 CLOSED / 15 RESOLVED = 365 entries | `python3 quality/counters.py` |
 | doctrines | **96**, a contiguous run 1–96 with no number in both files (21 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
-| stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 4 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`, `span_rules.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1623** DECLARED-public top-level functions/classes under `quality/` and the root — **359** named by another production module, **492** by tests only, **638** only inside their own module, **11** by nothing anywhere, **123** REFUSED (77 ambiguous, 35 dynamic, 11 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **93** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
-| mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
+| stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,741 lines with a `__main__` and 4 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`, `span_rules.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
+| public symbols by where they are referenced | **1633** DECLARED-public top-level functions/classes under `quality/` and the root — **365** named by another production module, **492** by tests only, **641** only inside their own module, **12** by nothing anywhere, **123** REFUSED (77 ambiguous, 35 dynamic, 11 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **93** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| mutations declared | **59 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `corpus/song/eng_*` — K-1's own quantities | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `data/sources.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `data/lyricists.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
-| sonnet battery | 7/970 = 0.7% violations (`mandated 1064, judged 970, refused 94`) | `python3 battery.py` |
-| band FPR on random pairs | **2.10%** (84 of 4,000 at seed 20260810, the runner's own default n; 2.00% = 60 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
+| sonnet battery | 9/936 = 1.0% violations (`mandated 1064, judged 936, refused 128`) | `python3 battery.py` |
+| band FPR on random pairs | **0.00%** (0 of 4,000 at seed 20260810, the runner's own default n; 0.00% = 0 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
 | register-audit findings | **0** — FALSE derivations: none | `python3 quality/audit_register.py` |
 | adversaries built, of 8 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it) | `read BACKLOG.md §0` |
 <!-- /COUNTERS -->

@@ -3,11 +3,20 @@
 end rhyme, or pairs it does not?  (`MISSING.md` M-140, registered in
 `quality/SCHEMA_END_READING_PREREGISTRATION.md` before this file existed.)
 
-THREE COUNTS, NEVER SUMMED (doctrine 79): scalar passes, rescues whose
-answering schema is AUDIBLE at a line end, and rescues whose answering
-schema is not.  The third is the population M-140 is about -- a pair that
-satisfies a schema and nothing else, printed today under a heading a reader
-takes as end rhyme.
+THREE COUNTS, NEVER SUMMED (doctrine 79): coarse passes (the registration's
+`scalar`), rescues whose answering schema is AUDIBLE at a line end, and
+rescues whose answering schema is not.  The third is the population M-140 is
+about -- a pair that satisfies a schema and nothing else, printed today under
+a heading a reader takes as end rhyme.
+
+"RESCUE" IS THE REGISTRATION'S WORD FOR A SET, AND SINCE THE N-RELATION MODEL
+(2026-09-24) IT IS DEFINED BY MEMBERSHIP, NOT BY ORDER.  `check_scheme` now
+asks every coarse relation AND every registry schema of every mandated pair,
+so a schema is no longer a second pass over the coarse chain's failures and
+`pairs_schema_satisfied` no longer holds a rescued subset -- it holds EVERY
+judged pair standing in a schema.  The registered population is recovered
+exactly by `schema_only()`: satisfied, and `check_scheme`'s own coarse verdict
+is not True, so the satisfaction rests on a schema alone.
 
 THE PREDICATE IS M-120's AND IS NOT RE-DERIVED HERE.
 `relations.audible_as_end_rhyme` asks whether BOTH member spans read the
@@ -48,8 +57,40 @@ SONNET_SCHEME = "ABABCDCDEFEFGG"
 #: rescues (11.8%) are AUDIBLE and 15 (88.2%) are not, so the door does
 #: rescue end-rhyme readings and mostly rescues something else — E1 needed an
 #: empty inaudible half and E2 an empty audible one.
+#:
+#: ~~(946, 2, 15)~~ REPINNED 2026-09-24 -> (896, 2, 29), THE N-RELATION
+#: MODEL (#375, integrated by #380; layer: comparator + structure). Superseded
+#: rather than overwritten (doctrine 17), and the INSTRUMENT WAS REPAIRED IN
+#: THE SAME COMMIT, because the first thing the model moved was the meaning of
+#: the key this file read:
+#:   * `pairs_schema_satisfied` stopped being the rescued subset and became
+#:     EVERY judged pair standing in a schema (924 on the battery). Read as
+#:     rescues it measured (3, 782, 142): the "3" was the coarse passes that
+#:     stand in NO schema -- positive, so the negative-count guard below could
+#:     not catch it -- and the 782/142 split a population 96% coarse-satisfied,
+#:     which the registration's H never asked about. Repinning THAT would have
+#:     been re-numbering a count whose meaning had changed.
+#:   * `schema_only()` recovers the registered set by membership, and
+#:     `classify` now derives all three counts directly and REFUSES unless
+#:     they close on `pairs_judged` with the violations.
+#: RE-MEASURED, and the control still holds: 896 + 31 + 9 = 936 judged
+#: against 128 refused, which is `battery.py`'s repinned `1,064 mandated,
+#: 936 judged, 128 refused, 9 violations` to the pair.
+#: WHICH PAIRS MOVED, per (sonnet, line_i, line_j) against the pre-model tree
+#: (merge base 1f9678e6, where this pin was green), not inferred from the
+#: totals: ALL 17 former rescues are still schema-only with the same split
+#: (2 audible, 15 not); 14 ENTERED and none left. Every entrant was a coarse
+#: RHYME pass before (0.787..0.901 -- eloquence/recompense, invent/excellent,
+#: presage/age, monument/spent ...) that stands in NO coarse relation once
+#: `nucleus_agreement` defaults to "licensed", and is satisfied by schemas
+#: alone; NONE of the 14 is audible. The same run's other movements are
+#: `battery.py`'s own: 34 former coarse passes now refuse and 2 violate
+#: (argument/spent). The audible predicate did not move (19 schemas either
+#: side).
+#: H STILL HOLDS AND NEITHER FALSIFIER FIRES: 2 of 31 schema-only
+#: satisfactions (6.5%) are AUDIBLE and 29 (93.5%) are not.
 PINNED = {
-    "sonnets": (946, 2, 15),
+    "sonnets": (896, 2, 29),
 }
 
 
@@ -75,9 +116,55 @@ def audible_names():
     return out
 
 
+def _judged_pairs(report):
+    """-> (judged pairs, violated pairs, coarse verdict by pair), all read off
+    `check_scheme`'s own report: the mandate from its `scheme` through the
+    spine's own `same_scheme_class`, less its `refusals`."""
+    scheme = report["scheme"]
+    n = len(scheme)
+    refused = {tuple(r["lines"]) for r in report.get("refusals") or ()}
+    judged = [(i + 1, j + 1) for i in range(n) for j in range(i + 1, n)
+              if LH.same_scheme_class(scheme[i], scheme[j])
+              and (i + 1, j + 1) not in refused]
+    violated = {(v[0], v[1]) for v in report.get("violations") or ()}
+    verdict = {tuple(p["lines"]): p.get("reading_verdict")
+               for p in report.get("pair_scores") or ()}
+    return judged, violated, verdict
+
+
+def schema_only(report):
+    """-> the `pairs_schema_satisfied` records whose pair is satisfied by a
+    SCHEMA AND NOTHING ELSE -- the registration's rescue population, under the
+    N-relation model.
+
+    A record qualifies when its pair is judged, is not a violation, and
+    `check_scheme`'s COARSE verdict for it (`reading_verdict`: every permitted
+    endpoint reading admits at `decl.admit`, each relation at its own cut) is
+    not True. That is the branch `check_scheme` itself takes -- a pair whose
+    coarse verdict is True is satisfied there before any schema is read -- so
+    this reads the judge's decision rather than re-deriving it (doctrine 1).
+
+    NOT A RESCUE IN SEQUENCE. Both halves are asked of every pair and neither
+    is a rescue for the other; what survives of the word is the SET the
+    registration named, "the scalar door fails and the schema door
+    satisfies", which is an intersection and has no order. The name follows
+    `near_relation_pricing.reprice`'s `schema_only`, the integration line's
+    own rename of `rescued`. `schema_window` reads the same set from here, so
+    the two runners cannot drift apart about what a rescue is.
+    """
+    judged, violated, verdict = _judged_pairs(report)
+    judged = set(judged)
+    out = []
+    for r in report.get("pairs_schema_satisfied") or ():
+        pr = tuple(r["lines"])
+        if pr in judged and pr not in violated and verdict.get(pr) is not True:
+            out.append(r)
+    return out
+
+
 def classify(report, audible):
-    """-> (scalar, schema_audible, schema_inaudible, violations, refused,
-    Counter of names).
+    """-> (coarse, schema_audible, schema_inaudible, violations, refused,
+    Counter of names). `coarse` is the registration's `scalar`.
 
     `scalar` IS DERIVED FROM THE REPORT'S OWN TRIPLE, NOT FROM A KEY THAT IS
     NOT THERE.  The first draft of this function read `verdicts`, which is
@@ -88,12 +175,27 @@ def classify(report, audible):
     `judged` is the denominator here, and a scalar pass is a judged pair that
     neither violated nor needed a rescue.
 
+    AND THE SECOND TIME IT WAS POSITIVE, SO THE GUARD ABOVE COULD NOT SEE IT
+    (2026-09-24). `judged - violations - len(pairs_schema_satisfied)` was
+    exact while that key held only rescues. Under the N-relation model it
+    holds every pair standing in a schema, and the subtraction printed **3**
+    scalar passes on the battery -- the coarse passes standing in no schema, a
+    count nobody asked for, arithmetic that closed only because it was
+    defined to. So each count is now derived DIRECTLY -- a coarse pass is a
+    judged, unviolated pair whose coarse verdict is True, a rescue is
+    `schema_only()` -- and the three with the violations must CLOSE on
+    `pairs_judged`. When they do not, the report's keys have changed meaning
+    under this reader again and it REFUSES rather than printing a split.
+
     NEVER SUMMED with the other two in any rendering -- they answer different
     questions about the same pairs (doctrine 79), and `refused` is kept out
     of all of them because a refusal is an ingestion verdict reached before
     any comparison.
     """
-    rescues = report.get("pairs_schema_satisfied") or ()
+    judged, violated, verdict = _judged_pairs(report)
+    coarse = sum(1 for pr in judged
+                 if pr not in violated and verdict.get(pr) is True)
+    rescues = schema_only(report)
     aud = inaud = 0
     names = collections.Counter()
     for r in rescues:
@@ -103,10 +205,18 @@ def classify(report, audible):
             aud += 1
         else:
             inaud += 1
-    judged = int(report.get("pairs_judged") or 0)
+    n_judged = int(report.get("pairs_judged") or 0)
     viol = len(report.get("violations") or ())
     refused = int(report.get("pairs_refused") or 0)
-    return judged - viol - len(rescues), aud, inaud, viol, refused, names
+    if len(judged) != n_judged or coarse + len(rescues) + viol != n_judged:
+        raise SystemExit(
+            f"REFUSED — the partition does not close: {coarse} coarse + "
+            f"{len(rescues)} schema-only + {viol} violations against "
+            f"{n_judged} judged ({len(judged)} re-derived from the mandate). "
+            f"A judged pair is exactly one of the three, so a key of "
+            f"`check_scheme`'s report has changed meaning under this reader "
+            f"(doctrine 79).")
+    return coarse, aud, inaud, viol, refused, names
 
 
 def run():
@@ -141,17 +251,18 @@ def main(argv):
         resc = aud + inaud
         if scal < 0:
             raise SystemExit(
-                f"REFUSED — {pop} reports {scal} scalar passes, and a count "
+                f"REFUSED — {pop} reports {scal} coarse passes, and a count "
                 f"below zero is an arithmetic error rather than a finding "
                 f"(doctrine 79). judged/violations/rescues disagree.")
-        print(f"\n  {pop}: {scal} scalar pass(es), {resc} schema rescue(s), "
-              f"{viol} violation(s), {refused} refusal(s) — the last kept "
-              f"apart, an ingestion verdict before any comparison")
-        print(f"    of the rescues — AUDIBLE {aud}"
+        print(f"\n  {pop}: {scal} coarse pass(es), {resc} schema-only "
+              f"satisfaction(s) (the registration's rescues), {viol} "
+              f"violation(s), {refused} refusal(s) — the last kept apart, an "
+              f"ingestion verdict before any comparison")
+        print(f"    of the schema-only — AUDIBLE {aud}"
               + (f" ({100.0 * aud / resc:.1f}%)" if resc else "")
               + f", NOT AUDIBLE {inaud}"
               + (f" ({100.0 * inaud / resc:.1f}%)" if resc else ""))
-        print("    three counts, never summed: a scalar pass, an end-rhyme "
+        print("    three counts, never summed: a coarse pass, an end-rhyme "
               "reading, and a relation")
         print("    the grade judges correctly and a listener does not hear "
               "as the lines rhyming")

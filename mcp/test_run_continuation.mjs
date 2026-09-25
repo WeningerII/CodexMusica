@@ -136,6 +136,18 @@ try {
   // state bytes) and [21, 24] are omitted. The omitted pair is re-asked on the
   // walk's SECOND batch [13, 16, 18, 21, 24], 30 continuations after the
   // first, while 14, 15, 17 and 20 of the first batch are still unvisited.
+  // ~~That M-305 walk~~ — REPINNED 2026-09-24 for M-309's N-relation model:
+  // the plan no longer DRAWS a relation per group (seed 1 drew light rhyme and
+  // perfect rhyme for two end-bound groups; `plan --seed=1 --lines=24` now
+  // prints "RELATION: none declared and none drawn"), so every group is
+  // judged against every relation and L1 is no longer a joint-conflict
+  // pivot. The door is again the run's FIRST question. MEASURED on this tree
+  // at attempts 3: nine independent briefs [1, 5, 6, 14, 15, 17, 19, 21, 23]
+  // at the harness's prefetch, the first seven fit (314780 state bytes) and
+  // [21, 23] are omitted; L1 x2 and group [1,8,9,10,11] follow, then the
+  // SECOND batch [2, 7, 16, 18, 20, 21, 23] re-asks the omitted pair on
+  // continuation 4 and both are folded after 5, while 5, 6, 14, 15, 17 and
+  // 19 of the first batch are still unvisited.
   const splitDraft = [
     'we carry the morning to the stone',
     'we carry the morning to the rain',
@@ -162,16 +174,20 @@ try {
     'we carry the morning to the light',
     'we carry the morning to the road',
   ];
-  // ~~[1, 5, 6, 14, 15, 17, 19, 21, 23]~~ — the nine independent briefs the
-  // batch door sees on this tree (measured at the harness's prefetch).
-  const originalIndependent = [5, 6, 11, 14, 15, 17, 20, 21, 24];
-  // Every question before the batch is a tier-2 group rewrite or a tier-1
-  // retry of its pivot; the door opened on continuation 16 (measured).
-  const BATCH_DOOR_BOUND = 18;
-  // ~~8~~ — the tail is re-asked on the second batch, which the linear walk
-  // reaches only after the group questions and the three attempts per pivot
-  // of L5..L12; measured 30 continuations after the first batch.
-  const TAIL_BOUND = 32;
+  // ~~[1, 5, 6, 14, 15, 17, 19, 21, 23]~~ ~~[5, 6, 11, 14, 15, 17, 20, 21, 24]~~
+  // (M-305) [1, 5, 6, 14, 15, 17, 19, 21, 23] (2026-09-24, N-relation model)
+  // — the nine independent briefs the batch door sees on this tree (measured
+  // at the harness's prefetch).
+  const originalIndependent = [1, 5, 6, 14, 15, 17, 19, 21, 23];
+  // Any question before the batch is a tier-2 group rewrite or a tier-1
+  // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
+  // door opens on continuation 0 (measured 2026-09-24). ~~18~~ -> 2.
+  const BATCH_DOOR_BOUND = 2;
+  // ~~8~~ ~~32~~ (M-305: measured 30 continuations after the first batch,
+  // behind the group questions and three attempts per pivot of L5..L12) —
+  // 2026-09-24: the tail is re-asked on the second batch at continuation 4
+  // and folded after 5 (measured), so the pre-M-305 bound of 8 holds again.
+  const TAIL_BOUND = 8;
   const splitCall = (args) =>
     a.callTool({ name: 'lyric_revise', arguments: args }, undefined, {
       timeout: TOOL_BUDGET_MS + 30000,
@@ -235,11 +251,12 @@ try {
     })
   );
   const firstSubset = splitState.pending.record.records.map((r) => r.line);
-  // ~~[1, 5, 6, 14, 15, 17, 19]~~
-  assert.deepEqual(firstSubset, [5, 6, 11, 14, 15, 17, 20]);
+  // ~~[1, 5, 6, 14, 15, 17, 19]~~ ~~[5, 6, 11, 14, 15, 17, 20]~~ (M-305)
+  // [1, 5, 6, 14, 15, 17, 19] (2026-09-24, N-relation model; measured)
+  assert.deepEqual(firstSubset, [1, 5, 6, 14, 15, 17, 19]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
-  // ~~[21, 23]~~
-  assert.deepEqual(omittedTail, [21, 24]);
+  // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)
+  assert.deepEqual(omittedTail, [21, 23]);
   for (const n of firstSubset) reached.add(n);
   const verifiedFirst = new Map();
   const tailFolded = new Set();

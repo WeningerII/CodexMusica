@@ -50,7 +50,7 @@ SECTIONS = ["verse", "verse", "chorus", "chorus"]
 #: need is not in this repo.
 BY_LANGUAGE = {
     "cym": ("proest",),
-    "ltc": ("Middle Chinese end rhyme (同用 group)",),
+    "ltc": ("Middle Chinese end rhyme (同用 group)", "平仄 tonal template"),
 }
 
 #: THE SCHEMAS THAT ANSWER ONLY BECAUSE THIS CENSUS DECLARED A FIXTURE, and
@@ -65,6 +65,10 @@ BY_LANGUAGE = {
 #: does not declare the resource. What is missing in all three cases is a
 #: sourced TABLE, not code (doctrine 44).
 FIXTURE_ONLY = {
+    "平仄 tonal template": "the `tonal_template` declaration — the regulated-"
+                          "verse 平/仄 pattern is the FORM's, never the text's, "
+                          "so it arrives only by declaration; this census "
+                          "declares an all-中 template over a real couplet.",
     "rhyming slang": "the `slang` projected surface — this census declares "
                     "a constructed projection only. No sourced slang register "
                     "ships here; ordinary lexical data cannot supply it.",
@@ -142,11 +146,19 @@ def _other_language_live():
     from quality import quotients as _Q
     #: DECLARED HERE AND NOWHERE ELSE (doctrine 94). See FIXTURE_ONLY.
     fixtures = {"cym": {"quotients": {"vowel_class": _Q.vowel_class}}}
+    #: The 平仄 template is the FORM's, never the text's: this census
+    #: declares an all-中 (either-tone) template over a real pentasyllabic
+    #: couplet so the seam is exercised (doctrine 94, as FIXTURE_ONLY).
+    lines_for = {"ltc": ["白日依山盡", "黃河入海流"]}
+    templates = {"ltc": {0: "中中中中中", 1: "中中中中中"}}
     for lang, names in BY_LANGUAGE.items():
         try:
             st = R.build_stream(
-                ["a b", "c d"], get_phonology(lang),
+                lines_for.get(lang, ["a b", "c d"]), get_phonology(lang),
                 declaration=dict({"language": lang}, **fixtures.get(lang, {})))
+            if lang in templates:
+                R.declare_tonal_template(st, templates[lang],
+                                         source="this census, a fixture")
         except Exception:
             continue
         for n in names:
@@ -178,8 +190,7 @@ def census():
     from quality.schemes import mandate
     verifier = Reviser()
     for name, sch in sorted(R.REGISTRY.items()):
-        if not R.figure_pair_representable(sch) and name not in (
-                "symploce", "analysed rhyme", "blues AAB stanza"):
+        if not R.figure_pair_representable(sch) and name not in R.FULL_SHAPES:
             semantic[name] = {"status": "unsupported_shape",
                               "blocker": "member bindings/template not implemented"}
         elif name in R.DRAWABLE_EXHIBITS and R.pair_scope_representable(sch):

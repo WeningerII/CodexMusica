@@ -319,9 +319,10 @@ tradition it is the whole question.
 > 8,758 lines are on disk with their own rows. The cell has RUN: Gwaith Alun,
 > 1,558 lines, answers **55.7%** in search mode against a 200-shuffle null max
 > of **21.3%** — **+34.4 pp, p at the 0.005 floor** — and Twm o'r Nant's
-> cywydd **44.2%** against a null max of 27.6%. Both REPINNED 2026-09-24 at
-> the script's full n=200 after report J-1's Welsh glide repair; superseded
-> ~~57.1% / 21.8% / +35.3 and 46.2% / 26.9%~~, measured 2026-08-13.
+> cywydd **44.2%** against a null max of 27.6%. Both REPINNED 2026-09-23 at
+> the script's full n=200, after main `7d1ded93`'s J-1 glide change moved
+> `cynghanedd_rate.py --check` (`MISSING.md` N-1). Superseded, measured
+> 2026-08-13: ~~57.1% against 21.8%, +35.3 pp; Twm 46.2% against 26.9%~~.
 >
 > THE PARAGRAPHS BELOW ARE KEPT (doctrine 17) BECAUSE THEIR CHANNEL MAP IS
 > STILL CORRECT — Hugging Face really does hold no strict metre. What was

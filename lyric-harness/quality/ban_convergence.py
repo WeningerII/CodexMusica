@@ -99,9 +99,53 @@ PINNED = {
     # The unchanged main reader and the M-196 reader independently returned
     # these same totals. September 2's 719/549/170, 487, 7, 7/155/325 were
     # already stale on main; the new reader changes no historical mandate.
-    "pairs_mandated": 719, "pairs_judged": 517, "pairs_refused": 202,
-    "eligible": 457, "banned_in_final": 9,
-    "rank_head": 9, "rank_tail": 162, "rank_outside": 286,
+    # REPINNED 2026-09-22 (N-relation model), `ban_convergence.py --check`:
+    # ~~517/202, eligible 457, banned 9, head 9 / tail 162 / outside 286~~
+    # (tail/outside re-measured 160/295 after the later revise.py modal-head
+    # change, same day).
+    # Every pair judged against every relation it stands in and every
+    # schema; three refusals resolved, eligibility reads REPEAT from the set.
+    # RE-MEASURED after `nucleus_agreement` became "licensed" (same day):
+    # ~~520/199, eligible 459, banned 4, head 4 / tail 160 / outside 295~~.
+    # The modal field is relation-typed too, so a partner now ranks inside
+    # it far more often (tail 160 -> 241).
+    # banned 5 -> 4, head 5 -> 4, outside 206 -> 207 after 04c2dee9 (the
+    # offer screen reads every registry relation), re-measured. THEN, after
+    # the ASSONANCE cut 0.82 -> 0.75 and the refuse-only-on-a-satisfiable-
+    # undecided-schema rule (114e29d8): ~~513/206, eligible 452, tail 241,
+    # outside 207~~, measured by `ban_convergence.py --check`.
+    # ~~banned 4, head 4, tail 240, outside 214~~ WAS ALREADY STALE WHEN IT
+    # WAS WRITTEN: that pin came from the WIP commit 599a5d96 (2026-09-24
+    # 20:11, "re-measurement in progress") and never held on the tree it
+    # landed in — `--check` at f58ecf59 measured banned 5, head 5, tail
+    # 241, outside 212, rc=1 (MOVED), and this tree's own per-pair run at
+    # be0529b5 (the same ban, 2026-09-24) reproduces those totals exactly.
+    # REPINNED 2026-09-24 on the EVIDENCE-GATED modal head
+    # (`Reviser._rank_field_compute`, `MISSING.md` M-310): banned 3, head 3,
+    # tail 240, outside 215, measured PER PAIR on both trees, never
+    # inferred from the totals. Every other total holds; THREE pairs moved,
+    # each with ZERO realised pairs in the song table in either direction:
+    #   - the_river_keeps_the_score L3/L5 `there`/`varnish`, HEAD(5) ->
+    #     OUTSIDE. Base filed MODAL_RHYME "'There' is one of the 6
+    #     most-predictable answers to 'varnish'" — `varnish` has no realised
+    #     partner at all, so its tier 2 was the frequency backoff (your,
+    #     not, don, there, got, where); gated, its tier 2 is empty.
+    #   - the_frost_ledger L16/L17 `one`/`sane`, HEAD(35) -> OUTSIDE. Base
+    #     filed "'one' is one of the 6 most-predictable answers to 'sane'",
+    #     `sane`'s head past its tier-1 -ane class being in, on, don, can,
+    #     they, one; `sane` has no realised partner either.
+    #   - i_am_not_leaving L9/L12 `same`/`made`, TAIL(49) -> OUTSIDE, and
+    #     no ban was involved: `same`'s tier 2 shrank from aim, claim,
+    #     proclaim, 'm, they, him to the three evidenced aim, claim,
+    #     proclaim; `him` joined the menu at offer 13, and `made`, the 24th
+    #     and last offer, fell out of the 24-word menu.
+    # 127 further pairs keep their bucket and shift RANK (a shorter head
+    # moves every tail index), so the partner-rank line moves too: ~~median
+    # 22.0, min 1, max 185 over 246 ranked pairs~~ -> median 21, min 0, max
+    # 180 over 243 (`--check`, 2026-09-24, every pinned total holds).
+    "pairs_mandated": 719, "pairs_judged": 518, "pairs_refused": 201,
+    "eligible": 458, "banned_in_final": 3,
+    "rank_head": 3, "rank_tail": 240, "rank_outside": 215,
 }
 
 
@@ -346,7 +390,9 @@ def measure_lines(rv, lines, mandate):
            "eligible": 0, "rank_head": 0, "rank_tail": 0, "rank_outside": 0,
            "ranks": [], "pairs": []}
     for v in rep["verdicts"]:
-        if v["why"] or v["relation"] == "REPEAT":
+        # identity (REPEAT in the pair's relation set) is not a partner a
+        # ban could have steered; every other satisfied pair is eligible
+        if v["why"] or "REPEAT" in v["relations"]:
             continue
         st = v.get("structure")
         if st is not None and st != _ST.DEFAULT:

@@ -324,6 +324,45 @@ coefficient byte for byte.
 
 ## 9. Stage B results — predictability, and a recorded DEVIATION from the rule
 
+> **THE FIGURES IN THIS SECTION ARE THE 2026-09-04 RECORD, NOT THE LIVE
+> ROW** (note added 2026-09-24). They were measured on 8,667 items in 22
+> bins and stay here as that measurement (doctrine 17). The shipped knot
+> table has been re-derived repeatedly since, each time by this section's
+> own procedure — `fit … --seeds 200 --picks predictability=CK`, the
+> declared override of a rule that still picks C0 = 1.0 — among them:
+> re-adopted over the corrected population, 8,536 items in 21 bins by
+> 2026-09-15 (`quality/RESULTS_PRODUCTION_DATA_2026-09-08.md`,
+> `quality/RESULTS_ENGLISH_NONLYRIC_2026-09-15.md`), where the silence
+> boundary became **1.0 through 165 tokens, first under 1.0 at 166**;
+> repinned under a moved comparator on 2026-09-16
+> (`quality/RESULTS_COMPARATOR_REPIN_2026-09-16.md`); and repinned again
+> on 2026-09-24 under the N-relation model (M-309, #375; PR #380), whose
+> receipt is `quality/results/n_relation_2026-09-22/curves-measurement.txt`.
+> On 2026-09-24 seven of the 21 knots moved, all at 182 tokens and above
+> (six down, one up), the boundary did not move, CK still passes 21/21
+> bins, and the pooled held-out rate that §9's table quotes as 2.78% for
+> 2026-09-04 reads **3.09% [1.43–5.00]** (2.85% before the repin), with
+> 4.2–5.8% per bin from 147 tokens up. For the live numbers read
+> `quality/floor.py`'s `lyric` row and that receipt, not this section.
+>
+> **AND "E2 does not fire" BELOW IS NO LONGER TRUE OF THE LIVE ROW, which
+> nothing recorded until this note.** The held-out E2 comparison on
+> `short`'s bins (2–9) printed **+2.33, +2.27, +2.45 and +2.49 points —
+> `E2 FIRES`** — in the banked fits of 2026-09-08, 2026-09-14, 2026-09-15
+> and 2026-09-16 (`quality/results/production_data_2026-09-08/data-current-curve-fit.log`,
+> `quality/results/computational_audit_2026-09-14/curve-fit.log`, and the
+> `curves-measurement.txt` of `quality/results/english_nonlyric_2026-09-15/`
+> and `quality/results/comparator_repin_2026-09-16/`), and **+2.95** in the
+> 2026-09-24 fit; `song`'s bins read +0.93 and E2 in-sample does not fire
+> on either band (+1.10, +1.69). The whole 2026-09-24 increase is
+> predictability's: the band column (13.69%) and the other four curves are
+> unchanged, and the held-out CK curve now fires at a median 1.42% and
+> 2.23% in bins 8–9 where it read 0.00% before. §6 of the preregistration
+> says a firing E2 means the curve is not adopted over the band on those
+> bins. That is a ruling on the `lyric` row's coverage of 50–150 tokens,
+> not a coefficient a repin may choose, so it is recorded here and in the
+> receipt and left OPEN.
+
 ~~**The reference curve says the statistic has no resolution under ~169
 tokens.**~~ **The reference curve's 95th percentile sits at the ceiling
 through bin 11, whose upper EDGE is 169 tokens; the boundary the SHIPPED
@@ -447,7 +486,8 @@ from the table above; `song` and `short` superseded, not deleted;
 finding names the threshold evaluated at the text's length beside the
 formula (and not when a declaration override supplied the number);
 CLICHE_PAIR is a flag only at lengths where a band row measured its rate
-(50–150, 200–400) and a note elsewhere, its per-bin rate over 4–3,245
+(50–150, ~~200–400~~ 150–400 since the `song` row's 2026-09-24
+re-adoption) and a note elsewhere, its per-bin rate over 4–3,245
 owed; the planner's envelope reads the live profile (12..447 lines, the
 owner's ruling that no ceiling is typed); an exact `--lines` fixes the
 total. **What the adoption exposed and did not fix, with the logs:**

@@ -244,7 +244,7 @@ D1_2026_09_15 = {
 # pairs and 2 of them moved. E5_CODA_ADOPTION.md priced one population (947
 # mandated pairs, one loss) and did not price this one, which is how the
 # drift reached a nightly. Carried as a gap, not a finding.
-D1_RECORDED = {
+D1_2026_09_17 = {
     "pool": 4390056,
     "measured": "2026-09-17",
     "population": "1297 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated",
@@ -252,6 +252,26 @@ D1_RECORDED = {
               ("false", "admits"): 7, ("false", "rejects"): 673,
               ("refused", "admits"): 7, ("refused", "rejects"): 304},
     "agree": (677, 689),
+}
+
+# REPINNED 2026-09-22 — THE N-RELATION MODEL, and the engine side of this
+# table now asks whether RHYME is IN the pair's relation SET (at its cut)
+# rather than whether one label equals it. One pair moved in each judged row:
+# true/admits 4 -> 3 and false/admits 7 -> 6 (RHYME needs a lexically stressed
+# first syllable and every interior consonant to agree). Agreement over
+# judged is unchanged at 677/689; refused rows unchanged. Measured by
+# `python3 quality/structure_census.py --check`. D1_2026_09_17 kept above.
+# RE-MEASURED THE SAME DAY after `nucleus_agreement` became "licensed" (a near
+# vowel no longer carries RHYME): ~~false/admits 6, false/rejects 674,
+# refused/admits 7, refused/rejects 304, agreement 677/689~~.
+D1_RECORDED = {
+    "pool": 4390056,
+    "measured": "2026-09-22",
+    "population": "1297 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated",
+    "table": {("true", "admits"): 3, ("true", "rejects"): 6,
+              ("false", "admits"): 2, ("false", "rejects"): 678,
+              ("refused", "admits"): 6, ("refused", "rejects"): 305},
+    "agree": (681, 689),
 }
 
 #: HISTORICAL, and unreachable from this tree by any population.
@@ -726,7 +746,8 @@ def dedup_verify(path):
 def d1_diagnostic():
     """Registration D1 — recorded, NOT a falsifier. 1,000 seeded
     endword-cross pairs from eng_song; the masculine-rhyme judge tabulated
-    against the engine's admits() verdict (RHYME/RIME_RICHE at theta). A
+    against whether RHYME (any of `RHYME_RELATIONS`, at its cut) is IN the
+    engine's relation set for the pair — membership, never one label. A
     cell compilation and a scalar band are different questions, so
     agreement is MEASURED and disagreements exemplified; no threshold was
     preregistered, and registering the tabulation now is what stops the
@@ -748,7 +769,8 @@ def d1_diagnostic():
         ancs1, _, _ = LH.line_anchors(lex, a)
         ancs2, _, _ = LH.line_anchors(lex, b)
         s = LH.best_score(ancs1, ancs2, decl, a, b)
-        av = LH.admits(s, decl.theta_rhyme)
+        av = LH.admits(s, decl.theta_rhyme, LH.RHYME_RELATIONS,
+                       decl.theta_by_relation)
         key = (("true" if sv else "refused" if sv is None else "false"),
                "admits" if av else "rejects")
         tab[key] += 1

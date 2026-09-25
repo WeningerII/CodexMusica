@@ -96,22 +96,35 @@ class ProductionRevisionTests(unittest.TestCase):
         # The old projection charged 39 pairs, including internal-only
         # demands, then called the L5/L10 change "fixed 39". Ten actual
         # end-bound pairs remain just as predictable after that answer.
+        # REPINNED 10 -> 9 (measured): the predictability field is now the
+        # partners standing in an ADMITTED relation at its cut
+        # (`features.RhymeField`), not every word over the scalar, so one
+        # end-bound pair leaves the charged set.
         self.assertTrue(rows[0])
-        self.assertEqual(len(rows[0][0]), 10)
+        self.assertEqual(len(rows[0][0]), 9)
         self.assertEqual(rows[0], rows[1])
         from quality import slots
+        # The first line the charge names (L1 until the field became the
+        # admitted-relation population; measured L11 now).
         brief = next(b for b in self.reviser.brief(case['before_last_answer'], m,
                                                   include_offers=False)
-                     if b.line_no == 1)
+                     if any(f.code == 'PREDICTABLE_RHYME' for f in b.findings))
+        ln = brief.line_no
         self.assertTrue(slots.is_default(brief.slot))
         self.assertTrue(brief.violated_groups)
-        self.assertTrue(all(slots.is_default(m.slot_of(m.labels.index(label), 1))
+        self.assertTrue(all(slots.is_default(m.slot_of(m.labels.index(label), ln))
                             for label in brief.violated_groups))
         verdict = self.reviser.verify(case['before_last_answer'], case['final_retained'],
                                       m, targeted={5, 10})
-        self.assertFalse(verdict['accepted'], verdict['reasons'])
+        # The internal-only edit clears NO end-bound predictability charge.
+        # Under relation sets it does legitimately resolve the L4~L5 pair
+        # the old reading left unresolved (two SCHEME_UNREADABLE findings),
+        # so verify may accept it -- but only for those, never by claiming
+        # a PREDICTABLE_RHYME it did not answer.
         self.assertFalse([f for f in verdict['fixed_findings']
                           if f['code'] == 'PREDICTABLE_RHYME'])
+        self.assertEqual({f['code'] for f in verdict['fixed_findings']},
+                         {'SCHEME_UNREADABLE'}, verdict['reasons'])
 
     def test_expanded_offer_does_not_claim_exact_vowel_pool_provenance(self):
         case = json.loads((Path(__file__).parent / 'results' /
@@ -125,17 +138,28 @@ class ProductionRevisionTests(unittest.TestCase):
                              for g in plan['returns'].split(';')])
         r, lines = self.reviser, case['retained']
         b = next(b for b in r.brief(lines, m, target_lines={6}) if b.line_no == 6)
-        self.assertGreater(b.field_widened, 0)
-        self.assertIn('have', b.candidates)
-        # The coarse class admits near vowels under its declared channel
-        # threshold; that is not a claim of identical nuclei or an index
-        # lookup in the exact-vowel pool. Preserve the actual grade.
+        # REPINNED for relation SETS: a rhyme of `waits` also stands in
+        # ASSONANCE, so the ordinary field answers `class:ASSONANCE` and no
+        # expanded search runs (it ran while the rhyme's one label excluded
+        # it). Every word offered is the declared judge's.
+        self.assertEqual(b.field_widened, 0)
+        self.assertTrue(b.candidates)
+        from quality.loop import swap_at_slot
+        for word in b.candidates[:6]:
+            trial = list(lines)
+            trial[5] = swap_at_slot(lines[5], b.slot, word)
+            g = r.grade(trial, m, _only_groups={m.labels.index('D')})
+            self.assertFalse([v for v in g['violations'] if 6 in v['lines']], word)
+        # The offered words are the declared judge's own; nothing claims an
+        # exact-vowel pool the grade did not consult.
         have = r._word_anchors('have')[0][0][0]['nucleus']
         waits = r._word_anchors('waits')[0][0][0]['nucleus']
         self.assertNotEqual(have, waits)
+        # ASSONANCE is vowel IDENTITY now (the near-vowel band no longer
+        # rounds up), so the declared judge refuses `have` against `waits`.
         kept, refused = r.declared_offer(['have'], lines, m, 6, b.slot,
                                          [m.labels.index('D')])
-        self.assertEqual((kept, refused), (['have'], []))
+        self.assertEqual((kept, refused), ([], ['have']))
         prompt = render_line(b, lines)
         self.assertNotIn('OFFERED FROM THE VOWEL BAND', prompt)
         self.assertNotIn("words below share the call's", prompt)
@@ -179,7 +203,9 @@ class ProductionRevisionTests(unittest.TestCase):
         report = near_relation_default_disclosure(g['verdicts'], r.decl.theta_rhyme,
                                                   default_groups=default,
                                                   cuts=r.decl.theta_by_relation)
-        self.assertIn('ADMIT DOOR: 1 mandated pair(s)', report)
+        # The disclosure's head is `NEAR ONLY` since relation sets: it counts
+        # pairs satisfied by a near relation and by no rhyme relation.
+        self.assertIn('NEAR ONLY: 1 mandated pair(s)', report)
         self.assertIn('ASSONANCE 0.9', report)
         self.assertNotIn('ASSONANCE 0.82', report)
         self.assertIn('chance rate is not established', report)
@@ -196,6 +222,13 @@ class ProductionRevisionTests(unittest.TestCase):
                              for g in plan['returns'].split(';')])
         r = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=2,
                                             backtrack_width=1))
+        # THE PRECONDITION IS AN EMPTY SINGLE-PARTNER MENU. The recorded case
+        # had one while CONSONANCE excluded perfect rhymes; under relation
+        # sets L2's menu is legitimately non-empty, so the empty menu is set
+        # up directly (the declared judge refuses every word): what this
+        # test pins is what the LOOP does with an empty menu, not which
+        # words the field holds.
+        r.declared_offer = lambda candidates, *a, **k: ([], list(candidates))
         b = next(b for b in r.brief(lines, m, target_lines={2}) if b.line_no == 2)
         self.assertTrue(b.field_computed)
         self.assertTrue(b.violated_groups)
@@ -255,8 +288,13 @@ class ProductionRevisionTests(unittest.TestCase):
                            'continuation_audit_2026-09-20' /
                            'signal_flags_case.json').read_text())
         p, lines = case['plan'], case['initial']
+        # REPINNED for relation SETS: lamp/thump stands in RHYME and so in
+        # CONSONANCE too, and group B holds under the plan's relation. B is
+        # given a relation its pairs do not stand in (RIME_RICHE) so the
+        # line still carries a violated, an unjudged and a holding group.
         m = mandate([g.split(',') for g in p['groups'].split(';')],
                     n_lines=p['total_lines'], default_relation=p['relation'],
+                    relations={'B': 'class:RIME_RICHE'},
                     returns=[list(map(int, g.split(','))) for g in p['returns'].split(';')])
         b = next(b for b in self.reviser.brief(lines, m, target_lines={3})
                  if b.line_no == 3)
@@ -289,8 +327,13 @@ class ProductionRevisionTests(unittest.TestCase):
         lex.pronunciations = P.validate_choices(case['pronunciations'], lex)
         r = Reviser(lex=lex)
         lines = case['draft']
+        # REPINNED for relation SETS: every pair at L2 stands in CONSONANCE
+        # among its other relations (a coda match is consonance whatever
+        # else holds), so `class:CONSONANCE` is satisfied there now. The
+        # rendering question needs both endpoints violated; `class:
+        # RIME_RICHE`, which none of these pairs stands in, gives that.
         m = mandate([g.split(',') for g in case['groups'].split(';')],
-                    n_lines=12, default_relation='class:CONSONANCE',
+                    n_lines=12, default_relation='class:RIME_RICHE',
                     returns=[[8, 9]])
         b = next(b for b in r.brief(lines, m, target_lines={2},
                                     include_offers=False) if b.line_no == 2)
@@ -298,7 +341,9 @@ class ProductionRevisionTests(unittest.TestCase):
         self.assertIn('G', b.violated_groups)
         self.assertTrue(b.slot_conflict)
         for rendered in (str(b), render_line(b, lines)):
-            a = next(x for x in rendered.splitlines() if 'group A ' in x)
+            # The obligation line (not a finding that also names group A).
+            a = next(x for x in rendered.splitlines()
+                     if 'group A ' in x and 'must' in x)
             self.assertIn('VIOLATED', a)
             self.assertNotIn('HOLDS', a)
 
@@ -317,7 +362,12 @@ class ProductionRevisionTests(unittest.TestCase):
         b = next(b for b in r.brief(lines, m, target_lines={2})
                  if b.line_no == 2)
         self.assertTrue(b.joint_conflict)
-        self.assertNotIn('york', dict(b.partial_by_call).get('Dark', ()))
+        # REPINNED for relation SETS: `york` was excluded while Dark/york
+        # carried one label other than CONSONANCE; its coda agrees, so it
+        # stands in CONSONANCE among its relations and the declared judge
+        # accepts it. What binds is below: every word offered for a call
+        # passes the declared relation through `grade()`.
+        self.assertTrue(dict(b.partial_by_call).get('Dark'))
         from quality.loop import swap_at_slot
         for call, words in b.partial_by_call:
             mates = [ln for ln in m.groups[0] if ln != 2 and
@@ -331,7 +381,10 @@ class ProductionRevisionTests(unittest.TestCase):
                                  (call, word))
 
     def test_partial_offer_can_leave_an_existing_failure_open(self):
-        lines = ['seed', 'red', 'road']
+        # REPINNED for relation SETS: bud/red stands in RHYME and therefore
+        # also in CONSONANCE, so `red` no longer leaves a failure to keep
+        # open. `reap` (coda P) does: bud/reap is no consonance, bud/road is.
+        lines = ['seed', 'reap', 'road']
         m = mandate('AAA', n_lines=3, default_relation='class:CONSONANCE')
         r = self.reviser
         kept, _ = r.declared_offer(['bud'], lines, m, 1, None, {0},
@@ -340,28 +393,23 @@ class ProductionRevisionTests(unittest.TestCase):
         full, _ = r.declared_offer(['bud'], lines, m, 1, None, {0})
         self.assertEqual(full, [])
         # It must actually answer its requested call, not merely preserve
-        # the old failures. The bud/red obligation is still violated.
+        # the old failures. The bud/reap obligation is still violated.
         failed, _ = r.declared_offer(['bud'], lines, m, 1, None, {0},
                                     requested_obligations={(1, 2, 0)})
         self.assertEqual(failed, [])
 
     def test_kept_anchor_disclosure_names_its_actual_position(self):
-        from quality import pronunciation as P
-        case = json.loads((Path(__file__).parent / 'results' /
-                           'capacity_followup_2026-09-21' /
-                           'last_bus_case.json').read_text())
-        lex = copy.copy(self.reviser.lex)
-        lex.pronunciations = P.validate_choices(case['pronunciations'], lex)
-        r = Reviser(lex=lex)
-        m = mandate([g.split(',') for g in case['groups'].split(';')],
-                    n_lines=12, default_relation='class:CONSONANCE',
-                    returns=[[8, 9]])
-        from quality.plan import fill_plan
-        from quality.fit import Subdivision
-        plan = case['plan']
-        v = r.verify(case['before'], case['after'], m, targeted={1},
-                     blueprint=fill_plan(plan, case['before']),
-                     subdivision=Subdivision(1, source='frozen public plan'))
+        # REPINNED for relation SETS: the recorded last-bus case violated its
+        # first-word place only while `class:CONSONANCE` was one exclusive
+        # label; judged by membership that place holds and the case no
+        # longer reaches the disclosure. Constructed instead (doctrine 94):
+        # L2's violated PRIMARY place is its first word, the revision fixes
+        # the end group and keeps that first word.
+        before = ['Snow fills the old van', 'Rain taps the cold bus']
+        after = ['Snow fills the old van', 'Rain taps the cold man']
+        m = mandate([['1.head', '2.head'], [1, 2]], n_lines=2,
+                    relations={'A': 'class:ASSONANCE', 'B': 'class:RHYME'})
+        v = self.reviser.verify(before, after, m, targeted={2})
         self.assertTrue(v['accepted'], v['reasons'])
         kept = next(s for s in v['reasons'] if 'KEPT' in s)
         self.assertIn("KEPT its first word 'Rain'", kept)
@@ -481,10 +529,16 @@ class ProductionRevisionTests(unittest.TestCase):
         for key in ('verdicts', 'violations', 'refused_obligations',
                     'pairs_mandated', 'pairs_judged', 'pairs_refused'):
             self.assertEqual(readings[0][key], readings[1][key], key)
-        # The historical claim of clearing every L19 group no longer holds:
-        # palm/calm fails the named relation and other pairs are refused.
-        self.assertTrue(any(v['lines'] == (16, 19) and v['label'] == 'N'
-                            for v in readings[0]['violations']))
+        # The historical claim of clearing every L19 group no longer holds.
+        # REPINNED for relation SETS: the cluster-consonance schema no longer
+        # requires the nucleus to DIFFER, so palm/calm is not a flat failure
+        # of it any more; the named judge finds no coordinates in the pair
+        # and the obligation is REFUSED (unjudged), never satisfied.
+        n = m.labels.index('N')
+        self.assertFalse(any(v['lines'] == (16, 19) and v['label'] == 'N'
+                             and not v['why'] for v in readings[0]['verdicts']))
+        self.assertIn((16, 19, n), [tuple(r) for r in
+                                    readings[0]['refused_obligations']])
         self.assertGreater(readings[0]['pairs_refused'], 0)
         print('M-256 round-24 G/H/N replay:',
               {k: readings[0][k] for k in ('pairs_mandated', 'pairs_judged',
@@ -527,11 +581,17 @@ class ProductionRevisionTests(unittest.TestCase):
         for first in [lines[0], 'Your kettle whistles by the stove']:
             trial = [first, *lines[1:]]
             full = self.reviser.grade(trial, m)
-            # Pair-bound anaphora has no use for a whole-song enumeration;
-            # the selected grade must agree with its rows in the full grade.
+            # Every graded pair is judged against the whole vocabulary, but a
+            # selected grade asks it only about the selected group's pairs
+            # (never a whole-song enumeration); its rows must agree with the
+            # full grade's.
             with patch.object(relations, 'line_pairs_for', wraps=relations.line_pairs_for) as enumeration:
                 partial = self.reviser.grade(trial, m, _only_groups={0})
-            self.assertFalse(enumeration.called)
+            asked = {tuple(p) for c in enumeration.call_args_list
+                     for p in (c.kwargs.get('requested_pairs') or ())}
+            self.assertTrue(all(c.kwargs.get('requested_pairs') is not None
+                                for c in enumeration.call_args_list))
+            self.assertLessEqual(asked, {(1, 2)})
             for key in ['verdicts', 'violations']:
                 self.assertEqual(partial[key], [v for v in full[key] if v['group'] == 0])
             self.assertEqual(partial['refused_obligations'],

@@ -125,10 +125,12 @@ class Structure:
             # a skothending demands the CODA alone — asking the generic
             # question of it fails pairs the tradition accepts. `realises`
             # is the select-aware read the classifier already carries.
+            # EVERY ALIGNMENT the classifier tried is a reading the pair
+            # supports: the demand holds when ANY of them realises it.
             select = RT.PRESETS[self.name][2]
-            return t.realises(*select)
+            return _any_reading(x.realises(*select) for x in _readings(t))
         # kind == "cell": classify at the cell's own anchors, then apply
-        # the compilation rule.
+        # the compilation rule to every alignment the classifier tried.
         pattern, identity = self.cell[0], self.cell[1]
         anchor_a, anchor_b = self.cell[7], self.cell[8]
         try:
@@ -142,18 +144,39 @@ class Structure:
             return False
         if identity == "rich" and t.identity != "rich":
             return False
-        got = t.agreement
-        if len(got) < len(pattern):
-            return False
-        # demanded syllables count from the anchor forward; agreement rows
-        # are index-aligned with the classified span.
-        for want, have in zip(pattern, got):
-            for w, h in zip(want, have):
-                if w and h is None:
-                    return None       # a demanded channel was unreadable
-                if w and not h:
-                    return False
-        return True
+        return _any_reading(_cell_holds(pattern, x.agreement)
+                            for x in _readings(t))
+
+
+def _readings(t):
+    """The classified alignment and every alternative alignment tried."""
+    return (t,) + tuple(getattr(t, "alternatives", ()) or ())
+
+
+def _any_reading(verdicts):
+    """True if any reading holds; else None if any could not be read;
+    else False."""
+    saw_none = False
+    for v in verdicts:
+        if v is True:
+            return True
+        if v is None:
+            saw_none = True
+    return None if saw_none else False
+
+
+def _cell_holds(pattern, got):
+    """One alignment's agreement rows against a cell's demanded channels.
+    Demanded syllables count from the anchor forward."""
+    if len(got) < len(pattern):
+        return False
+    for want, have in zip(pattern, got):
+        for w, h in zip(want, have):
+            if w and h is None:
+                return None       # a demanded channel was unreadable
+            if w and not h:
+                return False
+    return True
 
 
 def _build():
@@ -169,8 +192,9 @@ def _build():
         name=DEFAULT, kind="comparator",
         aliases=("end-rhyme", "perfect-end-rhyme"),
         calibrated=("eng",),
-        doc="the default: last primary stress to line end, scalar + "
-            "conjunctive band + Declaration.admit — grade()'s own path"))
+        doc="the default: the pair stands in at least one relation -- an "
+            "admitted coarse relation (Declaration.admit) or any registry "
+            "schema -- grade()'s own path"))
     #: Adopted laziness regimes per preset row, by language — each entry
     #: is a preregistered calibration's ADOPTION and cites its RESULTS.
     #: kalevala-alliteration: RESULTS_KALEVALA_ALLITERATION.md (Kanteletar

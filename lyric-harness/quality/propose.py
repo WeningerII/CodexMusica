@@ -112,25 +112,6 @@ _HAS_LETTER_RE = re.compile(r"[^\W\d_]", re.UNICODE)
 #: written into the draft.
 _QUOTE_CHARS = "\"“”«»`"
 
-#: WHAT THIS MODULE SAYS WHEN A BRIEF DOES NOT CARRY THE DOOR COORDINATE.
-#: NOT a second copy of the disclosure -- that is
-#: `relations.SCHEMA_ROUTE_NOTE`, in the module that owns the judge, and
-#: nothing here restates it. This says the DIFFERENT thing that "I was handed
-#: no coordinate" means, which doctrine 20/28 requires be tellable from both
-#: "the route is shut" and "the route is open" (`MISSING.md` M-139).
-#:
-#: PINNED EQUAL to `relations.SCHEMA_ROUTE_UNKNOWN` by
-#: `quality/test_propose.py` §7e, which also pins that this module contains
-#: no substring of the disclosure itself. A duplicated string with a test
-#: holding the two together is the price of this module's declared purity,
-#: and it is paid in the open.
-_SCHEMA_ROUTE_UNKNOWN = (
-    "WHETHER THE 77-SCHEMA HALF OF THE DEFAULT WAS CONSULTED FOR THIS FIELD "
-    "IS NOT RECORDED HERE -- this brief does not carry the coordinate, which "
-    "is inconclusive by construction and is not a statement that it was "
-    "consulted (doctrine 20).")
-
-
 #: The coordinates `_finding_lines` PRINTS, in the order it prints them.
 #: Ordering on these makes the printed order a function of the printed
 #: content and of nothing else — which is the property doctrine 66 asks for
@@ -243,50 +224,19 @@ def _draft_block(lines, focus=(), indent="  "):
     return out
 
 
-def _offered_block(candidates, declaration, schema_note, indent="  "):
+def _offered_block(candidates, declaration, indent="  "):
     """-> [str]. The candidate field, capped at `OFFERED_SHOWN` and SAYING SO
-    when the cap bites, plus the coordinate AND the DOOR it was read at.
-
-    `schema_note` IS POSITIONAL AND REQUIRED, and that is its whole design
-    (`MISSING.md` M-139). This is the ONE renderer of a candidate field in
-    this module and it is called three times -- the tier-1 offer, the tier-2
-    pivot options, and each tier-2 member's options -- so a disclosure
-    written at the call sites would be three copies of one sentence
-    (doctrine 1). A DEFAULTED keyword would let a fourth call site drop the
-    sentence in silence, which is the failure `quality/test_propose.py` §7c
-    exists to catch one layer up; a required positional makes that call site
-    a `TypeError` instead. An undeclared value must be loud, not silently
-    one of the two.
-
-    IT ARRIVES AS A STRING because this module imports `re` and nothing else
-    on purpose (see the module docstring): `quality.relations` owns the judge
-    the sentence is about and therefore owns the sentence, and it reads
-    `canon_index.tsv` at import -- a renderer that declares "no filesystem"
-    may not acquire one. The sentence travels on the `Brief`, exactly as
-    `field_declaration` does.
-    """
+    when the cap bites, plus the coordinates it was read at. The ONE
+    renderer of a candidate field in this module (tier-1 offer, tier-2
+    pivot options, each tier-2 member's options)."""
     cands = _ordered(candidates)
     shown = cands[:OFFERED_SHOWN]
     head = f"{len(shown)} word(s)"
     if len(shown) < len(cands):
         head = (f"{len(shown)} of {len(cands)} shown, highest-ranked first "
                 f"(the field is larger than this prompt prints)")
-    out = [f"{indent}{head}; field read at {declaration}",
-           f"{indent}  " + ", ".join(str(c) for c in shown)]
-    if schema_note:
-        # UNWRAPPED, AND THAT IS THE DECISION RATHER THAN AN OVERSIGHT.
-        # `quality/test_propose.py`'s module-surface section asserts on the
-        # SOURCE that this file's import set is exactly `{"re"}` -- a hard
-        # guard, and the reason the sketch that put this sentence behind
-        # `from quality.relations import ...` cannot ship: that import goes
-        # RED there, mechanically, before anyone argues about it. Wrapping
-        # would need `textwrap` and would move that declared coordinate for
-        # a cosmetic gain, which is the trade this repo refuses. The line
-        # directly above already prints up to `OFFERED_SHOWN` words
-        # unwrapped, so nothing here is newly long; the HUMAN-facing
-        # renderers wrap, through `revise.schema_route_lines`.
-        out.append(f"{indent}{schema_note}")
-    return out
+    return [f"{indent}{head}; field read at {declaration}",
+            f"{indent}  " + ", ".join(str(c) for c in shown)]
 
 
 def _whole_block(whole, indent="  "):
@@ -362,7 +312,8 @@ def _mandate_block(brief, indent="  "):
                        f"exact declared return class; a rhyme alone is not enough.")
         else:
             out.append(f"{indent}group {lab} {list(_ordered(mem))}{place} — "
-                       f"this line must rhyme with: {shown}{standing}")
+                       f"this line must stand in at least one relation with: "
+                       f"{shown}{standing}")
     if len(must_answer) > 1:
         places = {gslots.get(lab) for lab, _m, _c in must_answer
                   if lab in gslots}
@@ -435,7 +386,8 @@ def _mandate_block(brief, indent="  "):
                        f"Unsearched words and whole-line rewrites remain possible.")
     mrw = getattr(brief, "must_rhyme_with", None)
     if mrw and not must_answer:
-        out.append(f"{indent}must rhyme with L{mrw[0]} ({mrw[1]!r})")
+        out.append(f"{indent}must stand in at least one relation with "
+                   f"L{mrw[0]} ({mrw[1]!r})")
     if not out:
         out.append(f"{indent}(no rhyme group declared for this line)")
     return out
@@ -606,6 +558,43 @@ def slot_phrase(brief):
         return "end word"
 
 
+#: WHAT EACH EMPTY-HEAD CAUSE SAYS (`revise.EMPTY_HEAD_CAUSES`, 2026-09-24).
+#: Keyed by the brief's own `empty_head_cause`, so the prompt states the
+#: cause that holds and no other (doctrine 28). Spelled here rather than
+#: imported because this module imports only `re`.
+_EMPTY_HEAD_SAYS = {
+    "NO_ANSWER": (
+        "This bounded search reached no word that answers every call at "
+        "this place and can",
+        "be offered — see the mandate block above — so there is no field "
+        "for a head to lead.",
+    ),
+    "DECLARED_ZERO": (
+        "The modal exclusion is declared at 0, which forbids nothing by "
+        "design, and no word in",
+        "this field shares a call word's spelled ending.",
+    ),
+    "UNEVIDENCED": (
+        "No word in this field has been seen realised as these calls' "
+        "rhyme partner in the",
+        "song corpus, and none shares a call word's spelled ending. The "
+        "head holds only",
+        "partners the song table has evidence for, so it has nothing to "
+        "hold.",
+    ),
+    "DECLARED_RELATION": (
+        "Every word the head held fails the relation this place declares, "
+        "so none of them",
+        "could be taken here and none is listed.",
+    ),
+}
+#: A brief that does not carry a cause (a hand-built stand-in, or one from
+#: before 2026-09-24) is told so — never handed a list of guesses.
+_EMPTY_HEAD_UNSTATED = (
+    "The brief did not record which cause emptied it.",
+)
+
+
 def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
                 heading=True):
     """-> str, the tier-1 prompt: rewrite ONE flagged line.
@@ -642,12 +631,6 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     findings = _ordered(getattr(brief, "findings", ()) or ())
     whole = _ordered(whole or ())
     decl = getattr(brief, "field_declaration", "field_depth=?, field_band=?")
-    #: THE DOOR the field was read at, read ONCE and threaded exactly as
-    #: `decl` is. THE `getattr` DEFAULT IS THE UNKNOWN SENTENCE AND NOT `""`:
-    #: an object that has not grown the coordinate must not render as "the
-    #: route is shut", which is the doctrine-20 collapse the disclosure
-    #: exists to end (`MISSING.md` M-139).
-    note = getattr(brief, "schema_route_note", _SCHEMA_ROUTE_UNKNOWN)
     #: WHICH WORD this brief is about. Read ONCE and threaded, never
     #: re-derived per block — see `slot_phrase`.
     word_name = slot_phrase(brief)
@@ -763,7 +746,7 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
         out.append("  The expanded search does not require identical vowel "
                    "nuclei; the declared relation decides what holds.")
     if candidates:
-        out.extend(_offered_block(candidates, decl, note))
+        out.extend(_offered_block(candidates, decl))
         out.append("  Offered, NOT required. The grader re-grades the rhyme "
                    "itself; it never checks whether")
         out.append(f"  your {word_name} came off this list. A word that is "
@@ -857,16 +840,28 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
         # most predictable answers in this field" instead, so one false
         # sentence was simply traded for another until `field_computed`
         # existed to tell them apart.
+        # A THIRD POPULATION SINCE 2026-09-24: the head is EVIDENCE-GATED
+        # (`revise.Reviser._rank_field_compute`), so a field no member of
+        # which the song table has seen answer these calls, with no
+        # same-spelled member, comes back with an empty head and a full
+        # offer. ~~"Either nothing in the lexicon answers this line's groups
+        # at all ... or the modal exclusion is declared at 0"~~ listed ~~the
+        # possible causes~~ two causes (NO_ANSWER, DECLARED_ZERO) and said
+        # none of them applied — it never listed DECLARED_RELATION, which
+        # predates the gate (corrected 2026-09-25); a sentence that offers
+        # causes joined by "either ... or" is "cannot tell" dressed as an
+        # answer (doctrine 28), and the brief KNOWS which one it is. So it now carries the
+        # cause as data (`Brief.empty_head_cause`, one of
+        # `revise.EMPTY_HEAD_CAUSES`) and this states THAT one.
         if getattr(brief, "field_computed", False):
             out.append("  (none — the modal head was COMPUTED for this line "
                        "and came back EMPTY, which is not")
-            out.append("  the same as it not having been asked. Either "
-                       "nothing in the lexicon answers this")
-            out.append("  line's groups at all — see the mandate block "
-                       "above — or the modal exclusion is")
-            out.append("  declared at 0, which forbids nothing by design. "
-                       "Doctrine 9 is not being applied")
-            out.append("  to you here; it found nothing to apply.)")
+            out.append("  the same as it not having been asked.")
+            cause = getattr(brief, "empty_head_cause", "")
+            for _l in _EMPTY_HEAD_SAYS.get(cause, _EMPTY_HEAD_UNSTATED):
+                out.append("  " + _l)
+            out.append("  Doctrine 9 is not being applied to you here; it "
+                       "found nothing to apply.)")
         else:
             out.append("  (none — no modal head was computed for this line)")
     out.append("")
@@ -1082,12 +1077,6 @@ def render_group(group_brief):
     whole = _ordered(getattr(g, "whole", ()) or ())
     inner = getattr(g, "brief", None)
     decl = getattr(inner, "field_declaration", "field_depth=?, field_band=?")
-    #: The pivot brief's door, threaded to EVERY options list below -- the
-    #: pivot's and each member's -- for the same reason `decl` is: one
-    #: statement of one coordinate (doctrine 1). Same `getattr` default and
-    #: the same argument for it; `inner` is `None` on a `GroupBrief` that
-    #: carries no brief, and `getattr(None, ...)` takes it.
-    note = getattr(inner, "schema_route_note", _SCHEMA_ROUTE_UNKNOWN)
     findings = _ordered(getattr(inner, "findings", ()) or ())
     a_nos = [getattr(a, "line_no", 0) for a in anchors]
     a_list = ", ".join(f"L{n}" for n in a_nos) or "(none)"
@@ -1177,7 +1166,7 @@ def render_group(group_brief):
     out.append(f"PIVOT OPTIONS — words L{p_no} could bind on once the rest "
                f"of the group moves")
     if p_off:
-        out.extend(_offered_block(p_off, decl, note))
+        out.extend(_offered_block(p_off, decl))
     else:
         out.append("  (none offered)")
     out.append("")
@@ -1209,7 +1198,7 @@ def render_group(group_brief):
         out.append(f"L{a_no} OPTIONS — words L{a_no} could bind on instead "
                    f"of what it binds on now")
         if a_off:
-            out.extend(_offered_block(a_off, decl, note))
+            out.extend(_offered_block(a_off, decl))
         elif a_calls:
             out.append(f"  (none offered — NOTHING answers group {label} "
                        f"{list(members)} AND L{a_no}'s own group(s) at once, "
@@ -1221,7 +1210,7 @@ def render_group(group_brief):
 
     out.append(f"  Every list is OFFERED, not required, and the {k} picks "
                f"are COUPLED: whatever each")
-    out.append(f"  line binds on must rhyme with what every OTHER member "
+    out.append(f"  line binds on must stand in a relation with what every OTHER member "
                f"binds on, because group")
     out.append(f"  {label} {list(members)} still holds after the rewrite. "
                f"The offered lists are ORDERED —")

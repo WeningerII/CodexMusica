@@ -28,6 +28,7 @@ Sections:
 
 import ast
 import os
+import shutil
 import sys
 import tempfile
 
@@ -152,24 +153,54 @@ def test_the_closure_is_transitive():
     # on a re-implementation of it.
     victim = next(n for n in indirect
                   if isinstance(getattr(LH, n, None), type(SI.definition_source)))
-    before = open(LH.__file__, encoding="utf-8").read()
+    # THE PLANT LANDS IN A PRIVATE COPY, NOT IN THE TREE (2026-09-24). This
+    # section wrote the comment into `LH.__file__` itself and put the bytes
+    # back afterwards, and CI runs it FOUR-WIDE beside the rest of its shard:
+    # the rewrite moved the shared file's mtime and ctime under a sibling's
+    # feet, and `quality/capacity.py`'s `_proof_epoch` -- which stamps them
+    # around every admission -- refused `test_capacity_receipt.py`'s with
+    # "proof inputs changed during admission" on shard 3/3 of the N-relation
+    # line. `test_comparator_pin.py`'s `_private_lyric_harness` carries the
+    # measurement. The fingerprint reads the module's text through
+    # `lyric_harness.__file__`, so pointing that ONE attribute at a copy still
+    # runs the REAL `comparator_fingerprint()` over the planted text, and no
+    # other process can see it (doctrine 77).
+    # ~~before = open(LH.__file__, encoding="utf-8").read()~~ and
+    # ~~open(LH.__file__, "w", encoding="utf-8").write(...)~~ were the plant.
+    real = LH.__file__
+    untouched = os.stat(real)
     clean = C.comparator_fingerprint()
-    lines = before.splitlines(keepends=True)
-    node, = [n for n in ast.parse(before).body
-             if getattr(n, "name", None) == victim]
-    at = node.body[0].lineno - 1
-    pad = lines[at][:len(lines[at]) - len(lines[at].lstrip())]
-    lines.insert(at, pad + "# planted by test_source_identity.py section 3\n")
-    try:
-        open(LH.__file__, "w", encoding="utf-8").write("".join(lines))
-        moved = C.comparator_fingerprint()
-        check(f"editing `{victim}` — reached only through another definition — "
-              "moves the comparator fingerprint, so the guard covers what it "
-              "can reach and not merely what was declared",
-              moved != clean, f"{clean[:12]} -> {moved[:12]}")
-    finally:
-        open(LH.__file__, "w", encoding="utf-8").write(before)
+    with tempfile.TemporaryDirectory(prefix="source_identity_") as tmp:
+        copy = os.path.join(tmp, os.path.basename(real))
+        shutil.copyfile(real, copy)
+        before = open(copy, encoding="utf-8").read()
+        lines = before.splitlines(keepends=True)
+        node, = [n for n in ast.parse(before).body
+                 if getattr(n, "name", None) == victim]
+        at = node.body[0].lineno - 1
+        pad = lines[at][:len(lines[at]) - len(lines[at].lstrip())]
+        lines.insert(at, pad + "# planted by test_source_identity.py section 3\n")
+        LH.__file__ = copy
+        try:
+            check("the private copy fingerprints EXACTLY as the tree's file "
+                  "does, so the planted comment is the only difference",
+                  C.comparator_fingerprint() == clean)
+            open(copy, "w", encoding="utf-8").write("".join(lines))
+            moved = C.comparator_fingerprint()
+            check(f"editing `{victim}` — reached only through another "
+                  "definition — moves the comparator fingerprint, so the "
+                  "guard covers what it can reach and not merely what was "
+                  "declared",
+                  moved != clean, f"{clean[:12]} -> {moved[:12]}")
+        finally:
+            LH.__file__ = real
     check("no residue", C.comparator_fingerprint() == clean)
+    after = os.stat(real)
+    check("and the tree's own `lyric_harness.py` was never written — a "
+          "plant in the shared file is seen by every four-wide sibling",
+          (after.st_size, after.st_mtime_ns, after.st_ino)
+          == (untouched.st_size, untouched.st_mtime_ns, untouched.st_ino),
+          f"{real}")
 
 
 def test_nothing_reachable_dispatches_dynamically():

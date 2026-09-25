@@ -140,11 +140,15 @@ looking right.
    cynghanedd", obtained by search, is quoting the null back at itself. The
    excess over the shuffled null is the part attributable to the poet, and it
    is the only part worth reporting. Two editions, 200 shuffles each:
-   **Alun 55.7% vs null max 21.3% (+34.4); Twm o'r Nant 44.2% vs 27.6%
-   (+16.7)** — REPINNED 2026-09-24 for report J-1's Welsh glide repair
-   (`7d1ded93`), from ~~Alun 57.1% vs 21.8% (+35.3); Twm 46.2% vs 26.9%
-   (+19.2)~~, MEASURED 2026-08-13, `quality/cynghanedd_rate.py`, both at
-   n=200. REPINNED from Alun 54.1% / 27.8% (+26.3) and Twm 51.3% / 36.5%
+   **Alun 55.7% (868/1558) vs null max 21.3% (+34.4); Twm o'r Nant 44.2%
+   (69/156) vs 27.6% (+16.7)** — REPINNED 2026-09-23, both re-run at n=200,
+   after main `7d1ded93` (2026-09-22, report J-1: `w` before a/e/o, initial
+   `ia-`/`io-` and `gwl-/gwr-/gwn-` consonantal; semivowel onsets left out of
+   `skeleton()`) moved `cynghanedd_rate.py --check` and was never repinned.
+   Superseded: ~~Alun 57.1% vs null max 21.8% (+35.3); Twm o'r Nant 46.2% vs
+   26.9% (+19.2)~~, MEASURED 2026-08-13. The excess SHRANK on both editions
+   and both still clear the null max at the p floor. That 2026-08-13 value
+   was itself REPINNED from Alun 54.1% / 27.8% (+26.3) and Twm 51.3% / 36.5%
    (+14.7), which are the PRE-doctrine-82 comparator's — before `extent` lost
    its default — and reproduce nowhere at head. Item 82 of this file already
    recorded that comparator move; THIS item was never repinned to match, so
@@ -154,11 +158,13 @@ looking right.
    This is the `infer_chains` comparator bug in a new place: whatever advantage
    the hypothesis gets, the comparator gets too. `quality/cynghanedd_rate.py`.
    Note what the same file says about `caesura='marked'` on Twm o'r Nant --
-   ~~3.2% observed against a 5.1% null, p=0.975~~ **2.6% against the same
+   ~~3.2% observed against a 5.1% null, p=0.975~~ ~~2.6% against the same
    5.1% null median, p=1.000 — REPINNED 2026-08-28 (`MISSING.md` M-7): the
    dash left the default caesura mark set, taking with it the one dash-split
    traws this mode had read out of the Pryse edition's paired editorial
-   dashes** -- BELOW chance either way. That is not a
+   dashes~~ **0.6% (1/156) against a 3.8% null median, p=1.000 — REPINNED
+   2026-09-23 after `7d1ded93`'s J-1 glide change** -- BELOW chance every
+   time. That is not a
    finding about Welsh. It is the mode reporting, correctly, that this edition
    prints no caesura and it has nothing to read -- a sentence the repin makes
    exact, since the surviving hits are all llusg, the one type that reads no

@@ -29,7 +29,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 
 from lyric_harness import (Declaration, Lexicon, anchor, line_anchors,  # noqa: E402
-                           score, syllabify, vowel_sim, VOWELS)
+                           score, syllabify, vowel_sim, VOWELS,
+                           admits_decl)
 
 #: WHERE THE STAGED RESOURCES ARE READ FROM, and the ONE place that is
 #: decided (doctrine 1; `MISSING.md` M-188, 2026-09-01). `quality/fetch_data.py`
@@ -283,8 +284,16 @@ class RhymeField:
         self._ranks = {}
 
     def field(self, word):
-        """Words rhyming with `word` at or above theta, sorted most-frequent
-        first. Returns [(word, rank, score)]."""
+        """Words standing in an ADMITTED coarse relation with `word` at that
+        relation's own cut (`admits_decl`: any of `Declaration.admit`, each
+        at `theta_by_relation` or `theta_rhyme`), sorted most-frequent first.
+        Returns [(word, rank, score)].
+
+        SCOPE: the coarse relations only. Registry schemas are not asked
+        here: this field is built for every call word of a corpus sweep
+        (11,941 call words over corpus/song/), and a schema pass costs ~2 ms
+        per candidate. The nucleus pruning above stays exact because every
+        admitted relation's cut is at or above `theta_rhyme`."""
         key = word.lower()
         if key in self._cache:
             return self._cache[key]
@@ -300,7 +309,8 @@ class RhymeField:
                 if cand == key:
                     continue
                 s = score(anc_q, anc, self.decl, key, cand)
-                if s["total"] >= self.decl.theta_rhyme:
+                if s["total"] >= self.decl.theta_rhyme and admits_decl(
+                        s, self.decl):
                     out.append((cand, rank, s["total"]))
         out.sort(key=lambda t: t[1])          # by frequency rank, common first
         self._cache[key] = out

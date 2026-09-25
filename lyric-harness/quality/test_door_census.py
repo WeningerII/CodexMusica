@@ -44,7 +44,7 @@ def main():
           not DC.unruled(rows),
           f"{len(DC.unruled(rows))} unruled")
     check("1", "a FULL ruling is a claim about the CODE, and every one of "
-          "them reaches the 77 judge",
+          "them reaches the schema judge",
           all(r["sees_77"] for r in rows if r["disposition"] == DC.FULL),
           f"{c['full']} FULL site(s), all reaching "
           f"`{DC.SCHEMA_JUDGE}`")
@@ -89,16 +89,16 @@ def main():
           any(cc[k] != v for k, v in DC.PINNED.items()),
           f"crippled counts {cc}")
 
-    print("\n2b. MUTATION — and a census blind to the LITERAL "
-          "`('RHYME', 'RIME_RICHE')` loses a different module again")
+    print("\n2b. MUTATION — and a census blind to the SET-INTERSECTION "
+          "membership `rels & RHYME_RELATIONS` loses a different module again")
 
-    def literal_blind(node, shadowed=False):
+    def intersect_blind(node, shadowed=False):
         import ast as _ast
-        if isinstance(node, _ast.Compare):
+        if isinstance(node, _ast.BinOp):
             return None
         return real(node, shadowed)
 
-    DC._door_of = literal_blind
+    DC._door_of = intersect_blind
     try:
         crippled2 = DC.census()
     finally:
@@ -106,14 +106,33 @@ def main():
     lost2 = {(r["path"], r["func"]) for r in rows} - \
             {(r["path"], r["func"]) for r in crippled2}
     check("2b", "`quality/redteam_band.py` is lost — the module the census's "
-          "own first draft missed entirely",
+          "own first draft missed entirely, which now asks RHYME membership "
+          "of a relation SET",
           any(p.endswith("redteam_band.py") for p, _ in lost2),
           f"lost {sorted(lost2)}")
     check("2b", "...and the two blindnesses lose DIFFERENT modules, so they "
           "are two gaps and not two namings of one",
           {p for p, _ in lost} != {p for p, _ in lost2},
           f"attribute-blind loses {sorted({p for p, _ in lost})}, "
-          f"literal-blind loses {sorted({p for p, _ in lost2})}")
+          f"intersection-blind loses {sorted({p for p, _ in lost2})}")
+
+    print("\n2c. a SINGLE-LABEL equality is a site, and an unruled one fails")
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        os.makedirs(os.path.join(d, "quality"))
+        with open(os.path.join(d, "quality", "planted.py"), "w") as fh:
+            fh.write("def pick(s):\n"
+                     "    return s['label'] == 'ASSONANCE'\n"
+                     "def ok(s):\n"
+                     "    return 'ASSONANCE' in s['relations']\n")
+        planted = DC.census(root=d)
+    check("2c", "equality against a relation NAME is detected as "
+          "SINGLE_LABEL(==); membership in a set is not a site",
+          [(r["func"], r["door"]) for r in planted]
+          == [("pick", "SINGLE_LABEL(==)")],
+          f"{[(r['func'], r['door']) for r in planted]}")
+    check("2c", "...and it is UNRULED, so `--check` would fail on it",
+          bool(DC.unruled(planted)), f"{len(DC.unruled(planted))} unruled")
 
     print("\n3. MUTATION — scope inheritance is load-bearing: a nested "
           "function sees its enclosing scope's judge")

@@ -347,7 +347,23 @@ def whitman_battery():
 # unresolved schema was rhyming slang now violate instead of refusing.
 # No accepted pair, pronunciation, threshold or corpus input changed. Both
 # graders agree; before/after rows are in quality/report_slang_oracle.json.
-EXPECTED = {"mandated": 1064, "judged": 970, "refused": 94, "violations": 7}
+# REPINNED 2026-09-22, THE N-RELATION MODEL (layer: comparator + structure).
+# Every mandated pair is now judged against EVERY relation it stands in — the
+# coarse relations as a SET (a perfect rhyme is also assonance and consonance)
+# and every registry schema, asked of every pair rather than as a rescue for
+# failures. ~~judged 970, refused 94~~ -> judged 958, refused 106: twelve more
+# pairs refuse because their permitted endpoint readings disagree on the
+# relation SET or a schema stays undecided at the pair; a refusal is not a
+# violation (doctrine 79). The 7 violations are unchanged. The exact partition
+# is in quality/report_slang_oracle.json (`audit_spans.py --write-oracle`).
+# SAME DAY, LAST COMPARATOR CHANGE OF THE BATCH: `nucleus_agreement` defaults
+# to "licensed" (identity + the unstressed AH~IH licence), so a near vowel is
+# no longer RHYME or ASSONANCE and near rhymes are judged by the schemas.
+# ~~958/106/7~~ -> judged 936, refused 128, violations 9: 22 more refusals
+# (readings/schemas undecided) and two new violations, both argument/spent
+# (sonnets 76 and 104): scalar 0.901 but the pair now stands in NO coarse
+# relation and NO schema, so it is charged. Measured by `python3 battery.py`.
+EXPECTED = {"mandated": 1064, "judged": 936, "refused": 128, "violations": 9}
 
 
 def assert_pinned(got, expected=EXPECTED):

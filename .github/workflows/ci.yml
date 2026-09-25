@@ -1854,9 +1854,9 @@ jobs:
       # ADVERSARY 4's AIM. Added 2026-08-14. 0.06 CPU-s — the cheapest step in
       # this job and, per CPU-second, the most informative one in the file.
       #
-      # quality/mutate.py declares 58 mutations (33 M-series, 25 Q-series,
-      # across 7 target files) and every one is anchored on an EXACT TEXT MATCH
-      # in the file it mutates — not a name, not a line number, a literal
+      # quality/mutate.py declares ~~58~~ 59 mutations (33 M-series, ~~25~~ 26
+      # Q-series, across 7 target files; 59 since QR8, 2026-09-25, M-310) and
+      # every one is anchored on an EXACT TEXT MATCH in the file it mutates — not a name, not a line number, a literal
       # source fragment. So an ordinary, correct, well-reviewed edit to a
       # comparator silently DETACHES the mutation that was measuring that
       # comparator's test coverage. Nothing else in the repo notices: the
@@ -1867,7 +1867,7 @@ jobs:
       #
       # THREE DRIFTED IN 24 HOURS. That is this repo's measured rate, not a
       # hypothetical, and it is why `--dry-run` earns a step of its own:
-      # it re-reads the shipped sources and re-applies all 58 anchors, so it
+      # it re-reads the shipped sources and re-applies all ~~58~~ 59 anchors, so it
       # answers "is adversary 4 still pointed at the code?" FROM THE CODE on
       # every run. It is the only carrier of that fact that cannot be silenced
       # by writing a file — a committed score can be repinned, an anchor that
@@ -1881,7 +1881,7 @@ jobs:
       # and a green run reports red. DO NOT PIPE THIS STEP. It is deliberately
       # run bare, and this comment is here so the next person to "just add a
       # `| tail`" finds out from the file rather than from a red build.
-      - name: Mutation anchors still apply (all 58 — adversary 4 is still aimed at the code)
+      - name: Mutation anchors still apply (all 59 — adversary 4 is still aimed at the code)
         if: always()
         working-directory: lyric-harness
         run: python3 quality/mutate.py --dry-run
@@ -2754,6 +2754,14 @@ jobs:
       # agree. MEASURED over the maintained battery: 2 of 17 rescues read as
       # end rhyme and 15 do not, so nearly nine in ten were being printed
       # under a heading a reader takes as end rhyme.
+      # REPINNED 2026-09-24 under the N-relation model: ~~2 of 17~~ 2 of 31
+      # (29 not audible). A "rescue" is now the pair satisfied by a schema and
+      # by NO coarse relation -- both halves are asked of every pair, so the
+      # word names a set, not an order -- and the runner reads that set by
+      # membership, because `pairs_schema_satisfied` now lists EVERY pair
+      # standing in a schema (the 924 this step first reported red on). The
+      # 14 entrants were coarse RHYME passes before the licensed-nucleus
+      # default; per-pair attribution in the runner's PINNED note.
       #
       # IT IS HERE BECAUSE IT HOLDS A PIN AND A PIN ASKED BY NOTHING IS NOT A
       # PIN. `pin_sweep` counted 30 pin-holding files against 23 named in CI
@@ -2781,6 +2789,12 @@ jobs:
       # as evidence. The pin is here because the DISTRIBUTION moving is worth
       # a red: a rescue at a new distance means the population that refusal
       # describes has changed.
+      # REPINNED 2026-09-24 under the N-relation model: ~~17, all at 2~~ 31,
+      # 29 at distance 2 and 2 at distance 1 (both closing couplets that were
+      # coarse RHYME passes before the licensed-nucleus default). The red
+      # first reported 924 because the runner read `pairs_schema_satisfied`,
+      # which now lists every pair standing in a schema; it reads
+      # `schema_end_reading.schema_only()` now. E2 still fires.
       - name: The schema door's rescues by line distance, and why the sonnets cannot answer
         if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
@@ -2809,7 +2823,7 @@ jobs:
       #
       # COST, MEASURED before it was added: **1.9s**, pure AST, no corpus and
       # no scoring.
-      - name: Door census, every pair-satisfaction site against the 77
+      - name: Door census, every pair-satisfaction site against every relation
         if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         run: python3 quality/door_census.py --check
@@ -2822,13 +2836,15 @@ jobs:
       # own figures came from an uncommitted script and do not reproduce --
       # the sampler's POPULATION and READER were never declared, so two later
       # re-derivations disagreed with the entry and with each other. This
-      # gates the band (`admit 289..339`, `narrow 36..46`, `schema 897..932`)
-      # over a declared 2x2 grid, and asserts that its shipped cell's draw
+      # gates the band over a declared 2x2 grid — every pair counted in EVERY
+      # relation it stands in (`any`, `admit`, `rhyme`, `schema` are
+      # overlapping families of ONE door, never summed; the pins are
+      # `chance_rate.ADOPTED`) — and asserts that its shipped cell's draw
       # still reproduces `redteam_band.sample_pairs` pair for pair, so the two
       # instruments cannot drift apart again (doctrine 1).
       #
       # COST, MEASURED before it was added: **45s** -- four cells of 4,000
-      # pairs, each judged at three doors. It is here rather than in the
+      # pairs, each judged against every relation. It is here rather than in the
       # cheap-suite pool for exactly that reason.
       - name: Chance rate, the shipped door against random pairs
         if: ${{ always() && matrix.shard == 1 }}
@@ -3071,7 +3087,20 @@ jobs:
     # both suites side by side; DEALT FOUR WAYS since 2026-09-05 (`MISSING.md`
     # M-244): each shard runs its residue of `test_revise` and of `test_loop`
     # at once, through `quality/shard.py`. Headroom, not a budget.
-    timeout-minutes: 20
+    #
+    # ~~timeout-minutes: 20~~ -> 30, 2026-09-25 (PR #380, the N-relation
+    # model). TIMED, not guessed: under the N-relation door shard 1/4's
+    # `test_revise` ran 1173s (SECTION COST total 1164.6s) on run 36060623999,
+    # and ONE section, `test_why_a_collision_earns_no_field`, was 712.1s of it
+    # -- the floor a shard count cannot beat. The same shard on main (#385's
+    # run 36069881514) ran `test_revise` in about 4 minutes. At 20 minutes the
+    # shard passed once at 19.8 min and was cancelled twice at 20.1-20.2 min
+    # with every section it reached passing. Nothing is skipped and no check
+    # moves: the job's work grew, so its headroom grows with it. The slowdown
+    # itself is a real cost of the model and is OPEN, not waved through: that
+    # section's cost under the new door is the thing to cut, after which this
+    # headroom can come back down.
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
@@ -3466,7 +3495,7 @@ jobs:
           # reports SURVIVED. That is a coverage hole manufactured by a
           # scheduling change, which is the one outcome worse than a slow
           # sweep.
-          # THE COST IS CADENCE AND IS NOT HIDDEN: 58 mutations at N=4 is
+          # THE COST IS CADENCE AND IS NOT HIDDEN: ~~58~~ 59 mutations at N=4 is
           # ~14-15 a night, and each is asked every FOURTH night rather than
           # every second. The stride is round-robin, so N=4 splits each old
           # half in two and the heavy half's mass splits with it.
@@ -3868,7 +3897,7 @@ jobs:
       # question nobody asked. MEASURED, run 34413319893: steps 9, 10, 13 and
       # 14 failed and these three were SKIPPED, so a nightly that reported four
       # problems was actually hiding an unknown number of them behind them.
-      - name: The 77-schema door against its matched redeal
+      - name: The default door (every relation) against its matched redeal
         if: always()
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --null --check
