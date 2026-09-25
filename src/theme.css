@@ -70,6 +70,12 @@
   --cm-info: #1a73e8;
   --cm-info-soft: #e8f0fe;
   --cm-info-text: #1558b0;
+  /* Toast. White on the success fill is 5.9:1 (on --cm-success, 4.2:1); the
+     action is a solid chip, so its label never sits on a tint of the fill. */
+  --cm-toast-success: var(--cm-success-text);
+  --cm-toast-action-bg: var(--cm-surface);
+  --cm-toast-action-bg-hover: var(--cm-surface-sunken);
+  --cm-toast-action-text: var(--cm-text);
   /* Full palette — icons, categories, markers. */
   --cm-red: #e53935;
   --cm-orange: #f4511e;
@@ -136,6 +142,10 @@
   --cm-info: #8ab4f8;
   --cm-info-soft: rgba(138, 180, 248, 0.16);
   --cm-info-text: #aecbfa;
+  --cm-toast-success: var(--cm-success);
+  --cm-toast-action-bg: color-mix(in srgb, currentColor 18%, transparent);
+  --cm-toast-action-bg-hover: color-mix(in srgb, currentColor 28%, transparent);
+  --cm-toast-action-text: currentColor;
   --cm-red: #f28b82;
   --cm-orange: #fcad70;
   --cm-amber: #fdd663;

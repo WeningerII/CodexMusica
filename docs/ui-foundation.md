@@ -57,7 +57,8 @@ uiRegisterPage({
 The shell refuses an unknown route, a second registration, and an action name
 the shell or another page already owns. Route order, labels, icons and colours
 are the shell's (`UI_ROUTES`); deep links are `codex.html#genre|instrument|map|lyrics`
-and `codex.html?trad=<id>` (opens that tradition's Genre detail; adds nothing).
+and `codex.html?trad=<id>` (opens that tradition's Genre detail once and leaves the
+URL; adds nothing; an explicit `#section` wins).
 
 ## Shell APIs pages may use
 
