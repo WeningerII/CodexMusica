@@ -188,6 +188,7 @@ def census():
     semantic = {}
     from quality.revise import Reviser
     from quality.schemes import mandate
+    from quality import figure_exhibits as FE
     verifier = Reviser()
     for name, sch in sorted(R.REGISTRY.items()):
         if not R.figure_pair_representable(sch) and name not in R.FULL_SHAPES:
@@ -204,6 +205,12 @@ def census():
                               "evidence": "DRAWABLE_EXHIBITS through declared mandate slots and Reviser.grade",
                               "blocker": None if controls == [True,False] else
                               "declared controls do not both produce definite expected verdicts"}
+        elif name in FE.covered():
+            # THE INTRA-LINE ROUTE (`quality/figure_exhibits.py`): a one-line
+            # witness and contrast graded by `figures.line_figures`, the
+            # reader that actually reports a same-line figure. Kept in its
+            # own registry, apart from DRAWABLE_EXHIBITS' pair route.
+            semantic[name] = FE.semantic_row(name)
         elif name in ("symploce","analysed rhyme","blues AAB stanza","paroemion",
                        "Middle Chinese end rhyme (同用 group)"):
             semantic[name] = {"status":"regression_witness",

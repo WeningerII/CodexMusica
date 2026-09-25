@@ -1,0 +1,438 @@
+#!/usr/bin/env python3
+"""ONE-LINE WITNESSES FOR THE INTRA-LINE FIGURES — the census's second evidence route.
+
+WHY THIS FILE EXISTS. `quality/schema_census.py` gives a schema semantic
+evidence only through `relations.DRAWABLE_EXHIBITS`, graded by `Reviser.grade`
+over a declared mandate. That route is a PAIR route: a mandate group is a set
+of lines, and `slots.mandate` REFUSES a within-line binding by name (it points
+at `quality/figures.py`). So the 21 schemas whose every placement is
+intra-line (`figures.intra_line_schemas()`) could never earn evidence there,
+and 20 of them sat `unvalidated` for a reason that was not about them at all.
+
+THE ROUTE IS THE ONE THAT READS THEM. Each exhibit is graded by
+`figures.line_figures` — the per-line reader over `relations.realise` +
+`relations.assemble`, which is the only code in the harness that reports a
+same-line figure. NOTHING HERE RE-IMPLEMENTS A SCHEMA (doctrine 1), and
+NOTHING HERE SUPPLIES A COORDINATE THE ROUTE DOES NOT SUPPLY ITSELF, with one
+named exception: `lifts`. `figures.line_figures` calls `search_caesura` for
+itself; it does not call `search_lifts`, so on the route as shipped the two
+lift schemas REFUSE. An exhibit that declares `supply=("lifts",)` runs
+`relations.search_lifts` first — the same derivation `schema_census._full_stream`
+uses for its capability count — and the row says so. That is a finding about
+the route (FINDINGS below), not a repair of it.
+
+PRODUCTION DOES NOT CALL THIS ROUTE. `Reviser.grade` / `revise.py` never import
+`figures`; the `recover.py` and `schemes.py` sites only NAME it in a refusal.
+So a `witness_and_contrast` here certifies the figures reader, and says
+nothing about a revision loop honouring the figure. Recorded, not fixed.
+
+WHAT EARNS `witness_and_contrast`. The witness line is found to carry the
+figure AND the contrast line is found not to, both on the route, both
+definite (a refusal is `None`, never `False` — doctrine 20). Anything else is
+`unvalidated` with the exact verdicts in the blocker.
+
+THE WITNESS IS CHOSEN BY THE TRADITION'S DEFINITION, NEVER BY THE GRADER.
+Every witness below was picked from a cited public-domain text on the strength
+of the figure's own description (RHYME_CANON / the cited index) and only then
+graded. A witness the grader misses STAYS: swapping it for one the grader
+happens to find would be tuning the exhibit to the gate, which is doctrine
+58's trade in a different coordinate. A miss is a FINDING and is written into
+FINDINGS with the verdicts it was measured at, so `test_figure_exhibits.py`
+fails the day the grader moves and the prose goes stale (doctrine 17).
+
+A CONTRAST IS A NEGATIVE CONTROL, NOT EVIDENCE OF A TRADITION. Where a
+contrast is a constructed minimal edit of the witness it is labelled
+`constructed` (doctrine 94); where a real line serves, it is cited. Doctrine
+94's other half is why a contrast exists at all: a positive-case suite cannot
+find a rule that is too generous.
+
+PHONOLOGY IS THE TRADITION'S. Each exhibit names the registry `Tradition`
+row it grades, and the exhibit's language must be that row's `lang` —
+enforced by the test. Where no declared tradition has a phonology in
+`quality/phonology/` the schema gets NO exhibit and a NO_EXHIBIT reason;
+English is never substituted.
+
+Run: python3 quality/figure_exhibits.py        # per-schema verdict table
+"""
+
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from quality import figures as F                            # noqa: E402
+from quality import relations as R                          # noqa: E402
+from quality.phonology import get as get_phonology          # noqa: E402
+
+HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+EVIDENCE = ("FIGURE_EXHIBITS through quality/figures.line_figures "
+            "(relations.realise + assemble, the intra-line reader)")
+
+_CYWYDD = "corpus/song/cym_cynghanedd_llywelyn_goch_cywydd.txt"
+_CYWYDD_CITE = ("Llywelyn Goch ap Meurig Hen, 'Marwnad Lleucu Llwyd' "
+                "(14th c.), 1862 Llanidloes printing of Evans's Specimens")
+_WELSH_BASIS = ("classified by this session against the cited index's own "
+                "description, not quoted from a handbook's worked example "
+                "(project basis, stated so it is not read as external)")
+
+#: name -> exhibit. `witness` / `contrast` are (lines, cite). `cite` is either
+#: ("file", (line_no, ...)) — and the test checks the text is VERBATIM those
+#: lines of that repo file — or ("constructed", how). `tradition` is the
+#: registry Tradition row whose language grades it.
+FIGURE_EXHIBITS = {
+    "alliteration": {
+        "lang": "eng", "tradition": "English alliteration",
+        "witness": (["Full fathom five thy father lies;"],
+                    ("corpus/song/eng_oxford_william_shakespeare.txt", (186,)),
+                    "Shakespeare, The Tempest I.ii (Ariel's song), Oxford Book "
+                    "of English Verse printing: f- on four words"),
+        "contrast": (["Deep in the sea my parent rests"],
+                     ("constructed", "same sense, no two words sharing an "
+                      "onset"), ""),
+    },
+    "epanalepsis": {
+        "lang": "eng", "tradition": "English epanalepsis",
+        "witness": (["Dead is the Man whose Cause is dead,"],
+                    ("corpus/song/eng_american_herman_melville.txt", (115,)),
+                    "Melville, 'Stonewall Jackson': the line opens and closes "
+                    "on one word"),
+        "contrast": (["Dead is the Man whose Cause is lost,"],
+                     ("constructed", "the witness with its last word "
+                      "replaced"), ""),
+    },
+    "exact reduplication": {
+        "lang": "eng", "tradition": "English exact reduplication",
+        "witness": (["“It’s dull,” she wept, “and so-so!”"],
+                    ("corpus/song/eng_british_lewis_carroll.txt", (2478,)),
+                    "Carroll, 'Melancholetta': so-so, both halves identical"),
+        # A REAL reduplication that is not EXACT: the onsets differ. The two
+        # reduplication exhibits are each other's contrast on purpose — the
+        # pair isolates the one channel (onset) that separates the schemas.
+        "contrast": (["Helter-skelter,"],
+                     ("corpus/song/eng_pah_robert_southey.txt", (299,)),
+                     "Southey, 'The Cataract of Lodore': onsets differ"),
+    },
+    "rhyming reduplication": {
+        "lang": "eng", "tradition": "English rhyming reduplication",
+        "witness": (["Helter-skelter,"],
+                    ("corpus/song/eng_pah_robert_southey.txt", (299,)),
+                    "Southey, 'The Cataract of Lodore': helter / skelter"),
+        "contrast": (["“It’s dull,” she wept, “and so-so!”"],
+                     ("corpus/song/eng_british_lewis_carroll.txt", (2478,)),
+                     "Carroll: exact, so the onsets AGREE and it is not "
+                     "rhyming reduplication"),
+    },
+    "ablaut reduplication": {
+        "lang": "eng", "tradition": "English ablaut reduplication",
+        "witness": (["            Ding-dong, bell!"],
+                    ("corpus/song/eng_oxford_william_shakespeare.txt", (195,)),
+                    "Shakespeare, The Tempest I.ii (Ariel's song): the I-before-"
+                    "O order R13 names (ding-dang-dong)"),
+        "contrast": (["Dong-ding, bell!"],
+                     ("constructed", "the witness with the halves swapped — "
+                      "the direction R13 forbids"), ""),
+    },
+    "leonine rhyme": {
+        "lang": "eng", "tradition": "English leonine rhyme",
+        "witness": (["Once upon a midnight dreary, while I pondered, weak and weary,"],
+                    ("corpus/song/eng_american_edgar_allan_poe.txt", (16,)),
+                    "Poe, 'The Raven' l.1: dreary at the caesura, weary at "
+                    "the line end"),
+        "contrast": (["Once upon a midnight dreary, while I pondered, weak and tired,"],
+                     ("constructed", "the witness with the line-end word "
+                      "replaced"), ""),
+    },
+    "broken rhyme": {
+        "lang": "eng", "tradition": "English broken rhyme",
+        "witness": (["And would probably give me the roo-",
+                     'Matiz," said the Kangaroo.'],
+                    ("corpus/song/eng_british_edward_lear.txt", (82, 83)),
+                    "Lear, 'The Duck and the Kangaroo': roo-|matiz split at "
+                    "the line end, roo answered by Kangaroo"),
+        "contrast": (["And would probably give me the gout,",
+                      'Matiz," said the Kangaroo.'],
+                     ("constructed", "the split word made whole and "
+                      "unrhyming"), ""),
+    },
+    "Kalevala alliteration (strong)": {
+        "lang": "fin", "tradition": "Finnish Kalevala vahva alkusointu",
+        "witness": (["vaka vanha Väinämöinen"],
+                    ("corpus/fin_kalevala.txt", (696,)),
+                    "Kalevala (Lönnrot 1849): va-/va- — consonant AND vowel "
+                    "agree, the strong grade (R14)"),
+        "contrast": (["lähteäni laulamahan,"],
+                     ("corpus/fin_kalevala.txt", (3,)),
+                     "Kalevala I: lä-/lau- — consonant agrees, vowel does "
+                     "not: weak only"),
+    },
+    "Kalevala alliteration (weak)": {
+        "lang": "fin", "tradition": "Finnish Kalevala heikko alkusointu",
+        "witness": (["lähteäni laulamahan,"],
+                    ("corpus/fin_kalevala.txt", (3,)),
+                    "Kalevala I: l-/l- with differing vowels (R29)"),
+        "contrast": (["lauloaksemme hyviä,"],
+                     ("corpus/fin_kalevala.txt", (23,)),
+                     "Kalevala I: l-/h-, no alliteration, no compound"),
+    },
+    "alliterative long line": {
+        "lang": "non", "tradition": "Old Norse stuðlar / höfuðstafr",
+        "supply": ("lifts",),
+        "witness": (["Vestr fórk of ver, en ek Viðris ber"],
+                    ("joined", ("corpus/song/non_egils_saga_hofudlausn.txt",
+                                (38, 39))),
+                    "Egill, Höfuðlausn st.1 ll.1-2 (sagadb): the two printed "
+                    "half-lines joined into the long line they form — the "
+                    "join is this exhibit's, disclosed; V- stuðlar + "
+                    "höfuðstafr"),
+        "contrast": (["Heim fórk of sæ, en ek Þundar ber"],
+                     ("constructed", "the witness with the three v- staves "
+                      "replaced (h-, s-, þ-): no two STAVES agree"), ""),
+    },
+    "cynghanedd groes": {
+        "lang": "cym", "tradition": "Welsh cynghanedd groes / cyfatebiaeth gytsain",
+        "witness": (["A llyma fyd llwm i fardd!"],
+                    (_CYWYDD, (43,)),
+                    _CYWYDD_CITE + " l.2: A llyma fyd | llwm i fardd, "
+                    "ll-m-f answered by ll-m-f before the accented vowels; "
+                    + _WELSH_BASIS),
+        "contrast": (["A llyma fyd trwm i fardd!"],
+                     ("constructed", "llwm -> trwm: the answering ll broken"),
+                     ""),
+    },
+    "cynghanedd sain": {
+        "lang": "cym", "tradition": "Welsh cynghanedd sain",
+        "witness": (["Llewelyn Goch, gloch dy glod;"],
+                    (_CYWYDD, (59,)),
+                    _CYWYDD_CITE + ": Goch ~ gloch odl, gloch ~ glod "
+                    "gl- cytseinedd (C8); " + _WELSH_BASIS),
+        "contrast": (["Llewelyn Goch, gloch dy fri;"],
+                     ("constructed", "glod -> fri: the odl kept, the "
+                      "alliterating third member removed"), ""),
+    },
+    "cynghanedd sain gadwynog": {
+        "lang": "cym", "tradition": "Welsh cynghanedd sain gadwynog",
+        "witness": (["Uwch dy fedd, hoew annedd haul,"],
+                    (_CYWYDD, (57,)),
+                    _CYWYDD_CITE + ": fedd ~ annedd odl (1st,3rd), hoew ~ haul "
+                    "h- (2nd,4th) — the interleaved chain of C9; "
+                    + _WELSH_BASIS),
+        # A REAL sain line that is not chained: the plain-sain witness above.
+        "contrast": (["Llewelyn Goch, gloch dy glod;"],
+                     (_CYWYDD, (59,)),
+                     "plain sain, no interleaving"),
+    },
+    "cynghanedd lusg": {
+        "lang": "cym", "tradition": "Welsh cynghanedd lusg",
+        "witness": (["Gwae fi, ferch wen o Bennal,"],
+                    (_CYWYDD, (142,)),
+                    _CYWYDD_CITE + ": wen ~ Benn-(al), the accented penult "
+                    "of the final word (C13); " + _WELSH_BASIS),
+        "contrast": (["Gwae fi, ferch deg o Bennal,"],
+                     ("constructed", "wen -> deg: the rhyme on the penult "
+                      "removed"), ""),
+    },
+    "平仄 tonal template": {
+        "lang": "ltc", "tradition": "Chinese 平仄",
+        "witness": (["白日依山盡"],
+                    ("quoted", "王之渙 登鸛雀樓 l.1 (Tang, public domain); "
+                     "not a staged file, so not checked verbatim"),
+                    "graded against a SOURCED template only — none is on "
+                    "main, so nothing is declared and the route refuses"),
+        "contrast": (["白日依山盡"],
+                     ("quoted", "the same line"),
+                     "to be graded against a sourced template it breaks, "
+                     "once one exists"),
+    },
+}
+
+
+#: Schemas with NO exhibit, and why. Each reason names what would lift it.
+NO_EXHIBIT = {
+    "fourth lift must not alliterate":
+        "no honest phonology for any declared tradition: Old English (ang) "
+        "has no module in quality/phonology/; Welsh bai rhy debyg (C36) is a "
+        "vowel-DIFFERENCE fault this lift/onset shape does not encode; the "
+        "Chinese 撞韻 row is a rhyme-class rule, not a lift rule. Grading it "
+        "under non or eng would be substituting a tradition the registry "
+        "does not declare",
+    "cynghanedd draws":
+        "no witness this session can classify: draws needs the unanswered "
+        "bridge located, and the cywydd's candidates were not separable from "
+        "groes/o gyswllt without a handbook's worked example (none staged)",
+    "cynghanedd groes o gyswllt":
+        "no witness: C3 is `self_doubt=yes` and cites a WebSearch summary "
+        "only; no staged handbook example of a split inside a cluster",
+    "cynghanedd sain drosgl":
+        "no sourced witness (C11 is a WebSearch summary) — and see FINDINGS: "
+        "the route fires on 103 of the cywydd's 108 lines, so any contrast "
+        "would be a constructed line built to dodge an over-generous rule",
+    "cynghanedd sain lafarog":
+        "no witness this session can classify with confidence: C10's zero-"
+        "onset pivot versus a vowel-initial word whose consonants are still "
+        "answered (cywydd l.43 `uthrydd athrist`, th-r | th-r) is exactly "
+        "the distinction a handbook example would settle, and none is staged",
+}
+
+#: FINDINGS — the grader, not the exhibit, is wrong (or cannot see). Keyed by
+#: schema; `verdicts` is what was MEASURED (witness, contrast) when the text
+#: was written. If the live verdicts differ, the census blocker says the
+#: finding is STALE instead of quoting it (doctrine 17).
+FINDINGS = {
+    "ablaut reduplication": {
+        "verdicts": (False, False),
+        "text": "DirectedDiffer(order=('i','a','o')) is compared against the "
+                "phonology's nucleus symbols, which for eng are ARPABET "
+                "(ding-dong: IH vs AO). Every English nucleus is `outside the "
+                "declared order`, the read is None, and the instance is never "
+                "True — so the schema cannot fire on any English line. The "
+                "order is written in a notation no shipped phonology emits.",
+    },
+    "leonine rhyme": {
+        "verdicts": (False, False),
+        "text": "half_line_a is anchored `last_stressed`, magnitude 1; "
+                "half_line_b is anchored `word_end`, magnitude 1. For a "
+                "feminine rhyme the two members are then the STRESSED "
+                "syllable of dreary (IH R) against the UNSTRESSED final "
+                "syllable of weary (IY) — never equal. Every caesura "
+                "candidate search_caesura offers reads nucleus/coda False, "
+                "so the route cannot see the canonical English leonine line.",
+    },
+    "broken rhyme": {
+        "verdicts": (False, False),
+        "text": "two independent blockers. (1) the split fragments `roo` and "
+                "`Matiz` are UNREADABLE (build_stream.unreadable) — the line "
+                "break is not joined, so the token the figure is about has no "
+                "phonology; `probably` is unreadable in the same stream. (2) "
+                "even if read, the partner (Kangaroo) is on the NEXT line and "
+                "figures.line_figures drops every cross-line instance by "
+                "design; `a_is_split_token` makes the schema intra-line by "
+                "placement while its figure spans the break.",
+    },
+    "alliterative long line": {
+        "verdicts": (True, True),
+        "text": "the witness's True is right for the WRONG REASON. non gives "
+                "every monosyllable prominence 1 (of, en, ek included), so "
+                "search_lifts' even split picks lifts (Vestr, fórk, en, ek) "
+                "and the instance it finds is en ~ ek, zero onset with zero "
+                "onset — not the v- staves. The constructed contrast has the "
+                "same en ek and reads True too. Under a HAND-declared scansion "
+                "(declare_lifts at Vestr, ver, Viðris, ber) the pair reads "
+                "[True, False]; that scansion is this session's, not an "
+                "edition's, so it is reported and not counted (doctrine 94).",
+    },
+    "cynghanedd groes": {
+        "verdicts": (False, False),
+        "text": "SequenceEqual compares the WHOLE consonant skeleton of each "
+                "half: `A llyma fyd` -> ll m f d, `llwm i fardd` -> ll m f r "
+                "dd. R35 says the skeleton runs `up to a stress-determined "
+                "stop`, and in cytbwys acennog the consonants after the final "
+                "accented vowel are not answered; the implementation has no "
+                "stop, so a textbook acennog groes reads False at every "
+                "caesura candidate. On all 108 cywydd lines the route finds "
+                "groes on none (CYWYDD_COUNTS pins both figures).",
+    },
+    "平仄 tonal template": {
+        "verdicts": (None, None),
+        "text": "not a grader finding: the route REFUSES (tonal_template "
+                "absent) because no sourced 平仄 template is on main, and "
+                "this file will not declare one (the census's all-中 "
+                "template is a fixture, doctrine 94). Lifts when a sourced "
+                "table lands: declare it in `grade` for this exhibit.",
+    },
+}
+
+
+def grade(name, lines, lang, supply=()):
+    """-> (verdict, detail). True/False on the figures route; None = refused.
+
+    One stream per exhibit, built under the exhibit's own phonology, and the
+    ONLY extra call is a declared `supply` the route does not make itself.
+    """
+    st = R.build_stream(list(lines), get_phonology(lang),
+                        declaration={"language": lang})
+    for cap in supply:
+        if cap == "lifts":
+            R.search_lifts(st)
+        else:
+            raise ValueError(f"no supplier for {cap!r} — add one only with a "
+                             f"finding that says the route lacks it")
+    rep = F.line_figures(st, names=[name])
+    detail = {"unreadable": [t for _, _, t in st.unreadable]}
+    if rep["refused"]:
+        detail["refused"] = rep["refused"]
+        return None, detail
+    hits = [f for fs in rep["lines"].values() for f in fs if f["schema"] == name]
+    detail["instances"] = [(f["a"], f["b"]) for f in hits]
+    return bool(hits), detail
+
+
+def grade_exhibit(name):
+    ex = FIGURE_EXHIBITS[name]
+    sup = ex.get("supply", ())
+    w, wd = grade(name, ex["witness"][0], ex["lang"], sup)
+    c, cd = grade(name, ex["contrast"][0], ex["lang"], sup)
+    return [w, c], {"witness": wd, "contrast": cd}
+
+
+def semantic_row(name):
+    """The census row for an intra-line schema this file covers."""
+    if name in NO_EXHIBIT:
+        return {"status": "unvalidated", "evidence": EVIDENCE,
+                "blocker": "no exhibit: " + NO_EXHIBIT[name]}
+    verdicts, _ = grade_exhibit(name)
+    ok = verdicts == [True, False]
+    row = {"status": "witness_and_contrast" if ok else "unvalidated",
+           "verdicts": verdicts, "evidence": EVIDENCE,
+           "phonology": FIGURE_EXHIBITS[name]["lang"], "blocker": None}
+    if ok:
+        return row
+    f = FINDINGS.get(name)
+    if f and list(f["verdicts"]) == verdicts:
+        row["blocker"] = f"FINDING (verdicts {verdicts}): {f['text']}"
+    elif f:
+        row["blocker"] = (f"recorded finding is STALE — measured "
+                          f"{list(f['verdicts'])}, live {verdicts}; "
+                          f"re-examine before quoting it (doctrine 17)")
+    else:
+        row["blocker"] = (f"witness/contrast graded {verdicts}, expected "
+                          f"[True, False], and no finding is recorded")
+    return row
+
+
+#: The two cywydd-wide counts the prose above quotes, as (schema, lines with
+#: the figure, lines read). Re-derived by `cywydd_counts()` and compared in
+#: `test_figure_exhibits.py`, so the sentences cannot outlive the grader
+#: (doctrine 48/58: the setting is the whole 108-line cywydd, one stream,
+#: `figures.line_figures`, cym).
+CYWYDD_COUNTS = {"cynghanedd sain drosgl": (103, 108),
+                 "cynghanedd groes": (0, 108)}
+
+
+def cywydd_counts():
+    lines = [ln.strip() for ln in open(os.path.join(HERE, _CYWYDD),
+                                       encoding="utf-8")
+             if ln.strip() and not ln.startswith(("#", "---", "["))]
+    st = R.build_stream(lines, get_phonology("cym"),
+                        declaration={"language": "cym"})
+    rep = F.line_figures(st, names=list(CYWYDD_COUNTS))
+    return {n: (len({ln for ln, fs in rep["lines"].items()
+                     if any(f["schema"] == n for f in fs)}), len(lines))
+            for n in CYWYDD_COUNTS}
+
+
+def covered():
+    return set(FIGURE_EXHIBITS) | set(NO_EXHIBIT)
+
+
+def main():
+    for name in sorted(covered()):
+        row = semantic_row(name)
+        print(f"{row['status']:22s} {name:34s} {row.get('verdicts', '')}")
+        if row["blocker"]:
+            print(f"{'':22s}   {row['blocker'][:160]}")
+
+
+if __name__ == "__main__":
+    main()
