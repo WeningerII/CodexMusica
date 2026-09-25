@@ -254,13 +254,20 @@ async function main() {
 
   // maxlength does not bind a script write, and Edit lyrics writes the whole
   // draft into the field. No `input` event fires, so this also proves the
-  // prefill syncs the counter itself.
+  // prefill syncs the counter itself. The action is async (it may first ask
+  // before resetting a waiting writer run), so the write lands after click()
+  // returns: wait for it, bounded, before reading.
+  const editButton = doc.querySelector('[data-ui="edit-lyrics"]');
+  const editDraft = doc.getElementById('lyrics-draft');
+  if (editButton && editDraft) {
+    editDraft.value = 'x'.repeat(max);
+    editButton.click();
+    for (let i = 0; i < 40 && input.value.length <= max; i++) await sleep(50);
+  }
   check('names a script write past the wall as over, not as "limit reached"', () => {
-    const button = doc.querySelector('[data-ui="edit-lyrics"]');
-    const draft = doc.getElementById('lyrics-draft');
+    const button = editButton;
+    const draft = editDraft;
     assert(button && draft, 'the workbench has no Edit lyrics button to drive');
-    draft.value = 'x'.repeat(max);
-    button.click();
     const len = input.value.length;
     assert(len > max, `Edit lyrics put ${len} characters in the field; expected more than ${max}`);
     const s = read();
