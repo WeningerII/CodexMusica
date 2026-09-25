@@ -1,5 +1,5 @@
 /* exported renderInstrumentDiscovery, uiInspectInstrument */
-/* global $ui, CODEX_IMAGE_MANIFEST, uiEmptyState, uiFind, uiFocus, uiAddInstrument, FamName, INSTRUMENT_FILTER_PILLS, Catalog, ChainItem, Inst, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, PREFACE_CAT_ORDER, loadPrefaceRecent, makeCard, normalizeSearch, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, passesInstrumentFilter, suggestPrefaceForCard, traditionCardOpts, uiButton, uiNavigate, uiRegisterPage */
+/* global $ui, CODEX_IMAGE_MANIFEST, uiEmptyState, uiFind, uiFocus, uiAddInstrument, FamName, INSTRUMENT_FILTER_PILLS, Catalog, ChainItem, Inst, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, PREFACE_CAT_ORDER, loadPrefaceRecent, makeCard, normalizeSearch, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, passesInstrumentFilter, suggestPrefaceForCard, traditionCardOpts, uiButton, uiNavigate, uiRegisterPage */
 /* Instrument page. Owned by the Instrument page worker; see docs/ui-foundation.md.
 
    Three columns over the Your recipe dock: the catalogue (families, classes,
@@ -766,9 +766,19 @@ async function ipAddConfigured() {
   const configured = ipDiff(IP.base, card);
   const dest = ipDest();
   const name = Inst(id).short || Inst(id).name;
+  // uiAddInstrument resolves to null both when another addition is running and
+  // when the add fails (which it reports itself); only the first would be
+  // silent, so say so here rather than drop the configured add.
+  if (UI.busy) {
+    showToast(`Another addition is still running. ${name} was not added; try again.`, 'error');
+    return;
+  }
   // The canonical add (same destination, seeding, busy guard and editor
   // opening), with the preview's configuration applied to the new card before
-  // its history entry: one addition, one Undo.
+  // its history entry: one addition, one Undo. History stays with the shell:
+  // configure(c) runs inside addInstrumentFromPicker before its pushHistory,
+  // so the page never touches app.history. The integration owner may replace
+  // this with a general shell API for configured adds.
   const added = await uiAddInstrument(id, {
     configure: configured.length
       ? (c) => {
@@ -781,8 +791,15 @@ async function ipAddConfigured() {
           c.chain = JSON.parse(JSON.stringify(card.chain));
         }
       : undefined,
+    // Worded from where the card actually landed: a genre whose row cannot be
+    // loaded falls back to an ungrouped card, which must not read "to <genre>".
     message: (c) =>
-      `Added ${name}${dest ? ' to ' + (Tradition(c.traditionId)?.name || ipDestName(dest)) : ''}` +
+      `Added ${name}` +
+      (c.traditionId
+        ? ' to ' + (Tradition(c.traditionId)?.name || c.traditionId)
+        : dest
+          ? ` as an independent instrument (${ipDestName(dest)} could not be loaded)`
+          : '') +
       (configured.length
         ? ` with ${ipCount(configured.length, 'changed setting')}. Undo removes it.`
         : ' with catalog defaults.'),
