@@ -396,13 +396,35 @@ async function loadDelta(page) {
         'H. Forward did not return to the next section'
       );
 
-      // I. Collapse is remembered and Reset layout clears it.
+      // I. Collapse is remembered and Reset layout clears it, for each
+      // presentation: a sidebar collapses to a rail (Genre), the dock to its
+      // header (Instrument). They are separate remembered preferences.
       stage = 'I. Collapse is remembered';
+      const panelBox = () =>
+        page.evaluate(() => {
+          const r = document.getElementById('workspace-sidebar').getBoundingClientRect();
+          return { width: r.width, height: r.height, mode: document.body.dataset.recipe };
+        });
       await page.click('[data-ui="recipe-collapse"]');
-      const collapsedWidth = await page.evaluate(
-        () => document.getElementById('workspace-sidebar').getBoundingClientRect().width
+      const collapsedDock = await panelBox();
+      check(
+        collapsedDock.mode === 'dock',
+        `I. the Instrument page shows Your recipe as ${collapsedDock.mode}`
       );
-      check(collapsedWidth <= 64, `I. collapsing Your recipe left it ${collapsedWidth}px wide`);
+      check(
+        collapsedDock.height <= 64,
+        `I. collapsing the Your recipe dock left it ${collapsedDock.height}px tall`
+      );
+      await page.click('button[data-view="genre"]');
+      await page.click('[data-ui="recipe-collapse"]');
+      const collapsed = await panelBox();
+      // Either side: Genre may present the column left ('sidebar') or right
+      // ('sidebar-right').
+      check(
+        collapsed.mode.startsWith('sidebar'),
+        `I. the Genre page shows Your recipe as ${collapsed.mode}`
+      );
+      check(collapsed.width <= 64, `I. collapsing Your recipe left it ${collapsed.width}px wide`);
 
       // F. reload: the session, the theme and the collapse all come back.
       stage = 'F. reload:';
@@ -426,11 +448,15 @@ async function loadDelta(page) {
         `F. after a reload the status reads "${restored.status}"`
       );
       check(restored.undo, 'F. Undo can step behind the restored session');
+      await page.click('button[data-view="instrument"]');
+      const restoredDock = await panelBox();
+      check(restoredDock.height <= 64, 'I. the collapsed recipe dock did not survive a reload');
       await page.click('[data-ui="menu"]');
       await page.click('[data-ui="reset-layout"]');
-      const reset = await page.evaluate(
-        () => document.getElementById('workspace-sidebar').getBoundingClientRect().width
-      );
+      const resetDock = await panelBox();
+      check(resetDock.height > 150, 'I. Reset layout did not expand the collapsed recipe dock');
+      await page.click('button[data-view="genre"]');
+      const reset = (await panelBox()).width;
       check(reset > 150, 'I. Reset layout did not expand the collapsed recipe panel');
 
       // F. Undo and Redo walk the session's edits.
