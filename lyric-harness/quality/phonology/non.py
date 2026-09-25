@@ -486,7 +486,8 @@ class OldNorse(Phonology):
     prominence_rule = (
         "STRESS, fixed on the first syllable of every word (Germanic initial "
         "stress) and on the first syllable of each hyphen-marked compound "
-        "element; 1 stressed, 0 not. Syllable WEIGHT is a different property "
+        "element, EXCEPT the málfylling words and particles (PARTICLES), "
+        "which are unstressed throughout; 1 stressed, 0 not. Syllable WEIGHT is a different property "
         "and is carried on Syllable.moras (2 heavy = long vowel, diphthong or "
         "closed; 1 light), because a stressed syllable can be light -- 'so-' "
         "in sonar -- and one field cannot hold both."
@@ -517,6 +518,12 @@ class OldNorse(Phonology):
         parts = [p for p in w.split("-") if p]
         if not parts:
             return None
+        # A málfylling word or particle carries NO lift (doctrine 46/62: the
+        # function-word list is part of the phonology). Until 2026-09-25 every
+        # monosyllable was prominent, so `search_lifts` took `en`/`ek` as
+        # lifts in `Vestr fórk of ver, en ek Viðris ber` and the alliterative
+        # long line fired on two zero onsets instead of the v- staves.
+        particle = w in PARTICLES
         out, owner = [], []
         for pi, p in enumerate(parts):
             u = units(p)
@@ -554,7 +561,7 @@ class OldNorse(Phonology):
                                      s.nucleus, s.coda + tail, s.prominence,
                                      s.moras)
             for si, s in enumerate(sylls):
-                s.prominence = 1 if si == 0 else 0
+                s.prominence = 1 if (si == 0 and not particle) else 0
                 s.moras = 2 if (_is_long(s.nucleus) or s.coda) else 1
             out.extend(sylls)
             owner.extend([pi] * len(sylls))

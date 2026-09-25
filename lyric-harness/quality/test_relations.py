@@ -1779,8 +1779,10 @@ def test_known_open_defects():
     check("text-order, half 2: the DECLINE was FALSE — on an ASYMMETRIC "
           "schema the skip DELETED instances, and only there",
           len(_asym) == 17
-          and sum(b["recovered_instances"] for b in _burd.values()) == 103
-          and sum(b["recovered_true"] for b in _burd.values()) == 65
+          # REPINNED 2026-09-25 from 103 / 65 over four schemas: cynghanedd sain drosgl stopped firing: since 2026-09-25 it is sain's three-node figure with the answering edge relocated to a non-initial stressed syllable, where it was the bare onset edge that any two words of an English line could satisfy, and
+          # a full figure has no text-order skip to recover from.
+          and sum(b["recovered_instances"] for b in _burd.values()) == 88
+          and sum(b["recovered_true"] for b in _burd.values()) == 62
           and not any(b["symmetric"] for b in _rec.values()),
           f"metidja.txt, all 77 schemas: "
           f"{sum(b['recovered_instances'] for b in _burd.values())} "
@@ -2141,9 +2143,10 @@ def test_relation_report_renderer_runs():
           "exits 0",
           rc == 0 and "phonology eng   schemas declared 78" in out
           and "REFUSED 27 (capability 27 · EMPTY DECLARED FRAME 0 · OTHER 0)"
-          in out and "RAN AND FOUND NOTHING 28" in out
-          and "RAN AND FIRED 23" in out,
-          "REFUSED 27 · RAN AND FOUND NOTHING 28 · RAN AND FIRED 23, "
+          in out and "RAN AND FOUND NOTHING 29" in out
+          and "RAN AND FIRED 22" in out,
+          "REFUSED 27 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 22, "
+          "REPINNED 2026-09-25 from 27 · 28 · 23 on both trees: cynghanedd sain drosgl stopped firing: since 2026-09-25 it is sain's three-node figure with the answering edge relocated to a non-initial stressed syllable, where it was the bare onset edge that any two words of an English line could satisfy. "
           "REPINNED 2026-09-22 by running this verb on both trees: at "
           "f05dbf71 it read REFUSED 30 (4 OTHER — the unsupported shapes) · "
           "25 · 23. The three sain figures now judge (and find nothing in "
@@ -2545,8 +2548,10 @@ def test_vacuous_frame_is_not_a_null():
     # trees: the three sain figures stopped refusing as unsupported shapes
     # and JUDGE — and fire on this text — while the 平仄 template moved from
     # the unsupported-shape refusal to a capability refusal.
-    check("the staged item reproduces the measured split (31, 27, 20)",
-          before == (31, 27, 20),
+    # REPINNED 2026-09-25 (31, 27, 20) -> (30, 27, 21), measured on both
+    # trees: cynghanedd sain drosgl stopped firing: since 2026-09-25 it is sain's three-node figure with the answering edge relocated to a non-initial stressed syllable, where it was the bare onset edge that any two words of an English line could satisfy.
+    check("the staged item reproduces the measured split (30, 27, 21)",
+          before == (30, 27, 21),
           f"{before} on corpus/{VACUITY_ITEM}: {len(raw)} raw lines, "
           f"{len(st.units)} units. PREMISE — it must hold on both trees.")
 
@@ -2594,8 +2599,8 @@ def test_vacuous_frame_is_not_a_null():
           _shown)
     after = _split(st)
     check("...so calling both markers moves NOTHING: the split is still "
-          "31/27/20, where it used to become 31/21/26",
-          after == before == (31, 27, 20),
+          "30/27/21, where it used to become 30/21/27",
+          after == before == (30, 27, 21),
           f"before {before} after {after}. Six schemas crossing from REFUSED "
           f"to RAN AND FOUND NOTHING is the collapse; the counts are the "
           f"cheapest place to see it.")
@@ -2689,11 +2694,11 @@ def test_vacuous_frame_is_not_a_null():
         mut_rep = R.relation_report(st)
         mut_state = st.supply("caesura").state
     check("MUTANT: with `provides` reading the SOURCE again, all six stop "
-          "refusing and return an empty list, the split moves to 31/21/26, "
+          "refusing and return an empty list, the split moves to 30/21/27, "
           "and the fourth count goes to zero",
           all(not isinstance(o, R.Refusal) and len(o) == 0
               for o in mut_outs.values())
-          and mut_split == (31, 21, 26) and mut_rep["refused_vacuous"] == 0
+          and mut_split == (30, 21, 27) and mut_rep["refused_vacuous"] == 0
           and mut_state == "present",
           f"{mut_split} under the mutant against {after} at head; "
           f"{ {n: len(o) for n, o in mut_outs.items()} }. Six schemas, six "

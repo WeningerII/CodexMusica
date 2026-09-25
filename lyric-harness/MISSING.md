@@ -2107,7 +2107,7 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > of them.** Full working: `quality/RESULTS_NON_HATTATAL.md`. Runners under
 > `scratchpad/cellAJ/`. Six rows appended to `data/sources.tsv`.
 >
-> **1 · It is NOT doctrine 44.** `quality/phonology/non.py` is ~~959~~ 969 lines (repinned 2026-09-24: the
+> **1 · It is NOT doctrine 44.** `quality/phonology/non.py` is ~~959~~ ~~969~~ 976 lines (repinned 2026-09-25: málfylling words carry no lift; repinned 2026-09-24: the
 > N-relation model's set-valued relation return) and
 > complete — six syllables, stuðlar/höfuðstafr, skothending, aðalhending, the
 > penultimate viðrhending, oddhending/hluthending, Snorri's málfylling list,
@@ -28609,9 +28609,13 @@ exhibit was not swapped for one that passes.
 semantic line): `{'unvalidated': 55, 'regression_witness': 5,
 'witness_and_contrast': 18}` -> ~~`{'unvalidated': 50, 'regression_witness': 5,
 'witness_and_contrast': 23}`~~ (this branch alone, before review) ->
-**`{'unvalidated': 41, 'regression_witness': 5, 'witness_and_contrast': 32}`**
+~~`{'unvalidated': 41, 'regression_witness': 5, 'witness_and_contrast': 32}`~~
 on the integrated tree (M-311's ten witnesses, and this entry's four once
-homoioteleuton became finding 8). Sibling sessions working other groups move
+homoioteleuton became finding 8) -> **`{'unvalidated': 27,
+'regression_witness': 5, 'witness_and_contrast': 46}`** once the intra-line
+figures route (`quality/figure_exhibits.py`) joined it: 32 on the grade route
+(28 DRAWABLE_EXHIBITS, 3 CENSUS_EXHIBITS, 1 CONTEXT_CONTROLS) and 14 on the
+figures reader, per the census's `witness_routes`. Sibling sessions working other groups move
 the same line. The census re-derives it on every run.
 
 **TESTED WHILE OPEN.** `quality/test_capabilities.py` §9 names this entry
