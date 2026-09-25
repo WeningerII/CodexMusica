@@ -681,6 +681,7 @@ function uiStart() {
     if (e.key === 'codex-workbench-v1' && e.newValue !== UI.lastSaved) {
       UI.storageConflict = true;
       uiShowStorageConflict();
+      uiRenderAutosave('conflict');
     }
   });
   // Never hide AI on an offline or unavailable status response.
@@ -700,12 +701,21 @@ function uiStart() {
   renderAll();
   // codex.html?trad=<id> (the standalone atlas links here) opens that
   // tradition's Genre detail. It adds nothing by itself: Add stays explicit,
-  // so a reload or a shared link can never duplicate an ensemble.
-  const deep = new URLSearchParams(location.search).get('trad');
-  if (deep && Tradition(deep)) {
+  // so a reload or a shared link can never duplicate an ensemble. An explicit
+  // route hash wins, and the link is consumed: left in the URL it would
+  // reopen that genre on every reload, whatever page the user had moved to.
+  const query = new URLSearchParams(location.search);
+  const deep = query.get('trad');
+  const route = location.hash.slice(1);
+  if (deep !== null && /^https?:$/.test(location.protocol)) {
+    query.delete('trad');
+    const rest = query.toString();
+    history.replaceState(null, '', location.pathname + (rest ? '?' + rest : '') + location.hash);
+  }
+  if (deep && !UI_PAGES[route] && Tradition(deep)) {
     UI.genre = deep;
     uiNavigate('genre');
-  } else uiNavigate(location.hash.slice(1) || 'genre');
+  } else uiNavigate(route || 'genre');
 }
 
 // ── Layers ── Escape closes the topmost open layer only and returns focus to

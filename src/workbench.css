@@ -1740,9 +1740,17 @@ body.workbench {
 #toast {
   max-width: min(560px, calc(100vw - 32px));
 }
+#toast.toast-success {
+  background: var(--cm-toast-success);
+}
 /* Only the action is a target: the toast never blocks the rows under it. */
 .toast-action {
   pointer-events: auto;
+}
+/* ...and only while the toast is up: a faded toast takes no click. */
+.toast:not(.show) .toast-action {
+  visibility: hidden;
+  pointer-events: none;
 }
 .toast-action {
   flex: none;
@@ -1751,13 +1759,13 @@ body.workbench {
   padding: 6px 10px;
   border: 0;
   border-radius: var(--cm-radius-sm);
-  background: color-mix(in srgb, currentColor 18%, transparent);
-  color: inherit;
+  background: var(--cm-toast-action-bg);
+  color: var(--cm-toast-action-text);
   font: 600 var(--cm-text-sm) var(--cm-font);
   cursor: pointer;
 }
 .toast-action:hover {
-  background: color-mix(in srgb, currentColor 28%, transparent);
+  background: var(--cm-toast-action-bg-hover);
 }
 
 /* ── Foundation: the shared editor sizes to its own pane ──
