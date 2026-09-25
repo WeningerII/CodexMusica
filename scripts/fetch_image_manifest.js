@@ -304,7 +304,6 @@ async function wikidataMatches(entities) {
 // Items with no P18: the top Commons file whose structured data says it
 // depicts (P180) that exact item. Commons rate-limits hard, so this pass
 // runs under a time budget and caches, so a rerun continues where it stopped.
-const IMAGE_EXT = /\.(jpe?g|png|gif|svg|tiff?|webp)$/i;
 async function commonsDepicts(matches) {
   const deadline = Date.now() + opts.depictsMinutes * 60000;
   const todo = Object.values(matches).filter((m) => !m.file);
@@ -324,7 +323,7 @@ async function commonsDepicts(matches) {
     done++;
     if (done % 50 === 0) saveCache();
     const hit = ((data && data.query && data.query.search) || []).find((r) =>
-      IMAGE_EXT.test(r.title)
+      pickableFile(r.title)
     );
     if (hit) {
       m.file = hit.title.replace(/^File:/, '');
@@ -338,11 +337,11 @@ async function commonsDepicts(matches) {
 
 // Round 2. Items with no P18 but a Commons category (P373): the category is
 // the item's own gallery, so a file filed in it is confirmed by its own
-// categories. Take the one whose title names the item, else the first
-// openly licensed photo by title order; maps, logos, flags, scans of scores
-// and non-image media never count.
+// categories. Take the first openly licensed photo, by title order, whose
+// title also names the item; maps, logos, flags, scans of scores and
+// non-image media never count.
 const NOT_A_PICTURE =
-  /\b(map|karte|carte|mapa|logo|flag|coat of arms|locator|signature|diagram|chart|score|sheet music|partitura|stamp|cover|poster|label|disc|record|tomb|grave)\b/i;
+  /\b(map|karte|carte|mapa|logo|flag|coat of arms|locator|signature|diagram|chart|score|sheet music|partitura|stamp|cover|poster|label|disc|record|tomb|grave|page|range|fingering|dpla)\b/i;
 const PHOTO_EXT = /\.(jpe?g|png|webp)$/i;
 function pickableFile(title) {
   const t = title.replace(/^File:/, '');
@@ -378,11 +377,12 @@ async function commonsCategory(matches) {
         return classifyLicense(em && em.value);
       })
       .sort((a, b) => (a.title < b.title ? -1 : a.title > b.title ? 1 : 0));
-    const named = pages.find((p) => hasWords(p.title, m.label));
-    const pick = named || pages[0];
+    // Only a file whose own title names the item: a category also collects
+    // strays (a techno loudspeaker filed under minimalist music).
+    const pick = pages.find((p) => hasWords(p.title, m.label));
     if (!pick) return;
     m.file = pick.title.replace(/^File:/, '');
-    m.confidence = named ? 'medium' : 'low';
+    m.confidence = 'medium';
     m.via = 'category';
   });
   saveCache();
@@ -390,9 +390,10 @@ async function commonsCategory(matches) {
 }
 
 // Round 2, traditions only. A genre item with no picture of its own: a
-// photo of a performer whose Wikidata record names that genre (P136), taken
-// only from people and musical groups listing at most three genres, so the
-// genre is one that defines them. The best-known such performer (most
+// photo of a performer whose Wikidata record names that genre (P136) as
+// their only genre, from people and musical groups, so the genre is the one
+// that defines them (a film composer with free jazz among three genres is
+// not a free-jazz picture). The best-known such performer (most
 // sitelinks) wins.
 async function genrePerformers(matches) {
   const todo = Object.values(matches).filter((m) => !m.file && m.kind === 'tradition');
@@ -414,14 +415,14 @@ async function genrePerformers(matches) {
           'query=' + encodeURIComponent(query)
         )
       );
-    } catch (e) {
+    } catch {
       if (batch.length < 2) return;
       const mid = batch.length >> 1;
       await run(batch.slice(0, mid));
       return run(batch.slice(mid));
     }
     for (const b of data.results.bindings) {
-      if (Number(b.ng.value) > 3) continue;
+      if (Number(b.ng.value) > 1) continue;
       (byGenre[b.genre.value.replace(/^.*\//, '')] ||= []).push({
         qid: b.p.value.replace(/^.*\//, ''),
         label: b.pLabel && b.pLabel.value,
@@ -756,13 +757,12 @@ async function viaEuropeana(entities, skipped) {
 }
 
 // ---- Round 2 source: Commons full-text search per catalog name ----
-// Entities nothing else matched. A file counts only when its own title AND
-// its own categories (or description) name the thing, and its categories or
-// description are about music, so a village or a surname sharing the name
+// Entities nothing else matched. A photo counts only when its own title AND
+// its own categories name the thing, and its categories are about music, so a village or a surname sharing the name
 // never passes. Commons throttles hard: the pass runs under a time budget
 // (--search-minutes) and caches, so a rerun continues where it stopped.
 const MUSICAL =
-  /\b(music\w*|musical instruments?|instruments?|drums?|percussion|lutes?|fiddles?|flutes?|guitars?|harps?|zithers?|violins?|horns?|trumpets?|oboes?|bagpipes?|singers?|singing|songs?|bands?|orchestras?|ensembles?|concerts?|festivals?|musicians?|performers?|choirs?|dances?)\b/i;
+  /\b(music\w*|musical instruments?|instruments?|drums?|percussion|lutes?|fiddles?|flutes?|guitars?|harps?|zithers?|violins?|horns?|trumpets?|oboes?|bagpipes?|singers?|singing|songs?|bands?|orchestras?|ensembles?|concerts?|festivals?|musicians?|performers?|dances?)\b/i;
 async function viaCommonsSearch(entities, skipped) {
   const results = {};
   const deadline = Date.now() + opts.searchMinutes * 60000;
@@ -779,7 +779,7 @@ async function viaCommonsSearch(entities, skipped) {
           encodeURIComponent('intitle:"' + cand + '" filetype:bitmap') +
           '&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=' +
           THUMB_WIDTH +
-          '&iiextmetadatafilter=LicenseShortName|Artist|Credit|Categories|ImageDescription';
+          '&iiextmetadatafilter=LicenseShortName|Artist|Credit|Categories';
         let data;
         try {
           data = await cached(key, () => tryJson(url));
@@ -791,15 +791,14 @@ async function viaCommonsSearch(entities, skipped) {
         );
         for (const p of pages) {
           const ii = (p.imageinfo || [])[0];
-          if (!ii || !pickableFile(p.title) || !hasWords(p.title, cand)) continue;
+          if (!ii || !pickableFile(p.title) || !/\.jpe?g$/i.test(p.title)) continue;
+          if (!hasWords(p.title, cand)) continue;
           const em = ii.extmetadata || {};
           const license_raw = (em.LicenseShortName && em.LicenseShortName.value) || '';
           const license = classifyLicense(license_raw);
           if (!license) continue;
           const cats = String((em.Categories && em.Categories.value) || '').replace(/\|/g, ' | ');
-          const desc = stripHtml(em.ImageDescription && em.ImageDescription.value);
-          if (!hasWords(cats, cand) && !hasWords(desc, cand)) continue;
-          if (!MUSICAL.test(cats + ' ' + desc)) continue;
+          if (!hasWords(cats, cand) || !MUSICAL.test(cats)) continue;
           results[e.key] = {
             source: 'commons_search',
             source_page: ii.descriptionurl,
