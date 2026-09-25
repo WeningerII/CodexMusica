@@ -114,9 +114,36 @@ PINNED = {
     # the ASSONANCE cut 0.82 -> 0.75 and the refuse-only-on-a-satisfiable-
     # undecided-schema rule (114e29d8): ~~513/206, eligible 452, tail 241,
     # outside 207~~, measured by `ban_convergence.py --check`.
+    # ~~banned 4, head 4, tail 240, outside 214~~ WAS ALREADY STALE WHEN IT
+    # WAS WRITTEN: that pin came from the WIP commit 599a5d96 (2026-09-24
+    # 20:11, "re-measurement in progress") and never held on the tree it
+    # landed in — `--check` at f58ecf59 measured banned 5, head 5, tail
+    # 241, outside 212, rc=1 (MOVED), and this tree's own per-pair run at
+    # be0529b5 (the same ban, 2026-09-24) reproduces those totals exactly.
+    # REPINNED 2026-09-24 on the EVIDENCE-GATED modal head
+    # (`Reviser._rank_field_compute`, `MISSING.md` M-310): banned 3, head 3,
+    # tail 240, outside 215, measured PER PAIR on both trees, never
+    # inferred from the totals. Every other total holds; THREE pairs moved,
+    # each with ZERO realised pairs in the song table in either direction:
+    #   - the_river_keeps_the_score L3/L5 `there`/`varnish`, HEAD(5) ->
+    #     OUTSIDE. Base filed MODAL_RHYME "'There' is one of the 6
+    #     most-predictable answers to 'varnish'" — `varnish` has no realised
+    #     partner at all, so its tier 2 was the frequency backoff (your,
+    #     not, don, there, got, where); gated, its tier 2 is empty.
+    #   - the_frost_ledger L16/L17 `one`/`sane`, HEAD(35) -> OUTSIDE. Base
+    #     filed "'one' is one of the 6 most-predictable answers to 'sane'",
+    #     `sane`'s head past its tier-1 -ane class being in, on, don, can,
+    #     they, one; `sane` has no realised partner either.
+    #   - i_am_not_leaving L9/L12 `same`/`made`, TAIL(49) -> OUTSIDE, and
+    #     no ban was involved: `same`'s tier 2 shrank from aim, claim,
+    #     proclaim, 'm, they, him to the three evidenced aim, claim,
+    #     proclaim; `him` joined the menu at offer 13, and `made`, the 24th
+    #     and last offer, fell out of the 24-word menu.
+    # 127 further pairs keep their bucket and shift RANK (a shorter head
+    # moves every tail index), so the partner-rank median is a new figure.
     "pairs_mandated": 719, "pairs_judged": 518, "pairs_refused": 201,
-    "eligible": 458, "banned_in_final": 4,
-    "rank_head": 4, "rank_tail": 240, "rank_outside": 214,
+    "eligible": 458, "banned_in_final": 3,
+    "rank_head": 3, "rank_tail": 240, "rank_outside": 215,
 }
 
 

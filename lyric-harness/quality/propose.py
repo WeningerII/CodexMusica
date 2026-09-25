@@ -558,6 +558,43 @@ def slot_phrase(brief):
         return "end word"
 
 
+#: WHAT EACH EMPTY-HEAD CAUSE SAYS (`revise.EMPTY_HEAD_CAUSES`, 2026-09-24).
+#: Keyed by the brief's own `empty_head_cause`, so the prompt states the
+#: cause that holds and no other (doctrine 28). Spelled here rather than
+#: imported because this module imports only `re`.
+_EMPTY_HEAD_SAYS = {
+    "NO_ANSWER": (
+        "This bounded search reached no word that answers every call at "
+        "this place and can",
+        "be offered — see the mandate block above — so there is no field "
+        "for a head to lead.",
+    ),
+    "DECLARED_ZERO": (
+        "The modal exclusion is declared at 0, which forbids nothing by "
+        "design, and no word in",
+        "this field shares a call word's spelled ending.",
+    ),
+    "UNEVIDENCED": (
+        "No word in this field has been seen realised as these calls' "
+        "rhyme partner in the",
+        "song corpus, and none shares a call word's spelled ending. The "
+        "head holds only",
+        "partners the song table has evidence for, so it has nothing to "
+        "hold.",
+    ),
+    "DECLARED_RELATION": (
+        "Every word the head held fails the relation this place declares, "
+        "so none of them",
+        "could be taken here and none is listed.",
+    ),
+}
+#: A brief that does not carry a cause (a hand-built stand-in, or one from
+#: before 2026-09-24) is told so — never handed a list of guesses.
+_EMPTY_HEAD_UNSTATED = (
+    "The brief did not record which cause emptied it.",
+)
+
+
 def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
                 heading=True):
     """-> str, the tier-1 prompt: rewrite ONE flagged line.
@@ -803,16 +840,26 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
         # most predictable answers in this field" instead, so one false
         # sentence was simply traded for another until `field_computed`
         # existed to tell them apart.
+        # A THIRD POPULATION SINCE 2026-09-24: the head is EVIDENCE-GATED
+        # (`revise.Reviser._rank_field_compute`), so a field no member of
+        # which the song table has seen answer these calls, with no
+        # same-spelled member, comes back with an empty head and a full
+        # offer. ~~"Either nothing in the lexicon answers this line's groups
+        # at all ... or the modal exclusion is declared at 0"~~ listed the
+        # possible causes and said none of them applied; a sentence that
+        # lists every cause is "cannot tell" dressed as an answer (doctrine
+        # 28), and the brief KNOWS which one it is. So it now carries the
+        # cause as data (`Brief.empty_head_cause`, one of
+        # `revise.EMPTY_HEAD_CAUSES`) and this states THAT one.
         if getattr(brief, "field_computed", False):
             out.append("  (none — the modal head was COMPUTED for this line "
                        "and came back EMPTY, which is not")
-            out.append("  the same as it not having been asked. Either "
-                       "nothing in the lexicon answers this")
-            out.append("  line's groups at all — see the mandate block "
-                       "above — or the modal exclusion is")
-            out.append("  declared at 0, which forbids nothing by design. "
-                       "Doctrine 9 is not being applied")
-            out.append("  to you here; it found nothing to apply.)")
+            out.append("  the same as it not having been asked.")
+            cause = getattr(brief, "empty_head_cause", "")
+            for _l in _EMPTY_HEAD_SAYS.get(cause, _EMPTY_HEAD_UNSTATED):
+                out.append("  " + _l)
+            out.append("  Doctrine 9 is not being applied to you here; it "
+                       "found nothing to apply.)")
         else:
             out.append("  (none — no modal head was computed for this line)")
     out.append("")

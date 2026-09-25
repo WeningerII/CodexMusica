@@ -5,8 +5,12 @@ THE OWNER'S RULE (2026-08-18), after hAIR/chAIR, stOVE/wOVE/cOVE and
 sOWN/grOWN each passed the old top-6 modal cliff at rank 7-11 of the very
 ranking that computed the cliff: tier 1, HOMEOTELEUTON — a partner on the
 SAME SPELLED ENDING is the laziest class there is, ranked beneath every
-frequency judgment and banned outright; tier 2, the top `modal_exclusion`
-most-predictable of the DIFFERENTLY-SPELLED remainder. And the
+frequency judgment and banned outright; tier 2, ~~the top `modal_exclusion`
+most-predictable of the DIFFERENTLY-SPELLED remainder~~ AT MOST
+`modal_exclusion` of the DIFFERENTLY-SPELLED remainder, the most predictable
+of those the song table has seen realised as the call's rhyme partner
+(EVIDENCE-GATED since 2026-09-24, `MISSING.md` M-310; accepted by the owner
+2026-09-25). And the
 counterweight that keeps the ban from closing rhyme classes:
 `Declaration.admit`, the declared widening of what satisfies a mandate,
 backed by the repo's own count — 601 surveyed structures, ~116 canonical,
@@ -21,6 +25,9 @@ Sections:
   4  the pursuit is mandatory — HOMEOTELEUTON joins MODAL_RHYME
   5  the admit coordinate — default byte-identical, declared widening
      admits on the scalar, refusals at declaration time
+  6  tier 2 is EVIDENCE-GATED (M-310) — no zero-evidence word in any head,
+     every MODAL_RHYME names a realised count above zero, and an empty
+     head says which cause emptied it
 
 Run: python3 quality/test_homeoteleuton.py
 """
@@ -35,7 +42,8 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 from lyric_harness import (ADMITTABLE_RELATIONS, Declaration,  # noqa: E402
                            check_scheme, Lexicon, spelled_rime)
 from quality.loop import MANDATORY_PURSUE  # noqa: E402
-from quality.revise import RHYME_FINDINGS, Reviser  # noqa: E402
+from quality import frequency as FREQ  # noqa: E402
+from quality.revise import EMPTY_HEAD_CAUSES, RHYME_FINDINGS, Reviser  # noqa: E402
 
 FAILURES = []
 
@@ -318,11 +326,114 @@ def test_the_default_admits_everything_admittable():
               "satisfy a rhyme", True)
 
 
+def test_tier_two_is_evidence_gated():
+    """§6 — the gate as a MECHANISM, not a sentence (doctrine 48).
+
+    THE DEFECT (`MISSING.md` M-310, found by `test_revise.py` §22 on PR
+    #380). Tier 2 sorted the differently-spelled remainder on (song-corpus
+    conditional count, global frequency rank) and took the first
+    `modal_exclusion` members. Where the song table knew fewer partners
+    than that, the global rank filled the rest, and the top of a global
+    rank is function words: `thing`'s head was plaything, everything, it,
+    is, in, this, with `anything` OFFERED, and MODAL_RHYME told a writer
+    that `it` was one of the six most-predictable answers to `thing` on
+    zero observations. The gate (`Reviser._rank_field_compute`) admits a
+    word to the head only when its conditional count is above zero.
+
+    WHAT THIS PINS, each check on the grader's own objects:
+      - no word in a tier-2 head has a zero conditional, over calls whose
+        tables are rich (`way`), thin (`thing`, `spring`) and empty
+        (`sane`, `varnish`), and no head is longer than `modal_exclusion`;
+      - tier 1 is untouched: an empty table still bans the same-spelled
+        class (`sane`'s -ane family);
+      - the satisfied pair `thing`/`it` files NO MODAL_RHYME (it did at
+        `f58ecf59`), and every MODAL_RHYME a pair does file names a
+        realised count above zero;
+      - a real brief whose call the table has never seen comes back with
+        an empty head, a full offer, and the cause UNEVIDENCED.
+    `quality/mutate.py`'s QR8 deletes the gate condition; this section and
+    `test_revise.py` §22 are its detectors."""
+    import re as _re
+    print("\n6. tier 2 is EVIDENCE-GATED (M-310) — the head holds only "
+          "partners the song table has seen answer the call")
+    R = Reviser()
+    k = R.rdecl.modal_exclusion
+    rows, zero, over = [], [], []
+    for call in ("thing", "spring", "way", "sane", "varnish"):
+        cond = FREQ.LAYER.conditional("eng-song", call, scoring=FREQ.UNSEEN)
+        rc = R._spelled_rime(call)
+        head = R.modal_head(call)
+        t2 = [w for w in head if R._spelled_rime(w) != rc]
+        rows.append(f"{call}: tier2 {[(w, cond.get(w, 0)) for w in t2]}, "
+                    f"tier1 {len(head) - len(t2)}")
+        zero.extend((call, w) for w in t2 if cond.get(w, 0) <= 0)
+        if len(t2) > k:
+            over.append((call, len(t2)))
+    check("no tier-2 head holds a word the song table has never seen "
+          "answer its call, and none is longer than `modal_exclusion`",
+          not zero and not over, "; ".join(rows)
+          + (f". ZERO-EVIDENCE IN HEAD: {zero}" if zero else "")
+          + (f". OVER k={k}: {over}" if over else ""))
+    thing = R.modal_head("thing")
+    check("`thing`'s head no longer bans it/is/in/this — the four function "
+          "words the global-frequency backoff put there",
+          not ({"it", "is", "in", "this"} & set(thing)),
+          sorted({"it", "is", "in", "this"} & set(thing)))
+    sane = R.modal_head("sane")
+    check("TIER 1 IS UNTOUCHED: `sane` has no realised partner at all, and "
+          "its same-spelled -ane class is still banned outright",
+          not FREQ.LAYER.conditional("eng-song", "sane",
+                                     scoring=FREQ.UNSEEN)
+          and sane and all(R._spelled_rime(w) == R._spelled_rime("sane")
+                           for w in sane),
+          f"{len(sane)} tier-1 words, e.g. {sane[:4]}")
+
+    def modal_counts(found):
+        out = []
+        for fs in found["per_line"].values():
+            for f in fs:
+                if f.code == "MODAL_RHYME":
+                    out.append((f.message, [int(n) for n in _re.findall(
+                        r"realised as its rhyme partner (\d+) time",
+                        f.evidence)]))
+        return out
+    it = R.inspect(["Nothing here but the smallest thing",
+                    "and every word I said of it"], mandate=[[1, 2]])
+    it_ok = [v for v in it["grade"]["verdicts"] if not v["why"]]
+    check("the SATISFIED pair thing/it files no MODAL_RHYME — at f58ecf59 "
+          "it read \"'it' is one of the 6 most-predictable answers to "
+          "'thing'\" on zero observations",
+          it_ok and not modal_counts(it),
+          f"satisfied as {sorted(it_ok[0]['relations']) if it_ok else None}"
+          f"; MODAL_RHYME {modal_counts(it)}")
+    ob = modal_counts(R.inspect(["we bend our will and then obey",
+                                 "and watch the silent night away"],
+                                mandate=[[1, 2]]))
+    check("every MODAL_RHYME names the realised count behind it, and every "
+          "count is above zero (obey/away, a determinate tier-2 pair)",
+          ob and all(ns and all(n > 0 for n in ns) for _m, ns in ob),
+          ob)
+    bs = R.brief(["I kept it in the window", "the night was cold and fast"],
+                 [[1, 2]])
+    b2 = [b for b in bs if b.line_no == 2]
+    b2 = b2[0] if b2 else None
+    check("a brief whose call (`window`) the song table has never seen "
+          "comes back with an EMPTY head, a FULL offer and the cause "
+          "UNEVIDENCED — one cause, stated, not a list (doctrine 28)",
+          b2 is not None and b2.field_computed and not b2.forbidden_modal
+          and b2.candidates and b2.empty_head_cause == "UNEVIDENCED"
+          and b2.empty_head_cause in EMPTY_HEAD_CAUSES,
+          None if b2 is None else
+          f"head {b2.forbidden_modal}, offer {len(b2.candidates)}, cause "
+          f"{b2.empty_head_cause!r}")
+
+
 if __name__ == "__main__":
     for fn in (test_spelled_rime, test_two_tiers_compose,
                test_pair_verdicts, test_pursuit_is_mandatory,
                test_the_admit_coordinate,
-               test_the_default_admits_everything_admittable):
+               test_the_default_admits_everything_admittable,
+               test_tier_two_is_evidence_gated):
         fn()
     print("=" * 62)
     if FAILURES:

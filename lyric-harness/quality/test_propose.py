@@ -113,6 +113,12 @@ class B:
         #: empty block rather than an error.
         self.forbidden_incumbent = kw.get("forbidden_incumbent", "")
         self.field_computed = kw.get("field_computed", False)
+        #: WHICH CAUSE EMPTIED A COMPUTED HEAD (`MISSING.md` M-310,
+        #: 2026-09-24) — one of `revise.EMPTY_HEAD_CAUSES`, or "" when the
+        #: stand-in states none. `render_line` reads it through `getattr`,
+        #: so a stand-in without it renders the no-cause sentence on every
+        #: fixture; §7c below pins it here.
+        self.empty_head_cause = kw.get("empty_head_cause", "")
         self.offers_requested = kw.get("offers_requested", True)
         self.keep = kw.get("keep", [])
         self.must_answer = kw.get("must_answer", [])
@@ -257,6 +263,10 @@ PIVOT_BRIEF = B(
     # under this same prompt's "nothing in the lexicon answers all of those
     # groups at once" — the prompt contradicting itself.
     field_computed=True, keep=[],
+    # The cause `brief()` states for this shape (2026-09-24, M-310): an
+    # empty offer at a joint conflict is NO_ANSWER, read off the brief's
+    # own lists by `Reviser.empty_head_cause`.
+    empty_head_cause="NO_ANSWER",
     must_answer=[("A", [1, 3], [(1, "silver")]),
                  ("B", [2, 3], [(2, "mind")])],
     joint_conflict=True,
@@ -502,6 +512,41 @@ def test_forbidden_words_are_present_and_labelled():
           "rename the one that was right",
           "no modal head was computed" in render_line(
               B(line_no=1, text="x"), ["x"]))
+
+    # ONE CAUSE, NOT A LIST (2026-09-24, `MISSING.md` M-310, doctrine 28).
+    # The empty-head sentence used to say "Either nothing in the lexicon
+    # answers ... or the modal exclusion is declared at 0" on every such
+    # line, and the evidence-gated head added a third cause it did not
+    # name. The brief now carries WHICH cause holds; each renders its own
+    # sentence and no other cause's, and the table is keyed by exactly the
+    # causes `revise.py` can emit (doctrine 1: two statements of one set).
+    from quality.propose import _EMPTY_HEAD_SAYS, _EMPTY_HEAD_UNSTATED
+    from quality.revise import EMPTY_HEAD_CAUSES
+    check("the renderer's causes ARE `revise.EMPTY_HEAD_CAUSES` -- no cause "
+          "the brief can carry renders as the no-cause fallback, and none "
+          "the brief cannot carry is spelled",
+          set(_EMPTY_HEAD_SAYS) == set(EMPTY_HEAD_CAUSES),
+          f"renderer {sorted(_EMPTY_HEAD_SAYS)} vs revise "
+          f"{sorted(EMPTY_HEAD_CAUSES)}")
+    said = {c: render_line(B(line_no=1, text="x", field_computed=True,
+                             candidates=["y"], empty_head_cause=c), ["x"])
+            for c in EMPTY_HEAD_CAUSES}
+    leaks = {c: [o for o in EMPTY_HEAD_CAUSES if o != c and
+                 _EMPTY_HEAD_SAYS[o][0] in said[c]]
+             for c in EMPTY_HEAD_CAUSES}
+    check("each empty-head cause states ITSELF and no other cause -- no "
+          "'either ... or' list of guesses (doctrine 28)",
+          all(_EMPTY_HEAD_SAYS[c][0] in said[c] for c in EMPTY_HEAD_CAUSES)
+          and not any(leaks.values())
+          and not any("Either" in t for t in said.values()),
+          f"leaks={leaks}")
+    check("a stand-in that states no cause is told so, and is handed no "
+          "cause at all",
+          _EMPTY_HEAD_UNSTATED[0] in render_line(
+              B(line_no=1, text="x", field_computed=True), ["x"])
+          and not any(_EMPTY_HEAD_SAYS[c][0] in render_line(
+              B(line_no=1, text="x", field_computed=True), ["x"])
+              for c in EMPTY_HEAD_CAUSES))
 
     # THE CAP IS DISCLOSED WHEN IT BITES. A truncated field with no count
     # beside it is a threshold nobody wrote down (doctrine 58).

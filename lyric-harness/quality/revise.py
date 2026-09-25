@@ -248,8 +248,22 @@ def draft_fingerprint(lines):
 @dataclass
 class ReviseDeclaration:
     """Coordinates of the loop, declared so a disagreement lands in one."""
-    #: How many of the band-passing candidates, ranked by FREQUENCY, are
-    #: forbidden as modal. This is doctrine 9 as a number. Raise it to push
+    #: ~~How many of the band-passing candidates, ranked by FREQUENCY, are
+    #: forbidden as modal.~~ REWRITTEN 2026-09-24 (`MISSING.md` M-310): the
+    #: CEILING on tier 2 of the two-tier ban — at most this many of the
+    #: DIFFERENTLY-spelled band-passing candidates are forbidden as modal
+    #: (tier 1, the same-spelled class, is unbounded and never read this).
+    #: The struck sentence was wrong twice. "Ranked by FREQUENCY" had been
+    #: false since 2026-08-11: the ranking is the song-corpus CONDITIONAL
+    #: (how often the song table realised the word as the call's rhyme
+    #: partner), with `lex.freq_rank` only as tie-break and backoff. And the
+    #: head held this many whenever the field had that many members,
+    #: because the backoff filled the slots the table could not — words it
+    #: had never seen answer the call (`it`/`is`/`in`/`this` for `thing`).
+    #: The head is now EVIDENCE-GATED (`Reviser._rank_field_compute`): only
+    #: a partner with a realised count above zero can enter it, so a thin
+    #: table gives a SHORTER head and a call the table has never seen an
+    #: EMPTY one. This is doctrine 9 as a number. Raise it to push
     #: harder away from the obvious; set it to 0 to disable the rule and get a
     #: loop that optimises toward the phonetic maximum, which is the slop
     #: direction and is why 0 is not the default.
@@ -512,8 +526,12 @@ class Brief:
     round_no: int = 0
     must_rhyme_with: tuple = None       # (line_no, endword) — the FIRST group
     candidates: list = field(default_factory=list)
-    #: THE MODAL HEAD, AND NOTHING ELSE — doctrine 9's own set: the most
-    #: frequent band-passing answers to this line's call words, which a
+    #: THE MODAL HEAD, AND NOTHING ELSE — doctrine 9's own set: ~~the most
+    #: frequent band-passing answers to this line's call words~~ the
+    #: same-spelled class (tier 1) and at most `modal_exclusion` of the most
+    #: predictable band-passing answers to this line's call words that the
+    #: song table has seen realised as their rhyme partner (tier 2,
+    #: EVIDENCE-GATED since 2026-09-24, `MISSING.md` M-310), which a
     #: revision may not LAND ON.
     #:
     #: IT CARRIED A SECOND RULE UNTIL 2026-08-16 and no consumer could tell
@@ -617,6 +635,16 @@ class Brief:
     #: sentence was traded for another until this field existed to tell the
     #: two apart.
     field_computed: bool = False
+    #: WHICH CAUSE EMPTIED A COMPUTED HEAD — one of `EMPTY_HEAD_CAUSES`,
+    #: set beside `field_computed` and only when `forbidden_modal` came back
+    #: empty; "" everywhere else. Added 2026-09-24 (`MISSING.md` M-310,
+    #: doctrine 28): the renderer's sentence listed every possible cause
+    #: joined by "either ... or" and said none of them applied, and the
+    #: evidence-gated head added a third. The brief KNOWS which one it is —
+    #: `Reviser.empty_head_cause` reads it off the same ranking the head was
+    #: cut from — so the writer is told that one, as DATA, because
+    #: `propose.py` imports only `re`.
+    empty_head_cause: str = ""
     keep: list = field(default_factory=list)
 
     #: Every group this line belongs to: [(label, [lines], [(line, endword)])].
@@ -784,6 +812,31 @@ class Brief:
             out.append(f"    keep unchanged: {', '.join(map(str, self.keep))}")
         return "\n".join(out)
 
+
+
+#: THE FOUR REACHABLE REASONS A COMPUTED MODAL HEAD IS EMPTY
+#: (`Reviser.empty_head_cause`, `Brief.empty_head_cause`), in the order they
+#: are tested. Each is read off the ranking and the brief's own lists, never
+#: inferred (doctrine 28):
+#:   DECLARED_RELATION the ranking's head was NOT empty, and every word in it
+#:                     fails the relation this place declares, so
+#:                     `declared_offer` removed them all from the brief;
+#:   NO_ANSWER         the offer is empty too — this bounded search reached
+#:                     no word that answers every call at this place and can
+#:                     be offered (a joint conflict, or one call nothing
+#:                     answers), so there is no field for a head to lead;
+#:   DECLARED_ZERO     `modal_exclusion` is declared 0, so tier 2 forbids
+#:                     nothing by design, and no member of the field shares
+#:                     a call's spelled ending (tier 1);
+#:   UNEVIDENCED       the offer holds words, none shares a call's spelled
+#:                     ending, and NO MEMBER of the field has been seen
+#:                     realised as these calls' rhyme partner in the song
+#:                     corpus — the evidence-gated head (2026-09-24) has
+#:                     nothing to hold. Exact, not a bound: the ranking sorts
+#:                     on that count first, and the gate stops at the first
+#:                     member without one.
+EMPTY_HEAD_CAUSES = ("DECLARED_RELATION", "NO_ANSWER", "DECLARED_ZERO",
+                     "UNEVIDENCED")
 
 
 def ban_emptied_note(calls, labels, forbidden, width=76):
@@ -3307,22 +3360,37 @@ class Reviser:
                 f"rhyme, not the next word in the same spelling "
                 f"family.", [i, j], (v["label"],))
             return None
-        # TIER 2 — the frequency ban over the differently-spelled
-        # remainder (`joint_field` composes the same two tiers for the
-        # OFFERS, so menu and verdict agree).
+        # TIER 2 — the ~~frequency~~ EVIDENCE-GATED ban over the
+        # differently-spelled remainder (2026-09-24, `MISSING.md` M-310:
+        # only partners the song table has seen answer the call, at most
+        # `modal_exclusion` of them; `joint_field` composes the same two
+        # tiers for the OFFERS, so menu and verdict agree).
         # THE HEAD ONLY (M-185): `modal_field` also builds the offer,
         # and the offer now screens its words by their own heads.
         forbidden_i = self.modal_head(wi, profile=profile)
         forbidden_j = self.modal_head(wj, profile=profile)
+
+        # ~~"is one of the {modal_exclusion} most-predictable answers"~~ —
+        # 2026-09-24, EVIDENCE-GATED HEAD (`_rank_field_compute`). The head
+        # can now be SHORTER than `modal_exclusion`, so the sentence names
+        # the head's own size and the count that put the word in it: a ban
+        # that says "most predictable" states the evidence it rests on.
+        def _said(partner, call, p_low, c_low, forbidden):
+            n = FREQ.LAYER.conditional("eng-song", c_low,
+                                       scoring=FREQ.UNSEEN).get(p_low, 0)
+            rc = self._spelled_rime(c_low)
+            size = sum(1 for x in forbidden if self._spelled_rime(x) != rc)
+            which = ("the most-predictable answer" if size == 1 else
+                     f"one of the {size} most-predictable answers")
+            return (f"{partner!r} is {which} to {call!r} — realised as its "
+                    f"rhyme partner {n} time(s) in the song corpus")
         hits = []
         if wj in forbidden_i:
-            hits.append(f"{v['endwords'][1]!r} is one of the "
-                        f"{self.rdecl.modal_exclusion} most-predictable "
-                        f"answers to {v['endwords'][0]!r}")
+            hits.append(_said(v['endwords'][1], v['endwords'][0], wj, wi,
+                              forbidden_i))
         if wi in forbidden_j:
-            hits.append(f"{v['endwords'][0]!r} is one of the "
-                        f"{self.rdecl.modal_exclusion} most-predictable "
-                        f"answers to {v['endwords'][1]!r}")
+            hits.append(_said(v['endwords'][0], v['endwords'][1], wi, wj,
+                              forbidden_j))
         if not hits:
             return None
         return Finding(
@@ -3332,8 +3400,10 @@ class Reviser:
             f"being revised",
             "; ".join(hits) + ". modal_exclusion="
             f"{self.rdecl.modal_exclusion} over the differently-spelled "
-            "remainder (the same-spelled class is banned outright as "
-            "HOMEOTELEUTON); set it to 0 to silence this the same way "
+            "remainder, at most, and only partners the song corpus has "
+            "seen answer the call (the same-spelled class is banned "
+            "outright as HOMEOTELEUTON); set it to 0 to silence this the "
+            "same way "
             "it silences the reactive check. Doctrine 9's "
             "exclusion is otherwise only consulted when fixing an "
             "already-flagged line; this asks the same question of a "
@@ -4626,7 +4696,14 @@ class Reviser:
         `song_rhymepair_en.tsv`), so a candidate with zero observed count for
         every call falls back to `lex.freq_rank`, a global spoken-register
         list — not a claim that it is unpredictable, only that this table has
-        no evidence either way.
+        no evidence either way. UNTIL 2026-09-24 that backoff ALSO FILLED THE
+        FORBIDDEN HEAD whenever the table knew fewer than `modal_exclusion`
+        partners, so the sentence above was true of the ranking and false of
+        the ban (`MISSING.md` M-310). SINCE 2026-09-24 THE BACKOFF ORDERS THE
+        OFFER ONLY: the head is EVIDENCE-GATED, so no evidence either way
+        cannot put a word in it, and a call the table knows fewer than
+        `modal_exclusion` partners for gets a shorter head — empty when it
+        knows none (`_rank_field_compute`).
 
         Ties are broken on (frequency rank, position in the first field) and
         never on set iteration order — doctrine 66, a tie broken by iterating
@@ -4635,6 +4712,26 @@ class Reviser:
         offered, forbidden, _dropped = self.joint_field_screened(
             calls, exclude=exclude, profile=profile)
         return offered, forbidden
+
+    def empty_head_cause(self, calls, offered, profile=None):
+        """-> which of `EMPTY_HEAD_CAUSES` holds for `calls` whose brief came
+        back with an EMPTY forbidden list and `offered` as its offer
+        (2026-09-24, `MISSING.md` M-310).
+
+        Read off `_rank_field` — the one ranking the head is cut from, and
+        memoised, so on the brief's own path it is a memo hit — in the
+        order `EMPTY_HEAD_CAUSES` states. Ask it only of an empty brief
+        list: DECLARED_RELATION means the RANKING's head was not empty,
+        which is the one state in which the brief's list can still be."""
+        _rest, forbidden, fields = self._rank_field(list(calls),
+                                                    profile=profile)
+        if forbidden:
+            return "DECLARED_RELATION"
+        if not fields or not fields[0] or not offered:
+            return "NO_ANSWER"
+        if self.rdecl.modal_exclusion <= 0:
+            return "DECLARED_ZERO"
+        return "UNEVIDENCED"
 
     def modal_head(self, call_word, profile=None):
         """-> the FORBIDDEN head of one call word's field and nothing else —
@@ -4720,9 +4817,12 @@ class Reviser:
         # — a candidate whose SPELLED RIME equals any call word's
         # (`lyric_harness.spelled_rime`) was found by pattern-matching the
         # ending, the laziest class there is. Ranked beneath everything and
-        # banned whatever the corpus says. Tier 2: the top
+        # banned whatever the corpus says. Tier 2: ~~the top
         # `modal_exclusion` most-predictable of the DIFFERENTLY-SPELLED
-        # remainder. Before the split, the class words and the frequency
+        # remainder~~ AT MOST `modal_exclusion` of the DIFFERENTLY-SPELLED
+        # remainder, the most-predictable of those the song table has seen
+        # answer a call (2026-09-24, M-310; the gate is below). Before the
+        # split, the class words and the frequency
         # words competed for the same k slots — 'hair' spent two of six on
         # air/fair, and 'prayer' (rank 7) walked through the gap; a reviser
         # iterating candidates until the checker passed landed on rank 7
@@ -4738,11 +4838,29 @@ class Reviser:
                        if self._spelled_rime(w) not in call_rimes]
         k = self.rdecl.modal_exclusion
         # The head: the first k MEMBERS of the remainder in rank order.
+        # -- AND, SINCE 2026-09-24, ONLY MEMBERS THE CONDITIONAL RANKED
+        # (`MISSING.md` M-310), so "first k" is now "at most k".
         # Words after the head stay in `rest` unjudged; the offer screen
         # asks `_member` of the ones it reaches.
+        #
+        # EVIDENCE-GATED, 2026-09-24: a word enters the head only when
+        # `cond[w] > 0`, the ranking's own primary key, so the
+        # song corpus has seen `w` realised as a rhyme partner of (one of)
+        # the calls. Past the last such word the order is the BACKOFF
+        # (`lex.freq_rank`), and the backoff has no evidence either way
+        # (`joint_field`'s docstring has said so since 2026-08-11); filling
+        # the head from it banned `it`, `is`, `in`, `this` as the "most
+        # predictable answers" to `thing` over the unbanned `anything`, and
+        # MODAL_RHYME asserted it (`test_revise.py` §22). A thin table now
+        # yields a SHORT head, possibly an empty one — cannot-tell is not
+        # modal (doctrine 20/28), and doctrine 9 names the rhyme a writer
+        # reaches for, which only the table measures. `k` stays the CEILING
+        # and nothing replaces it. Tier 1 is untouched: it bans by spelling
+        # and never read the table. Zero-evidence words stay in `rest`, in
+        # the order they always had, for the offer.
         head, cut = [], 0
         for n, w in enumerate(rest_ranked):
-            if len(head) >= k:
+            if len(head) >= k or cond.get(w, 0) <= 0:
                 break
             cut = n + 1
             if member(w):
@@ -5069,6 +5187,13 @@ class Reviser:
         words absent from the list) are not counted as outrankers for the
         same reason — `joint_field`'s tie-break there is field order,
         which this does not rebuild.
+
+        AND ONE CASE IS EXACT (2026-09-24): the head is EVIDENCE-GATED —
+        only partners the song table has seen answer `w` can be in it — so
+        a call with no count beside `w` is outside `w`'s head by
+        construction and is never counted against the word. Where the
+        call HAS a count every outranker needs at least that count, so the
+        outranker argument above is unchanged.
         """
         k = self.rdecl.modal_exclusion
         if k <= 0:
@@ -5080,6 +5205,12 @@ class Reviser:
         for c, cfield in zip(calls, fields):
             c = c.lower()
             cond_c = cond_w.get(c, 0)
+            if cond_c <= 0:
+                # EVIDENCE-GATED HEAD (2026-09-24, `_rank_field_compute`):
+                # `w`'s head holds only words the table has seen answer
+                # `w`, so a call it has not seen there is outside that
+                # head EXACTLY — no outrankers to count, nothing reopens.
+                continue
             fr_c = self.lex.freq_rank.get(c, 10 ** 9)
             pool = set(cond_w) | set(cfield)
             pool.discard(c)
@@ -5139,6 +5270,12 @@ class Reviser:
         back to `lex.freq_rank`, now `data/opensubtitles_en_50k.tsv` — a
         spoken-register global rank that replaced the 2006 web crawl this
         used to read (`software` was rank 151, `weep` was absent entirely).
+        Until 2026-09-24 that backoff also filled the FORBIDDEN head — which
+        is how `thing`'s head came to hold `it`/`is`/`in`/`this`, the very
+        failure the paragraph above describes (`MISSING.md` M-310). Since
+        2026-09-24 it orders the OFFER only, and the head holds the table's
+        own evidence and nothing else (`_rank_field_compute`), so the first
+        sentence of this docstring is true of the forbidden set again.
         `quality/RESULTS_SONG_FREQUENCY.md` measures both steps: +4.5pp from
         the register fix alone, and the conditional itself covers 63.2% of
         what a held-out writer reached for against 16.9% for the old web
@@ -5524,6 +5661,11 @@ class Reviser:
                     # that `joint_field` ran, so an EMPTY head can be told
                     # apart from a head nobody asked for. See the field.
                     b.field_computed = True
+                    # WHICH CAUSE, when the head is empty (doctrine 28):
+                    # read off the same memoised ranking, never guessed.
+                    if not _pf.forbidden:
+                        b.empty_head_cause = self.empty_head_cause(
+                            list(_pf.calls), _pf.offered, profile=profile)
                     # A CONJUNCTION IS EMPTY AT ONE PLACE, never across
                     # places (M-184): two families at two places are two
                     # questions, and neither is unsatisfiable for the

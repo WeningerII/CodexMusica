@@ -8689,10 +8689,16 @@ def main():
         # question, one reading, and where there are two they are declared).
         # `modal_field` is the LOOP'S OWN method, called here rather than
         # reimplemented, so the two cannot drift.
+        # "ranked by FREQUENCY" was false from 2026-08-11 (the conditional)
+        # and the set's SIZE stopped being fixed on 2026-09-24 (the
+        # evidence gate, `MISSING.md` M-310); the printed sentence says both.
         print(f"\n  ORDERED BY RHYME SCORE, high to low. This is NOT the "
               f"order doctrine 9 forbids on: `--modal` prints the loop's own "
-              f"set, which is ranked by FREQUENCY over the words the GRADER "
-              f"would accept, and the two lists differ.")
+              f"set, which is ~~ranked by FREQUENCY~~ ranked by how often the "
+              f"song corpus realised each word as this one's rhyme partner, "
+              f"and holds only words that count has seen (evidence-gated "
+              f"2026-09-24), over the words the GRADER would accept; the two "
+              f"lists differ.")
         # A BARE FLAG, AND `--modal=yes` WAS SILENTLY NOT IT — 2026-08-15.
         # `"--modal" in args` is an exact membership test, so the `=`
         # spelling every sibling flag on this file accepts fell through and
@@ -8705,7 +8711,8 @@ def main():
             _refuse(f"--modal takes no value; got {_modal_eq[0]!r}",
                     detail=["usage: candidates W [n] --modal",
                             "bare `--modal` prints the loop's own "
-                            "FREQUENCY-ranked forbidden set; without it the "
+                            "~~FREQUENCY-ranked~~ evidence-ranked forbidden "
+                            "set; without it the "
                             "list is ranked by RHYME SCORE, and the two "
                             "differ (doctrine 9)."])
         if "--modal" in args:
