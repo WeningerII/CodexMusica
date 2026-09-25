@@ -169,6 +169,40 @@ def _other_language_live():
     return out
 
 
+#: THE TWO EVIDENCE ROUTES A `witness_and_contrast` CAN COME FROM, and why a
+#: single total blurs them (review of #392, 2026-09-25). `Reviser.grade` is
+#: the grader `revise.py` runs, so a witness there is evidence about the
+#: production loop. `figures.line_figures` is the intra-line reader that
+#: `quality/figure_exhibits.py` grades through, and `revise.py` never calls
+#: it, so a witness there certifies the reader and says nothing about a
+#: revision honouring the figure. Keyed on each row's own `evidence` string
+#: (the census row must stay byte-equal to `figure_exhibits.semantic_row`,
+#: which `test_figure_exhibits.py` §6 checks), and a row that matches
+#: neither is counted UNATTRIBUTED rather than folded into either.
+ROUTE_GRADE = "production grade route (`Reviser.grade`)"
+ROUTE_FIGURES = "figures reader (`figures.line_figures`)"
+ROUTE_NONE = "unattributed"
+
+
+def witness_routes(semantic):
+    """-> {route: {table: [names]}} over the `witness_and_contrast` rows."""
+    from quality import figure_exhibits as FE
+    out = {ROUTE_GRADE: {}, ROUTE_FIGURES: {}, ROUTE_NONE: {}}
+    for name, row in sorted(semantic.items()):
+        if row["status"] != "witness_and_contrast":
+            continue
+        ev = row.get("evidence", "")
+        if ev == FE.EVIDENCE:
+            route, table = ROUTE_FIGURES, "FIGURE_EXHIBITS"
+        elif ev.startswith(("CENSUS_EXHIBITS ", "DRAWABLE_EXHIBITS ")) \
+                and "Reviser.grade" in ev:
+            route, table = ROUTE_GRADE, ev.split()[0]
+        else:
+            route, table = ROUTE_NONE, ev.split()[0] if ev else "(none)"
+        out[route].setdefault(table, []).append(name)
+    return out
+
+
 def census():
     st = _full_stream()
     live, blocked = [], {}
@@ -268,6 +302,7 @@ def census():
             semantic[name] = {"status":"unvalidated",
                               "blocker":"full semantic witness and independent contrast not registered"}
     return {"live": live, "capability_live": live, "semantic_status": semantic,
+            "witness_routes": witness_routes(semantic),
             "witness_findings": findings,
             "blocked": blocked, "other_language": other,
             "fixture_only": sorted(n for n in FIXTURE_ONLY if n in live),
@@ -286,6 +321,21 @@ def main():
     for row in rep["semantic_status"].values():
         counts[row["status"]] = counts.get(row["status"],0)+1
     print(f"  semantic validation (separate from capability): {counts}")
+    routes = rep["witness_routes"]
+    per = {r: sum(map(len, t.values())) for r, t in routes.items()}
+    print(f"  witness_and_contrast by evidence route "
+          f"({counts.get('witness_and_contrast', 0)} = "
+          + " + ".join(str(per[r]) for r in routes if per[r] or r != ROUTE_NONE)
+          + "):")
+    notes = {ROUTE_GRADE: "the grader revise.py runs",
+             ROUTE_FIGURES: "revise.py never calls it; certifies the reader, "
+                            "not a revision loop honouring the figure",
+             ROUTE_NONE: "matches neither route; NOT counted as either"}
+    for r, tables in routes.items():
+        if r == ROUTE_NONE and not per[r]:
+            continue
+        split = ", ".join(f"{t} {len(v)}" for t, v in sorted(tables.items()))
+        print(f"    {r:42s} {per[r]:3d}  [{split}] — {notes[r]}")
     print("  Runtime qualification: capability availability is not a production "
           "success claim. Only the listed witness routes have semantic evidence.")
     for status in ("unsupported_shape", "unvalidated"):

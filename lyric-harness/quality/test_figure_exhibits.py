@@ -161,6 +161,27 @@ def test_census_reads_this_route():
           f"{earned}")
     check("every earned row graded exactly [True, False]",
           all(rep[n]["verdicts"] == [True, False] for n in earned))
+    # The census prints witness_and_contrast split by evidence route, so the
+    # figures reader (which revise.py never calls) is never read as the
+    # production grade route. The split must partition the total, put
+    # exactly this file's earned set on the figures route, and leave a row
+    # it cannot place UNATTRIBUTED rather than in either route.
+    wr = CEN.witness_routes(rep)
+    total = sum(1 for r in rep.values() if r["status"] == "witness_and_contrast")
+    check("the figures route holds exactly this file's earned set",
+          sorted(sum(wr[CEN.ROUTE_FIGURES].values(), [])) == sorted(EARNED),
+          f"{wr[CEN.ROUTE_FIGURES]}")
+    check("the routes partition the witness total, none unattributed",
+          not wr[CEN.ROUTE_NONE]
+          and sum(len(v) for t in wr.values() for v in t.values()) == total,
+          f"{ {r: sum(map(len, t.values())) for r, t in wr.items()} } of {total}")
+    fake = dict(rep, x={"status": "witness_and_contrast",
+                        "evidence": "hand-typed route"})
+    wr2 = CEN.witness_routes(fake)
+    check("a row on neither route is unattributed, not folded into one",
+          wr2[CEN.ROUTE_NONE] == {"hand-typed": ["x"]}
+          and "x" not in sum(wr2[CEN.ROUTE_GRADE].values(), []),
+          f"{wr2[CEN.ROUTE_NONE]}")
 
 
 def test_mutations():
