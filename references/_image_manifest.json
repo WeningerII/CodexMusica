@@ -4,31 +4,34 @@
   "coverage": {
     "instrument": {
       "total": 1467,
-      "with_image": 738,
+      "with_image": 752,
       "by_source": {
         "wikidata_commons": 620,
         "met_open_access": 86,
-        "commons_depicts": 32
+        "commons_depicts": 32,
+        "europeana": 12,
+        "cleveland_open_access": 2
       },
       "by_license": {
-        "CC BY-SA": 401,
+        "CC BY-SA": 405,
         "Public Domain": 123,
-        "CC0": 138,
-        "CC BY": 76
+        "CC0": 145,
+        "CC BY": 79
       }
     },
     "tradition": {
       "total": 2588,
-      "with_image": 567,
+      "with_image": 592,
       "by_source": {
         "wikidata_commons": 409,
-        "commons_depicts": 158
+        "commons_depicts": 158,
+        "openverse": 25
       },
       "by_license": {
-        "CC BY-SA": 311,
+        "CC BY-SA": 318,
         "Public Domain": 94,
-        "CC BY": 126,
-        "CC0": 36
+        "CC BY": 143,
+        "CC0": 37
       }
     }
   },
@@ -1368,6 +1371,34 @@
       "matched_label": "cabrette"
     },
     {
+      "id": "castanets",
+      "kind": "instrument",
+      "name": "Castanets",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/123/https___www_searchculture_gr_aggregator_edm_medusa_000114_3_5922manifest",
+      "image_url": "https://medusa.libver.gr/iguana/iiif/image/mnt/vsmart_srv/assets_rw/3_5922_TIFF/5922_00001.tif/full/full/0/default.jpg",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fwww.searchculture.gr%2Faggregator%2Fthumbnails%2Fedm-record%2Fmedusa%2F000114-3_5922manifest&type=IMAGE",
+      "license": "CC BY",
+      "license_raw": "http://creativecommons.org/licenses/by/4.0/",
+      "credit": "Veria Central Public Library via Europeana",
+      "match_confidence": "medium",
+      "matched_label": "Castanets"
+    },
+    {
+      "id": "caval_romanian",
+      "kind": "instrument",
+      "name": "Caval (Romanian five-hole duct shepherd flute)",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/2048047/Clasate_092e0d70e10a4941a991a09e236db251",
+      "image_url": "https://resource.culturalia.ro/imagini-clasate/imagini51/739037c8f37a489cb2420a5dff597188.jpg",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fresource.culturalia.ro%2Fimagini-clasate%2Fimagini51%2F739037c8f37a489cb2420a5dff597188.jpg&type=IMAGE",
+      "license": "CC BY-SA",
+      "license_raw": "http://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "\"Dimitrie Gusti\" National Village Museum via Europeana",
+      "match_confidence": "medium",
+      "matched_label": "Caval"
+    },
+    {
       "id": "cavaquinho",
       "kind": "instrument",
       "name": "Cavaquinho (Portuguese / Brazilian)",
@@ -2079,6 +2110,20 @@
       "credit": "Dulcijan",
       "match_confidence": "high",
       "matched_label": "cornamuse"
+    },
+    {
+      "id": "cornet",
+      "kind": "instrument",
+      "name": "Cornet",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/2048047/Clasate_e5ef6f726a244f4daa15cad62d6abb86",
+      "image_url": "https://resource.culturalia.ro/imagini-clasate/imagini35/8a55c0382a904e3eac317bd76dcedc5e.jpg",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fresource.culturalia.ro%2Fimagini-clasate%2Fimagini35%2F8a55c0382a904e3eac317bd76dcedc5e.jpg&type=IMAGE",
+      "license": "CC BY-SA",
+      "license_raw": "http://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "National Museum of Transylvanian History via Europeana",
+      "match_confidence": "medium",
+      "matched_label": "cornet"
     },
     {
       "id": "cornetto",
@@ -3066,6 +3111,20 @@
       "matched_label": "electric violin"
     },
     {
+      "id": "endingidi",
+      "kind": "instrument",
+      "name": "Endingidi (Baganda one-string tube fiddle)",
+      "source": "cleveland_open_access",
+      "source_page": "https://clevelandart.org/art/1929.347",
+      "image_url": "https://openaccess-cdn.clevelandart.org/1929.347/1929.347_print.jpg",
+      "thumb_url": "https://openaccess-cdn.clevelandart.org/1929.347/1929.347_web.jpg",
+      "license": "CC0",
+      "license_raw": "CC0 (Cleveland Museum of Art Open Access)",
+      "credit": "The Cleveland Museum of Art, Gift of the African Art Sponsors of Karamu House",
+      "match_confidence": "medium",
+      "matched_label": "Spike fiddle (endingidi or iningidi)"
+    },
+    {
       "id": "engalabi",
       "kind": "instrument",
       "name": "Engalabi (Ganda long lizard-skin drum)",
@@ -3212,6 +3271,20 @@
       "credit": "Besson / Buffet Crampon",
       "match_confidence": "high",
       "matched_label": "euphonium"
+    },
+    {
+      "id": "fiddle",
+      "kind": "instrument",
+      "name": "Fiddle",
+      "source": "cleveland_open_access",
+      "source_page": "https://clevelandart.org/art/1918.381",
+      "image_url": "https://openaccess-cdn.clevelandart.org/1918.381/1918.381_print.jpg",
+      "thumb_url": "https://openaccess-cdn.clevelandart.org/1918.381/1918.381_web.jpg",
+      "license": "CC0",
+      "license_raw": "CC0 (Cleveland Museum of Art Open Access)",
+      "credit": "The Cleveland Museum of Art, The Charles G. King Jr. collection; Gift of Ralph King in memory of Charles G. King Jr.",
+      "match_confidence": "medium",
+      "matched_label": "Fiddle"
     },
     {
       "id": "fife",
@@ -3613,6 +3686,20 @@
       "matched_label": "gemshorn"
     },
     {
+      "id": "gender",
+      "kind": "instrument",
+      "name": "Gender (gamelan multi-octave metallophone)",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/91608/SMVK_VKM_objekt_71525",
+      "image_url": "https://collections.smvk.se/carlotta-vkm/web/image/zoom/2293099/1968.07.0001a.jpg",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fcollections.smvk.se%2Fcarlotta-vkm%2Fweb%2Fimage%2Fzoom%2F2293099%2F1968.07.0001a.jpg&type=IMAGE",
+      "license": "CC0",
+      "license_raw": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "credit": "Museum of World Culture via Europeana",
+      "match_confidence": "medium",
+      "matched_label": "slagspel, slagspel (a) med slagklubba, gendèr"
+    },
+    {
       "id": "geomungo",
       "kind": "instrument",
       "name": "Geomungo (Korean six-string fretted zither)",
@@ -3940,6 +4027,20 @@
       "matched_label": "Gyil"
     },
     {
+      "id": "haegeum",
+      "kind": "instrument",
+      "name": "Haegeum (Korean two-string fiddle)",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/91608/SMVK_VKM_objekt_94098",
+      "image_url": "https://collections.smvk.se/carlotta-vkm/web/image/zoom/1002517/zoom",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fcollections.smvk.se%2Fcarlotta-vkm%2Fweb%2Fimage%2Fzoom%2F1002517%2Fzoom&type=IMAGE",
+      "license": "CC0",
+      "license_raw": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "credit": "Museum of World Culture via Europeana",
+      "match_confidence": "medium",
+      "matched_label": "stränginstrument, Musikinstrument, fiddle, bow, string instrument, haegeum"
+    },
+    {
       "id": "hajhouj",
       "kind": "instrument",
       "name": "Hajhouj (Gnawa three-string bass lute, Moroccan)",
@@ -4026,6 +4127,20 @@
       "credit": "The Metropolitan Museum of Art, Gift of Miss Helen Sears through Mrs. Alma Birmingham",
       "match_confidence": "medium",
       "matched_label": "Harmonium"
+    },
+    {
+      "id": "harpa",
+      "kind": "instrument",
+      "name": "Harpa (Nordic diatonic folk harp)",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/91608/SMVK_VKM_objekt_59963",
+      "image_url": "https://collections.smvk.se/carlotta-vkm/web/image/zoom/1196273/zoom",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fcollections.smvk.se%2Fcarlotta-vkm%2Fweb%2Fimage%2Fzoom%2F1196273%2Fzoom&type=IMAGE",
+      "license": "CC0",
+      "license_raw": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "credit": "Museum of World Culture via Europeana",
+      "match_confidence": "medium",
+      "matched_label": "harpa, Guitarr-harpa"
     },
     {
       "id": "harpsichord",
@@ -5745,6 +5860,20 @@
       "matched_label": "Luogu"
     },
     {
+      "id": "lur",
+      "kind": "instrument",
+      "name": "Lur (Nordic herding trumpet)",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/565/S_GL_object_GLMHF000039",
+      "image_url": "https://mm.dimu.org/image/0136NRArEcJs?dimension=1200x1200",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fmm.dimu.org%2Fimage%2F0136NRArEcJs%3Fdimension%3D1200x1200&type=IMAGE",
+      "license": "CC0",
+      "license_raw": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "credit": "Gamla Linköping Open-Air Museum via Europeana",
+      "match_confidence": "medium",
+      "matched_label": "Lur"
+    },
+    {
       "id": "lusheng",
       "kind": "instrument",
       "name": "Lusheng (Miao/Hmong mouth organ)",
@@ -7115,6 +7244,20 @@
       "matched_label": "piccolo trumpet"
     },
     {
+      "id": "pickaxe",
+      "kind": "instrument",
+      "name": "Pickaxe / mattock",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/91607/SMVK_EM_delobjekt_1310575",
+      "image_url": "https://collections.smvk.se/carlotta-em/web/image/zoom/1842057/image.jpg",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fcollections.smvk.se%2Fcarlotta-em%2Fweb%2Fimage%2Fzoom%2F1842057%2Fimage.jpg&type=IMAGE",
+      "license": "CC0",
+      "license_raw": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "credit": "Museum of Ethnography via Europeana",
+      "match_confidence": "low",
+      "matched_label": "redskap, hacka, pickaxe, tool"
+    },
+    {
       "id": "piffero_appenninico",
       "kind": "instrument",
       "name": "Piffero (Apennine conical double-reed shawm of the Quattro Province)",
@@ -7424,6 +7567,20 @@
       "credit": "Didier Descouens",
       "match_confidence": "high",
       "matched_label": "quena"
+    },
+    {
+      "id": "quern_grindstone",
+      "kind": "instrument",
+      "name": "Quern / grinding stone",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/91639/SMVK_MM_objekt_3008041",
+      "image_url": "https://collections.smvk.se/carlotta-mhm/web/image/zoom/4042298/MM+19490%281%29.jpg",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fcollections.smvk.se%2Fcarlotta-mhm%2Fweb%2Fimage%2Fzoom%2F4042298%2FMM%2B19490%25281%2529.jpg&type=IMAGE",
+      "license": "CC BY",
+      "license_raw": "http://creativecommons.org/licenses/by/4.0/",
+      "credit": "The Museum of Mediterranean and Near Eastern Antiquities via Europeana",
+      "match_confidence": "low",
+      "matched_label": "Tool, Grinding stone, Malsten, Verktyg"
     },
     {
       "id": "quinta_huapanguera",
@@ -8213,6 +8370,20 @@
       "credit": "Paul_012",
       "match_confidence": "high",
       "matched_label": "saw u"
+    },
+    {
+      "id": "saxophone",
+      "kind": "instrument",
+      "name": "Saxophone (soprano / alto / tenor / baritone)",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/91616/arme_object_AM010973",
+      "image_url": "https://mm.dimu.org/image/042sAYkKHxjx?dimension=1200x1200",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fmm.dimu.org%2Fimage%2F042sAYkKHxjx%3Fdimension%3D1200x1200&type=IMAGE",
+      "license": "CC BY",
+      "license_raw": "http://creativecommons.org/licenses/by/4.0/",
+      "credit": "Army Museum via Europeana",
+      "match_confidence": "medium",
+      "matched_label": "Saxophone"
     },
     {
       "id": "saz_baglama",
@@ -9582,6 +9753,20 @@
       "matched_label": "tibia"
     },
     {
+      "id": "tilinca",
+      "kind": "instrument",
+      "name": "Tilinca (Romanian fingerhole-less overtone flute)",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/2048047/Clasate_3c6e4871113a4da1bf6f5c21f2275582",
+      "image_url": "https://resource.culturalia.ro/imagini-clasate/imagini30/f39862d97cfc43a99c4150501a9be23a.jpg",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fresource.culturalia.ro%2Fimagini-clasate%2Fimagini30%2Ff39862d97cfc43a99c4150501a9be23a.jpg&type=IMAGE",
+      "license": "CC BY-SA",
+      "license_raw": "http://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "National Museum of Transylvanian History via Europeana",
+      "match_confidence": "medium",
+      "matched_label": "tilincă"
+    },
+    {
       "id": "timbal_brasileiro",
       "kind": "instrument",
       "name": "Timbal (Bahian conical hand drum)",
@@ -10398,6 +10583,20 @@
       "credit": "Rijksmuseum Amsterdam",
       "match_confidence": "high",
       "matched_label": "bass viol"
+    },
+    {
+      "id": "viola_damore",
+      "kind": "instrument",
+      "name": "Viola d'amore (baroque sympathetic-string viola)",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/2048047/Clasate_9df17f4af86848c8aaaf980f7ca52a78",
+      "image_url": "https://resource.culturalia.ro/imagini-clasate/imagini6/ee1d1153f2ca4d1180c98d1c5ef3ba7f.jpg",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fresource.culturalia.ro%2Fimagini-clasate%2Fimagini6%2Fee1d1153f2ca4d1180c98d1c5ef3ba7f.jpg&type=IMAGE",
+      "license": "CC BY-SA",
+      "license_raw": "http://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "Romanian Peasant Museum via Europeana",
+      "match_confidence": "medium",
+      "matched_label": "Viola d'amore"
     },
     {
       "id": "viola_de_cocho",
@@ -11399,6 +11598,20 @@
       "matched_label": "anti-folk"
     },
     {
+      "id": "arab_tarab",
+      "kind": "tradition",
+      "name": "Tarab (Arab East classical)",
+      "source": "openverse",
+      "source_page": "https://commons.wikimedia.org/w/index.php?curid=7447989",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/House_of_Tarab_10.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/1156be04-77e5-4a5b-bd10-185c173abe4d/thumb/",
+      "license": "CC BY-SA",
+      "license_raw": "by-sa 3.0",
+      "credit": "Joe Mabel via wikimedia",
+      "match_confidence": "low",
+      "matched_label": "House of Tarab 10"
+    },
+    {
       "id": "arena_rock",
       "kind": "tradition",
       "name": "Arena rock",
@@ -11562,6 +11775,20 @@
       "credit": "Michael Seppey",
       "match_confidence": "high",
       "matched_label": "Azonto"
+    },
+    {
+      "id": "bachata",
+      "kind": "tradition",
+      "name": "Bachata",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/41431665@N07/10805456595",
+      "image_url": "https://live.staticflickr.com/2884/10805456595_1fce3f7fa1_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/896e88e1-61d1-41d2-816b-96e2b5760440/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "COD Newsroom via flickr",
+      "match_confidence": "low",
+      "matched_label": "LEAA Salsa/Merengue/Bachata Dance Fall 2013 6"
     },
     {
       "id": "baithak_gana",
@@ -12059,6 +12286,20 @@
       "matched_label": "boom bap"
     },
     {
+      "id": "bossa_nova",
+      "kind": "tradition",
+      "name": "Bossa nova",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/30715958@N00/3925820269",
+      "image_url": "https://live.staticflickr.com/2433/3925820269_0d00d2259a_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/f9e25072-64a4-426a-b805-46b080620375/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "Nao Iizuka via flickr",
+      "match_confidence": "low",
+      "matched_label": "Playing bossa nova music"
+    },
+    {
       "id": "bouyon",
       "kind": "tradition",
       "name": "Bouyon",
@@ -12224,6 +12465,20 @@
       "matched_label": "Cajun music"
     },
     {
+      "id": "calypso",
+      "kind": "tradition",
+      "name": "Calypso",
+      "source": "openverse",
+      "source_page": "https://commons.wikimedia.org/w/index.php?curid=71315128",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Calypso_Music_%2830394291%29.jpeg",
+      "thumb_url": "https://api.openverse.org/v1/images/79b7ee35-da95-4e7f-9891-bac5f6b702c4/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 3.0",
+      "credit": "Carey Moulton via wikimedia",
+      "match_confidence": "low",
+      "matched_label": "<div class='fn'> Calypso Music</div>"
+    },
+    {
       "id": "campursari",
       "kind": "tradition",
       "name": "Campursari (Javanese gamelan-keyboard crossover)",
@@ -12267,6 +12522,20 @@
       "credit": "Bernard-Saraz, Louis (18..-1908). Compositeur",
       "match_confidence": "medium",
       "matched_label": "cantata"
+    },
+    {
+      "id": "cantautore_italiano",
+      "kind": "tradition",
+      "name": "Cantautore italiano",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/46999537@N04/4378129203",
+      "image_url": "https://live.staticflickr.com/4014/4378129203_5a1f16de65.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/5903a667-f522-430b-8301-d21db172d4ea/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "Paolo Di Sabatino via flickr",
+      "match_confidence": "low",
+      "matched_label": "Paolo Di Sabatino accompagna il grande cantautore italiano"
     },
     {
       "id": "cante_alentejano",
@@ -13032,6 +13301,20 @@
       "credit": "Banda Rio Claro",
       "match_confidence": "medium",
       "matched_label": "Chilean cumbia"
+    },
+    {
+      "id": "cumbia_colombiana",
+      "kind": "tradition",
+      "name": "Cumbia colombiana",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/23338415@N04/7305637110",
+      "image_url": "https://live.staticflickr.com/7244/7305637110_8fef68f2c3_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/52fe59e7-e37c-4906-bd81-1d4e811bcee1/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "OmarOBorO via flickr",
+      "match_confidence": "low",
+      "matched_label": "Cumbia Colombiana"
     },
     {
       "id": "cumbia_sonidera",
@@ -14039,6 +14322,20 @@
       "matched_label": "folktronica"
     },
     {
+      "id": "footwork",
+      "kind": "tradition",
+      "name": "Footwork",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/20924681@N07/7771148116",
+      "image_url": "https://live.staticflickr.com/8281/7771148116_f3b47e9283_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/d7938183-f485-4245-9942-cdfb38027afc/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "gmarcos1 via flickr",
+      "match_confidence": "low",
+      "matched_label": "Tango footwork"
+    },
+    {
       "id": "franco_flemish_school",
       "kind": "tradition",
       "name": "Franco-Flemish School",
@@ -14232,6 +14529,20 @@
       "credit": "Chris Hakkens",
       "match_confidence": "medium",
       "matched_label": "funk"
+    },
+    {
+      "id": "fusion",
+      "kind": "tradition",
+      "name": "Fusion",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/96463298@N05/12348323204",
+      "image_url": "https://live.staticflickr.com/3710/12348323204_a3b7c94021_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/030b1532-4813-4599-ac1f-28ed082b58ad/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "Geospatial World via flickr",
+      "match_confidence": "low",
+      "matched_label": "Fusion Music performance during India Geospatial Excellence Awards 2013 night"
     },
     {
       "id": "fusion_70s_electric",
@@ -14579,6 +14890,20 @@
       "matched_label": "gothic rock"
     },
     {
+      "id": "gqom",
+      "kind": "tradition",
+      "name": "Gqom",
+      "source": "openverse",
+      "source_page": "https://commons.wikimedia.org/w/index.php?curid=95568511",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/77tunes_Home_of_Hiphop_Music%2C_News%2C_Gqom%2C_Afro_House%2C_Amapiano%2C_Hiphopza%2C_Zamusic%2C_Fakaza_Music_SaHipHop_%26_Entertainment.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/5adf4184-d5c7-46e8-be5e-98dbd5e35507/thumb/",
+      "license": "CC BY-SA",
+      "license_raw": "by-sa 4.0",
+      "credit": "77tunes via wikimedia",
+      "match_confidence": "low",
+      "matched_label": "File:77tunes Home of Hiphop Music, News, Gqom, Afro House, Amapiano, Hiphopza, Zamusic, Fakaza Music SaHipHop & Entertainment.jpg"
+    },
+    {
       "id": "gregorian_chant",
       "kind": "tradition",
       "name": "Gregorian Chant",
@@ -14759,6 +15084,20 @@
       "matched_label": "hard rock"
     },
     {
+      "id": "hardanger_fiddle",
+      "kind": "tradition",
+      "name": "Hardanger fiddle",
+      "source": "openverse",
+      "source_page": "https://www.metmuseum.org/art/collection/search/505825",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/DP167429.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/672d51cd-ac41-477e-bcb8-b5bcb83119ac/thumb/",
+      "license": "CC0",
+      "license_raw": "cc0 1.0",
+      "credit": "Unknown via met",
+      "match_confidence": "low",
+      "matched_label": "Hardanger Fiddle"
+    },
+    {
       "id": "hardcore_punk",
       "kind": "tradition",
       "name": "Hardcore punk",
@@ -14849,6 +15188,34 @@
       "matched_label": "highlife"
     },
     {
+      "id": "hindustani",
+      "kind": "tradition",
+      "name": "Hindustani classical",
+      "source": "openverse",
+      "source_page": "https://commons.wikimedia.org/w/index.php?curid=37471889",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Ashwini_Bhide-Deshpande_%28Hindustani_classical_music_vocalist%29_01.JPG",
+      "thumb_url": "https://api.openverse.org/v1/images/71bc8a9e-6cb3-45a5-bae1-91b53329e6b1/thumb/",
+      "license": "CC BY-SA",
+      "license_raw": "by-sa 4.0",
+      "credit": "Krupasindhu Muduli via wikimedia",
+      "match_confidence": "low",
+      "matched_label": "Ashwini Bhide-Deshpande (Hindustani classical music vocalist) 01"
+    },
+    {
+      "id": "hindustani_sarod",
+      "kind": "tradition",
+      "name": "Hindustani classical (sarod-led)",
+      "source": "openverse",
+      "source_page": "https://commons.wikimedia.org/w/index.php?curid=37471889",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Ashwini_Bhide-Deshpande_%28Hindustani_classical_music_vocalist%29_01.JPG",
+      "thumb_url": "https://api.openverse.org/v1/images/71bc8a9e-6cb3-45a5-bae1-91b53329e6b1/thumb/",
+      "license": "CC BY-SA",
+      "license_raw": "by-sa 4.0",
+      "credit": "Krupasindhu Muduli via wikimedia",
+      "match_confidence": "low",
+      "matched_label": "Ashwini Bhide-Deshpande (Hindustani classical music vocalist) 01"
+    },
+    {
       "id": "hip_hop",
       "kind": "tradition",
       "name": "Hip-hop",
@@ -14892,6 +15259,20 @@
       "credit": "Lemurbaby (talk)",
       "match_confidence": "high",
       "matched_label": "Hiragasy"
+    },
+    {
+      "id": "honky_tonk",
+      "kind": "tradition",
+      "name": "Honky-tonk",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/9106303@N05/11414412725",
+      "image_url": "https://live.staticflickr.com/7377/11414412725_bfa6a53f83.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/88dc0611-246a-45ec-acbb-ebd1fbe3dfd0/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "Mike Licht, NotionsCapital.com via flickr",
+      "match_confidence": "low",
+      "matched_label": "Honky-Tonk Music"
     },
     {
       "id": "horror_punk",
@@ -15554,6 +15935,20 @@
       "matched_label": "klezmer"
     },
     {
+      "id": "kompa",
+      "kind": "tradition",
+      "name": "Kompa",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/63363807@N03/19274857288",
+      "image_url": "https://live.staticflickr.com/340/19274857288_047f213e12_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/c0178b0d-2ae5-4561-ae61-38db96d5b05f/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "Didit Putra via flickr",
+      "match_confidence": "low",
+      "matched_label": "CEO Internux Dicky Moechtar dalam acara Nga-Bolt-burit di Bekaresto, Senin (6/7). Bolt optimistis bisa menguasai pasar 4G di Jabodetabek seiring operator telekomunikasi meluncurkan layanan serupa di dua frekuensi yakni 900 Mhz dan 1800 Mhz. #Bolt #Kompa"
+    },
+    {
       "id": "korean_hip_hop",
       "kind": "tradition",
       "name": "Korean hip-hop",
@@ -15569,6 +15964,20 @@
       "matched_label": "Korean hip-hop"
     },
     {
+      "id": "koto",
+      "kind": "tradition",
+      "name": "Koto",
+      "source": "openverse",
+      "source_page": "https://commons.wikimedia.org/w/index.php?curid=121057810",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Koto_by_Fumie_Hihara_2016.png",
+      "thumb_url": "https://api.openverse.org/v1/images/b76f4411-a048-457d-a96f-eac61c113f09/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "Jean-Pierre Dalbéra via wikimedia",
+      "match_confidence": "low",
+      "matched_label": "Koto by Fumie Hihara 2016"
+    },
+    {
       "id": "kpop",
       "kind": "tradition",
       "name": "K-pop",
@@ -15582,6 +15991,20 @@
       "credit": "A1candidate",
       "match_confidence": "high",
       "matched_label": "K-pop"
+    },
+    {
+      "id": "kuduro",
+      "kind": "tradition",
+      "name": "Kuduro",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/39802787@N00/3501517361",
+      "image_url": "https://live.staticflickr.com/3388/3501517361_d16880f510_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/a693660f-e2cd-4d66-96dc-a9464700ebb5/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "Marco Gomes via flickr",
+      "match_confidence": "low",
+      "matched_label": "É o som do kuduro!"
     },
     {
       "id": "kulintang",
@@ -15612,6 +16035,20 @@
       "credit": "Judgefloro",
       "match_confidence": "medium",
       "matched_label": "kundiman"
+    },
+    {
+      "id": "kwaito",
+      "kind": "tradition",
+      "name": "Kwaito",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/30472253@N08/8165019769",
+      "image_url": "https://live.staticflickr.com/7126/8165019769_16e41f03eb_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/2df6807a-cc93-4d2c-b2e7-4ac41d6bceab/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "meshugas via flickr",
+      "match_confidence": "low",
+      "matched_label": "Kwaito Dance 2"
     },
     {
       "id": "lambada",
@@ -15839,6 +16276,20 @@
       "matched_label": "madrigal"
     },
     {
+      "id": "makossa",
+      "kind": "tradition",
+      "name": "Makossa",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/11135880@N07/5897939613",
+      "image_url": "https://live.staticflickr.com/5313/5897939613_6721c5937f_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/5db22fab-b34f-45ef-a622-c07bdb8e0df9/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "Mαяiиα* via flickr",
+      "match_confidence": "low",
+      "matched_label": "Juca ~ Bateria Makossa"
+    },
+    {
       "id": "malaysian_pop",
       "kind": "tradition",
       "name": "Malaysian pop (pop Melayu / muzik pop Malaysia)",
@@ -15912,6 +16363,20 @@
       "credit": "Continentaleurope",
       "match_confidence": "high",
       "matched_label": "għana"
+    },
+    {
+      "id": "mambo",
+      "kind": "tradition",
+      "name": "Mambo",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/21397669@N02/16064357976",
+      "image_url": "https://live.staticflickr.com/8600/16064357976_0cba928e5f_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/bb20996c-00b5-44ad-bdf7-4f0ea637354b/thumb/",
+      "license": "CC BY-SA",
+      "license_raw": "by-sa 2.0",
+      "credit": "Marc-Anthony Macon via flickr",
+      "match_confidence": "low",
+      "matched_label": "Mambo Music for Mechanics [1,001 Sobas With Senpai #129]"
     },
     {
       "id": "mandopop",
@@ -16587,6 +17052,20 @@
       "credit": "K-POPIT 케이팝잇TV10",
       "match_confidence": "high",
       "matched_label": "new jack swing"
+    },
+    {
+      "id": "new_orleans",
+      "kind": "tradition",
+      "name": "New Orleans jazz",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/21061651@N08/3487653486",
+      "image_url": "https://live.staticflickr.com/3653/3487653486_4e5958af5a_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/43533817-7709-42de-b491-99c8ec5cdda5/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "Ray Devlin via flickr",
+      "match_confidence": "low",
+      "matched_label": "New Orleans Jazz Fest 2009"
     },
     {
       "id": "new_romantic",
@@ -17414,6 +17893,20 @@
       "matched_label": "psychedelic trance"
     },
     {
+      "id": "punk",
+      "kind": "tradition",
+      "name": "Punk",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/56087830@N00/9077584607",
+      "image_url": "https://live.staticflickr.com/2854/9077584607_4412969de1.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/09f6fd73-2da5-400d-b83c-05fa9f5ae9df/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "markhillary via flickr",
+      "match_confidence": "low",
+      "matched_label": "Orgasm Addict #buzzcocks #orgasmaddict #linder #manchester #punk #music #musica #record #single #disco"
+    },
+    {
       "id": "punta",
       "kind": "tradition",
       "name": "Punta (Honduras Garifuna traditional)",
@@ -17864,6 +18357,20 @@
       "matched_label": "Russian romance"
     },
     {
+      "id": "sacred_steel",
+      "kind": "tradition",
+      "name": "Sacred steel",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/28179929@N08/6737894257",
+      "image_url": "https://live.staticflickr.com/7027/6737894257_32ab661a70_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/906d63db-3cd5-4a4b-ab47-03b4d678d0bc/thumb/",
+      "license": "CC BY-SA",
+      "license_raw": "by-sa 2.0",
+      "credit": "sludgegulper via flickr",
+      "match_confidence": "low",
+      "matched_label": "The Campbell Brothers - Sacred Steel on Tour!"
+    },
+    {
       "id": "sad_rap_emo_trap",
       "kind": "tradition",
       "name": "Sad rap / emo trap",
@@ -17982,6 +18489,20 @@
       "credit": "Mídia promocional do programa Musicograma",
       "match_confidence": "high",
       "matched_label": "samba rock"
+    },
+    {
+      "id": "samul_nori",
+      "kind": "tradition",
+      "name": "Samul nori",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/12513129@N06/22686013775",
+      "image_url": "https://live.staticflickr.com/5726/22686013775_ffdb883df1_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/6808c30a-3dbe-4b49-817f-2d91edf8611d/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "LAMARA BERGA via flickr",
+      "match_confidence": "low",
+      "matched_label": "Samul nori"
     },
     {
       "id": "schlager_german",
@@ -19109,6 +19630,20 @@
       "matched_label": "trip hop"
     },
     {
+      "id": "tropical_bolero",
+      "kind": "tradition",
+      "name": "Bolero (tropical romantic)",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/84753587@N00/14045089766",
+      "image_url": "https://live.staticflickr.com/7330/14045089766_54dbf6318a_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/50cbbfcf-023e-4ffb-87e9-6827b187e6d8/thumb/",
+      "license": "CC BY-SA",
+      "license_raw": "by-sa 2.0",
+      "credit": "ClearFrost via flickr",
+      "match_confidence": "low",
+      "matched_label": "Ravel Bolero"
+    },
+    {
       "id": "tropicalia",
       "kind": "tradition",
       "name": "Tropicália",
@@ -19527,6 +20062,20 @@
       "credit": "Jean Yves ESSIGAN",
       "match_confidence": "medium",
       "matched_label": "zouglou"
+    },
+    {
+      "id": "zydeco",
+      "kind": "tradition",
+      "name": "Zydeco",
+      "source": "openverse",
+      "source_page": "https://www.flickr.com/photos/44846110@N07/5994512612",
+      "image_url": "https://live.staticflickr.com/6011/5994512612_2065651379_b.jpg",
+      "thumb_url": "https://api.openverse.org/v1/images/d7a8952d-7197-41ee-b832-d89af7e741f3/thumb/",
+      "license": "CC BY",
+      "license_raw": "by 2.0",
+      "credit": "Clotee Pridgen Allochuku via flickr",
+      "match_confidence": "low",
+      "matched_label": "Long Beach Zydeco Music at Crawfish Festival"
     }
   ]
 }
