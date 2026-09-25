@@ -1821,3 +1821,170 @@ status: reachable
 precondition: empty
 notes: Kept alongside the exact returns in one declaration in the harness's spelling (e.g. 5.head,13.head); Declare these exact returns keeps placed ones.
 ```
+
+## Map page (2026-09-25)
+
+The Map page redesign (`docs/ui-foundation.md` → Map). Everything below lives
+inside the atlas (`atlas.html`, `src/atlas.js`, `src/map-ui.js`, `src/map.css`),
+which the Map view embeds as `#map-frame` and which also runs standalone. The
+reachability gate evaluates `codex.html` only and cannot see into the frame, so
+each entry's `selector` is the frame (its entry point) and `notes` names the
+in-frame selectors and what verifies them: `scripts/test_atlas_controls.js`
+(panels, filters, routes, collections, search), `scripts/check_layout_usability.js`
+(search results inside the viewport, embedded and standalone, 360–1920 px) and
+`scripts/check_ui_foundation.js` E (Add genre reports what arrived). The rest was
+verified in a browser for this change; a frame-aware gate is a shell request.
+
+```yaml
+name: map-search
+kind: widget
+selector: '#map-frame'
+surface: Map toolbar — search by name, place or catalog id, plus sound words; results list with glyphs, and a Sound-word match block saying which descriptors lit extra traditions and that they matched by descriptor, not name
+implementation: onQuery in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #search, #results [data-tid], .results-sound. ArrowDown from the field walks the results. No-results text names the query and suggests a place, id or sound word. test_atlas_controls.js 3 and 5; check_layout_usability.js.
+```
+
+```yaml
+name: map-filter-chips
+kind: widget
+selector: '#map-frame'
+surface: Map toolbar — one chip per constraint in force (genre groups, collection, search), each with its own remove button, plus Clear filters; "No filters" when none
+implementation: syncControls in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #filter-summary [data-clear], #clear-filters, #no-filters. Chips are rebuilt from state on every change, so a route (which clears filters) or a collection (which replaces groups and search) leaves no stale chip. A route is shown as its own map chip, not a filter. test_atlas_controls.js 1, 3, 4, 5, 6.
+```
+
+```yaml
+name: map-side-tabs
+kind: widget
+selector: '#map-frame'
+surface: Map side column — Genres, Routes and Collections tabs (aria-expanded for open, a dot and bold label for an applied filter), collapse to a rail, resizable edge; below 900px a bottom tab bar with In view, each opening a sheet over the map
+implementation: setPanel, setCollapsed, syncSide in src/atlas.js; splitter in src/map-ui.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #t-territories, #t-routes, #t-threads, #t-inview, #t-collapse, .layout-splitter. Collapse is a codex-layout preference reset by Reset layout. Sheets close on an outside tap or Escape and return focus to their tab. test_atlas_controls.js 1.
+```
+
+```yaml
+name: map-genre-groups
+kind: widget
+selector: '#map-frame'
+surface: Map → Genres — all taxonomy groups with glyph (hue + shape), label and count; pick to show only those groups; Clear
+implementation: renderLegend, toggleRoot in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #legend-panel [data-root] (aria-pressed), [data-act="clear-roots"]. Each group's (hue, shape) pair is read from the theme palette by the canvas and the DOM alike, so the marker and its legend entry always agree and colour is never the only cue. Choosing a group ends a collection. test_atlas_controls.js 1 and 4.
+```
+
+```yaml
+name: map-key
+kind: widget
+selector: '#map-frame'
+surface: Map — on-map key of the groups in view (toggle each), what a bubble means (documented scenes, not abundance; ring = group shares), All groups, Hide/Show
+implementation: renderKey in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #legend-key [data-key-root], [data-act="toggle-key"], [data-act="all-groups"]. Hidden state is a codex-layout preference. Hidden below 900px, where the Genres sheet is the legend.
+```
+
+```yaml
+name: map-routes
+kind: widget
+selector: '#map-frame'
+surface: Map → Routes — every catalogued route; choosing one clears filters, fits it, draws it solid and numbers its endpoints 1 and 2 in source order; genre endpoints open their detail, place endpoints are labelled as places; a route chip on the map clears it; Hide routes
+implementation: renderRoutes, pickRoute, clearRoute, drawRouteEnds in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #routes-panel [data-route] (aria-current, aria-expanded), .route-ends [data-tid], [data-act="hide-routes"], #route-chip [data-act="clear-route"]. The curve claims no path or intermediate stop. test_atlas_controls.js 6.
+```
+
+```yaml
+name: map-collections
+kind: widget
+selector: '#map-frame'
+surface: Map → Collections — each collection with its size; choosing one replaces groups and search, fits it, and lists its stops (not a route) with Clear; a stop's detail offers Back to collection
+implementation: renderThreads, pickThread, renderThreadCard, exitThread in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #threads-panel [data-thid], #thread-card [data-tid], [data-act="exit-thread"], [data-act="back-thread"]. No line joins the stops. test_atlas_controls.js 2, 3, 7.
+```
+
+```yaml
+name: map-in-view
+kind: widget
+selector: '#map-frame'
+surface: Map side column — In view: every tradition in the current view (after filters), grouped by region with counts; Show all in a region expands in place
+implementation: syncList in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #list [data-tid], [data-expand] (aria-expanded). Nothing in view says which filters are in force. check_layout_usability.js waits on its rows.
+```
+
+```yaml
+name: map-location-chooser
+kind: widget
+selector: '#map-frame'
+surface: Map — At this location: a bubble that cannot be zoomed apart, or pins sharing a pixel, list every member grouped by glyph, with Find a tradition here, Arrow/Home/End/Enter, and Back to in view (or Back to the map on a phone)
+implementation: openStack, renderStack, renderStackList, wireStack in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #stack, #stack-filter, #stack-list [data-tid], [data-act="close"]. Docked it takes the column and the tab it displaced returns on Back; Escape or Back returns focus to the map. A screen-reader status reports the match count while filtering.
+```
+
+```yaml
+name: map-tradition-inspector
+kind: widget
+selector: '#map-frame'
+surface: Map — tradition inspector: classification path, name and place, Listen (external YouTube search), Add genre (embedded) or Open in Codex Musica (standalone), "Added n of m instruments" / failure with Retry, Open on the Genre page, background, Default recipe (not Your recipe; Copy default, Show full), Similar sounds with their basis (shared sound words named per row) or the stated fallback, collections and routes including it, Location and sources (documented place, drawn position, model-reviewed vs human-verified status, id, JSON)
+implementation: select, renderCard, requestAdd and the genre-added listener in src/atlas.js; src/pages/map.js relays add-genre and genre-web
+status: reachable
+precondition: 'map view'
+notes: In-frame #card, [data-act="add"], .add-status, [data-act="genre-page"], [data-act="copy"], [data-act="toggle-recipe"], [data-act="retry-detail"], [data-open-thread], [data-open-route], .card-sources. A thumbnail appears only when references/_image_manifest.json lists one with a credit or licence, which is shown beneath it; otherwise the group glyph. check_ui_foundation.js E (add reports what arrived); test_atlas_controls.js 6, 7.
+```
+
+```yaml
+name: map-view-controls
+kind: keyboard-shortcut
+selector: '#map-frame'
+surface: Map — zoom in/out, Reset view, Fit route / collection / selection / results (shown only when there is something to fit); the focused map pans with arrow keys (Shift for more), zooms with + and -, resets with 0; drag, wheel and pinch
+implementation: setupCanvas, zoomAt, fitTarget, fitPoints, resetView in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #zoom-in, #zoom-out, #zoom-reset, #zoom-fit, #canvas-host (tabindex 0, role application with its keys in the label).
+```
+
+```yaml
+name: map-information
+kind: widget
+selector: '#map-frame'
+surface: Map toolbar — Map information: bubbles count documented scenes, not abundance; pins drawn, model-reviewed and human-verified counts kept separate; how filters combine; imagery and projection; Reset layout
+implementation: renderProvenance, setInfo in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #t-info (aria-expanded), #provenance, [data-act="reset-layout"]. Escape or an outside click closes it.
+```
+
+```yaml
+name: map-panel-layout
+kind: drag-drop
+selector: '#map-frame'
+surface: Map — side column, inspector and key each have Move / Resize / Reset (drag or arrow keys, Home resets); the column and inspector resize from their inner edge; Reset layout restores all
+implementation: UILayout.floating / UILayout.splitter registered in src/map-ui.js
+status: reachable
+precondition: 'map view'
+notes: In-frame .layout-panel-tools, .layout-splitter. A panel moved out of its column gives the column back to the map. Desktop widths only (900px and up); sheets below.
+```
+
+```yaml
+name: map-standalone-atlas
+kind: widget
+selector: '#map-frame'
+surface: atlas.html on its own (and the published standalone build) — the same map, panels and inspector in Light and Dark, with Open in Codex Musica instead of Add genre
+implementation: atlas.html, scripts/build_atlas_standalone.js (shell) inlining src/atlas.js, src/map-ui.js, src/map.css
+status: reachable
+precondition: 'map view'
+notes: check_layout_usability.js loads atlas.html standalone at every width; check_ui_foundation.js A applies the stored theme before first paint.
+```

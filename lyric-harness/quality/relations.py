@@ -7545,6 +7545,39 @@ DRAWABLE_EXHIBITS = {
         ("Gazed they on this scene of beauty",
          "As Portala and his soldiers,", "1", "2")),
     # ── end of the English end / pair rhymes block ────────────────────────
+    # -- REPETITION AND RHETORICAL PAIR FIGURES (M-313, 2026-09-25) --------
+    # Unlike the rows above, every line here is QUOTED from a public-domain
+    # poem, witness and contrast alike, so the exhibit is an instance of the
+    # tradition and not a constructed input (doctrine 94). The contrast is
+    # the same poem's own neighbouring line or word, chosen to stand in none
+    # of the figure at the declared slots. Sources, verbatim modern spelling:
+    #   anadiplosis  Keats, "Ode to a Nightingale" (1819), the seam between
+    #                stanzas 7 and 8; contrast = stanza 8, lines 1-2.
+    #   polyptoton   Shakespeare, Sonnet 142 (1609), lines 1-2, sin~sinful;
+    #                contrast = lines 1 and 3, sin~state (onset agrees, root
+    #                does not).
+    #   repetition   Frost, "Stopping by Woods on a Snowy Evening" (1923,
+    #                US public domain since 2019), lines 15-16; contrast =
+    #                lines 14-15, keep~sleep (a rhyme, not a repetition).
+    # `epistrophe / radif` is in `CONTEXT_CONTROLS` below and the forbidden
+    # `homoioteleuton` in `WITNESS_FINDINGS` above (M-313 F8, on review);
+    # M-313 says why neither can be a row here.
+    "anadiplosis": (
+        ("Of perilous seas, in faery lands forlorn.",
+         "Forlorn! the very word is like a bell", "1", "2"),
+        ("Forlorn! the very word is like a bell",
+         "To toll me back from thee to my sole self!", "1", "2")),
+    "polyptoton": (
+        ("Love is my sin, and thy dear virtue hate,",
+         "Hate of my sin, grounded on sinful loving:", "1.T4", "2.T7"),
+        ("Love is my sin, and thy dear virtue hate,",
+         "O, but with mine compare thou thine own state,", "1.T4", "2.T9")),
+    "repetition": (
+        ("And miles to go before I sleep,",
+         "And miles to go before I sleep.", "1", "2"),
+        ("But I have promises to keep,",
+         "And miles to go before I sleep,", "1", "2")),
+    # -- end of the M-313 block --------------------------------------------
 }
 
 
@@ -7672,6 +7705,99 @@ WITNESS_FINDINGS = {
     "sung-delivery rhyme": ("M-311 F5", ()),
     "transformative / bent rhyme": ("M-311 F5", ()),
     "wrenched rhyme": ("M-311 F5", ()),
+    # -- HOMOIOTELEUTON (M-313 F8, 2026-09-25, on review) ------------------
+    # Every line QUOTED, as `corpus/sonnets.txt` prints it (doctrine 94).
+    # Sonnet 87, :1500-1502: possessing~releasing share `-ing` and no stem
+    # (the witness), and possessing~estimate is the quatrain's other rhyme
+    # (differs in affix and in rhyme, so it proves only that the judge can
+    # say no). The two rows after it are what show the rule too generous:
+    # Sonnet 87's own couplet, :1512-1513, flatter~matter — two
+    # monomorphemic words that the segmenter reads as `flat`+`-er` and
+    # `matt`+`-er` (the inflectional rows take no productivity test,
+    # `quality/morphology.py`) — and Sonnet 18, :327,329, day~May, where
+    # NEITHER word carries an affix and `morpheme_affix` AGREE still holds
+    # ('' == ''). Both are rhymes, not homoioteleuton, and both grade True.
+    # No morphology rule or threshold moved (doctrine 58).
+    "homoioteleuton": (
+        "M-313 F8 (morpheme_affix AGREE passes a plain rhyme)", (
+        (("Farewell! thou art too dear for my possessing,",
+          "And like enough thou know’st thy estimate,",
+          "The charter of thy worth gives thee releasing;"),
+         ("1", "3"), None, True),
+        (("Farewell! thou art too dear for my possessing,",
+          "And like enough thou know’st thy estimate,"),
+         ("1", "2"), None, False),
+        (("Thus have I had thee, as a dream doth flatter,",
+          "In sleep a king, but waking no such matter."),
+         ("1", "2"), None, False),
+        (("Shall I compare thee to a summer’s day?",
+          "Thou art more lovely and more temperate:",
+          "Rough winds do shake the darling buds of May,"),
+         ("1", "3"), None, False))),
+    # -- end of the M-313 block --------------------------------------------
+}
+
+
+#: WITNESS AND CONTRAST IN ONE DRAFT, for the schemas whose evidence cannot
+#: be a bare two-line `DRAWABLE_EXHIBITS` row (`MISSING.md` M-313). Each row
+#: is `(lines, witness_slots, contrast_slots)`; `schema_census` grades ONE
+#: mandate carrying both groups over `lines` through `Reviser.grade` and
+#: reads each group's own verdict. Three reasons a name is here and not
+#: above, never "it passes here and not there":
+#:   * its frame is the SONG's. `epistrophe / radif` reads
+#:     `frames.refrain_tail`, which `grade()` computes over the union of the
+#:     mandated lines with `mark_refrain_tail`'s declared defaults. Two lines
+#:     that do not share a tail yield an EMPTY frame and the grade refuses
+#:     (doctrine 20) — measured: the two-line contrast from this same speech
+#:     answers REFUSED, not violated. A line that lacks the refrain is a
+#:     negative only in a song that carries one, so the contrast is graded
+#:     beside the witness. No default was moved to get here (doctrine 58).
+#:   * it is `forbidden` or `deprecated`: `test_mandate_relation.py` keeps
+#:     those out of the drawable table, and a semantic witness is still owed.
+#:     (~~`homoioteleuton`~~ was the one such row; on review it is a grader
+#:     finding in `WITNESS_FINDINGS`, M-313 F8, and no row here is now.)
+#:   * the attempt FAILS today and the census must re-derive that, not a
+#:     sentence (doctrine 48). Those rows stay `unvalidated` and
+#:     `schema_census.SEMANTIC_BLOCKERS` names why.
+#: Every line is quoted from a public-domain source, named per row.
+CONTEXT_CONTROLS = {
+    # -- REPETITION AND RHETORICAL PAIR FIGURES (M-313, 2026-09-25) --------
+    # Shakespeare, The Merchant of Venice, 5.1, Bassanio's "If you did know
+    # to whom I gave the ring" speech: its last two `ring` lines and the
+    # line that breaks the run.
+    "epistrophe / radif": (
+        ("And how unwillingly I left the ring",
+         "When naught would be accepted but the ring,",
+         "You would abate the strength of your displeasure."),
+        ("1", "2"), ("2", "3")),
+    # `homoioteleuton` WAS HERE, counted validated on possessing~estimate
+    # alone: a contrast that differs in affix AND rhyme cannot show the
+    # rule is too generous. It is `WITNESS_FINDINGS` (M-313 F8) now.
+    # FAILING, recorded (M-313). Shakespeare, Sonnet 135 (1609), lines 1-2:
+    # `Will` the name against `Will` the desire; contrast Will~hast.
+    "antanaclasis": (
+        ("Whoever hath her wish, thou hast thy Will,",
+         "And Will to boot, and Will in overplus;"),
+        ("1.T8", "2.T2"), ("1.T6", "2.T2")),
+    # FAILING, recorded (M-313). Tennyson, "The Charge of the Light
+    # Brigade" (1854), stanza 3 as staged in
+    # `corpus/song/eng_british_alfred_tennyson.txt`: lines 1, 2 and 6 of the
+    # stanza (the lines between hold words CMUdict cannot read).
+    "incremental repetition": (
+        ("Cannon to right of them,",
+         "Cannon to left of them,",
+         "Boldly they rode and well,"),
+        ("1", "2"), ("1", "3")),
+    # FAILING, recorded (M-313). Payne, "My Boyhood's Home", as staged in
+    # `corpus/song/eng_parlour_john_howard_payne.txt` (Beadle's Dime Song
+    # Book No. 4, 1860): the chorus pointer printed `&c.`, the line it
+    # points at, and a verse line it does not.
+    "refrain by reference": (
+        ("My boyhood’s home! I see thy hills--",
+         "I come to thee from war’s dread school,",
+         "My boyhood’s home, &c."),
+        ("1", "3"), ("2", "3")),
+    # -- end of the M-313 block --------------------------------------------
 }
 
 
