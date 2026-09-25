@@ -247,12 +247,10 @@ async function sparqlLabelHits(labels, kind) {
     ' . OPTIONAL { ?item wdt:P18 ?img } OPTIONAL { ?item wdt:P373 ?cat } ' +
     'SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } }';
   // POST: a GET carrying 150 labels overflows the request line (HTTP 431).
-  const data = await cached('sparql3:' + kind + ':' + labels.join('|'), () =>
-    getJson(
-      'https://query.wikidata.org/sparql?format=json',
-      0,
-      'query=' + encodeURIComponent(query)
-    )
+  const data = await getJson(
+    'https://query.wikidata.org/sparql?format=json',
+    0,
+    'query=' + encodeURIComponent(query)
   );
   return data.results.bindings.map((b) => ({
     label: b.lab.value,
@@ -294,10 +292,15 @@ async function wikidataMatches(entities) {
         await run(batch.slice(0, mid));
         return run(batch.slice(mid));
       }
-      for (const h of hits) (byLabel[h.label] ||= []).push(h);
+      // Cached per label, so a rerun over a different entity set reuses them.
+      for (const l of batch) cache['wdl:' + kind + ':' + l] = [];
+      for (const h of hits) cache['wdl:' + kind + ':' + h.label].push(h);
       saveCache();
     };
-    for (const batch of chunk(allLabels, 60)) await run(batch);
+    const todo = allLabels.filter((l) => !('wdl:' + kind + ':' + l in cache));
+    for (const batch of chunk(todo, 60)) await run(batch);
+    for (const l of allLabels)
+      for (const h of cache['wdl:' + kind + ':' + l] || []) (byLabel[h.label] ||= []).push(h);
     for (const e of mine) {
       const cands = allCandidates(e);
       const primary = nameCandidates(e.name)[0];
