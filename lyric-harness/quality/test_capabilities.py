@@ -470,6 +470,26 @@ def test_the_whole_registry():
     check("every `relations.WITNESS_FINDINGS` row is still graded wrongly "
           "or refused — a repaired one belongs in DRAWABLE_EXHIBITS or "
           "CENSUS_EXHIBITS (M-311)", not fixed, fixed)
+    # The check above covers a finding only if the census graded it, so the
+    # census must re-grade EVERY name in the table, not the ones it prints.
+    graded = sorted(n for n, _ in rep["witness_findings"])
+    check("...and the census re-grades every `WITNESS_FINDINGS` name, so the "
+          "check above reaches each of them (M-311)",
+          graded == sorted(R.WITNESS_FINDINGS), graded)
+    # F7: `enjambed rhyme` was once counted validated on a LINKED-rhyme
+    # witness (the same Torry Anderson pair as `linked rhyme`). It must stay
+    # out of the exhibit tables and unvalidated while the schema still
+    # accepts that linked pair — the row above goes red the day it does not.
+    enj = dict(rep["witness_findings"]).get("enjambed rhyme") or {}
+    check("`enjambed rhyme` is a finding, not a witness: absent from "
+          "DRAWABLE_EXHIBITS, unvalidated, and still accepting the "
+          "linked-not-enjambed pair it must refuse (M-311 F7)",
+          "enjambed rhyme" not in R.DRAWABLE_EXHIBITS
+          and rep["semantic_status"]["enjambed rhyme"]["status"]
+          == "unvalidated"
+          and enj.get("verdicts", [None])[0] is True
+          and enj.get("expected", [None])[0] is False,
+          enj)
     # THE COUNT ABOVE IS 77 AND THREE OF THE 77 ARE LIVE ON A FIXTURE. That
     # was true before 2026-08-23 too -- `earlier` and `poet` have always been
     # constructed inputs -- and the census did not say so, so "77 askable"

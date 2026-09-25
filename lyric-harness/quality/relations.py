@@ -7464,7 +7464,9 @@ DRAWABLE_EXHIBITS = {
     # WRONG are not here (§13 would go red); they are `WITNESS_FINDINGS`.
     "additive rhyme": (
         # Carroll, "Beautiful Soup" — eng_british_lewis_carroll.txt:129-130,
-        # the couplet's own rhyme: two ~ Soup, the coda added to open UW.
+        # both lines verbatim from this repository's edition, which prints
+        # "two / Pennyworth": two ~ Soup, the coda S added to open UW. No
+        # claim is made about which words the author meant to rhyme.
         ("Who would not give all else for two",
          "Pennyworth only of beautiful Soup?", "1", "2"),
         ("Who would not give all else for two",
@@ -7486,7 +7488,7 @@ DRAWABLE_EXHIBITS = {
         ("Words the heart breaks to say;", "A little time for saying",
          "1", "2")),
     "cross rhyme": (
-        # Poe, "The Raven" — eng_american_edgar_allan_poe.txt:23-24: the
+        # Poe, "The Raven" — eng_american_edgar_allan_poe.txt:24-25: the
         # line-end December against ember, the fifth word of the next.
         ("Ah, distinctly I remember, it was in the bleak December,",
          "And each separate dying ember wrought its ghost upon the floor.",
@@ -7494,17 +7496,12 @@ DRAWABLE_EXHIBITS = {
         ("Ah, distinctly I remember, it was in the bleak December,",
          "And each separate dying candle wrought its ghost upon the floor.",
          "1", "2.T5")),
-    "enjambed rhyme": (
-        # Torry Anderson — eng_celtic_msm_rev_t_g_torry_anderson.txt:96-97;
-        # lie ~ the run opening the next line. INCIDENTAL, and the SAME
-        # rows as linked rhyme: on them the two schemas answer alike
-        # (M-311 records that; it is a registry question, not a verdict).
-        ("I ask no willow where I lie,", "My mourner let the mermaid be,",
-         "1", "2"),
-        ("I ask no willow where I lie,", "No mourner let the mermaid be,",
-         "1", "2")),
+    # `enjambed rhyme` WAS HERE on the linked-rhyme pair below and is not:
+    # that pair is a linked rhyme, so it counted the schema validated on a
+    # witness of a different figure. It is `WITNESS_FINDINGS` F7.
     "linked rhyme": (
-        # The same two lines, bound at the next line's HEAD. `Our` was the
+        # Torry Anderson — eng_celtic_msm_rev_t_g_torry_anderson.txt:96-97,
+        # lie ~ My, bound at the next line's HEAD. INCIDENTAL. `Our` was the
         # first contrast tried and REFUSES (CMUdict: AW1 ER0 / AA1 R).
         ("I ask no willow where I lie,", "My mourner let the mermaid be,",
          "1", "2.head"),
@@ -7522,7 +7519,8 @@ DRAWABLE_EXHIBITS = {
     "syllabic rhyme": (
         # R. E. White — eng_pah_richard_edward_white.txt:106,108, the two
         # A-position line ends: beauty ~ army agree only on the final
-        # unstressed IY.
+        # unstressed IY. INCIDENTAL: the stanza's rhyme is to-day ~ bay
+        # (:109,111), and beauty returns as itself (:110).
         ("Gazed they on this scene of beauty", "As Portala and his army,",
          "1", "2"),
         ("Gazed they on this scene of beauty",
@@ -7595,6 +7593,23 @@ WITNESS_FINDINGS = {
         (("the kitchen light was fading fast",
           "a silver ship went sailing past"), ("1", "2"), None, True),
         (("the kitchen light was fading fast", "go slow"),
+         ("1", "2"), None, False))),
+    "enjambed rhyme": (
+        "M-311 F7 (schema cannot distinguish enjambed from linked rhyme)", (
+        # Torry Anderson — eng_celtic_msm_rev_t_g_torry_anderson.txt:96-97,
+        # the `linked rhyme` exhibit: lie ~ My is bound at the next line's
+        # HEAD word and borrows nothing across the break, so an enjambed
+        # judge must say no; the pair spans (line end ~ a 1-3 syllable run
+        # in the next line) take a one-word head as such a run and say yes.
+        # There is no exhibit row: an enjambed rhyme's borrowed unit needs a
+        # third member (E33) this pair model does not hold, so no real pair
+        # could show it apart from linked rhyme. The second row is the
+        # constructed one-word contrast (doctrine 94), kept to show the
+        # schema CAN say no — the defect is the linked reading, not a judge
+        # that answers yes to everything.
+        (("I ask no willow where I lie,", "My mourner let the mermaid be,"),
+         ("1", "2"), None, False),
+        (("I ask no willow where I lie,", "No mourner let the mermaid be,"),
          ("1", "2"), None, False))),
     "eye rhyme": ("M-311 F5", (
         # Shakespeare, Sonnet 116 — corpus/sonnets.txt:1995,1997.

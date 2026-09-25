@@ -28311,7 +28311,7 @@ added on the review say 2026-09-25.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~364~~ -> **365**.
 
-### M-311 · Twenty English pair-rhyme schemas carried no semantic evidence; eleven now answer a real witness and a minimal contrast, and six of the rest are GRADER FINDINGS — three rules too generous, one figure that can never assemble, two negatives the route cannot reach — plus four schemas the grade route cannot be handed the declaration they need `PARTIAL` 2026-09-25 — the coordinator's split of the 55 unvalidated schemas, English end/pair rhymes
+### M-311 · Twenty English pair-rhyme schemas carried no semantic evidence; ~~eleven~~ ten now answer a real witness and a minimal contrast, and six of the rest are GRADER FINDINGS — three rules too generous, one figure that can never assemble, two negatives the route cannot reach — plus four schemas the grade route cannot be handed the declaration they need, and one schema that cannot tell itself from linked rhyme `PARTIAL` 2026-09-25 — the coordinator's split of the 55 unvalidated schemas, English end/pair rhymes
 
 **THE GAP.** `quality/schema_census.py` printed, at `e08cd207`:
 
@@ -28335,12 +28335,17 @@ own rhyme lies elsewhere.
 on every run (doctrine 48 — no verdict below is typed by hand; each is what
 `python3 quality/schema_census.py` prints):
 
-- nine rows appended to `relations.DRAWABLE_EXHIBITS` — additive (Carroll,
-  two~Soup), amphisbaenic (Lowell, own~know), apocopated (Marston,
-  saying~say), cross (Poe, December~ember at `2.T5`), enjambed and linked
-  (Torry Anderson, lie~My), reverse (Whittier, peel~peak), syllabic
+- ~~nine~~ seven rows appended to `relations.DRAWABLE_EXHIBITS` — additive
+  (Carroll, two~Soup), amphisbaenic (Lowell, own~know), apocopated (Marston,
+  saying~say), cross (Poe, December~ember at `2.T5`), ~~enjambed and~~
+  linked (Torry Anderson, lie~My), reverse (Whittier, peel~peak), syllabic
   (R. E. White, beauty~army); each `[True, False]`, and each also passes
-  `quality/test_mandate_relation.py` §13 inside its one-stanza frame;
+  `quality/test_mandate_relation.py` §13 inside its one-stanza frame.
+  CORRECTED ON REVIEW, 2026-09-25: *nine* was already a miscount of the
+  EIGHT schemas the block held, and the eighth, `enjambed rhyme`, has left
+  it — its exhibit was the same Torry Anderson pair as `linked rhyme`'s, a
+  linked rhyme, so the census counted enjambed validated on a witness of a
+  different figure. It is F7 below;
 - `relations.CENSUS_EXHIBITS`, evidence the draw pool may not hold, because
   `DRAWABLE_EXHIBITS` is also the certified set (§12 there refuses a
   deprecated name in it): `monorhyme / leash` (Tennyson, "The Eagle",
@@ -28358,7 +28363,11 @@ on every run (doctrine 48 — no verdict below is typed by hand; each is what
 
 After, printed by the same command:
 
-    semantic validation (separate from capability): {'unvalidated': 44, 'regression_witness': 5, 'witness_and_contrast': 29}
+    semantic validation (separate from capability): {'unvalidated': 45, 'regression_witness': 5, 'witness_and_contrast': 28}
+
+(The first draft of this entry quoted unvalidated ~~44~~ and
+witness_and_contrast ~~29~~, which counted F7's linked-rhyme pair as an
+enjambed witness.)
 
 **THE FINDINGS**, each re-graded by the census (exhibit first):
 
@@ -28415,17 +28424,30 @@ After, printed by the same command:
   `perfect rhyme` refuses the same pair. The second tercet is the exhibit;
   the first stays in `WITNESS_FINDINGS` so the refusal is not lost.
 
-**RECORDED, NOT A VERDICT.** On every row tried, `enjambed rhyme` and
-`linked rhyme` answer alike; E33 (Turco) glosses enjambed rhyme as using
-"first sound of next line to make rhyming unit", which may need a third
-member the pair model does not hold. That is a registry question for a
-ruling.
+- **F7 — enjambed rhyme cannot be told from linked rhyme: `[True, False]`
+  where `[False, False]` is the answer.** ~~RECORDED, NOT A VERDICT. On every
+  row tried, `enjambed rhyme` and `linked rhyme` answer alike~~ — that was
+  recorded here while the same pair stood in `DRAWABLE_EXHIBITS` as the
+  witness for BOTH, so the census counted enjambed rhyme validated on a
+  linked rhyme. Torry Anderson's "I ask no willow where I lie, / My mourner
+  let the mermaid be," (`corpus/song/eng_celtic_msm_rev_t_g_torry_anderson.txt`:96-97)
+  binds lie~My at the next line's HEAD word and borrows nothing across the
+  break, so an enjambed judge must say no; the schema's second span, a
+  `free_run` of 1-3 syllables in the next line, takes a one-word head as
+  such a run and says yes. The constructed one-word contrast ("No
+  mourner…") is violated, correctly, and stays as the second row so the
+  finding is the linked reading and not a judge that says yes to
+  everything. There is NO exhibit row: E33 (Turco) glosses enjambed rhyme
+  as using "first sound of next line to make rhyming unit", which needs a
+  third member the pair model does not hold, so no real pair can show the
+  schema apart from `linked rhyme`. Whether the schema needs that member is
+  a registry question for a ruling.
 
-**STILL OPEN.** F1-F4 and F6 are judge or phonology repairs, and the
-declaration channel of F5 is an interface change; none is attempted here.
-Nine of the twenty remain `unvalidated`: chain rhyme (rap), eye rhyme,
-holorhyme, mosaic rhyme, offbeat internal rhyme, parechesis / general
-consonance, sung-delivery rhyme, transformative / bent rhyme, wrenched
-rhyme.
+**STILL OPEN.** F1-F4 and F6 are judge or phonology repairs, the
+declaration channel of F5 is an interface change, and F7 is a registry
+ruling; none is attempted here. ~~Nine~~ Ten of the twenty remain
+`unvalidated`: chain rhyme (rap), enjambed rhyme, eye rhyme, holorhyme,
+mosaic rhyme, offbeat internal rhyme, parechesis / general consonance,
+sung-delivery rhyme, transformative / bent rhyme, wrenched rhyme.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~365~~ -> **366**.
