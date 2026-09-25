@@ -65,6 +65,9 @@
   background: var(--cm-surface);
 }
 .gp-main {
+  /* Its own width, not the route's, decides the narrow catalogue: Your recipe
+     sits on the right and the editor can open beside it. */
+  container: gp-main / inline-size;
   min-width: 0;
   min-height: 0;
   overflow: auto;
@@ -654,7 +657,8 @@
 }
 .gp-detail-head {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  /* The name keeps a readable column; the actions give way and wrap. */
+  grid-template-columns: auto minmax(220px, 1fr) minmax(0, auto);
   gap: 4px 18px;
   padding: 16px 16px 8px;
 }
@@ -1021,8 +1025,8 @@
   min-width: 90px;
 }
 
-/* ── Narrow catalogue (the editor or a wide recipe beside it) ──────────── */
-@container discovery (max-width: 760px) {
+/* ── Narrow catalogue (Your recipe, the editor or a phone beside it) ───── */
+@container gp-main (max-width: 700px) {
   .gp-overview {
     grid-template-columns: minmax(0, 1fr);
   }

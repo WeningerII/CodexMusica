@@ -922,7 +922,7 @@ function gpFitPlaceholder() {
 
 uiRegisterPage({
   id: 'genre',
-  recipe: 'sidebar',
+  recipe: 'sidebar-right',
   mount(surface) {
     surface.innerHTML = `<div class="gp-head"><div class="gp-title"><h1>Genres &amp; traditions</h1><span id="genre-total" class="gp-total"></span></div><label class="ui-search cm-search gp-search">${icon('search', 20)}<input id="genre-search" type="search" placeholder="Search genres, traditions, or descriptions…" aria-label="Search genres" autocomplete="off"></label><div class="gp-head-actions">${uiButton('surprise', 'Surprise me', 'shuffle', 'class="cm-btn cm-btn-tonal" data-tooltip="Add a random genre\'s whole ensemble to Your recipe (Undo removes it)"')}${uiButton('ai', 'AI recipe', 'sparkles', 'class="cm-btn cm-btn-tonal"')}</div></div><div id="genre-body"><aside id="genre-browse" class="gp-browse" aria-label="Browse and find a sound"></aside><div id="genre-main" class="gp-main"><div id="genre-maintabs" class="gp-maintabs"></div><div id="genre-list"></div></div></div>`;
     $ui('genre-search').addEventListener('input', () => {
