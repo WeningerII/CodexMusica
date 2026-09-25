@@ -840,10 +840,13 @@ rejections are enforced and each is a silent failure mode:
   - a revision that touches lines nobody targeted
   - a revision that restructures rather than revises
 Doctrine 9 is the load-bearing one and it is now mechanical: a flagged
-rhyme gets its candidate field with the MOST FREQUENT band-passing
-members marked FORBIDDEN, and verify() rejects a revision that lands on
-one. Passing the band by reaching for fire/desire is the slop direction,
-so a loop that recommended it would manufacture what the floor rejects.
+rhyme gets its candidate field with ~~the MOST FREQUENT band-passing
+members~~ the MOST PREDICTABLE band-passing members — the partners the
+song corpus has seen realised as the call's rhyme, never a word it has no
+evidence for (2026-09-24, `MISSING.md` M-310) — marked FORBIDDEN, and
+verify() rejects a revision that lands on one. Passing the band by
+reaching for fire/desire is the slop direction, so a loop that
+recommended it would manufacture what the floor rejects.
 `modal_exclusion=0` disables the rule and is reachable so the defect is
 demonstrable; it is not the default.
 
@@ -856,9 +859,29 @@ time. Tier 1: HOMEOTELEUTON — a partner on the SAME SPELLED ENDING
 (`lyric_harness.spelled_rime`: silent-e folds, y is a vowel letter, w is
 not) is banned outright, whatever the corpus frequency, and the pair
 check reads the spellings directly so no finite field can shelter one.
-Tier 2: the top `modal_exclusion` of the DIFFERENTLY-spelled remainder.
-Both tiers land in `joint_field`'s forbidden set (the offers) AND the
-proactive pair check (`HOMEOTELEUTON` / `MODAL_RHYME` notes, both in
+Tier 2: ~~the top `modal_exclusion` of the DIFFERENTLY-spelled remainder~~
+**AT MOST `modal_exclusion` of the DIFFERENTLY-spelled remainder, and only
+partners the song table has seen realised as the call's rhyme** (the
+EVIDENCE-GATED head, `quality/revise.py` `_rank_field_compute`, 2026-09-24,
+`MISSING.md` M-310). **OWNER RULING 2026-09-25, verbatim: *"go ahead, the
+tier-2 change is fine"*** — accepting that `modal_exclusion` moves from
+"exactly k" to "at most k, evidenced partners only", and that tier 2 is
+EMPTY for a call the song table has no evidence for. The old reading filled
+the slots the table could not from a global frequency rank, so `thing`'s
+head held `it`/`is`/`in`/`this` while `anything` was offered, and
+MODAL_RHYME called `it` one of the six most-predictable answers to `thing`
+on zero observations. What the ruling accepts, measured 2026-09-24 (M-310):
+36.3% of line-final word types (5.9% of line-final tokens) have no realised
+partner, so their tier 2 is empty by construction; counting the calls whose
+every realised partner is same-spelled (still banned, by tier 1), a seeded
+sample puts the empty-tier-2 share at ~69% of types and ~21% by use weight,
+and the share with NO ban of either tier at ~17% of types and ~3% by use.
+Calls absent from the song table get no tier-2 ban at all; tier 1 is
+unchanged.
+A frequency-of-rhyme fallback for unevidenced calls is a SEPARATE decision
+nobody has made (`BACKLOG.md` RULINGS WANTED #26). Both tiers land in
+`joint_field`'s forbidden set (the offers) AND the proactive pair check
+(`HOMEOTELEUTON` / `MODAL_RHYME` notes, both in
 `MANDATORY_PURSUE` — unskippable). The counterweight that keeps the ban
 from closing rhyme classes is `Declaration.admit`: what satisfies a
 mandate is a DECLARED set. **THE DEFAULT IS ALL FOUR SINCE 2026-08-22
@@ -3261,10 +3284,19 @@ from the first run — do not drift from these either:**, merged into one run.)
 
 48. **Doctrine 9 is only real once it is mechanical.** "Push away from the
    optimum" sat in this file as a sentence for the whole project. It is now a
-   number -- modal_exclusion -- and an enforcement: the brief names the most
-   frequent band-passing candidates as FORBIDDEN and verify() rejects a
-   revision that takes one. A principle that lives only in prose gets followed
-   exactly as often as someone remembers it.
+   number -- modal_exclusion -- and an enforcement: the brief names ~~the most
+   frequent band-passing candidates~~ at most modal_exclusion of the most
+   PREDICTABLE band-passing candidates -- partners the song corpus has seen
+   realised as the call's rhyme, and no others (evidence-gated 2026-09-24,
+   `MISSING.md` M-310; accepted by the owner 2026-09-25, *"go ahead, the
+   tier-2 change is fine"*) -- as FORBIDDEN and verify() rejects a
+   revision that takes one. ("Most frequent" was already stale from
+   2026-08-11, when the ranking became the song-corpus conditional; the
+   head kept filling from global frequency where that table ran out until
+   2026-09-24.) A principle that lives only in prose gets followed
+   exactly as often as someone remembers it -- which is why the gate itself
+   is pinned by `quality/test_homeoteleuton.py` §6 and a mutation, not by
+   this sentence.
 
 62. **The tradition frequently states the rule you were about to invent.**
    Snorri's own Háttatal prose supplies two things a modern summary omits, and

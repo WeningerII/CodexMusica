@@ -1759,6 +1759,36 @@ until ruled.
    declared words, and a reader took it for the judge reading the whole
    phrase (M-245's finding). Rendering only; the ruling is whether the
    line prints the judge's own reads or is dropped under a schema verdict.
+25. ~~**M-310 — may tier 2 of the modal ban be EVIDENCE-GATED?**
+   `modal_exclusion` would move from "exactly k" to "at most k, evidenced
+   partners only": tier 2 empty wherever the song table has no realised
+   partner for the call, and a call absent from the table gets no tier-2 ban
+   at all.~~ RULED 2026-09-25 BY THE OWNER, verbatim: *"go ahead, the
+   tier-2 change is fine"*. Not a delegation ruling: the owner was shown the
+   consequence and accepted it. What was accepted, measured 2026-09-24
+   (`MISSING.md` M-310): 5,027 of 13,835 line-final word types (36.3%) have
+   no realised partner at all, so tier 2 is empty for them by construction —
+   14,689 of 248,106 line-final tokens (5.9%) by use weight. A seeded
+   sample (150 types uniform, 150 by use) puts the share whose GATED tier 2
+   is empty at 69.3% of types (95% CI 61.5–76.2) and 20.7% by use (15.0–27.8)
+   — most of the difference being calls whose every realised partner is
+   same-spelled and so still banned by tier 1 — and the share with NO ban of
+   either tier at 16.7% of types and 2.7% by use. Tier 1 is unchanged. The
+   gate landed on `fix/w-ban-gate` for PR #380.
+26. **A frequency-of-rhyme fallback for calls the song table cannot
+   evidence?** Under the evidence gate (row 25) a call with no realised
+   partner gets no tier-2 ban, so common differently-spelled perfect rhymes
+   of an unseen call are OFFERED rather than banned. The ban-repair panel's
+   candidate B (2026-09-24) filled those slots with the most frequent
+   band-passing RHYMES of the call instead. The panel rejected it as the fix
+   for #380 — its §22 pass came from the menu collapsing (`thing`'s menu
+   23/24 -> 0/24 identity), it turned ~20 green checks red, dirtied 4 of 6
+   capacity witnesses and banned 76 pairs across 12 of 15 exit-0 songs —
+   and "most frequent rhyme" is measured nowhere as a predictor of what a
+   writer reaches for (`RESULTS_SONG_FREQUENCY.md` measures only the
+   conditional). The ruling is whether such a fallback should exist at all,
+   and if so under what measured predictor. Not a recommendation; nothing is
+   built on it.
 
 ## RULINGS TAKEN UNDER DELEGATION — 2026-09-18
 
@@ -2146,11 +2176,11 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 43 OPEN / 33 PARTIAL / 1 BLOCKED / 272 CLOSED / 15 RESOLVED = 364 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 43 OPEN / 33 PARTIAL / 1 BLOCKED / 273 CLOSED / 15 RESOLVED = 365 entries | `python3 quality/counters.py` |
 | doctrines | **96**, a contiguous run 1–96 with no number in both files (21 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,741 lines with a `__main__` and 4 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`, `span_rules.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
 | public symbols by where they are referenced | **1633** DECLARED-public top-level functions/classes under `quality/` and the root — **365** named by another production module, **492** by tests only, **641** only inside their own module, **12** by nothing anywhere, **123** REFUSED (77 ambiguous, 35 dynamic, 11 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **93** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
-| mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
+| mutations declared | **59 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `corpus/song/eng_*` — K-1's own quantities | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

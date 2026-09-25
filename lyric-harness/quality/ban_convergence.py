@@ -140,7 +140,9 @@ PINNED = {
     #     proclaim; `him` joined the menu at offer 13, and `made`, the 24th
     #     and last offer, fell out of the 24-word menu.
     # 127 further pairs keep their bucket and shift RANK (a shorter head
-    # moves every tail index), so the partner-rank median is a new figure.
+    # moves every tail index), so the partner-rank line moves too: ~~median
+    # 22.0, min 1, max 185 over 246 ranked pairs~~ -> median 21, min 0, max
+    # 180 over 243 (`--check`, 2026-09-24, every pinned total holds).
     "pairs_mandated": 719, "pairs_judged": 518, "pairs_refused": 201,
     "eligible": 458, "banned_in_final": 3,
     "rank_head": 3, "rank_tail": 240, "rank_outside": 215,
