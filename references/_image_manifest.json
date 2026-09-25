@@ -4,20 +4,20 @@
   "coverage": {
     "instrument": {
       "total": 1467,
-      "with_image": 738,
+      "with_image": 748,
       "by_source": {
-        "wikidata_commons": 613,
-        "met_open_access": 81,
+        "wikidata_commons": 617,
+        "met_open_access": 84,
         "commons_depicts": 22,
-        "commons_category": 6,
+        "commons_category": 8,
+        "commons_search": 8,
         "europeana": 8,
-        "commons_search": 7,
         "cleveland_open_access": 1
       },
       "by_license": {
-        "CC BY-SA": 403,
-        "Public Domain": 117,
-        "CC0": 138,
+        "CC BY-SA": 406,
+        "Public Domain": 121,
+        "CC0": 141,
         "CC BY": 80
       }
     },
@@ -747,6 +747,20 @@
       "matched_label": "Baroque guitar"
     },
     {
+      "id": "barrel_organ",
+      "kind": "instrument",
+      "name": "Barrel organ (crank-driven mechanical pipe organ)",
+      "source": "met_open_access",
+      "source_page": "https://www.metmuseum.org/art/collection/search/501786",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/MUS395A.JPG",
+      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/MUS395A.JPG",
+      "license": "CC0",
+      "license_raw": "Public Domain (Met Open Access, CC0)",
+      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
+      "match_confidence": "medium",
+      "matched_label": "Barrel Organ"
+    },
+    {
       "id": "baryton",
       "kind": "instrument",
       "name": "Baryton (bowed viol with plucked sympathetic wires)",
@@ -1118,6 +1132,20 @@
       "credit": "François-Edmond Fortier (1862-1928)",
       "match_confidence": "high",
       "matched_label": "Bolon"
+    },
+    {
+      "id": "bombo_leguero",
+      "kind": "instrument",
+      "name": "Bombo legüero (Argentine folkloric bass drum)",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Bombo_leg%C3%BCero.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Bombo_leg%C3%BCero.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Bombo_leg%C3%BCero.jpg/500px-Bombo_leg%C3%BCero.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Sguastevi",
+      "match_confidence": "medium",
+      "matched_label": "Bombo legüero.jpg"
     },
     {
       "id": "bonang",
@@ -2427,6 +2455,21 @@
       "credit": "The original uploader was Magi Media at English Wikipedia.",
       "match_confidence": "high",
       "matched_label": "đàn nguyệt"
+    },
+    {
+      "id": "dan_nhi",
+      "kind": "instrument",
+      "name": "Đàn nhị (Vietnamese two-string spike fiddle)",
+      "source": "commons_category",
+      "wikidata": "Q8079925",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Ngh%E1%BB%87_s%C4%A9_%C4%91%C3%A0n_nh%E1%BB%8B.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Ngh%E1%BB%87_s%C4%A9_%C4%91%C3%A0n_nh%E1%BB%8B.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Ngh%E1%BB%87_s%C4%A9_%C4%91%C3%A0n_nh%E1%BB%8B.jpg/500px-Ngh%E1%BB%87_s%C4%A9_%C4%91%C3%A0n_nh%E1%BB%8B.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 2.0",
+      "credit": "Myra Siason",
+      "match_confidence": "medium",
+      "matched_label": "đàn nhị"
     },
     {
       "id": "dan_tam",
@@ -5193,6 +5236,21 @@
       "matched_label": "klong khaek"
     },
     {
+      "id": "klong_put",
+      "kind": "instrument",
+      "name": "Klông pút (Central Highlands Vietnamese hand-clapped bamboo tubes)",
+      "source": "wikidata_commons",
+      "wikidata": "Q6322455",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Klong_put.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Klong_put.png",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Klong_put.png/500px-Klong_put.png",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Binh Giang",
+      "match_confidence": "medium",
+      "matched_label": "k'lông pút"
+    },
+    {
       "id": "koauau",
       "kind": "instrument",
       "name": "Kōauau (Maori notched flute)",
@@ -5611,6 +5669,21 @@
       "matched_label": "Kwitra"
     },
     {
+      "id": "kyl_kyyak",
+      "kind": "instrument",
+      "name": "Kyl-kyyak (Kyrgyz bowed fiddle)",
+      "source": "wikidata_commons",
+      "wikidata": "Q116207466",
+      "source_page": "https://commons.wikimedia.org/wiki/File:One_Kyrgyz_Som-(detail).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/One_Kyrgyz_Som-%28detail%29.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/One_Kyrgyz_Som-%28detail%29.jpg/500px-One_Kyrgyz_Som-%28detail%29.jpg",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "No machine-readable author provided. SiGarb assumed (based on copyright claims).",
+      "match_confidence": "medium",
+      "matched_label": "kyl kyyak"
+    },
+    {
       "id": "langeleik",
       "kind": "instrument",
       "name": "Langeleik / hummel (Nordic fretted drone zither)",
@@ -5892,6 +5965,21 @@
       "matched_label": "Lyra Viol"
     },
     {
+      "id": "madal",
+      "kind": "instrument",
+      "name": "Mādal (Nepali double-headed hand drum)",
+      "source": "wikidata_commons",
+      "wikidata": "Q6726202",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Madal_nepal_krish.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Madal_nepal_krish.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Madal_nepal_krish.jpg/500px-Madal_nepal_krish.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Krish Dulal",
+      "match_confidence": "medium",
+      "matched_label": "madal"
+    },
+    {
       "id": "mandola",
       "kind": "instrument",
       "name": "Mandola (alto mandolin)",
@@ -5994,6 +6082,20 @@
       "credit": "Bibhuti Bhusan Champati",
       "match_confidence": "high",
       "matched_label": "Mardala"
+    },
+    {
+      "id": "marimba_centroamericana",
+      "kind": "instrument",
+      "name": "Marimba (Central American / Guatemalan)",
+      "source": "met_open_access",
+      "source_page": "https://www.metmuseum.org/art/collection/search/505369",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/MUS805A.jpg",
+      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/MUS805A.jpg",
+      "license": "CC0",
+      "license_raw": "Public Domain (Met Open Access, CC0)",
+      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
+      "match_confidence": "medium",
+      "matched_label": "Marimba"
     },
     {
       "id": "marimbula",
@@ -6444,6 +6546,20 @@
       "credit": "The original uploader was 用心阁 at Chinese Wikipedia.",
       "match_confidence": "medium",
       "matched_label": "Muyu"
+    },
+    {
+      "id": "mvet",
+      "kind": "instrument",
+      "name": "Mvet (Fang epic stick-zither of Cameroon/Gabon)",
+      "source": "met_open_access",
+      "source_page": "https://www.metmuseum.org/art/collection/search/502042",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/MUS201A.jpg",
+      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/MUS201A.jpg",
+      "license": "CC0",
+      "license_raw": "Public Domain (Met Open Access, CC0)",
+      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
+      "match_confidence": "medium",
+      "matched_label": "Mvet"
     },
     {
       "id": "nai_romanian",
@@ -7435,6 +7551,21 @@
       "credit": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy",
       "match_confidence": "medium",
       "matched_label": "Qānūn"
+    },
+    {
+      "id": "qobyz",
+      "kind": "instrument",
+      "name": "Qyl-qobyz (Kazakh shamanic bowed lute)",
+      "source": "wikidata_commons",
+      "wikidata": "Q1778051",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Kazakhstan_postage_stamp_depicting_a_Kobyz.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Kazakhstan_postage_stamp_depicting_a_Kobyz.png",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Kazakhstan_postage_stamp_depicting_a_Kobyz.png",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Post of Kazakhstan; original uploader was Wassily at ru.wikipedia",
+      "match_confidence": "medium",
+      "matched_label": "kobyz"
     },
     {
       "id": "qraqeb",
@@ -10762,6 +10893,21 @@
       "credit": "bobistraveling",
       "match_confidence": "high",
       "matched_label": "yazheng"
+    },
+    {
+      "id": "yehu",
+      "kind": "instrument",
+      "name": "Yehu (Cantonese coconut-shell fiddle)",
+      "source": "commons_category",
+      "wikidata": "Q4272647",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Yehu.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Yehu.png",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Yehu.png",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "Wikimedia Commons contributor",
+      "match_confidence": "medium",
+      "matched_label": "yehu"
     },
     {
       "id": "yueqin",
