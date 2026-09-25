@@ -1665,8 +1665,8 @@ body.workbench {
     grid-column: 1 / -1;
     display: grid !important;
     grid-template-columns: minmax(220px, 260px) minmax(0, 1fr) minmax(260px, 380px);
-    grid-template-rows: auto auto auto auto minmax(0, 1fr);
-    height: var(--dock-height, 320px) !important;
+    grid-template-rows: auto auto auto minmax(0, 1fr);
+    height: var(--dock-height, 220px) !important;
     border-right: 0;
     border-top: 1px solid var(--cm-border);
   }
@@ -1680,14 +1680,32 @@ body.workbench {
   .workbench[data-recipe='dock'] .session-actions {
     grid-row: 2;
     grid-column: 1;
+    gap: 2px 4px;
+    padding: 4px 8px;
   }
+  /* The session name sits in the header row, as in the reference, so the
+     strip stays short: the left column keeps only the actions and filter. */
   .workbench[data-recipe='dock'] #sidebar-header {
-    grid-row: 3;
-    grid-column: 1;
+    grid-row: 1;
+    grid-column: 2;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    padding: 0 16px;
+    z-index: 1;
+  }
+  .workbench[data-recipe='dock'] #sidebar-header .ws-name {
+    font-size: 16px;
+  }
+  .workbench[data-recipe='dock'].recipe-collapsed #sidebar-header {
+    display: flex !important;
   }
   .workbench[data-recipe='dock'] #sidebar-filter {
-    grid-row: 4;
+    grid-row: 3;
     grid-column: 1;
+    padding: 2px 16px 8px;
   }
   .workbench[data-recipe='dock'] #sidebar-scroll,
   .workbench[data-recipe='dock'] #recipe-empty {

@@ -787,7 +787,7 @@ function uiLayoutControls() {
     property: '--dock-height',
     title: 'Resize Your recipe',
     side: 'top',
-    limits: () => [300, Math.max(300, Math.round(workspace.clientHeight * 0.7))],
+    limits: () => [220, Math.max(220, Math.round(workspace.clientHeight * 0.7))],
     enabled: () => innerWidth >= 900 && uiRecipeMode() === 'dock' && !uiRecipeCollapsed.dock?.get(),
   });
   for (const [route] of UI_ROUTES) UI_PAGES[route]?.layout?.();
