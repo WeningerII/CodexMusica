@@ -6,6 +6,13 @@ the foundation implements, the interfaces pages build on, which files each
 owner may change, and what remains page work. The four final page layouts are
 **not** built yet; every capability the current pages had is still reachable.
 
+**Cohesion.** The four page references are one product. Every page owner studies all
+four (branch `claude/ui-design-refs`), not only its own. An element that appears on more
+than one page — Your recipe and its rows, Listen, Add, Edit, Recording environment,
+Recipe preview, panel headers, chips, list rows — is built the same way everywhere,
+from the shared `.cm-*` components and `--cm-*` tokens. A page that needs such an
+element to change asks the integration owner; it does not restyle it locally.
+
 One integration owner holds the shared files below and merges page work.
 Page owners do not redefine themes, navigation, the recipe engine or session
 behaviour; they ask the integration owner for a shell change instead.
@@ -50,7 +57,8 @@ uiRegisterPage({
 The shell refuses an unknown route, a second registration, and an action name
 the shell or another page already owns. Route order, labels, icons and colours
 are the shell's (`UI_ROUTES`); deep links are `codex.html#genre|instrument|map|lyrics`
-and `codex.html?trad=<id>` (opens that tradition's Genre detail; adds nothing).
+and `codex.html?trad=<id>` (opens that tradition's Genre detail once and leaves the
+URL; adds nothing; an explicit `#section` wins).
 
 ## Shell APIs pages may use
 

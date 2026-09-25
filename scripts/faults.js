@@ -36,6 +36,7 @@
 //   restated ceiling    -> check_chat_counter.js    (ask-bar counter names a bound the field no longer enforces)
 //   theme after paint   -> check_ui_foundation.js   (the stored theme lands only once the page has painted)
 //   map loses recipe    -> check_ui_foundation.js   (the Map view hides Your recipe again)
+//   toast action lingers -> check_ui_foundation.js  (a faded toast's Undo still takes a click)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -1220,7 +1221,7 @@ record(
   );
 }
 
-// 36-37. The shared UI foundation -> check_ui_foundation.js. Both plants go into a
+// 36-38. The shared UI foundation -> check_ui_foundation.js. Each plant goes into a
 //     copy of the BUILT page, because the gate drives what ships. The map needs
 //     the atlas, its sidecars and the tile pyramid; those are read-only here, so
 //     they are linked rather than copied (assets/ alone is ~155 MB).
@@ -1269,6 +1270,30 @@ function foundationEnv() {
     'map-loses-recipe -> check_ui_foundation.js',
     gate(d, ['scripts/check_ui_foundation.js']),
     /Your recipe is not reachable on the map page/
+  );
+}
+//   (c) THE INVISIBLE UNDO. A toast's action button used to stay in the faded
+//       toast: opacity 0, still a target, so a later click at bottom centre ran
+//       Undo (or Retry) unseen. Both halves of the fix go — the button is kept
+//       when the toast hides, and nothing stops it taking the click.
+{
+  const d = foundationEnv();
+  const f = path.join(d, 'codex.html');
+  const before = fs.readFileSync(f, 'utf8');
+  const removal = 't.querySelector(".toast-action")?.remove()';
+  if (!before.includes(removal))
+    throw new Error('faults: toast action removal not found in codex.html');
+  const after = before
+    .replace(removal, 'void 0 /* __TOAST_FAULT__ */')
+    .replace(
+      '</body>',
+      '<style>/* __TOAST_FAULT__ */ #toast .toast-action { visibility: visible !important; pointer-events: auto !important; }</style>\n</body>'
+    );
+  fs.writeFileSync(f, after);
+  record(
+    'toast-action-lingers -> check_ui_foundation.js',
+    gate(d, ['scripts/check_ui_foundation.js']),
+    /Undo of a faded toast still takes a click/
   );
 }
 
