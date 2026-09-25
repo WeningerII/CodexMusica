@@ -1258,3 +1258,170 @@ status: reachable
 precondition: 'map view'
 notes: A tradition's stock recipe in the atlas card is labelled "Default recipe" and is a different object. check_ui_foundation.js E proves one node and one state across the three pages.
 ```
+
+## Instrument page (src/pages/instrument.js)
+
+The Instrument route is the reference layout: categories and sound properties, the catalogue, and an inspector that configures an instrument **before** it is added, over the Your recipe dock (`recipe: 'dock'`). The inspector works on a preview card built by the canonical engine (`makeCard` with the destination's `traditionCardOpts`, the seed `addInstrumentFromPicker` uses); choices run through `applyPartEdit`, `inverseConfigureForPreface` and the editor's plain environment/chain writes. The preview never enters `app.cards`. Its inspector entries use the `instrument picker open, similar drill-down active` precondition, which opens it on `voice` (via `uiOpenSurface`).
+
+```yaml
+name: instrument-categories
+kind: data-action
+selector: '#instrument-body .ip-cats [data-ui="instrument-family"]'
+surface: Instrument — Categories column (All instruments and the 11 families, with the count matching the current search and filters)
+implementation: ipRenderCategories; instrument-family / instrument-all actions in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open
+```
+
+```yaml
+name: instrument-sound-properties
+kind: widget
+selector: '#instrument-body details.ip-prop input[data-ui="instrument-filter"]'
+surface: Instrument — Sound properties, the engine's 15 filters grouped as disclosures (Behaviour, Voicing, Pitch, Register, Sound source, Expressiveness), each with the number that would match
+implementation: IP_FILTER_GROUPS over INSTRUMENT_FILTER_PILLS; passesInstrumentFilter (AND) in src/app.js
+status: reachable
+precondition: instrument picker open
+notes: Grouping only — the predicates are INSTRUMENT_FILTER_PREDS. A pill the engine adds later appears under "More properties". Conflicting properties (never true together in the catalogue) are named in the no-results state, which offers to remove each one.
+```
+
+```yaml
+name: instrument-sort-and-view
+kind: widget
+selector: '#instrument-body #ip-sort'
+surface: Instrument list header — Sort (Name A–Z, Name Z–A, Most customizable) and List / Grid
+implementation: ipSorted; ip-view action (UILayout.remember 'instrument-view') in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open
+```
+
+```yaml
+name: instrument-add-destination
+kind: widget
+selector: '#instrument-destination'
+surface: Instrument header — Add to (Independent instrument or a genre in Your recipe); the inspector's Add to mirrors it
+implementation: ipSyncDestination in src/pages/instrument.js; read by uiAddInstrument in src/workbench.js
+status: reachable
+precondition: instrument picker open
+```
+
+```yaml
+name: instrument-categories-disclosure
+kind: data-action
+selector: '[data-ui="ip-cats"]'
+surface: Instrument — "Categories and sound properties" button that discloses the left column when the page is narrow (phone, or an editor open beside it)
+implementation: ip-cats action in src/pages/instrument.js; container query in src/pages/instrument.css
+status: reachable
+precondition: instrument picker open
+```
+
+```yaml
+name: instrument-inspector-tabs
+kind: data-action
+selector: '#instrument-preview [role="tab"][data-ui="ip-tab"]'
+surface: Instrument inspector — Character, Parts, Environment, Signal chain, Output (arrow keys move between tabs)
+implementation: ipRenderInspector in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-inspector-part-options
+kind: widget
+selector: '#instrument-preview input[type="radio"][data-ip-part]'
+surface: Instrument inspector → Parts — every part's options, each with its added (+), kept and removed (struck) descriptors against the current choice; long lists get a filter
+implementation: ipRenderParts / ipOption / ipOptionDescs; ipChoose → applyPartEdit (src/app.js)
+status: reachable
+precondition: instrument picker open, similar drill-down active
+notes: Parts expand on demand (ip-part). Parts carrying the universal cross-instrument materials show "More materials — any wood/string on any instrument (n)" as a searchable disclosure inside the part (data-ip-more); every material stays reachable. voice has none, so that disclosure is not asserted under this precondition.
+```
+
+```yaml
+name: instrument-inspector-not-set
+kind: widget
+selector: '#instrument-preview input[type="radio"][data-ip-part][value=""]'
+surface: Instrument inspector → Parts — "Not set" as an explicit option for every part; carried onto the added card as null
+implementation: ipOption in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-inspector-character
+kind: widget
+selector: '#instrument-preview #ip-pref-q'
+surface: Instrument inspector → Character — current character (automatic or chosen), the suggestion for the configured sound, search across the preface lexicon, Back to automatic
+implementation: ipRenderCharacter; ipApply 'preface' → inverseConfigureForPreface (same cascade as commitPrefaceChange)
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-inspector-environment
+kind: widget
+selector: '#instrument-preview select[data-ip-env="room"]'
+surface: Instrument inspector → Environment — tuning and room (Not set or any catalog entry), and which card supplies the recipe's one rendered environment (envCardOf)
+implementation: ipRenderEnv in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-inspector-signal-chain
+kind: widget
+selector: '#instrument-preview select[data-ip-fx="fx"]'
+surface: Instrument inspector → Signal chain — all eight CHAIN_SECTIONS stages; Effects take any number (add and remove), the others Not set or one item
+implementation: ipRenderChain in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-inspector-output
+kind: data-action
+selector: '#instrument-preview [data-ui="ip-format"]'
+surface: Instrument inspector → Output — the previewed instrument in Rich, Tags, Prose or Compact (compileStack), character count and Copy
+implementation: ipRenderOutput; ip-copy → copyToClipboard
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-add-configured
+kind: data-action
+selector: '#instrument-preview [data-ui="ip-add-configured"]'
+surface: Instrument inspector — "Add configured instrument" (or "Add instrument" when nothing was changed) to the named destination; Your changes lists what differs from the catalog default and what moved to match, with Review descriptor changes (added / removed / kept) and Reset
+implementation: ipAddConfigured → uiAddInstrument (canonical picker path), then the preview's parts, pins, character, environment and chain on the new card; one history entry
+status: reachable
+precondition: instrument picker open, similar drill-down active
+notes: The added card keeps the previewed catalog id (canonical identity); the toast names the destination and the number of chosen settings. Undo removes the whole addition in one step.
+```
+
+```yaml
+name: instrument-inspector-similar
+kind: data-action
+selector: '#instrument-preview [data-ui="ip-similar"]'
+surface: Instrument inspector — Similar instruments (closest by sound axes, naming the closest axes), each with Listen and Add; opening one keeps a Back trail
+implementation: findSimilarInstruments / getMatchingInstrumentAxes (src/app.js); ip-similar and ip-trail-back in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-inspector-close
+kind: data-action
+selector: '#instrument-preview [data-ui="close-preview"]'
+surface: Instrument inspector — Close (also Escape, last in the Escape order); focus returns to the row that opened it
+implementation: uiCloseInstrumentPreview in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-your-recipe-dock
+kind: widget
+selector: '#surface-instrument'
+surface: Instrument — Your recipe as the dock under the page (select, duplicate, remove, pin, move to another genre and variations stay on its rows and in the shared editor)
+implementation: uiRegisterPage({ recipe: 'dock' }) in src/pages/instrument.js; dock presentation in src/workbench.css
+status: reachable
+precondition: instrument picker open
+```
