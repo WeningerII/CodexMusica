@@ -35,8 +35,9 @@ definite (a refusal is `None`, never `False` — doctrine 20). Anything else is
 `unvalidated` with the exact verdicts in the blocker.
 
 THE WITNESS IS CHOSEN BY THE TRADITION'S DEFINITION, NEVER BY THE GRADER.
-Every witness below was picked from a cited public-domain text on the strength
-of the figure's own description (RHYME_CANON / the cited index) and only then
+Every witness below was picked from a cited public-domain text (one exception:
+sain drosgl quotes ONE attributed line from an in-copyright edition, never
+staged) on the strength of the figure's own description (RHYME_CANON / the cited index) and only then
 graded. A witness the grader misses STAYS: swapping it for one the grader
 happens to find would be tuning the exhibit to the gate, which is doctrine
 58's trade in a different coordinate. A miss is a FINDING and is written into
@@ -228,7 +229,12 @@ FIGURE_EXHIBITS = {
                      "so word start and stress coincide and nothing is "
                      "relocated. The route finds drosgl on 9 of the "
                      "cywydd's 108 lines (CYWYDD_COUNTS); none is claimed, "
-                     "because the grader found them"),
+                     "because the grader found them, and the 9 is inflated "
+                     "by the phonology, not the rule: at least 5 (ll.15, 32, "
+                     "56, 64, 68) are cym syllabifying consonantal w as a "
+                     "vowel (hoewdra, loew-dlos, wiwdda, farwnad read as "
+                     "three syllables stressed on the glide) and l.20 is two "
+                     "absent onsets agreeing (amddifad ~ ydd)"),
     },
     "cynghanedd sain gadwynog": {
         "lang": "cym", "tradition": "Welsh cynghanedd sain gadwynog",
@@ -379,12 +385,20 @@ CYWYDD_COUNTS = {"cynghanedd sain drosgl": (9, 108),
 #: What those counts were before the 2026-09-25 repairs, kept so the move is
 #: visible (doctrine 17): sain drosgl 103 (the bare onset edge, no sain
 #: figure), then 1 the same day with the relocation tested on the LAST word
-#: — which the sourced witness (Gwaith Guto'r Glyn 1.11n) showed to be the
-#: wrong word — and groes 0 (the whole skeleton compared, no stress stop). Against
+#: — which misread C11 (the canon index's own gwers 8 summary answers the
+#: MIDDLE word's onset; its three handbook lines `am na bydd dragywydd dro`,
+#: `meibion saethyddion y serch`, `mamaeth tywysogaeth twyll` fail under v1
+#: and pass now, independently of the Guto'r Glyn witness) — and groes 0 (the whole skeleton compared, no stress stop). Against
 #: the cym module's own `cynghanedd_scan` over the same 108 lines, the route's
 #: groes 12 is the scanner's 11 plus l.86 `I Dduw Dad—addewid iawn;`, which
 #: the scanner rejects at all six caesura placements — a disagreement between
-#: two readers, recorded rather than settled here.
+#: two readers, recorded rather than settled here. The same `class_skeleton`
+#: scope was applied to cynghanedd draws, moving it from 2 to 23 of the 108
+#: (the scanner: traws 19); draws has no exhibit, so no census count moves.
+#: Of the 9 sain drosgl lines, >=5 (ll.15, 32, 56, 64, 68) are cym w-glide
+#: syllabification artifacts and l.20 is zero-onset agreement: the rule is
+#: right, the phonology over-syllabifies. Ablaut's direction check is shown
+#: on the witness side only — every reversed form (dong-ding) reads None.
 
 
 def cywydd_counts():
