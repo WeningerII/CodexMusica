@@ -452,6 +452,24 @@ def test_the_whole_registry():
     check("3 answer under their OWN phonology, which is a language "
           "coordinate (M-4) and not a gap in the registry",
           len(rep["other_language"]) == 3, rep["other_language"])
+    # M-311. A census-only witness (monorhyme over a stanza, a chain across
+    # two, a deprecated schema the draw pool must not certify)
+    # is graded with the sections it needs, and must answer exhibit-yes,
+    # contrast-no exactly as a DRAWABLE_EXHIBITS row does.
+    framed = {n: rep["semantic_status"][n].get("verdicts")
+              for n in R.CENSUS_EXHIBITS}
+    check("every CENSUS_EXHIBITS row answers [True, False] through "
+          "Reviser.grade with its declared sections, if any (M-311)",
+          all(v == [True, False] for v in framed.values()), framed)
+    # ...and a recorded grader finding stays a finding only while the grader
+    # is still wrong. The day a repair makes a row answer as expected this
+    # goes red, so the row moves to the exhibit tables instead of sitting
+    # here as evidence of a defect that no longer exists (doctrine 17).
+    fixed = [n for n, f in rep["witness_findings"]
+             if f["verdicts"] and f["verdicts"] == f["expected"]]
+    check("every `relations.WITNESS_FINDINGS` row is still graded wrongly "
+          "or refused — a repaired one belongs in DRAWABLE_EXHIBITS or "
+          "CENSUS_EXHIBITS (M-311)", not fixed, fixed)
     # THE COUNT ABOVE IS 77 AND THREE OF THE 77 ARE LIVE ON A FIXTURE. That
     # was true before 2026-08-23 too -- `earlier` and `poet` have always been
     # constructed inputs -- and the census did not say so, so "77 askable"
