@@ -585,7 +585,13 @@ const PINNED_PROBE = `(() => {
     // changed. A regression here means a whole interaction silently died again.
     checks++;
     try {
-      // Add a second genre so there is somewhere to drag TO.
+      // Add a second genre so there is somewhere to drag TO. The suggestion
+      // lives in "Suggestions for this recipe", closed until asked for.
+      const suggestions = await page.$('#sb-staple-toggle[aria-expanded="false"]');
+      if (suggestions) {
+        await suggestions.click({ timeout: 8000 });
+        await page.waitForTimeout(200);
+      }
       const staple = await page.$('#sb-staple-add');
       if (staple) {
         // Short timeout on purpose: under a deliberately broken layout (see

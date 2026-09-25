@@ -34,12 +34,18 @@
 //   K. On a phone, the Recipe sheet over the Map leaves the map on screen.
 //   L. A toast's action (Undo, Retry) leaves with the toast: once it fades,
 //      nothing at its place takes a click for it.
+//   M. Your recipe as a right-hand column (recipe: 'sidebar-right'): right of
+//      the page, resizable from its left edge, the editor opening beside it,
+//      collapsing to a rail at the right edge; its row menus open, close on
+//      Escape back to their trigger and run the editor's commands; Recording
+//      environment names the card the recipe really renders it from and opens
+//      the editor there; the format selector drives the preview.
 //
 // Usage: node scripts/check_ui_foundation.js [--html=codex.html]
 // Exit 0 if every assertion passes, 1 otherwise.
 
 'use strict';
-/* global document, window, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, innerHeight, Storage, ROOMS, addCard, pushHistory, renderAll, uiSync */
+/* global document, window, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -513,6 +519,131 @@ async function loadDelta(page) {
       await ctx.close();
     }
 
+    // ── M. Your recipe: the right-hand column, menus, environment, output ─
+    // Genre's reference puts Your recipe on the right. The presentation is
+    // switched here the way a page registers it (recipe: 'sidebar-right'), so
+    // the shell's side of that contract is gated whichever page adopts it.
+    stage = 'M. Your recipe on the right';
+    {
+      const { ctx, page } = await newPage({ colorScheme: 'light' });
+      await page.goto(url + '#genre');
+      await ready(page);
+      await page.evaluate(() => {
+        UI_PAGES.genre.recipe = 'sidebar-right';
+        uiNavigate('genre');
+      });
+      await loadDelta(page);
+      const side = await page.evaluate(() => {
+        const panel = document.getElementById('workspace-sidebar').getBoundingClientRect();
+        const pageBox = document.getElementById('discovery').getBoundingClientRect();
+        return { panelLeft: panel.left, panelRight: panel.right, pageRight: pageBox.right };
+      });
+      check(
+        side.panelLeft >= side.pageRight - 1 && side.panelRight >= 1279,
+        `M. sidebar-right does not put Your recipe right of the page (${JSON.stringify(side)})`
+      );
+      const split = page.getByRole('separator', { name: 'Resize recipe sidebar' });
+      const w0 = (await page.locator('#workspace-sidebar').boundingBox()).width;
+      await split.press('ArrowLeft');
+      await page
+        .waitForFunction(
+          (w) => document.getElementById('workspace-sidebar').getBoundingClientRect().width > w,
+          w0,
+          { timeout: 5000 }
+        )
+        .catch(() => {});
+      const w1 = (await page.locator('#workspace-sidebar').boundingBox()).width;
+      check(w1 > w0, `M. ArrowLeft on the right-hand splitter did not widen it (${w0} → ${w1})`);
+      await split.press('Home');
+      // The editor opens between the page and Your recipe.
+      await page.locator('#workspace-sidebar .sb-card').first().click();
+      await page.waitForTimeout(300);
+      const between = await page.evaluate(() => {
+        const d = document.getElementById('workspace-detail').getBoundingClientRect();
+        const p = document.getElementById('workspace-sidebar').getBoundingClientRect();
+        return d.width > 200 && d.right <= p.left + 1;
+      });
+      check(between, 'M. with Your recipe on the right, the editor does not open beside it');
+      await page.keyboard.press('Escape');
+      // A row's … menu: opens on its items, Escape closes it back to its
+      // trigger, and an item runs the editor's own command.
+      const trigger = page.locator('.sb-card-row [data-menu-toggle]').first();
+      await trigger.click();
+      const opened = await page.evaluate(() => ({
+        open: !!document.querySelector('.sb-card-row .sb-menu:not([hidden])'),
+        focus: document.activeElement?.getAttribute('role'),
+      }));
+      check(
+        opened.open && opened.focus === 'menuitem',
+        'M. a row menu did not open onto its items'
+      );
+      await page.keyboard.press('Escape');
+      const closed = await page.evaluate(() => ({
+        open: !!document.querySelector('.sb-menu:not([hidden])'),
+        editor: document.body.classList.contains('editor-open'),
+        focus: document.activeElement?.hasAttribute('data-menu-toggle'),
+      }));
+      check(
+        !closed.open && closed.focus,
+        'M. Escape did not close the row menu and return focus to its trigger'
+      );
+      await trigger.click();
+      await page.click('.sb-menu:not([hidden]) [data-card-action="pin"]');
+      check(
+        (await page.evaluate(() => app.cards.filter((c) => c.pinned).length)) === 1,
+        'M. Pin in the row menu did not pin the instrument'
+      );
+      // Recording environment names the card the recipe renders it from, and
+      // Room opens the editor there, on Environment, with the room picker open.
+      const env = await page.evaluate(() => {
+        const c = envCardOf(app.cards);
+        return {
+          source: document.querySelector('.recipe-env-source')?.textContent || '',
+          inst: Inst(c.instrumentId).name,
+          trad: Tradition(c.traditionId)?.name || '',
+          room: document.querySelector('[data-ui="recipe-env"][data-id="room"] .recipe-env-value')
+            ?.textContent,
+          roomName: c.room ? Room(c.room).name : 'Not set',
+        };
+      });
+      check(
+        env.source.includes(env.inst) && env.source.includes(env.trad) && env.room === env.roomName,
+        `M. Recording environment does not name its real source (${JSON.stringify(env)})`
+      );
+      await page.click('[data-ui="recipe-env"][data-id="room"]');
+      await page.waitForTimeout(300);
+      const opensEnv = await page.evaluate(() => ({
+        tab: document.querySelector('#detail-view .detail-tab.is-active')?.dataset.tab,
+        card: document.getElementById('detail-view')?.dataset.cardId,
+        source: envCardOf(app.cards).id,
+        picker: envCardOf(app.cards).editingEnv,
+      }));
+      check(
+        opensEnv.tab === 'env' && opensEnv.card === opensEnv.source && opensEnv.picker === 'room',
+        `M. Room did not open the editor on the environment's card (${JSON.stringify(opensEnv)})`
+      );
+      await page.keyboard.press('Escape');
+      // The format selector drives the preview (and so Copy recipe).
+      await page.selectOption('#sb-recipe-format', 'tags');
+      const tags = await page.evaluate(
+        () =>
+          document.querySelector('#sidebar-recipe-preview .rp-text')?.textContent ===
+          compileRecipeStack(app.cards, 'tags', { ceiling: RECIPE_CHAR_CEILING })
+      );
+      check(tags, 'M. choosing Tags did not show the Tags recipe in the preview');
+      await page.selectOption('#sb-recipe-format', 'rich');
+      // Collapse leaves a rail at the right edge.
+      await page.click('[data-ui="recipe-collapse"]');
+      const rail = await page.evaluate(() =>
+        document.getElementById('workspace-sidebar').getBoundingClientRect().toJSON()
+      );
+      check(
+        rail.width <= 64 && rail.right >= 1279,
+        `M. collapsing the right-hand Your recipe left ${Math.round(rail.width)}px at x=${Math.round(rail.left)}`
+      );
+      await ctx.close();
+    }
+
     // ── B. System follows the operating system, live ─────────────────────
     stage = 'B. System follows';
     {
@@ -524,7 +655,13 @@ async function loadDelta(page) {
         'B. System did not follow a dark operating system'
       );
       await page.emulateMedia({ colorScheme: 'light' });
-      await page.waitForTimeout(150);
+      // Wait for the change listener rather than a fixed delay: under a loaded
+      // CI runner 150 ms was not always enough for the media event to land.
+      await page
+        .waitForFunction(() => document.documentElement.dataset.theme === 'light', null, {
+          timeout: 5000,
+        })
+        .catch(() => {});
       check(
         (await page.evaluate(() => document.documentElement.dataset.theme)) === 'light',
         'B. System did not follow the operating system switching to light'
@@ -666,7 +803,8 @@ async function loadDelta(page) {
       'one recipe panel and editor on Genre, Instrument and Map, Map add reports what arrived, ' +
       'reload restores, Undo/Redo, truthful autosave, layered Escape with focus return, ' +
       'Back/Forward, ?trad= once and below #section, remembered collapse + Reset layout, another tab ' +
-      'reported, empty and no-results recovery, phone Map sheet, toast action leaves with the toast.'
+      'reported, empty and no-results recovery, phone Map sheet, toast action leaves with the toast, ' +
+      'Your recipe on the right with its menus, truthful environment source and output format.'
   );
   process.exit(0);
 })();
