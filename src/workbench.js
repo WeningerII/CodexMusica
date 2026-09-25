@@ -1,7 +1,14 @@
-/* exported UI, UI_ICONS, uiStart, uiReceiveReply, uiOpenSurface, uiSync */
+/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport */
 /* global UILayout */
-/* global _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, Catalog, FamName, INSTRUMENT_FILTER_PILLS, Inst, Tradition, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, axisLabel, chatState, compileRecipeStack, copyToClipboard, countDescendantLeaves, esc, familyImage, findSimilar, findSimilarInstruments, getChildren, getMatchingAxes, getRoots, getTreeNode, icon, image, importTraditionWithFeedback, isMobileLayout, normalizeSearch, normalizeWorkspaceCards, passesInstrumentFilter, pushHistory, redo, renderAll, renderDetail, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, undo */
-/* Shared discovery and writing workspace. Built alongside the canonical app and catalog. */
+/* global Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
+/* The shared application shell: one header, one navigation, one recipe
+   workspace and session, one AI writer, one set of panels. Built alongside the
+   canonical app (src/app.js) and catalog, which stay the only engine.
+
+   OWNERSHIP. This file, src/theme.css, src/theme.js, src/layout.js/.css and
+   src/index.template.html belong to the shell integration owner. The four
+   pages live in src/pages/<page>.js (+ .css) and register themselves with
+   uiRegisterPage(); see docs/ui-foundation.md for the page interface. */
 'use strict';
 const UI = {
   lyricRevision: 0,
@@ -10,26 +17,105 @@ const UI = {
   storageConflict: false,
   saveFailed: false,
   view: 'genre',
+  // Genre page state (owned by src/pages/genre.js).
   genreNode: '',
   genre: null,
+  // Instrument page state (owned by src/pages/instrument.js).
   instrumentFamily: '',
   instrumentClass: '',
+  // Catalog paging shared by the Genre and Instrument lists.
   limit: 50,
   busy: false,
   editor: false,
   ready: false,
+  // What the autosave last did: '' (nothing yet), 'saved', 'conflict' or
+  // 'failed'. Rendered by uiRenderAutosave; never claims a named save.
+  autosave: '',
+  // Focus return: what opened the AI writer, and the instrument preview.
+  assistantOpener: null,
+  instrumentPreview: null,
+  // Set on the way down when a dialog owns this Escape (see uiEscape).
+  escapeOwned: false,
 };
+// The four sections, in order. Navigation is a shell concern: pages register
+// behaviour for a route; they never add, remove or reorder routes.
+// Each icon keeps one meaning and one colour on every route and in both
+// themes (--cm-route-* in src/theme.css); the word always travels with it.
+const UI_ROUTES = [
+  ['genre', 'Genre', 'tag'],
+  ['instrument', 'Instrument', 'guitar'],
+  ['map', 'Map', 'map-pin'],
+  ['lyrics', 'Lyrics', 'file-text'],
+];
+const UI_PAGES = {};
+const UI_PAGE_ACTIONS = {};
+// Actions the shell's own click handler owns. A page that registers one of
+// these names would silently never run, so registration refuses it.
+const UI_SHELL_ACTIONS = new Set([
+  'genre-add',
+  'genre-nav',
+  'instrument-nav',
+  'instrument-add',
+  'more',
+  'undo',
+  'redo',
+  'close-editor',
+  'save',
+  'saved',
+  'session',
+  'close-session',
+  'menu',
+  'reset-layout',
+  'surprise',
+  'keep-session',
+  'export',
+  'import',
+  'credits',
+  'ai',
+  'close-ai',
+  'new-recipe',
+  'theme',
+  'recipe-collapse',
+]);
+// Page interface (docs/ui-foundation.md has the full contract):
+//   id            one of UI_ROUTES
+//   recipe?       'sidebar' (default) or 'dock': how Your recipe is presented
+//   mount(surface)  build the page once inside <section id="surface-<id>">
+//   render?()     show current state; called on every visit and refresh
+//   layout?()     page-specific UILayout panes, called once after the shell's
+//   resetLayout?()  extra work for Reset layout (the Map tells its iframe)
+//   escape?()     close what this page opened (last in the Escape order)
+//   actions?      { [data-ui name]: (id, button, event) => void | Promise }
+function uiRegisterPage(page) {
+  if (!UI_ROUTES.some(([id]) => id === page.id)) throw Error('Unknown route: ' + page.id);
+  if (UI_PAGES[page.id]) throw Error('Route registered twice: ' + page.id);
+  for (const name of Object.keys(page.actions || {})) {
+    if (UI_SHELL_ACTIONS.has(name) || UI_PAGE_ACTIONS[name])
+      throw Error('Action already owned: ' + name);
+    UI_PAGE_ACTIONS[name] = page.actions[name];
+  }
+  UI_PAGES[page.id] = page;
+}
 const $ui = (id) => document.getElementById(id);
 const uiButton = (act, label, ic = 'plus', extra = '') =>
   `<button type="button" data-ui="${act}" ${extra.includes('aria-label=') ? '' : `aria-label="${esc(label)}"`} ${extra}>${icon(ic, 18)}<span>${esc(label)}</span></button>`;
+// Empty, no-results, loading and failure states share one shape: what is
+// true now, and the actions that move on from it. tone 'danger' = a failure.
+const uiEmptyState = ({ title, text = '', actions = '', tone = '' }) =>
+  `<div class="cm-empty"${tone ? ` data-tone="${tone}"` : ''} role="status"><strong>${esc(title)}</strong>${text ? `<span>${esc(text)}</span>` : ''}${actions ? `<div class="cm-empty-actions">${actions}</div>` : ''}</div>`;
 const listenLink = (name, instrument = false) =>
   `<a class="listen" href="https://www.youtube.com/results?search_query=${encodeURIComponent(name + (instrument ? ' musical instrument solo demonstration' : ' music'))}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${esc(name)} on YouTube">${icon('play', 16)}<span>Listen</span></a>`;
-function uiNavigate(view) {
-  if (!['genre', 'instrument', 'map', 'lyrics'].includes(view)) return;
+// `push` is set only for a user's own navigation, so Back and Forward step
+// between sections; boot and deep links replace the entry instead.
+function uiNavigate(view, { push = false } = {}) {
+  if (!UI_PAGES[view]) return;
   UI.view = view;
   document.body.dataset.view = view;
-  if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view)
-    history.replaceState(null, '', '#' + view);
+  if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view) {
+    if (push) history.pushState(null, '', '#' + view);
+    else history.replaceState(null, '', '#' + view);
+  }
+  uiApplyRecipeMode();
   document.querySelectorAll('button[data-view]').forEach((b) => {
     b.classList.toggle('active', b.dataset.view === view);
     b.setAttribute('aria-current', b.dataset.view === view ? 'page' : 'false');
@@ -37,9 +123,7 @@ function uiNavigate(view) {
   document.querySelectorAll('.ui-surface').forEach((el) => {
     el.hidden = el.id !== 'surface-' + view;
   });
-  if (view === 'genre') renderGenreDiscovery();
-  if (view === 'instrument') renderInstrumentDiscovery();
-  if (view === 'map' && !$ui('map-frame').src) $ui('map-frame').src = 'atlas.html?embedded=1';
+  UI_PAGES[view].render?.();
   const dock = $ui('chat-dock');
   if (view === 'lyrics') {
     if (uiSwitchChat('lyrics')) {
@@ -59,6 +143,57 @@ function uiNavigate(view) {
   UILayout.refresh();
   document.querySelector(`[data-view="${view}"]`)?.focus({ preventScroll: true });
 }
+// ── Recipe panel ── #workspace-sidebar is the one recipe workspace on every
+// route: the same cards, the same editor (#workspace-detail) and the same
+// commands. A page only chooses how it is presented: page.recipe is
+// 'sidebar' (the default) or 'dock' (a resizable strip under the page).
+// Below 900px it is always the Recipe sheet. Collapsing is a remembered
+// layout preference per presentation, cleared by Reset layout.
+const uiRecipeCollapsed = {};
+function uiRecipeMode() {
+  return UI_PAGES[UI.view]?.recipe || 'sidebar';
+}
+function uiApplyRecipeMode() {
+  const mode = uiRecipeMode();
+  const collapsed = !!uiRecipeCollapsed[mode]?.get();
+  document.body.dataset.recipe = mode;
+  document.body.classList.toggle('recipe-collapsed', collapsed);
+  const toggle = document.querySelector('[data-ui="recipe-collapse"]');
+  if (toggle) {
+    const label = (collapsed ? 'Expand' : 'Collapse') + ' Your recipe';
+    toggle.setAttribute('aria-expanded', String(!collapsed));
+    toggle.setAttribute('aria-label', label);
+    toggle.dataset.tooltip = label;
+    toggle.innerHTML = icon(
+      mode === 'dock'
+        ? collapsed
+          ? 'panel-bottom'
+          : 'chevron-down'
+        : collapsed
+          ? 'panel-left-open'
+          : 'panel-left-close',
+      18
+    );
+  }
+  UILayout.refresh();
+}
+function uiRecipePanelSetup() {
+  const panel = $ui('workspace-sidebar');
+  const head = document.createElement('div');
+  head.className = 'recipe-panel-head';
+  head.innerHTML = `<h2 class="recipe-panel-title">${icon('layers', 18)}<span>Your recipe</span></h2><span class="recipe-panel-meta" id="recipe-panel-meta"></span><button type="button" class="cm-btn cm-btn-icon" data-ui="recipe-collapse" aria-controls="workspace-sidebar"></button>`;
+  panel.prepend(head);
+  const empty = document.createElement('div');
+  empty.id = 'recipe-empty';
+  empty.className = 'cm-empty';
+  empty.hidden = true;
+  empty.innerHTML = `<strong>No instruments yet</strong><span>Add a genre to bring in its whole ensemble, or add single instruments. Every addition can be undone.</span><div class="cm-empty-actions">${uiButton('genre-nav', 'Browse genres', 'tag')}${uiButton('surprise', 'Surprise me', 'shuffle')}</div>`;
+  $ui('sidebar-header').after(empty);
+  for (const mode of ['sidebar', 'dock'])
+    uiRecipeCollapsed[mode] = UILayout.remember('recipe-collapsed-' + mode, false, () =>
+      uiApplyRecipeMode()
+    );
+}
 function uiListen() {
   const c = app.cards.find((c) => c.id === app.selected);
   return c ? listenLink(Inst(c.instrumentId).name, true) : '';
@@ -70,6 +205,9 @@ function uiSync() {
     UI.editor && !!app.selected && app.cards.length > 0
   );
   $ui('ui-count').textContent = String(app.cards.length);
+  const n = app.cards.length;
+  $ui('recipe-panel-meta').textContent = n + (n === 1 ? ' instrument' : ' instruments');
+  $ui('recipe-empty').hidden = n > 0;
   const detail = $ui('detail-view');
   if (detail && !detail.querySelector('.ui-detail-tools')) {
     const bar = document.createElement('div');
@@ -89,20 +227,27 @@ function uiOpenEditor(id) {
   uiSync();
   if (isMobileLayout()) document.body.classList.add('session-open');
 }
+// ── Recipe commands ── The only ways a page adds to the shared recipe. Both
+// run the canonical engine (importTraditionWithFeedback / addInstrumentFromPicker)
+// and refuse a second concurrent addition rather than interleaving two.
+// uiAddGenre resolves to { added, expected }: how many instruments were added
+// and how many the genre's configured ensemble has (added 0 = nothing added).
 async function uiAddGenre(id) {
+  const expected = (Tradition(id)?.instruments || []).length;
   if (UI.busy) {
     showToast('An addition is already in progress.', 'error');
-    return false;
+    return { added: 0, expected };
   }
   UI.busy = true;
   try {
     const added = await importTraditionWithFeedback(id);
     UI.editor = false;
     uiSync();
-    renderGenreDiscovery();
-    return added.length > 0;
+    UI_PAGES.genre?.render?.();
+    return { added: added.length, expected };
   } catch (e) {
     showToast(e.message || 'Could not add genre', 'error');
+    return { added: 0, expected };
   } finally {
     UI.busy = false;
   }
@@ -124,169 +269,7 @@ async function uiAddInstrument(id) {
     UI.busy = false;
   }
 }
-function uiGenreRows(list) {
-  return (
-    list
-      .slice(0, UI.limit)
-      .map(
-        (t) =>
-          `<div class="catalog-row"><button class="catalog-name" data-ui="genre-select" data-id="${esc(t.id)}">${traditionGlyphsHTML(t.id, 30)}<span>${esc(t.name)}</span></button>${listenLink(t.name)}${uiButton('genre-add', 'Add', 'plus', `data-id="${esc(t.id)}" aria-label="Add ${esc(t.name)}"`)}</div>`
-      )
-      .join('') + (list.length > UI.limit ? uiButton('more', 'Show more', 'chevron-down') : '')
-  );
-}
-function uiDetachTree() {
-  const t = $ui('modal-trad');
-  if (t && t.parentElement === $ui('genre-body')) {
-    document.body.append(t);
-    t.classList.remove('inline-tree');
-  }
-}
-function renderGenreDiscovery() {
-  uiDetachTree();
-  if (!$ui('genre-body')) return;
-  const q = normalizeSearch($ui('genre-search').value),
-    roots = getRoots();
-  const node = UI.genreNode ? getTreeNode(UI.genreNode) : null;
-  let children = node ? getChildren(node.id) : roots;
-  let all = Catalog.all();
-  if (q)
-    all = all
-      .filter((t) =>
-        normalizeSearch(
-          t.name + ' ' + (t.lineage || '') + ' ' + (Catalog.ext(t.id)?.description || '')
-        ).includes(q)
-      )
-      .sort((a, b) =>
-        normalizeSearch(a.name) === q
-          ? -1
-          : normalizeSearch(b.name) === q
-            ? 1
-            : a.name.localeCompare(b.name, 'en')
-      );
-  else {
-    if (node) {
-      const under = (id) => {
-        let p = tradParent(id);
-        while (p) {
-          if (p === node.id) return true;
-          p = getTreeNode(p)?.parent;
-        }
-        return false;
-      };
-      all = all.filter(
-        (t) => under(t.id) || (Catalog.ext(t.id)?.crossRefs || []).includes(node.id)
-      );
-    }
-    // Catalog.all() is the catalog's declaration order — the order traditions
-    // were researched and added, which reads as arbitrary in a flat list. Search
-    // results and the instrument list are already alphabetical; the browse list
-    // is too. Copy before sorting: the unfiltered path hands back the live array.
-    all = all.slice().sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
-  }
-  if (UI.genre) {
-    renderGenreWeb(UI.genre);
-    return;
-  }
-  const branches = children.filter((c) => TREE_NODES.some((n) => n.id === c.id));
-  $ui('genre-body').innerHTML =
-    `<div class="discovery-grid"><nav class="catalog-categories" aria-label="Genre categories">${node ? `<div class="category-heading">${uiButton('genre-back', 'Back to ' + (getTreeNode(node.parent)?.name || 'all genres'), 'arrow-left')}<strong>${esc(node.name)}</strong></div>` : ''}${!q && branches.length ? `<div class="branch-key">${branches.map((n) => `<button data-ui="genre-branch" data-id="${esc(n.id)}">${traditionGlyphsHTML(n.id, 22)}<span>${esc(n.name)}</span><span class="category-count">${countDescendantLeaves(n.id)}</span></button>`).join('')}</div>` : ''}</nav><div class="catalog-list"><div class="catalog-count">${all.length.toLocaleString()} genres</div>${uiGenreRows(all)}${!all.length ? '<p>No genres match your search.</p>' : ''}</div></div>`;
-}
-function renderGenreWeb(id) {
-  uiDetachTree();
-  const t = Tradition(id);
-  if (!t) return;
-  const ext = Catalog.ext(id) || {},
-    near = findSimilar(id, 8),
-    added = app.cards.some((c) => c.traditionId === id);
-  $ui('genre-body').innerHTML =
-    `<div class="genre-selected"><div class="selected-head">${uiButton('genre-close', 'Back', 'arrow-left')}<h2>${traditionGlyphsHTML(id, 32)}${esc(t.name)}</h2>${listenLink(t.name)}${uiButton('genre-add', added ? 'Add again' : 'Add genre', 'plus', `data-id="${esc(id)}"`)}</div><div class="genre-facts"><details><summary>About ${esc(t.name)}</summary><p>${esc(ext.description || t.lineage || '')}</p></details><details><summary>Sound profile</summary>${AXIS_DEFINITIONS.map((ax) => `<div class="profile-row"><span>${esc(ax.name)}</span><span>${esc(axisLabel(ax, ext.axes?.[ax.id] || 0))}</span></div>`).join('')}</details><details open><summary>Instruments</summary><div class="genre-instruments">${(t.instruments || []).map((i) => `<div>${image(i, 26)}<button data-ui="instrument-inspect" data-id="${esc(i)}">${esc(Inst(i)?.name || i)}</button>${listenLink(Inst(i)?.name || i, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i)}"`)}</div>`).join('')}</div></details><details><summary>Related genres · sound similarity</summary>${near
-      .map((n) => {
-        const other = Tradition(n.id);
-        return `<div class="related-row"><button data-ui="genre-select" data-id="${esc(n.id)}">${traditionGlyphsHTML(n.id, 24)}${esc(other.name)}</button><span>${getMatchingAxes(
-          id,
-          n.id,
-          3
-        )
-          .map((m) => esc(m.axis.name))
-          .join(
-            ' · '
-          )}</span>${uiButton('genre-add', 'Add', 'plus', `data-id="${esc(n.id)}"`)}</div>`;
-      })
-      .join(
-        ''
-      )}</details>${(ext.crossRefs || []).length ? `<details><summary>Also belongs to</summary>${ext.crossRefs.map((id) => uiButton('genre-branch', getTreeNode(id)?.name || id, 'layers', `data-id="${esc(id)}"`)).join('')}</details>` : ''}</div></div>`;
-}
-function renderInstrumentDiscovery() {
-  const host = $ui('instrument-body');
-  if (!host) return;
-  const q = normalizeSearch($ui('instrument-search').value),
-    fam = INSTRUMENT_FAMILIES.find((f) => f.id === UI.instrumentFamily);
-  const filtered = INSTRUMENTS.filter(
-    (i) =>
-      (!UI.instrumentFamily || i.family === UI.instrumentFamily) &&
-      (!UI.instrumentClass || i.class === UI.instrumentClass) &&
-      (!q || normalizeSearch(i.name + ' ' + i.short).includes(q)) &&
-      passesInstrumentFilter(i, app.instrumentAxisFilters)
-  )
-    // INSTRUMENTS is sorted globally by family, then by the `short` label — but
-    // this list shows `name`, so it read as scrambled. Sort the rows by what
-    // the row displays; family and class navigation still group on the left.
-    .sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
-  const classes = fam
-    ? [...new Set(INSTRUMENTS.filter((i) => i.family === fam.id).map((i) => i.class))]
-    : [];
-  const sectors = fam
-    ? classes.map((c) => ({
-        id: c,
-        name: c.replaceAll('_', ' '),
-      }))
-    : INSTRUMENT_FAMILIES.map((f) => ({
-        id: f.id,
-        name: f.name,
-      }));
-  const dest = $ui('instrument-destination'),
-    old = app._addToTradition || dest.value;
-  dest.innerHTML =
-    '<option value="">Independent instrument</option>' +
-    [...new Set(app.cards.map((c) => c.traditionId).filter(Boolean))]
-      .map((id) => `<option value="${esc(id)}">${esc(Tradition(id)?.name || id)}</option>`)
-      .join('');
-  dest.value = old || '';
-  host.innerHTML = `<div class="axis-filter-pills">${INSTRUMENT_FILTER_PILLS.map((p) => `<button class="${app.instrumentAxisFilters.has(p.id) ? 'active' : ''}" data-ui="instrument-filter" data-id="${esc(p.id)}" aria-pressed="${app.instrumentAxisFilters.has(p.id)}">${esc(p.label)}</button>`).join('')}${app.instrumentAxisFilters.size ? uiButton('clear-filters', 'Clear filters', 'x') : ''}</div><div class="discovery-grid"><nav class="catalog-categories" aria-label="Instrument categories">${fam ? `<div class="category-heading">${uiButton('instrument-back', UI.instrumentClass ? 'Back to ' + fam.name : 'All instruments', 'arrow-left')}<strong>${esc(UI.instrumentClass ? UI.instrumentClass.replaceAll('_', ' ') : fam.name)}</strong></div>` : ''}<div class="branch-key">${sectors.map((s) => `<button data-ui="${fam ? 'instrument-class' : 'instrument-family'}" data-id="${esc(s.id)}"${fam ? ` aria-pressed="${UI.instrumentClass === s.id}"` : ''}>${!fam ? familyImage(s.id, 24) : ''}<span>${esc(s.name)}</span></button>`).join('')}</div></nav><div class="catalog-list"><div class="catalog-count">${filtered.length} instruments${UI.instrumentClass ? ' · ' + esc(UI.instrumentClass.replaceAll('_', ' ')) : ''}</div>${filtered
-    .slice(0, UI.limit)
-    .map(
-      (i) =>
-        `<div class="catalog-row"><button class="catalog-name" data-ui="instrument-inspect" data-id="${esc(i.id)}">${image(i.id, 30)}<span>${esc(i.name)}</span></button>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i.id)}" aria-label="Add ${esc(i.name)}"`)}</div>`
-    )
-    .join(
-      ''
-    )}${filtered.length > UI.limit ? uiButton('more', 'Show more', 'chevron-down') : ''}${!filtered.length ? '<p>No instruments match these filters.</p>' : ''}</div></div>`;
-}
-function uiInspectInstrument(id) {
-  const i = Inst(id);
-  if (!i) return;
-  $ui('instrument-preview').hidden = false;
-  $ui('instrument-preview').innerHTML =
-    `<div class="selected-head">${image(id, 36)}<h2>${esc(i.name)}</h2>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add instrument', 'plus', `data-id="${esc(id)}"`)}${uiButton('close-preview', 'Close', 'x')}</div><p>${esc(FamName(i.family))} · ${(i.parts || []).length} customizable parts</p><div class="part-preview">${(
-      i.parts || []
-    )
-      .map(
-        (p) =>
-          `<details><summary>${esc(p.name || p.id)} · ${p.variants.length} options</summary><p>${p.variants
-            .slice(0, 20)
-            .map((v) => esc(v.name || v.id))
-            .join(' · ')}</p></details>`
-      )
-      .join('')}</div><h3>Similar instruments</h3>${findSimilarInstruments(id, 8)
-      .map(
-        (n) =>
-          `<div class="catalog-row"><button data-ui="instrument-inspect" data-id="${esc(n.id)}">${image(n.id, 24)}${esc(n.name)}</button>${listenLink(n.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(n.id)}"`)}</div>`
-      )
-      .join('')}`;
-  uiNavigate('instrument');
-  $ui('instrument-preview').scrollIntoView({ block: 'start', behavior: 'smooth' });
-}
+// ── Session ── One session: cards, name and lyrics, in the formats below.
 function uiExport() {
   const p = {
     version: 3,
@@ -326,6 +309,7 @@ function uiSaveLyrics() {
   UI.lyricRevision++;
   uiAutosave();
 }
+// ── AI writer ── One conversation dock shared by the recipe and lyrics writers.
 const uiChatSessions = new Map();
 function uiUpdatePrompt() {
   const input = $ui('chat-input'),
@@ -458,19 +442,18 @@ function uiStart() {
   oldHeader.classList.add('native-header');
   const header = document.createElement('header');
   header.className = 'app-bar ui-header';
-  header.innerHTML = `<a class="ui-brand" href="codex.html">Codex Musica</a><nav aria-label="Main sections">${[
-    ['genre', 'Genre', 'library'],
-    ['instrument', 'Instrument', 'music'],
-    ['map', 'Map', 'globe'],
-    ['lyrics', 'Lyrics', 'edit-3'],
-  ]
-    .map(([v, l, i]) => `<button data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`)
-    .join(
-      ''
-    )}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal')}</div>`;
+  // One brand asset: the approved mark (assets/icon-192.png, pinned by
+  // scripts/build_favicon.js) beside the wordmark, in both themes.
+  header.innerHTML = `<a class="ui-brand" href="codex.html" aria-label="Codex Musica"><img class="ui-brand-mark" src="assets/icon-192.png" alt="" width="28" height="28"><span class="ui-brand-name">Codex Musica</span></a><nav aria-label="Main sections">${UI_ROUTES.map(
+    ([v, l, i]) =>
+      `<button class="cm-tab" data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`
+  ).join(
+    ''
+  )}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button><span id="ui-autosave" class="cm-status" role="status" aria-live="polite"></span>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved sessions', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal')}</div>`;
   document.body.prepend(header);
   const more = document.createElement('div');
   more.id = 'ui-menu';
+  more.className = 'cm-menu';
   more.hidden = true;
   more.innerHTML =
     uiButton('surprise', 'Surprise me', 'shuffle') +
@@ -481,13 +464,22 @@ function uiStart() {
     uiButton('import', 'Import session', 'upload') +
     uiButton('credits', 'Credits', 'info') +
     uiButton('reset-layout', 'Reset layout', 'refresh-cw') +
+    '<div class="cm-menu-sep" role="separator"></div>' +
+    uiThemeControl() +
     '<input type="file" id="ui-file" accept="application/json" hidden>';
   header.append(more);
   const discovery = document.createElement('section');
   discovery.id = 'discovery';
-  discovery.innerHTML = `<section class="ui-surface" id="surface-genre"><div class="discovery-toolbar"><label class="ui-search">${icon('search', 20)}<input id="genre-search" type="search" placeholder="Search genres" aria-label="Search genres"></label>${uiButton('genre-tree', 'Browse tree', 'list')}${uiButton('ai', 'AI recipe', 'message-circle')}</div><div id="genre-body"></div></section><section class="ui-surface" id="surface-instrument" hidden><div class="discovery-toolbar"><label class="ui-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="destination">Add to<select id="instrument-destination" aria-label="Add instrument to"></select></label></div><div id="instrument-preview" hidden></div><div id="instrument-body"></div></section><section class="ui-surface" id="surface-map" hidden><iframe id="map-frame" title="World music map"></iframe></section><section class="ui-surface" id="surface-lyrics" hidden><div class="lyrics-toolbar">${uiButton('new-lyrics', 'New lyrics', 'edit-3')}${uiButton('edit-lyrics', 'Edit lyrics', 'edit-3')}${uiButton('attach-recipe', 'Use current recipe', 'layers')}${uiButton('copy-lyrics', 'Copy lyrics', 'copy')}</div><div class="lyrics-workspace"><div class="lyrics-editor"><label for="lyrics-draft">Lyrics</label><textarea id="lyrics-draft" placeholder="Write here, or ask the lyrics writer." spellcheck="true"></textarea></div><div id="lyrics-chat"></div></div></section>`;
+  for (const [id] of UI_ROUTES) {
+    const surface = document.createElement('section');
+    surface.className = 'ui-surface';
+    surface.id = 'surface-' + id;
+    surface.hidden = id !== 'genre';
+    discovery.append(surface);
+  }
   const workspace = document.querySelector('main.workspace');
   workspace.insertBefore(discovery, $ui('workspace-detail'));
+  for (const [id] of UI_ROUTES) UI_PAGES[id]?.mount($ui('surface-' + id));
   const assistant = document.createElement('aside');
   assistant.id = 'assistant-slot';
   assistant.setAttribute('aria-label', 'AI recipe writer');
@@ -502,12 +494,13 @@ function uiStart() {
     uiButton('instrument-nav', 'Add instrument', 'plus') +
     uiButton('close-session', 'Close recipe', 'x');
   $ui('workspace-sidebar').prepend(quick);
+  uiRecipePanelSetup();
   // Keep native action nodes, so save, keyboard proxies and assistive labels share one implementation.
   for (const [id, target, label] of [
     ['btn-undo', '#ui-undo', 'Undo'],
     ['btn-redo', '#ui-redo', 'Redo'],
     ['btn-save', '[data-ui="save"]', 'Save'],
-    ['btn-saved', '[data-ui="saved"]', 'Saved'],
+    ['btn-saved', '[data-ui="saved"]', 'Saved sessions'],
     ['btn-add', '[data-ui="instrument-nav"]', 'Add instrument'],
     ['btn-traditions', '[data-ui="genre-nav"]', 'Add genre'],
     ['btn-attributions', '[data-ui="credits"]', 'Credits'],
@@ -520,8 +513,15 @@ function uiStart() {
     node.innerHTML = placeholder.innerHTML;
     placeholder.replaceWith(node);
   }
+  // Undo/Redo step through this session (recipe, name, lyrics). Text fields
+  // keep their own Ctrl/Cmd+Z; the shortcut reaches the session only outside them.
+  $ui('btn-undo').dataset.tooltip = 'Undo the last session change (Ctrl/Cmd+Z)';
+  $ui('btn-redo').dataset.tooltip = 'Redo (Ctrl/Cmd+Shift+Z)';
+  $ui('btn-save').dataset.tooltip = 'Save a named copy of this session';
   oldHeader.remove();
   $ui('app-more-menu')?.remove();
+  UITheme.onChange(uiSyncThemeControl);
+  uiSyncThemeControl();
   // Preserve the original browse tree, filters, editor and save controls. Browsing
   // opens in an inline surface rather than a modal with a focus trap.
   // A row selection opens the editor beside discovery (inside the recipe sheet on phones).
@@ -534,7 +534,7 @@ function uiStart() {
   document.addEventListener('click', async (e) => {
     const nav = e.target.closest('button[data-view]');
     if (nav) {
-      uiNavigate(nav.dataset.view);
+      uiNavigate(nav.dataset.view, { push: true });
       return;
     }
     if (!e.target.closest('#ui-menu,[data-ui=menu]')) uiSetMenu(false);
@@ -543,91 +543,24 @@ function uiStart() {
     const a = b.dataset.ui,
       id = b.dataset.id;
     switch (a) {
-      case 'genre-branch':
-        UI.genre = null;
-        UI.genreNode = id;
-        UI.limit = 50;
-        $ui('genre-search').value = '';
-        renderGenreDiscovery();
-        break;
-      case 'genre-back':
-        UI.genreNode = getTreeNode(UI.genreNode)?.parent || '';
-        renderGenreDiscovery();
-        break;
-      case 'genre-select':
-        UI.genre = id;
-        renderGenreWeb(id);
-        $ui('surface-genre').scrollTop = 0;
-        break;
-      case 'genre-close':
-        UI.genre = null;
-        renderGenreDiscovery();
-        break;
       case 'genre-add':
         await uiAddGenre(id);
         break;
       case 'genre-nav':
         UI.genre = null;
-        uiNavigate('genre');
+        uiNavigate('genre', { push: true });
         break;
       case 'instrument-nav':
         app._addToTradition = null;
-        uiNavigate('instrument');
-        break;
-      case 'instrument-family':
-        UI.instrumentFamily = id;
-        UI.instrumentClass = '';
-        UI.limit = 50;
-        renderInstrumentDiscovery();
-        break;
-      case 'instrument-class':
-        UI.instrumentClass = id;
-        UI.limit = 50;
-        renderInstrumentDiscovery();
-        break;
-      case 'instrument-back':
-        if (UI.instrumentClass) UI.instrumentClass = '';
-        else UI.instrumentFamily = '';
-        renderInstrumentDiscovery();
-        break;
-      case 'instrument-filter':
-        app.instrumentAxisFilters.has(id)
-          ? app.instrumentAxisFilters.delete(id)
-          : app.instrumentAxisFilters.add(id);
-        renderInstrumentDiscovery();
-        break;
-      case 'clear-filters':
-        app.instrumentAxisFilters.clear();
-        renderInstrumentDiscovery();
+        uiNavigate('instrument', { push: true });
         break;
       case 'instrument-add':
         await uiAddInstrument(id);
         break;
-      case 'instrument-inspect':
-        uiInspectInstrument(id);
-        break;
-      case 'close-preview':
-        $ui('instrument-preview').hidden = true;
-        break;
       case 'more':
         UI.limit += 50;
-        UI.view === 'genre' ? renderGenreDiscovery() : renderInstrumentDiscovery();
+        UI_PAGES[UI.view]?.render?.();
         break;
-      case 'genre-tree': {
-        const tree = $ui('modal-trad');
-        if (tree.parentElement !== $ui('genre-body')) $ui('genre-body').replaceChildren(tree);
-        tree.classList.add('inline-tree');
-        tree.querySelector('.modal').removeAttribute('aria-modal');
-        tree.querySelector('.modal').setAttribute('role', 'region');
-        tree.querySelector('h2').textContent = 'Genres';
-        tree.querySelector('[data-close]').onclick = () => {
-          tree.classList.remove('inline-tree');
-          document.body.append(tree);
-          renderGenreDiscovery();
-        };
-        renderTradPicker();
-        break;
-      }
       case 'undo':
         undo();
         uiSync();
@@ -637,8 +570,7 @@ function uiStart() {
         uiSync();
         break;
       case 'close-editor':
-        UI.editor = false;
-        uiSync();
+        uiCloseEditor();
         break;
       case 'save':
         $ui('btn-save').click();
@@ -666,17 +598,13 @@ function uiStart() {
         break;
       case 'reset-layout':
         UILayout.reset();
-        $ui('map-frame').contentWindow?.postMessage({ type: 'reset-layout' }, location.origin);
+        for (const [route] of UI_ROUTES) UI_PAGES[route]?.resetLayout?.();
         uiSetMenu(false);
         showToast('Layout reset', 'success');
         break;
       case 'surprise':
         surpriseTradition();
         uiSetMenu(false);
-        break;
-      case 'view-running':
-        uiNavigate('genre');
-        document.body.classList.add('assistant-open');
         break;
       case 'keep-session':
         UI.storageConflict = false;
@@ -696,38 +624,29 @@ function uiStart() {
         uiSetMenu(false);
         break;
       case 'ai':
+        UI.assistantOpener = b;
         uiChatOpen();
         break;
       case 'close-ai':
         document.body.classList.remove('assistant-open');
+        uiFocus(UI.assistantOpener) || uiFocus(document.querySelector(`[data-view="${UI.view}"]`));
         break;
       case 'new-recipe':
         uiNewTask('recipe');
         break;
-      case 'new-lyrics':
-        uiNewTask('lyrics');
+      case 'theme':
+        UITheme.set(id);
+        uiSyncThemeControl();
         break;
-      case 'edit-lyrics':
-        if (!uiNewTask('lyrics-edit')) break;
-        $ui('chat-input').value = 'Edit these lyrics:\n' + $ui('lyrics-draft').value;
-        // maxlength does not bind a script write, so a long draft lands PAST
-        // the wall; the counter is what says so before the server refuses it.
-        _chatSyncCount();
+      case 'recipe-collapse': {
+        const pref = uiRecipeCollapsed[uiRecipeMode()];
+        pref.set(!pref.get());
+        uiApplyRecipeMode();
+        b.focus({ preventScroll: true });
         break;
-      case 'attach-recipe':
-        if (!uiSwitchChat('lyrics')) {
-          showToast('Wait for the active recipe request to finish.', 'error');
-          break;
-        }
-        $ui('chat-input').value =
-          'Write lyrics for this recording recipe:\n' +
-          compileRecipeStack(app.cards, 'rich', { ceiling: 1000 });
-        _chatSyncCount();
-        $ui('chat-input').focus();
-        break;
-      case 'copy-lyrics':
-        copyToClipboard($ui('lyrics-draft').value, 'Lyrics copied', 'Could not copy');
-        break;
+      }
+      default:
+        await UI_PAGE_ACTIONS[a]?.(id, b, e);
     }
   });
   document.addEventListener('keydown', (e) => {
@@ -735,39 +654,34 @@ function uiStart() {
       e.preventDefault();
       e.target.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     }
-    if (e.key === 'Escape') {
-      const wasSessionOpen = document.body.classList.contains('session-open');
-      const wasMenuOpen = !$ui('ui-menu').hidden;
-      document.body.classList.remove('session-open', 'assistant-open');
-      UI.editor = false;
-      uiSync();
-      uiSetMenu(false);
-      document.querySelector('[data-ui="session"]').setAttribute('aria-expanded', 'false');
-      if (wasMenuOpen) document.querySelector('[data-ui="menu"]').focus({ preventScroll: true });
-      else if (wasSessionOpen)
-        document.querySelector('[data-ui="session"]').focus({ preventScroll: true });
-    }
+    if (e.key === 'Escape') uiEscape(e);
   });
-  $ui('genre-search').addEventListener('input', () => {
-    UI.genre = null;
-    UI.limit = 50;
-    renderGenreDiscovery();
-  });
-  $ui('instrument-search').addEventListener('input', () => {
-    UI.limit = 50;
-    renderInstrumentDiscovery();
+  // Dialogs (src/app.js) close on the same Escape before this handler runs, so
+  // whether one was open is read on the way down, before they react.
+  document.addEventListener(
+    'keydown',
+    (e) => {
+      if (e.key === 'Escape')
+        UI.escapeOwned = !!document.querySelector(
+          '.modal-bg.open:not(.inline-tree), .confirm-dialog-bg'
+        );
+    },
+    true
+  );
+  window.addEventListener('hashchange', () => {
+    const view = location.hash.slice(1);
+    if (UI_PAGES[view] && view !== UI.view) uiNavigate(view);
   });
   $ui('ui-file').addEventListener('change', (e) => {
     if (e.target.files[0]) uiImport(e.target.files[0]);
     e.target.value = '';
   });
-  $ui('lyrics-draft').addEventListener('input', uiSaveLyrics);
-  $ui('lyrics-draft').addEventListener('blur', () => pushHistory());
   uiRestoreSession();
   window.addEventListener('storage', (e) => {
     if (e.key === 'codex-workbench-v1' && e.newValue !== UI.lastSaved) {
       UI.storageConflict = true;
       uiShowStorageConflict();
+      uiRenderAutosave('conflict');
     }
   });
   // Never hide AI on an offline or unavailable status response.
@@ -782,23 +696,73 @@ function uiStart() {
   const domain = $ui('chat-domain');
   domain.addEventListener('change', uiUpdatePrompt);
   uiUpdatePrompt();
-  window.addEventListener('message', async (e) => {
-    if (e.origin !== location.origin || e.source !== $ui('map-frame').contentWindow) return;
-    if (e.data?.type === 'add-genre' && typeof e.data.id === 'string') {
-      const ok = await uiAddGenre(e.data.id);
-      e.source.postMessage({ type: 'genre-added', id: e.data.id, ok: !!ok }, location.origin);
-    }
-    if (e.data?.type === 'genre-web' && typeof e.data.id === 'string') {
-      UI.genre = e.data.id;
-      uiNavigate('genre');
-    }
-  });
   UI.ready = true;
   uiLayoutControls();
   renderAll();
-  uiNavigate(location.hash.slice(1) || 'genre');
+  // codex.html?trad=<id> (the standalone atlas links here) opens that
+  // tradition's Genre detail. It adds nothing by itself: Add stays explicit,
+  // so a reload or a shared link can never duplicate an ensemble. An explicit
+  // route hash wins, and the link is consumed: left in the URL it would
+  // reopen that genre on every reload, whatever page the user had moved to.
+  const query = new URLSearchParams(location.search);
+  const deep = query.get('trad');
+  const route = location.hash.slice(1);
+  if (deep !== null && /^https?:$/.test(location.protocol)) {
+    query.delete('trad');
+    const rest = query.toString();
+    history.replaceState(null, '', location.pathname + (rest ? '?' + rest : '') + location.hash);
+  }
+  if (deep && !UI_PAGES[route] && Tradition(deep)) {
+    UI.genre = deep;
+    uiNavigate('genre');
+  } else uiNavigate(route || 'genre');
 }
 
+// ── Layers ── Escape closes the topmost open layer only and returns focus to
+// whatever opened it: a dialog (src/app.js handles those), then the More
+// menu, the AI writer, the Recipe sheet (below 900px), the editor, and last
+// whatever the current page opened (page.escape()).
+function uiFocus(el) {
+  if (!el || !el.isConnected || !el.getClientRects().length) return false;
+  el.focus({ preventScroll: true });
+  return true;
+}
+// The first element matching `selector` whose dataset[key] is `value`.
+function uiFind(selector, key, value) {
+  if (!value) return null;
+  return [...document.querySelectorAll(selector)].find((el) => el.dataset[key] === value) || null;
+}
+function uiFocusCard(id) {
+  return uiFocus(uiFind('.sb-card', 'cardId', id));
+}
+function uiCloseEditor() {
+  const id = app.selected;
+  UI.editor = false;
+  uiSync();
+  uiFocusCard(id);
+}
+function uiEscape(e) {
+  if (e.defaultPrevented || UI.escapeOwned) return;
+  if (document.documentElement.classList.contains('layout-dragging')) return;
+  const body = document.body;
+  if (!$ui('ui-menu').hidden) {
+    uiSetMenu(false);
+    uiFocus(document.querySelector('[data-ui="menu"]'));
+  } else if (body.classList.contains('assistant-open')) {
+    body.classList.remove('assistant-open');
+    uiFocus(UI.assistantOpener) || uiFocus(document.querySelector(`[data-view="${UI.view}"]`));
+  } else if (body.classList.contains('session-open')) {
+    body.classList.remove('session-open');
+    UI.editor = false;
+    uiSync();
+    document.querySelector('[data-ui="session"]').setAttribute('aria-expanded', 'false');
+    uiFocus(document.querySelector('[data-ui="session"]'));
+  } else if (body.classList.contains('editor-open')) {
+    uiCloseEditor();
+  } else {
+    UI_PAGES[UI.view]?.escape?.();
+  }
+}
 function uiLayoutControls() {
   UILayout.tooltips();
   const workspace = document.querySelector('.workspace');
@@ -812,7 +776,8 @@ function uiLayoutControls() {
     property: '--sidebar-width',
     title: 'Resize recipe sidebar',
     limits: () => [220, Math.min(520, innerWidth * 0.35)],
-    enabled: () => innerWidth >= 900 && UI.view !== 'map',
+    enabled: () =>
+      innerWidth >= 900 && uiRecipeMode() === 'sidebar' && !uiRecipeCollapsed.sidebar?.get(),
   });
   UILayout.splitter({
     container: workspace,
@@ -822,20 +787,20 @@ function uiLayoutControls() {
     title: 'Resize instrument editor',
     side: 'left',
     limits: () => [320, Math.min(700, innerWidth * 0.45)],
-    enabled: () => innerWidth >= 900 && UI.editor && !['map', 'lyrics'].includes(UI.view),
+    enabled: () => innerWidth >= 900 && document.body.classList.contains('editor-open'),
   });
-  const lyrics = document.querySelector('.lyrics-workspace');
-  const editor = document.querySelector('.lyrics-editor');
-  editor.id = 'lyrics-editor';
+  // The docked presentation (the Map) resizes from its top edge.
   UILayout.splitter({
-    container: lyrics,
-    panel: editor,
-    key: 'lyrics',
-    property: '--lyrics-width',
-    title: 'Resize lyrics editor',
-    limits: () => [260, Math.max(260, lyrics.clientWidth - 300)],
-    enabled: () => innerWidth >= 900 && lyrics.clientWidth > 680,
+    container: workspace,
+    panel: sidebar,
+    key: 'dock',
+    property: '--dock-height',
+    title: 'Resize Your recipe',
+    side: 'top',
+    limits: () => [300, Math.max(300, Math.round(workspace.clientHeight * 0.7))],
+    enabled: () => innerWidth >= 900 && uiRecipeMode() === 'dock' && !uiRecipeCollapsed.dock?.get(),
   });
+  for (const [route] of UI_ROUTES) UI_PAGES[route]?.layout?.();
   UILayout.floating($ui('assistant-slot'), {
     key: 'assistant',
     title: 'AI recipe panel',
@@ -906,7 +871,38 @@ function uiReceiveReply(payload, request) {
   }
 }
 
+// Shell icons not in the vendored Lucide subset (references/08_asset_manifest.js).
+// Lucide, ISC licence, as credited in the Credits dialog. icon() resizes them.
+const uiSvg = (paths) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${paths}</svg>`;
 const UI_ICONS = {
+  tag: uiSvg(
+    '<path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>'
+  ),
+  'map-pin': uiSvg(
+    '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle>'
+  ),
+  'file-text': uiSvg(
+    '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path>'
+  ),
+  // width="20.0", not "20": icon() rewrites every width="20" to the requested size.
+  monitor: uiSvg(
+    '<rect width="20.0" height="14" x="2" y="3" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path>'
+  ),
+  sun: uiSvg(
+    '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>'
+  ),
+  moon: uiSvg('<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>'),
+  'circle-check': uiSvg('<circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path>'),
+  'panel-left-close': uiSvg(
+    '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path><path d="m16 15-3-3 3-3"></path>'
+  ),
+  'panel-left-open': uiSvg(
+    '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path><path d="m14 9 3 3-3 3"></path>'
+  ),
+  'panel-bottom': uiSvg(
+    '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 15h18"></path>'
+  ),
   globe:
     '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-earth" aria-hidden="true"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"></path><path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17"></path><path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"></path><circle cx="12" cy="12" r="10"></circle></svg>',
   layers:
@@ -987,15 +983,50 @@ function uiAutosave() {
     sessionStorage.setItem('codex-workbench-recovery', data);
     if (UI.storageConflict) {
       uiShowStorageConflict();
+      uiRenderAutosave('conflict');
       return;
     }
     localStorage.setItem('codex-workbench-v1', data);
     UI.lastSaved = data;
     UI.saveFailed = false;
+    uiRenderAutosave('saved');
   } catch {
     UI.saveFailed = true;
+    uiRenderAutosave('failed');
     showToast('Autosave failed. Export your session to keep it.', 'error');
   }
+}
+// Autosave, Save and Saved sessions are three different things: this status
+// reports only the automatic copy of the open session in this browser.
+const UI_AUTOSAVE_STATES = {
+  saved: [
+    'success',
+    'circle-check',
+    'Autosaved',
+    'This session is saved automatically in this browser. Save makes a named copy.',
+  ],
+  conflict: [
+    'warning',
+    'triangle-alert',
+    'Not autosaved',
+    'Another tab changed the autosaved session. This tab keeps a recovery copy: keep this session or export it.',
+  ],
+  failed: [
+    'danger',
+    'circle-alert',
+    'Autosave failed',
+    'The browser refused to store this session. Export it to keep it.',
+  ],
+};
+function uiRenderAutosave(state) {
+  UI.autosave = state;
+  const el = $ui('ui-autosave'),
+    def = UI_AUTOSAVE_STATES[state];
+  if (!el || !def || el.dataset.state === state) return;
+  el.dataset.state = state;
+  el.dataset.tone = def[0];
+  el.dataset.tooltip = def[3];
+  el.innerHTML = `${icon(def[1], 16)}<span class="ui-autosave-text">${esc(def[2])}</span>`;
 }
 function uiShowStorageConflict() {
   if ($ui('storage-conflict')) return;
@@ -1007,15 +1038,6 @@ function uiShowStorageConflict() {
     uiButton('keep-session', 'Keep this session', 'save') +
     uiButton('export', 'Export this session', 'download');
   document.querySelector('.ui-header').after(note);
-}
-function uiLyricsWaiting() {
-  if ($ui('lyrics-wait')) return;
-  const note = document.createElement('div');
-  note.id = 'lyrics-wait';
-  note.innerHTML =
-    '<p>Your recipe request is still running.</p>' +
-    uiButton('view-running', 'View request', 'message-circle');
-  $ui('lyrics-chat').append(note);
 }
 async function uiCheckAI() {
   const status = $ui('ai-status');
@@ -1048,6 +1070,25 @@ async function uiCheckAI() {
   }
 }
 
+// ── Theme ── One setting (Light, Dark or System), stored by src/theme.js and
+// shared with the atlas. It lives in the More menu on every route.
+const UI_THEME_CHOICES = [
+  ['system', 'System', 'monitor'],
+  ['light', 'Light', 'sun'],
+  ['dark', 'Dark', 'moon'],
+];
+function uiThemeControl() {
+  return `<div class="cm-menu-label" id="ui-theme-label">Theme</div><div class="cm-segmented ui-theme" role="group" aria-labelledby="ui-theme-label">${UI_THEME_CHOICES.map(
+    ([id, label, ic]) =>
+      `<button type="button" data-ui="theme" data-id="${id}" aria-pressed="false">${icon(ic, 16)}<span>${label}</span></button>`
+  ).join('')}</div>`;
+}
+function uiSyncThemeControl() {
+  const current = UITheme.preference();
+  document.querySelectorAll('[data-ui="theme"]').forEach((b) => {
+    b.setAttribute('aria-pressed', String(b.dataset.id === current));
+  });
+}
 function uiSetMenu(open) {
   const menu = $ui('ui-menu'),
     trigger = document.querySelector('[data-ui="menu"]');

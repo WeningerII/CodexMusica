@@ -2,7 +2,7 @@
 
 The single source of truth for every interactive surface in the codex. Read this before changing the UI. Update this in the same commit as any UI change. The build's reachability gate (`scripts/ui_reachability_check.js`) enforces that every `status: reachable` entry's selector resolves to at least one element under the entry's precondition. Surfaces that aren't catalogued here are invisible to the build gate, which is how the master-detail refactor silently dropped the stack signature panel, the tradition-group delete, and three drag-drop interactions.
 
-**Updated:** 2026-09-12 for the production shared workspace. Reachability is enforced by `scripts/ui_reachability_check.js`; this structural check proves selectors exist under stated preconditions, not that every workflow is usable. Browser mobile checks and `scripts/check_workbench.js` cover separate interaction and state boundaries.
+**Updated:** 2026-09-25 for the shared UI foundation (theme, shell, one recipe panel on every route, lifecycle states; see `docs/ui-foundation.md` and the section at the end). Previously 2026-09-12 for the production shared workspace. Reachability is enforced by `scripts/ui_reachability_check.js`; this structural check proves selectors exist under stated preconditions, not that every workflow is usable. Browser mobile checks and `scripts/check_workbench.js` cover separate interaction and state boundaries.
 
 ---
 
@@ -59,6 +59,10 @@ The reachability check supports these standardized preconditions. The check grou
 | `preface just committed with shifts` | 1+ cards, then `card._uiTab = 'preface'`, then `commitPrefaceChange(card, 'liturgical')`. `delta_blues` voice + `liturgical` reliably produces non-empty shifts (tuning + room changes) via the inverse algorithm, which populates `_recentShiftsByCard` and surfaces the panel. |
 | `instrument picker open, similar drill-down active` | Set `app.similarInstFor = 'voice'`, then `renderInstPicker()`, then `openModal('modal-add')`. The picker re-renders into similar-instrument drill-down mode (different DOM tree than the family-grouped chip list). |
 | `saved workspaces list open` | Install a `window.storage` mock (the RESET does this automatically when no real storage exists — Claude.ai provides one, headless Chromium doesn't), seed one workspace fixture into both `codex:list` and `codex:ws:gate-fixture`, then `openModal('modal-saved')` and `await renderSaved()`. Surfaces one row with Load / Fork / Delete controls. The `_gate_mock` flag on the mock prevents the fixture preconditions from polluting real storage if it's ever present. |
+| `genre search: no results` | Type a query no genre matches into `#genre-search`, clear `UI.genre`, `renderGenreDiscovery()`. Surfaces the no-results state and its Clear search. |
+| `instrument search: no results` | Type a query no instrument matches into `#instrument-search`, `renderInstrumentDiscovery()`. Surfaces the no-results state and its recovery actions. |
+| `genre just imported` | `await importTraditionWithFeedback('delta_blues')`. Surfaces the import toast and its Undo action. |
+| `map view` | `uiNavigate('map')`. The Map presents Your recipe as a dock. RESET returns every group to the Genre section with both search fields cleared. |
 | `modal open: <id>` | `openModal(<id>)`. Modal IDs: `modal-add`, `modal-trad`, `modal-saved`, `modal-save`, `modal-preface`, `modal-recipe-stack`, `modal-attributions`. Use this only when the entry targets the modal frame itself (`#modal-X.open`), not its contents — for contents, use one of the populated-state preconditions above. |
 
 When a future capability needs a precondition not listed here, add the precondition spec to `scripts/ui_reachability_check.js` AND document it in the table above in the same commit.
@@ -85,7 +89,7 @@ Opens the tradition picker modal at its tree-browser entry point.
 name: app-bar-saved
 kind: widget
 selector: '#btn-saved'
-surface: app bar — "Saved" button
+surface: app bar — "Saved sessions" button (distinct from Save and from the Autosaved status)
 implementation: click handler opens modal-saved via renderSaved
 status: reachable
 precondition: empty
@@ -302,7 +306,7 @@ precondition: 1+ cards
 name: sidebar-recipe-open-full
 kind: widget
 selector: '#sb-open-full-stack'
-surface: sidebar — "Open full stack →" button
+surface: sidebar — "Open full recipe →" button (was "Open full stack →")
 implementation: opens modal-recipe-stack
 status: reachable
 precondition: 1+ cards
@@ -408,7 +412,7 @@ precondition: 1+ cards
 name: detail-tab-preface
 kind: widget
 selector: '.detail-tab[data-tab="preface"]'
-surface: detail tab bar — "Preface" tab
+surface: detail tab bar — "Character" tab (the preface and its cascade; id stays `preface`)
 implementation: tab click sets card._uiTab = 'preface'
 status: reachable
 precondition: 1+ cards
@@ -418,7 +422,7 @@ precondition: 1+ cards
 name: detail-tab-stack
 kind: widget
 selector: '.detail-tab[data-tab="stack"]'
-surface: detail tab bar — "Stack" tab
+surface: detail tab bar — "Output" tab (Rich, Tags, Prose, Compact; id stays `stack`)
 implementation: tab click sets card._uiTab = 'stack', renders renderStackPanel
 status: reachable
 precondition: 1+ cards
@@ -792,7 +796,7 @@ precondition: 'modal open: modal-preface'
 name: modal-recipe-stack
 kind: modal
 selector: '#modal-recipe-stack.open'
-surface: full recipe stack modal — opened from sidebar "Open full stack →"
+surface: full recipe stack modal — opened from sidebar "Open full recipe →"
 implementation: openModal('modal-recipe-stack'); renderRecipeStack populates
 status: reachable
 precondition: 'modal open: modal-recipe-stack'
@@ -990,10 +994,10 @@ notes: Master-detail layout (2026-05) enforces single-active selection via app.s
 
 ## Counts (for the gate's preamble verification)
 
-- Reachable: 94
+- Reachable: 106
 - Pending: 0
 - Retired: 1
-- **Total tracked surfaces: 95**
+- **Total tracked surfaces: 107**
 
 When this count changes, update it here AND update the verification block in `scripts/ui_reachability_check.js`. Sanity match on every build.
 
@@ -1119,4 +1123,138 @@ surface: shared workbench
 implementation: src/workbench.js
 status: reachable
 precondition: empty
+```
+
+## Shared UI foundation (2026-09-25)
+
+The foundation for the four-page redesign (`docs/ui-foundation.md`). These are
+shared surfaces on every route; the final page layouts are not built yet and
+are listed there as page work. Behaviour — not just presence — is gated by
+`scripts/check_ui_foundation.js`.
+
+```yaml
+name: theme-setting
+kind: widget
+selector: '[data-ui="theme"]'
+surface: More menu — Theme: System / Light / Dark (segmented, aria-pressed)
+implementation: uiThemeControl / uiSyncThemeControl in src/workbench.js; UITheme.set in src/theme.js
+status: reachable
+precondition: empty
+notes: One stored preference (codex-theme), applied before first paint in codex.html and atlas.html, followed live when System, and relayed to the atlas in the Map. check_ui_foundation.js A-D.
+```
+
+```yaml
+name: autosave-status
+kind: widget
+selector: '#ui-autosave'
+surface: header — Autosaved / Not autosaved / Autosave failed, icon plus word
+implementation: uiRenderAutosave, called by uiAutosave in src/workbench.js
+status: reachable
+precondition: empty
+notes: Reports only what the automatic copy of the open session did. Save (named copy) and Saved sessions (list) are separate controls. check_ui_foundation.js F-G.
+```
+
+```yaml
+name: recipe-panel-collapse
+kind: widget
+selector: '[data-ui="recipe-collapse"]'
+surface: Your recipe header — collapse to a rail (sidebar) or to its header (dock), and expand
+implementation: uiApplyRecipeMode / uiRecipeCollapsed (UILayout.remember) in src/workbench.js
+status: reachable
+precondition: empty
+notes: Remembered per presentation under codex-layout:*; Reset layout clears it. Hidden below 900px, where the Recipe sheet has its own Close. check_ui_foundation.js I.
+```
+
+```yaml
+name: recipe-dock-resize
+kind: drag-drop
+selector: '.layout-splitter-y'
+surface: top edge of the Your recipe dock (the Map) — drag to resize
+implementation: UILayout.splitter({ side 'top' }) in src/layout.js, registered by uiLayoutControls
+status: reachable
+precondition: empty
+notes: Keyboard alternative on the same separator (Up/Down, Shift for larger steps, Home resets, End maximises); double-click resets. Visible only while the dock is the presentation and expanded.
+```
+
+```yaml
+name: recipe-empty-state
+kind: widget
+selector: '#recipe-empty [data-ui="genre-nav"]'
+surface: Your recipe — empty session: what to do, Browse genres, Surprise me
+implementation: uiRecipePanelSetup / uiSync in src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: map-status
+kind: widget
+selector: '#map-status'
+surface: Map — "Loading the map…" until the embedded atlas has loaded
+implementation: map page render() in src/pages/map.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: keyboard-escape-layers
+kind: keyboard-shortcut
+selector: 'document'
+surface: global — Escape closes the topmost layer only (dialog, More, AI writer, Recipe sheet, editor, then the page's own) and returns focus to its opener
+implementation: uiEscape in src/workbench.js; page escape() hooks in src/pages/genre.js and src/pages/instrument.js
+status: reachable
+precondition: empty
+notes: Verified by check_ui_foundation.js H, not by this presence check.
+```
+
+```yaml
+name: history-back-between-sections
+kind: keyboard-shortcut
+selector: 'document'
+surface: browser Back / Forward — step between Genre, Instrument, Map and Lyrics
+implementation: uiNavigate(view, { push }) and the hashchange listener in src/workbench.js
+status: reachable
+precondition: empty
+notes: Deep links codex.html#<section> and codex.html?trad=<id> (opens that genre's detail; adds nothing) are preserved. Verified by check_ui_foundation.js H.
+```
+
+```yaml
+name: genre-no-results-clear
+kind: data-action
+selector: '[data-ui="genre-clear-search"]'
+surface: Genre — "No genres match …" with Clear search
+implementation: uiEmptyState in src/workbench.js; genre-clear-search in src/pages/genre.js
+status: reachable
+precondition: 'genre search: no results'
+```
+
+```yaml
+name: instrument-no-results-recovery
+kind: data-action
+selector: '[data-ui="instrument-clear-search"]'
+surface: Instrument — "No instruments match" naming the constraints in force, with Clear search, Clear filters and All instruments as they apply
+implementation: uiInstrumentNoResults in src/pages/instrument.js
+status: reachable
+precondition: 'instrument search: no results'
+```
+
+```yaml
+name: toast-action-undo
+kind: data-action
+selector: '#toast .toast-action'
+surface: import toast — Undo (only while the import is still the latest change); Retry after a failed catalog fetch
+implementation: showToast(message, kind, action) and importTraditionWithFeedback in src/app.js
+status: reachable
+precondition: 'genre just imported'
+```
+
+```yaml
+name: map-your-recipe-dock
+kind: widget
+selector: '.workbench[data-recipe="dock"] #workspace-sidebar .recipe-panel-head'
+surface: Map — Your recipe docked under the map, the same panel and editor as Genre and Instrument
+implementation: map page recipe 'dock' (src/pages/map.js); dock presentation in src/workbench.css
+status: reachable
+precondition: 'map view'
+notes: A tradition's stock recipe in the atlas card is labelled "Default recipe" and is a different object. check_ui_foundation.js E proves one node and one state across the three pages.
 ```

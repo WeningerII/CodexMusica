@@ -39,7 +39,7 @@
 //   0  success
 //   2  missing required source (src/index.template.html or src/app.js)
 //   4  embedded data block failed to parse, or a table did not read back (--check)
-//   5  template is missing the <!--@CODEX_BODY--> marker
+//   5  template is missing the <!--@CODEX_BODY--> or <!--@THEME_BOOT--> marker
 //   6  an emitted <script> is all comment, or exceeds the hard byte ceiling (--check)
 
 const fs = require('fs');
@@ -142,8 +142,25 @@ const template = fs.readFileSync(TEMPLATE, 'utf8');
 const appJs = fs.readFileSync(APP, 'utf8');
 const workbenchJs = fs.readFileSync(path.join(SRC, 'workbench.js'), 'utf8');
 const workbenchCss = fs.readFileSync(path.join(SRC, 'workbench.css'), 'utf8');
+// The four pages, in navigation order. Each registers itself with the shell
+// (src/workbench.js) and owns only its own surface; docs/ui-foundation.md
+// names the owner of every file. Page styles load after the shell's.
+const PAGES = ['genre', 'instrument', 'map', 'lyrics'];
+const pageFile = (name, ext) => fs.readFileSync(path.join(SRC, 'pages', name + ext), 'utf8');
+const pagesJs = PAGES.map((p) => pageFile(p, '.js')).join('\n');
+const pagesCss = PAGES.map((p) => pageFile(p, '.css')).join('\n');
 const layoutJs = fs.readFileSync(path.join(SRC, 'layout.js'), 'utf8');
+// The shared theme: tokens + components (loaded first, so everything after it
+// may use them) and the preference boot, which runs in <head> before the
+// first paint so the page never flashes in the wrong theme.
+const themeCss = fs.readFileSync(path.join(SRC, 'theme.css'), 'utf8');
+const themeJs = fs.readFileSync(path.join(SRC, 'theme.js'), 'utf8');
+const THEME_BOOT_MARKER = '<!--@THEME_BOOT-->';
 const layoutCss = fs.readFileSync(path.join(SRC, 'layout.css'), 'utf8');
+if (!template.includes(THEME_BOOT_MARKER)) {
+  console.error(`build_html: template is missing the ${THEME_BOOT_MARKER} marker — ${TEMPLATE}`);
+  process.exit(5);
+}
 if (!template.includes(CODEX_BODY_MARKER)) {
   console.error(`build_html: template is missing the ${CODEX_BODY_MARKER} marker — ${TEMPLATE}`);
   process.exit(5);
@@ -275,7 +292,11 @@ function _cardDescriptorSet(card) {
 // (template literals, regex) that String.replace would special-case — a
 // function replacement returns the string verbatim.
 const html = template
-  .replace('<!--@WORKBENCH_STYLE-->', () => workbenchCss + '\n' + layoutCss)
+  .replace(THEME_BOOT_MARKER, () => '<script>' + squeeze(themeJs, 'theme boot') + '</script>')
+  .replace(
+    '<!--@WORKBENCH_STYLE-->',
+    () => themeCss + '\n' + workbenchCss + '\n' + pagesCss + '\n' + layoutCss
+  )
   .replace(
     CODEX_BODY_MARKER,
     () =>
@@ -298,8 +319,10 @@ const html = template
           '\n' +
           appJs +
           '\n' +
-          workbenchJs,
-        'runtime (merge + descriptors + app.js + workbench.js)'
+          workbenchJs +
+          '\n' +
+          pagesJs,
+        'runtime (merge + descriptors + app.js + workbench.js + pages)'
       )
   );
 

@@ -15,6 +15,8 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
     <meta name="theme-color" content="#ffffff" />
+    <!-- The shared theme preference, applied before the first paint. -->
+    <script src="src/theme.js"></script>
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Traditions Atlas — Codex Musica" />
     <meta property="og:description" content="2588 music traditions, mapped by sound rather than by border." />
@@ -27,8 +29,10 @@
     />
     <style>
       /* Tokens mirror src/index.template.html so the atlas and the app read as
-         one product. The two greys have no token in the template (the app uses
-         literals); they are named here rather than repeated forty times. */
+         one product. These are the light values; src/theme.css (linked below)
+         re-points every one of them at the active theme, Light or Dark, so the
+         standalone atlas and the one embedded in the Map view follow the same
+         preference as the app. */
       :root {
         --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
         --font-body: 'IBM Plex Sans', 'Inter', system-ui, -apple-system, sans-serif;
@@ -116,7 +120,7 @@
         gap: 12px;
         padding: 10px 16px;
         border-bottom: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.85);
+        background: var(--header-glass, rgba(255, 255, 255, 0.85));
         backdrop-filter: blur(8px);
         z-index: 40;
         flex-shrink: 0;
@@ -299,7 +303,7 @@
         font-size: 18px;
         line-height: 1;
         color: var(--muted);
-        box-shadow: 0 1px 2px rgba(32, 33, 36, 0.08);
+        box-shadow: var(--shadow-1, 0 1px 2px rgba(32, 33, 36, 0.08));
       }
       .zoombtn:hover {
         background: var(--surface-sunken);
@@ -316,11 +320,11 @@
         background: var(--surface);
         color: var(--text);
         white-space: nowrap;
-        box-shadow: 0 1px 2px rgba(32, 33, 36, 0.08);
+        box-shadow: var(--shadow-1, 0 1px 2px rgba(32, 33, 36, 0.08));
       }
       .toggle[aria-pressed='true'] {
         background: var(--text);
-        color: #fff;
+        color: var(--on-accent, #fff);
         border-color: var(--text);
       }
       .panel {
@@ -410,14 +414,14 @@
         padding: 9px 12px;
         font-size: 13px;
         font-weight: 500;
-        color: #fff;
+        color: var(--on-accent, #fff);
         background: var(--color-blue);
         border: none;
         border-radius: 6px;
       }
       .btn-primary:hover {
         background: var(--color-blue-hover);
-        color: #fff;
+        color: var(--on-accent, #fff);
       }
       .btn-secondary {
         flex: 1;
@@ -519,7 +523,7 @@
         z-index: 35;
         pointer-events: none;
         background: var(--text);
-        color: #fff;
+        color: var(--on-accent, #fff);
         font-size: 12px;
         padding: 4px 8px;
         border-radius: 4px;
@@ -534,7 +538,7 @@
         text-align: right;
         font-size: 11px;
         color: var(--muted-2);
-        background: rgba(255, 255, 255, 0.85);
+        background: var(--header-glass, rgba(255, 255, 255, 0.85));
         padding: 3px 8px;
         border-radius: 4px;
       }
@@ -577,7 +581,8 @@
         }
       }
     </style>
-  <link rel="stylesheet" href="src/map.css">
+  <link rel="stylesheet" href="src/theme.css">
+    <link rel="stylesheet" href="src/map.css">
     <link rel="stylesheet" href="src/layout.css">
   </head>
   <body>
@@ -610,7 +615,7 @@
               height="14"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#70767b"
+              stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
               aria-hidden="true"

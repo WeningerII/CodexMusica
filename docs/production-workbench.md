@@ -1,11 +1,17 @@
 # Production shared workspace
 
 The production HTML is generated from `src/index.template.html`, `src/app.js`,
-`src/workbench.js`, and `src/workbench.css` by `scripts/build_html.js`. The new
-interface uses native catalog, recipe compilation, part/preface cascades, room,
-tuning, chain, Save and signed chat implementations. There is no copied engine
-or runtime function replacement. Genre, Instrument, Map and Lyrics share one
-recipe and saved session. Browser additions apply directly and support Undo.
+the shell (`src/workbench.js`, `src/workbench.css`), the shared theme
+(`src/theme.css`, `src/theme.js`) and the four page modules in `src/pages/` by
+`scripts/build_html.js`. The interface uses native catalog, recipe compilation,
+part/preface cascades, room, tuning, chain, Save and signed chat
+implementations. There is no copied engine or runtime function replacement.
+Genre, Instrument, Map and Lyrics share one recipe panel, one editor and one
+saved session; the Map presents the panel as a dock under the map. Browser
+additions apply directly and support Undo. Light, Dark and System themes reach
+every route, dialog and the embedded atlas. The shared foundation, its
+interfaces and the files each page owner may change are in
+[docs/ui-foundation.md](ui-foundation.md).
 
 Genre and instrument discovery use category controls and catalog rows. Circular
 charts and the duplicate related-genre graph are removed; the browse tree,
@@ -38,8 +44,13 @@ writers must durably preserve the compact continuation before changing state.
   embedded catalogs, picker DOM, imports, recipes and failed-fetch behavior.
 - `scripts/check_mobile_layout.js` retains the native viewport, touch target,
   overlap and drag gates with updated visible entry points.
-- `scripts/ui_reachability_check.js` checks the 94 reachable inventory entries.
+- `scripts/ui_reachability_check.js` checks the 106 reachable inventory entries.
   Selector existence alone does not prove visibility or an end-to-end workflow.
+- `scripts/check_ui_foundation.js` drives the shipped page: theme before first
+  paint and across reloads and routes, the atlas following it, neutral dark
+  surfaces, one recipe panel and editor across Genre/Instrument/Map, reload
+  and Undo/Redo, truthful autosave, layered Escape, Back/Forward, collapse and
+  empty/no-results recovery.
 - Adversarial browser review exercised 360/390px navigation, search, room edits,
   all eight chain stages, Undo/Redo, editor tabs and menu/dialog focus. The
   viewport harness did not exercise a physical phone keyboard or pinch input.

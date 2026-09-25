@@ -20,6 +20,8 @@
 <link rel="alternate" type="text/plain" href="llms.txt" title="Agent instructions (llms.txt)">
 <link rel="alternate" type="application/json" href="api/all.json" title="Every recipe in one fetch">
 <meta name="theme-color" content="#ffffff">
+<!-- Theme preference, resolved before the first paint (src/theme.js). -->
+<!--@THEME_BOOT-->
 <style>
 :root {
   /* Spacing — 4px grid */
@@ -89,6 +91,16 @@
   --color-yellow-soft: #fef7e0;
   --color-green:       #1e8e3e;
   --color-green-soft:  #e6f4ea;
+  /* Added with the shared theme (src/theme.css), which re-points every token
+     in this block at the active theme. These are the light values, so the
+     template reads correctly on its own. */
+  --color-blue-soft-hover: #d2e3fc;
+  --color-yellow-text: #9a5b00;
+  --on-accent:         #ffffff;
+  --header-glass:      rgba(255, 255, 255, 0.92);
+  --scrim:             rgba(32, 33, 36, 0.32);
+  --surface-inverse:   #303134;
+  --text-inverse:      #f1f3f4;
   /* Accent — the editorial red used for preface italics, the active tab
      underline, the pinned marker and drag indicators. It is NOT one of the
      semantic status colours above: it marks authored/emphasised content, not
@@ -119,8 +131,16 @@ input { font: inherit; color: inherit; }
 ul { list-style: none; }
 ::selection { background: var(--text); color: var(--surface); }
 
+/* Boot: the controls below are inert until the app starts, so they are not
+   shown until then; the status says what is happening instead. */
+.boot-status { display: none; }
+body:not(.workbench):not(.boot-failed) > .boot-status { display: flex; position: fixed; inset: 0; align-items: center; justify-content: center; color: var(--text-3); font-size: var(--fs-body); background: var(--bg); z-index: 1; }
+body:not(.workbench):not(.boot-failed) > .app-bar,
+body:not(.workbench):not(.boot-failed) > main.workspace { visibility: hidden; }
+body.boot-failed > .app-bar { display: none; }
+
 /* App bar */
-.app-bar { position: sticky; top: 0; z-index: 30; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: var(--s3) var(--s6); display: flex; align-items: center; justify-content: space-between; gap: var(--s4); }
+.app-bar { position: sticky; top: 0; z-index: 30; background: var(--header-glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: var(--s3) var(--s6); display: flex; align-items: center; justify-content: space-between; gap: var(--s4); }
 .app-bar h1 { font-family: var(--font-display); font-size: var(--fs-display-modal); font-weight: var(--fw-semibold); letter-spacing: -0.005em; display: inline-flex; align-items: center; gap: var(--s2); color: var(--text); font-variation-settings: "SOFT" 50, "opsz" 30; }
 .app-bar-wordmark { gap: var(--s3); }
 .app-bar-wordmark .wordmark-text { font-weight: var(--fw-semibold); font-size: var(--fs-display-modal); letter-spacing: -0.01em; }
@@ -203,7 +223,7 @@ ul { list-style: none; }
 .btn:active:not(:disabled) { transform: translateY(0.5px); transition-duration: 50ms; }
 .btn-primary {
   background: var(--color-blue);
-  color: #ffffff;
+  color: var(--on-accent);
   border-color: var(--color-blue);
 }
 .btn-primary:hover { background: var(--color-blue-hover); border-color: var(--color-blue-hover); }
@@ -227,7 +247,7 @@ ul { list-style: none; }
    The text is --color-blue-hover, not --color-blue: #1a73e8 on #e8f0fe is
    3.93:1 and fails AA for normal text, while #1765cc on it is 4.86:1. */
 .btn-tonal { background: var(--color-blue-soft); color: var(--color-blue-hover); border-color: transparent; }
-.btn-tonal:hover { background: #d6e4fc; border-color: transparent; }
+.btn-tonal:hover { background: var(--color-blue-soft-hover); border-color: transparent; }
 .btn-danger { color: var(--color-red); }
 .btn-danger:hover { background: var(--color-red-soft); }
 /* Solid-red destructive button — used inside confirmDialog for the
@@ -236,13 +256,13 @@ ul { list-style: none; }
    "Cancel" button next to it. */
 .btn-danger-solid {
   background: var(--color-red);
-  color: #fff;
+  color: var(--on-accent);
   border-color: var(--color-red);
 }
 .btn-danger-solid:hover {
-  background: #b3261e;
-  border-color: #b3261e;
-  color: #fff;
+  background: var(--color-red-hover);
+  border-color: var(--color-red-hover);
+  color: var(--on-accent);
 }
 .icon-btn { width: 28px; height: 28px; padding: 0; border-radius: var(--r2); background: transparent; border: none; color: var(--text-2); display: inline-flex; align-items: center; justify-content: center; transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease); cursor: pointer; }
 .icon-btn:hover { background: var(--surface-3); color: var(--text); }
@@ -342,7 +362,7 @@ ul { list-style: none; }
 .sb-tradition-group.is-collapsed .sb-chev { transform: rotate(-90deg); }
 .sb-tradition-name { font-weight: var(--fw-semibold); color: var(--text); font-size: var(--fs-body); flex: 1 1 auto; min-width: 0; line-height: 1.25; overflow: hidden; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .sb-status-pill { font-size: var(--fs-nano); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 10px; }
-.sb-status-pill.primary { background: var(--color-blue); color: white; }
+.sb-status-pill.primary { background: var(--color-blue); color: var(--on-accent); }
 .sb-status-pill.secondary { background: var(--surface-2); color: var(--text-2); }
 .sb-tradition-count { font-size: var(--fs-caption); color: var(--text-3); margin-left: 4px; }
 /* Mover buttons — always visible (vs delete which only appears on hover),
@@ -403,7 +423,7 @@ ul { list-style: none; }
   opacity: 0.85;
   border-radius: var(--r2);
   background: var(--surface);
-  box-shadow: 0 8px 24px rgba(32, 33, 36, 0.18), 0 0 0 1px var(--accent);
+  box-shadow: var(--shadow-modal), 0 0 0 1px var(--accent);
   transition: none;
 }
 /* The row stays in place, dimmed, so the tree keeps its shape while you drag
@@ -466,8 +486,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .sb-staple-refresh:hover { color: var(--text); }
 .sb-staple-body { font-size: var(--fs-caption); color: var(--text-2); line-height: 1.4; }
 .sb-staple-body .sb-staple-name { font-style: italic; color: var(--text); font-weight: var(--fw-medium); }
-.sb-staple-add { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 6px 8px; border: 1px solid var(--color-blue-border, #cfd9e8); background: rgba(255,255,255,0.5); border-radius: 6px; color: var(--color-blue); font-size: var(--fs-caption); font-weight: var(--fw-medium); cursor: pointer; transition: background 120ms; }
-.sb-staple-add:hover { background: white; }
+.sb-staple-add { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 6px 8px; border: 1px solid var(--color-blue-border, #cfd9e8); background: var(--surface); border-radius: 6px; color: var(--color-blue); font-size: var(--fs-caption); font-weight: var(--fw-medium); cursor: pointer; transition: background 120ms; }
+.sb-staple-add:hover { background: var(--color-blue-soft); }
 
 /* Parts list grid (Phase 4 of layout refactor). Matches the screenshot row
    anatomy: thumb / PART NAME caps / variant / dot-descriptors / N options →. */
@@ -500,11 +520,11 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .rp-head { display: flex; align-items: center; gap: 6px; }
 .rp-head .rp-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); flex: 1; }
 .rp-head .rp-count { font-size: var(--fs-micro); font-variant-numeric: tabular-nums; color: var(--text-3); }
-.rp-head .rp-count.is-amber { color: #b87a26; }
+.rp-head .rp-count.is-amber { color: var(--color-yellow-text); }
 .rp-head .rp-count.is-red { color: var(--color-red); }
 .rp-progress { height: 2px; background: var(--surface-2); border-radius: 1px; overflow: hidden; }
 .rp-progress-fill { height: 100%; background: var(--color-green); transition: width 200ms ease, background 200ms ease; }
-.rp-progress-fill.is-amber { background: #d9961f; }
+.rp-progress-fill.is-amber { background: var(--color-yellow); }
 .rp-progress-fill.is-red { background: var(--color-red); }
 .rp-text { font-family: 'JetBrains Mono', monospace; font-size: var(--fs-code); line-height: 1.5; color: var(--text-2); max-height: 200px; overflow-y: auto; word-break: break-word; padding-right: 4px; }
 .rp-text::-webkit-scrollbar { width: 4px; }
@@ -787,7 +807,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
 /* Pin button active state — when the card is pinned, the icon fills with
    the blue accent color. Mirrors the active treatment of other icon-toggles. */
 .icon-btn.is-active { color: var(--color-blue); }
-.icon-btn.is-active:hover { color: var(--color-blue); background: rgba(26, 115, 232, 0.08); }
+.icon-btn.is-active:hover { color: var(--color-blue); background: var(--color-blue-soft); }
 /* Pin specifically — when active, fill the pin head (second path of the
    Lucide pin icon) so the toggled state reads as a "stuck-in" pushpin.
    The first path (M12 17v5) is the post and stays stroke-only. */
@@ -1003,7 +1023,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .chip-block:hover { border-color: var(--text-3); }
 .chip-block.selected { background: var(--text); color: var(--surface); border-color: var(--text); }
 .chip-block .chip-block-sub { display: block; font-size: var(--fs-micro); font-weight: var(--fw-regular); color: var(--text-3); margin-top: 2px; font-family: var(--font-mono); letter-spacing: -0.005em; }
-.chip-block.selected .chip-block-sub { color: rgba(255,255,255,0.7); }
+.chip-block.selected .chip-block-sub { color: color-mix(in srgb, var(--surface) 72%, transparent); }
 
 /* Environment items */
 .env-options { margin-top: var(--s3); padding-top: var(--s3); grid-column: 1 / -1; display: flex; flex-direction: column; gap: var(--s1); }
@@ -1076,7 +1096,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .stack-actions { display: flex; gap: var(--s2); margin-top: var(--s3); }
 
 /* Modal */
-.modal-bg { position: fixed; inset: 0; background: rgba(32, 33, 36, 0.5); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); display: none; align-items: center; justify-content: center; z-index: 100; padding: var(--s5); }
+.modal-bg { position: fixed; inset: 0; background: var(--scrim); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); display: none; align-items: center; justify-content: center; z-index: 100; padding: var(--s5); }
 .modal-bg.open { display: flex; }
 .modal { background: var(--surface); border-radius: var(--r4); box-shadow: var(--shadow-modal); width: 100%; max-width: 720px; max-height: calc(100vh - var(--s8)); display: flex; flex-direction: column; overflow: hidden; transform: scale(0.96); opacity: 0; transition: transform var(--t-norm) var(--ease-out), opacity var(--t-norm) var(--ease-out); }
 .modal-bg.open .modal { transform: scale(1); opacity: 1; }
@@ -1299,7 +1319,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
     z-index: 60;
     padding: var(--s2) var(--s3) calc(var(--s2) + env(safe-area-inset-bottom, 0px));
     border-top: 1px solid var(--border);
-    box-shadow: 0 -2px 12px rgba(0,0,0,0.10);
+    box-shadow: var(--shadow-2);
     gap: var(--s2);
   }
   #sidebar-recipe-preview:empty { display: none; }
@@ -1481,8 +1501,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
   left: 50%;
   bottom: calc(100% + 8px);
   transform: translateX(-50%) translateY(2px);
-  background: #3c4043;
-  color: #ffffff;
+  background: var(--surface-inverse);
+  color: var(--text-inverse);
   font-size: var(--fs-micro);
   font-weight: var(--fw-medium);
   line-height: var(--lh-tight);
@@ -1494,7 +1514,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
   transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
   transition-delay: 0ms;
   z-index: 250;
-  box-shadow: 0 2px 6px rgba(32, 33, 36, 0.2);
+  box-shadow: var(--shadow-2);
 }
 [data-tooltip]:hover::after,
 [data-tooltip]:focus-visible::after {
@@ -1559,7 +1579,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
   background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: 12px;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+  box-shadow: var(--shadow-modal);
   overflow: hidden;
   max-height: min(60vh, 520px);
 }
@@ -1648,10 +1668,10 @@ body.is-dnd-active * { cursor: grabbing !important; }
   background: var(--surface-3);
   color: var(--text-2);
 }
-.chat-tool.is-error { background: var(--accent); color: #fff; }
+.chat-tool.is-error { background: var(--accent); color: var(--on-accent); }
 /* A lyric grade with banned pairs standing: not an error — the call answered —
    but a verdict the user must see even when the reply relays none of it. */
-.chat-tool.is-alert { background: var(--accent); color: #fff; }
+.chat-tool.is-alert { background: var(--accent); color: var(--on-accent); }
 
 .chat-bar {
   display: flex;
@@ -1659,7 +1679,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
   background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: 999px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-modal);
   padding: var(--s1) var(--s1) var(--s1) var(--s4);
   align-items: center;
 }
@@ -1690,7 +1710,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
   white-space: nowrap;
   color: var(--text-3);
 }
-.chat-count.is-amber { color: #b87a26; }
+.chat-count.is-amber { color: var(--color-yellow-text); }
 .chat-count.is-red { color: var(--color-red); }
 /* Screen-reader-only live region for the same information. The visible counter
    is aria-hidden: a live region that fires on every keystroke is unusable, so
@@ -1726,6 +1746,11 @@ body.is-dnd-active * { cursor: grabbing !important; }
 </style>
 </head>
 <body>
+
+<!-- Loading state. The lazy shell fetches the catalog before anything is
+     wired; until the workbench starts (body.workbench) or the boot fails
+     (body.boot-failed, with its own Reload), this is all the page shows. -->
+<div class="boot-status" id="boot-status" role="status">Loading the catalog…</div>
 
 <header class="app-bar">
   <div style="display: flex; align-items: center; gap: var(--s4);">
@@ -1875,7 +1900,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <!-- Modal: browse preface lexicon -->
 <div class="modal-bg" id="modal-preface">

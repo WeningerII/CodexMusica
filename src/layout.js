@@ -305,6 +305,10 @@ const UILayout = (() => {
       });
     update();
   }
+  // A resize handle on one edge of a panel. side 'left'/'right' resizes the
+  // width (a vertical separator); side 'top' resizes the height of a docked
+  // panel (a horizontal separator). Drag, arrow keys, Home (reset), End (max)
+  // and double-click (reset) all reach the same bounded value.
   function splitter({
     container,
     panel,
@@ -315,14 +319,20 @@ const UILayout = (() => {
     limits,
     enabled = () => innerWidth >= 900,
   }) {
+    const vertical = side === 'top';
+    const size = (r) => (vertical ? r.height : r.width);
+    const grow = vertical ? ['ArrowUp', 'ArrowDown'] : ['ArrowRight', 'ArrowLeft'];
     const handle = document.createElement('div');
-    handle.className = 'layout-splitter';
+    handle.className = 'layout-splitter' + (vertical ? ' layout-splitter-y' : '');
     handle.tabIndex = 0;
     handle.setAttribute('role', 'separator');
     handle.setAttribute('aria-label', title);
-    handle.setAttribute('aria-orientation', 'vertical');
+    handle.setAttribute('aria-orientation', vertical ? 'horizontal' : 'vertical');
     handle.setAttribute('aria-controls', panel.id);
-    handle.title = title + ': drag or use Left/Right arrows; Home resets';
+    handle.title =
+      title +
+      (vertical ? ': drag or use Up/Down arrows' : ': drag or use Left/Right arrows') +
+      '; Home resets';
     container.append(handle);
     const stored = read(key);
     if (Number.isFinite(stored)) container.style.setProperty(property, stored + 'px');
@@ -342,41 +352,47 @@ const UILayout = (() => {
       if (handle.hidden) return;
       const r = panel.getBoundingClientRect(),
         c = container.getBoundingClientRect();
-      handle.style.left = (side === 'right' ? r.right : r.left) - c.left - 5 + 'px';
+      if (vertical) handle.style.top = r.top - c.top - 5 + 'px';
+      else {
+        // Span the panel, not the container: a docked neighbour below the
+        // panel keeps its own edge.
+        handle.style.left = (side === 'right' ? r.right : r.left) - c.left - 5 + 'px';
+        handle.style.top = r.top - c.top + 'px';
+        handle.style.height = r.height + 'px';
+      }
       handle.setAttribute('aria-valuemin', String(Math.round(limits()[0])));
       handle.setAttribute('aria-valuemax', String(Math.round(limits()[1])));
-      handle.setAttribute('aria-valuenow', String(Math.round(r.width)));
-      handle.setAttribute('aria-valuetext', Math.round(r.width) + ' pixels');
+      handle.setAttribute('aria-valuenow', String(Math.round(size(r))));
+      handle.setAttribute('aria-valuetext', Math.round(size(r)) + ' pixels');
     };
     gesture(
       handle,
       () =>
         enabled()
           ? {
-              width: panel.getBoundingClientRect().width,
+              size: size(panel.getBoundingClientRect()),
               previous: container.style.getPropertyValue(property),
             }
           : null,
-      (initial, dx) => set(initial.width + (side === 'right' ? dx : -dx)),
+      (initial, dx, dy) => set(initial.size + (vertical ? -dy : side === 'right' ? dx : -dx)),
       (initial, cancelled) => {
         if (cancelled) {
           if (initial.previous) container.style.setProperty(property, initial.previous);
           else container.style.removeProperty(property);
-        } else save(key, panel.getBoundingClientRect().width);
+        } else save(key, size(panel.getBoundingClientRect()));
         refresh();
       }
     );
     handle.addEventListener('keydown', (e) => {
-      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+      if (![...grow, 'Home', 'End'].includes(e.key)) return;
       e.preventDefault();
       if (e.key === 'Home') return reset();
+      const direction = vertical ? 1 : side === 'right' ? 1 : -1;
       set(
         e.key === 'End'
           ? limits()[1]
-          : panel.getBoundingClientRect().width +
-              (e.key === 'ArrowRight' ? 1 : -1) *
-                (side === 'right' ? 1 : -1) *
-                (e.shiftKey ? 40 : 10)
+          : size(panel.getBoundingClientRect()) +
+              (e.key === grow[0] ? 1 : -1) * direction * (e.shiftKey ? 40 : 10)
       );
       save(key, parseFloat(container.style.getPropertyValue(property)));
     });
@@ -385,11 +401,31 @@ const UILayout = (() => {
     update();
     return handle;
   }
+  // A remembered panel preference (collapsed, docked height, ...). Stored with
+  // the other layout keys, never in session state, and restored to `initial`
+  // by Reset layout.
+  function remember(key, initial, onReset = () => {}) {
+    let value = read(key);
+    if (value === null || value === undefined) value = initial;
+    resets.add(() => {
+      value = initial;
+      save(key, null);
+      onReset(value);
+    });
+    return {
+      get: () => value,
+      set: (next) => {
+        value = next;
+        save(key, next);
+      },
+    };
+  }
   return {
     anchor,
     floating,
     splitter,
     tooltips,
+    remember,
     refresh,
     reset: () => resets.forEach((reset) => reset()),
   };

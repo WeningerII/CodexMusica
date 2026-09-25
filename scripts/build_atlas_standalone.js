@@ -11,7 +11,7 @@
 // The point is that it is the SAME src/atlas.js. The standalone build is a
 // packaging step, not a second implementation that can drift from the real one.
 //
-// Reads:  atlas.html, src/atlas.js, data/*.json, api/all.json,
+// Reads:  atlas.html, src/atlas.js, src/theme.{js,css}, data/*.json, api/all.json,
 //         api/traditions/*.json (lineage), references/_tradition_signatures.json
 // Writes: the path given by --out (required)
 //
@@ -97,7 +97,10 @@ const html = fs.readFileSync(path.join(ROOT, 'atlas.html'), 'utf8');
 const appJs = fs.readFileSync(path.join(ROOT, 'src', 'atlas.js'), 'utf8');
 const layoutJs = fs.readFileSync(path.join(ROOT, 'src', 'layout.js'), 'utf8');
 const mapUiJs = fs.readFileSync(path.join(ROOT, 'src', 'map-ui.js'), 'utf8');
-const mapCss = ['map.css', 'layout.css']
+// The shared theme (Light/Dark/System): its boot runs before the first paint,
+// and its tokens load before map.css, exactly as atlas.html links them.
+const themeJs = fs.readFileSync(path.join(ROOT, 'src', 'theme.js'), 'utf8');
+const mapCss = ['theme.css', 'map.css', 'layout.css']
   .map((name) => fs.readFileSync(path.join(ROOT, 'src', name), 'utf8'))
   .join('\n');
 
@@ -140,6 +143,9 @@ if (flags.artifact) {
   // fills the frame; the shell is already height:100vh.
   out =
     '<title>Traditions Atlas</title>\n' +
+    '<script>' +
+    themeJs +
+    '</script>\n' +
     '<link rel="preconnect" href="https://fonts.googleapis.com">\n' +
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
     fontLink +
@@ -159,7 +165,8 @@ if (flags.artifact) {
 } else {
   out = html
     .replace('<script src="src/atlas-tiles.js"></script>', '')
-    .replace(/<link rel="stylesheet" href="src\/(?:map|layout)\.css"\s*\/?\s*>/g, '')
+    .replace(/<link rel="stylesheet" href="src\/(?:theme|map|layout)\.css"\s*\/?\s*>/g, '')
+    .replace('<script src="src/theme.js"></script>', () => '<script>' + themeJs + '</script>')
     .replace('</head>', () => '<style>' + mapCss + '</style></head>')
     .replace('<script src="src/layout.js"></script>', () => '<script>' + layoutJs + '</script>')
     .replace('<script src="src/map-ui.js"></script>', () => '<script>' + mapUiJs + '</script>')

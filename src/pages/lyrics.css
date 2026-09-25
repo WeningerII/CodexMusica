@@ -1,0 +1,209 @@
+/* Lyrics page styles. Owned by the Lyrics page worker; see docs/ui-foundation.md.
+   Scope every rule to this page's surface (#surface-lyrics) or its own components;
+   colours, type, spacing and radii come from the tokens in src/theme.css. */
+.lyrics-toolbar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  background: none;
+  min-height: 44px;
+  padding: 8px 12px;
+  font: 500 14px Arial;
+  border-radius: 6px;
+  color: var(--cm-text-secondary);
+  cursor: pointer;
+}
+.lyrics-toolbar {
+  padding: 12px 20px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--cm-border);
+}
+.lyrics-toolbar button:first-child {
+  background: var(--cm-accent);
+  color: var(--cm-on-accent);
+}
+.lyrics-workspace {
+  position: relative;
+  display: grid;
+  grid-template-columns: clamp(260px, var(--lyrics-width, 50%), calc(100% - 300px)) minmax(
+      300px,
+      1fr
+    );
+  height: calc(100% - 70px);
+}
+.lyrics-editor {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  min-height: 350px;
+  min-width: 0;
+}
+.lyrics-editor label {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.lyrics-editor textarea {
+  flex: 1;
+  resize: vertical;
+  border: 0;
+  outline-color: var(--cm-focus);
+  font: 16px/1.8 Arial;
+  padding: 12px;
+  min-height: 300px;
+  color: var(--cm-text);
+  background: var(--cm-surface);
+}
+#lyrics-chat {
+  border-left: 1px solid var(--cm-border);
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+}
+@media (min-width: 900px) and (max-width: 1250px) {
+  .lyrics-workspace {
+    grid-template-columns: clamp(260px, var(--lyrics-width, 50%), calc(100% - 300px)) minmax(
+        300px,
+        1fr
+      );
+  }
+  .lyrics-editor {
+    min-height: 400px;
+  }
+  #lyrics-chat {
+    min-height: 500px;
+  }
+}
+@media (max-width: 899px) {
+  .lyrics-toolbar {
+    padding: 8px;
+    gap: 2px;
+  }
+  .lyrics-toolbar button {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+  .lyrics-workspace {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+  .lyrics-editor {
+    min-height: 340px;
+    padding: 12px;
+  }
+  .lyrics-editor textarea {
+    min-height: 300px;
+  }
+  .lyrics-toolbar [data-ui='attach-recipe'] {
+    flex: 1;
+  }
+  #lyrics-chat {
+    min-height: 520px;
+    height: 70dvh;
+    border-left: 0;
+    border-top: 1px solid var(--cm-border);
+  }
+  .workbench[data-view='lyrics'] .ui-surface {
+    overflow: auto;
+  }
+}
+@media (max-width: 899px) {
+  .lyrics-editor {
+    min-height: 300px;
+  }
+  .lyrics-editor textarea {
+    min-height: 240px;
+  }
+  #lyrics-chat {
+    height: 520px;
+    min-height: 520px;
+  }
+  .lyrics-workspace {
+    max-width: 100%;
+  }
+}
+@media (max-width: 899px) {
+  .lyrics-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--cm-surface);
+  }
+  #lyrics-chat {
+    order: -1;
+    height: auto;
+    min-height: 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--cm-border);
+  }
+  #lyrics-chat .chat-panel {
+    flex: none;
+  }
+  #lyrics-chat .chat-log {
+    flex: none;
+    min-height: 0;
+    max-height: 40dvh;
+  }
+  #lyrics-chat .chat-log:empty {
+    display: none;
+  }
+  .lyrics-editor {
+    min-height: 300px;
+  }
+}
+#lyrics-wait {
+  padding: 16px;
+  font-size: 14px;
+}
+#lyrics-wait button {
+  min-height: 44px;
+  color: var(--cm-link);
+  background: var(--cm-accent-soft);
+  border: 0;
+  border-radius: 5px;
+  padding: 8px 12px;
+}
+#surface-lyrics {
+  display: flex;
+  flex-direction: column;
+}
+.lyrics-toolbar {
+  flex: none;
+}
+.lyrics-workspace {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+}
+.lyrics-editor textarea {
+  max-width: 100%;
+}
+@container discovery (max-width: 680px) {
+  .lyrics-workspace {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+  }
+  #lyrics-chat {
+    min-height: 400px;
+    border-left: 0;
+    border-top: 1px solid var(--cm-border);
+  }
+  .lyrics-workspace > .layout-splitter {
+    display: none;
+  }
+}
+@media (max-width: 899px) {
+  .lyrics-workspace {
+    flex: none;
+  }
+  #lyrics-chat {
+    min-height: 0;
+  }
+}
