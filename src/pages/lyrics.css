@@ -1449,3 +1449,32 @@
     flex-wrap: wrap;
   }
 }
+#surface-lyrics .ly-cell-text {
+  min-width: 160px;
+  overflow-wrap: anywhere;
+}
+#surface-lyrics .ly-placement .ly-num-in,
+#surface-lyrics .ly-melody .ly-num-in {
+  flex: 0 1 96px;
+}
+#surface-lyrics .ly-question {
+  margin: 10px 0;
+  padding: 8px 12px;
+  border-left: 3px solid var(--cm-warning);
+  border-radius: var(--cm-radius-sm);
+  background: var(--cm-surface-subtle);
+}
+#surface-lyrics .ly-question span {
+  color: var(--cm-text-muted);
+  font-size: var(--cm-text-xs);
+}
+#surface-lyrics .ly-question p {
+  margin: 2px 0 0;
+  max-height: 180px;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+#surface-lyrics .ly-own label + .cm-input {
+  margin-bottom: 8px;
+}

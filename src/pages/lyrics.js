@@ -452,6 +452,38 @@ function lyParseNarrative(value) {
   return { steps, ok: steps.every((x) => x.ok) };
 }
 
+// Declared line placement: 'line:bar:beat:duration' rows, ';'-separated
+// (bar and line whole numbers; beat and duration in beats, decimals allowed).
+function lyParsePlacement(value) {
+  return String(value || '')
+    .split(';')
+    .map((r) => r.trim())
+    .filter(Boolean)
+    .map((r) => {
+      const m = /^(\d+):(\d+):(\d+(?:\.\d+)?):(\d+(?:\.\d+)?)$/.exec(r);
+      return m && Number(m[4]) > 0 && Number(m[3]) > 0
+        ? { line: Number(m[1]), bar: Number(m[2]), beat: Number(m[3]), duration: Number(m[4]) }
+        : { raw: r, bad: true };
+    });
+}
+const lyPlacementText = (rows) =>
+  rows
+    .slice()
+    .sort((a, b) => a.line - b.line)
+    .map((r) => `${r.line}:${r.bar}:${r.beat}:${r.duration}`)
+    .join(';');
+// Each section's bar span, only when every section before it declares bars.
+function lyBarSpans(model) {
+  const spans = new Map();
+  let cursor = 1;
+  for (const s of model.sections) {
+    if (s.header?.bars == null) break;
+    spans.set(s.index, [cursor, cursor + s.header.bars - 1]);
+    cursor += s.header.bars;
+  }
+  return spans;
+}
+
 // Everything declared on this page, as the exact values the lyric tools take,
 // so the writer never has to reinterpret a [SETUP] line.
 function lyWriterDeclarations(model) {
@@ -467,6 +499,10 @@ function lyWriterDeclarations(model) {
   if (one('rhyme groups')) d.groups = one('rhyme groups');
   if (one('returns')) d.returns = one('returns');
   if (model.voices) d.voices = true;
+  const placed = lySetupOf(model, 'placement')
+    .flatMap((x) => lyParsePlacement(x.value))
+    .filter((r) => !r.bad);
+  if (placed.length) d.line_placement = placed; // declared blueprint lines: bar, beat, duration in beats
   const readings = lySetupOf(model, 'reading').filter((r) => !r.malformed);
   const chosen = readings
     .filter((r) => r.state === 'declared')
@@ -747,6 +783,38 @@ function lyLocalChecks(model) {
         });
     }
   }
+  const spans = lyBarSpans(model);
+  for (const d of lySetupOf(model, 'placement'))
+    for (const r of lyParsePlacement(d.value)) {
+      const row = !r.bad && model.sung[r.line - 1];
+      if (!row) {
+        add({
+          id: `place:${r.raw || r.line}`,
+          tone: 'input',
+          category: 'Placement',
+          title: r.bad
+            ? `A line placement cannot be read (“${r.raw}”)`
+            : `A placement names line ${r.line}, which the draft does not have`,
+          where: 'Rhythm & placement',
+          lines: [],
+          text: 'Declare it again for the current lines.',
+          actions: [['ly-tool', 'Open rhythm', 'music', 'rhythm']],
+        });
+        continue;
+      }
+      const span = spans.get(row.section.index);
+      if (span && (r.bar < span[0] || r.bar > span[1]))
+        add({
+          id: `place-bar:${r.line}`,
+          tone: 'issue',
+          category: 'Placement',
+          title: `Line ${r.line} is placed at bar ${r.bar}, outside ${row.section.title} (bars ${span[0]}–${span[1]})`,
+          where: row.section.title,
+          lines: [r.line],
+          text: 'Compared with the bars the section headers declare, counted from bar 1. Change the placement or the section sizes.',
+          actions: [['ly-tool', 'Open rhythm', 'music', 'rhythm']],
+        });
+    }
   const story = lySetupOf(model, 'narrative')[0];
   if (story) {
     const n = lyParseNarrative(story.value);
@@ -801,6 +869,8 @@ function lyRunStatus(run) {
       word: `Unfinished · ${String(a.status || run.stopped || 'not certified').replace(/_/g, ' ')}`,
     };
   if (run.error) return { tone: 'danger', word: 'Stopped with an error' };
+  if (run.lyric?.state && run.lyric.resumable !== false)
+    return { tone: 'info', word: 'Waiting for your answer' };
   return { tone: '', word: 'Reply without a draft' };
 }
 function lyRunChecks(model) {
@@ -1023,7 +1093,9 @@ function lyRunChecks(model) {
       where: 'Writer run',
       lines: askedLines,
       text: 'The run asked a question and is paused until it gets an answer. Nothing continues on its own.',
-      actions: [['ly-open-writer', 'Answer in the writer', 'message-circle', '']],
+      question: run.reply || null,
+      answer: askedLines.length ? askedLines : [0],
+      actions: [['ly-open-writer', 'Open the writer', 'message-circle', '']],
     });
   if (run.stopped && !run.recoveryExport)
     add({
@@ -1199,6 +1271,19 @@ function lyAssemble({ prefix, blocks, suffix }) {
     const t = r.raw.trim();
     if (!LY_SETUP.test(t)) return r.raw;
     const item = lyParseSetup(t);
+    if (item.key === 'placement') {
+      const rows = lyParsePlacement(item.value).filter((x) => {
+        if (x.bad) return true;
+        if (!map.has(x.line)) {
+          dropped++;
+          return false;
+        }
+        x.line = map.get(x.line);
+        return true;
+      });
+      const good = rows.filter((x) => !x.bad);
+      return good.length ? `[SETUP${LY_DASH}placement${LY_DASH}${lyPlacementText(good)}]` : null;
+    }
     if (item.key !== 'rhyme groups' && item.key !== 'returns') return r.raw;
     const groups = lyParseGroups(item.value)
       .map((g) =>
@@ -1737,6 +1822,18 @@ function lyItemHtml(item, count, index) {
       html += `<div class="ly-outcome" data-tone="danger" role="alert">${icon('circle-alert', 16)}<span><strong>Not applied.</strong> ${esc(out.message)}</span></div>`;
     html += `<details class="ly-whole"><summary>Compare with your draft</summary><div class="ly-compare ly-compare-whole"><div class="ly-orig"><span>Your draft</span><pre>${esc(lySungTexts(LY.model).join('\n'))}</pre></div><div class="ly-sugg"><span>Writer’s draft</span><pre>${esc(item.whole.join('\n'))}</pre></div></div></details><div class="ly-actions">${lyBtn('ly-apply', 'Check & apply', 'check', { id: item.id, cls: 'cm-btn cm-btn-primary' })}${lyBtn('ly-keep', 'Keep mine', '', { id: item.id, cls: 'cm-btn' })}</div><p class="ly-note">Applies only if your draft is still the one you asked about, as one change that Undo reverses.</p>`;
   }
+  if (item.answer) {
+    if (item.question)
+      html += `<div class="ly-question"><span>The writer asked</span><p>${esc(item.question)}</p></div>`;
+    html += `<div class="ly-own">${item.answer
+      .map(
+        (n) =>
+          `<label for="ly-answer-${n}">${n ? `Your line ${n}` : 'Your answer'}</label><input id="ly-answer-${n}" class="cm-input" data-answer="${n}" value="${esc(n ? lySungTexts(LY.model)[n - 1] || '' : '')}">`
+      )
+      .join(
+        ''
+      )}<div class="ly-actions">${lyBtn('ly-answer', 'Put my answer in the writer', 'message-circle', { cls: 'cm-btn cm-btn-tonal' })}</div><p class="ly-note">Opens the same conversation with your answer filled in; nothing is sent until you press Ask. The run checks the answer against the current draft and its declarations.</p></div>`;
+  }
   if (item.actions?.length)
     html += `<div class="ly-actions">${item.actions.map(([act, label, ic, id]) => lyBtn(act, label, ic, { id, cls: 'cm-btn cm-btn-outline' })).join('')}</div>`;
   if (out?.state === 'applied')
@@ -2028,7 +2125,27 @@ function lyToolRhythm(model) {
       return `<tr data-sec="${s.index}"${LY.picks.rhythmSec === s.index ? ' class="is-picked"' : ''}><th scope="row">${esc(s.title)}</th><td><input class="cm-input ly-in" data-rhythm="meter" value="${esc(h.meter || '')}" placeholder="Not declared" pattern="\\d+/\\d+" aria-label="${esc(s.title)} meter, e.g. 4/4"></td><td><input class="cm-input ly-in ly-num-in" type="number" min="1" max="999" data-rhythm="bars" value="${h.bars ?? ''}" placeholder="—" aria-label="${esc(s.title)} bars"></td><td><select class="cm-select" data-rhythm="pickup" aria-label="${esc(s.title)} pickup">${pickups.map((p) => `<option value="${esc(p)}"${(h.pickup || '') === p ? ' selected' : ''}>${esc(p || 'No pickup declared')}</option>`).join('')}${custom ? `<option selected value="${esc(h.pickup)}">${esc(h.pickup)}</option>` : ''}</select></td><td>${lyBtn('ly-rhythm-save', 'Save', 'check', { id: s.index, cls: 'cm-btn cm-btn-outline' })}</td></tr>`;
     })
     .join('');
-  return `${model.sections.length ? `<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Section</th><th>Meter</th><th>Bars</th><th>Pickup</th><th><span class="ly-sr">Save</span></th></tr></thead><tbody>${rows}</tbody></table></div>` : '<p class="ly-note">Add a section first; rhythm is declared per section header.</p>'}<p class="ly-note">Declared values only. No tempo is assumed and no performed rhythm is inferred from the words; leave a field empty to keep it undeclared. The declaration is written into the section header the way the harness writes it (e.g. [CHORUS — 5 lines — 5 bars of 7/8, one-beat pickup]).</p>${lyMelodyHtml(model)}`;
+  return `${model.sections.length ? `<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Section</th><th>Meter</th><th>Bars</th><th>Pickup</th><th><span class="ly-sr">Save</span></th></tr></thead><tbody>${rows}</tbody></table></div>` : '<p class="ly-note">Add a section first; rhythm is declared per section header.</p>'}<p class="ly-note">Declared values only. No tempo is assumed and no performed rhythm is inferred from the words; leave a field empty to keep it undeclared. The declaration is written into the section header the way the harness writes it (e.g. [CHORUS — 5 lines — 5 bars of 7/8, one-beat pickup]).</p>${lyPlacementHtml(model)}${lyMelodyHtml(model)}`;
+}
+function lyPlacementHtml(model) {
+  const secs = model.sections.filter((x) => x.sung.length);
+  if (!secs.length) return '';
+  const k = secs.some((x) => x.index === LY.picks.rhythmSec) ? LY.picks.rhythmSec : secs[0].index;
+  const sec = model.sections[k];
+  const have = new Map(
+    lySetupOf(model, 'placement')
+      .flatMap((d) => lyParsePlacement(d.value))
+      .filter((r) => !r.bad)
+      .map((r) => [r.line, r])
+  );
+  const span = lyBarSpans(model).get(k);
+  const rows = sec.sung
+    .map((r) => {
+      const p = have.get(r.n) || {};
+      return `<tr data-place="${r.n}"><th scope="row">${r.n}</th><td class="ly-cell-text">${esc(r.text)}</td><td><input class="cm-input ly-num-in" inputmode="numeric" data-p="bar" value="${p.bar ?? ''}" placeholder="—" aria-label="Line ${r.n} bar"></td><td><input class="cm-input ly-num-in" inputmode="decimal" data-p="beat" value="${p.beat ?? ''}" placeholder="—" aria-label="Line ${r.n} starting beat"></td><td><input class="cm-input ly-num-in" inputmode="decimal" data-p="duration" value="${p.duration ?? ''}" placeholder="—" aria-label="Line ${r.n} duration in beats"></td></tr>`;
+    })
+    .join('');
+  return `<details class="cm-accordion ly-placement"${have.size || LY.picks.placementOpen ? ' open' : ''}><summary>Line placement (advanced) ${have.size ? lyStatus('success', `${lyPlural(have.size, 'line')} placed`) : lyStatus('', 'Not declared')}</summary><p class="ly-note">Where each line sits: its bar, the beat it starts on and how many beats it lasts. Declared only — nothing here derives placement from the words or assumes a tempo. Lines left empty stay undeclared.${span ? ` ${esc(sec.title)} spans bars ${span[0]}–${span[1]} by its header.` : ''}</p><div class="ly-form"><label class="ly-label" for="ly-place-sec">Section</label><select class="cm-select" id="ly-place-sec">${secs.map((x) => `<option value="${x.index}"${x.index === k ? ' selected' : ''}>${esc(x.title)}</option>`).join('')}</select></div><div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Line</th><th>Text</th><th>Bar</th><th>Beat</th><th>Beats long</th></tr></thead><tbody>${rows}</tbody></table></div><div class="ly-actions">${lyBtn('ly-place-save', 'Save placement', 'check', { id: k, cls: 'cm-btn cm-btn-tonal' })}</div><p class="ly-note" id="ly-place-error" role="alert"></p></details>`;
 }
 function lyMelodyHtml(model) {
   const d = lySetupOf(model, 'melody')[0];
@@ -2361,6 +2478,8 @@ function lyReceive(payload, request) {
     tools,
     coverage: coverageTool?.coverage || payload.lyric?.coverage || null,
     stopped: payload.stopped || null,
+    reply:
+      typeof payload.reply === 'string' && !payload.artifact ? payload.reply.slice(0, 1200) : null,
     error: payload.error || null,
     recoveryExport: payload.stopped === 'RECOVERY_EXPORTED',
     final,
@@ -2991,6 +3110,71 @@ const LY_ACTIONS = {
       placed.length ? 'Exact returns declared; placed returns kept.' : 'Exact returns declared.'
     );
   },
+  'ly-place-save'(id) {
+    const k = Number(id);
+    const sec = LY.model.sections[k];
+    const rows = [...document.querySelectorAll('#ly-tool-body tr[data-place]')];
+    const next = [];
+    for (const tr of rows) {
+      const n = Number(tr.dataset.place);
+      const v = Object.fromEntries(
+        ['bar', 'beat', 'duration'].map((f) => [
+          f,
+          tr.querySelector(`[data-p="${f}"]`).value.trim(),
+        ])
+      );
+      const filled = Object.values(v).filter(Boolean).length;
+      if (!filled) continue;
+      if (
+        filled < 3 ||
+        !/^\d+$/.test(v.bar) ||
+        Number(v.bar) < 1 ||
+        !/^\d+(\.\d+)?$/.test(v.beat) ||
+        Number(v.beat) <= 0 ||
+        !/^\d+(\.\d+)?$/.test(v.duration) ||
+        Number(v.duration) <= 0
+      ) {
+        $ui('ly-place-error').textContent =
+          `Line ${n}: give a whole bar number, a starting beat and a length in beats (all above zero), or leave all three empty.`;
+        return;
+      }
+      next.push({
+        line: n,
+        bar: Number(v.bar),
+        beat: Number(v.beat),
+        duration: Number(v.duration),
+      });
+    }
+    const inSection = new Set(sec.sung.map((r) => r.n));
+    const others = lySetupOf(LY.model, 'placement')
+      .flatMap((d) => lyParsePlacement(d.value))
+      .filter((r) => !r.bad && !inSection.has(r.line));
+    const all = [...others, ...next];
+    LY.picks.placementOpen = true;
+    LY.picks.rhythmSec = k;
+    lySetupCommit(
+      'placement',
+      all.length ? [lyPlacementText(all)] : [],
+      next.length ? `Placement declared for ${sec.title}.` : `Placement cleared for ${sec.title}.`
+    );
+  },
+  'ly-answer'() {
+    const rows = [...document.querySelectorAll('#ly-review [data-answer]')].map((i) => ({
+      n: Number(i.dataset.answer),
+      text: i.value.trim(),
+    }));
+    if (rows.some((r) => !r.text))
+      return showToast('Write an answer for every line the writer asked about', 'error');
+    const message =
+      rows.length === 1 && !rows[0].n
+        ? rows[0].text
+        : rows.map((r) => `L${r.n}: ${r.text}`).join('\n');
+    lyShowPane('writer');
+    if (!uiChatOpen()) return;
+    $ui('chat-input').value = message;
+    _chatSyncCount();
+    $ui('chat-input').focus();
+  },
   'ly-melody-save'() {
     const v = (id) => $ui(id).value.trim();
     const text = [
@@ -3174,6 +3358,11 @@ function lyWire(surface) {
       LY.picks.linkLine = Number(t.value);
       lyRefresh(true);
       uiFocus($ui('ly-link-line'));
+    } else if (t.id === 'ly-place-sec') {
+      LY.picks.rhythmSec = Number(t.value);
+      LY.picks.placementOpen = true;
+      lyRefresh(true);
+      uiFocus($ui('ly-place-sec'));
     } else if (t.id === 'ly-placed-line') {
       LY.picks.placedLine = Number(t.value);
       lyRefresh(true);

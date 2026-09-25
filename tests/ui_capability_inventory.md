@@ -1546,12 +1546,12 @@ notes: Validated to lyric-harness/MELODY.md (groups of 2 and 3 summing to the be
 ```yaml
 name: lyrics-line-placement
 kind: widget
-selector: '#surface-lyrics'
-surface: Lyrics — per-line bar, beat and duration placement (declared blueprint lines)
-implementation: src/pages/lyrics.js (pending)
-status: pending
+selector: '#ly-tools [data-ui="ly-tool"][data-id="rhythm"]'
+surface: Lyrics — Rhythm & placement → Line placement (advanced): per line bar, starting beat and length in beats, section by section
+implementation: lyPlacementHtml / lyParsePlacement / ly-place-save in src/pages/lyrics.js
+status: reachable
 precondition: empty
-notes: Not built yet: rhythm is declared per section header only.
+notes: Declared only, never derived from the words; renumbered with section moves; a bar outside the section's declared span is an issue. Passed to the writer as line_placement.
 ```
 
 ```yaml
@@ -1567,13 +1567,13 @@ notes: Written in the harness's narrative spelling (ESTABLISH,COMPLICATE/BUT,…
 
 ```yaml
 name: lyrics-structured-answer
-kind: widget
-selector: '#surface-lyrics'
-surface: Lyrics — answering the writer's pending question inside Review
-implementation: src/pages/lyrics.js (pending)
-status: pending
+kind: data-action
+selector: '#ly-review [data-ui="ly-rtab"][data-id="input"]'
+surface: Lyrics — Review → Needs input → "The writer is waiting for an answer about lines …": the writer's question, one answer field per asked line, Put my answer in the writer
+implementation: lyRunChecks (waiting item) and ly-answer in src/pages/lyrics.js
+status: reachable
 precondition: empty
-notes: The page shows that the writer is waiting and opens the Writer panel to answer; the question text itself arrives only in the conversation.
+notes: Continues the same conversation (uiChatOpen, no reset) with the answer filled in as L<n> rows; nothing is sent until Ask. Selector anchors the Needs input tab; the item exists only while a run waits.
 ```
 
 ```yaml
