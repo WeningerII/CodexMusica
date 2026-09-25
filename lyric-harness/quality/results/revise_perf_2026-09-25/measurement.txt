@@ -1,0 +1,121 @@
+THE REVISE PATH UNDER THE N-RELATION MODEL -- BEFORE/AFTER, 2026-09-25 (MISSING.md M-312)
+
+BASE   e08cd207 (main after #380 and #390), in a separate worktree
+AFTER  the same tree plus M-312's change: `Reviser._end_pair_schemas` asks
+       `relations.whole_vocabulary_pairs` about the schemas its end-token
+       screen found (`schemas=found`), not the whole registry.
+
+MACHINE AND SETTINGS. One 4-vCPU Linux container, Python 3.11.15,
+OMP/MKL/OPENBLAS_NUM_THREADS=1 (ci.yml revision-loop's env). NLTK staged per
+`quality/fetch_data.py --runtime`. Each suite run had its OWN EMPTY
+XDG_CACHE_HOME and TMPDIR, so `field_store` started cold as it does on a CI
+runner and no two concurrent runs shared a cache (doctrine 77). BEFORE and
+AFTER ran CONCURRENTLY, four processes on four cores, so both carried the
+same load; absolute seconds are this box's, the ratio is the claim.
+
+TIMINGS (wall, seconds)
+                                               BEFORE     AFTER
+  quality/test_revise.py, TEST_REVISE_SHARD=1/4  1250       569   (CI run 36060623999: 1173)
+    SECTION COST total, this shard             1243.0     562.1
+    test_why_a_collision_earns_no_field         820.8     160.7   (CI: 712.1)
+  quality/test_revise.py, whole file             2067      1093
+    SECTION COST total, 59 of 59 sections      2059.4    1084.6
+  test_why_a_collision_earns_no_field alone      849.5     190.7   (one process each, side by side)
+
+The last row is the exception to the cold-cache rule above: those two runs
+shared this box's warm ~/.cache. So did the AFTER py-spy run below (BEFORE's
+had its own cold one). The store holds floor fields, a pure function of its
+key, so sharing it can move a timing and not an answer.
+
+THE WHOLE FILE, per section (the slowest ten before):
+    801.4s ->   142.9s  test_why_a_collision_earns_no_field
+    315.1s ->    60.1s  test_the_field_says_which_door_it_was_read_at
+    160.6s ->   161.3s  test_the_group_grader_reproduces_check_scheme
+    102.7s ->    87.7s  test_the_field_is_the_graders_own_field
+     95.4s ->    99.3s  test_findings_are_not_printed_six_times
+     58.1s ->    57.0s  test_the_offer_is_screened_from_the_offered_words_own_side
+     46.4s ->    48.3s  test_the_whole_draft_half_reaches_the_report
+     33.2s ->    23.9s  test_the_ban_is_the_same_field_as_the_offer
+     32.3s ->    24.1s  test_no_joint_candidate_was_a_coordinate_of_a_literal
+   2059.4s ->  1084.6s  TOTAL (59 of 59 sections)
+
+After the change the floor a shard count cannot beat is
+`test_the_group_grader_reproduces_check_scheme` (~160 s, not changed by this
+work), no longer §24.
+
+PROFILE, §24 (`test_why_a_collision_earns_no_field`), py-spy at 50 Hz,
+inclusive share of samples. BEFORE (842.8 s, 42,663 samples):
+   96.5% <listcomp> (revise.py)
+   94.7% _field_one (revise.py)
+   93.7% _member (revise.py)
+   92.5% _offerable (revise.py)
+   92.4% _end_pair_schemas (revise.py)
+   78.9% whole_vocabulary_pairs (relations.py)
+   78.2% line_pairs_for (relations.py)
+   58.8% realise (relations.py)
+   56.9% evaluate (relations.py)
+   19.9% __call__ (relations.py)
+   10.7% <genexpr> (relations.py)
+    9.1% pair_satisfies (relations.py)
+    8.7% _full_shape (relations.py)
+    8.6% _token_figures (relations.py)
+AFTER (175.7 s, 9,117 samples):
+   88.0% <listcomp> (revise.py)
+   78.6% _field_one (revise.py)
+   74.3% _member (revise.py)
+   68.7% _offerable (revise.py)
+   68.1% _end_pair_schemas (revise.py)
+   41.5% pair_satisfies (relations.py)
+   19.7% build_stream (relations.py)
+   18.9% evaluate (relations.py)
+   17.6% brief (revise.py)
+   16.7% syllabify (eng.py)
+   15.8% joint_field_screened (revise.py)
+   15.2% score (lyric_harness.py)
+   14.4% _field_split (revise.py)
+   14.2% _rank_field (revise.py)
+   14.2% _rank_field_compute (revise.py)
+   11.4% candidates (lyric_harness.py)
+   10.6% parses (eng.py)
+    9.1% syllabify (lyric_harness.py)
+    8.4% <listcomp> (eng.py)
+    7.9% whole_vocabulary_pairs (relations.py)
+    7.0% <listcomp> (lyric_harness.py)
+    7.0% best_score (lyric_harness.py)
+
+WHY THE ANSWER CANNOT MOVE. `_end_pair_schemas` returns
+`found & set(wvp[(1, 2)])`: it reads the judge's verdict only for names in
+`found`. `whole_vocabulary_pairs` judges each schema by its own
+`line_pairs_for(REGISTRY[name], stream, ...)` call over one stream built from
+its arguments; nothing one call writes is read by another's verdict (the
+per-pair memo is keyed per schema, and it records a pure verdict). Asking a
+subset therefore gives each asked schema the answer the full call gives it.
+The judge's memo key carries the subset, so a restricted answer is never
+served to a full caller.
+
+RESULT IDENTITY, MEASURED
+  * 9,000 (call, candidate) pairs, 1,500 drawn per call from the pending
+    half of the field of does/ear/will/floor/night/thing (seed 20260925),
+    `_end_pair_schemas` on each: BEFORE and AFTER dumps byte-identical,
+    sha256 a6740989b7b44dd5a4a966417b6516fe24ebd8982c6b56086bc82a05aacdba98;
+    1,493 of the 9,000 carry a non-empty schema set, so the comparison
+    examines verdicts and not only empties.
+  * quality/test_revise.py, whole file and shard 1/4: stdout identical line
+    for line (926 and 251 lines) apart from the SECTION COST block and the
+    timing line; every section passes in both.
+  * `quality/check_comparator_pin.py`: RESULT: HOLDS, MEASURED
+    1e2d0c2dc62c448bef24a3744ee3d0db15a17b9d381a32f4eb534e5fcfae385a.
+  * `quality/test_relations.py` X9b pins the subset contract; each of its
+    two one-line mutants (subset dropped from the memo key; subset ignored)
+    turns it red.
+
+ONE PROCEDURAL SLIP, RECORDED. While the four suite runs were in flight the
+X9b mutants were planted IN THIS TREE for about ten seconds, not in a copy.
+The running processes had imported `relations.py` already; a subprocess the
+AFTER suites started in that window could have read a mutant. None of it
+reached a result: the AFTER outputs are identical to BEFORE's, and the second
+mutant is the pre-change behaviour. Mutants go in a private copy next time.
+
+NOTHING IS TUNED. No cap, threshold, depth or budget moved (doctrine 58);
+the field still judges every pending candidate, and the ci.yml timeout is
+left to the coordinator.
