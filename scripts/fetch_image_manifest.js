@@ -954,6 +954,7 @@ const REJECTED = {
   'instrument:cuatro_pr': 'Cuatro_Ramon_Blanco.jpg',
   'instrument:dan_tam_thap_luc': 'Hammered_dulcimer.JPG',
   'instrument:dayereh': 'Daf-Khalaj.jpg',
+  'instrument:dyas_tapu_patu': '02349wsaPuMU?dimension=1200x1200',
   'instrument:fiddle': [
     '1918.381_print.jpg',
     'originaal?id=fe7aeb84-ad51-4ef2-a992-eccde92163d8',
@@ -985,10 +986,14 @@ const REJECTED = {
   'instrument:naghara_azerbaijani': 'Nagara,_MDMB_945.jpg',
   'instrument:organistrum':
     'Chiesa_di_San_Maurizio_-_Museo_della_Musica_in_Venice_-_Ghironda_1850_.jpg',
+  'instrument:ottavino_virginal': 'Caravaggio_Ottavino.jpg',
   'instrument:pibgorn': 'Welshbagpipe.jpg',
   'instrument:pyeonjong': 'Bianzhong.jpg',
   'instrument:quern_grindstone': 'MM+19490(1).jpg',
-  'instrument:rabel_castellano': 'Encuentro_homenaje_en_Valdeolea.jpg',
+  'instrument:rabel_castellano': [
+    'Encuentro_homenaje_en_Valdeolea.jpg',
+    'Elder_with_plucked_rabel,_Santo_Domingo_de_Soria.jpg',
+  ],
   'instrument:rebab': ['DP252791.jpg', 'image.jpg'],
   'instrument:riq': 'Pair_of_dafs.jpg',
   'instrument:sambuca_ancient': 'Fresco_of_women_listening_to_a_private_musical_performance.jpg',
@@ -999,11 +1004,12 @@ const REJECTED = {
   'instrument:shabbaba': 'midp89.4.444.jpg',
   'instrument:shawm': 'MUS478A5.jpg',
   'instrument:shudraga': 'Mongolian_lute,_circa_1279-1368,_Tomb_of_Wang_Qing.jpg',
+  'instrument:tabl_baladi': '203609.jpg',
   'instrument:tambura_balkan': [
     'DP-24037-001.jpg',
     'Indian_string_instruments_-_Saravati_vina,_Bin_or_Rudra_veena,_Esraj_or_Diltuba,_Tambura,_Fiddle_or_Violin,_Sitar,_Surbahar,_Sarangi,_Tambura_-_Harmonium,_Tabla_-_MIM_Brussels_(2018-05-26_10.41.21_by_Miguel_Discart_@Flickr_46273431562).jpg',
   ],
-  'instrument:tanbur_maltese': 'midp89.4.1384.jpg',
+  'instrument:tanbur_maltese': ['midp89.4.1384.jpg', '1918.347_print.jpg'],
   'instrument:tar_azerbaijani': 'DP-26166-003.jpg',
   'instrument:tar_frame_drum': ['Tār_MET_midp89.4.1858.jpg', 'midp89.4.1858.jpg'],
   'instrument:tilinca': 'f39862d97cfc43a99c4150501a9be23a.jpg',

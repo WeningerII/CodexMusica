@@ -4,21 +4,21 @@
   "coverage": {
     "instrument": {
       "total": 1467,
-      "with_image": 748,
+      "with_image": 763,
       "by_source": {
-        "wikidata_commons": 617,
-        "met_open_access": 84,
+        "wikidata_commons": 619,
+        "met_open_access": 90,
         "commons_depicts": 22,
-        "commons_category": 8,
+        "commons_category": 14,
         "commons_search": 8,
-        "europeana": 8,
+        "europeana": 9,
         "cleveland_open_access": 1
       },
       "by_license": {
-        "CC BY-SA": 406,
+        "CC BY-SA": 413,
         "Public Domain": 121,
-        "CC0": 141,
-        "CC BY": 80
+        "CC0": 148,
+        "CC BY": 81
       }
     },
     "tradition": {
@@ -237,6 +237,21 @@
       "credit": "The Metropolitan Museum of Art, Purchase, Robert Alonzo Lehman Bequest, 2007",
       "match_confidence": "medium",
       "matched_label": "Alto Flute"
+    },
+    {
+      "id": "american_reed_organ",
+      "kind": "instrument",
+      "name": "American reed organ (pump organ / parlor harmonium)",
+      "source": "wikidata_commons",
+      "wikidata": "Q12460259",
+      "source_page": "https://commons.wikimedia.org/wiki/File:John_Church_and_Co._reed_organ.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/John_Church_and_Co._reed_organ.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/John_Church_and_Co._reed_organ.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Boygold",
+      "match_confidence": "medium",
+      "matched_label": "reed organ"
     },
     {
       "id": "analog_synth",
@@ -1176,6 +1191,21 @@
       "credit": "Wikimedia Commons contributor",
       "match_confidence": "medium",
       "matched_label": "bongo"
+    },
+    {
+      "id": "bordonua",
+      "kind": "instrument",
+      "name": "Bordonúa (Puerto Rican deep-bodied bass lute)",
+      "source": "commons_category",
+      "wikidata": "Q2910789",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Bordonua_plan.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Bordonua_plan.png",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Bordonua_plan.png/500px-Bordonua_plan.png",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Emma dusepo",
+      "match_confidence": "medium",
+      "matched_label": "Bordonua"
     },
     {
       "id": "borrindo",
@@ -2185,6 +2215,34 @@
       "credit": "Multimann",
       "match_confidence": "medium",
       "matched_label": "cornett"
+    },
+    {
+      "id": "cornopean",
+      "kind": "instrument",
+      "name": "Cornopean (early valved cornet à pistons)",
+      "source": "met_open_access",
+      "source_page": "https://www.metmuseum.org/art/collection/search/504777",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/223002.jpg",
+      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/223002.jpg",
+      "license": "CC0",
+      "license_raw": "Public Domain (Met Open Access, CC0)",
+      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
+      "match_confidence": "medium",
+      "matched_label": "Cornopean"
+    },
+    {
+      "id": "cornu_roman",
+      "kind": "instrument",
+      "name": "Cornu (Roman G-shaped military horn)",
+      "source": "met_open_access",
+      "source_page": "https://www.metmuseum.org/art/collection/search/503657",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/MUS469A2.jpg",
+      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/MUS469A2.jpg",
+      "license": "CC0",
+      "license_raw": "Public Domain (Met Open Access, CC0)",
+      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
+      "match_confidence": "medium",
+      "matched_label": "Cornu"
     },
     {
       "id": "cretan_lyra",
@@ -3656,6 +3714,21 @@
       "matched_label": "Galoubet"
     },
     {
+      "id": "gandingan",
+      "kind": "instrument",
+      "name": "Gandingan (Maguindanao set of four hanging talking gongs)",
+      "source": "commons_category",
+      "wikidata": "Q5520755",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gandingan_01.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Gandingan_01.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Gandingan_01.jpg/500px-Gandingan_01.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 2.5",
+      "credit": "Philip Dominguez Mercurio (PhilipDM)",
+      "match_confidence": "medium",
+      "matched_label": "gandingan"
+    },
+    {
       "id": "ganza",
       "kind": "instrument",
       "name": "Ganzá (Brazilian tube shaker)",
@@ -4729,6 +4802,20 @@
       "matched_label": "kakaki"
     },
     {
+      "id": "kalangu",
+      "kind": "instrument",
+      "name": "Kalangu (Hausa hourglass talking drum)",
+      "source": "europeana",
+      "source_page": "https://www.europeana.eu/item/91608/SMVK_VKM_objekt_45060",
+      "image_url": "https://collections.smvk.se/carlotta-vkm/web/image/zoom/702841/zoom",
+      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fcollections.smvk.se%2Fcarlotta-vkm%2Fweb%2Fimage%2Fzoom%2F702841%2Fzoom&type=IMAGE",
+      "license": "CC0",
+      "license_raw": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "credit": "Museum of World Culture via Europeana",
+      "match_confidence": "medium",
+      "matched_label": "trumma, kalangu"
+    },
+    {
       "id": "kalimba",
       "kind": "instrument",
       "name": "Kalimba (thumb piano)",
@@ -4950,6 +5037,21 @@
       "credit": "Tropenmuseum",
       "match_confidence": "high",
       "matched_label": "kempul"
+    },
+    {
+      "id": "kempyang",
+      "kind": "instrument",
+      "name": "Kempyang (Javanese small horizontal kettle gong)",
+      "source": "commons_category",
+      "wikidata": "Q20580988",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Kethuk_Kempyang.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Kethuk_Kempyang.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Kethuk_Kempyang.jpg/500px-Kethuk_Kempyang.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Dewinta88",
+      "match_confidence": "medium",
+      "matched_label": "kempyang"
     },
     {
       "id": "ken_bau",
@@ -5251,6 +5353,20 @@
       "matched_label": "k'lông pút"
     },
     {
+      "id": "klong_that",
+      "kind": "instrument",
+      "name": "Klong that (Thai large barrel drum pair)",
+      "source": "met_open_access",
+      "source_page": "https://www.metmuseum.org/art/collection/search/500834",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/MUS612A.jpg",
+      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/MUS612A.jpg",
+      "license": "CC0",
+      "license_raw": "Public Domain (Met Open Access, CC0)",
+      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
+      "match_confidence": "medium",
+      "matched_label": "Klong that"
+    },
+    {
       "id": "koauau",
       "kind": "instrument",
       "name": "Kōauau (Maori notched flute)",
@@ -5398,6 +5514,20 @@
       "credit": "The Metropolitan Museum of Art, Purchase, Amati Gifts, 2007",
       "match_confidence": "medium",
       "matched_label": "Koto (箏)"
+    },
+    {
+      "id": "kotsuzumi",
+      "kind": "instrument",
+      "name": "Kotsuzumi (small hourglass shoulder drum of noh and kabuki)",
+      "source": "met_open_access",
+      "source_page": "https://www.metmuseum.org/art/collection/search/503268",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/C4389 1986.117.jpg",
+      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/C4389 1986.117.jpg",
+      "license": "CC0",
+      "license_raw": "Public Domain (Met Open Access, CC0)",
+      "credit": "The Metropolitan Museum of Art, Purchase, East Productions U.S.A. Inc. Gift and funds from various donors, 1986",
+      "match_confidence": "medium",
+      "matched_label": "Kotsuzumi (小鼓)"
     },
     {
       "id": "koudi",
@@ -6368,6 +6498,20 @@
       "matched_label": "Mohan veena"
     },
     {
+      "id": "mokugyo",
+      "kind": "instrument",
+      "name": "Mokugyo (Japanese carved wooden fish slit drum)",
+      "source": "met_open_access",
+      "source_page": "https://www.metmuseum.org/art/collection/search/500701",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/midp89.4.72.jpg",
+      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/midp89.4.72.jpg",
+      "license": "CC0",
+      "license_raw": "Public Domain (Met Open Access, CC0)",
+      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
+      "match_confidence": "medium",
+      "matched_label": "Mokugyo"
+    },
+    {
       "id": "molo",
       "kind": "instrument",
       "name": "Molo (Hausa/Songhai three-string plucked skin-faced lute)",
@@ -6900,6 +7044,35 @@
       "credit": "Rijksmuseum",
       "match_confidence": "medium",
       "matched_label": "ophicleide"
+    },
+    {
+      "id": "organetto_abruzzese",
+      "kind": "instrument",
+      "name": "Organetto abruzzese (Italian two-row diatonic button accordion)",
+      "source": "wikidata_commons",
+      "wikidata": "Q2029807",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Organetto.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Organetto.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Organetto.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "No machine-readable author provided. Gianniventola assumed (based on copyright claims).",
+      "match_confidence": "medium",
+      "matched_label": "organetto"
+    },
+    {
+      "id": "orphica",
+      "kind": "instrument",
+      "name": "Orphica (portable early-19th-century piano)",
+      "source": "met_open_access",
+      "source_page": "https://www.metmuseum.org/art/collection/search/501812",
+      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/MUS964AB.jpg",
+      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/MUS964AB.jpg",
+      "license": "CC0",
+      "license_raw": "Public Domain (Met Open Access, CC0)",
+      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
+      "match_confidence": "medium",
+      "matched_label": "Orphica"
     },
     {
       "id": "otsuzumi",
@@ -7747,6 +7920,21 @@
       "matched_label": "Rauschpfeife"
     },
     {
+      "id": "rebana_ubi",
+      "kind": "instrument",
+      "name": "Rebana Ubi (large Malay signal frame drum)",
+      "source": "commons_category",
+      "wikidata": "Q7415752",
+      "source_page": "https://commons.wikimedia.org/wiki/File:National_Museum_of_Ethnology,_Osaka_-_Rebana_Ubi_-_Kelantan_in_Malaysia_-_Collected_in_2007.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/National_Museum_of_Ethnology%2C_Osaka_-_Rebana_Ubi_-_Kelantan_in_Malaysia_-_Collected_in_2007.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/National_Museum_of_Ethnology%2C_Osaka_-_Rebana_Ubi_-_Kelantan_in_Malaysia_-_Collected_in_2007.jpg/500px-National_Museum_of_Ethnology%2C_Osaka_-_Rebana_Ubi_-_Kelantan_in_Malaysia_-_Collected_in_2007.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Yanajin33",
+      "match_confidence": "medium",
+      "matched_label": "Rebana Ubi"
+    },
+    {
       "id": "rebec",
       "kind": "instrument",
       "name": "Rebec (medieval pear-shaped fiddle)",
@@ -8059,6 +8247,21 @@
       "credit": "The original uploader was I99jonma at Swedish Wikipedia.",
       "match_confidence": "medium",
       "matched_label": "Swedish bagpipes"
+    },
+    {
+      "id": "salamuri",
+      "kind": "instrument",
+      "name": "Salamuri (Georgian duct flute)",
+      "source": "commons_category",
+      "wikidata": "Q3469620",
+      "source_page": "https://commons.wikimedia.org/wiki/File:NIKO_NADIRASHVILI_(Salamuri_King).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/60/NIKO_NADIRASHVILI_%28Salamuri_King%29.jpg",
+      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/60/NIKO_NADIRASHVILI_%28Salamuri_King%29.jpg",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Triosaunje",
+      "match_confidence": "medium",
+      "matched_label": "salamuri"
     },
     {
       "id": "salpinx",
@@ -10465,6 +10668,21 @@
       "credit": "Wikimedia Commons contributor",
       "match_confidence": "high",
       "matched_label": "vibraslap"
+    },
+    {
+      "id": "vichitra_veena",
+      "kind": "instrument",
+      "name": "Vichitra veena (Hindustani fretless slide stick zither)",
+      "source": "commons_category",
+      "wikidata": "Q863302",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2024-03-22_Narayan_Veena_and_Vichitra_Veena_in_Raja_Dinkar_Kelkar_Museum,_Pune.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/2024-03-22_Narayan_Veena_and_Vichitra_Veena_in_Raja_Dinkar_Kelkar_Museum%2C_Pune.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/2024-03-22_Narayan_Veena_and_Vichitra_Veena_in_Raja_Dinkar_Kelkar_Museum%2C_Pune.jpg/500px-2024-03-22_Narayan_Veena_and_Vichitra_Veena_in_Raja_Dinkar_Kelkar_Museum%2C_Pune.jpg",
+      "license": "CC BY",
+      "license_raw": "CC BY 4.0",
+      "credit": "Alexkom000",
+      "match_confidence": "medium",
+      "matched_label": "vichitra veena"
     },
     {
       "id": "vielle_medieval",
