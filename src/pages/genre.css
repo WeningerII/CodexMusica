@@ -6,10 +6,10 @@
 }
 .selected-head button[data-ui='genre-close'] {
   background: transparent;
-  color: #3c4043;
+  color: var(--cm-text-secondary);
 }
 .genre-facts details {
-  border-top: 1px solid #e8eaed;
+  border-top: 1px solid var(--cm-border-subtle);
   padding: 12px 0;
 }
 .genre-facts summary {
@@ -21,7 +21,7 @@
 .genre-facts p {
   font: 15px/1.6 Arial;
   margin: 12px 0;
-  color: #3c4043;
+  color: var(--cm-text-secondary);
 }
 .genre-instruments > div,
 .related-row {
@@ -29,7 +29,7 @@
   align-items: center;
   gap: 8px;
   min-height: 50px;
-  border-bottom: 1px solid #f1f3f4;
+  border-bottom: 1px solid var(--cm-border-subtle);
 }
 .genre-instruments button,
 .related-row button {
@@ -41,17 +41,17 @@
   font: 14px Arial;
   min-height: 44px;
   cursor: pointer;
-  color: #1a73e8;
+  color: var(--cm-link);
 }
 .genre-instruments > div > button:first-of-type,
 .related-row > button:first-child {
   flex: 1;
   text-align: left;
-  color: #202124;
+  color: var(--cm-text);
 }
 .related-row > span {
   font-size: 12px;
-  color: #5f6368;
+  color: var(--cm-text-muted);
   max-width: 35%;
 }
 .profile-row {
@@ -64,7 +64,7 @@
 .modal-bg.inline-tree {
   display: block !important;
   position: static !important;
-  background: white !important;
+  background: var(--cm-surface) !important;
   padding: 0 !important;
   backdrop-filter: none !important;
 }

@@ -1,4 +1,4 @@
-/* global UI, UI_ICONS, UILayout, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* global UI, UI_ICONS, UILayout, uiAddGenre, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
 
 
 // ============================================================
@@ -2367,8 +2367,11 @@ async function importTraditionWithFeedback(tradId, opts) {
   // The one await on the import path: in lazy mode this fetches the
   // tradition's import payload (a few hundred bytes) the first time; embedded
   // mode and repeat imports resolve immediately.
+  // Retry goes back through the shell's add command when it is running, so a
+  // retry is refused like any second concurrent addition.
+  const retry = { label: 'Retry', run: () => (typeof UI !== 'undefined' && UI.ready ? uiAddGenre(tradId) : importTraditionWithFeedback(tradId, opts)) };
   try { await Catalog.ensureFull(tradId); }
-  catch { showToast('Could not load tradition data — check your connection', 'error'); return []; }
+  catch { showToast('Could not load tradition data — check your connection', 'error', retry); return []; }
   const created = importTradition(tradId);
   if (opts.closeModalId) closeModal(opts.closeModalId);
   app.similarFor = null;
@@ -2378,12 +2381,21 @@ async function importTraditionWithFeedback(tradId, opts) {
     return created;
   }
   const expected = (trad.instruments || []).length;
+  // One history entry holds the whole addition, so one Undo removes it — but
+  // only while it is still the latest change; otherwise say so and do nothing.
+  const at = app.historyIndex;
+  const undoAdd = { label: 'Undo', run: () => {
+    if (app.historyIndex !== at) { showToast('Later changes followed this addition. Use Undo in the header to step back.', 'error'); return; }
+    undo(); if (typeof UI !== 'undefined' && UI.ready) uiSync();
+  } };
   showToast(created.length < expected
     ? `Imported ${created.length}/${expected} instruments from "${trad.name}"`
-    : `Imported ${trad.name}`, 'success');
+    : `Imported ${trad.name}`, 'success', undoAdd);
+  // Centred, not 'start': the genre header above the first card is sticky
+  // and would cover a card scrolled to the very top of the list.
   setTimeout(() => {
     const elc = document.querySelector(`[data-card-id="${created[0].id}"]`);
-    if (elc) elc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (elc) elc.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, 60);
   return created;
 }
@@ -14661,12 +14673,14 @@ function confirmDialog(opts) {
 
 // ---- Toast ----
 let toastT = null;
-function showToast(msg, kind) {
+function showToast(msg, kind, action) {
   // kind: undefined (default neutral), 'success' (green w/ check icon),
   // 'error' (red w/ alert-circle icon). Icon emoji is part of the toast
   // text to keep the existing rendering surface unchanged.
+  // action: optional { label, run } — one labelled button (Undo, Retry) that
+  // keeps the toast up long enough to be reached and runs once.
   const t = document.getElementById('toast');
-  t.classList.remove('toast-success', 'toast-error');
+  t.classList.remove('toast-success', 'toast-error', 'has-action');
   if (kind === 'success') {
     t.innerHTML = `${icon('check')}<span>${esc(msg)}</span>`;
     t.classList.add('toast-success');
@@ -14676,9 +14690,18 @@ function showToast(msg, kind) {
   } else {
     t.textContent = msg;
   }
+  if (action && action.label && typeof action.run === 'function') {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'toast-action';
+    b.textContent = action.label;
+    b.addEventListener('click', () => { t.classList.remove('show', 'has-action'); action.run(); }, { once: true });
+    t.appendChild(b);
+    t.classList.add('has-action');
+  }
   t.classList.add('show');
   if (toastT) clearTimeout(toastT);
-  toastT = setTimeout(() => t.classList.remove('show'), UI_TIMING_MS.TOAST_LIFETIME);
+  toastT = setTimeout(() => t.classList.remove('show', 'has-action'), UI_TIMING_MS.TOAST_LIFETIME * (action ? 3 : 1));
 }
 
 // ---- Clipboard helper ----
@@ -14870,11 +14893,11 @@ function renderSidebarHeader() {
   const host = document.getElementById('sidebar-header');
   if (!host) return;
   if (app.cards.length === 0) {
-    host.innerHTML = '<div class="ws-label">WORKSPACE</div><div class="ws-name-row"><h2 class="ws-name">' + esc(app.workspaceName) + '</h2></div>';
+    host.innerHTML = '<div class="ws-label">Session</div><div class="ws-name-row"><h2 class="ws-name">' + esc(app.workspaceName) + '</h2></div>';
     return;
   }
   host.innerHTML =
-    '<div class="ws-label">WORKSPACE</div>' +
+    '<div class="ws-label">Session</div>' +
     '<div class="ws-name-row">' +
       '<h2 class="ws-name" id="ws-name-display">' + esc(app.workspaceName) + '</h2>' +
       '<button class="icon-btn ws-rename" id="ws-rename-btn" data-tooltip="Rename workspace" aria-label="Rename workspace">' + icon('pencil', 14) + '</button>' +
@@ -15382,7 +15405,7 @@ function renderSidebarRecipePreview() {
   host.innerHTML =
     '<div class="rp-head">' +
       icon('diamond', 12) +
-      '<span class="rp-label">Current recipe</span>' +
+      '<span class="rp-label">Recipe preview</span>' +
       '<span class="rp-count ' + band + '">' + len + ' / ' + CEILING + '</span>' +
       '<button class="icon-btn rp-tool" data-proxy="btn-undo" aria-label="Undo">' + icon('undo', 14) + '</button>' +
       '<button class="icon-btn rp-tool" data-proxy="btn-redo" aria-label="Redo">' + icon('redo', 14) + '</button>' +
@@ -15395,7 +15418,7 @@ function renderSidebarRecipePreview() {
     (text
       ? '<div class="rp-text">' + esc(text) + '</div>'
       : '<div class="rp-empty">Nothing configured yet.</div>') +
-    '<button class="rp-open" id="sb-open-full-stack">Open full stack ' + icon('arrow-right', 12) + '</button>';
+    '<button class="rp-open" id="sb-open-full-stack">Open full recipe ' + icon('arrow-right', 12) + '</button>';
 
   const expandBtn = document.getElementById('sb-recipe-expand');
   if (expandBtn) expandBtn.addEventListener('click', () => {
@@ -16153,12 +16176,15 @@ function renderDetailTraitPills(card, _inst) {
 function renderDetailTabBar(card, inst) {
   const wrap = document.createElement('div');
   wrap.className = 'detail-tab-bar';
+  // Labels are the shared editor's vocabulary on every route: Character (the
+  // preface and its cascade), Parts, Environment, Signal chain, Output (every
+  // format). The ids are the stored/tested names and do not change.
   const tabs = [
-    { id: 'preface', label: 'Preface',      ic: 'sparkles' },
+    { id: 'preface', label: 'Character',    ic: 'sparkles' },
     { id: 'parts',   label: 'Parts',        ic: 'sliders-horizontal' },
     { id: 'env',     label: 'Environment',  ic: 'layers' },
     { id: 'chain',   label: 'Signal chain', ic: 'link' },
-    { id: 'stack',   label: 'Stack',        ic: 'eye' },
+    { id: 'stack',   label: 'Output',       ic: 'eye' },
   ];
   wrap.innerHTML = tabs.map(t =>
     '<button class="detail-tab' + (card._uiTab === t.id ? ' is-active' : '') + '" data-tab="' + t.id + '">' +
@@ -17647,6 +17673,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function _renderBootError(err) {
   console.error('Catalog boot failed:', err);
+  document.body.classList.add('boot-failed');
   const detail = document.getElementById('workspace-detail') || document.body;
   detail.innerHTML =
     '<div class="empty-state" id="boot-error">' +

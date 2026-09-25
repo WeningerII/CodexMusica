@@ -66,7 +66,11 @@ window.addEventListener('message', (e) => {
   document.querySelectorAll('[data-adding]').forEach((a) => {
     if (a.dataset.adding === e.data.id) {
       delete a.dataset.adding;
-      a.textContent = e.data.ok ? 'Added · Add again' : 'Retry adding genre';
+      a.textContent = !e.data.ok
+        ? 'Retry adding genre'
+        : e.data.expected && e.data.added < e.data.expected
+          ? 'Added ' + e.data.added + ' of ' + e.data.expected + ' instruments · Add again'
+          : 'Added · Add again';
     }
   });
 });

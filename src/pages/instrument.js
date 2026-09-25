@@ -1,5 +1,5 @@
 /* exported renderInstrumentDiscovery, uiInspectInstrument */
-/* global $ui, FamName, INSTRUMENT_FILTER_PILLS, Inst, Tradition, UI, app, esc, familyImage, findSimilarInstruments, icon, image, listenLink, normalizeSearch, passesInstrumentFilter, uiButton, uiNavigate, uiRegisterPage */
+/* global $ui, uiEmptyState, uiFind, uiFocus, FamName, INSTRUMENT_FILTER_PILLS, Inst, Tradition, UI, app, esc, familyImage, findSimilarInstruments, icon, image, listenLink, normalizeSearch, passesInstrumentFilter, uiButton, uiNavigate, uiRegisterPage */
 /* Instrument page. Owned by the Instrument page worker; see docs/ui-foundation.md.
    Adding to the recipe goes through the shell command uiAddInstrument
    (data-ui="instrument-add"); the editor and recipe panel are shared. */
@@ -48,11 +48,42 @@ function renderInstrumentDiscovery() {
     )
     .join(
       ''
-    )}${filtered.length > UI.limit ? uiButton('more', 'Show more', 'chevron-down') : ''}${!filtered.length ? '<p>No instruments match these filters.</p>' : ''}</div></div>`;
+    )}${filtered.length > UI.limit ? uiButton('more', 'Show more', 'chevron-down') : ''}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</div></div>`;
+}
+// No results says which constraints are in force and offers to lift each one.
+function uiInstrumentNoResults(q, fam) {
+  const why = [];
+  if (q) why.push('the search “' + $ui('instrument-search').value.trim() + '”');
+  if (fam)
+    why.push(
+      UI.instrumentClass ? UI.instrumentClass.replaceAll('_', ' ') : 'the ' + fam.name + ' family'
+    );
+  if (app.instrumentAxisFilters.size)
+    why.push(
+      app.instrumentAxisFilters.size +
+        ' sound-property filter' +
+        (app.instrumentAxisFilters.size === 1 ? '' : 's')
+    );
+  return uiEmptyState({
+    title: 'No instruments match',
+    text: 'Nothing satisfies ' + why.join(' and ') + ' together.',
+    actions:
+      (q ? uiButton('instrument-clear-search', 'Clear search', 'x') : '') +
+      (app.instrumentAxisFilters.size ? uiButton('clear-filters', 'Clear filters', 'x') : '') +
+      (fam ? uiButton('instrument-all', 'All instruments', 'arrow-left') : ''),
+  });
+}
+function uiCloseInstrumentPreview() {
+  const id = UI.instrumentPreview;
+  $ui('instrument-preview').hidden = true;
+  UI.instrumentPreview = null;
+  uiFocus(uiFind('#instrument-body [data-ui="instrument-inspect"]', 'id', id)) ||
+    uiFocus($ui('instrument-search'));
 }
 function uiInspectInstrument(id) {
   const i = Inst(id);
   if (!i) return;
+  UI.instrumentPreview = id;
   $ui('instrument-preview').hidden = false;
   $ui('instrument-preview').innerHTML =
     `<div class="selected-head">${image(id, 36)}<h2>${esc(i.name)}</h2>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add instrument', 'plus', `data-id="${esc(id)}"`)}${uiButton('close-preview', 'Close', 'x')}</div><p>${esc(FamName(i.family))} · ${(i.parts || []).length} customizable parts</p><div class="part-preview">${(
@@ -84,6 +115,9 @@ uiRegisterPage({
     });
   },
   render: renderInstrumentDiscovery,
+  escape() {
+    if (!$ui('instrument-preview').hidden) uiCloseInstrumentPreview();
+  },
   actions: {
     'instrument-family'(id) {
       UI.instrumentFamily = id;
@@ -115,7 +149,19 @@ uiRegisterPage({
       uiInspectInstrument(id);
     },
     'close-preview'() {
-      $ui('instrument-preview').hidden = true;
+      uiCloseInstrumentPreview();
+    },
+    'instrument-clear-search'() {
+      $ui('instrument-search').value = '';
+      UI.limit = 50;
+      renderInstrumentDiscovery();
+      $ui('instrument-search').focus();
+    },
+    'instrument-all'() {
+      UI.instrumentFamily = '';
+      UI.instrumentClass = '';
+      UI.limit = 50;
+      renderInstrumentDiscovery();
     },
   },
 });

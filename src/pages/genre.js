@@ -1,5 +1,5 @@
 /* exported renderGenreDiscovery, renderGenreWeb */
-/* global $ui, Catalog, Inst, icon, Tradition, UI, app, axisLabel, countDescendantLeaves, esc, findSimilar, getChildren, getMatchingAxes, getRoots, getTreeNode, image, listenLink, normalizeSearch, renderTradPicker, tradParent, traditionGlyphsHTML, uiButton, uiRegisterPage */
+/* global $ui, Catalog, uiEmptyState, uiFind, uiFocus, Inst, icon, Tradition, UI, app, axisLabel, countDescendantLeaves, esc, findSimilar, getChildren, getMatchingAxes, getRoots, getTreeNode, image, listenLink, normalizeSearch, renderTradPicker, tradParent, traditionGlyphsHTML, uiButton, uiRegisterPage */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css. */
@@ -70,7 +70,15 @@ function renderGenreDiscovery() {
   }
   const branches = children.filter((c) => TREE_NODES.some((n) => n.id === c.id));
   $ui('genre-body').innerHTML =
-    `<div class="discovery-grid"><nav class="catalog-categories" aria-label="Genre categories">${node ? `<div class="category-heading">${uiButton('genre-back', 'Back to ' + (getTreeNode(node.parent)?.name || 'all genres'), 'arrow-left')}<strong>${esc(node.name)}</strong></div>` : ''}${!q && branches.length ? `<div class="branch-key">${branches.map((n) => `<button data-ui="genre-branch" data-id="${esc(n.id)}">${traditionGlyphsHTML(n.id, 22)}<span>${esc(n.name)}</span><span class="category-count">${countDescendantLeaves(n.id)}</span></button>`).join('')}</div>` : ''}</nav><div class="catalog-list"><div class="catalog-count">${all.length.toLocaleString()} genres</div>${uiGenreRows(all)}${!all.length ? '<p>No genres match your search.</p>' : ''}</div></div>`;
+    `<div class="discovery-grid"><nav class="catalog-categories" aria-label="Genre categories">${node ? `<div class="category-heading">${uiButton('genre-back', 'Back to ' + (getTreeNode(node.parent)?.name || 'all genres'), 'arrow-left')}<strong>${esc(node.name)}</strong></div>` : ''}${!q && branches.length ? `<div class="branch-key">${branches.map((n) => `<button data-ui="genre-branch" data-id="${esc(n.id)}">${traditionGlyphsHTML(n.id, 22)}<span>${esc(n.name)}</span><span class="category-count">${countDescendantLeaves(n.id)}</span></button>`).join('')}</div>` : ''}</nav><div class="catalog-list"><div class="catalog-count">${all.length.toLocaleString()} genres</div>${uiGenreRows(all)}${
+      !all.length
+        ? uiEmptyState({
+            title: `No genres match “${$ui('genre-search').value.trim()}”`,
+            text: 'Search covers names, lineage and descriptions.',
+            actions: uiButton('genre-clear-search', 'Clear search', 'x'),
+          })
+        : ''
+    }</div></div>`;
 }
 function renderGenreWeb(id) {
   uiDetachTree();
@@ -97,6 +105,13 @@ function renderGenreWeb(id) {
         ''
       )}</details>${(ext.crossRefs || []).length ? `<details><summary>Also belongs to</summary>${ext.crossRefs.map((id) => uiButton('genre-branch', getTreeNode(id)?.name || id, 'layers', `data-id="${esc(id)}"`)).join('')}</details>` : ''}</div></div>`;
 }
+// Back from a genre's detail to the list, returning focus to its row.
+function uiGenreBack() {
+  const id = UI.genre;
+  UI.genre = null;
+  renderGenreDiscovery();
+  uiFocus(uiFind('#genre-body [data-ui="genre-select"]', 'id', id)) || uiFocus($ui('genre-search'));
+}
 uiRegisterPage({
   id: 'genre',
   mount(surface) {
@@ -108,6 +123,14 @@ uiRegisterPage({
     });
   },
   render: renderGenreDiscovery,
+  // Escape closes what this page opened: the inline tree, then a detail.
+  escape() {
+    const tree = $ui('modal-trad');
+    if (tree?.classList.contains('inline-tree')) {
+      tree.querySelector('[data-close]').click();
+      uiFocus(document.querySelector('[data-ui="genre-tree"]'));
+    } else if (UI.genre) uiGenreBack();
+  },
   actions: {
     'genre-branch'(id) {
       UI.genre = null;
@@ -126,8 +149,13 @@ uiRegisterPage({
       $ui('surface-genre').scrollTop = 0;
     },
     'genre-close'() {
-      UI.genre = null;
+      uiGenreBack();
+    },
+    'genre-clear-search'() {
+      $ui('genre-search').value = '';
+      UI.limit = 50;
       renderGenreDiscovery();
+      $ui('genre-search').focus();
     },
     'genre-tree'() {
       const tree = $ui('modal-trad');

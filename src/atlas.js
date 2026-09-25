@@ -73,6 +73,21 @@
     typeof window !== 'undefined' && window.__ATLAS_DATA__ ? window.__ATLAS_DATA__ : null;
   var CODEX_URL = (INLINE && INLINE.codexUrl) || 'codex.html';
 
+  // Canvas colours that depend on the theme are read from the shared tokens in
+  // src/theme.css (Light or Dark, see src/theme.js) and re-read on a change.
+  // Markers, bubbles and routes keep their category colours in both themes:
+  // they sit on the satellite image, which is the same in both.
+  var PAINT = {};
+  function readPaint() {
+    var cs = getComputedStyle(document.documentElement);
+    var token = function (name, fallback) {
+      return cs.getPropertyValue(name).trim() || fallback;
+    };
+    PAINT.backdrop = token('--cm-map-backdrop', '#e8eaed');
+    PAINT.label = token('--cm-map-label', '#202124');
+    PAINT.halo = token('--cm-map-label-halo', 'rgba(255,255,255,0.85)');
+  }
+
   // ── state ──
 
   var S = {
@@ -176,6 +191,12 @@
   // ── boot ──
 
   function boot() {
+    readPaint();
+    if (window.UITheme)
+      window.UITheme.onChange(function () {
+        readPaint();
+        draw();
+      });
     el.host = $('canvas-host');
     el.list = $('list');
     el.search = $('search');
@@ -580,7 +601,8 @@
     var v = S.view;
     ctx.setTransform(S.dpr, 0, 0, S.dpr, 0, 0);
     ctx.clearRect(0, 0, S.w, S.h);
-    ctx.fillStyle = '#103557';
+    if (!PAINT.backdrop) readPaint();
+    ctx.fillStyle = PAINT.backdrop;
     ctx.fillRect(0, 0, S.w, S.h);
 
     ctx.save();
@@ -701,7 +723,7 @@
     ctx.strokeStyle = open ? '#c8504a' : '#ffffff';
     ctx.lineWidth = open ? 2.5 : 1.5;
     ctx.stroke();
-    ctx.fillStyle = '#103557';
+    ctx.fillStyle = '#1a1a1a';
     ctx.font = '600 ' + (c.pts.length > 999 ? 10 : 11) + 'px IBM Plex Sans, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -734,9 +756,9 @@
         ctx.textAlign = 'left';
         ctx.textBaseline = 'middle';
         ctx.lineWidth = 3;
-        ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+        ctx.strokeStyle = PAINT.halo;
         ctx.strokeText(p.name, s[0] + r + 5, s[1]);
-        ctx.fillStyle = '#202124';
+        ctx.fillStyle = PAINT.label;
         ctx.fillText(p.name, s[0] + r + 5, s[1]);
       }
       S.hit.push({ sx: s[0], sy: s[1], r: r + 4, pt: p });
@@ -1255,8 +1277,14 @@
         esc(s.lineage) +
         '</p>';
     }
+    // This is the catalog's stock recipe for the tradition. The user's own
+    // recipe is a different object: it lives in the app's Your recipe panel,
+    // and Add changes it; nothing on this card edits it.
     if (s.recipe) {
-      h += '<div class="label" style="margin-bottom:4px">Recipe</div>';
+      h += '<div class="label" style="margin-bottom:4px">Default recipe</div>';
+      h +=
+        '<div style="font-size:12px;color:var(--muted-2);margin-bottom:6px">' +
+        'The catalog’s recipe for this tradition, not your recipe.</div>';
       h += '<div class="recipe" style="margin-bottom:12px">' + esc(s.recipe) + '</div>';
     }
     if (s.fetching) {
@@ -1296,9 +1324,9 @@
       CODEX_URL +
       '?trad=' +
       encodeURIComponent(s.id) +
-      '">Add genre</a>' +
+      '">Add to your recipe</a>' +
       '<button class="btn-secondary" data-act="copy">' +
-      esc(S.copyLabel || 'Copy recipe') +
+      esc(S.copyLabel || 'Copy default recipe') +
       '</button></div>';
     if (S.thread) {
       h +=
@@ -1883,7 +1911,7 @@
       S.copyLabel = label;
       renderCard();
       setTimeout(function () {
-        S.copyLabel = 'Copy recipe';
+        S.copyLabel = 'Copy default recipe';
         if (S.sel) renderCard();
       }, 1600);
     };

@@ -1,6 +1,6 @@
-/* exported UI, UI_ICONS, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport */
+/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport */
 /* global UILayout */
-/* global Inst, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
+/* global Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
    canonical app (src/app.js) and catalog, which stay the only engine.
@@ -28,14 +28,24 @@ const UI = {
   busy: false,
   editor: false,
   ready: false,
+  // What the autosave last did: '' (nothing yet), 'saved', 'conflict' or
+  // 'failed'. Rendered by uiRenderAutosave; never claims a named save.
+  autosave: '',
+  // Focus return: what opened the AI writer, and the instrument preview.
+  assistantOpener: null,
+  instrumentPreview: null,
+  // Set on the way down when a dialog owns this Escape (see uiEscape).
+  escapeOwned: false,
 };
 // The four sections, in order. Navigation is a shell concern: pages register
 // behaviour for a route; they never add, remove or reorder routes.
+// Each icon keeps one meaning and one colour on every route and in both
+// themes (--cm-route-* in src/theme.css); the word always travels with it.
 const UI_ROUTES = [
-  ['genre', 'Genre', 'library'],
-  ['instrument', 'Instrument', 'music'],
-  ['map', 'Map', 'globe'],
-  ['lyrics', 'Lyrics', 'edit-3'],
+  ['genre', 'Genre', 'tag'],
+  ['instrument', 'Instrument', 'guitar'],
+  ['map', 'Map', 'map-pin'],
+  ['lyrics', 'Lyrics', 'file-text'],
 ];
 const UI_PAGES = {};
 const UI_PAGE_ACTIONS = {};
@@ -64,6 +74,8 @@ const UI_SHELL_ACTIONS = new Set([
   'ai',
   'close-ai',
   'new-recipe',
+  'theme',
+  'recipe-collapse',
 ]);
 // Page interface: { id, mount(surface), render?(), layout?(), resetLayout?(),
 // actions?: { [data-ui name]: (id, button, event) => void|Promise } }.
@@ -80,14 +92,23 @@ function uiRegisterPage(page) {
 const $ui = (id) => document.getElementById(id);
 const uiButton = (act, label, ic = 'plus', extra = '') =>
   `<button type="button" data-ui="${act}" ${extra.includes('aria-label=') ? '' : `aria-label="${esc(label)}"`} ${extra}>${icon(ic, 18)}<span>${esc(label)}</span></button>`;
+// Empty, no-results, loading and failure states share one shape: what is
+// true now, and the actions that move on from it. tone 'danger' = a failure.
+const uiEmptyState = ({ title, text = '', actions = '', tone = '' }) =>
+  `<div class="cm-empty"${tone ? ` data-tone="${tone}"` : ''} role="status"><strong>${esc(title)}</strong>${text ? `<span>${esc(text)}</span>` : ''}${actions ? `<div class="cm-empty-actions">${actions}</div>` : ''}</div>`;
 const listenLink = (name, instrument = false) =>
   `<a class="listen" href="https://www.youtube.com/results?search_query=${encodeURIComponent(name + (instrument ? ' musical instrument solo demonstration' : ' music'))}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${esc(name)} on YouTube">${icon('play', 16)}<span>Listen</span></a>`;
-function uiNavigate(view) {
+// `push` is set only for a user's own navigation, so Back and Forward step
+// between sections; boot and deep links replace the entry instead.
+function uiNavigate(view, { push = false } = {}) {
   if (!UI_PAGES[view]) return;
   UI.view = view;
   document.body.dataset.view = view;
-  if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view)
-    history.replaceState(null, '', '#' + view);
+  if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view) {
+    if (push) history.pushState(null, '', '#' + view);
+    else history.replaceState(null, '', '#' + view);
+  }
+  uiApplyRecipeMode();
   document.querySelectorAll('button[data-view]').forEach((b) => {
     b.classList.toggle('active', b.dataset.view === view);
     b.setAttribute('aria-current', b.dataset.view === view ? 'page' : 'false');
@@ -115,6 +136,57 @@ function uiNavigate(view) {
   UILayout.refresh();
   document.querySelector(`[data-view="${view}"]`)?.focus({ preventScroll: true });
 }
+// ── Recipe panel ── #workspace-sidebar is the one recipe workspace on every
+// route: the same cards, the same editor (#workspace-detail) and the same
+// commands. A page only chooses how it is presented: page.recipe is
+// 'sidebar' (the default) or 'dock' (a resizable strip under the page).
+// Below 900px it is always the Recipe sheet. Collapsing is a remembered
+// layout preference per presentation, cleared by Reset layout.
+const uiRecipeCollapsed = {};
+function uiRecipeMode() {
+  return UI_PAGES[UI.view]?.recipe || 'sidebar';
+}
+function uiApplyRecipeMode() {
+  const mode = uiRecipeMode();
+  const collapsed = !!uiRecipeCollapsed[mode]?.get();
+  document.body.dataset.recipe = mode;
+  document.body.classList.toggle('recipe-collapsed', collapsed);
+  const toggle = document.querySelector('[data-ui="recipe-collapse"]');
+  if (toggle) {
+    const label = (collapsed ? 'Expand' : 'Collapse') + ' Your recipe';
+    toggle.setAttribute('aria-expanded', String(!collapsed));
+    toggle.setAttribute('aria-label', label);
+    toggle.dataset.tooltip = label;
+    toggle.innerHTML = icon(
+      mode === 'dock'
+        ? collapsed
+          ? 'panel-bottom'
+          : 'chevron-down'
+        : collapsed
+          ? 'panel-left-open'
+          : 'panel-left-close',
+      18
+    );
+  }
+  UILayout.refresh();
+}
+function uiRecipePanelSetup() {
+  const panel = $ui('workspace-sidebar');
+  const head = document.createElement('div');
+  head.className = 'recipe-panel-head';
+  head.innerHTML = `<h2 class="recipe-panel-title">${icon('layers', 18)}<span>Your recipe</span></h2><span class="recipe-panel-meta" id="recipe-panel-meta"></span><button type="button" class="cm-btn cm-btn-icon" data-ui="recipe-collapse" aria-controls="workspace-sidebar"></button>`;
+  panel.prepend(head);
+  const empty = document.createElement('div');
+  empty.id = 'recipe-empty';
+  empty.className = 'cm-empty';
+  empty.hidden = true;
+  empty.innerHTML = `<strong>No instruments yet</strong><span>Add a genre to bring in its whole ensemble, or add single instruments. Every addition can be undone.</span><div class="cm-empty-actions">${uiButton('genre-nav', 'Browse genres', 'tag')}${uiButton('surprise', 'Surprise me', 'shuffle')}</div>`;
+  $ui('sidebar-header').after(empty);
+  for (const mode of ['sidebar', 'dock'])
+    uiRecipeCollapsed[mode] = UILayout.remember('recipe-collapsed-' + mode, false, () =>
+      uiApplyRecipeMode()
+    );
+}
 function uiListen() {
   const c = app.cards.find((c) => c.id === app.selected);
   return c ? listenLink(Inst(c.instrumentId).name, true) : '';
@@ -126,6 +198,9 @@ function uiSync() {
     UI.editor && !!app.selected && app.cards.length > 0
   );
   $ui('ui-count').textContent = String(app.cards.length);
+  const n = app.cards.length;
+  $ui('recipe-panel-meta').textContent = n + (n === 1 ? ' instrument' : ' instruments');
+  $ui('recipe-empty').hidden = n > 0;
   const detail = $ui('detail-view');
   if (detail && !detail.querySelector('.ui-detail-tools')) {
     const bar = document.createElement('div');
@@ -148,10 +223,13 @@ function uiOpenEditor(id) {
 // ── Recipe commands ── The only ways a page adds to the shared recipe. Both
 // run the canonical engine (importTraditionWithFeedback / addInstrumentFromPicker)
 // and refuse a second concurrent addition rather than interleaving two.
+// uiAddGenre resolves to { added, expected }: how many instruments were added
+// and how many the genre's configured ensemble has (added 0 = nothing added).
 async function uiAddGenre(id) {
+  const expected = (Tradition(id)?.instruments || []).length;
   if (UI.busy) {
     showToast('An addition is already in progress.', 'error');
-    return false;
+    return { added: 0, expected };
   }
   UI.busy = true;
   try {
@@ -159,9 +237,10 @@ async function uiAddGenre(id) {
     UI.editor = false;
     uiSync();
     UI_PAGES.genre?.render?.();
-    return added.length > 0;
+    return { added: added.length, expected };
   } catch (e) {
     showToast(e.message || 'Could not add genre', 'error');
+    return { added: 0, expected };
   } finally {
     UI.busy = false;
   }
@@ -356,14 +435,17 @@ function uiStart() {
   oldHeader.classList.add('native-header');
   const header = document.createElement('header');
   header.className = 'app-bar ui-header';
-  header.innerHTML = `<a class="ui-brand" href="codex.html">Codex Musica</a><nav aria-label="Main sections">${UI_ROUTES.map(
+  // One brand asset: the approved mark (assets/icon-192.png, pinned by
+  // scripts/build_favicon.js) beside the wordmark, in both themes.
+  header.innerHTML = `<a class="ui-brand" href="codex.html" aria-label="Codex Musica"><img class="ui-brand-mark" src="assets/icon-192.png" alt="" width="28" height="28"><span class="ui-brand-name">Codex Musica</span></a><nav aria-label="Main sections">${UI_ROUTES.map(
     ([v, l, i]) => `<button data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`
   ).join(
     ''
-  )}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal')}</div>`;
+  )}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button><span id="ui-autosave" class="cm-status" role="status" aria-live="polite"></span>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved sessions', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal')}</div>`;
   document.body.prepend(header);
   const more = document.createElement('div');
   more.id = 'ui-menu';
+  more.className = 'cm-menu';
   more.hidden = true;
   more.innerHTML =
     uiButton('surprise', 'Surprise me', 'shuffle') +
@@ -374,6 +456,8 @@ function uiStart() {
     uiButton('import', 'Import session', 'upload') +
     uiButton('credits', 'Credits', 'info') +
     uiButton('reset-layout', 'Reset layout', 'refresh-cw') +
+    '<div class="cm-menu-sep" role="separator"></div>' +
+    uiThemeControl() +
     '<input type="file" id="ui-file" accept="application/json" hidden>';
   header.append(more);
   const discovery = document.createElement('section');
@@ -402,12 +486,13 @@ function uiStart() {
     uiButton('instrument-nav', 'Add instrument', 'plus') +
     uiButton('close-session', 'Close recipe', 'x');
   $ui('workspace-sidebar').prepend(quick);
+  uiRecipePanelSetup();
   // Keep native action nodes, so save, keyboard proxies and assistive labels share one implementation.
   for (const [id, target, label] of [
     ['btn-undo', '#ui-undo', 'Undo'],
     ['btn-redo', '#ui-redo', 'Redo'],
     ['btn-save', '[data-ui="save"]', 'Save'],
-    ['btn-saved', '[data-ui="saved"]', 'Saved'],
+    ['btn-saved', '[data-ui="saved"]', 'Saved sessions'],
     ['btn-add', '[data-ui="instrument-nav"]', 'Add instrument'],
     ['btn-traditions', '[data-ui="genre-nav"]', 'Add genre'],
     ['btn-attributions', '[data-ui="credits"]', 'Credits'],
@@ -420,8 +505,15 @@ function uiStart() {
     node.innerHTML = placeholder.innerHTML;
     placeholder.replaceWith(node);
   }
+  // Undo/Redo step through this session (recipe, name, lyrics). Text fields
+  // keep their own Ctrl/Cmd+Z; the shortcut reaches the session only outside them.
+  $ui('btn-undo').dataset.tooltip = 'Undo the last session change (Ctrl/Cmd+Z)';
+  $ui('btn-redo').dataset.tooltip = 'Redo (Ctrl/Cmd+Shift+Z)';
+  $ui('btn-save').dataset.tooltip = 'Save a named copy of this session';
   oldHeader.remove();
   $ui('app-more-menu')?.remove();
+  UITheme.onChange(uiSyncThemeControl);
+  uiSyncThemeControl();
   // Preserve the original browse tree, filters, editor and save controls. Browsing
   // opens in an inline surface rather than a modal with a focus trap.
   // A row selection opens the editor beside discovery (inside the recipe sheet on phones).
@@ -434,7 +526,7 @@ function uiStart() {
   document.addEventListener('click', async (e) => {
     const nav = e.target.closest('button[data-view]');
     if (nav) {
-      uiNavigate(nav.dataset.view);
+      uiNavigate(nav.dataset.view, { push: true });
       return;
     }
     if (!e.target.closest('#ui-menu,[data-ui=menu]')) uiSetMenu(false);
@@ -470,8 +562,7 @@ function uiStart() {
         uiSync();
         break;
       case 'close-editor':
-        UI.editor = false;
-        uiSync();
+        uiCloseEditor();
         break;
       case 'save':
         $ui('btn-save').click();
@@ -525,14 +616,27 @@ function uiStart() {
         uiSetMenu(false);
         break;
       case 'ai':
+        UI.assistantOpener = b;
         uiChatOpen();
         break;
       case 'close-ai':
         document.body.classList.remove('assistant-open');
+        uiFocus(UI.assistantOpener) || uiFocus(document.querySelector(`[data-view="${UI.view}"]`));
         break;
       case 'new-recipe':
         uiNewTask('recipe');
         break;
+      case 'theme':
+        UITheme.set(id);
+        uiSyncThemeControl();
+        break;
+      case 'recipe-collapse': {
+        const pref = uiRecipeCollapsed[uiRecipeMode()];
+        pref.set(!pref.get());
+        uiApplyRecipeMode();
+        b.focus({ preventScroll: true });
+        break;
+      }
       default:
         await UI_PAGE_ACTIONS[a]?.(id, b, e);
     }
@@ -542,18 +646,23 @@ function uiStart() {
       e.preventDefault();
       e.target.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     }
-    if (e.key === 'Escape') {
-      const wasSessionOpen = document.body.classList.contains('session-open');
-      const wasMenuOpen = !$ui('ui-menu').hidden;
-      document.body.classList.remove('session-open', 'assistant-open');
-      UI.editor = false;
-      uiSync();
-      uiSetMenu(false);
-      document.querySelector('[data-ui="session"]').setAttribute('aria-expanded', 'false');
-      if (wasMenuOpen) document.querySelector('[data-ui="menu"]').focus({ preventScroll: true });
-      else if (wasSessionOpen)
-        document.querySelector('[data-ui="session"]').focus({ preventScroll: true });
-    }
+    if (e.key === 'Escape') uiEscape(e);
+  });
+  // Dialogs (src/app.js) close on the same Escape before this handler runs, so
+  // whether one was open is read on the way down, before they react.
+  document.addEventListener(
+    'keydown',
+    (e) => {
+      if (e.key === 'Escape')
+        UI.escapeOwned = !!document.querySelector(
+          '.modal-bg.open:not(.inline-tree), .confirm-dialog-bg'
+        );
+    },
+    true
+  );
+  window.addEventListener('hashchange', () => {
+    const view = location.hash.slice(1);
+    if (UI_PAGES[view] && view !== UI.view) uiNavigate(view);
   });
   $ui('ui-file').addEventListener('change', (e) => {
     if (e.target.files[0]) uiImport(e.target.files[0]);
@@ -584,6 +693,51 @@ function uiStart() {
   uiNavigate(location.hash.slice(1) || 'genre');
 }
 
+// ── Layers ── Escape closes the topmost open layer only and returns focus to
+// whatever opened it: a dialog (src/app.js handles those), then the More
+// menu, the AI writer, the Recipe sheet (below 900px), the editor, and last
+// whatever the current page opened (page.escape()).
+function uiFocus(el) {
+  if (!el || !el.isConnected || !el.getClientRects().length) return false;
+  el.focus({ preventScroll: true });
+  return true;
+}
+// The first element matching `selector` whose dataset[key] is `value`.
+function uiFind(selector, key, value) {
+  if (!value) return null;
+  return [...document.querySelectorAll(selector)].find((el) => el.dataset[key] === value) || null;
+}
+function uiFocusCard(id) {
+  return uiFocus(uiFind('.sb-card', 'cardId', id));
+}
+function uiCloseEditor() {
+  const id = app.selected;
+  UI.editor = false;
+  uiSync();
+  uiFocusCard(id);
+}
+function uiEscape(e) {
+  if (e.defaultPrevented || UI.escapeOwned) return;
+  if (document.documentElement.classList.contains('layout-dragging')) return;
+  const body = document.body;
+  if (!$ui('ui-menu').hidden) {
+    uiSetMenu(false);
+    uiFocus(document.querySelector('[data-ui="menu"]'));
+  } else if (body.classList.contains('assistant-open')) {
+    body.classList.remove('assistant-open');
+    uiFocus(UI.assistantOpener) || uiFocus(document.querySelector(`[data-view="${UI.view}"]`));
+  } else if (body.classList.contains('session-open')) {
+    body.classList.remove('session-open');
+    UI.editor = false;
+    uiSync();
+    document.querySelector('[data-ui="session"]').setAttribute('aria-expanded', 'false');
+    uiFocus(document.querySelector('[data-ui="session"]'));
+  } else if (body.classList.contains('editor-open')) {
+    uiCloseEditor();
+  } else {
+    UI_PAGES[UI.view]?.escape?.();
+  }
+}
 function uiLayoutControls() {
   UILayout.tooltips();
   const workspace = document.querySelector('.workspace');
@@ -597,7 +751,8 @@ function uiLayoutControls() {
     property: '--sidebar-width',
     title: 'Resize recipe sidebar',
     limits: () => [220, Math.min(520, innerWidth * 0.35)],
-    enabled: () => innerWidth >= 900 && UI.view !== 'map',
+    enabled: () =>
+      innerWidth >= 900 && uiRecipeMode() === 'sidebar' && !uiRecipeCollapsed.sidebar?.get(),
   });
   UILayout.splitter({
     container: workspace,
@@ -607,7 +762,18 @@ function uiLayoutControls() {
     title: 'Resize instrument editor',
     side: 'left',
     limits: () => [320, Math.min(700, innerWidth * 0.45)],
-    enabled: () => innerWidth >= 900 && UI.editor && !['map', 'lyrics'].includes(UI.view),
+    enabled: () => innerWidth >= 900 && document.body.classList.contains('editor-open'),
+  });
+  // The docked presentation (the Map) resizes from its top edge.
+  UILayout.splitter({
+    container: workspace,
+    panel: sidebar,
+    key: 'dock',
+    property: '--dock-height',
+    title: 'Resize Your recipe',
+    side: 'top',
+    limits: () => [300, Math.max(300, Math.round(workspace.clientHeight * 0.7))],
+    enabled: () => innerWidth >= 900 && uiRecipeMode() === 'dock' && !uiRecipeCollapsed.dock?.get(),
   });
   for (const [route] of UI_ROUTES) UI_PAGES[route]?.layout?.();
   UILayout.floating($ui('assistant-slot'), {
@@ -680,7 +846,38 @@ function uiReceiveReply(payload, request) {
   }
 }
 
+// Shell icons not in the vendored Lucide subset (references/08_asset_manifest.js).
+// Lucide, ISC licence, as credited in the Credits dialog. icon() resizes them.
+const uiSvg = (paths) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${paths}</svg>`;
 const UI_ICONS = {
+  tag: uiSvg(
+    '<path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>'
+  ),
+  'map-pin': uiSvg(
+    '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle>'
+  ),
+  'file-text': uiSvg(
+    '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path>'
+  ),
+  // width="20.0", not "20": icon() rewrites every width="20" to the requested size.
+  monitor: uiSvg(
+    '<rect width="20.0" height="14" x="2" y="3" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path>'
+  ),
+  sun: uiSvg(
+    '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>'
+  ),
+  moon: uiSvg('<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>'),
+  'circle-check': uiSvg('<circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path>'),
+  'panel-left-close': uiSvg(
+    '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path><path d="m16 15-3-3 3-3"></path>'
+  ),
+  'panel-left-open': uiSvg(
+    '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path><path d="m14 9 3 3-3 3"></path>'
+  ),
+  'panel-bottom': uiSvg(
+    '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 15h18"></path>'
+  ),
   globe:
     '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-earth" aria-hidden="true"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"></path><path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17"></path><path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"></path><circle cx="12" cy="12" r="10"></circle></svg>',
   layers:
@@ -761,15 +958,50 @@ function uiAutosave() {
     sessionStorage.setItem('codex-workbench-recovery', data);
     if (UI.storageConflict) {
       uiShowStorageConflict();
+      uiRenderAutosave('conflict');
       return;
     }
     localStorage.setItem('codex-workbench-v1', data);
     UI.lastSaved = data;
     UI.saveFailed = false;
+    uiRenderAutosave('saved');
   } catch {
     UI.saveFailed = true;
+    uiRenderAutosave('failed');
     showToast('Autosave failed. Export your session to keep it.', 'error');
   }
+}
+// Autosave, Save and Saved sessions are three different things: this status
+// reports only the automatic copy of the open session in this browser.
+const UI_AUTOSAVE_STATES = {
+  saved: [
+    'success',
+    'circle-check',
+    'Autosaved',
+    'This session is saved automatically in this browser. Save makes a named copy.',
+  ],
+  conflict: [
+    'warning',
+    'triangle-alert',
+    'Not autosaved',
+    'Another tab changed the autosaved session. This tab keeps a recovery copy: keep this session or export it.',
+  ],
+  failed: [
+    'danger',
+    'circle-alert',
+    'Autosave failed',
+    'The browser refused to store this session. Export it to keep it.',
+  ],
+};
+function uiRenderAutosave(state) {
+  UI.autosave = state;
+  const el = $ui('ui-autosave'),
+    def = UI_AUTOSAVE_STATES[state];
+  if (!el || !def || el.dataset.state === state) return;
+  el.dataset.state = state;
+  el.dataset.tone = def[0];
+  el.dataset.tooltip = def[3];
+  el.innerHTML = `${icon(def[1], 16)}<span class="ui-autosave-text">${esc(def[2])}</span>`;
 }
 function uiShowStorageConflict() {
   if ($ui('storage-conflict')) return;
@@ -813,6 +1045,25 @@ async function uiCheckAI() {
   }
 }
 
+// ── Theme ── One setting (Light, Dark or System), stored by src/theme.js and
+// shared with the atlas. It lives in the More menu on every route.
+const UI_THEME_CHOICES = [
+  ['system', 'System', 'monitor'],
+  ['light', 'Light', 'sun'],
+  ['dark', 'Dark', 'moon'],
+];
+function uiThemeControl() {
+  return `<div class="cm-menu-label" id="ui-theme-label">Theme</div><div class="cm-segmented ui-theme" role="group" aria-labelledby="ui-theme-label">${UI_THEME_CHOICES.map(
+    ([id, label, ic]) =>
+      `<button type="button" data-ui="theme" data-id="${id}" aria-pressed="false">${icon(ic, 16)}<span>${label}</span></button>`
+  ).join('')}</div>`;
+}
+function uiSyncThemeControl() {
+  const current = UITheme.preference();
+  document.querySelectorAll('[data-ui="theme"]').forEach((b) => {
+    b.setAttribute('aria-pressed', String(b.dataset.id === current));
+  });
+}
 function uiSetMenu(open) {
   const menu = $ui('ui-menu'),
     trigger = document.querySelector('[data-ui="menu"]');
