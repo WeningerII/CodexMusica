@@ -270,6 +270,23 @@ const PRECONDITIONS = {
       await renderSaved();
     })()
   `,
+  // Shared UI foundation states (docs/ui-foundation.md). RESET clears both
+  // search fields and returns to the Genre section, so none of these leak.
+  'genre search: no results': `
+    document.getElementById('genre-search').value = 'zzzq no such genre';
+    UI.genre = null;
+    renderGenreDiscovery();
+  `,
+  'instrument search: no results': `
+    document.getElementById('instrument-search').value = 'zzzq no such instrument';
+    renderInstrumentDiscovery();
+  `,
+  'genre just imported': `
+    (async () => { await importTraditionWithFeedback('delta_blues'); })()
+  `,
+  'map view': `
+    uiNavigate('map');
+  `,
 };
 
 // Modal-open preconditions are dynamic (one per modal id). Generator:
@@ -371,6 +388,12 @@ async function main() {
     // unsafe to assume Map iteration order.
     if (app.instrumentAxisFilters) app.instrumentAxisFilters.clear();
     if (app.treeExpanded) app.treeExpanded.clear();
+    for (const id of ['genre-search', 'instrument-search']) {
+      const field = document.getElementById(id);
+      if (field) field.value = '';
+    }
+    if (typeof uiNavigate === 'function' && typeof UI !== 'undefined' && UI.view !== 'genre')
+      uiNavigate('genre');
     // Install storage mock if not present. Claude.ai provides window.storage
     // as a host API at runtime; the standalone site installs a browser-backed
     // shim (tagged _local_shim) so Save persists in real Chromium. Either way,

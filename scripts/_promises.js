@@ -182,6 +182,20 @@ module.exports = [
     claim: 'the shipped page fits the device width on a phone, with every header control tappable',
   },
   {
+    id: 'theme-preference-honoured',
+    doc: 'README.md',
+    gate: 'check_ui_foundation.js',
+    claim:
+      'the Light/Dark/System preference is applied before first paint in the app and the atlas, persists across reloads and routes, follows the system live, reaches the embedded map, and no dark shell surface carries a hue',
+  },
+  {
+    id: 'one-recipe-workspace',
+    doc: 'README.md',
+    gate: 'check_ui_foundation.js',
+    claim:
+      'Genre, Instrument and Map present one recipe panel and editor (one node, one state); a reload restores it with Undo/Redo, and autosave never reports a write the browser refused',
+  },
+  {
     id: 'cli-output-complete',
     doc: 'SKILL.md',
     gate: 'check_cli_output.js',

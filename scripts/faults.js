@@ -34,6 +34,8 @@
 //   false cultural claim  -> check_signature_tokens.js (a pair ruled false is back in the table)
 //   unruled cultural pair -> check_signature_tokens.js (a cultural token lands with no verdict)
 //   restated ceiling    -> check_chat_counter.js    (ask-bar counter names a bound the field no longer enforces)
+//   theme after paint   -> check_ui_foundation.js   (the stored theme lands only once the page has painted)
+//   map loses recipe    -> check_ui_foundation.js   (the Map view hides Your recipe again)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -1215,6 +1217,58 @@ record(
     'chat-counter-restates-ceiling -> check_chat_counter.js',
     gate(d, ['scripts/check_chat_counter.js']),
     /naming a ceiling of its own/i
+  );
+}
+
+// 36-37. The shared UI foundation -> check_ui_foundation.js. Both plants go into a
+//     copy of the BUILT page, because the gate drives what ships. The map needs
+//     the atlas, its sidecars and the tile pyramid; those are read-only here, so
+//     they are linked rather than copied (assets/ alone is ~155 MB).
+function foundationEnv() {
+  const d = mkenv(['scripts', 'codex.html', 'src', 'atlas.html']);
+  for (const dir of ['api', 'assets', 'data', 'references'])
+    fs.symlinkSync(path.join(ROOT, dir), path.join(d, dir));
+  return d;
+}
+//   (a) THE FLASH THE BOOT EXISTS TO PREVENT. The theme is applied, just after
+//       the page has parsed — which is exactly how a boot moved to the end of
+//       <body>, or into the app's init, would behave. The page ends up in the
+//       right theme, so a screenshot taken after load cannot tell; only the
+//       moment <body> appears can.
+{
+  const d = foundationEnv();
+  const f = path.join(d, 'codex.html');
+  const before = fs.readFileSync(f, 'utf8');
+  const setter = 'root.setAttribute("data-theme",theme);';
+  const after = before.replace(
+    setter,
+    '/* __THEME_FAULT__ */document.addEventListener("DOMContentLoaded",function(){root.setAttribute("data-theme",theme)});'
+  );
+  if (after === before) throw new Error('faults: theme boot setter not found in codex.html');
+  fs.writeFileSync(f, after);
+  record(
+    'theme-after-first-paint -> check_ui_foundation.js',
+    gate(d, ['scripts/check_ui_foundation.js']),
+    /not applied before first paint/
+  );
+}
+//   (b) THE MAP WITHOUT THE RECIPE. Until the foundation, the Map view hid the
+//       recipe panel at desktop width and offered nothing to open it. Put that
+//       back and the one-workspace promise is false on one of its three pages.
+{
+  const d = foundationEnv();
+  const f = path.join(d, 'codex.html');
+  const before = fs.readFileSync(f, 'utf8');
+  const after = before.replace(
+    '</body>',
+    "<style>/* __RECIPE_FAULT__ */ .workbench[data-view='map'] .workspace #workspace-sidebar { display: none !important; }</style>\n</body>"
+  );
+  if (after === before) throw new Error('faults: could not inject into codex.html');
+  fs.writeFileSync(f, after);
+  record(
+    'map-loses-recipe -> check_ui_foundation.js',
+    gate(d, ['scripts/check_ui_foundation.js']),
+    /Your recipe is not reachable on the map page/
   );
 }
 
