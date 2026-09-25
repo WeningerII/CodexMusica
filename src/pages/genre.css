@@ -49,7 +49,7 @@
 }
 #genre-body {
   display: grid;
-  grid-template-columns: clamp(220px, 20vw, 272px) minmax(0, 1fr);
+  grid-template-columns: clamp(220px, 20vw, 288px) minmax(0, 1fr);
   flex: 1;
   min-height: 0;
 }
@@ -130,11 +130,35 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  color: var(--cm-text-faint);
+  max-width: 100%;
+  min-width: 0;
+  color: var(--cm-text-muted);
   font-size: var(--cm-text-xs);
+}
+.gp-credit[hidden] {
+  display: none;
+}
+.gp-credit svg {
+  flex-shrink: 0;
+}
+.gp-credit > span,
+.gp-credit a {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .gp-credit a {
   color: var(--cm-text-muted);
+}
+/* Visually hidden, still read and still a label. */
+.gp-sr {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* ── Browse column ─────────────────────────────────────────────────────── */
@@ -233,51 +257,84 @@
   transform: rotate(180deg);
 }
 
-/* Find a sound */
+/* Find a sound: compact rows, sparse ——o—— dense polyphonic, as in the
+   reference. Columns: low end, slider, high end, and the × of an applied
+   row (reserved, so applying never moves the slider). The end columns are
+   never narrower than the catalog's longest unbreakable end word (65px at
+   12px); a Browse column too narrow for that stacks the ends over the
+   slider instead of breaking words. */
 .gp-sound {
   padding-top: 16px;
   border-top: 1px solid var(--cm-border-subtle);
+  container: gp-sound / inline-size;
 }
 .gp-axes {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 4px;
 }
 .gp-axis {
-  padding: 8px 10px;
+  position: relative;
+  display: grid;
+  --gp-axis-x: 22px; /* the × column; a thumb's 44px on touch widths */
+  grid-template-columns: minmax(66px, 1fr) minmax(56px, 1.2fr) minmax(66px, 1fr) var(--gp-axis-x);
+  grid-template-areas: 'neg range pos clear';
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 2px 2px 2px 4px;
   border: 1px solid transparent;
   border-radius: var(--cm-radius-md);
+  color: var(--cm-text-muted);
+  font-size: var(--cm-text-xs);
+  line-height: 1.25;
 }
 .gp-axis.is-applied {
   border-color: var(--cm-accent);
   background: var(--cm-accent-soft);
+  color: var(--cm-text-secondary);
 }
-.gp-axis-top {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 28px;
-  font-size: var(--cm-text-sm);
+.gp-axis-end {
+  grid-area: neg;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
-.gp-axis-top label {
-  color: var(--cm-text);
-  font-weight: 600;
-}
-.gp-axis-state {
-  margin-left: auto;
-  color: var(--cm-text-muted);
+.gp-axis-end:nth-of-type(2) {
+  grid-area: pos;
   text-align: right;
 }
-.gp-axis.is-applied .gp-axis-state {
+/* The end an applied target leans to is bold: the value is not colour alone. */
+.gp-axis[data-lean='neg'] .gp-axis-end:first-of-type,
+.gp-axis[data-lean='pos'] .gp-axis-end:nth-of-type(2) {
   color: var(--cm-accent-text);
   font-weight: 600;
 }
+.gp-axis input {
+  grid-area: range;
+  width: 100%;
+  min-width: 0;
+  height: 28px;
+  margin: 0;
+  accent-color: var(--cm-accent);
+  cursor: pointer;
+}
+.gp-axis:not(.is-applied) input {
+  accent-color: var(--cm-text-faint);
+}
+/* The ring stays inside the slider's own column, clear of the end labels. */
+.gp-axis input:focus-visible {
+  outline: 2px solid var(--cm-focus);
+  outline-offset: 1px;
+  border-radius: var(--cm-radius-sm, 4px);
+}
 .gp-axis-clear {
+  grid-area: clear;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: var(--gp-axis-x);
+  height: var(--gp-axis-x);
+  padding: 0;
   border: 0;
   border-radius: var(--cm-radius-pill);
   background: transparent;
@@ -286,32 +343,21 @@
 }
 .gp-axis-clear:hover {
   background: var(--cm-hover);
+  color: var(--cm-text);
 }
 .gp-axis-clear[hidden] {
   display: none;
 }
-.gp-axis-range {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 0 8px;
-  color: var(--cm-text-muted);
-  font-size: var(--cm-text-xs);
-  line-height: 1.25;
+@container gp-sound (max-width: 237px) {
+  .gp-axis {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) var(--gp-axis-x);
+    grid-template-areas: 'neg pos clear' 'range range clear';
+    gap: 6px;
+    padding: 4px 2px 2px 6px;
+  }
 }
-.gp-axis-range > span:last-child {
-  text-align: right;
-}
-.gp-axis-range input {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  width: 100%;
-  min-height: 32px;
-  margin: 0;
-  accent-color: var(--cm-accent);
-  cursor: pointer;
-}
-.gp-axis:not(.is-applied) .gp-axis-range input {
-  accent-color: var(--cm-text-faint);
+.gp-sound > .gp-note {
+  margin: 10px 0 2px;
 }
 #surface-genre .gp-match {
   width: 100%;
@@ -403,9 +449,10 @@
 #surface-genre .gp-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   min-height: 72px;
-  padding: 6px 10px 6px 6px;
+  padding: 6px 6px 6px 6px;
+  cursor: pointer;
   border: 1px solid var(--cm-border-subtle);
   border-radius: var(--cm-radius-lg);
   background: var(--cm-surface);
@@ -432,9 +479,10 @@
 #surface-genre .gp-open:hover {
   background: var(--cm-hover);
 }
+/* The text column takes the row; the actions keep their size at its end. */
 .gp-row-text {
   display: flex;
-  flex: 1;
+  flex: 1 1 auto;
   flex-direction: column;
   gap: 2px;
   min-width: 0;
@@ -479,7 +527,14 @@
 .gp-chevron {
   display: inline-flex;
   flex-shrink: 0;
-  color: var(--cm-text-faint);
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  margin-left: -2px;
+  color: var(--cm-text-muted);
+}
+#surface-genre .gp-row:hover .gp-chevron {
+  color: var(--cm-text);
 }
 #surface-genre .gp-row > .listen,
 #surface-genre .gp-row > [data-ui='genre-add'] {
@@ -519,6 +574,10 @@
   overflow: hidden;
   border-radius: var(--cm-radius-md);
   background: var(--cm-surface-sunken);
+}
+.gp-list .gp-row .gp-media {
+  width: 112px;
+  height: 68px;
 }
 .gp-media .gp-img {
   width: 100%;
@@ -577,7 +636,7 @@
   width: 100%;
   height: 96px;
 }
-.gp-grid .gp-chevron {
+#surface-genre .gp-grid .gp-chevron {
   display: none;
 }
 #surface-genre .gp-grid .gp-row > .listen,
@@ -1005,6 +1064,11 @@
     flex: 1;
     justify-content: center;
   }
+  /* The whole name area is the button here; a chevron would sit among the
+     actions. */
+  #surface-genre .gp-list .gp-chevron {
+    display: none;
+  }
   .gp-related .related-row {
     flex-wrap: wrap;
   }
@@ -1093,9 +1157,10 @@
   .gp-layout span {
     display: none;
   }
-  .gp-media {
-    width: 48px;
-    height: 48px;
+  .gp-media,
+  .gp-list .gp-row .gp-media {
+    width: 72px;
+    height: 52px;
   }
   .gp-items.gp-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -1137,33 +1202,39 @@
   #surface-genre .gp-roster-row .listen {
     min-height: 44px;
   }
-  .gp-axis-range input {
-    min-height: 44px;
+  .gp-axis {
+    --gp-axis-x: 44px;
   }
-  .gp-axis-clear {
-    width: 44px;
+  .gp-axis input {
     height: 44px;
   }
 }
-/* Grid cards: glyphs keep a readable size in the wider media box. */
-.gp-grid .gp-media.gp-media-glyph .gp-glyph {
+/* Glyphs in a wide box (list rows, grid cards) are sized by its height and
+   shown whole; the open detail's square picture keeps the default rule. */
+.gp-row .gp-media.gp-media-glyph .gp-glyph {
   justify-content: center;
   height: 100%;
+  padding: 10px;
+}
+.gp-grid .gp-row .gp-media.gp-media-glyph .gp-glyph {
   padding: 14px;
 }
-.gp-grid .gp-media .sb-trad-glyphs {
+.gp-row .gp-media .sb-trad-glyphs {
   justify-content: center;
   width: auto;
+  max-width: 100%;
   height: 100%;
 }
-.gp-grid .gp-media .sb-trad-glyph {
-  flex: 0 0 auto;
+.gp-row .gp-media .sb-trad-glyph {
+  flex: 0 1 auto;
   height: 100%;
 }
-.gp-grid .gp-media .sb-trad-glyph svg,
-.gp-grid .gp-media .sb-trad-glyph img {
+.gp-row .gp-media .sb-trad-glyph svg,
+.gp-row .gp-media .sb-trad-glyph img {
   width: auto;
+  max-width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 #surface-genre .gp-grid .gp-row > .listen,
 #surface-genre .gp-grid .gp-row > [data-ui='genre-add'] {

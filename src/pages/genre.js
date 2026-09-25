@@ -149,38 +149,53 @@ function gpLoadOptional() {
       .catch(() => {});
   }
   if (G.images === null) {
+    // PR #389's manifest. Absent (404) or unreadable, the glyphs stay: one
+    // request per page load, and no error is raised for a missing file.
     G.images = false;
     get('references/_image_manifest.json')
       .then((m) => {
-        if (m && typeof m === 'object') {
-          G.images = m.traditions || m.items || m;
-          if (UI.view === 'genre') renderGenreDiscovery();
-        }
+        const images = gpIndexImages(m);
+        if (!images) return;
+        G.images = images;
+        if (UI.view === 'genre') renderGenreDiscovery();
       })
       .catch(() => {});
   }
+}
+// { images: [{ id, kind, thumb_url, credit, license, license_raw, source_page }] }
+// → the tradition entries by id, or null when there are none.
+function gpIndexImages(m) {
+  if (!m || !Array.isArray(m.images)) return null;
+  const out = Object.create(null);
+  let n = 0;
+  for (const e of m.images)
+    if (e && e.kind === 'tradition' && typeof e.id === 'string' && Tradition(e.id)) {
+      out[e.id] = e;
+      n++;
+    }
+  return n ? out : null;
 }
 function gpPlace(id) {
   const c = G.geo && G.geo[id];
   return c ? [c[2], c[3]].filter(Boolean).join(', ') : '';
 }
-// A manifest image for a tradition, or null. Only http(s) or relative URLs;
-// the credit and licence travel with every image shown.
+// A manifest image for a tradition, or null. Only https or page-relative
+// URLs; the credit and licence travel with every image shown.
 function gpImage(id) {
   const e = G.images && G.images[id];
-  if (!e || typeof e !== 'object') return null;
-  const src = e.thumbnail || e.thumb || e.url || e.src;
+  if (!e) return null;
+  const src = e.thumb_url;
   if (typeof src !== 'string' || !src.trim()) return null;
-  // https, or a path relative to this page; never another scheme.
   if (!/^https:\/\//i.test(src) && (/^[a-z][a-z0-9+.-]*:/i.test(src) || src.startsWith('//')))
     return null;
-  const credit = [e.credit || e.author || e.attribution, e.licence || e.license]
-    .filter((x) => typeof x === 'string' && x.trim())
-    .join(' · ');
+  const text = (x) => (typeof x === 'string' ? x.replace(/\s+/g, ' ').trim() : '');
+  const credit = text(e.credit) || 'Author not recorded';
+  const licence = text(e.license_raw) || text(e.license) || 'licence not recorded';
   return {
     src,
-    credit: credit || 'Credit not recorded',
-    href: typeof e.source === 'string' && /^https:\/\//.test(e.source) ? e.source : '',
+    credit: `Photo: ${credit} · ${licence}`,
+    href:
+      typeof e.source_page === 'string' && /^https:\/\//i.test(e.source_page) ? e.source_page : '',
   };
 }
 function gpMedia(id, size) {
@@ -199,11 +214,13 @@ function gpMedia(id, size) {
 }
 // Inside a row's button the credit is text only (no link inside a button).
 function gpCreditText(m) {
-  return m.credit ? `<span class="gp-credit">${icon('info', 12)}${esc(m.credit)}</span>` : '';
+  return m.credit
+    ? `<span class="gp-credit" title="${esc(m.credit)}">${icon('info', 12)}<span>${esc(m.credit)}</span></span>`
+    : '';
 }
 function gpCredit(m) {
   if (!m.credit) return '';
-  return `<span class="gp-credit">${icon('info', 12)}${m.href ? `<a href="${esc(m.href)}" target="_blank" rel="noopener noreferrer">${esc(m.credit)}</a>` : esc(m.credit)}</span>`;
+  return `<span class="gp-credit">${icon('info', 12)}${m.href ? `<a href="${esc(m.href)}" target="_blank" rel="noopener noreferrer" title="The image's source page (opens in a new tab)">${esc(m.credit)}</a>` : `<span>${esc(m.credit)}</span>`}</span>`;
 }
 
 // ── Results: search, branch and sound targets, composed ─────────────────
@@ -276,12 +293,12 @@ function gpRow(t, extra = '') {
     m = gpMedia(id, 30),
     branch = gpPath(id).slice(-1)[0]?.name || '',
     lede = gpLede(id);
-  return `<div class="catalog-row gp-row" data-gp-id="${esc(id)}"><button type="button" class="catalog-name gp-open" data-ui="genre-select" data-id="${esc(id)}" aria-expanded="false" aria-label="${esc(t.name)} — show details">${m.html}<span class="gp-row-text"><span class="gp-row-name">${esc(t.name)}</span><span class="gp-row-meta">${esc(branch)}${n ? `<span class="gp-in-recipe">${icon('check', 12)}In recipe</span>` : ''}</span>${lede ? `<span class="gp-row-desc">${esc(lede)}</span>` : ''}${extra}${gpCreditText(m)}</span><span class="gp-chevron" aria-hidden="true">${icon('chevron-right', 18)}</span></button>${listenLink(t.name)}${uiButton('genre-add', n ? 'Add again' : 'Add to recipe', 'plus', `data-id="${esc(id)}" aria-label="Add ${esc(t.name)}"`)}</div>`;
+  return `<div class="catalog-row gp-row" data-gp-id="${esc(id)}"><button type="button" class="catalog-name gp-open" data-ui="genre-select" data-id="${esc(id)}" aria-expanded="false" aria-label="${esc(t.name)} — show details">${m.html}<span class="gp-row-text"><span class="gp-row-name">${esc(t.name)}</span><span class="gp-row-meta">${esc(branch)}${n ? `<span class="gp-in-recipe">${icon('check', 12)}In recipe</span>` : ''}</span>${lede ? `<span class="gp-row-desc">${esc(lede)}</span>` : ''}${extra}${gpCreditText(m)}</span></button>${listenLink(t.name)}${uiButton('genre-add', n ? 'Add again' : 'Add to recipe', 'plus', `data-id="${esc(id)}" aria-label="Add ${esc(t.name)}"`)}<span class="gp-chevron" aria-hidden="true">${icon('chevron-right', 20)}</span></div>`;
 }
 // Why a row is in a sound-target result: how close it is on the targets.
 function gpTargetReason(r) {
   const n = gpTargets().length;
-  return `<span class="gp-row-reason">${icon('sliders-horizontal', 12)}${r.exact === n ? `Matches all ${n} target${n === 1 ? '' : 's'}` : `Exact on ${r.exact} of ${n} · within one step on the rest`}</span>`;
+  return `<span class="gp-row-reason">${icon('sliders-horizontal', 12)}${r.exact === n ? (n === 1 ? 'Matches the target' : `Matches all ${n} targets`) : `Exact on ${r.exact} of ${n} · within one step on the rest`}</span>`;
 }
 function gpLayout() {
   return G.view?.get() === 'grid' ? 'grid' : 'list';
@@ -437,17 +454,26 @@ function gpFindSound() {
   const axes = AXIS_DEFINITIONS.filter(
     (ax) => G.allAxes || GP_FEATURED_AXES.includes(ax.id) || ax.id in G.targets
   ).sort((a, b) => rank(a) - rank(b));
-  return `<section class="gp-sound" aria-labelledby="gp-sound-title"><div class="gp-sec-head"><h2 id="gp-sound-title">${icon('sliders-horizontal', 18)}Find a sound</h2>${uiButton('genre-sound-reset', 'Reset', 'x', `class="cm-btn gp-linkbtn" ${applied ? '' : 'disabled'} aria-label="Clear all sound targets"`)}</div><p class="gp-note" id="gp-sound-status" role="status">${gpSoundStatus()}</p><div class="gp-axes">${axes.map(gpAxisControl).join('')}</div>${uiButton('genre-axes', G.allAxes ? 'Fewer characteristics' : `All ${AXIS_DEFINITIONS.length} characteristics`, 'chevron-down', `class="cm-btn gp-linkbtn gp-axes-toggle" aria-expanded="${G.allAxes}"`)}${uiButton('genre-sound-match', 'Match a sound', 'search', `class="cm-btn cm-btn-tonal gp-match" ${applied ? '' : 'disabled'} data-tooltip="Open the genre closest to your targets"`)}</section>`;
+  return `<section class="gp-sound" aria-labelledby="gp-sound-title"><div class="gp-sec-head"><h2 id="gp-sound-title">${icon('sliders-horizontal', 18)}Find a sound</h2>${uiButton('genre-sound-reset', 'Reset', 'x', `class="cm-btn gp-linkbtn" ${applied ? '' : 'disabled'} aria-label="Clear all sound targets"`)}</div><div class="gp-axes">${axes.map(gpAxisControl).join('')}</div><p class="gp-note" id="gp-sound-status" role="status">${gpSoundStatus()}</p>${uiButton('genre-axes', G.allAxes ? 'Fewer characteristics' : `All ${AXIS_DEFINITIONS.length} characteristics`, 'chevron-down', `class="cm-btn gp-linkbtn gp-axes-toggle" aria-expanded="${G.allAxes}"`)}${uiButton('genre-sound-match', 'Match a sound', 'search', `class="cm-btn cm-btn-tonal gp-match" ${applied ? '' : 'disabled'} data-tooltip="Open the genre closest to your targets"`)}</section>`;
 }
 function gpSoundStatus() {
   const n = gpTargets().length;
   if (!n) return 'Choose a target, then match.';
   return `${n} target${n === 1 ? '' : 's'} applied to All genres.`;
 }
+// One compact row per characteristic: its two ends either side of a slider
+// (sparse ——o—— dense polyphonic), as in the reference. The name is the
+// input's label (visually hidden; also its tooltip); the applied value is its
+// value text, the bold end it leans to, the × that clears it, and the chip
+// above the list.
+function gpLean(v) {
+  return v < 0 ? 'neg' : v > 0 ? 'pos' : 'mid';
+}
 function gpAxisControl(ax) {
   const on = ax.id in G.targets,
-    v = on ? G.targets[ax.id] : 0;
-  return `<div class="gp-axis${on ? ' is-applied' : ''}" data-axis="${ax.id}"><div class="gp-axis-top"><label for="gp-ax-${ax.id}">${esc(ax.name)}</label><span class="gp-axis-state" id="gp-axv-${ax.id}">${on ? esc(axisLabel(ax, v)) : 'Any'}</span><button type="button" class="gp-axis-clear" data-ui="genre-sound-clear" data-id="${ax.id}" aria-label="Clear the ${esc(ax.name)} target"${on ? '' : ' hidden'}>${icon('x', 14)}</button></div><div class="gp-axis-range"><span aria-hidden="true">${esc(ax.neg)}</span><input type="range" id="gp-ax-${ax.id}" data-axis="${ax.id}" min="-2" max="2" step="1" value="${v}" aria-describedby="gp-axv-${ax.id}" aria-valuetext="${on ? esc(axisLabel(ax, v)) : 'Any — not applied'}"><span aria-hidden="true">${esc(ax.pos)}</span></div></div>`;
+    v = on ? G.targets[ax.id] : 0,
+    state = on ? axisLabel(ax, v) : 'Any';
+  return `<div class="gp-axis${on ? ' is-applied' : ''}" data-axis="${ax.id}"${on ? ` data-lean="${gpLean(v)}"` : ''}><label class="gp-sr" for="gp-ax-${ax.id}">${esc(ax.name)}</label><span class="gp-axis-end" aria-hidden="true">${esc(ax.neg)}</span><input type="range" id="gp-ax-${ax.id}" data-axis="${ax.id}" min="-2" max="2" step="1" value="${v}" title="${esc(ax.name)}: ${esc(state)}" aria-describedby="gp-axv-${ax.id}" aria-valuetext="${on ? esc(state) : 'Any — not applied'}"><span class="gp-axis-end" aria-hidden="true">${esc(ax.pos)}</span><button type="button" class="gp-axis-clear" data-ui="genre-sound-clear" data-id="${ax.id}" aria-label="Clear the ${esc(ax.name)} target" title="Clear the ${esc(ax.name)} target"${on ? '' : ' hidden'}>${icon('x', 14)}</button><span class="gp-axis-state gp-sr" id="gp-axv-${ax.id}">${esc(state)}</span></div>`;
 }
 function gpApplyAxis(input) {
   const ax = AXIS_DEFINITIONS.find((a) => a.id === input.dataset.axis);
@@ -455,10 +481,13 @@ function gpApplyAxis(input) {
   const v = Number(input.value);
   G.targets[ax.id] = v;
   const row = input.closest('.gp-axis');
+  const state = axisLabel(ax, v);
   row.classList.add('is-applied');
-  row.querySelector('.gp-axis-state').textContent = axisLabel(ax, v);
+  row.dataset.lean = gpLean(v);
+  row.querySelector('.gp-axis-state').textContent = state;
   row.querySelector('.gp-axis-clear').hidden = false;
-  input.setAttribute('aria-valuetext', axisLabel(ax, v));
+  input.setAttribute('aria-valuetext', state);
+  input.title = `${ax.name}: ${state}`;
   gpSyncSoundHead();
   G.tab = 'all';
   UI.limit = 50;
@@ -868,6 +897,29 @@ function gpViewOnMap(id) {
   });
 }
 
+// ── Search placeholder ───────────────────────────────────────────────────
+// The longest wording that fits the field as it is laid out, so a phone never
+// shows a clipped "…descriptio". The accessible name stays "Search genres".
+const GP_PLACEHOLDERS = [
+  'Search genres, traditions, or descriptions…',
+  'Search genres or descriptions…',
+  'Search genres…',
+];
+let gpMeasure = null;
+function gpFitPlaceholder() {
+  const input = $ui('genre-search');
+  if (!input) return;
+  const cs = getComputedStyle(input);
+  const room = input.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 4;
+  if (!(room > 0)) return; // not laid out (another route)
+  if (!gpMeasure) gpMeasure = document.createElement('canvas').getContext('2d');
+  if (!gpMeasure) return;
+  gpMeasure.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+  const fit =
+    GP_PLACEHOLDERS.find((t) => gpMeasure.measureText(t).width <= room) || GP_PLACEHOLDERS.at(-1);
+  if (input.placeholder !== fit) input.placeholder = fit;
+}
+
 uiRegisterPage({
   id: 'genre',
   recipe: 'sidebar',
@@ -880,6 +932,15 @@ uiRegisterPage({
       UI.limit = 50;
       if (gpQuery()) G.tab = 'all';
       gpRenderMain();
+    });
+    if (typeof ResizeObserver === 'function')
+      new ResizeObserver(() => gpFitPlaceholder()).observe($ui('genre-search'));
+    // The rest of a row (its picture margin, the chevron) opens it too; the
+    // name button is the keyboard route.
+    surface.addEventListener('click', (e) => {
+      const row = e.target.closest('.gp-row');
+      if (row && !e.target.closest('button, a, input, select, label'))
+        row.querySelector('.gp-open')?.click();
     });
     surface.addEventListener('input', (e) => {
       if (e.target.matches('input[type="range"][data-axis]')) gpApplyAxis(e.target);
@@ -914,8 +975,11 @@ uiRegisterPage({
     surface.addEventListener(
       'error',
       (e) => {
-        if (e.target.classList?.contains('gp-img'))
-          e.target.closest('.gp-media')?.classList.add('gp-media-glyph');
+        if (!e.target.classList?.contains('gp-img')) return;
+        e.target.closest('.gp-media')?.classList.add('gp-media-glyph');
+        // No picture, no credit for it.
+        const credit = e.target.closest('.gp-row, .gp-detail-head')?.querySelector('.gp-credit');
+        if (credit) credit.hidden = true;
       },
       true
     );

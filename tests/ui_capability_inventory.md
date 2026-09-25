@@ -1318,7 +1318,7 @@ precondition: empty
 name: genre-find-a-sound
 kind: widget
 selector: '#genre-browse input[type="range"][data-axis]'
-surface: Genre — Find a sound: one control per sound characteristic (three shown, All 13 characteristics for the rest). Moving, clicking or Enter applies a target; applied rows are marked and name their value
+surface: Genre — Find a sound: one compact row per sound characteristic, its two ends either side of the slider (acoustic ——o—— processed / synthesized); three shown, All 13 characteristics for the rest. Moving, clicking or Enter applies a target; an applied row is outlined, bolds the end it leans to, shows its ×, and its value is the slider's value text and a chip above the list. The characteristic's name is the slider's label and tooltip. A Browse column too narrow for the ends beside the slider stacks them above it
 implementation: gpApplyAxis / gpResults in src/pages/genre.js — keeps genres within one step of every target and ranks by total distance, the engine's --axis-target rule (scripts/search.js findClosestTraditionByAxis)
 status: reachable
 precondition: empty
@@ -1414,6 +1414,27 @@ surface: Genre detail — Background: About, Lineage, Classification (primary pa
 implementation: gpBackground in src/pages/genre.js
 status: reachable
 precondition: empty
+```
+
+```yaml
+name: genre-row-open
+kind: widget
+selector: '#genre-list .gp-row .gp-open'
+surface: Genre — a list row: picture, name, branch, description; the text column fills the row up to Listen and Add to recipe, and the chevron sits at the row's right edge. The name button opens the details in place (keyboard route); a click anywhere else on the row that is not a control does the same
+implementation: gpRow and the row click listener in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-media-photo-or-glyph
+kind: widget
+selector: '#surface-genre .gp-media'
+surface: Genre — a genre's picture in rows, cards and details. When references/_image_manifest.json is served (PR #389), a tradition with an entry shows its thumb_url with "Photo: <credit> · <licence>" (linked to the source page in the details); without an entry, without the manifest (a 404 is one quiet request, no script error), or when the image fails to load, the tradition's glyphs show whole and no credit is left behind
+implementation: gpLoadOptional / gpIndexImages / gpImage / gpMedia and the image error listener in src/pages/genre.js
+status: reachable
+precondition: empty
+notes: Presence check only (the glyph fallback always renders). The photo path was exercised in Chromium with PR #389's manifest served and the thumbnails stubbed, since the sandbox cannot reach Wikimedia.
 ```
 
 ```yaml
