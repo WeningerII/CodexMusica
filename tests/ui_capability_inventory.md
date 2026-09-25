@@ -1261,7 +1261,7 @@ notes: A tradition's stock recipe in the atlas card is labelled "Default recipe"
 
 ## Instrument page (src/pages/instrument.js)
 
-The Instrument route is the reference layout: categories and sound properties, the catalogue, and an inspector that configures an instrument **before** it is added, over the Your recipe dock (`recipe: 'dock'`). The inspector works on a preview card built by the canonical engine (`makeCard` with the destination's `traditionCardOpts`, the seed `addInstrumentFromPicker` uses); choices run through `applyPartEdit`, `inverseConfigureForPreface` and the editor's plain environment/chain writes. The preview never enters `app.cards`. Its inspector entries use the `instrument picker open, similar drill-down active` precondition, which opens it on `voice` (via `uiOpenSurface`).
+The Instrument route is the reference layout: categories and sound properties, the catalogue, and an inspector that configures an instrument **before** it is added, over the Your recipe dock (`recipe: 'dock'`). The inspector works on a preview card built by the canonical engine (`makeCard` with the destination's `traditionCardOpts`, the seed `addInstrumentFromPicker` uses); choices run through `applyPartEdit(card, part, { quiet: true })`, `inverseConfigureForPreface` and the editor's plain environment/chain writes. Photos come from `CODEX_IMAGE_MANIFEST`, inlined by `scripts/build_html.js` from `references/_image_manifest.json` (null until that file lands), each with its credit and licence. The preview never enters `app.cards`. Its inspector entries use the `instrument picker open, similar drill-down active` precondition, which opens it on `voice` (via `uiOpenSurface`).
 
 ```yaml
 name: instrument-categories
@@ -1401,7 +1401,7 @@ name: instrument-add-configured
 kind: data-action
 selector: '#instrument-preview [data-ui="ip-add-configured"]'
 surface: Instrument inspector — "Add configured instrument" (or "Add instrument" when nothing was changed) to the named destination; Your changes lists what differs from the catalog default and what moved to match, with Review descriptor changes (added / removed / kept) and Reset
-implementation: ipAddConfigured → uiAddInstrument (canonical picker path), then the preview's parts, pins, character, environment and chain on the new card; one history entry
+implementation: ipAddConfigured → uiAddInstrument(id, { configure, message }) → addInstrumentFromPicker(id, { configure }) (canonical picker path); configure copies the preview's parts, pins, character, environment and chain onto the new card before its one history entry
 status: reachable
 precondition: instrument picker open, similar drill-down active
 notes: The added card keeps the previewed catalog id (canonical identity); the toast names the destination and the number of chosen settings. Undo removes the whole addition in one step.

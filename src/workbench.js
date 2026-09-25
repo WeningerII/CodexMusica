@@ -266,19 +266,25 @@ async function uiAddGenre(id) {
     UI.busy = false;
   }
 }
-async function uiAddInstrument(id) {
-  if (UI.busy) return;
+// uiAddInstrument(id, { configure, message }) resolves to the added card, or
+// null when nothing was added (another addition running, or a failure, which it
+// reports). configure(card) runs on the new card before its history entry, so
+// a configured addition is one Undo; message(card) words the success toast.
+async function uiAddInstrument(id, { configure, message } = {}) {
+  if (UI.busy) return null;
   UI.busy = true;
   try {
     const destination = $ui('instrument-destination')?.value;
     app._addToTradition = destination || null;
-    const c = await addInstrumentFromPicker(id);
+    const c = await addInstrumentFromPicker(id, { configure });
     if (!c) throw Error('Instrument unavailable');
     renderAll();
     uiOpenEditor(c.id);
-    showToast(_addedInstrumentMessage(id, c), 'success');
+    showToast(message ? message(c) : _addedInstrumentMessage(id, c), 'success');
+    return c;
   } catch (e) {
     showToast(e.message, 'error');
+    return null;
   } finally {
     UI.busy = false;
   }

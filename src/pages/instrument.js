@@ -1,5 +1,5 @@
 /* exported renderInstrumentDiscovery, uiInspectInstrument */
-/* global $ui, uiEmptyState, uiFind, uiFocus, uiAddInstrument, FamName, INSTRUMENT_FILTER_PILLS, Catalog, ChainItem, Inst, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, PREFACE_CAT_ORDER, loadPrefaceRecent, makeCard, normalizeSearch, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, passesInstrumentFilter, pushHistory, renderAll, renderDetail, showToast, suggestPrefaceForCard, traditionCardOpts, uiButton, uiNavigate, uiRegisterPage */
+/* global $ui, CODEX_IMAGE_MANIFEST, uiEmptyState, uiFind, uiFocus, uiAddInstrument, FamName, INSTRUMENT_FILTER_PILLS, Catalog, ChainItem, Inst, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, PREFACE_CAT_ORDER, loadPrefaceRecent, makeCard, normalizeSearch, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, passesInstrumentFilter, suggestPrefaceForCard, traditionCardOpts, uiButton, uiNavigate, uiRegisterPage */
 /* Instrument page. Owned by the Instrument page worker; see docs/ui-foundation.md.
 
    Three columns over the Your recipe dock: the catalogue (families, classes,
@@ -23,7 +23,8 @@
 const IP = {
   sort: 'name',
   view: null, // UILayout.remember preference: 'list' | 'grid'
-  manifest: null, // references/_image_manifest.json, when present
+  manifest: null, // CODEX_IMAGE_MANIFEST (see ipLoadManifest)
+  failed: new Set(), // instrument ids whose photograph failed to load
   trail: [], // inspector history (Similar instruments → Back)
   tab: 'parts',
   card: null, // the preview card (never in app.cards)
@@ -73,54 +74,37 @@ const ipHuman = (s) => {
 const ipPill = (id) => INSTRUMENT_FILTER_PILLS.find((p) => p.id === id);
 const ipCount = (n, one, many = one + 's') => n.toLocaleString('en') + ' ' + (n === 1 ? one : many);
 
-// ── Images ── references/_image_manifest.json (id → thumbnail, licence,
-// credit) is produced separately. Read it when present; an id without an
-// entry, a missing manifest or a failed image falls back to the catalog glyph.
+// ── Images ── references/_image_manifest.json (openly licensed image links),
+// inlined by the build as CODEX_IMAGE_MANIFEST. An id without an entry, no
+// manifest, or an image that fails to load falls back to the catalog glyph.
 // Wherever a photograph appears its credit and licence appear with it.
 function ipImageEntry(id) {
-  const m = IP.manifest;
-  if (!m) return null;
-  const e = (m.instruments && m.instruments[id]) || m[id];
-  if (!e || typeof e !== 'object') return null;
-  const src = e.thumbnail || e.thumb || e.url || e.src;
-  if (typeof src !== 'string' || !/^(https:\/\/|\.{0,2}\/|[\w-]+\/)/.test(src)) return null;
-  return {
-    src,
-    credit: e.credit || e.author || e.artist || '',
-    licence: e.licence || e.license || '',
-    source: e.source || e.page || e.source_url || '',
-  };
+  // [thumb, licence, credit, sourcePage], as scripts/build_html.js inlines it.
+  if (IP.failed.has(id)) return null;
+  const e = IP.manifest?.instruments?.[id];
+  if (!Array.isArray(e) || typeof e[0] !== 'string' || !/^https:\/\//.test(e[0])) return null;
+  return { src: e[0], licence: e[1] || '', credit: e[2] || '', source: e[3] || '' };
 }
 function ipImage(id, size) {
   const e = ipImageEntry(id);
   if (!e) return `<span class="ip-glyph">${image(id, size)}</span>`;
   return `<img class="ip-photo" src="${esc(e.src)}" alt="" loading="lazy" width="${size}" height="${size}" data-ip-fallback="${esc(id)}" data-ip-size="${size}">`;
 }
-function ipCredit(id) {
+// The credit and licence that travel with a photo. `link` makes the credit a
+// link to the source page; inside a row (a <button>) it stays plain text.
+function ipCredit(id, { link = false } = {}) {
   const e = ipImageEntry(id);
   if (!e) return '';
   const text =
     'Photo: ' + [e.credit || 'uncredited', e.licence || 'licence not stated'].join(' · ');
-  return /^https:\/\//.test(e.source)
-    ? `<a class="ip-credit" href="${esc(e.source)}" target="_blank" rel="noopener noreferrer">${esc(text)}</a>`
-    : `<span class="ip-credit">${esc(text)}</span>`;
+  return link && /^https:\/\//.test(e.source)
+    ? `<a class="ip-credit" data-ip-for="${esc(id)}" href="${esc(e.source)}" target="_blank" rel="noopener noreferrer">${esc(text)}</a>`
+    : `<span class="ip-credit" data-ip-for="${esc(id)}">${esc(text)}</span>`;
 }
 function ipLoadManifest() {
-  if (typeof CODEX_IMAGE_MANIFEST !== 'undefined') {
-    // eslint-disable-next-line no-undef
-    IP.manifest = CODEX_IMAGE_MANIFEST;
-    return;
-  }
-  if (!/^https?:$/.test(location.protocol) || typeof fetch !== 'function') return;
-  fetch('references/_image_manifest.json', { cache: 'no-cache' })
-    .then((r) => (r.ok ? r.json() : null))
-    .then((m) => {
-      if (!m || typeof m !== 'object') return;
-      IP.manifest = m;
-      renderInstrumentDiscovery();
-      if (UI.instrumentPreview) ipRenderInspector();
-    })
-    .catch(() => {});
+  // Inlined at build time (null until the manifest exists): no request, and
+  // the same on file:// as on the site.
+  IP.manifest = typeof CODEX_IMAGE_MANIFEST !== 'undefined' ? CODEX_IMAGE_MANIFEST : null;
 }
 
 // ── Catalogue ──
@@ -338,40 +322,29 @@ function ipEdits(id = UI.instrumentPreview) {
   if (!IP.edits.has(id)) IP.edits.set(id, []);
   return IP.edits.get(id);
 }
-// Run engine code that may toast about a card the user has not added yet.
-// Its result is shown in the inspector instead (see the Shell requests).
-function ipQuiet(fn) {
-  const toast = window.showToast;
-  window.showToast = () => {};
-  try {
-    return fn();
-  } finally {
-    window.showToast = toast;
-  }
-}
+// The preview is not in the recipe, so engine edits run quiet: no toast, no
+// shifts-panel record. What moved is reported in the inspector instead.
 function ipApply(card, e) {
-  ipQuiet(() => {
-    if (e.k === 'part') {
-      card.parts[e.part] = e.v || null;
-      applyPartEdit(card, e.part);
-    } else if (e.k === 'preface') {
-      const r = inverseConfigureForPreface(card, e.id);
-      if (r) {
-        r.apply();
-        card.pinnedParts = [];
-      } else {
-        card.preface = e.id;
-        card.prefaceAuto = false;
-      }
-    } else if (e.k === 'auto') {
-      card.prefaceAuto = true;
-      card.preface = suggestPrefaceForCard(card);
-    } else if (e.k === 'tuning' || e.k === 'room') {
-      card[e.k] = e.v || null;
-    } else if (e.k === 'chain') {
-      card.chain[e.stage] = Array.isArray(e.v) ? e.v.slice() : e.v || null;
+  if (e.k === 'part') {
+    card.parts[e.part] = e.v || null;
+    applyPartEdit(card, e.part, { quiet: true });
+  } else if (e.k === 'preface') {
+    const r = inverseConfigureForPreface(card, e.id);
+    if (r) {
+      r.apply();
+      card.pinnedParts = [];
+    } else {
+      card.preface = e.id;
+      card.prefaceAuto = false;
     }
-  });
+  } else if (e.k === 'auto') {
+    card.prefaceAuto = true;
+    card.preface = suggestPrefaceForCard(card);
+  } else if (e.k === 'tuning' || e.k === 'room') {
+    card[e.k] = e.v || null;
+  } else if (e.k === 'chain') {
+    card.chain[e.stage] = Array.isArray(e.v) ? e.v.slice() : e.v || null;
+  }
 }
 // Build the preview from the destination exactly as the canonical add would
 // seed it, then replay the user's choices. Async: a genre's full row may need
@@ -708,12 +681,12 @@ function ipRenderInspector(focusKey) {
     chain: ipRenderChain,
     stack: ipRenderOutput,
   };
-  host.innerHTML = `<div class="ip-insp-scroll"><div class="ip-insp-top">${prev ? uiButton('ip-trail-back', 'Back to ' + prev.name, 'arrow-left', 'class="ip-back"') : ''}<nav class="ip-crumbs" aria-label="Instrument family"><button type="button" class="ip-link" data-ui="instrument-family" data-id="${esc(inst.family)}">${esc(FamName(inst.family))}</button><span aria-hidden="true">›</span><button type="button" class="ip-link" data-ui="ip-class" data-id="${esc(inst.class)}" data-family="${esc(inst.family)}">${esc(ipHuman(inst.class))}</button></nav>${uiButton('close-preview', 'Close', 'x', 'class="cm-btn cm-btn-icon ip-close" aria-label="Close instrument preview" data-tooltip="Close (Esc)"')}</div><div class="ip-hero"><div class="ip-hero-text"><h2 id="ip-title" tabindex="-1">${esc(inst.name)}</h2><p class="ip-muted">${esc(inst.short || '')} · catalog id <code>${esc(inst.id)}</code></p><div class="ip-hero-actions">${listenLink(inst.name, true)}<a class="ip-link" href="#ip-similar" data-ui="ip-similar-jump">Similar instruments ${icon('arrow-right', 14)}</a></div></div><figure class="ip-media">${ipImage(id, 96)}${ipCredit(id) ? `<figcaption>${ipCredit(id)}</figcaption>` : ''}</figure></div><div class="ip-tabs" role="tablist" aria-label="Instrument settings">${IP_TABS.map(([t, label, ic]) => `<button type="button" role="tab" class="cm-tab" id="ip-tab-${t}" data-ui="ip-tab" data-id="${t}" aria-selected="${tab === t}" aria-controls="ip-panel-${t}" tabindex="${tab === t ? 0 : -1}" data-ip-key="tab:${t}">${icon(ic, 16)}<span>${label}</span></button>`).join('')}</div>${IP_TABS.map(([t]) => `<div class="ip-panel" id="ip-panel-${t}" role="tabpanel" aria-labelledby="ip-tab-${t}"${t === tab ? '' : ' hidden'}>${panels[t]()}</div>`).join('')}<section class="ip-similar" id="ip-similar" aria-labelledby="ip-similar-title"><h3 id="ip-similar-title">Similar instruments</h3><p class="ip-help">Closest by sound axes; your recipe and the list stay as they are.</p>${similar
+  host.innerHTML = `<div class="ip-insp-scroll"><div class="ip-insp-top">${prev ? uiButton('ip-trail-back', 'Back to ' + prev.name, 'arrow-left', 'class="ip-back"') : ''}<nav class="ip-crumbs" aria-label="Instrument family"><button type="button" class="ip-link" data-ui="instrument-family" data-id="${esc(inst.family)}">${esc(FamName(inst.family))}</button><span aria-hidden="true">›</span><button type="button" class="ip-link" data-ui="ip-class" data-id="${esc(inst.class)}" data-family="${esc(inst.family)}">${esc(ipHuman(inst.class))}</button></nav>${uiButton('close-preview', 'Close', 'x', 'class="cm-btn cm-btn-icon ip-close" aria-label="Close instrument preview" data-tooltip="Close (Esc)"')}</div><div class="ip-hero"><div class="ip-hero-text"><h2 id="ip-title" tabindex="-1">${esc(inst.name)}</h2><p class="ip-muted">${esc(inst.short || '')} · catalog id <code>${esc(inst.id)}</code></p><div class="ip-hero-actions">${listenLink(inst.name, true)}<a class="ip-link" href="#ip-similar" data-ui="ip-similar-jump">Similar instruments ${icon('arrow-right', 14)}</a></div></div><figure class="ip-media">${ipImage(id, 96)}</figure></div>${ipCredit(id) ? `<p class="ip-media-credit">${ipCredit(id, { link: true })}</p>` : ''}<div class="ip-tabs" role="tablist" aria-label="Instrument settings">${IP_TABS.map(([t, label, ic]) => `<button type="button" role="tab" class="cm-tab" id="ip-tab-${t}" data-ui="ip-tab" data-id="${t}" aria-selected="${tab === t}" aria-controls="ip-panel-${t}" tabindex="${tab === t ? 0 : -1}" data-ip-key="tab:${t}">${icon(ic, 16)}<span>${label}</span></button>`).join('')}</div>${IP_TABS.map(([t]) => `<div class="ip-panel" id="ip-panel-${t}" role="tabpanel" aria-labelledby="ip-tab-${t}"${t === tab ? '' : ' hidden'}>${panels[t]()}</div>`).join('')}<section class="ip-similar" id="ip-similar" aria-labelledby="ip-similar-title"><h3 id="ip-similar-title">Similar instruments</h3><p class="ip-help">Closest by sound axes; your recipe and the list stay as they are.</p>${similar
     .map((n) => {
       const shared = getMatchingInstrumentAxes(id, n.id, 2)
         .map((m) => m.axis.name.toLowerCase())
         .join(', ');
-      return `<div class="ip-sim"><button type="button" class="ip-sim-main" data-ui="ip-similar" data-id="${esc(n.id)}">${ipImage(n.id, 28)}<span><span class="ip-row-name">${esc(n.name)}</span><span class="ip-row-meta">Closest on ${esc(shared)}</span></span></button>${listenLink(n.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(n.id)}" aria-label="Add ${esc(n.name)} with catalog defaults"`)}</div>`;
+      return `<div class="ip-sim"><button type="button" class="ip-sim-main" data-ui="ip-similar" data-id="${esc(n.id)}">${ipImage(n.id, 28)}<span><span class="ip-row-name">${esc(n.name)}</span><span class="ip-row-meta">Closest on ${esc(shared)}</span>${ipCredit(n.id)}</span></button>${listenLink(n.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(n.id)}" aria-label="Add ${esc(n.name)} with catalog defaults"`)}</div>`;
     })
     .join(
       ''
@@ -792,36 +765,29 @@ async function ipAddConfigured() {
   if (!id || !card) return;
   const configured = ipDiff(IP.base, card);
   const dest = ipDest();
-  const before = new Set(app.cards.map((c) => c.id));
-  // The canonical add: same destination, same seeding, same busy guard,
-  // opens the editor on the new card and confirms where it landed.
-  await uiAddInstrument(id);
-  const added = app.cards.find((c) => !before.has(c.id) && c.instrumentId === id);
-  if (!added) return; // uiAddInstrument already reported the failure
-  if (configured.length) {
-    added.parts = { ...card.parts };
-    added.pinnedParts = [...(card.pinnedParts || [])];
-    added.preface = card.preface;
-    added.prefaceAuto = card.prefaceAuto;
-    added.tuning = card.tuning;
-    added.room = card.room;
-    added.chain = JSON.parse(JSON.stringify(card.chain));
-    // One addition, one Undo: replace the default-seeded entry the add just
-    // recorded with the configured card (see Shell requests).
-    app.historyIndex--;
-    pushHistory();
-    renderAll();
-    if (app.selected === added.id) renderDetail();
-  }
-  const where = dest ? ' to ' + (Tradition(added.traditionId)?.name || ipDestName(dest)) : '';
-  showToast(
-    `Added ${Inst(id).short || Inst(id).name}${where}` +
+  const name = Inst(id).short || Inst(id).name;
+  // The canonical add (same destination, seeding, busy guard and editor
+  // opening), with the preview's configuration applied to the new card before
+  // its history entry: one addition, one Undo.
+  const added = await uiAddInstrument(id, {
+    configure: configured.length
+      ? (c) => {
+          c.parts = { ...card.parts };
+          c.pinnedParts = [...(card.pinnedParts || [])];
+          c.preface = card.preface;
+          c.prefaceAuto = card.prefaceAuto;
+          c.tuning = card.tuning;
+          c.room = card.room;
+          c.chain = JSON.parse(JSON.stringify(card.chain));
+        }
+      : undefined,
+    message: (c) =>
+      `Added ${name}${dest ? ' to ' + (Tradition(c.traditionId)?.name || ipDestName(dest)) : ''}` +
       (configured.length
         ? ` with ${ipCount(configured.length, 'changed setting')}. Undo removes it.`
         : ' with catalog defaults.'),
-    'success'
-  );
-  renderInstrumentDiscovery();
+  });
+  if (added) renderInstrumentDiscovery();
 }
 
 uiRegisterPage({
@@ -919,13 +885,22 @@ uiRegisterPage({
       },
       true
     );
-    // A photograph that fails to load becomes the catalog glyph.
+    // A photograph that fails to load becomes the catalog glyph, and its credit
+    // goes with it; the id is remembered so a re-render does not bring either back.
     surface.addEventListener(
       'error',
       (e) => {
         const img = e.target;
         if (img.tagName !== 'IMG' || !img.dataset.ipFallback) return;
-        img.outerHTML = `<span class="ip-glyph">${image(img.dataset.ipFallback, +img.dataset.ipSize || 32)}</span>`;
+        const id = img.dataset.ipFallback;
+        IP.failed.add(id);
+        for (const el of surface.querySelectorAll('.ip-credit')) {
+          if (el.dataset.ipFor === id) el.remove();
+        }
+        for (const el of surface.querySelectorAll('img.ip-photo')) {
+          if (el.dataset.ipFallback === id)
+            el.outerHTML = `<span class="ip-glyph">${image(id, +el.dataset.ipSize || 32)}</span>`;
+        }
       },
       true
     );

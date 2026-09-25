@@ -68,7 +68,7 @@ URL; adds nothing; an explicit `#section` wins).
 |---|---|
 | `uiNavigate(view, { push })` | Show a section. `push: true` for a user's own navigation, so Back/Forward step between sections. |
 | `uiAddGenre(id)` | Add a genre's configured ensemble to the shared recipe through the canonical import. Resolves `{ added, expected }`; refuses a second concurrent addition; the toast offers Undo (refused if later changes followed) or Retry. |
-| `uiAddInstrument(id)` | Add one instrument through the canonical picker path, to the destination selected in the Instrument page's "Add to". |
+| `uiAddInstrument(id, { configure, message })` | Add one instrument through the canonical picker path, to the destination selected in the Instrument page's "Add to". Resolves to the added card, or `null` when nothing was added. `configure(card)` runs on the new card before its history entry (one Undo removes the configured addition); `message(card)` words the success toast. |
 | `uiOpenEditor(cardId)` | Open the shared editor on a card. |
 | `uiSaveLyrics()` | Commit `#lyrics-draft` to the session (`app.lyrics`) and autosave. |
 | `uiNewTask(domain)`, `uiChatOpen()` | Start or open the one AI writer (`recipe`, `lyrics`, `lyrics-edit`). |

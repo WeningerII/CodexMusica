@@ -13728,7 +13728,11 @@ function commitPrefaceChange(card, prefaceId) {
 // Returns whether the edit ran the full cascade, which is exactly the condition
 // under which the browser pushes a history entry — the caller owns pushHistory()
 // and rerenderCard(), as it did when this was inline.
-function applyPartEdit(card, partId) {
+//
+// opts.quiet: the same state change without the UI side effects (the toast and
+// the shifts panel's record), for a card that is not in the recipe yet — the
+// Instrument page's configure-before-add preview, which reports the moves itself.
+function applyPartEdit(card, partId, opts) {
   // Every explicit choice is a pin, including non-material techniques. Without
   // this a later material edit may silently reconfigure an earlier choice.
   if (!Array.isArray(card.pinnedParts)) card.pinnedParts = [];
@@ -13743,7 +13747,7 @@ function applyPartEdit(card, partId) {
   // re-derive.
   const isMaterialPart = !!(partDef && (partDef.variants || []).some(v => v.expanded));
   if (isMaterialPart) {
-    reconfigureAfterPartEdit(card, partId);
+    reconfigureAfterPartEdit(card, partId, opts);
     return true;
   }
   if (card.prefaceAuto) card.preface = suggestPrefaceForCard(card);
@@ -13757,8 +13761,10 @@ function applyPartEdit(card, partId) {
 // user has locked a preface, the cascade reshapes toward that locked preface. The
 // auto-applied changes are surfaced via the shifts panel + a toast, mirroring
 // commitPrefaceChange. Caller owns pushHistory() and rerenderCard().
-function reconfigureAfterPartEdit(card, editedPartId) {
+// opts.quiet skips the toast and the shifts-panel record; the state is identical.
+function reconfigureAfterPartEdit(card, editedPartId, opts) {
   if (!card) return;
+  const quiet = !!(opts && opts.quiet);
   const auto = card.prefaceAuto !== false;
   const target = auto
     ? (typeof suggestPrefaceForCard === 'function' ? suggestPrefaceForCard(card) : null)
@@ -13786,7 +13792,7 @@ function reconfigureAfterPartEdit(card, editedPartId) {
     return;
   }
   result.apply(); // reshapes the other axes toward `target`; sets card.preface = target, prefaceAuto = false
-  if (result.changes.length > 0) {
+  if (result.changes.length > 0 && !quiet) {
     _recentShiftsByCard.set(card.id, {
       targetId: target,
       changes: result.changes,
@@ -18547,23 +18553,38 @@ function _addedInstrumentMessage(instrumentId, card) {
 // is configured from the tradition exactly as importTradition would have
 // seeded it. The context is consumed here so a subsequent plain add can't
 // inherit it. Returns the created card, or null if the instrument is unknown.
-async function addInstrumentFromPicker(instrumentId) {
+//
+// opts.configure(card), when given, runs on the new card BEFORE its history
+// entry is recorded, so "add this instrument, configured like so" is one
+// action and one Ctrl+Z (the Instrument page's configure-before-add uses it).
+async function addInstrumentFromPicker(instrumentId, opts) {
+  const configure = opts && typeof opts.configure === 'function' ? opts.configure : null;
+  // An ungrouped card: addCard records it, unless it is configured first.
+  const addLoose = () => {
+    if (!configure) return addCard(instrumentId);
+    const loose = addCard(instrumentId, { skipHistory: true });
+    if (!loose) return null;
+    configure(loose);
+    if (typeof pushHistory === 'function') pushHistory();
+    return loose;
+  };
   const tradId = app._addToTradition || null;
   app._addToTradition = null;
-  if (!tradId) return addCard(instrumentId);
+  if (!tradId) return addLoose();
   // Lazy mode keeps only light tradition rows in memory; the chain / tuning /
   // room fields this needs live on the full row. Resolves immediately in
   // embedded mode and for any tradition already imported into the workspace.
   try { await Catalog.ensureFull(tradId); }
-  catch { /* fall through: opts stays null and the card is added ungrouped */ }
-  const opts = traditionCardOpts(tradId, instrumentId);
-  if (!opts) return addCard(instrumentId);
+  catch { /* fall through: cardOpts stays null and the card is added ungrouped */ }
+  const cardOpts = traditionCardOpts(tradId, instrumentId);
+  if (!cardOpts) return addLoose();
   // skipHistory + explicit pushHistory: the card is repositioned into its
   // group's run after creation, and history must snapshot the FINAL order or
   // undo/redo would restore the card at the end of the list instead.
-  const card = addCard(instrumentId, Object.assign({}, opts, { skipHistory: true }));
+  const card = addCard(instrumentId, Object.assign({}, cardOpts, { skipHistory: true }));
   if (!card) return null;
   _placeCardAfterTraditionRun(card, tradId);
+  if (configure) configure(card);
   // A group you just added to should be readable, even if it was collapsed.
   if (app.collapsedTraditionGroups) app.collapsedTraditionGroups.delete(tradId);
   if (typeof pushHistory === 'function') pushHistory();

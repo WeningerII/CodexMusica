@@ -223,6 +223,37 @@ for (const f of SOURCE_FILES) {
     dataParts.push(squeeze(chunks[i].trimEnd(), label));
   }
 }
+// Instrument photographs: references/_image_manifest.json (openly licensed
+// image links, produced by scripts/fetch_image_manifest.js) reduced to what the
+// Instrument page shows — per instrument id the thumbnail, licence, credit and
+// source page, as [thumb, licence, credit, sourcePage]. Low-confidence matches
+// are left out: a photo of the wrong instrument under its name is worse than
+// the glyph. No manifest yet: the constant is null and the page shows glyphs.
+const IMAGE_MANIFEST = path.join(REFS, '_image_manifest.json');
+function compactImageManifest() {
+  if (!fs.existsSync(IMAGE_MANIFEST)) return null;
+  const m = JSON.parse(fs.readFileSync(IMAGE_MANIFEST, 'utf8'));
+  const out = {};
+  for (const e of Array.isArray(m.images) ? m.images : []) {
+    if (!e || e.kind !== 'instrument' || e.match_confidence === 'low') continue;
+    const thumb = e.thumb_url || e.image_url;
+    if (typeof e.id !== 'string' || typeof thumb !== 'string' || !/^https:\/\//.test(thumb))
+      continue;
+    out[e.id] = [thumb, e.license_raw || e.license || '', e.credit || '', e.source_page || ''];
+  }
+  const ids = Object.keys(out).sort();
+  return {
+    source: 'references/_image_manifest.json',
+    instruments: Object.fromEntries(ids.map((id) => [id, out[id]])),
+  };
+}
+const imageManifest = compactImageManifest();
+dataParts.push(`</script>`);
+dataParts.push(`<script>// ─── instrument images (references/_image_manifest.json) ───`);
+dataParts.push(
+  `const CODEX_IMAGE_MANIFEST = ${JSON.stringify(imageManifest).replace(/</g, '\\u003c')};`
+);
+
 // Open a final script tag — the family-parts merge + the app (src/app.js) write
 // into this one. The template tail (after the marker) closes it with </script>.
 dataParts.push(`</script>`);

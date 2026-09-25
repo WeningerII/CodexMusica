@@ -515,6 +515,10 @@
   width: 120px;
   height: 96px;
 }
+.ip-media-credit {
+  margin: -4px 0 10px;
+  line-height: 1.4;
+}
 .ip-muted {
   color: var(--cm-text-muted);
   font-size: var(--cm-text-sm);
@@ -948,7 +952,8 @@ details.ip-changes[open] .ip-changes-sum > span:last-child {
 /* A short inspector (a tall recipe dock, a small window) drops the picture
    and its credit together, so the settings keep the room. */
 @container ip-inspector (max-height: 600px) {
-  .ip-media {
+  .ip-media,
+  .ip-media-credit {
     display: none;
   }
   .ip-hero {
