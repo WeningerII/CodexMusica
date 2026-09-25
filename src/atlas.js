@@ -539,6 +539,7 @@
       'clicked; the documented place name is unchanged.</p>' +
       '<h3>How filters combine</h3><ul class="info-rules">' +
       '<li>Choosing a route clears genre groups, a collection and search.</li>' +
+      '<li>Choosing a genre group or a collection, or typing a search, clears the selected route.</li>' +
       '<li>Choosing a collection replaces genre groups and search.</li>' +
       '<li>Typing a search or choosing a genre group ends a collection.</li>' +
       '<li>Genre groups and search can be combined with each other.</li></ul>' +
@@ -2131,6 +2132,7 @@
       return;
     }
     if (S.thread) exitThread();
+    if (ql && S.routeIndex !== null) clearRoute();
     var all = !ql
       ? []
       : S.pts.filter(function (p) {
@@ -2292,6 +2294,7 @@
       return x.id === id;
     })[0];
     if (!t) return;
+    if (S.routeIndex !== null) clearRoute();
     S.focus.clear();
     S.qmatch = new Set(t.stops);
     S.thread = t;
@@ -2532,7 +2535,8 @@
       ICON.close +
       '</button></div>' +
       '<div class="panel-note">Each route joins two catalogued endpoints, numbered in the catalog’s order. ' +
-      'The curve is not a path. Choosing a route clears genre groups, a collection and search.</div>';
+      'The curve is not a path. Choosing a route clears genre groups, a collection and search. ' +
+      'Choosing a genre group or a collection, or typing a search, clears the selected route.</div>';
     S.routes.forEach(function (route, i) {
       var selected = S.routeIndex === i;
       h +=
@@ -2594,6 +2598,7 @@
   }
 
   function toggleRoot(r) {
+    if (S.routeIndex !== null) clearRoute();
     if (S.thread) exitThread();
     if (S.focus.has(r)) S.focus.delete(r);
     else S.focus.add(r);
