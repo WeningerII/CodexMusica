@@ -1,7 +1,14 @@
-/* exported UI, UI_ICONS, uiStart, uiReceiveReply, uiOpenSurface, uiSync */
+/* exported UI, UI_ICONS, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport */
 /* global UILayout */
-/* global _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, Catalog, FamName, INSTRUMENT_FILTER_PILLS, Inst, Tradition, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, axisLabel, chatState, compileRecipeStack, copyToClipboard, countDescendantLeaves, esc, familyImage, findSimilar, findSimilarInstruments, getChildren, getMatchingAxes, getRoots, getTreeNode, icon, image, importTraditionWithFeedback, isMobileLayout, normalizeSearch, normalizeWorkspaceCards, passesInstrumentFilter, pushHistory, redo, renderAll, renderDetail, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, undo */
-/* Shared discovery and writing workspace. Built alongside the canonical app and catalog. */
+/* global Inst, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
+/* The shared application shell: one header, one navigation, one recipe
+   workspace and session, one AI writer, one set of panels. Built alongside the
+   canonical app (src/app.js) and catalog, which stay the only engine.
+
+   OWNERSHIP. This file, src/theme.css, src/theme.js, src/layout.js/.css and
+   src/index.template.html belong to the shell integration owner. The four
+   pages live in src/pages/<page>.js (+ .css) and register themselves with
+   uiRegisterPage(); see docs/ui-foundation.md for the page interface. */
 'use strict';
 const UI = {
   lyricRevision: 0,
@@ -10,22 +17,73 @@ const UI = {
   storageConflict: false,
   saveFailed: false,
   view: 'genre',
+  // Genre page state (owned by src/pages/genre.js).
   genreNode: '',
   genre: null,
+  // Instrument page state (owned by src/pages/instrument.js).
   instrumentFamily: '',
   instrumentClass: '',
+  // Catalog paging shared by the Genre and Instrument lists.
   limit: 50,
   busy: false,
   editor: false,
   ready: false,
 };
+// The four sections, in order. Navigation is a shell concern: pages register
+// behaviour for a route; they never add, remove or reorder routes.
+const UI_ROUTES = [
+  ['genre', 'Genre', 'library'],
+  ['instrument', 'Instrument', 'music'],
+  ['map', 'Map', 'globe'],
+  ['lyrics', 'Lyrics', 'edit-3'],
+];
+const UI_PAGES = {};
+const UI_PAGE_ACTIONS = {};
+// Actions the shell's own click handler owns. A page that registers one of
+// these names would silently never run, so registration refuses it.
+const UI_SHELL_ACTIONS = new Set([
+  'genre-add',
+  'genre-nav',
+  'instrument-nav',
+  'instrument-add',
+  'more',
+  'undo',
+  'redo',
+  'close-editor',
+  'save',
+  'saved',
+  'session',
+  'close-session',
+  'menu',
+  'reset-layout',
+  'surprise',
+  'keep-session',
+  'export',
+  'import',
+  'credits',
+  'ai',
+  'close-ai',
+  'new-recipe',
+]);
+// Page interface: { id, mount(surface), render?(), layout?(), resetLayout?(),
+// actions?: { [data-ui name]: (id, button, event) => void|Promise } }.
+function uiRegisterPage(page) {
+  if (!UI_ROUTES.some(([id]) => id === page.id)) throw Error('Unknown route: ' + page.id);
+  if (UI_PAGES[page.id]) throw Error('Route registered twice: ' + page.id);
+  for (const name of Object.keys(page.actions || {})) {
+    if (UI_SHELL_ACTIONS.has(name) || UI_PAGE_ACTIONS[name])
+      throw Error('Action already owned: ' + name);
+    UI_PAGE_ACTIONS[name] = page.actions[name];
+  }
+  UI_PAGES[page.id] = page;
+}
 const $ui = (id) => document.getElementById(id);
 const uiButton = (act, label, ic = 'plus', extra = '') =>
   `<button type="button" data-ui="${act}" ${extra.includes('aria-label=') ? '' : `aria-label="${esc(label)}"`} ${extra}>${icon(ic, 18)}<span>${esc(label)}</span></button>`;
 const listenLink = (name, instrument = false) =>
   `<a class="listen" href="https://www.youtube.com/results?search_query=${encodeURIComponent(name + (instrument ? ' musical instrument solo demonstration' : ' music'))}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${esc(name)} on YouTube">${icon('play', 16)}<span>Listen</span></a>`;
 function uiNavigate(view) {
-  if (!['genre', 'instrument', 'map', 'lyrics'].includes(view)) return;
+  if (!UI_PAGES[view]) return;
   UI.view = view;
   document.body.dataset.view = view;
   if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view)
@@ -37,9 +95,7 @@ function uiNavigate(view) {
   document.querySelectorAll('.ui-surface').forEach((el) => {
     el.hidden = el.id !== 'surface-' + view;
   });
-  if (view === 'genre') renderGenreDiscovery();
-  if (view === 'instrument') renderInstrumentDiscovery();
-  if (view === 'map' && !$ui('map-frame').src) $ui('map-frame').src = 'atlas.html?embedded=1';
+  UI_PAGES[view].render?.();
   const dock = $ui('chat-dock');
   if (view === 'lyrics') {
     if (uiSwitchChat('lyrics')) {
@@ -89,6 +145,9 @@ function uiOpenEditor(id) {
   uiSync();
   if (isMobileLayout()) document.body.classList.add('session-open');
 }
+// ── Recipe commands ── The only ways a page adds to the shared recipe. Both
+// run the canonical engine (importTraditionWithFeedback / addInstrumentFromPicker)
+// and refuse a second concurrent addition rather than interleaving two.
 async function uiAddGenre(id) {
   if (UI.busy) {
     showToast('An addition is already in progress.', 'error');
@@ -99,7 +158,7 @@ async function uiAddGenre(id) {
     const added = await importTraditionWithFeedback(id);
     UI.editor = false;
     uiSync();
-    renderGenreDiscovery();
+    UI_PAGES.genre?.render?.();
     return added.length > 0;
   } catch (e) {
     showToast(e.message || 'Could not add genre', 'error');
@@ -124,169 +183,7 @@ async function uiAddInstrument(id) {
     UI.busy = false;
   }
 }
-function uiGenreRows(list) {
-  return (
-    list
-      .slice(0, UI.limit)
-      .map(
-        (t) =>
-          `<div class="catalog-row"><button class="catalog-name" data-ui="genre-select" data-id="${esc(t.id)}">${traditionGlyphsHTML(t.id, 30)}<span>${esc(t.name)}</span></button>${listenLink(t.name)}${uiButton('genre-add', 'Add', 'plus', `data-id="${esc(t.id)}" aria-label="Add ${esc(t.name)}"`)}</div>`
-      )
-      .join('') + (list.length > UI.limit ? uiButton('more', 'Show more', 'chevron-down') : '')
-  );
-}
-function uiDetachTree() {
-  const t = $ui('modal-trad');
-  if (t && t.parentElement === $ui('genre-body')) {
-    document.body.append(t);
-    t.classList.remove('inline-tree');
-  }
-}
-function renderGenreDiscovery() {
-  uiDetachTree();
-  if (!$ui('genre-body')) return;
-  const q = normalizeSearch($ui('genre-search').value),
-    roots = getRoots();
-  const node = UI.genreNode ? getTreeNode(UI.genreNode) : null;
-  let children = node ? getChildren(node.id) : roots;
-  let all = Catalog.all();
-  if (q)
-    all = all
-      .filter((t) =>
-        normalizeSearch(
-          t.name + ' ' + (t.lineage || '') + ' ' + (Catalog.ext(t.id)?.description || '')
-        ).includes(q)
-      )
-      .sort((a, b) =>
-        normalizeSearch(a.name) === q
-          ? -1
-          : normalizeSearch(b.name) === q
-            ? 1
-            : a.name.localeCompare(b.name, 'en')
-      );
-  else {
-    if (node) {
-      const under = (id) => {
-        let p = tradParent(id);
-        while (p) {
-          if (p === node.id) return true;
-          p = getTreeNode(p)?.parent;
-        }
-        return false;
-      };
-      all = all.filter(
-        (t) => under(t.id) || (Catalog.ext(t.id)?.crossRefs || []).includes(node.id)
-      );
-    }
-    // Catalog.all() is the catalog's declaration order — the order traditions
-    // were researched and added, which reads as arbitrary in a flat list. Search
-    // results and the instrument list are already alphabetical; the browse list
-    // is too. Copy before sorting: the unfiltered path hands back the live array.
-    all = all.slice().sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
-  }
-  if (UI.genre) {
-    renderGenreWeb(UI.genre);
-    return;
-  }
-  const branches = children.filter((c) => TREE_NODES.some((n) => n.id === c.id));
-  $ui('genre-body').innerHTML =
-    `<div class="discovery-grid"><nav class="catalog-categories" aria-label="Genre categories">${node ? `<div class="category-heading">${uiButton('genre-back', 'Back to ' + (getTreeNode(node.parent)?.name || 'all genres'), 'arrow-left')}<strong>${esc(node.name)}</strong></div>` : ''}${!q && branches.length ? `<div class="branch-key">${branches.map((n) => `<button data-ui="genre-branch" data-id="${esc(n.id)}">${traditionGlyphsHTML(n.id, 22)}<span>${esc(n.name)}</span><span class="category-count">${countDescendantLeaves(n.id)}</span></button>`).join('')}</div>` : ''}</nav><div class="catalog-list"><div class="catalog-count">${all.length.toLocaleString()} genres</div>${uiGenreRows(all)}${!all.length ? '<p>No genres match your search.</p>' : ''}</div></div>`;
-}
-function renderGenreWeb(id) {
-  uiDetachTree();
-  const t = Tradition(id);
-  if (!t) return;
-  const ext = Catalog.ext(id) || {},
-    near = findSimilar(id, 8),
-    added = app.cards.some((c) => c.traditionId === id);
-  $ui('genre-body').innerHTML =
-    `<div class="genre-selected"><div class="selected-head">${uiButton('genre-close', 'Back', 'arrow-left')}<h2>${traditionGlyphsHTML(id, 32)}${esc(t.name)}</h2>${listenLink(t.name)}${uiButton('genre-add', added ? 'Add again' : 'Add genre', 'plus', `data-id="${esc(id)}"`)}</div><div class="genre-facts"><details><summary>About ${esc(t.name)}</summary><p>${esc(ext.description || t.lineage || '')}</p></details><details><summary>Sound profile</summary>${AXIS_DEFINITIONS.map((ax) => `<div class="profile-row"><span>${esc(ax.name)}</span><span>${esc(axisLabel(ax, ext.axes?.[ax.id] || 0))}</span></div>`).join('')}</details><details open><summary>Instruments</summary><div class="genre-instruments">${(t.instruments || []).map((i) => `<div>${image(i, 26)}<button data-ui="instrument-inspect" data-id="${esc(i)}">${esc(Inst(i)?.name || i)}</button>${listenLink(Inst(i)?.name || i, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i)}"`)}</div>`).join('')}</div></details><details><summary>Related genres · sound similarity</summary>${near
-      .map((n) => {
-        const other = Tradition(n.id);
-        return `<div class="related-row"><button data-ui="genre-select" data-id="${esc(n.id)}">${traditionGlyphsHTML(n.id, 24)}${esc(other.name)}</button><span>${getMatchingAxes(
-          id,
-          n.id,
-          3
-        )
-          .map((m) => esc(m.axis.name))
-          .join(
-            ' · '
-          )}</span>${uiButton('genre-add', 'Add', 'plus', `data-id="${esc(n.id)}"`)}</div>`;
-      })
-      .join(
-        ''
-      )}</details>${(ext.crossRefs || []).length ? `<details><summary>Also belongs to</summary>${ext.crossRefs.map((id) => uiButton('genre-branch', getTreeNode(id)?.name || id, 'layers', `data-id="${esc(id)}"`)).join('')}</details>` : ''}</div></div>`;
-}
-function renderInstrumentDiscovery() {
-  const host = $ui('instrument-body');
-  if (!host) return;
-  const q = normalizeSearch($ui('instrument-search').value),
-    fam = INSTRUMENT_FAMILIES.find((f) => f.id === UI.instrumentFamily);
-  const filtered = INSTRUMENTS.filter(
-    (i) =>
-      (!UI.instrumentFamily || i.family === UI.instrumentFamily) &&
-      (!UI.instrumentClass || i.class === UI.instrumentClass) &&
-      (!q || normalizeSearch(i.name + ' ' + i.short).includes(q)) &&
-      passesInstrumentFilter(i, app.instrumentAxisFilters)
-  )
-    // INSTRUMENTS is sorted globally by family, then by the `short` label — but
-    // this list shows `name`, so it read as scrambled. Sort the rows by what
-    // the row displays; family and class navigation still group on the left.
-    .sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
-  const classes = fam
-    ? [...new Set(INSTRUMENTS.filter((i) => i.family === fam.id).map((i) => i.class))]
-    : [];
-  const sectors = fam
-    ? classes.map((c) => ({
-        id: c,
-        name: c.replaceAll('_', ' '),
-      }))
-    : INSTRUMENT_FAMILIES.map((f) => ({
-        id: f.id,
-        name: f.name,
-      }));
-  const dest = $ui('instrument-destination'),
-    old = app._addToTradition || dest.value;
-  dest.innerHTML =
-    '<option value="">Independent instrument</option>' +
-    [...new Set(app.cards.map((c) => c.traditionId).filter(Boolean))]
-      .map((id) => `<option value="${esc(id)}">${esc(Tradition(id)?.name || id)}</option>`)
-      .join('');
-  dest.value = old || '';
-  host.innerHTML = `<div class="axis-filter-pills">${INSTRUMENT_FILTER_PILLS.map((p) => `<button class="${app.instrumentAxisFilters.has(p.id) ? 'active' : ''}" data-ui="instrument-filter" data-id="${esc(p.id)}" aria-pressed="${app.instrumentAxisFilters.has(p.id)}">${esc(p.label)}</button>`).join('')}${app.instrumentAxisFilters.size ? uiButton('clear-filters', 'Clear filters', 'x') : ''}</div><div class="discovery-grid"><nav class="catalog-categories" aria-label="Instrument categories">${fam ? `<div class="category-heading">${uiButton('instrument-back', UI.instrumentClass ? 'Back to ' + fam.name : 'All instruments', 'arrow-left')}<strong>${esc(UI.instrumentClass ? UI.instrumentClass.replaceAll('_', ' ') : fam.name)}</strong></div>` : ''}<div class="branch-key">${sectors.map((s) => `<button data-ui="${fam ? 'instrument-class' : 'instrument-family'}" data-id="${esc(s.id)}"${fam ? ` aria-pressed="${UI.instrumentClass === s.id}"` : ''}>${!fam ? familyImage(s.id, 24) : ''}<span>${esc(s.name)}</span></button>`).join('')}</div></nav><div class="catalog-list"><div class="catalog-count">${filtered.length} instruments${UI.instrumentClass ? ' · ' + esc(UI.instrumentClass.replaceAll('_', ' ')) : ''}</div>${filtered
-    .slice(0, UI.limit)
-    .map(
-      (i) =>
-        `<div class="catalog-row"><button class="catalog-name" data-ui="instrument-inspect" data-id="${esc(i.id)}">${image(i.id, 30)}<span>${esc(i.name)}</span></button>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i.id)}" aria-label="Add ${esc(i.name)}"`)}</div>`
-    )
-    .join(
-      ''
-    )}${filtered.length > UI.limit ? uiButton('more', 'Show more', 'chevron-down') : ''}${!filtered.length ? '<p>No instruments match these filters.</p>' : ''}</div></div>`;
-}
-function uiInspectInstrument(id) {
-  const i = Inst(id);
-  if (!i) return;
-  $ui('instrument-preview').hidden = false;
-  $ui('instrument-preview').innerHTML =
-    `<div class="selected-head">${image(id, 36)}<h2>${esc(i.name)}</h2>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add instrument', 'plus', `data-id="${esc(id)}"`)}${uiButton('close-preview', 'Close', 'x')}</div><p>${esc(FamName(i.family))} · ${(i.parts || []).length} customizable parts</p><div class="part-preview">${(
-      i.parts || []
-    )
-      .map(
-        (p) =>
-          `<details><summary>${esc(p.name || p.id)} · ${p.variants.length} options</summary><p>${p.variants
-            .slice(0, 20)
-            .map((v) => esc(v.name || v.id))
-            .join(' · ')}</p></details>`
-      )
-      .join('')}</div><h3>Similar instruments</h3>${findSimilarInstruments(id, 8)
-      .map(
-        (n) =>
-          `<div class="catalog-row"><button data-ui="instrument-inspect" data-id="${esc(n.id)}">${image(n.id, 24)}${esc(n.name)}</button>${listenLink(n.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(n.id)}"`)}</div>`
-      )
-      .join('')}`;
-  uiNavigate('instrument');
-  $ui('instrument-preview').scrollIntoView({ block: 'start', behavior: 'smooth' });
-}
+// ── Session ── One session: cards, name and lyrics, in the formats below.
 function uiExport() {
   const p = {
     version: 3,
@@ -326,6 +223,7 @@ function uiSaveLyrics() {
   UI.lyricRevision++;
   uiAutosave();
 }
+// ── AI writer ── One conversation dock shared by the recipe and lyrics writers.
 const uiChatSessions = new Map();
 function uiUpdatePrompt() {
   const input = $ui('chat-input'),
@@ -458,16 +356,11 @@ function uiStart() {
   oldHeader.classList.add('native-header');
   const header = document.createElement('header');
   header.className = 'app-bar ui-header';
-  header.innerHTML = `<a class="ui-brand" href="codex.html">Codex Musica</a><nav aria-label="Main sections">${[
-    ['genre', 'Genre', 'library'],
-    ['instrument', 'Instrument', 'music'],
-    ['map', 'Map', 'globe'],
-    ['lyrics', 'Lyrics', 'edit-3'],
-  ]
-    .map(([v, l, i]) => `<button data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`)
-    .join(
-      ''
-    )}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal')}</div>`;
+  header.innerHTML = `<a class="ui-brand" href="codex.html">Codex Musica</a><nav aria-label="Main sections">${UI_ROUTES.map(
+    ([v, l, i]) => `<button data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`
+  ).join(
+    ''
+  )}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal')}</div>`;
   document.body.prepend(header);
   const more = document.createElement('div');
   more.id = 'ui-menu';
@@ -485,9 +378,16 @@ function uiStart() {
   header.append(more);
   const discovery = document.createElement('section');
   discovery.id = 'discovery';
-  discovery.innerHTML = `<section class="ui-surface" id="surface-genre"><div class="discovery-toolbar"><label class="ui-search">${icon('search', 20)}<input id="genre-search" type="search" placeholder="Search genres" aria-label="Search genres"></label>${uiButton('genre-tree', 'Browse tree', 'list')}${uiButton('ai', 'AI recipe', 'message-circle')}</div><div id="genre-body"></div></section><section class="ui-surface" id="surface-instrument" hidden><div class="discovery-toolbar"><label class="ui-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="destination">Add to<select id="instrument-destination" aria-label="Add instrument to"></select></label></div><div id="instrument-preview" hidden></div><div id="instrument-body"></div></section><section class="ui-surface" id="surface-map" hidden><iframe id="map-frame" title="World music map"></iframe></section><section class="ui-surface" id="surface-lyrics" hidden><div class="lyrics-toolbar">${uiButton('new-lyrics', 'New lyrics', 'edit-3')}${uiButton('edit-lyrics', 'Edit lyrics', 'edit-3')}${uiButton('attach-recipe', 'Use current recipe', 'layers')}${uiButton('copy-lyrics', 'Copy lyrics', 'copy')}</div><div class="lyrics-workspace"><div class="lyrics-editor"><label for="lyrics-draft">Lyrics</label><textarea id="lyrics-draft" placeholder="Write here, or ask the lyrics writer." spellcheck="true"></textarea></div><div id="lyrics-chat"></div></div></section>`;
+  for (const [id] of UI_ROUTES) {
+    const surface = document.createElement('section');
+    surface.className = 'ui-surface';
+    surface.id = 'surface-' + id;
+    surface.hidden = id !== 'genre';
+    discovery.append(surface);
+  }
   const workspace = document.querySelector('main.workspace');
   workspace.insertBefore(discovery, $ui('workspace-detail'));
+  for (const [id] of UI_ROUTES) UI_PAGES[id]?.mount($ui('surface-' + id));
   const assistant = document.createElement('aside');
   assistant.id = 'assistant-slot';
   assistant.setAttribute('aria-label', 'AI recipe writer');
@@ -543,26 +443,6 @@ function uiStart() {
     const a = b.dataset.ui,
       id = b.dataset.id;
     switch (a) {
-      case 'genre-branch':
-        UI.genre = null;
-        UI.genreNode = id;
-        UI.limit = 50;
-        $ui('genre-search').value = '';
-        renderGenreDiscovery();
-        break;
-      case 'genre-back':
-        UI.genreNode = getTreeNode(UI.genreNode)?.parent || '';
-        renderGenreDiscovery();
-        break;
-      case 'genre-select':
-        UI.genre = id;
-        renderGenreWeb(id);
-        $ui('surface-genre').scrollTop = 0;
-        break;
-      case 'genre-close':
-        UI.genre = null;
-        renderGenreDiscovery();
-        break;
       case 'genre-add':
         await uiAddGenre(id);
         break;
@@ -574,60 +454,13 @@ function uiStart() {
         app._addToTradition = null;
         uiNavigate('instrument');
         break;
-      case 'instrument-family':
-        UI.instrumentFamily = id;
-        UI.instrumentClass = '';
-        UI.limit = 50;
-        renderInstrumentDiscovery();
-        break;
-      case 'instrument-class':
-        UI.instrumentClass = id;
-        UI.limit = 50;
-        renderInstrumentDiscovery();
-        break;
-      case 'instrument-back':
-        if (UI.instrumentClass) UI.instrumentClass = '';
-        else UI.instrumentFamily = '';
-        renderInstrumentDiscovery();
-        break;
-      case 'instrument-filter':
-        app.instrumentAxisFilters.has(id)
-          ? app.instrumentAxisFilters.delete(id)
-          : app.instrumentAxisFilters.add(id);
-        renderInstrumentDiscovery();
-        break;
-      case 'clear-filters':
-        app.instrumentAxisFilters.clear();
-        renderInstrumentDiscovery();
-        break;
       case 'instrument-add':
         await uiAddInstrument(id);
         break;
-      case 'instrument-inspect':
-        uiInspectInstrument(id);
-        break;
-      case 'close-preview':
-        $ui('instrument-preview').hidden = true;
-        break;
       case 'more':
         UI.limit += 50;
-        UI.view === 'genre' ? renderGenreDiscovery() : renderInstrumentDiscovery();
+        UI_PAGES[UI.view]?.render?.();
         break;
-      case 'genre-tree': {
-        const tree = $ui('modal-trad');
-        if (tree.parentElement !== $ui('genre-body')) $ui('genre-body').replaceChildren(tree);
-        tree.classList.add('inline-tree');
-        tree.querySelector('.modal').removeAttribute('aria-modal');
-        tree.querySelector('.modal').setAttribute('role', 'region');
-        tree.querySelector('h2').textContent = 'Genres';
-        tree.querySelector('[data-close]').onclick = () => {
-          tree.classList.remove('inline-tree');
-          document.body.append(tree);
-          renderGenreDiscovery();
-        };
-        renderTradPicker();
-        break;
-      }
       case 'undo':
         undo();
         uiSync();
@@ -666,17 +499,13 @@ function uiStart() {
         break;
       case 'reset-layout':
         UILayout.reset();
-        $ui('map-frame').contentWindow?.postMessage({ type: 'reset-layout' }, location.origin);
+        for (const [route] of UI_ROUTES) UI_PAGES[route]?.resetLayout?.();
         uiSetMenu(false);
         showToast('Layout reset', 'success');
         break;
       case 'surprise':
         surpriseTradition();
         uiSetMenu(false);
-        break;
-      case 'view-running':
-        uiNavigate('genre');
-        document.body.classList.add('assistant-open');
         break;
       case 'keep-session':
         UI.storageConflict = false;
@@ -704,30 +533,8 @@ function uiStart() {
       case 'new-recipe':
         uiNewTask('recipe');
         break;
-      case 'new-lyrics':
-        uiNewTask('lyrics');
-        break;
-      case 'edit-lyrics':
-        if (!uiNewTask('lyrics-edit')) break;
-        $ui('chat-input').value = 'Edit these lyrics:\n' + $ui('lyrics-draft').value;
-        // maxlength does not bind a script write, so a long draft lands PAST
-        // the wall; the counter is what says so before the server refuses it.
-        _chatSyncCount();
-        break;
-      case 'attach-recipe':
-        if (!uiSwitchChat('lyrics')) {
-          showToast('Wait for the active recipe request to finish.', 'error');
-          break;
-        }
-        $ui('chat-input').value =
-          'Write lyrics for this recording recipe:\n' +
-          compileRecipeStack(app.cards, 'rich', { ceiling: 1000 });
-        _chatSyncCount();
-        $ui('chat-input').focus();
-        break;
-      case 'copy-lyrics':
-        copyToClipboard($ui('lyrics-draft').value, 'Lyrics copied', 'Could not copy');
-        break;
+      default:
+        await UI_PAGE_ACTIONS[a]?.(id, b, e);
     }
   });
   document.addEventListener('keydown', (e) => {
@@ -748,21 +555,10 @@ function uiStart() {
         document.querySelector('[data-ui="session"]').focus({ preventScroll: true });
     }
   });
-  $ui('genre-search').addEventListener('input', () => {
-    UI.genre = null;
-    UI.limit = 50;
-    renderGenreDiscovery();
-  });
-  $ui('instrument-search').addEventListener('input', () => {
-    UI.limit = 50;
-    renderInstrumentDiscovery();
-  });
   $ui('ui-file').addEventListener('change', (e) => {
     if (e.target.files[0]) uiImport(e.target.files[0]);
     e.target.value = '';
   });
-  $ui('lyrics-draft').addEventListener('input', uiSaveLyrics);
-  $ui('lyrics-draft').addEventListener('blur', () => pushHistory());
   uiRestoreSession();
   window.addEventListener('storage', (e) => {
     if (e.key === 'codex-workbench-v1' && e.newValue !== UI.lastSaved) {
@@ -782,17 +578,6 @@ function uiStart() {
   const domain = $ui('chat-domain');
   domain.addEventListener('change', uiUpdatePrompt);
   uiUpdatePrompt();
-  window.addEventListener('message', async (e) => {
-    if (e.origin !== location.origin || e.source !== $ui('map-frame').contentWindow) return;
-    if (e.data?.type === 'add-genre' && typeof e.data.id === 'string') {
-      const ok = await uiAddGenre(e.data.id);
-      e.source.postMessage({ type: 'genre-added', id: e.data.id, ok: !!ok }, location.origin);
-    }
-    if (e.data?.type === 'genre-web' && typeof e.data.id === 'string') {
-      UI.genre = e.data.id;
-      uiNavigate('genre');
-    }
-  });
   UI.ready = true;
   uiLayoutControls();
   renderAll();
@@ -824,18 +609,7 @@ function uiLayoutControls() {
     limits: () => [320, Math.min(700, innerWidth * 0.45)],
     enabled: () => innerWidth >= 900 && UI.editor && !['map', 'lyrics'].includes(UI.view),
   });
-  const lyrics = document.querySelector('.lyrics-workspace');
-  const editor = document.querySelector('.lyrics-editor');
-  editor.id = 'lyrics-editor';
-  UILayout.splitter({
-    container: lyrics,
-    panel: editor,
-    key: 'lyrics',
-    property: '--lyrics-width',
-    title: 'Resize lyrics editor',
-    limits: () => [260, Math.max(260, lyrics.clientWidth - 300)],
-    enabled: () => innerWidth >= 900 && lyrics.clientWidth > 680,
-  });
+  for (const [route] of UI_ROUTES) UI_PAGES[route]?.layout?.();
   UILayout.floating($ui('assistant-slot'), {
     key: 'assistant',
     title: 'AI recipe panel',
@@ -1007,15 +781,6 @@ function uiShowStorageConflict() {
     uiButton('keep-session', 'Keep this session', 'save') +
     uiButton('export', 'Export this session', 'download');
   document.querySelector('.ui-header').after(note);
-}
-function uiLyricsWaiting() {
-  if ($ui('lyrics-wait')) return;
-  const note = document.createElement('div');
-  note.id = 'lyrics-wait';
-  note.innerHTML =
-    '<p>Your recipe request is still running.</p>' +
-    uiButton('view-running', 'View request', 'message-circle');
-  $ui('lyrics-chat').append(note);
 }
 async function uiCheckAI() {
   const status = $ui('ai-status');

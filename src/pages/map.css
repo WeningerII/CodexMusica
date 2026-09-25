@@ -1,0 +1,11 @@
+/* Map page styles. Owned by the Map page worker; see docs/ui-foundation.md.
+   Scope every rule to this page's surface (#surface-map) or its own components;
+   colours, type, spacing and radii come from the tokens in src/theme.css. */
+#surface-map {
+  overflow: hidden;
+}
+#map-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

@@ -97,7 +97,6 @@ h3 {
 .session-actions button,
 .discovery-toolbar button,
 .ui-detail-tools button,
-.lyrics-toolbar button,
 .assistant-toolbar button,
 #ui-menu button {
   display: inline-flex;
@@ -314,51 +313,12 @@ h3 {
 .ui-search:focus-within {
   box-shadow: 0 0 0 2px #1a73e8;
 }
-.destination {
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.destination select {
-  max-width: 220px;
-  height: 32px;
-  border: 1px solid #dadce0;
-  border-radius: 4px;
-  background: #fff;
-}
 .discovery-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   gap: 20px;
   padding: 16px 24px;
-}
-.ui-wheel {
-  width: 100%;
-  max-width: 580px;
-  display: block;
-  margin: auto;
-  overflow: visible;
-}
-.ui-wheel [role='button'] {
-  cursor: pointer;
-}
-.ui-wheel [role='button']:hover path {
-  filter: brightness(1.13);
-}
-.ui-wheel text {
-  font: 500 12px Arial;
-  pointer-events: none;
-}
-.ui-wheel .wheel-center-label {
-  font-weight: 600;
-  font-size: 17px;
-  fill: #202124;
-}
-.ui-wheel .wheel-center-back {
-  font-size: 13px;
-  fill: #5f6368;
 }
 .branch-key {
   display: flex;
@@ -377,12 +337,6 @@ h3 {
   font: 14px Arial;
   cursor: pointer;
   min-height: 40px;
-}
-.key-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  flex: none;
 }
 .catalog-count {
   font-size: 13px;
@@ -446,9 +400,6 @@ h3 {
 .searching {
   grid-template-columns: 1fr;
 }
-.searching .discovery-chart {
-  display: none;
-}
 .catalog-list > [data-ui='more'] {
   margin: 16px auto;
   display: flex;
@@ -457,9 +408,6 @@ h3 {
   border-radius: 20px;
   background: #fff;
   cursor: pointer;
-}
-.genre-selected {
-  padding: 12px 24px 24px;
 }
 .selected-head {
   display: flex;
@@ -485,157 +433,6 @@ h3 {
   padding: 8px 12px;
   cursor: pointer;
 }
-.selected-head button[data-ui='genre-close'] {
-  background: transparent;
-  color: #3c4043;
-}
-.genre-web {
-  position: relative;
-  height: 430px;
-  max-width: 1100px;
-  margin: 12px auto 20px;
-}
-.genre-web > svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-.genre-web line {
-  stroke: #a8c7fa;
-  stroke-width: 0.35;
-}
-.web-node,
-.web-center {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 180px;
-  max-width: 27%;
-  padding: 12px;
-  background: white;
-  border: 1px solid #dadce0;
-  border-radius: 8px;
-  text-align: left;
-  font: 14px Arial;
-  box-shadow: 0 2px 5px #2021240c;
-}
-.web-node {
-  min-height: 54px;
-  cursor: pointer;
-}
-.web-node:hover {
-  border-color: #1a73e8;
-  background: #e8f0fe;
-}
-.web-center {
-  left: 50%;
-  top: 48%;
-  background: #e8f0fe;
-  border-color: #1a73e8;
-  min-height: 72px;
-  color: #174ea6;
-}
-.genre-facts details,
-.part-preview details {
-  border-top: 1px solid #e8eaed;
-  padding: 12px 0;
-}
-.genre-facts summary,
-.part-preview summary {
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  min-height: 30px;
-}
-.genre-facts p {
-  font: 15px/1.6 Arial;
-  margin: 12px 0;
-  color: #3c4043;
-}
-.genre-instruments > div,
-.related-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 50px;
-  border-bottom: 1px solid #f1f3f4;
-}
-.genre-instruments button,
-.related-row button {
-  border: 0;
-  background: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font: 14px Arial;
-  min-height: 44px;
-  cursor: pointer;
-  color: #1a73e8;
-}
-.genre-instruments > div > button:first-of-type,
-.related-row > button:first-child {
-  flex: 1;
-  text-align: left;
-  color: #202124;
-}
-.related-row > span {
-  font-size: 12px;
-  color: #5f6368;
-  max-width: 35%;
-}
-.profile-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 7px 0;
-  font-size: 14px;
-}
-.axis-filter-pills {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  padding: 12px 20px;
-}
-.axis-filter-pills button {
-  padding: 7px 12px;
-  border: 1px solid #dadce0;
-  border-radius: 20px;
-  background: #fff;
-  font: 13px Arial;
-  min-height: 36px;
-  cursor: pointer;
-}
-.axis-filter-pills button.active {
-  color: #174ea6;
-  background: #e8f0fe;
-  border-color: #1a73e8;
-}
-#instrument-preview {
-  padding: 16px 24px;
-  border-bottom: 1px solid #dadce0;
-}
-#instrument-preview > p {
-  margin: 12px 0;
-  font-size: 14px;
-  color: #5f6368;
-}
-#instrument-preview h3 {
-  margin-top: 16px;
-}
-.part-preview {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 20px;
-}
-.part-preview p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 10px 0;
-}
 #workspace-detail {
   display: none !important;
   min-width: 0 !important;
@@ -656,23 +453,6 @@ h3 {
 }
 .editor-open .discovery-grid {
   grid-template-columns: 1fr;
-}
-.editor-open .discovery-chart {
-  max-width: 460px;
-  margin: auto;
-}
-.editor-open .genre-web {
-  height: 500px;
-}
-.editor-open .web-node,
-.editor-open .web-center {
-  font-size: 12px;
-  padding: 7px;
-  gap: 3px;
-}
-.editor-open .web-node svg,
-.editor-open .web-center svg {
-  display: none;
 }
 .ui-detail-tools {
   display: flex;
@@ -756,44 +536,6 @@ h3 {
 .ui-header ~ .workspace #empty-state {
   display: none !important;
 }
-.modal-bg.inline-tree {
-  display: block !important;
-  position: static !important;
-  background: white !important;
-  padding: 0 !important;
-  backdrop-filter: none !important;
-}
-.inline-tree > .modal {
-  opacity: 1 !important;
-  transform: none !important;
-  max-width: none !important;
-  width: 100% !important;
-  max-height: none !important;
-  box-shadow: none !important;
-  border: 0 !important;
-}
-.inline-tree .modal-body {
-  max-height: none !important;
-}
-.inline-tree .modal-head {
-  padding: 12px 20px !important;
-}
-.inline-tree .modal-head h2 {
-  font-size: 18px;
-}
-.tree-row {
-  min-height: 46px;
-}
-.tree-row-name {
-  font-size: 16px;
-}
-.trad-leaf-desc {
-  font-size: 14px;
-  line-height: 1.5;
-}
-.trad-leaf-actions {
-  min-width: 90px;
-}
 .modal {
   background: white !important;
 }
@@ -818,14 +560,6 @@ h3 {
   background: #e8f0fe !important;
   color: #174ea6 !important;
 }
-#surface-map {
-  overflow: hidden;
-}
-#map-frame {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
 .workbench[data-view='map'] .workspace {
   grid-template-columns: 1fr;
 }
@@ -844,55 +578,6 @@ h3 {
 }
 .workbench[data-view='map'] #workspace-detail {
   display: none !important;
-}
-.lyrics-toolbar {
-  padding: 12px 20px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #dadce0;
-}
-.lyrics-toolbar button:first-child {
-  background: #1a73e8;
-  color: white;
-}
-.lyrics-workspace {
-  position: relative;
-  display: grid;
-  grid-template-columns: clamp(260px, var(--lyrics-width, 50%), calc(100% - 300px)) minmax(
-      300px,
-      1fr
-    );
-  height: calc(100% - 70px);
-}
-.lyrics-editor {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  min-height: 350px;
-  min-width: 0;
-}
-.lyrics-editor label {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-.lyrics-editor textarea {
-  flex: 1;
-  resize: vertical;
-  border: 0;
-  outline-color: #1a73e8;
-  font: 16px/1.8 Arial;
-  padding: 12px;
-  min-height: 300px;
-  color: #202124;
-  background: #fff;
-}
-#lyrics-chat {
-  border-left: 1px solid #dadce0;
-  min-width: 0;
-  min-height: 0;
-  display: flex;
 }
 .workbench[data-view='lyrics'] #workspace-detail {
   display: none !important;
@@ -1054,10 +739,6 @@ h3 {
   .discovery-grid {
     grid-template-columns: 1fr;
   }
-  .discovery-chart {
-    max-width: 520px;
-    margin: auto;
-  }
   .editor-open .workspace {
     grid-template-columns: clamp(220px, var(--sidebar-width, 260px), 35vw) minmax(0, 1fr);
   }
@@ -1068,18 +749,6 @@ h3 {
     width: clamp(320px, var(--detail-width, 440px), 45vw);
     z-index: 15;
     box-shadow: -4px 0 16px #20212420;
-  }
-  .lyrics-workspace {
-    grid-template-columns: clamp(260px, var(--lyrics-width, 50%), calc(100% - 300px)) minmax(
-        300px,
-        1fr
-      );
-  }
-  .lyrics-editor {
-    min-height: 400px;
-  }
-  #lyrics-chat {
-    min-height: 500px;
   }
   .workbench[data-view='lyrics'] .workspace {
     grid-template-columns: clamp(220px, var(--sidebar-width, 260px), 35vw) minmax(0, 1fr);
@@ -1212,29 +881,10 @@ h3 {
     padding: 6px 8px;
     font-size: 13px;
   }
-  .discovery-toolbar [data-ui='genre-tree'] span {
-    display: none;
-  }
-  .destination {
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    font-size: 13px;
-  }
-  .destination select {
-    max-width: none;
-    flex: 1;
-    height: 36px;
-  }
   .discovery-grid {
     grid-template-columns: 1fr !important;
     padding: 8px 12px;
     gap: 8px;
-  }
-  .discovery-chart {
-    max-width: 480px;
-    margin: auto;
-    width: 100%;
   }
   .branch-key {
     gap: 5px;
@@ -1262,9 +912,6 @@ h3 {
     width: 26px;
     height: 26px;
   }
-  .genre-selected {
-    padding: 12px;
-  }
   .selected-head {
     gap: 8px;
   }
@@ -1273,97 +920,9 @@ h3 {
     font-size: 18px;
     order: 0;
   }
-  .selected-head > [data-ui='genre-close'] {
-    font-size: 13px;
-    padding: 6px;
-    order: 0;
-  }
   .selected-head > .listen,
   .selected-head > [data-ui='genre-add'] {
     order: 1;
-  }
-  .genre-web {
-    height: 380px;
-    margin: 10px 0;
-  }
-  .web-node,
-  .web-center {
-    width: 115px;
-    max-width: 31%;
-    font-size: 12px;
-    padding: 8px 5px;
-    gap: 3px;
-    flex-direction: column;
-    text-align: center;
-    box-shadow: none;
-  }
-  .web-node svg {
-    width: 20px;
-    height: 20px;
-  }
-  .web-center {
-    max-width: 29%;
-    font-size: 13px;
-  }
-  .related-row {
-    flex-wrap: wrap;
-  }
-  .related-row > span {
-    max-width: none;
-    flex-basis: 100%;
-    order: 2;
-    padding: 0 0 8px 30px;
-  }
-  .genre-instruments > div {
-    gap: 4px;
-  }
-  .genre-instruments button {
-    font-size: 13px;
-  }
-  .part-preview {
-    grid-template-columns: 1fr;
-  }
-  #instrument-preview {
-    padding: 12px;
-  }
-  #instrument-preview .selected-head {
-    gap: 6px;
-  }
-  #instrument-preview h2 {
-    flex-basis: auto;
-  }
-  .lyrics-toolbar {
-    padding: 8px;
-    gap: 2px;
-  }
-  .lyrics-toolbar button {
-    font-size: 13px;
-    padding: 6px 8px;
-  }
-  .lyrics-workspace {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    overflow: visible;
-  }
-  .lyrics-editor {
-    min-height: 340px;
-    padding: 12px;
-  }
-  .lyrics-editor textarea {
-    min-height: 300px;
-  }
-  .lyrics-toolbar [data-ui='attach-recipe'] {
-    flex: 1;
-  }
-  #lyrics-chat {
-    min-height: 520px;
-    height: 70dvh;
-    border-left: 0;
-    border-top: 1px solid #dadce0;
-  }
-  .workbench[data-view='lyrics'] .ui-surface {
-    overflow: auto;
   }
   #assistant-slot {
     top: 108px;
@@ -1398,14 +957,8 @@ h3 {
   .modal-body {
     padding: 12px !important;
   }
-  .genre-facts summary {
-    font-size: 14px;
-  }
   .toast {
     bottom: 12px !important;
-  }
-  .ui-wheel text {
-    font-size: 12px;
   }
   .rp-tool {
     display: inline-flex !important;
@@ -1508,20 +1061,6 @@ body.workbench {
   grid-column: 3;
   margin-left: 8px;
 }
-.ui-wheel,
-.genre-web {
-  animation: ui-appear 0.18s ease-out;
-}
-@keyframes ui-appear {
-  from {
-    opacity: 0.7;
-    transform: scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 @media (max-width: 899px) {
   .workbench #sidebar-scroll {
     overflow-x: hidden !important;
@@ -1552,16 +1091,6 @@ body.workbench {
     min-width: 0;
     max-width: 100%;
   }
-  .lyrics-editor {
-    min-height: 300px;
-  }
-  .lyrics-editor textarea {
-    min-height: 240px;
-  }
-  #lyrics-chat {
-    height: 520px;
-    min-height: 520px;
-  }
   .chat-log {
     min-height: 120px;
   }
@@ -1569,8 +1098,7 @@ body.workbench {
     min-height: 90px;
     max-height: 180px;
   }
-  .ui-surface,
-  .lyrics-workspace {
+  .ui-surface {
     max-width: 100%;
   }
   .workbench #workspace-sidebar {
@@ -1581,49 +1109,16 @@ body.workbench {
     overflow-x: hidden;
   }
 }
-
 @media (max-width: 899px) {
-  .lyrics-toolbar {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background: #fff;
-  }
-  #lyrics-chat {
-    order: -1;
-    height: auto;
-    min-height: 0;
-    border-left: 0;
-    border-bottom: 1px solid #dadce0;
-  }
-  #lyrics-chat .chat-panel {
-    flex: none;
-  }
-  #lyrics-chat .chat-log {
-    flex: none;
-    min-height: 0;
-    max-height: 40dvh;
-  }
-  #lyrics-chat .chat-log:empty {
-    display: none;
-  }
-  .lyrics-editor {
-    min-height: 300px;
-  }
   .part-thumb-cell {
     display: none !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ui-wheel,
-  .genre-web {
-    animation: none !important;
-  }
   * {
     scroll-behavior: auto !important;
   }
 }
-
 .workbench .ui-header {
   box-shadow: none;
   border-radius: 0;
@@ -1649,9 +1144,6 @@ body.workbench {
 }
 .workbench .sidebar-trad-name {
   overflow-wrap: anywhere;
-}
-.workbench .genre-web {
-  animation: none;
 }
 #ai-status:not(:empty) {
   padding: 10px 12px;
@@ -1693,18 +1185,6 @@ body.workbench {
   min-height: 44px;
   border-radius: 4px;
   padding: 8px;
-}
-#lyrics-wait {
-  padding: 16px;
-  font-size: 14px;
-}
-#lyrics-wait button {
-  min-height: 44px;
-  color: #1a73e8;
-  background: #e8f0fe;
-  border: 0;
-  border-radius: 5px;
-  padding: 8px 12px;
 }
 @media (max-width: 899px) {
   .workbench .ui-header {
@@ -1770,8 +1250,7 @@ body.workbench {
   .workbench .ui-header .ui-tools [data-ui='menu'] span {
     display: none;
   }
-  .workbench .branch-key button,
-  .workbench .axis-filter-pills button {
+  .workbench .branch-key button {
     min-height: 44px;
   }
   .workbench .part-options-cell {
@@ -1822,7 +1301,6 @@ body.workbench {
     gap: 2px !important;
   }
 }
-
 /* Keep every editor destination visible in narrow detail panes. */
 .detail-tab-bar {
   display: grid;
@@ -1837,7 +1315,6 @@ body.workbench {
 .detail-tab span {
   white-space: normal;
 }
-
 /* Category controls keep browsing compact and leave room for catalog results. */
 .workbench .discovery-grid {
   grid-template-columns: minmax(0, 1fr);
@@ -1879,7 +1356,6 @@ body.workbench {
   background: #e8f0fe;
   border-color: #1a73e8;
 }
-
 /* Landscape phones (844x390): the recipe drawer is 282px tall, and its fixed
    chrome (session actions, name, filter) plus the recipe bar left the tree a
    16px strip and pushed the bar 22px below the viewport. At short heights the
@@ -1907,7 +1383,6 @@ body.workbench {
     padding: 0 12px !important;
   }
 }
-
 /* The editor's preface row is an input, a clear button and Browse on one
    line; on a phone the input kept its intrinsic width and pushed Browse past
    the right edge. The input gives way, and the row may wrap. */
@@ -1920,7 +1395,6 @@ body.workbench {
     min-width: 0;
   }
 }
-
 /* The Recipe button in the header opens the recipe drawer; at desktop width
    the recipe is always on screen, so the button did nothing when pressed. */
 @media (min-width: 900px) {
@@ -1929,7 +1403,6 @@ body.workbench {
     display: none;
   }
 }
-
 /* The AI writer is a fixed panel on the right; with room to spare the
    discovery surface makes way for it instead of being covered (the search
    field was cut mid-word and every row's Listen and Add sat under the panel). */
@@ -1953,7 +1426,6 @@ body.workbench {
       480px;
   }
 }
-
 /* Labels are content, not single-line badges. Keep action buttons separate. */
 .workbench .ws-name,
 .workbench .sb-tradition-name,
@@ -1977,10 +1449,7 @@ body.workbench {
 .catalog-list,
 .catalog-name > span,
 .branch-key button > span,
-.genre-instruments button,
-.related-row button,
 .selected-head h2,
-.profile-row > span,
 .modal-head h2 {
   min-width: 0;
   overflow-wrap: anywhere;
@@ -2032,67 +1501,15 @@ body.workbench {
 #ui-menu {
   z-index: 120;
 }
-#surface-lyrics {
-  display: flex;
-  flex-direction: column;
-}
-.lyrics-toolbar {
-  flex: none;
-}
-.lyrics-workspace {
-  flex: 1;
-  min-height: 0;
-  height: auto;
-}
-.lyrics-editor textarea {
-  max-width: 100%;
-}
 @container discovery (max-width: 680px) {
   .discovery-grid {
     grid-template-columns: minmax(0, 1fr);
     padding: 12px;
     gap: 12px;
   }
-  .part-preview {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .lyrics-workspace {
-    display: flex;
-    flex-direction: column;
-    flex: none;
-  }
-  #lyrics-chat {
-    min-height: 400px;
-    border-left: 0;
-    border-top: 1px solid #dadce0;
-  }
-  .lyrics-workspace > .layout-splitter {
-    display: none;
-  }
-  .related-row {
-    flex-wrap: wrap;
-  }
-  .related-row > span {
-    flex-basis: 100%;
-    max-width: none;
-  }
-  .genre-instruments > div {
-    flex-wrap: wrap;
-  }
   .discovery-toolbar {
     padding: 12px;
     gap: 6px;
-  }
-  .destination {
-    max-width: 100%;
-  }
-}
-@media (max-width: 899px) {
-  .lyrics-workspace {
-    flex: none;
-  }
-  #lyrics-chat {
-    min-height: 0;
   }
 }
 @media (max-width: 380px) {

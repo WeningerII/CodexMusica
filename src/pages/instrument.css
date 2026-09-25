@@ -1,0 +1,106 @@
+/* Instrument page styles. Owned by the Instrument page worker; see docs/ui-foundation.md.
+   Scope every rule to this page's surface (#surface-instrument) or its own components;
+   colours, type, spacing and radii come from the tokens in src/theme.css. */
+.destination {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.destination select {
+  max-width: 220px;
+  height: 32px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  background: #fff;
+}
+.part-preview details {
+  border-top: 1px solid #e8eaed;
+  padding: 12px 0;
+}
+.part-preview summary {
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 30px;
+}
+.axis-filter-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+}
+.axis-filter-pills button {
+  padding: 7px 12px;
+  border: 1px solid #dadce0;
+  border-radius: 20px;
+  background: #fff;
+  font: 13px Arial;
+  min-height: 36px;
+  cursor: pointer;
+}
+.axis-filter-pills button.active {
+  color: #174ea6;
+  background: #e8f0fe;
+  border-color: #1a73e8;
+}
+#instrument-preview {
+  padding: 16px 24px;
+  border-bottom: 1px solid #dadce0;
+}
+#instrument-preview > p {
+  margin: 12px 0;
+  font-size: 14px;
+  color: #5f6368;
+}
+#instrument-preview h3 {
+  margin-top: 16px;
+}
+.part-preview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 20px;
+}
+.part-preview p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+@media (max-width: 899px) {
+  .destination {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    font-size: 13px;
+  }
+  .destination select {
+    max-width: none;
+    flex: 1;
+    height: 36px;
+  }
+  .part-preview {
+    grid-template-columns: 1fr;
+  }
+  #instrument-preview {
+    padding: 12px;
+  }
+  #instrument-preview .selected-head {
+    gap: 6px;
+  }
+  #instrument-preview h2 {
+    flex-basis: auto;
+  }
+}
+@media (max-width: 899px) {
+  .workbench .axis-filter-pills button {
+    min-height: 44px;
+  }
+}
+@container discovery (max-width: 680px) {
+  .part-preview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .destination {
+    max-width: 100%;
+  }
+}

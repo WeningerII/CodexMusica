@@ -142,6 +142,13 @@ const template = fs.readFileSync(TEMPLATE, 'utf8');
 const appJs = fs.readFileSync(APP, 'utf8');
 const workbenchJs = fs.readFileSync(path.join(SRC, 'workbench.js'), 'utf8');
 const workbenchCss = fs.readFileSync(path.join(SRC, 'workbench.css'), 'utf8');
+// The four pages, in navigation order. Each registers itself with the shell
+// (src/workbench.js) and owns only its own surface; docs/ui-foundation.md
+// names the owner of every file. Page styles load after the shell's.
+const PAGES = ['genre', 'instrument', 'map', 'lyrics'];
+const pageFile = (name, ext) => fs.readFileSync(path.join(SRC, 'pages', name + ext), 'utf8');
+const pagesJs = PAGES.map((p) => pageFile(p, '.js')).join('\n');
+const pagesCss = PAGES.map((p) => pageFile(p, '.css')).join('\n');
 const layoutJs = fs.readFileSync(path.join(SRC, 'layout.js'), 'utf8');
 const layoutCss = fs.readFileSync(path.join(SRC, 'layout.css'), 'utf8');
 if (!template.includes(CODEX_BODY_MARKER)) {
@@ -275,7 +282,7 @@ function _cardDescriptorSet(card) {
 // (template literals, regex) that String.replace would special-case — a
 // function replacement returns the string verbatim.
 const html = template
-  .replace('<!--@WORKBENCH_STYLE-->', () => workbenchCss + '\n' + layoutCss)
+  .replace('<!--@WORKBENCH_STYLE-->', () => workbenchCss + '\n' + pagesCss + '\n' + layoutCss)
   .replace(
     CODEX_BODY_MARKER,
     () =>
@@ -298,8 +305,10 @@ const html = template
           '\n' +
           appJs +
           '\n' +
-          workbenchJs,
-        'runtime (merge + descriptors + app.js + workbench.js)'
+          workbenchJs +
+          '\n' +
+          pagesJs,
+        'runtime (merge + descriptors + app.js + workbench.js + pages)'
       )
   );
 
