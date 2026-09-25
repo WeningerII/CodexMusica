@@ -5,9 +5,9 @@
 // Volume over completeness: every match is automatic, and anything
 // ambiguous is skipped rather than resolved by hand.
 //
-//   1. Wikidata: wbsearchentities by name; accept only a hit whose label (or
-//      alias) equals the catalog name when no other hit also does. Take its
-//      P18 image, then read license + author from the Commons API
+//   1. Wikidata: batched SPARQL over English labels/aliases, restricted to
+//      musical instruments / music genres; accept a name only when exactly
+//      one such item carries it. Take its P18 image, then read license + author from the Commons API
 //      (imageinfo/extmetadata, 50 titles per call).
 //   2. Instruments still missing: Met Open Access (Musical Instruments dept,
 //      isPublicDomain only).
@@ -43,15 +43,15 @@ for (let i = 0; i < args.length; i++) {
 const UA = 'CodexMusica-image-manifest/1.0 (https://github.com/WeningerII/CodexMusica)';
 const THUMB_WIDTH = 400;
 
-// ---- HTTP (global fetch, honours HTTPS_PROXY via undici when set) ----
-try {
-  const proxy = process.env.HTTPS_PROXY || process.env.https_proxy;
-  if (proxy) {
-    const { setGlobalDispatcher, EnvHttpProxyAgent } = require('undici');
-    setGlobalDispatcher(new EnvHttpProxyAgent());
-  }
-} catch {
-  // undici not installed: fall back to a direct connection.
+// ---- HTTP ----
+// Node's fetch ignores HTTPS_PROXY unless NODE_USE_ENV_PROXY is set at
+// startup, so re-run under it when a proxy is configured.
+if ((process.env.HTTPS_PROXY || process.env.https_proxy) && !process.env.NODE_USE_ENV_PROXY) {
+  const r = require('child_process').spawnSync(process.execPath, process.argv.slice(1), {
+    stdio: 'inherit',
+    env: { ...process.env, NODE_USE_ENV_PROXY: '1', NODE_NO_WARNINGS: '1' },
+  });
+  process.exit(r.status === null ? 1 : r.status);
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -149,47 +149,71 @@ function stripHtml(s) {
     .slice(0, 300);
 }
 
-// ---- Source 1: Wikidata + Commons ----
-async function wikidataMatch(name) {
-  for (const cand of nameCandidates(name)) {
-    const url =
-      'https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&type=item&limit=7&search=' +
-      encodeURIComponent(cand);
-    const data = await cached('wd:' + cand, () => getJson(url));
-    const hits = (data && data.search) || [];
-    const want = norm(cand);
-    const exact = hits.filter(
-      (h) =>
-        norm(h.label) === want ||
-        (h.match && h.match.type !== 'description' && norm(h.match.text) === want)
-    );
-    const usable = exact.filter(
-      (h) => !/disambiguation|wikimedia|family name|given name/i.test(h.description || '')
-    );
-    if (usable.length === 1) {
-      return {
-        qid: usable[0].id,
-        label: usable[0].label,
-        confidence: cand === name ? 'high' : 'medium',
-      };
-    }
-    // More than one exact hit is ambiguous: skip rather than guess.
-    if (usable.length > 1) return null;
-  }
-  return null;
+// ---- Source 1: Wikidata (SPARQL) + Commons ----
+// Wikidata classes a match must fall under (instance or subclass, transitively).
+const WD_CLASS = { instrument: 'Q34379', tradition: 'Q188451' }; // musical instrument, music genre
+
+function caseVariants(s) {
+  const lower = s.toLowerCase();
+  return [...new Set([s, lower, lower.charAt(0).toUpperCase() + lower.slice(1)])];
 }
 
-async function wikidataImages(qids) {
+function sparqlString(s) {
+  return '"' + s.replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"@en';
+}
+
+// One SPARQL query per batch of labels: every in-class item whose English
+// label or alias equals one of them, with its P18 image if it has one.
+async function sparqlLabelHits(labels, kind) {
+  const query =
+    'SELECT ?lab ?item ?itemLabel ?img WHERE { VALUES ?lab { ' +
+    labels.map(sparqlString).join(' ') +
+    ' } ?item rdfs:label|skos:altLabel ?lab . ?item wdt:P31?/wdt:P279* wd:' +
+    WD_CLASS[kind] +
+    ' . OPTIONAL { ?item wdt:P18 ?img } ' +
+    'SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } }';
+  const url = 'https://query.wikidata.org/sparql?format=json&query=' + encodeURIComponent(query);
+  const data = await cached('sparql:' + kind + ':' + labels.join('|'), () => getJson(url));
+  return data.results.bindings.map((b) => ({
+    label: b.lab.value,
+    qid: b.item.value.replace(/^.*\//, ''),
+    itemLabel: b.itemLabel && b.itemLabel.value,
+    file: b.img && decodeURIComponent(b.img.value.replace(/^.*\/Special:FilePath\//, '')),
+  }));
+}
+
+// A name matches when exactly one in-class item carries it (any case
+// variant); several items sharing it is ambiguous and skipped.
+async function wikidataMatches(entities) {
   const out = {};
-  for (const batch of chunk(qids, 50)) {
-    const url =
-      'https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&props=claims&ids=' +
-      batch.join('|');
-    const data = await getJson(url);
-    for (const [qid, ent] of Object.entries(data.entities || {})) {
-      const p18 = ent.claims && ent.claims.P18 && ent.claims.P18[0];
-      const file = p18 && p18.mainsnak && p18.mainsnak.datavalue && p18.mainsnak.datavalue.value;
-      if (file) out[qid] = file;
+  for (const kind of Object.keys(WD_CLASS)) {
+    const mine = entities.filter((e) => e.kind === kind);
+    const allLabels = [
+      ...new Set(mine.flatMap((e) => nameCandidates(e.name).flatMap(caseVariants))),
+    ];
+    const byLabel = {};
+    for (const batch of chunk(allLabels, 150)) {
+      for (const h of await sparqlLabelHits(batch, kind)) (byLabel[h.label] ||= []).push(h);
+      saveCache();
+    }
+    for (const e of mine) {
+      for (const cand of nameCandidates(e.name)) {
+        const hits = caseVariants(cand).flatMap((v) => byLabel[v] || []);
+        const qids = [...new Set(hits.map((h) => h.qid))];
+        if (qids.length > 1) break; // ambiguous: skip rather than guess
+        if (qids.length === 1) {
+          const withImg = hits.find((h) => h.file);
+          if (withImg) {
+            out[e.key] = {
+              qid: qids[0],
+              label: withImg.itemLabel || withImg.label,
+              file: withImg.file,
+              confidence: cand === nameCandidates(e.name)[0] ? 'high' : 'medium',
+            };
+          }
+          break;
+        }
+      }
     }
   }
   return out;
@@ -231,31 +255,25 @@ async function viaWikidata(entities, skipped) {
   const results = {};
   let matches;
   try {
-    matches = await pool(entities, opts.concurrency, async (e) => {
-      const m = await wikidataMatch(e.name);
-      return m && { ...m, key: e.key };
-    });
+    matches = await wikidataMatches(entities);
   } catch (e) {
     skipped.push({ source: 'wikidata', reason: e.message });
     return results;
   } finally {
     saveCache();
   }
-  matches = matches.filter(Boolean);
-  let images, info;
+  let info;
   try {
-    images = await wikidataImages([...new Set(matches.map((m) => m.qid))]);
-    info = await commonsInfo(Object.values(images));
+    info = await commonsInfo(Object.values(matches).map((m) => m.file));
   } catch (e) {
     skipped.push({ source: 'wikimedia_commons', reason: e.message });
     return results;
   }
-  for (const m of matches) {
-    const file = images[m.qid];
-    const meta = file && info[file.replace(/_/g, ' ')];
+  for (const [key, m] of Object.entries(matches)) {
+    const meta = info[m.file.replace(/_/g, ' ')];
     const license = meta && classifyLicense(meta.license_raw);
     if (!license) continue;
-    results[m.key] = {
+    results[key] = {
       source: 'wikidata_commons',
       wikidata: m.qid,
       source_page: meta.source_page,
@@ -299,7 +317,7 @@ async function viaMet(entities, skipped) {
             credit: o.creditLine
               ? 'The Metropolitan Museum of Art, ' + o.creditLine
               : 'The Metropolitan Museum of Art',
-            match_confidence: cand === e.name ? 'medium' : 'low',
+            match_confidence: cand === nameCandidates(e.name)[0] ? 'medium' : 'low',
             matched_label: o.title || o.objectName,
           };
           return;
