@@ -1080,8 +1080,10 @@ def _place_group(group, rng, max_token, used):
 
     A PLACEMENT PER MEMBER, uniform over what the grading path can resolve.
     Per member and not per group, because the mixed case is real and is the
-    one no letter scheme can express: 8 of the registry's 77 schemas anchor
-    one member at each end of a word, and linked rhyme binds a line-final to
+    one no letter scheme can express: ~~8~~ 7 of the registry's ~~77~~ 78 schemas
+    anchor their two members differently (`spans[0].anchor !=
+    spans[-1].anchor`; `choices.placements.measure` prints the live count),
+    and linked rhyme binds a line-final to
     a line-INITIAL. Uniform over the vocabulary means `end` is one placement
     among the ones this harness can grade rather than the axis everything
     else is measured against — which is the correction, stated as a measure.
@@ -3316,8 +3318,11 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                                 for p in _PLACE_POOL(_max_token)}),
                            "measure": "uniform per MEMBER over the pool; "
                                       "per member and not per group because "
-                                      "8 of the 77 registered schemas anchor "
-                                      "one member at each end of a word",
+                                      f"{sum(1 for _s in _RL.REGISTRY.values() if _s.spans[0].anchor != _s.spans[-1].anchor)}"
+                                      f" of the {len(_RL.REGISTRY)} registered "
+                                      "schemas anchor their two members "
+                                      "differently (spans[0].anchor != "
+                                      "spans[-1].anchor)",
                            "token_ceiling": _max_token,
                            "token_ceiling_from":
                                "the smaller of the floor's measured "

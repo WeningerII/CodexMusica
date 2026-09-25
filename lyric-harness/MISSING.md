@@ -677,6 +677,12 @@ so nothing here is being tested green while the gap is open — the entry closes
 when the grading path consults the registry, which is the relation ladder's
 own destination and not a fix this entry can make alone.
 
+2026-09-25: the two paragraphs above are kept as written. The registry is now
+~~77~~ 78 schemas since M-40 (`chain rhyme (interlocking scheme)`, a61fe4e69),
+and `quality/test_relations.py:148` (§0, `test_inventory`) pins that size; the
+schemas declaring a `Tradition(lang='eng')` are now ~~58~~ 59, measured, with
+no check pinning that count.
+
 ### E-3 · ~~Internal rhyme is two-line only~~ Internal rhyme has two windows and neither is declared ~~`PARTIAL`~~ `CLOSED` 2026-09-06 — both windows declared, the third axis renamed
 **CLOSED 2026-09-06 — THE THREE CORRECTIONS ABOVE ARE EACH A COORDINATE NOW.** (1) `rhyme_density(lex, lines, decl, window=1)`: the LINE DISTANCE cross-line matches are asked at, default 1 so every earlier reading is byte-identical, 0 for within-line only, N for every pair at distance 1..N, returned as `"window"` beside the numbers; the `density` verb takes `--window=N`, refuses a non-integer, a negative and an unknown flag at exit 2 in the one shape, and PRINTS the window on every run, default included, beside the sentence that the `internal rhyme` schema asks song-wide. (2) `internal_matches(max_span=3)` — the SYLLABLE cap under its own name; the word `window` no longer appears in that signature, and the docstring says whose coordinate the line window is. (3) The `internal rhyme` schema note states its frame — the WHOLE SONG, `Figure(frame='song')`, stanza breaks crossed — and names the other reader's declared window, so the two answers carry their coordinates. Measured on a three-line fixture whose first and third lines share two internal families and whose second shares nothing: `--window=1` finds no cross-line match, `--window=2` raises L1 and L3, `--window=0` is nowhere above 1. `quality/test_verbs.py` §58 (8 checks) is the first test to name E-3 — CITED → GUARDED, as the last line below asked.
 
@@ -2107,7 +2113,7 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > of them.** Full working: `quality/RESULTS_NON_HATTATAL.md`. Runners under
 > `scratchpad/cellAJ/`. Six rows appended to `data/sources.tsv`.
 >
-> **1 · It is NOT doctrine 44.** `quality/phonology/non.py` is ~~959~~ 969 lines (repinned 2026-09-24: the
+> **1 · It is NOT doctrine 44.** `quality/phonology/non.py` is ~~959~~ ~~969~~ 976 lines (repinned 2026-09-25: málfylling words carry no lift; repinned 2026-09-24: the
 > N-relation model's set-valued relation return) and
 > complete — six syllables, stuðlar/höfuðstafr, skothending, aðalhending, the
 > penultimate viðrhending, oddhending/hluthending, Snorri's málfylling list,
@@ -3868,7 +3874,7 @@ stotra/pada literature — Vedānta Deśika, Bilvamaṅgala, the Gosvāmins,
 `m` 1,078 times and `ṃ` 3 times; the Caurapañcāśikā does the opposite. A
 final-akṣara rhyme key is **not comparable across DCS texts without folding**.
 
-### M-15 · `RelationSchema.traditions` — ~~declared on 77 schemas and populated on ZERO~~ **75 of 77 populated, and the SOURCE is the gap** ~~`PARTIAL`~~ `CLOSED` 2026-09-06 with M-15a
+### M-15 · `RelationSchema.traditions` — ~~declared on 77 schemas and populated on ZERO~~ **~~75 of 77~~ 76 of 78 populated (measured 2026-09-25), and the SOURCE is the gap** ~~`PARTIAL`~~ `CLOSED` 2026-09-06 with M-15a
 **CLOSED 2026-09-06 — RECORD ONLY.** The only half this entry held open was the source gap, and that half is M-15a's, closed the same day (the survey inlined as `quality/canon_index.tsv`, the witness derived from it). The two schemas with no tradition, `blues AAB stanza` and `refrain by reference`, are unchanged and are the census's own reading, not an omission.
 
 The ZERO was left standing as live heading text under a blockquote that already
@@ -28503,3 +28509,147 @@ loop. X9b gained the check. This entry was written as M-311 and renumbered
 ~~M-311~~ M-312 on integration, because #394 landed its own M-311 first.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~366~~ -> **367**.
+
+### M-313 · Twelve schema names asked for a witness and a contrast: ~~five~~ four now carry quoted ones, and the other ~~seven~~ eight are blocked by named coordinates or recorded as grader findings, one of them a definition that rejects its own canonical instance and one a rule that passes a plain rhyme `PARTIAL` 2026-09-25 — one of four parallel sessions working through the census's `unvalidated` list
+
+**THE ASK.** `python3 quality/schema_census.py` listed 55 names as
+`unvalidated`. This session took the repetition and rhetorical pair figures
+(anadiplosis, antanaclasis, epistrophe / radif, homoioteleuton, incremental
+repetition, polyptoton, refrain by reference, repetition) and the non-English
+pair rhymes (dvitiyakshara-prasa, monai, qafiya (before the radif), radif).
+The bar was the census's own: grade the controls through `Reviser.grade` and
+get exactly `[True, False]`. For the non-English names the witness had to be
+real, cited, and graded under that language's own phonology, or the blocker
+recorded. No constant or threshold was moved (doctrine 58), and a failing
+exhibit was not swapped for one that passes.
+
+**WHAT IS BUILT.**
+- Every line in the new exhibits is QUOTED from a public-domain source, witness
+  and contrast alike (doctrine 94). The rows already in the table are
+  constructed; these are not. Sources are named beside each row in
+  `quality/relations.py`.
+- `DRAWABLE_EXHIBITS` gains **anadiplosis** (Keats, "Ode to a Nightingale", the
+  `forlorn` seam), **polyptoton** (Sonnet 142, sin~sinful against sin~state)
+  and **repetition** (Frost, "Stopping by Woods", the repeated last line
+  against keep~sleep). They are one contiguous, commented block.
+- `relations.CONTEXT_CONTROLS` is new. It holds rows of `(lines, witness
+  slots, contrast slots)`, and the census grades both groups in ONE mandate
+  over one draft. It takes the names that cannot be a two-line drawable row:
+  - **epistrophe / radif** (Merchant of Venice 5.1, the `ring` speech). Its
+    `refrain_tail` frame is computed from the union of the mandated lines, so
+    a two-line contrast has an EMPTY frame and REFUSES rather than
+    violating. A line without the refrain counts as a negative only in a
+    song that carries a refrain.
+  - ~~**homoioteleuton** (Sonnet 87, possessing~releasing against
+    possessing~estimate). The name is `forbidden`, and
+    `quality/test_mandate_relation.py` keeps forbidden names out of the
+    drawable table.~~ Struck on review: it is finding 8 below, a
+    `relations.WITNESS_FINDINGS` row, and no longer a context row.
+  - the three failing attempts below. The census MEASURES their verdicts on
+    every run, so no sentence has to be trusted for them (doctrine 48).
+- `schema_census.SEMANTIC_BLOCKERS` gives the known reason for each of the
+  ~~seven~~ eight (seven table rows: `radif` is not a registry name, finding
+  7), and the report prints it next to the verdicts it measured.
+  `quality/test_capabilities.py` §9 pins the ~~five~~ four `[True, False]` rows, each
+  blocker's premise, and a check that no blocker survives the schema it
+  describes starting to answer.
+
+**FINDINGS, each with the verdicts the census re-derives (witness, contrast):**
+1. **incremental repetition — the definition rejects its own canonical
+   instance.** Tennyson's `Cannon to right of them, / Cannon to left of them,`
+   comes from `corpus/song/eng_british_alfred_tennyson.txt`. RHYME_CANON R67
+   defines the figure as "repetition-with-one-controlled substitution". The
+   schema is registered as whole-line token equality, and its own note says
+   the one-slot diff is not searched for. So the witness is judged, as a
+   definite verdict, to be NOT an instance: `[False, False]`. Only verbatim
+   repetition satisfies the schema, and that is `repetition`. The first two
+   witnesses tried were Child 12 ("Lord Randal") and Chambers's "Young
+   Randal" (staged). Both REFUSED on Scots spellings CMUdict cannot read
+   (`hae`, `awa'`), and neither was used.
+2. **antanaclasis — the grade route has no `sense` seam.** Sonnet 135
+   (`Will` against `Will`) gives `[None, None]`: both refuse on `'sense'`.
+   `relations.declare_senses` exists, but `Reviser.grade` builds its own
+   stream and no mandate or argument can reach that declaration.
+3. **refrain by reference — the same defect for `stub_resolution`.** Payne,
+   "My Boyhood's Home" (`corpus/song/eng_parlour_john_howard_payne.txt`),
+   uses the printed `&c.` pointer against its referent and against a verse
+   line. Both refuse: `[None, None]`.
+4. **epistrophe / radif — a two-line negative cannot be reached** (the
+   structural reason above). Resolved by the context row, not by a threshold.
+5. **qafiya (before the radif) — the LANGUAGE coordinate.** Its traditions
+   are `ara`, `fas` and `hin` only. The grade route resolves English
+   (`revise._relation_phonology`, M-4). `ara` and `hin` declare no phonology.
+   `quality/phonology/fas.py` refuses, by design, to decide a short-vowel
+   qāfiya from unvocalised script, and the qāfiya of Hafez's first ghazal
+   (مشکل / دل) is exactly that case. An English stand-in would fake the
+   tradition, so no row was added.
+6. **dvitiyakshara-prasa and monai — LANGUAGE and SHAPE.** Telugu, Kannada
+   and Tamil declare no phonology. Sanskrit does (`san`), but the grade route
+   cannot reach it. Both figures quantify FORALL over a STANZA frame, which
+   `pair_scope_representable` rejects for a two-token mandate. So no row was
+   added: without a phonology no witness can be graded under the language's
+   own sound.
+7. **radif — not a registry name.** `radif` exists only as a
+   `rhyme_types` RhymeType label. The ghazal's radif is registered as
+   `epistrophe / radif` (Persian radīf is one of its traditions), and it is
+   covered there by an English witness. The census cannot count a separate
+   `radif`, and one was not invented.
+8. **homoioteleuton — the rule passes a plain rhyme** (found on review,
+   2026-09-25). It was counted `witness_and_contrast` on possessing~releasing
+   against possessing~estimate, and that contrast differs in RHYME as well as
+   in affix, so it could never show the rule too generous. Two quoted
+   rhymes that are not homoioteleuton now stand beside it in
+   `relations.WITNESS_FINDINGS` (`M-313 F8`), and both grade True:
+   Sonnet 87's own couplet, flatter~matter (`corpus/sonnets.txt`
+   :1512-1513), and Sonnet 18's day~May (:327,329). MEASURED, two
+   mechanisms: `morpheme_affix` AGREE holds when NEITHER word carries an
+   affix (`day` and `May` both read `''`, and `'' == ''`); and the
+   inflectional `-er` row, which takes no productivity test, cuts the
+   monomorphemic `flatter` and `matter` into `flat`+`-er` and `matt`+`-er`,
+   one shared affix. The verdicts are `[True, False, True, True]` where
+   `[True, False, False, False]` is the answer, so the name is `unvalidated`
+   with that blocker. No morphology rule and no threshold was moved to
+   change the verdict (doctrine 58).
+
+**THE CENSUS, before and after** (`python3 quality/schema_census.py`, the
+semantic line): `{'unvalidated': 55, 'regression_witness': 5,
+'witness_and_contrast': 18}` -> ~~`{'unvalidated': 50, 'regression_witness': 5,
+'witness_and_contrast': 23}`~~ (this branch alone, before review) ->
+~~`{'unvalidated': 41, 'regression_witness': 5, 'witness_and_contrast': 32}`~~
+on the integrated tree (M-311's ten witnesses, and this entry's four once
+homoioteleuton became finding 8) -> ~~`{'unvalidated': 27,
+'regression_witness': 5, 'witness_and_contrast': 46}`~~ once the intra-line
+figures route (`quality/figure_exhibits.py`) joined it: 32 on the grade route
+(28 DRAWABLE_EXHIBITS, 3 CENSUS_EXHIBITS, 1 CONTEXT_CONTROLS) and ~~14~~ on the
+figures reader, per the census's `witness_routes` -> **`{'unvalidated': 26,
+'regression_witness': 5, 'witness_and_contrast': 47}`**, 32 + 15, once #396's
+`平仄 tonal template` exhibit began declaring the sourced table
+(`quality/sourced_tables.py`, 2026-09-25) and earned on the figures reader. Sibling sessions working other groups move
+the same line. The census re-derives it on every run.
+
+**TESTED WHILE OPEN.** `quality/test_capabilities.py` §9 names this entry
+and guards what is BUILT: the ~~five~~ four `[True, False]` rows. It also pins each
+blocker's PREMISE (the refusal names `sense` / `stub_resolution`, the
+language sets, the stanza shape, the refused two-line epistrophe contrast)
+and checks that no blocker text outlives the schema starting to answer.
+It pins finding 8 as well: homoioteleuton graded `[True, False, True,
+True]`, out of every exhibit table, and both premises of its blocker
+(`flatter`/`matter` share `-er`; `day`/`May` carry none). The
+entry stays `PARTIAL` because the ~~seven~~ eight blocked names below are open. The
+test pins why they are blocked. It does not claim they are fixed.
+
+**NOT DONE.** The `sense` and `stub_resolution` seams on the grade route.
+A slot-diff definition of incremental repetition. A language coordinate on
+`Reviser` (M-4). Tamil, Telugu and Kannada phonologies. A Persian witness
+for `epistrophe / radif` graded under `fas` (the English one stands in for
+the English tradition only, and says so). A homoioteleuton rule that
+requires a shared NON-EMPTY affix, and a productivity test on the `-er`
+row: each changes a verdict, and neither is made here.
+
+**ON REVIEW (2026-09-25).** Finding 8 above. A context-row refusal that
+carries no `groups` key names no group, so `schema_census` now reads it as
+None for both controls rather than as a pass. This entry was written as
+M-311 and renumbered ~~M-311~~ M-313 on integration, because #394 landed
+its own M-311 and #398 takes M-312.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~367~~ -> **368**.

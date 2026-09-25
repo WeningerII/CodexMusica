@@ -44,7 +44,7 @@ WHAT IT DOES, in the order the errors were actually found:
      where two entries quote incompatible sizes for what they call one corpus.
 
   4. PROVENANCE.  `quality/RHYME_CANON.md` records 117 named structures with
-     `from:` lines, and `quality/relations.py` hangs 298 Tradition rows off 77
+     `from:` lines, and `quality/relations.py` hangs ~~298~~ 299 Tradition rows off ~~77~~ 78
      schemas. For each name: is there a witness that is not this project? An
      honest "unsourced" is the deliverable. A plausible fill is the
      `gabay higaad` error — a name reconstructed from this repo's own modules
@@ -2048,8 +2048,12 @@ def coverage():
 PINNED = {
     # -- RHYME_CANON.md, as the §2-block detector reads it -------------------
     "canon_entries": 117,
-    "canon_unsourced": 113,
-    "canon_year_tokens": 23,
+    # REPINNED 2026-09-25 from ~~113~~ / ~~23~~: R44 gained its first
+    # published source (Wang Li's 五絕 patterns, `quality/sourced_tables.py`),
+    # which is one entry leaving the unsourced set and four year tokens
+    # (1962, 1977, 1958, and the 2026 date of the note) entering the file.
+    "canon_unsourced": 112,
+    "canon_year_tokens": 27,
     "canon_refs_singleline": 611,
     "canon_refs_multiline": 654,
     "canon_distinct_indices": 555,
@@ -2273,7 +2277,7 @@ PINNED = {
     # gate on two relations it was never priced on -- and both instruments
     # pointed at that door still spell the pre-widening one.
     # ~~196~~ -> 197: M-139, the door moved TWICE (M-59's four relations,
-    # M-116's 77 schemas) and 17 of 19 pair-satisfaction sites moved
+    # M-116's 77 schemas, 2026-08-25) and 17 of 19 pair-satisfaction sites moved
     # neither time. `quality/door_census.py` is the census and the gate.
     # ~~207~~ -> 208: M-150, the working order's LAST step had no gate —
     # a rendered song presented with its convergence state unsaid reads
@@ -2449,7 +2453,7 @@ PINNED = {
     # `pins_per_line` is a MAXIMUM and accepted 0 of 39 seeds. The
     # calibration that would reopen the band is an owner ruling and is left
     # OPEN), pin told in the entry's own sitting.
-    "coverage_entries": 367,  # REPINNED 2026-09-25: M-312 the field asks the judge only the schemas it found; from ~~366~~ (M-311 the English pair-rhyme witnesses, same day; from ~~365~~ (2026-09-24: M-310 the evidence-gated modal ban; from ~~364~~ (2026-09-23: M-309 the N-relation model; from ~~363~~ (2026-09-22: M-308 the two connector addresses; from ~~362~~ (M-307 the cancelled nightlies, same day); from ~~361~~; previously 2026-09-21: M-306 session refusal + own onset; from ~~360~~ (M-305, same day); previously 2026-09-20 (M-304) from ~~358~~, 2026-09-19 from ~~357~~ ~~356~~ ~~355~~ ~~354~~ ~~353~~ ~~352~~ ~~351~~ ~~349~~ ~~350~~ ~~240~~ ~~253~~ ~~254~~ ~~255~~ ~~256~~ ~~257~~ ~~259~~ ~~260~~ ~~261~~ ~~262~~ ~~263~~ ~~264~~ ~~265~~ ~~266~~ ~~267~~ ~~268~~ ~~269~~ ~~270~~ ~~274~~ ~~275~~ ~~276~~ ~~277~~ ~~278~~ ~~279~~ ~~280~~ ~~281~~ ~~283~~ ~~284~~ ~~285~~ ~~286~~ ~~287~~ ~~288~~ ~~289~~ ~~290~~ ~~291~~ ~~292~~ ~~293~~ ~~296~~ ~~297~~ ~~298~~ ~~299~~ ~~300~~ ~~301~~ ~~302~~ ~~303~~ ~~304~~ ~~305~~ ~~306~~ ~~307~~ ~~308~~ ~~309~~ ~~310~~ ~~311~~ ~~312~~ ~~313~~ ~~314~~ ~~315~~ ~~316~~ ~~317~~ ~~318~~ ~~320~~ ~~321~~ ~~323~~ ~~324~~ ~~325~~ ~~326~~ ~~327~~ ~~328~~ ~~329~~ ~~330~~ ~~331~~ ~~332~~ ~~333~~ ~~335~~ ~~336~~ ~~337~~ ~~338~~ ~~339~~ ~~340~~ ~~341~~ ~~342~~ ~~343~~ ~~344~~ ~~345~~ ~~346~~ ~~347~~ ~~348~~: M-183..M-296 (M-205 entered late))
+    "coverage_entries": 368,  # REPINNED 2026-09-25: M-313 the repetition-figure and non-English pair witnesses; from ~~367~~ (M-312 the field asks the judge only the schemas it found, same day; from ~~366~~ (M-311 the English pair-rhyme witnesses, same day; from ~~365~~ (2026-09-24: M-310 the evidence-gated modal ban; from ~~364~~ (2026-09-23: M-309 the N-relation model; from ~~363~~ (2026-09-22: M-308 the two connector addresses; from ~~362~~ (M-307 the cancelled nightlies, same day); from ~~361~~; previously 2026-09-21: M-306 session refusal + own onset; from ~~360~~ (M-305, same day); previously 2026-09-20 (M-304) from ~~358~~, 2026-09-19 from ~~357~~ ~~356~~ ~~355~~ ~~354~~ ~~353~~ ~~352~~ ~~351~~ ~~349~~ ~~350~~ ~~240~~ ~~253~~ ~~254~~ ~~255~~ ~~256~~ ~~257~~ ~~259~~ ~~260~~ ~~261~~ ~~262~~ ~~263~~ ~~264~~ ~~265~~ ~~266~~ ~~267~~ ~~268~~ ~~269~~ ~~270~~ ~~274~~ ~~275~~ ~~276~~ ~~277~~ ~~278~~ ~~279~~ ~~280~~ ~~281~~ ~~283~~ ~~284~~ ~~285~~ ~~286~~ ~~287~~ ~~288~~ ~~289~~ ~~290~~ ~~291~~ ~~292~~ ~~293~~ ~~296~~ ~~297~~ ~~298~~ ~~299~~ ~~300~~ ~~301~~ ~~302~~ ~~303~~ ~~304~~ ~~305~~ ~~306~~ ~~307~~ ~~308~~ ~~309~~ ~~310~~ ~~311~~ ~~312~~ ~~313~~ ~~314~~ ~~315~~ ~~316~~ ~~317~~ ~~318~~ ~~320~~ ~~321~~ ~~323~~ ~~324~~ ~~325~~ ~~326~~ ~~327~~ ~~328~~ ~~329~~ ~~330~~ ~~331~~ ~~332~~ ~~333~~ ~~335~~ ~~336~~ ~~337~~ ~~338~~ ~~339~~ ~~340~~ ~~341~~ ~~342~~ ~~343~~ ~~344~~ ~~345~~ ~~346~~ ~~347~~ ~~348~~: M-183..M-296 (M-205 entered late)))
                               # (the delegation sitting: the loop trio, the
                               # whole-draft exit, the deploy, the staged
                               # resources, the connector coordinates, the

@@ -83,7 +83,7 @@ C7	accentuation classes of croes/traws: cytbwys acennog, cytbwys ddiacen, anghyt
 C8	cynghanedd sain	Welsh	external	named	no	quality/phonology/cym.py _sain(); WebSearch summaries of cy.wikipedia Cynghanedd sain and standard descriptions
 C9	cynghanedd sain gadwynog	Welsh	external	named	yes	WebSearch summary of cy.wikipedia Cynghanedd sain (host egress-blocked to direct fetch)
 C10	cynghanedd sain lafarog	Welsh	external	named	no	WebSearch summary of cy.wikipedia Cynghanedd sain; the vowel-alliterates-vowel principle corroborated by non.py's Háttatal quotation
-C11	cynghanedd sain drosgl	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd gwers 8/9 (cs.ox.ac.uk)
+C11	cynghanedd sain drosgl	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd gwers 8/9 (cs.ox.ac.uk); worked example 2026-09-25: Gwaith Guto'r Glyn poem 1 l.11n (ed. Barry J. Lewis) classifies `Y marchog dyledog daid` as sain drosgl
 C12	cynghanedd sain ddwbl / sain deirodl	Welsh	external	named	no	names only, from a WebSearch result listing; no definition obtained
 C13	cynghanedd lusg	Welsh	project	module	no	quality/phonology/cym.py llusg(); standard descriptions
 C14	cynghanedd lusg gudd / lusg gyswllt	Welsh	external	named	yes	WebSearch summary of cy.wikipedia Cynghanedd lusg (unverified example)

@@ -1100,20 +1100,22 @@ precondition: empty
 name: lyrics-draft
 kind: widget
 selector: '#lyrics-draft'
-surface: shared workbench
-implementation: src/workbench.js
+surface: Lyrics — the draft text (Edit mode); the one source of the document, outline and checks
+implementation: src/pages/lyrics.js (committed through uiSaveLyrics in src/workbench.js)
 status: reachable
 precondition: empty
+notes: Every script write (Undo, restore, import, a writer's lyrics) reaches the page through its value setter, so the view never shows stale text.
 ```
 
 ```yaml
 name: lyrics-use-recipe
 kind: widget
 selector: '[data-ui="attach-recipe"]'
-surface: shared workbench
-implementation: src/workbench.js
+surface: Lyrics — Write with AI menu and Writer panel — Use current recipe (prefills the lyrics writer; sends nothing)
+implementation: attach-recipe in src/pages/lyrics.js
 status: reachable
 precondition: empty
+notes: The only recipe input to lyric work, and explicit. Lyric work never writes the recipe.
 ```
 
 ```yaml
@@ -1492,4 +1494,863 @@ surface: Your recipe header — Autosaved / Not autosaved / Autosave failed, the
 implementation: uiRenderAutosave in src/workbench.js (#ui-autosave stays the live region)
 status: reachable
 precondition: empty
+```
+
+## Lyrics page (2026-09-25)
+
+The Lyrics page redesign (`src/pages/lyrics.js`, `src/pages/lyrics.css`): a
+spacious document with sections and an outline, one active review decision at
+a time, history and safe recovery, and the writing tools. Lyric work goes
+through the one AI writer; nothing here writes the recipe.
+
+```yaml
+name: lyrics-document-read-edit
+kind: widget
+selector: '[data-ui="ly-view"]'
+surface: Lyrics — document toolbar: Read (sections, numbered sung lines, returns, marks) / Edit (the draft text)
+implementation: lyRenderDoc / ly-view in src/pages/lyrics.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-line-tools
+kind: data-action
+selector: '#surface-lyrics [data-ui="ly-view"][data-id="read"]'
+surface: Lyrics — Read: select a line to get Rhyme link, Rhythm, Pronunciation, Used n times and Edit line for that exact line
+implementation: ly-line / ly-line-tool in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Line buttons render with the document; the Read control that shows them is the stable anchor.
+```
+
+```yaml
+name: lyrics-add-section
+kind: data-action
+selector: '[data-ui="ly-add-section"]'
+surface: Lyrics — + Section menu and Song → Add section: Verse, Pre-chorus, Chorus, Bridge, Intro, Outro, Hook, Refrain, Other name
+implementation: lyInsertSection in src/pages/lyrics.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-find
+kind: widget
+selector: '[data-ui="ly-find-open"]'
+surface: Lyrics — Find: marks matches in the document, n of m lines, previous/next (Enter / Shift+Enter), Escape closes
+implementation: lyFindStep / lyFindClose in src/pages/lyrics.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-display
+kind: widget
+selector: '[data-ui="ly-menu"][data-id="display"]'
+surface: Lyrics — Display: text size, line numbers, setup and stamps in Read
+implementation: ly-text-size / ly-numbers / ly-setup-rows (UILayout.remember) in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Layout preferences under codex-layout:*, never in the session; Reset layout restores them.
+```
+
+```yaml
+name: lyrics-outline
+kind: widget
+selector: '#ly-song-body'
+surface: Lyrics — Song → Sections: numbered outline with line counts, declared bars and meter, Same as / Used n times, a mark per section with review items; select to jump
+implementation: lyRenderSong in src/pages/lyrics.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-section-actions
+kind: data-action
+selector: '#ly-song-body [data-ui="ly-menu"]'
+surface: Lyrics — each section's menu: Move up, Move down, Duplicate, Rhythm…, Remove (also in Structure & story)
+implementation: ly-sec-move / ly-sec-dup / ly-sec-remove via lyEditSections in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Non-drag reordering. Line-number declarations (rhyme groups, returns) follow their lines; members on removed lines are dropped and reported in the toast. Every change is one Undo step.
+```
+
+```yaml
+name: lyrics-plan
+kind: widget
+selector: '[data-ui="ly-song-tab"][data-id="plan"]'
+surface: Lyrics — Song → Plan: the writer's creation steps (sweep, screen, plan, grade, revise) and the run's declarations, labelled as planning information
+implementation: lyPlanHtml in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Read from the writer's task and lyric record (chatState); an empty state explains that plans come from the writer.
+```
+
+```yaml
+name: lyrics-song-setup
+kind: widget
+selector: '#ly-setup-list [data-ui="ly-tool"]'
+surface: Lyrics — Song setup: Structure & story, Rhythm & timing, Rhymes & word rules, Language & readings, each with a summary of what is declared
+implementation: lyRenderSong in src/pages/lyrics.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-new-or-import
+kind: data-action
+selector: '[data-ui="ly-import"]'
+surface: Lyrics — New song or import…: New song with the writer, Import a text file (replaces the draft, one Undo step), Start a blank draft
+implementation: ly-import / ly-blank / new-lyrics in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Imported text is kept exactly (line endings normalised).
+```
+
+```yaml
+name: lyrics-new-song-writer
+kind: data-action
+selector: '[data-ui="new-lyrics"]'
+surface: Lyrics — Write with AI → New song; Writer panel → New song
+implementation: new-lyrics → uiNewTask('lyrics') in src/pages/lyrics.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-edit-with-writer
+kind: data-action
+selector: '[data-ui="edit-lyrics"]'
+surface: Lyrics — Write with AI → Edit this draft; Writer panel → Edit this draft (prefills the edit writer with the exact draft)
+implementation: edit-lyrics in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: The prefill is a script write; _chatSyncCount keeps the counter honest past the ceiling (scripts/check_chat_counter.js). Every text this page sends the writer leaves out the [SETUP] rows, because the harness reads each whole-line bracket as a section mark (lyric-harness/quality/recover.py); their values travel in the JSON declarations block, and the rows stay in the stored draft. Before a helper starts a new conversation over a run that is waiting or parked, it asks, and says the run will be archived (or ended when no saved copy exists). Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
+```
+
+```yaml
+name: lyrics-writer-panel
+kind: widget
+selector: '#lyrics-chat'
+surface: Lyrics — side panel → Writer: the one AI writer, hosted here on the Lyrics route
+implementation: uiNavigate appends #chat-dock here (src/workbench.js); page chrome in src/pages/lyrics.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-review-draft
+kind: data-action
+selector: '[data-ui="ly-review"]'
+surface: Lyrics — Review draft: opens Review on the first tab that has items
+implementation: ly-review in src/pages/lyrics.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-review-tabs
+kind: widget
+selector: '#ly-review [data-ui="ly-rtab"]'
+surface: Lyrics — Review: Issues / Needs input / Notes with counts; one item at a time with previous/next and Up next
+implementation: lyRenderReview in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Missing input (open readings, broken links, unjudged coverage, a waiting question) is its own tab, distinct from defects and advisory notes. Run findings are labelled as the writer's and marked stale once the draft moves on. "Finished · certified" (header, History and the Review note) holds only while the sung lines equal the certified draft and the [SETUP] rows equal the request's; otherwise it reads "Last run certified an earlier draft". Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
+```
+
+```yaml
+name: lyrics-check-and-apply
+kind: data-action
+selector: '#ly-review [data-ui="ly-rtab"][data-id="issue"]'
+surface: Lyrics — Review → a writer suggestion: Original / Suggested, Check & apply, Write my own, Keep mine, Explore rhyme words, Rewrite both lines
+implementation: lyCheckApply in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Check & apply re-reads the current draft and verifies the exact suggestion against it (same line text, same numbering, a single sung line), refuses when the [SETUP] rows differ from the ones the request carried, and refuses when this page's exact local checks find an issue the change would add, before one undoable write; on failure the original stays and the reason is shown. It does not re-grade rhyme or meter. A whole writer draft that came without its request is labelled "Replace with the writer's draft" and says it is unchecked. Undo brings an applied suggestion back. Manual edits clear earlier check results. Selector anchors the Issues tab; suggestion cards exist only after a writer reply. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
+```
+
+```yaml
+name: lyrics-history-recovery
+kind: data-action
+selector: '[data-ui="ly-pane"][data-id="history"]'
+surface: Lyrics — History & recovery: writer status (running, interrupted with Recover, waiting for an answer, parked, uncertain proposal, cannot continue), last reply, saved runs, stamps
+implementation: lyRenderHistory in src/pages/lyrics.js; recovery through #chat-recover (src/app.js)
+status: reachable
+precondition: empty
+notes: Recover reads the saved outcome and never re-sends; an uncertain or capacity-stopped run has no resume button. Nothing unresolved is shown as finished. Waiting, parked and uncertain are read only from the live conversation (chatState.lyric), so a run archived by a reset is never shown as waiting or resumable. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
+```
+
+```yaml
+name: lyrics-export
+kind: data-action
+selector: '[data-ui="ly-menu"][data-id="export"]'
+surface: Lyrics — Export: Copy with headers (exact draft), Copy sung lines only, Download as text
+implementation: copy-lyrics / ly-copy-sung / ly-download in src/pages/lyrics.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-writing-tools
+kind: widget
+selector: '[data-ui="ly-tools-toggle"]'
+surface: Lyrics — Writing tools bar and drawer: Structure & story, Rhymes & word rules, Rhythm & placement, Language & readings, Returns & voices, All checks, Export
+implementation: lyRenderTools in src/pages/lyrics.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-rhyme-links
+kind: data-action
+selector: '#ly-tools [data-ui="ly-tool"][data-id="rhymes"]'
+surface: Lyrics — Rhymes & word rules: relation, rhyme links at any place (last rhyme, first word, word n…, overlapping), title, hook line, must-include and avoid words, Explore rhyme words
+implementation: lyToolRhymes and ly-link-* / ly-title-save / ly-hook-save / ly-word-add in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Written as [SETUP — …] lines in the harness's own spelling (e.g. 3,4;5.head,13.head). Must-include and avoid are exact local checks; everything else is declared to the writer.
+```
+
+```yaml
+name: lyrics-rhythm-placement
+kind: data-action
+selector: '#ly-tools [data-ui="ly-tool"][data-id="rhythm"]'
+surface: Lyrics — Rhythm & placement: per-section meter, bars and pickup, declared into the section header
+implementation: lyToolRhythm / ly-rhythm-save in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Declared only: no tempo is assumed and nothing is inferred.
+```
+
+```yaml
+name: lyrics-pronunciation
+kind: data-action
+selector: '#ly-tools [data-ui="ly-tool"][data-id="pronunciation"]'
+surface: Lyrics — Language & readings: readings bound to an exact line and sung-word position (needs a choice / supplied ARPABET with basis and source / uncertain); identical lines share; changed lines show stale
+implementation: lyToolPronunciation / ly-reading-save in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Token positions follow lyric_harness.line_tokens; supplied phones are validated like quality/pronunciation.py.
+```
+
+```yaml
+name: lyrics-returns-voices
+kind: data-action
+selector: '#ly-tools [data-ui="ly-tool"][data-id="returns"]'
+surface: Lyrics — Returns & voices: exact section returns, repeated lines with counts, declare returns, parentheses sung or unsung
+implementation: lyToolReturns in src/pages/lyrics.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-all-checks
+kind: data-action
+selector: '.ly-tool-tabs [data-ui="ly-tool"][data-id="checks"]'
+surface: Lyrics — All checks: this page's exact facts, and the writer's last reply (status, tool exit codes, coverage answered / not judged / not requested)
+implementation: lyToolChecks in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: No overall score; an interrupted or stopped run is never shown as finished.
+```
+
+```yaml
+name: lyrics-page-resize
+kind: drag-drop
+selector: '#ly-body > .layout-splitter'
+surface: Lyrics — song outline and side panel edges: drag, or arrow keys; Home resets
+implementation: UILayout.splitter in the lyrics page layout()
+status: reachable
+precondition: empty
+notes: Above 1000px (outline) and 760px (side panel) of page width; Reset layout clears both.
+```
+
+```yaml
+name: lyrics-declared-melody
+kind: widget
+selector: '#ly-tools [data-ui="ly-tool"][data-id="rhythm"]'
+surface: Lyrics — Rhythm & placement → Declared melody (optional, advanced): meter, beat groups, bars per line, ticks per beat and the note/rest events
+implementation: lyMelodyHtml / lyParseMelody / ly-melody-save in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Validated to lyric-harness/MELODY.md (groups of 2 and 3 summing to the beats, subdivision 1/2/4, events summing to bars × beats × subdivision, at least one pitch) and passed to the writer as the tools' melody object. Labelled as an instruction; pitch, underlay and performance are not certified.
+```
+
+```yaml
+name: lyrics-line-placement
+kind: widget
+selector: '#ly-tools [data-ui="ly-tool"][data-id="rhythm"]'
+surface: Lyrics — Rhythm & placement → Line placement (advanced): per line bar, starting beat and length in beats, section by section
+implementation: lyPlacementHtml / lyParsePlacement / ly-place-save in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Declared only, never derived from the words; renumbered with section moves; a bar outside the section's declared span is an issue. Passed to the writer as line_placement.
+```
+
+```yaml
+name: lyrics-story-intentions
+kind: widget
+selector: '#ly-tools [data-ui="ly-tool"][data-id="structure"]'
+surface: Lyrics — Structure & story → Story plan: one job per sung section and the junction it enters by; Turn the story layer off; Clear
+implementation: lyStoryHtml / lyParseNarrative / ly-story-save in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Written in the harness's narrative spelling (ESTABLISH,COMPLICATE/BUT,…). A record for the writer, not a gate; a plan whose count no longer matches the sung sections is listed under Needs input.
+```
+
+```yaml
+name: lyrics-structured-answer
+kind: data-action
+selector: '#ly-review [data-ui="ly-rtab"][data-id="input"]'
+surface: Lyrics — Review → Needs input → "The writer is waiting for an answer about lines …": the writer's question, one answer field per asked line, Put my answer in the writer
+implementation: lyRunChecks (waiting item) and ly-answer in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Continues the same conversation (uiChatOpen, no reset) with the answer filled in as L<n> rows; nothing is sent until Ask. Selector anchors the Needs input tab; the item exists only while a run waits in the live conversation, and the action refuses once that conversation has been reset. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
+```
+
+```yaml
+name: lyrics-placed-returns
+kind: data-action
+selector: '#ly-tools [data-ui="ly-tool"][data-id="returns"]'
+surface: Lyrics — Returns & voices → Placed returns: members at a place (first word, whole line, last word, word n) across lines
+implementation: lyPlacedHtml / ly-placed-save in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Kept alongside the exact returns in one declaration in the harness's spelling (e.g. 5.head,13.head); Declare these exact returns keeps placed ones.
+```
+
+## Genre page redesign (2026-09-25)
+
+The Genre page (`src/pages/genre.js`, `src/pages/genre.css`): a Browse column (the 25 taxonomy roots, the current branch, Find a sound) beside the catalogue (Start exploring / All genres, List or Grid), with Your recipe as the shell's sidebar. On a fresh session Start exploring opens the first starter recipe (Delta blues) in place, so its five detail tabs resolve under `empty`. Selectors below are presence checks; the interactions were exercised in Chromium for the PR (targets filter and rank, tab keys, both instrument destinations, View on map and back, list position on return).
+
+```yaml
+name: genre-view-tabs
+kind: widget
+selector: '#surface-genre [data-ui="genre-view-tab"]'
+surface: Genre — Start exploring / All genres (tab list; Arrow keys, Home, End)
+implementation: genre-view-tab and gpTabKeys in src/pages/genre.js
+status: reachable
+precondition: empty
+notes: A search always shows All genres; the six starter recipes, Suggestions for this recipe (when Your recipe has a primary genre) and Browse all live under Start exploring.
+```
+
+```yaml
+name: genre-layout-list-grid
+kind: widget
+selector: '#surface-genre [data-ui="genre-layout"]'
+surface: Genre — List / Grid (the same rows as cards; an open genre spans the grid)
+implementation: genre-layout in src/pages/genre.js; remembered as the layout preference codex-layout:genre-view, cleared by Reset layout
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-browse-roots
+kind: data-action
+selector: '#genre-browse [data-ui="genre-branch"]'
+surface: Genre — Browse column: the taxonomy roots (ten, then All 25 categories), a branch's children, Back; counts include cross-listed members and equal the list they open
+implementation: gpBrowse / gpMembership in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-browse-all-roots
+kind: data-action
+selector: '#genre-browse [data-ui="genre-roots"]'
+surface: Genre — Browse: All 25 categories / Fewer categories
+implementation: genre-roots in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-browse-disclosure
+kind: widget
+selector: '#genre-browse [data-ui="genre-browse-toggle"]'
+surface: Genre — narrow catalogue (phones, or the editor open beside it): Categories & find a sound, naming the branch and targets in force; Browse tree stays in the heading row
+implementation: genre-browse-toggle in src/pages/genre.js; shown by the discovery container query in src/pages/genre.css
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-find-a-sound
+kind: widget
+selector: '#genre-browse input[type="range"][data-axis]'
+surface: Genre — Find a sound: one compact row per sound characteristic, its two ends either side of the slider (acoustic ——o—— processed / synthesized); three shown, All 13 characteristics for the rest. Moving, clicking or Enter applies a target; an applied row is outlined, bolds the end it leans to, shows its ×, and its value is the slider's value text and a chip above the list. The characteristic's name is the slider's label and tooltip. A Browse column too narrow for the ends beside the slider stacks them above it
+implementation: gpApplyAxis / gpResults in src/pages/genre.js — keeps genres within one step of every target and ranks by total distance, the engine's --axis-target rule (scripts/search.js findClosestTraditionByAxis)
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-find-a-sound-all-13
+kind: data-action
+selector: '#genre-browse [data-ui="genre-axes"]'
+surface: Genre — Find a sound: All 13 characteristics / Fewer characteristics
+implementation: genre-axes in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-find-a-sound-clear
+kind: data-action
+selector: '#genre-browse .gp-axis-clear'
+surface: Genre — Find a sound: clear one target (the × on an applied row, and the matching chip above the list); Reset clears all
+implementation: genre-sound-clear / genre-sound-reset in src/pages/genre.js
+status: reachable
+precondition: empty
+notes: The per-row clear is rendered hidden until its target applies (presence check only). Reset and Match a sound are disabled, with the hint "Choose a target, then match.", until one applies.
+```
+
+```yaml
+name: genre-find-a-sound-match
+kind: data-action
+selector: '#genre-browse [data-ui="genre-sound-match"]'
+surface: Genre — Match a sound: opens the genre closest to the targets (first of the ranked All genres list)
+implementation: genre-sound-match in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-detail-tabs
+kind: widget
+selector: '#genre-detail [role="tab"][data-ui="genre-tab"]'
+surface: Genre detail — Overview / Sound profile / Instruments / Similar sounds / Background (tab list; Arrow keys, Home, End)
+implementation: gpDetail / gpSetTab in src/pages/genre.js
+status: reachable
+precondition: empty
+notes: Opens in place in its row, or at the top when the genre is not in the current list (a deep link, Similar sounds, the Map). Close (Esc) returns focus to the row it came from and puts it back in view.
+```
+
+```yaml
+name: genre-detail-sound-targets-from-profile
+kind: data-action
+selector: '#genre-detail [data-ui="genre-sound-from"]'
+surface: Genre detail — Sound profile / Similar sounds: Use as sound targets (sets all 13 targets to this genre's profile and lists the genres within one step)
+implementation: genre-sound-from in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-detail-instrument-destination
+kind: widget
+selector: '#genre-detail #gp-inst-dest'
+surface: Genre detail — Instruments: "Add single instruments to" this genre (set up as it plays it; the group is created if absent), another genre already in Your recipe, or an independent instrument
+implementation: gpInstruments / gpAddInstrument in src/pages/genre.js — the canonical addInstrumentFromPicker path; the toast names the destination
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-detail-instrument-add
+kind: data-action
+selector: '#genre-detail [data-ui="genre-inst-add"]'
+surface: Genre detail — Instruments: Add one instrument to the chosen destination (also Inspect on the Instrument page, Listen, and Add the whole ensemble)
+implementation: gpAddInstrument in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-detail-view-on-map
+kind: data-action
+selector: '#genre-detail [data-ui="genre-map"]'
+surface: Genre detail — View on map: the Map opens with this tradition selected; the toast offers Back to <genre>, and Back or the Genre tab return to the same detail
+implementation: gpViewOnMap in src/pages/genre.js (the atlas's ?trad= deep link)
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-detail-background-references
+kind: widget
+selector: '#genre-detail #gp-panel-background'
+surface: Genre detail — Background: About, Lineage, Classification (primary path and cross-listings, "not a claim of historical descent"), Recordings & references (the catalog's exemplar artists with Listen searches; catalog status). Nothing is added that the catalog does not hold
+implementation: gpBackground in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-row-open
+kind: widget
+selector: '#genre-list .gp-row .gp-open'
+surface: Genre — a list row: picture, name, branch, description; the text column fills the row up to Listen and Add to recipe, and the chevron sits at the row's right edge. The name button opens the details in place (keyboard route); a click anywhere else on the row that is not a control does the same
+implementation: gpRow and the row click listener in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-media-photo-or-glyph
+kind: widget
+selector: '#surface-genre .gp-media'
+surface: Genre — a genre's picture in rows, cards and details. When references/_image_manifest.json is served (PR #389), a tradition with an entry shows its thumb_url with "Photo: <credit> · <licence>" (linked to the source page in the details); without an entry, without the manifest (a 404 is one quiet request, no script error), or when the image fails to load, the tradition's glyphs show whole and no credit is left behind
+implementation: gpLoadOptional / gpIndexImages / gpImage / gpMedia and the image error listener in src/pages/genre.js
+status: reachable
+precondition: empty
+notes: Presence check only (the glyph fallback always renders). The photo path was exercised in Chromium with PR #389's manifest served and the thumbnails stubbed, since the sandbox cannot reach Wikimedia.
+```
+
+```yaml
+name: genre-explore-map
+kind: data-action
+selector: '#genre-browse [data-ui="genre-explore-map"]'
+surface: Genre — Browse column: Explore the map
+implementation: genre-explore-map in src/pages/genre.js
+status: reachable
+precondition: empty
+```
+
+## Map page (2026-09-25)
+
+The Map page redesign (`docs/ui-foundation.md` → Map). Everything below lives
+inside the atlas (`atlas.html`, `src/atlas.js`, `src/map-ui.js`, `src/map.css`),
+which the Map view embeds as `#map-frame` and which also runs standalone. The
+reachability gate evaluates `codex.html` only and cannot see into the frame, so
+each entry's `selector` is the frame (its entry point) and `notes` names the
+in-frame selectors and what verifies them: `scripts/test_atlas_controls.js`
+(panels, filters, routes, collections, search), `scripts/check_layout_usability.js`
+(search results inside the viewport, embedded and standalone, 360–1920 px) and
+`scripts/check_ui_foundation.js` E (Add genre reports what arrived). The rest was
+verified in a browser for this change; a frame-aware gate is a shell request.
+
+```yaml
+name: map-search
+kind: widget
+selector: '#map-frame'
+surface: Map toolbar — search by name, place or catalog id, plus sound words; results list with glyphs, and a Sound-word match block saying which descriptors lit extra traditions and that they matched by descriptor, not name
+implementation: onQuery in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #search, #results [data-tid], .results-sound. ArrowDown from the field walks the results. No-results text names the query and suggests a place, id or sound word. test_atlas_controls.js 3 and 5; check_layout_usability.js.
+```
+
+```yaml
+name: map-filter-chips
+kind: widget
+selector: '#map-frame'
+surface: Map toolbar — one chip per constraint in force (genre groups, collection, search), each with its own remove button, plus Clear filters; "No filters" when none
+implementation: syncControls in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #filter-summary [data-clear], #clear-filters, #no-filters. Chips are rebuilt from state on every change, so a route (which clears filters) or a collection (which replaces groups and search) leaves no stale chip. A route is shown as its own map chip, not a filter. test_atlas_controls.js 1, 3, 4, 5, 6.
+```
+
+```yaml
+name: map-side-tabs
+kind: widget
+selector: '#map-frame'
+surface: Map side column — Genres, Routes and Collections tabs (aria-expanded for open, a dot and bold label for an applied filter), collapse to a rail, resizable edge; below 900px a bottom tab bar with In view, each opening a sheet over the map
+implementation: setPanel, setCollapsed, syncSide in src/atlas.js; splitter in src/map-ui.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #t-territories, #t-routes, #t-threads, #t-inview, #t-collapse, .layout-splitter. Collapse is a codex-layout preference reset by Reset layout. Sheets close on an outside tap or Escape and return focus to their tab. test_atlas_controls.js 1.
+```
+
+```yaml
+name: map-genre-groups
+kind: widget
+selector: '#map-frame'
+surface: Map → Genres — all taxonomy groups with glyph (hue + shape), label and count; pick to show only those groups; Clear
+implementation: renderLegend, toggleRoot in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #legend-panel [data-root] (aria-pressed), [data-act="clear-roots"]. Each group's (hue, shape) pair is read from the theme palette by the canvas and the DOM alike, so the marker and its legend entry always agree and colour is never the only cue. Choosing a group ends a collection. test_atlas_controls.js 1 and 4.
+```
+
+```yaml
+name: map-key
+kind: widget
+selector: '#map-frame'
+surface: Map — on-map key of the groups in view (toggle each), what a bubble means (documented scenes, not abundance; ring = group shares), All groups, Hide/Show
+implementation: renderKey in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #legend-key [data-key-root], [data-act="toggle-key"], [data-act="all-groups"]. Hidden state is a codex-layout preference. Hidden below 900px, where the Genres sheet is the legend.
+```
+
+```yaml
+name: map-routes
+kind: widget
+selector: '#map-frame'
+surface: Map → Routes — every catalogued route; choosing one clears filters, fits it, draws it solid and numbers its endpoints 1 and 2 in source order; genre endpoints open their detail, place endpoints are labelled as places; a route chip on the map clears it; Hide routes
+implementation: renderRoutes, pickRoute, clearRoute, drawRouteEnds in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #routes-panel [data-route] (aria-current, aria-expanded), .route-ends [data-tid], [data-act="hide-routes"], #route-chip [data-act="clear-route"]. The curve claims no path or intermediate stop. test_atlas_controls.js 6.
+```
+
+```yaml
+name: map-collections
+kind: widget
+selector: '#map-frame'
+surface: Map → Collections — each collection with its size; choosing one replaces groups and search, fits it, and lists its stops (not a route) with Clear; a stop's detail offers Back to collection
+implementation: renderThreads, pickThread, renderThreadCard, exitThread in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #threads-panel [data-thid], #thread-card [data-tid], [data-act="exit-thread"], [data-act="back-thread"]. No line joins the stops. test_atlas_controls.js 2, 3, 7.
+```
+
+```yaml
+name: map-in-view
+kind: widget
+selector: '#map-frame'
+surface: Map side column — In view: every tradition in the current view (after filters), grouped by region with counts; Show all in a region expands in place
+implementation: syncList in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #list [data-tid], [data-expand] (aria-expanded). Nothing in view says which filters are in force. check_layout_usability.js waits on its rows.
+```
+
+```yaml
+name: map-location-chooser
+kind: widget
+selector: '#map-frame'
+surface: Map — At this location: a bubble that cannot be zoomed apart, or pins sharing a pixel, list every member grouped by glyph, with Find a tradition here, Arrow/Home/End/Enter, and Back to in view (or Back to the map on a phone)
+implementation: openStack, renderStack, renderStackList, wireStack in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #stack, #stack-filter, #stack-list [data-tid], [data-act="close"]. Docked it takes the column and the tab it displaced returns on Back; Escape or Back returns focus to the map. A screen-reader status reports the match count while filtering.
+```
+
+```yaml
+name: map-tradition-inspector
+kind: widget
+selector: '#map-frame'
+surface: Map — tradition inspector: classification path, name and place, Listen (external YouTube search), Add genre (embedded) or Open in Codex Musica (standalone), "Added n of m instruments" / failure with Retry, Open on the Genre page, background, Default recipe (not Your recipe; Copy default, Show full), Similar sounds with their basis (shared sound words named per row) or the stated fallback, collections and routes including it, Location and sources (documented place, drawn position, model-reviewed vs human-verified status, id, JSON)
+implementation: select, renderCard, requestAdd and the genre-added listener in src/atlas.js; src/pages/map.js relays add-genre and genre-web
+status: reachable
+precondition: 'map view'
+notes: In-frame #card, [data-act="add"], .add-status, [data-act="genre-page"], [data-act="copy"], [data-act="toggle-recipe"], [data-act="retry-detail"], [data-open-thread], [data-open-route], .card-sources. A thumbnail appears only when references/_image_manifest.json lists one with a credit or licence, which is shown beneath it; otherwise the group glyph. check_ui_foundation.js E (add reports what arrived); test_atlas_controls.js 6, 7.
+```
+
+```yaml
+name: map-view-controls
+kind: keyboard-shortcut
+selector: '#map-frame'
+surface: Map — zoom in/out, Reset view, Fit route / collection / selection / results (shown only when there is something to fit); the focused map pans with arrow keys (Shift for more), zooms with + and -, resets with 0; drag, wheel and pinch
+implementation: setupCanvas, zoomAt, fitTarget, fitPoints, resetView in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #zoom-in, #zoom-out, #zoom-reset, #zoom-fit, #canvas-host (tabindex 0, role application with its keys in the label).
+```
+
+```yaml
+name: map-information
+kind: widget
+selector: '#map-frame'
+surface: Map toolbar — Map information: bubbles count documented scenes, not abundance; pins drawn, model-reviewed and human-verified counts kept separate; how filters combine; imagery and projection; Reset layout
+implementation: renderProvenance, setInfo in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #t-info (aria-expanded), #provenance, [data-act="reset-layout"]. Escape or an outside click closes it.
+```
+
+```yaml
+name: map-panel-layout
+kind: drag-drop
+selector: '#map-frame'
+surface: Map — side column, inspector and key each have Move / Resize / Reset (drag or arrow keys, Home resets); the column and inspector resize from their inner edge; Reset layout restores all
+implementation: UILayout.floating / UILayout.splitter registered in src/map-ui.js
+status: reachable
+precondition: 'map view'
+notes: In-frame .layout-panel-tools, .layout-splitter. A panel moved out of its column gives the column back to the map. Desktop widths only (900px and up); sheets below.
+```
+
+```yaml
+name: map-standalone-atlas
+kind: widget
+selector: '#map-frame'
+surface: atlas.html on its own (and the published standalone build) — the same map, panels and inspector in Light and Dark, with Open in Codex Musica instead of Add genre
+implementation: atlas.html, scripts/build_atlas_standalone.js (shell) inlining src/atlas.js, src/map-ui.js, src/map.css
+status: reachable
+precondition: 'map view'
+notes: check_layout_usability.js loads atlas.html standalone at every width; check_ui_foundation.js A applies the stored theme before first paint.
+```
+
+## Instrument page (src/pages/instrument.js)
+
+The Instrument route is the reference layout: categories and sound properties, the catalogue, and an inspector that configures an instrument **before** it is added, over the Your recipe dock (`recipe: 'dock'`). The inspector works on a preview card built by the canonical engine (`makeCard` with the destination's `traditionCardOpts`, the seed `addInstrumentFromPicker` uses); choices run through `applyPartEdit(card, part, { quiet: true })`, `inverseConfigureForPreface` and the editor's plain environment/chain writes. Photos come from `CODEX_IMAGE_MANIFEST`, inlined by `scripts/build_html.js` from `references/_image_manifest.json` (the file is on main since #389), each with its credit and licence. The preview never enters `app.cards`. Its inspector entries use the `instrument picker open, similar drill-down active` precondition, which opens it on `voice` (via `uiOpenSurface`).
+
+```yaml
+name: instrument-categories
+kind: data-action
+selector: '#instrument-body .ip-cats [data-ui="instrument-family"]'
+surface: Instrument — Categories column (All instruments and the 11 families, with the count matching the current search and filters)
+implementation: ipRenderCategories; instrument-family / instrument-all actions in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open
+```
+
+```yaml
+name: instrument-sound-properties
+kind: widget
+selector: '#instrument-body details.ip-prop input[data-ui="instrument-filter"]'
+surface: Instrument — Sound properties, the engine's 15 filters grouped as disclosures (Behaviour, Voicing, Pitch, Register, Sound source, Expressiveness), each with the number that would match
+implementation: IP_FILTER_GROUPS over INSTRUMENT_FILTER_PILLS; passesInstrumentFilter (AND) in src/app.js
+status: reachable
+precondition: instrument picker open
+notes: Grouping only — the predicates are INSTRUMENT_FILTER_PREDS. A pill the engine adds later appears under "More properties". Conflicting properties (never true together in the catalogue) are named in the no-results state, which offers to remove each one.
+```
+
+```yaml
+name: instrument-sort-and-view
+kind: widget
+selector: '#instrument-body #ip-sort'
+surface: Instrument list header — Sort (Name A–Z, Name Z–A, Most customizable) and List / Grid
+implementation: ipSorted; ip-view action (UILayout.remember 'instrument-view') in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open
+```
+
+```yaml
+name: instrument-add-destination
+kind: widget
+selector: '#instrument-destination'
+surface: Instrument header — Add to (Independent instrument or a genre in Your recipe); the inspector's Add to mirrors it
+implementation: ipSyncDestination in src/pages/instrument.js; read by uiAddInstrument in src/workbench.js
+status: reachable
+precondition: instrument picker open
+```
+
+```yaml
+name: instrument-categories-disclosure
+kind: data-action
+selector: '[data-ui="ip-cats"]'
+surface: Instrument — "Categories and sound properties" button that discloses the left column when the page is narrow (phone, or an editor open beside it)
+implementation: ip-cats action in src/pages/instrument.js; container query in src/pages/instrument.css
+status: reachable
+precondition: instrument picker open
+```
+
+```yaml
+name: instrument-inspector-tabs
+kind: data-action
+selector: '#instrument-preview [role="tab"][data-ui="ip-tab"]'
+surface: Instrument inspector — Character, Parts, Environment, Signal chain, Output (arrow keys move between tabs)
+implementation: ipRenderInspector in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-inspector-part-options
+kind: widget
+selector: '#instrument-preview input[type="radio"][data-ip-part]'
+surface: Instrument inspector → Parts — every part's options, each with its added (+), kept and removed (struck) descriptors against the current choice; long lists get a filter
+implementation: ipRenderParts / ipOption / ipOptionDescs; ipChoose → applyPartEdit (src/app.js)
+status: reachable
+precondition: instrument picker open, similar drill-down active
+notes: Parts expand on demand (ip-part). Parts carrying the universal cross-instrument materials show "More materials — any wood/string on any instrument (n)" as a searchable disclosure inside the part (data-ip-more); every material stays reachable. voice has none, so that disclosure is not asserted under this precondition.
+```
+
+```yaml
+name: instrument-inspector-not-set
+kind: widget
+selector: '#instrument-preview input[type="radio"][data-ip-part][value=""]'
+surface: Instrument inspector → Parts — "Not set" as an explicit option for every part; carried onto the added card as null
+implementation: ipOption in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-inspector-character
+kind: widget
+selector: '#instrument-preview #ip-pref-q'
+surface: Instrument inspector → Character — current character (automatic or chosen), the suggestion for the configured sound, search across the preface lexicon, Back to automatic
+implementation: ipRenderCharacter; ipApply 'preface' → inverseConfigureForPreface (same cascade as commitPrefaceChange)
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-inspector-character-browser
+kind: widget
+selector: '#instrument-preview details.ip-pcat[data-ip-pcat]'
+surface: Instrument inspector → Character — the character category browser (the editor's 16 categories with glyphs and counts, Expand all / Collapse all, Recently used; searching shows every hit grouped by category)
+implementation: ipRenderCharacter / ipPrefaceCategory over prefaceGroups, PREFACE_CAT_ORDER, prefaceGlyphsHTML and load/recordPrefaceRecent (src/app.js); a pick runs ip-preface → inverseConfigureForPreface on the preview
+status: reachable
+precondition: instrument picker open, similar drill-down active
+notes: Same grouping, search predicate and recents as the editor's Browse modal (renderPrefaceModalBody); categories render their chips when opened.
+```
+
+```yaml
+name: instrument-inspector-environment
+kind: widget
+selector: '#instrument-preview select[data-ip-env="room"]'
+surface: Instrument inspector → Environment — tuning and room (Not set or any catalog entry), and which card supplies the recipe's one rendered environment (envCardOf)
+implementation: ipRenderEnv in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-inspector-signal-chain
+kind: widget
+selector: '#instrument-preview select[data-ip-fx="fx"]'
+surface: Instrument inspector → Signal chain — all eight CHAIN_SECTIONS stages; Effects take any number (add and remove), the others Not set or one item
+implementation: ipRenderChain in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-inspector-output
+kind: data-action
+selector: '#instrument-preview [data-ui="ip-format"]'
+surface: Instrument inspector → Output — the previewed instrument in Rich, Tags, Prose or Compact (compileStack), character count and Copy
+implementation: ipRenderOutput; ip-copy → copyToClipboard
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-add-configured
+kind: data-action
+selector: '#instrument-preview [data-ui="ip-add-configured"]'
+surface: Instrument inspector — "Add configured instrument" (or "Add instrument" when nothing was changed) to the named destination; Your changes lists what differs from the catalog default and what moved to match, with Review descriptor changes (added / removed / kept) and Reset
+implementation: ipAddConfigured → uiAddInstrument(id, { configure, message }) → addInstrumentFromPicker(id, { configure }) (canonical picker path); configure copies the preview's parts, pins, character, environment and chain onto the new card before its one history entry
+status: reachable
+precondition: instrument picker open, similar drill-down active
+notes: The added card keeps the previewed catalog id (canonical identity); the toast names the destination and the number of chosen settings. Undo removes the whole addition in one step.
+```
+
+```yaml
+name: instrument-inspector-similar
+kind: data-action
+selector: '#instrument-preview [data-ui="ip-similar"]'
+surface: Instrument inspector — Similar instruments (closest by sound axes, naming the closest axes), each with Listen and Add; opening one keeps a Back trail
+implementation: findSimilarInstruments / getMatchingInstrumentAxes (src/app.js); ip-similar and ip-trail-back in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-inspector-close
+kind: data-action
+selector: '#instrument-preview [data-ui="close-preview"]'
+surface: Instrument inspector — Close (also Escape, last in the Escape order); focus returns to the row that opened it
+implementation: uiCloseInstrumentPreview in src/pages/instrument.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+```
+
+```yaml
+name: instrument-your-recipe-dock
+kind: widget
+selector: '#surface-instrument'
+surface: Instrument — Your recipe as the dock under the page (select, duplicate, remove, pin, move to another genre and variations stay on its rows and in the shared editor)
+implementation: uiRegisterPage({ recipe: 'dock' }) in src/pages/instrument.js; dock presentation in src/workbench.css
+status: reachable
+precondition: instrument picker open
 ```

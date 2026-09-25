@@ -2022,7 +2022,7 @@ def _reachable_phonetically(canon):
 #: `relations.Refusal`, imported lazily and cached, so `rhyme_types` keeps
 #: costing nothing for a mandate that declares no schema. A module-level
 #: `from quality import relations` here would make every `import rhyme_types`
-#: pay for the 77-schema registry.
+#: pay for the ~~77~~ 78-schema registry.
 def _SchemaRefusal_cls():
     from quality import relations as _R
     return _R.Refusal
@@ -2054,13 +2054,20 @@ def _placements_of(canon):
 #: honest answer is a refusal naming the placement, never `False`.
 INTRA_LINE_PLACEMENTS = frozenset((
     "same_line", "same_token", "at_caesura", "at_lift", "lift_index",
-    "spans_overlap", "a_is_split_token"))
+    "spans_overlap"))
+#: `a_is_split_token` LEFT THIS SET 2026-09-25. It says member A is a token
+#: the line edge cuts; it says nothing about where member B is, and for the
+#: one schema declaring it (`broken rhyme`) B is the END of ANOTHER line —
+#: Lear's `roo-` | `Matiz` answered by `Kangaroo` on the next. Filed here, the
+#: schema was intra-line by placement while its figure spans the break, so
+#: `figures.line_figures` dropped every instance as cross-line and the mandate
+#: judge refused it as a one-line property. It is a line-pair relation.
 
 
 def _all_same_line(canon):
     """Is every placement this schema declares an intra-line one?
 
-    An UNPLACED schema (10 of the 77) answers False: it declares no
+    An UNPLACED schema (~~10 of the 77~~ 8 of the 78) answers False: it declares no
     constraint, so its instances may well be line pairs and an empty result
     from it means looked-and-none, not cannot-ask.
     """
@@ -2185,11 +2192,14 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
                 f"caller must pass `lines=(i, j)` beside `instances=`.")
         i, j = sorted(lines)
         if not instances and _all_same_line(canon):
-            # AN INTRA-LINE FIGURE ASKED AS A PAIR RELATION. 19 of the 77
-            # schemas declare `same_line`/`same_token` placement: they are
-            # properties of ONE line, so a mandate group can never satisfy
-            # one and answering False would charge the writer for asking a
-            # question the schema does not answer (doctrine 20).
+            # AN INTRA-LINE FIGURE ASKED AS A PAIR RELATION. 19 of the
+            # ~~77~~ 78 schemas declare `same_line`/`same_token` placement
+            # (and 21 answer `_all_same_line`, which also takes the rest
+            # of INTRA_LINE_PLACEMENTS and a `line`/`token` frame --
+            # `python3 quality/figures.py` prints that count): they are properties of ONE line, so a mandate
+            # group can never satisfy one and answering False would charge
+            # the writer for asking a question the schema does not answer
+            # (doctrine 20).
             raise RelationRefused(
                 f"{canon!r} is an INTRA-LINE figure (placement "
                 f"{', '.join(_placements_of(canon)) or 'unplaced'}), so it "

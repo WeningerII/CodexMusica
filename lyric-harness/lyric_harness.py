@@ -4373,7 +4373,7 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                          if s["relations"] & RHYME_RELATIONS
                          else f"unintended {relation_label(s)} across "
                               f"scheme letters, NOT a rhyme"))
-    # ALL 77 SCHEMAS ARE IN THE DEFAULT (M-116), judged by
+    # ALL ~~77~~ 78 SCHEMAS ARE IN THE DEFAULT (M-116), judged by
     # `relations.whole_vocabulary_pairs` — THE SAME CALL
     # `quality.revise.grade` makes, so the two readers consult one judge
     # (doctrine 1). REPEAT stays a violation — identity has its own licence
@@ -6591,7 +6591,8 @@ VERB_LAYERS = (
     ("partition", "quality/schemes.py", "set partitions, Bell numbers"),
     ("refrain", "quality/schemes.py", "A-1 notation: the VERBATIM return"),
     ("cycle", "quality/meter.py", "exact-rational metric cycles"),
-    ("relations", "quality/relations.py", "77 named relation schemas"),
+    ("relations", "quality/relations.py", "~~77~~ 78 named relation "
+     "schemas (`len(relations.REGISTRY)` is the count)"),
     ("brief / verify / song", "quality/revise.py",
      "the revision loop -- song adds a structural pre-check against "
      "quality/grid.py, then shares this same report"),
@@ -10235,7 +10236,7 @@ def main():
                              line_status=ground.line_status,
                              exclude_status=ground.exclude_status)
         # --schema= IS A SUBSTRING FILTER OVER THE POPULATION THE TWO COUNTS
-        # BELOW ARE TAKEN FROM, and an unmatched value used to filter all 77
+        # BELOW ARE TAKEN FROM, and an unmatched value used to filter all ~~77~~ 78
         # schemas out and print `schemas finding something: 0   refusing on a
         # capability eng does not have: 0` at exit 0 -- the SAME SHAPE as a
         # genuine null, wrapped in the two paragraphs about how to read these
@@ -10255,7 +10256,7 @@ def main():
         #     whose denominator was silently changed is doctrine 91's defect
         #     exactly. The filter stays a substring match on purpose -- it is
         #     how `--schema=rhyme` reaches a family -- so saying HOW MANY of
-        #     the 77 it selected is the only way a reader can tell a narrow
+        #     the ~~77~~ 78 it selected is the only way a reader can tell a narrow
         #     filter from a wide one.
         all_schemas = list(RL.all_schemas().values())
         selected = [s for s in all_schemas
@@ -10392,8 +10393,9 @@ def main():
               "every schema with no bounded line-distance placement, and "
               "`internal rhyme` to sit BELOW chance at lift 0.897.")
         print("   2. CLAIMS ABOUT A TRADITION — unless the row says so. "
-              f"scope: {scope}. `traditions` is now sourced on 75 of 77 "
-              "schemas (M-15 closed), so a hit is labelled IN TRADITION, "
+              f"scope: {scope}. `traditions` is now sourced on "
+              f"{sum(1 for _s in RL.REGISTRY.values() if _s.traditions)} of "
+              f"{len(RL.REGISTRY)} schemas (M-15 closed), so a hit is labelled IN TRADITION, "
               "[RULE SHAPE ONLY], [SOURCE SILENT] where the citing canon "
               "entry names no tradition, or [UNSOURCED SCHEMA]. When 'Middle "
               "Chinese end rhyme (同用 group)' fires on English the RULE "

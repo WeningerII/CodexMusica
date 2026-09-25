@@ -1494,7 +1494,7 @@ def _render_section_8(omissions=None):
     w("   any kind and a neighbour's was read onto them.")
     w("4. **It does not touch `gabay higaad`.** §0 records that Somali appears in no inventory cell and")
     w("   that the name entered the canon from repo doctrine alone. There is no index to inline and no")
-    w("   witness to recover; `relations.py` scopes Somali to zero of the 77 schemas, which is what the")
+    w("   witness to recover; `relations.py` scopes Somali to zero of the ~~77~~ 78 schemas, which is what the")
     w("   source says, and the mechanical form of that is a zero rather than a plausible list.")
     w("5. **It does not check its own CONSTRUCTION, and re-running it never will.** Every figure above")
     w("   is computed, which closes the transcription defect and no other. `--render` reproduced this")

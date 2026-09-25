@@ -1538,10 +1538,25 @@ class DirectedDiffer(Predicate):
             # honest answer is the refusal, not whichever reading sorts first.
             return Read(None, False, "uncertain reading; direction undecidable")
         x, y = next(iter(_alts(x))), next(iter(_alts(y)))
-        try:
-            return Read(self.order.index(x) < self.order.index(y), True)
-        except ValueError:
+        rx, ry = self._rank(x), self._rank(y)
+        if rx is None or ry is None:
             return Read(None, False, "outside the declared order")
+        return Read(rx < ry, True)
+
+    def _rank(self, v):
+        # A member of `order` is either one symbol or a CLASS of symbols (a
+        # tuple/frozenset). A class exists because the order is a fact about
+        # VOWEL QUALITY while the channel holds a phonology's own SYMBOL: the
+        # schema's ("i","a","o") is written in the tradition's letters, and
+        # the eng phonology emits ARPABET (ding-dong is IH ~ AO), so a
+        # letter-only order put every English nucleus `outside the declared
+        # order` and the schema could not fire on any English line
+        # (2026-09-25, quality/figure_exhibits.py FINDING, now struck).
+        v = str(v).rstrip("012")
+        for i, m in enumerate(self.order):
+            if v == m or (isinstance(m, (tuple, frozenset)) and v in m):
+                return i
+        return None
 
 
 @dataclass(frozen=True)
@@ -2026,6 +2041,21 @@ class Placement:
             if c is None:
                 return False
             c = c if isinstance(c, tuple) else (c,)
+            # WHOLE HALVES MUST MEET AT ONE CUT (2026-09-25). Half-line spans
+            # are enumerated per caesura candidate and paired as a cartesian
+            # product, so A from the cut at 2 met B from the cut at 5 and the
+            # words between belonged to neither half: `Na lloer | na lliw`
+            # read as groes with `na llewyrch` dropped. When both members span
+            # a WHOLE half -- A from the line head, B to the line end -- they
+            # must partition the line. A member that is a sub-span of its half
+            # (leonine's stressed words) keeps the old test: some cut lies
+            # between them. (A cut cannot be read off `Span.origin`: pairs are
+            # de-duplicated by index, which keeps the first cut's origin.)
+            li = U[a.head()].line
+            line = stream.lines[li]
+            if a.head() == line[0] and b.tail() == line[-1] \
+                    and b.head() != a.tail() + 1:
+                return False
             return any(a.tail() < x <= b.head() for x in c)
         if k == "syllable_index_from_head":
             li = U[a.head()].line
@@ -2145,8 +2175,8 @@ class Figure:
     template: object = None        # 平仄: one member against a declared pattern
 
     def __post_init__(self):
-        # Validated HERE, at the declaration, so a typo in one of 77 schemas
-        # refuses at import rather than falling through `assemble()`'s
+        # Validated HERE, at the declaration, so a typo in one of ~~77~~ 78
+        # schemas refuses at import rather than falling through `assemble()`'s
         # if/elif chain to silent no-op (the shape `unmatched` was fixed for
         # in `RelationSchema.__post_init__`, defect P15).
         object.__setattr__(self, "quantifier",
@@ -2163,7 +2193,7 @@ PAIR = Figure()
 #: What `unmatched` may say about the material the alignment left over, and
 #: THE LIST IS MEASURED AGAINST `evaluate()` RATHER THAN RECALLED (defect P15).
 #: The field's own comment used to read `exclude | differ | forbid`: 'differ'
-#: is implemented by nothing and declared by none of the 77 schemas, while
+#: is implemented by nothing and declared by none of the ~~77~~ 78 schemas, while
 #: 'require_a' and 'require_b' -- the two values `evaluate()` actually branches
 #: on, and the only thing keeping semirhyme and apocopated rhyme from
 #: collapsing into perfect rhyme -- were absent from the vocabulary they
@@ -2196,7 +2226,7 @@ class RelationSchema:
     def __post_init__(self):
         # `unmatched` had FOUR implemented values and its own comment named
         # three, one of which -- 'differ' -- is implemented nowhere and
-        # declared by none of the 77 schemas (defect P15).  An undeclared value
+        # declared by none of the ~~77~~ 78 schemas (defect P15).  An undeclared value
         # silently took the 'exclude' path, so a typo and a policy read the
         # same.  Refuse at construction, where the declaration is written.
         if self.unmatched not in UNMATCHED:
@@ -2302,6 +2332,42 @@ def _cluster_scoped(channel, rule):
     """
     return (channel == "consonants" and rule is not None
             and rule.anchor in _VOWEL_ANCHORS and rule.direction > 0)
+
+
+def _class_skeleton_read(pred, a, b, stream, chans, cr, schema):
+    """The cynghanedd skeleton pair, STOPPED WHERE THE LINE'S ACCENTUATION
+    CLASS SAYS (2026-09-25, `quality/figure_exhibits.py` FINDINGS).
+
+    `sequence` reads every consonant of each half, final coda included, so
+    `A llyma fyd | llwm i fardd` compared ll-m-f-d with ll-m-f-r-dd and a
+    textbook cytbwys acennog groes read False; on the 1862 Llywelyn Goch
+    cywydd the route found groes on 0 of 108 lines. RHYME_CANON R35 says the
+    skeleton runs "up to a stress-determined stop", and WHERE it stops is
+    decided by BOTH ends together -- the class table `cym.Welsh.DOSBARTH`.
+    That rule is the phonology's, and it is CALLED here rather than restated
+    (doctrine 1): a phonology that declares `answer(first, second)` supplies
+    both skeletons. One that does not (the English imitation path) keeps the
+    whole-half `sequence` read, byte-identical to before.
+
+    A class the tradition does not write as a consonantal cynghanedd
+    (`answer` gives a class and no skeletons, e.g. anghytbwys ddyrchafedig)
+    is a definite False WITH THE REASON. A half with no diweddeb at all (no
+    accent, or unreadable) is None: the placement cannot be judged.
+    """
+    answer = getattr(stream.phon, "answer", None)
+    if not callable(answer):
+        ra = schema.spans[0] if schema.spans else None
+        rb = schema.spans[-1] if schema.spans else None
+        return pred(_seq(a, stream, cr.channel, chans, cr.surface, rule=ra),
+                    _seq(b, stream, cr.channel, chans, cr.surface, rule=rb))
+    ta = " ".join(u.token_text for u in _span_tokens(a, stream))
+    tb = " ".join(u.token_text for u in _span_tokens(b, stream))
+    got = answer(ta, tb)
+    if got.get("first") is None or got.get("second") is None:
+        if got.get("class"):
+            return Read(False, True, got.get("why") or got["class"])
+        return Read(None, False, got.get("why") or "no accentuation class")
+    return pred(tuple(got["first"]), tuple(got["second"]))
 
 
 def _post_vocalic(span, stream, chans, surface):
@@ -2419,7 +2485,11 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
         # declaration supplies none; a caller reaching `evaluate()` directly
         # gets the predicate's own refusal instead of a verdict at the identity.
         pred = _bind_quotient(cr.predicate, stream)
-        if cr.scope == "sequence":
+        if cr.scope == "class_skeleton":
+            mine.append((cr.channel, -1,
+                         _class_skeleton_read(pred, a, b, stream, chans, cr,
+                                              schema)))
+        elif cr.scope == "sequence":
             ra = schema.spans[0] if schema.spans else None
             rb = schema.spans[-1] if schema.spans else None
             xa = _seq(a, stream, cr.channel, chans, cr.surface, rule=ra)
@@ -2657,13 +2727,13 @@ def mirrored(a, b, a_keys, b_keys):
 
     `realise()` skipped every pair whose A-member started after its B-member,
     on the stated ground that "members are in TEXT ORDER".  On a SYMMETRIC
-    schema -- `spans[0] == spans[1]`, 60 of the 77 shipped -- that is exact
-    de-duplication: A and B are the same list, so (b, a) is enumerated too and
+    schema -- `spans[0] == spans[1]`, ~~60 of the 77~~ 61 of the 78 shipped --
+    that is exact de-duplication: A and B are the same list, so (b, a) is enumerated too and
     one of the two orderings has to go.  On an ASYMMETRIC schema the two
     members come from DIFFERENT rules, so (b, a) is generally NOT enumerated
     and the skip DELETED the instance instead of canonicalising it.
 
-    Measured on `metidja.txt` (16 non-blank lines, `eng`, 48 of the 77
+    Measured on `metidja.txt` (16 non-blank lines, `eng`, 48 of the 77 before 2026-08-22,
     schemas realising): the rule drops 14,254 candidate pairs whose mirror is
     a candidate, and RECOVERS 114 instances the positional rule deleted.
 
@@ -4795,7 +4865,13 @@ declare(RelationSchema(
     placement=(Placement("a_is_split_token"),),
     note="forces the SPAN TERMINATOR value 'frame edge' as distinct from "
          "'word edge'. Needs the LINE as input, which the stream has and a "
-         "word-pair comparator never did."))
+         "word-pair comparator never did. A LINE-PAIR relation since "
+         "2026-09-25 (`rhyme_types.INTRA_LINE_PLACEMENTS` dropped "
+         "`a_is_split_token`): the split token closes one line and its "
+         "partner closes another, so the figures reader, which keeps only "
+         "same-line instances, could never report it. On the pair route "
+         "Lear's `roo-` | `Kangaroo` REFUSES -- CMUdict has no `roo` -- "
+         "which is a missing pronunciation, not a missing rule."))
 
 declare(RelationSchema(
     name="enjambed rhyme",
@@ -4820,6 +4896,15 @@ declare(RelationSchema(
     note="perfect rhyme with frame=TOKEN. A tokeniser that treats "
          "higgledy-piggledy as one word makes the relation invisible."))
 
+#: The I > A > O order of English ablaut reduplication (ding-dang-dong,
+#: tick-tock, zig-zag), as vowel CLASSES. Each class carries the tradition's
+#: letter AND the General American ARPABET nuclei that realise it, because
+#: the channel holds the phonology's symbol and the declaration must be
+#: written in a notation some shipped phonology emits. AA sits with O: in
+#: the declared dialect `tock`, `hop`, `flop` are AA, and the A slot of the
+#: canonical words (dang, zag, chat, flap) is AE.
+ABLAUT_ORDER = (("i", "IH", "IY"), ("a", "AE"), ("o", "AO", "AA", "OW"))
+
 declare(RelationSchema(
     name="ablaut reduplication",
     spans=(SpanRule("token_first_half", "word_start", 1, "whole"),
@@ -4827,11 +4912,13 @@ declare(RelationSchema(
     align="flush_left",
     channels=(ChannelRule("onset", AGREE, "each"),
               ChannelRule("coda", AGREE, "each"),
-              ChannelRule("nucleus", DirectedDiffer(order=("i", "a", "o")),
+              ChannelRule("nucleus", DirectedDiffer(order=ABLAUT_ORDER),
                           "each")),
     placement=(Placement("same_token"),), figure=Figure(frame="token"),
     note="THE SOLE FORCING CASE for DIRECTED-DIFFER: ding-dang-dong, never "
-         "dong-dang-ding. The order is a DECLARED coordinate."))
+         "dong-dang-ding. The order is a DECLARED coordinate, ABLAUT_ORDER: "
+         "three vowel CLASSES, each spelled in the tradition's letter and in "
+         "the ARPABET the eng phonology emits."))
 
 declare(RelationSchema(
     name="exact reduplication",
@@ -4861,15 +4948,23 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="leonine rhyme",
-    spans=(SpanRule("half_line_a", "last_stressed", -1, 1),
-           SpanRule("half_line_b", "word_end", -1, 1)),
-    align="flush_left",
-    channels=(ChannelRule("nucleus", AGREE, "first"),
-              ChannelRule("coda", AGREE, "first")),
+    spans=(SpanRule("half_line_a", "last_stressed", 1, "to_word_end"),
+           SpanRule("half_line_b", "last_stressed", 1, "to_word_end")),
+    align="anchor",
+    channels=(ChannelRule("nucleus", AGREE, "each"),
+              ChannelRule("coda", AGREE, "each")),
+    unmatched="forbid",
     placement=(Placement("same_line"), Placement("at_caesura")),
     identity=(DISTINCT,),
     note="requires the caesura, so it REFUSES where none is printed, declared "
-         "or searched -- doctrine 55."))
+         "or searched -- doctrine 55. BOTH MEMBERS ARE ANCHORED AT THEIR "
+         "HALF'S LAST STRESS AND RUN TO THE WORD END (fixed 2026-09-25, "
+         "quality/figure_exhibits.py FINDINGS): member B was `word_end`, one "
+         "syllable, so a feminine rhyme compared the STRESSED syllable of "
+         "the caesura word with the UNSTRESSED last syllable of the line and "
+         "Poe's dreary/weary could never answer. `unmatched='forbid'` keeps "
+         "a monosyllable from matching the head of a longer tail "
+         "(I / tired)."))
 
 declare(RelationSchema(
     name="cross rhyme",
@@ -5072,7 +5167,7 @@ declare(RelationSchema(
 declare(RelationSchema(
     name="cynghanedd groes",
     spans=(HALF_A, HALF_B), align="none",
-    channels=(ChannelRule("consonants", SequenceEqual(), "sequence"),),
+    channels=(ChannelRule("consonants", SequenceEqual(), "class_skeleton"),),
     placement=(Placement("same_line"), Placement("at_caesura")),
     identity=(DISTINCT,), requires=("caesura",),
     note="neither span is a word, the spans have different word counts, and "
@@ -5084,7 +5179,7 @@ declare(RelationSchema(
     name="cynghanedd draws",
     spans=(HALF_A, HALF_B), align="none",
     channels=(ChannelRule("consonants", SequenceSuffix(min_bridge=1),
-                          "sequence"),),
+                          "class_skeleton"),),
     placement=(Placement("same_line"), Placement("at_caesura")),
     identity=(DISTINCT,), requires=("caesura",),
     note="A head-anchored and TOTAL, B tail-anchored and SEARCHED. A checker "
@@ -5145,9 +5240,20 @@ declare(RelationSchema(
     align="flush_left",
     channels=(ChannelRule("onset", AGREE, "first"),),
     placement=(Placement("same_line"),), normative="deprecated",
+    identity=(DISTINCT,),
+    figure=Figure(nodes=3, edges=((0, 1, "odl"), (1, 2, "drosgl")),
+                  frame="line"),
     note="THE FORCING CASE FOR ANCHOR BEING DECLARED PER MEMBER: the tradition "
          "has a NAME for the case where the two members of one relation are "
-         "located by DIFFERENT anchor rules. 'Trosgl' means clumsy."))
+         "located by DIFFERENT anchor rules. 'Trosgl' means clumsy. It is a "
+         "SAIN: the figure is sain's own (an odl, then a consonant answer "
+         "chained through the middle word), and only the answering edge is "
+         "this span pair. Until 2026-09-25 it was the bare edge -- any two "
+         "words of a line whose onsets agreed at those two anchors -- and it "
+         "fired on 103 of the Llywelyn Goch cywydd's 108 lines. The answering "
+         "edge also requires the MIDDLE word's stress NOT to be word-initial "
+         "(Gwaith Guto'r Glyn 1.11n: `Y marchog dyledog daid`); where the two "
+         "anchors coincide the figure is plain sain."))
 
 declare(RelationSchema(
     name="cynghanedd lusg",
@@ -5862,7 +5968,7 @@ def check_inert(stream):
 
 
 # ---------------------------------------------------------------------------
-# 11. TRADITIONS.  M-15: `RelationSchema.traditions` was declared on all 77
+# 11. TRADITIONS.  M-15: `RelationSchema.traditions` was declared on all 77 (until 2026-08-11)
 #     schemas and populated on ZERO, so "Middle Chinese end rhyme (同用 group)"
 #     fired on four lines of English and nothing in the output could say that
 #     the RULE SHAPE had matched and the tradition had not (doctrine 43).
@@ -6872,11 +6978,16 @@ def print_relation_report(rep, limit=None):
 # The null sweep still decides what the harness may assert on its OWN
 # initiative.  It does not decide what a writer may ask for by name.
 #
-# WHAT THIS FUNCTION DOES NOT CLAIM.  Only 29 of the 77 schemas declare
-# `both_line_final`, which is the placement a `--groups=` mandate expresses;
-# 19 more are cross-line at some other placement, 19 are INTRA-line figures
-# (a property of one line, which no pair mandate can ask about), and 10
-# declare no placement at all.  Routing here does not make an intra-line
+# WHAT THIS FUNCTION DOES NOT CLAIM.  Only ~~29 of the 77~~ 30 of the 78
+# schemas declare `both_line_final` (29 with positive polarity), which is the
+# placement a `--groups=` mandate expresses; ~~19~~ ~~20~~ 21 more are
+# cross-line at some other placement, ~~19~~ ~~20~~ 19 are INTRA-line figures
+# by a placement in `rhyme_types.INTRA_LINE_PLACEMENTS` (a property of one
+# line, which no pair mandate can ask about), and ~~10~~ 8 declare no
+# placement at all (re-derived 2026-09-25 from `s.placement`; the four sets
+# partition the registry; re-derived again the same day after #392 took
+# `a_is_split_token` off the intra-line placements, which moved `broken
+# rhyme` from the intra-line set to the cross-line one).  Routing here does not make an intra-line
 # figure into a rhyme relation — it makes every schema whose instances ARE
 # line pairs answerable, and leaves the rest to refuse honestly with their
 # placement named.
@@ -7545,6 +7656,39 @@ DRAWABLE_EXHIBITS = {
         ("Gazed they on this scene of beauty",
          "As Portala and his soldiers,", "1", "2")),
     # ── end of the English end / pair rhymes block ────────────────────────
+    # -- REPETITION AND RHETORICAL PAIR FIGURES (M-313, 2026-09-25) --------
+    # Unlike the rows above, every line here is QUOTED from a public-domain
+    # poem, witness and contrast alike, so the exhibit is an instance of the
+    # tradition and not a constructed input (doctrine 94). The contrast is
+    # the same poem's own neighbouring line or word, chosen to stand in none
+    # of the figure at the declared slots. Sources, verbatim modern spelling:
+    #   anadiplosis  Keats, "Ode to a Nightingale" (1819), the seam between
+    #                stanzas 7 and 8; contrast = stanza 8, lines 1-2.
+    #   polyptoton   Shakespeare, Sonnet 142 (1609), lines 1-2, sin~sinful;
+    #                contrast = lines 1 and 3, sin~state (onset agrees, root
+    #                does not).
+    #   repetition   Frost, "Stopping by Woods on a Snowy Evening" (1923,
+    #                US public domain since 2019), lines 15-16; contrast =
+    #                lines 14-15, keep~sleep (a rhyme, not a repetition).
+    # `epistrophe / radif` is in `CONTEXT_CONTROLS` below and the forbidden
+    # `homoioteleuton` in `WITNESS_FINDINGS` above (M-313 F8, on review);
+    # M-313 says why neither can be a row here.
+    "anadiplosis": (
+        ("Of perilous seas, in faery lands forlorn.",
+         "Forlorn! the very word is like a bell", "1", "2"),
+        ("Forlorn! the very word is like a bell",
+         "To toll me back from thee to my sole self!", "1", "2")),
+    "polyptoton": (
+        ("Love is my sin, and thy dear virtue hate,",
+         "Hate of my sin, grounded on sinful loving:", "1.T4", "2.T7"),
+        ("Love is my sin, and thy dear virtue hate,",
+         "O, but with mine compare thou thine own state,", "1.T4", "2.T9")),
+    "repetition": (
+        ("And miles to go before I sleep,",
+         "And miles to go before I sleep.", "1", "2"),
+        ("But I have promises to keep,",
+         "And miles to go before I sleep,", "1", "2")),
+    # -- end of the M-313 block --------------------------------------------
 }
 
 
@@ -7672,6 +7816,99 @@ WITNESS_FINDINGS = {
     "sung-delivery rhyme": ("M-311 F5", ()),
     "transformative / bent rhyme": ("M-311 F5", ()),
     "wrenched rhyme": ("M-311 F5", ()),
+    # -- HOMOIOTELEUTON (M-313 F8, 2026-09-25, on review) ------------------
+    # Every line QUOTED, as `corpus/sonnets.txt` prints it (doctrine 94).
+    # Sonnet 87, :1500-1502: possessing~releasing share `-ing` and no stem
+    # (the witness), and possessing~estimate is the quatrain's other rhyme
+    # (differs in affix and in rhyme, so it proves only that the judge can
+    # say no). The two rows after it are what show the rule too generous:
+    # Sonnet 87's own couplet, :1512-1513, flatter~matter — two
+    # monomorphemic words that the segmenter reads as `flat`+`-er` and
+    # `matt`+`-er` (the inflectional rows take no productivity test,
+    # `quality/morphology.py`) — and Sonnet 18, :327,329, day~May, where
+    # NEITHER word carries an affix and `morpheme_affix` AGREE still holds
+    # ('' == ''). Both are rhymes, not homoioteleuton, and both grade True.
+    # No morphology rule or threshold moved (doctrine 58).
+    "homoioteleuton": (
+        "M-313 F8 (morpheme_affix AGREE passes a plain rhyme)", (
+        (("Farewell! thou art too dear for my possessing,",
+          "And like enough thou know’st thy estimate,",
+          "The charter of thy worth gives thee releasing;"),
+         ("1", "3"), None, True),
+        (("Farewell! thou art too dear for my possessing,",
+          "And like enough thou know’st thy estimate,"),
+         ("1", "2"), None, False),
+        (("Thus have I had thee, as a dream doth flatter,",
+          "In sleep a king, but waking no such matter."),
+         ("1", "2"), None, False),
+        (("Shall I compare thee to a summer’s day?",
+          "Thou art more lovely and more temperate:",
+          "Rough winds do shake the darling buds of May,"),
+         ("1", "3"), None, False))),
+    # -- end of the M-313 block --------------------------------------------
+}
+
+
+#: WITNESS AND CONTRAST IN ONE DRAFT, for the schemas whose evidence cannot
+#: be a bare two-line `DRAWABLE_EXHIBITS` row (`MISSING.md` M-313). Each row
+#: is `(lines, witness_slots, contrast_slots)`; `schema_census` grades ONE
+#: mandate carrying both groups over `lines` through `Reviser.grade` and
+#: reads each group's own verdict. Three reasons a name is here and not
+#: above, never "it passes here and not there":
+#:   * its frame is the SONG's. `epistrophe / radif` reads
+#:     `frames.refrain_tail`, which `grade()` computes over the union of the
+#:     mandated lines with `mark_refrain_tail`'s declared defaults. Two lines
+#:     that do not share a tail yield an EMPTY frame and the grade refuses
+#:     (doctrine 20) — measured: the two-line contrast from this same speech
+#:     answers REFUSED, not violated. A line that lacks the refrain is a
+#:     negative only in a song that carries one, so the contrast is graded
+#:     beside the witness. No default was moved to get here (doctrine 58).
+#:   * it is `forbidden` or `deprecated`: `test_mandate_relation.py` keeps
+#:     those out of the drawable table, and a semantic witness is still owed.
+#:     (~~`homoioteleuton`~~ was the one such row; on review it is a grader
+#:     finding in `WITNESS_FINDINGS`, M-313 F8, and no row here is now.)
+#:   * the attempt FAILS today and the census must re-derive that, not a
+#:     sentence (doctrine 48). Those rows stay `unvalidated` and
+#:     `schema_census.SEMANTIC_BLOCKERS` names why.
+#: Every line is quoted from a public-domain source, named per row.
+CONTEXT_CONTROLS = {
+    # -- REPETITION AND RHETORICAL PAIR FIGURES (M-313, 2026-09-25) --------
+    # Shakespeare, The Merchant of Venice, 5.1, Bassanio's "If you did know
+    # to whom I gave the ring" speech: its last two `ring` lines and the
+    # line that breaks the run.
+    "epistrophe / radif": (
+        ("And how unwillingly I left the ring",
+         "When naught would be accepted but the ring,",
+         "You would abate the strength of your displeasure."),
+        ("1", "2"), ("2", "3")),
+    # `homoioteleuton` WAS HERE, counted validated on possessing~estimate
+    # alone: a contrast that differs in affix AND rhyme cannot show the
+    # rule is too generous. It is `WITNESS_FINDINGS` (M-313 F8) now.
+    # FAILING, recorded (M-313). Shakespeare, Sonnet 135 (1609), lines 1-2:
+    # `Will` the name against `Will` the desire; contrast Will~hast.
+    "antanaclasis": (
+        ("Whoever hath her wish, thou hast thy Will,",
+         "And Will to boot, and Will in overplus;"),
+        ("1.T8", "2.T2"), ("1.T6", "2.T2")),
+    # FAILING, recorded (M-313). Tennyson, "The Charge of the Light
+    # Brigade" (1854), stanza 3 as staged in
+    # `corpus/song/eng_british_alfred_tennyson.txt`: lines 1, 2 and 6 of the
+    # stanza (the lines between hold words CMUdict cannot read).
+    "incremental repetition": (
+        ("Cannon to right of them,",
+         "Cannon to left of them,",
+         "Boldly they rode and well,"),
+        ("1", "2"), ("1", "3")),
+    # FAILING, recorded (M-313). Payne, "My Boyhood's Home", as staged in
+    # `corpus/song/eng_parlour_john_howard_payne.txt` (Beadle's Dime Song
+    # Book No. 4, 1860): the chorus pointer printed `&c.`, the line it
+    # points at, and a verse line it does not.
+    "refrain by reference": (
+        ("My boyhood’s home! I see thy hills--",
+         "I come to thee from war’s dread school,",
+         "My boyhood’s home, &c."),
+        ("1", "3"), ("2", "3")),
+    # -- end of the M-313 block --------------------------------------------
 }
 
 
@@ -7755,7 +7992,7 @@ class FigureMembers(list):
 #: template has one member, a line, read against a declared pattern.
 LINE_MEMBER_SHAPES = ("symploce", "analysed rhyme", "blues AAB stanza")
 TOKEN_MEMBER_SHAPES = ("cynghanedd sain", "cynghanedd sain gadwynog",
-                       "cynghanedd sain lafarog")
+                       "cynghanedd sain lafarog", "cynghanedd sain drosgl")
 TEMPLATE_SHAPES = ("平仄 tonal template",)
 FULL_SHAPES = LINE_MEMBER_SHAPES + TOKEN_MEMBER_SHAPES + TEMPLATE_SHAPES
 
@@ -7774,6 +8011,25 @@ def _token_edge_schema(label, schema):
     if label == "alliteration":
         return replace(REGISTRY["alliteration"], placement=(),
                        figure=PAIR), None
+    if label == "drosgl":
+        # The schema's own span pair: the middle word's START answered at the
+        # last word's STRESSED syllable (two anchors, one relation). What makes
+        # it clumsy is the MIDDLE word: it is answered from its word start
+        # although its stress falls later, so the answering consonants sit in
+        # an unstressed syllable. Sourced 2026-09-25: Barry J. Lewis's note to
+        # Gwaith Guto'r Glyn poem 1 l.11 calls `Y marchog dyledog daid` (and
+        # the variant `...blodeuog blaid`) sain drosgl -- `dyledog` stressed
+        # on -le-, answered on its d-. Where the middle word's stress IS
+        # word-initial (a monosyllable such as `gloch`) the anchors coincide
+        # and the figure is plain sain. (First written the same day against
+        # the LAST word's stress, which rejected the editor's own example.)
+        def relocated(sa, sb, stream):
+            u = stream.units[sa.idx[0]]
+            ids = stream.tokens.get((u.line, u.token), ())
+            stressed = [stream.units[i].tok_syl for i in ids
+                        if stream.units[i].syl.prominence == 1]
+            return bool(stressed) and min(stressed) > 0
+        return replace(schema, placement=(), figure=PAIR), relocated
     if label == "zero-onset link":
         # Two ABSENT onsets agreeing is the link (the schema's own note);
         # two PRESENT onsets agreeing is ordinary alliteration, not this.
@@ -8247,7 +8503,7 @@ _PAIR_MEMO = collections.OrderedDict()
 #: oldest rows go and the pair is re-scored.  The CAP IS NOT CHANGED HERE —
 #: changing it is a behaviour change with its own record — and the scaling
 #: question is filed under M-240 (OPEN), the grader's own pair guard, which
-#: is where the cost of long drafts is being priced.  Slots: the 77
+#: is where the cost of long drafts is being priced.  Slots: the ~~77~~ 78
 #: registered schemas plus the declared ones a mandate can name, under one
 #: declaration, with room for a second declaration in the same process.
 PAIR_MEMO_CAP = 4_096         # (line pair, signature) rows per (schema, stream) slot

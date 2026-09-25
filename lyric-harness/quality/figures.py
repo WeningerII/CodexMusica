@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
-"""INTRA-LINE FIGURES — the 19 schemas no pair of lines can stand in.
+"""INTRA-LINE FIGURES — the ~~19~~ ~~21~~ 20 schemas no pair of lines can stand in
+(`intra_line_schemas()`; `python3 quality/figures.py` prints the count).
 
-THE GAP THIS CLOSES. `quality/relations.REGISTRY` holds 77 schemas and a
-mandate can now declare any of them (`MISSING.md` M-59), but a mandate group
-is a set of lines that must relate TO EACH OTHER, and 19 of the 77 declare
-`same_line` / `same_token` / `at_caesura` / `at_lift` placement. Those are
+THE GAP THIS CLOSES. `quality/relations.REGISTRY` holds ~~77~~ 78 schemas and
+a mandate can now declare any of them (`MISSING.md` M-59), but a mandate group
+is a set of lines that must relate TO EACH OTHER, and 19 of the ~~77~~ 78
+declare `same_line` / `same_token` / `at_caesura` / `at_lift` placement (the
+other ~~two~~ one `intra_line_schemas()` returns ~~are `broken rhyme`, by its
+`a_is_split_token` placement, and~~ is `平仄 tonal template`, by its `line`
+frame; `broken rhyme` left the roster 2026-09-25, when #392 took
+`a_is_split_token` off the intra-line placements). Those are
 properties of ONE line. `rhyme_types.satisfies_relation` therefore REFUSES
 them with the placement named -- which is the correct answer to the question a
 mandate asks, and is not an answer to the question a writer has, which is
@@ -80,6 +85,21 @@ def line_figures(stream, names=None, keep_refusals=True):
                          else ()) for n in asked) \
             and stream.supply("caesura").state != "present":
         R.search_caesura(stream)
+    # THE LIFT FRAME, ON THE SAME TERMS (2026-09-25). `alliterative long line`
+    # and `fourth lift must not alliterate` refuse without `frames.lifts`, and
+    # this function supplied the caesura and not the lifts, so on the route
+    # as shipped both REFUSED on every stream (`quality/figure_exhibits.py`
+    # had to call `search_lifts` itself and recorded that as a FINDING).
+    # `search_lifts` reads the phonology's own prominence; its two counts
+    # (lifts per half-line, halves per line) are the Germanic long-line
+    # convention, which is exactly the form the two lift schemas name, so the
+    # defaults are the schemas' own and not a choice made here. Called after
+    # the caesura, because a present caesura is the split it prefers, and
+    # never over a caller's own declaration (doctrine 1).
+    if any("lifts" in (R.REGISTRY[n].capabilities() if n in R.REGISTRY
+                       else ()) for n in asked) \
+            and stream.supply("lifts").state != "present":
+        R.search_lifts(stream)
     out, refused = {}, []
     for name in asked:
         sch = R.REGISTRY.get(name)

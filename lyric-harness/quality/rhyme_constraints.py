@@ -709,7 +709,7 @@ QUANTIFIERS = {
 
 #: every spelling either module uses -> the canonical name. Both modules'
 #: historical spellings are kept as ALIASES rather than renamed, because a
-#: rename is a change to 77 schema declarations and two RhymeType rows for a
+#: rename is a change to ~~77~~ 78 schema declarations and two RhymeType rows for a
 #: cosmetic gain, and doctrine 17 prefers the old word visible beside the new.
 QUANTIFIER_ALIASES = {
     "exists": "exists", "pair": "exists",

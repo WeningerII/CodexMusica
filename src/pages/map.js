@@ -16,7 +16,13 @@ uiRegisterPage({
       if (e.data?.type === 'add-genre' && typeof e.data.id === 'string') {
         // The reply says how much of the ensemble arrived, so the atlas can
         // report a partial addition as partial rather than as done.
-        const { added, expected } = await uiAddGenre(e.data.id);
+        let added = 0,
+          expected = 0;
+        try {
+          ({ added, expected } = await uiAddGenre(e.data.id));
+        } catch {
+          /* Reported below as nothing added, never left at "Adding…". */
+        }
         e.source.postMessage(
           { type: 'genre-added', id: e.data.id, ok: added > 0, added, expected },
           location.origin
