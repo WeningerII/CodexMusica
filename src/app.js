@@ -1,4 +1,4 @@
-/* global UI, UI_ICONS, UILayout, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* global UI, UI_ICONS, UILayout, uiAddGenre, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
 
 
 // ============================================================
@@ -2367,8 +2367,11 @@ async function importTraditionWithFeedback(tradId, opts) {
   // The one await on the import path: in lazy mode this fetches the
   // tradition's import payload (a few hundred bytes) the first time; embedded
   // mode and repeat imports resolve immediately.
+  // Retry goes back through the shell's add command when it is running, so a
+  // retry is refused like any second concurrent addition.
+  const retry = { label: 'Retry', run: () => (typeof UI !== 'undefined' && UI.ready ? uiAddGenre(tradId) : importTraditionWithFeedback(tradId, opts)) };
   try { await Catalog.ensureFull(tradId); }
-  catch { showToast('Could not load tradition data — check your connection', 'error'); return []; }
+  catch { showToast('Could not load tradition data — check your connection', 'error', retry); return []; }
   const created = importTradition(tradId);
   if (opts.closeModalId) closeModal(opts.closeModalId);
   app.similarFor = null;
@@ -2378,12 +2381,21 @@ async function importTraditionWithFeedback(tradId, opts) {
     return created;
   }
   const expected = (trad.instruments || []).length;
+  // One history entry holds the whole addition, so one Undo removes it — but
+  // only while it is still the latest change; otherwise say so and do nothing.
+  const at = app.historyIndex;
+  const undoAdd = { label: 'Undo', run: () => {
+    if (app.historyIndex !== at) { showToast('Later changes followed this addition. Use Undo in the header to step back.', 'error'); return; }
+    undo(); if (typeof UI !== 'undefined' && UI.ready) uiSync();
+  } };
   showToast(created.length < expected
     ? `Imported ${created.length}/${expected} instruments from "${trad.name}"`
-    : `Imported ${trad.name}`, 'success');
+    : `Imported ${trad.name}`, 'success', undoAdd);
+  // Centred, not 'start': the genre header above the first card is sticky
+  // and would cover a card scrolled to the very top of the list.
   setTimeout(() => {
     const elc = document.querySelector(`[data-card-id="${created[0].id}"]`);
-    if (elc) elc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (elc) elc.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, 60);
   return created;
 }
@@ -14661,12 +14673,14 @@ function confirmDialog(opts) {
 
 // ---- Toast ----
 let toastT = null;
-function showToast(msg, kind) {
+function showToast(msg, kind, action) {
   // kind: undefined (default neutral), 'success' (green w/ check icon),
   // 'error' (red w/ alert-circle icon). Icon emoji is part of the toast
   // text to keep the existing rendering surface unchanged.
+  // action: optional { label, run } — one labelled button (Undo, Retry) that
+  // keeps the toast up long enough to be reached and runs once.
   const t = document.getElementById('toast');
-  t.classList.remove('toast-success', 'toast-error');
+  t.classList.remove('toast-success', 'toast-error', 'has-action');
   if (kind === 'success') {
     t.innerHTML = `${icon('check')}<span>${esc(msg)}</span>`;
     t.classList.add('toast-success');
@@ -14676,9 +14690,24 @@ function showToast(msg, kind) {
   } else {
     t.textContent = msg;
   }
+  if (action && action.label && typeof action.run === 'function') {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'toast-action';
+    b.textContent = action.label;
+    b.addEventListener('click', () => { hideToast(t); action.run(); }, { once: true });
+    t.appendChild(b);
+    t.classList.add('has-action');
+  }
   t.classList.add('show');
   if (toastT) clearTimeout(toastT);
-  toastT = setTimeout(() => t.classList.remove('show'), UI_TIMING_MS.TOAST_LIFETIME);
+  toastT = setTimeout(() => hideToast(t), UI_TIMING_MS.TOAST_LIFETIME * (action ? 3 : 1));
+}
+// The action leaves with the toast. Left behind at opacity 0 it would still
+// take a click at bottom centre and run Undo or Retry unseen.
+function hideToast(t) {
+  t.classList.remove('show', 'has-action');
+  t.querySelector('.toast-action')?.remove();
 }
 
 // ---- Clipboard helper ----
@@ -14870,11 +14899,11 @@ function renderSidebarHeader() {
   const host = document.getElementById('sidebar-header');
   if (!host) return;
   if (app.cards.length === 0) {
-    host.innerHTML = '<div class="ws-label">WORKSPACE</div><div class="ws-name-row"><h2 class="ws-name">' + esc(app.workspaceName) + '</h2></div>';
+    host.innerHTML = '<div class="ws-label">Session</div><div class="ws-name-row"><h2 class="ws-name">' + esc(app.workspaceName) + '</h2></div>';
     return;
   }
   host.innerHTML =
-    '<div class="ws-label">WORKSPACE</div>' +
+    '<div class="ws-label">Session</div>' +
     '<div class="ws-name-row">' +
       '<h2 class="ws-name" id="ws-name-display">' + esc(app.workspaceName) + '</h2>' +
       '<button class="icon-btn ws-rename" id="ws-rename-btn" data-tooltip="Rename workspace" aria-label="Rename workspace">' + icon('pencil', 14) + '</button>' +
@@ -14983,43 +15012,43 @@ function renderSidebarTraditions() {
     const movIdx = movableKeys.indexOf(tradId);
     const canMoveUp = movIdx > 0;
     const canMoveDown = movIdx >= 0 && movIdx < movableKeys.length - 1;
-    const moverButtons = tradId === '__ungrouped__' ? '' : (
-      '<button class="sb-tradition-move sb-tradition-move-up" data-move-trad-up="' + esc(tradId) + '"' +
-        (canMoveUp ? '' : ' disabled') +
-        ' data-tooltip="Move group up" data-tooltip-pos="left" aria-label="Move ' + esc(name) + ' group up">' +
-        icon('arrow-up', 11) +
-      '</button>' +
-      '<button class="sb-tradition-move sb-tradition-move-down" data-move-trad-down="' + esc(tradId) + '"' +
-        (canMoveDown ? '' : ' disabled') +
-        ' data-tooltip="Move group down" data-tooltip-pos="left" aria-label="Move ' + esc(name) + ' group down">' +
-        icon('arrow-down', 11) +
-      '</button>'
-    );
+    const grouped = tradId !== '__ungrouped__';
+    // The genre's own commands live in its … menu (the shell opens every
+    // [data-menu-toggle] menu; see uiRecipeMenu in src/workbench.js). The
+    // buttons are real and always in the tree, so their handlers below and the
+    // inventory selectors see them whether or not the menu is open.
+    const menuId = 'sb-gm-' + String(tradId).replace(/[^a-z0-9_-]/gi, '_');
+    const groupMenu = grouped ? (
+      '<button type="button" class="sb-more" data-menu-toggle aria-haspopup="menu" aria-expanded="false" aria-controls="' + menuId + '" aria-label="' + esc(name) + ' actions" data-tooltip="Genre actions">' + icon('ellipsis', 18) + '</button>' +
+      '<div class="cm-menu sb-menu" id="' + menuId + '" role="menu" aria-label="' + esc(name) + ' actions" hidden>' +
+        '<button type="button" role="menuitem" class="sb-make-primary" data-make-primary="' + esc(tradId) + '"' + (canMoveUp ? '' : ' disabled') + '>' + icon('arrow-up', 16) + '<span>' + (canMoveUp ? 'Make primary genre' : 'Primary genre') + '</span></button>' +
+        '<button type="button" role="menuitem" class="sb-tradition-move sb-tradition-move-up" data-move-trad-up="' + esc(tradId) + '"' + (canMoveUp ? '' : ' disabled') + ' aria-label="Move ' + esc(name) + ' group up">' + icon('arrow-up', 16) + '<span>Move up</span></button>' +
+        '<button type="button" role="menuitem" class="sb-tradition-move sb-tradition-move-down" data-move-trad-down="' + esc(tradId) + '"' + (canMoveDown ? '' : ' disabled') + ' aria-label="Move ' + esc(name) + ' group down">' + icon('arrow-down', 16) + '<span>Move down</span></button>' +
+        '<button type="button" role="menuitem" class="sb-tradition-delete is-danger" data-delete-tradition="' + esc(tradId) + '" aria-label="Remove ' + esc(name) + ' group">' + icon('trash-2', 16) + '<span>Remove genre</span></button>' +
+      '</div>'
+    ) : '';
     return (
-      '<section class="sb-tradition-group' + (isCollapsed ? ' is-collapsed' : '') + '" data-tradition-id="' + esc(tradId) + '">' +
+      '<section class="sb-tradition-group' + (isCollapsed ? ' is-collapsed' : '') + (isPrimary ? ' is-primary' : '') + '" data-tradition-id="' + esc(tradId) + '">' +
         // data-drag-tradition marks a genre header as a drag handle. The
         // __ungrouped__ pseudo-group cannot be reordered, so it has none.
-        '<div class="sb-tradition-header" role="button" tabindex="0"' + (tradId !== '__ungrouped__' ? ' data-drag-tradition="' + esc(tradId) + '"' : '') + '>' +
-          '<span class="sb-chev">' + icon('chevron-down', 12) + '</span>' +
-          (tradId !== '__ungrouped__' ? traditionGlyphsHTML(tradId, 22) : '') +
-          '<span class="sb-tradition-name">' + esc(name) + '</span>' +
-          // Meta cluster wraps to its own line beneath the name (see the
-          // .sb-tradition-meta rule) so the controls never crowd the name out.
-          '<span class="sb-tradition-meta">' +
-            (tradId !== '__ungrouped__' ? '<span class="sb-drag-hint" title="Drag to reorder genres; use the arrow buttons with a keyboard" aria-hidden="true">' + icon('grip-vertical', 14) + '</span>' : '') +
-            (tradId !== '__ungrouped__' ? '<span class="sb-status-pill ' + (isPrimary ? 'primary' : 'secondary') + '">' + (isPrimary ? 'PRIMARY' : 'SECONDARY') + '</span>' : '') +
-            '<span class="sb-tradition-count">' + cards.length + '</span>' +
-            moverButtons +
-            (tradId !== '__ungrouped__'
-              ? '<button class="sb-tradition-delete" data-delete-tradition="' + esc(tradId) + '" data-tooltip="Remove tradition from workspace" data-tooltip-pos="left" aria-label="Remove ' + esc(name) + ' group">' + icon('trash-2', 11) + '</button>'
-              : '') +
-          '</span>' +
+        '<div class="sb-tradition-header"' + (grouped ? ' data-drag-tradition="' + esc(tradId) + '"' : '') + '>' +
+          (grouped ? '<span class="sb-drag-hint" title="Drag to reorder genres, or use Move up / Move down in the genre menu" aria-hidden="true">' + icon('grip-vertical', 14) + '</span>' : '') +
+          (grouped ? '<span class="sb-tradition-glyphs">' + traditionGlyphsHTML(tradId, 20) + '</span>' : '') +
+          // The name is the collapse toggle, so the keyboard reaches it as a
+          // real button; a click anywhere else on the header toggles too.
+          '<button type="button" class="sb-tradition-toggle" aria-expanded="' + !isCollapsed + '">' +
+            '<span class="sb-tradition-name">' + esc(grouped ? name : 'Independent instruments') + '</span>' +
+            (grouped && isPrimary ? '<span class="sb-status-pill primary" data-tooltip="The first genre anchors the recipe">Primary</span>' : '') +
+            '<span class="sb-tradition-count" aria-label="' + cards.length + ' instrument' + (cards.length === 1 ? '' : 's') + '">' + cards.length + '</span>' +
+            '<span class="sb-chev">' + icon('chevron-down', 16) + '</span>' +
+          '</button>' +
+          groupMenu +
         '</div>' +
         '<div class="sb-tradition-cards">' +
           cards.map(c => renderSidebarCard(c)).join('') +
         '</div>' +
-        (tradId !== '__ungrouped__'
-          ? '<button class="sb-add-to-tradition" data-add-to-trad="' + esc(tradId) + '">' + icon('plus', 12) + 'Add instrument to tradition</button>'
+        (grouped
+          ? '<button type="button" class="sb-add-to-tradition" data-add-to-trad="' + esc(tradId) + '" aria-label="Add instrument to ' + esc(name) + '">' + icon('plus', 16) + '<span>Add instrument</span></button>'
           : '') +
       '</section>'
     );
@@ -15043,7 +15072,7 @@ function renderSidebarTraditions() {
   // does to the host ELEMENT — classes, attributes, scroll position — is
   // untouched by this and must stay outside the guard, which is why the check
   // sits here and not at the top of the function. renderSidebarRecipePreview is
-  // the live example: it toggles is-expanded / is-collapsed on its host from
+  // the live example: it toggles is-expanded on its host from
   // state the innerHTML does not encode, so guarding that function on its HTML
   // alone would freeze the chevron.
   //
@@ -15056,18 +15085,16 @@ function renderSidebarTraditions() {
   // Wire group-header toggles
   host.querySelectorAll('.sb-tradition-header').forEach(h => {
     h.addEventListener('click', (e) => {
-      // Delete button intercepts; don't toggle collapse when clicking it.
-      if (e.target.closest('.sb-tradition-delete')) return;
-      // Mover buttons intercept too — they have their own handlers below.
-      if (e.target.closest('.sb-tradition-move')) return;
+      // The genre menu and its trigger act on their own (delete, move, make
+      // primary have handlers below); only the rest of the header toggles.
+      if (e.target.closest('.sb-menu, [data-menu-toggle]')) return;
       const tradId = h.parentElement.dataset.traditionId;
       if (app.collapsedTraditionGroups.has(tradId)) app.collapsedTraditionGroups.delete(tradId);
       else app.collapsedTraditionGroups.add(tradId);
       renderSidebarTraditions();
-    });
-    // Keyboard parity for the role="button" header (Enter/Space activate).
-    h.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); h.click(); }
+      // The toggle was replaced with the tree; keep the keyboard on it.
+      const again = host.querySelector('[data-tradition-id="' + tradId + '"] .sb-tradition-toggle');
+      if (again && e.target.closest('.sb-tradition-toggle')) again.focus({ preventScroll: true });
     });
   });
 
@@ -15128,6 +15155,21 @@ function renderSidebarTraditions() {
       _moveTraditionGroup(b.dataset.moveTradDown, +1);
     });
   });
+  // Make primary: the same splice a drop above the first genre performs
+  // (dropTraditionOnTradition), so the genre that anchors the recipe changes
+  // by one undoable step instead of repeated Move up.
+  host.querySelectorAll('[data-make-primary]').forEach(b => {
+    b.addEventListener('click', e => {
+      e.stopPropagation();
+      if (b.disabled) return;
+      const tradId = b.dataset.makePrimary;
+      if (!dropTraditionOnTradition(tradId, movableKeys[0], true)) return;
+      if (typeof pushHistory === 'function') pushHistory();
+      renderAll();
+      const t = Tradition(tradId);
+      showToast((t ? t.name : tradId) + ' is now the primary genre', 'success');
+    });
+  });
 
   // Wire tradition-delete buttons — bulk-remove all cards with that traditionId
   // in one undoable action. Uses skipHistory: true per rmCard to avoid one
@@ -15174,16 +15216,34 @@ function renderSidebarTraditions() {
   // detail pane's action row, reachable without crossing the screen; the
   // cluster sits outside the .sb-card button, so a click here never selects
   // the card and never starts a drag.
+  //
+  // The row carries Edit and a … menu (Duplicate, Pin, Move to genre, Explore
+  // variations, Find similar, Remove). Every item runs the editor's own
+  // command (handleAction), so the row and the editor cannot drift apart.
   host.querySelectorAll('[data-card-action]').forEach(b => {
     b.addEventListener('click', (e) => {
       e.stopPropagation();
+      if (b.disabled) return;
       const cardId = b.dataset.cardId;
-      if (b.dataset.cardAction === 'duplicate') {
-        dupCard(cardId);
-        renderAll();
-        showToast('Duplicated', 'success');
-      } else if (b.dataset.cardAction === 'delete') {
-        rmCard(cardId);
+      const action = b.dataset.cardAction;
+      const card = app.cards.find(c => c.id === cardId);
+      if (!card) return;
+      const row = b.closest('.sb-card-row');
+      const rowButton = row && row.querySelector('.sb-card');
+      if (action === 'edit') {
+        // On a phone the open row IS the editor; tapping Edit again keeps it.
+        if (isMobileLayout() && app.selected === cardId) { _revealSelectedCard(); return; }
+        if (rowButton) rowButton.click();
+      } else if (action === 'drift') {
+        // Variations render inside the editor, so open it on this card first.
+        if (app.selected !== cardId && rowButton) rowButton.click();
+        else if (typeof UI !== 'undefined' && UI.ready) { UI.editor = true; uiSync(); }
+        handleAction('drift', card);
+      } else if (action === 'move-genre') {
+        // The menu closes as this runs; anchor the genre list on its trigger.
+        handleAction('move-genre', card, (row && row.querySelector('[data-menu-toggle]')) || b);
+      } else {
+        handleAction(action, card, b);
       }
     });
   });
@@ -15222,36 +15282,53 @@ function renderSidebarCard(card) {
   const familyColor = (typeof FAMILY_COLORS !== 'undefined' && FAMILY_COLORS[family]) || 'var(--text-3)';
   const isSelected = app.selected === card.id;
   const prefaceLabel = prefaceLabelFor(card);
-  const name = inst.short || inst.name;
-  const familyName = (typeof FamName === 'function' ? FamName(family) : family).toUpperCase().replace(/_/g, ' ');
-  const thumb = (typeof image === 'function') ? image(card.instrumentId, 24) : '';
-  const fingerprint = card.traditionId && typeof renderFingerprint === 'function' ? renderFingerprint(card.traditionId) : '';
+  // The catalog's display name, as the Genre and Instrument pages show it
+  // (the lower-case short form is the recipe's word, not a label).
+  const name = inst.name || inst.short;
+  const familyName = (typeof FamName === 'function' ? FamName(family) : family).replace(/_/g, ' ');
+  const thumb = (typeof image === 'function') ? image(card.instrumentId, 28) : '';
+  const cid = esc(card.id);
+  const menuId = 'sb-cm-' + String(card.id).replace(/[^a-z0-9_-]/gi, '_');
+  const moveTargets = _moveTargetsFor(card);
+  const item = (action, ic, label, extra) =>
+    '<button type="button" role="menuitem" class="sb-card-action' + (action === 'delete' ? ' is-danger' : '') + '" data-card-action="' + action + '" data-card-id="' + cid + '"' + (extra || '') + '>' + icon(ic, 16) + '<span>' + label + '</span></button>';
 
-  // The card is a <button>, so its own controls cannot live inside it. The
-  // row is a one-cell grid: card and action cluster share the cell, the
-  // cluster pinned to the card's bottom-right corner, and the inline detail
-  // panel that mobile inserts after the card auto-places into a second row.
+  // The card is a <button> (select + open the editor; drag to another genre),
+  // so its own controls cannot live inside it. The row is a grid: the card,
+  // then Edit and the … menu trigger; the inline detail panel that a phone
+  // inserts after the card spans the row beneath them.
+  //
+  // One line names the instrument, the next its current character — the word
+  // the Character tab sets — so a row reads "Voice / rasping".
   return (
     '<div class="sb-card-row">' +
-    '<button class="sb-card' + (isSelected ? ' is-selected' : '') + (card.pinned ? ' is-pinned' : '') + '" data-card-id="' + esc(card.id) + '" ' +
-      'title="Click to edit; drag to move between genres (hold first on touch)" style="--family-tint: ' + familyTint + '; --family-color: ' + familyColor + ';">' +
+    '<button class="sb-card' + (isSelected ? ' is-selected' : '') + (card.pinned ? ' is-pinned' : '') + '" data-card-id="' + cid + '" ' +
+      'title="Select to edit; drag to move between genres (hold first on touch)" style="--family-tint: ' + familyTint + '; --family-color: ' + familyColor + ';">' +
       '<span class="sb-drag-hint" aria-hidden="true">' + icon('grip-vertical', 14) + '</span>' +
-      '<div class="sb-card-thumb">' + thumb + '</div>' +
-      '<div class="sb-card-text">' +
-        '<div class="sb-card-line1">' +
-          (prefaceLabel ? '<span class="sb-preface">' + esc(prefaceLabel) + '</span>' : '') +
+      '<span class="sb-card-thumb">' + thumb + '</span>' +
+      '<span class="sb-card-text">' +
+        '<span class="sb-card-line1">' +
           '<span class="sb-name">' + esc(name) + '</span>' +
-        '</div>' +
-        '<div class="sb-card-line2">' +
-          '<span class="sb-family">' + esc(familyName) + '</span>' +
-          (card.pinned ? '<span class="sb-card-pin" data-tooltip="Pinned" aria-label="Pinned">' + icon('pin', 10) + '</span>' : '') +
-          fingerprint +
-        '</div>' +
-      '</div>' +
+          (card.pinned ? '<span class="sb-card-pin" data-tooltip="Pinned" aria-label="Pinned">' + icon('pin', 12) + '</span>' : '') +
+        '</span>' +
+        '<span class="sb-card-line2">' +
+          (prefaceLabel
+            ? '<span class="sb-preface">' + esc(prefaceLabel) + '</span>'
+            : '<span class="sb-family">' + esc(familyName) + '</span>') +
+        '</span>' +
+      '</span>' +
     '</button>' +
     '<div class="sb-card-actions" role="group" aria-label="' + esc(name) + ' actions">' +
-      '<button class="sb-card-action" data-card-action="duplicate" data-card-id="' + esc(card.id) + '" data-tooltip="Duplicate" data-tooltip-pos="left" aria-label="Duplicate ' + esc(name) + '">' + icon('copy', 12) + '</button>' +
-      '<button class="sb-card-action is-danger" data-card-action="delete" data-card-id="' + esc(card.id) + '" data-tooltip="Remove" data-tooltip-pos="left" aria-label="Remove ' + esc(name) + '">' + icon('trash-2', 12) + '</button>' +
+      '<button type="button" class="sb-card-edit" data-card-action="edit" data-card-id="' + cid + '" aria-label="Edit ' + esc(name) + '">Edit</button>' +
+      '<button type="button" class="sb-more" data-menu-toggle aria-haspopup="menu" aria-expanded="false" aria-controls="' + menuId + '" aria-label="More actions for ' + esc(name) + '" data-tooltip="More actions">' + icon('ellipsis', 18) + '</button>' +
+    '</div>' +
+    '<div class="cm-menu sb-menu" id="' + menuId + '" role="menu" aria-label="' + esc(name) + ' actions" hidden>' +
+      item('duplicate', 'copy', 'Duplicate') +
+      item('pin', 'pin', card.pinned ? 'Unpin' : 'Pin to top') +
+      item('move-genre', 'folder-open', 'Move to genre…', moveTargets.length ? ' aria-haspopup="menu"' : ' disabled') +
+      item('drift', 'shuffle', 'Explore variations') +
+      item('similar', 'network', 'Find similar instruments') +
+      item('delete', 'trash-2', 'Remove') +
     '</div>' +
     '</div>'
   );
@@ -15281,23 +15358,44 @@ function renderSidebarStaple() {
   const trad = Tradition(pick.id);
   if (!trad) { host.innerHTML = ''; return; }
 
+  // "Suggestions for this recipe": a disclosure, closed until asked for. The
+  // body stays in the tree while closed (hidden), so its controls are the
+  // same elements whichever state the section is in.
+  const open = !!app._suggestionsOpen;
+  const primaryName = (Tradition(primaryTradId) || {}).name || primaryTradId;
   host.innerHTML =
-    '<div class="sb-staple">' +
+    '<div class="sb-staple' + (open ? ' is-open' : '') + '">' +
       '<div class="sb-staple-head">' +
-        icon('sparkles', 12) +
-        '<span class="ws-label">Suggest a staple</span>' +
+        '<button type="button" class="sb-staple-toggle" id="sb-staple-toggle" aria-expanded="' + open + '" aria-controls="sb-staple-body">' +
+          '<span class="sb-staple-icon">' + icon('lightbulb', 18) + '</span>' +
+          '<span class="sb-staple-title">Suggestions for this recipe</span>' +
+          '<span class="sb-chev">' + icon('chevron-down', 16) + '</span>' +
+        '</button>' +
         (pool.length > 1
-          ? '<button class="icon-btn sb-staple-refresh" id="sb-staple-refresh" data-tooltip="Try another" aria-label="Try another suggestion">' + icon('refresh-cw', 11) + '</button>'
+          ? '<button type="button" class="icon-btn sb-staple-refresh" id="sb-staple-refresh" data-tooltip="Try another suggestion" aria-label="Try another suggestion">' + icon('refresh-cw', 16) + '</button>'
           : '') +
       '</div>' +
-      '<div class="sb-staple-body"><span class="sb-staple-name">' + esc(trad.name) + '</span> sits close to this primary in axis space.</div>' +
-      '<button class="sb-staple-add" id="sb-staple-add">' + icon('plus', 12) + 'Add ' + esc(trad.name) + ' as secondary</button>' +
+      '<div class="sb-staple-body" id="sb-staple-body"' + (open ? '' : ' hidden') + '>' +
+        '<p class="sb-staple-text"><span class="sb-staple-name">' + esc(trad.name) + '</span> sounds close to ' + esc(primaryName) + ' (shared sound characteristics).</p>' +
+        '<button type="button" class="sb-staple-add" id="sb-staple-add">' + icon('plus', 16) + '<span>Add ' + esc(trad.name) + ' as a second genre</span></button>' +
+      '</div>' +
     '</div>';
 
+  const toggle = document.getElementById('sb-staple-toggle');
+  if (toggle) toggle.addEventListener('click', () => {
+    app._suggestionsOpen = !app._suggestionsOpen;
+    renderSidebarStaple();
+    const again = document.getElementById('sb-staple-toggle');
+    if (again) again.focus({ preventScroll: true });
+  });
   const refresh = document.getElementById('sb-staple-refresh');
   if (refresh) refresh.addEventListener('click', () => {
     app._stapleIdx = (app._stapleIdx + 1) % pool.length;
+    // Asking for another suggestion shows it.
+    app._suggestionsOpen = true;
     renderSidebarStaple();
+    const again = document.getElementById('sb-staple-refresh');
+    if (again) again.focus({ preventScroll: true });
   });
 
   const add = document.getElementById('sb-staple-add');
@@ -15349,16 +15447,24 @@ function renderSidebarRecipePreview() {
   // the first call after a real edit changes the key it was looked up under.
   // That settles on the second call (the dedup is a fixed point) and the cache
   // hits from then on, which is exactly the pure-UI-click case this is for.
-  const key = CEILING + ' ' + JSON.stringify(app.cards);
+  //
+  // The format is the one the full-recipe dialog uses (app.recipeStackFormat),
+  // so the preview, Copy recipe and Open full recipe always agree.
+  const FORMATS = [['rich', 'Rich'], ['tags', 'Tags'], ['prose', 'Prose'], ['compact', 'Compact']];
+  const fmt = FORMATS.some(([id]) => id === app.recipeStackFormat) ? app.recipeStackFormat : 'rich';
+  const key = CEILING + ' ' + fmt + ' ' + JSON.stringify(app.cards);
   if (_recipePreviewCache.key === key) {
     text = _recipePreviewCache.text;
   } else {
-    try { text = compileRecipeStack(app.cards, 'rich', { ceiling: CEILING }) || ''; } catch { text = ''; }
-    _recipePreviewCache = { key: CEILING + ' ' + JSON.stringify(app.cards), text };
+    try { text = compileRecipeStack(app.cards, fmt, { ceiling: CEILING }) || ''; } catch { text = ''; }
+    _recipePreviewCache = { key: CEILING + ' ' + fmt + ' ' + JSON.stringify(app.cards), text };
   }
   const len = text.length;
   const pct = Math.min(100, Math.round((len / CEILING) * 100));
   const band = pct > 90 ? 'is-red' : (pct > 70 ? 'is-amber' : '');
+  // Locale-independent thousands separator: the recipe bytes never depend on
+  // the reader's locale, and neither does their count.
+  const group = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
   // Below 900px this box is pinned to the bottom of the viewport, so it is the
   // one surface guaranteed to be on screen at every scroll position. Undo,
@@ -15372,40 +15478,55 @@ function renderSidebarRecipePreview() {
   // those defaults the moment the control appeared on desktop, so each layout
   // keeps its own and each keeps the default it already had. Nothing changes
   // for anyone until they press the chevron.
+  //
+  // In the panel the text shows its first lines and the chevron reveals the
+  // rest; the phone bar starts closed. Each layout keeps its own flag.
   const mobile = isMobileLayout();
-  const expanded = !!app._recipeSheetOpen;
-  const collapsed = !mobile && !!app._recipeDeskCollapsed;
-  // What the button will do next, expressed as the state it is in now.
-  const isOpen = mobile ? expanded : !collapsed;
-  host.classList.toggle('is-expanded', expanded);
-  host.classList.toggle('is-collapsed', collapsed);
+  const isOpen = mobile ? !!app._recipeSheetOpen : !!app._recipeDeskExpanded;
+  host.classList.toggle('is-expanded', isOpen);
+  host.classList.remove('is-collapsed');
+  // One grid (see "Your recipe — Recipe preview" in src/workbench.css): the
+  // head's children take part in it directly (.rp-head is display: contents),
+  // so the same Copy recipe button can sit under the text in the panel and in
+  // the bar's single row on a phone without a second copy of it.
   host.innerHTML =
     '<div class="rp-head">' +
-      icon('diamond', 12) +
-      '<span class="rp-label">Current recipe</span>' +
-      '<span class="rp-count ' + band + '">' + len + ' / ' + CEILING + '</span>' +
-      '<button class="icon-btn rp-tool" data-proxy="btn-undo" aria-label="Undo">' + icon('undo', 14) + '</button>' +
-      '<button class="icon-btn rp-tool" data-proxy="btn-redo" aria-label="Redo">' + icon('redo', 14) + '</button>' +
-      '<button class="icon-btn rp-copy" id="sb-recipe-copy" data-tooltip="Copy recipe" data-tooltip-pos="bottom" aria-label="Copy recipe">' + icon('copy', 12) + '</button>' +
+      '<h3 class="rp-label" id="rp-label">Recipe preview</h3>' +
+      '<select class="cm-select rp-format" id="sb-recipe-format" aria-label="Recipe format">' +
+        FORMATS.map(([id, label]) => '<option value="' + id + '"' + (id === fmt ? ' selected' : '') + '>' + label + '</option>').join('') +
+      '</select>' +
+      '<span class="rp-count ' + band + '" data-tooltip="Recipes stay within ' + group(CEILING) + ' characters">' +
+        '<span class="rp-count-n">' + group(len) + ' / ' + group(CEILING) + '</span><span class="rp-count-unit"> characters</span></span>' +
+      '<button class="icon-btn rp-tool" data-proxy="btn-undo" aria-label="Undo">' + icon('undo', 16) + '</button>' +
+      '<button class="icon-btn rp-tool" data-proxy="btn-redo" aria-label="Redo">' + icon('redo', 16) + '</button>' +
+      '<button type="button" class="rp-copy" id="sb-recipe-copy" aria-label="Copy recipe">' + icon('copy', 18) + '<span class="rp-copy-label">Copy recipe</span></button>' +
       '<button class="icon-btn rp-expand" id="sb-recipe-expand" aria-expanded="' + isOpen + '" ' +
         // chevron-up is not vendored; the glyph is chevron-down rotated by CSS.
-        'aria-label="' + (isOpen ? 'Collapse recipe' : 'Expand recipe') + '">' + icon('chevron-down', 14) + '</button>' +
+        'aria-label="' + (isOpen ? 'Show less of the recipe' : 'Show all of the recipe') + '">' + icon('chevron-down', 16) + '</button>' +
     '</div>' +
-    '<div class="rp-progress"><div class="rp-progress-fill ' + band + '" style="width: ' + pct + '%;"></div></div>' +
     (text
-      ? '<div class="rp-text">' + esc(text) + '</div>'
+      ? '<div class="rp-text" aria-labelledby="rp-label" tabindex="0">' + esc(text) + '</div>'
       : '<div class="rp-empty">Nothing configured yet.</div>') +
-    '<button class="rp-open" id="sb-open-full-stack">Open full stack ' + icon('arrow-right', 12) + '</button>';
+    '<button type="button" class="rp-open" id="sb-open-full-stack">Open full recipe ' + icon('arrow-right', 14) + '</button>';
 
+  const formatSelect = document.getElementById('sb-recipe-format');
+  if (formatSelect) formatSelect.addEventListener('change', () => {
+    app.recipeStackFormat = formatSelect.value;
+    renderSidebarRecipePreview();
+    const again = document.getElementById('sb-recipe-format');
+    if (again) again.focus({ preventScroll: true });
+  });
   const expandBtn = document.getElementById('sb-recipe-expand');
   if (expandBtn) expandBtn.addEventListener('click', () => {
     // Read the layout at click time, not render time: a resize across 900px
     // does not repaint this panel, so the flag the button owns is decided by
     // the width it is actually being pressed at.
     if (isMobileLayout()) app._recipeSheetOpen = !app._recipeSheetOpen;
-    else app._recipeDeskCollapsed = !app._recipeDeskCollapsed;
+    else app._recipeDeskExpanded = !app._recipeDeskExpanded;
     renderSidebarRecipePreview();
     _syncRecipeBarHeight();
+    const again = document.getElementById('sb-recipe-expand');
+    if (again) again.focus({ preventScroll: true });
   });
   // Mirror the real buttons' disabled state so a greyed-out Undo reads as
   // greyed-out here too; the click itself is forwarded, not reimplemented.
@@ -15419,7 +15540,7 @@ function renderSidebarRecipePreview() {
   if (copy) copy.addEventListener('click', () => {
     if (!text) { if (typeof showToast === 'function') showToast('Nothing to copy', 'error'); return; }
     if (typeof copyToClipboard === 'function') {
-      copyToClipboard(text, 'Copied recipe (' + len + ' chars)', 'Copy failed — try Cmd/Ctrl+C');
+      copyToClipboard(text, 'Copied recipe (' + fmt + ', ' + len + ' characters)', 'Copy failed — try Cmd/Ctrl+C');
     }
   });
   const open = document.getElementById('sb-open-full-stack');
@@ -15924,7 +16045,7 @@ function wireTreeDragAndDrop() {
     if (e.button !== undefined && e.button !== 0) return; // left / primary only
     if (app._dnd) cleanup();
     // Controls inside a row act on their own; they are not drag handles.
-    if (e.target.closest('.sb-tradition-move, .sb-tradition-delete, .sb-add-to-tradition')) return;
+    if (e.target.closest('.sb-menu, [data-menu-toggle], .sb-card-actions, .sb-add-to-tradition')) return;
     const header = e.target.closest('[data-drag-tradition]');
     const card = e.target.closest('.sb-card');
     let kind, id, source;
@@ -16153,12 +16274,15 @@ function renderDetailTraitPills(card, _inst) {
 function renderDetailTabBar(card, inst) {
   const wrap = document.createElement('div');
   wrap.className = 'detail-tab-bar';
+  // Labels are the shared editor's vocabulary on every route: Character (the
+  // preface and its cascade), Parts, Environment, Signal chain, Output (every
+  // format). The ids are the stored/tested names and do not change.
   const tabs = [
-    { id: 'preface', label: 'Preface',      ic: 'sparkles' },
+    { id: 'preface', label: 'Character',    ic: 'sparkles' },
     { id: 'parts',   label: 'Parts',        ic: 'sliders-horizontal' },
     { id: 'env',     label: 'Environment',  ic: 'layers' },
     { id: 'chain',   label: 'Signal chain', ic: 'link' },
-    { id: 'stack',   label: 'Stack',        ic: 'eye' },
+    { id: 'stack',   label: 'Output',       ic: 'eye' },
   ];
   wrap.innerHTML = tabs.map(t =>
     '<button class="detail-tab' + (card._uiTab === t.id ? ' is-active' : '') + '" data-tab="' + t.id + '">' +
@@ -17647,6 +17771,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function _renderBootError(err) {
   console.error('Catalog boot failed:', err);
+  document.body.classList.add('boot-failed');
   const detail = document.getElementById('workspace-detail') || document.body;
   detail.innerHTML =
     '<div class="empty-state" id="boot-error">' +

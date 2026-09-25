@@ -2,7 +2,7 @@
 
 The single source of truth for every interactive surface in the codex. Read this before changing the UI. Update this in the same commit as any UI change. The build's reachability gate (`scripts/ui_reachability_check.js`) enforces that every `status: reachable` entry's selector resolves to at least one element under the entry's precondition. Surfaces that aren't catalogued here are invisible to the build gate, which is how the master-detail refactor silently dropped the stack signature panel, the tradition-group delete, and three drag-drop interactions.
 
-**Updated:** 2026-09-12 for the production shared workspace. Reachability is enforced by `scripts/ui_reachability_check.js`; this structural check proves selectors exist under stated preconditions, not that every workflow is usable. Browser mobile checks and `scripts/check_workbench.js` cover separate interaction and state boundaries.
+**Updated:** 2026-09-25 for the reference Your recipe panel (right-hand column, row and genre menus, Recording environment, Recipe preview format, AI entry; see "Your recipe — the reference panel" at the end) and before that for the shared UI foundation (theme, shell, one recipe panel on every route, lifecycle states; see `docs/ui-foundation.md` and the section at the end). Previously 2026-09-12 for the production shared workspace. Reachability is enforced by `scripts/ui_reachability_check.js`; this structural check proves selectors exist under stated preconditions, not that every workflow is usable. Browser mobile checks and `scripts/check_workbench.js` cover separate interaction and state boundaries.
 
 ---
 
@@ -59,6 +59,10 @@ The reachability check supports these standardized preconditions. The check grou
 | `preface just committed with shifts` | 1+ cards, then `card._uiTab = 'preface'`, then `commitPrefaceChange(card, 'liturgical')`. `delta_blues` voice + `liturgical` reliably produces non-empty shifts (tuning + room changes) via the inverse algorithm, which populates `_recentShiftsByCard` and surfaces the panel. |
 | `instrument picker open, similar drill-down active` | Set `app.similarInstFor = 'voice'`, then `renderInstPicker()`, then `openModal('modal-add')`. The picker re-renders into similar-instrument drill-down mode (different DOM tree than the family-grouped chip list). |
 | `saved workspaces list open` | Install a `window.storage` mock (the RESET does this automatically when no real storage exists — Claude.ai provides one, headless Chromium doesn't), seed one workspace fixture into both `codex:list` and `codex:ws:gate-fixture`, then `openModal('modal-saved')` and `await renderSaved()`. Surfaces one row with Load / Fork / Delete controls. The `_gate_mock` flag on the mock prevents the fixture preconditions from polluting real storage if it's ever present. |
+| `genre search: no results` | Type a query no genre matches into `#genre-search`, clear `UI.genre`, `renderGenreDiscovery()`. Surfaces the no-results state and its Clear search. |
+| `instrument search: no results` | Type a query no instrument matches into `#instrument-search`, `renderInstrumentDiscovery()`. Surfaces the no-results state and its recovery actions. |
+| `genre just imported` | `await importTraditionWithFeedback('delta_blues')`. Surfaces the import toast and its Undo action. |
+| `map view` | `uiNavigate('map')`. The Map presents Your recipe as a dock. RESET returns every group to the Genre section with both search fields cleared. |
 | `modal open: <id>` | `openModal(<id>)`. Modal IDs: `modal-add`, `modal-trad`, `modal-saved`, `modal-save`, `modal-preface`, `modal-recipe-stack`, `modal-attributions`. Use this only when the entry targets the modal frame itself (`#modal-X.open`), not its contents — for contents, use one of the populated-state preconditions above. |
 
 When a future capability needs a precondition not listed here, add the precondition spec to `scripts/ui_reachability_check.js` AND document it in the table above in the same commit.
@@ -73,7 +77,7 @@ When a future capability needs a precondition not listed here, add the precondit
 name: app-bar-traditions
 kind: widget
 selector: '#btn-traditions'
-surface: app bar — "Traditions" button
+surface: Your recipe — "Add another genre" below the genres (in the phone Recipe sheet's toolbar, "Add genre"); the node keeps its id wherever uiPlaceRecipeParts puts it
 implementation: DOMContentLoaded click handler opens modal-trad via renderTradPicker
 status: reachable
 precondition: empty
@@ -85,7 +89,7 @@ Opens the tradition picker modal at its tree-browser entry point.
 name: app-bar-saved
 kind: widget
 selector: '#btn-saved'
-surface: app bar — "Saved" button
+surface: app bar — "Saved sessions" button (distinct from Save and from the Autosaved status)
 implementation: click handler opens modal-saved via renderSaved
 status: reachable
 precondition: empty
@@ -107,7 +111,7 @@ precondition: empty
 name: app-bar-add-instrument
 kind: widget
 selector: '#btn-add'
-surface: app bar — "Add instrument" primary button
+surface: Your recipe — "Add independent instrument" below the genres (in the phone Recipe sheet's toolbar, "Add instrument")
 implementation: click handler opens modal-add via renderInstPicker
 status: reachable
 precondition: empty
@@ -204,7 +208,7 @@ notes: visible only when workspace is empty
 name: workspace-rename
 kind: widget
 selector: '#ws-rename-btn'
-surface: sidebar header — pencil icon next to workspace name
+surface: Your recipe — pencil next to the session name (in the dock, in its header row)
 implementation: click handler calls startRenameWorkspace which swaps in ws-name-input; Enter/blur commits, Escape cancels
 status: reachable
 precondition: 1+ cards
@@ -217,8 +221,8 @@ notes: only renders when 1+ cards (empty-state header shows different layout); w
 name: sidebar-filter-input
 kind: widget
 selector: '#sidebar-filter-input'
-surface: sidebar — instrument filter input
-implementation: input handler sets app.sidebarFilter, calls renderSidebar
+surface: Your recipe — Filter instruments field, revealed by the search button in the panel header (and shown whenever a filter is in force)
+implementation: input handler sets app.sidebarFilter, calls renderSidebar; the header toggle (data-ui="recipe-filter", uiSyncRecipeFilter in src/workbench.js) shows it, and closing it clears the filter so no row stays hidden
 status: reachable
 precondition: 1+ cards
 notes: only renders when 1+ cards (filter has nothing to filter on empty)
@@ -230,8 +234,8 @@ notes: only renders when 1+ cards (filter has nothing to filter on empty)
 name: sidebar-tradition-header
 kind: widget
 selector: '.sb-tradition-header'
-surface: sidebar — per-tradition group header (chevron + name + status pill + count)
-implementation: click toggles app.collapsedTraditionGroups Set entry
+surface: Your recipe — genre header (grip, glyphs, name as the collapse toggle button, Primary on the first genre, count while collapsed, … menu)
+implementation: click (or the .sb-tradition-toggle button) toggles app.collapsedTraditionGroups Set entry; clicks in the … menu and its trigger do not toggle
 status: reachable
 precondition: 1+ cards
 ```
@@ -240,8 +244,9 @@ precondition: 1+ cards
 name: sidebar-card
 kind: widget
 selector: '.sb-card'
-surface: sidebar — per-card row (thumb + line1 + line2 mini-fingerprint)
-implementation: click sets app.selected = cardId, renders detail
+surface: Your recipe — instrument row (icon, catalog name, current character word; Edit and … beside it)
+implementation: click sets app.selected = cardId, renders detail and opens the editor (the shell's sidebar listener)
+notes: The per-row mini-fingerprint was dropped from the row for the reference layout; the tradition fingerprint stays in the editor header.
 status: reachable
 precondition: 1+ cards
 ```
@@ -250,7 +255,7 @@ precondition: 1+ cards
 name: sidebar-add-to-tradition
 kind: widget
 selector: '[data-add-to-trad]'
-surface: sidebar — per-tradition-group "+ Add instrument to tradition" button
+surface: Your recipe — "+ Add instrument" inside each genre (accessible name "Add instrument to <genre>")
 implementation: opens modal-add with traditionId pre-context
 status: reachable
 precondition: 1+ cards
@@ -268,7 +273,7 @@ notes: The instrument picked from the modal joins THAT group — it is configure
 name: sidebar-staple-add
 kind: widget
 selector: '#sb-staple-add'
-surface: sidebar — "Add {tradition} as secondary" button
+surface: Your recipe — Suggestions for this recipe — "Add {tradition} as a second genre" (inside the disclosure, #sb-staple-toggle)
 implementation: click calls importTradition for the suggested tradition
 status: reachable
 precondition: 1+ cards
@@ -279,8 +284,8 @@ notes: only renders when a primary tradition is set; pool from findSimilar
 name: sidebar-staple-refresh
 kind: widget
 selector: '#sb-staple-refresh'
-surface: sidebar — refresh button on staple panel (try another suggestion)
-implementation: increments app._stapleIdx, re-renders sidebar
+surface: Your recipe — Suggestions for this recipe — Try another suggestion
+implementation: increments app._stapleIdx, opens the disclosure, re-renders the suggestion
 status: reachable
 precondition: 1+ cards
 notes: only renders when staple pool has > 1 candidate
@@ -292,8 +297,8 @@ notes: only renders when staple pool has > 1 candidate
 name: sidebar-recipe-copy
 kind: widget
 selector: '#sb-recipe-copy'
-surface: sidebar — copy button on recipe preview
-implementation: click runs copyToClipboard with current compressRichRecipe output
+surface: Your recipe — Copy recipe under the preview (an icon in the phone recipe bar)
+implementation: click runs copyToClipboard with compileRecipeStack output in the format the preview shows (app.recipeStackFormat)
 status: reachable
 precondition: 1+ cards
 ```
@@ -302,7 +307,7 @@ precondition: 1+ cards
 name: sidebar-recipe-open-full
 kind: widget
 selector: '#sb-open-full-stack'
-surface: sidebar — "Open full stack →" button
+surface: Your recipe — "Open full recipe →" under the preview
 implementation: opens modal-recipe-stack
 status: reachable
 precondition: 1+ cards
@@ -408,7 +413,7 @@ precondition: 1+ cards
 name: detail-tab-preface
 kind: widget
 selector: '.detail-tab[data-tab="preface"]'
-surface: detail tab bar — "Preface" tab
+surface: detail tab bar — "Character" tab (the preface and its cascade; id stays `preface`)
 implementation: tab click sets card._uiTab = 'preface'
 status: reachable
 precondition: 1+ cards
@@ -418,7 +423,7 @@ precondition: 1+ cards
 name: detail-tab-stack
 kind: widget
 selector: '.detail-tab[data-tab="stack"]'
-surface: detail tab bar — "Stack" tab
+surface: detail tab bar — "Output" tab (Rich, Tags, Prose, Compact; id stays `stack`)
 implementation: tab click sets card._uiTab = 'stack', renders renderStackPanel
 status: reachable
 precondition: 1+ cards
@@ -792,7 +797,7 @@ precondition: 'modal open: modal-preface'
 name: modal-recipe-stack
 kind: modal
 selector: '#modal-recipe-stack.open'
-surface: full recipe stack modal — opened from sidebar "Open full stack →"
+surface: full recipe stack modal — opened from sidebar "Open full recipe →"
 implementation: openModal('modal-recipe-stack'); renderRecipeStack populates
 status: reachable
 precondition: 'modal open: modal-recipe-stack'
@@ -885,7 +890,7 @@ notes: Shipped as Phase 2 of UI Capability Inventory Plan. Lost in master-detail
 name: tradition-group-delete
 kind: data-action
 selector: '.sb-tradition-header [data-delete-tradition]'
-surface: sidebar — trash icon in each tradition group header (after count)
+surface: Your recipe — genre … menu — Remove genre
 implementation: click handler awaits confirmDialog; on confirm pushHistory once then rmCards each with skipHistory:true
 status: reachable
 precondition: 1+ cards
@@ -907,18 +912,18 @@ notes: Was HTML5 drag-and-drop, which is mouse-only — `dragstart` never fires 
 name: tradition-group-move-up
 kind: data-action
 selector: '.sb-tradition-header [data-move-trad-up]'
-surface: sidebar — up-arrow button in each tradition group header (between count and delete)
+surface: Your recipe — genre … menu — Move up
 implementation: click handler computes seen-order from app.cards (first-appearance), finds previous group, splices the moving group's cards before the previous group's first card, pushes history and rerenders
 status: reachable
 precondition: 2+ cards
-notes: Always visible (unlike delete, which is hover-faded) because this is the primary "reorder my groups" affordance, replacing the unreliable drag-and-drop discovery path. Button is disabled at the top of the list (idx === 0). Click does NOT trigger the header's collapse toggle — the header click handler checks `closest('.sb-tradition-move')` and bails.
+notes: The non-drag reorder, now in the genre's … menu (the reference layout keeps the header to name and menu). Disabled at the top of the list (idx === 0). Clicks in the menu do NOT trigger the header's collapse toggle — the header click handler bails on `.sb-menu, [data-menu-toggle]`.
 ```
 
 ```yaml
 name: tradition-group-move-down
 kind: data-action
 selector: '.sb-tradition-header [data-move-trad-down]'
-surface: sidebar — down-arrow button in each tradition group header (after up-arrow)
+surface: Your recipe — genre … menu — Move down
 implementation: click handler computes seen-order from app.cards (first-appearance), finds next group, splices the moving group's cards after the next group's last card, pushes history and rerenders
 status: reachable
 precondition: 2+ cards
@@ -951,7 +956,7 @@ notes: The non-drag route for card-drag-reparent, which until now was the ONE tr
 name: card-pin-sidebar-visual
 kind: widget
 selector: '.sb-card.is-pinned .sb-card-pin'
-surface: sidebar — pinned cards sort first within group; pin glyph on row
+surface: Your recipe — pinned rows sort first within their genre; pin glyph beside the name
 implementation: renderSidebarTraditions sorts pinned-first via stable sort; renderSidebarCard adds is-pinned class + pin glyph when card.pinned
 status: reachable
 precondition: pinned card
@@ -990,10 +995,10 @@ notes: Master-detail layout (2026-05) enforces single-active selection via app.s
 
 ## Counts (for the gate's preamble verification)
 
-- Reachable: 94
+- Reachable: 106
 - Pending: 0
 - Retired: 1
-- **Total tracked surfaces: 95**
+- **Total tracked surfaces: 107**
 
 When this count changes, update it here AND update the verification block in `scripts/ui_reachability_check.js`. Sanity match on every build.
 
@@ -1045,8 +1050,8 @@ precondition: empty
 name: recipe-assistant
 kind: widget
 selector: '[data-ui="ai"]'
-surface: shared workbench
-implementation: src/workbench.js
+surface: Your recipe — AI recipe (above "Describe a change to this recipe…"; in the phone Recipe sheet's toolbar)
+implementation: uiChatOpen in src/workbench.js
 status: reachable
 precondition: empty
 ```
@@ -1117,6 +1122,374 @@ kind: widget
 selector: '#map-frame'
 surface: shared workbench
 implementation: src/workbench.js
+status: reachable
+precondition: empty
+```
+
+## Shared UI foundation (2026-09-25)
+
+The foundation for the four-page redesign (`docs/ui-foundation.md`). These are
+shared surfaces on every route; the final page layouts are not built yet and
+are listed there as page work. Behaviour — not just presence — is gated by
+`scripts/check_ui_foundation.js`.
+
+```yaml
+name: theme-setting
+kind: widget
+selector: '[data-ui="theme"]'
+surface: More menu — Theme: System / Light / Dark (segmented, aria-pressed)
+implementation: uiThemeControl / uiSyncThemeControl in src/workbench.js; UITheme.set in src/theme.js
+status: reachable
+precondition: empty
+notes: One stored preference (codex-theme), applied before first paint in codex.html and atlas.html, followed live when System, and relayed to the atlas in the Map. check_ui_foundation.js A-D.
+```
+
+```yaml
+name: autosave-status
+kind: widget
+selector: '#ui-autosave'
+surface: header — Autosaved / Not autosaved / Autosave failed, icon plus word
+implementation: uiRenderAutosave, called by uiAutosave in src/workbench.js
+status: reachable
+precondition: empty
+notes: Reports only what the automatic copy of the open session did. Save (named copy) and Saved sessions (list) are separate controls. check_ui_foundation.js F-G.
+```
+
+```yaml
+name: recipe-panel-collapse
+kind: widget
+selector: '[data-ui="recipe-collapse"]'
+surface: Your recipe header — collapse to a rail (sidebar) or to its header (dock), and expand
+implementation: uiApplyRecipeMode / uiRecipeCollapsed (UILayout.remember) in src/workbench.js
+status: reachable
+precondition: empty
+notes: Remembered per presentation under codex-layout:*; Reset layout clears it. Hidden below 900px, where the Recipe sheet has its own Close. check_ui_foundation.js I.
+```
+
+```yaml
+name: recipe-dock-resize
+kind: drag-drop
+selector: '.layout-splitter-y'
+surface: top edge of the Your recipe dock (the Map) — drag to resize
+implementation: UILayout.splitter({ side 'top' }) in src/layout.js, registered by uiLayoutControls
+status: reachable
+precondition: empty
+notes: Keyboard alternative on the same separator (Up/Down, Shift for larger steps, Home resets, End maximises); double-click resets. Visible only while the dock is the presentation and expanded.
+```
+
+```yaml
+name: recipe-empty-state
+kind: widget
+selector: '#recipe-empty [data-ui="genre-nav"]'
+surface: Your recipe — empty session: what to do, Browse genres, Surprise me
+implementation: uiRecipePanelSetup / uiSync in src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: map-status
+kind: widget
+selector: '#map-status'
+surface: Map — "Loading the map…" until the embedded atlas has loaded
+implementation: map page render() in src/pages/map.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: keyboard-escape-layers
+kind: keyboard-shortcut
+selector: 'document'
+surface: global — Escape closes the topmost layer only (dialog, More, AI writer, Recipe sheet, editor, then the page's own) and returns focus to its opener
+implementation: uiEscape in src/workbench.js; page escape() hooks in src/pages/genre.js and src/pages/instrument.js
+status: reachable
+precondition: empty
+notes: Verified by check_ui_foundation.js H, not by this presence check.
+```
+
+```yaml
+name: history-back-between-sections
+kind: keyboard-shortcut
+selector: 'document'
+surface: browser Back / Forward — step between Genre, Instrument, Map and Lyrics
+implementation: uiNavigate(view, { push }) and the hashchange listener in src/workbench.js
+status: reachable
+precondition: empty
+notes: Deep links codex.html#<section> and codex.html?trad=<id> (opens that genre's detail; adds nothing) are preserved. Verified by check_ui_foundation.js H.
+```
+
+```yaml
+name: genre-no-results-clear
+kind: data-action
+selector: '[data-ui="genre-clear-search"]'
+surface: Genre — "No genres match …" with Clear search
+implementation: uiEmptyState in src/workbench.js; genre-clear-search in src/pages/genre.js
+status: reachable
+precondition: 'genre search: no results'
+```
+
+```yaml
+name: instrument-no-results-recovery
+kind: data-action
+selector: '[data-ui="instrument-clear-search"]'
+surface: Instrument — "No instruments match" naming the constraints in force, with Clear search, Clear filters and All instruments as they apply
+implementation: uiInstrumentNoResults in src/pages/instrument.js
+status: reachable
+precondition: 'instrument search: no results'
+```
+
+```yaml
+name: toast-action-undo
+kind: data-action
+selector: '#toast .toast-action'
+surface: import toast — Undo (only while the import is still the latest change); Retry after a failed catalog fetch
+implementation: showToast(message, kind, action) and importTraditionWithFeedback in src/app.js
+status: reachable
+precondition: 'genre just imported'
+```
+
+```yaml
+name: map-your-recipe-dock
+kind: widget
+selector: '.workbench[data-recipe="dock"] #workspace-sidebar .recipe-panel-head'
+surface: Map — Your recipe docked under the map, the same panel and editor as Genre and Instrument
+implementation: map page recipe 'dock' (src/pages/map.js); dock presentation in src/workbench.css
+status: reachable
+precondition: 'map view'
+notes: A tradition's stock recipe in the atlas card is labelled "Default recipe" and is a different object. check_ui_foundation.js E proves one node and one state across the three pages.
+```
+
+### Your recipe — the reference panel (2026-09-25)
+
+The shared panel as the four references draw it (docs/ui-foundation.md, "One
+recipe workspace"). Moved capabilities are recorded on their original entries
+above; these are the new controls. Behaviour is gated by
+`scripts/check_ui_foundation.js` L (right-hand column, menus, environment
+source, output format) and `scripts/check_mobile_layout.js` (sheet, bar,
+drag and drop).
+
+```yaml
+name: recipe-sidebar-right
+kind: drag-drop
+selector: '.layout-splitter[aria-label="Resize recipe sidebar"]'
+surface: Your recipe as a right-hand column (page recipe 'sidebar-right') — resize from its left edge, collapse to a rail at the right edge
+implementation: uiApplyRecipeMode and the 'sidebar-right' UILayout.splitter in src/workbench.js; layout in src/workbench.css
+status: reachable
+precondition: empty
+notes: Two separators carry this name (left and right column); only the one for the current presentation is shown. Keyboard: Left/Right, Home resets, End maximises. check_ui_foundation.js L.
+```
+
+```yaml
+name: recipe-row-edit
+kind: data-action
+selector: '.sb-card-row [data-card-action="edit"]'
+surface: Your recipe — Edit on each instrument row
+implementation: renderSidebarCard / the [data-card-action] wiring in renderSidebarTraditions (src/app.js) — the same path as selecting the row
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-row-menu
+kind: widget
+selector: '.sb-card-row [data-menu-toggle]'
+surface: Your recipe — … on each instrument row (Duplicate, Pin to top, Move to genre…, Explore variations, Find similar instruments, Remove)
+implementation: menu markup in renderSidebarCard (src/app.js); opened, placed, keyboard-driven and closed by uiToggleMenu / uiMenuControls in src/workbench.js
+status: reachable
+precondition: 1+ cards
+notes: Escape closes it first and returns focus to the trigger. check_ui_foundation.js L.
+```
+
+```yaml
+name: recipe-row-duplicate
+kind: data-action
+selector: '.sb-menu [data-card-action="duplicate"]'
+surface: Your recipe — row … menu — Duplicate
+implementation: handleAction('duplicate') (src/app.js)
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-row-pin
+kind: data-action
+selector: '.sb-menu [data-card-action="pin"]'
+surface: Your recipe — row … menu — Pin to top / Unpin
+implementation: handleAction('pin') (src/app.js)
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-row-move-genre
+kind: data-action
+selector: '.sb-menu [data-card-action="move-genre"]'
+surface: Your recipe — row … menu — Move to genre… (the non-drag reparent; disabled with one genre)
+implementation: handleAction('move-genre') → openMoveToGenreMenu anchored on the row's … (src/app.js)
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-row-variations
+kind: data-action
+selector: '.sb-menu [data-card-action="drift"]'
+surface: Your recipe — row … menu — Explore variations (opens the editor on the row with its variations)
+implementation: selects the row, then handleAction('drift') (src/app.js)
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-row-similar
+kind: data-action
+selector: '.sb-menu [data-card-action="similar"]'
+surface: Your recipe — row … menu — Find similar instruments
+implementation: handleAction('similar') (src/app.js) → uiOpenSurface('modal-add') inspects it on the Instrument page
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-row-remove
+kind: data-action
+selector: '.sb-menu [data-card-action="delete"]'
+surface: Your recipe — row … menu — Remove (Undo restores it)
+implementation: handleAction('delete') → rmCard (src/app.js)
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-genre-menu
+kind: widget
+selector: '.sb-tradition-header [data-menu-toggle]'
+surface: Your recipe — … on each genre (Make primary genre, Move up, Move down, Remove genre)
+implementation: menu markup in renderSidebarTraditions (src/app.js); uiToggleMenu in src/workbench.js
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-genre-make-primary
+kind: data-action
+selector: '.sb-tradition-header [data-make-primary]'
+surface: Your recipe — genre … menu — Make primary genre (disabled on the first genre)
+implementation: dropTraditionOnTradition(id, first genre, above) + pushHistory + renderAll (src/app.js) — one undoable step
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-suggestions-toggle
+kind: widget
+selector: '#sb-staple-toggle'
+surface: Your recipe — Suggestions for this recipe (a disclosure, closed until opened)
+implementation: renderSidebarStaple (src/app.js) toggles app._suggestionsOpen
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-environment-room
+kind: data-action
+selector: '[data-ui="recipe-env"][data-id="room"]'
+surface: Your recipe — Recording environment — Room (opens the editor on the environment's card, Environment tab, room picker open)
+implementation: uiRecipeEnvHTML / uiOpenEnvironment in src/workbench.js, from envCardOf(app.cards)
+status: reachable
+precondition: 1+ cards
+notes: Labelled "From <instrument> · <genre>" — the card every output format renders the environment from. check_ui_foundation.js L.
+```
+
+```yaml
+name: recipe-environment-tuning
+kind: data-action
+selector: '[data-ui="recipe-env"][data-id="tuning"]'
+surface: Your recipe — Recording environment — Tuning (Environment tab, tuning picker open)
+implementation: uiOpenEnvironment in src/workbench.js
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-environment-chain
+kind: data-action
+selector: '[data-ui="recipe-env"][data-id="chain"]'
+surface: Your recipe — Recording environment — Signal chain summary (Signal chain tab; the full stage names in its tooltip)
+implementation: uiOpenEnvironment in src/workbench.js
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-environment-edit
+kind: data-action
+selector: '[data-ui="recipe-env"][data-id="env"]'
+surface: Your recipe — Recording environment — pencil (Environment tab)
+implementation: uiOpenEnvironment in src/workbench.js
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-preview-format
+kind: widget
+selector: '#sb-recipe-format'
+surface: Your recipe — Recipe preview — format (Rich, Tags, Prose, Compact)
+implementation: renderSidebarRecipePreview (src/app.js) sets app.recipeStackFormat, shared with the full-recipe dialog; Copy recipe copies the format shown
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-preview-expand
+kind: widget
+selector: '#sb-recipe-expand'
+surface: Your recipe — Recipe preview — show all of the recipe / show less (on a phone, open the recipe bar)
+implementation: renderSidebarRecipePreview (src/app.js): app._recipeDeskExpanded / app._recipeSheetOpen
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-open-full-editor
+kind: data-action
+selector: '[data-ui="recipe-open-editor"]'
+surface: Your recipe dock — Open full editor (the selected instrument, else the first)
+implementation: uiOpenEditor in src/workbench.js
+status: reachable
+precondition: empty
+notes: Shown in the dock presentation; disabled while the recipe is empty.
+```
+
+```yaml
+name: recipe-filter-toggle
+kind: widget
+selector: '[data-ui="recipe-filter"]'
+surface: Your recipe header — Filter instruments
+implementation: uiSyncRecipeFilter and the recipe-filter action in src/workbench.js
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-ai-entry
+kind: widget
+selector: '#recipe-ai-input'
+surface: Your recipe — "Describe a change to this recipe…" (send opens the AI writer with the request and the current recipe)
+implementation: uiRecipeAskAI in src/workbench.js — the one recipe writer; its reply is offered with "Use recipe" (undoable)
+status: reachable
+precondition: empty
+notes: Hidden in the phone sheet, whose toolbar keeps AI recipe. Sends only on the user's own submit.
+```
+
+```yaml
+name: recipe-autosave-mirror
+kind: widget
+selector: '#recipe-autosave'
+surface: Your recipe header — Autosaved / Not autosaved / Autosave failed, the same words as the header status
+implementation: uiRenderAutosave in src/workbench.js (#ui-autosave stays the live region)
 status: reachable
 precondition: empty
 ```

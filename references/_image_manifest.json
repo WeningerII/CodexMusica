@@ -4,34 +4,34 @@
   "coverage": {
     "instrument": {
       "total": 1467,
-      "with_image": 752,
+      "with_image": 702,
       "by_source": {
-        "wikidata_commons": 620,
-        "met_open_access": 86,
-        "commons_depicts": 32,
-        "europeana": 12,
-        "cleveland_open_access": 2
+        "wikidata_commons": 595,
+        "met_open_access": 78,
+        "commons_depicts": 22,
+        "europeana": 6,
+        "cleveland_open_access": 1
       },
       "by_license": {
-        "CC BY-SA": 405,
-        "Public Domain": 123,
-        "CC0": 145,
-        "CC BY": 79
+        "CC BY-SA": 379,
+        "Public Domain": 115,
+        "CC0": 133,
+        "CC BY": 75
       }
     },
     "tradition": {
       "total": 2588,
-      "with_image": 592,
+      "with_image": 491,
       "by_source": {
-        "wikidata_commons": 409,
-        "commons_depicts": 158,
-        "openverse": 25
+        "wikidata_commons": 376,
+        "commons_depicts": 99,
+        "openverse": 16
       },
       "by_license": {
-        "CC BY-SA": 318,
-        "Public Domain": 94,
-        "CC BY": 143,
-        "CC0": 37
+        "CC BY-SA": 266,
+        "Public Domain": 75,
+        "CC BY": 123,
+        "CC0": 27
       }
     }
   },
@@ -84,7 +84,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "The original uploader was Wassily at Russian Wikipedia.",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "adırna"
     },
     {
@@ -204,7 +204,7 @@
       "license": "CC0",
       "license_raw": "CC0",
       "credit": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "alghoza"
     },
     {
@@ -382,7 +382,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Joan",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "arghul"
     },
     {
@@ -472,7 +472,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Figlio di dio",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Atumpan (drum)"
     },
     {
@@ -621,7 +621,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "LopezRoaJuan",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "bandola (Llanos)"
     },
     {
@@ -715,21 +715,6 @@
       "matched_label": "Baroque guitar"
     },
     {
-      "id": "barrel_organ",
-      "kind": "instrument",
-      "name": "Barrel organ (crank-driven mechanical pipe organ)",
-      "source": "wikidata_commons",
-      "wikidata": "Q752638",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Barrel_piano_-_%CE%9B%CE%B1%CF%84%CE%AD%CF%81%CE%BD%CE%B1(laterna).JPG",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Barrel_piano_-_%CE%9B%CE%B1%CF%84%CE%AD%CF%81%CE%BD%CE%B1%28laterna%29.JPG",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Barrel_piano_-_%CE%9B%CE%B1%CF%84%CE%AD%CF%81%CE%BD%CE%B1%28laterna%29.JPG/500px-Barrel_piano_-_%CE%9B%CE%B1%CF%84%CE%AD%CF%81%CE%BD%CE%B1%28laterna%29.JPG",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "ZaxosKantadoros",
-      "match_confidence": "medium",
-      "matched_label": "barrel organ"
-    },
-    {
       "id": "baryton",
       "kind": "instrument",
       "name": "Baryton (bowed viol with plucked sympathetic wires)",
@@ -818,21 +803,6 @@
       "credit": "Yamaha Corporation",
       "match_confidence": "high",
       "matched_label": "bass trombone"
-    },
-    {
-      "id": "bassanello",
-      "kind": "instrument",
-      "name": "Bassanello (Venetian soft consort double reed)",
-      "source": "commons_depicts",
-      "wikidata": "Q3636033",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Guizza_foto_storica_chiesa_Bassanello_vista_aerea.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Guizza_foto_storica_chiesa_Bassanello_vista_aerea.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Guizza_foto_storica_chiesa_Bassanello_vista_aerea.jpg/500px-Guizza_foto_storica_chiesa_Bassanello_vista_aerea.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Unknown authorUnknown author",
-      "match_confidence": "medium",
-      "matched_label": "bassanello"
     },
     {
       "id": "basset_clarinet",
@@ -936,21 +906,6 @@
       "credit": "Kembangraps",
       "match_confidence": "high",
       "matched_label": "bedug"
-    },
-    {
-      "id": "been_snake_charmer",
-      "kind": "instrument",
-      "name": "Been (Indian snake-charmer's gourd double clarinet)",
-      "source": "wikidata_commons",
-      "wikidata": "Q5266546",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Rudraveena1.JPG",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Rudraveena1.JPG",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Rudraveena1.JPG/500px-Rudraveena1.JPG",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "Fotokannan",
-      "match_confidence": "high",
-      "matched_label": "rudra veena"
     },
     {
       "id": "begena",
@@ -1159,7 +1114,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Wikimedia Commons contributor",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "bongo"
     },
     {
@@ -1296,21 +1251,6 @@
       "matched_label": "Bullroarer (Imunu Viki?)"
     },
     {
-      "id": "burundi_royal_drums",
-      "kind": "instrument",
-      "name": "Ingoma (Burundi royal drum ensemble)",
-      "source": "wikidata_commons",
-      "wikidata": "Q7022514",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_105-DOA0543,_Deutsch-Ostafrika,_Ngoma-Schlagen.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Bundesarchiv_Bild_105-DOA0543%2C_Deutsch-Ostafrika%2C_Ngoma-Schlagen.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Bundesarchiv_Bild_105-DOA0543%2C_Deutsch-Ostafrika%2C_Ngoma-Schlagen.jpg/500px-Bundesarchiv_Bild_105-DOA0543%2C_Deutsch-Ostafrika%2C_Ngoma-Schlagen.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0 de",
-      "credit": "Walther Dobbertin",
-      "match_confidence": "high",
-      "matched_label": "ngoma"
-    },
-    {
       "id": "buzuq",
       "kind": "instrument",
       "name": "Buzuq (Levantine long-necked fretted lute)",
@@ -1341,21 +1281,6 @@
       "matched_label": "byzaanchy"
     },
     {
-      "id": "byzantine_lyra",
-      "kind": "instrument",
-      "name": "Byzantine lyra (medieval bowed lyra, reconstructed)",
-      "source": "wikidata_commons",
-      "wikidata": "Q2606162",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Gdulka-bow_copy.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Gdulka-bow_copy.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Gdulka-bow_copy.jpg/500px-Gdulka-bow_copy.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "No machine-readable author provided. Arent assumed (based on copyright claims).",
-      "match_confidence": "high",
-      "matched_label": "Byzantine lyra"
-    },
-    {
       "id": "cabrette",
       "kind": "instrument",
       "name": "Cabrette (Auvergne bellows-blown bagpipe)",
@@ -1369,20 +1294,6 @@
       "credit": "Claude Roméro, atelier de facture instrumentale du Centre Occitan des Musiques et danses traditionnelles Toulouse Midi-Pyrénées. Tête sculptée de Jacques Grandchamp",
       "match_confidence": "high",
       "matched_label": "cabrette"
-    },
-    {
-      "id": "castanets",
-      "kind": "instrument",
-      "name": "Castanets",
-      "source": "europeana",
-      "source_page": "https://www.europeana.eu/item/123/https___www_searchculture_gr_aggregator_edm_medusa_000114_3_5922manifest",
-      "image_url": "https://medusa.libver.gr/iguana/iiif/image/mnt/vsmart_srv/assets_rw/3_5922_TIFF/5922_00001.tif/full/full/0/default.jpg",
-      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fwww.searchculture.gr%2Faggregator%2Fthumbnails%2Fedm-record%2Fmedusa%2F000114-3_5922manifest&type=IMAGE",
-      "license": "CC BY",
-      "license_raw": "http://creativecommons.org/licenses/by/4.0/",
-      "credit": "Veria Central Public Library via Europeana",
-      "match_confidence": "medium",
-      "matched_label": "Castanets"
     },
     {
       "id": "caval_romanian",
@@ -1783,7 +1694,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Andrewa",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "clapstick"
     },
     {
@@ -2052,21 +1963,6 @@
       "matched_label": "contrabass flute"
     },
     {
-      "id": "contrabass_oboe",
-      "kind": "instrument",
-      "name": "Contrabass oboe (contrebasse de hautbois — historical reconstruction)",
-      "source": "commons_depicts",
-      "wikidata": "Q5165635",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Contrabass_oboe%27s_range.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Contrabass_oboe%27s_range.png",
-      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Contrabass_oboe%27s_range.png",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "EnnoymousUser",
-      "match_confidence": "medium",
-      "matched_label": "contrabass oboe"
-    },
-    {
       "id": "contrabassoon",
       "kind": "instrument",
       "name": "Contrabassoon",
@@ -2110,20 +2006,6 @@
       "credit": "Dulcijan",
       "match_confidence": "high",
       "matched_label": "cornamuse"
-    },
-    {
-      "id": "cornet",
-      "kind": "instrument",
-      "name": "Cornet",
-      "source": "europeana",
-      "source_page": "https://www.europeana.eu/item/2048047/Clasate_e5ef6f726a244f4daa15cad62d6abb86",
-      "image_url": "https://resource.culturalia.ro/imagini-clasate/imagini35/8a55c0382a904e3eac317bd76dcedc5e.jpg",
-      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fresource.culturalia.ro%2Fimagini-clasate%2Fimagini35%2F8a55c0382a904e3eac317bd76dcedc5e.jpg&type=IMAGE",
-      "license": "CC BY-SA",
-      "license_raw": "http://creativecommons.org/licenses/by-sa/4.0/",
-      "credit": "National Museum of Transylvanian History via Europeana",
-      "match_confidence": "medium",
-      "matched_label": "cornet"
     },
     {
       "id": "cornetto",
@@ -2186,21 +2068,6 @@
       "matched_label": "cromorne"
     },
     {
-      "id": "crotales",
-      "kind": "instrument",
-      "name": "Crotales (antique cymbals)",
-      "source": "wikidata_commons",
-      "wikidata": "Q1141589",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Cymbales-E_12567-img_2793.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Cymbales-E_12567-img_2793.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Cymbales-E_12567-img_2793.jpg/500px-Cymbales-E_12567-img_2793.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 1.0",
-      "credit": "anonymous",
-      "match_confidence": "high",
-      "matched_label": "crotales"
-    },
-    {
       "id": "crumhorn",
       "kind": "instrument",
       "name": "Crumhorn (renaissance capped double reed)",
@@ -2231,21 +2098,6 @@
       "matched_label": "crwth"
     },
     {
-      "id": "cuatro_pr",
-      "kind": "instrument",
-      "name": "Cuatro (Puerto Rican)",
-      "source": "wikidata_commons",
-      "wikidata": "Q507102",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Cuatro_Ramon_Blanco.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Cuatro_Ramon_Blanco.jpg",
-      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Cuatro_Ramon_Blanco.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "No machine-readable author provided. AVM assumed (based on copyright claims).",
-      "match_confidence": "medium",
-      "matched_label": "cuatro"
-    },
-    {
       "id": "cuatro_venezolano",
       "kind": "instrument",
       "name": "Cuatro venezolano",
@@ -2257,7 +2109,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Fernando da Rosa (Fedaro)",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Venezuelan cuatro"
     },
     {
@@ -2347,7 +2199,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Krish Dulal",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Damphu drum"
     },
     {
@@ -2392,7 +2244,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "Davidlohr Bueso",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "đàn bầu"
     },
     {
@@ -2439,21 +2291,6 @@
       "credit": "Hoangkid",
       "match_confidence": "high",
       "matched_label": "đàn tam"
-    },
-    {
-      "id": "dan_tam_thap_luc",
-      "kind": "instrument",
-      "name": "Đàn tam thập lục (Vietnamese 36-string hammered zither)",
-      "source": "wikidata_commons",
-      "wikidata": "Q10823878",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Hammered_dulcimer.JPG",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Hammered_dulcimer.JPG",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Hammered_dulcimer.JPG/500px-Hammered_dulcimer.JPG",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Wikimedia Commons contributor",
-      "match_confidence": "high",
-      "matched_label": "đàn tam thập lục"
     },
     {
       "id": "dan_tranh",
@@ -2512,7 +2349,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Arent",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "davul"
     },
     {
@@ -2557,7 +2394,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "Chehel-sotoon palace, Isfahan",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "daf"
     },
     {
@@ -2676,7 +2513,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "User:Furky14",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "divan"
     },
     {
@@ -2750,7 +2587,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Reza1615",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "dayereh"
     },
     {
@@ -2780,7 +2617,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "User:Mizu basyo",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "dombra"
     },
     {
@@ -2898,7 +2735,7 @@
       "license": "CC0",
       "license_raw": "CC0",
       "credit": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "dramyin"
     },
     {
@@ -3092,7 +2929,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Lesterbllanes",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "electric double bass"
     },
     {
@@ -3271,20 +3108,6 @@
       "credit": "Besson / Buffet Crampon",
       "match_confidence": "high",
       "matched_label": "euphonium"
-    },
-    {
-      "id": "fiddle",
-      "kind": "instrument",
-      "name": "Fiddle",
-      "source": "cleveland_open_access",
-      "source_page": "https://clevelandart.org/art/1918.381",
-      "image_url": "https://openaccess-cdn.clevelandart.org/1918.381/1918.381_print.jpg",
-      "thumb_url": "https://openaccess-cdn.clevelandart.org/1918.381/1918.381_web.jpg",
-      "license": "CC0",
-      "license_raw": "CC0 (Cleveland Museum of Art Open Access)",
-      "credit": "The Cleveland Museum of Art, The Charles G. King Jr. collection; Gift of Ralph King in memory of Charles G. King Jr.",
-      "match_confidence": "medium",
-      "matched_label": "Fiddle"
     },
     {
       "id": "fife",
@@ -3473,7 +3296,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Kippelboy",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "sarronca"
     },
     {
@@ -3533,7 +3356,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.0",
       "credit": "César Sotelo",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Galician gaita"
     },
     {
@@ -3548,23 +3371,8 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.5",
       "credit": "Jeffrey De Keyser at nl.wikipedia",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "gaida"
-    },
-    {
-      "id": "gaku_biwa",
-      "kind": "instrument",
-      "name": "Gaku biwa (four-string gagaku court biwa)",
-      "source": "wikidata_commons",
-      "wikidata": "Q116070592",
-      "source_page": "https://commons.wikimedia.org/wiki/File:%EA%B3%A1%EA%B2%BD%EB%B9%84%ED%8C%8C_(2).JPG",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/%EA%B3%A1%EA%B2%BD%EB%B9%84%ED%8C%8C_%282%29.JPG",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/%EA%B3%A1%EA%B2%BD%EB%B9%84%ED%8C%8C_%282%29.JPG/500px-%EA%B3%A1%EA%B2%BD%EB%B9%84%ED%8C%8C_%282%29.JPG",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Jocelyndurrey",
-      "match_confidence": "high",
-      "matched_label": "gaku biwa"
     },
     {
       "id": "galoubet",
@@ -3652,7 +3460,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "Visviva",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "kayagum"
     },
     {
@@ -3686,20 +3494,6 @@
       "matched_label": "gemshorn"
     },
     {
-      "id": "gender",
-      "kind": "instrument",
-      "name": "Gender (gamelan multi-octave metallophone)",
-      "source": "europeana",
-      "source_page": "https://www.europeana.eu/item/91608/SMVK_VKM_objekt_71525",
-      "image_url": "https://collections.smvk.se/carlotta-vkm/web/image/zoom/2293099/1968.07.0001a.jpg",
-      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fcollections.smvk.se%2Fcarlotta-vkm%2Fweb%2Fimage%2Fzoom%2F2293099%2F1968.07.0001a.jpg&type=IMAGE",
-      "license": "CC0",
-      "license_raw": "http://creativecommons.org/publicdomain/zero/1.0/",
-      "credit": "Museum of World Culture via Europeana",
-      "match_confidence": "medium",
-      "matched_label": "slagspel, slagspel (a) med slagklubba, gendèr"
-    },
-    {
       "id": "geomungo",
       "kind": "instrument",
       "name": "Geomungo (Korean six-string fretted zither)",
@@ -3726,7 +3520,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Schorle",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "rhaita"
     },
     {
@@ -3771,7 +3565,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Bertramz",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "ghijak"
     },
     {
@@ -3788,21 +3582,6 @@
       "credit": "Fredericknoronha",
       "match_confidence": "high",
       "matched_label": "Ghumot"
-    },
-    {
-      "id": "gijak_turkmen",
-      "kind": "instrument",
-      "name": "Gijak (Turkmen spike fiddle)",
-      "source": "wikidata_commons",
-      "wikidata": "Q1521728",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Ghaychak.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Ghaychak.jpg",
-      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Ghaychak.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Marc pasquin at English Wikipedia",
-      "match_confidence": "high",
-      "matched_label": "ghaychak"
     },
     {
       "id": "glass_harmonica",
@@ -3874,7 +3653,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Wikimedia Commons contributor",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "guan"
     },
     {
@@ -3904,7 +3683,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Sguastevi",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "sintir"
     },
     {
@@ -4052,7 +3831,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Sguastevi",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "sintir"
     },
     {
@@ -4097,7 +3876,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Frode Inge Helland",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Hardanger fiddle"
     },
     {
@@ -4113,34 +3892,6 @@
       "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
       "match_confidence": "medium",
       "matched_label": "Harmonica"
-    },
-    {
-      "id": "harmonium_indian",
-      "kind": "instrument",
-      "name": "Harmonium (Indian / South Asian)",
-      "source": "met_open_access",
-      "source_page": "https://www.metmuseum.org/art/collection/search/504397",
-      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/134286.jpg",
-      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/134286.jpg",
-      "license": "CC0",
-      "license_raw": "Public Domain (Met Open Access, CC0)",
-      "credit": "The Metropolitan Museum of Art, Gift of Miss Helen Sears through Mrs. Alma Birmingham",
-      "match_confidence": "medium",
-      "matched_label": "Harmonium"
-    },
-    {
-      "id": "harpa",
-      "kind": "instrument",
-      "name": "Harpa (Nordic diatonic folk harp)",
-      "source": "europeana",
-      "source_page": "https://www.europeana.eu/item/91608/SMVK_VKM_objekt_59963",
-      "image_url": "https://collections.smvk.se/carlotta-vkm/web/image/zoom/1196273/zoom",
-      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fcollections.smvk.se%2Fcarlotta-vkm%2Fweb%2Fimage%2Fzoom%2F1196273%2Fzoom&type=IMAGE",
-      "license": "CC0",
-      "license_raw": "http://creativecommons.org/publicdomain/zero/1.0/",
-      "credit": "Museum of World Culture via Europeana",
-      "match_confidence": "medium",
-      "matched_label": "harpa, Guitarr-harpa"
     },
     {
       "id": "harpsichord",
@@ -4273,7 +4024,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Sasabuki",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "hotchiku"
     },
     {
@@ -4349,21 +4100,6 @@
       "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
       "match_confidence": "medium",
       "matched_label": "Hurdy-Gurdy"
-    },
-    {
-      "id": "hydraulis",
-      "kind": "instrument",
-      "name": "Hydraulis (ancient Greco-Roman water organ)",
-      "source": "commons_depicts",
-      "wikidata": "Q109418092",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Paseo_de_la_Guarania.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Paseo_de_la_Guarania.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Paseo_de_la_Guarania.png/500px-Paseo_de_la_Guarania.png",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Overkill53",
-      "match_confidence": "medium",
-      "matched_label": "hydraulis"
     },
     {
       "id": "hyperbass_flute",
@@ -4482,7 +4218,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "Antumdeluge",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Ipu"
     },
     {
@@ -4499,21 +4235,6 @@
       "credit": "Wikimedia Commons contributor",
       "match_confidence": "high",
       "matched_label": "Irish bouzouki"
-    },
-    {
-      "id": "irish_wooden_flute",
-      "kind": "instrument",
-      "name": "Irish flute (simple-system conical wooden transverse flute)",
-      "source": "wikidata_commons",
-      "wikidata": "Q1672931",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Charles_Nicholson00.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Charles_Nicholson00.jpg",
-      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Charles_Nicholson00.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "T. Bart fl.1800s",
-      "match_confidence": "medium",
-      "matched_label": "Irish flute"
     },
     {
       "id": "jal_tarang",
@@ -4602,7 +4323,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Badagnani (talk)",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "jegog"
     },
     {
@@ -4662,7 +4383,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "Flickr user: Cindy Funk ( https://www.flickr.com/people/cindyfunk/ )",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "musical jug"
     },
     {
@@ -4711,21 +4432,6 @@
       "matched_label": "kakaki"
     },
     {
-      "id": "kalangu",
-      "kind": "instrument",
-      "name": "Kalangu (Hausa hourglass talking drum)",
-      "source": "commons_depicts",
-      "wikidata": "Q5842724",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Afrobeats_Molo_strings.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Afrobeats_Molo_strings.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Afrobeats_Molo_strings.jpg/500px-Afrobeats_Molo_strings.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Bakam Adams",
-      "match_confidence": "medium",
-      "matched_label": "kalangu"
-    },
-    {
       "id": "kalimba",
       "kind": "instrument",
       "name": "Kalimba (thumb piano)",
@@ -4767,7 +4473,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Gkergourlay",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "kamelen n'goni"
     },
     {
@@ -4901,7 +4607,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "David Monniaux",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "kayamb"
     },
     {
@@ -4949,21 +4655,6 @@
       "matched_label": "kempul"
     },
     {
-      "id": "kempyang",
-      "kind": "instrument",
-      "name": "Kempyang (Javanese small horizontal kettle gong)",
-      "source": "commons_depicts",
-      "wikidata": "Q20580988",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Wayang_Ruwatan_by_Anom_Harya.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Wayang_Ruwatan_by_Anom_Harya.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Wayang_Ruwatan_by_Anom_Harya.jpg/500px-Wayang_Ruwatan_by_Anom_Harya.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Anom Harya",
-      "match_confidence": "medium",
-      "matched_label": "kempyang"
-    },
-    {
       "id": "ken_bau",
       "kind": "instrument",
       "name": "Ken bau (Vietnamese gourd-belled shawm)",
@@ -5007,21 +4698,6 @@
       "credit": "Sangram Keshari Senapati",
       "match_confidence": "high",
       "matched_label": "Kendara"
-    },
-    {
-      "id": "kenong",
-      "kind": "instrument",
-      "name": "Kenong (gamelan large-pot gong)",
-      "source": "commons_depicts",
-      "wikidata": "Q6391285",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Karawitan_Junior.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Karawitan_Junior.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Karawitan_Junior.jpg/500px-Karawitan_Junior.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Giri Wijayanto",
-      "match_confidence": "medium",
-      "matched_label": "kenong"
     },
     {
       "id": "kethuk",
@@ -5139,7 +4815,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Soinuenea",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Jew's harp"
     },
     {
@@ -5259,7 +4935,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "Moldovan Post Office",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "cobza"
     },
     {
@@ -5423,7 +5099,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 3.0",
       "credit": "w:en:User:TDBakker",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "krakebs"
     },
     {
@@ -5438,7 +5114,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Paul_012",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "chakhe"
     },
     {
@@ -5527,7 +5203,7 @@
       "license": "CC0",
       "license_raw": "CC0",
       "credit": "Hiart",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "kutiyapi"
     },
     {
@@ -5542,7 +5218,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "С фотографии А. Мордвинова рисов. на дер. П.Ф. Борель, грав. Л.А. Серяков",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "kuvytsi"
     },
     {
@@ -5587,7 +5263,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Amadouibrahim2",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "kontigi"
     },
     {
@@ -5619,21 +5295,6 @@
       "credit": "Hiart",
       "match_confidence": "high",
       "matched_label": "kutiyapi"
-    },
-    {
-      "id": "kuzhal",
-      "kind": "instrument",
-      "name": "Kuzhal (Kerala temple double-reed shawm)",
-      "source": "commons_depicts",
-      "wikidata": "Q3200735",
-      "source_page": "https://commons.wikimedia.org/wiki/File:The_Tribal_Triumph.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/The_Tribal_Triumph.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/The_Tribal_Triumph.jpg/500px-The_Tribal_Triumph.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "WonderFrames",
-      "match_confidence": "medium",
-      "matched_label": "kuzhal"
     },
     {
       "id": "kwitra",
@@ -5900,7 +5561,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "@rent",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "kemençe of the Black Sea"
     },
     {
@@ -5944,7 +5605,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Kamila ould larbi",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Algerian mandole"
     },
     {
@@ -5973,7 +5634,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Gregg Miner",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "mandocello"
     },
     {
@@ -6003,7 +5664,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.0",
       "credit": "Dan Moi",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "maraca"
     },
     {
@@ -6020,36 +5681,6 @@
       "credit": "Bibhuti Bhusan Champati",
       "match_confidence": "high",
       "matched_label": "Mardala"
-    },
-    {
-      "id": "marimba_centroamericana",
-      "kind": "instrument",
-      "name": "Marimba (Central American / Guatemalan)",
-      "source": "wikidata_commons",
-      "wikidata": "Q220971",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Esmeraldian_(Afro-Ecuadorian)_marimba.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Esmeraldian_%28Afro-Ecuadorian%29_marimba.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Esmeraldian_%28Afro-Ecuadorian%29_marimba.jpg/500px-Esmeraldian_%28Afro-Ecuadorian%29_marimba.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "Jen",
-      "match_confidence": "medium",
-      "matched_label": "marimba"
-    },
-    {
-      "id": "marimba_orchestral",
-      "kind": "instrument",
-      "name": "Marimba (orchestral)",
-      "source": "wikidata_commons",
-      "wikidata": "Q220971",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Esmeraldian_(Afro-Ecuadorian)_marimba.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Esmeraldian_%28Afro-Ecuadorian%29_marimba.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Esmeraldian_%28Afro-Ecuadorian%29_marimba.jpg/500px-Esmeraldian_%28Afro-Ecuadorian%29_marimba.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "Jen",
-      "match_confidence": "medium",
-      "matched_label": "marimba"
     },
     {
       "id": "marimbula",
@@ -6187,21 +5818,6 @@
       "matched_label": "mellotron"
     },
     {
-      "id": "melodeon_diatonic",
-      "kind": "instrument",
-      "name": "Melodeon (diatonic button accordion)",
-      "source": "wikidata_commons",
-      "wikidata": "Q4592185",
-      "source_page": "https://commons.wikimedia.org/wiki/File:New_Haven_Melodeon,_Mission_Mill_Museum.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/New_Haven_Melodeon%2C_Mission_Mill_Museum.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/New_Haven_Melodeon%2C_Mission_Mill_Museum.jpg/500px-New_Haven_Melodeon%2C_Mission_Mill_Museum.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 2.0",
-      "credit": "PhotoAtelier",
-      "match_confidence": "medium",
-      "matched_label": "melodeon"
-    },
-    {
       "id": "melodica",
       "kind": "instrument",
       "name": "Melodica",
@@ -6303,7 +5919,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "IssamBarhoumi",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "mizwad"
     },
     {
@@ -6378,7 +5994,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Charukeshi",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "morsing"
     },
     {
@@ -6468,7 +6084,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Nick Michael",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "muselar virginal"
     },
     {
@@ -6515,21 +6131,6 @@
       "credit": "The original uploader was 用心阁 at Chinese Wikipedia.",
       "match_confidence": "medium",
       "matched_label": "Muyu"
-    },
-    {
-      "id": "naghara_azerbaijani",
-      "kind": "instrument",
-      "name": "Naghara (Azerbaijani cylindrical double-headed drum)",
-      "source": "wikidata_commons",
-      "wikidata": "Q2510552",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Nagara,_MDMB_945.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Nagara%2C_MDMB_945.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Nagara%2C_MDMB_945.jpg/500px-Nagara%2C_MDMB_945.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "S. Guasteví",
-      "match_confidence": "high",
-      "matched_label": "nagara"
     },
     {
       "id": "nai_romanian",
@@ -6692,7 +6293,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "Uta-you_Shinobue_and_Nohkan.jpg: Yasuhiko Sano derivative work: Scapler (talk)",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "nohkan"
     },
     {
@@ -6858,21 +6459,6 @@
       "matched_label": "ophicleide"
     },
     {
-      "id": "organistrum",
-      "kind": "instrument",
-      "name": "Organistrum (two-player medieval wheel fiddle)",
-      "source": "wikidata_commons",
-      "wikidata": "Q207821",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Chiesa_di_San_Maurizio_-_Museo_della_Musica_in_Venice_-_Ghironda_1850_.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Chiesa_di_San_Maurizio_-_Museo_della_Musica_in_Venice_-_Ghironda_1850_.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Chiesa_di_San_Maurizio_-_Museo_della_Musica_in_Venice_-_Ghironda_1850_.jpg/500px-Chiesa_di_San_Maurizio_-_Museo_della_Musica_in_Venice_-_Ghironda_1850_.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Didier Descouens",
-      "match_confidence": "high",
-      "matched_label": "hurdy-gurdy"
-    },
-    {
       "id": "otsuzumi",
       "kind": "instrument",
       "name": "Otsuzumi (okawa; large hip hourglass drum of noh)",
@@ -6899,7 +6485,7 @@
       "license": "CC0",
       "license_raw": "CC0",
       "credit": "Creator:Manol (Emmanuel Venios)",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "oud"
     },
     {
@@ -7181,23 +6767,8 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Wikimedia Commons contributor",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "player piano"
-    },
-    {
-      "id": "pibgorn",
-      "kind": "instrument",
-      "name": "Pibgorn (Welsh windcapped single-reed hornpipe)",
-      "source": "wikidata_commons",
-      "wikidata": "Q369445",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Welshbagpipe.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Welshbagpipe.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Welshbagpipe.jpg/500px-Welshbagpipe.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Idris Jones",
-      "match_confidence": "high",
-      "matched_label": "pibgorn"
     },
     {
       "id": "piccolo",
@@ -7284,7 +6855,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "painting/illustration by Frans Balthazar Solvyns",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "pināka vīnā"
     },
     {
@@ -7356,7 +6927,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.5",
       "credit": "Metin Sezgin",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "classical kemençe"
     },
     {
@@ -7431,7 +7002,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "K. Frisk",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "psalmodicon"
     },
     {
@@ -7494,21 +7065,6 @@
       "matched_label": "pyeongyeong"
     },
     {
-      "id": "pyeonjong",
-      "kind": "instrument",
-      "name": "Pyeonjong (Korean set of 16 tuned bronze bells)",
-      "source": "wikidata_commons",
-      "wikidata": "Q133722",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Bianzhong.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Bianzhong.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Bianzhong.jpg/500px-Bianzhong.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "The original uploader was Zzjgbc at Chinese Wikipedia.",
-      "match_confidence": "high",
-      "matched_label": "bianzhong"
-    },
-    {
       "id": "qanbus",
       "kind": "instrument",
       "name": "Qanbus (Yemeni short-neck skin-bellied lute)",
@@ -7550,7 +7106,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 3.0",
       "credit": "w:en:User:TDBakker",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "krakebs"
     },
     {
@@ -7569,20 +7125,6 @@
       "matched_label": "quena"
     },
     {
-      "id": "quern_grindstone",
-      "kind": "instrument",
-      "name": "Quern / grinding stone",
-      "source": "europeana",
-      "source_page": "https://www.europeana.eu/item/91639/SMVK_MM_objekt_3008041",
-      "image_url": "https://collections.smvk.se/carlotta-mhm/web/image/zoom/4042298/MM+19490%281%29.jpg",
-      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fcollections.smvk.se%2Fcarlotta-mhm%2Fweb%2Fimage%2Fzoom%2F4042298%2FMM%2B19490%25281%2529.jpg&type=IMAGE",
-      "license": "CC BY",
-      "license_raw": "http://creativecommons.org/licenses/by/4.0/",
-      "credit": "The Museum of Mediterranean and Near Eastern Antiquities via Europeana",
-      "match_confidence": "low",
-      "matched_label": "Tool, Grinding stone, Malsten, Verktyg"
-    },
-    {
       "id": "quinta_huapanguera",
       "kind": "instrument",
       "name": "Quinta huapanguera (Huastecan deep-bodied bass guitar)",
@@ -7594,7 +7136,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Emma dusepo",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "huapanguera"
     },
     {
@@ -7625,21 +7167,6 @@
       "credit": "The Metropolitan Museum of Art, Gift of Joseph W. Drexel, 1889",
       "match_confidence": "medium",
       "matched_label": "Rabāb"
-    },
-    {
-      "id": "rabel_castellano",
-      "kind": "instrument",
-      "name": "Rabel (Castilian-Cantabrian bowed shepherd's fiddle)",
-      "source": "commons_depicts",
-      "wikidata": "Q3415911",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Encuentro_homenaje_en_Valdeolea.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Encuentro_homenaje_en_Valdeolea.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Encuentro_homenaje_en_Valdeolea.jpg/500px-Encuentro_homenaje_en_Valdeolea.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 2.0",
-      "credit": "Partido Popular de Cantabria",
-      "match_confidence": "medium",
-      "matched_label": "rabel"
     },
     {
       "id": "rackett",
@@ -7745,20 +7272,6 @@
       "credit": "Original uploader was Mattmm at en.wikipedia",
       "match_confidence": "high",
       "matched_label": "Rauschpfeife"
-    },
-    {
-      "id": "rebab",
-      "kind": "instrument",
-      "name": "Rebab (Indonesian/Malay spike fiddle)",
-      "source": "met_open_access",
-      "source_page": "https://www.metmuseum.org/art/collection/search/501021",
-      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/DP252791.jpg",
-      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/DP252791.jpg",
-      "license": "CC0",
-      "license_raw": "Public Domain (Met Open Access, CC0)",
-      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
-      "match_confidence": "medium",
-      "matched_label": "Rebab"
     },
     {
       "id": "rebec",
@@ -7891,7 +7404,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Collecties van het Nationaal Museum van Wereldculturen en het Wereldmuseum",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "gyaling"
     },
     {
@@ -7906,23 +7419,8 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Merlin",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "bones"
-    },
-    {
-      "id": "riq",
-      "kind": "instrument",
-      "name": "Riq (Egyptian frame drum with jingles)",
-      "source": "wikidata_commons",
-      "wikidata": "Q17057067",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Pair_of_dafs.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Pair_of_dafs.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Pair_of_dafs.jpg/500px-Pair_of_dafs.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 2.0",
-      "credit": "Olaf",
-      "match_confidence": "high",
-      "matched_label": "riq"
     },
     {
       "id": "roneat_ek",
@@ -8056,7 +7554,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "The original uploader was I99jonma at Swedish Wikipedia.",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Swedish bagpipes"
     },
     {
@@ -8075,21 +7573,6 @@
       "matched_label": "salpinx"
     },
     {
-      "id": "sambuca_ancient",
-      "kind": "instrument",
-      "name": "Sambuca (ancient angular harp of Near Eastern origin)",
-      "source": "commons_depicts",
-      "wikidata": "Q827200",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Fresco_of_women_listening_to_a_private_musical_performance.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Fresco_of_women_listening_to_a_private_musical_performance.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Fresco_of_women_listening_to_a_private_musical_performance.jpg/500px-Fresco_of_women_listening_to_a_private_musical_performance.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Chappsnet",
-      "match_confidence": "medium",
-      "matched_label": "Sambuca"
-    },
-    {
       "id": "sampho",
       "kind": "instrument",
       "name": "Sampho (Khmer barrel timekeeper drum)",
@@ -8101,7 +7584,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.5",
       "credit": "Dion Hinchcliffe",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Samphor"
     },
     {
@@ -8133,21 +7616,6 @@
       "credit": "Ashley Pomeroy",
       "match_confidence": "medium",
       "matched_label": "sampler"
-    },
-    {
-      "id": "sanj",
-      "kind": "instrument",
-      "name": "Sanj (Coptic small hand-cymbals)",
-      "source": "commons_depicts",
-      "wikidata": "Q7418340",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Musicians_of_the_Akbar%27s_naqq%C4%81ra-kh%C4%81na,_from_painting_%22An_Attempt_on_Akbar%27s_Life%22-Akbarnama.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Musicians_of_the_Akbar%27s_naqq%C4%81ra-kh%C4%81na%2C_from_painting_%22An_Attempt_on_Akbar%27s_Life%22-Akbarnama.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Musicians_of_the_Akbar%27s_naqq%C4%81ra-kh%C4%81na%2C_from_painting_%22An_Attempt_on_Akbar%27s_Life%22-Akbarnama.jpg/500px-Musicians_of_the_Akbar%27s_naqq%C4%81ra-kh%C4%81na%2C_from_painting_%22An_Attempt_on_Akbar%27s_Life%22-Akbarnama.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "painting by Bhawani the Elder, portraits by Madhav, 16th century Moghul Empire",
-      "match_confidence": "medium",
-      "matched_label": "Sanj"
     },
     {
       "id": "sanshin",
@@ -8220,7 +7688,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Unknown authorUnknown author",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Sapeh"
     },
     {
@@ -8441,7 +7909,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "Christian Skredsvig",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "willow flute"
     },
     {
@@ -8499,22 +7967,8 @@
       "license": "CC0",
       "license_raw": "CC0",
       "credit": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy",
-      "match_confidence": "high",
-      "matched_label": "dramyin"
-    },
-    {
-      "id": "shabbaba",
-      "kind": "instrument",
-      "name": "Shabbaba (Levantine-Bedouin open end-blown shepherd flute)",
-      "source": "met_open_access",
-      "source_page": "https://www.metmuseum.org/art/collection/search/501062",
-      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/midp89.4.444.jpg",
-      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/midp89.4.444.jpg",
-      "license": "CC0",
-      "license_raw": "Public Domain (Met Open Access, CC0)",
-      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
       "match_confidence": "medium",
-      "matched_label": "Shabbaba"
+      "matched_label": "dramyin"
     },
     {
       "id": "shakuhachi",
@@ -8545,20 +7999,6 @@
       "credit": "DO'Neil at English Wikipedia",
       "match_confidence": "high",
       "matched_label": "shamisen"
-    },
-    {
-      "id": "shawm",
-      "kind": "instrument",
-      "name": "Shawm (renaissance double reed)",
-      "source": "met_open_access",
-      "source_page": "https://www.metmuseum.org/art/collection/search/502236",
-      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/MUS478A5.jpg",
-      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/MUS478A5.jpg",
-      "license": "CC0",
-      "license_raw": "Public Domain (Met Open Access, CC0)",
-      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
-      "match_confidence": "medium",
-      "matched_label": "Shawm"
     },
     {
       "id": "shehnai",
@@ -8662,21 +8102,6 @@
       "credit": "Sathyadeep",
       "match_confidence": "medium",
       "matched_label": "shruti box"
-    },
-    {
-      "id": "shudraga",
-      "kind": "instrument",
-      "name": "Shudraga (Mongolian three-string snakeskin lute)",
-      "source": "wikidata_commons",
-      "wikidata": "Q116831321",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Mongolian_lute,_circa_1279-1368,_Tomb_of_Wang_Qing.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Mongolian_lute%2C_circa_1279-1368%2C_Tomb_of_Wang_Qing.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Mongolian_lute%2C_circa_1279-1368%2C_Tomb_of_Wang_Qing.jpg/500px-Mongolian_lute%2C_circa_1279-1368%2C_Tomb_of_Wang_Qing.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Unknown painter in 13th century. Unknown photographer",
-      "match_confidence": "high",
-      "matched_label": "shudraga"
     },
     {
       "id": "shvi",
@@ -9169,7 +8594,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.0 fr",
       "credit": "Jean-Xavier Bardant",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "zurna"
     },
     {
@@ -9352,20 +8777,6 @@
       "matched_label": "Tambourine"
     },
     {
-      "id": "tambura_balkan",
-      "kind": "instrument",
-      "name": "Tambura (Balkan long-neck lute)",
-      "source": "met_open_access",
-      "source_page": "https://www.metmuseum.org/art/collection/search/500758",
-      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/DP-24037-001.jpg",
-      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/DP-24037-001.jpg",
-      "license": "CC0",
-      "license_raw": "Public Domain (Met Open Access, CC0)",
-      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
-      "match_confidence": "medium",
-      "matched_label": "Tambura"
-    },
-    {
       "id": "tamburica_brac",
       "kind": "instrument",
       "name": "Brač (mid-register melody tamburica of the tambura orchestra)",
@@ -9394,20 +8805,6 @@
       "credit": "Matdoo",
       "match_confidence": "medium",
       "matched_label": "tammorra"
-    },
-    {
-      "id": "tanbur_maltese",
-      "kind": "instrument",
-      "name": "Tanbur (Maltese jingle frame drum)",
-      "source": "met_open_access",
-      "source_page": "https://www.metmuseum.org/art/collection/search/501950",
-      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/midp89.4.1384.jpg",
-      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/midp89.4.1384.jpg",
-      "license": "CC0",
-      "license_raw": "Public Domain (Met Open Access, CC0)",
-      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
-      "match_confidence": "medium",
-      "matched_label": "Tanbur"
     },
     {
       "id": "tanbur_persian",
@@ -9483,21 +8880,6 @@
       "matched_label": "Taphon"
     },
     {
-      "id": "tar_frame_drum",
-      "kind": "instrument",
-      "name": "Tār (Middle Eastern frame drum)",
-      "source": "wikidata_commons",
-      "wikidata": "Q116273036",
-      "source_page": "https://commons.wikimedia.org/wiki/File:T%C4%81r_MET_midp89.4.1858.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/T%C4%81r_MET_midp89.4.1858.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/T%C4%81r_MET_midp89.4.1858.jpg/500px-T%C4%81r_MET_midp89.4.1858.jpg",
-      "license": "CC0",
-      "license_raw": "CC0",
-      "credit": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy",
-      "match_confidence": "medium",
-      "matched_label": "Tār"
-    },
-    {
       "id": "tar_persian",
       "kind": "instrument",
       "name": "Tār (Persian double-bowl lute)",
@@ -9554,7 +8936,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Unknown authorUnknown author",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Tasa"
     },
     {
@@ -9753,20 +9135,6 @@
       "matched_label": "tibia"
     },
     {
-      "id": "tilinca",
-      "kind": "instrument",
-      "name": "Tilinca (Romanian fingerhole-less overtone flute)",
-      "source": "europeana",
-      "source_page": "https://www.europeana.eu/item/2048047/Clasate_3c6e4871113a4da1bf6f5c21f2275582",
-      "image_url": "https://resource.culturalia.ro/imagini-clasate/imagini30/f39862d97cfc43a99c4150501a9be23a.jpg",
-      "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fresource.culturalia.ro%2Fimagini-clasate%2Fimagini30%2Ff39862d97cfc43a99c4150501a9be23a.jpg&type=IMAGE",
-      "license": "CC BY-SA",
-      "license_raw": "http://creativecommons.org/licenses/by-sa/4.0/",
-      "credit": "National Museum of Transylvanian History via Europeana",
-      "match_confidence": "medium",
-      "matched_label": "tilincă"
-    },
-    {
       "id": "timbal_brasileiro",
       "kind": "instrument",
       "name": "Timbal (Bahian conical hand drum)",
@@ -9808,7 +9176,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "Jean-Pierre Dalbéra from Paris, France",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "chopi timbila"
     },
     {
@@ -10002,7 +9370,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Soinuenea",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "trikiti"
     },
     {
@@ -10080,20 +9448,6 @@
       "matched_label": "trompeta china"
     },
     {
-      "id": "trumpet",
-      "kind": "instrument",
-      "name": "Trumpet / cornet / flugelhorn",
-      "source": "met_open_access",
-      "source_page": "https://www.metmuseum.org/art/collection/search/505009",
-      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/MUS1129A.jpg",
-      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/MUS1129A.jpg",
-      "license": "CC0",
-      "license_raw": "Public Domain (Met Open Access, CC0)",
-      "credit": "The Metropolitan Museum of Art, Gift of William Milne Grinnell, 1912",
-      "match_confidence": "low",
-      "matched_label": "Trumpet"
-    },
-    {
       "id": "tsuur",
       "kind": "instrument",
       "name": "Tsuur (Mongolian three-hole overtone end-blown flute)",
@@ -10151,21 +9505,6 @@
       "credit": "Swumgybed3",
       "match_confidence": "medium",
       "matched_label": "tubax"
-    },
-    {
-      "id": "tubular_bells",
-      "kind": "instrument",
-      "name": "Tubular bells / chimes",
-      "source": "wikidata_commons",
-      "wikidata": "Q130638653",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Windchimes_02.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Windchimes_02.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Windchimes_02.jpg/500px-Windchimes_02.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Xandu",
-      "match_confidence": "medium",
-      "matched_label": "chimes"
     },
     {
       "id": "tulum",
@@ -10402,7 +9741,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "User:AndrewKepert",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "double bass"
     },
     {
@@ -10496,21 +9835,6 @@
       "matched_label": "vielle"
     },
     {
-      "id": "villu_pattu_bow",
-      "kind": "instrument",
-      "name": "Villu (Tamil villu paattu musical story-bow)",
-      "source": "wikidata_commons",
-      "wikidata": "Q3559312",
-      "source_page": "https://commons.wikimedia.org/wiki/File:%E0%B4%93%E0%B4%A3%E0%B4%B5%E0%B4%BF%E0%B4%B2%E0%B5%8D%E0%B4%B2%E0%B5%8D_%E0%B4%89%E0%B4%AA%E0%B4%AF%E0%B5%8B%E0%B4%97%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B5%81%E0%B4%B3%E0%B5%8D%E0%B4%B3_%E0%B4%AA%E0%B4%BE%E0%B4%9F%E0%B5%8D%E0%B4%9F%E0%B5%8D%E0%B5%A7.resized.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/%E0%B4%93%E0%B4%A3%E0%B4%B5%E0%B4%BF%E0%B4%B2%E0%B5%8D%E0%B4%B2%E0%B5%8D_%E0%B4%89%E0%B4%AA%E0%B4%AF%E0%B5%8B%E0%B4%97%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B5%81%E0%B4%B3%E0%B5%8D%E0%B4%B3_%E0%B4%AA%E0%B4%BE%E0%B4%9F%E0%B5%8D%E0%B4%9F%E0%B5%8D%E0%B5%A7.resized.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/%E0%B4%93%E0%B4%A3%E0%B4%B5%E0%B4%BF%E0%B4%B2%E0%B5%8D%E0%B4%B2%E0%B5%8D_%E0%B4%89%E0%B4%AA%E0%B4%AF%E0%B5%8B%E0%B4%97%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B5%81%E0%B4%B3%E0%B5%8D%E0%B4%B3_%E0%B4%AA%E0%B4%BE%E0%B4%9F%E0%B5%8D%E0%B4%9F%E0%B5%8D%E0%B5%A7.resized.jpg/500px-%E0%B4%93%E0%B4%A3%E0%B4%B5%E0%B4%BF%E0%B4%B2%E0%B5%8D%E0%B4%B2%E0%B5%8D_%E0%B4%89%E0%B4%AA%E0%B4%AF%E0%B5%8B%E0%B4%97%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B5%81%E0%B4%B3%E0%B5%8D%E0%B4%B3_%E0%B4%AA%E0%B4%BE%E0%B4%9F%E0%B5%8D%E0%B4%9F%E0%B5%8D%E0%B5%A7.resized.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "Fotokannan",
-      "match_confidence": "high",
-      "matched_label": "onavillu"
-    },
-    {
       "id": "viola_amarantina",
       "kind": "instrument",
       "name": "Viola amarantina (Portuguese heart-shaped folk guitar of Amarante)",
@@ -10581,7 +9905,7 @@
       "license": "CC0",
       "license_raw": "CC0",
       "credit": "Rijksmuseum Amsterdam",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "bass viol"
     },
     {
@@ -10683,7 +10007,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Frinck51",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "cello da spalla"
     },
     {
@@ -10700,21 +10024,6 @@
       "credit": "Gérard Janot",
       "match_confidence": "medium",
       "matched_label": "virginal"
-    },
-    {
-      "id": "vladimirskiy_rozhok",
-      "kind": "instrument",
-      "name": "Vladimirskiy rozhok (Russian fingerhole lip-reed shepherd horn)",
-      "source": "wikidata_commons",
-      "wikidata": "Q4395534",
-      "source_page": "https://commons.wikimedia.org/wiki/File:%D0%A0%D0%B0%D0%B3%D0%B0%D0%B8_%D0%B8_%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B0%D0%BC%D0%B8.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/%D0%A0%D0%B0%D0%B3%D0%B0%D0%B8_%D0%B8_%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B0%D0%BC%D0%B8.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/%D0%A0%D0%B0%D0%B3%D0%B0%D0%B8_%D0%B8_%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B0%D0%BC%D0%B8.jpg/500px-%D0%A0%D0%B0%D0%B3%D0%B0%D0%B8_%D0%B8_%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B0%D0%BC%D0%B8.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 1.0",
-      "credit": "George Shuklin",
-      "match_confidence": "high",
-      "matched_label": "Russian horn"
     },
     {
       "id": "vocoder",
@@ -10788,7 +10097,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 4.0",
       "credit": "国立文化財機構",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "yamatogoto"
     },
     {
@@ -10819,21 +10128,6 @@
       "credit": "The Metropolitan Museum of Art, Gift of J. G. Morley, 1915",
       "match_confidence": "medium",
       "matched_label": "Welsh Triple Harp"
-    },
-    {
-      "id": "xalam",
-      "kind": "instrument",
-      "name": "Xalam / tehardent (Sahelian lute)",
-      "source": "wikidata_commons",
-      "wikidata": "Q1137869",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Diffa_Niger_Griot_DSC_0177.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Diffa_Niger_Griot_DSC_0177.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Diffa_Niger_Griot_DSC_0177.jpg/500px-Diffa_Niger_Griot_DSC_0177.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 2.0",
-      "credit": "Roland",
-      "match_confidence": "medium",
-      "matched_label": "xalam"
     },
     {
       "id": "xaphoon",
@@ -10878,20 +10172,6 @@
       "credit": "Leonhard Karl",
       "match_confidence": "high",
       "matched_label": "xun"
-    },
-    {
-      "id": "xylophone",
-      "kind": "instrument",
-      "name": "Xylophone (orchestral)",
-      "source": "met_open_access",
-      "source_page": "https://www.metmuseum.org/art/collection/search/501151",
-      "image_url": "https://images.metmuseum.org/CRDImages/mi/original/MUS786A.jpg",
-      "thumb_url": "https://images.metmuseum.org/CRDImages/mi/web-large/MUS786A.jpg",
-      "license": "CC0",
-      "license_raw": "Public Domain (Met Open Access, CC0)",
-      "credit": "The Metropolitan Museum of Art, The Crosby Brown Collection of Musical Instruments, 1889",
-      "match_confidence": "medium",
-      "matched_label": "Xylophone"
     },
     {
       "id": "yamatogoto",
@@ -11010,7 +10290,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Kippelboy",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "sarronca"
     },
     {
@@ -11100,7 +10380,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Unknown authorUnknown author",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "jetigen"
     },
     {
@@ -11145,23 +10425,8 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Multimann",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "cornett"
-    },
-    {
-      "id": "zokra",
-      "kind": "instrument",
-      "name": "Zokra (Tunisian double-reed bagpipe)",
-      "source": "wikidata_commons",
-      "wikidata": "Q230471",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Zournas.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Zournas.jpg",
-      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Zournas.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 2.0 fr",
-      "credit": "Jean-Xavier Bardant",
-      "match_confidence": "high",
-      "matched_label": "zurna"
     },
     {
       "id": "zukra",
@@ -11204,7 +10469,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.0 fr",
       "credit": "Jean-Xavier Bardant",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "zurna"
     },
     {
@@ -11298,21 +10563,6 @@
       "matched_label": "acoustic blues"
     },
     {
-      "id": "afro_punk",
-      "kind": "tradition",
-      "name": "Afro-Punk",
-      "source": "commons_depicts",
-      "wikidata": "Q2621049",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Punks_SP.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Punks_SP.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Punks_SP.jpg/500px-Punks_SP.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Hudrodrigues",
-      "match_confidence": "medium",
-      "matched_label": "Afro-punk"
-    },
-    {
       "id": "afro_soul",
       "kind": "tradition",
       "name": "Afro soul",
@@ -11326,21 +10576,6 @@
       "credit": "BACHELOR45",
       "match_confidence": "medium",
       "matched_label": "Afro-soul"
-    },
-    {
-      "id": "afrobeat",
-      "kind": "tradition",
-      "name": "Afrobeat",
-      "source": "wikidata_commons",
-      "wikidata": "Q388296",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Kalakuta_Queens.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Kalakuta_Queens.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Kalakuta_Queens.jpg/500px-Kalakuta_Queens.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Ozor zamani",
-      "match_confidence": "high",
-      "matched_label": "Afrobeat"
     },
     {
       "id": "afrobeats",
@@ -11459,7 +10694,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "david_hwang",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "alternative R&B"
     },
     {
@@ -11478,21 +10713,6 @@
       "matched_label": "alternative rock"
     },
     {
-      "id": "amapiano",
-      "kind": "tradition",
-      "name": "Amapiano",
-      "source": "commons_depicts",
-      "wikidata": "Q85741139",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Mr_Julz_photo.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Mr_Julz_photo.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Mr_Julz_photo.jpg/500px-Mr_Julz_photo.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Mdaraj50",
-      "match_confidence": "medium",
-      "matched_label": "Amapiano"
-    },
-    {
       "id": "ambient",
       "kind": "tradition",
       "name": "Ambient",
@@ -11504,7 +10724,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "Gina Collecchia",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "ambient music"
     },
     {
@@ -11523,21 +10743,6 @@
       "matched_label": "American primitive guitar"
     },
     {
-      "id": "anadolu_rock",
-      "kind": "tradition",
-      "name": "Anadolu rock",
-      "source": "wikidata_commons",
-      "wikidata": "Q483740",
-      "source_page": "https://commons.wikimedia.org/wiki/File:The_shadows_2009_Brussels.JPG",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/The_shadows_2009_Brussels.JPG",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/The_shadows_2009_Brussels.JPG/500px-The_shadows_2009_Brussels.JPG",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "Jpmawet",
-      "match_confidence": "high",
-      "matched_label": "Anatolian rock"
-    },
-    {
       "id": "anarcho_punk_crass",
       "kind": "tradition",
       "name": "Anarcho-punk (Crass)",
@@ -11551,21 +10756,6 @@
       "credit": "rutto noise from Frankfurt am Main, Deutschland",
       "match_confidence": "high",
       "matched_label": "anarcho-punk"
-    },
-    {
-      "id": "anatolian_rock",
-      "kind": "tradition",
-      "name": "Anatolian Rock",
-      "source": "wikidata_commons",
-      "wikidata": "Q483740",
-      "source_page": "https://commons.wikimedia.org/wiki/File:The_shadows_2009_Brussels.JPG",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/The_shadows_2009_Brussels.JPG",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/The_shadows_2009_Brussels.JPG/500px-The_shadows_2009_Brussels.JPG",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "Jpmawet",
-      "match_confidence": "high",
-      "matched_label": "Anatolian rock"
     },
     {
       "id": "andean_huayno",
@@ -11672,21 +10862,6 @@
       "matched_label": "ars nova"
     },
     {
-      "id": "art_pop",
-      "kind": "tradition",
-      "name": "Art pop",
-      "source": "commons_depicts",
-      "wikidata": "Q25094849",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Cowgirl_Clue.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Cowgirl_Clue.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Cowgirl_Clue.png/500px-Cowgirl_Clue.png",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Lostrubyslipper",
-      "match_confidence": "medium",
-      "matched_label": "art pop"
-    },
-    {
       "id": "art_rock",
       "kind": "tradition",
       "name": "Art rock",
@@ -11717,21 +10892,6 @@
       "matched_label": "Australian hip-hop"
     },
     {
-      "id": "austropop",
-      "kind": "tradition",
-      "name": "Austropop",
-      "source": "commons_depicts",
-      "wikidata": "Q700423",
-      "source_page": "https://commons.wikimedia.org/wiki/File:I_AM_FROM_AUSTRIA_-_Das_Musical_in_Japan.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/I_AM_FROM_AUSTRIA_-_Das_Musical_in_Japan.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/I_AM_FROM_AUSTRIA_-_Das_Musical_in_Japan.jpg/500px-I_AM_FROM_AUSTRIA_-_Das_Musical_in_Japan.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Wikitius",
-      "match_confidence": "medium",
-      "matched_label": "Austropop"
-    },
-    {
       "id": "axe_music",
       "kind": "tradition",
       "name": "Axé",
@@ -11758,7 +10918,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "Unknown authorUnknown author",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "mugham"
     },
     {
@@ -11775,20 +10935,6 @@
       "credit": "Michael Seppey",
       "match_confidence": "high",
       "matched_label": "Azonto"
-    },
-    {
-      "id": "bachata",
-      "kind": "tradition",
-      "name": "Bachata",
-      "source": "openverse",
-      "source_page": "https://www.flickr.com/photos/41431665@N07/10805456595",
-      "image_url": "https://live.staticflickr.com/2884/10805456595_1fce3f7fa1_b.jpg",
-      "thumb_url": "https://api.openverse.org/v1/images/896e88e1-61d1-41d2-816b-96e2b5760440/thumb/",
-      "license": "CC BY",
-      "license_raw": "by 2.0",
-      "credit": "COD Newsroom via flickr",
-      "match_confidence": "low",
-      "matched_label": "LEAA Salsa/Merengue/Bachata Dance Fall 2013 6"
     },
     {
       "id": "baithak_gana",
@@ -11847,7 +10993,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "dboy",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Gamelan Bali"
     },
     {
@@ -11896,21 +11042,6 @@
       "matched_label": "bambuco"
     },
     {
-      "id": "banda_sinaloense",
-      "kind": "tradition",
-      "name": "Banda sinaloense",
-      "source": "commons_depicts",
-      "wikidata": "Q2812726",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Thales_Tkzin_na_extinta_banda_L%27aventura_se_apresentando_na_Pr%C3%A9-Bienal_da_UBES_no_col%C3%A9gio_Floriano_Cavalcanti_em_2016.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Thales_Tkzin_na_extinta_banda_L%27aventura_se_apresentando_na_Pr%C3%A9-Bienal_da_UBES_no_col%C3%A9gio_Floriano_Cavalcanti_em_2016.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Thales_Tkzin_na_extinta_banda_L%27aventura_se_apresentando_na_Pr%C3%A9-Bienal_da_UBES_no_col%C3%A9gio_Floriano_Cavalcanti_em_2016.jpg/500px-Thales_Tkzin_na_extinta_banda_L%27aventura_se_apresentando_na_Pr%C3%A9-Bienal_da_UBES_no_col%C3%A9gio_Floriano_Cavalcanti_em_2016.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Thales Tkzin",
-      "match_confidence": "medium",
-      "matched_label": "banda music"
-    },
-    {
       "id": "baroque_pop_60s",
       "kind": "tradition",
       "name": "Baroque pop",
@@ -11924,36 +11055,6 @@
       "credit": "Capitol Records",
       "match_confidence": "high",
       "matched_label": "baroque pop"
-    },
-    {
-      "id": "bassline",
-      "kind": "tradition",
-      "name": "Bassline",
-      "source": "commons_depicts",
-      "wikidata": "Q4846346",
-      "source_page": "https://commons.wikimedia.org/wiki/File:How_to_make_that_bassline_logo_honlapra.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/How_to_make_that_bassline_logo_honlapra.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/How_to_make_that_bassline_logo_honlapra.png/500px-How_to_make_that_bassline_logo_honlapra.png",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Feherenc",
-      "match_confidence": "medium",
-      "matched_label": "bassline"
-    },
-    {
-      "id": "bassline_uk",
-      "kind": "tradition",
-      "name": "Bassline (UK Sheffield-Niche)",
-      "source": "commons_depicts",
-      "wikidata": "Q4846346",
-      "source_page": "https://commons.wikimedia.org/wiki/File:How_to_make_that_bassline_logo_honlapra.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/How_to_make_that_bassline_logo_honlapra.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/How_to_make_that_bassline_logo_honlapra.png/500px-How_to_make_that_bassline_logo_honlapra.png",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Feherenc",
-      "match_confidence": "medium",
-      "matched_label": "bassline"
     },
     {
       "id": "battle_rap",
@@ -12012,7 +11113,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "Art Poskanzer from Berkeley, USA",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Peking opera"
     },
     {
@@ -12027,7 +11128,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Frank Schwichtenberg",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Berlin School of electronic music"
     },
     {
@@ -12049,21 +11150,6 @@
       "id": "bhangra_dhol_folk",
       "kind": "tradition",
       "name": "Bhangra (Punjabi harvest dhol dance)",
-      "source": "commons_depicts",
-      "wikidata": "Q854844",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Bhangra_Dance_Performed_by_Girls.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Bhangra_Dance_Performed_by_Girls.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Bhangra_Dance_Performed_by_Girls.jpg/500px-Bhangra_Dance_Performed_by_Girls.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Rasdeep Singh",
-      "match_confidence": "medium",
-      "matched_label": "bhangra"
-    },
-    {
-      "id": "bhangra_modern",
-      "kind": "tradition",
-      "name": "Bhangra (modern)",
       "source": "commons_depicts",
       "wikidata": "Q854844",
       "source_page": "https://commons.wikimedia.org/wiki/File:Bhangra_Dance_Performed_by_Girls.jpg",
@@ -12192,7 +11278,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Original uploader was Quadell at en.wikipedia",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "bluegrass music"
     },
     {
@@ -12209,36 +11295,6 @@
       "credit": "Eric Draper",
       "match_confidence": "high",
       "matched_label": "blues"
-    },
-    {
-      "id": "bomba",
-      "kind": "tradition",
-      "name": "Bomba (Puerto Rico)",
-      "source": "wikidata_commons",
-      "wikidata": "Q4940448",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Tamborbomba.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Tamborbomba.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Tamborbomba.png/500px-Tamborbomba.png",
-      "license": "CC0",
-      "license_raw": "CC0",
-      "credit": "Donrembe",
-      "match_confidence": "medium",
-      "matched_label": "bomba"
-    },
-    {
-      "id": "bomba_puertorican",
-      "kind": "tradition",
-      "name": "Bomba (Puerto Rican)",
-      "source": "wikidata_commons",
-      "wikidata": "Q4940448",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Tamborbomba.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Tamborbomba.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Tamborbomba.png/500px-Tamborbomba.png",
-      "license": "CC0",
-      "license_raw": "CC0",
-      "credit": "Donrembe",
-      "match_confidence": "medium",
-      "matched_label": "bomba"
     },
     {
       "id": "boogie_post_disco",
@@ -12405,21 +11461,6 @@
       "matched_label": "bubblegum dance"
     },
     {
-      "id": "bubblegum_pop",
-      "kind": "tradition",
-      "name": "Bubblegum pop",
-      "source": "commons_depicts",
-      "wikidata": "Q997481",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Travelling_funfair,_Bemmely_Hills.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Travelling_funfair%2C_Bemmely_Hills.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Travelling_funfair%2C_Bemmely_Hills.jpg/500px-Travelling_funfair%2C_Bemmely_Hills.jpg",
-      "license": "CC0",
-      "license_raw": "CC0",
-      "credit": "Cultureel Gelderland",
-      "match_confidence": "medium",
-      "matched_label": "bubblegum music"
-    },
-    {
       "id": "burgundian_school",
       "kind": "tradition",
       "name": "Burgundian School (early fifteenth century)",
@@ -12431,23 +11472,8 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "Master of the Missal of Paul Beye",
-      "match_confidence": "high",
-      "matched_label": "Franco-Flemish School"
-    },
-    {
-      "id": "c_pop",
-      "kind": "tradition",
-      "name": "C-Pop (Chinese-Language Popular Song)",
-      "source": "commons_depicts",
-      "wikidata": "Q1192110",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Chinese_music_icon.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Chinese_music_icon.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Chinese_music_icon.png/500px-Chinese_music_icon.png",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Loukus999",
       "match_confidence": "medium",
-      "matched_label": "C-pop"
+      "matched_label": "Franco-Flemish School"
     },
     {
       "id": "cajun",
@@ -12566,21 +11592,6 @@
       "credit": "Roland Tanglao from Vancouver, Canada",
       "match_confidence": "high",
       "matched_label": "Cantonese opera"
-    },
-    {
-      "id": "cantopop",
-      "kind": "tradition",
-      "name": "Cantopop",
-      "source": "commons_depicts",
-      "wikidata": "Q853873",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Anita_Mui_Yim-fong_(%E6%A2%85%E8%89%B7%E8%8A%B3)_Statue_at_Hong_Kong_Garden_of_Stars_(Ank_Kumar,_Infosys_Limited)_02.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Anita_Mui_Yim-fong_%28%E6%A2%85%E8%89%B7%E8%8A%B3%29_Statue_at_Hong_Kong_Garden_of_Stars_%28Ank_Kumar%2C_Infosys_Limited%29_02.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Anita_Mui_Yim-fong_%28%E6%A2%85%E8%89%B7%E8%8A%B3%29_Statue_at_Hong_Kong_Garden_of_Stars_%28Ank_Kumar%2C_Infosys_Limited%29_02.jpg/500px-Anita_Mui_Yim-fong_%28%E6%A2%85%E8%89%B7%E8%8A%B3%29_Statue_at_Hong_Kong_Garden_of_Stars_%28Ank_Kumar%2C_Infosys_Limited%29_02.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Ank Kumar",
-      "match_confidence": "medium",
-      "matched_label": "cantopop"
     },
     {
       "id": "canzone_napoletana",
@@ -12703,36 +11714,6 @@
       "matched_label": "chamber pop"
     },
     {
-      "id": "champeta",
-      "kind": "tradition",
-      "name": "Champeta (Colombian Caribbean picó style)",
-      "source": "commons_depicts",
-      "wikidata": "Q1061165",
-      "source_page": "https://commons.wikimedia.org/wiki/File:2025-07-06_15-03-41-Champeta-por-David-Ramirez-Ordonez.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/2025-07-06_15-03-41-Champeta-por-David-Ramirez-Ordonez.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/2025-07-06_15-03-41-Champeta-por-David-Ramirez-Ordonez.jpg/500px-2025-07-06_15-03-41-Champeta-por-David-Ramirez-Ordonez.jpg",
-      "license": "CC0",
-      "license_raw": "CC0",
-      "credit": "Hiperterminal",
-      "match_confidence": "medium",
-      "matched_label": "champeta"
-    },
-    {
-      "id": "champeta_cartagenera",
-      "kind": "tradition",
-      "name": "Champeta (Cartagena Afro-Colombian)",
-      "source": "commons_depicts",
-      "wikidata": "Q1061165",
-      "source_page": "https://commons.wikimedia.org/wiki/File:2025-07-06_15-03-41-Champeta-por-David-Ramirez-Ordonez.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/2025-07-06_15-03-41-Champeta-por-David-Ramirez-Ordonez.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/2025-07-06_15-03-41-Champeta-por-David-Ramirez-Ordonez.jpg/500px-2025-07-06_15-03-41-Champeta-por-David-Ramirez-Ordonez.jpg",
-      "license": "CC0",
-      "license_raw": "CC0",
-      "credit": "Hiperterminal",
-      "match_confidence": "medium",
-      "matched_label": "champeta"
-    },
-    {
       "id": "chanson",
       "kind": "tradition",
       "name": "Chanson",
@@ -12778,21 +11759,6 @@
       "matched_label": "Chicano rock"
     },
     {
-      "id": "chicano_rap",
-      "kind": "tradition",
-      "name": "Chicano rap",
-      "source": "commons_depicts",
-      "wikidata": "Q1399695",
-      "source_page": "https://commons.wikimedia.org/wiki/File:ChicanoRap.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/51/ChicanoRap.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/ChicanoRap.jpg/500px-ChicanoRap.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 2.0",
-      "credit": "Daniel Lobo",
-      "match_confidence": "medium",
-      "matched_label": "Chicano rap"
-    },
-    {
       "id": "chicha",
       "kind": "tradition",
       "name": "Chicha (Peruvian Amazonian psychedelic cumbia)",
@@ -12806,36 +11772,6 @@
       "credit": "QM Keen",
       "match_confidence": "medium",
       "matched_label": "chicha"
-    },
-    {
-      "id": "chilean_rock",
-      "kind": "tradition",
-      "name": "Chilean Rock",
-      "source": "wikidata_commons",
-      "wikidata": "Q3437823",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Los_Vanders_2020.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Los_Vanders_2020.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Los_Vanders_2020.jpg/500px-Los_Vanders_2020.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Manfreak76",
-      "match_confidence": "high",
-      "matched_label": "Chilean rock"
-    },
-    {
-      "id": "chilena",
-      "kind": "tradition",
-      "name": "Chilena (Costa Chica)",
-      "source": "commons_depicts",
-      "wikidata": "Q961146",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Jose_hernandez_bajista_del_grupo_due%C3%B1o_y_fundador.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Jose_hernandez_bajista_del_grupo_due%C3%B1o_y_fundador.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Jose_hernandez_bajista_del_grupo_due%C3%B1o_y_fundador.jpg/500px-Jose_hernandez_bajista_del_grupo_due%C3%B1o_y_fundador.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 4.0",
-      "credit": "AugustoRoblesMkt",
-      "match_confidence": "medium",
-      "matched_label": "chilena"
     },
     {
       "id": "chillwave",
@@ -12896,21 +11832,6 @@
       "credit": "José do Carmo Silveira Junior",
       "match_confidence": "medium",
       "matched_label": "choro"
-    },
-    {
-      "id": "christian_country",
-      "kind": "tradition",
-      "name": "Christian Country",
-      "source": "commons_depicts",
-      "wikidata": "Q5110317",
-      "source_page": "https://commons.wikimedia.org/wiki/File:90.5_KJIC_Official_Logo.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/90.5_KJIC_Official_Logo.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/90.5_KJIC_Official_Logo.png/500px-90.5_KJIC_Official_Logo.png",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "JusitnVaughn82",
-      "match_confidence": "medium",
-      "matched_label": "Christian country music"
     },
     {
       "id": "christian_hip_hop",
@@ -13048,36 +11969,6 @@
       "matched_label": "Congolese rumba"
     },
     {
-      "id": "conjunto",
-      "kind": "tradition",
-      "name": "Conjunto (Tejano)",
-      "source": "commons_depicts",
-      "wikidata": "Q4797",
-      "source_page": "https://commons.wikimedia.org/wiki/File:1977_torres_de_almagro._jpg.webp",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/26/1977_torres_de_almagro._jpg.webp",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/1977_torres_de_almagro._jpg.webp/500px-1977_torres_de_almagro._jpg.webp",
-      "license": "CC BY",
-      "license_raw": "CC BY 4.0",
-      "credit": "JFLJ",
-      "match_confidence": "medium",
-      "matched_label": "conjunto"
-    },
-    {
-      "id": "copla_andaluza",
-      "kind": "tradition",
-      "name": "Copla (Spanish copla andaluza)",
-      "source": "commons_depicts",
-      "wikidata": "Q15042720",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Placa_Conmemorativa_Concha_Piquer_Gran_Via.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Placa_Conmemorativa_Concha_Piquer_Gran_Via.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Placa_Conmemorativa_Concha_Piquer_Gran_Via.jpg/500px-Placa_Conmemorativa_Concha_Piquer_Gran_Via.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Autonoma2",
-      "match_confidence": "medium",
-      "matched_label": "copla"
-    },
-    {
       "id": "corrido",
       "kind": "tradition",
       "name": "Corrido",
@@ -13091,21 +11982,6 @@
       "credit": "Wikimedia Commons contributor",
       "match_confidence": "medium",
       "matched_label": "corrido"
-    },
-    {
-      "id": "corridos_belicos",
-      "kind": "tradition",
-      "name": "Corridos bélicos",
-      "source": "commons_depicts",
-      "wikidata": "Q108665706",
-      "source_page": "https://commons.wikimedia.org/wiki/File:CLAZI.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/CLAZI.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/CLAZI.jpg/500px-CLAZI.jpg",
-      "license": "CC0",
-      "license_raw": "CC0",
-      "credit": "CLAZI27",
-      "match_confidence": "medium",
-      "matched_label": "corridos tumbados"
     },
     {
       "id": "corridos_tumbados",
@@ -13134,23 +12010,8 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.5",
       "credit": "No machine-readable author provided. Rossstatham assumed (based on copyright claims).",
-      "match_confidence": "high",
-      "matched_label": "country music"
-    },
-    {
-      "id": "country_gospel",
-      "kind": "tradition",
-      "name": "Country Gospel",
-      "source": "commons_depicts",
-      "wikidata": "Q5110317",
-      "source_page": "https://commons.wikimedia.org/wiki/File:90.5_KJIC_Official_Logo.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/90.5_KJIC_Official_Logo.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/90.5_KJIC_Official_Logo.png/500px-90.5_KJIC_Official_Logo.png",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "JusitnVaughn82",
       "match_confidence": "medium",
-      "matched_label": "Christian country music"
+      "matched_label": "country music"
     },
     {
       "id": "country_rock",
@@ -13181,36 +12042,6 @@
       "credit": "Aman ADO",
       "match_confidence": "medium",
       "matched_label": "coupé-décalé"
-    },
-    {
-      "id": "cowboy_song",
-      "kind": "tradition",
-      "name": "Cowboy",
-      "source": "wikidata_commons",
-      "wikidata": "Q1425111",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Hank_Williams_Promotional_Photo.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Hank_Williams_Promotional_Photo.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Hank_Williams_Promotional_Photo.jpg/500px-Hank_Williams_Promotional_Photo.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "WSM radio",
-      "match_confidence": "high",
-      "matched_label": "western music"
-    },
-    {
-      "id": "cowboy_western",
-      "kind": "tradition",
-      "name": "Cowboy Western (singing-cowboy style)",
-      "source": "wikidata_commons",
-      "wikidata": "Q1425111",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Hank_Williams_Promotional_Photo.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Hank_Williams_Promotional_Photo.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Hank_Williams_Promotional_Photo.jpg/500px-Hank_Williams_Promotional_Photo.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "WSM radio",
-      "match_confidence": "high",
-      "matched_label": "western music"
     },
     {
       "id": "crust_punk",
@@ -13288,21 +12119,6 @@
       "matched_label": "Argentine cumbia"
     },
     {
-      "id": "cumbia_chilena",
-      "kind": "tradition",
-      "name": "Cumbia chilena",
-      "source": "commons_depicts",
-      "wikidata": "Q5794676",
-      "source_page": "https://commons.wikimedia.org/wiki/File:BANDA_RIO_CLARO.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/BANDA_RIO_CLARO.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/BANDA_RIO_CLARO.png/500px-BANDA_RIO_CLARO.png",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Banda Rio Claro",
-      "match_confidence": "medium",
-      "matched_label": "Chilean cumbia"
-    },
-    {
       "id": "cumbia_colombiana",
       "kind": "tradition",
       "name": "Cumbia colombiana",
@@ -13315,21 +12131,6 @@
       "credit": "OmarOBorO via flickr",
       "match_confidence": "low",
       "matched_label": "Cumbia Colombiana"
-    },
-    {
-      "id": "cumbia_sonidera",
-      "kind": "tradition",
-      "name": "Cumbia sonidera",
-      "source": "commons_depicts",
-      "wikidata": "Q108297224",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Di%C3%A1logo_abierto_Sonideros.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Di%C3%A1logo_abierto_Sonideros.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Di%C3%A1logo_abierto_Sonideros.jpg/500px-Di%C3%A1logo_abierto_Sonideros.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 2.0",
-      "credit": "LABNL Lab Cultural Ciudadano",
-      "match_confidence": "medium",
-      "matched_label": "cumbia sonidera"
     },
     {
       "id": "d_beat",
@@ -13437,21 +12238,6 @@
       "matched_label": "koplo"
     },
     {
-      "id": "danzon",
-      "kind": "tradition",
-      "name": "Danzón",
-      "source": "commons_depicts",
-      "wikidata": "Q1165358",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Zapatos_para_danz%C3%B3n,_03.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Zapatos_para_danz%C3%B3n%2C_03.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Zapatos_para_danz%C3%B3n%2C_03.jpg/500px-Zapatos_para_danz%C3%B3n%2C_03.jpg",
-      "license": "CC0",
-      "license_raw": "CC0",
-      "credit": "WendyAvilesR",
-      "match_confidence": "medium",
-      "matched_label": "danzón"
-    },
-    {
       "id": "darkwave",
       "kind": "tradition",
       "name": "Darkwave (1980s-1990s European post-punk-derived gothic-synth)",
@@ -13463,7 +12249,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "© Markus Felix | PushingPixels (contact me)",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "dark wave"
     },
     {
@@ -13662,21 +12448,6 @@
       "matched_label": "doom metal"
     },
     {
-      "id": "downtempo",
-      "kind": "tradition",
-      "name": "Downtempo",
-      "source": "commons_depicts",
-      "wikidata": "Q251192",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Popovka,_Kazantip,_Crimea,_Sunset_party.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Popovka%2C_Kazantip%2C_Crimea%2C_Sunset_party.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Popovka%2C_Kazantip%2C_Crimea%2C_Sunset_party.jpg/500px-Popovka%2C_Kazantip%2C_Crimea%2C_Sunset_party.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 4.0",
-      "credit": "Vyacheslav Argenberg",
-      "match_confidence": "medium",
-      "matched_label": "downtempo"
-    },
-    {
       "id": "dream_pop",
       "kind": "tradition",
       "name": "Dream pop",
@@ -13722,21 +12493,6 @@
       "matched_label": "drift phonk"
     },
     {
-      "id": "drill",
-      "kind": "tradition",
-      "name": "Drill",
-      "source": "commons_depicts",
-      "wikidata": "Q15697534",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Forja_%26_Sonido.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Forja_%26_Sonido.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Forja_%26_Sonido.png/500px-Forja_%26_Sonido.png",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Forjasonido",
-      "match_confidence": "medium",
-      "matched_label": "drill"
-    },
-    {
       "id": "drone_metal",
       "kind": "tradition",
       "name": "Drone metal",
@@ -13752,21 +12508,6 @@
       "matched_label": "drone metal"
     },
     {
-      "id": "drumstep",
-      "kind": "tradition",
-      "name": "Drumstep",
-      "source": "commons_depicts",
-      "wikidata": "Q24876318",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Permutation.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Permutation.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Permutation.jpg/500px-Permutation.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "コンポーザー:Prower、イラスト:兔仔牛奶",
-      "match_confidence": "medium",
-      "matched_label": "drumstep"
-    },
-    {
       "id": "dub",
       "kind": "tradition",
       "name": "Dub",
@@ -13778,7 +12519,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.0 fr",
       "credit": "Lauch at French Wikipedia",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "dub music"
     },
     {
@@ -13898,7 +12639,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Whitecode",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "electronic body music"
     },
     {
@@ -13915,21 +12656,6 @@
       "credit": "Majvdl",
       "match_confidence": "high",
       "matched_label": "electric blues"
-    },
-    {
-      "id": "electro",
-      "kind": "tradition",
-      "name": "Electro",
-      "source": "wikidata_commons",
-      "wikidata": "Q15957030",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Electrograph.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Electrograph.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Electrograph.png/500px-Electrograph.png",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "n·ë·r·g·a·l",
-      "match_confidence": "medium",
-      "matched_label": "electro"
     },
     {
       "id": "electro_house_2000s",
@@ -13973,7 +12699,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "Bobo Boom",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "synth-punk"
     },
     {
@@ -14022,21 +12748,6 @@
       "matched_label": "emo revival"
     },
     {
-      "id": "ethereal_wave",
-      "kind": "tradition",
-      "name": "Ethereal Wave",
-      "source": "commons_depicts",
-      "wikidata": "Q284543",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Symphony_of_Us,_Love%27s_Chosen_tune.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Symphony_of_Us%2C_Love%27s_Chosen_tune.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Symphony_of_Us%2C_Love%27s_Chosen_tune.jpg/500px-Symphony_of_Us%2C_Love%27s_Chosen_tune.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 4.0",
-      "credit": "Jessikeyah",
-      "match_confidence": "medium",
-      "matched_label": "ethereal wave"
-    },
-    {
       "id": "experimental_rock",
       "kind": "tradition",
       "name": "Experimental Rock",
@@ -14065,36 +12776,6 @@
       "credit": "Pedro Simões from Lisboa, Portugal",
       "match_confidence": "high",
       "matched_label": "fado"
-    },
-    {
-      "id": "festejo",
-      "kind": "tradition",
-      "name": "Festejo (Lima criollo cajón dance)",
-      "source": "commons_depicts",
-      "wikidata": "Q5445668",
-      "source_page": "https://commons.wikimedia.org/wiki/File:De_la_serie_Mojigangas_de_Alvarado_3.tif",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/De_la_serie_Mojigangas_de_Alvarado_3.tif",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/De_la_serie_Mojigangas_de_Alvarado_3.tif/lossy-page1-500px-De_la_serie_Mojigangas_de_Alvarado_3.tif.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Juan Carlos Reyes Romero",
-      "match_confidence": "medium",
-      "matched_label": "festejo"
-    },
-    {
-      "id": "festejo_afroperuano",
-      "kind": "tradition",
-      "name": "Festejo (Afro-Peruvian celebration)",
-      "source": "commons_depicts",
-      "wikidata": "Q5445668",
-      "source_page": "https://commons.wikimedia.org/wiki/File:De_la_serie_Mojigangas_de_Alvarado_3.tif",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/De_la_serie_Mojigangas_de_Alvarado_3.tif",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/De_la_serie_Mojigangas_de_Alvarado_3.tif/lossy-page1-500px-De_la_serie_Mojigangas_de_Alvarado_3.tif.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Juan Carlos Reyes Romero",
-      "match_confidence": "medium",
-      "matched_label": "festejo"
     },
     {
       "id": "field_holler_solo",
@@ -14153,7 +12834,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.5",
       "credit": "David Dyer-Bennet",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "filk"
     },
     {
@@ -14228,7 +12909,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "Unknown authorUnknown author",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "folk music"
     },
     {
@@ -14245,21 +12926,6 @@
       "credit": "commons: Shannon5 pl.wiki: Shannon5 real name: Konrad Wawrzkiewicz",
       "match_confidence": "high",
       "matched_label": "folk metal"
-    },
-    {
-      "id": "folk_noir",
-      "kind": "tradition",
-      "name": "Folk noir (contemporary dark chamber-folk songwriter tradition)",
-      "source": "wikidata_commons",
-      "wikidata": "Q775614",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Sol_Invictus_Live.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Sol_Invictus_Live.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Sol_Invictus_Live.jpg/500px-Sol_Invictus_Live.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "Michael Moll",
-      "match_confidence": "high",
-      "matched_label": "neofolk"
     },
     {
       "id": "folk_punk",
@@ -14322,20 +12988,6 @@
       "matched_label": "folktronica"
     },
     {
-      "id": "footwork",
-      "kind": "tradition",
-      "name": "Footwork",
-      "source": "openverse",
-      "source_page": "https://www.flickr.com/photos/20924681@N07/7771148116",
-      "image_url": "https://live.staticflickr.com/8281/7771148116_f3b47e9283_b.jpg",
-      "thumb_url": "https://api.openverse.org/v1/images/d7938183-f485-4245-9942-cdfb38027afc/thumb/",
-      "license": "CC BY",
-      "license_raw": "by 2.0",
-      "credit": "gmarcos1 via flickr",
-      "match_confidence": "low",
-      "matched_label": "Tango footwork"
-    },
-    {
       "id": "franco_flemish_school",
       "kind": "tradition",
       "name": "Franco-Flemish School",
@@ -14364,36 +13016,6 @@
       "credit": "Wikimedia Commons contributor",
       "match_confidence": "high",
       "matched_label": "free tekno"
-    },
-    {
-      "id": "freestyle",
-      "kind": "tradition",
-      "name": "Freestyle (Latin Freestyle)",
-      "source": "commons_depicts",
-      "wikidata": "Q655514",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Exhibici%C3%B3n_de_Deportes_Urbanos_-_evento_(23).jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Exhibici%C3%B3n_de_Deportes_Urbanos_-_evento_%2823%29.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Exhibici%C3%B3n_de_Deportes_Urbanos_-_evento_%2823%29.jpg/500px-Exhibici%C3%B3n_de_Deportes_Urbanos_-_evento_%2823%29.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Angelininux",
-      "match_confidence": "medium",
-      "matched_label": "freestyle music"
-    },
-    {
-      "id": "freestyle_music",
-      "kind": "tradition",
-      "name": "Freestyle music",
-      "source": "commons_depicts",
-      "wikidata": "Q655514",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Exhibici%C3%B3n_de_Deportes_Urbanos_-_evento_(23).jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Exhibici%C3%B3n_de_Deportes_Urbanos_-_evento_%2823%29.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Exhibici%C3%B3n_de_Deportes_Urbanos_-_evento_%2823%29.jpg/500px-Exhibici%C3%B3n_de_Deportes_Urbanos_-_evento_%2823%29.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Angelininux",
-      "match_confidence": "medium",
-      "matched_label": "freestyle music"
     },
     {
       "id": "freestyle_rap",
@@ -14437,7 +13059,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.0",
       "credit": "Fab_Photo_29",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "French hip-hop"
     },
     {
@@ -14512,7 +13134,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Denis Barthel",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "funeral doom metal"
     },
     {
@@ -14529,20 +13151,6 @@
       "credit": "Chris Hakkens",
       "match_confidence": "medium",
       "matched_label": "funk"
-    },
-    {
-      "id": "fusion",
-      "kind": "tradition",
-      "name": "Fusion",
-      "source": "openverse",
-      "source_page": "https://www.flickr.com/photos/96463298@N05/12348323204",
-      "image_url": "https://live.staticflickr.com/3710/12348323204_a3b7c94021_b.jpg",
-      "thumb_url": "https://api.openverse.org/v1/images/030b1532-4813-4599-ac1f-28ed082b58ad/thumb/",
-      "license": "CC BY",
-      "license_raw": "by 2.0",
-      "credit": "Geospatial World via flickr",
-      "match_confidence": "low",
-      "matched_label": "Fusion Music performance during India Geospatial Excellence Awards 2013 night"
     },
     {
       "id": "fusion_70s_electric",
@@ -14680,21 +13288,6 @@
       "matched_label": "garage punk"
     },
     {
-      "id": "garage_rock",
-      "kind": "tradition",
-      "name": "Garage rock",
-      "source": "commons_depicts",
-      "wikidata": "Q211573",
-      "source_page": "https://commons.wikimedia.org/wiki/File:17_bv_de_l%27H%C3%B4tel_de_ville,_Vichy_-_porte_de_garage_rock_%26_love_.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/17_bv_de_l%27H%C3%B4tel_de_ville%2C_Vichy_-_porte_de_garage_rock_%26_love_.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/17_bv_de_l%27H%C3%B4tel_de_ville%2C_Vichy_-_porte_de_garage_rock_%26_love_.jpg/500px-17_bv_de_l%27H%C3%B4tel_de_ville%2C_Vichy_-_porte_de_garage_rock_%26_love_.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "TCY",
-      "match_confidence": "medium",
-      "matched_label": "garage rock"
-    },
-    {
       "id": "german_rock",
       "kind": "tradition",
       "name": "German Rock (Deutschrock)",
@@ -14785,21 +13378,6 @@
       "matched_label": "glitch hop"
     },
     {
-      "id": "glitchcore",
-      "kind": "tradition",
-      "name": "Glitchcore",
-      "source": "commons_depicts",
-      "wikidata": "Q107515261",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Roblox.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Roblox.jpg",
-      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Roblox.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Roblox Corporation",
-      "match_confidence": "medium",
-      "matched_label": "digicore"
-    },
-    {
       "id": "gnawa",
       "kind": "tradition",
       "name": "Gnawa",
@@ -14811,7 +13389,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Lucyin",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Gnawa music"
     },
     {
@@ -14841,7 +13419,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "White House photo by Eric Draper",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "gospel music"
     },
     {
@@ -14856,7 +13434,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Malco23",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "gothic rock"
     },
     {
@@ -14888,20 +13466,6 @@
       "credit": "Malco23",
       "match_confidence": "high",
       "matched_label": "gothic rock"
-    },
-    {
-      "id": "gqom",
-      "kind": "tradition",
-      "name": "Gqom",
-      "source": "openverse",
-      "source_page": "https://commons.wikimedia.org/w/index.php?curid=95568511",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/77tunes_Home_of_Hiphop_Music%2C_News%2C_Gqom%2C_Afro_House%2C_Amapiano%2C_Hiphopza%2C_Zamusic%2C_Fakaza_Music_SaHipHop_%26_Entertainment.jpg",
-      "thumb_url": "https://api.openverse.org/v1/images/5adf4184-d5c7-46e8-be5e-98dbd5e35507/thumb/",
-      "license": "CC BY-SA",
-      "license_raw": "by-sa 4.0",
-      "credit": "77tunes via wikimedia",
-      "match_confidence": "low",
-      "matched_label": "File:77tunes Home of Hiphop Music, News, Gqom, Afro House, Amapiano, Hiphopza, Zamusic, Fakaza Music SaHipHop & Entertainment.jpg"
     },
     {
       "id": "gregorian_chant",
@@ -15020,7 +13584,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "dsb nola",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Gypsy jazz"
     },
     {
@@ -15158,21 +13722,6 @@
       "matched_label": "hauntology"
     },
     {
-      "id": "hawaiian_hip_hop",
-      "kind": "tradition",
-      "name": "Hawaiian hip hop",
-      "source": "wikidata_commons",
-      "wikidata": "Q6956465",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Hawaii.svg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Hawaii.svg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Flag_of_Hawaii.svg/500px-Flag_of_Hawaii.svg.png",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Dbenbenn",
-      "match_confidence": "high",
-      "matched_label": "Na mele paleoleo"
-    },
-    {
       "id": "highlife",
       "kind": "tradition",
       "name": "Highlife",
@@ -15191,20 +13740,6 @@
       "id": "hindustani",
       "kind": "tradition",
       "name": "Hindustani classical",
-      "source": "openverse",
-      "source_page": "https://commons.wikimedia.org/w/index.php?curid=37471889",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Ashwini_Bhide-Deshpande_%28Hindustani_classical_music_vocalist%29_01.JPG",
-      "thumb_url": "https://api.openverse.org/v1/images/71bc8a9e-6cb3-45a5-bae1-91b53329e6b1/thumb/",
-      "license": "CC BY-SA",
-      "license_raw": "by-sa 4.0",
-      "credit": "Krupasindhu Muduli via wikimedia",
-      "match_confidence": "low",
-      "matched_label": "Ashwini Bhide-Deshpande (Hindustani classical music vocalist) 01"
-    },
-    {
-      "id": "hindustani_sarod",
-      "kind": "tradition",
-      "name": "Hindustani classical (sarod-led)",
       "source": "openverse",
       "source_page": "https://commons.wikimedia.org/w/index.php?curid=37471889",
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Ashwini_Bhide-Deshpande_%28Hindustani_classical_music_vocalist%29_01.JPG",
@@ -15242,7 +13777,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "The Come Up Show",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "pop rap"
     },
     {
@@ -15288,21 +13823,6 @@
       "credit": "Spaz Tacular",
       "match_confidence": "high",
       "matched_label": "horror punk"
-    },
-    {
-      "id": "house",
-      "kind": "tradition",
-      "name": "House",
-      "source": "wikidata_commons",
-      "wikidata": "Q20502",
-      "source_page": "https://commons.wikimedia.org/wiki/File:CERVEJARIA_DO_GORDO.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/CERVEJARIA_DO_GORDO.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/CERVEJARIA_DO_GORDO.jpg/500px-CERVEJARIA_DO_GORDO.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Dj Paulo Lc",
-      "match_confidence": "high",
-      "matched_label": "house music"
     },
     {
       "id": "huangmei_opera_chinese",
@@ -15410,21 +13930,6 @@
       "matched_label": "indie rock"
     },
     {
-      "id": "indietronica",
-      "kind": "tradition",
-      "name": "Indietronica",
-      "source": "commons_depicts",
-      "wikidata": "Q325397",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Cowgirl_Clue.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Cowgirl_Clue.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Cowgirl_Clue.png/500px-Cowgirl_Clue.png",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Lostrubyslipper",
-      "match_confidence": "medium",
-      "matched_label": "indietronica"
-    },
-    {
       "id": "industrial",
       "kind": "tradition",
       "name": "Industrial",
@@ -15436,7 +13941,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.5",
       "credit": "Michael Moll",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "industrial music"
     },
     {
@@ -15481,68 +13986,8 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.5",
       "credit": "Ansgar Walk",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Inuit throat singing"
-    },
-    {
-      "id": "iraqi_maqam",
-      "kind": "tradition",
-      "name": "Iraqi maqam (al-Maqam al-Iraqi)",
-      "source": "commons_depicts",
-      "wikidata": "Q12193614",
-      "source_page": "https://commons.wikimedia.org/wiki/File:%D9%85%D9%82%D8%AA%D9%86%D9%8A%D8%A7%D8%AA_%D8%A7%D9%84%D9%81%D9%86%D8%A7%D9%86_%D8%A7%D8%B3%D9%85%D8%A7%D8%B9%D9%8A%D9%84_%D8%A7%D9%84%D9%81%D8%AD%D9%91%D8%A7%D9%85.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/%D9%85%D9%82%D8%AA%D9%86%D9%8A%D8%A7%D8%AA_%D8%A7%D9%84%D9%81%D9%86%D8%A7%D9%86_%D8%A7%D8%B3%D9%85%D8%A7%D8%B9%D9%8A%D9%84_%D8%A7%D9%84%D9%81%D8%AD%D9%91%D8%A7%D9%85.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/%D9%85%D9%82%D8%AA%D9%86%D9%8A%D8%A7%D8%AA_%D8%A7%D9%84%D9%81%D9%86%D8%A7%D9%86_%D8%A7%D8%B3%D9%85%D8%A7%D8%B9%D9%8A%D9%84_%D8%A7%D9%84%D9%81%D8%AD%D9%91%D8%A7%D9%85.jpg/500px-%D9%85%D9%82%D8%AA%D9%86%D9%8A%D8%A7%D8%AA_%D8%A7%D9%84%D9%81%D9%86%D8%A7%D9%86_%D8%A7%D8%B3%D9%85%D8%A7%D8%B9%D9%8A%D9%84_%D8%A7%D9%84%D9%81%D8%AD%D9%91%D8%A7%D9%85.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Ali.tinbo",
-      "match_confidence": "medium",
-      "matched_label": "Iraqi maqam"
-    },
-    {
-      "id": "irish_pub_song",
-      "kind": "tradition",
-      "name": "Irish pub song / drinking song",
-      "source": "wikidata_commons",
-      "wikidata": "Q2165184",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Drinking-_song_-_Zichy,_Mih%C3%A1ly_-_1874.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Drinking-_song_-_Zichy%2C_Mih%C3%A1ly_-_1874.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Drinking-_song_-_Zichy%2C_Mih%C3%A1ly_-_1874.jpg/500px-Drinking-_song_-_Zichy%2C_Mih%C3%A1ly_-_1874.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Mihály Zichy",
-      "match_confidence": "medium",
-      "matched_label": "drinking song"
-    },
-    {
-      "id": "iskelma",
-      "kind": "tradition",
-      "name": "Iskelmä",
-      "source": "wikidata_commons",
-      "wikidata": "Q959583",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Und_abends_in_die_Scala.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Und_abends_in_die_Scala.jpg",
-      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Und_abends_in_die_Scala.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "Helmuth Ellgaard (1913-1980), uploader his son: Holger.Ellgaard",
-      "match_confidence": "high",
-      "matched_label": "schlager music"
-    },
-    {
-      "id": "islamic_recitation_mujawwad",
-      "kind": "tradition",
-      "name": "Islamic recitation (adhān and mujawwad tilāwa)",
-      "source": "wikidata_commons",
-      "wikidata": "Q1482325",
-      "source_page": "https://commons.wikimedia.org/wiki/File:A_Musical_Gathering_-_Ottoman,_18th_century.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/A_Musical_Gathering_-_Ottoman%2C_18th_century.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/A_Musical_Gathering_-_Ottoman%2C_18th_century.jpg/500px-A_Musical_Gathering_-_Ottoman%2C_18th_century.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Unknown authorUnknown author",
-      "match_confidence": "high",
-      "matched_label": "Islamic music"
     },
     {
       "id": "italo_disco",
@@ -15586,7 +14031,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Lewismaster",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Japanese rock"
     },
     {
@@ -15618,21 +14063,6 @@
       "credit": "May S. Young",
       "match_confidence": "high",
       "matched_label": "Japanese hip-hop"
-    },
-    {
-      "id": "japanese_nagauta_kabuki",
-      "kind": "tradition",
-      "name": "Nagauta (Kabuki long-song)",
-      "source": "wikidata_commons",
-      "wikidata": "Q3080963",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Sake_Cup_by_Sant%C5%8D_Ky%C5%8Dden.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Sake_Cup_by_Sant%C5%8D_Ky%C5%8Dden.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Sake_Cup_by_Sant%C5%8D_Ky%C5%8Dden.png/500px-Sake_Cup_by_Sant%C5%8D_Ky%C5%8Dden.png",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Kyoden Santo",
-      "match_confidence": "high",
-      "matched_label": "nagauta"
     },
     {
       "id": "javanese_gamelan",
@@ -15706,7 +14136,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.0",
       "credit": "Andy Newcombe Farnborough, UK",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "jazzcore"
     },
     {
@@ -15723,21 +14153,6 @@
       "credit": "Andy Newcombe Farnborough, UK",
       "match_confidence": "high",
       "matched_label": "jazzcore"
-    },
-    {
-      "id": "jersey_club",
-      "kind": "tradition",
-      "name": "Jersey club",
-      "source": "commons_depicts",
-      "wikidata": "Q4965901",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Front_angle_view_from_Market_Street_of_World_Cup_Corner_Mural_-_Unicorn151.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Front_angle_view_from_Market_Street_of_World_Cup_Corner_Mural_-_Unicorn151.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Front_angle_view_from_Market_Street_of_World_Cup_Corner_Mural_-_Unicorn151.jpg/500px-Front_angle_view_from_Market_Street_of_World_Cup_Corner_Mural_-_Unicorn151.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 4.0",
-      "credit": "WikiWashyy",
-      "match_confidence": "medium",
-      "matched_label": "Jersey club"
     },
     {
       "id": "jongo",
@@ -15826,23 +14241,8 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.0",
       "credit": "Jinho Jung from Seoul, South Korea",
-      "match_confidence": "high",
-      "matched_label": "Korean hip-hop"
-    },
-    {
-      "id": "kapa_haka",
-      "kind": "tradition",
-      "name": "Kapa haka",
-      "source": "commons_depicts",
-      "wikidata": "Q3192842",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Christopher_Luxon_and_Chris_Hipkins_2023_-_State_Opening_of_the_54th_Parliament.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Christopher_Luxon_and_Chris_Hipkins_2023_-_State_Opening_of_the_54th_Parliament.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Christopher_Luxon_and_Chris_Hipkins_2023_-_State_Opening_of_the_54th_Parliament.jpg/500px-Christopher_Luxon_and_Chris_Hipkins_2023_-_State_Opening_of_the_54th_Parliament.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Office of the Governor-General (New Zealand)",
       "match_confidence": "medium",
-      "matched_label": "Kapa haka"
+      "matched_label": "Korean hip-hop"
     },
     {
       "id": "kaseko",
@@ -15935,20 +14335,6 @@
       "matched_label": "klezmer"
     },
     {
-      "id": "kompa",
-      "kind": "tradition",
-      "name": "Kompa",
-      "source": "openverse",
-      "source_page": "https://www.flickr.com/photos/63363807@N03/19274857288",
-      "image_url": "https://live.staticflickr.com/340/19274857288_047f213e12_b.jpg",
-      "thumb_url": "https://api.openverse.org/v1/images/c0178b0d-2ae5-4561-ae61-38db96d5b05f/thumb/",
-      "license": "CC BY",
-      "license_raw": "by 2.0",
-      "credit": "Didit Putra via flickr",
-      "match_confidence": "low",
-      "matched_label": "CEO Internux Dicky Moechtar dalam acara Nga-Bolt-burit di Bekaresto, Senin (6/7). Bolt optimistis bisa menguasai pasar 4G di Jabodetabek seiring operator telekomunikasi meluncurkan layanan serupa di dua frekuensi yakni 900 Mhz dan 1800 Mhz. #Bolt #Kompa"
-    },
-    {
       "id": "korean_hip_hop",
       "kind": "tradition",
       "name": "Korean hip-hop",
@@ -16005,36 +14391,6 @@
       "credit": "Marco Gomes via flickr",
       "match_confidence": "low",
       "matched_label": "É o som do kuduro!"
-    },
-    {
-      "id": "kulintang",
-      "kind": "tradition",
-      "name": "Kulintang",
-      "source": "wikidata_commons",
-      "wikidata": "Q106634883",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Agung_11.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Agung_11.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Agung_11.jpg/500px-Agung_11.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 2.5",
-      "credit": "Philip Dominguez Mercurio (PhilipDM)",
-      "match_confidence": "high",
-      "matched_label": "kulintang"
-    },
-    {
-      "id": "kundiman",
-      "kind": "tradition",
-      "name": "Kundiman",
-      "source": "commons_depicts",
-      "wikidata": "Q6444335",
-      "source_page": "https://commons.wikimedia.org/wiki/File:03032jfEspana_Boulevard_Landmarks_Barangays_Lacson_Blumentritt_Sampaloc_Manilafvf_14.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/03032jfEspana_Boulevard_Landmarks_Barangays_Lacson_Blumentritt_Sampaloc_Manilafvf_14.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/03032jfEspana_Boulevard_Landmarks_Barangays_Lacson_Blumentritt_Sampaloc_Manilafvf_14.jpg/500px-03032jfEspana_Boulevard_Landmarks_Barangays_Lacson_Blumentritt_Sampaloc_Manilafvf_14.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Judgefloro",
-      "match_confidence": "medium",
-      "matched_label": "kundiman"
     },
     {
       "id": "kwaito",
@@ -16096,21 +14452,6 @@
       "matched_label": "Latin jazz"
     },
     {
-      "id": "latin_rock",
-      "kind": "tradition",
-      "name": "Latin rock (late-1960s Afro-Cuban-percussion rock)",
-      "source": "commons_depicts",
-      "wikidata": "Q185162",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Gustavo_Cerati.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Gustavo_Cerati.jpg",
-      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Gustavo_Cerati.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "No machine-readable author provided. Stefany2121~commonswiki assumed (based on copyright claims).",
-      "match_confidence": "medium",
-      "matched_label": "Latin rock"
-    },
-    {
       "id": "lavani_dholki",
       "kind": "tradition",
       "name": "Lavani (Maharashtrian dholki stage song)",
@@ -16167,7 +14508,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "James Starkey",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "liquid drum and bass"
     },
     {
@@ -16212,7 +14553,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 4.0",
       "credit": "David Revoy",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "lofi hip-hop"
     },
     {
@@ -16227,38 +14568,8 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "KALIKA HD",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "dohori"
-    },
-    {
-      "id": "lounge_exotica",
-      "kind": "tradition",
-      "name": "Lounge (exotica-era easy listening)",
-      "source": "wikidata_commons",
-      "wikidata": "Q1141081",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Hertie_School_lounge.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Hertie_School_lounge.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Hertie_School_lounge.jpg/500px-Hertie_School_lounge.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 3.0",
-      "credit": "Zugzwang1972",
-      "match_confidence": "high",
-      "matched_label": "lounge music"
-    },
-    {
-      "id": "lounge_music",
-      "kind": "tradition",
-      "name": "Lounge (cocktail-bar mood music)",
-      "source": "wikidata_commons",
-      "wikidata": "Q1141081",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Hertie_School_lounge.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Hertie_School_lounge.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Hertie_School_lounge.jpg/500px-Hertie_School_lounge.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 3.0",
-      "credit": "Zugzwang1972",
-      "match_confidence": "high",
-      "matched_label": "lounge music"
     },
     {
       "id": "madrigal",
@@ -16274,35 +14585,6 @@
       "credit": "Unknown authorUnknown author",
       "match_confidence": "medium",
       "matched_label": "madrigal"
-    },
-    {
-      "id": "makossa",
-      "kind": "tradition",
-      "name": "Makossa",
-      "source": "openverse",
-      "source_page": "https://www.flickr.com/photos/11135880@N07/5897939613",
-      "image_url": "https://live.staticflickr.com/5313/5897939613_6721c5937f_b.jpg",
-      "thumb_url": "https://api.openverse.org/v1/images/5db22fab-b34f-45ef-a622-c07bdb8e0df9/thumb/",
-      "license": "CC BY",
-      "license_raw": "by 2.0",
-      "credit": "Mαяiиα* via flickr",
-      "match_confidence": "low",
-      "matched_label": "Juca ~ Bateria Makossa"
-    },
-    {
-      "id": "malaysian_pop",
-      "kind": "tradition",
-      "name": "Malaysian pop (pop Melayu / muzik pop Malaysia)",
-      "source": "commons_depicts",
-      "wikidata": "Q6742070",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Malaysian_music_icon.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Malaysian_music_icon.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Malaysian_music_icon.jpg/500px-Malaysian_music_icon.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Loukus999",
-      "match_confidence": "medium",
-      "matched_label": "Malaysian popular music"
     },
     {
       "id": "malhun_maghrebi",
@@ -16350,35 +14632,6 @@
       "matched_label": "maloya"
     },
     {
-      "id": "maltese_ghana",
-      "kind": "tradition",
-      "name": "Għana (Maltese improvised song)",
-      "source": "wikidata_commons",
-      "wikidata": "Q1452401",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Ghana_Zejrun_Monument.jpeg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Ghana_Zejrun_Monument.jpeg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Ghana_Zejrun_Monument.jpeg/500px-Ghana_Zejrun_Monument.jpeg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "Continentaleurope",
-      "match_confidence": "high",
-      "matched_label": "għana"
-    },
-    {
-      "id": "mambo",
-      "kind": "tradition",
-      "name": "Mambo",
-      "source": "openverse",
-      "source_page": "https://www.flickr.com/photos/21397669@N02/16064357976",
-      "image_url": "https://live.staticflickr.com/8600/16064357976_0cba928e5f_b.jpg",
-      "thumb_url": "https://api.openverse.org/v1/images/bb20996c-00b5-44ad-bdf7-4f0ea637354b/thumb/",
-      "license": "CC BY-SA",
-      "license_raw": "by-sa 2.0",
-      "credit": "Marc-Anthony Macon via flickr",
-      "match_confidence": "low",
-      "matched_label": "Mambo Music for Mechanics [1,001 Sobas With Senpai #129]"
-    },
-    {
       "id": "mandopop",
       "kind": "tradition",
       "name": "Mandopop",
@@ -16407,21 +14660,6 @@
       "credit": "Brtkr",
       "match_confidence": "high",
       "matched_label": "manele"
-    },
-    {
-      "id": "manguebeat",
-      "kind": "tradition",
-      "name": "Mangue beat",
-      "source": "wikidata_commons",
-      "wikidata": "Q1759189",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Caranguejo_com_Cer%C3%A9bro_Monumento_ao_Manguebeat,_Rua_da_Aurora,_Recife_-_PE_(52181075136).jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Caranguejo_com_Cer%C3%A9bro_Monumento_ao_Manguebeat%2C_Rua_da_Aurora%2C_Recife_-_PE_%2852181075136%29.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Caranguejo_com_Cer%C3%A9bro_Monumento_ao_Manguebeat%2C_Rua_da_Aurora%2C_Recife_-_PE_%2852181075136%29.jpg/500px-Caranguejo_com_Cer%C3%A9bro_Monumento_ao_Manguebeat%2C_Rua_da_Aurora%2C_Recife_-_PE_%2852181075136%29.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 2.0",
-      "credit": "Leonardo Silva from Recife, Pernambuco, Brasil",
-      "match_confidence": "high",
-      "matched_label": "mangue bit"
     },
     {
       "id": "maracatu",
@@ -16544,21 +14782,6 @@
       "matched_label": "metal music"
     },
     {
-      "id": "microhouse",
-      "kind": "tradition",
-      "name": "Microhouse",
-      "source": "commons_depicts",
-      "wikidata": "Q1931555",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Lakay_Ago_Nature%27s_Park_La_Union-10.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Lakay_Ago_Nature%27s_Park_La_Union-10.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Lakay_Ago_Nature%27s_Park_La_Union-10.jpg/500px-Lakay_Ago_Nature%27s_Park_La_Union-10.jpg",
-      "license": "CC0",
-      "license_raw": "CC0",
-      "credit": "GrannyKaren3",
-      "match_confidence": "medium",
-      "matched_label": "microhouse"
-    },
-    {
       "id": "microtonal",
       "kind": "tradition",
       "name": "Microtonal Music (interval-scale practice)",
@@ -16617,21 +14840,6 @@
       "credit": "Victormontero10",
       "match_confidence": "medium",
       "matched_label": "minimal techno"
-    },
-    {
-      "id": "minnesang",
-      "kind": "tradition",
-      "name": "Minnesang",
-      "source": "commons_depicts",
-      "wikidata": "Q830634",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Joseph_Knippenberg,_Rheinisches_Bildarchiv,_rba_225486_kni.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Joseph_Knippenberg%2C_Rheinisches_Bildarchiv%2C_rba_225486_kni.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Joseph_Knippenberg%2C_Rheinisches_Bildarchiv%2C_rba_225486_kni.jpg/500px-Joseph_Knippenberg%2C_Rheinisches_Bildarchiv%2C_rba_225486_kni.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "Joseph Knippenberg",
-      "match_confidence": "medium",
-      "matched_label": "Minnesang"
     },
     {
       "id": "modal_jazz",
@@ -16735,7 +14943,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 4.0",
       "credit": "Gerard Larose, Seychelles Tourism Board",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "montea"
     },
     {
@@ -16750,7 +14958,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.0",
       "credit": "Fernanda Steffen from Porto Alegre, Brasil",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "música popular brasileira"
     },
     {
@@ -16810,7 +15018,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.5",
       "credit": "Rafael Brix",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "music of Sardinia"
     },
     {
@@ -16825,7 +15033,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "Carol Szathmari",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "lăutărească music"
     },
     {
@@ -16842,21 +15050,6 @@
       "credit": "Batrice567",
       "match_confidence": "medium",
       "matched_label": "Ndombolo"
-    },
-    {
-      "id": "negro_spiritual",
-      "kind": "tradition",
-      "name": "Negro Spiritual (concert arrangement)",
-      "source": "wikidata_commons",
-      "wikidata": "Q180268",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Kurt_Carr_and_the_Kurt_Carr_Singers_perform_at_the_White_House.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Kurt_Carr_and_the_Kurt_Carr_Singers_perform_at_the_White_House.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Kurt_Carr_and_the_Kurt_Carr_Singers_perform_at_the_White_House.jpg/500px-Kurt_Carr_and_the_Kurt_Carr_Singers_perform_at_the_White_House.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "White House photo by Eric Draper",
-      "match_confidence": "high",
-      "matched_label": "gospel music"
     },
     {
       "id": "neo_soul",
@@ -16900,7 +15093,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "Alterna2 http://www.alterna2.com",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "neo-classical metal"
     },
     {
@@ -17020,7 +15213,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "yan",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "new age music"
     },
     {
@@ -17037,21 +15230,6 @@
       "credit": "Chris Stessens",
       "match_confidence": "high",
       "matched_label": "new beat"
-    },
-    {
-      "id": "new_jack_swing",
-      "kind": "tradition",
-      "name": "New jack swing",
-      "source": "wikidata_commons",
-      "wikidata": "Q840065",
-      "source_page": "https://commons.wikimedia.org/wiki/File:%EC%BA%A3%EC%B8%A0%EC%95%84%EC%9D%B4(KATSEYE)_%EB%AE%A4%EC%A7%81%EB%B1%85%ED%81%AC_%EC%B6%9C%EA%B7%BC%EA%B8%B8,_%EB%B6%84%EC%9C%84%EA%B8%B0%EB%A1%9C_%EC%98%AC%ED%82%AC.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/%EC%BA%A3%EC%B8%A0%EC%95%84%EC%9D%B4%28KATSEYE%29_%EB%AE%A4%EC%A7%81%EB%B1%85%ED%81%AC_%EC%B6%9C%EA%B7%BC%EA%B8%B8%2C_%EB%B6%84%EC%9C%84%EA%B8%B0%EB%A1%9C_%EC%98%AC%ED%82%AC.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/%EC%BA%A3%EC%B8%A0%EC%95%84%EC%9D%B4%28KATSEYE%29_%EB%AE%A4%EC%A7%81%EB%B1%85%ED%81%AC_%EC%B6%9C%EA%B7%BC%EA%B8%B8%2C_%EB%B6%84%EC%9C%84%EA%B8%B0%EB%A1%9C_%EC%98%AC%ED%82%AC.jpg/500px-%EC%BA%A3%EC%B8%A0%EC%95%84%EC%9D%B4%28KATSEYE%29_%EB%AE%A4%EC%A7%81%EB%B1%85%ED%81%AC_%EC%B6%9C%EA%B7%BC%EA%B8%B8%2C_%EB%B6%84%EC%9C%84%EA%B8%B0%EB%A1%9C_%EC%98%AC%ED%82%AC.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 3.0",
-      "credit": "K-POPIT 케이팝잇TV10",
-      "match_confidence": "high",
-      "matched_label": "new jack swing"
     },
     {
       "id": "new_orleans",
@@ -17079,7 +15257,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 2.0",
       "credit": "Jean-Luc",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "New Romantic"
     },
     {
@@ -17096,21 +15274,6 @@
       "credit": "Ailura",
       "match_confidence": "medium",
       "matched_label": "new wave"
-    },
-    {
-      "id": "no_wave",
-      "kind": "tradition",
-      "name": "No Wave",
-      "source": "wikidata_commons",
-      "wikidata": "Q823080",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Billy_Nomates_op_het_Valkhof_Festival_2022.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Billy_Nomates_op_het_Valkhof_Festival_2022.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Billy_Nomates_op_het_Valkhof_Festival_2022.jpg/500px-Billy_Nomates_op_het_Valkhof_Festival_2022.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "FakirNL",
-      "match_confidence": "high",
-      "matched_label": "no wave"
     },
     {
       "id": "noise_music",
@@ -17156,36 +15319,6 @@
       "credit": "No machine-readable author provided. Andersju assumed (based on copyright claims).",
       "match_confidence": "high",
       "matched_label": "noise rock"
-    },
-    {
-      "id": "nortec",
-      "kind": "tradition",
-      "name": "Nortec",
-      "source": "commons_depicts",
-      "wikidata": "Q382343",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Industriegebiet_Wellsee_2012;_37.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Industriegebiet_Wellsee_2012%3B_37.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Industriegebiet_Wellsee_2012%3B_37.jpg/500px-Industriegebiet_Wellsee_2012%3B_37.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 4.0",
-      "credit": "Christian Alexander Tietgen",
-      "match_confidence": "medium",
-      "matched_label": "Nortec"
-    },
-    {
-      "id": "norteno",
-      "kind": "tradition",
-      "name": "Norteño (northern Mexican)",
-      "source": "commons_depicts",
-      "wikidata": "Q1780056",
-      "source_page": "https://commons.wikimedia.org/wiki/File:TERRITORIA_STICKERS.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/98/TERRITORIA_STICKERS.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/TERRITORIA_STICKERS.jpg/500px-TERRITORIA_STICKERS.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Celia Carolina Segura Ruiz",
-      "match_confidence": "medium",
-      "matched_label": "norteño"
     },
     {
       "id": "norwegian_folk",
@@ -17244,7 +15377,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 4.0",
       "credit": "Diario de Madrid",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "new flamenco"
     },
     {
@@ -17274,7 +15407,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Manfred Werner - Tsui",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "narodnozabavna glasba"
     },
     {
@@ -17304,7 +15437,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Saverios1",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "jungle"
     },
     {
@@ -17321,21 +15454,6 @@
       "credit": "Yibo Hu",
       "match_confidence": "medium",
       "matched_label": "onkyokei"
-    },
-    {
-      "id": "opera_seria_baroque",
-      "kind": "tradition",
-      "name": "Opera seria (Baroque heroic opera)",
-      "source": "commons_depicts",
-      "wikidata": "Q210675",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Armida,_opera_seria_in_3_atti,_ridotto_per_il_piano_forte_-_btv1b10071060n_(038_of_226).jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Armida%2C_opera_seria_in_3_atti%2C_ridotto_per_il_piano_forte_-_btv1b10071060n_%28038_of_226%29.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Armida%2C_opera_seria_in_3_atti%2C_ridotto_per_il_piano_forte_-_btv1b10071060n_%28038_of_226%29.jpg/500px-Armida%2C_opera_seria_in_3_atti%2C_ridotto_per_il_piano_forte_-_btv1b10071060n_%28038_of_226%29.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Rossini, Gioachino (1792-1868). Compositeur",
-      "match_confidence": "medium",
-      "matched_label": "opera seria"
     },
     {
       "id": "opm",
@@ -17484,7 +15602,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "Soul Train. A note in upper left says that the section was sponsored by the friends and associates of Soul Train. This separates it from Billboard's editorial content.",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Philadelphia soul"
     },
     {
@@ -17533,21 +15651,6 @@
       "matched_label": "piphat"
     },
     {
-      "id": "plena_puertorican",
-      "kind": "tradition",
-      "name": "Plena (Puerto Rican)",
-      "source": "wikidata_commons",
-      "wikidata": "Q2715398",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Baile_De_Loiza_Aldea.gif",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Baile_De_Loiza_Aldea.gif",
-      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Baile_De_Loiza_Aldea.gif",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 3.0",
-      "credit": "Antonio Broccoli Porto",
-      "match_confidence": "high",
-      "matched_label": "plena"
-    },
-    {
       "id": "pop",
       "kind": "tradition",
       "name": "Pop",
@@ -17591,21 +15694,6 @@
       "credit": "Lombana",
       "match_confidence": "high",
       "matched_label": "porro"
-    },
-    {
-      "id": "post_disco",
-      "kind": "tradition",
-      "name": "Post-Disco",
-      "source": "commons_depicts",
-      "wikidata": "Q1190485",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Kuda_Lumping_Wanita_-_Lampung_-_2019.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Kuda_Lumping_Wanita_-_Lampung_-_2019.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Kuda_Lumping_Wanita_-_Lampung_-_2019.jpg/500px-Kuda_Lumping_Wanita_-_Lampung_-_2019.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Yoga Dwi Tama",
-      "match_confidence": "medium",
-      "matched_label": "post-disco"
     },
     {
       "id": "post_hardcore_90s",
@@ -17743,21 +15831,6 @@
       "matched_label": "contemporary worship music"
     },
     {
-      "id": "progressive_house",
-      "kind": "tradition",
-      "name": "Progressive House",
-      "source": "commons_depicts",
-      "wikidata": "Q915152",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Kazantip,_Popovka,_Crimea,_Dance_party,_Techno_music.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Kazantip%2C_Popovka%2C_Crimea%2C_Dance_party%2C_Techno_music.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Kazantip%2C_Popovka%2C_Crimea%2C_Dance_party%2C_Techno_music.jpg/500px-Kazantip%2C_Popovka%2C_Crimea%2C_Dance_party%2C_Techno_music.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 4.0",
-      "credit": "Vyacheslav Argenberg",
-      "match_confidence": "medium",
-      "matched_label": "progressive house"
-    },
-    {
       "id": "progressive_metal_classic",
       "kind": "tradition",
       "name": "Progressive metal",
@@ -17889,7 +15962,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "Maciej Miąsik from Warszawa, Poland",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "psychedelic trance"
     },
     {
@@ -17905,36 +15978,6 @@
       "credit": "markhillary via flickr",
       "match_confidence": "low",
       "matched_label": "Orgasm Addict #buzzcocks #orgasmaddict #linder #manchester #punk #music #musica #record #single #disco"
-    },
-    {
-      "id": "punta",
-      "kind": "tradition",
-      "name": "Punta (Honduras Garifuna traditional)",
-      "source": "commons_depicts",
-      "wikidata": "Q283405",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Map_of_Carib_Land_after_Treaty_of_1773.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Map_of_Carib_Land_after_Treaty_of_1773.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Map_of_Carib_Land_after_Treaty_of_1773.png/500px-Map_of_Carib_Land_after_Treaty_of_1773.png",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Thomas Jeffreys",
-      "match_confidence": "medium",
-      "matched_label": "punta"
-    },
-    {
-      "id": "punta_garifuna",
-      "kind": "tradition",
-      "name": "Punta (Garifuna)",
-      "source": "commons_depicts",
-      "wikidata": "Q283405",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Map_of_Carib_Land_after_Treaty_of_1773.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Map_of_Carib_Land_after_Treaty_of_1773.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Map_of_Carib_Land_after_Treaty_of_1773.png/500px-Map_of_Carib_Land_after_Treaty_of_1773.png",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Thomas Jeffreys",
-      "match_confidence": "medium",
-      "matched_label": "punta"
     },
     {
       "id": "qawwali",
@@ -18057,21 +16100,6 @@
       "matched_label": "rara"
     },
     {
-      "id": "red_dirt",
-      "kind": "tradition",
-      "name": "Red Dirt",
-      "source": "commons_depicts",
-      "wikidata": "Q3422697",
-      "source_page": "https://commons.wikimedia.org/wiki/File:CSR007_SA_2020.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/46/CSR007_SA_2020.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/CSR007_SA_2020.jpg/500px-CSR007_SA_2020.jpg",
-      "license": "CC0",
-      "license_raw": "CC0",
-      "credit": "Solarence",
-      "match_confidence": "medium",
-      "matched_label": "red dirt"
-    },
-    {
       "id": "reggae",
       "kind": "tradition",
       "name": "Reggae",
@@ -18098,7 +16126,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Ueli Frey",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "roots reggae"
     },
     {
@@ -18158,7 +16186,7 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "EMI",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "rock music"
     },
     {
@@ -18263,7 +16291,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "User:Capdevila7",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Catalan rumba"
     },
     {
@@ -18278,7 +16306,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Manuel Díaz Reyes",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Cuban rumba"
     },
     {
@@ -18516,7 +16544,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Helmuth Ellgaard (1913-1980), uploader his son: Holger.Ellgaard",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "schlager music"
     },
     {
@@ -18580,21 +16608,6 @@
       "matched_label": "screamo"
     },
     {
-      "id": "sean_nos_singing",
-      "kind": "tradition",
-      "name": "Sean-nós singing (Conamara tradition)",
-      "source": "commons_depicts",
-      "wikidata": "Q771291",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Niocl%C3%A1s_T%C3%B3ib%C3%ADn_plaque.png",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Niocl%C3%A1s_T%C3%B3ib%C3%ADn_plaque.png",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Niocl%C3%A1s_T%C3%B3ib%C3%ADn_plaque.png/500px-Niocl%C3%A1s_T%C3%B3ib%C3%ADn_plaque.png",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "A.-K. D.",
-      "match_confidence": "medium",
-      "matched_label": "sean-nós singing"
-    },
-    {
       "id": "sega",
       "kind": "tradition",
       "name": "Séga (Mauritian creole dance song)",
@@ -18636,7 +16649,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Jazzmoments",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "sevdalinka"
     },
     {
@@ -18805,21 +16818,6 @@
       "matched_label": "ska punk"
     },
     {
-      "id": "skiffle",
-      "kind": "tradition",
-      "name": "Skiffle",
-      "source": "wikidata_commons",
-      "wikidata": "Q606089",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Cannon%27sJugStompers.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Cannon%27sJugStompers.jpg",
-      "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Cannon%27sJugStompers.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Herald Mosley",
-      "match_confidence": "high",
-      "matched_label": "skiffle"
-    },
-    {
       "id": "skramz",
       "kind": "tradition",
       "name": "Skramz",
@@ -18861,7 +16859,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Nonexyst",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "sludge metal"
     },
     {
@@ -18906,7 +16904,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 4.0",
       "credit": "Heatherbubb",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "soca music"
     },
     {
@@ -18968,21 +16966,6 @@
       "credit": "User:Istituto Europeo di Musica PRESS Teramo",
       "match_confidence": "high",
       "matched_label": "sonata"
-    },
-    {
-      "id": "sonidero",
-      "kind": "tradition",
-      "name": "Sonidero (Mexican cumbia sound-system)",
-      "source": "commons_depicts",
-      "wikidata": "Q115482626",
-      "source_page": "https://commons.wikimedia.org/wiki/File:R%C3%B3tulos_de_grupos_musicales_en_un_muro_del_tercer_anillo_(Aguascalientes)_02.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/R%C3%B3tulos_de_grupos_musicales_en_un_muro_del_tercer_anillo_%28Aguascalientes%29_02.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/R%C3%B3tulos_de_grupos_musicales_en_un_muro_del_tercer_anillo_%28Aguascalientes%29_02.jpg/500px-R%C3%B3tulos_de_grupos_musicales_en_un_muro_del_tercer_anillo_%28Aguascalientes%29_02.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Luis Alvaz",
-      "match_confidence": "medium",
-      "matched_label": "sonidero"
     },
     {
       "id": "soukous",
@@ -19090,21 +17073,6 @@
       "matched_label": "Southern soul"
     },
     {
-      "id": "southern_trap",
-      "kind": "tradition",
-      "name": "Trap (southern)",
-      "source": "wikidata_commons",
-      "wikidata": "Q2913982",
-      "source_page": "https://commons.wikimedia.org/wiki/File:M-Audio_Trigger_Finger_Pro_-_angled_-_2014_NAMM_Show_(by_Matt_Vanacoro).jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/M-Audio_Trigger_Finger_Pro_-_angled_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/M-Audio_Trigger_Finger_Pro_-_angled_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-M-Audio_Trigger_Finger_Pro_-_angled_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 2.0",
-      "credit": "Matt Vanacoro",
-      "match_confidence": "high",
-      "matched_label": "trap music"
-    },
-    {
       "id": "space_disco",
       "kind": "tradition",
       "name": "Space Disco",
@@ -19148,36 +17116,6 @@
       "credit": "© Markus Felix | PushingPixels (contact me)",
       "match_confidence": "high",
       "matched_label": "speed metal"
-    },
-    {
-      "id": "spirituals",
-      "kind": "tradition",
-      "name": "Spirituals (arranged concert tradition)",
-      "source": "commons_depicts",
-      "wikidata": "Q212024",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Shri_Krishna_Balaram_Mandir.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shri_Krishna_Balaram_Mandir.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Shri_Krishna_Balaram_Mandir.jpg/500px-Shri_Krishna_Balaram_Mandir.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Imakanksha",
-      "match_confidence": "medium",
-      "matched_label": "spirituals"
-    },
-    {
-      "id": "spirituals_african_american",
-      "kind": "tradition",
-      "name": "African-American spirituals",
-      "source": "commons_depicts",
-      "wikidata": "Q212024",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Shri_Krishna_Balaram_Mandir.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shri_Krishna_Balaram_Mandir.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Shri_Krishna_Balaram_Mandir.jpg/500px-Shri_Krishna_Balaram_Mandir.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Imakanksha",
-      "match_confidence": "medium",
-      "matched_label": "spirituals"
     },
     {
       "id": "stoner_rock",
@@ -19285,21 +17223,6 @@
       "matched_label": "symphonic metal"
     },
     {
-      "id": "synthcore",
-      "kind": "tradition",
-      "name": "Synthcore",
-      "source": "wikidata_commons",
-      "wikidata": "Q861823",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Fischerspooner_NYC_2005.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Fischerspooner_NYC_2005.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Fischerspooner_NYC_2005.jpg/500px-Fischerspooner_NYC_2005.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 2.0",
-      "credit": "Flickr user Mai Le",
-      "match_confidence": "medium",
-      "matched_label": "electroclash"
-    },
-    {
       "id": "synthpop",
       "kind": "tradition",
       "name": "Synthpop",
@@ -19311,7 +17234,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Jørgen Hans Maltesen",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "synth-pop"
     },
     {
@@ -19326,7 +17249,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "Bobo Boom",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "synth-punk"
     },
     {
@@ -19388,21 +17311,6 @@
       "credit": "Apollon Mokritsky",
       "match_confidence": "medium",
       "matched_label": "tarantella"
-    },
-    {
-      "id": "technical_death_metal",
-      "kind": "tradition",
-      "name": "Technical death metal",
-      "source": "wikidata_commons",
-      "wikidata": "Q1076092",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Opeth_m%C3%BCnchen_06.12.2008._8_(B%26W).jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Opeth_m%C3%BCnchen_06.12.2008._8_%28B%26W%29.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Opeth_m%C3%BCnchen_06.12.2008._8_%28B%26W%29.jpg/500px-Opeth_m%C3%BCnchen_06.12.2008._8_%28B%26W%29.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 2.0",
-      "credit": "deep ghosh",
-      "match_confidence": "high",
-      "matched_label": "technical death metal"
     },
     {
       "id": "techno",
@@ -19510,21 +17418,6 @@
       "matched_label": "throat singing"
     },
     {
-      "id": "timba",
-      "kind": "tradition",
-      "name": "Timba",
-      "source": "commons_depicts",
-      "wikidata": "Q371745",
-      "source_page": "https://commons.wikimedia.org/wiki/File:M%C3%BCnchner_Ruhest%C3%B6rung_30.09.2019.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/M%C3%BCnchner_Ruhest%C3%B6rung_30.09.2019.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/M%C3%BCnchner_Ruhest%C3%B6rung_30.09.2019.jpg/500px-M%C3%BCnchner_Ruhest%C3%B6rung_30.09.2019.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Sambanaut",
-      "match_confidence": "medium",
-      "matched_label": "timba"
-    },
-    {
       "id": "tinku_bolivia",
       "kind": "tradition",
       "name": "Tinku (Bolivian Norte Potosí)",
@@ -19551,53 +17444,8 @@
       "license": "Public Domain",
       "license_raw": "Public domain",
       "credit": "Distributed by CBS/CBS Radio. Photographer uncredited and unknown.",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "traditional pop"
-    },
-    {
-      "id": "trallalero",
-      "kind": "tradition",
-      "name": "Trallalero",
-      "source": "commons_depicts",
-      "wikidata": "Q1432540",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Map_Folklore_I_1990_-_Polivocalit%C3%A0_-_Touring_Club_Italiano_CART-TEM-096_(cropped).jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Map_Folklore_I_1990_-_Polivocalit%C3%A0_-_Touring_Club_Italiano_CART-TEM-096_%28cropped%29.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Map_Folklore_I_1990_-_Polivocalit%C3%A0_-_Touring_Club_Italiano_CART-TEM-096_%28cropped%29.jpg/500px-Map_Folklore_I_1990_-_Polivocalit%C3%A0_-_Touring_Club_Italiano_CART-TEM-096_%28cropped%29.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "TCI Cartographic Office",
-      "match_confidence": "medium",
-      "matched_label": "trallalero"
-    },
-    {
-      "id": "trap",
-      "kind": "tradition",
-      "name": "Trap",
-      "source": "wikidata_commons",
-      "wikidata": "Q2913982",
-      "source_page": "https://commons.wikimedia.org/wiki/File:M-Audio_Trigger_Finger_Pro_-_angled_-_2014_NAMM_Show_(by_Matt_Vanacoro).jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/M-Audio_Trigger_Finger_Pro_-_angled_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/M-Audio_Trigger_Finger_Pro_-_angled_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-M-Audio_Trigger_Finger_Pro_-_angled_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-      "license": "CC BY",
-      "license_raw": "CC BY 2.0",
-      "credit": "Matt Vanacoro",
-      "match_confidence": "high",
-      "matched_label": "trap music"
-    },
-    {
-      "id": "tribal_house",
-      "kind": "tradition",
-      "name": "Tribal house",
-      "source": "commons_depicts",
-      "wikidata": "Q202925",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Potters_house.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Potters_house.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Potters_house.jpg/500px-Potters_house.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Utkarshsparihar",
-      "match_confidence": "medium",
-      "matched_label": "tribal house"
     },
     {
       "id": "trikiti",
@@ -19630,20 +17478,6 @@
       "matched_label": "trip hop"
     },
     {
-      "id": "tropical_bolero",
-      "kind": "tradition",
-      "name": "Bolero (tropical romantic)",
-      "source": "openverse",
-      "source_page": "https://www.flickr.com/photos/84753587@N00/14045089766",
-      "image_url": "https://live.staticflickr.com/7330/14045089766_54dbf6318a_b.jpg",
-      "thumb_url": "https://api.openverse.org/v1/images/50cbbfcf-023e-4ffb-87e9-6827b187e6d8/thumb/",
-      "license": "CC BY-SA",
-      "license_raw": "by-sa 2.0",
-      "credit": "ClearFrost via flickr",
-      "match_confidence": "low",
-      "matched_label": "Ravel Bolero"
-    },
-    {
       "id": "tropicalia",
       "kind": "tradition",
       "name": "Tropicália",
@@ -19672,36 +17506,6 @@
       "credit": "Kaloian Santos Cabrera",
       "match_confidence": "medium",
       "matched_label": "trova"
-    },
-    {
-      "id": "turbo_folk",
-      "kind": "tradition",
-      "name": "Turbo-folk",
-      "source": "commons_depicts",
-      "wikidata": "Q786815",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Zdravo_%C4%90or%C4%91e,_D%C5%BEej_Ramadanovski,_Dor%C4%87ol,_Jevrejska_2,_2021.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Zdravo_%C4%90or%C4%91e%2C_D%C5%BEej_Ramadanovski%2C_Dor%C4%87ol%2C_Jevrejska_2%2C_2021.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Zdravo_%C4%90or%C4%91e%2C_D%C5%BEej_Ramadanovski%2C_Dor%C4%87ol%2C_Jevrejska_2%2C_2021.jpg/500px-Zdravo_%C4%90or%C4%91e%2C_D%C5%BEej_Ramadanovski%2C_Dor%C4%87ol%2C_Jevrejska_2%2C_2021.jpg",
-      "license": "CC BY-SA",
-      "license_raw": "CC BY-SA 4.0",
-      "credit": "Tunic Youth",
-      "match_confidence": "medium",
-      "matched_label": "turbo-folk"
-    },
-    {
-      "id": "turk_sanat_muzigi",
-      "kind": "tradition",
-      "name": "Türk Sanat Müziği",
-      "source": "wikidata_commons",
-      "wikidata": "Q1518063",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Aleppomusic.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Aleppomusic.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Aleppomusic.jpg/500px-Aleppomusic.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "Unknown authorUnknown author",
-      "match_confidence": "high",
-      "matched_label": "Ottoman classical music"
     },
     {
       "id": "turntablism",
@@ -19775,7 +17579,7 @@
       "license": "CC BY",
       "license_raw": "CC BY 2.0",
       "credit": "Man Alive!",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "grime"
     },
     {
@@ -19899,21 +17703,6 @@
       "matched_label": "West Coast hip-hop"
     },
     {
-      "id": "western_music",
-      "kind": "tradition",
-      "name": "Western",
-      "source": "wikidata_commons",
-      "wikidata": "Q1425111",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Hank_Williams_Promotional_Photo.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Hank_Williams_Promotional_Photo.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Hank_Williams_Promotional_Photo.jpg/500px-Hank_Williams_Promotional_Photo.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "WSM radio",
-      "match_confidence": "high",
-      "matched_label": "western music"
-    },
-    {
       "id": "western_swing",
       "kind": "tradition",
       "name": "Western swing",
@@ -19959,21 +17748,6 @@
       "matched_label": "wonky"
     },
     {
-      "id": "yacht_rock",
-      "kind": "tradition",
-      "name": "Yacht rock",
-      "source": "wikidata_commons",
-      "wikidata": "Q28401124",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Beach_Boys_Good_Vibrations_from_Central_Park_1971.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Beach_Boys_Good_Vibrations_from_Central_Park_1971.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Beach_Boys_Good_Vibrations_from_Central_Park_1971.jpg/500px-Beach_Boys_Good_Vibrations_from_Central_Park_1971.jpg",
-      "license": "Public Domain",
-      "license_raw": "Public domain",
-      "credit": "ABC Television",
-      "match_confidence": "high",
-      "matched_label": "yacht rock"
-    },
-    {
       "id": "ye_ye",
       "kind": "tradition",
       "name": "Yé-yé",
@@ -20000,7 +17774,7 @@
       "license": "CC BY-SA",
       "license_raw": "CC BY-SA 3.0",
       "credit": "Yuyuyun",
-      "match_confidence": "high",
+      "match_confidence": "medium",
       "matched_label": "Henan opera"
     },
     {
@@ -20047,21 +17821,6 @@
       "credit": "Wikimedia Commons contributor",
       "match_confidence": "high",
       "matched_label": "zarzuela"
-    },
-    {
-      "id": "zouglou_ivorian",
-      "kind": "tradition",
-      "name": "Zouglou (Ivorian student music)",
-      "source": "commons_depicts",
-      "wikidata": "Q227036",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Demi_ensemble_de_la_loge_des_invit%C3%A9es_d%27honneur_et_de_la_marraine_Dominique_Ouattara.jpg",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Demi_ensemble_de_la_loge_des_invit%C3%A9es_d%27honneur_et_de_la_marraine_Dominique_Ouattara.jpg",
-      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Demi_ensemble_de_la_loge_des_invit%C3%A9es_d%27honneur_et_de_la_marraine_Dominique_Ouattara.jpg/500px-Demi_ensemble_de_la_loge_des_invit%C3%A9es_d%27honneur_et_de_la_marraine_Dominique_Ouattara.jpg",
-      "license": "CC0",
-      "license_raw": "CC0",
-      "credit": "Jean Yves ESSIGAN",
-      "match_confidence": "medium",
-      "matched_label": "zouglou"
     },
     {
       "id": "zydeco",

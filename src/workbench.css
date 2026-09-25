@@ -1,17 +1,6 @@
 :root {
-  --font-display: Arial, Helvetica, sans-serif;
-  --font-body: Arial, Helvetica, sans-serif;
-  --font-mono: ui-monospace, monospace;
-  --surface: #fff;
-  --surface-1: #fff;
-  --surface-2: #f8f9fa;
-  --surface-3: #f1f3f4;
-  --bg: #fff;
-  --text: #202124;
-  --text-2: #3c4043;
-  --text-3: #5f6368;
-  --accent: #e53935;
-  --color-blue: #1a73e8;
+  /* Colours, fonts and shadows come from src/theme.css. These three size
+     steps are the workbench's own reading scale over the template's. */
   --fs-body: 1rem;
   --fs-small: 0.875rem;
   --fs-micro: 0.8125rem;
@@ -20,9 +9,9 @@ html,
 body.workbench {
   height: 100%;
   overflow: hidden;
-  background: #fff;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #202124;
+  background: var(--cm-canvas);
+  font-family: var(--cm-font);
+  color: var(--cm-text);
 }
 button,
 a,
@@ -37,8 +26,8 @@ button {
 button:focus-visible,
 a:focus-visible,
 [role='button']:focus-visible {
-  outline: 3px solid #1a73e8;
-  outline-offset: 2px;
+  outline: var(--cm-focus-width) solid var(--cm-focus);
+  outline-offset: var(--cm-focus-offset);
 }
 button,
 a {
@@ -47,7 +36,7 @@ a {
     color 0.15s;
 }
 button:hover {
-  background: #f1f3f4;
+  background: var(--cm-hover);
 }
 button svg,
 a svg {
@@ -56,7 +45,7 @@ a svg {
 h1,
 h2,
 h3 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--cm-font);
   letter-spacing: normal;
 }
 h2 {
@@ -75,14 +64,14 @@ h3 {
   display: flex;
   align-items: center;
   gap: 24px;
-  border-bottom: 1px solid #dadce0;
-  background: white;
+  border-bottom: 1px solid var(--cm-border);
+  background: var(--cm-canvas);
   position: relative;
   z-index: 60;
 }
 .ui-brand {
   font-size: 20px;
-  color: #202124;
+  color: var(--cm-text);
   text-decoration: none;
   white-space: nowrap;
   font-weight: 600;
@@ -97,7 +86,6 @@ h3 {
 .session-actions button,
 .discovery-toolbar button,
 .ui-detail-tools button,
-.lyrics-toolbar button,
 .assistant-toolbar button,
 #ui-menu button {
   display: inline-flex;
@@ -110,7 +98,7 @@ h3 {
   padding: 8px 12px;
   font: 500 14px Arial;
   border-radius: 6px;
-  color: #3c4043;
+  color: var(--cm-text-secondary);
   cursor: pointer;
 }
 .ui-header nav button {
@@ -119,9 +107,9 @@ h3 {
   padding: 0 14px;
 }
 .ui-header nav button.active {
-  color: #1a73e8;
-  border-bottom-color: #1a73e8;
-  background: #e8f0fe;
+  color: var(--cm-accent-text);
+  border-bottom-color: var(--cm-accent);
+  background: var(--cm-accent-soft);
 }
 .ui-tools {
   display: flex;
@@ -134,18 +122,18 @@ h3 {
 }
 #ui-count {
   font-size: 12px;
-  color: #5f6368;
+  color: var(--cm-text-muted);
   margin-left: -8px;
 }
 #ui-menu {
   position: absolute;
   top: 58px;
   right: 12px;
-  background: white;
-  border: 1px solid #dadce0;
+  background: var(--cm-surface);
+  border: 1px solid var(--cm-border);
   border-radius: 10px;
   padding: 8px;
-  box-shadow: 0 4px 15px #20212426;
+  box-shadow: var(--cm-shadow-3);
   min-width: 190px;
 }
 #ui-menu:not([hidden]) {
@@ -159,7 +147,10 @@ h3 {
 .workspace {
   position: relative;
   display: grid !important;
-  grid-template-columns: clamp(220px, var(--sidebar-width, 300px), 35vw) minmax(0, 1fr);
+  grid-template-columns: var(--recipe-col, clamp(220px, var(--sidebar-width, 300px), 35vw)) minmax(
+      0,
+      1fr
+    );
   height: calc(100dvh - 64px) !important;
   min-height: 0 !important;
   max-width: none !important;
@@ -173,8 +164,8 @@ h3 {
   height: 100% !important;
   position: relative !important;
   top: auto !important;
-  border-right: 1px solid #dadce0;
-  background: #fff !important;
+  border-right: 1px solid var(--cm-border);
+  background: var(--cm-surface) !important;
   overflow: hidden;
   display: flex !important;
   flex-direction: column;
@@ -183,12 +174,12 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   padding: 8px;
-  border-bottom: 1px solid #e8eaed;
+  border-bottom: 1px solid var(--cm-border-subtle);
   gap: 2px;
 }
 .session-actions button:first-child {
-  color: #1a73e8;
-  background: #e8f0fe;
+  color: var(--cm-accent-text);
+  background: var(--cm-accent-soft);
 }
 .session-actions button {
   font-size: 13px;
@@ -197,71 +188,6 @@ h3 {
 }
 .session-actions [data-ui='close-session'] {
   display: none;
-}
-#sidebar-header {
-  padding: 18px 18px 8px !important;
-}
-#sidebar-filter {
-  padding: 8px 16px !important;
-}
-#sidebar-scroll {
-  flex: 1;
-  min-height: 0;
-  overflow: auto !important;
-  padding: 8px 12px !important;
-}
-#sidebar-recipe-preview {
-  position: relative !important;
-  bottom: auto !important;
-  left: auto !important;
-  right: auto !important;
-  flex: none;
-  max-height: 32vh;
-  overflow: auto;
-  background: white !important;
-}
-.rp-text {
-  font-family: Arial, sans-serif !important;
-  font-size: 14px !important;
-  line-height: 1.5 !important;
-  max-height: 140px;
-}
-.rp-head {
-  padding: 10px 12px !important;
-  gap: 6px !important;
-}
-.rp-label {
-  font-size: 12px !important;
-}
-.rp-count {
-  white-space: nowrap;
-  font-size: 12px !important;
-}
-.sb-card {
-  padding: 10px 6px !important;
-  min-height: 64px;
-}
-.sb-card-row > .sb-card {
-  padding-right: 64px !important;
-}
-.sb-card-thumb {
-  width: 36px !important;
-  height: 36px !important;
-}
-.sb-card-line2 {
-  font-size: 12px !important;
-}
-.sb-preface {
-  color: #d93025 !important;
-}
-.sb-name {
-  font-size: 15px !important;
-}
-.sb-card.is-selected {
-  background: #e8f0fe !important;
-}
-.sb-staple {
-  padding: 12px !important;
 }
 #discovery {
   container-type: inline-size;
@@ -274,7 +200,7 @@ h3 {
 .ui-surface {
   height: 100%;
   overflow: auto;
-  background: #fff;
+  background: var(--cm-surface);
 }
 .ui-surface[hidden] {
   display: none !important;
@@ -285,18 +211,18 @@ h3 {
   align-items: center;
   gap: 12px;
   padding: 16px 20px;
-  background: white;
+  background: var(--cm-surface);
   position: sticky;
   top: 0;
   z-index: 4;
-  border-bottom: 1px solid #e8eaed;
+  border-bottom: 1px solid var(--cm-border-subtle);
 }
 .ui-search {
   display: flex;
   align-items: center;
   gap: 12px;
   flex: 1;
-  background: #f1f3f4;
+  background: var(--cm-surface-sunken);
   border-radius: 24px;
   padding: 0 16px;
   min-width: 120px;
@@ -312,20 +238,7 @@ h3 {
   padding: 10px 0 !important;
 }
 .ui-search:focus-within {
-  box-shadow: 0 0 0 2px #1a73e8;
-}
-.destination {
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.destination select {
-  max-width: 220px;
-  height: 32px;
-  border: 1px solid #dadce0;
-  border-radius: 4px;
-  background: #fff;
+  box-shadow: 0 0 0 2px var(--cm-focus);
 }
 .discovery-grid {
   display: grid;
@@ -333,32 +246,6 @@ h3 {
   align-items: start;
   gap: 20px;
   padding: 16px 24px;
-}
-.ui-wheel {
-  width: 100%;
-  max-width: 580px;
-  display: block;
-  margin: auto;
-  overflow: visible;
-}
-.ui-wheel [role='button'] {
-  cursor: pointer;
-}
-.ui-wheel [role='button']:hover path {
-  filter: brightness(1.13);
-}
-.ui-wheel text {
-  font: 500 12px Arial;
-  pointer-events: none;
-}
-.ui-wheel .wheel-center-label {
-  font-weight: 600;
-  font-size: 17px;
-  fill: #202124;
-}
-.ui-wheel .wheel-center-back {
-  font-size: 13px;
-  fill: #5f6368;
 }
 .branch-key {
   display: flex;
@@ -370,23 +257,17 @@ h3 {
   display: flex;
   align-items: center;
   gap: 6px;
-  border: 1px solid #e8eaed;
+  border: 1px solid var(--cm-border-subtle);
   border-radius: 6px;
-  background: #fff;
+  background: var(--cm-surface);
   padding: 7px 9px;
   font: 14px Arial;
   cursor: pointer;
   min-height: 40px;
 }
-.key-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  flex: none;
-}
 .catalog-count {
   font-size: 13px;
-  color: #5f6368;
+  color: var(--cm-text-muted);
   padding: 8px 0;
 }
 .catalog-row {
@@ -394,7 +275,7 @@ h3 {
   align-items: center;
   gap: 5px;
   min-height: 62px;
-  border-bottom: 1px solid #e8eaed;
+  border-bottom: 1px solid var(--cm-border-subtle);
 }
 .catalog-row button {
   border: 0;
@@ -409,13 +290,13 @@ h3 {
   border-radius: 5px;
 }
 .catalog-row button:hover {
-  background: #e8f0fe;
+  background: var(--cm-accent-soft);
 }
 .catalog-name {
   flex: 1;
   min-width: 0;
   text-align: left;
-  color: #202124 !important;
+  color: var(--cm-text) !important;
 }
 .catalog-name > span:last-child {
   flex: 1;
@@ -425,7 +306,7 @@ h3 {
   flex-shrink: 0;
 }
 .catalog-row > button:last-child {
-  color: #1a73e8;
+  color: var(--cm-link);
 }
 .listen {
   display: inline-flex;
@@ -434,32 +315,26 @@ h3 {
   justify-content: center;
   min-height: 44px;
   padding: 6px;
-  color: #1a73e8;
+  color: var(--cm-link);
   text-decoration: none;
   font: 13px Arial;
   white-space: nowrap;
   border-radius: 5px;
 }
 .listen:hover {
-  background: #e8f0fe;
+  background: var(--cm-accent-soft);
 }
 .searching {
   grid-template-columns: 1fr;
-}
-.searching .discovery-chart {
-  display: none;
 }
 .catalog-list > [data-ui='more'] {
   margin: 16px auto;
   display: flex;
   padding: 10px 20px;
-  border: 1px solid #dadce0;
+  border: 1px solid var(--cm-border);
   border-radius: 20px;
-  background: #fff;
+  background: var(--cm-surface);
   cursor: pointer;
-}
-.genre-selected {
-  padding: 12px 24px 24px;
 }
 .selected-head {
   display: flex;
@@ -477,179 +352,26 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #e8f0fe;
-  color: #1a73e8;
+  background: var(--cm-accent-soft);
+  color: var(--cm-link);
   border: 0;
   border-radius: 5px;
   min-height: 44px;
   padding: 8px 12px;
   cursor: pointer;
 }
-.selected-head button[data-ui='genre-close'] {
-  background: transparent;
-  color: #3c4043;
-}
-.genre-web {
-  position: relative;
-  height: 430px;
-  max-width: 1100px;
-  margin: 12px auto 20px;
-}
-.genre-web > svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-.genre-web line {
-  stroke: #a8c7fa;
-  stroke-width: 0.35;
-}
-.web-node,
-.web-center {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 180px;
-  max-width: 27%;
-  padding: 12px;
-  background: white;
-  border: 1px solid #dadce0;
-  border-radius: 8px;
-  text-align: left;
-  font: 14px Arial;
-  box-shadow: 0 2px 5px #2021240c;
-}
-.web-node {
-  min-height: 54px;
-  cursor: pointer;
-}
-.web-node:hover {
-  border-color: #1a73e8;
-  background: #e8f0fe;
-}
-.web-center {
-  left: 50%;
-  top: 48%;
-  background: #e8f0fe;
-  border-color: #1a73e8;
-  min-height: 72px;
-  color: #174ea6;
-}
-.genre-facts details,
-.part-preview details {
-  border-top: 1px solid #e8eaed;
-  padding: 12px 0;
-}
-.genre-facts summary,
-.part-preview summary {
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  min-height: 30px;
-}
-.genre-facts p {
-  font: 15px/1.6 Arial;
-  margin: 12px 0;
-  color: #3c4043;
-}
-.genre-instruments > div,
-.related-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 50px;
-  border-bottom: 1px solid #f1f3f4;
-}
-.genre-instruments button,
-.related-row button {
-  border: 0;
-  background: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font: 14px Arial;
-  min-height: 44px;
-  cursor: pointer;
-  color: #1a73e8;
-}
-.genre-instruments > div > button:first-of-type,
-.related-row > button:first-child {
-  flex: 1;
-  text-align: left;
-  color: #202124;
-}
-.related-row > span {
-  font-size: 12px;
-  color: #5f6368;
-  max-width: 35%;
-}
-.profile-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 7px 0;
-  font-size: 14px;
-}
-.axis-filter-pills {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  padding: 12px 20px;
-}
-.axis-filter-pills button {
-  padding: 7px 12px;
-  border: 1px solid #dadce0;
-  border-radius: 20px;
-  background: #fff;
-  font: 13px Arial;
-  min-height: 36px;
-  cursor: pointer;
-}
-.axis-filter-pills button.active {
-  color: #174ea6;
-  background: #e8f0fe;
-  border-color: #1a73e8;
-}
-#instrument-preview {
-  padding: 16px 24px;
-  border-bottom: 1px solid #dadce0;
-}
-#instrument-preview > p {
-  margin: 12px 0;
-  font-size: 14px;
-  color: #5f6368;
-}
-#instrument-preview h3 {
-  margin-top: 16px;
-}
-.part-preview {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 20px;
-}
-.part-preview p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 10px 0;
-}
 #workspace-detail {
   display: none !important;
   min-width: 0 !important;
-  background: #fff;
-  border-left: 1px solid #dadce0;
+  background: var(--cm-surface);
+  border-left: 1px solid var(--cm-border);
   height: 100%;
   overflow: auto !important;
 }
 .editor-open .workspace {
-  grid-template-columns: clamp(220px, var(--sidebar-width, 300px), 35vw) minmax(0, 1fr) clamp(
-      320px,
-      var(--detail-width, 440px),
-      45vw
-    );
+  grid-template-columns:
+    var(--recipe-col, clamp(220px, var(--sidebar-width, 300px), 35vw)) minmax(0, 1fr)
+    clamp(320px, var(--detail-width, 440px), 45vw);
 }
 .editor-open #workspace-detail {
   display: block !important;
@@ -657,32 +379,15 @@ h3 {
 .editor-open .discovery-grid {
   grid-template-columns: 1fr;
 }
-.editor-open .discovery-chart {
-  max-width: 460px;
-  margin: auto;
-}
-.editor-open .genre-web {
-  height: 500px;
-}
-.editor-open .web-node,
-.editor-open .web-center {
-  font-size: 12px;
-  padding: 7px;
-  gap: 3px;
-}
-.editor-open .web-node svg,
-.editor-open .web-center svg {
-  display: none;
-}
 .ui-detail-tools {
   display: flex;
   justify-content: space-between;
   padding: 8px 12px;
   position: sticky;
   top: 0;
-  background: white;
+  background: var(--cm-surface);
   z-index: 5;
-  border-bottom: 1px solid #e8eaed;
+  border-bottom: 1px solid var(--cm-border-subtle);
 }
 .detail-view {
   padding: 0 !important;
@@ -718,7 +423,7 @@ h3 {
 .detail-tab-bar {
   position: sticky;
   top: 61px;
-  background: white;
+  background: var(--cm-surface);
   z-index: 4;
   overflow: auto;
   flex-wrap: nowrap !important;
@@ -756,53 +461,15 @@ h3 {
 .ui-header ~ .workspace #empty-state {
   display: none !important;
 }
-.modal-bg.inline-tree {
-  display: block !important;
-  position: static !important;
-  background: white !important;
-  padding: 0 !important;
-  backdrop-filter: none !important;
-}
-.inline-tree > .modal {
-  opacity: 1 !important;
-  transform: none !important;
-  max-width: none !important;
-  width: 100% !important;
-  max-height: none !important;
-  box-shadow: none !important;
-  border: 0 !important;
-}
-.inline-tree .modal-body {
-  max-height: none !important;
-}
-.inline-tree .modal-head {
-  padding: 12px 20px !important;
-}
-.inline-tree .modal-head h2 {
-  font-size: 18px;
-}
-.tree-row {
-  min-height: 46px;
-}
-.tree-row-name {
-  font-size: 16px;
-}
-.trad-leaf-desc {
-  font-size: 14px;
-  line-height: 1.5;
-}
-.trad-leaf-actions {
-  min-width: 90px;
-}
 .modal {
-  background: white !important;
+  background: var(--cm-surface) !important;
 }
 .modal h2 {
   font-family: Arial !important;
 }
 .modal-bg {
   backdrop-filter: none !important;
-  background: #20212438 !important;
+  background: var(--cm-scrim) !important;
 }
 .modal-bg .modal {
   border-radius: 12px !important;
@@ -811,94 +478,12 @@ h3 {
   min-height: 44px;
 }
 .btn-primary {
-  background: #1a73e8 !important;
-  color: #fff !important;
+  background: var(--cm-accent) !important;
+  color: var(--cm-on-accent) !important;
 }
 .btn-tonal {
-  background: #e8f0fe !important;
-  color: #174ea6 !important;
-}
-#surface-map {
-  overflow: hidden;
-}
-#map-frame {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.workbench[data-view='map'] .workspace {
-  grid-template-columns: 1fr;
-}
-.workbench[data-view='map'] #workspace-sidebar {
-  display: none !important;
-}
-.workbench[data-view='map'].session-open #workspace-sidebar {
-  display: flex !important;
-  position: absolute !important;
-  top: 64px !important;
-  right: 0;
-  width: 330px !important;
-  height: calc(100dvh - 64px) !important;
-  z-index: 35;
-  box-shadow: -4px 0 16px #20212420;
-}
-.workbench[data-view='map'] #workspace-detail {
-  display: none !important;
-}
-.lyrics-toolbar {
-  padding: 12px 20px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #dadce0;
-}
-.lyrics-toolbar button:first-child {
-  background: #1a73e8;
-  color: white;
-}
-.lyrics-workspace {
-  position: relative;
-  display: grid;
-  grid-template-columns: clamp(260px, var(--lyrics-width, 50%), calc(100% - 300px)) minmax(
-      300px,
-      1fr
-    );
-  height: calc(100% - 70px);
-}
-.lyrics-editor {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  min-height: 350px;
-  min-width: 0;
-}
-.lyrics-editor label {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-.lyrics-editor textarea {
-  flex: 1;
-  resize: vertical;
-  border: 0;
-  outline-color: #1a73e8;
-  font: 16px/1.8 Arial;
-  padding: 12px;
-  min-height: 300px;
-  color: #202124;
-  background: #fff;
-}
-#lyrics-chat {
-  border-left: 1px solid #dadce0;
-  min-width: 0;
-  min-height: 0;
-  display: flex;
-}
-.workbench[data-view='lyrics'] #workspace-detail {
-  display: none !important;
-}
-.workbench[data-view='lyrics'] .workspace {
-  grid-template-columns: clamp(220px, var(--sidebar-width, 300px), 35vw) minmax(0, 1fr);
+  background: var(--cm-accent-soft) !important;
+  color: var(--cm-accent-text) !important;
 }
 #assistant-slot {
   display: none;
@@ -907,10 +492,10 @@ h3 {
   top: 64px;
   bottom: 0;
   width: min(480px, 100%);
-  background: white;
-  border-left: 1px solid #dadce0;
+  background: var(--cm-surface);
+  border-left: 1px solid var(--cm-border);
   z-index: 55;
-  box-shadow: -4px 0 18px #2021241a;
+  box-shadow: var(--cm-shadow-2);
   flex-direction: column;
 }
 .assistant-open:not([data-view='lyrics']) #assistant-slot {
@@ -921,7 +506,7 @@ h3 {
   align-items: center;
   gap: 8px;
   padding: 12px;
-  border-bottom: 1px solid #dadce0;
+  border-bottom: 1px solid var(--cm-border);
 }
 .assistant-toolbar strong {
   flex: 1;
@@ -937,7 +522,7 @@ h3 {
   min-height: 0;
   flex: 1;
   gap: 0 !important;
-  background: white;
+  background: var(--cm-surface);
 }
 .chat-panel {
   flex: 1;
@@ -972,26 +557,26 @@ h3 {
   line-height: 1.6;
 }
 .chat-msg-you {
-  background: #e8f0fe !important;
+  background: var(--cm-accent-soft) !important;
 }
 .chat-bar {
   border-radius: 0 !important;
   border: 0 !important;
-  border-top: 1px solid #dadce0 !important;
+  border-top: 1px solid var(--cm-border) !important;
   padding: 12px !important;
   box-shadow: none !important;
   align-items: flex-end;
 }
 .chat-input {
   font: 16px/1.5 Arial !important;
-  border: 1px solid #dadce0 !important;
+  border: 1px solid var(--cm-border) !important;
   border-radius: 8px !important;
   padding: 10px !important;
   min-width: 0;
   resize: vertical;
   min-height: 75px;
   max-height: 220px;
-  background: white !important;
+  background: var(--cm-surface) !important;
 }
 .chat-send {
   min-height: 44px;
@@ -1015,7 +600,7 @@ h3 {
 }
 #ai-status {
   font-size: 13px;
-  color: #b3261e;
+  color: var(--cm-danger-text);
   padding: 8px 12px;
 }
 #chat-domain {
@@ -1049,17 +634,17 @@ h3 {
     display: none;
   }
   .workspace {
-    grid-template-columns: clamp(220px, var(--sidebar-width, 260px), 35vw) minmax(0, 1fr);
+    grid-template-columns:
+      var(--recipe-col, clamp(220px, var(--sidebar-width, 260px), 35vw))
+      minmax(0, 1fr);
   }
   .discovery-grid {
     grid-template-columns: 1fr;
   }
-  .discovery-chart {
-    max-width: 520px;
-    margin: auto;
-  }
   .editor-open .workspace {
-    grid-template-columns: clamp(220px, var(--sidebar-width, 260px), 35vw) minmax(0, 1fr);
+    grid-template-columns:
+      var(--recipe-col, clamp(220px, var(--sidebar-width, 260px), 35vw))
+      minmax(0, 1fr);
   }
   .editor-open #workspace-detail {
     position: absolute;
@@ -1067,22 +652,7 @@ h3 {
     right: 0;
     width: clamp(320px, var(--detail-width, 440px), 45vw);
     z-index: 15;
-    box-shadow: -4px 0 16px #20212420;
-  }
-  .lyrics-workspace {
-    grid-template-columns: clamp(260px, var(--lyrics-width, 50%), calc(100% - 300px)) minmax(
-        300px,
-        1fr
-      );
-  }
-  .lyrics-editor {
-    min-height: 400px;
-  }
-  #lyrics-chat {
-    min-height: 500px;
-  }
-  .workbench[data-view='lyrics'] .workspace {
-    grid-template-columns: clamp(220px, var(--sidebar-width, 260px), 35vw) minmax(0, 1fr);
+    box-shadow: var(--cm-shadow-2);
   }
 }
 @media (max-width: 899px) {
@@ -1131,8 +701,7 @@ h3 {
     display: none;
   }
   .workspace,
-  .editor-open .workspace,
-  .workbench[data-view='lyrics'] .workspace {
+  .editor-open .workspace {
     height: calc(100dvh - 108px) !important;
     grid-template-columns: minmax(0, 1fr) !important;
   }
@@ -1142,8 +711,7 @@ h3 {
   .workspace #workspace-detail {
     display: none !important;
   }
-  .session-open .workspace #workspace-sidebar,
-  .workbench[data-view='map'].session-open #workspace-sidebar {
+  .session-open .workspace #workspace-sidebar {
     display: flex !important;
     position: fixed !important;
     inset: 108px 0 0 !important;
@@ -1190,7 +758,7 @@ h3 {
   }
   .detail-view {
     margin: 0 !important;
-    border: 1px solid #dadce0;
+    border: 1px solid var(--cm-border);
     border-radius: 8px;
   }
   .detail-tab-bar {
@@ -1212,29 +780,10 @@ h3 {
     padding: 6px 8px;
     font-size: 13px;
   }
-  .discovery-toolbar [data-ui='genre-tree'] span {
-    display: none;
-  }
-  .destination {
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    font-size: 13px;
-  }
-  .destination select {
-    max-width: none;
-    flex: 1;
-    height: 36px;
-  }
   .discovery-grid {
     grid-template-columns: 1fr !important;
     padding: 8px 12px;
     gap: 8px;
-  }
-  .discovery-chart {
-    max-width: 480px;
-    margin: auto;
-    width: 100%;
   }
   .branch-key {
     gap: 5px;
@@ -1262,9 +811,6 @@ h3 {
     width: 26px;
     height: 26px;
   }
-  .genre-selected {
-    padding: 12px;
-  }
   .selected-head {
     gap: 8px;
   }
@@ -1273,97 +819,9 @@ h3 {
     font-size: 18px;
     order: 0;
   }
-  .selected-head > [data-ui='genre-close'] {
-    font-size: 13px;
-    padding: 6px;
-    order: 0;
-  }
   .selected-head > .listen,
   .selected-head > [data-ui='genre-add'] {
     order: 1;
-  }
-  .genre-web {
-    height: 380px;
-    margin: 10px 0;
-  }
-  .web-node,
-  .web-center {
-    width: 115px;
-    max-width: 31%;
-    font-size: 12px;
-    padding: 8px 5px;
-    gap: 3px;
-    flex-direction: column;
-    text-align: center;
-    box-shadow: none;
-  }
-  .web-node svg {
-    width: 20px;
-    height: 20px;
-  }
-  .web-center {
-    max-width: 29%;
-    font-size: 13px;
-  }
-  .related-row {
-    flex-wrap: wrap;
-  }
-  .related-row > span {
-    max-width: none;
-    flex-basis: 100%;
-    order: 2;
-    padding: 0 0 8px 30px;
-  }
-  .genre-instruments > div {
-    gap: 4px;
-  }
-  .genre-instruments button {
-    font-size: 13px;
-  }
-  .part-preview {
-    grid-template-columns: 1fr;
-  }
-  #instrument-preview {
-    padding: 12px;
-  }
-  #instrument-preview .selected-head {
-    gap: 6px;
-  }
-  #instrument-preview h2 {
-    flex-basis: auto;
-  }
-  .lyrics-toolbar {
-    padding: 8px;
-    gap: 2px;
-  }
-  .lyrics-toolbar button {
-    font-size: 13px;
-    padding: 6px 8px;
-  }
-  .lyrics-workspace {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    overflow: visible;
-  }
-  .lyrics-editor {
-    min-height: 340px;
-    padding: 12px;
-  }
-  .lyrics-editor textarea {
-    min-height: 300px;
-  }
-  .lyrics-toolbar [data-ui='attach-recipe'] {
-    flex: 1;
-  }
-  #lyrics-chat {
-    min-height: 520px;
-    height: 70dvh;
-    border-left: 0;
-    border-top: 1px solid #dadce0;
-  }
-  .workbench[data-view='lyrics'] .ui-surface {
-    overflow: auto;
   }
   #assistant-slot {
     top: 108px;
@@ -1398,14 +856,8 @@ h3 {
   .modal-body {
     padding: 12px !important;
   }
-  .genre-facts summary {
-    font-size: 14px;
-  }
   .toast {
     bottom: 12px !important;
-  }
-  .ui-wheel text {
-    font-size: 12px;
   }
   .rp-tool {
     display: inline-flex !important;
@@ -1508,20 +960,6 @@ body.workbench {
   grid-column: 3;
   margin-left: 8px;
 }
-.ui-wheel,
-.genre-web {
-  animation: ui-appear 0.18s ease-out;
-}
-@keyframes ui-appear {
-  from {
-    opacity: 0.7;
-    transform: scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 @media (max-width: 899px) {
   .workbench #sidebar-scroll {
     overflow-x: hidden !important;
@@ -1552,16 +990,6 @@ body.workbench {
     min-width: 0;
     max-width: 100%;
   }
-  .lyrics-editor {
-    min-height: 300px;
-  }
-  .lyrics-editor textarea {
-    min-height: 240px;
-  }
-  #lyrics-chat {
-    height: 520px;
-    min-height: 520px;
-  }
   .chat-log {
     min-height: 120px;
   }
@@ -1569,8 +997,7 @@ body.workbench {
     min-height: 90px;
     max-height: 180px;
   }
-  .ui-surface,
-  .lyrics-workspace {
+  .ui-surface {
     max-width: 100%;
   }
   .workbench #workspace-sidebar {
@@ -1581,49 +1008,16 @@ body.workbench {
     overflow-x: hidden;
   }
 }
-
 @media (max-width: 899px) {
-  .lyrics-toolbar {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background: #fff;
-  }
-  #lyrics-chat {
-    order: -1;
-    height: auto;
-    min-height: 0;
-    border-left: 0;
-    border-bottom: 1px solid #dadce0;
-  }
-  #lyrics-chat .chat-panel {
-    flex: none;
-  }
-  #lyrics-chat .chat-log {
-    flex: none;
-    min-height: 0;
-    max-height: 40dvh;
-  }
-  #lyrics-chat .chat-log:empty {
-    display: none;
-  }
-  .lyrics-editor {
-    min-height: 300px;
-  }
   .part-thumb-cell {
     display: none !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ui-wheel,
-  .genre-web {
-    animation: none !important;
-  }
   * {
     scroll-behavior: auto !important;
   }
 }
-
 .workbench .ui-header {
   box-shadow: none;
   border-radius: 0;
@@ -1641,17 +1035,11 @@ body.workbench {
 .workbench .session-actions button {
   min-height: 44px;
 }
-.workbench .rp-text {
-  padding: 12px 14px !important;
-}
 .workbench .ui-surface {
   scrollbar-gutter: stable;
 }
 .workbench .sidebar-trad-name {
   overflow-wrap: anywhere;
-}
-.workbench .genre-web {
-  animation: none;
 }
 #ai-status:not(:empty) {
   padding: 10px 12px;
@@ -1659,14 +1047,14 @@ body.workbench {
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #3c4043;
-  background: #f8f9fa;
+  color: var(--cm-text-secondary);
+  background: var(--cm-surface-subtle);
 }
 #ai-status button {
   border: 0;
   background: transparent;
   min-height: 44px;
-  color: #1a73e8;
+  color: var(--cm-link);
   font-weight: 600;
   padding: 8px;
 }
@@ -1681,30 +1069,18 @@ body.workbench {
   gap: 8px;
   align-items: center;
   padding: 10px 14px;
-  background: #fff;
-  border: 1px solid #fbbc04;
+  background: var(--cm-surface);
+  border: 1px solid var(--cm-warning);
   border-radius: 8px;
-  box-shadow: 0 3px 16px #0002;
+  box-shadow: var(--cm-shadow-2);
 }
 #storage-conflict button {
-  background: #e8f0fe;
-  color: #1a73e8;
+  background: var(--cm-accent-soft);
+  color: var(--cm-link);
   border: 0;
   min-height: 44px;
   border-radius: 4px;
   padding: 8px;
-}
-#lyrics-wait {
-  padding: 16px;
-  font-size: 14px;
-}
-#lyrics-wait button {
-  min-height: 44px;
-  color: #1a73e8;
-  background: #e8f0fe;
-  border: 0;
-  border-radius: 5px;
-  padding: 8px 12px;
 }
 @media (max-width: 899px) {
   .workbench .ui-header {
@@ -1770,8 +1146,7 @@ body.workbench {
   .workbench .ui-header .ui-tools [data-ui='menu'] span {
     display: none;
   }
-  .workbench .branch-key button,
-  .workbench .axis-filter-pills button {
+  .workbench .branch-key button {
     min-height: 44px;
   }
   .workbench .part-options-cell {
@@ -1781,7 +1156,7 @@ body.workbench {
   .workbench .part-variant-cell {
     grid-column: 1/-1;
     font-size: 15px;
-    color: #202124;
+    color: var(--cm-text);
   }
   .workbench .part-descriptors-cell {
     grid-column: 1/-1;
@@ -1822,7 +1197,6 @@ body.workbench {
     gap: 2px !important;
   }
 }
-
 /* Keep every editor destination visible in narrow detail panes. */
 .detail-tab-bar {
   display: grid;
@@ -1837,7 +1211,6 @@ body.workbench {
 .detail-tab span {
   white-space: normal;
 }
-
 /* Category controls keep browsing compact and leave room for catalog results. */
 .workbench .discovery-grid {
   grid-template-columns: minmax(0, 1fr);
@@ -1863,30 +1236,28 @@ body.workbench {
   gap: 6px;
   min-height: 44px;
   padding: 6px 10px;
-  color: #1a73e8;
-  background: #fff;
-  border: 1px solid #dadce0;
+  color: var(--cm-link);
+  background: var(--cm-surface);
+  border: 1px solid var(--cm-border);
   border-radius: 6px;
   font: inherit;
   cursor: pointer;
 }
 .category-count {
-  color: #5f6368;
+  color: var(--cm-text-muted);
   font-size: 12px;
   margin-left: 4px;
 }
 .branch-key button[aria-pressed='true'] {
-  background: #e8f0fe;
-  border-color: #1a73e8;
+  background: var(--cm-accent-soft);
+  border-color: var(--cm-accent);
 }
-
 /* Landscape phones (844x390): the recipe drawer is 282px tall, and its fixed
    chrome (session actions, name, filter) plus the recipe bar left the tree a
    16px strip and pushed the bar 22px below the viewport. At short heights the
    whole drawer scrolls and the recipe bar rides its bottom edge instead. */
 @media (max-width: 899px) and (max-height: 500px) {
-  .session-open .workspace #workspace-sidebar,
-  .workbench[data-view='map'].session-open #workspace-sidebar {
+  .session-open .workspace #workspace-sidebar {
     display: block !important;
     overflow-y: auto !important;
   }
@@ -1907,7 +1278,6 @@ body.workbench {
     padding: 0 12px !important;
   }
 }
-
 /* The editor's preface row is an input, a clear button and Browse on one
    line; on a phone the input kept its intrinsic width and pushed Browse past
    the right edge. The input gives way, and the row may wrap. */
@@ -1920,7 +1290,6 @@ body.workbench {
     min-width: 0;
   }
 }
-
 /* The Recipe button in the header opens the recipe drawer; at desktop width
    the recipe is always on screen, so the button did nothing when pressed. */
 @media (min-width: 900px) {
@@ -1929,23 +1298,29 @@ body.workbench {
     display: none;
   }
 }
-
 /* The AI writer is a fixed panel on the right; with room to spare the
    discovery surface makes way for it instead of being covered (the search
    field was cut mid-word and every row's Listen and Add sat under the panel). */
 @media (min-width: 1100px) {
-  .workbench.assistant-open:not(.assistant-floating):not([data-view='lyrics']) .workspace {
-    grid-template-columns: clamp(220px, var(--sidebar-width, 300px), 30vw) minmax(0, 1fr) 480px;
+  .workbench.assistant-open:not(.assistant-floating):not([data-view='lyrics']):not(
+      [data-recipe='dock']
+    )
+    .workspace {
+    grid-template-columns:
+      var(--recipe-col, clamp(220px, var(--sidebar-width, 300px), 30vw))
+      minmax(0, 1fr) 480px;
   }
 }
 /* With the editor open as well, four columns fit only on a wide screen; on
    a 1366px laptop the genre list narrowed until names overlapped their
    Listen links, so below this the panel overlays the editor instead. */
 @media (min-width: 1500px) {
-  .workbench.assistant-open.editor-open:not(.assistant-floating):not([data-view='lyrics'])
+  .workbench.assistant-open.editor-open:not(.assistant-floating):not([data-view='lyrics']):not(
+      [data-recipe='dock']
+    )
     .workspace {
     grid-template-columns:
-      clamp(220px, var(--sidebar-width, 300px), 20vw) minmax(0, 1fr) clamp(
+      var(--recipe-col, clamp(220px, var(--sidebar-width, 300px), 20vw)) minmax(0, 1fr) clamp(
         320px,
         var(--detail-width, 440px),
         30vw
@@ -1953,7 +1328,6 @@ body.workbench {
       480px;
   }
 }
-
 /* Labels are content, not single-line badges. Keep action buttons separate. */
 .workbench .ws-name,
 .workbench .sb-tradition-name,
@@ -1977,10 +1351,7 @@ body.workbench {
 .catalog-list,
 .catalog-name > span,
 .branch-key button > span,
-.genre-instruments button,
-.related-row button,
 .selected-head h2,
-.profile-row > span,
 .modal-head h2 {
   min-width: 0;
   overflow-wrap: anywhere;
@@ -2032,67 +1403,15 @@ body.workbench {
 #ui-menu {
   z-index: 120;
 }
-#surface-lyrics {
-  display: flex;
-  flex-direction: column;
-}
-.lyrics-toolbar {
-  flex: none;
-}
-.lyrics-workspace {
-  flex: 1;
-  min-height: 0;
-  height: auto;
-}
-.lyrics-editor textarea {
-  max-width: 100%;
-}
 @container discovery (max-width: 680px) {
   .discovery-grid {
     grid-template-columns: minmax(0, 1fr);
     padding: 12px;
     gap: 12px;
   }
-  .part-preview {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .lyrics-workspace {
-    display: flex;
-    flex-direction: column;
-    flex: none;
-  }
-  #lyrics-chat {
-    min-height: 400px;
-    border-left: 0;
-    border-top: 1px solid #dadce0;
-  }
-  .lyrics-workspace > .layout-splitter {
-    display: none;
-  }
-  .related-row {
-    flex-wrap: wrap;
-  }
-  .related-row > span {
-    flex-basis: 100%;
-    max-width: none;
-  }
-  .genre-instruments > div {
-    flex-wrap: wrap;
-  }
   .discovery-toolbar {
     padding: 12px;
     gap: 6px;
-  }
-  .destination {
-    max-width: 100%;
-  }
-}
-@media (max-width: 899px) {
-  .lyrics-workspace {
-    flex: none;
-  }
-  #lyrics-chat {
-    min-height: 0;
   }
 }
 @media (max-width: 380px) {
@@ -2114,9 +1433,1265 @@ body.workbench {
 .sb-drag-hint {
   display: inline-flex;
   flex: none;
-  color: #5f6368;
+  color: var(--cm-text-muted);
   cursor: grab;
 }
 .sb-card.is-dragging .sb-drag-hint {
   cursor: grabbing;
+}
+
+/* ── Foundation: brand, section icons, theme setting, autosave status ── */
+.ui-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.ui-brand-mark {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: var(--cm-radius-sm);
+}
+/* Section icons carry their section's colour on every route and in both
+   themes; the label beside them carries the meaning. */
+.ui-header nav button[data-view='genre'] svg {
+  color: var(--cm-route-genre);
+}
+.ui-header nav button[data-view='instrument'] svg {
+  color: var(--cm-route-instrument);
+}
+.ui-header nav button[data-view='map'] svg {
+  color: var(--cm-route-map);
+}
+.ui-header nav button[data-view='lyrics'] svg {
+  color: var(--cm-route-lyrics);
+}
+#ui-autosave:empty {
+  display: none;
+}
+#ui-autosave {
+  margin-inline: 4px;
+}
+#ui-menu .cm-segmented {
+  margin: 0 4px 4px;
+}
+#ui-menu .cm-segmented button {
+  justify-content: center;
+  min-height: 40px;
+  padding: 6px 8px;
+  gap: 6px;
+  font-size: var(--cm-text-sm);
+}
+#ui-menu .cm-segmented button[aria-pressed='true'] {
+  background: var(--cm-surface);
+  color: var(--cm-text);
+  box-shadow: var(--cm-shadow-1);
+}
+#ui-menu .cm-segmented button[aria-pressed='true'] svg {
+  color: var(--cm-accent);
+}
+/* Where the header runs short of room the words stay for assistive
+   technology and the icon (with its tooltip) stays on screen. Clipped rather
+   than squeezed to 1px, so nothing reports an overflow it does not have. */
+@media (max-width: 1250px) {
+  #ui-autosave .ui-autosave-text {
+    position: absolute;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+}
+@media (max-width: 420px), (min-width: 900px) and (max-width: 1099px) {
+  .ui-brand-name {
+    position: absolute;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+}
+
+/* ── Your recipe (#workspace-sidebar) on every route ──
+   One panel, one editor (#workspace-detail), presented per route through
+   body[data-recipe]: 'sidebar' (a column on the left), 'sidebar-right' (a
+   column on the right — Genre) or 'dock' (a strip under the page — Instrument,
+   Map). Below 900px it is the Recipe sheet; on the Map and Lyrics the sheet
+   stops short of the top so the map and the document stay usable above it.
+   The same pieces in every form: header (Your recipe, Autosaved), session
+   name and counts, genres with their instrument rows, Add, Suggestions,
+   Recording environment, Recipe preview with Copy recipe, and the AI entry.
+   src/workbench.js (uiPlaceRecipeParts) moves the shell's pieces per form. */
+.workbench #workspace-sidebar {
+  color: var(--cm-text);
+  background: var(--cm-surface) !important;
+}
+.recipe-panel-head {
+  /* A container, so a narrow column can move Autosaved to its own line. */
+  container: recipe-head / inline-size;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  min-height: 56px;
+  padding: 8px 8px 0 20px;
+  background: var(--cm-surface);
+}
+.recipe-panel-title {
+  flex: 1;
+  margin: 0;
+  color: var(--cm-text);
+  font: 600 var(--cm-text-xl) / 1.2 var(--cm-font);
+  white-space: nowrap;
+}
+.recipe-session:empty {
+  display: none;
+}
+.recipe-autosave[hidden],
+.recipe-open-editor {
+  display: none;
+}
+.recipe-autosave {
+  flex: none;
+}
+@container recipe-head (max-width: 300px) {
+  .recipe-autosave {
+    order: 10;
+    margin: -8px 0 4px -8px;
+  }
+}
+.recipe-panel-head [data-ui='recipe-collapse'] {
+  flex: none;
+  color: var(--cm-text-secondary);
+}
+/* The session: name (rename pencil) and what is in it. */
+.workbench #sidebar-header {
+  padding: 2px 20px 0 !important;
+}
+.workbench #sidebar-header .ws-label {
+  display: none;
+}
+.workbench #sidebar-header .ws-name-row {
+  justify-content: flex-start;
+  gap: 4px;
+}
+.workbench #sidebar-header h2.ws-name,
+.workbench #sidebar-header .ws-name-input {
+  flex: 0 1 auto;
+  color: var(--cm-text);
+  font: 600 var(--cm-text-lg) / 1.3 var(--cm-font) !important;
+}
+.workbench #sidebar-header .ws-rename {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: var(--cm-radius-md);
+  color: var(--cm-text-secondary);
+}
+.recipe-panel-meta {
+  flex: none;
+  margin: 0 20px 8px;
+  color: var(--cm-text-muted);
+  font: var(--cm-text-sm) / 1.4 var(--cm-font);
+}
+.recipe-panel-meta:empty {
+  display: none;
+}
+#recipe-empty {
+  margin: 8px 16px;
+}
+#recipe-empty[hidden] {
+  display: none;
+}
+/* The scrolling middle: filter, genres, Add, Suggestions, environment. */
+.workbench #sidebar-scroll {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: auto !important;
+  padding: 4px 16px 16px !important;
+}
+.workbench #sidebar-filter:empty,
+.workbench:not(.recipe-filter-open) #sidebar-filter {
+  display: none;
+}
+.recipe-filter-toggle[hidden] {
+  display: none;
+}
+.recipe-filter-toggle[aria-expanded='true'] {
+  background: var(--cm-accent-soft);
+  color: var(--cm-accent-text);
+}
+.workbench .sidebar-search input {
+  min-height: 36px;
+  border: 1px solid var(--cm-border-subtle);
+  border-radius: var(--cm-radius-md);
+  background: var(--cm-surface-subtle);
+  color: var(--cm-text);
+  font: var(--cm-text-md) var(--cm-font);
+}
+.workbench #sidebar-traditions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.workbench #sidebar-traditions:empty {
+  display: none;
+}
+/* A genre: a card holding its header, its instrument rows and its Add. */
+.workbench .sb-tradition-group {
+  margin: 0 !important;
+  padding: 4px 4px 6px;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-lg);
+  background: var(--cm-surface);
+}
+.workbench #sidebar-scroll .sb-tradition-header {
+  /* Stuck headers cover the column's top padding too. */
+  top: -4px;
+}
+.workbench .sb-tradition-header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 2px;
+  min-height: 48px;
+  padding: 2px 2px 2px 4px;
+  border-radius: var(--cm-radius-lg) var(--cm-radius-lg) 0 0;
+  background: var(--cm-surface);
+  cursor: default;
+}
+.workbench .sb-tradition-header.has-open-menu,
+.workbench .sb-card-row.has-open-menu {
+  position: relative;
+  z-index: 6;
+}
+.sb-tradition-glyphs {
+  display: inline-flex;
+  flex: none;
+  gap: 2px;
+}
+.sb-tradition-toggle {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  min-height: 40px;
+  padding: 4px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-link);
+  font: 600 var(--cm-text-lg) / 1.25 var(--cm-font);
+  text-align: left;
+  cursor: pointer;
+}
+.workbench .sb-tradition-toggle .sb-tradition-name {
+  flex: 0 1 auto;
+  min-width: 0;
+  color: inherit;
+  font: inherit;
+}
+.workbench .sb-status-pill.primary {
+  flex: none;
+  padding: 1px 7px;
+  border-radius: var(--cm-radius-pill);
+  background: var(--cm-accent-soft);
+  color: var(--cm-accent-text);
+  font: 600 var(--cm-text-xs) var(--cm-font);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.workbench .sb-tradition-toggle .sb-tradition-count {
+  flex: none;
+  margin-left: auto;
+  color: var(--cm-text-muted);
+  font: 500 var(--cm-text-xs) var(--cm-font);
+}
+.workbench .sb-tradition-group:not(.is-collapsed) .sb-tradition-count {
+  display: none;
+}
+.workbench .sb-tradition-toggle .sb-chev {
+  flex: none;
+  color: var(--cm-text-secondary);
+  transform: rotate(180deg);
+}
+.workbench .sb-tradition-group.is-collapsed .sb-tradition-toggle .sb-chev {
+  transform: none;
+}
+.sb-more {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-text-secondary);
+  cursor: pointer;
+}
+.sb-more:hover,
+.sb-more[aria-expanded='true'] {
+  background: var(--cm-hover);
+  color: var(--cm-text);
+}
+/* Instrument rows: icon, name over its character word, Edit, … */
+.workbench .sb-tradition-cards {
+  gap: 0;
+}
+.workbench .sb-card-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  border-radius: var(--cm-radius-md);
+}
+.workbench .sb-card-row:hover,
+.workbench .sb-card-row:has(> .sb-card.is-selected) {
+  background: var(--cm-hover);
+}
+.workbench .sb-card-row:has(> .sb-card.is-selected) {
+  background: var(--cm-accent-soft);
+}
+.workbench .sb-card-row > .sb-card {
+  grid-area: 1 / 1;
+  gap: 10px;
+  min-height: 52px;
+  padding: 6px 4px !important;
+  border-radius: var(--cm-radius-md);
+  background: transparent !important;
+  color: var(--cm-text);
+}
+.workbench .sb-card-row > #detail-view {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+.workbench .sb-card .sb-drag-hint {
+  width: 14px;
+  opacity: 0;
+}
+.workbench .sb-card-row:hover .sb-drag-hint,
+.workbench .sb-card:focus-visible .sb-drag-hint {
+  opacity: 1;
+}
+@media (hover: none) {
+  .workbench .sb-card .sb-drag-hint {
+    opacity: 0.6;
+  }
+}
+.workbench .sb-card-thumb {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: var(--cm-radius-md);
+}
+.workbench .sb-card-thumb svg,
+.workbench .sb-card-thumb img {
+  width: 28px;
+  height: 28px;
+}
+.workbench .sb-card-text {
+  gap: 1px;
+}
+.workbench .sb-card-line1,
+.workbench .sb-card-line2 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.workbench .sb-card-line1 .sb-name {
+  color: var(--cm-text);
+  font: 500 var(--cm-text-md) / 1.3 var(--cm-font);
+}
+.workbench .sb-card-line2 .sb-preface,
+.workbench .sb-card-line2 .sb-family {
+  color: var(--cm-text-muted);
+  font: var(--cm-text-sm) / 1.3 var(--cm-font);
+  font-style: normal;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.workbench .sb-card-pin {
+  margin: 0;
+  color: var(--cm-accent);
+}
+.workbench .sb-card-actions {
+  grid-area: 1 / 2;
+  align-self: center;
+  justify-self: end;
+  margin: 0;
+  gap: 0;
+}
+.sb-card-edit {
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-link);
+  font: 500 var(--cm-text-md) var(--cm-font);
+  cursor: pointer;
+}
+.sb-card-edit:hover {
+  background: var(--cm-accent-soft);
+}
+/* A row's or genre's … menu. Fixed beside its trigger (UILayout.anchor). */
+.workbench .sb-menu {
+  z-index: 80;
+  min-width: 220px;
+  padding: 6px;
+}
+.workbench .sb-menu [role='menuitem'] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  height: auto;
+  min-height: 40px;
+  margin: 0;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-text);
+  font: var(--cm-text-md) var(--cm-font);
+  text-align: left;
+  opacity: 1;
+  cursor: pointer;
+}
+.workbench .sb-menu [role='menuitem'] svg {
+  color: var(--cm-text-secondary);
+}
+.workbench .sb-menu [role='menuitem']:hover:not(:disabled) {
+  background: var(--cm-hover);
+}
+.workbench .sb-menu [role='menuitem']:disabled {
+  color: var(--cm-text-disabled);
+  cursor: default;
+}
+.workbench .sb-menu [role='menuitem'].is-danger,
+.workbench .sb-menu [role='menuitem'].is-danger svg {
+  color: var(--cm-danger-text);
+}
+/* Add: to a genre (inside it), another genre, an independent instrument. */
+.workbench .sb-add-to-tradition,
+.recipe-add-row > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: 40px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-link);
+  font: 500 var(--cm-text-md) var(--cm-font);
+  cursor: pointer;
+}
+.workbench .sb-add-to-tradition {
+  width: 100%;
+  margin-top: 2px;
+}
+.workbench .sb-add-to-tradition:hover,
+.recipe-add-row > button:hover {
+  background: var(--cm-accent-soft);
+  color: var(--cm-link);
+}
+.recipe-add-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: -6px;
+}
+/* After the genres, and never below the fold: with a long recipe the row
+   rides the bottom edge of the scrolling column until its place comes up. */
+.workbench #sidebar-scroll > .recipe-add-row {
+  position: sticky;
+  /* Past the column's own bottom padding, to its very edge. */
+  bottom: -16px;
+  z-index: 3;
+  padding: 2px 0 4px;
+  background: var(--cm-surface);
+  box-shadow: 0 -1px 0 var(--cm-border-subtle);
+}
+/* Suggestions and Recording environment. */
+.recipe-context {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.recipe-context[hidden] {
+  display: none;
+}
+.workbench #sidebar-staple:empty {
+  display: none;
+}
+.workbench .sb-staple {
+  gap: 0;
+  padding: 2px 6px !important;
+  border: 1px solid var(--cm-border-subtle);
+  border-radius: var(--cm-radius-lg);
+  background: var(--cm-surface-subtle);
+}
+.workbench .sb-staple-head {
+  gap: 2px;
+}
+.sb-staple-toggle {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 4px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-text);
+  font: 600 var(--cm-text-md) var(--cm-font);
+  text-align: left;
+  cursor: pointer;
+}
+.sb-staple-icon {
+  display: inline-flex;
+  color: var(--cm-amber);
+}
+.sb-staple-toggle .sb-chev {
+  margin-left: auto;
+  color: var(--cm-text-secondary);
+}
+.sb-staple.is-open .sb-staple-toggle .sb-chev {
+  transform: rotate(180deg);
+}
+.workbench .sb-staple-refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  color: var(--cm-text-secondary);
+}
+.workbench .sb-staple-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 0 4px 10px 32px;
+}
+.workbench .sb-staple-body[hidden] {
+  display: none;
+}
+.sb-staple-text {
+  margin: 0;
+  color: var(--cm-text-secondary);
+  font: var(--cm-text-sm) / 1.45 var(--cm-font);
+}
+.workbench .sb-staple-name {
+  color: var(--cm-text);
+  font-style: normal;
+  font-weight: 600;
+}
+.workbench .sb-staple-add {
+  min-height: 40px;
+  padding: 6px 12px;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-md);
+  background: var(--cm-surface);
+  color: var(--cm-link);
+  font: 500 var(--cm-text-md) var(--cm-font);
+  text-align: left;
+}
+.workbench .sb-staple-add:hover {
+  background: var(--cm-accent-soft);
+}
+.recipe-env-head {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.recipe-env-head h3 {
+  margin: 0;
+  color: var(--cm-text);
+  font: 600 var(--cm-text-lg) / 1.3 var(--cm-font);
+}
+.recipe-env-head .cm-btn-icon,
+.recipe-panel-head .cm-btn-icon {
+  min-width: 36px;
+  min-height: 36px;
+  padding: 6px;
+}
+.recipe-env-rows {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-lg);
+  overflow: hidden;
+}
+.recipe-env-row {
+  display: grid;
+  grid-template-columns: 20px minmax(76px, auto) minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 6px 10px 6px 12px;
+  border: 0;
+  border-top: 1px solid var(--cm-border-subtle);
+  background: var(--cm-surface);
+  color: var(--cm-text);
+  font: var(--cm-text-md) var(--cm-font);
+  text-align: left;
+  cursor: pointer;
+}
+.recipe-env-row:first-child {
+  border-top: 0;
+}
+.recipe-env-row:hover {
+  background: var(--cm-hover);
+}
+.recipe-env-row > svg {
+  color: var(--cm-text-muted);
+}
+.recipe-env-icon {
+  display: inline-flex;
+}
+.recipe-env-icon[data-kind='room'] {
+  color: var(--cm-orange);
+}
+.recipe-env-icon[data-kind='tuning'] {
+  color: var(--cm-violet);
+}
+.recipe-env-icon[data-kind='chain'] {
+  color: var(--cm-blue);
+}
+.recipe-env-value {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--cm-link);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.recipe-env-value.is-unset {
+  color: var(--cm-text-muted);
+  font-style: italic;
+}
+.recipe-env-source {
+  margin: 6px 2px 0;
+  color: var(--cm-text-muted);
+  font: var(--cm-text-sm) / 1.4 var(--cm-font);
+}
+/* Recipe preview: one grid (.rp-head takes part through display: contents). */
+.workbench #sidebar-recipe-preview {
+  position: relative !important;
+  inset: auto !important;
+  display: grid !important;
+  flex: none;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-areas:
+    'label format expand'
+    'text text text'
+    'count open open'
+    'copy copy copy';
+  align-items: center;
+  gap: 8px;
+  max-height: none;
+  padding: 14px 16px 8px !important;
+  overflow: visible;
+  border-top: 1px solid var(--cm-border) !important;
+  background: var(--cm-surface) !important;
+  box-shadow: none;
+}
+.workbench #sidebar-recipe-preview:empty {
+  display: none !important;
+}
+.workbench #sidebar-recipe-preview .rp-head {
+  display: contents !important;
+}
+.workbench #sidebar-recipe-preview .rp-label {
+  grid-area: label;
+  display: block;
+  margin: 0;
+  color: var(--cm-text) !important;
+  font: 600 var(--cm-text-lg) / 1.3 var(--cm-font) !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  min-width: 0;
+}
+.rp-format {
+  grid-area: format;
+  justify-self: end;
+  min-height: 36px;
+  padding: 4px 8px;
+  font-size: var(--cm-text-md);
+}
+.workbench #sidebar-recipe-preview .rp-text,
+.workbench #sidebar-recipe-preview .rp-empty {
+  grid-area: text;
+  display: block;
+  max-height: calc(1.5em * 3 + 20px);
+  margin: 0;
+  padding: 10px 12px !important;
+  overflow: hidden;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-md);
+  color: var(--cm-text-secondary);
+  font: var(--cm-text-md) / 1.5 var(--cm-font) !important;
+  -webkit-mask-image: linear-gradient(#000 55%, transparent);
+  mask-image: linear-gradient(#000 55%, transparent);
+}
+.workbench #sidebar-recipe-preview.is-expanded .rp-text {
+  max-height: 40vh;
+  overflow: auto;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.workbench #sidebar-recipe-preview .rp-count {
+  grid-area: count;
+  min-width: 0;
+  margin: 0;
+  color: var(--cm-text-muted);
+  font: var(--cm-text-sm) var(--cm-font) !important;
+  font-variant-numeric: tabular-nums;
+}
+.workbench #sidebar-recipe-preview .rp-expand {
+  grid-area: expand;
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  color: var(--cm-text-secondary);
+}
+.workbench #sidebar-recipe-preview .rp-expand svg {
+  transform: none;
+}
+.workbench #sidebar-recipe-preview.is-expanded .rp-expand svg {
+  transform: rotate(180deg);
+}
+.workbench #sidebar-recipe-preview .rp-open {
+  grid-area: open;
+  display: inline-flex;
+  justify-self: end;
+  min-height: 32px;
+  padding: 4px 2px !important;
+  border: 0 !important;
+  background: none !important;
+  color: var(--cm-link) !important;
+  font: 500 var(--cm-text-sm) var(--cm-font) !important;
+}
+.workbench #sidebar-recipe-preview [data-proxy='btn-undo'] {
+  grid-area: undo;
+}
+.workbench #sidebar-recipe-preview [data-proxy='btn-redo'] {
+  grid-area: redo;
+}
+.rp-copy {
+  grid-area: copy;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: var(--cm-surface-inverse);
+  color: var(--cm-text-inverse);
+  font: 600 var(--cm-text-lg) var(--cm-font);
+  cursor: pointer;
+}
+.workbench .rp-copy:hover {
+  background: color-mix(in srgb, var(--cm-surface-inverse) 86%, var(--cm-canvas));
+  color: var(--cm-text-inverse);
+}
+/* The AI recipe entry: the shared writer, started from this recipe. */
+.recipe-ai {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+  margin: 0;
+  padding: 2px 16px 12px;
+  background: var(--cm-surface);
+}
+.recipe-ai-open {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 4px 6px;
+  border: 0;
+  border-radius: var(--cm-radius-md);
+  background: none;
+  color: var(--cm-link);
+  font: 500 var(--cm-text-md) var(--cm-font);
+  cursor: pointer;
+}
+.recipe-ai-open svg {
+  color: var(--cm-violet);
+}
+.recipe-ai-field {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+.recipe-ai-field .cm-input {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding-right: 48px;
+}
+.recipe-ai-send {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  color: var(--cm-text-secondary);
+}
+@media (min-width: 900px) {
+  .workbench .session-actions {
+    display: none;
+  }
+  /* Your recipe shows the Autosaved status while it is open; the header's
+     copy (the live region) steps aside visually but keeps announcing. */
+  .workbench:not(.recipe-collapsed) .ui-tools #ui-autosave {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .workbench.recipe-collapsed .recipe-autosave {
+    display: none;
+  }
+  /* Collapsed: a rail with only its expand control (sidebars), or the header
+     row alone (dock). */
+  .workbench[data-recipe='sidebar'].recipe-collapsed .workspace,
+  .workbench[data-recipe='sidebar-right'].recipe-collapsed .workspace {
+    --recipe-col: 56px;
+  }
+  .workbench.recipe-collapsed #workspace-sidebar > :not(.recipe-panel-head) {
+    display: none !important;
+  }
+  .workbench:is([data-recipe='sidebar'], [data-recipe='sidebar-right']).recipe-collapsed
+    .recipe-panel-head {
+    flex-direction: column;
+    padding: 6px;
+  }
+  .workbench:is([data-recipe='sidebar'], [data-recipe='sidebar-right']).recipe-collapsed
+    .recipe-panel-head
+    > :not([data-ui='recipe-collapse']) {
+    position: absolute;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  /* sidebar-right: the page, then the editor when open, then Your recipe. */
+  .workbench[data-recipe='sidebar-right'] .workspace {
+    --recipe-right: clamp(280px, var(--sidebar-right-width, 360px), 40vw);
+    grid-template-columns: minmax(0, 1fr) var(--recipe-col, var(--recipe-right));
+  }
+  .workbench[data-recipe='sidebar-right'] #discovery {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .workbench[data-recipe='sidebar-right'] .workspace #workspace-sidebar {
+    grid-row: 1;
+    grid-column: -2 / -1;
+    border-right: 0;
+    border-left: 1px solid var(--cm-border);
+  }
+  .workbench[data-recipe='sidebar-right'].editor-open .workspace {
+    grid-template-columns:
+      minmax(0, 1fr) clamp(320px, var(--detail-width, 440px), 40vw)
+      var(--recipe-col, var(--recipe-right));
+  }
+  .workbench[data-recipe='sidebar-right'].editor-open #workspace-detail {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  /* The dock: the page keeps the top of the workspace, Your recipe the strip
+     below it — recipe rows | Recording environment | Recipe preview — and the
+     editor opens beside the page rather than over it. */
+  .workbench[data-recipe='dock'] .workspace {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+  .workbench[data-recipe='dock'].editor-open .workspace {
+    grid-template-columns: minmax(0, 1fr) clamp(320px, var(--detail-width, 440px), 45vw);
+  }
+  .workbench[data-recipe='dock'] #discovery {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .workbench[data-recipe='dock'].editor-open #workspace-detail {
+    position: static;
+    grid-row: 1;
+    grid-column: 2;
+    width: auto;
+    box-shadow: none;
+  }
+  .workbench[data-recipe='dock'] .workspace #workspace-sidebar {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    display: grid !important;
+    grid-template-columns: minmax(300px, 1.2fr) minmax(260px, 1fr) minmax(300px, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas:
+      'head head head'
+      'tree context preview';
+    /* Compact by default so the page (the map) keeps the screen; the top
+       edge resizes it (220px up to 70% of the workspace). */
+    height: var(--dock-height, 220px) !important;
+    border-right: 0;
+    border-top: 1px solid var(--cm-border);
+  }
+  .workbench[data-recipe='dock'].recipe-collapsed .workspace #workspace-sidebar {
+    height: auto !important;
+  }
+  .workbench[data-recipe='dock'] .recipe-panel-head {
+    grid-area: head;
+    gap: 12px;
+    min-height: 44px;
+    padding: 4px 8px 4px 20px;
+    border-bottom: 1px solid var(--cm-border-subtle);
+  }
+  .workbench[data-recipe='dock'] .recipe-panel-title {
+    flex: none;
+    font-size: var(--cm-text-lg);
+  }
+  .workbench[data-recipe='dock'] .recipe-session {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+  .workbench[data-recipe='dock'] #sidebar-header {
+    padding: 0 !important;
+    min-width: 0;
+  }
+  .workbench[data-recipe='dock'] #sidebar-header h2.ws-name {
+    color: var(--cm-text-secondary);
+    font: 500 var(--cm-text-md) var(--cm-font) !important;
+  }
+  .workbench[data-recipe='dock'] .recipe-panel-meta {
+    margin: 0;
+    white-space: nowrap;
+  }
+  .workbench[data-recipe='dock'] .recipe-open-editor {
+    display: inline-flex;
+    min-height: 36px;
+    padding: 4px 12px;
+  }
+  .workbench[data-recipe='dock'] #recipe-empty {
+    grid-column: 1 / -1;
+    grid-row: 2 / -1;
+  }
+  .workbench[data-recipe='dock'] #sidebar-scroll {
+    grid-area: tree;
+    gap: 6px;
+    padding: 6px 12px 8px !important;
+  }
+  .workbench[data-recipe='dock'] .sb-tradition-header {
+    min-height: 40px;
+  }
+  .workbench[data-recipe='dock'] .sb-card-row > .sb-card {
+    min-height: 44px;
+    padding: 3px 4px !important;
+  }
+  .workbench[data-recipe='dock'] .sb-card-thumb {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .workbench[data-recipe='dock'] .sb-tradition-group {
+    border: 0;
+    padding: 0;
+  }
+  .workbench[data-recipe='dock'] #sidebar-scroll .sb-tradition-header {
+    top: -6px;
+  }
+  .workbench[data-recipe='dock'] #sidebar-scroll > .recipe-add-row {
+    bottom: -8px;
+  }
+  .workbench[data-recipe='dock'] .recipe-add-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 0;
+  }
+  .workbench[data-recipe='dock'] .recipe-context {
+    grid-area: context;
+    min-height: 0;
+    overflow: auto;
+    gap: 10px;
+    padding: 8px 16px 10px;
+    border-left: 1px solid var(--cm-border-subtle);
+  }
+  .workbench[data-recipe='dock'] .recipe-context .recipe-env {
+    order: -1;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-head h3,
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-label {
+    font-size: var(--cm-text-md) !important;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-head .cm-btn-icon {
+    min-width: 32px;
+    min-height: 32px;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-rows {
+    margin-top: 4px;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-row {
+    min-height: 34px;
+    padding: 4px 10px 4px 12px;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-source {
+    margin-top: 4px;
+  }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview {
+    grid-area: preview;
+    align-content: start;
+    min-height: 0;
+    overflow: auto;
+    gap: 6px;
+    padding: 8px 16px !important;
+    border-top: 0 !important;
+    border-left: 1px solid var(--cm-border-subtle);
+  }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-format {
+    min-height: 32px;
+  }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-text {
+    max-height: calc(1.5em + 18px);
+    padding: 8px 10px !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview.is-expanded .rp-text {
+    max-height: 40vh;
+    white-space: normal;
+  }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-open {
+    min-height: 24px;
+  }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-copy {
+    min-height: 40px;
+  }
+  /* AI recipe sits in the dock's header row; its field is the sidebar's. */
+  .workbench[data-recipe='dock'] .recipe-panel-head > .recipe-ai {
+    padding: 0;
+    background: none;
+  }
+  .workbench[data-recipe='dock'] .recipe-panel-head > .recipe-ai .recipe-ai-field {
+    display: none;
+  }
+}
+/* 900–1250px: the editor overlays the page (see above); on the right-hand
+   form it stops at Your recipe instead of covering it. */
+@media (min-width: 900px) and (max-width: 1250px) {
+  .workbench[data-recipe='sidebar-right'].editor-open .workspace {
+    grid-template-columns: minmax(0, 1fr) var(--recipe-col, var(--recipe-right));
+  }
+  .workbench[data-recipe='sidebar-right'].editor-open #workspace-detail {
+    grid-row: auto;
+    grid-column: auto;
+    right: var(--recipe-col, var(--recipe-right));
+  }
+}
+@media (min-width: 1100px) {
+  .workbench.assistant-open:not(.assistant-floating):not(
+      [data-view='lyrics']
+    )[data-recipe='sidebar-right']
+    .workspace {
+    grid-template-columns: minmax(0, 1fr) var(--recipe-col, var(--recipe-right)) 480px;
+  }
+}
+@media (min-width: 1500px) {
+  .workbench.assistant-open.editor-open:not(.assistant-floating):not(
+      [data-view='lyrics']
+    )[data-recipe='sidebar-right']
+    .workspace {
+    grid-template-columns:
+      minmax(0, 1fr) clamp(320px, var(--detail-width, 440px), 30vw)
+      var(--recipe-col, clamp(280px, var(--sidebar-right-width, 360px), 22vw)) 480px;
+  }
+}
+/* The Recipe sheet (below 900px): its toolbar carries AI recipe, Add genre,
+   Add instrument and Close; the recipe bar is pinned to its bottom edge with
+   the count, Undo, Redo, Copy recipe and the expander in one row. */
+@media (max-width: 899px) {
+  [data-ui='recipe-collapse'],
+  .recipe-autosave,
+  .workbench .recipe-ai,
+  .workbench .recipe-add-row:empty {
+    display: none !important;
+  }
+  .recipe-panel-head {
+    min-height: 44px;
+    padding: 6px 16px 0;
+  }
+  .recipe-panel-title {
+    font-size: var(--cm-text-lg);
+  }
+  .workbench[data-view='map'].session-open .workspace #workspace-sidebar,
+  .workbench[data-view='lyrics'].session-open .workspace #workspace-sidebar {
+    inset: auto 0 0 !important;
+    height: calc((100dvh - 108px) * 0.6) !important;
+    border-top: 1px solid var(--cm-border);
+    border-radius: var(--cm-radius-lg) var(--cm-radius-lg) 0 0;
+    box-shadow: var(--cm-shadow-3) !important;
+  }
+  .workbench .sb-card-edit,
+  .workbench .sb-more,
+  .workbench .sb-add-to-tradition,
+  .workbench .sb-tradition-toggle,
+  .workbench .recipe-env-row,
+  .workbench .recipe-env-head .cm-btn-icon,
+  .workbench .sb-staple-refresh,
+  .workbench .sb-staple-add,
+  .workbench #sidebar-header .ws-rename {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .workbench .sb-menu [role='menuitem'] {
+    min-height: 44px;
+  }
+  .workbench #sidebar-recipe-preview {
+    grid-template-columns: minmax(0, 1fr) auto auto auto auto;
+    grid-template-areas:
+      'count undo redo copy expand'
+      'text text text text text'
+      'format format open open open';
+    gap: 4px 2px;
+    padding: 6px 12px calc(6px + env(safe-area-inset-bottom, 0px)) !important;
+    box-shadow: var(--cm-shadow-2);
+  }
+  .workbench #sidebar-recipe-preview .rp-label,
+  .workbench #sidebar-recipe-preview .rp-count-unit,
+  .workbench #sidebar-recipe-preview .rp-copy-label {
+    display: none;
+  }
+  .workbench #sidebar-recipe-preview .rp-copy {
+    min-width: 44px;
+    padding: 8px;
+    background: none;
+    color: var(--cm-text-secondary);
+  }
+  .workbench #sidebar-recipe-preview .rp-expand {
+    width: 44px;
+    height: 44px;
+  }
+  .workbench #sidebar-recipe-preview:not(.is-expanded) .rp-text,
+  .workbench #sidebar-recipe-preview:not(.is-expanded) .rp-empty,
+  .workbench #sidebar-recipe-preview:not(.is-expanded) .rp-open,
+  .workbench #sidebar-recipe-preview:not(.is-expanded) .rp-format {
+    display: none !important;
+  }
+  .workbench #sidebar-recipe-preview.is-expanded .rp-text {
+    -webkit-mask-image: none;
+    mask-image: none;
+    max-height: 40vh;
+    overflow: auto;
+  }
+  .workbench #sidebar-recipe-preview .rp-format {
+    justify-self: start;
+    min-height: 44px;
+  }
+  .workbench #sidebar-recipe-preview .rp-open {
+    min-height: 44px;
+  }
+}
+
+/* ── Foundation: status surfaces ── */
+#surface-map {
+  position: relative;
+}
+.map-status {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  z-index: 5;
+  transform: translateX(-50%);
+  background: var(--cm-surface-overlay);
+  box-shadow: var(--cm-shadow-2);
+}
+.map-status[hidden] {
+  display: none;
+}
+#toast {
+  max-width: min(560px, calc(100vw - 32px));
+}
+#toast.toast-success {
+  background: var(--cm-toast-success);
+}
+/* Only the action is a target: the toast never blocks the rows under it. */
+.toast-action {
+  pointer-events: auto;
+}
+/* ...and only while the toast is up: a faded toast takes no click. */
+.toast:not(.show) .toast-action {
+  visibility: hidden;
+  pointer-events: none;
+}
+.toast-action {
+  flex: none;
+  min-height: 36px;
+  margin-left: 4px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: var(--cm-radius-sm);
+  background: var(--cm-toast-action-bg);
+  color: var(--cm-toast-action-text);
+  font: 600 var(--cm-text-sm) var(--cm-font);
+  cursor: pointer;
+}
+.toast-action:hover {
+  background: var(--cm-toast-action-bg-hover);
+}
+
+/* ── Foundation: the shared editor sizes to its own pane ──
+   The editor is a sidebar-width pane on every route, so its layout answers to
+   the pane, not the window: the eight signal-chain stages were eight 50px
+   columns in the 440px pane and broke every label mid-word. */
+#workspace-detail {
+  container-type: inline-size;
+  container-name: editor;
+}
+@container editor (max-width: 720px) {
+  .chain-flow {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+  }
+}
+@container editor (max-width: 520px) {
+  .chain-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@container editor (max-width: 380px) {
+  .chain-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* A landscape phone scrolls the whole sheet; the recipe bar rides its bottom
+   edge (sticky) rather than sitting after the recipe. */
+@media (max-width: 899px) and (max-height: 500px) {
+  .workbench.session-open #sidebar-recipe-preview {
+    position: sticky !important;
+    bottom: 0 !important;
+    z-index: 2;
+  }
 }

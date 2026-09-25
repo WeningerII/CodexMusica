@@ -1,13 +1,6 @@
-:root {
-  --font-display: Arial, sans-serif;
-  --font-body: Arial, sans-serif;
-  --accent: #e53935;
-  --muted: #3c4043;
-  --muted-2: #5f6368;
-}
 body,
 .shell {
-  background: #103557;
+  background: var(--cm-map-backdrop);
 }
 .shell {
   height: 100dvh;
@@ -22,8 +15,8 @@ body,
   border: 0 !important;
   padding: 0 !important;
   border-radius: 8px;
-  box-shadow: 0 2px 12px #0003;
-  background: white;
+  box-shadow: var(--cm-shadow-3);
+  background: var(--cm-surface);
   /* A backdrop filter makes fixed descendants relative to this bar instead
      of the viewport, offsetting and clipping the anchored search results. */
   backdrop-filter: none;
@@ -49,13 +42,13 @@ body,
 .map-extra {
   padding: 8px;
   border: 0;
-  background: white;
+  background: var(--cm-surface);
   min-height: 44px;
   border-radius: 5px;
   font-size: 14px;
 }
 .map-extra:hover {
-  background: #e8f0fe;
+  background: var(--cm-accent-soft);
 }
 .body {
   height: 100%;
@@ -76,11 +69,11 @@ main {
   width: 320px;
   max-height: calc(100% - 150px);
   height: auto;
-  background: white;
+  background: var(--cm-surface);
   z-index: 45;
-  border: 1px solid #dadce0;
+  border: 1px solid var(--cm-border);
   border-radius: 8px;
-  box-shadow: 0 2px 12px #0002;
+  box-shadow: var(--cm-shadow-2);
 }
 #canvas-host {
   inset: 0 !important;
@@ -92,7 +85,7 @@ main {
   display: block !important;
   z-index: 60;
   bottom: 70px;
-  background: white;
+  background: var(--cm-surface);
   padding: 12px;
   max-width: 300px;
 }
@@ -103,8 +96,8 @@ main {
   width: 350px !important;
   max-height: calc(100% - 170px) !important;
   border-radius: 10px !important;
-  box-shadow: 0 3px 16px #0003;
-  background: white !important;
+  box-shadow: var(--cm-shadow-3);
+  background: var(--cm-surface) !important;
   padding: 18px !important;
 }
 .card h2 {
@@ -126,19 +119,19 @@ main {
   height: 36px;
 }
 .toggle {
-  background: white !important;
+  background: var(--cm-surface) !important;
   font-size: 14px !important;
   min-height: 44px;
   padding: 8px 12px !important;
-  border-color: #dadce0 !important;
+  border-color: var(--cm-border) !important;
 }
 /* An open menu and an applied filter are separate states. Both stay legible. */
 .toggle[aria-expanded='true'],
 .toggle[data-active='true'],
 .toggle.on {
-  background: #e8f0fe !important;
-  color: #174ea6 !important;
-  border-color: #aecbfa !important;
+  background: var(--cm-accent-soft) !important;
+  color: var(--cm-accent-text) !important;
+  border-color: var(--cm-accent) !important;
 }
 .zoomstack {
   bottom: 16px !important;
@@ -148,17 +141,17 @@ main {
 .zoombtn {
   height: 44px !important;
   width: 44px !important;
-  background: white !important;
+  background: var(--cm-surface) !important;
 }
 #legend-panel,
 #threads-panel,
 #routes-panel {
   max-height: 55vh !important;
   overflow: auto;
-  background: white !important;
+  background: var(--cm-surface) !important;
 }
 .panel {
-  background: #fff !important;
+  background: var(--cm-surface) !important;
 }
 .result,
 .result-item {
@@ -166,7 +159,7 @@ main {
 }
 .pill,
 .chip {
-  border-color: #dadce0 !important;
+  border-color: var(--cm-border) !important;
 }
 #legendwrap {
   bottom: 16px !important;
@@ -174,19 +167,19 @@ main {
 }
 #stack {
   z-index: 55 !important;
-  background: white !important;
+  background: var(--cm-surface) !important;
   border-radius: 10px !important;
 }
 #stack button {
   min-height: 44px;
 }
 .btn-primary {
-  background: #1a73e8 !important;
+  background: var(--cm-accent) !important;
 }
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
-  outline: 3px solid #1a73e8;
+  outline: 3px solid var(--cm-focus);
   outline-offset: 2px;
 }
 @media (max-width: 600px) {
@@ -346,8 +339,8 @@ input:focus-visible {
   max-width: 100%;
   padding: 4px 10px;
   border-radius: 8px;
-  background: white;
-  box-shadow: 0 2px 12px #0002;
+  background: var(--cm-surface);
+  box-shadow: var(--cm-shadow-2);
   font-size: 12px;
 }
 #filter-summary {
@@ -361,7 +354,7 @@ input:focus-visible {
   min-height: 44px;
   border: 0;
   background: transparent;
-  color: #174ea6;
+  color: var(--cm-accent-text);
   font: inherit;
 }
 .panel-heading {
@@ -381,12 +374,12 @@ input:focus-visible {
 }
 #routes-panel .rowbtn[aria-current='true'],
 #threads-panel .rowbtn[aria-pressed='true'] {
-  background: #e8f0fe;
-  color: #174ea6;
+  background: var(--cm-accent-soft);
+  color: var(--cm-accent-text);
 }
 .route-ends {
   padding: 0 8px 10px 16px;
-  border-bottom: 1px solid #dadce0;
+  border-bottom: 1px solid var(--cm-border);
 }
 .route-end {
   padding: 8px;

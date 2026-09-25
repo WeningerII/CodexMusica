@@ -8,8 +8,8 @@
   max-width: min(320px, calc(100vw - 16px));
   padding: 6px 9px;
   border-radius: 4px;
-  background: #3c4043;
-  color: #fff;
+  background: var(--cm-surface-inverse);
+  color: var(--cm-text-inverse);
   font-size: 12px;
   line-height: 1.4;
   white-space: normal;
@@ -53,10 +53,10 @@
 .layout-panel-tools button {
   min-height: 32px;
   padding: 4px 8px;
-  border: 1px solid #dadce0;
+  border: 1px solid var(--cm-border);
   border-radius: 5px;
-  background: #fff;
-  color: #3c4043;
+  background: var(--cm-surface);
+  color: var(--cm-text-secondary);
   font:
     12px Arial,
     sans-serif;
@@ -85,15 +85,15 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #dadce0;
+  background: var(--cm-border);
 }
 .layout-splitter:hover::after,
 .layout-splitter:focus-visible::after {
-  background: #1a73e8;
+  background: var(--cm-accent);
 }
 .layout-splitter:focus-visible,
 .layout-panel-tools button:focus-visible {
-  outline: 2px solid #1a73e8;
+  outline: 2px solid var(--cm-focus);
   outline-offset: 2px;
 }
 .layout-splitter[hidden] {
@@ -108,5 +108,33 @@
 @media (max-width: 899px) {
   .layout-panel-tools {
     display: none;
+  }
+}
+.layout-splitter-y {
+  top: 0;
+  bottom: auto;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 10px;
+  cursor: row-resize;
+}
+.layout-splitter-y::after {
+  left: 0;
+  right: 0;
+  top: 4px;
+  bottom: auto;
+  width: auto;
+  height: 2px;
+}
+/* A finger needs more than 10px: widen the hit area without moving the line. */
+@media (pointer: coarse) {
+  .layout-splitter::before {
+    content: '';
+    position: absolute;
+    inset: 0 -8px;
+  }
+  .layout-splitter-y::before {
+    inset: -8px 0;
   }
 }

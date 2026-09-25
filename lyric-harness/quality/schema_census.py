@@ -189,10 +189,49 @@ def census():
     from quality.revise import Reviser
     from quality.schemes import mandate
     verifier = Reviser()
+
+    def _verdict(lines, slots, sections):
+        """One group, the schema as default relation — the DRAWABLE route,
+        with the frame a figure needs handed in (never invented)."""
+        got = verifier.grade(list(lines), mandate(
+            [list(slots)], n_lines=len(lines),
+            default_relation="schema:" + name),
+            sections=list(sections) if sections else None)
+        if got["refusals"]:
+            return None, got["refusals"][0]["reason"]
+        return not got["violations"], None
+
+    findings = []
     for name, sch in sorted(R.REGISTRY.items()):
+        found = None
+        if name in R.WITNESS_FINDINGS:
+            ref, rows = R.WITNESS_FINDINGS[name]
+            got = [_verdict(ls, sl, sec) for ls, sl, sec, _ in rows]
+            want = [exp for *_, exp in rows]
+            found = {"ref": ref, "verdicts": [v for v, _ in got],
+                     "expected": want,
+                     "refusal": next((r for _, r in got if r), None)}
+            if not rows:
+                need = [c for c in sch.requires]
+                found["refusal"] = ("`Reviser.grade` takes no declaration "
+                                    "of %s; the schema refuses on the grade "
+                                    "route before any row can be graded"
+                                    % ", ".join(map(repr, need)))
+            findings.append((name, found))
         if not R.figure_pair_representable(sch) and name not in R.FULL_SHAPES:
             semantic[name] = {"status": "unsupported_shape",
                               "blocker": "member bindings/template not implemented"}
+        elif name in R.CENSUS_EXHIBITS:
+            controls = [_verdict(*row)[0] for row in R.CENSUS_EXHIBITS[name]]
+            ok = controls == [True, False]
+            semantic[name] = {"status": "witness_and_contrast" if ok
+                              else "unvalidated", "verdicts": controls,
+                              "evidence": "CENSUS_EXHIBITS through declared "
+                                          "mandate slots, declared sections "
+                                          "and Reviser.grade",
+                              "blocker": None if ok else
+                              "declared census controls do not both produce "
+                              "definite expected verdicts"}
         elif name in R.DRAWABLE_EXHIBITS and R.pair_scope_representable(sch):
             controls = []
             for a,b,sa,sb in R.DRAWABLE_EXHIBITS[name]:
@@ -209,10 +248,20 @@ def census():
             semantic[name] = {"status":"regression_witness",
                               "evidence":"quality/test_production_relations.py",
                               "blocker":None}
+        elif found is not None:
+            semantic[name] = {"status": "unvalidated",
+                              "verdicts": found["verdicts"],
+                              "evidence": "WITNESS_FINDINGS through Reviser.grade",
+                              "blocker": "%s: graded %s where %s is the answer%s"
+                              % (found["ref"], found["verdicts"],
+                                 found["expected"],
+                                 "; " + found["refusal"][:160]
+                                 if found["refusal"] else "")}
         else:
             semantic[name] = {"status":"unvalidated",
                               "blocker":"full semantic witness and independent contrast not registered"}
     return {"live": live, "capability_live": live, "semantic_status": semantic,
+            "witness_findings": findings,
             "blocked": blocked, "other_language": other,
             "fixture_only": sorted(n for n in FIXTURE_ONLY if n in live),
             "intra": sorted(n for n in R.REGISTRY if RT._all_same_line(n))}
@@ -237,6 +286,15 @@ def main():
                  if row["status"] == status]
         if names:
             print(f"  {status} ({len(names)}): " + "; ".join(names))
+    wrong = [(n, f) for n, f in rep["witness_findings"]
+             if f["verdicts"] != f["expected"] or not f["verdicts"]]
+    if wrong:
+        print(f"  grader findings, re-graded this run ({len(wrong)}; "
+              "`relations.WITNESS_FINDINGS`):")
+        for n, f in wrong:
+            print(f"    {n} [{f['ref']}]: graded {f['verdicts']}, "
+                  f"expected {f['expected']}"
+                  + (f" — {f['refusal'][:110]}" if f["refusal"] else ""))
     if rep["other_language"]:
         print(f"  (of the askable, {len(rep['other_language'])} answer under "
               f"their OWN phonology and not English:\n   "

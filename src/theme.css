@@ -1,0 +1,571 @@
+/* Codex Musica — shared theme. Owned by the shell integration owner.
+
+   One file, two consumers: codex.html (inlined by scripts/build_html.js) and
+   atlas.html (linked, and inlined by scripts/build_atlas_standalone.js). The
+   <html> element always carries data-theme="light" or data-theme="dark",
+   written before first paint by src/theme.js, so every rule below keys off
+   that attribute and nothing depends on a media query at paint time.
+
+   LAYERS
+     1. Semantic tokens (--cm-*), one block per theme. Pages read these.
+     2. Legacy aliases. The template, src/app.js's injected styles, the atlas
+        and map.css were written against --bg/--surface/--text/... and keep
+        working unchanged; the aliases point those names at layer 1.
+     3. Shared components (.cm-*): buttons, fields, search, tabs, chips,
+        menus, accordions, status, empty states, panels, sheets, overlays.
+
+   Page stylesheets (src/pages/*.css, src/map.css) must use tokens, never
+   literal colours: a literal is correct in one theme and wrong in the other.
+   The full palette (red, orange, amber, green, teal, blue, indigo, violet,
+   pink) is for icons, categories and markers; neutral surfaces carry no
+   hue in either theme. */
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  /* Surfaces — white and neutral light greys. */
+  --cm-canvas: #ffffff;
+  --cm-surface: #ffffff;
+  --cm-surface-subtle: #f8f9fa;
+  --cm-surface-sunken: #f1f3f4;
+  --cm-surface-overlay: #ffffff;
+  --cm-surface-inverse: #303134;
+  --cm-text-inverse: #f1f3f4;
+  --cm-scrim: rgba(32, 33, 36, 0.32);
+  --cm-header-glass: rgba(255, 255, 255, 0.92);
+  /* Text: at least 4.5:1 on every surface below (faint: on --cm-surface). */
+  --cm-text: #202124;
+  --cm-text-secondary: #3c4043;
+  --cm-text-muted: #5f6368;
+  --cm-text-faint: #70767b;
+  --cm-text-disabled: #9aa0a6;
+  /* Borders. */
+  --cm-border-subtle: #e8eaed;
+  --cm-border: #dadce0;
+  --cm-border-strong: #bdc1c6;
+  /* Interaction: one blue means "act here / this is selected". */
+  --cm-accent: #1a73e8;
+  --cm-accent-hover: #185abc;
+  --cm-accent-soft: #e8f0fe;
+  --cm-accent-soft-hover: #d2e3fc;
+  --cm-accent-text: #1558b0;
+  --cm-on-accent: #ffffff;
+  /* #1a73e8 is 3.9:1 on --cm-accent-soft; text links use the darker step. */
+  --cm-link: #1765cc;
+  --cm-hover: rgba(32, 33, 36, 0.06);
+  --cm-pressed: rgba(32, 33, 36, 0.12);
+  --cm-focus: #1a73e8;
+  /* Editorial emphasis (preface italics, pinned marker, active underline). */
+  --cm-emphasis: #c5221f;
+  /* Status — always paired with an icon and a word, never colour alone. */
+  --cm-success: #1e8e3e;
+  --cm-success-soft: #e6f4ea;
+  --cm-success-text: #137333;
+  --cm-warning: #f9ab00;
+  --cm-warning-soft: #fef7e0;
+  --cm-warning-text: #9a5b00;
+  --cm-danger: #d93025;
+  --cm-danger-hover: #b3261e;
+  --cm-danger-soft: #fce8e6;
+  --cm-danger-text: #b3261e;
+  --cm-info: #1a73e8;
+  --cm-info-soft: #e8f0fe;
+  --cm-info-text: #1558b0;
+  /* Toast. White on the success fill is 5.9:1 (on --cm-success, 4.2:1); the
+     action is a solid chip, so its label never sits on a tint of the fill. */
+  --cm-toast-success: var(--cm-success-text);
+  --cm-toast-action-bg: var(--cm-surface);
+  --cm-toast-action-bg-hover: var(--cm-surface-sunken);
+  --cm-toast-action-text: var(--cm-text);
+  /* Full palette — icons, categories, markers. */
+  --cm-red: #e53935;
+  --cm-orange: #f4511e;
+  --cm-amber: #f9ab00;
+  --cm-green: #1e8e3e;
+  --cm-teal: #00897b;
+  --cm-blue: #1a73e8;
+  --cm-indigo: #3949ab;
+  --cm-violet: #8e24aa;
+  --cm-pink: #d81b60;
+  /* Map. The ocean beyond the projection, marker outlines and label halos. */
+  --cm-map-backdrop: #e8eaed;
+  --cm-map-marker-ring: #ffffff;
+  --cm-map-label: #202124;
+  --cm-map-label-halo: rgba(255, 255, 255, 0.9);
+  /* Elevation. */
+  --cm-shadow-1: 0 1px 2px rgba(32, 33, 36, 0.08);
+  --cm-shadow-2: 0 2px 6px rgba(32, 33, 36, 0.12), 0 1px 2px rgba(32, 33, 36, 0.06);
+  --cm-shadow-3: 0 12px 32px rgba(32, 33, 36, 0.16), 0 2px 8px rgba(32, 33, 36, 0.08);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  /* Surfaces — black and neutral charcoal. Equal R, G and B throughout: no
+     navy or blue cast anywhere in the shell. */
+  --cm-canvas: #0b0b0b;
+  --cm-surface: #141414;
+  --cm-surface-subtle: #1a1a1a;
+  --cm-surface-sunken: #222222;
+  --cm-surface-overlay: #1e1e1e;
+  --cm-surface-inverse: #e8e8e8;
+  --cm-text-inverse: #141414;
+  --cm-scrim: rgba(0, 0, 0, 0.6);
+  --cm-header-glass: rgba(11, 11, 11, 0.92);
+  --cm-text: #ececec;
+  --cm-text-secondary: #cfcfcf;
+  --cm-text-muted: #a8a8a8;
+  --cm-text-faint: #979797;
+  --cm-text-disabled: #6b6b6b;
+  --cm-border-subtle: #262626;
+  --cm-border: #333333;
+  --cm-border-strong: #4d4d4d;
+  --cm-accent: #8ab4f8;
+  --cm-accent-hover: #aecbfa;
+  --cm-accent-soft: rgba(138, 180, 248, 0.16);
+  --cm-accent-soft-hover: rgba(138, 180, 248, 0.24);
+  --cm-accent-text: #aecbfa;
+  --cm-on-accent: #0b0b0b;
+  --cm-link: #8ab4f8;
+  --cm-hover: rgba(255, 255, 255, 0.07);
+  --cm-pressed: rgba(255, 255, 255, 0.12);
+  --cm-focus: #8ab4f8;
+  --cm-emphasis: #f28b82;
+  --cm-success: #81c995;
+  --cm-success-soft: rgba(129, 201, 149, 0.16);
+  --cm-success-text: #81c995;
+  --cm-warning: #fdd663;
+  --cm-warning-soft: rgba(253, 214, 99, 0.14);
+  --cm-warning-text: #fdd663;
+  --cm-danger: #f28b82;
+  --cm-danger-hover: #f6aea9;
+  --cm-danger-soft: rgba(242, 139, 130, 0.16);
+  --cm-danger-text: #f28b82;
+  --cm-info: #8ab4f8;
+  --cm-info-soft: rgba(138, 180, 248, 0.16);
+  --cm-info-text: #aecbfa;
+  --cm-toast-success: var(--cm-success);
+  --cm-toast-action-bg: color-mix(in srgb, currentColor 18%, transparent);
+  --cm-toast-action-bg-hover: color-mix(in srgb, currentColor 28%, transparent);
+  --cm-toast-action-text: currentColor;
+  --cm-red: #f28b82;
+  --cm-orange: #fcad70;
+  --cm-amber: #fdd663;
+  --cm-green: #81c995;
+  --cm-teal: #78d9ec;
+  --cm-blue: #8ab4f8;
+  --cm-indigo: #a8b4ff;
+  --cm-violet: #c58af9;
+  --cm-pink: #ff8bcb;
+  --cm-map-backdrop: #000000;
+  --cm-map-marker-ring: #141414;
+  --cm-map-label: #ececec;
+  --cm-map-label-halo: rgba(0, 0, 0, 0.85);
+  --cm-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --cm-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.55);
+  --cm-shadow-3: 0 12px 36px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Theme-independent tokens. */
+:root[data-theme] {
+  /* Section identity: the colour of each section's icon, in both themes. */
+  --cm-route-genre: var(--cm-red);
+  --cm-route-instrument: var(--cm-orange);
+  --cm-route-map: var(--cm-blue);
+  --cm-route-lyrics: var(--cm-violet);
+  /* Type. */
+  --cm-font: Arial, Helvetica, sans-serif;
+  --cm-font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --cm-text-xs: 12px;
+  --cm-text-sm: 13px;
+  --cm-text-md: 14px;
+  --cm-text-lg: 16px;
+  --cm-text-xl: 20px;
+  --cm-text-2xl: 24px;
+  /* Shape and spacing (the 4px grid is --s1..--s9 in the template). */
+  --cm-radius-sm: 6px;
+  --cm-radius-md: 8px;
+  --cm-radius-lg: 12px;
+  --cm-radius-pill: 999px;
+  --cm-control: 40px;
+  --cm-touch: 44px;
+  --cm-focus-width: 3px;
+  --cm-focus-offset: 2px;
+}
+
+/* 2. Legacy aliases. */
+:root[data-theme] {
+  --bg: var(--cm-canvas);
+  --surface: var(--cm-surface);
+  --surface-1: var(--cm-surface);
+  --surface-2: var(--cm-surface-subtle);
+  --surface-3: var(--cm-surface-sunken);
+  --surface-sunken: var(--cm-surface-subtle);
+  --border: var(--cm-border-subtle);
+  --border-strong: var(--cm-border);
+  --text: var(--cm-text);
+  --text-2: var(--cm-text-secondary);
+  --text-3: var(--cm-text-muted);
+  --text-4: var(--cm-text-disabled);
+  --muted: var(--cm-text-secondary);
+  --muted-2: var(--cm-text-muted);
+  --color-blue: var(--cm-accent);
+  --color-blue-hover: var(--cm-accent-hover);
+  --color-blue-soft: var(--cm-accent-soft);
+  --color-blue-tint: var(--cm-accent-soft);
+  --color-blue-border: var(--cm-border);
+  --color-red: var(--cm-danger);
+  --color-red-hover: var(--cm-danger-hover);
+  --color-red-soft: var(--cm-danger-soft);
+  --color-yellow: var(--cm-warning);
+  --color-yellow-soft: var(--cm-warning-soft);
+  --color-green: var(--cm-success);
+  --color-green-soft: var(--cm-success-soft);
+  --accent: var(--cm-emphasis);
+  --color-blue-soft-hover: var(--cm-accent-soft-hover);
+  --color-yellow-text: var(--cm-warning-text);
+  --on-accent: var(--cm-on-accent);
+  --header-glass: var(--cm-header-glass);
+  --scrim: var(--cm-scrim);
+  --surface-inverse: var(--cm-surface-inverse);
+  --text-inverse: var(--cm-text-inverse);
+  --shadow-1: var(--cm-shadow-1);
+  --shadow-2: var(--cm-shadow-2);
+  --shadow-modal: var(--cm-shadow-3);
+  --shadow-pop: var(--cm-shadow-3);
+  --font-display: var(--cm-font);
+  --font-body: var(--cm-font);
+  --font-mono: var(--cm-font-mono);
+}
+
+/* 3. Shared components. */
+html[data-theme],
+html[data-theme] body {
+  background: var(--cm-canvas);
+  color: var(--cm-text);
+}
+:focus-visible {
+  outline: var(--cm-focus-width) solid var(--cm-focus);
+  outline-offset: var(--cm-focus-offset);
+}
+::selection {
+  background: var(--cm-accent-soft-hover);
+  color: var(--cm-text);
+}
+
+/* Buttons. The base is quiet; variants say what the action is. */
+.cm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--cm-touch);
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--cm-radius-md);
+  background: transparent;
+  color: var(--cm-text-secondary);
+  font: 500 var(--cm-text-md) var(--cm-font);
+  text-decoration: none;
+  cursor: pointer;
+}
+.cm-btn:hover {
+  background: var(--cm-hover);
+  color: var(--cm-text);
+}
+.cm-btn:active {
+  background: var(--cm-pressed);
+}
+.cm-btn:disabled,
+.cm-btn[aria-disabled='true'] {
+  opacity: 0.38;
+  cursor: default;
+  background: transparent;
+}
+.cm-btn-primary {
+  background: var(--cm-accent);
+  color: var(--cm-on-accent);
+}
+.cm-btn-primary:hover {
+  background: var(--cm-accent-hover);
+  color: var(--cm-on-accent);
+}
+.cm-btn-tonal {
+  background: var(--cm-accent-soft);
+  color: var(--cm-accent-text);
+}
+.cm-btn-tonal:hover {
+  background: var(--cm-accent-soft-hover);
+  color: var(--cm-accent-text);
+}
+.cm-btn-outline {
+  border-color: var(--cm-border);
+  background: var(--cm-surface);
+}
+.cm-btn-danger {
+  color: var(--cm-danger-text);
+}
+.cm-btn-icon {
+  min-width: var(--cm-touch);
+  padding: 8px;
+}
+
+/* Fields. */
+.cm-input,
+.cm-select {
+  min-height: var(--cm-control);
+  padding: 8px 12px;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-md);
+  background: var(--cm-surface);
+  color: var(--cm-text);
+  font: var(--cm-text-md) var(--cm-font);
+}
+.cm-input::placeholder {
+  color: var(--cm-text-muted);
+}
+.cm-input:focus,
+.cm-select:focus {
+  border-color: var(--cm-accent);
+  outline: none;
+  box-shadow: 0 0 0 1px var(--cm-accent);
+}
+
+/* Search: a pill with its icon inside. */
+.cm-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 120px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: var(--cm-radius-pill);
+  background: var(--cm-surface-sunken);
+  color: var(--cm-text-muted);
+}
+.cm-search:focus-within {
+  box-shadow: 0 0 0 2px var(--cm-focus);
+}
+.cm-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--cm-text);
+  font-size: var(--cm-text-lg);
+}
+.cm-search input::placeholder {
+  color: var(--cm-text-muted);
+}
+
+/* Tabs: underline marks the current one; aria-selected/aria-current say it. */
+.cm-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--cm-touch);
+  padding: 0 14px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: var(--cm-text-secondary);
+  font: 500 var(--cm-text-md) var(--cm-font);
+  cursor: pointer;
+}
+.cm-tab:hover {
+  background: var(--cm-hover);
+}
+.cm-tab[aria-selected='true'],
+.cm-tab[aria-current='page'] {
+  border-bottom-color: var(--cm-accent);
+  color: var(--cm-text);
+}
+
+/* Chips: filters and category keys. aria-pressed carries the state. */
+.cm-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-pill);
+  background: var(--cm-surface);
+  color: var(--cm-text-secondary);
+  font: var(--cm-text-sm) var(--cm-font);
+  cursor: pointer;
+}
+.cm-chip:hover {
+  background: var(--cm-hover);
+}
+.cm-chip[aria-pressed='true'],
+.cm-chip.active {
+  border-color: var(--cm-accent);
+  background: var(--cm-accent-soft);
+  color: var(--cm-accent-text);
+}
+
+/* Menus and popovers. */
+.cm-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 200px;
+  padding: 8px;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-lg);
+  background: var(--cm-surface-overlay);
+  color: var(--cm-text);
+  box-shadow: var(--cm-shadow-3);
+}
+.cm-menu[hidden] {
+  display: none;
+}
+.cm-menu-label {
+  padding: 8px 12px 4px;
+  color: var(--cm-text-muted);
+  font: 600 var(--cm-text-xs) var(--cm-font);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.cm-menu-sep {
+  height: 1px;
+  margin: 6px 4px;
+  background: var(--cm-border-subtle);
+}
+.cm-segmented {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--cm-radius-md);
+  background: var(--cm-surface-sunken);
+}
+.cm-segmented button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: var(--cm-radius-sm);
+  background: transparent;
+  color: var(--cm-text-secondary);
+  font: 500 var(--cm-text-sm) var(--cm-font);
+  cursor: pointer;
+}
+.cm-segmented button[aria-pressed='true'] {
+  background: var(--cm-surface);
+  color: var(--cm-text);
+  box-shadow: var(--cm-shadow-1);
+}
+
+/* Accordions: native details/summary with a visible disclosure marker. */
+.cm-accordion {
+  border-top: 1px solid var(--cm-border-subtle);
+  padding: 12px 0;
+}
+.cm-accordion > summary {
+  min-height: 30px;
+  color: var(--cm-text);
+  font: 600 15px var(--cm-font);
+  cursor: pointer;
+}
+
+/* Status: an icon and a word, tinted by tone. */
+.cm-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  padding: 2px 8px;
+  border-radius: var(--cm-radius-pill);
+  font: 500 var(--cm-text-sm) var(--cm-font);
+  white-space: nowrap;
+  color: var(--cm-text-muted);
+}
+.cm-status svg {
+  flex: none;
+}
+.cm-status[data-tone='success'] {
+  color: var(--cm-success-text);
+}
+.cm-status[data-tone='warning'] {
+  background: var(--cm-warning-soft);
+  color: var(--cm-warning-text);
+}
+.cm-status[data-tone='danger'] {
+  background: var(--cm-danger-soft);
+  color: var(--cm-danger-text);
+}
+.cm-status[data-tone='info'] {
+  color: var(--cm-info-text);
+}
+
+/* Empty, no-results, loading and failure states share one block. */
+.cm-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px;
+  border: 1px dashed var(--cm-border);
+  border-radius: var(--cm-radius-lg);
+  background: var(--cm-surface-subtle);
+  color: var(--cm-text-secondary);
+  font-size: var(--cm-text-md);
+  line-height: 1.5;
+}
+.cm-empty strong {
+  color: var(--cm-text);
+  font-size: 15px;
+}
+.cm-empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.cm-empty-actions > button,
+.cm-empty-actions > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--cm-touch);
+  padding: 8px 14px;
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-md);
+  background: var(--cm-surface);
+  color: var(--cm-text);
+  font: 500 var(--cm-text-md) var(--cm-font);
+  text-decoration: none;
+  cursor: pointer;
+}
+.cm-empty-actions > button:hover,
+.cm-empty-actions > a:hover {
+  background: var(--cm-hover);
+}
+.cm-empty[data-tone='danger'] {
+  border-style: solid;
+  border-color: var(--cm-danger);
+  background: var(--cm-danger-soft);
+}
+
+/* Panels, sheets and overlays. */
+.cm-panel {
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-lg);
+  background: var(--cm-surface);
+  box-shadow: var(--cm-shadow-2);
+}
+.cm-scrim {
+  background: var(--cm-scrim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cm-btn,
+  .cm-chip,
+  .cm-tab {
+    transition: none;
+  }
+}
