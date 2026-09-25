@@ -150,7 +150,7 @@ def test_inventory():
           f"{len(R.REGISTRY)} in REGISTRY; all_schemas() is the accessor. "
           f"There is no SCHEMAS attribute and never was.")
     # THE PROSE THAT STATES THE REGISTRY'S SIZE IS HELD TO IT (2026-09-25,
-    # doctrine 48). The registry went 77 -> 78 on 2026-09-15 (M-40, commit
+    # doctrine 48). The registry went 77 -> 78 on 2026-09-15 (commit
     # a61fe4e69, `chain rhyme (interlocking scheme)`) and live prose went on
     # saying 77 for ten days, because the pin above was the only instrument
     # and nothing tied a sentence to it. Every live site now carries the
@@ -161,7 +161,7 @@ def test_inventory():
     _sites = {
         "lyric_harness.py": r"~~77~~ (\d+) named relation",
         "CLAUDE.md": r"~~77~~ (\d+)",
-        "MISSING.md": r"~~77~~ (\d+) schemas since M-40",
+        "MISSING.md": r"~~77~~ (\d+) schemas since",
         "quality/figures.py": r"~~77~~ (\d+)",
         "quality/plan.py": r"~~77~~ (\d+)",
         "quality/relations.py": r"~~77~~ (\d+)",
@@ -170,7 +170,7 @@ def test_inventory():
         "quality/slots.py": r"~~77~~ (\d+)",
         "quality/test_capabilities.py": r"~~77~~ (\d+)",
         "quality/test_null_shapes.py": r"~~77~~ (\d+)",
-        "quality/schema_census.py": r"which is (\d+)\s+since M-40",
+        "quality/schema_census.py": r"which is (\d+)\s+since",
     }
     _root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     _bad = {}

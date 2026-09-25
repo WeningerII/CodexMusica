@@ -193,10 +193,8 @@ consonance*
   the differing channel carries a SECOND agreement requirement on a feature of itself."
 - from: C23 C46 (and C24 supplies the partition; see D-grain)
 - witness: 3 cited indices — external 3.
-- **no sourced table (2026-09-25):** `quality/sourced_tables.UNSOURCED['proest']`. Needs a Welsh
-  vowel-quantity description (e.g. Morris-Jones, *A Welsh Grammar*, 1913; Thorne, *A Comprehensive
-  Welsh Grammar*, 1993), and the declared quotient is `nucleus -> class` while those grammars state
-  length by the FOLLOWING consonant, so the table's shape is part of what is missing.
+- **no sourced table:** `quality/sourced_tables.UNSOURCED['proest']` names the grammar that would
+  lift it, and why the declared quotient's shape (nucleus only) cannot hold the rule it states.
 - Forced twice from two Celtic branches independently. The previous canon's #100 has the length
   clause (reconstructed correctly from repo code) but not the lleddf/talgron clause, and does not
   register that the predicate shape — *differ-but-agree-on-a-feature-of-the-difference* — is a
@@ -962,10 +960,8 @@ historical rhyme · dialect rhyme · conventional-licence rhyme · rime normande
   readings preserve the 入聲 stop codas Mandarin lost, so the same poem rhymes differently.
   from: S107 X62 ✓E21 ✓E22 ✓E23 X137
 - witness: 6 cited indices — external 4, project 2. names outside this project: encyclopedia.com, etudes-litteraires.com. only-this-project: X62 E22.
-- **no sourced table (2026-09-25):** `quality/sourced_tables.UNSOURCED` rows for `historical rhyme`
-  and `dialect rhyme` name the reconstructions that would lift them (Dobson 1968; Crystal 2016;
-  Johnston in *The Edinburgh History of the Scots Language*, 1997). None was reachable, and
-  `declared_inputs.PeriodPhonology` refuses a pronunciation written from memory.
+- **no sourced table:** `quality/sourced_tables.UNSOURCED` rows for `historical rhyme` and
+  `dialect rhyme` name the reconstructions that would lift them; none could be read.
 **R112 · relaxation of a channel in a declared direction** *cynghanedd lusg wyrdro*
 - "the vowel channel is RELAXED in a specified direction: a diphthong in the goben is answered by a
   near or reduced vowel" (`C15`). A directional, non-symmetric grain. from: C15
@@ -1093,10 +1089,9 @@ bai crych a llyfn · bai twyll gynghanedd*
   `E67`: "the relation is lexical substitution licensed by a rhyme that is never spoken."
 - from: ✓E67
 - witness: 1 cited indices — external 1.
-- **no sourced table (2026-09-25):** `quality/sourced_tables.UNSOURCED['rhyming slang']`. Hotten
-  (1859), 'Glossary of the Rhyming Slang', or Franklyn (1961) would source it; only full phrases
-  could be corroborated, and on a full phrase the slang surface equals the phonemic one, so a
-  witness would pass for the wrong reason (doctrine 41). A CLIPPED form is what the table needs.
+- **no sourced table:** `quality/sourced_tables.UNSOURCED['rhyming slang']` names the glossary that
+  would lift it; a witness needs an attested CLIPPED form, since on a full phrase the slang surface
+  equals the phonemic one (doctrine 41).
 - Visible to the synthesis and dropped from its 106. Recorded here because it is the limiting case
   of R68's shape — a relation with an argument outside the text — arrived at from the other
   direction, and because it is the only structure in the 601 whose *evidence is systematically

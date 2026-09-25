@@ -2048,8 +2048,12 @@ def coverage():
 PINNED = {
     # -- RHYME_CANON.md, as the §2-block detector reads it -------------------
     "canon_entries": 117,
-    "canon_unsourced": 113,
-    "canon_year_tokens": 23,
+    # REPINNED 2026-09-25 from ~~113~~ / ~~23~~: R44 gained its first
+    # published source (Wang Li's 五絕 patterns, `quality/sourced_tables.py`),
+    # which is one entry leaving the unsourced set and four year tokens
+    # (1962, 1977, 1958, and the 2026 date of the note) entering the file.
+    "canon_unsourced": 112,
+    "canon_year_tokens": 27,
     "canon_refs_singleline": 611,
     "canon_refs_multiline": 654,
     "canon_distinct_indices": 555,
