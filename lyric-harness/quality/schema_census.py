@@ -100,6 +100,60 @@ FIXTURE_ONLY = {
 }
 
 
+#: WHY A NAMED SCHEMA IS STILL `unvalidated`, where the reason is KNOWN and
+#: is not "nobody registered a witness" (`MISSING.md` M-313, 2026-09-25).
+#: A blocker names the coordinate that is missing; the verdicts beside it are
+#: never written here — `census()` measures them from the rows in
+#: `relations.CONTEXT_CONTROLS` on every run (doctrine 48), and a row that
+#: starts answering `[True, False]` leaves this table's text unused.
+SEMANTIC_BLOCKERS = {
+    # -- REPETITION FIGURES AND NON-ENGLISH PAIR RHYMES (M-313) -------------
+    "homoioteleuton": (
+        "the RULE is too generous (M-313 F8): `morpheme_affix` AGREE holds "
+        "when neither word carries an affix ('' == ''), so a plain rhyme "
+        "passes (Sonnet 18, day~May); and the inflectional `-er` row, which "
+        "takes no productivity test, reads the monomorphemic flatter~matter "
+        "(Sonnet 87's couplet) as one shared affix. The possessing~estimate "
+        "contrast differs in rhyme as well as affix, so it could not show "
+        "either. A finding against the rule; nothing in the morphology or a "
+        "threshold was moved (doctrine 58)."),
+    "antanaclasis": (
+        "the `sense` coordinate: `Reviser.grade` builds its own stream and "
+        "has no seam through which a caller declares senses "
+        "(`relations.declare_senses`), so both controls refuse on 'sense'. "
+        "The real witness (Sonnet 135) is registered and waits on the seam."),
+    "refrain by reference": (
+        "the `stub_resolution` coordinate: `Reviser.grade` has no seam for "
+        "`declare_stub_resolution` or a declared `line_status`, so a real "
+        "`&c.` pointer (Payne, staged corpus) and its non-referent both "
+        "refuse. The seam, not the witness, is missing."),
+    "incremental repetition": (
+        "the SCHEMA: it is registered as whole-line token equality, and its "
+        "own note says the one-slot diff R67 defines is not searched for. "
+        "The canonical instance (Tennyson, `Cannon to right/left of them`) "
+        "is therefore judged NOT to stand in it; only verbatim repetition "
+        "does. A finding against the definition, not an exhibit to swap."),
+    "qafiya (before the radif)": (
+        "the LANGUAGE coordinate: its traditions are Arabic, Persian and "
+        "Urdu only (`ara`, `fas`, `hin`); the grade route resolves English "
+        "(`revise._relation_phonology`, M-4); `ara` and `hin` declare no "
+        "phonology; and `fas` cannot decide a short-vowel qafiya from "
+        "unvocalised script. An English stand-in would fake the tradition."),
+    "dvitiyakshara-prasa": (
+        "the LANGUAGE coordinate and the SHAPE: of its four traditions "
+        "Telugu, Kannada and Tamil declare no phonology and Sanskrit's "
+        "(`san`) is unreachable, since the grade route resolves English "
+        "(M-4); and the "
+        "figure quantifies FORALL over a STANZA frame, which a two-token "
+        "mandate cannot carry (`pair_scope_representable` is False)."),
+    "monai": (
+        "the LANGUAGE coordinate and the SHAPE: Tamil declares no "
+        "phonology, the grade route resolves English (M-4), and the figure "
+        "quantifies FORALL over a STANZA frame, which a two-token mandate "
+        "cannot carry (`pair_scope_representable` is False)."),
+    # -- end of the M-313 block -------------------------------------------
+}
+
 def _full_stream():
     """A stream with every coordinate a writer CAN declare, declared."""
     stz, k, prev = [], -1, object()
@@ -182,6 +236,41 @@ def _other_language_live():
     return out
 
 
+#: THE TWO EVIDENCE ROUTES A `witness_and_contrast` CAN COME FROM, and why a
+#: single total blurs them (review of #392, 2026-09-25). `Reviser.grade` is
+#: the grader `revise.py` runs, so a witness there is evidence about the
+#: production loop. `figures.line_figures` is the intra-line reader that
+#: `quality/figure_exhibits.py` grades through, and `revise.py` never calls
+#: it, so a witness there certifies the reader and says nothing about a
+#: revision honouring the figure. Keyed on each row's own `evidence` string
+#: (the census row must stay byte-equal to `figure_exhibits.semantic_row`,
+#: which `test_figure_exhibits.py` §6 checks), and a row that matches
+#: neither is counted UNATTRIBUTED rather than folded into either.
+ROUTE_GRADE = "production grade route (`Reviser.grade`)"
+ROUTE_FIGURES = "figures reader (`figures.line_figures`)"
+ROUTE_NONE = "unattributed"
+
+
+def witness_routes(semantic):
+    """-> {route: {table: [names]}} over the `witness_and_contrast` rows."""
+    from quality import figure_exhibits as FE
+    out = {ROUTE_GRADE: {}, ROUTE_FIGURES: {}, ROUTE_NONE: {}}
+    for name, row in sorted(semantic.items()):
+        if row["status"] != "witness_and_contrast":
+            continue
+        ev = row.get("evidence", "")
+        if ev == FE.EVIDENCE:
+            route, table = ROUTE_FIGURES, "FIGURE_EXHIBITS"
+        elif ev.startswith(("CENSUS_EXHIBITS ", "DRAWABLE_EXHIBITS ",
+                            "CONTEXT_CONTROLS:")) \
+                and "Reviser.grade" in ev:
+            route, table = ROUTE_GRADE, ev.split()[0].rstrip(":")
+        else:
+            route, table = ROUTE_NONE, ev.split()[0] if ev else "(none)"
+        out[route].setdefault(table, []).append(name)
+    return out
+
+
 def census():
     st = _full_stream()
     live, blocked = [], {}
@@ -202,12 +291,51 @@ def census():
     semantic = {}
     from quality.revise import Reviser
     from quality.schemes import mandate
-    from quality.sourced_tables import SOURCED_EXHIBITS
+    from quality import figure_exhibits as FE
     verifier = Reviser()
+
+    def _verdict(lines, slots, sections):
+        """One group, the schema as default relation — the DRAWABLE route,
+        with the frame a figure needs handed in (never invented)."""
+        got = verifier.grade(list(lines), mandate(
+            [list(slots)], n_lines=len(lines),
+            default_relation="schema:" + name),
+            sections=list(sections) if sections else None)
+        if got["refusals"]:
+            return None, got["refusals"][0]["reason"]
+        return not got["violations"], None
+
+    findings = []
     for name, sch in sorted(R.REGISTRY.items()):
+        found = None
+        if name in R.WITNESS_FINDINGS:
+            ref, rows = R.WITNESS_FINDINGS[name]
+            got = [_verdict(ls, sl, sec) for ls, sl, sec, _ in rows]
+            want = [exp for *_, exp in rows]
+            found = {"ref": ref, "verdicts": [v for v, _ in got],
+                     "expected": want,
+                     "refusal": next((r for _, r in got if r), None)}
+            if not rows:
+                need = [c for c in sch.requires]
+                found["refusal"] = ("`Reviser.grade` takes no declaration "
+                                    "of %s; the schema refuses on the grade "
+                                    "route before any row can be graded"
+                                    % ", ".join(map(repr, need)))
+            findings.append((name, found))
         if not R.figure_pair_representable(sch) and name not in R.FULL_SHAPES:
             semantic[name] = {"status": "unsupported_shape",
                               "blocker": "member bindings/template not implemented"}
+        elif name in R.CENSUS_EXHIBITS:
+            controls = [_verdict(*row)[0] for row in R.CENSUS_EXHIBITS[name]]
+            ok = controls == [True, False]
+            semantic[name] = {"status": "witness_and_contrast" if ok
+                              else "unvalidated", "verdicts": controls,
+                              "evidence": "CENSUS_EXHIBITS through declared "
+                                          "mandate slots, declared sections "
+                                          "and Reviser.grade",
+                              "blocker": None if ok else
+                              "declared census controls do not both produce "
+                              "definite expected verdicts"}
         elif name in R.DRAWABLE_EXHIBITS and R.pair_scope_representable(sch):
             controls = []
             for a,b,sa,sb in R.DRAWABLE_EXHIBITS[name]:
@@ -219,26 +347,60 @@ def census():
                               "evidence": "DRAWABLE_EXHIBITS through declared mandate slots and Reviser.grade",
                               "blocker": None if controls == [True,False] else
                               "declared controls do not both produce definite expected verdicts"}
-        elif name in SOURCED_EXHIBITS:
-            # A declared TEMPLATE or SURFACE cannot ride `Reviser.grade`,
-            # which builds its own English stream; these grade through the
-            # sourced table on a stream that carries it (2026-09-25).
-            evidence, run = SOURCED_EXHIBITS[name]
-            controls = run()
-            semantic[name] = {"status": "witness_and_contrast" if controls == [True,False]
+        elif name in R.CONTEXT_CONTROLS and R.pair_scope_representable(sch):
+            # ONE draft, both groups in ONE mandate (`relations.CONTEXT_CONTROLS`
+            # says why these rows cannot be two-line drawable pairs); each
+            # group's own verdict is read, a refusal naming it being None.
+            lines, w, c = R.CONTEXT_CONTROLS[name]
+            m = mandate([list(w), list(c)], n_lines=len(lines),
+                        default_relation="schema:"+name)
+            got = verifier.grade(list(lines), m)
+            # A refusal that carries no `groups` key names no group, so it
+            # stands against BOTH: read as None, never as a pass.
+            controls = []
+            for lab in m.labels[:2]:
+                if any("groups" not in r or lab in (r["groups"] or ())
+                       for r in got["refusals"]):
+                    controls.append(None)
+                else:
+                    controls.append(not any(v["label"] == lab
+                                            for v in got["violations"]))
+            ok = controls == [True, False]
+            semantic[name] = {"status": "witness_and_contrast" if ok
                               else "unvalidated", "verdicts": controls,
-                              "evidence": evidence,
-                              "blocker": None if controls == [True,False] else
-                              "sourced controls do not both produce definite expected verdicts"}
+                              "evidence": "CONTEXT_CONTROLS: witness and contrast groups in one mandate over one draft, through Reviser.grade",
+                              "blocker": None if ok else SEMANTIC_BLOCKERS.get(
+                                  name, "declared controls do not both produce definite expected verdicts")}
+        elif name in FE.covered():
+            # THE INTRA-LINE ROUTE (`quality/figure_exhibits.py`): a one-line
+            # witness and contrast graded by `figures.line_figures`, the
+            # reader that actually reports a same-line figure. Kept in its
+            # own registry, apart from DRAWABLE_EXHIBITS' pair route.
+            semantic[name] = FE.semantic_row(name)
         elif name in ("symploce","analysed rhyme","blues AAB stanza","paroemion",
                        "Middle Chinese end rhyme (同用 group)"):
             semantic[name] = {"status":"regression_witness",
                               "evidence":"quality/test_production_relations.py",
                               "blocker":None}
+        elif found is not None:
+            semantic[name] = {"status": "unvalidated",
+                              "verdicts": found["verdicts"],
+                              "evidence": "WITNESS_FINDINGS through Reviser.grade",
+                              "blocker": "%s: graded %s where %s is the answer%s%s"
+                              % (found["ref"], found["verdicts"],
+                                 found["expected"],
+                                 "; " + found["refusal"][:160]
+                                 if found["refusal"] else "",
+                                 # the known reason, where one is recorded
+                                 "; " + SEMANTIC_BLOCKERS[name]
+                                 if name in SEMANTIC_BLOCKERS else "")}
         else:
             semantic[name] = {"status":"unvalidated",
-                              "blocker":"full semantic witness and independent contrast not registered"}
+                              "blocker":SEMANTIC_BLOCKERS.get(name,
+                                  "full semantic witness and independent contrast not registered")}
     return {"live": live, "capability_live": live, "semantic_status": semantic,
+            "witness_routes": witness_routes(semantic),
+            "witness_findings": findings,
             "blocked": blocked, "other_language": other,
             "fixture_only": sorted(n for n in FIXTURE_ONLY if n in live),
             "intra": sorted(n for n in R.REGISTRY if RT._all_same_line(n))}
@@ -256,6 +418,21 @@ def main():
     for row in rep["semantic_status"].values():
         counts[row["status"]] = counts.get(row["status"],0)+1
     print(f"  semantic validation (separate from capability): {counts}")
+    routes = rep["witness_routes"]
+    per = {r: sum(map(len, t.values())) for r, t in routes.items()}
+    print(f"  witness_and_contrast by evidence route "
+          f"({counts.get('witness_and_contrast', 0)} = "
+          + " + ".join(str(per[r]) for r in routes if per[r] or r != ROUTE_NONE)
+          + "):")
+    notes = {ROUTE_GRADE: "the grader revise.py runs",
+             ROUTE_FIGURES: "revise.py never calls it; certifies the reader, "
+                            "not a revision loop honouring the figure",
+             ROUTE_NONE: "matches neither route; NOT counted as either"}
+    for r, tables in routes.items():
+        if r == ROUTE_NONE and not per[r]:
+            continue
+        split = ", ".join(f"{t} {len(v)}" for t, v in sorted(tables.items()))
+        print(f"    {r:42s} {per[r]:3d}  [{split}] — {notes[r]}")
     print("  Runtime qualification: capability availability is not a production "
           "success claim. Only the listed witness routes have semantic evidence.")
     for status in ("unsupported_shape", "unvalidated"):
@@ -263,6 +440,23 @@ def main():
                  if row["status"] == status]
         if names:
             print(f"  {status} ({len(names)}): " + "; ".join(names))
+    wrong = [(n, f) for n, f in rep["witness_findings"]
+             if f["verdicts"] != f["expected"] or not f["verdicts"]]
+    if wrong:
+        print(f"  grader findings, re-graded this run ({len(wrong)}; "
+              "`relations.WITNESS_FINDINGS`):")
+        for n, f in wrong:
+            print(f"    {n} [{f['ref']}]: graded {f['verdicts']}, "
+                  f"expected {f['expected']}"
+                  + (f" — {f['refusal'][:110]}" if f["refusal"] else ""))
+    known = [(name, row) for name, row in rep["semantic_status"].items()
+             if row["status"] == "unvalidated" and name in SEMANTIC_BLOCKERS]
+    if known:
+        print(f"  of the unvalidated, {len(known)} carry a KNOWN blocker "
+              f"(SEMANTIC_BLOCKERS; verdicts measured now, witness first):")
+        for name, row in known:
+            v = f" verdicts {row['verdicts']}" if "verdicts" in row else ""
+            print(f"    {name}{v}\n      {row['blocker']}")
     if rep["other_language"]:
         print(f"  (of the askable, {len(rep['other_language'])} answer under "
               f"their OWN phonology and not English:\n   "

@@ -2,7 +2,7 @@
 
 The single source of truth for every interactive surface in the codex. Read this before changing the UI. Update this in the same commit as any UI change. The build's reachability gate (`scripts/ui_reachability_check.js`) enforces that every `status: reachable` entry's selector resolves to at least one element under the entry's precondition. Surfaces that aren't catalogued here are invisible to the build gate, which is how the master-detail refactor silently dropped the stack signature panel, the tradition-group delete, and three drag-drop interactions.
 
-**Updated:** 2026-09-25 for the shared UI foundation (theme, shell, one recipe panel on every route, lifecycle states; see `docs/ui-foundation.md` and the section at the end). Previously 2026-09-12 for the production shared workspace. Reachability is enforced by `scripts/ui_reachability_check.js`; this structural check proves selectors exist under stated preconditions, not that every workflow is usable. Browser mobile checks and `scripts/check_workbench.js` cover separate interaction and state boundaries.
+**Updated:** 2026-09-25 for the reference Your recipe panel (right-hand column, row and genre menus, Recording environment, Recipe preview format, AI entry; see "Your recipe — the reference panel" at the end) and before that for the shared UI foundation (theme, shell, one recipe panel on every route, lifecycle states; see `docs/ui-foundation.md` and the section at the end). Previously 2026-09-12 for the production shared workspace. Reachability is enforced by `scripts/ui_reachability_check.js`; this structural check proves selectors exist under stated preconditions, not that every workflow is usable. Browser mobile checks and `scripts/check_workbench.js` cover separate interaction and state boundaries.
 
 ---
 
@@ -77,7 +77,7 @@ When a future capability needs a precondition not listed here, add the precondit
 name: app-bar-traditions
 kind: widget
 selector: '#btn-traditions'
-surface: app bar — "Traditions" button
+surface: Your recipe — "Add another genre" below the genres (in the phone Recipe sheet's toolbar, "Add genre"); the node keeps its id wherever uiPlaceRecipeParts puts it
 implementation: DOMContentLoaded click handler opens modal-trad via renderTradPicker
 status: reachable
 precondition: empty
@@ -111,7 +111,7 @@ precondition: empty
 name: app-bar-add-instrument
 kind: widget
 selector: '#btn-add'
-surface: app bar — "Add instrument" primary button
+surface: Your recipe — "Add independent instrument" below the genres (in the phone Recipe sheet's toolbar, "Add instrument")
 implementation: click handler opens modal-add via renderInstPicker
 status: reachable
 precondition: empty
@@ -208,7 +208,7 @@ notes: visible only when workspace is empty
 name: workspace-rename
 kind: widget
 selector: '#ws-rename-btn'
-surface: sidebar header — pencil icon next to workspace name
+surface: Your recipe — pencil next to the session name (in the dock, in its header row)
 implementation: click handler calls startRenameWorkspace which swaps in ws-name-input; Enter/blur commits, Escape cancels
 status: reachable
 precondition: 1+ cards
@@ -221,8 +221,8 @@ notes: only renders when 1+ cards (empty-state header shows different layout); w
 name: sidebar-filter-input
 kind: widget
 selector: '#sidebar-filter-input'
-surface: sidebar — instrument filter input
-implementation: input handler sets app.sidebarFilter, calls renderSidebar
+surface: Your recipe — Filter instruments field, revealed by the search button in the panel header (and shown whenever a filter is in force)
+implementation: input handler sets app.sidebarFilter, calls renderSidebar; the header toggle (data-ui="recipe-filter", uiSyncRecipeFilter in src/workbench.js) shows it, and closing it clears the filter so no row stays hidden
 status: reachable
 precondition: 1+ cards
 notes: only renders when 1+ cards (filter has nothing to filter on empty)
@@ -234,8 +234,8 @@ notes: only renders when 1+ cards (filter has nothing to filter on empty)
 name: sidebar-tradition-header
 kind: widget
 selector: '.sb-tradition-header'
-surface: sidebar — per-tradition group header (chevron + name + status pill + count)
-implementation: click toggles app.collapsedTraditionGroups Set entry
+surface: Your recipe — genre header (grip, glyphs, name as the collapse toggle button, Primary on the first genre, count while collapsed, … menu)
+implementation: click (or the .sb-tradition-toggle button) toggles app.collapsedTraditionGroups Set entry; clicks in the … menu and its trigger do not toggle
 status: reachable
 precondition: 1+ cards
 ```
@@ -244,8 +244,9 @@ precondition: 1+ cards
 name: sidebar-card
 kind: widget
 selector: '.sb-card'
-surface: sidebar — per-card row (thumb + line1 + line2 mini-fingerprint)
-implementation: click sets app.selected = cardId, renders detail
+surface: Your recipe — instrument row (icon, catalog name, current character word; Edit and … beside it)
+implementation: click sets app.selected = cardId, renders detail and opens the editor (the shell's sidebar listener)
+notes: The per-row mini-fingerprint was dropped from the row for the reference layout; the tradition fingerprint stays in the editor header.
 status: reachable
 precondition: 1+ cards
 ```
@@ -254,7 +255,7 @@ precondition: 1+ cards
 name: sidebar-add-to-tradition
 kind: widget
 selector: '[data-add-to-trad]'
-surface: sidebar — per-tradition-group "+ Add instrument to tradition" button
+surface: Your recipe — "+ Add instrument" inside each genre (accessible name "Add instrument to <genre>")
 implementation: opens modal-add with traditionId pre-context
 status: reachable
 precondition: 1+ cards
@@ -272,7 +273,7 @@ notes: The instrument picked from the modal joins THAT group — it is configure
 name: sidebar-staple-add
 kind: widget
 selector: '#sb-staple-add'
-surface: sidebar — "Add {tradition} as secondary" button
+surface: Your recipe — Suggestions for this recipe — "Add {tradition} as a second genre" (inside the disclosure, #sb-staple-toggle)
 implementation: click calls importTradition for the suggested tradition
 status: reachable
 precondition: 1+ cards
@@ -283,8 +284,8 @@ notes: only renders when a primary tradition is set; pool from findSimilar
 name: sidebar-staple-refresh
 kind: widget
 selector: '#sb-staple-refresh'
-surface: sidebar — refresh button on staple panel (try another suggestion)
-implementation: increments app._stapleIdx, re-renders sidebar
+surface: Your recipe — Suggestions for this recipe — Try another suggestion
+implementation: increments app._stapleIdx, opens the disclosure, re-renders the suggestion
 status: reachable
 precondition: 1+ cards
 notes: only renders when staple pool has > 1 candidate
@@ -296,8 +297,8 @@ notes: only renders when staple pool has > 1 candidate
 name: sidebar-recipe-copy
 kind: widget
 selector: '#sb-recipe-copy'
-surface: sidebar — copy button on recipe preview
-implementation: click runs copyToClipboard with current compressRichRecipe output
+surface: Your recipe — Copy recipe under the preview (an icon in the phone recipe bar)
+implementation: click runs copyToClipboard with compileRecipeStack output in the format the preview shows (app.recipeStackFormat)
 status: reachable
 precondition: 1+ cards
 ```
@@ -306,7 +307,7 @@ precondition: 1+ cards
 name: sidebar-recipe-open-full
 kind: widget
 selector: '#sb-open-full-stack'
-surface: sidebar — "Open full recipe →" button (was "Open full stack →")
+surface: Your recipe — "Open full recipe →" under the preview
 implementation: opens modal-recipe-stack
 status: reachable
 precondition: 1+ cards
@@ -889,7 +890,7 @@ notes: Shipped as Phase 2 of UI Capability Inventory Plan. Lost in master-detail
 name: tradition-group-delete
 kind: data-action
 selector: '.sb-tradition-header [data-delete-tradition]'
-surface: sidebar — trash icon in each tradition group header (after count)
+surface: Your recipe — genre … menu — Remove genre
 implementation: click handler awaits confirmDialog; on confirm pushHistory once then rmCards each with skipHistory:true
 status: reachable
 precondition: 1+ cards
@@ -911,18 +912,18 @@ notes: Was HTML5 drag-and-drop, which is mouse-only — `dragstart` never fires 
 name: tradition-group-move-up
 kind: data-action
 selector: '.sb-tradition-header [data-move-trad-up]'
-surface: sidebar — up-arrow button in each tradition group header (between count and delete)
+surface: Your recipe — genre … menu — Move up
 implementation: click handler computes seen-order from app.cards (first-appearance), finds previous group, splices the moving group's cards before the previous group's first card, pushes history and rerenders
 status: reachable
 precondition: 2+ cards
-notes: Always visible (unlike delete, which is hover-faded) because this is the primary "reorder my groups" affordance, replacing the unreliable drag-and-drop discovery path. Button is disabled at the top of the list (idx === 0). Click does NOT trigger the header's collapse toggle — the header click handler checks `closest('.sb-tradition-move')` and bails.
+notes: The non-drag reorder, now in the genre's … menu (the reference layout keeps the header to name and menu). Disabled at the top of the list (idx === 0). Clicks in the menu do NOT trigger the header's collapse toggle — the header click handler bails on `.sb-menu, [data-menu-toggle]`.
 ```
 
 ```yaml
 name: tradition-group-move-down
 kind: data-action
 selector: '.sb-tradition-header [data-move-trad-down]'
-surface: sidebar — down-arrow button in each tradition group header (after up-arrow)
+surface: Your recipe — genre … menu — Move down
 implementation: click handler computes seen-order from app.cards (first-appearance), finds next group, splices the moving group's cards after the next group's last card, pushes history and rerenders
 status: reachable
 precondition: 2+ cards
@@ -955,7 +956,7 @@ notes: The non-drag route for card-drag-reparent, which until now was the ONE tr
 name: card-pin-sidebar-visual
 kind: widget
 selector: '.sb-card.is-pinned .sb-card-pin'
-surface: sidebar — pinned cards sort first within group; pin glyph on row
+surface: Your recipe — pinned rows sort first within their genre; pin glyph beside the name
 implementation: renderSidebarTraditions sorts pinned-first via stable sort; renderSidebarCard adds is-pinned class + pin glyph when card.pinned
 status: reachable
 precondition: pinned card
@@ -1049,8 +1050,8 @@ precondition: empty
 name: recipe-assistant
 kind: widget
 selector: '[data-ui="ai"]'
-surface: shared workbench
-implementation: src/workbench.js
+surface: Your recipe — AI recipe (above "Describe a change to this recipe…"; in the phone Recipe sheet's toolbar)
+implementation: uiChatOpen in src/workbench.js
 status: reachable
 precondition: empty
 ```
@@ -1257,4 +1258,405 @@ implementation: map page recipe 'dock' (src/pages/map.js); dock presentation in 
 status: reachable
 precondition: 'map view'
 notes: A tradition's stock recipe in the atlas card is labelled "Default recipe" and is a different object. check_ui_foundation.js E proves one node and one state across the three pages.
+```
+
+### Your recipe — the reference panel (2026-09-25)
+
+The shared panel as the four references draw it (docs/ui-foundation.md, "One
+recipe workspace"). Moved capabilities are recorded on their original entries
+above; these are the new controls. Behaviour is gated by
+`scripts/check_ui_foundation.js` L (right-hand column, menus, environment
+source, output format) and `scripts/check_mobile_layout.js` (sheet, bar,
+drag and drop).
+
+```yaml
+name: recipe-sidebar-right
+kind: drag-drop
+selector: '.layout-splitter[aria-label="Resize recipe sidebar"]'
+surface: Your recipe as a right-hand column (page recipe 'sidebar-right') — resize from its left edge, collapse to a rail at the right edge
+implementation: uiApplyRecipeMode and the 'sidebar-right' UILayout.splitter in src/workbench.js; layout in src/workbench.css
+status: reachable
+precondition: empty
+notes: Two separators carry this name (left and right column); only the one for the current presentation is shown. Keyboard: Left/Right, Home resets, End maximises. check_ui_foundation.js L.
+```
+
+```yaml
+name: recipe-row-edit
+kind: data-action
+selector: '.sb-card-row [data-card-action="edit"]'
+surface: Your recipe — Edit on each instrument row
+implementation: renderSidebarCard / the [data-card-action] wiring in renderSidebarTraditions (src/app.js) — the same path as selecting the row
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-row-menu
+kind: widget
+selector: '.sb-card-row [data-menu-toggle]'
+surface: Your recipe — … on each instrument row (Duplicate, Pin to top, Move to genre…, Explore variations, Find similar instruments, Remove)
+implementation: menu markup in renderSidebarCard (src/app.js); opened, placed, keyboard-driven and closed by uiToggleMenu / uiMenuControls in src/workbench.js
+status: reachable
+precondition: 1+ cards
+notes: Escape closes it first and returns focus to the trigger. check_ui_foundation.js L.
+```
+
+```yaml
+name: recipe-row-duplicate
+kind: data-action
+selector: '.sb-menu [data-card-action="duplicate"]'
+surface: Your recipe — row … menu — Duplicate
+implementation: handleAction('duplicate') (src/app.js)
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-row-pin
+kind: data-action
+selector: '.sb-menu [data-card-action="pin"]'
+surface: Your recipe — row … menu — Pin to top / Unpin
+implementation: handleAction('pin') (src/app.js)
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-row-move-genre
+kind: data-action
+selector: '.sb-menu [data-card-action="move-genre"]'
+surface: Your recipe — row … menu — Move to genre… (the non-drag reparent; disabled with one genre)
+implementation: handleAction('move-genre') → openMoveToGenreMenu anchored on the row's … (src/app.js)
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-row-variations
+kind: data-action
+selector: '.sb-menu [data-card-action="drift"]'
+surface: Your recipe — row … menu — Explore variations (opens the editor on the row with its variations)
+implementation: selects the row, then handleAction('drift') (src/app.js)
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-row-similar
+kind: data-action
+selector: '.sb-menu [data-card-action="similar"]'
+surface: Your recipe — row … menu — Find similar instruments
+implementation: handleAction('similar') (src/app.js) → uiOpenSurface('modal-add') inspects it on the Instrument page
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-row-remove
+kind: data-action
+selector: '.sb-menu [data-card-action="delete"]'
+surface: Your recipe — row … menu — Remove (Undo restores it)
+implementation: handleAction('delete') → rmCard (src/app.js)
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-genre-menu
+kind: widget
+selector: '.sb-tradition-header [data-menu-toggle]'
+surface: Your recipe — … on each genre (Make primary genre, Move up, Move down, Remove genre)
+implementation: menu markup in renderSidebarTraditions (src/app.js); uiToggleMenu in src/workbench.js
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-genre-make-primary
+kind: data-action
+selector: '.sb-tradition-header [data-make-primary]'
+surface: Your recipe — genre … menu — Make primary genre (disabled on the first genre)
+implementation: dropTraditionOnTradition(id, first genre, above) + pushHistory + renderAll (src/app.js) — one undoable step
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-suggestions-toggle
+kind: widget
+selector: '#sb-staple-toggle'
+surface: Your recipe — Suggestions for this recipe (a disclosure, closed until opened)
+implementation: renderSidebarStaple (src/app.js) toggles app._suggestionsOpen
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-environment-room
+kind: data-action
+selector: '[data-ui="recipe-env"][data-id="room"]'
+surface: Your recipe — Recording environment — Room (opens the editor on the environment's card, Environment tab, room picker open)
+implementation: uiRecipeEnvHTML / uiOpenEnvironment in src/workbench.js, from envCardOf(app.cards)
+status: reachable
+precondition: 1+ cards
+notes: Labelled "From <instrument> · <genre>" — the card every output format renders the environment from. check_ui_foundation.js L.
+```
+
+```yaml
+name: recipe-environment-tuning
+kind: data-action
+selector: '[data-ui="recipe-env"][data-id="tuning"]'
+surface: Your recipe — Recording environment — Tuning (Environment tab, tuning picker open)
+implementation: uiOpenEnvironment in src/workbench.js
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-environment-chain
+kind: data-action
+selector: '[data-ui="recipe-env"][data-id="chain"]'
+surface: Your recipe — Recording environment — Signal chain summary (Signal chain tab; the full stage names in its tooltip)
+implementation: uiOpenEnvironment in src/workbench.js
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-environment-edit
+kind: data-action
+selector: '[data-ui="recipe-env"][data-id="env"]'
+surface: Your recipe — Recording environment — pencil (Environment tab)
+implementation: uiOpenEnvironment in src/workbench.js
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-preview-format
+kind: widget
+selector: '#sb-recipe-format'
+surface: Your recipe — Recipe preview — format (Rich, Tags, Prose, Compact)
+implementation: renderSidebarRecipePreview (src/app.js) sets app.recipeStackFormat, shared with the full-recipe dialog; Copy recipe copies the format shown
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-preview-expand
+kind: widget
+selector: '#sb-recipe-expand'
+surface: Your recipe — Recipe preview — show all of the recipe / show less (on a phone, open the recipe bar)
+implementation: renderSidebarRecipePreview (src/app.js): app._recipeDeskExpanded / app._recipeSheetOpen
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-open-full-editor
+kind: data-action
+selector: '[data-ui="recipe-open-editor"]'
+surface: Your recipe dock — Open full editor (the selected instrument, else the first)
+implementation: uiOpenEditor in src/workbench.js
+status: reachable
+precondition: empty
+notes: Shown in the dock presentation; disabled while the recipe is empty.
+```
+
+```yaml
+name: recipe-filter-toggle
+kind: widget
+selector: '[data-ui="recipe-filter"]'
+surface: Your recipe header — Filter instruments
+implementation: uiSyncRecipeFilter and the recipe-filter action in src/workbench.js
+status: reachable
+precondition: 1+ cards
+```
+
+```yaml
+name: recipe-ai-entry
+kind: widget
+selector: '#recipe-ai-input'
+surface: Your recipe — "Describe a change to this recipe…" (send opens the AI writer with the request and the current recipe)
+implementation: uiRecipeAskAI in src/workbench.js — the one recipe writer; its reply is offered with "Use recipe" (undoable)
+status: reachable
+precondition: empty
+notes: Hidden in the phone sheet, whose toolbar keeps AI recipe. Sends only on the user's own submit.
+```
+
+```yaml
+name: recipe-autosave-mirror
+kind: widget
+selector: '#recipe-autosave'
+surface: Your recipe header — Autosaved / Not autosaved / Autosave failed, the same words as the header status
+implementation: uiRenderAutosave in src/workbench.js (#ui-autosave stays the live region)
+status: reachable
+precondition: empty
+```
+
+## Map page (2026-09-25)
+
+The Map page redesign (`docs/ui-foundation.md` → Map). Everything below lives
+inside the atlas (`atlas.html`, `src/atlas.js`, `src/map-ui.js`, `src/map.css`),
+which the Map view embeds as `#map-frame` and which also runs standalone. The
+reachability gate evaluates `codex.html` only and cannot see into the frame, so
+each entry's `selector` is the frame (its entry point) and `notes` names the
+in-frame selectors and what verifies them: `scripts/test_atlas_controls.js`
+(panels, filters, routes, collections, search), `scripts/check_layout_usability.js`
+(search results inside the viewport, embedded and standalone, 360–1920 px) and
+`scripts/check_ui_foundation.js` E (Add genre reports what arrived). The rest was
+verified in a browser for this change; a frame-aware gate is a shell request.
+
+```yaml
+name: map-search
+kind: widget
+selector: '#map-frame'
+surface: Map toolbar — search by name, place or catalog id, plus sound words; results list with glyphs, and a Sound-word match block saying which descriptors lit extra traditions and that they matched by descriptor, not name
+implementation: onQuery in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #search, #results [data-tid], .results-sound. ArrowDown from the field walks the results. No-results text names the query and suggests a place, id or sound word. test_atlas_controls.js 3 and 5; check_layout_usability.js.
+```
+
+```yaml
+name: map-filter-chips
+kind: widget
+selector: '#map-frame'
+surface: Map toolbar — one chip per constraint in force (genre groups, collection, search), each with its own remove button, plus Clear filters; "No filters" when none
+implementation: syncControls in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #filter-summary [data-clear], #clear-filters, #no-filters. Chips are rebuilt from state on every change, so a route (which clears filters) or a collection (which replaces groups and search) leaves no stale chip. A route is shown as its own map chip, not a filter. test_atlas_controls.js 1, 3, 4, 5, 6.
+```
+
+```yaml
+name: map-side-tabs
+kind: widget
+selector: '#map-frame'
+surface: Map side column — Genres, Routes and Collections tabs (aria-expanded for open, a dot and bold label for an applied filter), collapse to a rail, resizable edge; below 900px a bottom tab bar with In view, each opening a sheet over the map
+implementation: setPanel, setCollapsed, syncSide in src/atlas.js; splitter in src/map-ui.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #t-territories, #t-routes, #t-threads, #t-inview, #t-collapse, .layout-splitter. Collapse is a codex-layout preference reset by Reset layout. Sheets close on an outside tap or Escape and return focus to their tab. test_atlas_controls.js 1.
+```
+
+```yaml
+name: map-genre-groups
+kind: widget
+selector: '#map-frame'
+surface: Map → Genres — all taxonomy groups with glyph (hue + shape), label and count; pick to show only those groups; Clear
+implementation: renderLegend, toggleRoot in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #legend-panel [data-root] (aria-pressed), [data-act="clear-roots"]. Each group's (hue, shape) pair is read from the theme palette by the canvas and the DOM alike, so the marker and its legend entry always agree and colour is never the only cue. Choosing a group ends a collection. test_atlas_controls.js 1 and 4.
+```
+
+```yaml
+name: map-key
+kind: widget
+selector: '#map-frame'
+surface: Map — on-map key of the groups in view (toggle each), what a bubble means (documented scenes, not abundance; ring = group shares), All groups, Hide/Show
+implementation: renderKey in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #legend-key [data-key-root], [data-act="toggle-key"], [data-act="all-groups"]. Hidden state is a codex-layout preference. Hidden below 900px, where the Genres sheet is the legend.
+```
+
+```yaml
+name: map-routes
+kind: widget
+selector: '#map-frame'
+surface: Map → Routes — every catalogued route; choosing one clears filters, fits it, draws it solid and numbers its endpoints 1 and 2 in source order; genre endpoints open their detail, place endpoints are labelled as places; a route chip on the map clears it; Hide routes
+implementation: renderRoutes, pickRoute, clearRoute, drawRouteEnds in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #routes-panel [data-route] (aria-current, aria-expanded), .route-ends [data-tid], [data-act="hide-routes"], #route-chip [data-act="clear-route"]. The curve claims no path or intermediate stop. test_atlas_controls.js 6.
+```
+
+```yaml
+name: map-collections
+kind: widget
+selector: '#map-frame'
+surface: Map → Collections — each collection with its size; choosing one replaces groups and search, fits it, and lists its stops (not a route) with Clear; a stop's detail offers Back to collection
+implementation: renderThreads, pickThread, renderThreadCard, exitThread in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #threads-panel [data-thid], #thread-card [data-tid], [data-act="exit-thread"], [data-act="back-thread"]. No line joins the stops. test_atlas_controls.js 2, 3, 7.
+```
+
+```yaml
+name: map-in-view
+kind: widget
+selector: '#map-frame'
+surface: Map side column — In view: every tradition in the current view (after filters), grouped by region with counts; Show all in a region expands in place
+implementation: syncList in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #list [data-tid], [data-expand] (aria-expanded). Nothing in view says which filters are in force. check_layout_usability.js waits on its rows.
+```
+
+```yaml
+name: map-location-chooser
+kind: widget
+selector: '#map-frame'
+surface: Map — At this location: a bubble that cannot be zoomed apart, or pins sharing a pixel, list every member grouped by glyph, with Find a tradition here, Arrow/Home/End/Enter, and Back to in view (or Back to the map on a phone)
+implementation: openStack, renderStack, renderStackList, wireStack in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #stack, #stack-filter, #stack-list [data-tid], [data-act="close"]. Docked it takes the column and the tab it displaced returns on Back; Escape or Back returns focus to the map. A screen-reader status reports the match count while filtering.
+```
+
+```yaml
+name: map-tradition-inspector
+kind: widget
+selector: '#map-frame'
+surface: Map — tradition inspector: classification path, name and place, Listen (external YouTube search), Add genre (embedded) or Open in Codex Musica (standalone), "Added n of m instruments" / failure with Retry, Open on the Genre page, background, Default recipe (not Your recipe; Copy default, Show full), Similar sounds with their basis (shared sound words named per row) or the stated fallback, collections and routes including it, Location and sources (documented place, drawn position, model-reviewed vs human-verified status, id, JSON)
+implementation: select, renderCard, requestAdd and the genre-added listener in src/atlas.js; src/pages/map.js relays add-genre and genre-web
+status: reachable
+precondition: 'map view'
+notes: In-frame #card, [data-act="add"], .add-status, [data-act="genre-page"], [data-act="copy"], [data-act="toggle-recipe"], [data-act="retry-detail"], [data-open-thread], [data-open-route], .card-sources. A thumbnail appears only when references/_image_manifest.json lists one with a credit or licence, which is shown beneath it; otherwise the group glyph. check_ui_foundation.js E (add reports what arrived); test_atlas_controls.js 6, 7.
+```
+
+```yaml
+name: map-view-controls
+kind: keyboard-shortcut
+selector: '#map-frame'
+surface: Map — zoom in/out, Reset view, Fit route / collection / selection / results (shown only when there is something to fit); the focused map pans with arrow keys (Shift for more), zooms with + and -, resets with 0; drag, wheel and pinch
+implementation: setupCanvas, zoomAt, fitTarget, fitPoints, resetView in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #zoom-in, #zoom-out, #zoom-reset, #zoom-fit, #canvas-host (tabindex 0, role application with its keys in the label).
+```
+
+```yaml
+name: map-information
+kind: widget
+selector: '#map-frame'
+surface: Map toolbar — Map information: bubbles count documented scenes, not abundance; pins drawn, model-reviewed and human-verified counts kept separate; how filters combine; imagery and projection; Reset layout
+implementation: renderProvenance, setInfo in src/atlas.js
+status: reachable
+precondition: 'map view'
+notes: In-frame #t-info (aria-expanded), #provenance, [data-act="reset-layout"]. Escape or an outside click closes it.
+```
+
+```yaml
+name: map-panel-layout
+kind: drag-drop
+selector: '#map-frame'
+surface: Map — side column, inspector and key each have Move / Resize / Reset (drag or arrow keys, Home resets); the column and inspector resize from their inner edge; Reset layout restores all
+implementation: UILayout.floating / UILayout.splitter registered in src/map-ui.js
+status: reachable
+precondition: 'map view'
+notes: In-frame .layout-panel-tools, .layout-splitter. A panel moved out of its column gives the column back to the map. Desktop widths only (900px and up); sheets below.
+```
+
+```yaml
+name: map-standalone-atlas
+kind: widget
+selector: '#map-frame'
+surface: atlas.html on its own (and the published standalone build) — the same map, panels and inspector in Light and Dark, with Open in Codex Musica instead of Add genre
+implementation: atlas.html, scripts/build_atlas_standalone.js (shell) inlining src/atlas.js, src/map-ui.js, src/map.css
+status: reachable
+precondition: 'map view'
+notes: check_layout_usability.js loads atlas.html standalone at every width; check_ui_foundation.js A applies the stored theme before first paint.
 ```

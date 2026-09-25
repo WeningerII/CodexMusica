@@ -1,78 +1,75 @@
 /* global UILayout */
 'use strict';
-UILayout.anchor(document.getElementById('results'), document.getElementById('search'));
-for (const [id, title] of [
-  ['card', 'tradition detail'],
-  ['thread-card', 'genre collection'],
-  ['stack', 'traditions at this location'],
-  ['list', 'traditions in view'],
-  ['legend-panel', 'map legend'],
-  ['threads-panel', 'genre collections'],
-  ['routes-panel', 'routes'],
-]) {
-  UILayout.floating(document.getElementById(id), { key: 'map-' + id, title });
-}
-const listToggle = document.createElement('button');
-listToggle.className = 'map-extra';
-listToggle.textContent = '☰ In view';
-listToggle.setAttribute('aria-expanded', 'false');
-listToggle.setAttribute('aria-controls', 'list');
-listToggle.onclick = () => {
-  const on = document.body.classList.toggle('list-open');
-  listToggle.setAttribute('aria-expanded', String(on));
-};
-document.querySelector('.topbar-actions').append(listToggle);
-const info = document.createElement('button');
-info.className = 'map-extra';
-info.textContent = 'ⓘ';
-info.setAttribute('aria-label', 'Map information');
-info.setAttribute('aria-expanded', 'false');
-info.setAttribute('aria-controls', 'provenance');
-info.onclick = () => {
-  // The atlas fills provenance asynchronously; attach the action after that
-  // content so the initial data load cannot overwrite it.
-  document.querySelector('.provenance').append(resetLayout);
-  info.setAttribute('aria-expanded', String(document.body.classList.toggle('show-provenance')));
-};
-document.querySelector('.topbar-actions').append(info);
-const resetLayout = document.createElement('button');
-resetLayout.className = 'map-extra';
-resetLayout.textContent = 'Reset layout';
-resetLayout.onclick = () => UILayout.reset();
-document.addEventListener('click', (e) => {
-  const a = e.target.closest('a');
-  if (!a) return;
-  const url = new URL(a.href, location.href);
-  if (url.pathname.endsWith('codex.html') && url.searchParams.has('trad')) {
-    // Only the app's Map view (atlas.html?embedded=1) adds in place; framed
-    // anywhere else, the link opens the app like any other link.
-    if (parent === window || new URLSearchParams(location.search).get('embedded') !== '1') return;
-    e.preventDefault();
-    parent.postMessage({ type: 'add-genre', id: url.searchParams.get('trad') }, location.origin);
-    a.dataset.adding = url.searchParams.get('trad');
-    a.textContent = 'Adding…';
-  }
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    document.body.classList.remove('list-open', 'show-provenance');
-    listToggle.setAttribute('aria-expanded', 'false');
-    info.setAttribute('aria-expanded', 'false');
-  }
-});
-
-window.addEventListener('message', (e) => {
-  if (e.origin === location.origin && e.source === parent && e.data?.type === 'reset-layout')
-    UILayout.reset();
-  if (e.origin !== location.origin || e.source !== parent || e.data?.type !== 'genre-added') return;
-  document.querySelectorAll('[data-adding]').forEach((a) => {
-    if (a.dataset.adding === e.data.id) {
-      delete a.dataset.adding;
-      a.textContent = !e.data.ok
-        ? 'Retry adding genre'
-        : e.data.expected && e.data.added < e.data.expected
-          ? 'Added ' + e.data.added + ' of ' + e.data.expected + ' instruments · Add again'
-          : 'Added · Add again';
-    }
+// Panel geometry for the atlas, standalone and in the app's Map view: the side
+// column and the inspector resize from their inner edges (drag, arrow keys,
+// Home resets), and the side column, inspector and map key can be moved and
+// resized as floating panels with accessible Move / Resize / Reset buttons.
+// All of it is layout preference (codex-layout:*), never session state, and
+// Reset layout (Map information, or the app's More menu) restores it.
+(function () {
+  var $ = function (id) {
+    return document.getElementById(id);
+  };
+  var body = document.querySelector('.body');
+  UILayout.anchor($('results'), $('search'));
+  var docked = function () {
+    return innerWidth >= 900;
+  };
+  [
+    ['side', 'map panels', '.side-head', 'side-floating'],
+    ['card', 'tradition detail', '.card-tools', 'card-floating'],
+    ['legend-key', 'map key', '.key-tools', null],
+  ].forEach(function (entry) {
+    UILayout.floating($(entry[0]), {
+      key: 'map-' + entry[0],
+      title: entry[1],
+      header: entry[2],
+      enabled: docked,
+      // A panel moved out of its column gives the column back to the map.
+      onChange: function (floating) {
+        if (entry[3]) document.body.classList.toggle(entry[3], floating);
+      },
+    });
   });
-});
+  UILayout.splitter({
+    container: body,
+    panel: $('side'),
+    key: 'map-side-width',
+    property: '--map-side-w',
+    title: 'Resize map panels',
+    side: 'right',
+    limits: function () {
+      return [240, Math.max(260, Math.min(480, innerWidth * 0.4))];
+    },
+    enabled: function () {
+      return (
+        docked() &&
+        !document.body.classList.contains('side-collapsed') &&
+        !document.body.classList.contains('side-floating')
+      );
+    },
+  });
+  UILayout.splitter({
+    container: body,
+    panel: $('card'),
+    key: 'map-card-width',
+    property: '--map-card-w',
+    title: 'Resize tradition detail',
+    side: 'left',
+    limits: function () {
+      return [300, Math.max(320, Math.min(560, innerWidth * 0.42))];
+    },
+    enabled: function () {
+      return docked() && !$('card').hidden && !document.body.classList.contains('card-floating');
+    },
+  });
+  window.addEventListener('message', function (e) {
+    if (
+      e.origin === location.origin &&
+      e.source === parent &&
+      e.data &&
+      e.data.type === 'reset-layout'
+    )
+      UILayout.reset();
+  });
+})();

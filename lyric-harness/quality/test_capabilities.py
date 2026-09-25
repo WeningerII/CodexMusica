@@ -448,12 +448,54 @@ def test_the_whole_registry():
           len(rep["blocked"]) == 0 and len(rep["live"]) == len(R.REGISTRY),
           f"{len(rep['live'])} live / {len(R.REGISTRY)}, "
           f"{len(rep['blocked'])} blocked: {sorted(rep['blocked'])}")
-    check("21 of them are INTRA-LINE and are read by the figures route, not "
+    # REPINNED 2026-09-25 from 21: `broken rhyme` left the roster when
+    # `a_is_split_token` stopped counting as an intra-line placement (its
+    # partner is the END of the next line), so it is a line-pair relation.
+    check("20 of them are INTRA-LINE and are read by the figures route, not "
           "by a mandate — a pair of lines cannot stand in a one-line figure",
-          len(rep["intra"]) == 21, len(rep["intra"]))
+          len(rep["intra"]) == 20 and "broken rhyme" not in rep["intra"],
+          len(rep["intra"]))
     check("3 answer under their OWN phonology, which is a language "
           "coordinate (M-4) and not a gap in the registry",
           len(rep["other_language"]) == 3, rep["other_language"])
+    # M-311. A census-only witness (monorhyme over a stanza, a chain across
+    # two, a deprecated schema the draw pool must not certify)
+    # is graded with the sections it needs, and must answer exhibit-yes,
+    # contrast-no exactly as a DRAWABLE_EXHIBITS row does.
+    framed = {n: rep["semantic_status"][n].get("verdicts")
+              for n in R.CENSUS_EXHIBITS}
+    check("every CENSUS_EXHIBITS row answers [True, False] through "
+          "Reviser.grade with its declared sections, if any (M-311)",
+          all(v == [True, False] for v in framed.values()), framed)
+    # ...and a recorded grader finding stays a finding only while the grader
+    # is still wrong. The day a repair makes a row answer as expected this
+    # goes red, so the row moves to the exhibit tables instead of sitting
+    # here as evidence of a defect that no longer exists (doctrine 17).
+    fixed = [n for n, f in rep["witness_findings"]
+             if f["verdicts"] and f["verdicts"] == f["expected"]]
+    check("every `relations.WITNESS_FINDINGS` row is still graded wrongly "
+          "or refused — a repaired one belongs in DRAWABLE_EXHIBITS or "
+          "CENSUS_EXHIBITS (M-311)", not fixed, fixed)
+    # The check above covers a finding only if the census graded it, so the
+    # census must re-grade EVERY name in the table, not the ones it prints.
+    graded = sorted(n for n, _ in rep["witness_findings"])
+    check("...and the census re-grades every `WITNESS_FINDINGS` name, so the "
+          "check above reaches each of them (M-311)",
+          graded == sorted(R.WITNESS_FINDINGS), graded)
+    # F7: `enjambed rhyme` was once counted validated on a LINKED-rhyme
+    # witness (the same Torry Anderson pair as `linked rhyme`). It must stay
+    # out of the exhibit tables and unvalidated while the schema still
+    # accepts that linked pair — the row above goes red the day it does not.
+    enj = dict(rep["witness_findings"]).get("enjambed rhyme") or {}
+    check("`enjambed rhyme` is a finding, not a witness: absent from "
+          "DRAWABLE_EXHIBITS, unvalidated, and still accepting the "
+          "linked-not-enjambed pair it must refuse (M-311 F7)",
+          "enjambed rhyme" not in R.DRAWABLE_EXHIBITS
+          and rep["semantic_status"]["enjambed rhyme"]["status"]
+          == "unvalidated"
+          and enj.get("verdicts", [None])[0] is True
+          and enj.get("expected", [None])[0] is False,
+          enj)
     # THE COUNT ABOVE ~~IS 77~~ WAS 77 (IT IS `len(R.REGISTRY)`, 78 SINCE M-40)
     # AND THREE OF THE 77 WERE LIVE ON A FIXTURE. That
     # was true before 2026-08-23 too -- `earlier` and `poet` have always been
@@ -501,8 +543,99 @@ def test_the_whole_registry():
                for n in rep["fixture_only"]}))
 
 
+
+def test_semantic_witnesses_m313():
+    """9. `MISSING.md` M-313: the repetition figures and the non-English
+    pair rhymes — which carry a quoted witness and contrast through the
+    grade route, and, for the rest, that each recorded blocker still names
+    what actually stops it (doctrine 48: the reason is re-derived, not
+    trusted)."""
+    print("\n9. M-313 — repetition figures and non-English pair rhymes")
+    from quality import schema_census as CEN
+    from quality.phonology import declared
+    from quality.revise import Reviser
+    from quality.schemes import mandate
+    rep = CEN.census()
+    sem = rep["semantic_status"]
+    ok = ("anadiplosis", "polyptoton", "repetition", "epistrophe / radif")
+    check("four carry a quoted witness AND an independent contrast through "
+          "`Reviser.grade` — verdicts exactly [True, False]",
+          all(sem[n]["status"] == "witness_and_contrast" for n in ok),
+          {n: sem[n].get("verdicts") for n in ok})
+    stale = sorted(n for n in CEN.SEMANTIC_BLOCKERS
+                   if sem[n]["status"] != "unvalidated")
+    check("every recorded blocker still blocks: a schema that starts "
+          "answering has its blocker text removed, not left standing",
+          not stale, stale)
+    rv = Reviser()
+
+    def _grade(name, lines, *groups):
+        m = mandate([list(g) for g in groups], n_lines=len(lines),
+                    default_relation="schema:" + name)
+        return rv.grade(list(lines), m)
+    ep_lines = R.CONTEXT_CONTROLS["epistrophe / radif"][0]
+    g = _grade("epistrophe / radif", ep_lines[1:], ("1", "2"))
+    check("WHY epistrophe is a context row: its two-line contrast, alone, "
+          "REFUSES on an empty `refrain_tail` frame rather than violating",
+          g["refusals"] and "refrain_tail" in g["refusals"][0]["reason"]
+          and not g["violations"],
+          [r["reason"][:90] for r in g["refusals"]])
+    # ON REVIEW: homoioteleuton was counted validated on possessing~estimate,
+    # a contrast that differs in rhyme as well as affix and so cannot show
+    # the rule over-generous. With two quoted rhymes that are NOT
+    # homoioteleuton it is a finding (M-313 F8); this goes red the day the
+    # rule stops accepting them, so the row can move back to the witnesses.
+    from quality import morphology as MO
+    ht = dict(rep["witness_findings"]).get("homoioteleuton") or {}
+    check("homoioteleuton is a FINDING, not a witness: `forbidden` (so never "
+          "drawable), out of CONTEXT_CONTROLS, unvalidated, and grading "
+          "flatter~matter and day~May True where both must be False",
+          R.REGISTRY["homoioteleuton"].normative == "forbidden"
+          and "homoioteleuton" not in R.DRAWABLE_EXHIBITS
+          and "homoioteleuton" not in R.CONTEXT_CONTROLS
+          and sem["homoioteleuton"]["status"] == "unvalidated"
+          and ht.get("verdicts") == [True, False, True, True]
+          and ht.get("expected") == [True, False, False, False],
+          ht)
+    check("...and the blocker's two premises hold: flatter and matter read "
+          "one shared `-er`, and day and May carry no affix at all",
+          MO.affix("flatter") == MO.affix("matter") == "-er"
+          and MO.affix("day") == MO.affix("May") == "",
+          [MO.segment(w) for w in ("flatter", "matter", "day", "May")])
+    for name, cap in (("antanaclasis", "'sense'"),
+                      ("refrain by reference", "'stub_resolution'")):
+        lines, w, c = R.CONTEXT_CONTROLS[name]
+        g = _grade(name, lines, w, c)
+        check(f"{name}: both controls REFUSE and the refusal names {cap} — "
+              f"the grade route has no seam to declare it",
+              sem[name].get("verdicts") == [None, None]
+              and all(cap in r["reason"] for r in g["refusals"]),
+              [r["reason"][:90] for r in g["refusals"]])
+    check("incremental repetition: the canonical one-substitution instance "
+          "is judged, definitely, NOT to stand in it — the finding",
+          sem["incremental repetition"].get("verdicts", [None])[0] is False,
+          sem["incremental repetition"].get("verdicts"))
+    langs = {n: {t.lang for t in R.REGISTRY[n].traditions}
+             for n in ("qafiya (before the radif)", "dvitiyakshara-prasa",
+                       "monai")}
+    have = set(declared())
+    check("the language premises: qafiya's traditions are ara/fas/hin; "
+          "dvitiyakshara-prasa's and monai's are Dravidian or Sanskrit; of "
+          "those only fas and san have a phonology",
+          langs["qafiya (before the radif)"] == {"ara", "fas", "hin"}
+          and langs["dvitiyakshara-prasa"] == {"tel", "kan", "san", "tam"}
+          and langs["monai"] == {"tam"}
+          and set().union(*langs.values()) & have == {"fas", "san"},
+          (langs, sorted(have)))
+    check("the shape premise: monai and dvitiyakshara-prasa quantify over "
+          "a stanza, which a two-token mandate cannot carry",
+          not R.pair_scope_representable(R.REGISTRY["monai"])
+          and not R.pair_scope_representable(
+              R.REGISTRY["dvitiyakshara-prasa"]))
+
+
 def test_sourced_tonal_template():
-    print("\n9. THE 平仄 TEMPLATE FROM A SOURCED TABLE (Wang Li, 五絕)")
+    print("\n10. THE 平仄 TEMPLATE FROM A SOURCED TABLE (Wang Li, 五絕)")
     from quality import sourced_tables as ST
     from quality.phonology import get as get_phonology
     ltc = get_phonology("ltc")
@@ -548,6 +681,7 @@ if __name__ == "__main__":
     for fn in (test_orthography, test_delivery, test_stub_resolution,
                test_senses, test_period_surface, test_lifts,
                test_beat_and_selectivity, test_the_whole_registry,
+               test_semantic_witnesses_m313,
                test_sourced_tonal_template):
         fn()
     print("=" * 62)

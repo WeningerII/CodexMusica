@@ -2054,7 +2054,14 @@ def _placements_of(canon):
 #: honest answer is a refusal naming the placement, never `False`.
 INTRA_LINE_PLACEMENTS = frozenset((
     "same_line", "same_token", "at_caesura", "at_lift", "lift_index",
-    "spans_overlap", "a_is_split_token"))
+    "spans_overlap"))
+#: `a_is_split_token` LEFT THIS SET 2026-09-25. It says member A is a token
+#: the line edge cuts; it says nothing about where member B is, and for the
+#: one schema declaring it (`broken rhyme`) B is the END of ANOTHER line —
+#: Lear's `roo-` | `Matiz` answered by `Kangaroo` on the next. Filed here, the
+#: schema was intra-line by placement while its figure spans the break, so
+#: `figures.line_figures` dropped every instance as cross-line and the mandate
+#: judge refused it as a one-line property. It is a line-pair relation.
 
 
 def _all_same_line(canon):

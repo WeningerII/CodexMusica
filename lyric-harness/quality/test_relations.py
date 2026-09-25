@@ -1816,8 +1816,10 @@ def test_known_open_defects():
     check("text-order, half 2: the DECLINE was FALSE — on an ASYMMETRIC "
           "schema the skip DELETED instances, and only there",
           len(_asym) == 17
-          and sum(b["recovered_instances"] for b in _burd.values()) == 103
-          and sum(b["recovered_true"] for b in _burd.values()) == 65
+          # REPINNED 2026-09-25 from 103 / 65 over four schemas: cynghanedd sain drosgl stopped firing: since 2026-09-25 it is sain's three-node figure with the answering edge relocated to a non-initial stressed syllable, where it was the bare onset edge that any two words of an English line could satisfy, and
+          # a full figure has no text-order skip to recover from.
+          and sum(b["recovered_instances"] for b in _burd.values()) == 88
+          and sum(b["recovered_true"] for b in _burd.values()) == 62
           and not any(b["symmetric"] for b in _rec.values()),
           f"metidja.txt, all {len(R.REGISTRY)} schemas: "
           f"{sum(b['recovered_instances'] for b in _burd.values())} "
@@ -2179,9 +2181,10 @@ def test_relation_report_renderer_runs():
           "exits 0",
           rc == 0 and "phonology eng   schemas declared 78" in out
           and "REFUSED 27 (capability 27 · EMPTY DECLARED FRAME 0 · OTHER 0)"
-          in out and "RAN AND FOUND NOTHING 28" in out
-          and "RAN AND FIRED 23" in out,
-          "REFUSED 27 · RAN AND FOUND NOTHING 28 · RAN AND FIRED 23, "
+          in out and "RAN AND FOUND NOTHING 29" in out
+          and "RAN AND FIRED 22" in out,
+          "REFUSED 27 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 22, "
+          "REPINNED 2026-09-25 from 27 · 28 · 23 on both trees: cynghanedd sain drosgl stopped firing: since 2026-09-25 it is sain's three-node figure with the answering edge relocated to a non-initial stressed syllable, where it was the bare onset edge that any two words of an English line could satisfy. "
           "REPINNED 2026-09-22 by running this verb on both trees: at "
           "f05dbf71 it read REFUSED 30 (4 OTHER — the unsupported shapes) · "
           "25 · 23. The three sain figures now judge (and find nothing in "
@@ -2584,8 +2587,10 @@ def test_vacuous_frame_is_not_a_null():
     # trees: the three sain figures stopped refusing as unsupported shapes
     # and JUDGE — and fire on this text — while the 平仄 template moved from
     # the unsupported-shape refusal to a capability refusal.
-    check("the staged item reproduces the measured split (31, 27, 20)",
-          before == (31, 27, 20),
+    # REPINNED 2026-09-25 (31, 27, 20) -> (30, 27, 21), measured on both
+    # trees: cynghanedd sain drosgl stopped firing: since 2026-09-25 it is sain's three-node figure with the answering edge relocated to a non-initial stressed syllable, where it was the bare onset edge that any two words of an English line could satisfy.
+    check("the staged item reproduces the measured split (30, 27, 21)",
+          before == (30, 27, 21),
           f"{before} on corpus/{VACUITY_ITEM}: {len(raw)} raw lines, "
           f"{len(st.units)} units. PREMISE — it must hold on both trees.")
 
@@ -2633,8 +2638,8 @@ def test_vacuous_frame_is_not_a_null():
           _shown)
     after = _split(st)
     check("...so calling both markers moves NOTHING: the split is still "
-          "31/27/20, where it used to become 31/21/26",
-          after == before == (31, 27, 20),
+          "30/27/21, where it used to become 30/21/27",
+          after == before == (30, 27, 21),
           f"before {before} after {after}. Six schemas crossing from REFUSED "
           f"to RAN AND FOUND NOTHING is the collapse; the counts are the "
           f"cheapest place to see it.")
@@ -2728,11 +2733,11 @@ def test_vacuous_frame_is_not_a_null():
         mut_rep = R.relation_report(st)
         mut_state = st.supply("caesura").state
     check("MUTANT: with `provides` reading the SOURCE again, all six stop "
-          "refusing and return an empty list, the split moves to 31/21/26, "
+          "refusing and return an empty list, the split moves to 30/21/27, "
           "and the fourth count goes to zero",
           all(not isinstance(o, R.Refusal) and len(o) == 0
               for o in mut_outs.values())
-          and mut_split == (31, 21, 26) and mut_rep["refused_vacuous"] == 0
+          and mut_split == (30, 21, 27) and mut_rep["refused_vacuous"] == 0
           and mut_state == "present",
           f"{mut_split} under the mutant against {after} at head; "
           f"{ {n: len(o) for n, o in mut_outs.items()} }. Six schemas, six "
@@ -3077,6 +3082,80 @@ def test_the_judge_memo_answers_identical_calls_only():
     check("the memo is LIVE (the planted answer comes back for its own "
           "key) and SCOPED (the bearing call is untouched by it)",
           poisoned == {(1, 99): ["planted"]} and with_bearing == c)
+    RT._WVP_MEMO.clear()
+
+
+def test_a_schema_subset_is_the_full_answer_restricted():
+    """X9b. `whole_vocabulary_pairs(..., schemas=S)` (2026-09-25, `MISSING.md`
+    M-312): the candidate field asks the judge about the one or two schemas
+    its end-token screen found, and the answer must be the FULL call's answer
+    read at S -- the same pairs, undecided pairs, refusals and line figures
+    for every name in S, and nothing for any name outside it.
+
+    FOUR CHECKS, each killed by a one-line mutant: ignoring `schemas` gives
+    names outside S (check 2); keying the memo without it serves the
+    restricted answer to the next full caller (check 3). Check 1 is the
+    non-vacuity proof: S is drawn from what the full call FOUND, so the
+    comparison examines true pairs, not an empty dict against an empty dict.
+    ~~FOUR~~ FIVE CHECKS since the review (2026-09-25): check 5 asks for a
+    name `REGISTRY` does not hold, which must raise `ValueError` naming it
+    rather than a bare `KeyError` from inside the loop.
+    """
+    import quality.relations as RT
+    from quality import phonology as PH
+    phon = PH.get("eng")
+    lines = ("the river took the bridge at dawn",
+             "and no one saw the water again",
+             "the cattle waded through the silt",
+             "past every fence the county rebuilt",
+             "we carry the evening to the will",
+             "and no one had to tell us about wall")
+    RT._WVP_MEMO.clear()
+    full = RT.whole_vocabulary_pairs(lines, phon)
+    found = sorted({n for v in full.values() for n in v})
+    subset = set(found[::2]) | set(sorted(full.refused)[:1]) \
+        | {sorted(set(RT.REGISTRY) - set(found) - set(full.refused))[0]}
+
+    def at(d):
+        out = {}
+        for k, v in d.items():
+            kept = [n for n in v if n in subset]
+            if kept:
+                out[k] = kept
+        return out
+
+    RT._WVP_MEMO.clear()
+    sub = RT.whole_vocabulary_pairs(lines, phon, schemas=subset)
+    check("the subset examines real verdicts: at least two schemas true of "
+          "some pair, and a refusing schema, are in it",
+          len(found[::2]) >= 2 and len(sub) >= 1 and bool(sub.refused),
+          f"{len(found)} schemas true of some pair on the full call; "
+          f"subset {sorted(subset)}")
+    check("each asked schema's answer is the full call's, and no other "
+          "schema appears",
+          dict(sub) == at(full) and sub.undecided == at(full.undecided)
+          and sub.lines == at(full.lines)
+          and sorted(sub.refused) == sorted(n for n in full.refused
+                                            if n in subset),
+          f"subset {dict(sub)} against the full call read at the subset "
+          f"{at(full)}")
+    again = RT.whole_vocabulary_pairs(lines, phon)
+    check("the memo keeps the two apart: a full call after a restricted one "
+          "is answered in full",
+          dict(again) == dict(full) and sorted(again.refused)
+          == sorted(full.refused), f"{len(again)} pairs against {len(full)}")
+    sub2 = RT.whole_vocabulary_pairs(lines, phon, schemas=sorted(subset))
+    check("and the subset is a SET: its order and spelling do not move the "
+          "answer or the key",
+          dict(sub2) == dict(sub) and len(RT._WVP_MEMO) == 2,
+          f"{len(RT._WVP_MEMO)} memo entries")
+    try:
+        RT.whole_vocabulary_pairs(lines, phon, schemas={"no such schema"})
+        err = ""
+    except ValueError as e:
+        err = str(e)
+    check("an unknown schema name is refused by name, not a bare KeyError",
+          "'no such schema'" in err, err or "no ValueError raised")
     RT._WVP_MEMO.clear()
 
 
@@ -3471,6 +3550,7 @@ if __name__ == "__main__":
     test_orthography_surface_is_declarable()
     test_frequency_refusal_is_measured_against_the_shipped_tables()
     test_the_judge_memo_answers_identical_calls_only()
+    test_a_schema_subset_is_the_full_answer_restricted()
     test_the_pair_guard_refuses_before_it_evaluates()
     test_every_schema_judges_and_no_differ_only_excludes()
     print("=" * 66)

@@ -684,7 +684,10 @@ PINNED = {
     # -- the three buckets --------------------------------------------------
     "pair_shaped": 26,
     "not_pair_shaped": 52,
-    "arity_extension": 12,
+    #: REPINNED 2026-09-25 from 12: `cynghanedd sain drosgl` took sain's
+    #: three-node figure (it was a bare onset edge firing on 103 of 108
+    #: cywydd lines), so it joins the sain family here.
+    "arity_extension": 13,
     # -- the figure-blind reading, and the two disagreements ----------------
     "span_shaped": 27,
     "n_span_not_pair": 1,
@@ -752,11 +755,13 @@ PINNED_PLACEMENT_PROFILE = (
 #: bucket: change `frame` from `song` to `stanza` on a pair-shaped schema and
 #: every count, membership and locus profile above is unchanged.
 PINNED_FIGURE_PROFILE = (
-    ((('frame', 'song'), ('nodes', 2), ('quantifier', 'exists')), 59),
+    # REPINNED 2026-09-25: song/2/exists 59 -> 58 and line/3/exists 2 -> 3,
+    # one schema moving -- `cynghanedd sain drosgl` now carries sain's figure.
+    ((('frame', 'song'), ('nodes', 2), ('quantifier', 'exists')), 58),
     ((('frame', 'line'), ('k', 2), ('nodes', 2), ('quantifier', 'exists_k')), 3),
+    ((('frame', 'line'), ('nodes', 3), ('quantifier', 'exists')), 3),
     ((('frame', 'stanza'), ('nodes', 2), ('quantifier', 'forall')), 3),
     ((('frame', 'token'), ('nodes', 2), ('quantifier', 'exists')), 3),
-    ((('frame', 'line'), ('nodes', 3), ('quantifier', 'exists')), 2),
     ((('fraction', 0.8), ('frame', 'line'), ('nodes', 2),
       ('quantifier', 'fraction')), 1),
     ((('frame', 'line'), ('nodes', 1), ('quantifier', 'exists'),
@@ -773,14 +778,15 @@ PINNED_FIGURE_PROFILE = (
 PINNED_UNCITED_BY_CELL = (("X", 84), ("S", 50), ("G", 32), ("C", 27),
                           ("I", 20), ("E", 12))
 
-#: THE BUCKET THE NEXT CONSUMER HAS TO BUILD FOR: 12 schemas whose figure is
+#: THE BUCKET THE NEXT CONSUMER HAS TO BUILD FOR: 13 schemas whose figure is
 #: not a 2-node exists/exists_k pair.  Pinned by NAME, not by count -- a swap
-#: keeps the count at 12 and changes every requirement.
+#: keeps the count at 13 and changes every requirement.
 PINNED_ARITY = (
     "analysed rhyme",
     "blues AAB stanza",
     "chain rhyme (rap)",
     "cynghanedd sain",
+    "cynghanedd sain drosgl",
     "cynghanedd sain gadwynog",
     "cynghanedd sain lafarog",
     "dvitiyakshara-prasa",

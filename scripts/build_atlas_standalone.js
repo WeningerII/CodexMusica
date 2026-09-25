@@ -119,10 +119,18 @@ const between = (open, close) => {
 };
 
 const styleBlock = between('<style>', '</style>') + '\n<style>' + mapCss + '</style>';
-const fontLink = html.match(/<link\s+href="https:\/\/fonts\.googleapis\.com[^>]*>/)[0];
-let bodyInner = html
-  .slice(html.indexOf('<div class="shell">'), html.indexOf('<script src="src/layout.js">'))
-  .replace(/\s*$/, '');
+// The brand mark is the shared asset; a single-file page has no assets/ beside
+// it, so it travels inline.
+const brandSrc =
+  'data:image/png;base64,' +
+  fs.readFileSync(path.join(ROOT, 'assets', 'icon-192.png')).toString('base64');
+const inlineBrand = (s) =>
+  s.replace(/src="assets\/icon-192\.png"/g, () => 'src="' + brandSrc + '"');
+let bodyInner = inlineBrand(
+  html
+    .slice(html.indexOf('<div class="shell">'), html.indexOf('<script src="src/layout.js">'))
+    .replace(/\s*$/, '')
+);
 // A published page has no codex.html or api/ beside it, so in-page links to the
 // app and the raw catalog have to point back at the live site.
 if (flags.artifact) {
@@ -146,10 +154,6 @@ if (flags.artifact) {
     '<script>' +
     themeJs +
     '</script>\n' +
-    '<link rel="preconnect" href="https://fonts.googleapis.com">\n' +
-    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
-    fontLink +
-    '\n' +
     styleBlock +
     '\n' +
     bodyInner +
@@ -163,7 +167,7 @@ if (flags.artifact) {
     mapUiJs +
     '\n</script>\n';
 } else {
-  out = html
+  out = inlineBrand(html)
     .replace('<script src="src/atlas-tiles.js"></script>', '')
     .replace(/<link rel="stylesheet" href="src\/(?:theme|map|layout)\.css"\s*\/?\s*>/g, '')
     .replace('<script src="src/theme.js"></script>', () => '<script>' + themeJs + '</script>')
