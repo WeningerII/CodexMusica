@@ -56,20 +56,32 @@ if ((process.env.HTTPS_PROXY || process.env.https_proxy) && !process.env.NODE_US
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function getJson(url, attempt = 0) {
+async function getJson(url, attempt = 0, body = null) {
   let res;
+  const headers = { 'User-Agent': UA, Accept: 'application/json' };
+  if (body) headers['Content-Type'] = 'application/x-www-form-urlencoded';
   try {
-    res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
+    res = await fetch(url, body ? { method: 'POST', headers, body } : { headers });
   } catch (e) {
-    if (attempt < 2) return sleep(2000 * (attempt + 1)).then(() => getJson(url, attempt + 1));
+    if (attempt < 2) return sleep(2000 * (attempt + 1)).then(() => getJson(url, attempt + 1, body));
     throw new Error('network: ' + ((e.cause && e.cause.message) || e.message));
   }
   if ((res.status === 429 || res.status >= 500) && attempt < 3) {
     await sleep(5000 * 2 ** attempt);
-    return getJson(url, attempt + 1);
+    return getJson(url, attempt + 1, body);
   }
   if (!res.ok) throw new Error('http_' + res.status);
   return res.json();
+}
+
+// A lookup whose single failure should skip that one item, not the source.
+async function tryJson(url) {
+  try {
+    return await getJson(url);
+  } catch (e) {
+    if (/^http_4/.test(e.message)) return null;
+    throw e;
+  }
 }
 
 async function pool(items, n, fn) {
@@ -172,8 +184,14 @@ async function sparqlLabelHits(labels, kind) {
     WD_CLASS[kind] +
     ' . OPTIONAL { ?item wdt:P18 ?img } ' +
     'SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } }';
-  const url = 'https://query.wikidata.org/sparql?format=json&query=' + encodeURIComponent(query);
-  const data = await cached('sparql:' + kind + ':' + labels.join('|'), () => getJson(url));
+  // POST: a GET carrying 150 labels overflows the request line (HTTP 431).
+  const data = await cached('sparql:' + kind + ':' + labels.join('|'), () =>
+    getJson(
+      'https://query.wikidata.org/sparql?format=json',
+      0,
+      'query=' + encodeURIComponent(query)
+    )
+  );
   return data.results.bindings.map((b) => ({
     label: b.lab.value,
     qid: b.item.value.replace(/^.*\//, ''),
@@ -298,11 +316,11 @@ async function viaMet(entities, skipped) {
         const url =
           'https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=18&hasImages=true&q=' +
           encodeURIComponent(cand);
-        const s = await cached('met:' + cand, () => getJson(url));
+        const s = await cached('met:' + cand, () => tryJson(url));
         const ids = ((s && s.objectIDs) || []).slice(0, 5);
         for (const id of ids) {
           const o = await cached('meto:' + id, () =>
-            getJson('https://collectionapi.metmuseum.org/public/collection/v1/objects/' + id)
+            tryJson('https://collectionapi.metmuseum.org/public/collection/v1/objects/' + id)
           );
           // Confident only when the object's own name is the instrument name.
           if (!o || !o.isPublicDomain || !o.primaryImage) continue;
@@ -348,7 +366,7 @@ async function viaSmithsonian(entities, skipped) {
         key +
         '&q=' +
         encodeURIComponent(q);
-      const data = await cached('si:' + e.name, () => getJson(url));
+      const data = await cached('si:' + e.name, () => tryJson(url));
       for (const row of (data.response && data.response.rows) || []) {
         if (norm(row.title) !== norm(e.name)) continue;
         const media =
