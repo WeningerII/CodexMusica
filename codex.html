@@ -4066,6 +4066,31 @@ body.workbench {
   background: color-mix(in srgb, currentColor 28%, transparent);
 }
 
+/* ── Foundation: the shared editor sizes to its own pane ──
+   The editor is a sidebar-width pane on every route, so its layout answers to
+   the pane, not the window: the eight signal-chain stages were eight 50px
+   columns in the 440px pane and broke every label mid-word. */
+#workspace-detail {
+  container-type: inline-size;
+  container-name: editor;
+}
+@container editor (max-width: 720px) {
+  .chain-flow {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+  }
+}
+@container editor (max-width: 520px) {
+  .chain-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@container editor (max-width: 380px) {
+  .chain-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* Genre page styles. Owned by the Genre page worker; see docs/ui-foundation.md.
    Scope every rule to this page's surface (#surface-genre) or its own components;
    colours, type, spacing and radii come from the tokens in src/theme.css. */
