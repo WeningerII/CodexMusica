@@ -196,8 +196,8 @@ function uiApplyRecipeMode() {
 // The same nodes move; nothing is copied, so every handler stays attached.
 //   phone      Add genre / Add instrument ride the sheet's top toolbar, where
 //              a thumb reaches them without scrolling the recipe.
-//   dock       the session name and counts sit in the header row, and
-//              Suggestions + Recording environment form the middle column.
+//   dock       the session name, counts and AI recipe sit in the header row,
+//              and Suggestions + Recording environment form the middle column.
 //   otherwise  the name under the header; Add, Suggestions and Recording
 //              environment follow the genres in the scrolling column.
 function uiPlaceRecipeParts() {
@@ -221,6 +221,15 @@ function uiPlaceRecipeParts() {
   } else if (header.parentElement === session) {
     panel.insertBefore(header, $ui('recipe-empty'));
     panel.insertBefore(meta, $ui('recipe-empty'));
+  }
+  // The dock is a compact strip (the map stays prominent): AI recipe rides
+  // its header row; the full "Describe a change" field is the sidebar's.
+  const ai = $ui('recipe-ai');
+  if (dock) {
+    if (ai.parentElement !== session.parentElement)
+      session.parentElement.insertBefore(ai, document.querySelector('.recipe-open-editor'));
+  } else if (ai.previousElementSibling !== $ui('sidebar-recipe-preview')) {
+    $ui('sidebar-recipe-preview').after(ai);
   }
   const context = $ui('recipe-context');
   if (dock) {
@@ -943,6 +952,7 @@ function uiStart() {
     if (e.key === 'codex-workbench-v1' && e.newValue !== UI.lastSaved) {
       UI.storageConflict = true;
       uiShowStorageConflict();
+      uiRenderAutosave('conflict');
     }
   });
   // Never hide AI on an offline or unavailable status response.
@@ -963,12 +973,21 @@ function uiStart() {
   renderAll();
   // codex.html?trad=<id> (the standalone atlas links here) opens that
   // tradition's Genre detail. It adds nothing by itself: Add stays explicit,
-  // so a reload or a shared link can never duplicate an ensemble.
-  const deep = new URLSearchParams(location.search).get('trad');
-  if (deep && Tradition(deep)) {
+  // so a reload or a shared link can never duplicate an ensemble. An explicit
+  // route hash wins, and the link is consumed: left in the URL it would
+  // reopen that genre on every reload, whatever page the user had moved to.
+  const query = new URLSearchParams(location.search);
+  const deep = query.get('trad');
+  const route = location.hash.slice(1);
+  if (deep !== null && /^https?:$/.test(location.protocol)) {
+    query.delete('trad');
+    const rest = query.toString();
+    history.replaceState(null, '', location.pathname + (rest ? '?' + rest : '') + location.hash);
+  }
+  if (deep && !UI_PAGES[route] && Tradition(deep)) {
     UI.genre = deep;
     uiNavigate('genre');
-  } else uiNavigate(location.hash.slice(1) || 'genre');
+  } else uiNavigate(route || 'genre');
 }
 
 // ── Layers ── Escape closes the topmost open layer only and returns focus to
@@ -1134,7 +1153,7 @@ function uiLayoutControls() {
     property: '--dock-height',
     title: 'Resize Your recipe',
     side: 'top',
-    limits: () => [300, Math.max(300, Math.round(workspace.clientHeight * 0.7))],
+    limits: () => [220, Math.max(220, Math.round(workspace.clientHeight * 0.7))],
     enabled: () => innerWidth >= 900 && uiRecipeMode() === 'dock' && !uiRecipeCollapsed.dock?.get(),
   });
   for (const [route] of UI_ROUTES) UI_PAGES[route]?.layout?.();

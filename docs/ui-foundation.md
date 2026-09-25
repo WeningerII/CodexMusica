@@ -58,7 +58,8 @@ The shell refuses an unknown route, a second registration, an unknown `recipe`
 presentation (`UI_RECIPE_MODES`: `sidebar`, `sidebar-right`, `dock`), and an
 action name the shell or another page already owns. Route order, labels, icons and colours
 are the shell's (`UI_ROUTES`); deep links are `codex.html#genre|instrument|map|lyrics`
-and `codex.html?trad=<id>` (opens that tradition's Genre detail; adds nothing).
+and `codex.html?trad=<id>` (opens that tradition's Genre detail once and leaves the
+URL; adds nothing; an explicit `#section` wins).
 
 ## Shell APIs pages may use
 
@@ -103,12 +104,13 @@ recipe" and is a different object (copying it never touches Your recipe).
   reference): resizable from its left edge (its width is its own remembered
   preference), collapsible to a rail at the right edge. The editor opens between
   the page and Your recipe; from 900 to 1250 px it overlays the page instead.
-- `recipe: 'dock'` — a strip under the page (Instrument's and the Map's
-  references): the header row carries the session name, counts, Autosaved and
-  Open full editor; below it the recipe rows | Recording environment and
-  Suggestions | Recipe preview, Copy recipe and the AI entry. Resizable from its
-  top edge (drag or Up/Down), collapsible to its header. The editor opens beside
-  the page.
+- `recipe: 'dock'` — a compact strip under the page (Instrument's and the Map's
+  references), 220 px by default so the page — the map — keeps the screen: the
+  header row carries the session name, counts, Autosaved, AI recipe and Open
+  full editor; below it the recipe rows | Recording environment and Suggestions
+  | Recipe preview (one line) and Copy recipe, each column scrolling on its own.
+  Resizable from its top edge (drag or Up/Down, 220 px to 70 % of the
+  workspace), collapsible to its header. The editor opens beside the page.
 - Below 900 px — the Recipe sheet (header button). Its toolbar carries AI
   recipe, Add genre, Add instrument and Close; the recipe bar (count, Undo,
   Redo, Copy recipe, expand) is pinned to its bottom. On the Map and Lyrics the

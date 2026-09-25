@@ -24,13 +24,17 @@
 //   F. A reload restores the session from autosave (Autosaved is shown only
 //      after a real write) and Undo/Redo walk that session's edits.
 //   G. When the browser refuses the write, the status says Autosave failed —
-//      never Autosaved.
+//      never Autosaved; when another tab takes the autosave over, it says Not
+//      autosaved.
 //   H. Escape closes the topmost layer only and returns focus to its opener;
-//      Back and Forward step between sections.
+//      Back and Forward step between sections; ?trad=<id> opens that genre
+//      once, adds nothing, and yields to an explicit #section.
 //   I. Collapse is remembered across a reload and cleared by Reset layout.
 //   J. Empty and no-results states say so and offer the recovery.
 //   K. On a phone, the Recipe sheet over the Map leaves the map on screen.
-//   L. Your recipe as a right-hand column (recipe: 'sidebar-right'): right of
+//   L. A toast's action (Undo, Retry) leaves with the toast: once it fades,
+//      nothing at its place takes a click for it.
+//   M. Your recipe as a right-hand column (recipe: 'sidebar-right'): right of
 //      the page, resizable from its left edge, the editor opening beside it,
 //      collapsing to a rail at the right edge; its row menus open, close on
 //      Escape back to their trigger and run the editor's commands; Recording
@@ -448,6 +452,36 @@ async function loadDelta(page) {
         'F. Redo did not restore the edit'
       );
 
+      // G. another tab taking the autosave over is reported, never as Autosaved.
+      stage = 'G. another tab';
+      {
+        const other = await ctx.newPage();
+        await other.goto(base + 'gate-other-tab');
+        await other.evaluate(() =>
+          localStorage.setItem(
+            'codex-workbench-v1',
+            JSON.stringify({ version: 1, name: 'Other tab', cards: [], lyrics: '' })
+          )
+        );
+        await page
+          .waitForFunction(() => document.getElementById('storage-conflict'), null, {
+            timeout: 5000,
+          })
+          .catch(() => {});
+        const taken = await page.evaluate(() => ({
+          text: document.getElementById('ui-autosave').textContent.trim(),
+          tone: document.getElementById('ui-autosave').dataset.tone,
+          banner: !!document.getElementById('storage-conflict'),
+        }));
+        check(taken.banner, 'G. another tab took the autosave over and this tab does not say so');
+        check(
+          taken.text === 'Not autosaved' && taken.tone === 'warning',
+          `G. after another tab took the autosave over the status reads "${taken.text}" (${taken.tone})`
+        );
+        await other.close();
+        if (taken.banner) await page.click('[data-ui="keep-session"]');
+      }
+
       // G. a refused write is reported as a failure, never as Autosaved.
       stage = 'G. a refused write';
       await page.evaluate(() => {
@@ -485,11 +519,11 @@ async function loadDelta(page) {
       await ctx.close();
     }
 
-    // ── L. Your recipe: the right-hand column, menus, environment, output ─
+    // ── M. Your recipe: the right-hand column, menus, environment, output ─
     // Genre's reference puts Your recipe on the right. The presentation is
     // switched here the way a page registers it (recipe: 'sidebar-right'), so
     // the shell's side of that contract is gated whichever page adopts it.
-    stage = 'L. Your recipe on the right';
+    stage = 'M. Your recipe on the right';
     {
       const { ctx, page } = await newPage({ colorScheme: 'light' });
       await page.goto(url + '#genre');
@@ -506,14 +540,14 @@ async function loadDelta(page) {
       });
       check(
         side.panelLeft >= side.pageRight - 1 && side.panelRight >= 1279,
-        `L. sidebar-right does not put Your recipe right of the page (${JSON.stringify(side)})`
+        `M. sidebar-right does not put Your recipe right of the page (${JSON.stringify(side)})`
       );
       const split = page.getByRole('separator', { name: 'Resize recipe sidebar' });
       const w0 = (await page.locator('#workspace-sidebar').boundingBox()).width;
       await split.press('ArrowLeft');
       await page.waitForTimeout(150);
       const w1 = (await page.locator('#workspace-sidebar').boundingBox()).width;
-      check(w1 > w0, `L. ArrowLeft on the right-hand splitter did not widen it (${w0} → ${w1})`);
+      check(w1 > w0, `M. ArrowLeft on the right-hand splitter did not widen it (${w0} → ${w1})`);
       await split.press('Home');
       // The editor opens between the page and Your recipe.
       await page.locator('#workspace-sidebar .sb-card').first().click();
@@ -523,7 +557,7 @@ async function loadDelta(page) {
         const p = document.getElementById('workspace-sidebar').getBoundingClientRect();
         return d.width > 200 && d.right <= p.left + 1;
       });
-      check(between, 'L. with Your recipe on the right, the editor does not open beside it');
+      check(between, 'M. with Your recipe on the right, the editor does not open beside it');
       await page.keyboard.press('Escape');
       // A row's … menu: opens on its items, Escape closes it back to its
       // trigger, and an item runs the editor's own command.
@@ -535,7 +569,7 @@ async function loadDelta(page) {
       }));
       check(
         opened.open && opened.focus === 'menuitem',
-        'L. a row menu did not open onto its items'
+        'M. a row menu did not open onto its items'
       );
       await page.keyboard.press('Escape');
       const closed = await page.evaluate(() => ({
@@ -545,13 +579,13 @@ async function loadDelta(page) {
       }));
       check(
         !closed.open && closed.focus,
-        'L. Escape did not close the row menu and return focus to its trigger'
+        'M. Escape did not close the row menu and return focus to its trigger'
       );
       await trigger.click();
       await page.click('.sb-menu:not([hidden]) [data-card-action="pin"]');
       check(
         (await page.evaluate(() => app.cards.filter((c) => c.pinned).length)) === 1,
-        'L. Pin in the row menu did not pin the instrument'
+        'M. Pin in the row menu did not pin the instrument'
       );
       // Recording environment names the card the recipe renders it from, and
       // Room opens the editor there, on Environment, with the room picker open.
@@ -568,7 +602,7 @@ async function loadDelta(page) {
       });
       check(
         env.source.includes(env.inst) && env.source.includes(env.trad) && env.room === env.roomName,
-        `L. Recording environment does not name its real source (${JSON.stringify(env)})`
+        `M. Recording environment does not name its real source (${JSON.stringify(env)})`
       );
       await page.click('[data-ui="recipe-env"][data-id="room"]');
       await page.waitForTimeout(300);
@@ -580,7 +614,7 @@ async function loadDelta(page) {
       }));
       check(
         opensEnv.tab === 'env' && opensEnv.card === opensEnv.source && opensEnv.picker === 'room',
-        `L. Room did not open the editor on the environment's card (${JSON.stringify(opensEnv)})`
+        `M. Room did not open the editor on the environment's card (${JSON.stringify(opensEnv)})`
       );
       await page.keyboard.press('Escape');
       // The format selector drives the preview (and so Copy recipe).
@@ -590,7 +624,7 @@ async function loadDelta(page) {
           document.querySelector('#sidebar-recipe-preview .rp-text')?.textContent ===
           compileRecipeStack(app.cards, 'tags', { ceiling: RECIPE_CHAR_CEILING })
       );
-      check(tags, 'L. choosing Tags did not show the Tags recipe in the preview');
+      check(tags, 'M. choosing Tags did not show the Tags recipe in the preview');
       await page.selectOption('#sb-recipe-format', 'rich');
       // Collapse leaves a rail at the right edge.
       await page.click('[data-ui="recipe-collapse"]');
@@ -599,7 +633,7 @@ async function loadDelta(page) {
       );
       check(
         rail.width <= 64 && rail.right >= 1279,
-        `L. collapsing the right-hand Your recipe left ${Math.round(rail.width)}px at x=${Math.round(rail.left)}`
+        `M. collapsing the right-hand Your recipe left ${Math.round(rail.width)}px at x=${Math.round(rail.left)}`
       );
       await ctx.close();
     }
@@ -620,6 +654,86 @@ async function loadDelta(page) {
         (await page.evaluate(() => document.documentElement.dataset.theme)) === 'light',
         'B. System did not follow the operating system switching to light'
       );
+      await ctx.close();
+    }
+
+    // ── H. ?trad=<id> opens a genre once and yields to a #section ─────────
+    stage = 'H. ?trad= deep link';
+    {
+      const { ctx, page } = await newPage();
+      await page.goto(url + '?trad=delta_blues');
+      await ready(page);
+      const deep = await page.evaluate(() => ({
+        view: UI.view,
+        genre: UI.genre,
+        cards: app.cards.length,
+        search: location.search,
+      }));
+      check(
+        deep.view === 'genre' && deep.genre === 'delta_blues',
+        `H. ?trad=delta_blues opened ${deep.view}/${deep.genre}, not the Delta blues genre`
+      );
+      check(deep.cards === 0, `H. ?trad=delta_blues added ${deep.cards} cards by itself`);
+      check(deep.search === '', `H. ?trad= stays in the URL (${deep.search}) to reopen on reload`);
+      // A fresh load, not a same-document hash change.
+      await page.goto('about:blank');
+      await page.goto(url + '?trad=delta_blues#instrument');
+      await ready(page);
+      check(
+        (await page.evaluate(() => UI.view)) === 'instrument',
+        'H. ?trad= overrode an explicit #instrument'
+      );
+      await ctx.close();
+    }
+
+    // ── L. a toast's action leaves with the toast ────────────────────────
+    stage = 'L. a toast action';
+    {
+      const { ctx, page } = await newPage({ colorScheme: 'light' });
+      await page.goto(url + '#genre');
+      await ready(page);
+      const actionAt = () =>
+        page.evaluate(() => {
+          const b = document.querySelector('#toast .toast-action');
+          if (!b) return null;
+          const r = b.getBoundingClientRect();
+          return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+        });
+      const takesClick = (p) =>
+        page.evaluate(({ x, y }) => !!document.elementFromPoint(x, y)?.closest('.toast-action'), p);
+      // Faded on its own.
+      await loadDelta(page);
+      const undoAt = await actionAt();
+      check(!!undoAt, 'L. adding a genre shows no Undo on its toast');
+      if (undoAt) {
+        check(await takesClick(undoAt), 'L. the Undo of a showing toast does not take a click');
+        await page.waitForFunction(
+          () => !document.getElementById('toast').classList.contains('show'),
+          null,
+          { timeout: 15000 }
+        );
+        await page.waitForTimeout(400);
+        check(
+          !(await takesClick(undoAt)),
+          'L. the Undo of a faded toast still takes a click at its place'
+        );
+      }
+      // Dismissed by its own click.
+      const cards = await page.evaluate(() => app.cards.length);
+      await page.getByLabel('Search genres').fill('Dub');
+      await page.click('[data-ui="genre-add"][data-id="dub"]');
+      await page.waitForFunction((n) => app.cards.length > n, cards, { timeout: 20000 });
+      const againAt = await actionAt();
+      check(!!againAt, 'L. a second addition shows no Undo on its toast');
+      if (againAt) {
+        await page.click('#toast .toast-action');
+        check(
+          (await page.evaluate(() => app.cards.length)) === cards,
+          'L. the toast Undo did not remove the addition'
+        );
+        await page.waitForTimeout(400);
+        check(!(await takesClick(againAt)), 'L. a used Undo still takes a click at its place');
+      }
       await ctx.close();
     }
 
@@ -676,7 +790,8 @@ async function loadDelta(page) {
       'persisted across reload and routes, System live, atlas follows, neutral dark surfaces; ' +
       'one recipe panel and editor on Genre, Instrument and Map, Map add reports what arrived, ' +
       'reload restores, Undo/Redo, truthful autosave, layered Escape with focus return, ' +
-      'Back/Forward, remembered collapse + Reset layout, empty and no-results recovery, phone Map sheet, ' +
+      'Back/Forward, ?trad= once and below #section, remembered collapse + Reset layout, another tab ' +
+      'reported, empty and no-results recovery, phone Map sheet, toast action leaves with the toast, ' +
       'Your recipe on the right with its menus, truthful environment source and output format.'
   );
   process.exit(0);

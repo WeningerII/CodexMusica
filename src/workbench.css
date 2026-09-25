@@ -2347,12 +2347,13 @@ body.workbench {
     grid-column: 1 / -1;
     display: grid !important;
     grid-template-columns: minmax(300px, 1.2fr) minmax(260px, 1fr) minmax(300px, 1fr);
-    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto minmax(0, 1fr);
     grid-template-areas:
       'head head head'
-      'tree context preview'
-      'tree context ai';
-    height: var(--dock-height, 340px) !important;
+      'tree context preview';
+    /* Compact by default so the page (the map) keeps the screen; the top
+       edge resizes it (220px up to 70% of the workspace). */
+    height: var(--dock-height, 220px) !important;
     border-right: 0;
     border-top: 1px solid var(--cm-border);
   }
@@ -2362,8 +2363,8 @@ body.workbench {
   .workbench[data-recipe='dock'] .recipe-panel-head {
     grid-area: head;
     gap: 12px;
-    min-height: 52px;
-    padding: 6px 8px 6px 20px;
+    min-height: 44px;
+    padding: 4px 8px 4px 20px;
     border-bottom: 1px solid var(--cm-border-subtle);
   }
   .workbench[data-recipe='dock'] .recipe-panel-title {
@@ -2400,18 +2401,29 @@ body.workbench {
   }
   .workbench[data-recipe='dock'] #sidebar-scroll {
     grid-area: tree;
-    gap: 8px;
-    padding: 8px 12px 12px !important;
+    gap: 6px;
+    padding: 6px 12px 8px !important;
+  }
+  .workbench[data-recipe='dock'] .sb-tradition-header {
+    min-height: 40px;
+  }
+  .workbench[data-recipe='dock'] .sb-card-row > .sb-card {
+    min-height: 44px;
+    padding: 3px 4px !important;
+  }
+  .workbench[data-recipe='dock'] .sb-card-thumb {
+    width: 32px !important;
+    height: 32px !important;
   }
   .workbench[data-recipe='dock'] .sb-tradition-group {
     border: 0;
     padding: 0;
   }
   .workbench[data-recipe='dock'] #sidebar-scroll .sb-tradition-header {
-    top: -8px;
+    top: -6px;
   }
   .workbench[data-recipe='dock'] #sidebar-scroll > .recipe-add-row {
-    bottom: -12px;
+    bottom: -8px;
   }
   .workbench[data-recipe='dock'] .recipe-add-row {
     flex-direction: row;
@@ -2422,33 +2434,69 @@ body.workbench {
     grid-area: context;
     min-height: 0;
     overflow: auto;
-    padding: 10px 16px 12px;
+    gap: 10px;
+    padding: 8px 16px 10px;
     border-left: 1px solid var(--cm-border-subtle);
   }
   .workbench[data-recipe='dock'] .recipe-context .recipe-env {
     order: -1;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-head h3,
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-label {
+    font-size: var(--cm-text-md) !important;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-head .cm-btn-icon {
+    min-width: 32px;
+    min-height: 32px;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-rows {
+    margin-top: 4px;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-row {
+    min-height: 34px;
+    padding: 4px 10px 4px 12px;
+  }
+  .workbench[data-recipe='dock'] .recipe-env-source {
+    margin-top: 4px;
   }
   .workbench[data-recipe='dock'] #sidebar-recipe-preview {
     grid-area: preview;
     align-content: start;
     min-height: 0;
     overflow: auto;
-    padding: 10px 16px 6px !important;
+    gap: 6px;
+    padding: 8px 16px !important;
     border-top: 0 !important;
     border-left: 1px solid var(--cm-border-subtle);
   }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-format {
+    min-height: 32px;
+  }
   .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-text {
-    max-height: calc(1.5em * 2 + 20px);
+    max-height: calc(1.5em + 18px);
+    padding: 8px 10px !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
-  .workbench[data-recipe='dock'] .recipe-ai {
-    grid-area: ai;
-    flex-direction: row;
-    align-items: center;
-    padding: 4px 16px 10px;
-    border-left: 1px solid var(--cm-border-subtle);
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview.is-expanded .rp-text {
+    max-height: 40vh;
+    white-space: normal;
   }
-  .workbench[data-recipe='dock'] .recipe-ai-field .cm-input {
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-open {
+    min-height: 24px;
+  }
+  .workbench[data-recipe='dock'] #sidebar-recipe-preview .rp-copy {
     min-height: 40px;
+  }
+  /* AI recipe sits in the dock's header row; its field is the sidebar's. */
+  .workbench[data-recipe='dock'] .recipe-panel-head > .recipe-ai {
+    padding: 0;
+    background: none;
+  }
+  .workbench[data-recipe='dock'] .recipe-panel-head > .recipe-ai .recipe-ai-field {
+    display: none;
   }
 }
 /* 900–1250px: the editor overlays the page (see above); on the right-hand
@@ -2586,9 +2634,17 @@ body.workbench {
 #toast {
   max-width: min(560px, calc(100vw - 32px));
 }
+#toast.toast-success {
+  background: var(--cm-toast-success);
+}
 /* Only the action is a target: the toast never blocks the rows under it. */
 .toast-action {
   pointer-events: auto;
+}
+/* ...and only while the toast is up: a faded toast takes no click. */
+.toast:not(.show) .toast-action {
+  visibility: hidden;
+  pointer-events: none;
 }
 .toast-action {
   flex: none;
@@ -2597,13 +2653,13 @@ body.workbench {
   padding: 6px 10px;
   border: 0;
   border-radius: var(--cm-radius-sm);
-  background: color-mix(in srgb, currentColor 18%, transparent);
-  color: inherit;
+  background: var(--cm-toast-action-bg);
+  color: var(--cm-toast-action-text);
   font: 600 var(--cm-text-sm) var(--cm-font);
   cursor: pointer;
 }
 .toast-action:hover {
-  background: color-mix(in srgb, currentColor 28%, transparent);
+  background: var(--cm-toast-action-bg-hover);
 }
 
 /* ── Foundation: the shared editor sizes to its own pane ──
