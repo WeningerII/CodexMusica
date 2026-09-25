@@ -33,12 +33,17 @@ var UITheme = (function () {
   }
   function apply() {
     var theme = resolve(preference);
+    // A headless host (the tandem gate's script sandbox) has no real root;
+    // the theme is then simply not drawn, and nothing after it may fail.
     var root = document.documentElement;
-    root.setAttribute('data-theme', theme);
-    root.setAttribute('data-theme-preference', preference);
-    root.style.colorScheme = theme;
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0b0b' : '#ffffff');
+    if (root && root.setAttribute) {
+      root.setAttribute('data-theme', theme);
+      root.setAttribute('data-theme-preference', preference);
+      if (root.style) root.style.colorScheme = theme;
+    }
+    var meta = document.querySelector && document.querySelector('meta[name="theme-color"]');
+    if (meta && meta.setAttribute)
+      meta.setAttribute('content', theme === 'dark' ? '#0b0b0b' : '#ffffff');
     for (var i = 0; i < listeners.length; i++) {
       try {
         listeners[i](theme, preference);
