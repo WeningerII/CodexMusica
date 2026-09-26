@@ -25,11 +25,12 @@
 // time — see scripts/_glyph_skin.js for the convention and why it lives in the
 // build rather than in anybody's hands.
 //
-// NAV_GLYPH_SVGS is also the shared store: the tradition and instrument emoji
-// tables fall back to it for any codepoint whose artwork is byte-identical here
-// (scripts/_glyph_stores.js). So this build keeps every codepoint those tables
-// rely on even when no room or preface uses it any more — reassigning a preface
-// glyph must never blank the maracas.
+// NAV_GLYPH_SVGS is the LAZY store: the lazy shell leaves it out of codex.html
+// and fetches it from api/nav_glyphs.json (written by build_static_api.js) the
+// first time a room or preface list draws. A codepoint whose artwork is
+// byte-identical in an eager store (TRADITION_GLYPH_SVGS, EMOJI_SVGS) is left
+// out here and drawn from there, so each picture is stored once and a picture
+// first paint needs is never behind the fetch (scripts/_glyph_stores.js).
 //
 // To regenerate:
 //   node scripts/fetch_emoji.js --source=npm && node scripts/build_nav_glyphs.js
@@ -37,7 +38,7 @@
 const fs = require('fs');
 const path = require('path');
 const { greenifySkin } = require('./_glyph_skin.js');
-const { readGlyphStores, reliedOnNav, unresolvedGlyphs } = require('./_glyph_stores.js');
+const { EAGER_STORES, readGlyphStores, eagerArt, unresolvedGlyphs } = require('./_glyph_stores.js');
 
 const MAP_FILE = path.join(__dirname, '_nav_glyph_map.json');
 const EMOJI_DIR = path.join(__dirname, '..', 'references', '_assets', 'emoji');
@@ -141,22 +142,28 @@ function checkAxisCollisions(map) {
   }
 }
 
-// The artwork store and the per-axis tables for one assignment map. `relied` is
-// codepoint → ['TABLE:key', …] from reliedOnNav(): every codepoint the tradition
-// or emoji tables draw only from this store. One no room or preface uses is
-// kept anyway, so dropping it is never a side effect of reassigning a row.
-function generate(map, relied) {
+// The artwork store and the per-axis tables for one assignment map. `stores`
+// supplies the eager stores: a codepoint whose artwork is byte-identical there is
+// drawn from there and left out of this store. One whose artwork differs is the
+// same picture stored twice in two renditions — a failure, not a choice this
+// build makes silently.
+function generate(map, stores) {
   const svgs = {}; // codepoint → inner markup
   const charToCp = {};
   const meta = {};
   const emitted = {};
   const missing = [];
+  const eager = new Set();
+  const twice = [];
   let greened = 0;
   const addArt = (cp) => {
     const raw = extractInner(fs.readFileSync(path.join(EMOJI_DIR, cp + '.svg'), 'utf8'));
     const { svg, changed } = greenifySkin(raw, cp);
     if (changed) greened++;
-    svgs[cp] = svg;
+    const have = eagerArt(stores, cp);
+    if (have === svg) eager.add(cp);
+    else if (have) twice.push(cp);
+    else svgs[cp] = svg;
   };
 
   for (const group of GROUPS) {
@@ -168,52 +175,14 @@ function generate(map, relied) {
         missing.push(`${group.key}/${id} → ${cp}`);
         continue;
       }
-      if (!svgs[cp]) addArt(cp);
+      if (!svgs[cp] && !eager.has(cp) && !twice.includes(cp)) addArt(cp);
       charToCp[char] = cp;
       if (group.axis1 && label) meta[char] = { label };
       out[id] = char;
     }
     emitted[group.constName] = out;
   }
-
-  const kept = [];
-  for (const cp of Array.from(relied.keys()).sort()) {
-    if (svgs[cp]) continue;
-    if (!fs.existsSync(path.join(EMOJI_DIR, cp + '.svg'))) {
-      missing.push(`${relied.get(cp)[0]} → ${cp} (relied on by another store)`);
-      continue;
-    }
-    addArt(cp);
-    kept.push(cp);
-  }
-  return { svgs, charToCp, meta, emitted, missing, greened, kept };
-}
-
-// Control for the keep rule: plant the edit that used to blank a glyph. Take a
-// codepoint another store draws only from here, unassign every room and preface
-// row that uses it, and require that it is still generated — and, so the plant is
-// known to be real, that it is not generated when nothing relies on it.
-function keepControl(map, relied) {
-  const byUse = Array.from(relied.keys()).filter((cp) =>
-    GROUPS.some((g) => Object.values(map[g.key] || {}).some((e) => e.cp === cp))
-  );
-  if (!byUse.length) return;
-  const cp = byUse.sort((a, b) => relied.get(b).length - relied.get(a).length)[0];
-  const planted = {};
-  for (const [k, v] of Object.entries(map))
-    planted[k] =
-      v && typeof v === 'object' && GROUPS.some((g) => g.key === k)
-        ? Object.fromEntries(Object.entries(v).filter(([, e]) => e.cp !== cp))
-        : v;
-  const kept = generate(planted, relied).svgs[cp];
-  const dropped = !generate(planted, new Map()).svgs[cp];
-  if (!kept || !dropped) {
-    console.error(
-      `build_nav_glyphs: FAIL — keep control: unassigning ${cp} (${relied.get(cp).length} dependent(s)) ` +
-        (!dropped ? 'did not remove it, so the control proves nothing' : 'dropped its artwork')
-    );
-    process.exit(1);
-  }
+  return { svgs, charToCp, meta, emitted, missing, greened, eager, twice };
 }
 
 function main() {
@@ -223,8 +192,7 @@ function main() {
   checkAxisCollisions(map);
 
   const stores = readGlyphStores();
-  const relied = reliedOnNav(stores);
-  const { svgs, charToCp, meta, emitted, missing, greened, kept } = generate(map, relied);
+  const { svgs, charToCp, meta, emitted, missing, greened, eager, twice } = generate(map, stores);
 
   if (missing.length) {
     console.error(`build_nav_glyphs: ${missing.length} assignments have no vendored SVG:`);
@@ -233,20 +201,35 @@ function main() {
     process.exit(1);
   }
 
+  if (twice.length) {
+    console.error(
+      `build_nav_glyphs: FAIL — ${twice.length} codepoint(s) already have different artwork in ${EAGER_STORES.join(' or ')}:`
+    );
+    twice.slice(0, 20).forEach((cp) => console.error(`  ✗ ${cp}`));
+    console.error("  one picture per codepoint: give the eager store this build's rendition");
+    process.exit(1);
+  }
+
   // Every codepoint the tradition, emoji and nav tables name must still draw
-  // with the store this run produces.
+  // with the store this run produces, the first two without the lazy fetch.
   const blank = unresolvedGlyphs({ ...stores, NAV_GLYPH_SVGS: svgs, NAV_GLYPH_CP: charToCp });
   if (blank.length) {
     console.error(
       `build_nav_glyphs: FAIL — ${blank.length} glyph reference(s) would draw nothing:`
     );
-    blank.slice(0, 20).forEach((r) => console.error(`  ✗ ${r.table}:${r.key} → ${r.cp}`));
+    blank
+      .slice(0, 20)
+      .forEach((r) =>
+        console.error(
+          `  ✗ ${r.table}:${r.key} → ${r.cp}${r.lazyOnly ? ' (only in the lazy nav set)' : ''}`
+        )
+      );
     process.exit(1);
   }
 
   const j = (o) => JSON.stringify(o);
   const counts = GROUPS.map((g) => `${g.constName}: ${Object.keys(emitted[g.constName]).length}`);
-  const distinct = Object.keys(svgs).length;
+  const distinct = Object.keys(svgs).length + eager.size;
   const roomChars = new Set(Object.values(emitted.ROOM_GLYPH));
   const prefChars = new Set(Object.values(emitted.PREFACE_GLYPH));
 
@@ -257,7 +240,12 @@ function main() {
 // ${counts.join(' · ')}
 // Distinct glyphs: ${distinct} (${roomChars.size} across the rooms, ${prefChars.size} across the prefaces)
 // Human-skin glyphs recoloured to the codex green at build time: ${greened}
-${kept.length ? `// Kept for the tradition and emoji tables, which no room or preface uses: ${kept.length}\n` : ''}//
+// Stored here: ${distinct - eager.size}; drawn from the eager stores (TRADITION_GLYPH_SVGS,
+// EMOJI_SVGS), where they are byte-identical: ${eager.size}
+//
+// LAZY: the lazy shell leaves NAV_GLYPH_SVGS out of codex.html and fetches it
+// from api/nav_glyphs.json on first use; the tables below stay in the page.
+//
 // Rendered as an axis-1 + axis-2 pair, the same system the tradition tree uses:
 // the cluster/category glyph tells you which neighbourhood you are in, the
 // per-row glyph tells you which row. To regenerate, see build_nav_glyphs.js.
@@ -272,7 +260,6 @@ ${GROUPS.map((g) => `const ${g.constName} = ${j(emitted[g.constName])};`).join('
 `;
 
   if (check) {
-    keepControl(map, relied);
     const current = fs.existsSync(OUT_FILE) ? fs.readFileSync(OUT_FILE, 'utf8') : '';
     if (current !== body) {
       console.error('build_nav_glyphs: FAIL — references/09_nav_glyphs.js is stale');
@@ -293,10 +280,7 @@ ${GROUPS.map((g) => `const ${g.constName} = ${j(emitted[g.constName])};`).join('
     `  distinct glyphs: ${distinct}  (rooms ${roomChars.size}, prefaces ${prefChars.size})`
   );
   console.log(`  skin recoloured: ${greened}`);
-  console.log(
-    `  shared with the tradition and emoji tables: ${relied.size} codepoint(s) they draw only from here` +
-      (kept.length ? `, ${kept.length} kept although no room or preface uses them` : '')
-  );
+  console.log(`  stored here ${distinct - eager.size}, drawn from the eager stores ${eager.size}`);
 }
 
 main();

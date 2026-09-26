@@ -241,6 +241,17 @@ async function main() {
     items: browseItems,
   });
 
+  // ---- nav_glyphs.json: room and preface glyph artwork, fetched on demand ----
+  // The lazy shell leaves NAV_GLYPH_SVGS (references/09_nav_glyphs.js) out of
+  // codex.html and fetches this the first time a room or preface list draws
+  // (navGlyphSvg in src/app.js). Only the artwork: the lookup tables stay in the
+  // page, and every picture first paint draws is in an eager store.
+  writeJson(path.join(OUT, 'nav_glyphs.json'), {
+    name: 'Codex Musica — room and preface glyph artwork (Twemoji, CC-BY 4.0)',
+    count: Object.keys(C.NAV_GLYPH_SVGS).length,
+    svgs: C.NAV_GLYPH_SVGS,
+  });
+
   // ---- all.json: every recipe in ONE fetch (the universal "paste one link" payload) ----
   writeJson(path.join(OUT, 'all.json'), {
     name: 'Codex Musica — all recipes',

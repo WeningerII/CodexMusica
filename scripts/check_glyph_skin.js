@@ -18,82 +18,74 @@
 // and stay untouched, which is the point: the convention is about skin, not
 // about yellow.
 //
-// It also checks that every glyph a table names still draws. The stores share
-// artwork (scripts/_glyph_stores.js): a tradition or instrument codepoint that is
-// byte-identical in NAV_GLYPH_SVGS is stored only there, so losing it there
-// would blank that glyph with every other check still green.
+// It also checks the eager/lazy split (scripts/_glyph_stores.js): the page draws
+// tradition glyphs and instrument emoji on first paint from the two eager stores,
+// and fetches NAV_GLYPH_SVGS only when a room or preface list draws. A codepoint
+// a first-paint table names that has artwork only in the lazy store would draw
+// blank until that fetch — or forever, on a page that never opens those lists —
+// with every other check still green. So would a nav codepoint with no artwork
+// anywhere. And each picture is stored once.
 
-const fs = require('fs');
-const path = require('path');
 const { inFaceRange, NON_HUMAN_SKIN_YELLOW } = require('./_glyph_skin.js');
 const {
+  EAGER_STORES,
+  LAZY_STORE,
   readGlyphStores,
   glyphReferences,
-  reliedOnNav,
   unresolvedGlyphs,
+  storedTwice,
 } = require('./_glyph_stores.js');
 
-const APP_FILE = path.join(__dirname, '..', 'src', 'app.js');
-const NAV_FILE = path.join(__dirname, '..', 'references', '09_nav_glyphs.js');
+const STORE_FILES = {
+  TRADITION_GLYPH_SVGS: 'src/app.js',
+  EMOJI_SVGS: 'references/08_asset_manifest.js',
+  NAV_GLYPH_SVGS: 'references/09_nav_glyphs.js',
+};
 
-function storeFrom(file, constName) {
-  if (!fs.existsSync(file)) return null;
-  const src = fs.readFileSync(file, 'utf8');
-  const m = src.match(new RegExp(`const ${constName} = (\\{[\\s\\S]*?\\});\\n`));
-  if (!m) return null;
-  try {
-    return JSON.parse(m[1]);
-  } catch {
-    return null;
-  }
+function describe(r) {
+  if (r.eager && r.lazyOnly)
+    return `${r.table}:${r.key} → ${r.cp} — drawn on first paint, but its artwork is only in the lazy ${LAZY_STORE}`;
+  return `${r.table}:${r.key} → ${r.cp} — no artwork in ${r.eager ? EAGER_STORES.join(' or ') : 'any store'}`;
 }
 
-// Every codepoint TRADITION_GLYPH_CP, EMOJI_REGISTRY, FAMILY_FALLBACK_EMOJI,
-// FAMILY_HEADER_EMOJI and NAV_GLYPH_CP name resolves in its own store or in
-// NAV_GLYPH_SVGS. Returns the failures and the control's result.
-function checkResolution() {
-  const stores = readGlyphStores();
+// Returns the failures and the control's result.
+function checkResolution(stores) {
   const refs = glyphReferences(stores);
-  const relied = reliedOnNav(stores);
-  // Control: plant the failure this check exists for — the one shared copy
-  // gone — and require the check to name every reference to it. Planted on
-  // the codepoint that most references reach only through NAV_GLYPH_SVGS.
-  const plantCp = relied.size
-    ? Array.from(relied.keys()).sort((a, b) => relied.get(b).length - relied.get(a).length)[0]
-    : refs[0].cp;
-  const planted = { ...stores };
-  for (const store of ['TRADITION_GLYPH_SVGS', 'EMOJI_SVGS', 'NAV_GLYPH_SVGS']) {
-    planted[store] = { ...stores[store] };
-    delete planted[store][plantCp];
+  // Control: plant the failure this check exists for — a first-paint codepoint
+  // whose artwork has moved from the eager stores into the lazy one — and
+  // require the check to name every first-paint reference to it and none of the
+  // nav references, which still resolve. Planted on the codepoint the most
+  // first-paint references name.
+  const count = new Map();
+  for (const r of refs) if (r.eager) count.set(r.cp, (count.get(r.cp) || 0) + 1);
+  const plantCp = [...count.keys()].sort(
+    (a, b) => count.get(b) - count.get(a) || (a < b ? -1 : 1)
+  )[0];
+  const planted = { ...stores, [LAZY_STORE]: { ...stores[LAZY_STORE] } };
+  for (const st of EAGER_STORES) {
+    planted[st] = { ...stores[st] };
+    if (planted[st][plantCp]) planted[LAZY_STORE][plantCp] = planted[st][plantCp];
+    delete planted[st][plantCp];
   }
-  const expected = refs.filter((r) => r.cp === plantCp).length;
-  const caught = unresolvedGlyphs(planted).filter((r) => r.cp === plantCp).length;
-  const failures = unresolvedGlyphs(stores).map(
-    (r) => `${r.table}:${r.key} → ${r.cp} — no artwork in ${r.own} or NAV_GLYPH_SVGS`
-  );
-  if (!expected || caught !== expected)
+  const expected = count.get(plantCp) || 0;
+  const hits = unresolvedGlyphs(planted).filter((r) => r.cp === plantCp);
+  const caught = hits.filter((r) => r.eager && r.lazyOnly).length;
+  const failures = unresolvedGlyphs(stores).map(describe);
+  for (const [cp, sts] of storedTwice(stores))
+    failures.push(`${cp} — stored twice, in ${sts.join(' and ')}; keep one copy`);
+  if (!expected || caught !== expected || hits.length !== caught)
     failures.push(
-      `control: removing ${plantCp} should blank ${expected} reference(s), the check saw ${caught}`
+      `control: moving ${plantCp} into the lazy store should fail ${expected} first-paint reference(s) and nothing else; the check saw ${caught} of ${hits.length}`
     );
-  return { failures, refs: refs.length, shared: relied.size, plantCp, caught };
+  return { failures, refs: refs.length, plantCp, caught };
 }
 
 function main() {
-  const stores = [
-    {
-      name: 'TRADITION_GLYPH_SVGS (src/app.js)',
-      data: storeFrom(APP_FILE, 'TRADITION_GLYPH_SVGS'),
-    },
-    {
-      name: 'NAV_GLYPH_SVGS (references/09_nav_glyphs.js)',
-      data: storeFrom(NAV_FILE, 'NAV_GLYPH_SVGS'),
-    },
-  ].filter((s) => s.data);
-
-  if (!stores.length) {
-    console.error('check_glyph_skin: FAIL — found no glyph store to check');
-    process.exit(1);
-  }
+  const all = readGlyphStores();
+  const stores = [...EAGER_STORES, LAZY_STORE].map((st) => ({
+    name: `${st} (${STORE_FILES[st]})`,
+    data: all[st],
+  }));
 
   const failures = [];
   let checked = 0;
@@ -128,22 +120,22 @@ function main() {
     process.exit(1);
   }
 
-  const res = checkResolution();
+  const res = checkResolution(all);
   if (res.failures.length) {
     console.error(
-      `check_glyph_skin: FAIL — ${res.failures.length} glyph reference(s) draw nothing`
+      `check_glyph_skin: FAIL — ${res.failures.length} glyph problem(s) in the eager/lazy split`
     );
     res.failures.slice(0, 30).forEach((f) => console.error('  ✗', f));
     console.error(
-      '  a codepoint missing from its own store must be in NAV_GLYPH_SVGS; run node scripts/build_nav_glyphs.js'
+      '  first-paint artwork belongs in TRADITION_GLYPH_SVGS or EMOJI_SVGS; see scripts/_glyph_stores.js'
     );
     process.exit(1);
   }
 
   console.log(
     `check_glyph_skin: OK — ${checked} glyphs across ${stores.length} store(s) follow the skin convention; ` +
-      `${res.refs} glyph references resolve (${res.shared} codepoints only through NAV_GLYPH_SVGS; ` +
-      `control: removing ${res.plantCp} blanks ${res.caught})`
+      `${res.refs} glyph references resolve, first-paint ones eagerly, each picture stored once ` +
+      `(control: moving ${res.plantCp} to the lazy store fails ${res.caught})`
   );
 }
 

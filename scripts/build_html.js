@@ -135,6 +135,13 @@ if (flags.embedded && flags.lazy) {
 }
 const LAZY = !flags.embedded;
 const LAZY_OMIT = new Set(['05_traditions.js', '06_extras.js']);
+// Tables the lazy shell leaves out of a file it otherwise ships. NAV_GLYPH_SVGS
+// is the room and preface glyph artwork (~0.75 MB), drawn only in the editor's
+// Character and Environment tabs, the preface browser and the Instrument page's
+// character lists; the app fetches it from api/nav_glyphs.json on first use
+// (navGlyphSvg in src/app.js). Its lookup tables stay in the page, and so does
+// every picture first paint draws (scripts/_glyph_stores.js).
+const LAZY_DROP_TABLES = LAZY ? new Set(['NAV_GLYPH_SVGS']) : new Set();
 
 // ─────────────────────── templates are required source ───────────────────────
 // The HTML template and the app are first-class source files under src/. They
@@ -296,7 +303,8 @@ function stripForPage(file, source) {
   const names = [...source.matchAll(/^(?:const|let|var)\s+([A-Z_][A-Z0-9_]*)\s*=/gm)].map(
     (m) => m[1]
   );
-  if (!names.some((n) => PAGE_DROP_TABLES.has(n) || PAGE_DROP_FIELDS[n])) return source;
+  if (!names.some((n) => PAGE_DROP_TABLES.has(n) || LAZY_DROP_TABLES.has(n) || PAGE_DROP_FIELDS[n]))
+    return source;
   // Only those declarations survive the re-emit, so a file that is rewritten
   // may hold nothing else at top level. A function, an `if`, a statement that
   // patches a table after its declaration, a lower-case or destructured name,
@@ -328,7 +336,7 @@ function stripForPage(file, source) {
   vm.runInContext(source, ctx, { filename: file });
   const out = [`// ${file}, page copy: see "page-only data strip" in scripts/build_html.js`];
   for (const name of names) {
-    if (PAGE_DROP_TABLES.has(name)) continue;
+    if (PAGE_DROP_TABLES.has(name) || LAZY_DROP_TABLES.has(name)) continue;
     const value = vm.runInContext(name, ctx);
     for (const [pathSpec, fields] of PAGE_DROP_FIELDS[name] || [])
       for (const node of reach(tableElements(value), pathSpec))
@@ -657,7 +665,7 @@ if (flags.check) {
   // The page-only strip held: no dropped table is declared and no dropped field
   // survives anywhere under its table (searched in the table's own JSON, so a
   // nested copy counts too).
-  const leaked = [...PAGE_DROP_TABLES].filter(declared);
+  const leaked = [...PAGE_DROP_TABLES, ...LAZY_DROP_TABLES].filter(declared);
   for (const [name, specs] of Object.entries(PAGE_DROP_FIELDS)) {
     if (!declared(name)) continue;
     const json = probe(`JSON.stringify(${name})`);
@@ -671,7 +679,8 @@ if (flags.check) {
     process.exit(4);
   }
   const checks = [];
-  if (LAZY) checks.push(`mode:              lazy shell (traditions/extras via api/)`);
+  if (LAZY)
+    checks.push(`mode:              lazy shell (traditions/extras and nav glyph art via api/)`);
   const report = (label, name) => {
     const n = countOf(name);
     if (n >= 0) checks.push(`${(label + ':').padEnd(18)} ${n}`);
