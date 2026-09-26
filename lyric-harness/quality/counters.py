@@ -381,6 +381,20 @@ def _grab(pattern, text, what):
     """
     m = re.search(pattern, text, re.M)
     if not m:
+        # BLAME ONLY WHAT WAS CHECKED (2026-09-26, harness cleanup audit). In a
+        # checkout with `cmudict.dict` unstaged the runner REFUSES at exit 2
+        # with `LEXICAL_ASSET_MISSING`, the figure's line never prints, and
+        # this said "the line this counter parses has changed shape" -- a
+        # cause it had not looked for, pointing a reader at a parser with
+        # nothing wrong in it. The runner's own refusal is named when there is
+        # one; the parser is blamed only when the runner answered.
+        own = (re.search(r"LEXICAL_ASSET_[A-Z]+:[^\n]*", text)
+               or re.search(r"^\s*(REFUSED\b[^\n]*)$", text, re.M))
+        if own:
+            raise ValueError("could not read %s: the runner did not answer, "
+                             "it refused -- %s -- so this counter's parser "
+                             "was never reached; stage what the refusal names "
+                             "and re-run" % (what, own.group(0).strip()[:200]))
         raise ValueError("could not read %s out of the runner's output; the "
                          "line this counter parses has changed shape and the "
                          "counter must be repaired, not guessed" % what)
