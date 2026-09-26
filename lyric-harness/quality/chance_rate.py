@@ -282,9 +282,18 @@ def rate(m, key):
 # READ from the battery's own pin, never retyped: the constant here had
 # drifted to 4/967 while `battery.EXPECTED` moved on (N-relation repin,
 # 2026-09-22). A battery repin now moves this ratio with it.
-import battery as _battery  # noqa: E402
-CANON_VIOLATIONS = _battery.EXPECTED["violations"]
-CANON_JUDGED = _battery.EXPECTED["judged"]
+#
+# ~~import battery as _battery~~ -- AND READ WHERE THE IMAGE CAN READ IT
+# (2026-09-26). This module is imported by every `grade`
+# (`lyric_harness.door_chance_note`), and `battery.py` is not in the runtime
+# tree `quality/release_assets.py --assemble` builds, so the production
+# image died here with `ModuleNotFoundError: No module named 'battery'`
+# (production qualification run 36223006454, all four capacity shards).
+# The pin moved to `quality/battery_pin.py` and `battery.EXPECTED` IS that
+# dict, so this still reads the battery's own pin and nothing is retyped.
+from quality.battery_pin import EXPECTED as _BATTERY_PIN  # noqa: E402
+CANON_VIOLATIONS = _BATTERY_PIN["violations"]
+CANON_JUDGED = _BATTERY_PIN["judged"]
 CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 
 #: THE BAND, adopted over `GRID` (doctrine 57: a figure from a sampler is
