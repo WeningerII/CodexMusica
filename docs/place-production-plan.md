@@ -79,12 +79,24 @@ the audit's. Line numbers are for `2488a96c` and will drift.
 | VALIDATE-MISSING_PARENT | `scripts/validate.js` still passes a tradition whose `parent` is missing. | STILL_OPEN_TRUE | `scripts/validate.js:294` |
 | BUILD-SIGS-CHECK | `scripts/build_signatures.js --check` runs in no PR gate. | STILL_OPEN_TRUE | `scripts/build_signatures.js` (called from neither `package.json` nor `.github/workflows/`) |
 | CHECK-PROMISES-DOCS | The promise gate's doc list still omits `PRIVACY.md` and `SECURITY.md`. | STILL_OPEN_TRUE | `scripts/check_promises.js:23` |
-| CONTRAST | `--text-3` on `--surface-2` is 4.36:1, below AA, in three codex rules; there is no contrast gate. | STILL_OPEN_TRUE | `src/index.template.html:783`, `:1031`, `:1038` |
+| CONTRAST | `--text-3` on `--surface-2` is 4.36:1, below AA, in two codex rules; there is no contrast gate. The third, `.starter-trad-count`, was deleted with the legacy empty state on 2026-09-26. | STILL_OPEN_TRUE | `src/index.template.html` `.inline-filter-count`, `.env-cluster-count` |
 | MOBILE-845-899 | The mobile gate has no viewport from 845 to 899 px and does not cover `atlas.html`. | STILL_OPEN_TRUE | `scripts/check_mobile_layout.js:69-80` |
 | CSP/ESCAPING/SHELL-PARITY | No CSP; the atlas `esc()` escapes only `&`, `<` and `>`; `atlas.html` redeclares the design tokens with no parity gate. | STILL_OPEN_TRUE | `src/atlas.js:129-130`; `atlas.html:28-34` |
 | PH5-machine-surface | No place endpoint, `llms.txt` row or connector tool; `PRIVACY.md` and `mcp/PRIVACY.md` still diverge. | STILL_OPEN_TRUE | `api/index.json:9` |
 | PH3-exit | Deep links are half done (DEEPLINK-codex, DEEPLINK-atlas) and have no gate. | STILL_OPEN_TRUE | `src/atlas.js:236` |
 | PH6-exit | The sourcing campaign has not started: no pin is human-verified and no reviewer is named. | STILL_OPEN_TRUE | `data/geo-meta.json:1` |
+
+## Surfaces removed since this audit
+
+On 2026-09-26 the app cleanup deleted the legacy surfaces that the redesigned shell had only
+hidden. Two of them are ones this plan builds on. The empty-state starter gallery (`#empty-state`,
+`#starter-gallery` and its `[data-starter-trad]` tiles), where §4 ships threads and Phase 6 promotes
+`STARTER_TRADITIONS`, is gone from `codex.html`. `STARTER_TRADITIONS` itself survives as the Genre
+page's Start tab (`src/pages/genre.js`), which is where a thread would ship now. The old
+Add-instrument modal body (`#modal-add`, `renderInstPicker`) and the old app bar's overflow sheet
+went at the same time. `openModal('modal-add')` still routes to the Instrument page.
+`node scripts/build_html.js --lazy --check` is still accepted; it builds the same page as the
+default.
 
 ## Rulings that survived verification
 

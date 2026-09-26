@@ -414,9 +414,6 @@ h3 {
   white-space: normal;
   overflow-wrap: anywhere;
 }
-.detail-stack-signature .dss-fingerprint {
-  display: none;
-}
 .detail-title {
   font-size: 21px !important;
 }
@@ -435,19 +432,12 @@ h3 {
   font-size: 13px !important;
   white-space: nowrap;
 }
-.detail-tab-status {
-  display: none;
-}
 .detail-tab-content {
   padding: 16px !important;
 }
 .detail-breadcrumb {
   padding: 12px !important;
   flex-wrap: wrap !important;
-}
-.detail-fingerprint-panel,
-.fingerprint {
-  display: none !important;
 }
 .detail-stack-signature {
   font-size: 13px;
@@ -457,9 +447,6 @@ h3 {
 }
 .detail-trait-pills {
   padding: 0 16px !important;
-}
-.ui-header ~ .workspace #empty-state {
-  display: none !important;
 }
 .modal {
   background: var(--cm-surface) !important;
@@ -539,11 +526,6 @@ h3 {
   gap: 6px;
   padding: 12px !important;
   min-height: 52px;
-}
-.chat-panel-title,
-.chat-panel-meta,
-#chat-collapse {
-  display: none !important;
 }
 .chat-log {
   flex: 1;
@@ -1008,11 +990,6 @@ body.workbench {
     overflow-x: hidden;
   }
 }
-@media (max-width: 899px) {
-  .part-thumb-cell {
-    display: none !important;
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto !important;
@@ -1376,9 +1353,6 @@ body.workbench {
 .workbench .part-label-cell {
   grid-column: 1;
 }
-.workbench .part-thumb-cell {
-  display: none;
-}
 .workbench .part-options-cell {
   grid-column: 2;
   grid-row: 1;
@@ -1566,9 +1540,6 @@ body.workbench {
 /* The session: name (rename pencil) and what is in it. */
 .workbench #sidebar-header {
   padding: 2px 20px 0 !important;
-}
-.workbench #sidebar-header .ws-label {
-  display: none;
 }
 .workbench #sidebar-header .ws-name-row {
   justify-content: flex-start;

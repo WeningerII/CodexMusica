@@ -13,7 +13,6 @@ llms.txt
 # not prose-formatted.
 references
 tests
-scripts/_instrument_asset_map_full.json
 scripts/_instrument_emoji_map.json
 
 # Generated source module — scripts/_gen_voice_parts.js owns its exact formatting

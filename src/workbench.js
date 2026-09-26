@@ -774,7 +774,6 @@ function uiStart() {
   $ui('btn-redo').dataset.tooltip = 'Redo (Ctrl/Cmd+Shift+Z)';
   $ui('btn-save').dataset.tooltip = 'Save a named copy of this session';
   oldHeader.remove();
-  $ui('app-more-menu')?.remove();
   UITheme.onChange(uiSyncThemeControl);
   uiSyncThemeControl();
   // Preserve the original browse tree, filters, editor and save controls. Browsing
@@ -1170,7 +1169,7 @@ function uiLayoutControls() {
     onChange: (floating) => document.body.classList.toggle('assistant-floating', floating),
   });
   document.querySelectorAll('.modal-bg > .modal').forEach((panel) => {
-    if (['modal-add', 'modal-trad', 'modal-confirm'].includes(panel.parentElement.id)) return;
+    if (['modal-trad', 'modal-confirm'].includes(panel.parentElement.id)) return;
     UILayout.floating(panel, {
       key: panel.parentElement.id,
       title: panel.querySelector('h2')?.textContent || 'dialog',

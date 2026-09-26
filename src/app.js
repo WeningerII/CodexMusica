@@ -1,4 +1,5 @@
 /* global UI, UI_ICONS, UILayout, uiAddGenre, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* exported INSTRUMENT_FILTER_PILLS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition */
 
 
 // ============================================================
@@ -1643,7 +1644,6 @@ const FamName = (id) => _FAM_BY_ID.get(id)?.name || id;
 // ---- App state ----
 const app = {
   cards: [],
-  pickerSearch: '',
   tradSearch: '',
   // Set of traditionIds whose group section is collapsed in the workspace.
   // Cards are grouped by traditionId when 2+ traditions are present; clicking
@@ -2191,9 +2191,9 @@ function addCard(instrumentId, opts) {
   if (c) {
     app.cards.push(c);
     // skipHistory is set by importTradition so the batch of cards from one
-    // tradition counts as a single undoable action. Direct callers (Add
-    // Instrument modal, quick-pick, similar-instruments picker) leave the
-    // flag unset so each manual add becomes its own history entry.
+    // tradition counts as a single undoable action. Direct callers (the
+    // Instrument page, a loose add) leave the flag unset so each manual add
+    // becomes its own history entry.
     if (!(opts && opts.skipHistory) && typeof pushHistory === 'function') pushHistory();
   }
   return c;
@@ -2358,8 +2358,8 @@ function importTradition(tradId) {
 }
 
 // Import a tradition and give the standard feedback (toast + scroll-to-first).
-// Shared by the traditions picker, the empty-state starter gallery, and the
-// "Surprise me" button so all three behave identically.
+// Shared by the traditions picker and the "Surprise me" action so both behave
+// identically.
 async function importTraditionWithFeedback(tradId, opts) {
   opts = opts || {};
   const trad = Tradition(tradId);
@@ -14588,9 +14588,12 @@ function _trapTab(e, modal) {
   if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
 }
+// 'modal-add' and 'modal-trad' are page routes, not dialogs: uiOpenSurface
+// sends them to the Instrument and Genre pages. 'modal-add' has no markup.
 function openModal(id) {
   if (typeof UI !== 'undefined' && UI.ready && uiOpenSurface(id)) return;
   const bg = document.getElementById(id);
+  if (!bg) return;
   _modalReturnFocus = document.activeElement; // restore focus here on close
   bg.classList.add('open');
   bg._trapHandler = (e) => _trapTab(e, bg.querySelector('.modal') || bg);
@@ -14601,7 +14604,7 @@ function openModal(id) {
   }, UI_TIMING_MS.MODAL_FOCUS_DELAY);
 }
 function closeModal(id) {
-  if (typeof UI !== 'undefined' && UI.ready && (id === 'modal-add' || id === 'modal-trad')) return;
+  if (typeof UI !== 'undefined' && UI.ready && id === 'modal-trad') return;
   const bg = document.getElementById(id);
   if (!bg) return;
   bg.classList.remove('open');
@@ -14771,8 +14774,6 @@ function isMobileLayout() {
 }
 
 function renderAll() {
-  renderEmpty();
-  renderMeta();
   // Coordinate prefaces across the visible stack before painting. Each
   // card's auto-suggested top-1 is reconciled against all other cards so
   // no two cards share the same preface; collisions resolved by score.
@@ -14785,8 +14786,9 @@ function renderAll() {
   if (typeof UI !== 'undefined' && UI.ready) uiSync();
 }
 
-// Curated starter recipes for the empty-state gallery — chosen to span the
-// catalog's extremes and continents (verified to exist with 2+ instruments).
+// Curated starter recipes for the Genre page's Start tab (src/pages/genre.js)
+// — chosen to span the catalog's extremes and continents (verified to exist
+// with 2+ instruments). The boot-error screen shares the .empty-state styles.
 const STARTER_TRADITIONS = [
   'delta_blues',      // sparse American roots
   'hindustani',       // microtonal, free-meter, heavily ornamented
@@ -14795,82 +14797,6 @@ const STARTER_TRADITIONS = [
   'symphonic',        // dense functional-harmony orchestral
   'dub'               // studio-as-instrument, effects-forward
 ];
-
-function renderEmpty() {
-  const e = document.getElementById('empty-state');
-  e.style.display = app.cards.length === 0 ? 'block' : 'none';
-  if (app.cards.length === 0) {
-    // Starter gallery — a curated row of full recipes that span the catalog's
-    // range (sparse↔dense, acoustic↔electronic, modal↔functional, 12-TET↔not,
-    // and across continents) so a first-time opener sees the payoff immediately.
-    const gallery = document.getElementById('starter-gallery');
-    if (gallery) {
-      gallery.innerHTML = STARTER_TRADITIONS.map(id => {
-        const t = Tradition(id);
-        if (!t) return '';
-        const n = (t.instruments || []).length;
-        // The same two-axis glyph pair the tradition tree and sidebar already
-        // show for this genre — the empty state was the one place a tradition
-        // appeared bare, so a first-time opener met the plainest version of the
-        // catalog's own visual language. Decorative only (aria-hidden inside
-        // traditionGlyphsHTML): the name is the accessible label, the glyph is
-        // recognition, which is the one job an icon does better than a word.
-        return `<button class="starter-trad" data-starter-trad="${esc(id)}">`
-          + `<span class="starter-trad-main">${traditionGlyphsHTML(id, 16)}`
-          + `<span class="starter-trad-name">${esc(t.name)}</span></span>`
-          + `<span class="starter-trad-count">${n}</span></button>`;
-      }).join('');
-      gallery.querySelectorAll('[data-starter-trad]').forEach(b =>
-        b.addEventListener('click', () => importTraditionWithFeedback(b.dataset.starterTrad)));
-    }
-    // (#empty-surprise is a static template element — it is wired ONCE in
-    // _initApp. Wiring it here would stack a fresh listener on every empty-state
-    // render, so one click would fire surpriseTradition multiple times.)
-    const qp = document.getElementById('quick-pick');
-    const picks = ['voice', 'electric_guitar_single_coil', 'sitar', 'drum_kit', 'analog_synth'];
-    qp.innerHTML = picks.map(id => {
-      const i = Inst(id);
-      // 16px matches the icon size the rest of the button system uses, and the
-      // label stays — an icon never replaces the word here.
-      //
-      // DIRECT REGISTRY HITS ONLY. image() falls back to a family emoji when an
-      // instrument has none of its own, which is right on a card thumbnail and
-      // wrong in a row: `sitar` inherits the plucked-strings guitar, so it
-      // rendered the identical glyph to the electric guitar sitting next to it,
-      // and two adjacent buttons showing the same picture is worse than one
-      // showing none — the glyph is there to tell them apart. familyImage()
-      // exists in this file for exactly this reason, on the picker's headings.
-      const emoji = (typeof EMOJI_REGISTRY !== 'undefined' && EMOJI_REGISTRY[id]) ? image(id, 16) : '';
-      return i ? `<button class="btn btn-secondary" data-quick-add="${esc(id)}">${emoji}${esc(i.short || i.name)}</button>` : '';
-      // "Browse traditions" opens the same picker as the app bar's Traditions
-      // and the empty state's Add a Genre, so it carries the same tonal
-      // treatment rather than reading as one more instrument chip.
-      // icon() inline, NOT a <span data-icon> placeholder: those are hydrated
-      // once in _initApp, and this markup is injected on every empty-state
-      // render — a placeholder added here would render as an empty span.
-    }).join('') + `<button class="btn btn-tonal" id="quick-trad">${icon('library', 14)}Browse traditions</button>`;
-    qp.querySelectorAll('[data-quick-add]').forEach(b => b.addEventListener('click', () => {
-      const iid = b.dataset.quickAdd;
-      const card = addCard(iid);
-      if (!card) { showToast(`Unknown instrument: ${iid}`, 'error'); return; }
-      renderAll();
-    }));
-    document.getElementById('quick-trad').addEventListener('click', () => {
-      app.tradSearch = '';
-      app.similarFor = null;
-      document.getElementById('search-trad').value = '';
-      renderTradPicker();
-      openModal('modal-trad');
-    });
-  }
-}
-
-function renderMeta() {
-  const m = document.getElementById('meta');
-  if(!m)return;
-  if (app.cards.length === 0) m.textContent = '';
-  else m.textContent = app.cards.length + ' instrument' + (app.cards.length === 1 ? '' : 's');
-}
 
 // Determine which card carries the recipe's primary tradition anchor. The
 // first card with a traditionId wins — matches the genre-header ordering.
@@ -14902,11 +14828,10 @@ function renderSidebarHeader() {
   const host = document.getElementById('sidebar-header');
   if (!host) return;
   if (app.cards.length === 0) {
-    host.innerHTML = '<div class="ws-label">Session</div><div class="ws-name-row"><h2 class="ws-name">' + esc(app.workspaceName) + '</h2></div>';
+    host.innerHTML = '<div class="ws-name-row"><h2 class="ws-name">' + esc(app.workspaceName) + '</h2></div>';
     return;
   }
   host.innerHTML =
-    '<div class="ws-label">Session</div>' +
     '<div class="ws-name-row">' +
       '<h2 class="ws-name" id="ws-name-display">' + esc(app.workspaceName) + '</h2>' +
       '<button class="icon-btn ws-rename" id="ws-rename-btn" data-tooltip="Rename workspace" aria-label="Rename workspace">' + icon('pencil', 14) + '</button>' +
@@ -15251,16 +15176,11 @@ function renderSidebarTraditions() {
     });
   });
 
-  // Wire "Add to tradition" buttons — opens existing instrument modal with
-  // tradition pre-context (stored on the modal for the add handler to read).
+  // Wire "Add to tradition" buttons — opens the Instrument page with the
+  // tradition pre-context (addInstrumentFromPicker consumes it on add).
   host.querySelectorAll('[data-add-to-trad]').forEach(b => {
     b.addEventListener('click', () => {
-      const tradId = b.dataset.addToTrad;
-      app._addToTradition = tradId;
-      app.pickerSearch = '';
-      const si = document.getElementById('search-inst');
-      if (si) si.value = '';
-      renderInstPicker();
+      app._addToTradition = b.dataset.addToTrad;
       openModal('modal-add');
     });
   });
@@ -15554,7 +15474,7 @@ function renderSidebarRecipePreview() {
   _syncRecipeBarHeight();
 }
 // Right-pane content for the currently-selected card. Composes 6 layers:
-// breadcrumb + action cluster, header (thumb + title + fingerprint), trait
+// breadcrumb + action cluster, header (thumb + title), trait
 // pills, tab bar, tab content. The four tabs (Parts / Environment / Signal
 // chain / Preface) reuse existing renderPartsSection / renderEnvSection /
 // renderChainSection / renderPrefaceSection — events delegate to handleCardClick
@@ -15562,23 +15482,15 @@ function renderSidebarRecipePreview() {
 
 function renderDetail() {
   const host = document.getElementById('workspace-detail');
-  const emptyEl = document.getElementById('empty-state');
   if (!host) return;
 
   // Remove any previous detail view
   const existing = document.getElementById('detail-view');
   if (existing) existing.remove();
 
-  if (app.cards.length === 0) {
-    // No workspace content — show empty state, no detail.
-    if (emptyEl) emptyEl.style.display = 'block';
-    return;
-  }
-
-  // Hide the empty state whenever cards exist. Detail view is the canonical
-  // right-pane content; the legacy multi-card canvas was retired in the
-  // master-detail refactor.
-  if (emptyEl) emptyEl.style.display = 'none';
+  // No workspace content, no detail. The shell's Your recipe panel says what
+  // to do next (#recipe-empty in src/workbench.js).
+  if (app.cards.length === 0) return;
 
   // Resolve selection. Desktop falls back to the first card because the detail
   // pane is permanent — an empty right half is not a state worth showing.
@@ -15620,7 +15532,7 @@ function renderDetail() {
   // "what changed automatically" panel is visible no matter which tab is open when
   // a part edit or a preface pick reshapes the card.
   renderShiftsPanel(card, view);
-  view.appendChild(renderDetailTabBar(card, inst));
+  view.appendChild(renderDetailTabBar(card));
   view.appendChild(renderDetailTabContent(card, inst));
 
   // Single delegated click handler — reuses the existing per-card action
@@ -15774,10 +15686,10 @@ function _moveTargetsFor(card) {
   return seen;
 }
 
-// Popup listing those genres. Built on the same .more-menu furniture as the app
-// bar's overflow sheet — including its 44px item height, which is what makes it
-// thumb-usable on a phone — but constructed per-open rather than living in the
-// template, because its items are workspace state and change with every edit.
+// Popup listing those genres. Built on the .more-menu furniture — including its
+// 44px item height, which is what makes it thumb-usable on a phone — and
+// constructed per-open rather than living in the template, because its items
+// are workspace state and change with every edit.
 function openMoveToGenreMenu(card, anchor) {
   if (!card || !anchor) return;
   const targets = _moveTargetsFor(card);
@@ -16123,11 +16035,10 @@ function _revealSelectedCard() {
 
 // Stack signature strip — surfaces the workspace centroid + 4 nearest
 // traditions when 2+ cards are in the canvas. Lives between the detail
-// breadcrumb and the detail header. Returns null when fewer than 2 cards
-// (the per-card detail header already carries the single-card fingerprint).
+// breadcrumb and the detail header. Returns null when fewer than 2 cards.
 //
-// Reuses buildSongFingerprint (centroid + spread + nearestTraditions) and
-// renderAxisFingerprint ('small' variant). Click handlers wire through
+// Reuses buildSongFingerprint (centroid + spread + nearestTraditions). Click
+// handlers wire through
 // wireStackSignatureEvents — clicking a tradition pill opens the tradition
 // modal pinned to that tradition's similar-traditions view.
 function renderDetailStackSignature() {
@@ -16145,7 +16056,6 @@ function renderDetailStackSignature() {
   const wrap = document.createElement('div');
   wrap.className = 'detail-stack-signature';
   wrap.innerHTML =
-    `<div class="dss-fingerprint">${renderAxisFingerprint(fp.centroid, 'small')}</div>` +
     `<div class="dss-info">` +
       `<div class="dss-label">Stack signature · ${fp.instrumentCount} instrument${fp.instrumentCount === 1 ? '' : 's'} · ${esc(diversityLabel(fp.diversity))}</div>` +
       `<div class="dss-traditions">${tradHtml}</div>` +
@@ -16251,14 +16161,6 @@ function renderDetailHeader(card, inst) {
       (subtitleExtra ? '<span class="detail-sep">·</span><span>' + esc(subtitleExtra) + '</span>' : '') +
     '</div>';
   wrap.appendChild(titleBlock);
-
-  // Fingerprint panel
-  const fp = document.createElement('div');
-  fp.className = 'detail-fingerprint-panel';
-  if (card.traditionId && typeof renderFingerprint === 'function') {
-    fp.innerHTML = '<div class="ws-label">FINGERPRINT</div>' + renderFingerprint(card.traditionId);
-  }
-  wrap.appendChild(fp);
   return wrap;
 }
 
@@ -16274,7 +16176,7 @@ function renderDetailTraitPills(card, _inst) {
   return wrap;
 }
 
-function renderDetailTabBar(card, inst) {
+function renderDetailTabBar(card) {
   const wrap = document.createElement('div');
   wrap.className = 'detail-tab-bar';
   // Labels are the shared editor's vocabulary on every route: Character (the
@@ -16292,14 +16194,6 @@ function renderDetailTabBar(card, inst) {
       icon(t.ic, 14) + '<span>' + t.label + '</span>' +
     '</button>'
   ).join('');
-
-  // Status string (right side)
-  const partCount = (inst.parts || []).length;
-  const chainCount = (typeof CHAIN_SECTIONS !== 'undefined') ? CHAIN_SECTIONS.length : 0;
-  const status = document.createElement('span');
-  status.className = 'detail-tab-status';
-  status.textContent = partCount + ' part' + (partCount === 1 ? '' : 's') + ' · ' + chainCount + ' chain stage' + (chainCount === 1 ? '' : 's');
-  wrap.appendChild(status);
 
   // Wire tab switching (these aren't card actions so they don't go through handleCardClick)
   wrap.querySelectorAll('.detail-tab').forEach(b => {
@@ -16420,12 +16314,7 @@ function renderPartRow(card, inst, part) {
   const dotDescriptors = descriptors.join(' · ');
   const optionCount = (part.variants || []).length;
 
-  // Part thumbnail uses the family fallback emoji — visually grounds the row
-  // in the instrument's family without needing a per-part icon catalog.
-  const thumbInner = (typeof image === 'function') ? image(inst.id, 32) : '';
-
   row.innerHTML =
-    '<div class="part-thumb-cell">' + thumbInner + '</div>' +
     '<div class="part-label-cell">' + esc(partLabel) + '</div>' +
     '<div class="part-variant-cell">' + esc(variantName) + '</div>' +
     '<div class="part-descriptors-cell">' + esc(dotDescriptors) + '</div>' +
@@ -16637,18 +16526,12 @@ function renderEnvRow(card, kind) {
   const label = (isTuning ? 'TUNING' : 'ROOM');
   const variantName = cur ? cur.name : 'Not set';
   const descriptor = cur ? (cur.note || '') : '';
-  const iconName = isTuning ? 'music' : 'square';  // tuning vibe / room footprint
-  // A set room shows its glyph pair instead of the generic footprint icon —
-  // this row sits outside any cluster grouping, so it carries both axes.
-  const roomGlyphs = (!isTuning && card.room && typeof roomGlyphsHTML === 'function')
-    ? roomGlyphsHTML(card.room, 22) : '';
   // Option count: tunings/rooms list length
   const optionCount = isTuning
     ? (typeof TUNINGS !== 'undefined' ? TUNINGS.length : 0)
     : (typeof ROOMS !== 'undefined' ? ROOMS.length : 0);
 
   row.innerHTML =
-    '<div class="part-thumb-cell">' + (roomGlyphs || icon(iconName, 24)) + '</div>' +
     '<div class="part-label-cell">' + esc(label) + '</div>' +
     '<div class="part-variant-cell' + (cur ? '' : ' muted-italic') + '">' + esc(variantName) + '</div>' +
     '<div class="part-descriptors-cell">' + esc(descriptor) + '</div>' +
@@ -17339,14 +17222,11 @@ function handleAction(action, card, trigger) {
     // rmCard schedules renderAll() after the unmount animation completes.
     // Don't repaint here or the card would vanish instantly without animating.
   } else if (action === 'similar') {
+    // uiOpenSurface hands this to the Instrument page's inspector.
     app.similarInstFor = card.instrumentId;
-    app.pickerSearch = '';
-    // Browsing alternatives to a card is its own entry into modal-add — clear
-    // any leftover sidebar "add to tradition" context so the pick lands loose.
+    // Browsing alternatives to a card is its own entry into the Instrument page
+    // — clear any leftover sidebar "add to tradition" context so the pick lands loose.
     app._addToTradition = null;
-    const si = document.getElementById('search-inst');
-    if (si) si.value = '';
-    renderInstPicker();
     openModal('modal-add');
   } else if (action === 'pin') {
     card.pinned = !card.pinned;
@@ -17362,7 +17242,7 @@ function rerenderCard(_card) {
   // Master-detail era: the legacy #cards container is hidden / not populated,
   // so there are no `[data-card-id]` elements outside the detail view itself.
   // The detail view is the only visible rendering of the selected card, and
-  // the sidebar carries the mini-fingerprint + preface line.
+  // the sidebar carries the preface line.
   //
   // Earlier behavior: queried `[data-card-id="${id}"]` and replaced with
   // `renderCard(target, primaryId)` — the OLD full-card renderer. That would
@@ -17374,7 +17254,6 @@ function rerenderCard(_card) {
   // resolution), then refresh the detail view + sidebar. Both are cheap and
   // correct.
   if (typeof _applyRecipeDedup === 'function') _applyRecipeDedup();
-  renderMeta();
   renderDetail();
   renderSidebar();
   pushHistory();
@@ -17711,55 +17590,6 @@ function _syncRecipeBarHeight() {
   document.documentElement.style.setProperty('--recipe-bar-height', h + 'px');
 }
 
-// The compact app bar's overflow sheet. Every item forwards its click to the
-// real control in the app bar rather than duplicating its handler, so the
-// compact bar cannot drift out of parity with the desktop one — there is still
-// exactly one implementation of Save, Saved and Image credits.
-function wireOverflowMenu() {
-  const btn = document.getElementById('btn-more');
-  const menu = document.getElementById('app-more-menu');
-  if (!btn || !menu) return;
-  let backdrop = null;
-  const stopPositioning = UILayout.anchor(menu, btn, { align: 'end' });
-
-  const close = () => {
-    menu.hidden = true;
-    btn.setAttribute('aria-expanded', 'false');
-    if (backdrop) { backdrop.remove(); backdrop = null; }
-  };
-  const open = () => {
-    menu.querySelectorAll('[data-proxy]').forEach(i => {
-      const src = document.getElementById(i.dataset.proxy);
-      i.disabled = !src || src.disabled;
-    });
-    menu.hidden = false;             // must be laid out before it can be measured
-    btn.setAttribute('aria-expanded', 'true');
-    UILayout.refresh();
-    backdrop = document.createElement('div');
-    backdrop.className = 'more-menu-backdrop';
-    backdrop.addEventListener('click', close);
-    document.body.appendChild(backdrop);
-    const first = menu.querySelector('.more-menu-item:not(:disabled)');
-    if (first) first.focus();
-  };
-
-  btn.addEventListener('click', () => (menu.hidden ? open() : close()));
-  // The workbench replaces this legacy header after boot.
-  new MutationObserver((_, observer) => {
-    if (!menu.isConnected) { stopPositioning(); observer.disconnect(); }
-  }).observe(document.body, { childList: true });
-  menu.addEventListener('click', e => {
-    const item = e.target.closest('[data-proxy]');
-    if (!item || item.disabled) return;
-    close();
-    const src = document.getElementById(item.dataset.proxy);
-    if (src) src.click();
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && !menu.hidden) { close(); btn.focus(); }
-  });
-}
-
 // Boot gate. Embedded build: CATALOG_READY is null and init runs synchronously
 // inside the DOMContentLoaded handler, exactly as it always has. Lazy shell:
 // init waits for the one browse-index fetch; a failed fetch renders a
@@ -17804,7 +17634,6 @@ function _initApp() {
   // locked to the bar's actual height.
   syncAppBarHeight();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncAppBarHeight).catch(() => {});
-  wireOverflowMenu();
   wireTreeDragAndDrop();
   initChatDock();
   // Crossing 900px swaps the whole model — the detail panel moves between the
@@ -17835,32 +17664,12 @@ function _initApp() {
     if (typeof UI !== 'undefined' && (UI.saveFailed || UI.storageConflict)) { e.preventDefault(); e.returnValue = ''; }
   });
   document.getElementById('btn-add').addEventListener('click', () => {
-    app.pickerSearch = '';
     app.similarInstFor = null;
     // A plain add is a loose add: drop any tradition context left behind by a
     // sidebar "Add instrument to tradition" click that was dismissed.
     app._addToTradition = null;
-    document.getElementById('search-inst').value = '';
-    renderInstPicker();
     openModal('modal-add');
   });
-  document.getElementById('empty-add').addEventListener('click', () => document.getElementById('btn-add').click());
-  // #empty-surprise is a STATIC template element (unlike the innerHTML-rebuilt
-  // starter gallery / quick-pick whose listeners die with their nodes), so it is
-  // wired exactly once here — never in renderEmpty, which runs every render.
-  const emptySurprise = document.getElementById('empty-surprise');
-  if (emptySurprise) emptySurprise.addEventListener('click', surpriseTradition);
-  const eag = document.getElementById('empty-add-genre');
-  if (eag) {
-    eag.addEventListener('click', () => {
-      app.tradSearch = '';
-      app.similarFor = null;
-      const si = document.getElementById('search-trad');
-      if (si) si.value = '';
-      renderTradPicker();
-      openModal('modal-trad');
-    });
-  }
   document.getElementById('btn-traditions').addEventListener('click', () => {
     app.tradSearch = '';
     app.similarFor = null;
@@ -17881,13 +17690,6 @@ function _initApp() {
   });
   document.getElementById('save-name').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('save-confirm').click(); });
   document.getElementById('btn-saved').addEventListener('click', () => { renderSaved(); openModal('modal-saved'); });
-  // Search-input wiring: typing clears any active similarity drill-down
-  // ("browse" intent supersedes the "show me what's similar" drill-down).
-  document.getElementById('search-inst').addEventListener('input', e => {
-    app.pickerSearch = e.target.value;
-    app.similarInstFor = null;
-    renderInstPicker();
-  });
   // Debounced, but only lightly.
   //
   // This was 120 ms when a keystroke cost 30-43 ms of scanning plus the render,
@@ -17909,10 +17711,9 @@ function _initApp() {
     // same reason measured the same way. This list re-renders 740 prefaces per
     // keystroke and was the one search input still doing it on every character.
     // MEASURED in Chromium against the built page: 15 ms per keystroke in
-    // steady state and 60-152 ms on the first keystroke of a burst, against
-    // 1.6-8.2 ms for the instrument picker — which is why THAT one is left
-    // undebounced, exactly as the note above argues. A delay only pays for
-    // itself while it is hiding work more expensive than the delay.
+    // steady state and 60-152 ms on the first keystroke of a burst. A delay
+    // only pays for itself while it is hiding work more expensive than the
+    // delay, exactly as the note above argues.
     let prefaceSearchTimer = null;
     const renderPrefaceNow = () => {
       if (prefaceSearchTimer) { clearTimeout(prefaceSearchTimer); prefaceSearchTimer = null; }
@@ -18034,17 +17835,7 @@ function _initApp() {
 .chip.selected .sb-trad-glyph.is-fn { background: color-mix(in srgb, var(--surface) 25%, transparent); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--surface) 45%, transparent); }
 .chip-block.selected .sb-trad-glyph.is-fn { background: color-mix(in srgb, var(--surface) 25%, transparent); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--surface) 45%, transparent); }
 .env-cluster-head .sb-trad-glyphs, .preface-cat-head .sb-trad-glyphs { margin-right: 0; }
-/* The thumb cell hard-sizes any svg inside it to 32px for instrument artwork.
-   A glyph PAIR in that 48px box needs both halves smaller, or the second one
-   pushes out of the cell. */
-.part-thumb-cell .sb-trad-glyphs { margin-right: 0; gap: 1px; }
-.part-thumb-cell .sb-trad-glyph { padding: 1px; }
-.part-thumb-cell .sb-trad-glyph svg { width: 18px; height: 18px; }
 .preface-id .sb-trad-glyphs { margin-right: 4px; }
-.fam-glyph { display: inline-flex; align-items: center; flex: 0 0 auto; }
-.fam-glyph svg { display: block; }
-.similar-card-glyph { display: inline-flex; align-items: center; vertical-align: middle; margin-right: 5px; }
-.similar-card-glyph svg { display: block; }
 .tree-row-desc { font-size: var(--fs-caption); color: var(--text-3); margin-top: 2px; line-height: 1.4; }
 .tree-row-count { font-size: var(--fs-micro); color: var(--text-3); font-variant-numeric: tabular-nums; padding-left: var(--s2); white-space: nowrap; }
 
@@ -18060,13 +17851,6 @@ function _initApp() {
 .trad-leaf-actions .leaf-btn:hover { background: var(--text); color: var(--surface); border-color: var(--text); }
 .trad-leaf-actions .leaf-btn.ghost { border-color: transparent; color: var(--text-2); }
 .trad-leaf-actions .leaf-btn.ghost:hover { background: var(--surface-2); border-color: var(--border-strong); color: var(--text); }
-
-/* Axis fingerprint mini-chart */
-.fingerprint { display: inline-flex; align-items: end; gap: 2px; height: 28px; margin-top: 6px; }
-.fingerprint-axis { width: 5px; background: var(--text-4); border-radius: 1px; transition: background var(--t-fast) var(--ease); cursor: help; position: relative; }
-.fingerprint-axis.neg { background: var(--text-3); }
-.fingerprint-axis.pos { background: var(--text); }
-.fingerprint-axis.neutral { background: var(--text-4); height: 2px !important; align-self: center; }
 
 /* Similar view */
 .similar-back { font-size: var(--fs-caption); padding: 6px var(--s3); margin-bottom: var(--s4); border-radius: var(--r2); border: 1px solid var(--border-strong); background: var(--surface); color: var(--text-2); transition: all var(--t-fast) var(--ease); }
@@ -18201,22 +17985,6 @@ function axisLabel(axis, value) {
   return axis.pos;
 }
 
-// ---- AXIS FINGERPRINT MINI-CHART ----
-function renderFingerprint(idA) {
-  if (typeof UI !== 'undefined' && UI.ready) return '';
-  const a = tradAxes(idA);
-  if (!a) return '';
-  let html = '<div class="fingerprint" aria-label="Axis fingerprint">';
-  AXIS_DEFINITIONS.forEach(ax => {
-    const v = a[ax.id] ?? 0;
-    const cls = v > 0 ? 'pos' : (v < 0 ? 'neg' : 'neutral');
-    const h = Math.max(2, Math.abs(v) * 13); // up to 26px
-    html += `<div class="fingerprint-axis ${cls}" style="height: ${h}px;" data-tooltip="${esc(ax.name)}: ${v > 0 ? '+' : ''}${v}"></div>`;
-  });
-  html += '</div>';
-  return html;
-}
-
 // ---- INSTRUMENT SIMILARITY (parameter-space neighbors over the 9 instrument axes) ----
 function instAxes(id) { return Inst(id)?.axes || null; }
 
@@ -18254,30 +18022,6 @@ function getMatchingInstrumentAxes(idA, idB, n) {
   })
     .sort((x, y) => x.diff - y.diff || y.shared - x.shared)
     .slice(0, n);
-}
-
-function renderInstrumentFingerprint(idA) {
-  if (typeof UI !== 'undefined' && UI.ready) return '';
-  return renderAxisFingerprint(instAxes(idA));
-}
-
-// Generalized fingerprint renderer — accepts any axis object including float-valued centroids.
-// classExtra lets callers add 'centroid-fingerprint' or 'small' modifiers.
-function renderAxisFingerprint(axesObj, classExtra) {
-  if (!axesObj) return '';
-  let html = `<div class="fingerprint inst-fingerprint${classExtra ? ' ' + classExtra : ''}" aria-label="Instrument axis fingerprint">`;
-  INSTRUMENT_AXIS_DEFINITIONS.forEach(ax => {
-    const v = axesObj[ax.id];
-    const numeric = typeof v === 'number' ? v : 0;
-    const cls = numeric > 0.05 ? 'pos' : (numeric < -0.05 ? 'neg' : 'neutral');
-    const h = Math.max(2, Math.min(30, Math.abs(numeric) * 13));
-    const valStr = Number.isInteger(numeric)
-      ? (numeric > 0 ? '+' + numeric : '' + numeric)
-      : (numeric > 0 ? '+' + numeric.toFixed(1) : numeric.toFixed(1));
-    html += `<div class="fingerprint-axis ${cls}" style="height: ${h}px;" data-tooltip="${esc(ax.name)}: ${valStr}"></div>`;
-  });
-  html += '</div>';
-  return html;
 }
 
 // ---- CROSS-CORRELATION: tradition centroids in the 9-instrument-axis space ----
@@ -18460,8 +18204,9 @@ function diversityLabel(d) {
 }
 
 // ---- STACK SIGNATURE PANEL (canvas-level song fingerprint) ----
-// Renders above the cards when 2+ exist. Shows centroid fingerprint, closest traditions,
-// and a homogeneity descriptor. Clicking a tradition name navigates to its similar view.
+// Renders above the cards when 2+ exist. Shows the closest traditions to the
+// stack's centroid and a homogeneity descriptor. Clicking a tradition name
+// navigates to its similar view.
 
 function wireStackSignatureEvents(el) {
   if (!el) return;
@@ -18492,80 +18237,9 @@ function wireStackSignatureEvents(el) {
   });
 }
 
-// ---- LETTER-BAND CSS for instrument picker (large families) ----
-(function injectInstPickerStyles() {
+// ---- CSS for the "Instruments that fit" list in the tradition similar view ----
+(function injectFitInstrumentStyles() {
   const css = `
-.letter-section { margin-top: var(--s2); }
-.letter-section:first-child { margin-top: 0; }
-.letter-band {
-  font-size: var(--fs-micro);
-  font-weight: var(--fw-semibold);
-  color: var(--text-3);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: var(--s2) 0 var(--s1) 2px;
-  margin: 0;
-  border-top: 1px solid var(--border);
-}
-.letter-section:first-child .letter-band { border-top: none; padding-top: 0; }
-
-/* Axis filter pills above the family grid */
-.axis-filter-bar {
-  padding: var(--s3) 0 var(--s4) 0;
-  margin-bottom: var(--s3);
-  border-bottom: 1px solid var(--border);
-}
-.axis-filter-label {
-  font-size: var(--fs-micro);
-  font-weight: var(--fw-semibold);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--text-3);
-  margin-bottom: var(--s2);
-}
-.axis-filter-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-.axis-filter-pill {
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-medium);
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--border-strong);
-  background: var(--surface);
-  color: var(--text-2);
-  cursor: pointer;
-  transition: all var(--t-fast) var(--ease);
-  line-height: 1.3;
-  white-space: nowrap;
-}
-.axis-filter-pill:hover { background: var(--surface-2); color: var(--text); }
-.axis-filter-pill.active { background: var(--text); color: var(--surface); border-color: var(--text); }
-.axis-filter-pill.active:hover { background: var(--text-2); border-color: var(--text-2); }
-.axis-filter-status {
-  font-size: var(--fs-micro);
-  color: var(--text-3);
-  margin-top: var(--s2);
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: -0.005em;
-}
-.axis-filter-clear {
-  display: inline;
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  color: var(--text-2);
-  text-decoration: underline;
-  cursor: pointer;
-  font: inherit;
-  letter-spacing: inherit;
-}
-.axis-filter-clear:hover { color: var(--text); }
-
-/* "Instruments that fit" mini-section in tradition similar view */
 .fit-instruments {
   margin-top: var(--s3);
   padding-top: var(--s3);
@@ -18605,9 +18279,6 @@ function wireStackSignatureEvents(el) {
   style.textContent = css;
   document.head.appendChild(style);
 })();
-
-// ---- INST PICKER OVERRIDE: alphabetical with letter bands for large families ----
-const LETTER_BAND_THRESHOLD = 15;
 
 // Search-side normalization — folds dash variants to space so user queries
 // using natural whitespace ("doo wop") match canonical hyphenated names
@@ -18675,139 +18346,6 @@ async function addInstrumentFromPicker(instrumentId, opts) {
   return card;
 }
 
-function renderInstPicker() {
-  const c = document.getElementById('picker-inst');
-  if (!c) return;
-
-  // If we're in a "find similar instruments" drill-down, render that instead
-  if (app.similarInstFor) {
-    c.innerHTML = renderSimilarInstrumentView(app.similarInstFor);
-    wireSimilarInstrumentEvents(c);
-    return;
-  }
-
-  const q = normalizeSearch(app.pickerSearch);
-  const filters = app.instrumentAxisFilters || new Set();
-  const sortKey = (i) => (i.short || i.name || '').toLowerCase();
-  const firstLetter = (i) => {
-    const s = sortKey(i);
-    // Strip diacritics for grouping
-    const base = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    const ch = base.charAt(0).toUpperCase();
-    // Special-char fold: ʿ, ', etc → use second char
-    if (!/[A-Z]/.test(ch)) {
-      const m = base.match(/[a-zA-Z]/);
-      return m ? m[0].toUpperCase() : '#';
-    }
-    return ch;
-  };
-  const matchesQuery = (i) => !q || (normalizeSearch(i.name).includes(q) || normalizeSearch(i.short || '').includes(q));
-  const matchesFilters = (i) => passesInstrumentFilter(i, filters);
-
-  // Filter pill bar — sits above the family grid, shows active filter state
-  let filterBar = `<div class="axis-filter-bar">`;
-  filterBar += `<div class="axis-filter-label">Axis filters</div>`;
-  filterBar += `<div class="axis-filter-pills">`;
-  INSTRUMENT_FILTER_PILLS.forEach(p => {
-    const active = filters.has(p.id);
-    filterBar += `<button class="axis-filter-pill${active ? ' active' : ''}" data-filter-toggle="${esc(p.id)}">${esc(p.label)}</button>`;
-  });
-  filterBar += `</div>`;
-  if (filters.size > 0) {
-    const activeCount = INSTRUMENTS.filter(i => matchesFilters(i)).length;
-    filterBar += `<div class="axis-filter-status">${activeCount} of ${INSTRUMENTS.length} match · <button class="axis-filter-clear" data-filter-clear>clear</button></div>`;
-  }
-  filterBar += `</div>`;
-
-  if (!app.instCollapsed) app.instCollapsed = new Set();
-  // While searching or filtering, force every family open so matches show.
-  const forceExpand = !!q || filters.size > 0;
-
-  let html = '';
-  INSTRUMENT_FAMILIES.forEach(fam => {
-    const list = INSTRUMENTS.filter(i => i.family === fam.id && matchesQuery(i) && matchesFilters(i));
-    if (!list.length) return;
-    const collapsed = !forceExpand && app.instCollapsed.has(fam.id);
-    const famGlyph = (typeof familyImage === 'function') ? familyImage(fam.id, 18) : '';
-    html += `<div class="fam-block${collapsed ? ' collapsed' : ''}"><button class="fam-head" data-fam-toggle="${esc(fam.id)}"><span class="fam-chevron">${icon('chevron-down', 12)}</span>${famGlyph ? `<span class="fam-glyph">${famGlyph}</span>` : ''}<span class="fam-name">${esc(fam.name)}</span><span class="fam-count">${list.length}</span></button>`;
-
-    // Letter bands only for large families AND when not actively searching/filtering
-    if (list.length >= LETTER_BAND_THRESHOLD && !q && filters.size === 0) {
-      // Group by first letter
-      const groups = new Map();
-      list.forEach(i => {
-        const L = firstLetter(i);
-        if (!groups.has(L)) groups.set(L, []);
-        groups.get(L).push(i);
-      });
-      const letters = Array.from(groups.keys()).sort();
-      letters.forEach(L => {
-        html += `<div class="letter-section"><div class="letter-band">${esc(L)}</div><div class="fam-grid">`;
-        groups.get(L).forEach(i => html += `<button class="pick-item" data-add="${esc(i.id)}">${esc(i.short || i.name)}</button>`);
-        html += `</div></div>`;
-      });
-    } else {
-      // Small family, active search, or active filter — flat grid
-      html += `<div class="fam-grid">`;
-      list.forEach(i => html += `<button class="pick-item" data-add="${esc(i.id)}">${esc(i.short || i.name)}</button>`);
-      html += `</div>`;
-    }
-    html += `</div>`;
-  });
-
-  let body;
-  if (!html) {
-    const msg = filters.size > 0 && !q ? 'No instruments match the active filters'
-              : q ? `No instruments match "${esc(q)}"`
-              : 'No instruments';
-    body = `<div class="empty-msg">${msg}</div>`;
-  } else {
-    body = html;
-  }
-  // Expand/collapse-all only matters when families are collapsible (not while
-  // searching/filtering, which force-expands everything).
-  const toolbar = (html && !forceExpand)
-    ? `<div class="picker-toolbar"><button data-inst-expand="all">Expand all</button><button data-inst-expand="none">Collapse all</button></div>`
-    : '';
-  c.innerHTML = filterBar + toolbar + body;
-
-  c.querySelectorAll('[data-fam-toggle]').forEach(b => b.addEventListener('click', () => {
-    const id = b.dataset.famToggle;
-    if (app.instCollapsed.has(id)) app.instCollapsed.delete(id); else app.instCollapsed.add(id);
-    renderInstPicker();
-  }));
-  c.querySelectorAll('[data-inst-expand]').forEach(b => b.addEventListener('click', () => {
-    if (b.dataset.instExpand === 'all') app.instCollapsed.clear();
-    else INSTRUMENT_FAMILIES.forEach(f => app.instCollapsed.add(f.id));
-    renderInstPicker();
-  }));
-
-  // Wire filter pill toggles
-  c.querySelectorAll('[data-filter-toggle]').forEach(b => b.addEventListener('click', () => {
-    const id = b.dataset.filterToggle;
-    if (filters.has(id)) filters.delete(id);
-    else filters.add(id);
-    renderInstPicker();
-  }));
-  const clearBtn = c.querySelector('[data-filter-clear]');
-  if (clearBtn) clearBtn.addEventListener('click', () => {
-    app.instrumentAxisFilters.clear();
-    renderInstPicker();
-  });
-  c.querySelectorAll('[data-add]').forEach(b => b.addEventListener('click', async () => {
-    const iid = b.dataset.add;
-    const card = await addInstrumentFromPicker(iid);
-    if (!card) { showToast(`Unknown instrument: ${iid}`, 'error'); return; }
-    closeModal('modal-add');
-    renderAll();
-    showToast(_addedInstrumentMessage(iid, card), 'success');
-    setTimeout(() => {
-      const el = document.querySelector(`[data-card-id="${card.id}"]`);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 60);
-  }));
-}
-
 // ---- TREE STATE ----
 if (!app.treeExpanded) app.treeExpanded = new Set();
 if (!('similarFor' in app)) app.similarFor = null;
@@ -18866,8 +18404,8 @@ function renderTradPicker() {
     //
     // This used to render all of them. A one- or two-character query matches
     // most of the catalog — `a` matches all 2503, `gu` 1814, `dr` 1719 — and
-    // each row carries a full description, an ancestor path, a 13-div
-    // fingerprint, two inline SVG glyphs and a roster line, then gets two event
+    // each row carries a full description, an ancestor path, two inline SVG
+    // glyphs and a roster line, then gets two event
     // listeners. Typing the first letters of a name therefore parsed multiple
     // megabytes of innerHTML into tens of thousands of nodes and wired thousands
     // of listeners, on every keystroke, in the app's primary discovery flow. The
@@ -18892,7 +18430,6 @@ function renderTradPicker() {
       html += `<div class="trad-leaf-name">${(typeof traditionGlyphsHTML==='function'?traditionGlyphsHTML(t.id,30):'')}${esc(t.name)}</div>`;
       if (ext.description) html += `<div class="trad-leaf-desc">${esc(ext.description)}</div>`;
       if (inst.length) html += `<div class="trad-leaf-meta trad-leaf-meta-line">${esc(inst.join(' · '))}</div>`;
-      html += renderFingerprint(t.id);
       html += `</div>`;
       html += `<div class="trad-leaf-actions">`;
       html += `<button class="leaf-btn" data-import="${esc(t.id)}">Import ${(t.instruments || []).length}</button>`;
@@ -18971,7 +18508,6 @@ function renderTradLeaf(tradition, depth, isCrossRef) {
   if (ext.description) html += `<div class="trad-leaf-desc">${esc(ext.description)}</div>`;
   if (inst.length) html += `<div class="trad-leaf-meta trad-leaf-meta-line">${esc(inst.join(' · '))}</div>`;
   if (ext.exemplars && ext.exemplars.length) html += `<div class="trad-leaf-meta">${esc(ext.exemplars.slice(0, 2).join(' · '))}</div>`;
-  if (ext.axes) html += renderFingerprint(tradition.id);
   html += `</div>`;
   html += `<div class="trad-leaf-actions">`;
   html += `<button class="leaf-btn" data-import="${esc(tradition.id)}">Import ${inst.length}</button>`;
@@ -18994,7 +18530,6 @@ function renderSimilarView(tradId) {
   html += `<div class="similar-source-name">${esc(trad.name)}</div>`;
   if (trad.lineage) html += `<div class="similar-source-lineage">${esc(trad.lineage)}</div>`;
   if (ext.description) html += `<div class="similar-source-desc">${esc(ext.description)}</div>`;
-  html += renderFingerprint(tradId);
 
   // "Instruments that fit" — outside-the-canon instruments closest to this tradition's centroid
   const fits = findInstrumentsForTradition(tradId, 6);
@@ -19028,7 +18563,6 @@ function renderSimilarView(tradId) {
     html += `<div class="similar-card-distance">distance ${n.distance.toFixed(2)}${path.length ? ' · ' + esc(path.join(' / ')) : ''}</div>`;
     if (nExt.description) html += `<div class="similar-card-desc">${esc(nExt.description)}</div>`;
     if (inst.length) html += `<div class="trad-leaf-meta trad-leaf-meta-line" style="margin-top: 6px;">${esc(inst.slice(0, 5).join(' · '))}${inst.length > 5 ? '…' : ''}</div>`;
-    html += renderFingerprint(n.id);
     html += `<div class="similar-card-matches">`;
     html += `<div class="label-micro-cap">Closest on</div>`;
     matches.forEach(m => {
@@ -19047,87 +18581,6 @@ function renderSimilarView(tradId) {
   });
   html += `</div>`;
   return html;
-}
-
-// ---- INSTRUMENT SIMILAR VIEW (drill-down inside modal-add) ----
-function renderSimilarInstrumentView(instId) {
-  const inst = Inst(instId);
-  if (!inst) return '<div>Instrument not found</div>';
-  const neighbors = findSimilarInstruments(instId, 8);
-
-  let html = `<button class="similar-back" data-similar-inst-back>← Back to instrument list</button>`;
-  html += `<div class="similar-source">`;
-  html += `<div class="similar-source-label">Finding instruments near</div>`;
-  html += `<div class="similar-source-name">${esc(inst.name)}</div>`;
-  html += `<div class="similar-source-lineage">${esc(FamName(inst.family))}</div>`;
-  html += renderInstrumentFingerprint(instId);
-  html += `</div>`;
-
-  if (!neighbors.length) {
-    html += `<div class="empty-msg">No comparable instruments — this one stands alone in the catalog.</div>`;
-    return html;
-  }
-
-  html += `<div class="similar-grid">`;
-  neighbors.forEach(n => {
-    const matches = getMatchingInstrumentAxes(instId, n.id, 3);
-    html += `<div class="similar-card">`;
-    html += `<div>`;
-    const nThumb = (typeof image === 'function') ? image(n.id, 18) : '';
-    html += `<div class="similar-card-name">${nThumb ? `<span class="similar-card-glyph">${nThumb}</span>` : ''}${esc(n.name)}</div>`;
-    html += `<div class="similar-card-distance">distance ${n.distance.toFixed(2)} · ${esc(FamName(n.family))}</div>`;
-    html += renderInstrumentFingerprint(n.id);
-    html += `<div class="similar-card-matches">`;
-    html += `<div class="label-micro-cap">Closest on</div>`;
-    matches.forEach(m => {
-      html += `<div class="similar-card-matches-row">`;
-      html += `<span class="similar-match-axis">${esc(m.axis.name)}</span>`;
-      html += `<span class="similar-match-value">${esc(axisLabel(m.axis, (m.av + m.bv) / 2))}</span>`;
-      html += `</div>`;
-    });
-    html += `</div>`;
-    html += `</div>`;
-    html += `<div class="similar-card-actions">`;
-    html += `<button class="leaf-btn" data-add-inst="${esc(n.id)}">Add to canvas</button>`;
-    html += `<button class="leaf-btn ghost" data-similar-inst="${esc(n.id)}">From here</button>`;
-    html += `</div>`;
-    html += `</div>`;
-  });
-  html += `</div>`;
-  return html;
-}
-
-function wireSimilarInstrumentEvents(container) {
-  const backBtn = container.querySelector('[data-similar-inst-back]');
-  if (backBtn) backBtn.addEventListener('click', () => {
-    app.similarInstFor = null;
-    renderInstPicker();
-  });
-  container.querySelectorAll('[data-add-inst]').forEach(el => {
-    el.addEventListener('click', async e => {
-      e.stopPropagation();
-      const iid = el.dataset.addInst;
-      const card = await addInstrumentFromPicker(iid);
-      if (!card) { showToast(`Unknown instrument: ${iid}`, 'error'); return; }
-      closeModal('modal-add');
-      app.similarInstFor = null;
-      renderAll();
-      showToast(_addedInstrumentMessage(iid, card), 'success');
-      setTimeout(() => {
-        const elc = document.querySelector(`[data-card-id="${card.id}"]`);
-        if (elc) elc.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 60);
-    });
-  });
-  container.querySelectorAll('[data-similar-inst]').forEach(el => {
-    el.addEventListener('click', e => {
-      e.stopPropagation();
-      app.similarInstFor = el.dataset.similarInst;
-      renderInstPicker();
-      const body = document.querySelector('#modal-add .modal-body');
-      if (body) body.scrollTop = 0;
-    });
-  });
 }
 
 // ---- EVENTS ----
@@ -19671,11 +19124,6 @@ function initChatDock() {
     // counter already showing rather than waiting for the next keystroke.
     _chatSyncCount();
   }
-  const collapse = _chatEl('chat-collapse');
-  if (collapse) collapse.addEventListener('click', () => {
-    const panel = _chatEl('chat-panel');
-    if (panel) panel.hidden = true;
-  });
   const reset = _chatEl('chat-reset');
   if (reset) reset.addEventListener('click', _chatReset);
 }

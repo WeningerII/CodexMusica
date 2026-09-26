@@ -51,19 +51,19 @@ The reachability check supports these standardized preconditions. The check grou
 | `drift active` | 1+ cards, then `card.drift = buildDriftCandidates(card)`. |
 | `pinned card` | 1+ cards, then `card.pinned = true`. |
 | `stack panel open` | 1+ cards, then `card._uiTab = 'stack'` and `card.stackPanel = { format: 'prose' }`. |
-| `instrument picker open` | `renderInstPicker()` then `openModal('modal-add')`. Required (over bare `modal open`) when the entry's selector targets a CHILD of the modal (an instrument chip, a filter pill) — the modal frame opens via `openModal` alone, but the chip list only renders when `renderInstPicker` fires. |
-| `instrument picker open, filter active` | Same as `instrument picker open`, then add one axis filter to `app.instrumentAxisFilters` and re-render. Surfaces the `clear` button in the filter status row, which only appears when ≥1 filter is active. |
+| `instrument picker open` | `openModal('modal-add')` (which `uiOpenSurface` turns into the Instrument page) then `renderInstrumentDiscovery()`. The legacy Add-instrument modal and its `renderInstPicker` were removed on 2026-09-26; `modal-add` is only the route name now. |
+| `instrument picker open, filter active` | Add one sound-property filter (`INSTRUMENT_FILTER_PILLS[0].id`) to `app.instrumentAxisFilters`, then as `instrument picker open`. Surfaces the Clear control, which only appears when ≥1 filter is active. |
 | `tradition picker open` | `renderTradPicker()` then `openModal('modal-trad')`. Required when the entry's selector targets a CHILD of the modal (a tree node, leaf button) — same reasoning as `instrument picker open`. |
 | `tradition picker open, tree expanded` | Same as `tradition picker open`, then add every `data-toggle-tree` id to `app.treeExpanded` and re-render. Surfaces leaf-level buttons (`Import`, `Find similar`) that only render under expanded tradition nodes. |
 | `recipe stack modal open` | 1+ cards, then `renderRecipeStack()` then `openModal('modal-recipe-stack')`. The recipe-stack body renders its empty-state ("No instruments on the canvas yet") when `app.cards` is empty, so cards must be added first. |
 | `preface just committed with shifts` | 1+ cards, then `card._uiTab = 'preface'`, then `commitPrefaceChange(card, 'liturgical')`. `delta_blues` voice + `liturgical` reliably produces non-empty shifts (tuning + room changes) via the inverse algorithm, which populates `_recentShiftsByCard` and surfaces the panel. |
-| `instrument picker open, similar drill-down active` | Set `app.similarInstFor = 'voice'`, then `renderInstPicker()`, then `openModal('modal-add')`. The picker re-renders into similar-instrument drill-down mode (different DOM tree than the family-grouped chip list). |
+| `instrument picker open, similar drill-down active` | Set `app.similarInstFor = 'voice'`, then `openModal('modal-add')`: `uiOpenSurface` opens that instrument in the Instrument page's inspector, with its similar instruments. |
 | `saved workspaces list open` | Install a `window.storage` mock (the RESET does this automatically when no real storage exists — Claude.ai provides one, headless Chromium doesn't), seed one workspace fixture into both `codex:list` and `codex:ws:gate-fixture`, then `openModal('modal-saved')` and `await renderSaved()`. Surfaces one row with Load / Fork / Delete controls. The `_gate_mock` flag on the mock prevents the fixture preconditions from polluting real storage if it's ever present. |
 | `genre search: no results` | Type a query no genre matches into `#genre-search`, clear `UI.genre`, `renderGenreDiscovery()`. Surfaces the no-results state and its Clear search. |
 | `instrument search: no results` | Type a query no instrument matches into `#instrument-search`, `renderInstrumentDiscovery()`. Surfaces the no-results state and its recovery actions. |
 | `genre just imported` | `await importTraditionWithFeedback('delta_blues')`. Surfaces the import toast and its Undo action. |
 | `map view` | `uiNavigate('map')`. The Map presents Your recipe as a dock. RESET returns every group to the Genre section with both search fields cleared. |
-| `modal open: <id>` | `openModal(<id>)`. Modal IDs: `modal-add`, `modal-trad`, `modal-saved`, `modal-save`, `modal-preface`, `modal-recipe-stack`, `modal-attributions`. Use this only when the entry targets the modal frame itself (`#modal-X.open`), not its contents — for contents, use one of the populated-state preconditions above. |
+| `modal open: <id>` | `openModal(<id>)`. Modal IDs: `modal-trad`, `modal-saved`, `modal-save`, `modal-preface`, `modal-recipe-stack`, `modal-attributions` (`modal-add` has no dialog; it routes to the Instrument page). Use this only when the entry targets the modal frame itself (`#modal-X.open`), not its contents — for contents, use one of the populated-state preconditions above. |
 
 When a future capability needs a precondition not listed here, add the precondition spec to `scripts/ui_reachability_check.js` AND document it in the table above in the same commit.
 
@@ -112,7 +112,7 @@ name: app-bar-add-instrument
 kind: widget
 selector: '#btn-add'
 surface: Your recipe — "Add independent instrument" below the genres (in the phone Recipe sheet's toolbar, "Add instrument")
-implementation: click handler opens modal-add via renderInstPicker
+implementation: click handler calls openModal('modal-add'), which uiOpenSurface turns into the Instrument page
 status: reachable
 precondition: empty
 ```
@@ -152,7 +152,7 @@ name: empty-starter-gallery
 kind: data-action
 selector: '[data-ui="genre-add"]'
 surface: genre catalog — direct recipe addition
-implementation: renderEmpty populates STARTER_TRADITIONS; click calls importTraditionWithFeedback
+implementation: the Genre page's Start tab lists STARTER_TRADITIONS (src/pages/genre.js); its Add calls uiAddGenre
 status: reachable
 precondition: empty
 ```
@@ -164,7 +164,7 @@ name: empty-surprise
 kind: widget
 selector: '[data-ui="surprise"]'
 surface: More menu — Surprise me
-implementation: renderEmpty wires click to surpriseTradition (random tradition with 2+ instruments)
+implementation: the shell's 'surprise' action calls surpriseTradition (random tradition with 2+ instruments)
 status: reachable
 precondition: empty
 ```
@@ -176,7 +176,7 @@ name: empty-state-add-instrument
 kind: widget
 selector: '#btn-add'
 surface: shared recipe — Add instrument
-implementation: click handler proxies to btn-add click
+implementation: #btn-add's click handler (the legacy #empty-add proxy was removed with the old empty state)
 status: reachable
 precondition: empty
 ```
@@ -196,10 +196,9 @@ name: empty-state-quick-pick
 kind: widget
 selector: '[data-ui="instrument-add"]'
 surface: Instrument catalog — Add
-implementation: click adds the chip's instrument as a card
+implementation: click adds that instrument as a card (the legacy quick-pick chips were removed with the old empty state)
 status: reachable
 precondition: instrument picker open
-notes: visible only when workspace is empty
 ```
 
 ### Sidebar — workspace header
@@ -246,7 +245,7 @@ kind: widget
 selector: '.sb-card'
 surface: Your recipe — instrument row (icon, catalog name, current character word; Edit and … beside it)
 implementation: click sets app.selected = cardId, renders detail and opens the editor (the shell's sidebar listener)
-notes: The per-row mini-fingerprint was dropped from the row for the reference layout; the tradition fingerprint stays in the editor header.
+notes: The per-row mini-fingerprint was dropped from the row for the reference layout, and the editor header's fingerprint panel (always hidden) was removed on 2026-09-26.
 status: reachable
 precondition: 1+ cards
 ```
@@ -256,10 +255,10 @@ name: sidebar-add-to-tradition
 kind: widget
 selector: '[data-add-to-trad]'
 surface: Your recipe — "+ Add instrument" inside each genre (accessible name "Add instrument to <genre>")
-implementation: opens modal-add with traditionId pre-context
+implementation: sets app._addToTradition, then openModal('modal-add') opens the Instrument page
 status: reachable
 precondition: 1+ cards
-notes: The instrument picked from the modal joins THAT group — it is configured
+notes: The instrument picked on the Instrument page joins THAT group — it is configured
   from the tradition (tuning, room, chain, voice parts, amp) exactly as
   importTradition seeds it, and is placed after the group's last card. The
   pre-context is consumed on add and cleared by every other modal-add entry
@@ -342,7 +341,7 @@ name: card-similar
 kind: data-action
 selector: '#detail-view [data-action="similar"]'
 surface: detail header — find-similar icon (network)
-implementation: handleAction similar case sets app.similarInstFor, opens modal-add
+implementation: handleAction similar case sets app.similarInstFor, then openModal('modal-add') inspects it on the Instrument page
 status: reachable
 precondition: 1+ cards
 ```
@@ -640,7 +639,7 @@ name: modal-add
 kind: modal
 selector: '#surface-instrument'
 surface: Instrument discovery surface
-implementation: openModal('modal-add'); renderInstPicker populates
+implementation: openModal('modal-add') routes to the Instrument page (uiOpenSurface); renderInstrumentDiscovery populates
 status: reachable
 precondition: instrument picker open
 ```
@@ -653,7 +652,6 @@ surface: Instrument catalog
 implementation: click handler calls addCard(instrumentId), closes modal, toasts confirmation, scrolls new card into view
 status: reachable
 precondition: instrument picker open
-notes: Bare-frame `modal open: modal-add` does NOT surface these — renderInstPicker populates the chip list. The user-triggered paths (sidebar plus, empty-state add) always render the picker before opening the modal.
 ```
 
 ```yaml
@@ -682,10 +680,10 @@ name: find-similar-instrument-add-to-canvas
 kind: data-action
 selector: '#instrument-preview [data-ui="instrument-add"]'
 surface: Similar instruments
-implementation: click calls addCard(instrumentId), closes modal, toasts; reuses the same handler shape as modal-add-instrument-chip but renders inside the similar-instrument drill-down rather than the main picker
+implementation: click adds the instrument through uiAddInstrument; the same handler as modal-add-instrument-chip, inside the inspector's similar instruments
 status: reachable
 precondition: instrument picker open, similar drill-down active
-notes: The drill-down mode is triggered when app.similarInstFor is set to a known instrument id, switching the picker render path from the family-grouped chip list to the similar-instruments cards view (per axes-distance ranking).
+notes: Triggered when app.similarInstFor is set to a known instrument id; uiOpenSurface opens that instrument's inspector, which ranks its neighbours by axis distance.
 ```
 
 ```yaml
@@ -1005,6 +1003,8 @@ When this count changes, update it here AND update the verification block in `sc
 ## Production shared workspace (2026-09-12)
 
 The former empty-state entry points now lead through the always-available Genre and Instrument catalogs. Surprise me is in More. The browse/import approval modals were replaced by direct additions and Undo. The tiny fingerprint visualizations are intentionally removed; axis search and similarity remain.
+
+On 2026-09-26 the code behind those retired surfaces was deleted rather than hidden: the legacy empty state (`#empty-state`, starter gallery, quick-pick), the legacy Add-instrument modal body (`#modal-add`, `renderInstPicker`, its similar-instruments drill-down), the old app bar's wordmark, `#meta` count and `#app-more-menu` overflow sheet, the fingerprint mini-charts, the part-row thumbnails, the editor tab status and the AI panel's title, meta and collapse. `openModal('modal-add')` still routes to the Instrument page, and the seven native `#btn-*` action buttons keep their ids and handlers.
 
 ```yaml
 name: navigation-genre

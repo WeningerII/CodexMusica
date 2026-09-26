@@ -141,25 +141,7 @@ body.boot-failed > .app-bar { display: none; }
 
 /* App bar */
 .app-bar { position: sticky; top: 0; z-index: 30; background: var(--header-glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: var(--s3) var(--s6); display: flex; align-items: center; justify-content: space-between; gap: var(--s4); }
-.app-bar h1 { font-family: var(--font-display); font-size: var(--fs-display-modal); font-weight: var(--fw-semibold); letter-spacing: -0.005em; display: inline-flex; align-items: center; gap: var(--s2); color: var(--text); font-variation-settings: "SOFT" 50, "opsz" 30; }
-.app-bar-wordmark { gap: var(--s3); }
-.app-bar-wordmark .wordmark-text { font-weight: var(--fw-semibold); font-size: var(--fs-display-modal); letter-spacing: -0.01em; }
-.app-bar-wordmark .wordmark-rule { display: inline-block; width: 1px; height: 16px; background: var(--text-3); opacity: 0.5; }
-.app-bar-wordmark .wordmark-sub { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); font-size: var(--fs-display-sub); color: var(--text-3); letter-spacing: 0.01em; font-variation-settings: "SOFT" 50, "opsz" 18; }
-.app-bar h1 svg { color: var(--color-blue); }
-.app-bar .actions { display: flex; gap: var(--s2); align-items: center; }
-.app-bar .actions-rule { width: 1px; height: 18px; background: var(--border); margin: 0 var(--s2); }
-.workspace-meta { font-size: var(--fs-caption); color: var(--text-3); }
-
-/* Two-width button labels. `.lbl-full` is the desktop wording, `.lbl-compact`
-   the phone wording — "Add instrument" / "Instrument", "Traditions" / "Genre".
-   Exactly one is ever in flow, so the button has no hidden width. */
-.lbl-compact { display: none; }
-
-/* Overflow menu — desktop hides the trigger entirely (every action it holds is
-   already a button in the bar). Scoped to `.app-bar` to outrank `.icon-btn
-   { display: inline-flex }`, which is same-specificity but declared later. */
-.app-bar .app-more-btn { display: none; }
+/* Popup menu (the card's move-to-genre list). */
 .more-menu {
   position: fixed;
   z-index: 120;
@@ -192,14 +174,12 @@ body.boot-failed > .app-bar { display: none; }
 .more-menu-item:hover:not(:disabled) { background: var(--surface-2); }
 .more-menu-item:disabled { opacity: 0.4; cursor: default; }
 .more-menu-item svg { color: var(--text-3); flex-shrink: 0; }
-.more-menu-sep { height: 1px; background: var(--border); margin: var(--s1) calc(-1 * var(--s2)); }
 .more-menu-backdrop { position: fixed; inset: 0; z-index: 119; }
 
 /* Buttons */
 .btn {
-  /* `text-decoration: none` is here for the ANCHORS that wear this class --
-     #btn-atlas is one. A <button> never underlines; an <a> does, and without
-     this it would be the only underlined thing in the app bar. */
+  /* `text-decoration: none` is here for any ANCHOR that wears this class. A
+     <button> never underlines; an <a> does. */
   text-decoration: none;
   padding: 8px var(--s4);
   border-radius: var(--r2);
@@ -326,18 +306,8 @@ body.boot-failed > .app-bar { display: none; }
   padding: var(--s5) var(--s6) var(--s9);
 }
 
-/* Detail pane keeps the existing centered-content behavior so empty-state
-   and the legacy .cards list still look right in Phase 1.
-   Phase 3 will swap .cards for the tabbed detail view. */
-#workspace-detail > .cards,
-#workspace-detail > #empty-state {
-  max-width: 880px;
-  margin: 0 auto;
-}
-
 /* Sidebar internals — Phase 2 of layout refactor. Workspace header, filter
    input, tradition-grouped compact card rows, suggest-a-staple, recipe preview. */
-.ws-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); margin-bottom: var(--s1); }
 .ws-name-row { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
 .ws-name { font-family: var(--font-display); font-size: var(--fs-display-card); font-weight: var(--fw-semibold); color: var(--text); margin: 0; line-height: 1.2; min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ws-name-input { font-family: var(--font-display); font-size: var(--fs-display-card); font-weight: var(--fw-semibold); color: var(--text); background: transparent; border: none; border-bottom: 1px solid var(--accent); outline: none; padding: 0 0 2px 0; flex: 1; min-width: 0; }
@@ -472,8 +442,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .sb-card-line1 .sb-name { color: var(--text); }
 .sb-card-line2 { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
 .sb-card-line2 .sb-family { font-size: var(--fs-nano); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3); }
-.sb-card-line2 .fingerprint { height: 14px; margin: 0; gap: 1px; }
-.sb-card-line2 .fingerprint-axis { width: 3px; }
 
 .sb-add-to-tradition { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border: 1px dashed var(--border); border-radius: 6px; background: transparent; color: var(--text-2); font-size: var(--fs-caption); cursor: pointer; transition: border-color 120ms, color 120ms; }
 .sb-add-to-tradition:hover { border-color: var(--text-3); color: var(--text); }
@@ -481,7 +449,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
 /* Suggest a staple — Phase 7. Sibling-tradition recommendation card. */
 .sb-staple { background: var(--color-blue-tint, #eef3fb); border: 1px solid var(--color-blue-border, #cfd9e8); border-radius: 8px; padding: var(--s3); display: flex; flex-direction: column; gap: var(--s2); }
 .sb-staple-head { display: flex; align-items: center; gap: 6px; }
-.sb-staple-head .ws-label { color: var(--color-blue); margin: 0; flex: 1; }
 .sb-staple-refresh { padding: 4px; color: var(--color-blue); }
 .sb-staple-refresh:hover { color: var(--text); }
 .sb-staple-body { font-size: var(--fs-caption); color: var(--text-2); line-height: 1.4; }
@@ -496,8 +463,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .part-row-grid:first-child { border-top: none; }
 .part-row-grid:hover { background: var(--surface-2); }
 .part-row-grid.is-editing { background: var(--surface-2); }
-.part-thumb-cell { width: 48px; height: 48px; border-radius: 8px; background: var(--family-tint, var(--surface-2)); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.part-thumb-cell svg { width: 32px; height: 32px; }
 .part-label-cell { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .part-variant-cell { font-size: var(--fs-body); color: var(--text); font-weight: var(--fw-medium); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .part-descriptors-cell { font-size: var(--fs-caption); color: var(--text-2); text-align: right; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 320px; }
@@ -574,7 +539,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
 
 /* Stack signature strip — Phase 2 of UI Capability Inventory Plan.
  * Renders above the detail header when 2+ cards are in the workspace.
- * Surfaces the workspace centroid fingerprint + 4 nearest traditions.
+ * Surfaces the 4 traditions nearest the workspace centroid.
  * Visual weight intentionally low — informational strip, not focal. */
 .detail-stack-signature {
   display: grid;
@@ -587,12 +552,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
   border-radius: var(--r2);
   border: 1px solid var(--surface-3);
 }
-.detail-stack-signature .dss-fingerprint {
-  display: flex;
-  align-items: center;
-}
-.detail-stack-signature .dss-fingerprint .fingerprint { height: 24px; gap: 2px; margin: 0; }
-.detail-stack-signature .dss-fingerprint .fingerprint-axis { width: 4px; }
 .detail-stack-signature .dss-info {
   display: flex;
   flex-direction: column;
@@ -682,11 +641,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .detail-subtitle .detail-family { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); }
 .detail-subtitle .detail-sep { color: var(--text-4); }
 
-.detail-fingerprint-panel { display: flex; flex-direction: column; align-items: flex-end; gap: var(--s2); }
-.detail-fingerprint-panel .ws-label { margin: 0; }
-.detail-fingerprint-panel .fingerprint { height: 36px; gap: 3px; }
-.detail-fingerprint-panel .fingerprint-axis { width: 6px; }
-
 .detail-trait-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--s5); }
 .trait-pill { display: inline-flex; align-items: center; padding: 4px 10px; background: var(--surface-2); border-radius: 12px; font-size: var(--fs-caption); color: var(--text-2); }
 
@@ -694,7 +648,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .detail-tab { display: inline-flex; align-items: center; gap: 6px; padding: 10px 0; border: none; background: transparent; cursor: pointer; color: var(--text-2); font-size: var(--fs-body); font-weight: var(--fw-medium); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 120ms, border-color 120ms; }
 .detail-tab:hover { color: var(--text); }
 .detail-tab.is-active { color: var(--text); font-weight: var(--fw-semibold); border-bottom-color: var(--accent); }
-.detail-tab-status { margin-left: auto; font-size: var(--fs-caption); color: var(--text-3); }
 
 .detail-tab-content { min-height: 200px; }
 .detail-tab-content > .composer-section:first-child { padding-top: 0; border-top: none; }
@@ -713,8 +666,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
 
    Everything the desktop can author is authorable here: the tree carries the
    roster + genre operations, the inline detail carries prefaces, variants,
-   parts, environment and signal chain, and the app bar's two ADD actions plus
-   #app-more-menu carry the rest.
+   parts, environment and signal chain, and the workbench header and its More
+   menu carry the rest.
    =========================================================================== */
 @media (max-width: 899px) {
   /* Grid -> flow. The sidebar and the detail host stack in DOM order. */
@@ -764,45 +717,11 @@ body.is-dnd-active * { cursor: grabbing !important; }
   #workspace-detail  { padding: 0 var(--s3) calc(var(--s8) + var(--recipe-bar-height, 64px)); }
 }
 
-/* Empty state */
+/* Empty state (the boot-error screen, _renderBootError in src/app.js) */
 .empty-state { text-align: center; padding: var(--s9) var(--s5) var(--s7); max-width: 480px; margin: 0 auto; }
-.empty-state-icon { display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%; background: var(--color-blue-soft); color: var(--color-blue); margin-bottom: var(--s5); }
 .empty-state h2 { font-family: var(--font-display); font-size: var(--fs-display-hero); font-weight: var(--fw-semibold); letter-spacing: -0.02em; margin-bottom: var(--s2); color: var(--text); font-variation-settings: "SOFT" 50, "opsz" 60; }
 .empty-state p { color: var(--text-2); margin: 0 auto var(--s6); line-height: var(--lh-normal); }
-.empty-state-or { margin-top: var(--s8); padding-top: var(--s6); border-top: 1px solid var(--border); }
 .empty-state-actions { display: flex; gap: var(--s2); justify-content: center; flex-wrap: wrap; }
-.empty-state-cta { padding: 10px 18px; font-size: var(--fs-body); }
-.empty-state .quick-pick { display: flex; gap: var(--s2); justify-content: center; flex-wrap: wrap; margin-top: var(--s3); }
-.empty-state .quick-pick-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); margin-bottom: var(--s2); }
-.empty-state .quick-pick-label-sub { margin-top: var(--s6); }
-/* Starter gallery — curated full-recipe entry points */
-/* 150px -> 195px. A tile now carries two glyphs plus the name plus the count,
-   and at 150px the name had ~70px left — enough to force "Hindustani
-   classical" into a four-line stack. The minimum is what an icon+label+badge
-   row actually needs, so it moved when the row gained an icon. auto-fit still
-   collapses the column count on narrow viewports. */
-.starter-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: var(--s2); margin-bottom: var(--s3); }
-.starter-trad { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); padding: 10px 14px; border: 1px solid var(--border-strong); border-radius: var(--r2); background: var(--surface); cursor: pointer; transition: border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease); text-align: left; }
-.starter-trad:hover { border-color: var(--color-blue); background: var(--color-blue-soft); }
-/* Glyphs and name travel together so the count stays pinned right when the
-   name wraps to two lines (it does — "Late Romantic symphonic"). min-width:0
-   lets the name shrink rather than push the count out of the tile. */
-.starter-trad-main { display: flex; align-items: center; gap: var(--s2); flex: 1 1 auto; min-width: 0; }
-/* min-width:0 on BOTH the row and the name. A flex item will not shrink below
-   its content width without it, so the name kept its full single-line width,
-   pushed past the tile and ran underneath the count badge — "Hindustani
-   classical 7" rendered with the 7 sitting on the word. The glyphs are what
-   made the names wrap in the first place, so the wrap had to be made to work
-   rather than the glyphs backed out. */
-/* Wraps between words, never inside one. `overflow-wrap: anywhere` also stopped
-   the collision, but by breaking "Hindustani classical" into Hindus/tani/
-   classic/al — legible in the sense that every letter was present and in no
-   other sense. The tile was given the width instead (see the grid above). */
-.starter-trad-name { font-size: var(--fs-caption); font-weight: var(--fw-medium); color: var(--text); min-width: 0; }
-.starter-trad .sb-trad-glyphs { display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0; }
-.starter-trad-count { font-size: var(--fs-micro); font-family: var(--font-mono); color: var(--text-3); background: var(--surface-2); border-radius: 999px; padding: 1px 7px; flex-shrink: 0; }
-.starter-surprise-row { display: flex; justify-content: center; margin-bottom: var(--s2); }
-.starter-surprise-row .btn { gap: 6px; }
 
 /* Pin button active state — when the card is pinned, the icon fills with
    the blue accent color. Mirrors the active treatment of other icon-toggles. */
@@ -1057,17 +976,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .env-cluster-name { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); }
 .env-cluster-count { font-size: var(--fs-micro); color: var(--text-3); font-family: var(--font-mono); }
 .env-cluster-items { display: flex; flex-direction: column; gap: var(--s1); }
-/* Collapsible instrument families in the Add-instrument modal */
-.fam-head { display: flex; align-items: center; gap: var(--s2); width: 100%; background: none; border: none; cursor: pointer; padding: 0; margin-bottom: var(--s2); text-align: left; }
-.fam-head:hover .fam-name { color: var(--text); }
-.fam-name { margin-bottom: 0; }
-.fam-chevron { display: inline-flex; color: var(--text-3); transition: transform var(--t-fast) var(--ease); }
-.fam-block.collapsed .fam-chevron { transform: rotate(-90deg); }
-.fam-block.collapsed .fam-grid, .fam-block.collapsed .letter-section { display: none; }
-.fam-count { font-size: var(--fs-micro); color: var(--text-3); font-family: var(--font-mono); font-weight: var(--fw-regular); }
-.picker-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: var(--s2); margin-bottom: var(--s3); }
-.picker-toolbar button { font-size: var(--fs-micro); color: var(--text-2); padding: 3px 9px; border: 1px solid var(--border-strong); border-radius: var(--r2); background: var(--surface); }
-.picker-toolbar button:hover { border-color: var(--text-3); color: var(--text); }
 
 /* Card actions footer */
 /* Drift suggestions panel */
@@ -1157,14 +1065,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .confirm-dialog-msg { margin: 0 0 var(--s5); color: var(--text-2); font-size: var(--fs-body); line-height: 1.5; }
 .confirm-dialog-actions { display: flex; justify-content: flex-end; gap: var(--s2); }
 
-/* Picker — instruments */
-.fam-block { margin-bottom: var(--s5); }
-.fam-block:last-child { margin-bottom: 0; }
-.fam-name { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); margin-bottom: var(--s2); }
-.fam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 4px; }
-.pick-item { padding: var(--s2) var(--s3); border: 1px solid transparent; border-radius: var(--r2); background: transparent; text-align: left; transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease); font-size: var(--fs-body); color: var(--text); }
-.pick-item:hover { background: var(--surface-2); border-color: var(--border-strong); }
-
 /* Saved list */
 .saved-grid { display: flex; flex-direction: column; gap: var(--s2); }
 .saved-item { padding: var(--s3) var(--s4); border: 1px solid var(--border); border-radius: var(--r2); background: var(--surface); display: flex; align-items: center; justify-content: space-between; gap: var(--s3); }
@@ -1208,7 +1108,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
                                           with a real word on them
      recipe bar   undo, redo, copy        pinned to the bottom, thumb-reachable,
                                           on screen at every scroll position
-     overflow     saved, save, credits    session-level, not per-edit
+     More menu    saved, credits          session-level, not per-edit
 
    Every desktop capability is reachable — nothing is dropped, and no capability
    depends on a control that is `display: none` at that width. check_mobile_layout.js
@@ -1216,7 +1116,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
 
    TIERS — the same three width literals this stylesheet already used:
      899   compact   the width the workspace collapses to one column
-     700   phone     the width the wordmark can no longer be afforded
+     700   phone     the narrowest header and modal tier
      599   micro     legibility floor + one-hand detail-header layout
 
    TOUCH SIZING IS NOT GATED ON `pointer: coarse`. It used to be, which meant a
@@ -1238,31 +1138,13 @@ body.is-dnd-active * { cursor: grabbing !important; }
 
   /* --- App bar ---------------------------------------------------------- */
   .app-bar { padding: var(--s2) var(--s3); gap: var(--s2); }
-  /* Pin the brand group at its intrinsic width; only the action half gives
-     way. `min-width: 0` on BOTH halves instead lets the brand box shrink
-     below its own content and the "Codex" wordmark — one unbreakable word —
-     paints straight through the first action button. */
-  .app-bar > div:first-child { flex: 0 0 auto; }
-  .app-bar .actions { flex: 0 0 auto; gap: var(--s2); }
-  .app-bar .icon-btn, .app-bar .actions .btn { flex: none; }
+  .app-bar .icon-btn { flex: none; }
 
-  /* The four session-level tools move into #app-more-menu, and undo/redo move
-     into the pinned recipe bar. Each is re-exposed by a proxy control that
-     forwards its click to the button hidden here, so there is still exactly
-     one click handler per action. */
-  #btn-undo, #btn-redo, #btn-attributions, #btn-atlas, #btn-saved, #btn-save,
-  .app-bar .actions-rule { display: none; }
-  .app-bar .app-more-btn { display: inline-flex; }
-
-  /* Both authoring actions keep a word. This is the point of the tier. */
-  .lbl-full    { display: none; }
-  .lbl-compact { display: inline; }
-  .app-bar .actions .btn { padding: 0 var(--s3); white-space: nowrap; }
-
-  /* Text the compact bar cannot afford. */
-  .app-bar-wordmark .wordmark-sub,
-  .app-bar-wordmark .wordmark-rule { display: none; }
-  .app-bar h1 + .workspace-meta    { display: none; }
+  /* Undo/redo are re-exposed in the pinned recipe bar by proxy controls that
+     forward their click to the buttons hidden here, so there is still exactly
+     one click handler per action (src/workbench.css shows #btn-save in the
+     workbench header). */
+  #btn-undo, #btn-redo, #btn-attributions, #btn-saved, #btn-save { display: none; }
 
   /* --- Inline instrument detail ------------------------------------------
      #detail-view mounts inside .sb-tradition-cards, directly after the card
@@ -1304,9 +1186,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
   .detail-tab-bar::-webkit-scrollbar { width: 0; height: 0; display: none; }
   .detail-tab-bar :focus-visible { outline-offset: -2px; }
   .detail-tab { flex: none; white-space: nowrap; margin-bottom: 0; }
-  /* `margin-left: auto` inside a scroll container pushes the status to the far
-     end of the SCROLL width, not the visible edge. Let it trail the last tab. */
-  .detail-tab-status { flex: none; margin-left: var(--s4); }
 
   /* --- Recipe: pinned bottom sheet ---------------------------------------
      Was the bottom zone of a viewport-tall sidebar, which on a phone meant it
@@ -1342,7 +1221,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
   #sidebar-recipe-preview.is-expanded .rp-expand svg { transform: rotate(0deg); }
 
   /* The stack-signature strip is dropped on mobile. It is a three-column
-     desktop grid (fingerprint | info | browse) that reflows to four stacked
+     desktop grid (info | browse) that reflows to stacked
      rows at this width, costing ~40% of the first screenful of the panel
      before a single editable control — and it is read-only context, not an
      authoring surface. Authoring parity is unaffected: roster, genres,
@@ -1376,7 +1255,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
   /* --- Touch target sizing (unconditional at this width — see header) ----- */
   .icon-btn { min-width: 44px; min-height: 44px; }
   .app-bar .icon-btn { width: 44px; height: 44px; }
-  .app-bar .actions .btn { min-height: 44px; }
   .detail-tab { min-height: 44px; }
   .sb-card { min-height: 44px; }
   .sb-card-row > .sb-card { padding-right: 96px; }
@@ -1394,7 +1272,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
   /* `min-height` ONLY — never `display: inline-flex`, which would flip these
      from block-level flex containers to shrink-to-fit and collapse two-line
      chips (`.chip-block-sub` is display: block and belongs UNDER its label). */
-  .chip, .chip-block, .dss-trad, .starter-trad,
+  .chip, .chip-block, .dss-trad,
   .empty-state .btn { min-height: 44px; }
 }
 
@@ -1405,27 +1283,12 @@ body.is-dnd-active * { cursor: grabbing !important; }
 @media (max-width: 700px) {
 
   .app-bar { padding: var(--s1) var(--s2); gap: var(--s1); }
-  .app-bar .actions { gap: var(--s1); }
-
-  /* Visually hidden, still in the accessibility tree: the page keeps its <h1>.
-     Absolutely positioned, so it contributes no width and generates no flex
-     `gap`. (`.app-bar` is position: sticky, so it is the containing block.)
-     This is what buys "+ Genre" and "+ Instrument" room to keep their words
-     at 360px — the trade the previous revision made in the other direction. */
-  .app-bar h1 {
-    position: absolute;
-    width: 1px; height: 1px;
-    margin: -1px; padding: 0; border: 0;
-    overflow: hidden; white-space: nowrap;
-    clip-path: inset(50%);
-  }
 
   /* Content grids. `minmax(0, 1fr)` rather than `1fr` removes each track's
      min-content floor, so a long unbreakable token cannot re-open the layout
      viewport. The chain drops to two columns: eight was a desktop-width row,
      and four still overflowed inside the inline detail panel. */
   .chain-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .fam-grid   { grid-template-columns: minmax(0, 1fr); }
   .modal      { max-width: 100%; max-height: 92vh; }
   .modal-head, .modal-body, .modal-foot, .modal-search {
     padding-left: var(--s4);
@@ -1443,16 +1306,11 @@ body.is-dnd-active * { cursor: grabbing !important; }
      shared scale — the desktop type ramp is untouched. */
   :root { --fs-nano: 12px; --fs-code: 12px; --fs-micro: 12px; }
 
-  /* Tighter tab row, and drop the trailing status string: it is meta, not
-     navigation, and it added ~158px to the row's scroll width. */
+  /* Tighter tab row. */
   .detail-tab-bar { gap: var(--s3); }
-  .detail-tab-status { display: none; }
 
-  /* The 80px / 1fr / auto header crushed its third column, clipping the
-     letter-spaced "FINGERPRINT" label against the right edge. Two columns,
-     with the fingerprint panel on its own full-width row. */
+  /* Two columns: the thumb and the title. */
   .detail-header { grid-template-columns: 56px minmax(0, 1fr); }
-  .detail-fingerprint-panel { grid-column: 1 / -1; align-items: flex-start; }
 }
 
 
@@ -1603,11 +1461,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
    font-size or font-weight" check is what named them, and it is the reason
    that check exists rather than being a lint preference. 11px is not a step on
    the ramp at all; it maps to --fs-micro, the nearest one the floor lifts. */
-.chat-panel-title { font-weight: var(--fw-semibold); font-size: var(--fs-body); white-space: nowrap; flex: 0 0 auto; }
-/* min-width:0 so this is the element that gives when the head is narrow — the
-   title wrapped to two lines on a 390px phone otherwise, because a flex item
-   will not shrink below its content without it. */
-.chat-panel-meta { flex: 1 1 auto; min-width: 0; color: var(--text-3); font-size: var(--fs-micro); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .chat-reset { padding: 4px 8px; font-size: var(--fs-micro); }
 .chat-log {
   flex: 1 1 auto;
@@ -1752,53 +1605,19 @@ body.is-dnd-active * { cursor: grabbing !important; }
      (body.boot-failed, with its own Reload), this is all the page shows. -->
 <div class="boot-status" id="boot-status" role="status">Loading the catalog…</div>
 
+<!-- The native action buttons. uiStart (src/workbench.js) moves each one by id
+     into the workbench header, its More menu or Your recipe, replaces its
+     content and label, and then removes this header. Their ids and handlers
+     (wired in _initApp, src/app.js) are the one implementation of each action. -->
 <header class="app-bar">
-  <div style="display: flex; align-items: center; gap: var(--s4);">
-    <h1 class="app-bar-wordmark"><span class="wordmark-text">Codex</span><span class="wordmark-rule" aria-hidden="true"></span><span class="wordmark-sub">of song-recipes</span></h1>
-    <span class="workspace-meta" id="meta"></span>
-  </div>
-  <div class="actions">
-    <!-- Below 900px the four session-level tools here move into the
-         #app-more-menu overflow sheet and only the two ADD actions stay in the
-         bar — see the compact tier in the responsive section. -->
-    <button class="icon-btn" id="btn-undo" data-tooltip="Undo (Ctrl/Cmd+Z)" aria-label="Undo" disabled><span data-icon="undo" data-size="14"></span></button>
-    <button class="icon-btn" id="btn-redo" data-tooltip="Redo (Ctrl/Cmd+Shift+Z)" aria-label="Redo" disabled><span data-icon="redo" data-size="14"></span></button>
-    <button class="icon-btn" id="btn-attributions" data-tooltip="Image credits &amp; licenses" aria-label="Image credits"><span data-icon="info" data-size="14"></span></button>
-    <span class="actions-rule" aria-hidden="true"></span>
-    <button class="btn btn-tonal" id="btn-traditions"><span data-icon="library" data-size="14"></span><span class="btn-label"><span class="lbl-full">Traditions</span><span class="lbl-compact">Genre</span></span></button>
-    <!-- The atlas had no door. It ships at ./atlas.html and until now was
-         linked ONLY from index.html, so nobody who opened the app could reach
-         it. It sits beside Traditions because it is the same subject seen
-         geographically.
-         NEW TAB, DELIBERATELY. The canvas lives in memory and is only
-         persisted by Save, which is why there is a `beforeunload` warning in
-         app.js; a same-tab link would make "look at the map" cost either a
-         browser confirm or the session. It also lets the map be read BESIDE
-         the workspace, which is what a reference map is for. -->
-    <a class="btn btn-ghost" id="btn-atlas" href="./atlas.html" target="_blank" rel="noopener"
-       data-tooltip="Traditions atlas — the world map (opens in a new tab)"
-       aria-label="Traditions atlas — the world map (opens in a new tab)"><span data-icon="network" data-size="14"></span><span class="btn-label">Atlas</span></a>
-    <button class="btn btn-ghost" id="btn-saved"><span data-icon="folder" data-size="14"></span><span class="btn-label">Saved</span></button>
-    <button class="btn btn-secondary" id="btn-save"><span data-icon="save" data-size="14"></span><span class="btn-label"><span class="lbl-full">Save workspace</span><span class="lbl-compact">Save</span></span></button>
-    <button class="btn btn-primary" id="btn-add"><span data-icon="plus" data-size="14"></span><span class="btn-label"><span class="lbl-full">Add instrument</span><span class="lbl-compact">Instrument</span></span></button>
-    <!-- Overflow. Hidden at >= 900px, where every action above is already in
-         the bar. Below 900px it is the ONLY route to undo/redo/saved/save/
-         credits, so it is never itself hidden. -->
-    <button class="icon-btn app-more-btn" id="btn-more" aria-label="More actions" aria-haspopup="true" aria-expanded="false" aria-controls="app-more-menu"><span data-icon="more-horizontal" data-size="14"></span></button>
-  </div>
+  <button id="btn-undo" disabled></button>
+  <button id="btn-redo" disabled></button>
+  <button id="btn-attributions"></button>
+  <button id="btn-traditions"></button>
+  <button id="btn-saved"></button>
+  <button id="btn-save"></button>
+  <button id="btn-add"></button>
 </header>
-
-<!-- Overflow sheet. Every item proxies its click to the real control in the
-     app bar, so there is exactly one handler per action and the compact bar
-     can never drift out of parity with the desktop one. -->
-<div class="more-menu" id="app-more-menu" role="menu" aria-labelledby="btn-more" hidden>
-  <button class="more-menu-item" role="menuitem" data-proxy="btn-atlas"><span data-icon="network" data-size="15"></span>Traditions atlas</button>
-  <div class="more-menu-sep" role="separator"></div>
-  <button class="more-menu-item" role="menuitem" data-proxy="btn-saved"><span data-icon="folder" data-size="15"></span>Saved workspaces</button>
-  <button class="more-menu-item" role="menuitem" data-proxy="btn-save"><span data-icon="save" data-size="15"></span>Save workspace</button>
-  <div class="more-menu-sep" role="separator"></div>
-  <button class="more-menu-item" role="menuitem" data-proxy="btn-attributions"><span data-icon="info" data-size="15"></span>Image credits</button>
-</div>
 
 <main class="workspace">
   <aside id="workspace-sidebar" aria-label="Your recipe">
@@ -1817,39 +1636,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
     </div>
     <div id="sidebar-recipe-preview"></div>
   </aside>
-  <section id="workspace-detail">
-    <section id="empty-state" class="empty-state">
-      <div class="empty-state-icon"><span data-icon="music" data-size="40"></span></div>
-      <h2>A codex of song-recipes</h2>
-      <p>Each instrument is independent — its own parts, tuning, room, and signal chain. Combine freely. No combination is wrong.</p>
-      <div class="empty-state-actions">
-        <button class="btn btn-primary empty-state-cta" id="empty-add"><span data-icon="plus" data-size="14"></span>Add an instrument</button>
-        <button class="btn btn-tonal empty-state-cta" id="empty-add-genre"><span data-icon="plus" data-size="14"></span>Add a Genre</button>
-      </div>
-      <div class="empty-state-or">
-        <div class="quick-pick-label">Or load a complete recipe</div>
-        <div class="starter-gallery" id="starter-gallery"></div>
-        <div class="starter-surprise-row">
-          <button class="btn btn-secondary" id="empty-surprise"><span data-icon="shuffle" data-size="14"></span>Surprise me</button>
-        </div>
-        <div class="quick-pick-label quick-pick-label-sub">Or start from a single instrument</div>
-        <div class="quick-pick" id="quick-pick"></div>
-      </div>
-    </section>
-  </section>
+  <section id="workspace-detail"></section>
 </main>
-
-<!-- Modal: add instrument -->
-<div class="modal-bg" id="modal-add">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-add-title">
-    <div class="modal-head">
-      <h2 id="modal-add-title">Add instrument</h2>
-      <button class="icon-btn" data-close="modal-add" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
-    </div>
-    <div class="modal-search"><span class="search-adornment"><span data-icon="search" data-size="14"></span></span><input type="search" id="search-inst" placeholder="Search instruments…" autocomplete="off" aria-label="Search instruments"></div>
-    <div class="modal-body" id="picker-inst"></div>
-  </div>
-</div>
 
 <!-- Modal: traditions -->
 <div class="modal-bg" id="modal-trad">
@@ -1949,11 +1737,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
 <section class="chat-dock" id="chat-dock" hidden aria-label="Ask the engine">
   <div class="chat-panel" id="chat-panel" hidden>
     <div class="chat-panel-head">
-      <span class="chat-panel-title">Ask the engine</span>
-      <span class="chat-panel-meta" id="chat-meta"></span>
       <button class="btn btn-ghost chat-reset" id="chat-reset" type="button"><span class="btn-label">New conversation</span></button>
       <button class="btn btn-ghost chat-reset" id="chat-recover" type="button">Saved runs</button>
-      <button class="icon-btn" id="chat-collapse" aria-label="Collapse conversation"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions"></div>
   </div>
