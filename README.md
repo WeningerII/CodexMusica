@@ -76,7 +76,7 @@ Every operation is an `npm run` script (see `package.json`):
 | `npm run faults` | Fault-injection: plants a defect per gate-class and asserts each gate catches it <!-- @promise: gates-two-sided --> |
 | `npm run lint` / `npm run format` | ESLint / Prettier |
 | `npm run ci` | `lint` + full `build` |
-| `npm run assets:*` | Regenerate embedded emoji / icon / photo assets (occasional) |
+| `npm run assets:*` | Regenerate embedded emoji / icon / glyph assets and the image manifest (occasional) |
 
 ## Static API (for agents & tools)
 

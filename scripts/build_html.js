@@ -30,25 +30,27 @@
 //   node scripts/build_html.js                    # lazy shell (default) into OUTPUT_DIR (see _paths.js; CODEX_OUT_DIR overrides)
 //   node scripts/build_html.js --out=path.html    # custom output path
 //   node scripts/build_html.js --embedded         # fully-embedded single-file variant (all tables in the page; no api/ needed)
-//   node scripts/build_html.js --lazy             # explicit lazy shell (same as the default; kept for back-compat)
-//   node scripts/build_html.js --validate         # run validate.js first; abort on failure
+//   node scripts/build_html.js --lazy             # explicit lazy shell (same output as the default). Kept, not dead:
+//                                                 #   check_lazy_app.js passes it so both of its builds name their mode,
+//                                                 #   and `npm run build:html:lazy` and docs/place-production-plan.md cite it
 //   node scripts/build_html.js --check            # post-build: eval data block, compile every <script>, assert no block is all-comment, runtime blocks stay sloppy, <script> byte ceiling
-//   node scripts/build_html.js --strict           # --validate + --check, both run
 //   node scripts/build_html.js --quiet            # suppress per-source-file size summary
 //   node scripts/build_html.js --no-minify        # skip minification (reading the artifact by hand; never used by CI or publish)
 //
 // EXIT CODES
 //   0  success
-//   2  missing required source (src/index.template.html or src/app.js)
-//   4  embedded data block failed to parse, a table did not read back, or an
-//      emitted <script> does not compile on its own (--check)
+//   2  missing required source (src/index.template.html or src/app.js), or
+//      --embedded together with --lazy
+//   3  an unknown or retired flag (--validate, --strict), or a positional argument
+//   4  embedded data block failed to parse, a table did not read back, an
+//      emitted <script> does not compile on its own (--check), or a references
+//      file the page-only strip rewrites holds anything but table declarations
 //   5  template is missing the <!--@CODEX_BODY--> or <!--@THEME_BOOT--> marker
 //   6  an emitted <script> is all comment, a runtime block became strict-mode
 //      code, or a block exceeds the hard byte ceiling (--check)
 
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
 const vm = require('vm');
 
 const SKILL_ROOT = path.join(__dirname, '..');
@@ -78,6 +80,7 @@ const SOURCE_FILES = [
 
 const args = process.argv.slice(2);
 const flags = {};
+const stray = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a.startsWith('--')) {
@@ -90,7 +93,30 @@ for (let i = 0; i < args.length; i++) {
         i++;
       } else flags[a.slice(2)] = true;
     }
-  }
+  } else stray.push(a);
+}
+
+// Only the flags in USAGE are read, and anything else is refused rather than
+// ignored: a mistyped `--embed` used to build the lazy shell without a word, and
+// a caller still passing --strict (which once also ran --check) would be told
+// the build was checked when nothing was.
+const KNOWN_FLAGS = new Set(['out', 'embedded', 'lazy', 'check', 'quiet', 'no-minify']);
+const RETIRED_FLAGS = {
+  validate: 'run `npm run validate` (scripts/validate.js) before the build instead',
+  strict: 'run `npm run validate` before the build and pass --check',
+};
+const refused = Object.keys(flags)
+  .filter((f) => !KNOWN_FLAGS.has(f))
+  .map((f) =>
+    RETIRED_FLAGS[f]
+      ? `--${f} is retired: ${RETIRED_FLAGS[f]}`
+      : `--${f} is not a flag of this script`
+  )
+  .concat(stray.map((a) => `unexpected argument "${a}" (build_html takes flags only)`));
+if (refused.length) {
+  refused.forEach((r) => console.error('build_html: ' + r));
+  console.error('  flags: ' + Array.from(KNOWN_FLAGS, (f) => '--' + f).join(' ') + ' (see USAGE)');
+  process.exit(3);
 }
 
 const outputPath = flags.out || DEFAULT_OUTPUT;
@@ -119,25 +145,6 @@ if (!fs.existsSync(TEMPLATE) || !fs.existsSync(APP)) {
   if (!fs.existsSync(TEMPLATE)) console.error(`  ${TEMPLATE}`);
   if (!fs.existsSync(APP)) console.error(`  ${APP}`);
   process.exit(2);
-}
-
-// ──────────────────────────── pre-build: --validate ────────────────────────────
-// When --validate or --strict is set, run validate.js synchronously and abort the
-// build on any failure. Without this gate, a broken catalog can silently produce
-// a broken HTML — and the failure mode (open the file in a browser, see a JS
-// syntax error in devtools) is far worse than a fast pre-build abort.
-
-const runValidate = flags.validate || flags.strict;
-if (runValidate) {
-  try {
-    const out = execSync('node ' + path.join(__dirname, 'validate.js'), { encoding: 'utf8' });
-    if (!flags.quiet) console.error('validate: PASS — ' + out.trim().split('\n').pop());
-  } catch (e) {
-    console.error('validate: FAIL — aborting build');
-    if (e.stdout) console.error(e.stdout.toString());
-    if (e.stderr) console.error(e.stderr.toString());
-    process.exit(3);
-  }
 }
 
 // ──────────────────────────── build ────────────────────────────
@@ -199,30 +206,161 @@ const MAX_SCRIPT_BYTES = 1024 * 1024; // hard ceiling on actual emitted UTF-8 by
 // on it. That is left alone on purpose: the budget exists to stay below a
 // renderer's parse-memory limit, and this only adds headroom. Retuning it would
 // move every chunk boundary, which is a separate change with its own risk.
-const { minifyJs } = require('./_minify.js');
+const { minifyJs, minifyCss, topLevelStatements } = require('./_minify.js');
 // Escape hatch for reading the shipped artifact by hand. NOT used by CI and not
 // used by sync-pages.yml, and it cannot leak into the committed page: that file
 // is byte-compared against a default build by check_artifact_fresh.js, so an
 // unminified codex.html fails the freshness gate on the next run.
 const MINIFY = !flags['no-minify'];
 const squeeze = (code, label) => (MINIFY ? minifyJs(code, label) : code);
+// The stylesheets get the same treatment: a token-level squeeze that drops
+// comments and insignificant whitespace (scripts/_minify.js minifyCss).
+const squeezeCss = (code, label) => (MINIFY ? minifyCss(code, label) : code);
 
+// ──────────────────────────── page-only data strip ────────────────────────────
+// references/ is the catalog for every consumer, and the page reads less of it
+// than the others. The tables and fields below exist for the Node side — the CLI
+// renderers, scoring, audits and the connector — and nothing the page runs reads
+// them: git grep --text over src/ and the snippets inlined below finds no reader
+// (no property access, and no generic read such as Object.keys over a catalog
+// object). Re-run that search before adding a field here. They are dropped from
+// the PAGE only: references/, api/, the connector and the CLI keep full data. The
+// built-page gates (app_recipe_regression, equivalence, check_lazy_app,
+// check_minified_equivalence) prove the page did not need them, and --check
+// asserts they are gone.
+//
+//   CHAIN_ARCHETYPES, PRODUCTION_AESTHETICS, ARRANGEMENTS — CLI-only renderer
+//     inputs (SKILL.md §9.1: "not levers for the Rich/browser recipe").
+//   match_tokens — the offline matcher's vocabulary; _card_descriptors.js pools
+//     descriptors only, and tandem.js fails if the page ever reads it.
+//   canonical_tags — scoring-only (entryRenderDescs omits them on purpose).
+//   surface, auto, pointer, stateKey, neg_anchor / pos_anchor, and rooms'
+//     default_chain_archetype / scale_tier / era / region — audit and CLI
+//     fields; families and room clusters are read for id and name only.
+const PAGE_DROP_TABLES = new Set(['CHAIN_ARCHETYPES', 'PRODUCTION_AESTHETICS', 'ARRANGEMENTS']);
+const VARIANT_DROP = ['match_tokens', 'canonical_tags', 'surface', 'auto'];
+const PAGE_DROP_FIELDS = {
+  // table -> [path from each element ('' = the element itself), fields]
+  INSTRUMENT_FAMILY_PARTS: [['*.variants', VARIANT_DROP]],
+  INSTRUMENT_FAMILIES: [['', ['note', 'descriptors', 'canonical_tags']]],
+  INSTRUMENTS: [
+    ['', ['surface']],
+    ['parts', ['surface']],
+    ['parts.variants', VARIANT_DROP],
+  ],
+  ROOMS: [['', ['canonical_tags', 'default_chain_archetype', 'scale_tier', 'era', 'region']]],
+  ROOM_CLUSTERS: [['', ['note', 'descriptors', 'canonical_tags']]],
+  CHAIN_SECTIONS: [
+    ['', ['stateKey']],
+    ['items', ['canonical_tags']],
+  ],
+  TUNINGS: [['', ['pointer', 'canonical_tags']]],
+  AXIS_DEFINITIONS: [['', ['neg_anchor', 'pos_anchor']]],
+  INSTRUMENT_AXIS_DEFINITIONS: [['', ['neg_anchor', 'pos_anchor']]],
+};
+// Objects reached from each element of a table by a dotted path; `*` expands an
+// object's values (INSTRUMENT_FAMILY_PARTS is family -> parts).
+function reach(elements, pathSpec) {
+  const flat = (list) => list.flatMap((n) => (Array.isArray(n) ? flat(n) : n == null ? [] : [n]));
+  let nodes = flat(elements);
+  for (const step of pathSpec ? pathSpec.split('.') : [])
+    nodes = flat(nodes.map((n) => (step === '*' ? Object.values(n) : n[step])));
+  return nodes;
+}
+const tableElements = (value) => (Array.isArray(value) ? value : [value]);
+// Re-emitting a table as JSON is exact only for JSON-safe data. Say so loudly
+// rather than letting undefined, NaN, -0 or a function change on the way.
+function assertJsonSafe(v, where) {
+  if (v === null || typeof v === 'string' || typeof v === 'boolean') return;
+  if (typeof v === 'number') {
+    if (!Number.isFinite(v) || Object.is(v, -0)) throw new Error(`page strip: ${where} is ${v}`);
+    return;
+  }
+  if (Array.isArray(v)) {
+    for (let i = 0; i < v.length; i++) {
+      if (!(i in v)) throw new Error(`page strip: ${where} has a hole at ${i}`);
+      assertJsonSafe(v[i], `${where}[${i}]`);
+    }
+    return;
+  }
+  if (typeof v === 'object') {
+    for (const k of Object.keys(v)) assertJsonSafe(v[k], `${where}.${k}`);
+    return;
+  }
+  throw new Error(`page strip: ${where} is a ${typeof v}`);
+}
+// The page's copy of one references file: evaluated, stripped, re-emitted as one
+// `const NAME = <json>;` per declaration in the file's own order. A file with
+// nothing to strip is returned byte-for-byte.
+function stripForPage(file, source) {
+  const names = [...source.matchAll(/^(?:const|let|var)\s+([A-Z_][A-Z0-9_]*)\s*=/gm)].map(
+    (m) => m[1]
+  );
+  if (!names.some((n) => PAGE_DROP_TABLES.has(n) || PAGE_DROP_FIELDS[n])) return source;
+  // Only those declarations survive the re-emit, so a file that is rewritten
+  // may hold nothing else at top level. A function, an `if`, a statement that
+  // patches a table after its declaration, a lower-case or destructured name,
+  // a second declarator on one line: each would vanish from the page without a
+  // word. Parsed, not pattern-matched, by the parser the minifier uses.
+  const parsed = [];
+  const other = [];
+  for (const node of topLevelStatements(source, file)) {
+    const line = node.start ? node.start.line : '?';
+    if (!['Const', 'Let', 'Var'].includes(node.TYPE)) {
+      other.push(`line ${line}: a top-level ${node.TYPE} statement`);
+      continue;
+    }
+    for (const d of node.definitions) {
+      const name = d.name && typeof d.name.name === 'string' ? d.name.name : null;
+      if (name && /^[A-Z_][A-Z0-9_]*$/.test(name)) parsed.push(name);
+      else other.push(`line ${line}: a declaration of ${name || 'a destructuring pattern'}`);
+    }
+  }
+  if (!other.length && parsed.join() !== names.join())
+    other.push(`the parser finds ${parsed.join(', ')}; the re-emit would keep ${names.join(', ')}`);
+  if (other.length) {
+    console.error(`build_html: ${file} holds more than upper-case table declarations,`);
+    console.error('  and the page-only strip re-emits nothing else:');
+    other.slice(0, 10).forEach((o) => console.error('  ✗ ' + o));
+    process.exit(4);
+  }
+  const ctx = vm.createContext({});
+  vm.runInContext(source, ctx, { filename: file });
+  const out = [`// ${file}, page copy: see "page-only data strip" in scripts/build_html.js`];
+  for (const name of names) {
+    if (PAGE_DROP_TABLES.has(name)) continue;
+    const value = vm.runInContext(name, ctx);
+    for (const [pathSpec, fields] of PAGE_DROP_FIELDS[name] || [])
+      for (const node of reach(tableElements(value), pathSpec))
+        for (const k of fields) delete node[k];
+    assertJsonSafe(value, name);
+    out.push(`const ${name} = ${JSON.stringify(value).replace(/<\//g, '<\\/')};`);
+  }
+  return out.join('\n') + '\n';
+}
+
+// Every emitted block opens its own <script>, closing the one before it. The
+// template supplies only the final </script>, right after <!--@CODEX_BODY-->,
+// which closes the runtime block.
 const dataParts = [];
+const openScript = (label) => {
+  if (dataParts.length) dataParts.push(`</script>`);
+  dataParts.push(`<script>// ─── ${label} ───`);
+};
 const sourceSizes = [];
 for (const f of SOURCE_FILES) {
   if (LAZY && LAZY_OMIT.has(f)) continue;
   const p = path.join(REFS, f);
-  const content = fs.readFileSync(p, 'utf8');
+  const content = stripForPage(f, fs.readFileSync(p, 'utf8'));
   sourceSizes.push({ name: f, bytes: content.length });
 
   const chunks = splitFileIntoChunks(content, MAX_SCRIPT_CHARS);
   for (let i = 0; i < chunks.length; i++) {
     if (!chunks[i].trim()) continue; // skip empty splits
     const label = chunks.length === 1 ? f : `${f} [${i + 1}/${chunks.length}]`;
-    dataParts.push(`</script>`);
     // The label comment is emitted OUTSIDE the minified body, so it survives:
     // the shipped page still says which source each block came from.
-    dataParts.push(`<script>// ─── ${label} ───`);
+    openScript(label);
     dataParts.push(squeeze(chunks[i].trimEnd(), label));
   }
 }
@@ -254,8 +392,7 @@ function compactImageManifest() {
   };
 }
 const imageManifest = compactImageManifest();
-dataParts.push(`</script>`);
-dataParts.push(`<script>// ─── instrument images (references/_image_manifest.json) ───`);
+openScript('instrument images (references/_image_manifest.json)');
 dataParts.push(
   `const CODEX_IMAGE_MANIFEST = ${JSON.stringify(imageManifest).replace(/</g, '\\u003c')};`
 );
@@ -389,11 +526,22 @@ const runtimeBlock = runtimeParts.join('\n');
 // Function replacement: the injected data/app contains `$` sequences
 // (template literals, regex) that String.replace would special-case — a
 // function replacement returns the string verbatim.
+// The template's own <style> is squeezed in place, before anything is
+// substituted, so only the template's markup is matched; the other <style>
+// holds nothing but the marker the shell and page stylesheets replace.
+const WORKBENCH_STYLE_MARKER = '<!--@WORKBENCH_STYLE-->';
 const html = template
+  .replace(/<style>([\s\S]*?)<\/style>/g, (block, css) =>
+    css.includes(WORKBENCH_STYLE_MARKER)
+      ? block
+      : '<style>' + squeezeCss(css, 'src/index.template.html <style>') + '</style>'
+  )
   .replace(THEME_BOOT_MARKER, () => '<script>' + squeeze(themeJs, 'theme boot') + '</script>')
-  .replace(
-    '<!--@WORKBENCH_STYLE-->',
-    () => themeCss + '\n' + workbenchCss + '\n' + pagesCss + '\n' + layoutCss
+  .replace(WORKBENCH_STYLE_MARKER, () =>
+    squeezeCss(
+      themeCss + '\n' + workbenchCss + '\n' + pagesCss + '\n' + layoutCss,
+      'theme.css + workbench.css + pages/*.css + layout.css'
+    )
   )
   .replace(CODEX_BODY_MARKER, () => dataBlock + '\n' + runtimeBlock);
 
@@ -446,8 +594,7 @@ if (!flags.quiet) {
 // the data files. Reports concrete catalog sizes (traditions, instruments,
 // preface lexicon entries) so the operator can eyeball expected vs actual.
 
-const runCheck = flags.check || flags.strict;
-if (runCheck) {
+if (flags.check) {
   // The assembled dataBlock interleaves literal </script>/<script> markers (the
   // per-file tag splitting that fixes the renderer OOM). Those are HTML, not JS,
   // so eval-ing dataBlock verbatim always throws "Unexpected token '<'". Strip the
@@ -498,12 +645,28 @@ if (runCheck) {
   // reads as absent here is either missing from the page or unreadable by this
   // gate, and both are build failures.
   const REQUIRED = LAZY
-    ? ['INSTRUMENTS', 'ROOMS', 'TUNINGS', 'CHAIN_ARCHETYPES', 'PREFACE_LEXICON']
-    : ['TRADITIONS', 'INSTRUMENTS', 'ROOMS', 'TUNINGS', 'CHAIN_ARCHETYPES', 'PREFACE_LEXICON'];
+    ? ['INSTRUMENTS', 'ROOMS', 'TUNINGS', 'CHAIN_SECTIONS', 'PREFACE_LEXICON']
+    : ['TRADITIONS', 'INSTRUMENTS', 'ROOMS', 'TUNINGS', 'CHAIN_SECTIONS', 'PREFACE_LEXICON'];
   const unreadable = REQUIRED.filter((name) => countOf(name) <= 0);
   if (unreadable.length) {
     console.error(
       `check: FAIL — ${unreadable.join(', ')} did not read back from the emitted data block`
+    );
+    process.exit(4);
+  }
+  // The page-only strip held: no dropped table is declared and no dropped field
+  // survives anywhere under its table (searched in the table's own JSON, so a
+  // nested copy counts too).
+  const leaked = [...PAGE_DROP_TABLES].filter(declared);
+  for (const [name, specs] of Object.entries(PAGE_DROP_FIELDS)) {
+    if (!declared(name)) continue;
+    const json = probe(`JSON.stringify(${name})`);
+    for (const [, fields] of specs)
+      for (const k of fields) if (json.includes(`"${k}":`)) leaked.push(`${name} .${k}`);
+  }
+  if (leaked.length) {
+    console.error(
+      `check: FAIL — the page-only data strip leaked: ${[...new Set(leaked)].join(', ')}`
     );
     process.exit(4);
   }
@@ -517,10 +680,11 @@ if (runCheck) {
   report('INSTRUMENTS', 'INSTRUMENTS');
   report('ROOMS', 'ROOMS');
   report('TUNINGS', 'TUNINGS');
-  report('CHAIN_ARCHETYPES', 'CHAIN_ARCHETYPES');
   report('CHAIN_SECTIONS', 'CHAIN_SECTIONS');
-  report('PROD_AESTHETICS', 'PRODUCTION_AESTHETICS');
   report('PREFACE_LEXICON', 'PREFACE_LEXICON');
+  checks.push(
+    `page-only strip:   ${PAGE_DROP_TABLES.size} tables, ${Object.keys(PAGE_DROP_FIELDS).length} tables' unread fields`
+  );
   if (probe(`typeof TRADITION_EXTRAS === 'object' && TRADITION_EXTRAS !== null`)) {
     checks.push(`TRADITION_EXTRAS:  ${probe('Object.keys(TRADITION_EXTRAS).length')}`);
   }
@@ -548,11 +712,7 @@ if (runCheck) {
   //
   // SCOPED TO THE BLOCKS THIS BUILDER LABELS, which is exactly the set at risk:
   // a `// ─── … ───` line is the only comment here that ever sits directly above
-  // injected source, so it is the only one that can swallow any. The template's
-  // own <script> opens with a hand-written banner and carries the CODEX_BODY
-  // marker, but the first thing substituted at that marker is a `</script>` —
-  // the banner block is closed before a byte of source reaches it, and flagging
-  // it would be flagging the template for containing a comment.
+  // injected source, so it is the only one that can swallow any.
   const LABEL = /^\s*\/\/ ─── (.*?) ───/;
   const blocks = scriptBlocks.map((block) => {
     const body = block.replace(/^<script\b[^>]*>/i, '').replace(/<\/script>$/i, '');

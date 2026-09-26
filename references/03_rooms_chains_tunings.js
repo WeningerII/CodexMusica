@@ -1,5 +1,6 @@
 // ============================================================
-// ROOMS, CHAIN_SECTIONS, TUNINGS, AXIS_DEFINITIONS, LETTER_BAND_THRESHOLD
+// ROOMS, ROOM_CLUSTERS, CHAIN_SECTIONS, TUNINGS, AXIS_DEFINITIONS,
+// INSTRUMENT_AXIS_DEFINITIONS, CHAIN_ARCHETYPES, PRODUCTION_AESTHETICS, ARRANGEMENTS
 // Recording-environment, signal-chain, and tuning vocabularies.
 // ============================================================
 
