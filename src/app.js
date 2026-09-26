@@ -18899,10 +18899,20 @@ function _chatRenderReply(payload,request) {
     // reason the loop ended is shown rather than swallowed.
     const note = document.createElement('div');
     note.className = 'chat-msg-note';
+    // A recipe the turn ended on is still a recipe: the server finishes a
+    // recipe turn a limit ended (mcp/gemini_agent.js `finishRecipe`) and says
+    // what was reached, so the note reads as that, never as "no recipe".
+    const recipeNote =
+      payload.recipe && typeof payload.stopped_detail?.note === 'string'
+        ? payload.stopped_detail.note
+        : null;
     note.textContent =
-      payload.stopped === 'MAX_STEPS'
-        ? 'Stopped after the maximum number of tool calls — ask for one change at a time to go further.'
-        : `Stopped early (${payload.stopped}).`;
+      recipeNote ||
+      (payload.stopped === 'MAX_STEPS'
+        ? payload.recipe
+          ? 'Reached the step limit — this is the recipe so far; ask for more changes to refine it.'
+          : 'Stopped after the maximum number of tool calls — ask for one change at a time to go further.'
+        : `Stopped early (${payload.stopped}).`);
     node.appendChild(note);
   }
   _chatScroll();

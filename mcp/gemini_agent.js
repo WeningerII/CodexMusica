@@ -77,7 +77,22 @@ export const DEFAULT_THINKING = { thinkingLevel: 'low' };
 // user with no ill intent — a model that loops on search_catalog hits MAX_STEPS
 // without anybody attacking anything.
 export const LIMITS = {
-  maxSteps: 14, // tool round-trips per user turn (baseline observed: 6-9)
+  // Tool round-trips per user turn, recipe and lyrics alike (baseline
+  // observed: 6-9). ~~14~~ **50 since 2026-09-26**, on the owner's "raise the
+  // ceiling to 50 rounds. it's still super cheap for us and it gives us
+  // breathing room" — after a recipe brief with seven descriptors spent all
+  // fourteen hops on one search per word and returned no recipe. The $2.50
+  // turn cap (`maxTurnUsd`) and the 40-minute wall (`maxTurnMs`) still apply;
+  // `turnBudget().surfaces` says which of them a worst-case turn meets first.
+  maxSteps: 50,
+  // THE RECIPE SURFACE FINISHES ON ITS LAST HOPS (recipe only; the lyrics
+  // loop is untouched). The last N hops of a recipe turn may call only
+  // start_recipe, edit_recipe or render_recipe (Gemini `functionCallingConfig`
+  // mode ANY + allowedFunctionNames), with a hop instruction to apply what was
+  // found and render now; a turn that still ends without a recipe is finished
+  // by the server (`finishRecipe`), so a recipe turn never ends empty-handed
+  // when a recipe can be made.
+  recipeFinishHops: 2,
   // One monotonic deadline covers model requests, response bodies, backoff,
   // queue wait and every tool in a model hop. Interrupted tools get one short
   // cleanup window to return their checkpoint; no further work is admitted.
@@ -117,7 +132,8 @@ export const LIMITS = {
   // tokens at the measured ~4 bytes/token, i.e. ~$0.0125 a hop, so a late
   // turn kept at least eight hops under the $0.10 cap instead of four, which
   // is the arithmetic that sized this ceiling; at the $2.50 cap in force now
-  // `maxSteps` binds first and this is a pure byte bound. On
+  // `maxSteps` binds first on a recipe turn and this is a pure byte bound (a
+  // lyric turn's worst case is in `turnBudget().surfaces.lyrics`). On
   // the record's shape stubbing alone lands well under it (~150 KB at
   // turn 9), so this only ever bites a pathological transcript.
   pruneMaxBytes: Number(process.env.CHAT_PRUNE_MAX_BYTES) || 200_000,
@@ -201,23 +217,59 @@ export const BYTES_PER_TOKEN = Number(process.env.CHAT_BYTES_PER_TOKEN) || 4;
  * ceiling inside the turn, so `hopsAffordable` is an UPPER bound on a
  * grading turn and an accurate one on a conversational turn.
  *
+ * EACH SURFACE IS REPORTED ON ITS OWN OUTPUT BUDGET (2026-09-26). The
+ * top-level figures are the base coordinates — `maxSteps` hops at
+ * `maxOutputTokens` — which is exactly a recipe (or untasked) turn, and they
+ * keep the meaning every earlier reader relied on. A lyric turn requests, and
+ * the paid ledger reserves, `maxLyricOutputTokens` on every hop, so its worst
+ * hop is ~4x a recipe hop and the base figures understate it. `surfaces`
+ * reports both: at 50 hops and the $2.50 cap a worst-case recipe turn is
+ * bounded by `maxSteps` and a worst-case lyric turn by `maxTurnUsd` (hops at
+ * the pruning ceiling with every output token spent — an upper bound, see
+ * above).
+ *
  * @returns {{perHopUsd:number, worstLegalTurnUsd:number,
- *            hopsAffordable:number, capBinds:boolean}|null} null when the
+ *            hopsAffordable:number, capBinds:boolean,
+ *            surfaces:{recipe:object, lyrics:object}}|null} null when the
  *          model is unpriced — the same refusal `costOf` makes.
  */
 export function turnBudget(limits = LIMITS, model = DEFAULT_MODEL) {
   const price = priceFor(model);
   if (!price) return null;
   const promptTokens = limits.pruneMaxBytes / BYTES_PER_TOKEN;
-  const perHopUsd = (promptTokens * price.input + limits.maxOutputTokens * price.output) / 1e6;
+  const hopUsd = (outputTokens) => (promptTokens * price.input + outputTokens * price.output) / 1e6;
+  const perHopUsd = hopUsd(limits.maxOutputTokens);
   const worstLegalTurnUsd = perHopUsd * limits.maxSteps;
   const hopsAffordable = Math.floor(limits.maxTurnUsd / perHopUsd);
+  const surface = (maxOutputTokens) => {
+    const hop = hopUsd(maxOutputTokens);
+    const affordable = Math.floor(limits.maxTurnUsd / hop);
+    return {
+      maxSteps: limits.maxSteps,
+      maxOutputTokens,
+      perHopUsd: hop,
+      worstLegalTurnUsd: hop * limits.maxSteps,
+      hopsAffordable: affordable,
+      capBinds: affordable < limits.maxSteps,
+    };
+  };
   return {
     perHopUsd,
     worstLegalTurnUsd,
     hopsAffordable,
     capBinds: hopsAffordable < limits.maxSteps,
+    surfaces: {
+      recipe: surface(limits.maxOutputTokens),
+      lyrics: surface(lyricOutputTokensOf(limits)),
+    },
   };
+}
+
+// The output budget a lyric hop requests — one spelling, read by runTurn's
+// request body and by `turnBudget`, so the disclosure describes the turn
+// that runs.
+function lyricOutputTokensOf(limits = LIMITS) {
+  return Math.max(limits.maxOutputTokens, limits.maxLyricOutputTokens ?? 32768);
 }
 
 export function costOf(usage, model) {
@@ -1171,6 +1223,103 @@ function carriedKey(lyr) {
   return typeof lyr.seed === 'number' ? `seed:${lyr.seed}` : null;
 }
 
+// ── THE RECIPE SURFACE'S STEP DISCIPLINE (owner report, 2026-09-26) ──────
+// The reported turn searched once per descriptor — search_prefaces seven
+// times, search_catalog five, get_instrument twice, one hop each — and ran
+// out of hops before a single edit landed. Every function call the model
+// returns in ONE response is executed in that one hop (the loop below walks
+// all of them), so a request's lookups cost one hop when they are issued
+// together. The recipe instructions say so, and the last hops of a recipe
+// turn are restricted to the tools that finish it.
+const RECIPE_BATCH_NOTE =
+  'Work in as few steps as possible: issue EVERY lookup the request needs together in ONE step ' +
+  '(several search_catalog, search_prefaces and get_instrument calls in the same response, one per ' +
+  'word or phrase), then apply all of them in ONE batched edit_recipe call. A turn has a limited ' +
+  'number of steps, and its last steps can only apply and render.';
+export const RECIPE_FINISH_TOOLS = Object.freeze(['start_recipe', 'edit_recipe', 'render_recipe']);
+function RECIPE_FINISH_NOTE(remaining, hasRecipe, browse = false) {
+  return (
+    `STEP LIMIT: ${remaining} step${remaining === 1 ? '' : 's'} left in this turn, and only ` +
+    'start_recipe, edit_recipe and render_recipe can be called now. Stop searching and apply what ' +
+    'you have already found. ' +
+    (!hasRecipe
+      ? 'No recipe exists yet: call start_recipe now with the best tradition id your searches ' +
+        `returned${browse ? '' : ', and edit it on the next step if one remains'}. `
+      : browse
+        ? 'The stock recipe exists: call render_recipe to return it. '
+        : 'Make ONE edit_recipe call that batches every change you have real ids for (set_preface, ' +
+          'set_variant, set_environment, add/remove), or render_recipe if nothing is left to apply. ') +
+    'Use only ids you have seen in a tool result. The recipe this turn ends with is what the user receives.'
+  );
+}
+// A hop-specific note joins the builder's one text part rather than becoming
+// a second path to the model: the request still has exactly one
+// systemInstruction, and it is still the builder's text first.
+function withHopNote(si, note) {
+  if (!note) return si;
+  const base = si?.parts?.[0]?.text;
+  return { parts: [{ text: base ? `${base}\n\n${note}` : note }] };
+}
+
+// A RECIPE TURN ENDS WITH A RECIPE WHENEVER ONE CAN BE MADE (owner,
+// 2026-09-26: "always return a recipe"). Whatever ended the turn — the step
+// limit, the dollar cap, the day's budget, the wall clock, a provider that
+// stopped answering usably, a model that ignored the finishing hops, or a
+// model that simply answered in text (a question such as "Which fiddle?")
+// — the server renders the recipe the turn reached, or seeds one from the
+// turn's own search results. The render is local and unbilled. Only these
+// ends are not finished: a cancelled request (nobody is waiting) and a
+// provider block, on the prompt or on the candidate, which is respected.
+const RECIPE_NO_FINISH = new Set([
+  'CANCELLED',
+  'PROVIDER_BLOCKED',
+  'SAFETY',
+  'BLOCKLIST',
+  'PROHIBITED_CONTENT',
+  'SPII',
+  'IMAGE_SAFETY',
+]);
+function recipeFinishable(stopped) {
+  return !RECIPE_NO_FINISH.has(stopped);
+}
+// The wall clock may already have passed when the server finishes a turn
+// the wall ended; the render gets this much time of its own.
+const RECIPE_FINISH_MS = 10_000;
+// What the user is told beside a recipe the turn did not finish itself: that
+// it is the recipe REACHED, never that there is none, and never more than was
+// applied — `applied` is whether THIS turn landed an edit, `customized`
+// whether the workspace carries one from any turn.
+function recipeStopNote(stopped, finish, browse = false) {
+  const why =
+    stopped === 'MAX_STEPS'
+      ? 'Reached the step limit'
+      : stopped === 'MAX_TURN_COST'
+        ? "Reached this turn's spending limit"
+        : stopped === 'DAILY_BUDGET'
+          ? "Reached today's spending limit"
+          : stopped === 'MAX_TURN_MS'
+            ? "Reached this turn's time limit"
+            : stopped && stopped !== 'RECIPE_UNFINISHED'
+              ? `The model stopped early (${stopped})`
+              : 'The model answered';
+  if (finish.action === 'seed')
+    return `${why} before a recipe was started — this is the starting recipe for the closest tradition the search found (${finish.tradition}); ask for your changes to apply them.`;
+  if (finish.applied || browse)
+    return `${why} — this is the recipe so far; ask for more changes to refine it.`;
+  if (finish.customized)
+    return `${why} — no change was applied this turn; this is the recipe so far; ask again for the changes you want.`;
+  return `${why} before any change was applied — this is the starting recipe so far; ask for your changes to apply them.`;
+}
+// The note rides the transcript too, so the next turn's model knows what the
+// user was handed. Joined to a trailing model text entry rather than making
+// two model entries in a row.
+function appendModelNote(contents, text) {
+  const last = contents[contents.length - 1];
+  if (last?.role === 'model' && (last.parts || []).every((p) => typeof p?.text === 'string'))
+    contents[contents.length - 1] = { ...last, parts: [...last.parts, { text }] };
+  else contents.push({ role: 'model', parts: [{ text }] });
+}
+
 // `record` is the Set `lyricCallsOnRecord` returns for the live transcript.
 // Omitted (null) means "no record to read" and no skipped-steps note is
 // written — the two-argument contract every earlier caller and test holds.
@@ -1184,7 +1333,8 @@ function buildSystemInstruction(surface, lyr, record = null, task = null) {
     task?.domain === 'recipe'
       ? task.phase === 'browse'
         ? 'Return the requested stock Rich recipe verbatim, at most 1000 characters. Only recording recipe tools are available for this task.'
-        : 'Customize the recording with edit_recipe before returning its final Rich recipe verbatim, at most 1000 characters. Only recording recipe tools are available for this task.'
+        : 'Customize the recording with edit_recipe before returning its final Rich recipe verbatim, at most 1000 characters. Only recording recipe tools are available for this task. ' +
+          RECIPE_BATCH_NOTE
       : null,
     record && (!task || task.domain === 'lyrics') ? SKIPPED_STEPS_NOTE(record) : null,
     seed == null ? null : SUSPENDED_RUN_NOTE(seed),
@@ -1437,6 +1587,21 @@ export async function runTurn({
   let stopped = null;
   let stoppedDetail = null;
   let reply = '';
+  // THE RECIPE SURFACE'S FINISH (recipe task only; zero hops anywhere else, so
+  // the lyrics loop and an untasked turn run exactly as before). The last
+  // `recipeFinishHops` hops may call only the tools that finish a recipe.
+  const recipeTurn = task?.domain === 'recipe';
+  const finishHops = recipeTurn
+    ? Math.max(0, Math.min(Number(limits.recipeFinishHops) || 0, limits.maxSteps))
+    : 0;
+  // The tradition rows this turn's own search_catalog calls returned, in the
+  // order seen — what the server seeds from if the turn ends with no recipe.
+  const traditionHits = [];
+  let hopsTaken = 0;
+  let finishTools = null;
+  // Whether THIS turn landed an edit on the workspace it ends with: a later
+  // start_recipe replaces the edited workspace, so it clears this again.
+  let editedThisTurn = false;
 
   const body = {
     contents,
@@ -1445,9 +1610,7 @@ export async function runTurn({
     generationConfig: {
       temperature: limits.temperature,
       maxOutputTokens:
-        task?.domain === 'lyrics'
-          ? Math.max(limits.maxOutputTokens, limits.maxLyricOutputTokens ?? 32768)
-          : limits.maxOutputTokens,
+        task?.domain === 'lyrics' ? lyricOutputTokensOf(limits) : limits.maxOutputTokens,
       ...(thinking ? { thinkingConfig: thinking } : {}),
     },
   };
@@ -1491,6 +1654,87 @@ export async function runTurn({
     };
     return true;
   };
+  // THE SERVER'S FINISH FOR A RECIPE TURN (see the recipe block after the
+  // loop). One deterministic tool call through the same `callTool` the model's
+  // calls take — the connector renders it, host format and character ceiling
+  // applied — recorded on `calls` as `by_server` so no transcript mistakes it
+  // for the model's. Null when nothing can be made: no workspace and no
+  // tradition in this turn's searches, or the tool refused.
+  const finishRecipe = async () => {
+    const format = task.format || 'rich';
+    const maxChars = task.maxChars ?? 1000;
+    let name, args, action;
+    let tradition = null;
+    if (ws) {
+      name = 'render_recipe';
+      action = 'render';
+      args = { format, max_chars: maxChars };
+    } else {
+      // Best first: the highest search score, the earliest seen on a tie —
+      // the genre the model looked up before anything else it searched.
+      const best = [...traditionHits].sort((a, b) => b.matched - a.matched || a.seen - b.seen)[0];
+      if (!best) return null;
+      name = 'start_recipe';
+      action = 'seed';
+      tradition = best.id;
+      args = { traditions: [best.id], format, max_chars: maxChars };
+    }
+    let result;
+    try {
+      // A turn the wall clock ended has an aborted signal and no time left;
+      // the render is local and gets a short budget of its own.
+      const remainingMs = Math.max(RECIPE_FINISH_MS, deadline - clock());
+      result = await callTool(name, ws ? { ...args, [WORKSPACE_PROPERTY]: ws } : { ...args }, {
+        signal: turnSignal.aborted ? AbortSignal.timeout(RECIPE_FINISH_MS) : turnSignal,
+        task,
+        budget,
+        remainingMs,
+        deadlineMs: Number.isFinite(remainingMs) ? Date.now() + remainingMs : undefined,
+      });
+    } catch (err) {
+      result = {
+        isError: true,
+        content: [{ type: 'text', text: `Error: ${err?.message || 'tool call failed'}` }],
+      };
+    }
+    let payload = null;
+    try {
+      payload = JSON.parse(result?.content?.[0]?.text ?? '');
+    } catch {
+      payload = null;
+    }
+    const ok =
+      !result?.isError && typeof payload?.recipe === 'string' && payload.recipe.length <= maxChars;
+    calls.push({
+      name,
+      args: ws ? { ...args, [WORKSPACE_PROPERTY]: '<injected>' } : args,
+      isError: !ok,
+      by_server: true,
+      draft_carried: false,
+      declarations_carried: false,
+      error: ok ? null : (result?.content?.[0]?.text ?? 'no recipe returned'),
+      cards: ok ? (payload.cards ?? null) : null,
+      recipe: ok ? payload.recipe : null,
+      ...loopFields(null),
+    });
+    if (onEvent) onEvent({ type: 'tool', name, isError: !ok, by_server: true });
+    if (!ok) return null;
+    if (payload.workspace) ws = payload.workspace;
+    if (action === 'seed') {
+      task.customized = false;
+      editedThisTurn = false;
+    }
+    return {
+      recipe: payload.recipe,
+      finish: {
+        by: 'server',
+        action,
+        ...(tradition ? { tradition } : {}),
+        applied: editedThisTurn,
+        customized: !!task.customized,
+      },
+    };
+  };
   try {
     for (let step = 0; step < limits.maxSteps; step++) {
       if (interruption(step)) break;
@@ -1505,8 +1749,6 @@ export async function runTurn({
         task ? completedSteps : lyricCallsOnRecord(contents),
         task
       );
-      if (si) body.systemInstruction = si;
-      else delete body.systemInstruction;
       // Per hop, like the reminder: the record can appear mid-turn (M-226).
       body.tools = [
         {
@@ -1515,6 +1757,26 @@ export async function runTurn({
           ),
         },
       ];
+      // THE FINISHING HOPS (recipe only): the same declarations stay in the
+      // request, and the provider is told to call one of the finishing tools
+      // (mode ANY); the loop refuses any other call on these hops as well, so
+      // the restriction holds whatever the provider does with it.
+      finishTools =
+        finishHops > 0 && step >= limits.maxSteps - finishHops
+          ? RECIPE_FINISH_TOOLS.filter((n) =>
+              body.tools[0].functionDeclarations.some((d) => d.name === n)
+            )
+          : null;
+      if (finishTools && !finishTools.length) finishTools = null;
+      body.toolConfig = finishTools
+        ? { functionCallingConfig: { mode: 'ANY', allowedFunctionNames: [...finishTools] } }
+        : { functionCallingConfig: { mode: 'AUTO' } };
+      const hopSi = finishTools
+        ? withHopNote(si, RECIPE_FINISH_NOTE(limits.maxSteps - step, !!ws, task.phase === 'browse'))
+        : si;
+      if (hopSi) body.systemInstruction = hopSi;
+      else delete body.systemInstruction;
+      hopsTaken = step + 1;
       let json;
       try {
         json = await generate({
@@ -1717,6 +1979,29 @@ export async function runTurn({
             not_run: true,
             error: result.content[0].text,
           });
+          responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+          continue;
+        }
+        if (finishTools && !finishTools.includes(fc.name)) {
+          result = {
+            isError: true,
+            content: [
+              {
+                type: 'text',
+                text:
+                  `Not run: ${limits.maxSteps - step} step(s) left in this turn, and only ` +
+                  `${finishTools.join(', ')} can be called now — apply what you have found.`,
+              },
+            ],
+          };
+          calls.push({
+            name: fc.name,
+            args,
+            isError: true,
+            not_run: true,
+            error: result.content[0].text,
+          });
+          if (onEvent) onEvent({ type: 'tool', name: fc.name, isError: true, refused: true });
           responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
           continue;
         }
@@ -1945,9 +2230,22 @@ export async function runTurn({
             payload = null;
           }
           if (!isError && payload && payload.workspace) ws = payload.workspace;
+          if (
+            recipeTurn &&
+            !isError &&
+            fc.name === 'search_catalog' &&
+            Array.isArray(payload?.items)
+          )
+            for (const item of payload.items)
+              if (item?.type === 'tradition' && typeof item.id === 'string')
+                traditionHits.push({
+                  id: item.id,
+                  matched: Number(item.matched) || 0,
+                  seen: traditionHits.length,
+                });
           if (!isError && task?.domain === 'recipe') {
-            if (fc.name === 'start_recipe') task.customized = false;
-            if (fc.name === 'edit_recipe') task.customized = true;
+            if (fc.name === 'start_recipe') task.customized = editedThisTurn = false;
+            if (fc.name === 'edit_recipe') task.customized = editedThisTurn = true;
           }
           // Harvest a lyric verdict the same way: a two-block lyric result
           // carries it in the SECOND block (block 0 is the deliverable,
@@ -2254,15 +2552,60 @@ export async function runTurn({
     const recipe = [...calls]
       .reverse()
       .find((c) => !c.isError && typeof c.recipe === 'string')?.recipe;
-    if (
-      recipe &&
-      recipe.length <= task.maxChars &&
-      (!task.requiresCustomization || task.customized)
-    )
+    const browse = !task.requiresCustomization;
+    // What the model said when it ended the turn in text, kept beside any
+    // recipe the server finishes with — its question is part of the answer.
+    const modelText = typeof reply === 'string' ? reply.trim() : '';
+    // What the stop says beside the recipe the turn ended on.
+    const recipeStopDetail = (finish) => ({
+      ...(stoppedDetail || {}),
+      hops: stoppedDetail?.hops ?? hopsTaken,
+      maxSteps: limits.maxSteps,
+      surface: 'recipe',
+      finish,
+      note: recipeStopNote(stopped, finish, browse),
+    });
+    if (recipe && recipe.length <= task.maxChars && (browse || task.customized)) {
       reply = recipe;
-    else {
-      stopped ||= 'RECIPE_UNFINISHED';
-      reply = 'No customized Rich recipe has been produced yet.';
+      if (stopped && recipeFinishable(stopped))
+        stoppedDetail = recipeStopDetail({
+          by: 'model',
+          action: null,
+          applied: editedThisTurn,
+          customized: !!task.customized,
+        });
+    } else {
+      // THE SERVER'S FINISH. The model did not end the turn on a deliverable
+      // recipe — a limit ended it, it ignored the finishing hops, or it
+      // answered in text — so the server renders what the turn reached with
+      // the same tool and host format the model would have used, or, with no
+      // workspace yet, seeds one from the best tradition this turn's own
+      // search_catalog calls returned. A cancelled request and a provider
+      // block are the only ends it leaves alone (RECIPE_NO_FINISH).
+      const cancelled =
+        stopped === 'CANCELLED' ||
+        (turnSignal.aborted && turnSignal.reason?.code !== 'MAX_TURN_MS');
+      // A model that answered in text on a finishing hop ended the turn at
+      // its step limit as surely as one that ran out of hops.
+      if (finishTools && stopped == null) stopped = 'MAX_STEPS';
+      const finished = !cancelled && recipeFinishable(stopped) ? await finishRecipe() : null;
+      if (finished) {
+        reply = modelText ? `${modelText}\n\n${finished.recipe}` : finished.recipe;
+        // A text answer over a deliverable recipe (a stock one for browse, a
+        // customized one from any turn) is a complete answer; anything less
+        // is still unfinished, and says what it is.
+        if (!stopped && !(browse || task.customized)) stopped = 'RECIPE_UNFINISHED';
+        stoppedDetail = stopped ? recipeStopDetail(finished.finish) : null;
+        appendModelNote(
+          contents,
+          `(${stoppedDetail ? stoppedDetail.note + ' ' : ''}The server rendered the recipe and the user received it verbatim:)\n${finished.recipe}`
+        );
+      } else {
+        // Nothing could be made — no workspace and no tradition in this
+        // turn's searches, or the render refused. The model's own words stand.
+        stopped ||= 'RECIPE_UNFINISHED';
+        reply = modelText || 'No customized Rich recipe has been produced yet.';
+      }
     }
   }
   return {

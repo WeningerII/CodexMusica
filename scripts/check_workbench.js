@@ -151,6 +151,26 @@ const run = (code) => dom.window.eval(code);
   assert.equal(run('chatState.task.domain'), 'recipe');
   run("chatState.busy=false;chatState.task=null;uiNavigate('lyrics');");
   assert.equal(run("document.getElementById('chat-dock').parentElement.id"), 'lyrics-chat');
+  // A recipe turn the step limit ended shows the recipe it reached, and the
+  // server's note saying so — never "no recipe" (owner report, 2026-09-26).
+  // A step-limit stop with no recipe keeps the old wording.
+  const lastReply = () => doc.getElementById('chat-log').lastElementChild;
+  const reached =
+    'Reached the step limit — this is the recipe so far; ask for more changes to refine it.';
+  run(
+    `_chatRenderReply({reply:'Delta blues, brooding voice.',recipe:'Delta blues, brooding voice.',stopped:'MAX_STEPS',stopped_detail:{note:${JSON.stringify(reached)}},tools:[{name:'start_recipe',by_server:true}]},{})`
+  );
+  assert.equal(
+    lastReply().querySelector('.chat-recipe-text').textContent,
+    'Delta blues, brooding voice.'
+  );
+  assert.equal(lastReply().querySelector('.chat-msg-note').textContent, reached);
+  run("_chatRenderReply({reply:'Working.',stopped:'MAX_STEPS',tools:[]},{})");
+  assert.equal(lastReply().querySelector('.chat-recipe-text'), null);
+  assert.equal(
+    lastReply().querySelector('.chat-msg-note').textContent,
+    'Stopped after the maximum number of tool calls — ask for one change at a time to go further.'
+  );
   // Late artifact/recovery cannot overwrite changed manual writing; explicit Use is undoable.
   run(
     "app.lyrics='Manual edits';document.getElementById('lyrics-draft').value=app.lyrics;UI.lyricRequest={id:'old-request',revision:1,text:'Old draft'};UI.lyricRevision=2;_chatAppend('<div></div>');uiReceiveReply({artifact:{text:'Recovered lyrics'}},{request_id:'old-request'});"
