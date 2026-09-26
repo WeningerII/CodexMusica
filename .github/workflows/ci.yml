@@ -4134,6 +4134,16 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/test_readings_seam.py --eng
 
+      # THE SAME SHAPE A SECOND TIME, SAME RULING. narrative_bands' `--check`
+      # was discovered by pin_sweep and run by no workflow, so its PINNED
+      # counts drifted with the corpus (8,667 -> 8,652 songs and five more)
+      # unrecorded. Repinned in the same PR from its own `--check`; 57 s
+      # locally, cheap enough to run every night.
+      - name: Narrative proxy pins re-derive (narrative_bands --check)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/narrative_bands.py --check
+
       # THE IN-LINE RHYME CHECK WAS HERE AND WAS REMOVED 2026-08-23, in the
       # commit that withdrew its registration: the owner stopped that
       # calibration mid-run (it calibrated ONE cell of a 77-schema
