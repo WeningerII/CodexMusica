@@ -635,6 +635,24 @@
   flex-direction: column;
   align-items: flex-start;
 }
+/* A card's text is as wide as the card, never its own max-content: a long name
+   wraps (two lines, then an ellipsis), the description keeps its two-line
+   clamp and the photo credit its one-line ellipsis, all inside the card. */
+#surface-genre .gp-grid .gp-row,
+#surface-genre .gp-grid .gp-open {
+  min-width: 0;
+}
+#surface-genre .gp-grid .gp-row-text {
+  align-self: stretch;
+  width: 100%;
+}
+#surface-genre .gp-grid .gp-row-name {
+  display: -webkit-box;
+  overflow: hidden;
+  overflow-wrap: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
 .gp-grid .gp-media {
   width: 100%;
   height: 96px;
