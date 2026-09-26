@@ -18,7 +18,9 @@
 //   2. Reads references/*.js (the catalog data) and chunks each into its own
 //      <script> tag (so the browser frees each AST during parse).
 //   3. Inlines the family-parts merge from scripts/_merge.js.
-//   4. Reads the application code src/app.js.
+//   4. Reads the application code (src/layout.js, src/app.js, src/workbench.js,
+//      src/pages/*.js) and gives each module its own <script> tag, in load order
+//      (see RUNTIME_MODULES).
 //   5. Replaces the marker with data + merge + app → codex.html.
 //
 // src/index.template.html and src/app.js are first-class source files; the data
@@ -30,7 +32,7 @@
 //   node scripts/build_html.js --embedded         # fully-embedded single-file variant (all tables in the page; no api/ needed)
 //   node scripts/build_html.js --lazy             # explicit lazy shell (same as the default; kept for back-compat)
 //   node scripts/build_html.js --validate         # run validate.js first; abort on failure
-//   node scripts/build_html.js --check            # post-build: eval data block, assert no block is all-comment, assert <script> byte ceiling
+//   node scripts/build_html.js --check            # post-build: eval data block, compile every <script>, assert no block is all-comment, runtime blocks stay sloppy, <script> byte ceiling
 //   node scripts/build_html.js --strict           # --validate + --check, both run
 //   node scripts/build_html.js --quiet            # suppress per-source-file size summary
 //   node scripts/build_html.js --no-minify        # skip minification (reading the artifact by hand; never used by CI or publish)
@@ -38,9 +40,11 @@
 // EXIT CODES
 //   0  success
 //   2  missing required source (src/index.template.html or src/app.js)
-//   4  embedded data block failed to parse, or a table did not read back (--check)
+//   4  embedded data block failed to parse, a table did not read back, or an
+//      emitted <script> does not compile on its own (--check)
 //   5  template is missing the <!--@CODEX_BODY--> or <!--@THEME_BOOT--> marker
-//   6  an emitted <script> is all comment, or exceeds the hard byte ceiling (--check)
+//   6  an emitted <script> is all comment, a runtime block became strict-mode
+//      code, or a block exceeds the hard byte ceiling (--check)
 
 const fs = require('fs');
 const path = require('path');
@@ -147,7 +151,6 @@ const workbenchCss = fs.readFileSync(path.join(SRC, 'workbench.css'), 'utf8');
 // names the owner of every file. Page styles load after the shell's.
 const PAGES = ['genre', 'instrument', 'map', 'lyrics'];
 const pageFile = (name, ext) => fs.readFileSync(path.join(SRC, 'pages', name + ext), 'utf8');
-const pagesJs = PAGES.map((p) => pageFile(p, '.js')).join('\n');
 const pagesCss = PAGES.map((p) => pageFile(p, '.css')).join('\n');
 const layoutJs = fs.readFileSync(path.join(SRC, 'layout.js'), 'utf8');
 // The shared theme: tokens + components (loaded first, so everything after it
@@ -254,21 +257,6 @@ dataParts.push(
   `const CODEX_IMAGE_MANIFEST = ${JSON.stringify(imageManifest).replace(/</g, '\\u003c')};`
 );
 
-// Open a final script tag — the family-parts merge + the app (src/app.js) write
-// into this one. The template tail (after the marker) closes it with </script>.
-dataParts.push(`</script>`);
-dataParts.push(`<script>// ─── runtime ───`);
-if (LAZY) {
-  // The lazy-shell switch. src/app.js sees this const, skips the (absent)
-  // embedded tables, and resolves its CATALOG_READY boot promise by fetching
-  // `${CODEX_LAZY_API}browse.json` before any UI init runs.
-  // Emitted verbatim, NOT through squeeze(). It is already one short line, so
-  // there is nothing to save, and ui_reachability_check.js tells the lazy shell
-  // from the embedded build by looking for this exact substring — keeping the
-  // builder the only thing that spells it means no minifier setting can rewrite
-  // the detector out from under that gate.
-  dataParts.push(`const CODEX_LAZY_API = 'api/';`);
-}
 const dataBlock = dataParts.join('\n');
 
 // In-page family-parts merge — inlined from the single source scripts/_merge.js
@@ -319,6 +307,82 @@ function _cardDescriptorSet(card) {
 }
 `;
 
+// ──────────────────────────── runtime blocks ────────────────────────────
+// The application, one <script> per source module, in the order they were
+// once concatenated into a single `runtime` block. That block reached 988 KiB
+// against the 1024 KiB MAX_SCRIPT_BYTES ceiling, and the data chunker cannot
+// split it, so the split is by FILE: a module boundary is the only place this
+// code can be cut without reading it. Growth now lands on the module that grew;
+// a module that nears the ceiling on its own has to be split in src/, not here.
+//
+// WHAT A FILE BOUNDARY CHANGES, and why this order is safe. The blocks share the
+// page's one global scope, as the data blocks always have: a later block reads
+// an earlier block's `const`, `let`, `class`, `function` and `var` bindings, and
+// a function in an earlier block can call a later block's functions once it has
+// loaded. What a single block gave and separate blocks do not is hoisting ACROSS
+// files — each block is compiled and run before the next is even parsed. So no
+// code that runs while a block loads (its top-level statements, anything they
+// call, the promise callbacks they schedule) may reach something a later block
+// declares; `typeof laterName` there would now read 'undefined' where it used to
+// find the hoisted function. That held for every module at the time of the
+// split: the one such path, app.js's global error listener reaching UI_ICONS
+// through icon(), is guarded by `typeof UI_ICONS`. Every call into a LATER module
+// is made from DOMContentLoaded onward (`_initApp` → `uiStart`) or from page
+// hooks, which `uiRegisterPage` only stores. Keep it that way: a new load-time call
+// into a later module throws a ReferenceError that the browser gates report as
+// a page error.
+const RUNTIME_MODULES = [
+  {
+    label: 'runtime: scripts/_merge.js + scripts/_card_descriptors.js',
+    code: FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET,
+  },
+  { label: 'runtime: src/layout.js', code: layoutJs },
+  { label: 'runtime: src/app.js', code: appJs },
+  { label: 'runtime: src/workbench.js', code: workbenchJs },
+  ...PAGES.map((p) => ({ label: `runtime: src/pages/${p}.js`, code: pageFile(p, '.js') })),
+];
+
+// EVERY RUNTIME BLOCK RUNS AS SLOPPY-MODE CODE, exactly as the single block did.
+// layout.js, workbench.js and every page open with 'use strict', but in the
+// concatenation that string came after the merge snippet, so it was never a
+// directive prologue — only an inert expression — and the app has always run
+// non-strict. As the first statement of a block of its own it WOULD become one,
+// silently switching those six files to strict semantics (functions in blocks
+// become block-scoped, writes to read-only properties throw, `this` in a plain
+// call is undefined) as a side effect of moving a tag. So each block opens with
+// an empty statement, which ends the prologue before any string can join it.
+// Turning strict mode on is a behaviour change to make on purpose, in src/, with
+// its own testing; --check asserts that no runtime block has drifted into it.
+const RUNTIME_SLOPPY_GUARD = ';';
+const runtimeParts = [];
+RUNTIME_MODULES.forEach(({ label, code }, i) => {
+  // Closes the block before it (the image manifest, for the first module). The
+  // last runtime block is closed by the template tail after the marker.
+  runtimeParts.push(`</script>`);
+  // Each line below is its own line after the join. THE NEWLINE AFTER THE LABEL
+  // IS LOAD-BEARING, and it cost an afternoon to learn why: minifying strips
+  // leading whitespace, so code that followed a `// ─── label ───` comment with
+  // no line break in between was commented out whole — on 2026-09-14 that took
+  // the ENTIRE application with it while every <script> tag stayed well-formed.
+  // The join supplies the separator; nothing depends on what a module starts with.
+  runtimeParts.push(`<script>// ─── ${label} ───`);
+  runtimeParts.push(RUNTIME_SLOPPY_GUARD);
+  if (i === 0 && LAZY) {
+    // The lazy-shell switch. src/app.js sees this const, skips the (absent)
+    // embedded tables, and resolves its CATALOG_READY boot promise by fetching
+    // `${CODEX_LAZY_API}browse.json` before any UI init runs. It sits in the
+    // first runtime block so it is declared before app.js loads.
+    // Emitted verbatim, NOT through squeeze(). It is already one short line, so
+    // there is nothing to save, and ui_reachability_check.js tells the lazy shell
+    // from the embedded build by looking for this exact substring — keeping the
+    // builder the only thing that spells it means no minifier setting can rewrite
+    // the detector out from under that gate.
+    runtimeParts.push(`const CODEX_LAZY_API = 'api/';`);
+  }
+  runtimeParts.push(squeeze(code, label));
+});
+const runtimeBlock = runtimeParts.join('\n');
+
 // Function replacement: the injected data/app contains `$` sequences
 // (template literals, regex) that String.replace would special-case — a
 // function replacement returns the string verbatim.
@@ -328,34 +392,7 @@ const html = template
     '<!--@WORKBENCH_STYLE-->',
     () => themeCss + '\n' + workbenchCss + '\n' + pagesCss + '\n' + layoutCss
   )
-  .replace(
-    CODEX_BODY_MARKER,
-    () =>
-      // THE '\n' IS LOAD-BEARING, and it cost an afternoon to learn why.
-      // dataBlock ends with the line `<script>// ─── runtime ───`, a label
-      // comment with no terminator but the newline that used to follow it —
-      // FAMILY_PARTS_MERGE_SNIPPET began with one. Minifying strips leading
-      // whitespace, so the runtime arrived glued to the end of that `//` line
-      // and the ENTIRE application was commented out. It failed silently in the
-      // worst way available: the page still parsed, every <script> tag was
-      // well-formed, the catalog tables still loaded, and only the app was gone.
-      // Emit the separator here instead of inheriting it from whatever the first
-      // snippet happens to start with.
-      dataBlock +
-      '\n' +
-      squeeze(
-        FAMILY_PARTS_MERGE_SNIPPET +
-          CARD_DESCRIPTORS_SNIPPET +
-          layoutJs +
-          '\n' +
-          appJs +
-          '\n' +
-          workbenchJs +
-          '\n' +
-          pagesJs,
-        'runtime (merge + descriptors + app.js + workbench.js + pages)'
-      )
-  );
+  .replace(CODEX_BODY_MARKER, () => dataBlock + '\n' + runtimeBlock);
 
 // Write
 const outDir = path.dirname(outputPath);
@@ -513,13 +550,45 @@ if (runCheck) {
   // marker, but the first thing substituted at that marker is a `</script>` —
   // the banner block is closed before a byte of source reaches it, and flagging
   // it would be flagging the template for containing a comment.
-  const LABEL = /^\s*\/\/ ─── /;
-  const hollow = [];
-  for (const block of scriptBlocks) {
+  const LABEL = /^\s*\/\/ ─── (.*?) ───/;
+  const blocks = scriptBlocks.map((block) => {
     const body = block.replace(/^<script\b[^>]*>/i, '').replace(/<\/script>$/i, '');
-    if (!LABEL.test(body)) continue;
-    if (!minifyJs(body, 'emitted <script>').trim())
-      hollow.push(body.trim().split('\n')[0].slice(0, 60));
+    const label = body.match(LABEL);
+    return {
+      body,
+      bytes: Buffer.byteLength(block, 'utf8'),
+      labeled: !!label,
+      name: label ? label[1] : body.trim().split('\n')[0].slice(0, 60),
+    };
+  });
+  const isRuntime = (b) => b.labeled && b.name.startsWith('runtime: ');
+
+  // EVERY BLOCK PARSES ON ITS OWN. The browser compiles each <script> separately,
+  // so each is compiled separately here: the template's, the theme boot, every
+  // data chunk and every runtime module. The data block is also RUN above; the
+  // runtime needs a DOM, so it is compiled, which runs nothing. This comes before
+  // the hollow test because that test minifies, and minifying a block that does
+  // not parse throws instead of reporting which block it was.
+  const unparsed = [];
+  for (const b of blocks) {
+    try {
+      new vm.Script(b.body, { filename: b.name });
+    } catch (e) {
+      unparsed.push(`${b.name}: ${e.message}`);
+    }
+  }
+  if (unparsed.length) {
+    console.error(
+      `check: FAIL — ${unparsed.length} <script> block(s) do not parse on their own:\n` +
+        unparsed.map((u) => `  ${u}`).join('\n')
+    );
+    process.exit(4);
+  }
+
+  const hollow = [];
+  for (const b of blocks) {
+    if (!b.labeled) continue;
+    if (!minifyJs(b.body, 'emitted <script>').trim()) hollow.push(b.name.slice(0, 60));
   }
   if (hollow.length) {
     console.error(
@@ -530,21 +599,54 @@ if (runCheck) {
     process.exit(6);
   }
 
-  let maxScriptBytes = 0;
-  let overCeiling = 0;
-  for (const block of scriptBlocks) {
-    const bytes = Buffer.byteLength(block, 'utf8');
-    if (bytes > maxScriptBytes) maxScriptBytes = bytes;
-    if (bytes > MAX_SCRIPT_BYTES) overCeiling++;
-  }
-  console.error(
-    `check: ${overCeiling === 0 ? 'PASS' : 'FAIL'} — largest <script> ${(maxScriptBytes / 1024).toFixed(0)} KiB ` +
-      `of ${scriptBlocks.length} blocks (ceiling ${(MAX_SCRIPT_BYTES / 1024).toFixed(0)} KiB)`
-  );
-  if (overCeiling > 0) {
+  // ONE BLOCK PER RUNTIME MODULE, AND EVERY ONE OF THEM SLOPPY. A count short of
+  // RUNTIME_MODULES means a boundary was lost somewhere between here and the
+  // template. Strictness is asked of V8 rather than read off the text: a `with`
+  // statement is a syntax error only in strict-mode code, so a block that still
+  // compiles with one appended has no 'use strict' prologue (RUNTIME_SLOPPY_GUARD
+  // explains why none may). Compiled, never run.
+  const runtimeBlocks = blocks.filter(isRuntime);
+  if (runtimeBlocks.length !== RUNTIME_MODULES.length) {
     console.error(
-      `  ${overCeiling} <script> block(s) exceed the byte ceiling — lower MAX_SCRIPT_CHARS in build_html.js`
+      `check: FAIL — ${runtimeBlocks.length} runtime <script> block(s) in the page, expected ${RUNTIME_MODULES.length} (one per module)`
     );
+    process.exit(6);
+  }
+  const strict = runtimeBlocks.filter((b) => {
+    try {
+      new vm.Script(b.body + '\nwith ({});', { filename: b.name });
+      return false;
+    } catch {
+      return true;
+    }
+  });
+  if (strict.length) {
+    console.error(
+      `check: FAIL — ${strict.length} runtime <script> block(s) became strict-mode code:\n` +
+        strict.map((b) => `  ${b.name}`).join('\n') +
+        '\n  The app has always run sloppy; a leading directive now applies to its whole block.'
+    );
+    process.exit(6);
+  }
+
+  const kib = (bytes) => (bytes / 1024).toFixed(0);
+  const largest = blocks.reduce((a, b) => (b.bytes > a.bytes ? b : a));
+  const over = blocks.filter((b) => b.bytes > MAX_SCRIPT_BYTES);
+  console.error(
+    `check: ${over.length === 0 ? 'PASS' : 'FAIL'} — largest <script> ${kib(largest.bytes)} KiB [${largest.name}] ` +
+      `of ${blocks.length} blocks (ceiling ${kib(MAX_SCRIPT_BYTES)} KiB)`
+  );
+  if (over.length > 0) {
+    // The remedy depends on which kind of block grew. Data is chunked by this
+    // builder; the runtime is cut only where one source file ends.
+    for (const b of over) {
+      console.error(
+        `  ${b.name}: ${kib(b.bytes)} KiB exceeds the byte ceiling — ` +
+          (isRuntime(b)
+            ? 'split that module into more files under src/ and list them in RUNTIME_MODULES'
+            : 'lower MAX_SCRIPT_CHARS in build_html.js')
+      );
+    }
     process.exit(6);
   }
 }
