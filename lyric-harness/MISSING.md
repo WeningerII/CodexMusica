@@ -3909,8 +3909,12 @@ NAMES would be guessing, so the `relations` verb prints the row and states in
 its own output that the tradition did not match, the rule shape did.
 
 > **POPULATED 2026-08-11 (commit `e4cc054`) — and this entry does NOT close.**
-> 75 of 77 schemas now carry traditions: **298 distinct `Tradition` rows, 319
-> attachments**, and only `blues AAB stanza` and `refrain by reference` carry
+> ~~75 of 77~~ 76 of 78 schemas now carry traditions: **299 distinct
+> `Tradition` rows, 320 attachments** (REPINNED 2026-09-26 from ~~298 / 319~~,
+> the count at `e4cc054`: M-40 added the 78th schema, E44, on 2026-09-16 with
+> one tradition, and `quality/audit_register.py` D21 read this line MOVED
+> from then until this date — the title was repinned, this sentence was not),
+> and only `blues AAB stanza` and `refrain by reference` carry
 > none. The scoping was not invented from schema names — it was taken from
 > `quality/RHYME_CANON.md`, which is better — but **every single
 > `Tradition.source` is an `R<n>` pointer back into that document**, and the
