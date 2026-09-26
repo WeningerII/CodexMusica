@@ -2358,7 +2358,7 @@ precondition: instrument picker open
 
 ## Photo lightbox (2026-09-26)
 
-A catalog photo enlarges on a click and one more click anywhere puts it back. One shared helper serves every page: `uiPhoto` wraps a page's own `<img>` in a button (`data-ui="lightbox"`, a shell action) and `uiLightbox` opens it in a native modal `<dialog>`. Behaviour — not just presence — is gated by `scripts/check_ui_foundation.js` N. The Map's atlas card thumbnail (inside the atlas frame) is not a lightbox photo.
+A catalog photo enlarges on a click and one more click anywhere puts it back. One shared helper serves every page: `uiPhoto` wraps a page's own `<img>` in a button (`data-ui="lightbox"`, a shell action) and `uiLightbox` opens it in a native modal `<dialog>`. Behaviour — not just presence — is gated by `scripts/check_ui_foundation.js` O. The Map's atlas card thumbnail (inside the atlas frame) is not a lightbox photo.
 
 ```yaml
 name: photo-enlarge
@@ -2368,7 +2368,7 @@ surface: A catalog photo — the Instrument inspector's, a catalogue row's or ca
 implementation: uiPhoto and the 'lightbox' shell action (uiLightbox) in src/workbench.js; ipImage in src/pages/instrument.js; gpMedia in src/pages/genre.js
 status: reachable
 precondition: instrument picker open, similar drill-down active
-notes: check_ui_foundation.js N clicks the Instrument inspector's photo, a Genre row's photo (which must not open the row) and a genre's details' photo, and opens them with Enter and Space.
+notes: check_ui_foundation.js O clicks the Instrument inspector's photo, a Genre row's photo (which must not open the row) and a genre's details' photo, and opens them with Enter and Space.
 ```
 
 ```yaml
@@ -2379,5 +2379,5 @@ surface: Photo lightbox — the photo as large as the viewport allows over the d
 implementation: uiLightbox, uiCloseLightbox and uiPhotoSources in src/workbench.js; .cm-lightbox in src/workbench.css; the full image is the fifth field of CODEX_IMAGE_MANIFEST (scripts/build_html.js) and image_url in references/_image_manifest.json
 status: reachable
 precondition: photo enlarged
-notes: The topmost layer — it owns its Escape, so nothing under it closes on the same key. The page underneath is inert and neither moves nor scrolls. Back is a history entry pushed on open (http and https only) and taken back when it closes any other way. check_ui_foundation.js N, on a desktop and a phone, in Light and Dark.
+notes: The topmost layer — it owns its Escape, so nothing under it closes on the same key. The page underneath is inert and neither moves nor scrolls. Back is a history entry pushed on open (http and https only) and taken back when it closes any other way. check_ui_foundation.js O, on a desktop and a phone, in Light and Dark.
 ```

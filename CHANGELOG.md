@@ -22,7 +22,7 @@ scrolls. One shared helper does it for both pages (`uiPhoto` / `uiLightbox` in
 the row's own button instead of inside it, at the same place; a glyph there
 still opens the row. The Instrument page's inlined manifest carries the full
 image as a fifth field when it differs from the thumb.
-`scripts/check_ui_foundation.js` N gates the behaviour on a desktop and a phone.
+`scripts/check_ui_foundation.js` O gates the behaviour on a desktop and a phone.
 
 ### Changed — the app ships as one `<script>` per source module, off the size ceiling
 
