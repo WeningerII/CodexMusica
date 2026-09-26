@@ -304,8 +304,15 @@ def test_band_is_tail_aligned():
 
 def test_reduction_and_absence():
     print("\n2. the conjunctive reduction (mutations M2, M3, M4)")
-    # min -> max anywhere in the reduction shows up as a disagreement with the
-    # reference on multisyllabic anchors, so build the witness explicitly.
+    # ~~min -> max anywhere in the reduction shows up as a disagreement with
+    # the reference on multisyllabic anchors~~ -- at the SHIPPED declaration
+    # that is now true of the CONSONANT half only (M3). Struck 2026-09-26:
+    # since fa80a8f7 (#375's N-relation model, on main via #380)
+    # `nucleus_agreement` defaults to "licensed", and under any non-scalar
+    # shape `channel_agreement` overwrites the `min(vowel_sim(...))` with the
+    # predicate's +/-inf, so min -> max on that line (M2) cannot move this
+    # check at DECL. The nucleus half is asked again below at a DECLARED
+    # scalar nucleus. Build the witness explicitly.
     multi = [(a, b, aa, bb) for a, b, aa, bb in PAIRS
              if min(len(aa), len(bb)) >= 2]
     check("the sample contains multisyllabic anchors, so a max-instead-of-min "
@@ -316,7 +323,59 @@ def test_reduction_and_absence():
                       aa, bb, DECL))
     check("no pair reads as a maximum over syllables", maxlike == 0,
           "a mean or a max lets a strong first syllable BUY a weak second, "
-          "which is the compensation defect the band exists to close")
+          "which is the compensation defect the band exists to close. At the "
+          "shipped (licensed) nucleus this sees the consonant half (M3) and "
+          "NOT the nucleus half (M2); that one is the next check.")
+
+    # THE NUCLEUS HALF, AT A DECLARED SCALAR NUCLEUS (M2, 2026-09-26). With
+    # the check above blind to it, M2 survived test_band, test_mut_band and
+    # test_coda, escalated to the full unmutated baseline, and ran
+    # `qualification-mutation-2` past its 7,200 s budget on production
+    # qualification run 36223006454 (main be562b45). The line is NOT dead:
+    # "scalar" is a declared, validated value of `nucleus_agreement`;
+    # `quality/fwer_family.py` runs its 2x2 through `channel_agreement` at
+    # GRID_NUCLEUS = "scalar" (and `--calibrate --nucleus=scalar` measured
+    # SCALAR_NUCLEUS_GUARD there); and `score`/`best_score` reach it under
+    # any scalar declaration. So the same twin comparison is asked with the
+    # shape declared, where the reduction is the verdict.
+    scalar = Declaration(nucleus_agreement="scalar")
+    smax = [(a, b) for a, b, aa, bb in multi
+            if channel_agreement(aa, bb, scalar)
+            != band_reference(aa, bb, scalar)]
+    check("...and at a DECLARED scalar nucleus no pair reads as a maximum "
+          "over syllables either", not smax,
+          f"first disagreements: {smax[:4]}" if smax else
+          f"{len(multi)} multisyllabic pairs, channel_agreement == the "
+          f"independent twin under nucleus_agreement='scalar'")
+    # NON-VACUITY, counted without the code under test: the pairs whose
+    # tail-aligned nucleus similarities STRADDLE the cut, i.e. where a
+    # minimum refuses and a maximum admits. Doctrine 58, the setting beside
+    # the count: measured 262 of 549 multisyllabic pairs (of N_PAIRS 1200 at
+    # SEED 20260811), theta_nucleus 0.60, tail alignment, 2026-09-26. The
+    # floor is the section-1 guard's 200, not the observation.
+    straddle = 0
+    for _, _, aa, bb in multi:
+        n = min(len(aa), len(bb))
+        ta, tb = aa[len(aa) - n:], bb[len(bb) - n:]
+        sims = [vowel_sim(ta[i]["nucleus"], tb[i]["nucleus"])
+                for i in range(n)]
+        if min(sims) < scalar.theta_nucleus <= max(sims):
+            straddle += 1
+    check("the scalar-nucleus sample is NOT degenerate: hundreds of pairs "
+          "separate a minimum from a maximum", straddle >= 200,
+          f"{straddle} of {len(multi)} multisyllabic pairs straddle "
+          f"theta_nucleus {scalar.theta_nucleus}. If this reaches 0 the check "
+          f"above is vacuous.")
+    # ...and in words: a strong stressed syllable cannot buy a weak one.
+    ya, be = anchor_of("yellow"), anchor_of("belly")
+    got = channel_agreement(ya, be, scalar)
+    check("yellow/belly at a scalar nucleus: the identical stressed EH does "
+          "NOT buy the unstressed OW~IY", got == (False, True),
+          f"got {got}, anchors of {len(ya)} and {len(be)} syllables. "
+          f"vowel_sim(EH, EH) = {vowel_sim('EH', 'EH'):.3f}, "
+          f"vowel_sim(OW, IY) = {vowel_sim('OW', 'IY'):.3f} against "
+          f"theta_nucleus {scalar.theta_nucleus}; every consonant agrees. A "
+          f"maximum reads (True, True): both channels agree, i.e. RHYME.")
 
     # doctrine 25's tripwire, at corpus scale rather than on one pair. The
     # filter is "EVERY aligned syllable has both codas absent", because the
