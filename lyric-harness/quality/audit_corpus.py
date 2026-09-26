@@ -2250,10 +2250,16 @@ def check_enclitic_convention(files, src):
     Rogers's 1855 Modern Scottish Minstrel sets a SPACE before enclitics
     (`There 's high and low`) 189 times in Nairne against 13 in all of
     Burns — same language, opposite tokenisation, decided by the
-    compositor. `join_spaced_enclitics` NORMALISES the spaced form at
-    read time; what nothing did was SAY which convention an edition uses,
-    so a corpus mixing both was silently inconsistent and any per-edition
-    rate was unstratifiable. This check answers it per file, reading the
+    compositor. ~~`join_spaced_enclitics` NORMALISES the spaced form at
+    read time~~ -- STRUCK 2026-09-26: `join_spaced_enclitics` is DEFINED
+    and NOT WIRED; nothing calls it, `line_tokens("There 's high")` still
+    returns `'s` as its own token, and over `lyric_reader.calibration_items`
+    of `corpus/song/eng_*` 2,066 lines in 241 files carry 2,223 spaced
+    enclitics that every measurement counts as separate words. Wiring it
+    into `line_tokens` moves the comparator fingerprint and is an owner
+    ruling. What nothing did either was SAY which convention an edition
+    uses, so a corpus mixing both was silently inconsistent and any
+    per-edition rate was unstratifiable. This check answers it per file, reading the
     SAME closed set the joiner reads (`lyric_harness.ENCLITICS` via
     `_SPACED_ENCLITIC` — one definition, doctrine 1), and it charges
     NOTHING: a convention is the printer's, not a defect (doctrine 96's
@@ -2296,8 +2302,9 @@ def check_enclitic_convention(files, src):
         "spaced-only %d, both %d file(s); three counts, never summed"
         % (attached_only, spaced_only, both),
         "the SPACED convention (`There 's`) is the edition's, not the "
-        "language's; `join_spaced_enclitics` normalises it at read time "
-        "and this check makes the convention SAYABLE per file so a "
+        "language's; `join_spaced_enclitics` is defined but NOT WIRED, so "
+        "no reader re-attaches it and the split tokens are counted as "
+        "words — this check makes the convention SAYABLE per file so a "
         "per-edition rate can be stratified. %d file(s) are "
         "spaced-DOMINANT (spaced > attached) and are named below"
         % len(dominant),
@@ -2311,8 +2318,9 @@ def check_enclitic_convention(files, src):
             "this edition sets enclitics SPACED — %d spaced against %d "
             "attached" % (spaced, attached),
             "the file's dominant convention is the compositor's spaced "
-            "setting; `join_spaced_enclitics` re-attaches the closed set "
-            "at read time, so no measurement counts the split tokens",
+            "setting; `join_spaced_enclitics` is defined but NOT WIRED, "
+            "so every measurement over this file counts the split tokens "
+            "as separate words",
             "named so a reader computing a per-edition rate knows this "
             "file's tokenisation was set by its printer, not its poet",
             "1"))

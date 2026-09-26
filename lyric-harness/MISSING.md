@@ -1136,9 +1136,22 @@ times in Nairne and 81 in Hogg, against **13 in all 17,555 lines of Burns**.
 Same language, same register, opposite tokenisation, and the only cause is
 which compositor set the type. It inflates a line's word count by up to 25%,
 the same defect class as counting a bare hyphen as a word.
-`lyric_harness.join_spaced_enclitics()` re-attaches a CLOSED set, each of which
+`lyric_harness.join_spaced_enclitics()` ~~re-attaches~~ **would re-attach** a CLOSED set, each of which
 must be the whole token, so Dorset apheresis (`'ithin`, `'twer`) and Scots
-elision (`a'`, `o'`) are untouched. ~~**Still open:** nothing detects WHICH
+elision (`a'`, `o'`) are untouched. **STRUCK AND AMENDED 2026-09-26, found by
+the harness cleanup audit: the joiner is DEFINED AND NOT WIRED.** Nothing in
+the tree calls it (`counters.py` lists it NOWHERE), `line_tokens("There 's high
+and low")` returns `'s` as its own token, and over
+`lyric_reader.calibration_items` of `corpus/song/eng_*` **2,066 lines in 241
+files carry 2,223 spaced enclitics** that every word count reads as separate
+words — so the 25% inflation above is LIVE, and Check J's messages said
+otherwise until the same date. This entry's RESOLVED covers the DETECTOR
+(Check J, below) and never the normalisation. Wiring the joiner into
+`line_tokens` moves the comparator fingerprint (`line_tokens` is in its
+closure, standing rule 4) and the MATTR/CV calibrations with it, so it is an
+owner ruling, recorded here rather than taken; the function stays in place
+until then. (It has a defect of its own to settle first: `for 't`, "for it",
+would join to `for't`.) ~~**Still open:** nothing detects WHICH
 convention an edition uses, so a corpus mixing both is silently
 inconsistent.~~
 
