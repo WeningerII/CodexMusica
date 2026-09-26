@@ -853,6 +853,32 @@ async function loadDelta(page) {
         /A to Z/.test(await page.textContent('#gp-count')),
         where('All genres does not say it is A to Z')
       );
+      // Grid cards keep their text inside the card: the name, the description
+      // and the photo credit are as wide as the card, never their own
+      // max-content spilling over the next card (owner report, 2026-09-26).
+      stage = `N. ${vp.name}: grid cards contain their text`;
+      await page.click('[data-ui="genre-layout"][data-id="grid"]');
+      await all('gpRenderMain');
+      const spill = await page.evaluate(() => {
+        const out = [];
+        const rows = [...document.querySelectorAll('#genre-list .gp-grid .gp-row')].slice(0, 80);
+        for (const row of rows) {
+          const r = row.getBoundingClientRect();
+          for (const el of row.querySelectorAll('.gp-row-name, .gp-row-desc, .gp-credit')) {
+            const b = el.getBoundingClientRect();
+            if (b.width && (b.right > r.right + 1 || b.left < r.left - 1))
+              out.push(`${row.dataset.gpId} .${el.className.split(' ')[0]}`);
+          }
+        }
+        return { rows: rows.length, out };
+      });
+      check(spill.rows > 0, where('the grid layout rendered no cards'));
+      check(
+        spill.out.length === 0,
+        where(`grid card text overflows its card: ${spill.out.slice(0, 5).join(', ')}`)
+      );
+      await page.click('[data-ui="genre-layout"][data-id="list"]');
+      await all('gpRenderMain');
       stage = `N. ${vp.name}: a branch`;
       await page.evaluate(() =>
         document.querySelector('#genre-browse [data-ui="genre-branch"]').click()
