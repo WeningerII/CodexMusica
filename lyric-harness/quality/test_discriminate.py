@@ -120,7 +120,13 @@ Three facts a future reader needs before loosening any of it:
     `RESULTS_WITHIN_ITEM.md` quotes for its own Exp 2 headline. Twelve of the
     forty-four pins are inside the 1e-04 mark that makes `close()` say so;
     the number is DERIVED by `rendering_edge` on every run, so this bullet is
-    an illustration and never the source (doctrine 1).
+    an illustration and never the source (doctrine 1). REPINNED AGAIN
+    2026-09-26 (M-314, the N-relation model): `wi_exp2`'s `joint_all` is now
+    0.898191, 3.1e-04 from its nearest edge (1.88 rank flips), and NO joint
+    figure is inside the 1e-04 mark any more -- the nearest is `abs_exp2`'s
+    predictability-only 0.645395, 1.1e-04 from printing 0.646 (0.64 of one
+    flip). Nine of the forty-four pins are inside the mark, every one a
+    per-feature AUC that did not move.
   * If this ever fails by exactly one quantum, that is the tolerance sitting
     at the statistic's own resolution, and the remedy is to repin with the
     date and keep the superseded value visible (doctrine 17) -- not to widen
@@ -232,8 +238,11 @@ def rendering_edge(x):
     worth calling drift, so it is worth saying out loud rather than
     discovering as a mystery string mismatch. ~~`abs_exp2`'s 0.964 is 2.6e-05
     from rendering as 0.965, which is 0.16 of one rank flip.~~ REPINNED
-    2026-09-17: `wi_exp2`'s 0.894408 is 9.2e-05 from rendering as 0.895,
-    which is 0.56 of one rank flip.
+    2026-09-17: ~~`wi_exp2`'s 0.894408 is 9.2e-05 from rendering as 0.895,
+    which is 0.56 of one rank flip.~~ REPINNED 2026-09-26 (M-314): that arm
+    reads 0.898191 now, 3.1e-04 from an edge; the closest pin is
+    `abs_exp1`'s `pos_binding_diversity`, 0.422507, 7.1e-06 from rendering
+    as 0.422 -- 0.01 of one rank flip.
     """
     lo = math.floor(x * 1000 + 0.5) / 1000.0 - 0.0005
     return min(x - lo, lo + 0.001 - x)
@@ -514,14 +523,106 @@ def close(name, got, want, note=""):
 #: policed SUPERSEDED slot — Exp 2's row deliberately not walked, because its
 #: spelling did not move and a superseded spelling is POLICED.
 
+#: REPINNED 2026-09-26 -- FOURTEEN FIGURES AGAIN, THE SAME FOURTEEN, AND THE
+#: SAME THIRTY ARE THE CONTROL. `MISSING.md` M-314. The first nightly on PR
+#: #380's merge (cb077b29, the N-relation model, M-309; scheduled run
+#: 36114987660, 2026-09-25) went red on exactly this set and on
+#: `audit_joint_auc_null.py --check`; the last nightly green at both ran on
+#: 1f9678e6 (run 35975328034). Both commands run only in `nightly`, which is
+#: why every per-PR job on #380 stayed green.
+#:
+#: THE CAUSE IS BISECTED, NOT READ OFF THE COMPARATOR PIN. `_predictability()`
+#: was measured PAIR BY PAIR over the 192 sonnets this file reads (1,219
+#: scorable pairs) at every commit of #375's unsquashed line that touches
+#: `features.py` or `lyric_harness.py` (#384, merged into #380 at df796f24;
+#: the squash b42287af that opens #380's first-parent line carries both files
+#: byte-identical to 114e29d8's):
+#:
+#:   1f9678e6 = f4121621 = f05dbf71   every value identical
+#:   67c3cc5c  `RhymeField.field` admits a candidate only when it stands in
+#:             an ADMITTED relation at that relation's cut (`admits_decl`),
+#:             no longer on `total >= theta_rhyme` alone -- 1,206 values move
+#:   f6617bc7, b135e19e               nothing moves
+#:   fa80a8f7  `nucleus_agreement` "scalar" -> "licensed" -- 1,181 move again
+#:   6329595e                         nothing moves
+#:   114e29d8  `theta_by_relation["ASSONANCE"]` 0.82 -> 0.75 -- 983 move
+#:             again, and from here on every value is identical to cb077b29
+#:             and to 732b8c5a
+#:
+#: A/B ON THIS TREE: 732b8c5a with the bare-scalar field, "scalar" and 0.82
+#: restored re-derives f4121621's 1,219 values exactly. All three changes
+#: are rulings, not accidents: 67c3cc5c's docstring states the new field,
+#: fa80a8f7 is the licensed nucleus M-309 records, and 114e29d8 re-adopts
+#: the ASSONANCE cut by `near_relation_pricing.py --check`; #380 itself
+#: re-fit the song-corpus predictability curve on this same function (7 of
+#: 21 knots MOVED, `quality/results/n_relation_2026-09-22/`) and re-banked
+#: the song series for the same reason (65a1e8cb). The field is an order of
+#: magnitude smaller -- `be` 3,446 -> 350 words, having held `say`, `they`
+#: and `people` on a bare 0.787-0.850 -- which is the preregistered
+#: "phonetically valid candidates" read more strictly, not a defect.
+#:
+#: THE SIGNATURE IS M-293's, TO THE FEATURE. Thirty of the thirty-six
+#: per-feature AUCs are byte-identical -- the same concordant-pair count to
+#: the half-pair -- and every one of the fourteen figures that moved reads
+#: the rhyme-predictability channel: the two `rhyme_predictability_*`
+#: features, `wi_predictability_advantage`, and the joints that contain
+#: them. The model changes which words stand in a call's field, so it
+#: reaches a feature only through `_predictability()`'s field rank, and it
+#: reaches nothing else. The quotient moves BOTH ways inside one arm
+#: (`abs_exp1` `_mean` -3 pairs, `_min` -10; `abs_exp2` `_mean` -29, `_min`
+#: +8), which is what a rank divided by a field size that moved with it does
+#: (the 2026-09-17 derivation above; it is the same arithmetic).
+#:
+#: MEASURED on main 732b8c5a (the tree #389-#400 left; the comparator
+#: fingerprint there is still 1e2d0c2dc62c): `discriminate.py` cold, then
+#: `measure()` on the cache it wrote (fingerprint 9da718d4fc603ec5), which is
+#: where the values below are EMITTED from, not transcribed; this file cold
+#: agrees with all 44, and so does the CI printout on cb077b29.
+#:
+#:   arm       quantity                     superseded   measured    pairs
+#:   abs_exp1  joint_all                   ~~0.760684~~  0.760114   1335->1334
+#:   abs_exp1  joint_solo                  ~~0.731054~~  0.732194   1283->1285
+#:   abs_exp1  rhyme_predictability_mean   ~~0.245014~~  0.243305    430->427
+#:   abs_exp1  rhyme_predictability_min    ~~0.329060~~  0.323362  577.5->567.5
+#:   abs_exp2  joint_all                   ~~0.967105~~  0.966776   5880->5878
+#:   abs_exp2  joint_solo                  ~~0.637336~~  0.645395   3875->3924
+#:   abs_exp2  rhyme_predictability_mean   ~~0.346053~~  0.341283   2104->2075
+#:   abs_exp2  rhyme_predictability_min    ~~0.347862~~  0.349178   2115->2123
+#:   wi_exp1   joint_all                   ~~0.620513~~  0.618234   1089->1085
+#:   wi_exp1   joint_solo                  ~~0.744729~~  0.741311   1307->1301
+#:   wi_exp1   wi_predictability_advantage ~~0.245014~~  0.243305    430->427
+#:   wi_exp2   joint_all                   ~~0.894408~~  0.898191   5438->5461
+#:   wi_exp2   joint_solo                  ~~0.644572~~  0.651316   3919->3960
+#:   wi_exp2   wi_predictability_advantage ~~0.346053~~  0.341283   2104->2075
+#:
+#: Every delta is an exact integer or half-integer multiple of its arm's
+#: quantum (1/1755, 1/6080): rank movements, not arithmetic noise. Both hit
+#: tallies (4/10 and 5/10 absolute, 1/8 and 1/8 within-item) and both
+#: wrong-sign counts (4 and 3) are unmoved; every predictability feature is
+#: still a HIT at FDR in both experiments.
+#:
+#: WHAT THE RECORD'S THREE-DECIMAL FIGURES DO. Exp 2 HOLDS at **0.967** (two
+#: rank flips under the digit) and Exp 1 goes ~~0.761~~ **0.760**, so the
+#: gap rejection-minus-selection goes ~~0.206~~ **0.207** -- doctrine 7's
+#: argument untouched, and for the reason its own sentence gives. The two
+#: within-item joints, which HELD through M-293, move this time: ~~0.621~~
+#: **0.618** and ~~0.894~~ **0.898**. The predictability-only joints: abs
+#: ~~0.731~~/~~0.637~~ -> **0.732**/**0.645**, wi ~~0.745~~/~~0.645~~ ->
+#: **0.741**/**0.651**. The seed medians are `audit_joint_auc_null.py`'s and
+#: are repinned there the same day.
+#:
+#: DOCTRINE 58: nothing here was tuned. The N-relation model is #380's
+#: ruling and is untouched; what is fixed is that two nightly-only
+#: instruments were left measuring the comparator they used to be in.
+#:
 PINNED = {
     "abs_exp1": {
         "label": "ABSOLUTE (original ten) / Exp 1  survived vs forgotten",
         "n_pos": 15, "n_neg": 117, "n_features": 10,
-        "joint_all": 0.7606837606837608, "joint_solo": 0.7310541310541311,
+        "joint_all": 0.7601139601139602, "joint_solo": 0.7321937321937322,
         "features": {
-            "rhyme_predictability_mean": 0.245014245014245,
-            "rhyme_predictability_min": 0.32905982905982906,
+            "rhyme_predictability_mean": 0.2433048433048433,
+            "rhyme_predictability_min": 0.32336182336182334,
             "concreteness_mean": 0.6695156695156695,
             "concreteness_p90": 0.6017094017094017,
             "abstract_noun_ratio": 0.32364672364672364,
@@ -542,10 +643,10 @@ PINNED = {
     "abs_exp2": {
         "label": "ABSOLUTE (original ten) / Exp 2  human vs generated",
         "n_pos": 152, "n_neg": 40, "n_features": 10,
-        "joint_all": 0.9671052631578947, "joint_solo": 0.6373355263157895,
+        "joint_all": 0.9667763157894737, "joint_solo": 0.6453947368421052,
         "features": {
-            "rhyme_predictability_mean": 0.3460526315789474,
-            "rhyme_predictability_min": 0.34786184210526316,
+            "rhyme_predictability_mean": 0.3412828947368421,
+            "rhyme_predictability_min": 0.3491776315789474,
             "concreteness_mean": 0.24638157894736842,
             "concreteness_p90": 0.20748355263157894,
             "abstract_noun_ratio": 0.8078125,
@@ -576,9 +677,9 @@ PINNED = {
         "label": "WITHIN-ITEM (respecified eight) / Exp 1  survived vs "
                  "forgotten",
         "n_pos": 15, "n_neg": 117, "n_features": 8,
-        "joint_all": 0.6205128205128204, "joint_solo": 0.7447293447293447,
+        "joint_all": 0.6182336182336182, "joint_solo": 0.7413105413105413,
         "features": {
-            "wi_predictability_advantage": 0.245014245014245,
+            "wi_predictability_advantage": 0.2433048433048433,
             "wi_concreteness_delta": 0.5168091168091168,
             "wi_abstract_delta": 0.5655270655270656,
             "wi_freq_delta": 0.49743589743589745,
@@ -591,9 +692,9 @@ PINNED = {
     "wi_exp2": {
         "label": "WITHIN-ITEM (respecified eight) / Exp 2  human vs generated",
         "n_pos": 152, "n_neg": 40, "n_features": 8,
-        "joint_all": 0.8944078947368421, "joint_solo": 0.6445723684210526,
+        "joint_all": 0.8981907894736842, "joint_solo": 0.6513157894736841,
         "features": {
-            "wi_predictability_advantage": 0.3460526315789474,
+            "wi_predictability_advantage": 0.3412828947368421,
             "wi_concreteness_delta": 0.4072368421052632,
             "wi_abstract_delta": 0.4176809210526316,
             "wi_freq_delta": 0.5493421052631579,

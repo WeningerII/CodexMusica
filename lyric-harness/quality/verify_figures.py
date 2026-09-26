@@ -93,12 +93,17 @@ def _pinned():
 #: a VIOLATION of a value that never moved. The ladder walks a SPELLING, not
 #: a sitting: a row whose prose spelling is unchanged has no stale generation
 #: for a tired repin to leave standing, which is the population M-33 measured.
+#: WALKED 2026-09-26 for the N-relation model (#380's b42287af; M-314), and
+#: again ONLY TWO ROWS MOVE, by the same ruling: Exp 1 goes 0.761 ->
+#: superseded (policed), 0.758 -> retired, 0.760 in; the gap 0.206 ->
+#: superseded, 0.209 -> retired, 0.207 in. Exp 2 derives 0.967 again (5880 ->
+#: 5878 concordant pairs of 6080, under the printed digit), so its row stays.
 TRACKED = (
     {"name": "joint held-out AUC, Exp 1 (selection)",
      "derive": lambda p: p["abs_exp1"]["joint_all"],
-     "precision": 3, "current_spelling": "0.761",
-     "superseded": ("0.758",),
-     "retired": ("0.723", "0.717", "0.716809", "0.659", "0.709")},
+     "precision": 3, "current_spelling": "0.760",
+     "superseded": ("0.761",),
+     "retired": ("0.758", "0.723", "0.717", "0.716809", "0.659", "0.709")},
     {"name": "joint held-out AUC, Exp 2 (rejection)",
      "derive": lambda p: p["abs_exp2"]["joint_all"],
      "precision": 3, "current_spelling": "0.967",
@@ -107,9 +112,9 @@ TRACKED = (
     {"name": "the gap, rejection minus selection",
      "derive": lambda p: (p["abs_exp2"]["joint_all"]
                           - p["abs_exp1"]["joint_all"]),
-     "precision": 3, "current_spelling": "0.206",
-     "superseded": ("0.209",),
-     "retired": ("0.237", "0.247", "0.262", "0.015", "0.025")},
+     "precision": 3, "current_spelling": "0.207",
+     "superseded": ("0.206",),
+     "retired": ("0.209", "0.237", "0.247", "0.262", "0.015", "0.025")},
 )
 
 #: The documents in scope.  Per-document, declared, extendable.

@@ -41,10 +41,17 @@ def check(name, ok, note=""):
 #: POLICED superseded rung** and carries §2's struck case, 0.960 stays
 #: policed as Exp 2's (that row's spelling did not move, so its ladder was
 #: deliberately not walked), 0.723 has RETIRED and joins §2's labelled
-#: narrative, and 0.761 / 0.967 is the current pair.
+#: narrative, and 0.761 / 0.967 is the current pair. WALKED AGAIN 2026-09-26
+#: for the N-relation model (`MISSING.md` M-314): ~~0.7606837606837608 /
+#: 0.9671052631578947~~ -> 0.7601139601139602 / 0.9667763157894737, and the
+#: planted document moves one more rung — **0.761 is now the POLICED
+#: superseded rung** and carries §2's struck case, 0.758 has RETIRED into §2's
+#: labelled narrative beside 0.723, 0.960 stays policed as Exp 2's (that row
+#: derives 0.967 again, so its ladder is again not walked), and 0.760 / 0.967
+#: is the current pair.
 FAKE_PIN = {
-    "abs_exp1": {"joint_all": 0.7606837606837608},
-    "abs_exp2": {"joint_all": 0.9671052631578947},
+    "abs_exp1": {"joint_all": 0.7601139601139602},
+    "abs_exp2": {"joint_all": 0.9667763157894737},
 }
 
 
@@ -82,15 +89,16 @@ def s2_the_declared_form_is_the_whole_rule(tmp):
             # supersession and must not rescue this one.
             "SUPERSEDED 2026-08-22; cold it is 0.960 today.\n"
             # the two declared history forms
-            "The cold reading was ~~0.758~~ before the empty-coda repin.\n"
-            "> cold 0.960 against 0.758, recorded as history.\n"
+            "The cold reading was ~~0.761~~ before the N-relation repin.\n"
+            "> cold 0.960 against 0.761, recorded as history.\n"
             # the current value, quotable anywhere
-            "The standing pair is 0.761 / 0.967.\n"
+            "The standing pair is 0.760 / 0.967.\n"
             # retired values in labelled narrative — listed, never policed.
             # 0.723 retired on 2026-09-17 when 0.758 took the superseded
-            # rung, so this line also proves the rung BELOW the policed one
-            # stops being charged the moment the ladder walks.
-            "pre-fix it read 0.971 against 0.709, M-31 0.723.\n"
+            # rung, and 0.758 retired on 2026-09-26 when 0.761 took it, so
+            # this line also proves the rung BELOW the policed one stops
+            # being charged the moment the ladder walks.
+            "pre-fix it read 0.971 against 0.709, M-31 0.723, E-5 0.758.\n"
             # the standalone-decimal guard: a longer number must not match
             # (this section's own first draft wrote "the superseded
             # 0.964's business" here and went red on its own fixture —
@@ -106,12 +114,12 @@ def s2_the_declared_form_is_the_whole_rule(tmp):
           "rescues nothing", "0.960" in by.get((1, "VIOLATION"), []),
           str(sorted(by)))
     check("§2 a struck value is HISTORY",
-          "0.758" in by.get((2, "history"), []))
+          "0.761" in by.get((2, "history"), []))
     check("§2 a blockquote line is HISTORY for every value on it",
           "0.960" in by.get((3, "history"), [])
-          and "0.758" in by.get((3, "history"), []))
+          and "0.761" in by.get((3, "history"), []))
     check("§2 the current pair is counted as current, never charged",
-          "0.761" in by.get((4, "current"), [])
+          "0.760" in by.get((4, "current"), [])
           and "0.967" in by.get((4, "current"), []))
     check("§2 a RETIRED value in labelled narrative is listed and not a "
           "violation — the lifecycle's unpoliced tier, and 0.723 reaching "
@@ -120,6 +128,7 @@ def s2_the_declared_form_is_the_whole_rule(tmp):
           "0.971" in by.get((5, "retired"), [])
           and "0.709" in by.get((5, "retired"), [])
           and "0.723" in by.get((5, "retired"), [])
+          and "0.758" in by.get((5, "retired"), [])
           and not any(c == "VIOLATION" for (l, c) in by if l == 5))
     check("§2 a longer decimal does not match a tracked spelling — 0.9600 "
           "yields no row for line 6",

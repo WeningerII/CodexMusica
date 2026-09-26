@@ -28653,3 +28653,44 @@ M-311 and renumbered ~~M-311~~ M-313 on integration, because #394 landed
 its own M-311 and #398 takes M-312.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~367~~ -> **368**.
+
+### M-314 · The N-relation model moved the rhyme-predictability channel under two nightly-only instruments, and the first nightly on its merge went red at both — `test_discriminate.py` 16 of 69 and `audit_joint_auc_null.py --check` 5 figures — while every push-gated job stayed green `CLOSED` 2026-09-26 (bisected, intended, repinned; the next nightly measures) — found reading scheduled run 36114987660's `nightly` log
+
+**WHAT WENT RED.** Run 36114987660 (scheduled, 2026-09-25, sha `cb077b29` = PR #380 merged) failed `Joint AUC null against its cold pins` with `5 figure(s) moved` and `Every discrimination AUC against its cold pin` with `53 passed, 16 failed`. Both commands appear once in `ci.yml`, inside `nightly`, priced out of the per-PR jobs on purpose — the M-293 mechanism exactly. The last nightly green at both steps is run 35975328034 on `1f9678e6`, before the merge.
+
+**THE CAUSE, BISECTED.** `QualityFeatures._predictability()` was measured PAIR BY PAIR — value and field size — over the 192 sonnets `discriminate.py` reads (1,219 scorable pairs at `f4121621`), at every commit of #375's unsquashed history that touches `quality/features.py` or `lyric_harness.py`. That history is #384's line, merged into #380 at `df796f24`; the squash `b42287af` that opens #380's first-parent line carries both files byte-identical to `114e29d8`'s.
+
+| commit | what it changed | per-pair values |
+|---|---|---|
+| `1f9678e6`, `f4121621`, `f05dbf71` | — (`f05dbf71` is the relation-set `score()` itself) | identical, 1,219 pairs |
+| `67c3cc5c` | `RhymeField.field` admits a candidate only when it stands in an ADMITTED relation at that relation's cut (`admits_decl`), no longer on `total >= theta_rhyme` alone | **1,206 move**; 1,211 scorable |
+| `f6617bc7`, `b135e19e` | — | none move |
+| `fa80a8f7` | `Declaration.nucleus_agreement` "scalar" -> "licensed" | **1,181 move again**; 1,206 scorable |
+| `6329595e` | — | none move |
+| `114e29d8` | `theta_by_relation["ASSONANCE"]` 0.82 -> 0.75 | **983 move again**; 1,210 scorable — identical from here to `cb077b29` and `732b8c5a` |
+
+**THE A/B.** `732b8c5a` with exactly those three restored — the bare-scalar field, `"scalar"`, 0.82 — re-derives `f4121621`'s 1,219 values and field sizes exactly. Nothing else between the last green nightly and main moves this channel.
+
+**INTENDED, NOT A BUG.** Each of the three is a ruling: `67c3cc5c` rewrites the field's docstring to state the new definition, `fa80a8f7` is the licensed nucleus M-309 records ("near vowels no longer round up to RHYME/ASSONANCE"), and `114e29d8` re-adopts the ASSONANCE cut by `near_relation_pricing.py --check` under that nucleus. #380 saw the same move on the same function and adopted it twice — the song-corpus predictability curve re-fit as a set (7 of 21 knots MOVED, `quality/results/n_relation_2026-09-22/curves-measurement.txt`) and the song series re-banked (`65a1e8cb`: "#375 ... changed RhymeField to admit candidates by admits_decl"). The field shrinks by an order of magnitude — `be` 3,446 -> 350 words, `die` 1,201 -> 170 — and what leaves is `say`, `they`, `people` for `be` and `now`, `how`, `fire` for `die`, all admitted before on a bare 0.75-0.85 scalar. That is PREREGISTRATION.md's "phonetically valid candidates" read more strictly, not a defect, so the figures are repinned rather than the tree repaired. What #380 missed is only that these two instruments run nowhere but `nightly`.
+
+**THE SIGNATURE IS M-293's, TO THE FEATURE.** Thirty of the thirty-six per-feature AUCs are byte-identical, the same concordant-pair count to the half-pair; the fourteen figures that move are the two `rhyme_predictability_*` features, `wi_predictability_advantage` and the joints that contain them. Every delta is an exact multiple of its arm's quantum (1/1755, 1/6080). Both hit tallies (4/10, 5/10 absolute; 1/8, 1/8 within-item) and both wrong-sign counts (4, 3) are unmoved, and every predictability feature is still an FDR hit in both experiments.
+
+| figure | superseded | measured |
+|---|---|---|
+| ABSOLUTE joint, Exp 1 / Exp 2 | 0.761 / 0.967 | **0.760** / 0.967 (1335 -> 1334 of 1755; 5880 -> 5878 of 6080) |
+| WITHIN-ITEM joint, Exp 1 / Exp 2 | 0.621 / 0.894 | **0.618** / **0.898** (1089 -> 1085; 5438 -> 5461) |
+| predictability-only, ABSOLUTE | 0.731 / 0.637 | **0.732** / **0.645** |
+| predictability-only, WITHIN-ITEM | 0.745 / 0.645 | **0.741** / **0.651** |
+| seed medians, ABSOLUTE | 0.665 / 0.968 | **0.663** / 0.968 |
+| seed medians, WITHIN-ITEM | 0.623 / 0.900 | 0.623 / **0.902** |
+| the gap, rejection minus selection | 0.206 | **0.207** |
+
+**NO CONCLUSION CHANGES.** P1 still PARTIALLY MET (0.967 -> 0.898, ~3.1x the error at the seed, 3.06x at the median). P2 still FAILS, at the seed (0.760 -> 0.618, now by 0.142) and at the median (0.663 against 0.623, −0.040), and 0.618 is still below the preregistered 0.659. P3 still met (3 wrong signs). Doctrine 7's gap is 0.207. The absolute Exp 1 draw is still above its warm null maximum (0.751) and the within-item one still below (0.750). No figure crosses a preregistered threshold or a rendering boundary; no joint pin is within 1e-04 of one.
+
+**WHAT SHIPS.** (1) `test_discriminate.py`: fourteen pins EMITTED from `measure()` on the cache a cold `discriminate.py` wrote on `732b8c5a`, the bisection, the delta table with pair counts, and both rendering-boundary illustrations repinned. (2) `audit_joint_auc_null.py`: three RECORDED strings and two seed medians. (3) `verify_figures.py`: the TRACKED ladder walked for Exp 1 (0.761 -> superseded, 0.758 -> retired, 0.760 in) and the gap (0.206 / 0.209 / 0.207); Exp 2's row NOT walked, by the 2026-09-17 ruling, because its spelling did not move; `test_verify_figures.py`'s planted document walked one rung with it. (4) The prose that quotes any of it, every superseded value struck beside its replacement with the date and `b42287af` (doctrine 17): `RESULTS.md`, `RESULTS_WITHIN_ITEM.md`, `CLAUDE.md`'s doctrine 7, and `PREREGISTRATION.md`'s post-hoc measured-outcome row for the 2026-08-22 amendment, struck in the form M-293 used there — the preregistered features, directions, labels and analysis plan are untouched.
+
+**VERIFIED.** `test_discriminate.py` 69/69 cold; `audit_joint_auc_null.py --check` PASS; `verify_figures.py --check` 0 violations; `test_verify_figures.py` all pass. `check_comparator_pin.py` HOLDS at `1e2d0c2dc62c` — the pin #380 legitimately moved and re-pinned at `708cf9dc` on its own receipt; nothing here moves it. `test_discriminate.py` cold on `f4121621` is 69/69 against the superseded pins, the last tree where they reproduced.
+
+**NOT CLAIMED.** That the N-relation model is right — that is #380's ruling. That the nightly is green: the next run measures it, and on `cb077b29` it was also red at two steps this entry does not touch — the song-profile slice (exit 124, the memo rebuilt from scratch after #380 moved the comparator fingerprint, M-299) and the deployment freshness check (the live connector's surface differs from the tree's; M-308, a redeploy). Why the within-item Exp 1 draw falls under a median that holds is not decomposed per seed (doctrine 58). And `quality/floor.py` still quotes the 2026-09-14 figures — 0.758 in its module docstring, 0.894 in `CALIBRATION["known_limits"]`, and a predictability-only 0.638 / 0.737 in `PREDICTABLE_RHYME`'s evidence strings, which `test_floor.py` pins. M-293 did not walk it either (those two read 0.637 / 0.731 from 2026-09-17; today 0.645 / 0.732). Its qualitative claim — above chance in both, well under the ten-feature 0.967, so a weak separator that stays a NOTE — holds at today's figures; it is runtime text that ships to the connector, so it is left for its owner rather than changed in a nightly repin.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~368~~ -> **369**.
