@@ -6,6 +6,24 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — the app ships as one `<script>` per source module, off the size ceiling
+
+`codex.html` carried the whole application as a single `// ─── runtime ───`
+block of 988 KiB, 96% of the 1024 KiB per-`<script>` ceiling that
+`scripts/build_html.js --check` enforces, and the data chunker cannot split it.
+The build now emits it as eight blocks in the old concatenation order — the
+inlined merge and card-descriptor snippets, `src/layout.js`, `src/app.js`,
+`src/workbench.js` and the four pages — so the largest block in the page is
+`src/app.js` at 714 KiB (70%), with the runtime's other seven blocks at 133 KiB
+or less. No code moved. Nothing that runs while a block loads reaches a later
+block (every call into a later module happens from `DOMContentLoaded` onward),
+and each block opens with an empty statement so the `'use strict'` that
+`src/layout.js`, `src/workbench.js` and the pages start with stays the inert
+string it always was in the concatenation instead of switching those files to
+strict mode. `--check` now compiles every emitted block on its own, asserts one
+block per runtime module and that none of them is strict-mode code, and names
+the block that breaks the ceiling along with the remedy for its kind.
+
 ### Fixed — 242 cultural claims the catalog's own prose contradicts or never makes are gone from the tradition signatures
 
 `references/_tradition_signatures.json` tagged a Yolŋu didgeridoo `celtic` and
