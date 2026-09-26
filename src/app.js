@@ -18182,7 +18182,9 @@ function findSimilar(idA, n) {
   return Catalog.all()
     .filter(t => t.id !== idA && tradAxes(t.id))
     .map(t => ({ id: t.id, name: t.name, distance: computeDistance(idA, t.id) }))
-    .sort((x, y) => x.distance - y.distance)
+    // Axis values are whole steps, so equal distances are common: a tie reads
+    // A to Z by name rather than in the catalog's declaration order.
+    .sort((x, y) => x.distance - y.distance || x.name.localeCompare(y.name, 'en', { sensitivity: 'base' }))
     .slice(0, n);
 }
 
