@@ -1261,38 +1261,54 @@ function withHopNote(si, note) {
   return { parts: [{ text: base ? `${base}\n\n${note}` : note }] };
 }
 
-// Stops after which a recipe turn is FINISHED BY THE SERVER rather than
-// ending empty-handed: the step limit, the turn's dollar cap (a render is a
-// local, unbilled call), and a provider that stopped answering usably. Not a
-// cancellation or the wall clock (the request is gone or out of time), not a
-// provider block, and not a model that chose to end its turn — that is
-// RECIPE_UNFINISHED and keeps its contract.
-const RECIPE_FINISH_STOPS = new Set([
-  'MAX_STEPS',
-  'MAX_TURN_COST',
-  'MALFORMED_FUNCTION_CALL',
-  'INVALID_PROVIDER_RESPONSE',
-  'MAX_TOKENS',
+// A RECIPE TURN ENDS WITH A RECIPE WHENEVER ONE CAN BE MADE (owner,
+// 2026-09-26: "always return a recipe"). Whatever ended the turn — the step
+// limit, the dollar cap, the day's budget, the wall clock, a provider that
+// stopped answering usably, a model that ignored the finishing hops, or a
+// model that simply answered in text (a question such as "Which fiddle?")
+// — the server renders the recipe the turn reached, or seeds one from the
+// turn's own search results. The render is local and unbilled. Only these
+// ends are not finished: a cancelled request (nobody is waiting) and a
+// provider block, on the prompt or on the candidate, which is respected.
+const RECIPE_NO_FINISH = new Set([
+  'CANCELLED',
+  'PROVIDER_BLOCKED',
+  'SAFETY',
+  'BLOCKLIST',
+  'PROHIBITED_CONTENT',
+  'SPII',
+  'IMAGE_SAFETY',
 ]);
 function recipeFinishable(stopped) {
-  return (
-    typeof stopped === 'string' && (RECIPE_FINISH_STOPS.has(stopped) || /^UPSTREAM_/.test(stopped))
-  );
+  return !RECIPE_NO_FINISH.has(stopped);
 }
-// What the user is told beside a recipe the limit ended: that it is the
-// recipe REACHED, never that there is none, and never more than was applied.
-function recipeStopNote(stopped, finish) {
+// The wall clock may already have passed when the server finishes a turn
+// the wall ended; the render gets this much time of its own.
+const RECIPE_FINISH_MS = 10_000;
+// What the user is told beside a recipe the turn did not finish itself: that
+// it is the recipe REACHED, never that there is none, and never more than was
+// applied — `applied` is whether THIS turn landed an edit, `customized`
+// whether the workspace carries one from any turn.
+function recipeStopNote(stopped, finish, browse = false) {
   const why =
     stopped === 'MAX_STEPS'
       ? 'Reached the step limit'
       : stopped === 'MAX_TURN_COST'
         ? "Reached this turn's spending limit"
-        : `The model stopped early (${stopped})`;
+        : stopped === 'DAILY_BUDGET'
+          ? "Reached today's spending limit"
+          : stopped === 'MAX_TURN_MS'
+            ? "Reached this turn's time limit"
+            : stopped && stopped !== 'RECIPE_UNFINISHED'
+              ? `The model stopped early (${stopped})`
+              : 'The model answered';
   if (finish.action === 'seed')
     return `${why} before a recipe was started — this is the starting recipe for the closest tradition the search found (${finish.tradition}); ask for your changes to apply them.`;
-  if (!finish.applied)
-    return `${why} before any change was applied — this is the starting recipe so far; ask for your changes to apply them.`;
-  return `${why} — this is the recipe so far; ask for more changes to refine it.`;
+  if (finish.applied || browse)
+    return `${why} — this is the recipe so far; ask for more changes to refine it.`;
+  if (finish.customized)
+    return `${why} — no change was applied this turn; this is the recipe so far; ask again for the changes you want.`;
+  return `${why} before any change was applied — this is the starting recipe so far; ask for your changes to apply them.`;
 }
 // The note rides the transcript too, so the next turn's model knows what the
 // user was handed. Joined to a trailing model text entry rather than making
@@ -1583,6 +1599,9 @@ export async function runTurn({
   const traditionHits = [];
   let hopsTaken = 0;
   let finishTools = null;
+  // Whether THIS turn landed an edit on the workspace it ends with: a later
+  // start_recipe replaces the edited workspace, so it clears this again.
+  let editedThisTurn = false;
 
   const body = {
     contents,
@@ -1662,9 +1681,11 @@ export async function runTurn({
     }
     let result;
     try {
-      const remainingMs = Math.max(0, deadline - clock());
+      // A turn the wall clock ended has an aborted signal and no time left;
+      // the render is local and gets a short budget of its own.
+      const remainingMs = Math.max(RECIPE_FINISH_MS, deadline - clock());
       result = await callTool(name, ws ? { ...args, [WORKSPACE_PROPERTY]: ws } : { ...args }, {
-        signal: turnSignal,
+        signal: turnSignal.aborted ? AbortSignal.timeout(RECIPE_FINISH_MS) : turnSignal,
         task,
         budget,
         remainingMs,
@@ -1699,14 +1720,17 @@ export async function runTurn({
     if (onEvent) onEvent({ type: 'tool', name, isError: !ok, by_server: true });
     if (!ok) return null;
     if (payload.workspace) ws = payload.workspace;
-    if (action === 'seed') task.customized = false;
+    if (action === 'seed') {
+      task.customized = false;
+      editedThisTurn = false;
+    }
     return {
       recipe: payload.recipe,
       finish: {
         by: 'server',
         action,
         ...(tradition ? { tradition } : {}),
-        applied: action === 'render' && (!task.requiresCustomization || !!task.customized),
+        applied: editedThisTurn,
         customized: !!task.customized,
       },
     };
@@ -2220,8 +2244,8 @@ export async function runTurn({
                   seen: traditionHits.length,
                 });
           if (!isError && task?.domain === 'recipe') {
-            if (fc.name === 'start_recipe') task.customized = false;
-            if (fc.name === 'edit_recipe') task.customized = true;
+            if (fc.name === 'start_recipe') task.customized = editedThisTurn = false;
+            if (fc.name === 'edit_recipe') task.customized = editedThisTurn = true;
           }
           // Harvest a lyric verdict the same way: a two-block lyric result
           // carries it in the SECOND block (block 0 is the deliverable,
@@ -2528,48 +2552,59 @@ export async function runTurn({
     const recipe = [...calls]
       .reverse()
       .find((c) => !c.isError && typeof c.recipe === 'string')?.recipe;
-    // What the stop says beside the recipe a limit ended the turn on.
+    const browse = !task.requiresCustomization;
+    // What the model said when it ended the turn in text, kept beside any
+    // recipe the server finishes with — its question is part of the answer.
+    const modelText = typeof reply === 'string' ? reply.trim() : '';
+    // What the stop says beside the recipe the turn ended on.
     const recipeStopDetail = (finish) => ({
       ...(stoppedDetail || {}),
       hops: stoppedDetail?.hops ?? hopsTaken,
       maxSteps: limits.maxSteps,
       surface: 'recipe',
       finish,
-      note: recipeStopNote(stopped, finish),
+      note: recipeStopNote(stopped, finish, browse),
     });
-    if (
-      recipe &&
-      recipe.length <= task.maxChars &&
-      (!task.requiresCustomization || task.customized)
-    ) {
+    if (recipe && recipe.length <= task.maxChars && (browse || task.customized)) {
       reply = recipe;
-      if (recipeFinishable(stopped))
+      if (stopped && recipeFinishable(stopped))
         stoppedDetail = recipeStopDetail({
           by: 'model',
           action: null,
-          applied: true,
+          applied: editedThisTurn,
           customized: !!task.customized,
         });
     } else {
-      // THE SERVER'S FINISH. The turn was ENDED — by the step limit, the
-      // dollar cap or a provider that stopped answering — before the model
-      // delivered, so the server renders what the turn reached with the same
-      // tool and the same host format the model would have used. With no
-      // recipe yet it seeds one from the best tradition this turn's own
-      // search_catalog calls returned. A model that chose to end its turn
-      // without customizing is not finished for it (RECIPE_UNFINISHED).
-      const finished =
-        recipeFinishable(stopped) && !turnSignal.aborted ? await finishRecipe() : null;
+      // THE SERVER'S FINISH. The model did not end the turn on a deliverable
+      // recipe — a limit ended it, it ignored the finishing hops, or it
+      // answered in text — so the server renders what the turn reached with
+      // the same tool and host format the model would have used, or, with no
+      // workspace yet, seeds one from the best tradition this turn's own
+      // search_catalog calls returned. A cancelled request and a provider
+      // block are the only ends it leaves alone (RECIPE_NO_FINISH).
+      const cancelled =
+        stopped === 'CANCELLED' ||
+        (turnSignal.aborted && turnSignal.reason?.code !== 'MAX_TURN_MS');
+      // A model that answered in text on a finishing hop ended the turn at
+      // its step limit as surely as one that ran out of hops.
+      if (finishTools && stopped == null) stopped = 'MAX_STEPS';
+      const finished = !cancelled && recipeFinishable(stopped) ? await finishRecipe() : null;
       if (finished) {
-        reply = finished.recipe;
-        stoppedDetail = recipeStopDetail(finished.finish);
+        reply = modelText ? `${modelText}\n\n${finished.recipe}` : finished.recipe;
+        // A text answer over a deliverable recipe (a stock one for browse, a
+        // customized one from any turn) is a complete answer; anything less
+        // is still unfinished, and says what it is.
+        if (!stopped && !(browse || task.customized)) stopped = 'RECIPE_UNFINISHED';
+        stoppedDetail = stopped ? recipeStopDetail(finished.finish) : null;
         appendModelNote(
           contents,
-          `(${stoppedDetail.note} The server rendered it and the user received it verbatim:)\n${finished.recipe}`
+          `(${stoppedDetail ? stoppedDetail.note + ' ' : ''}The server rendered the recipe and the user received it verbatim:)\n${finished.recipe}`
         );
       } else {
+        // Nothing could be made — no workspace and no tradition in this
+        // turn's searches, or the render refused. The model's own words stand.
         stopped ||= 'RECIPE_UNFINISHED';
-        reply = 'No customized Rich recipe has been produced yet.';
+        reply = modelText || 'No customized Rich recipe has been produced yet.';
       }
     }
   }

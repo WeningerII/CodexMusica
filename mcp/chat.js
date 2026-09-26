@@ -807,10 +807,11 @@ export async function createChatRouter({
       const envelope = { history: run.history, workspace: run.workspace };
       if (run.lyric != null) envelope.lyric = run.lyric;
       envelope.task = run.task;
-      // A recipe the SERVER finished the turn with (the step limit or another
-      // limit ended it first — `stopped_detail.finish`) is delivered even when
-      // it is the uncustomized starting recipe: the stop note says exactly
-      // that, and an empty hand is the one answer this surface never gives.
+      // A recipe the SERVER finished the turn with (a limit ended it, or the
+      // model answered in text first — `stopped_detail.finish`) is delivered
+      // even when it is the uncustomized starting recipe: the stop note says
+      // exactly that, and an empty hand is the one answer this surface never
+      // gives when a recipe can be made.
       const lastRecipe =
         run.task?.requiresCustomization &&
         !run.task?.customized &&

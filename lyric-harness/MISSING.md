@@ -22782,9 +22782,10 @@ hop, a worst legal turn of **$3.0826**, **40** hops affordable of 50,
 $2.50 cap before the step count, and `/chat/status` says so per surface
 (`outerModelEstimate.perTurnBySurface`: recipe `maxSteps`, lyrics
 `maxTurnUsd`). The cap and the 40-minute wall stay where the owner put them.
-The recipe turn's last two hops can only finish it, and a recipe turn a
-limit ends is finished by the server (`runTurn`'s `finishRecipe`; CHANGELOG,
-2026-09-26); the lyrics loop gained the ceiling and nothing else.
+The recipe turn's last two hops can only finish it, and a recipe turn the
+model did not end on a deliverable recipe is finished by the server
+(`runTurn`'s `finishRecipe`; CHANGELOG, 2026-09-26); the lyrics loop gained
+the ceiling and nothing else.
 
 ### M-198 · Re-opening a mandate dropped its PLACEMENTS — every group came back bound at its end, `groups` byte-identical, and nothing could see it `CLOSED` 2026-09-02 — found by test_loop §19's slot probes, written for M-184's tier-2 repair, returning the end word on a mandate whose group declared `1.T2`
 

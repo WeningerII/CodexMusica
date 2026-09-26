@@ -4027,18 +4027,21 @@ await check('validation: actionable errors', () => {
     turns: 0,
   });
   const fcall = (name, args = {}, id) => ({ functionCall: { name, args, ...(id ? { id } : {}) } });
-  const drive = async (script, { task = taskFor('recipe'), limits = {} } = {}) => {
+  // A script returns the hop's parts, or `{ parts, finishReason }` for a hop
+  // that ends on something other than STOP.
+  const drive = async (script, { task = taskFor('recipe'), limits = {}, extra = {} } = {}) => {
     const requests = [];
     const realFetch = globalThis.fetch;
     globalThis.fetch = async (_url, init) => {
       const body = JSON.parse(init.body);
       requests.push(body);
-      const parts = script(body, requests.length - 1);
+      const said = script(body, requests.length - 1);
+      const { parts, finishReason = 'STOP' } = Array.isArray(said) ? { parts: said } : said;
       return {
         ok: true,
         status: 200,
         json: async () => ({
-          candidates: [{ content: { parts }, finishReason: 'STOP' }],
+          candidates: [{ content: { parts }, finishReason }],
           usageMetadata: { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 },
         }),
       };
@@ -4052,6 +4055,7 @@ await check('validation: actionable errors', () => {
         userText: BRIEF,
         task,
         limits: { ..._L, maxTurnUsd: 0, ...limits },
+        ...extra,
       });
       return { out, requests, ran: [...ran] };
     } finally {
@@ -4308,17 +4312,201 @@ await check('validation: actionable errors', () => {
   }
 
   {
-    // A model that CHOSE to end without customizing is not finished for it:
-    // RECIPE_UNFINISHED keeps its contract (test_chat_production pins it too).
+    // OWNER-DIRECTED CONTRACT CHANGE (2026-09-26, "always return a recipe"):
+    // a model that CHOSE to end in text without customizing used to get
+    // "No customized Rich recipe has been produced yet." — that was pinned
+    // here. It now gets the recipe the turn reached, with its own words kept
+    // beside it and a stop that still says RECIPE_UNFINISHED.
     const { out } = await drive((_b, hop) =>
       hop === 0
         ? [fcall('start_recipe', { traditions: ['delta_blues'] })]
         : [{ text: 'Use the stock answer.' }]
     );
-    await check('a voluntary end without an edit is still RECIPE_UNFINISHED', () => {
+    await check('a voluntary end without an edit returns the starting recipe and its words', () => {
+      assert.equal(out.stopped, 'RECIPE_UNFINISHED', 'still not a customized recipe');
+      assert.notEqual(out.reply, 'No customized Rich recipe has been produced yet.');
+      const last = out.calls.at(-1);
+      assert.equal(last.name, 'render_recipe');
+      assert.equal(last.by_server, true);
+      assert.equal(out.reply, `Use the stock answer.\n\n${last.recipe}`);
+      assert.equal(
+        last.recipe,
+        E.renderRecipe({ workspace: out.workspace, format: 'rich', max_chars: 1000 }).recipe
+      );
+      assert.deepEqual(out.stoppedDetail.finish, {
+        by: 'server',
+        action: 'render',
+        applied: false,
+        customized: false,
+      });
+      assert.match(out.stoppedDetail.note, /^The model answered before any change was applied/);
+    });
+  }
+
+  {
+    // (2) A model that asks a question before any recipe exists: the turn's
+    // own search hit seeds the recipe so far, and the question is kept.
+    const { out } = await drive((_b, hop) =>
+      hop === 0
+        ? [fcall('search_catalog', { query: 'delta blues' })]
+        : [{ text: 'Which fiddle — Appalachian or Cajun?' }]
+    );
+    await check(
+      'a question before any recipe keeps the question and seeds the recipe so far',
+      () => {
+        assert.equal(out.stopped, 'RECIPE_UNFINISHED');
+        const last = out.calls.at(-1);
+        assert.equal(last.name, 'start_recipe');
+        assert.equal(last.by_server, true);
+        assert.equal(out.stoppedDetail.finish.tradition, 'delta_blues');
+        assert.equal(out.reply, `Which fiddle — Appalachian or Cajun?\n\n${last.recipe}`);
+        assert.match(out.stoppedDetail.note, /^The model answered before a recipe was started/);
+        assert.ok(Array.isArray(out.workspace?.cards) && out.workspace.cards.length > 0);
+      }
+    );
+  }
+
+  {
+    // (3) A FOLLOW-UP turn over a workspace an earlier turn customized: a text
+    // answer returns that customized recipe with the words, and is complete.
+    const brooding = E.searchPrefaces({ query: 'brooding' }).items[0].id;
+    const seeded = E.startRecipe({ traditions: ['delta_blues'] });
+    const edited = E.editRecipe({
+      workspace: seeded.workspace,
+      edits: [{ action: 'set_preface', card: 'voice', preface: brooding }],
+    });
+    const followUp = { ...taskFor('recipe'), customized: true, turns: 1 };
+    const { out } = await drive(() => [{ text: 'Want more room on the fiddle?' }], {
+      task: followUp,
+      extra: { workspace: edited.workspace },
+    });
+    await check('a follow-up text answer returns the customized recipe beside the words', () => {
+      assert.equal(out.stopped, null, 'a customized recipe plus an answer is a finished turn');
+      assert.equal(out.stoppedDetail, null);
+      assert.equal(out.reply, `Want more room on the fiddle?\n\n${edited.recipe}`);
+      assert.equal(out.calls.at(-1).by_server, true);
+      assert.equal(out.task.customized, true);
+    });
+    // …and the same workspace driven to the step limit with no edit THIS turn
+    // says "no change this turn", not "the recipe so far" as if it had one.
+    const { out: capped } = await drive(oneSearchAHop, {
+      task: { ...followUp },
+      limits: { maxSteps: 4 },
+      extra: { workspace: edited.workspace },
+    });
+    await check('applied reflects this turn’s edits, not an earlier turn’s', () => {
+      assert.equal(capped.stopped, 'MAX_STEPS');
+      assert.equal(capped.reply, edited.recipe);
+      assert.equal(capped.stoppedDetail.finish.applied, false);
+      assert.equal(capped.stoppedDetail.finish.customized, true);
+      assert.equal(
+        capped.stoppedDetail.note,
+        'Reached the step limit — no change was applied this turn; this is the recipe so far; ask again for the changes you want.'
+      );
+    });
+  }
+
+  {
+    // Only a turn with NO workspace and NO search hit ends without a recipe,
+    // and then the model's own words are the reply, never the stock string.
+    const { out } = await drive(() => [{ text: 'What style should it be?' }]);
+    await check('nothing to make: the model’s words stand and no recipe is invented', () => {
       assert.equal(out.stopped, 'RECIPE_UNFINISHED');
-      assert.equal(out.reply, 'No customized Rich recipe has been produced yet.');
+      assert.equal(out.reply, 'What style should it be?');
       assert.ok(!out.calls.some((c) => c.by_server));
+      assert.equal(out.workspace, null);
+    });
+  }
+
+  {
+    // BLOCKING (review of #413): a model that answers in TEXT on a finishing
+    // hop — ignoring mode ANY — with STOP or with another finish reason.
+    for (const finishReason of ['STOP', 'OTHER']) {
+      const { out, requests } = await drive((body, hop) =>
+        mode(body) === 'ANY'
+          ? { parts: [{ text: 'I would suggest a delta blues base.' }], finishReason }
+          : oneSearchAHop(body, hop)
+      );
+      await check(
+        `a text answer on a finishing hop (${finishReason}) still ends with a recipe`,
+        () => {
+          assert.equal(requests.length, _L.maxSteps - _L.recipeFinishHops + 1);
+          assert.equal(out.stopped, finishReason === 'STOP' ? 'MAX_STEPS' : 'OTHER');
+          const last = out.calls.at(-1);
+          assert.equal(last.name, 'start_recipe');
+          assert.equal(last.by_server, true);
+          assert.equal(out.reply, `I would suggest a delta blues base.\n\n${last.recipe}`);
+          assert.equal(out.stoppedDetail.finish.action, 'seed');
+          assert.match(
+            out.stoppedDetail.note,
+            finishReason === 'STOP'
+              ? /^Reached the step limit before a recipe was started/
+              : /^The model stopped early \(OTHER\) before a recipe was started/
+          );
+        }
+      );
+    }
+  }
+
+  {
+    // The wall clock and the day's budget end a turn too; the render is local
+    // and unbilled, so both are finished like the step limit.
+    let now = 0;
+    const wall = 60_000;
+    const walled = await drive(
+      (_body, hop) => {
+        if (hop > 0) throw new Error('no second hop may start past the wall');
+        return [fcall('search_catalog', { query: 'delta blues' })];
+      },
+      {
+        limits: { maxTurnMs: wall },
+        extra: {
+          clock: () => now,
+          callTool: async (name, args, options) => {
+            const r = await engineTool(name, args);
+            if (name === 'search_catalog') now = wall + 1;
+            else assert.equal(options.signal.aborted, false, 'the finish has a live signal');
+            return r;
+          },
+        },
+      }
+    );
+    await check('a turn the wall clock ended still returns the recipe it can make', () => {
+      const { out } = walled;
+      assert.equal(out.stopped, 'MAX_TURN_MS');
+      assert.equal(out.calls.at(-1).by_server, true);
+      assert.equal(out.calls.at(-1).name, 'start_recipe');
+      assert.equal(out.reply, out.calls.at(-1).recipe);
+      assert.match(out.stoppedDetail.note, /^Reached this turn's time limit before a recipe/);
+    });
+    let reserved = 0;
+    const budgeted = await drive(
+      (body, hop) =>
+        hop === 0
+          ? [fcall('start_recipe', { traditions: ['delta_blues'] })]
+          : oneSearchAHop(body, hop),
+      {
+        extra: {
+          budget: {
+            reserve() {
+              if (++reserved > 2)
+                throw Object.assign(new Error('day spent'), { code: 'DAILY_BUDGET' });
+              return 'r';
+            },
+            settle() {},
+            snapshot: () => ({ usd: 0, reservedUsd: 0, unknownUsd: 0 }),
+          },
+        },
+      }
+    );
+    await check('a turn the day’s budget ended still returns the recipe so far', () => {
+      const { out, requests } = budgeted;
+      assert.equal(requests.length, 2);
+      assert.equal(out.stopped, 'DAILY_BUDGET');
+      assert.equal(out.calls.at(-1).name, 'render_recipe');
+      assert.equal(out.calls.at(-1).by_server, true);
+      assert.equal(out.reply, out.calls.at(-1).recipe);
+      assert.match(out.stoppedDetail.note, /^Reached today's spending limit before any change/);
     });
   }
 
