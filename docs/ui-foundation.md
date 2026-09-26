@@ -74,7 +74,7 @@ URL; adds nothing; an explicit `#section` wins).
 | `uiButton(action, label, icon, extra)` | A labelled button with an icon; `data-ui` routes the click. |
 | `listenLink(name, instrument)` | The external YouTube search link ("Listen"). There is no native player. |
 | `uiRecipeGenres()` | The genres in Your recipe, in first-card order. |
-| `uiCount(n, one, many)` | A count and its noun (`1 genre`, `2,588 traditions`). |
+| `uiCount(n, one, many)` | A count and its noun (`1 genre`, `1,000 lines`). |
 | `uiTabIndex(key, index, count)` | WAI-ARIA tab roving: the tab a Left/Right/Home/End key moves to, or `-1`. |
 | `uiDownload(name, text, type)` | Save text as a downloaded file. |
 | `uiEmptyState({ title, text, actions, tone })` | Empty, no-results and failure blocks (`tone: 'danger'`), with recovery actions. |

@@ -6,6 +6,25 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Removed — the dead, legacy and unread weight in `codex.html`; the atlas shows genre photos
+
+`codex.html` goes from 6,032,865 to 4,917,246 bytes (-18.5%). Removed: the
+surfaces the redesigned shell only hid or rerouted (the old Add-instrument modal
+body, the old empty state, the old app bar and its overflow sheet, the
+fingerprint mini-charts, part-row thumbnails, the editor tab status and the AI
+panel's title, meta and collapse); code no caller reaches; dead and overridden
+CSS and 15 unused tokens; 40 unused Lucide icons and 50 aliases; tradition-glyph
+and emoji artwork the nav glyph store already carries byte-for-byte; and the
+old Commons photo pipeline. `scripts/build_html.js` now minifies the stylesheets
+(`minifyCss` in `scripts/_minify.js`, gated by Chromium CSSOM equality in
+`check_minified_equivalence.js`) and strips from the page, and only the page,
+the catalog fields and tables no page code reads (`match_tokens`,
+`canonical_tags`, the three CLI-only tables and smaller audit fields): 923 KB.
+references/, api/, the connector and the CLI keep full data. The atlas read an
+image-manifest shape that never existed and matched no entry; it now reads
+`references/_image_manifest.json` with the Genre page's rules, so 1,365 genres
+on the map show a credited photo.
+
 ### Changed — the app ships as one `<script>` per source module, off the size ceiling
 
 `codex.html` carried the whole application as a single `// ─── runtime ───`

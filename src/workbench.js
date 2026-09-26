@@ -108,7 +108,7 @@ function uiRegisterPage(page) {
 const $ui = (id) => document.getElementById(id);
 // The genres in Your recipe, in first-card order.
 const uiRecipeGenres = () => [...new Set(app.cards.map((c) => c.traditionId).filter(Boolean))];
-// A count and its noun ("1 genre", "2,588 traditions"): one plural rule for
+// A count and its noun ("1 genre", "1,000 lines"): one plural rule for
 // every page.
 const uiCount = (n, one, many = one + 's') =>
   (typeof n === 'number' ? n.toLocaleString('en') : String(n)) + ' ' + (n === 1 ? one : many);
