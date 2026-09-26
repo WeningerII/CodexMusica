@@ -25,6 +25,19 @@
 //      confidence). Anonymous access is 200 requests/day, so each run spends
 //      at most --openverse-budget.
 //
+// Round 2 adds, in the same order of trust:
+//   - wider names: the instrument's `short` name, the id read as words, each
+//     side of "X and Y", "<name> music" (allCandidates), for Wikidata and
+//     the museums;
+//   - a Wikidata item's Commons category (P373): a photo filed there whose
+//     own title names the item;
+//   - traditions: a photo of a performer whose only Wikidata genre is it;
+//   - Commons full-text search: a photo whose title and categories both
+//     name the thing, with categories about music (--search-minutes);
+//   - Smithsonian via api.data.gov's DEMO_KEY when SI_API_KEY is unset.
+// Entries already in the manifest are kept; a run fills only the gaps
+// (--fresh rebuilds everything).
+//
 // Picks a manual accuracy pass rejected (REJECTED below) are dropped as each
 // source reports, so the entity stays open for the next source.
 //
@@ -32,8 +45,13 @@
 // CC BY / CC BY-SA are kept. Sources that fail (network policy, no key) are
 // recorded under `skipped_sources` and the run carries on.
 //
-// Usage: node scripts/fetch_image_manifest.js [--limit N] [--kind instrument|tradition]
-//        [--cache FILE] [--out FILE]
+// Usage: node scripts/fetch_image_manifest.js [--offset N] [--limit N]
+//        [--kind instrument|tradition] [--cache FILE] [--out FILE] [--fresh] [--depicts-minutes N]
+//        [--category-minutes N] [--search-minutes N] [--openverse-budget N]
+//
+// --kind, --offset and --limit narrow which index entries a run looks up
+// (offset/limit count within each kind's index), so a long fill can run in
+// chunks; entries outside that scope are kept as they are.
 
 const fs = require('fs');
 const path = require('path');
@@ -42,21 +60,29 @@ const ROOT = path.join(__dirname, '..');
 const args = process.argv.slice(2);
 const opts = {
   limit: Infinity,
+  offset: 0,
   kind: null,
   out: path.join(ROOT, 'references', '_image_manifest.json'),
   cache: null,
   concurrency: 4,
   depictsMinutes: 30,
   openverseBudget: 190,
+  categoryMinutes: 30,
+  searchMinutes: 45,
+  fresh: false,
 };
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--limit') opts.limit = parseInt(args[++i], 10);
+  else if (args[i] === '--offset') opts.offset = parseInt(args[++i], 10);
   else if (args[i] === '--kind') opts.kind = args[++i];
   else if (args[i] === '--out') opts.out = args[++i];
   else if (args[i] === '--cache') opts.cache = args[++i];
   else if (args[i] === '--concurrency') opts.concurrency = parseInt(args[++i], 10);
   else if (args[i] === '--openverse-budget') opts.openverseBudget = parseInt(args[++i], 10);
   else if (args[i] === '--depicts-minutes') opts.depictsMinutes = parseFloat(args[++i]);
+  else if (args[i] === '--category-minutes') opts.categoryMinutes = parseFloat(args[++i]);
+  else if (args[i] === '--search-minutes') opts.searchMinutes = parseFloat(args[++i]);
+  else if (args[i] === '--fresh') opts.fresh = true;
 }
 
 const UA = 'CodexMusica-image-manifest/1.0 (https://github.com/WeningerII/CodexMusica)';
@@ -134,10 +160,16 @@ if (opts.cache && fs.existsSync(opts.cache))
 function saveCache() {
   if (opts.cache) fs.writeFileSync(opts.cache, JSON.stringify(cache));
 }
+// Saved every few new entries too, so a run cut short keeps most lookups.
+let unsaved = 0;
 async function cached(key, fn) {
   if (key in cache) return cache[key];
   const v = await fn();
   cache[key] = v;
+  if (++unsaved >= 25) {
+    unsaved = 0;
+    saveCache();
+  }
   return v;
 }
 
@@ -161,6 +193,22 @@ function nameCandidates(name) {
   out.add(base);
   for (const part of base.split(/\s*\/\s*/)) if (part) out.add(part);
   return [...out].filter((s) => norm(s).length >= 3);
+}
+
+// Round 2 widens the search past the display name: the catalog's `short`
+// name ("oud" for "ʿŪd (Arab/Mediterranean fretless lute)"), the id read as
+// words, each side of "X and Y", and "<name> music" for traditions. The
+// display name comes first, so an entity it already matched keeps that
+// match. Parenthesised text is left out: it is as often a qualifier
+// ("bass", "Persian", "country") as a native name.
+function allCandidates(e) {
+  const out = new Set(nameCandidates(e.name));
+  if (e.short) for (const c of nameCandidates(e.short)) out.add(c);
+  out.add(e.id.replace(/_/g, ' '));
+  for (const c of [...out]) for (const part of c.split(/\s+and\s+/i)) out.add(part);
+  if (e.kind === 'tradition') for (const c of [...out]) out.add(c + ' music');
+  // Bare years, eras and very short fragments name nothing on their own.
+  return [...out].filter((s) => norm(s).length >= 3 && !/\d{3}/.test(s));
 }
 
 // ---- Licenses ----
@@ -202,21 +250,19 @@ function sparqlString(s) {
 // label or alias equals one of them, with its P18 image if it has one.
 async function sparqlLabelHits(labels, kind) {
   const query =
-    'SELECT ?lab ?item ?itemLabel ?img ?main WHERE { VALUES ?lab { ' +
+    'SELECT ?lab ?item ?itemLabel ?img ?cat ?main WHERE { VALUES ?lab { ' +
     labels.map(sparqlString).join(' ') +
     ' } { ?item rdfs:label ?lab . BIND(true AS ?main) } UNION' +
     ' { ?item skos:altLabel ?lab . BIND(false AS ?main) }' +
     ' ?item wdt:P31?/wdt:P279* wd:' +
     WD_CLASS[kind] +
-    ' . OPTIONAL { ?item wdt:P18 ?img } ' +
+    ' . OPTIONAL { ?item wdt:P18 ?img } OPTIONAL { ?item wdt:P373 ?cat } ' +
     'SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } }';
   // POST: a GET carrying 150 labels overflows the request line (HTTP 431).
-  const data = await cached('sparql2:' + kind + ':' + labels.join('|'), () =>
-    getJson(
-      'https://query.wikidata.org/sparql?format=json',
-      0,
-      'query=' + encodeURIComponent(query)
-    )
+  const data = await getJson(
+    'https://query.wikidata.org/sparql?format=json',
+    0,
+    'query=' + encodeURIComponent(query)
   );
   return data.results.bindings.map((b) => ({
     label: b.lab.value,
@@ -224,6 +270,7 @@ async function sparqlLabelHits(labels, kind) {
     itemLabel: b.itemLabel && b.itemLabel.value,
     main: b.main && b.main.value === 'true',
     file: b.img && decodeURIComponent(b.img.value.replace(/^.*\/Special:FilePath\//, '')),
+    category: b.cat && b.cat.value,
   }));
 }
 
@@ -244,9 +291,7 @@ async function wikidataMatches(entities) {
   const out = {};
   for (const kind of Object.keys(WD_CLASS)) {
     const mine = entities.filter((e) => e.kind === kind);
-    const allLabels = [
-      ...new Set(mine.flatMap((e) => nameCandidates(e.name).flatMap(caseVariants))),
-    ];
+    const allLabels = [...new Set(mine.flatMap((e) => allCandidates(e).flatMap(caseVariants)))];
     const byLabel = {};
     // A batch the endpoint times out on is split in half and retried.
     const run = async (batch) => {
@@ -259,12 +304,18 @@ async function wikidataMatches(entities) {
         await run(batch.slice(0, mid));
         return run(batch.slice(mid));
       }
-      for (const h of hits) (byLabel[h.label] ||= []).push(h);
+      // Cached per label, so a rerun over a different entity set reuses them.
+      for (const l of batch) cache['wdl:' + kind + ':' + l] = [];
+      for (const h of hits) cache['wdl:' + kind + ':' + h.label].push(h);
       saveCache();
     };
-    for (const batch of chunk(allLabels, 60)) await run(batch);
+    const todo = allLabels.filter((l) => !('wdl:' + kind + ':' + l in cache));
+    for (const batch of chunk(todo, 60)) await run(batch);
+    for (const l of allLabels)
+      for (const h of cache['wdl:' + kind + ':' + l] || []) (byLabel[h.label] ||= []).push(h);
     for (const e of mine) {
-      const cands = nameCandidates(e.name);
+      const cands = allCandidates(e);
+      const primary = nameCandidates(e.name)[0];
       for (const cand of cands) {
         const hits = caseVariants(cand).flatMap((v) => byLabel[v] || []);
         if (!hits.length) continue;
@@ -272,14 +323,17 @@ async function wikidataMatches(entities) {
         if (!r) break; // ambiguous: skip rather than guess
         const mineHits = hits.filter((h) => h.qid === r.qid);
         const withImg = mineHits.find((h) => h.file);
+        const withCat = mineHits.find((h) => h.category);
         // An alias can name a broader or different item ("been" is also an
         // alias of the rudra veena), so only a main-label match is `high`.
         const byMainLabel = mineHits.some((h) => h.main);
         out[e.key] = {
           qid: r.qid,
+          kind,
           label: mineHits[0].itemLabel || mineHits[0].label,
           file: withImg ? withImg.file : null,
-          confidence: cand === cands[0] && !r.tiebreak && byMainLabel ? 'high' : 'medium',
+          category: withCat ? withCat.category : null,
+          confidence: cand === primary && !r.tiebreak && byMainLabel ? 'high' : 'medium',
         };
         break;
       }
@@ -291,7 +345,6 @@ async function wikidataMatches(entities) {
 // Items with no P18: the top Commons file whose structured data says it
 // depicts (P180) that exact item. Commons rate-limits hard, so this pass
 // runs under a time budget and caches, so a rerun continues where it stopped.
-const IMAGE_EXT = /\.(jpe?g|png|gif|svg|tiff?|webp)$/i;
 async function commonsDepicts(matches) {
   const deadline = Date.now() + opts.depictsMinutes * 60000;
   const todo = Object.values(matches).filter((m) => !m.file);
@@ -311,7 +364,7 @@ async function commonsDepicts(matches) {
     done++;
     if (done % 50 === 0) saveCache();
     const hit = ((data && data.query && data.query.search) || []).find((r) =>
-      IMAGE_EXT.test(r.title)
+      pickableFile(r.title)
     );
     if (hit) {
       m.file = hit.title.replace(/^File:/, '');
@@ -321,6 +374,122 @@ async function commonsDepicts(matches) {
   });
   saveCache();
   return { tried: done, of: todo.length };
+}
+
+// Round 2. Items with no P18 but a Commons category (P373): the category is
+// the item's own gallery, so a file filed in it is confirmed by its own
+// categories. Take the first openly licensed photo, by title order, whose
+// title also names the item; maps, logos, flags, scans of scores and
+// non-image media never count.
+const NOT_A_PICTURE =
+  /\b(map|karte|carte|mapa|logo|flag|coat of arms|locator|signature|diagram|chart|score|sheet music|partitura|stamp|cover|poster|label|disc|record|tomb|grave|page|range|fingering|dpla)\b/i;
+const PHOTO_EXT = /\.(jpe?g|png|webp)$/i;
+function pickableFile(title) {
+  const t = title.replace(/^File:/, '');
+  // "(03 of 37)": one page of a digitised book or score.
+  return (
+    PHOTO_EXT.test(t) && !NOT_A_PICTURE.test(t.replace(/[_.-]/g, ' ')) && !/\d+ of \d+\)/.test(t)
+  );
+}
+function hasWords(hay, needle) {
+  const n = norm(needle);
+  return n.length >= 3 && (' ' + norm(hay) + ' ').includes(' ' + n + ' ');
+}
+async function commonsCategory(matches) {
+  const deadline = Date.now() + opts.categoryMinutes * 60000;
+  const todo = Object.values(matches).filter((m) => !m.file && m.category);
+  let done = 0;
+  await pool(todo, 2, async (m) => {
+    const key = 'cat:' + m.category;
+    if (!(key in cache) && Date.now() > deadline) return;
+    const url =
+      'https://commons.wikimedia.org/w/api.php?action=query&format=json' +
+      '&generator=categorymembers&gcmtype=file&gcmlimit=50&gcmtitle=' +
+      encodeURIComponent('Category:' + m.category) +
+      '&prop=imageinfo&iiprop=extmetadata&iiextmetadatafilter=LicenseShortName';
+    let data;
+    try {
+      data = await cached(key, () => tryJson(url));
+    } catch {
+      return;
+    }
+    if (++done % 25 === 0) saveCache();
+    const pages = Object.values((data && data.query && data.query.pages) || {})
+      .filter((p) => pickableFile(p.title))
+      .filter((p) => {
+        const em = (((p.imageinfo || [])[0] || {}).extmetadata || {}).LicenseShortName;
+        return classifyLicense(em && em.value);
+      })
+      .sort((a, b) => (a.title < b.title ? -1 : a.title > b.title ? 1 : 0));
+    // Only a file whose own title names the item: a category also collects
+    // strays (a techno loudspeaker filed under minimalist music).
+    const pick = pages.find((p) => hasWords(p.title, m.label));
+    if (!pick) return;
+    m.file = pick.title.replace(/^File:/, '');
+    m.confidence = 'medium';
+    m.via = 'category';
+  });
+  saveCache();
+  return { tried: done, of: todo.length };
+}
+
+// Round 2, traditions only. A genre item with no picture of its own: a
+// photo of a performer whose Wikidata record names that genre (P136) as
+// their only genre, from people and musical groups, so the genre is the one
+// that defines them (a film composer with free jazz among three genres is
+// not a free-jazz picture). The best-known such performer (most
+// sitelinks) wins.
+async function genrePerformers(matches) {
+  const todo = Object.values(matches).filter((m) => !m.file && m.kind === 'tradition');
+  const byGenre = {};
+  const run = async (batch) => {
+    const query =
+      'SELECT ?genre ?p ?pLabel ?img ?links (COUNT(DISTINCT ?g2) AS ?ng) WHERE { VALUES ?genre { ' +
+      batch.map((q) => 'wd:' + q).join(' ') +
+      ' } ?p wdt:P136 ?genre ; wdt:P18 ?img ; wikibase:sitelinks ?links ; wdt:P136 ?g2 .' +
+      ' { ?p wdt:P31 wd:Q5 } UNION { ?p wdt:P31/wdt:P279* wd:Q215380 }' +
+      ' SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } }' +
+      ' GROUP BY ?genre ?p ?pLabel ?img ?links';
+    let data;
+    try {
+      data = await cached('performers:' + batch.join('|'), () =>
+        getJson(
+          'https://query.wikidata.org/sparql?format=json',
+          0,
+          'query=' + encodeURIComponent(query)
+        )
+      );
+    } catch {
+      if (batch.length < 2) return;
+      const mid = batch.length >> 1;
+      await run(batch.slice(0, mid));
+      return run(batch.slice(mid));
+    }
+    for (const b of data.results.bindings) {
+      if (Number(b.ng.value) > 1) continue;
+      (byGenre[b.genre.value.replace(/^.*\//, '')] ||= []).push({
+        qid: b.p.value.replace(/^.*\//, ''),
+        label: b.pLabel && b.pLabel.value,
+        links: Number(b.links.value),
+        file: decodeURIComponent(b.img.value.replace(/^.*\/Special:FilePath\//, '')),
+      });
+    }
+    saveCache();
+  };
+  for (const batch of chunk([...new Set(todo.map((m) => m.qid))], 25)) await run(batch);
+  let found = 0;
+  for (const m of todo) {
+    const ps = (byGenre[m.qid] || [])
+      .filter((p) => pickableFile(p.file) && !/^Q\d+$/.test(p.label || 'Q0'))
+      .sort((a, b) => b.links - a.links || (a.qid < b.qid ? -1 : 1));
+    if (!ps.length) continue;
+    m.file = ps[0].file;
+    m.confidence = 'medium';
+    m.via = 'performer';
+    m.label = ps[0].label + ' (' + m.label + ' performer)';
+    found++;
+  }
+  return { found, of: todo.length };
 }
 
 // Commons appends utm_* tracking parameters to file URLs; drop them.
@@ -365,13 +534,23 @@ async function commonsInfo(files) {
   return out;
 }
 
+const SOURCE_BY_VIA = {
+  depicts: 'commons_depicts',
+  category: 'commons_category',
+  performer: 'wikidata_performer',
+};
+
 async function viaWikidata(entities, skipped) {
   const results = {};
   let matches;
   try {
     matches = await wikidataMatches(entities);
+    const c = await commonsCategory(matches);
+    console.error(`commons category fallback: ${c.tried}/${c.of} categories read`);
     const d = await commonsDepicts(matches);
     console.error(`commons depicts fallback: ${d.tried}/${d.of} items looked up`);
+    const g = await genrePerformers(matches);
+    console.error(`genre performer fallback: ${g.found}/${g.of} traditions`);
   } catch (e) {
     skipped.push({ source: 'wikidata', reason: e.message });
     return results;
@@ -395,7 +574,7 @@ async function viaWikidata(entities, skipped) {
     const license = meta && classifyLicense(meta.license_raw);
     if (!license) continue;
     results[key] = {
-      source: m.via === 'depicts' ? 'commons_depicts' : 'wikidata_commons',
+      source: SOURCE_BY_VIA[m.via] || 'wikidata_commons',
       wikidata: m.qid,
       source_page: meta.source_page,
       image_url: meta.image_url,
@@ -415,7 +594,7 @@ async function viaMet(entities, skipped) {
   const results = {};
   try {
     await pool(entities, opts.concurrency, async (e) => {
-      for (const cand of nameCandidates(e.name)) {
+      for (const cand of allCandidates(e)) {
         const url =
           'https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=18&hasImages=true&q=' +
           encodeURIComponent(cand);
@@ -438,7 +617,7 @@ async function viaMet(entities, skipped) {
             credit: o.creditLine
               ? 'The Metropolitan Museum of Art, ' + o.creditLine
               : 'The Metropolitan Museum of Art',
-            match_confidence: cand === nameCandidates(e.name)[0] ? 'medium' : 'low',
+            match_confidence: cand === allCandidates(e)[0] ? 'medium' : 'low',
             matched_label: o.title || o.objectName,
           };
           return;
@@ -453,24 +632,26 @@ async function viaMet(entities, skipped) {
   return results;
 }
 
-// ---- Source 3: Smithsonian Open Access (needs SI_API_KEY) ----
+// ---- Source 3: Smithsonian Open Access (SI_API_KEY, else api.data.gov's
+// DEMO_KEY, which allows a few dozen calls an hour: the first refusal ends
+// the pass and the cache keeps what was read) ----
 async function viaSmithsonian(entities, skipped) {
-  const key = process.env.SI_API_KEY;
+  const key = process.env.SI_API_KEY || 'DEMO_KEY';
   const results = {};
-  if (!key) {
-    skipped.push({ source: 'smithsonian_open_access', reason: 'no SI_API_KEY' });
-    return results;
-  }
   try {
-    await pool(entities, opts.concurrency, async (e) => {
+    await pool(entities, key === 'DEMO_KEY' ? 1 : opts.concurrency, async (e) => {
       const q = `"${e.name}" AND online_media_type:"Images" AND unit_code:"NMAH"`;
       const url =
         'https://api.si.edu/openaccess/api/v1.0/search?rows=5&api_key=' +
         key +
         '&q=' +
         encodeURIComponent(q);
-      const data = await cached('si:' + e.name, () => tryJson(url));
-      for (const row of (data.response && data.response.rows) || []) {
+      const data = await cached('si:' + e.name, async () => {
+        const res = await fetch(url, { headers: { 'User-Agent': UA } });
+        if (res.status === 429 || res.status === 403) throw new Error('http_' + res.status);
+        return res.ok ? res.json() : null;
+      });
+      for (const row of (data && data.response && data.response.rows) || []) {
         if (norm(row.title) !== norm(e.name)) continue;
         const media =
           row.content &&
@@ -528,7 +709,7 @@ async function viaCleveland(entities, skipped) {
   const results = {};
   try {
     await pool(entities, opts.concurrency, async (e) => {
-      const cands = nameCandidates(e.name);
+      const cands = allCandidates(e);
       for (const cand of cands) {
         const url =
           'https://openaccess-api.clevelandart.org/api/artworks/?cc0=1&has_image=1' +
@@ -579,7 +760,7 @@ async function viaEuropeana(entities, skipped) {
   const key = process.env.EUROPEANA_KEY || 'api2demo';
   try {
     await pool(entities, opts.concurrency, async (e) => {
-      const cands = nameCandidates(e.name);
+      const cands = allCandidates(e);
       for (const cand of cands) {
         const url =
           'https://api.europeana.eu/record/v2/search.json?reusability=open&qf=TYPE%3AIMAGE' +
@@ -613,6 +794,74 @@ async function viaEuropeana(entities, skipped) {
     });
   } catch (e) {
     skipped.push({ source: 'europeana', reason: e.message });
+  } finally {
+    saveCache();
+  }
+  return results;
+}
+
+// ---- Round 2 source: Commons full-text search per catalog name ----
+// Entities nothing else matched. A photo counts only when its own title AND
+// its own categories name the thing, and its categories are about music, so a village or a surname sharing the name
+// never passes. Commons throttles hard: the pass runs under a time budget
+// (--search-minutes) and caches, so a rerun continues where it stopped.
+const MUSICAL =
+  /\b(music\w*|musical instruments?|instruments?|drums?|percussion|lutes?|fiddles?|flutes?|guitars?|harps?|zithers?|violins?|horns?|trumpets?|oboes?|bagpipes?|singers?|singing|songs?|bands?|orchestras?|ensembles?|concerts?|festivals?|musicians?|performers?|dances?)\b/i;
+async function viaCommonsSearch(entities, skipped) {
+  const results = {};
+  const deadline = Date.now() + opts.searchMinutes * 60000;
+  try {
+    await pool(entities, 2, async (e) => {
+      const primary = nameCandidates(e.name);
+      const cands = [...new Set([...primary, ...(e.short ? nameCandidates(e.short) : [])])];
+      for (const cand of cands) {
+        const key = 'cs:' + cand;
+        if (!(key in cache) && Date.now() > deadline) return;
+        const url =
+          'https://commons.wikimedia.org/w/api.php?action=query&format=json' +
+          '&generator=search&gsrnamespace=6&gsrlimit=10&gsrsearch=' +
+          encodeURIComponent('intitle:"' + cand + '" filetype:bitmap') +
+          '&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=' +
+          THUMB_WIDTH +
+          '&iiextmetadatafilter=LicenseShortName|Artist|Credit|Categories';
+        let data;
+        try {
+          data = await cached(key, () => tryJson(url));
+        } catch {
+          return;
+        }
+        const pages = Object.values((data && data.query && data.query.pages) || {}).sort(
+          (a, b) => (a.index || 0) - (b.index || 0)
+        );
+        for (const p of pages) {
+          const ii = (p.imageinfo || [])[0];
+          if (!ii || !pickableFile(p.title) || !/\.jpe?g$/i.test(p.title)) continue;
+          if (!hasWords(p.title, cand)) continue;
+          const em = ii.extmetadata || {};
+          const license_raw = (em.LicenseShortName && em.LicenseShortName.value) || '';
+          const license = classifyLicense(license_raw);
+          if (!license) continue;
+          const cats = String((em.Categories && em.Categories.value) || '').replace(/\|/g, ' | ');
+          if (!hasWords(cats, cand) || !MUSICAL.test(cats)) continue;
+          results[e.key] = {
+            source: 'commons_search',
+            source_page: ii.descriptionurl,
+            image_url: stripTracking(ii.url),
+            thumb_url: stripTracking(ii.thumburl || ii.url),
+            license,
+            license_raw,
+            credit:
+              stripHtml((em.Artist && em.Artist.value) || (em.Credit && em.Credit.value) || '') ||
+              'Wikimedia Commons contributor',
+            match_confidence: cand === primary[0] ? 'medium' : 'low',
+            matched_label: p.title.replace(/^File:/, ''),
+          };
+          return;
+        }
+      }
+    });
+  } catch (e) {
+    skipped.push({ source: 'commons_search', reason: e.message });
   } finally {
     saveCache();
   }
@@ -685,10 +934,12 @@ async function viaOpenverse(entities, skipped) {
 // named instrument or tradition (a logo, map or place; a different
 // instrument or genre; or nothing that can be confirmed). Keyed by entity,
 // valued by the rejected image's file name, so a regeneration drops the
-// same pick again but still takes a different image for that entity.
+// same pick again but still takes a different image for that entity. A
+// list rejects several picks for one entity.
 // Commons depicts (P180) fallbacks, alias-matched Wikidata items, museum
 // title matches and Openverse hits are not verified here; review new ones.
 const REJECTED = {
+  'instrument:bandola_andina': ['Bandolallanera.jpg', 'Bandola_dusepo.jpg'],
   'instrument:barrel_organ': 'Barrel_piano_-_Λατέρνα(laterna).JPG',
   'instrument:bassanello': 'Guizza_foto_storica_chiesa_Bassanello_vista_aerea.jpg',
   'instrument:been_snake_charmer': 'Rudraveena1.JPG',
@@ -697,56 +948,89 @@ const REJECTED = {
   'instrument:byzantine_lyra': 'Gdulka-bow_copy.jpg',
   'instrument:castanets': 'default.jpg',
   'instrument:contrabass_oboe': "Contrabass_oboe's_range.png",
+  'instrument:cornemuse_du_centre': '89.4.861 Cornemuse .jpg',
   'instrument:cornet': '8a55c0382a904e3eac317bd76dcedc5e.jpg',
   'instrument:crotales': 'Cymbales-E_12567-img_2793.jpg',
   'instrument:cuatro_pr': 'Cuatro_Ramon_Blanco.jpg',
   'instrument:dan_tam_thap_luc': 'Hammered_dulcimer.JPG',
-  'instrument:fiddle': '1918.381_print.jpg',
+  'instrument:dayereh': 'Daf-Khalaj.jpg',
+  'instrument:dyas_tapu_patu': '02349wsaPuMU?dimension=1200x1200',
+  'instrument:fiddle': [
+    '1918.381_print.jpg',
+    'originaal?id=fe7aeb84-ad51-4ef2-a992-eccde92163d8',
+    'Bow_Fiddle_Rock_East.jpg',
+  ],
+  'instrument:gaita_colombiana': 'Gaita_galega.jpg',
   'instrument:gaku_biwa': '곡경비파_(2).JPG',
+  'instrument:gamelan_balinese_full': 'dia-1980.09.0009.A-001.jpg',
+  'instrument:gamelan_javanese_full': 'dia-1980.09.0009.A-001.jpg',
   'instrument:gender': '1968.07.0001a.jpg',
   'instrument:gijak_turkmen': 'Ghaychak.jpg',
-  'instrument:harmonium_indian': '134286.jpg',
+  'instrument:harmonium_indian': ['134286.jpg', '0331wTuAoqHH?dimension=1200x1200'],
   'instrument:harpa': 'zoom',
   'instrument:hydraulis': 'Paseo_de_la_Guarania.png',
   'instrument:irish_wooden_flute': 'Charles_Nicholson00.jpg',
   'instrument:kalangu': 'Afrobeats_Molo_strings.jpg',
+  'instrument:karna_trumpet': 'DP-12679-025.jpg',
   'instrument:kempyang': 'Wayang_Ruwatan_by_Anom_Harya.jpg',
   'instrument:kenong': 'Karawitan_Junior.jpg',
   'instrument:kuzhal': 'The_Tribal_Triumph.jpg',
+  'instrument:lokanga_bara': 'bild-1913.06.0003.jpg',
   'instrument:marimba_centroamericana': 'Esmeraldian_(Afro-Ecuadorian)_marimba.jpg',
-  'instrument:marimba_orchestral': 'Esmeraldian_(Afro-Ecuadorian)_marimba.jpg',
-  'instrument:melodeon_diatonic': 'New_Haven_Melodeon,_Mission_Mill_Museum.jpg',
+  'instrument:marimba_orchestral': [
+    'Esmeraldian_(Afro-Ecuadorian)_marimba.jpg',
+    'MUS805A.jpg',
+    'zoom',
+  ],
+  'instrument:melodeon_diatonic': ['New_Haven_Melodeon,_Mission_Mill_Museum.jpg', '134275.jpg'],
   'instrument:naghara_azerbaijani': 'Nagara,_MDMB_945.jpg',
   'instrument:organistrum':
     'Chiesa_di_San_Maurizio_-_Museo_della_Musica_in_Venice_-_Ghironda_1850_.jpg',
+  'instrument:ottavino_virginal': 'Caravaggio_Ottavino.jpg',
   'instrument:pibgorn': 'Welshbagpipe.jpg',
   'instrument:pyeonjong': 'Bianzhong.jpg',
   'instrument:quern_grindstone': 'MM+19490(1).jpg',
-  'instrument:rabel_castellano': 'Encuentro_homenaje_en_Valdeolea.jpg',
-  'instrument:rebab': 'DP252791.jpg',
+  'instrument:rabel_castellano': [
+    'Encuentro_homenaje_en_Valdeolea.jpg',
+    'Elder_with_plucked_rabel,_Santo_Domingo_de_Soria.jpg',
+  ],
+  'instrument:rebab': ['DP252791.jpg', 'image.jpg'],
   'instrument:riq': 'Pair_of_dafs.jpg',
   'instrument:sambuca_ancient': 'Fresco_of_women_listening_to_a_private_musical_performance.jpg',
   'instrument:sanj':
     'Musicians_of_the_Akbar\'s_naqqāra-khāna,_from_painting_"An_Attempt_on_Akbar\'s_Life"-Akbarnama.jpg',
+  'instrument:santur': 'Greek_Santur.jpg',
+  'instrument:semi_hollow_bass': 'GMFT3-2_piles_of_semi-hollow_bodies,_in_work_in_process.jpg',
   'instrument:shabbaba': 'midp89.4.444.jpg',
   'instrument:shawm': 'MUS478A5.jpg',
   'instrument:shudraga': 'Mongolian_lute,_circa_1279-1368,_Tomb_of_Wang_Qing.jpg',
-  'instrument:tambura_balkan': 'DP-24037-001.jpg',
-  'instrument:tanbur_maltese': 'midp89.4.1384.jpg',
-  'instrument:tar_frame_drum': 'Tār_MET_midp89.4.1858.jpg',
+  'instrument:tabl_baladi': '203609.jpg',
+  'instrument:tambura_balkan': [
+    'DP-24037-001.jpg',
+    'Indian_string_instruments_-_Saravati_vina,_Bin_or_Rudra_veena,_Esraj_or_Diltuba,_Tambura,_Fiddle_or_Violin,_Sitar,_Surbahar,_Sarangi,_Tambura_-_Harmonium,_Tabla_-_MIM_Brussels_(2018-05-26_10.41.21_by_Miguel_Discart_@Flickr_46273431562).jpg',
+  ],
+  'instrument:tanbur_maltese': ['midp89.4.1384.jpg', '1918.347_print.jpg'],
+  'instrument:tar_azerbaijani': 'DP-26166-003.jpg',
+  'instrument:tar_frame_drum': ['Tār_MET_midp89.4.1858.jpg', 'midp89.4.1858.jpg'],
   'instrument:tilinca': 'f39862d97cfc43a99c4150501a9be23a.jpg',
   'instrument:trumpet': 'MUS1129A.jpg',
   'instrument:tubular_bells': 'Windchimes_02.jpg',
+  'instrument:veena': [
+    'Icon_of_person_playing_Indian_instrument_Veena.svg',
+    'Woman_with_veena,_Crafts_Museum,_New_Delhi,_India.jpg',
+  ],
   'instrument:villu_pattu_bow': 'ഓണവില്ല്_ഉപയോഗിച്ചുള്ള_പാട്ട്൧.resized.jpg',
   'instrument:vladimirskiy_rozhok': 'Рагаи_и_коленами.jpg',
   'instrument:xalam': 'Diffa_Niger_Griot_DSC_0177.jpg',
-  'instrument:xylophone': 'MUS786A.jpg',
+  'instrument:xylophone': ['MUS786A.jpg', '1949.15.0030.jpg'],
   'instrument:zokra': 'Zournas.jpg',
   'tradition:afro_punk': 'Punks_SP.jpg',
   'tradition:afrobeat': 'Kalakuta_Queens.jpg',
   'tradition:amapiano': 'Mr_Julz_photo.jpg',
+  'tradition:american_political_hip_hop': 'Annarce2023.jpg',
   'tradition:anadolu_rock': 'The_shadows_2009_Brussels.JPG',
   'tradition:anatolian_rock': 'The_shadows_2009_Brussels.JPG',
+  'tradition:armenian_traditional': 'Bartok_recording_folk_music.jpg',
   'tradition:art_pop': 'Cowgirl_Clue.png',
   'tradition:austropop': 'I_AM_FROM_AUSTRIA_-_Das_Musical_in_Japan.jpg',
   'tradition:bachata': '10805456595_1fce3f7fa1_b.jpg',
@@ -755,30 +1039,41 @@ const REJECTED = {
   'tradition:bassline': 'How_to_make_that_bassline_logo_honlapra.png',
   'tradition:bassline_uk': 'How_to_make_that_bassline_logo_honlapra.png',
   'tradition:bhangra_modern': 'Bhangra_Dance_Performed_by_Girls.jpg',
+  'tradition:big_band': 'Dick_powell_-_publicity.JPG',
   'tradition:bomba': 'Tamborbomba.png',
   'tradition:bomba_puertorican': 'Tamborbomba.png',
   'tradition:bubblegum_pop': 'Travelling_funfair,_Bemmely_Hills.jpg',
   'tradition:c_pop': 'Chinese_music_icon.png',
-  'tradition:cantopop':
+  'tradition:cantopop': [
     'Anita_Mui_Yim-fong_(梅艷芳)_Statue_at_Hong_Kong_Garden_of_Stars_(Ank_Kumar,_Infosys_Limited)_02.jpg',
+    'Chow_Yun_Fat_2.JPG',
+  ],
+  'tradition:celtic_folk_revival': 'Elizabeth_Davidson-Blythe.jpg',
+  'tradition:cha_cha_cha': 'Uwe_Schmidt_Atom_Heart_Mutek_10.jpg',
   'tradition:champeta': '2025-07-06_15-03-41-Champeta-por-David-Ramirez-Ordonez.jpg',
   'tradition:champeta_cartagenera': '2025-07-06_15-03-41-Champeta-por-David-Ramirez-Ordonez.jpg',
   'tradition:chicano_rap': 'ChicanoRap.jpg',
   'tradition:chilean_rock': 'Los_Vanders_2020.jpg',
   'tradition:chilena': 'Jose_hernandez_bajista_del_grupo_dueño_y_fundador.jpg',
   'tradition:christian_country': '90.5_KJIC_Official_Logo.png',
+  'tradition:classical': 'Sir_Earnest_MacMillan_Home_Toronto.jpg',
+  'tradition:compas_direk': 'Michel_Martelly_on_April_20,_2011.jpg',
   'tradition:conjunto': '1977_torres_de_almagro._jpg.webp',
   'tradition:copla_andaluza': 'Placa_Conmemorativa_Concha_Piquer_Gran_Via.jpg',
   'tradition:corridos_belicos': 'CLAZI.jpg',
   'tradition:country_gospel': '90.5_KJIC_Official_Logo.png',
   'tradition:cowboy_song': 'Hank_Williams_Promotional_Photo.jpg',
   'tradition:cowboy_western': 'Hank_Williams_Promotional_Photo.jpg',
+  'tradition:crunk': 'Jeffree_Star_crop.png',
   'tradition:cumbia_chilena': 'BANDA_RIO_CLARO.png',
   'tradition:cumbia_sonidera': 'Diálogo_abierto_Sonideros.jpg',
   'tradition:danzon': 'Zapatos_para_danzón,_03.jpg',
+  'tradition:dark_ambient': 'Reznor_Ross_G5_setup_cropped_tight.jpg',
+  'tradition:dark_ambient_industrial': 'Reznor_Ross_G5_setup_cropped_tight.jpg',
   'tradition:downtempo': 'Popovka,_Kazantip,_Crimea,_Sunset_party.jpg',
   'tradition:drill': 'Forja_&_Sonido.png',
   'tradition:drumstep': 'Permutation.jpg',
+  'tradition:dub_techno': 'Mike_Sheridan_(2012).jpg',
   'tradition:electro': 'Electrograph.png',
   'tradition:ethereal_wave': "Symphony_of_Us,_Love's_Chosen_tune.jpg",
   'tradition:festejo': 'De_la_serie_Mojigangas_de_Alvarado_3.tif',
@@ -787,15 +1082,25 @@ const REJECTED = {
   'tradition:footwork': '7771148116_f3b47e9283_b.jpg',
   'tradition:freestyle': 'Exhibición_de_Deportes_Urbanos_-_evento_(23).jpg',
   'tradition:freestyle_music': 'Exhibición_de_Deportes_Urbanos_-_evento_(23).jpg',
+  'tradition:funk_metal': 'Sugar_Ray.jpg',
   'tradition:fusion': '12348323204_a3b7c94021_b.jpg',
+  'tradition:galician_kantautor': 'Taylor_Swift_103_(18118974610).jpg',
+  'tradition:garage_house_paradise': 'Rock_en_Seine_2007,_Just_Jack.jpg',
   'tradition:garage_rock': "17_bv_de_l'Hôtel_de_ville,_Vichy_-_porte_de_garage_rock_&_love_.jpg",
   'tradition:glitchcore': 'Roblox.jpg',
   'tradition:gqom':
     '77tunes_Home_of_Hiphop_Music,_News,_Gqom,_Afro_House,_Amapiano,_Hiphopza,_Zamusic,_Fakaza_Music_SaHipHop_&_Entertainment.jpg',
+  'tradition:grand_opera_french': 'Sissieretta_Jones.jpg',
+  'tradition:gulf_and_western': 'Hank_Williams_Promotional_Photo.jpg',
   'tradition:hawaiian_hip_hop': 'Flag_of_Hawaii.svg',
-  'tradition:hindustani_sarod':
+  'tradition:hindu_stuti_bhajan': 'Banjara_Bhajan_Songs.jpg',
+  'tradition:hindustani_sarod': [
     'Ashwini_Bhide-Deshpande_(Hindustani_classical_music_vocalist)_01.JPG',
+    'Bismillah_at_Concert1_(edited).jpg',
+  ],
   'tradition:house': 'CERVEJARIA_DO_GORDO.jpg',
+  'tradition:impressionism': 'Martial_Caillebotte.jpg',
+  'tradition:impressionist_art_music': 'Martial_Caillebotte.jpg',
   'tradition:indietronica': 'Cowgirl_Clue.png',
   'tradition:iraqi_maqam': 'مقتنيات_الفنان_اسماعيل_الفحّام.jpg',
   'tradition:irish_pub_song': 'Drinking-_song_-_Zichy,_Mihály_-_1874.jpg',
@@ -804,44 +1109,55 @@ const REJECTED = {
   'tradition:japanese_nagauta_kabuki': 'Sake_Cup_by_Santō_Kyōden.png',
   'tradition:jersey_club':
     'Front_angle_view_from_Market_Street_of_World_Cup_Corner_Mural_-_Unicorn151.jpg',
+  'tradition:jungle': '2013-10-13_02.28.27dssss.jpg',
   'tradition:kapa_haka':
     'Christopher_Luxon_and_Chris_Hipkins_2023_-_State_Opening_of_the_54th_Parliament.jpg',
-  'tradition:kompa': '19274857288_047f213e12_b.jpg',
+  'tradition:kompa': ['19274857288_047f213e12_b.jpg', 'Michel_Martelly_on_April_20,_2011.jpg'],
   'tradition:kulintang': 'Agung_11.jpg',
   'tradition:kundiman':
     '03032jfEspana_Boulevard_Landmarks_Barangays_Lacson_Blumentritt_Sampaloc_Manilafvf_14.jpg',
-  'tradition:latin_rock': 'Gustavo_Cerati.jpg',
+  'tradition:latin_rock': ['Gustavo_Cerati.jpg', 'Alvaro-scaramalli-vivo.jpg'],
   'tradition:lounge_exotica': 'Hertie_School_lounge.jpg',
   'tradition:lounge_music': 'Hertie_School_lounge.jpg',
-  'tradition:makossa': '5897939613_6721c5937f_b.jpg',
+  'tradition:makossa': ['5897939613_6721c5937f_b.jpg', 'Rabba_Rabbi.jpg'],
   'tradition:malaysian_pop': 'Malaysian_music_icon.jpg',
   'tradition:maltese_ghana': 'Ghana_Zejrun_Monument.jpeg',
   'tradition:mambo': '16064357976_0cba928e5f_b.jpg',
   'tradition:manguebeat':
     'Caranguejo_com_Cerébro_Monumento_ao_Manguebeat,_Rua_da_Aurora,_Recife_-_PE_(52181075136).jpg',
   'tradition:microhouse': "Lakay_Ago_Nature's_Park_La_Union-10.jpg",
+  'tradition:middle_of_the_road': 'Patrick_Bruel_Cabourg_2012.jpg',
   'tradition:minnesang': 'Joseph_Knippenberg,_Rheinisches_Bildarchiv,_rba_225486_kni.jpg',
   'tradition:negro_spiritual': 'Kurt_Carr_and_the_Kurt_Carr_Singers_perform_at_the_White_House.jpg',
+  'tradition:neoclassicism_interwar': 'Ashram_live_in_Lisbon,_2006.jpg',
   'tradition:new_jack_swing': '캣츠아이(KATSEYE)_뮤직뱅크_출근길,_분위기로_올킬.jpg',
   'tradition:no_wave': 'Billy_Nomates_op_het_Valkhof_Festival_2022.jpg',
   'tradition:nortec': 'Industriegebiet_Wellsee_2012;_37.jpg',
   'tradition:norteno': 'TERRITORIA_STICKERS.jpg',
   'tradition:opera_seria_baroque':
     'Armida,_opera_seria_in_3_atti,_ridotto_per_il_piano_forte_-_btv1b10071060n_(038_of_226).jpg',
+  'tradition:papua_new_guinean_polyphony': 'A_traditional_male_folk_group_from_Skrapar.JPG',
   'tradition:plena_puertorican': 'Baile_De_Loiza_Aldea.gif',
   'tradition:post_disco': 'Kuda_Lumping_Wanita_-_Lampung_-_2019.jpg',
+  'tradition:progressive_folk': 'Nancybigger.jpg',
   'tradition:progressive_house': 'Kazantip,_Popovka,_Crimea,_Dance_party,_Techno_music.jpg',
   'tradition:punta': 'Map_of_Carib_Land_after_Treaty_of_1773.png',
   'tradition:punta_garifuna': 'Map_of_Carib_Land_after_Treaty_of_1773.png',
-  'tradition:red_dirt': 'CSR007_SA_2020.jpg',
+  'tradition:red_dirt': ['CSR007_SA_2020.jpg', 'LataGouveia13.jpg'],
+  'tradition:repente_embolada': 'Monumento_cego_aderaldo_quixada_CE.JPG',
+  'tradition:russian_folk_balalaika_choir': 'Thomas_Tallis.jpg',
+  'tradition:salsa_romantica': 'Mamuang.jpg',
+  'tradition:screen_soundtrack_hybrid': 'Miguel_Ángel_Fúster_Coll.jpg',
   'tradition:sean_nos_singing': 'Nioclás_Tóibín_plaque.png',
   'tradition:skiffle': "Cannon'sJugStompers.jpg",
   'tradition:sonidero':
     'Rótulos_de_grupos_musicales_en_un_muro_del_tercer_anillo_(Aguascalientes)_02.jpg',
   'tradition:southern_trap':
     'M-Audio_Trigger_Finger_Pro_-_angled_-_2014_NAMM_Show_(by_Matt_Vanacoro).jpg',
+  'tradition:spanish_rock': 'Alfred_García,_XII_Premis_Gaudí_(2020).jpg',
   'tradition:spirituals': 'Shri_Krishna_Balaram_Mandir.jpg',
   'tradition:spirituals_african_american': 'Shri_Krishna_Balaram_Mandir.jpg',
+  'tradition:symphonic': 'John_Browning_1966.JPG',
   'tradition:synthcore': 'Fischerspooner_NYC_2005.jpg',
   'tradition:technical_death_metal': 'Opeth_münchen_06.12.2008._8_(B&W).jpg',
   'tradition:timba': 'Münchner_Ruhestörung_30.09.2019.jpg',
@@ -852,7 +1168,10 @@ const REJECTED = {
   'tradition:tropical_bolero': '14045089766_54dbf6318a_b.jpg',
   'tradition:turbo_folk': 'Zdravo_Đorđe,_Džej_Ramadanovski,_Dorćol,_Jevrejska_2,_2021.jpg',
   'tradition:turk_sanat_muzigi': 'Aleppomusic.jpg',
+  'tradition:twelve_tone': '12tones-my_example1.JPG',
+  'tradition:uk_garage_2step': 'Naughtyboyasianawards.png',
   'tradition:western_music': 'Hank_Williams_Promotional_Photo.jpg',
+  'tradition:work_songs_hollers': 'Chain_gang_-_convicts_going_to_work_nr._Sidney_N.S._Wales.jpg',
   'tradition:yacht_rock': 'Beach_Boys_Good_Vibrations_from_Central_Park_1971.jpg',
   'tradition:zouglou_ivorian':
     "Demi_ensemble_de_la_loge_des_invitées_d'honneur_et_de_la_marraine_Dominique_Ouattara.jpg",
@@ -863,27 +1182,51 @@ function isRejected(key, imageUrl) {
       .split('/')
       .pop()
   );
-  return REJECTED[key] === file;
+  return [].concat(REJECTED[key] || []).includes(file);
 }
 
 // ---- Main ----
+// Every catalog entity, each marked whether this run's --kind / --offset /
+// --limit scope covers it.
 function loadEntities() {
   const list = [];
   for (const [kind, file] of [
     ['instrument', 'api/instruments/index.json'],
     ['tradition', 'api/traditions/index.json'],
   ]) {
-    if (opts.kind && opts.kind !== kind) continue;
     const idx = JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'));
-    for (const it of idx.items.slice(0, opts.limit)) {
-      list.push({ key: kind + ':' + it.id, id: it.id, kind, name: it.name });
+    for (const [i, it] of idx.items.entries()) {
+      const e = { key: kind + ':' + it.id, id: it.id, kind, name: it.name };
+      e.inScope =
+        (!opts.kind || opts.kind === kind) && i >= opts.offset && i < opts.offset + opts.limit;
+      if (kind === 'instrument' && e.inScope) {
+        const rec = JSON.parse(
+          fs.readFileSync(path.join(ROOT, 'api/instruments', it.id + '.json'))
+        );
+        if (rec.short) e.short = rec.short;
+      }
+      list.push(e);
     }
   }
   return list;
 }
 
+// Entries already in the manifest are kept as they are (an accuracy pass
+// may have corrected or pruned them by hand); a run only looks for the
+// entities still missing. --fresh ignores the existing file and rebuilds
+// every entry from the sources.
+function loadExisting() {
+  if (opts.fresh || !fs.existsSync(opts.out)) return { images: [], skipped: [] };
+  const m = JSON.parse(fs.readFileSync(opts.out, 'utf8'));
+  return { images: m.images || [], skipped: m.skipped_sources || [] };
+}
+
 async function main() {
-  const entities = loadEntities();
+  const all = loadEntities();
+  const existing = loadExisting();
+  const kept = {};
+  for (const img of existing.images) kept[img.kind + ':' + img.id] = img;
+  const entities = all.filter((e) => e.inScope && !kept[e.key]);
   const skipped = [];
   const found = {};
   // A reviewed rejection leaves the entity open for the next source.
@@ -897,6 +1240,15 @@ async function main() {
   take(await viaSmithsonian(missingInstruments(), skipped));
   take(await viaCleveland(missingInstruments(), skipped));
   take(await viaEuropeana(missingInstruments(), skipped));
+  // Commons search: instruments first, whose names are the more distinctive.
+  take(
+    await viaCommonsSearch(
+      entities
+        .filter((e) => !found[e.key])
+        .sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'instrument' ? -1 : 1)),
+      skipped
+    )
+  );
   // Openverse's small daily allowance goes to traditions first: museums
   // only ever cover instruments.
   const missing = entities
@@ -904,14 +1256,14 @@ async function main() {
     .sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'tradition' ? -1 : 1));
   take(await viaOpenverse(missing, skipped));
 
-  const images = entities
-    .filter((e) => found[e.key])
-    .map((e) => ({ id: e.id, kind: e.kind, name: e.name, ...found[e.key] }))
+  const images = all
+    .filter((e) => kept[e.key] || found[e.key])
+    .map((e) => kept[e.key] || { id: e.id, kind: e.kind, name: e.name, ...found[e.key] })
     .sort((a, b) => (a.kind + a.id < b.kind + b.id ? -1 : a.kind + a.id > b.kind + b.id ? 1 : 0));
 
   const coverage = {};
   for (const kind of ['instrument', 'tradition']) {
-    const total = entities.filter((e) => e.kind === kind).length;
+    const total = all.filter((e) => e.kind === kind).length;
     const mine = images.filter((i) => i.kind === kind);
     const by = (f) => mine.reduce((acc, i) => ((acc[i[f]] = (acc[i[f]] || 0) + 1), acc), {});
     coverage[kind] = {
