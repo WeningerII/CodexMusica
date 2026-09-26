@@ -6,25 +6,31 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
-### Changed — one copy of each shared glyph; the nav glyph set loads on demand
+### Changed — one copy of each shared glyph; the nav glyph set is out of the page
 
-`codex.html` goes from 5,083,570 to 4,245,520 bytes (-16.5%). The room and
+`codex.html` loses 838,050 bytes (-16.5% against 5,083,570). The room and
 preface glyph artwork (`NAV_GLYPH_SVGS`) is drawn only in the editor's Character
 and Environment tabs, the preface browser and the Instrument page's character
 lists, so the lazy shell leaves it out of the page and fetches
 `api/nav_glyphs.json` (written by `build_static_api.js`, checked by
-`check_api.js`) the first time one of them draws; its slots fill in place when
-it arrives. The embedded build keeps it. First paint never waits on it: the 75
-codepoints the tradition store and the nav store both carried in different
-Twemoji encodings rendered the same side by side and within a few pixels at
-64px, so each is stored once, in the eager tradition store, with the newer
-(smaller) encoding. Every tradition and instrument codepoint now has eager
-artwork (`TRADITION_GLYPH_SVGS`, `EMOJI_SVGS`), and the nav store leaves out and
-draws from there every codepoint they hold byte-for-byte. `check_glyph_skin.js`
-fails a first-paint codepoint whose artwork is only in the lazy set (planted
-control: move the most-used one there) and any codepoint stored twice;
-`build_nav_glyphs.js` refuses to write such a split, and `build_html.js --check`
-fails a lazy page that ships the nav artwork.
+`check_api.js`) when a surface that draws it first opens — at load, when a card
+is open on its Character tab. Until the file is here each of those glyphs draws
+as its own emoji character in the same box, never blank, and the artwork is
+swapped in place when it arrives. A failed fetch is retried with backoff and
+when the browser comes back online, not once per render; `check_ui_foundation.js`
+refuses the file, opens the preface browser, and requires no blank glyph, at
+most two requests, and the artwork once it is served again. The embedded build
+keeps the set. First paint never waits on it: the 75 codepoints the tradition
+store and the nav store both carried in different Twemoji encodings rendered the
+same side by side and within a few pixels at 64px, so each is stored once, in
+the eager tradition store, with the newer (smaller) encoding. Every tradition
+and instrument codepoint now has eager artwork (`TRADITION_GLYPH_SVGS`,
+`EMOJI_SVGS`), and the nav store leaves out and draws from there every codepoint
+they hold byte-for-byte. `check_glyph_skin.js` fails a first-paint codepoint
+whose artwork is only in the lazy set (planted control: move the most-used one
+there) and any codepoint stored twice; `build_nav_glyphs.js` refuses to write
+such a split, and `build_html.js --check` fails a lazy page that ships
+`NAV_GLYPH_SVGS`.
 
 ### Added — a catalog photo enlarges on a click, and one more click puts it back
 

@@ -652,6 +652,15 @@ if (flags.check) {
     console.error('check: FAIL — lazy build leaked embedded tradition tables into the page');
     process.exit(4);
   }
+  // Named here rather than read from LAZY_DROP_TABLES, so an edit to the strip
+  // cannot also switch off the check on it: the lazy page ships the nav glyph
+  // artwork only through api/nav_glyphs.json.
+  if (LAZY && declared('NAV_GLYPH_SVGS')) {
+    console.error(
+      'check: FAIL — lazy build shipped NAV_GLYPH_SVGS in the page (it loads from api/)'
+    );
+    process.exit(4);
+  }
   // The reverse of the leak guard, and the assertion that would have caught the
   // silent rewrite above: an EMBEDDED build must be able to read its tables back,
   // and every build must be able to read the ones it always carries. A table that
@@ -670,7 +679,7 @@ if (flags.check) {
   // The page-only strip held: no dropped table is declared and no dropped field
   // survives anywhere under its table (searched in the table's own JSON, so a
   // nested copy counts too).
-  const leaked = [...PAGE_DROP_TABLES, ...LAZY_DROP_TABLES].filter(declared);
+  const leaked = [...PAGE_DROP_TABLES].filter(declared);
   for (const [name, specs] of Object.entries(PAGE_DROP_FIELDS)) {
     if (!declared(name)) continue;
     const json = probe(`JSON.stringify(${name})`);

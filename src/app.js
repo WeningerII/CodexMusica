@@ -1572,44 +1572,71 @@ function traditionGlyphsHTML(tradId, size) {
 // per-id lookup instead of resolveTraditionGlyphs' walk to the nearest
 // ancestor override.
 //
-// The artwork loads on demand. These lists are drawn only in the editor's
-// Character and Environment tabs, the preface browser and the Instrument page's
-// character lists, and the set is ~0.75 MB, so the lazy shell leaves
-// NAV_GLYPH_SVGS out of the page (the embedded build keeps it) and fetches
-// api/nav_glyphs.json — the way the Catalog fetches tradition tables — the first
-// time a glyph it holds is drawn. Until it arrives the glyph is an empty slot of
-// the same size, filled in place when the set lands. Codepoints the eager
-// stores hold draw at once (_eagerGlyphInner).
+// The artwork loads when a surface that draws it first opens. These lists are
+// drawn only in the editor's Character and Environment tabs, the preface browser
+// and the Instrument page's character lists, and the set is ~0.75 MB, so the
+// lazy shell leaves NAV_GLYPH_SVGS out of the page (the embedded build keeps it)
+// and fetches api/nav_glyphs.json — the way the Catalog fetches tradition
+// tables — the first time a glyph it holds is drawn (a card open on its
+// Character tab at load does that at once). Codepoints the eager stores hold
+// draw at once (_eagerGlyphInner). Every other glyph draws as its own emoji
+// character in the same box until the artwork is here, then is swapped in
+// place; so nothing is ever blank, offline or with the file missing. A failed
+// fetch is retried with backoff and when the browser comes back online, never
+// once per render.
 // ─────────────────────────────────────────────────────────────────────────
 let _navGlyphArt = typeof NAV_GLYPH_SVGS !== 'undefined' ? NAV_GLYPH_SVGS : null;
-let _navGlyphFetch = null;
+let _navGlyphFetch = null; // the request in flight
+let _navGlyphRetry = null; // the timer for the next attempt after a failure
+let _navGlyphDelay = 0; // current backoff; 0 until a fetch has failed
+
+// Swap the artwork into every slot still showing its emoji character.
+function _fillNavGlyphSlots() {
+  if (!_navGlyphArt || typeof document === 'undefined') return;
+  document.querySelectorAll('svg[data-nav-cp]').forEach((el) => {
+    const inner = _navGlyphArt[el.getAttribute('data-nav-cp')];
+    if (!inner) return;
+    el.innerHTML = inner;
+    el.removeAttribute('data-nav-cp');
+  });
+}
 
 function loadNavGlyphArt() {
   if (_navGlyphArt) return Promise.resolve(_navGlyphArt);
   if (typeof CODEX_LAZY_API === 'undefined') return Promise.resolve(null);
-  if (!_navGlyphFetch) {
-    _navGlyphFetch = fetch(CODEX_LAZY_API + 'nav_glyphs.json')
-      .then((res) => {
-        if (!res.ok) throw new Error('nav glyph fetch failed (' + res.status + ')');
-        return res.json();
-      })
-      .then((data) => {
-        _navGlyphArt = (data && data.svgs) || {};
-        document.querySelectorAll('svg[data-nav-cp]').forEach((el) => {
-          const inner = _navGlyphArt[el.getAttribute('data-nav-cp')];
-          if (inner) el.innerHTML = inner;
-          el.removeAttribute('data-nav-cp');
-        });
-        return _navGlyphArt;
-      })
-      .catch((err) => {
-        // Decorative (aria-hidden): the slots stay empty, and the next render retries.
-        _navGlyphFetch = null;
-        console.warn('[codex] ' + err.message);
-        return null;
-      });
-  }
+  if (_navGlyphFetch) return _navGlyphFetch;
+  if (_navGlyphRetry) return Promise.resolve(null); // waiting out the backoff
+  _navGlyphFetch = fetch(CODEX_LAZY_API + 'nav_glyphs.json')
+    .then((res) => {
+      if (!res.ok) throw new Error('nav glyph fetch failed (' + res.status + ')');
+      return res.json();
+    })
+    .then((data) => {
+      _navGlyphArt = (data && data.svgs) || {};
+      _navGlyphDelay = 0;
+      _fillNavGlyphSlots();
+      return _navGlyphArt;
+    })
+    .catch((err) => {
+      if (!_navGlyphDelay) console.warn('[codex] ' + err.message + '; room and preface glyphs show as emoji until it loads');
+      _navGlyphDelay = Math.min(_navGlyphDelay ? _navGlyphDelay * 2 : 2000, 120000);
+      _navGlyphRetry = setTimeout(() => {
+        _navGlyphRetry = null;
+        if (document.querySelector('svg[data-nav-cp]')) loadNavGlyphArt();
+      }, _navGlyphDelay);
+      return null;
+    })
+    .finally(() => { _navGlyphFetch = null; });
   return _navGlyphFetch;
+}
+
+if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+  window.addEventListener('online', () => {
+    if (_navGlyphArt || !_navGlyphRetry) return;
+    clearTimeout(_navGlyphRetry);
+    _navGlyphRetry = null;
+    loadNavGlyphArt();
+  });
 }
 
 function navGlyphSvg(char, size = 20) {
@@ -1618,9 +1645,8 @@ function navGlyphSvg(char, size = 20) {
   const open = '<svg class="codex-glyph" width="' + size + '" height="' + size + '" viewBox="0 0 36 36" aria-hidden="true" focusable="false"';
   const inner = _eagerGlyphInner(cp) || (_navGlyphArt && _navGlyphArt[cp]);
   if (inner) return open + '>' + inner + '</svg>';
-  if (_navGlyphArt || typeof CODEX_LAZY_API === 'undefined') return '';
-  loadNavGlyphArt();
-  return open + ' data-nav-cp="' + cp + '"></svg>';
+  if (!_navGlyphArt) loadNavGlyphArt();
+  return open + ' data-nav-cp="' + cp + '"><text x="18" y="19" font-size="30" text-anchor="middle" dominant-baseline="central">' + esc(char) + '</text></svg>';
 }
 
 function navGlyphPairHTML(axis1, axis2, size) {
