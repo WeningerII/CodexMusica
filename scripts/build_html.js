@@ -179,13 +179,16 @@ const MAX_SCRIPT_BYTES = 1024 * 1024; // hard ceiling on actual emitted UTF-8 by
 // on it. That is left alone on purpose: the budget exists to stay below a
 // renderer's parse-memory limit, and this only adds headroom. Retuning it would
 // move every chunk boundary, which is a separate change with its own risk.
-const { minifyJs } = require('./_minify.js');
+const { minifyJs, minifyCss } = require('./_minify.js');
 // Escape hatch for reading the shipped artifact by hand. NOT used by CI and not
 // used by sync-pages.yml, and it cannot leak into the committed page: that file
 // is byte-compared against a default build by check_artifact_fresh.js, so an
 // unminified codex.html fails the freshness gate on the next run.
 const MINIFY = !flags['no-minify'];
 const squeeze = (code, label) => (MINIFY ? minifyJs(code, label) : code);
+// The stylesheets get the same treatment: a token-level squeeze that drops
+// comments and insignificant whitespace (scripts/_minify.js minifyCss).
+const squeezeCss = (code, label) => (MINIFY ? minifyCss(code, label) : code);
 
 // Every emitted block opens its own <script>, closing the one before it. The
 // template supplies only the final </script>, right after <!--@CODEX_BODY-->,
@@ -371,11 +374,22 @@ const runtimeBlock = runtimeParts.join('\n');
 // Function replacement: the injected data/app contains `$` sequences
 // (template literals, regex) that String.replace would special-case — a
 // function replacement returns the string verbatim.
+// The template's own <style> is squeezed in place, before anything is
+// substituted, so only the template's markup is matched; the other <style>
+// holds nothing but the marker the shell and page stylesheets replace.
+const WORKBENCH_STYLE_MARKER = '<!--@WORKBENCH_STYLE-->';
 const html = template
+  .replace(/<style>([\s\S]*?)<\/style>/g, (block, css) =>
+    css.includes(WORKBENCH_STYLE_MARKER)
+      ? block
+      : '<style>' + squeezeCss(css, 'src/index.template.html <style>') + '</style>'
+  )
   .replace(THEME_BOOT_MARKER, () => '<script>' + squeeze(themeJs, 'theme boot') + '</script>')
-  .replace(
-    '<!--@WORKBENCH_STYLE-->',
-    () => themeCss + '\n' + workbenchCss + '\n' + pagesCss + '\n' + layoutCss
+  .replace(WORKBENCH_STYLE_MARKER, () =>
+    squeezeCss(
+      themeCss + '\n' + workbenchCss + '\n' + pagesCss + '\n' + layoutCss,
+      'theme.css + workbench.css + pages/*.css + layout.css'
+    )
   )
   .replace(CODEX_BODY_MARKER, () => dataBlock + '\n' + runtimeBlock);
 

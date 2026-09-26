@@ -24,17 +24,17 @@
 <!--@THEME_BOOT-->
 <style>
 :root {
+  /* Colours, font families, shadows and the body/micro sizes come from
+     src/theme.css (:root[data-theme], set by theme.js before first paint)
+     and src/workbench.css; this block holds the tokens nothing overrides. */
   /* Spacing — 4px grid */
   --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px; --s6: 24px; --s7: 32px; --s8: 40px; --s9: 56px;
   /* Type — modular scale, weight aliases, line-height aliases */
-  --fs-display-hero: 28px;     /* empty-state h2, Fraunces */
-  --fs-display-card: 20px;     /* card instrument name, Fraunces */
-  --fs-display-modal: 18px;    /* modal h2, app-bar wordmark text, Fraunces */
-  --fs-display-preface: 16px;  /* italic preface claim, Fraunces */
-  --fs-display-sub: 13px;      /* wordmark sub, italic Fraunces */
-  --fs-title:    15px;     /* app-bar h1, card heading */
-  --fs-body:     14px;     /* default body text, button labels */
-  /* The three small steps were raised one pixel each (12/11/11 -> 13/12/12).
+  --fs-display-hero: 28px;     /* boot-error h2 */
+  --fs-display-card: 20px;     /* card instrument name */
+  --fs-display-modal: 18px;    /* modal h2 */
+  --fs-title:    15px;     /* card heading */
+  /* The small steps were raised one pixel each (12/11/11 -> 13/12/12).
      They carry the browsable lists — preface chips, tradition rows, room names,
      descriptor strips — which is the reading this app actually asks of a person,
      and at 11-12px that is below where the web settled for body-ish text.
@@ -45,83 +45,22 @@
      jump to prose sizing — deliberately one step, since the type scale's whole
      job is to keep the steps distinguishable from each other. */
   --fs-caption:  13px;     /* meta info, descriptor lines, footnotes */
-  --fs-micro:    12px;     /* uppercase section labels, badges */
   --fs-code:     12px;     /* monospace descriptor token strips */
   --fs-nano:     10px;     /* status pills, family micro-labels */
-  --fs-display-detail: 26px;   /* detail-pane h1 title, Fraunces */
+  --fs-display-detail: 26px;   /* detail-pane h1 title */
   --fw-regular:  400;
   --fw-medium:   500;
   --fw-semibold: 600;
   --lh-tight:    1.25;     /* headings */
   --lh-snug:     1.4;      /* dense body */
   --lh-normal:   1.5;      /* default body */
-  /* Font families — display serif, body sans, technical mono */
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body:    'IBM Plex Sans', 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono:    'IBM Plex Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
-  /* Neutrals — white base, Google grey scale, AA contrast at 14px */
-  --bg:           #ffffff;
-  --surface:      #ffffff;
-  --surface-2:    #f8f9fa;
-  --surface-3:    #f1f3f4;
-  --border:       #e8eaed;
-  --border-strong:#dadce0;
-  --text:         #202124;  /* AAA on white (16.0:1) */
-  --text-2:       #5f6368;  /* AAA on white (6.6:1) */
-  /* MEASURED, not assumed. This was #80868b, annotated "AA on white (4.5:1)".
-     It is 3.68:1 — the annotation was aspirational, and it sat under the
-     smallest type in the app (section labels, counts, descriptor meta), so the
-     hardest text to read was failing on size AND contrast at once. #70767b is
-     the least darkening that actually clears 4.5:1, so the grey stays a grey
-     and nothing else in the scale has to move. */
-  --text-3:       #70767b;  /* AA on white (4.60:1) — meta only */
-  --text-4:       #bdc1c6;  /* decorative only, never primary text */
-  /* Semantic — Google's four primary colors, used only where they mean something.
-     Blue = primary action / selected / links.
-     Red  = destructive / error / validation fail.
-     Yellow = warning / attention / unsaved-state.
-     Green = success / confirmation. */
-  --color-blue:        #1a73e8;
-  --color-blue-hover:  #1765cc;
-  --color-blue-soft:   #e8f0fe;
-  --color-red:         #d93025;
-  --color-red-hover:   #b3261e;
-  --color-red-soft:    #fce8e6;
-  --color-yellow:      #f9ab00;
-  --color-yellow-soft: #fef7e0;
-  --color-green:       #1e8e3e;
-  --color-green-soft:  #e6f4ea;
-  /* Added with the shared theme (src/theme.css), which re-points every token
-     in this block at the active theme. These are the light values, so the
-     template reads correctly on its own. */
-  --color-blue-soft-hover: #d2e3fc;
-  --color-yellow-text: #9a5b00;
-  --on-accent:         #ffffff;
-  --header-glass:      rgba(255, 255, 255, 0.92);
-  --scrim:             rgba(32, 33, 36, 0.32);
-  --surface-inverse:   #303134;
-  --text-inverse:      #f1f3f4;
-  /* Accent — the editorial red used for preface italics, the active tab
-     underline, the pinned marker and drag indicators. It is NOT one of the
-     semantic status colours above: it marks authored/emphasised content, not
-     an error. It was previously carried by ten inline fallbacks against a
-     variable that was never declared, so the fallback was the real value in
-     every case. */
-  --accent:            #c8504a;
   /* Motion — single shared vocabulary */
   --t-fast: 100ms;         /* hover, immediate feedback */
   --t-norm: 150ms;         /* state changes, click confirms */
-  --t-slow: 200ms;         /* expansion, modal */
-  --t-spring: 300ms;       /* card mount, modal scale-in */
   --ease: cubic-bezier(0.2, 0, 0, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   /* Radius */
   --r1: 4px; --r2: 6px; --r3: 8px; --r4: 12px;
-  /* Shadow — subtle only, Google grey base */
-  --shadow-1: 0 1px 2px rgba(32, 33, 36, 0.04);
-  --shadow-2: 0 1px 3px rgba(32, 33, 36, 0.06), 0 1px 2px rgba(32, 33, 36, 0.04);
-  --shadow-modal: 0 16px 40px rgba(32, 33, 36, 0.12), 0 4px 12px rgba(32, 33, 36, 0.06);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
@@ -129,7 +68,6 @@ body { font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.
 button { font: inherit; color: inherit; cursor: pointer; }
 input { font: inherit; color: inherit; }
 ul { list-style: none; }
-::selection { background: var(--text); color: var(--surface); }
 
 /* Boot: the controls below are inert until the app starts, so they are not
    shown until then; the status says what is happening instead. */
@@ -202,8 +140,6 @@ body.boot-failed > .app-bar { display: none; }
 .btn:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; }
 .btn:active:not(:disabled) { transform: translateY(0.5px); transition-duration: 50ms; }
 .btn-primary {
-  background: var(--color-blue);
-  color: var(--on-accent);
   border-color: var(--color-blue);
 }
 .btn-primary:hover { background: var(--color-blue-hover); border-color: var(--color-blue-hover); }
@@ -215,19 +151,6 @@ body.boot-failed > .app-bar { display: none; }
 .btn-secondary:hover { background: var(--surface-2); border-color: var(--text-3); }
 .btn-ghost { background: transparent; color: var(--text-2); }
 .btn-ghost:hover { background: var(--surface-2); color: var(--text); }
-/* TONAL — the genre/tradition route, wherever it appears.
-   "Browse traditions" in the app bar and "Add a Genre" in the empty state open
-   the same picker, and looked like two unrelated controls (a ghost and an
-   outlined secondary). Same destination, same treatment.
-   This is the filled-tonal tier: colour, but a step below .btn-primary, so
-   "Add an instrument" keeps the strongest emphasis on a screen offering both.
-   Blue because this palette assigns blue to action and reserves red/yellow/
-   green for destructive/warning/success — a coloured genre button in any of
-   those would be claiming a meaning it does not have.
-   The text is --color-blue-hover, not --color-blue: #1a73e8 on #e8f0fe is
-   3.93:1 and fails AA for normal text, while #1765cc on it is 4.86:1. */
-.btn-tonal { background: var(--color-blue-soft); color: var(--color-blue-hover); border-color: transparent; }
-.btn-tonal:hover { background: var(--color-blue-soft-hover); border-color: transparent; }
 .btn-danger { color: var(--color-red); }
 .btn-danger:hover { background: var(--color-red-soft); }
 /* Solid-red destructive button — used inside confirmDialog for the
@@ -255,13 +178,7 @@ body.boot-failed > .app-bar { display: none; }
    page content and the tree is the page (see MOBILE MODEL further down).
    Detail pane fills remaining width and holds the selected instrument's tabs. */
 .workspace {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  min-height: calc(100vh - var(--app-bar-height, 56px));
-  gap: 0;
-  max-width: none;
   margin: 0;
-  padding: 0;
 }
 
 #workspace-sidebar {
@@ -293,11 +210,9 @@ body.boot-failed > .app-bar { display: none; }
   flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: var(--s4);
-  margin: 0 calc(-1 * var(--s4));
   padding: 0 var(--s4);
 }
 
@@ -327,7 +242,6 @@ body.boot-failed > .app-bar { display: none; }
    prefix that previously squeezed it to an ellipsis. Opaque background so
    scrolled rows don't bleed through while it's stuck. */
 .sb-tradition-header { display: flex; flex-wrap: wrap; align-items: center; gap: 4px var(--s2); cursor: pointer; padding: 6px 0; user-select: none; position: sticky; top: 0; z-index: 2; background: var(--surface); }
-.sb-tradition-meta { display: flex; align-items: center; gap: var(--s2); flex: 1 0 100%; justify-content: flex-end; }
 .sb-chev { display: inline-flex; transition: transform 150ms ease; color: var(--text-3); }
 .sb-tradition-group.is-collapsed .sb-chev { transform: rotate(-90deg); }
 .sb-tradition-name { font-weight: var(--fw-semibold); color: var(--text); font-size: var(--fs-body); flex: 1 1 auto; min-width: 0; line-height: 1.25; overflow: hidden; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
@@ -436,8 +350,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .sb-card.is-selected { background: var(--family-tint, var(--surface-2)); }
 .sb-card-thumb { width: 32px; height: 32px; border-radius: 6px; background: var(--family-tint, var(--surface-2)); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .sb-card-thumb svg, .sb-card-thumb img { width: 24px; height: 24px; }
-.sb-card-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-.sb-card-line1 { font-size: var(--fs-body); color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sb-card-text { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.sb-card-line1 { font-size: var(--fs-body); color: var(--text); overflow: hidden; text-overflow: ellipsis;}
 .sb-card-line1 .sb-preface { font-style: italic; color: var(--accent); margin-right: 4px; }
 .sb-card-line1 .sb-name { color: var(--text); }
 .sb-card-line2 { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
@@ -487,17 +401,12 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .rp-head .rp-count { font-size: var(--fs-micro); font-variant-numeric: tabular-nums; color: var(--text-3); }
 .rp-head .rp-count.is-amber { color: var(--color-yellow-text); }
 .rp-head .rp-count.is-red { color: var(--color-red); }
-.rp-progress { height: 2px; background: var(--surface-2); border-radius: 1px; overflow: hidden; }
-.rp-progress-fill { height: 100%; background: var(--color-green); transition: width 200ms ease, background 200ms ease; }
-.rp-progress-fill.is-amber { background: var(--color-yellow); }
-.rp-progress-fill.is-red { background: var(--color-red); }
 .rp-text { font-family: 'JetBrains Mono', monospace; font-size: var(--fs-code); line-height: 1.5; color: var(--text-2); max-height: 200px; overflow-y: auto; word-break: break-word; padding-right: 4px; }
 .rp-text::-webkit-scrollbar { width: 4px; }
 .rp-text::-webkit-scrollbar-thumb { background: var(--text-4); border-radius: 2px; }
 .rp-text::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
 .rp-text::-webkit-scrollbar-track { background: transparent; }
 .rp-empty { font-style: italic; color: var(--text-3); font-size: var(--fs-caption); }
-.rp-copy { padding: 4px; color: var(--text-3); }
 .rp-copy:hover { color: var(--text); }
 .rp-open { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-2); font-size: var(--fs-caption); cursor: pointer; transition: border-color 120ms, color 120ms; }
 .rp-open:hover { border-color: var(--text-3); color: var(--text); }
@@ -543,7 +452,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
  * Visual weight intentionally low — informational strip, not focal. */
 .detail-stack-signature {
   display: grid;
-  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: var(--s3);
   padding: var(--s3) var(--s4);
@@ -610,11 +518,11 @@ body.is-dnd-active * { cursor: grabbing !important; }
   background: var(--surface);
 }
 
-.detail-header { display: grid; grid-template-columns: 80px 1fr auto; gap: var(--s4); align-items: start; margin-bottom: var(--s4); }
+.detail-header { display: grid; gap: var(--s4); align-items: start; margin-bottom: var(--s4); }
 .detail-thumb { width: 80px; height: 80px; border-radius: 10px; background: var(--family-tint, var(--surface-2)); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .detail-thumb svg, .detail-thumb img { width: 56px; height: 56px; }
 .detail-title-block { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.detail-title { font-family: var(--font-display); font-size: var(--fs-display-detail); font-weight: var(--fw-semibold); line-height: 1.2; color: var(--text); }
+.detail-title { font-family: var(--font-display); font-weight: var(--fw-semibold); line-height: 1.2; color: var(--text); }
 .detail-title .detail-preface { font-style: italic; color: var(--accent); font-weight: var(--fw-regular); margin-right: 8px; }
 /* Primary-card marker — small ANCHOR pill in the detail-title row.
    Surfaces when the displayed card is _determinePrimaryCard(app.cards).
@@ -644,8 +552,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .detail-trait-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--s5); }
 .trait-pill { display: inline-flex; align-items: center; padding: 4px 10px; background: var(--surface-2); border-radius: 12px; font-size: var(--fs-caption); color: var(--text-2); }
 
-.detail-tab-bar { display: flex; align-items: center; gap: var(--s5); border-bottom: 1px solid var(--border); margin-bottom: var(--s4); }
-.detail-tab { display: inline-flex; align-items: center; gap: 6px; padding: 10px 0; border: none; background: transparent; cursor: pointer; color: var(--text-2); font-size: var(--fs-body); font-weight: var(--fw-medium); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 120ms, border-color 120ms; }
+.detail-tab-bar { align-items: center; gap: var(--s5); border-bottom: 1px solid var(--border); margin-bottom: var(--s4); }
+.detail-tab { display: inline-flex; align-items: center; border: none; background: transparent; cursor: pointer; color: var(--text-2); font-weight: var(--fw-medium); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 120ms, border-color 120ms; }
 .detail-tab:hover { color: var(--text); }
 .detail-tab.is-active { color: var(--text); font-weight: var(--fw-semibold); border-bottom-color: var(--accent); }
 
@@ -671,7 +579,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
    =========================================================================== */
 @media (max-width: 899px) {
   /* Grid -> flow. The sidebar and the detail host stack in DOM order. */
-  .workspace { display: block; min-height: 0; }
 
   /* The pane stops being a viewport-tall sticky column with its own scroll
      region and becomes ordinary page content. Every one of these declarations
@@ -693,7 +600,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
   #sidebar-scroll {
     overflow: visible;   /* the PAGE scrolls now, not this box */
     min-height: 0;
-    margin: 0;
     padding: 0;
   }
 
@@ -708,7 +614,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
      containing block, so once you scrolled past ~844px the bar (and with it
      every action) slid off the top and never came back. */
   html, body { height: auto; min-height: 100%; }
-  #workspace-detail { overflow: visible; }
 
   /* Clearance for the pinned recipe bar. #workspace-detail holds only the
      empty state once cards exist (the per-card detail mounts inside the
@@ -1004,9 +909,9 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .stack-actions { display: flex; gap: var(--s2); margin-top: var(--s3); }
 
 /* Modal */
-.modal-bg { position: fixed; inset: 0; background: var(--scrim); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); display: none; align-items: center; justify-content: center; z-index: 100; padding: var(--s5); }
+.modal-bg { position: fixed; inset: 0; -webkit-backdrop-filter: blur(2px); display: none; align-items: center; justify-content: center; z-index: 100; padding: var(--s5); }
 .modal-bg.open { display: flex; }
-.modal { background: var(--surface); border-radius: var(--r4); box-shadow: var(--shadow-modal); width: 100%; max-width: 720px; max-height: calc(100vh - var(--s8)); display: flex; flex-direction: column; overflow: hidden; transform: scale(0.96); opacity: 0; transition: transform var(--t-norm) var(--ease-out), opacity var(--t-norm) var(--ease-out); }
+.modal { border-radius: var(--r4); box-shadow: var(--shadow-modal); width: 100%; max-width: 720px; max-height: calc(100vh - var(--s8)); display: flex; flex-direction: column; overflow: hidden; transform: scale(0.96); opacity: 0; transition: transform var(--t-norm) var(--ease-out), opacity var(--t-norm) var(--ease-out); }
 .modal-bg.open .modal { transform: scale(1); opacity: 1; }
 .modal-empty { text-align: center; padding: var(--s7) var(--s5); color: var(--text-3); }
 .modal-empty svg { margin-bottom: var(--s3); }
@@ -1079,7 +984,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .save-form input:focus { outline: none; border-color: var(--color-blue); box-shadow: 0 0 0 2px var(--color-blue-soft); }
 
 /* Toast */
-.toast { position: fixed; bottom: var(--s5); left: 50%; transform: translateX(-50%) translateY(8px); background: var(--text); color: var(--surface); padding: 8px var(--s4); border-radius: var(--r2); font-size: var(--fs-caption); font-weight: var(--fw-medium); box-shadow: var(--shadow-modal); opacity: 0; transition: opacity var(--t-norm) var(--ease), transform var(--t-norm) var(--ease); z-index: 200; pointer-events: none; display: inline-flex; align-items: center; gap: var(--s2); }
+.toast { position: fixed; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--text); color: var(--surface); padding: 8px var(--s4); border-radius: var(--r2); font-size: var(--fs-caption); font-weight: var(--fw-medium); box-shadow: var(--shadow-modal); opacity: 0; transition: opacity var(--t-norm) var(--ease), transform var(--t-norm) var(--ease); pointer-events: none; display: inline-flex; align-items: center; gap: var(--s2); }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .toast svg { width: 14px; height: 14px; flex-shrink: 0; }
 .toast-success { background: var(--color-green); }
@@ -1134,7 +1039,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
    =========================================================================== */
 @media (max-width: 899px) {
 
-  #workspace-detail { min-width: 0; }
 
   /* --- App bar ---------------------------------------------------------- */
   .app-bar { padding: var(--s2) var(--s3); gap: var(--s2); }
@@ -1185,7 +1089,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
   }
   .detail-tab-bar::-webkit-scrollbar { width: 0; height: 0; display: none; }
   .detail-tab-bar :focus-visible { outline-offset: -2px; }
-  .detail-tab { flex: none; white-space: nowrap; margin-bottom: 0; }
+  .detail-tab { flex: none; margin-bottom: 0; }
 
   /* --- Recipe: pinned bottom sheet ---------------------------------------
      Was the bottom zone of a viewport-tall sidebar, which on a phone meant it
@@ -1233,10 +1137,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
   /* The toast is fixed at `bottom: var(--s5)`, which is now underneath the
      pinned recipe bar — it covered Undo/Redo/Copy for its whole 3s lifetime.
      Sit it on top of the bar instead. */
-  .toast {
-    bottom: calc(var(--recipe-bar-height, 64px) + var(--s3));
-    max-width: calc(100vw - 2 * var(--s4));
-  }
 
   /* --- Hover tooltips are dead weight here, and they were widening the page -
      `[data-tooltip]::after` is an always-rendered, `white-space: nowrap`,
@@ -1255,7 +1155,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
   /* --- Touch target sizing (unconditional at this width — see header) ----- */
   .icon-btn { min-width: 44px; min-height: 44px; }
   .app-bar .icon-btn { width: 44px; height: 44px; }
-  .detail-tab { min-height: 44px; }
   .sb-card { min-height: 44px; }
   .sb-card-row > .sb-card { padding-right: 96px; }
   .sb-card-action { width: 44px; height: 44px; opacity: 1; }
@@ -1304,13 +1203,12 @@ body.is-dnd-active * { cursor: grabbing !important; }
 
   /* Legibility floor: nothing below 12px on a phone. A scoped override of the
      shared scale — the desktop type ramp is untouched. */
-  :root { --fs-nano: 12px; --fs-code: 12px; --fs-micro: 12px; }
+  :root { --fs-nano: 12px; --fs-code: 12px;}
 
   /* Tighter tab row. */
   .detail-tab-bar { gap: var(--s3); }
 
   /* Two columns: the thumb and the title. */
-  .detail-header { grid-template-columns: 56px minmax(0, 1fr); }
 }
 
 
@@ -1338,7 +1236,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
 
@@ -1415,14 +1312,9 @@ body.is-dnd-active * { cursor: grabbing !important; }
    scrolling region the bar sits inside, because the bar has to stay at a fixed
    height and reachable while the log grows. */
 .chat-dock {
-  position: fixed;
   z-index: 25;
   right: var(--s5);
   bottom: var(--s5);
-  width: min(440px, calc(100vw - 2 * var(--s5)));
-  display: flex;
-  flex-direction: column;
-  gap: var(--s2);
 }
 /* `display: flex` above outranks the UA's `[hidden] { display: none }`, so both
    of these would render while still marked hidden — the dock before the backend
@@ -1432,21 +1324,12 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .chat-dock[hidden],
 .chat-panel[hidden] { display: none; }
 .chat-panel {
-  display: flex;
-  flex-direction: column;
   background: var(--surface);
-  border: 1px solid var(--border-strong);
-  border-radius: 12px;
-  box-shadow: var(--shadow-modal);
   overflow: hidden;
-  max-height: min(60vh, 520px);
 }
 .chat-panel-head {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: var(--s2);
-  padding: var(--s2) var(--s2) var(--s2) var(--s3);
   border-bottom: 1px solid var(--border);
   background: var(--surface-2);
   flex: 0 0 auto;
@@ -1463,15 +1346,12 @@ body.is-dnd-active * { cursor: grabbing !important; }
    the ramp at all; it maps to --fs-micro, the nearest one the floor lifts. */
 .chat-reset { padding: 4px 8px; font-size: var(--fs-micro); }
 .chat-log {
-  flex: 1 1 auto;
   overflow-y: auto;
-  padding: var(--s3);
   display: flex;
   flex-direction: column;
   gap: var(--s3);
 }
-.chat-msg { font-size: var(--fs-body); line-height: var(--lh-normal); }
-.chat-msg-you { align-self: flex-end; max-width: 85%; background: var(--surface-3); border-radius: 10px 10px 2px 10px; padding: var(--s2) var(--s3); }
+.chat-msg-you { align-self: flex-end; max-width: 85%; border-radius: 10px 10px 2px 10px; padding: var(--s2) var(--s3); }
 .chat-msg-engine { align-self: flex-start; max-width: 100%; color: var(--text); }
 .chat-msg-error { align-self: stretch; color: var(--accent); border-left: 2px solid var(--accent); padding-left: var(--s3); }
 .chat-msg-note { align-self: stretch; color: var(--text-3); font-size: var(--fs-micro); }
@@ -1495,7 +1375,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
   line-height: 1.55;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  max-height: 240px;
   overflow-y: auto;
 }
 .chat-recipe-foot {
@@ -1504,7 +1383,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
   gap: var(--s2);
   padding: var(--s2) var(--s3);
   border-top: 1px solid var(--border);
-  font-size: var(--fs-micro);
   color: var(--text-3);
 }
 .chat-recipe-foot .btn { padding: 3px 8px; font-size: var(--fs-micro); margin-left: auto; }
@@ -1515,7 +1393,6 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .chat-tools { display: flex; flex-wrap: wrap; gap: 4px; margin-top: var(--s2); }
 .chat-tool {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: var(--fs-nano);
   padding: 2px 6px;
   border-radius: 999px;
   background: var(--surface-3);
@@ -1527,24 +1404,12 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .chat-tool.is-alert { background: var(--accent); color: var(--on-accent); }
 
 .chat-bar {
-  display: flex;
-  gap: var(--s2);
   background: var(--surface);
-  border: 1px solid var(--border-strong);
-  border-radius: 999px;
-  box-shadow: var(--shadow-modal);
-  padding: var(--s1) var(--s1) var(--s1) var(--s4);
-  align-items: center;
 }
 .chat-input {
   flex: 1 1 auto;
-  border: 0;
-  background: transparent;
-  font: inherit;
   font-size: var(--fs-body);
   color: var(--text);
-  padding: 8px 0;
-  min-width: 0;
 }
 .chat-input:focus { outline: none; }
 .chat-input::placeholder { color: var(--text-3); }
@@ -1588,10 +1453,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
   .chat-dock {
     left: var(--s3);
     right: var(--s3);
-    width: auto;
     bottom: calc(var(--recipe-bar-height, 0px) + var(--s3));
   }
-  .chat-panel { max-height: 50vh; }
 }
 </style>
 <style>

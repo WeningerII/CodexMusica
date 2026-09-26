@@ -728,7 +728,6 @@
   text-transform: uppercase;
 }
 .ip-suggest,
-.ip-pref-hits,
 .ip-fx {
   display: flex;
   flex-wrap: wrap;

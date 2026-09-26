@@ -1,8 +1,7 @@
 :root {
-  /* Colours, fonts and shadows come from src/theme.css. These three size
+  /* Colours, fonts and shadows come from src/theme.css. These two size
      steps are the workbench's own reading scale over the template's. */
   --fs-body: 1rem;
-  --fs-small: 0.875rem;
   --fs-micro: 0.8125rem;
 }
 html,
@@ -84,7 +83,6 @@ h3 {
 }
 .ui-header button,
 .session-actions button,
-.discovery-toolbar button,
 .ui-detail-tools button,
 .assistant-toolbar button,
 #ui-menu button {
@@ -205,18 +203,6 @@ h3 {
 .ui-surface[hidden] {
   display: none !important;
 }
-.discovery-toolbar {
-  flex-wrap: wrap;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  background: var(--cm-surface);
-  position: sticky;
-  top: 0;
-  z-index: 4;
-  border-bottom: 1px solid var(--cm-border-subtle);
-}
 .ui-search {
   display: flex;
   align-items: center;
@@ -239,31 +225,6 @@ h3 {
 }
 .ui-search:focus-within {
   box-shadow: 0 0 0 2px var(--cm-focus);
-}
-.discovery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: 20px;
-  padding: 16px 24px;
-}
-.branch-key {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 12px 0 24px;
-}
-.branch-key button {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  border: 1px solid var(--cm-border-subtle);
-  border-radius: 6px;
-  background: var(--cm-surface);
-  padding: 7px 9px;
-  font: 14px Arial;
-  cursor: pointer;
-  min-height: 40px;
 }
 .catalog-count {
   font-size: 13px;
@@ -327,39 +288,6 @@ h3 {
 .searching {
   grid-template-columns: 1fr;
 }
-.catalog-list > [data-ui='more'] {
-  margin: 16px auto;
-  display: flex;
-  padding: 10px 20px;
-  border: 1px solid var(--cm-border);
-  border-radius: 20px;
-  background: var(--cm-surface);
-  cursor: pointer;
-}
-.selected-head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.selected-head h2 {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1;
-}
-.selected-head button {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--cm-accent-soft);
-  color: var(--cm-link);
-  border: 0;
-  border-radius: 5px;
-  min-height: 44px;
-  padding: 8px 12px;
-  cursor: pointer;
-}
 #workspace-detail {
   display: none !important;
   min-width: 0 !important;
@@ -375,9 +303,6 @@ h3 {
 }
 .editor-open #workspace-detail {
   display: block !important;
-}
-.editor-open .discovery-grid {
-  grid-template-columns: 1fr;
 }
 .ui-detail-tools {
   display: flex;
@@ -422,7 +347,6 @@ h3 {
   top: 61px;
   background: var(--cm-surface);
   z-index: 4;
-  overflow: auto;
   flex-wrap: nowrap !important;
   padding: 0 8px !important;
 }
@@ -467,10 +391,6 @@ h3 {
 .btn-primary {
   background: var(--cm-accent) !important;
   color: var(--cm-on-accent) !important;
-}
-.btn-tonal {
-  background: var(--cm-accent-soft) !important;
-  color: var(--cm-accent-text) !important;
 }
 #assistant-slot {
   display: none;
@@ -620,9 +540,6 @@ h3 {
       var(--recipe-col, clamp(220px, var(--sidebar-width, 260px), 35vw))
       minmax(0, 1fr);
   }
-  .discovery-grid {
-    grid-template-columns: 1fr;
-  }
   .editor-open .workspace {
     grid-template-columns:
       var(--recipe-col, clamp(220px, var(--sidebar-width, 260px), 35vw))
@@ -749,30 +666,9 @@ h3 {
   .ui-detail-tools {
     position: static;
   }
-  .discovery-toolbar {
-    padding: 12px;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
   .ui-search {
     flex-basis: calc(100% - 150px);
     height: 44px;
-  }
-  .discovery-toolbar button {
-    padding: 6px 8px;
-    font-size: 13px;
-  }
-  .discovery-grid {
-    grid-template-columns: 1fr !important;
-    padding: 8px 12px;
-    gap: 8px;
-  }
-  .branch-key {
-    gap: 5px;
-  }
-  .branch-key button {
-    font-size: 13px;
-    padding: 6px 8px;
   }
   .catalog-row {
     gap: 3px;
@@ -793,18 +689,6 @@ h3 {
     width: 26px;
     height: 26px;
   }
-  .selected-head {
-    gap: 8px;
-  }
-  .selected-head h2 {
-    flex-basis: calc(100% - 90px);
-    font-size: 18px;
-    order: 0;
-  }
-  .selected-head > .listen,
-  .selected-head > [data-ui='genre-add'] {
-    order: 1;
-  }
   #assistant-slot {
     top: 108px;
     bottom: 0;
@@ -821,7 +705,6 @@ h3 {
   }
   #ui-menu {
     top: 52px;
-    z-index: 70;
   }
   .modal-bg {
     padding: 12px !important;
@@ -874,9 +757,6 @@ h3 {
 .sb-card-text {
   min-width: 0;
 }
-.sb-trad-header {
-  min-height: 50px;
-}
 #sidebar-recipe-preview .rp-label {
   white-space: nowrap;
 }
@@ -905,9 +785,6 @@ body.workbench {
 }
 .workbench #sidebar-recipe-preview {
   width: 100%;
-}
-.workbench .sb-trad-header {
-  min-width: 0;
 }
 /* Row 2 is task picker | character counter | Ask. The counter is hidden until
    the field is 70% full, and an empty grid track is still flanked by two column
@@ -1015,9 +892,6 @@ body.workbench {
 .workbench .ui-surface {
   scrollbar-gutter: stable;
 }
-.workbench .sidebar-trad-name {
-  overflow-wrap: anywhere;
-}
 #ai-status:not(:empty) {
   padding: 10px 12px;
   display: flex;
@@ -1123,20 +997,11 @@ body.workbench {
   .workbench .ui-header .ui-tools [data-ui='menu'] span {
     display: none;
   }
-  .workbench .branch-key button {
-    min-height: 44px;
-  }
-  .workbench .part-options-cell {
-    grid-column: 2;
-    grid-row: 1;
-  }
   .workbench .part-variant-cell {
-    grid-column: 1/-1;
     font-size: 15px;
     color: var(--cm-text);
   }
   .workbench .part-descriptors-cell {
-    grid-column: 1/-1;
     font-size: 13px;
     line-height: 1.5;
   }
@@ -1151,7 +1016,6 @@ body.workbench {
     top: auto !important;
   }
   .workbench .detail-subtitle,
-  .workbench .detail-header-name,
   .workbench .detail-title {
     white-space: normal !important;
     overflow-wrap: anywhere;
@@ -1187,47 +1051,6 @@ body.workbench {
 }
 .detail-tab span {
   white-space: normal;
-}
-/* Category controls keep browsing compact and leave room for catalog results. */
-.workbench .discovery-grid {
-  grid-template-columns: minmax(0, 1fr);
-  gap: 8px;
-}
-.catalog-categories:empty {
-  display: none;
-}
-.catalog-categories .branch-key {
-  margin: 0 0 8px;
-}
-.category-heading {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 12px;
-  font-size: 14px;
-}
-.category-heading button {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 44px;
-  padding: 6px 10px;
-  color: var(--cm-link);
-  background: var(--cm-surface);
-  border: 1px solid var(--cm-border);
-  border-radius: 6px;
-  font: inherit;
-  cursor: pointer;
-}
-.category-count {
-  color: var(--cm-text-muted);
-  font-size: 12px;
-  margin-left: 4px;
-}
-.branch-key button[aria-pressed='true'] {
-  background: var(--cm-accent-soft);
-  border-color: var(--cm-accent);
 }
 /* Landscape phones (844x390): the recipe drawer is 282px tall, and its fixed
    chrome (session actions, name, filter) plus the recipe bar left the tree a
@@ -1324,11 +1147,7 @@ body.workbench {
   -webkit-line-clamp: unset;
   max-width: 100%;
 }
-.catalog-categories,
-.catalog-list,
 .catalog-name > span,
-.branch-key button > span,
-.selected-head h2,
 .modal-head h2 {
   min-width: 0;
   overflow-wrap: anywhere;
@@ -1336,10 +1155,6 @@ body.workbench {
 .catalog-row > .listen,
 .catalog-row > button:last-child {
   flex-shrink: 0;
-}
-.branch-key button {
-  max-width: 100%;
-  text-align: left;
 }
 .workbench .part-row-grid {
   grid-template-columns: minmax(0, 1fr) auto;
@@ -1376,17 +1191,6 @@ body.workbench {
 }
 #ui-menu {
   z-index: 120;
-}
-@container discovery (max-width: 680px) {
-  .discovery-grid {
-    grid-template-columns: minmax(0, 1fr);
-    padding: 12px;
-    gap: 12px;
-  }
-  .discovery-toolbar {
-    padding: 12px;
-    gap: 6px;
-  }
 }
 @media (max-width: 380px) {
   .ui-header {
