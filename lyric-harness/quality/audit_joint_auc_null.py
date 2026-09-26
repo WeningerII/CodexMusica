@@ -252,9 +252,15 @@ def main(n_perm=200, n_seeds=200, strict=False, cache_path=CACHE):
             # repins as joint_all 1330/1755 -> 1335/1755 -- five more
             # CONCORDANT pairs -- and the argument for it lives there
             # (doctrine 1: one declaration, quoted here, not re-argued here).
-            ("ABSOLUTE (original ten)", QualityFeatures, "0.761", "0.967"),
+            # -> 0.760 on ABSOLUTE Exp 1 and 0.618 / 0.898 on WITHIN-ITEM,
+            # 2026-09-26, for the N-relation model (#380's squash b42287af,
+            # bisected to 67c3cc5c + fa80a8f7 + 114e29d8; `MISSING.md`
+            # M-314): ~~0.761~~ 0.760, ~~0.621~~ 0.618, ~~0.894~~ 0.898, and
+            # ABSOLUTE Exp 2 HOLDS at 0.967 (5880 -> 5878 of 6080). The same
+            # figures `test_discriminate` repins that day, argued there.
+            ("ABSOLUTE (original ten)", QualityFeatures, "0.760", "0.967"),
             ("WITHIN-ITEM (respecified eight)", WithinItemFeatures,
-             "0.621", "0.894")):
+             "0.618", "0.898")):
         qf = feats()
         pfx = "abs" if feats is QualityFeatures else "wi"
         print(f"\n### {tag}\n")
@@ -387,16 +393,31 @@ def main(n_perm=200, n_seeds=200, strict=False, cache_path=CACHE):
 #: Doctrine 58 as ever: these are argued, not tuned. The whole argument for
 #: the direction lives in `quality/test_discriminate.py`'s 2026-09-17 block
 #: and in M-293 (doctrine 1: one declaration, cited here, not re-made here).
+#: REPINNED 2026-09-26 -- TWO OF THE FOUR SEED MEDIANS, for the N-relation
+#: model (#380's squash b42287af, M-309, bisected to 67c3cc5c + fa80a8f7 +
+#: 114e29d8; `MISSING.md` M-314): ~~0.665~~ 0.663 on absolute Exp 1
+#: and ~~0.900~~ 0.902 on within-item Exp 2, each 200 CVs on the cache
+#: `discriminate.py` warmed the same day at main 732b8c5a, and identical to
+#: the first nightly on #380's own sha (run 36114987660). Absolute Exp 2
+#: (0.968) and within-item Exp 1 (0.623) HOLD to the printed digit. Unlike
+#: M-293 the draws move WITH their medians this time on the two arms that
+#: moved -- absolute Exp 1's draw 0.761 -> 0.760 beside its median's -0.002,
+#: within-item Exp 2's 0.894 -> 0.898 beside +0.002 -- while within-item Exp
+#: 1's draw falls 0.621 -> 0.618 under a median that holds at 0.623. Why one
+#: fold split moves and the median of 200 does not is, as in 2026-09-17, NOT
+#: decomposed per seed and is left as the observation it is (doctrine 58).
+#: The argument for the direction is `test_discriminate.py`'s 2026-09-26
+#: block (doctrine 1).
 PINNED = {
     "cache_entries": 384,
     "abs_exp1": {"n_pos": 15, "n_neg": 117, "n_features": 10,
-                 "seed_median": 0.665},
+                 "seed_median": 0.663},
     "abs_exp2": {"n_pos": 152, "n_neg": 40, "n_features": 10,
                  "seed_median": 0.968},
     "wi_exp1": {"n_pos": 15, "n_neg": 117, "n_features": 8,
                 "seed_median": 0.623},
     "wi_exp2": {"n_pos": 152, "n_neg": 40, "n_features": 8,
-                "seed_median": 0.900},
+                "seed_median": 0.902},
 }
 
 #: The observed AUCs are NOT repeated here. They are checked against the

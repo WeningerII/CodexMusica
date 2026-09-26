@@ -3188,21 +3188,30 @@ from the first run — do not drift from these either:**, merged into one run.)
    genre's answer, so it belongs in a declaration, not in a constant.
 
 7. **Rejection, not selection.** Detecting bad writing held-out at AUC **0.967**;
-   ranking good writing at **0.761**. Enforce a floor, do not order the permitted
-   region. REPINNED 2026-09-17 from ~~0.758~~ — Exp 2 HOLDS at 0.967, one rank
+   ranking good writing at **0.760**. Enforce a floor, do not order the permitted
+   region. REPINNED 2026-09-26 from ~~0.761~~ — Exp 2 HOLDS at 0.967, two rank
+   flips under the printed digit — for the N-relation model (PR #380, M-309,
+   landing as its squash b42287af and bisected to 67c3cc5c's admitted-relation
+   rhyme field, fa80a8f7's licensed nucleus and 114e29d8's 0.75 ASSONANCE cut;
+   the repin is `MISSING.md` M-314). The gap goes ~~0.206~~ **0.207** and the
+   argument is untouched. Same control as the repin below, to the feature: the
+   same thirty per-feature AUCs are byte-identical and the same fourteen move,
+   all on the rhyme-predictability channel. The within-item pair, which held
+   through M-293, moves this time: ~~0.621/0.894~~ **0.618/0.898**.
+   Previously REPINNED 2026-09-17 from ~~0.758~~ — Exp 2 HOLDS at 0.967, one rank
    flip under the printed digit — for E-5's empty-coda evidence (`MISSING.md`
    M-293): commit eacc3369 changed `Declaration.coda_empty_evidence` "gift" →
    "cannot_tell", so two EMPTY codas stopped answering
    `cluster_sim([], []) == 1.0` and absence stopped being scored as agreement.
-   The gap goes ~~0.209~~ **0.206** and the argument is untouched. **THIS REPIN
-   HAS THE CONTROL THE ONE BELOW COULD NOT HAVE**: thirty of the thirty-six
+   The gap went ~~0.209~~ 0.206 and the argument was untouched. **THAT REPIN
+   HAD THE CONTROL THE ONE BELOW COULD NOT HAVE**: thirty of the thirty-six
    per-feature AUCs are byte-identical, and every one of the fourteen figures
    that moved at all reads the rhyme-predictability channel — which is the
    whole of what the comparator's coda arm can reach. The scalar can only
    FALL (a derivation, not a survey: `base <= W - w_coda` holds for every
    pair), while `_predictability()` divides a rank by a shrinking field and so
    moves BOTH ways, which is why the census lost two false admissions in one
-   direction and these AUCs moved in two. The within-item pair HOLDS at
+   direction and these AUCs moved in two. The within-item pair HELD at
    0.621/0.894.
    Previously REPINNED 2026-09-14 from ~~0.960~~ / ~~0.723~~ for the tokenizer
    normalization (NFC + apostrophe folding in `features.QualityFeatures._tokens`,
@@ -3226,14 +3235,14 @@ from the first run — do not drift from these either:**, merged into one run.)
    PRE-OOV-FIX reading of 2026-08-09 and have been superseded TWICE: pre-fix
    0.709/0.971, warm post-fix 0.659/0.975, cold 0.717/0.964, cold with the
    sentinel corrected 0.723/0.960, cold with the tokenizer normalized
-   0.758/0.967, and cold with the empty-coda evidence bonus removed
-   0.761/0.967. The pair is
+   0.758/0.967, cold with the empty-coda evidence bonus removed
+   0.761/0.967, and cold under the N-relation model 0.760/0.967. The pair is
    `quality/test_discriminate.py`'s `abs_exp1`/`abs_exp2` joint AUCs. **The
-   argument is unchanged and the gap is what carries it** — 0.206 today, 0.209
-   before the empty-coda repin, 0.237 before the tokenizer normalization, 0.247
-   before the sentinel fix, 0.262 pre-fix, so rejection
-   still beats selection by a quarter of an AUC and this doctrine never rested
-   on the third decimal.
+   argument is unchanged and the gap is what carries it** — 0.207 today, 0.206
+   before the N-relation repin, 0.209 before the empty-coda repin, 0.237 before
+   the tokenizer normalization, 0.247 before the sentinel fix, 0.262 pre-fix, so
+   rejection still beats selection by a quarter of an AUC and this doctrine
+   never rested on the third decimal.
    **AMENDED 2026-08-22 — `MISSING.md` M-32, by owner ruling, and it moves
    neither number in this doctrine.** `content_word_freq_mean`'s preregistered
    cell said **LOWER** and glossed it *(rarer words)*, which are opposite
