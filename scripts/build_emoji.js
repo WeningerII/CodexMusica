@@ -137,7 +137,9 @@ function main() {
   // Those are left out of EMOJI_SVGS; image() / familyImage() in src/app.js
   // read NAV_GLYPH_SVGS when EMOJI_SVGS has no entry. Only a byte-identical copy
   // is dropped: a codepoint whose NAV artwork differs (a skin recolour) keeps
-  // its own entry here.
+  // its own entry here. build_nav_glyphs.js keeps a dropped codepoint in
+  // NAV_GLYPH_SVGS even when no room or preface uses it any more, and
+  // check_glyph_skin.js fails if one resolves nowhere (scripts/_glyph_stores.js).
   const nav = (() => {
     const src = fs.readFileSync(NAV_FILE, 'utf8');
     return new Function(src + '\nreturn NAV_GLYPH_SVGS;')();

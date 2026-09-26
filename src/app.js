@@ -1525,6 +1525,8 @@ function resolveTraditionGlyphs(nodeId, byId) {
 // NAV_GLYPH_SVGS (references/09_nav_glyphs.js) is stored only there, so the
 // tradition-glyph and emoji stores fall back to it. Stores whose artwork
 // differs (a different Twemoji rendition or a skin recolour) keep their own.
+// scripts/build_nav_glyphs.js keeps every codepoint these stores rely on, and
+// scripts/check_glyph_skin.js fails if any named codepoint resolves nowhere.
 function _sharedGlyphInner(cp) {
   return cp && typeof NAV_GLYPH_SVGS !== 'undefined' ? NAV_GLYPH_SVGS[cp] || null : null;
 }
