@@ -1484,15 +1484,6 @@
     "ceremonial",
     "harmonizing-foundational"
   ],
-  "mariachi_traditional": [
-    "iberian-celtic",
-    "folk",
-    "folkloric",
-    "dance-friendly",
-    "medium-cup",
-    "standard-rim",
-    "orchestral-balance"
-  ],
   "mbalax": [
     "African-traditional",
     "African-derived",
@@ -1733,14 +1724,6 @@
     "melismatic",
     "ornamental-melismatic",
     "dance-driving"
-  ],
-  "jingju": [
-    "gagaku-foundational",
-    "naturally-reverberant",
-    "minimal",
-    "drone-foundation",
-    "sustained-tone",
-    "Chinese-classical"
   ],
   "guqin": [
     "naturally-reverberant",
@@ -2190,30 +2173,6 @@
     "dance-driving",
     "twangy-foundational"
   ],
-  "mongolian_xoomii": [
-    "drone-foundation",
-    "drone-like",
-    "naturally-reverberant",
-    "sustained-tone",
-    "sustained-projection",
-    "khoomei",
-    "overtone-singing",
-    "multi-pitch-simultaneous"
-  ],
-  "tibetan_gyuto": [
-    "sacred-traditional",
-    "drone-foundation",
-    "drone-like",
-    "ceremonial",
-    "sustained-tone",
-    "liturgical",
-    "devotional",
-    "meditative-tempo",
-    "contemplative",
-    "naturally-reverberant",
-    "chant-foundational",
-    "monastic-chant"
-  ],
   "inuit_katajjaq": [
     "ceremonial",
     "sacred-traditional",
@@ -2445,20 +2404,6 @@
     "talk-sung-articulation"
   ],
   "bachata": [
-    "dance-driving",
-    "dance-friendly",
-    "funky",
-    "funk-derived",
-    "swung"
-  ],
-  "kompa_song_form": [
-    "dance-driving",
-    "dance-friendly",
-    "funky",
-    "funk-derived",
-    "swung"
-  ],
-  "kizomba_song_form": [
     "dance-driving",
     "dance-friendly",
     "funky",
@@ -3261,21 +3206,6 @@
     "chant-foundational",
     "chorus-chant"
   ],
-  "coptic_liturgical": [
-    "gospel-rooted",
-    "gospel-runs",
-    "gospel-friendly",
-    "devotional",
-    "congregation-loud",
-    "sacred-Latin",
-    "liturgical",
-    "medieval",
-    "ornamental-melismatic",
-    "sacred-traditional",
-    "ceremonial",
-    "chant-foundational",
-    "monastic-chant"
-  ],
   "bro_country": [
     "folk",
     "folk-rock",
@@ -3342,14 +3272,6 @@
     "mournful",
     "dark-romantic"
   ],
-  "melodic_death_swedish": [
-    "metal-context",
-    "metallic",
-    "high-gain-cascading-saturation",
-    "transient-grab-aggressive",
-    "growly",
-    "sub-bass"
-  ],
   "technical_death_metal": [
     "metal-context",
     "metallic",
@@ -3359,14 +3281,6 @@
     "sub-bass"
   ],
   "brutal_death_metal": [
-    "metal-context",
-    "metallic",
-    "high-gain-cascading-saturation",
-    "transient-grab-aggressive",
-    "growly",
-    "sub-bass"
-  ],
-  "norwegian_2nd_wave_black": [
     "metal-context",
     "metallic",
     "high-gain-cascading-saturation",

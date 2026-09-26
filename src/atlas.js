@@ -66,8 +66,9 @@
     window.parent !== window &&
     new URLSearchParams(location.search).get('embedded') === '1';
   document.documentElement.classList.toggle('atlas-embedded', EMBEDDED);
-  // Optional, produced by a separate pipeline: id -> { thumbnail, credit,
-  // licence }. Absent or unlisted, the inspector shows the group's glyph.
+  // Optional, produced by scripts/fetch_image_manifest.js: { images: [{ id,
+  // kind, thumb_url, license, license_raw, credit, source_page, … }] }. Absent
+  // or unlisted, the inspector shows the group's glyph.
   var IMAGE_MANIFEST = 'references/_image_manifest.json';
 
   // Below this width the side panels, the chooser and the inspector are sheets
@@ -114,14 +115,13 @@
     routes: [],
     land: null,
     meta: { verified: [] },
-    images: {},
+    images: null,
     cache: {},
     view: { cx: 0, cy: 0, scale: 0 },
     baseScale: 0,
     focus: new Set(),
     qmatch: null,
     hit: [],
-    clusters: [],
     sel: null,
     kin: [],
     kinWhy: {},
@@ -231,8 +231,6 @@
     wave: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h3l2-6 4 12 3-9 2 3h6"/></svg>',
     layers:
       '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>',
-    route:
-      '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8 16.5C13 14 11 8 15.8 7"/></svg>',
     pin: '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
     genre:
       '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l9-9h8v8l-9 9z"/><circle cx="15.5" cy="8.5" r="1.5"/></svg>',
@@ -460,11 +458,23 @@
       .filter(Boolean);
   }
 
-  // The image manifest is optional and comes from a separate pipeline. Only an
-  // entry with a thumbnail URL and a credit or licence is ever shown.
+  // The image manifest is optional and comes from a separate pipeline. It is
+  // read with the Genre page's rules (src/pages/genre.js gpIndexImages and
+  // gpImage), so a tradition shows the same photo, credit and licence in both
+  // places: tradition entries by id; an https or page-relative thumbnail only;
+  // the credit and licence always travel with the photo, and a missing one is
+  // said to be missing rather than left out.
+  function indexImages(m) {
+    var out = Object.create(null);
+    if (!m || !Array.isArray(m.images)) return out;
+    m.images.forEach(function (e) {
+      if (e && e.kind === 'tradition' && typeof e.id === 'string') out[e.id] = e;
+    });
+    return out;
+  }
   function loadImages() {
     if (INLINE) {
-      if (INLINE.images) S.images = INLINE.images;
+      if (INLINE.images) S.images = indexImages(INLINE.images);
       return;
     }
     fetch(IMAGE_MANIFEST)
@@ -472,8 +482,7 @@
         return r.ok ? r.json() : null;
       })
       .then(function (m) {
-        if (!m || typeof m !== 'object') return;
-        S.images = m.images && typeof m.images === 'object' ? m.images : m;
+        S.images = indexImages(m);
         if (S.sel) renderCard();
       })
       .catch(function () {
@@ -482,13 +491,23 @@
   }
   function imageFor(id) {
     var e = S.images && S.images[id];
-    if (!e || typeof e !== 'object') return null;
-    var src = e.thumbnail || e.thumb || e.url || e.src;
-    var licence = e.licence || e.license || '';
-    var credit = e.credit || e.author || e.attribution || '';
-    if (typeof src !== 'string' || !/^(https?:)?\/\/|^[\w./-]+$/.test(src)) return null;
-    if (!credit && !licence) return null;
-    return { src: src, credit: String(credit), licence: String(licence), link: e.source || e.page };
+    if (!e) return null;
+    var src = e.thumb_url;
+    if (typeof src !== 'string' || !src.trim()) return null;
+    if (!/^https:\/\//i.test(src) && (/^[a-z][a-z0-9+.-]*:/i.test(src) || src.indexOf('//') === 0))
+      return null;
+    var text = function (x) {
+      return typeof x === 'string' ? x.replace(/\s+/g, ' ').trim() : '';
+    };
+    return {
+      src: src,
+      credit: text(e.credit) || 'Author not recorded',
+      licence: text(e.license_raw) || text(e.license) || 'licence not recorded',
+      link:
+        typeof e.source_page === 'string' && /^https:\/\//i.test(e.source_page)
+          ? e.source_page
+          : '',
+    };
   }
 
   // One persistent live region: a re-rendered status node is often not read.
@@ -953,7 +972,6 @@
     if (S.routesOn) drawRoutes(ctx);
 
     var cls = buildClusters();
-    S.clusters = cls;
 
     S.hit = [];
     drawDimmed(ctx);

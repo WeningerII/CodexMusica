@@ -189,25 +189,16 @@ const PRECONDITIONS = {
     renderAll();
   `,
   'instrument picker open': `
-    // Populate the picker BEFORE opening the modal — openModal alone shows
-    // the frame but no chips. The user-triggered entry points (sidebar plus,
-    // empty-state Browse) always call renderInstPicker first.
-    if (typeof renderInstPicker === 'function') renderInstPicker();
+    // openModal('modal-add') is the door to the Instrument page (uiOpenSurface).
     openModal('modal-add');
-    if(typeof renderInstrumentDiscovery === 'function')renderInstrumentDiscovery();
+    renderInstrumentDiscovery();
   `,
   'instrument picker open, filter active': `
-    if (typeof renderInstPicker === 'function') renderInstPicker();
-    // Activate one axis filter so the clear-all status row renders. Pick
-    // any axis id; existence of an active filter is what surfaces the clear
-    // button.
-    if (app.instrumentAxisFilters && typeof app.instrumentAxisFilters.add === 'function') {
-      const pills = document.querySelectorAll('[data-filter-toggle]');
-      if (pills.length > 0) app.instrumentAxisFilters.add(pills[0].dataset.filterToggle);
-    }
-    if (typeof renderInstPicker === 'function') renderInstPicker();
+    // Activate one sound-property filter so the Clear control renders. Any
+    // filter id will do; an active filter is what surfaces the button.
+    app.instrumentAxisFilters.add(INSTRUMENT_FILTER_PILLS[0].id);
     openModal('modal-add');
-    if(typeof renderInstrumentDiscovery === 'function')renderInstrumentDiscovery();
+    renderInstrumentDiscovery();
   `,
   'tradition picker open': `
     if (typeof renderTradPicker === 'function') renderTradPicker();
@@ -241,13 +232,11 @@ const PRECONDITIONS = {
     commitPrefaceChange(app.cards[0], 'liturgical');
   `,
   'instrument picker open, similar drill-down active': `
-    // Drill-down mode of the instrument picker — renders similar-instrument
-    // cards instead of the family-grouped chip list. Triggered when
-    // app.similarInstFor is set to a known instrument id.
+    // A card's Find similar: uiOpenSurface hands app.similarInstFor to the
+    // Instrument page's inspector, which lists that instrument's neighbours.
     app.similarInstFor = 'voice';
-    if (typeof renderInstPicker === 'function') renderInstPicker();
     openModal('modal-add');
-    if(typeof renderInstrumentDiscovery === 'function')renderInstrumentDiscovery();
+    renderInstrumentDiscovery();
   `,
   'saved workspaces list open': `
     // Seed one fixture workspace into the storage mock (installed by RESET
@@ -376,7 +365,6 @@ async function main() {
     app.sidebarFilter = '';
     app.collapsedTraditionGroups = new Set();
     app.tradSearch = '';
-    app.pickerSearch = '';
     app.similarFor = null;
     app.similarInstFor = null;
     app._dragCardId = null;

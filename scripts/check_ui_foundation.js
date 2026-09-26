@@ -124,7 +124,7 @@ const FIRST_PAINT_PROBE = () => {
 const SURFACES = `(() => {
   const out = [];
   const sel = ['body', '.ui-header', '#workspace-sidebar', '.recipe-panel-head', '.ui-surface:not([hidden])',
-    '#ui-menu:not([hidden])', '#workspace-detail', '.modal-bg.open .modal', '.discovery-toolbar'];
+    '#ui-menu:not([hidden])', '#workspace-detail', '.modal-bg.open .modal'];
   for (const s of sel) for (const el of document.querySelectorAll(s)) {
     if (!el.getClientRects().length) continue;
     const m = getComputedStyle(el).backgroundColor.match(/rgba?\\(([^)]+)\\)/);

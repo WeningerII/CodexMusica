@@ -1,4 +1,4 @@
-/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport */
+/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload */
 /* global UILayout */
 /* global ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
 /* The shared application shell: one header, one navigation, one recipe
@@ -106,6 +106,30 @@ function uiRegisterPage(page) {
   UI_PAGES[page.id] = page;
 }
 const $ui = (id) => document.getElementById(id);
+// The genres in Your recipe, in first-card order.
+const uiRecipeGenres = () => [...new Set(app.cards.map((c) => c.traditionId).filter(Boolean))];
+// A count and its noun ("1 genre", "1,000 lines"): one plural rule for
+// every page.
+const uiCount = (n, one, many = one + 's') =>
+  (typeof n === 'number' ? n.toLocaleString('en') : String(n)) + ' ' + (n === 1 ? one : many);
+// WAI-ARIA tabs: Left/Right move (wrapping), Home/End jump. The index the key
+// moves to among `count` tabs from `index`, or -1 for any other key.
+const uiTabIndex = (key, index, count) =>
+  key === 'Home'
+    ? 0
+    : key === 'End'
+      ? count - 1
+      : key === 'ArrowRight' || key === 'ArrowLeft'
+        ? (index + (key === 'ArrowRight' ? 1 : -1) + count) % count
+        : -1;
+// Save text as a file the browser downloads.
+function uiDownload(name, text, type) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], { type }));
+  a.download = name;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
 const uiButton = (act, label, ic = 'plus', extra = '') =>
   `<button type="button" data-ui="${act}" ${extra.includes('aria-label=') ? '' : `aria-label="${esc(label)}"`} ${extra}>${icon(ic, 18)}<span>${esc(label)}</span></button>`;
 // Empty, no-results, loading and failure states share one shape: what is
@@ -241,7 +265,7 @@ function uiPlaceRecipeParts() {
 // The two native add controls (#btn-traditions, #btn-add) keep their ids and
 // handlers wherever they sit; only the words follow the place and the recipe.
 function uiLabelAddButtons(phone = isMobileLayout()) {
-  const genres = new Set(app.cards.map((c) => c.traditionId).filter(Boolean)).size;
+  const genres = uiRecipeGenres().length;
   const set = (id, text, label) => {
     const node = $ui(id);
     if (!node) return;
@@ -423,9 +447,7 @@ function uiSyncRecipeFilter() {
   toggle.hidden = app.cards.length === 0;
 }
 function uiRecipeSummary() {
-  const n = app.cards.length;
-  const g = new Set(app.cards.map((c) => c.traditionId).filter(Boolean)).size;
-  return `${g} ${g === 1 ? 'genre' : 'genres'} · ${n} ${n === 1 ? 'instrument' : 'instruments'}`;
+  return `${uiCount(uiRecipeGenres().length, 'genre')} · ${uiCount(app.cards.length, 'instrument')}`;
 }
 function uiListen() {
   const c = app.cards.find((c) => c.id === app.selected);
@@ -498,16 +520,18 @@ async function uiAddGenre(id) {
     UI.busy = false;
   }
 }
-// uiAddInstrument(id, { configure, message }) resolves to the added card, or
-// null when nothing was added (another addition running, or a failure, which it
-// reports). configure(card) runs on the new card before its history entry, so
-// a configured addition is one Undo; message(card) words the success toast.
-async function uiAddInstrument(id, { configure, message } = {}) {
+// uiAddInstrument(id, { configure, message, destination }) resolves to the
+// added card, or null when nothing was added (another addition running, or a
+// failure, which it reports). destination is the genre the card joins ('' for
+// none); left out, it is the Instrument page's #instrument-destination.
+// configure(card) runs on the new card before its history entry, so a
+// configured addition is one Undo; message(card) words the success toast.
+async function uiAddInstrument(id, { configure, message, destination } = {}) {
   if (UI.busy) return null;
   UI.busy = true;
   try {
-    const destination = $ui('instrument-destination')?.value;
-    app._addToTradition = destination || null;
+    const dest = destination !== undefined ? destination : $ui('instrument-destination')?.value;
+    app._addToTradition = dest || null;
     const c = await addInstrumentFromPicker(id, { configure });
     if (!c) throw Error('Instrument unavailable');
     renderAll();
@@ -515,7 +539,7 @@ async function uiAddInstrument(id, { configure, message } = {}) {
     showToast(message ? message(c) : _addedInstrumentMessage(id, c), 'success');
     return c;
   } catch (e) {
-    showToast(e.message, 'error');
+    showToast(e.message || 'Could not add the instrument', 'error');
     return null;
   } finally {
     UI.busy = false;
@@ -529,12 +553,7 @@ function uiExport() {
     cards: app.cards.map((c) => ({ ...c, ..._CARD_TRANSIENTS })),
     lyrics: $ui('lyrics-draft').value,
   };
-  const blob = new Blob([JSON.stringify(p, null, 2)], { type: 'application/json' }),
-    a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'codex-musica-session.json';
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  uiDownload('codex-musica-session.json', JSON.stringify(p, null, 2), 'application/json');
 }
 async function uiImport(file) {
   try {
@@ -774,7 +793,6 @@ function uiStart() {
   $ui('btn-redo').dataset.tooltip = 'Redo (Ctrl/Cmd+Shift+Z)';
   $ui('btn-save').dataset.tooltip = 'Save a named copy of this session';
   oldHeader.remove();
-  $ui('app-more-menu')?.remove();
   UITheme.onChange(uiSyncThemeControl);
   uiSyncThemeControl();
   // Preserve the original browse tree, filters, editor and save controls. Browsing
@@ -1170,7 +1188,7 @@ function uiLayoutControls() {
     onChange: (floating) => document.body.classList.toggle('assistant-floating', floating),
   });
   document.querySelectorAll('.modal-bg > .modal').forEach((panel) => {
-    if (['modal-add', 'modal-trad', 'modal-confirm'].includes(panel.parentElement.id)) return;
+    if (['modal-trad', 'modal-confirm'].includes(panel.parentElement.id)) return;
     UILayout.floating(panel, {
       key: panel.parentElement.id,
       title: panel.querySelector('h2')?.textContent || 'dialog',

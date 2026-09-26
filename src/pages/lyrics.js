@@ -1,5 +1,5 @@
 /* exported uiLyricsWaiting */
-/* global $ui, UI, UILayout, _chatSyncCount, app, chatState, compileRecipeStack, confirmDialog, copyToClipboard, esc, icon, pushHistory, showToast, uiButton, uiChatOpen, uiEmptyState, uiFocus, uiNavigate, uiNewTask, uiRegisterPage, uiSaveLyrics, uiSwitchChat */
+/* global $ui, UI, UILayout, _chatSyncCount, app, chatState, compileRecipeStack, confirmDialog, copyToClipboard, esc, icon, pushHistory, showToast, uiButton, uiChatOpen, uiCount, uiDownload, uiEmptyState, uiFocus, uiNavigate, uiNewTask, uiRegisterPage, uiSaveLyrics, uiSwitchChat */
 /* Lyrics page. Owned by the Lyrics page worker; see docs/ui-foundation.md.
 
    THE DRAFT IS THE ONE SOURCE OF TRUTH. Everything this page shows is read
@@ -90,7 +90,6 @@ function lyWordSpans(text, voices) {
 }
 const lyNorm = (s) => lyTokens(s, true).map((w) => w.toLowerCase().replace(/’/g, "'"));
 const lyCap = (s) => (s === s.toUpperCase() ? s.charAt(0) + s.slice(1).toLowerCase() : s);
-const lyPlural = (n, one, many = one + 's') => `${n} ${n === 1 ? one : many}`;
 const lyQuote = (s) => JSON.stringify(String(s));
 const lyUnquote = (s) => {
   try {
@@ -128,10 +127,10 @@ function lyParseHeader(raw) {
 }
 function lyHeaderText(h) {
   const parts = [h.name || 'SECTION'];
-  if (h.lines != null) parts.push(lyPlural(h.lines, 'line'));
+  if (h.lines != null) parts.push(uiCount(h.lines, 'line'));
   if (h.bars != null || h.meter)
     parts.push(
-      (h.bars != null ? lyPlural(h.bars, 'bar') : '') +
+      (h.bars != null ? uiCount(h.bars, 'bar') : '') +
         (h.meter ? `${h.bars != null ? ' of ' : ''}${h.meter}` : '') +
         (h.pickup ? `, ${h.pickup}` : '')
     );
@@ -421,7 +420,7 @@ const lyMelodyText = (m) =>
   [
     `${m.meter.beats}/${m.meter.unit}`,
     `groups ${m.meter.groups.join('+')}`,
-    lyPlural(m.bars, 'bar'),
+    uiCount(m.bars, 'bar'),
     `subdivision ${m.subdivision}`,
     m.notes.map((n) => `${n.pitch_hz === null ? 'rest' : n.pitch_hz}:${n.ticks}`).join(' '),
   ].join(LY_DASH);
@@ -551,14 +550,14 @@ function lyLocalChecks(model) {
         id: `count:${s.index}`,
         tone: 'issue',
         category: 'Structure',
-        title: `${s.title} declares ${lyPlural(s.header.lines, 'line')} but has ${s.sung.length}`,
+        title: `${s.title} declares ${uiCount(s.header.lines, 'line')} but has ${s.sung.length}`,
         where: s.title,
         lines: s.sung.map((r) => r.n),
         text: 'The header states the section size the writer plans against. Change the header or the lines so they agree.',
         actions: [
           [
             'ly-fix-count',
-            `Set the header to ${lyPlural(s.sung.length, 'line')}`,
+            `Set the header to ${uiCount(s.sung.length, 'line')}`,
             'pencil',
             s.index,
           ],
@@ -589,8 +588,8 @@ function lyLocalChecks(model) {
       where: s.title,
       lines: diff.length ? diff : s.sung.map((r) => r.n),
       text: sameSize
-        ? `${lyPlural(diff.length, 'line')} differ (${lyLineRef(diff)}). Only identical sections count as an exact return; a changed line may be intentional.`
-        : `${first.title} has ${lyPlural(first.sung.length, 'line')}; this one has ${s.sung.length}. Only identical sections count as an exact return.`,
+        ? `${uiCount(diff.length, 'line')} differ (${lyLineRef(diff)}). Only identical sections count as an exact return; a changed line may be intentional.`
+        : `${first.title} has ${uiCount(first.sung.length, 'line')}; this one has ${s.sung.length}. Only identical sections count as an exact return.`,
       actions: [
         ['ly-make-return', `Make it match ${first.title}`, 'repeat', `${s.index}:${first.index}`],
       ],
@@ -775,7 +774,7 @@ function lyLocalChecks(model) {
           id: 'melody-meter',
           tone: 'note',
           category: 'Melody',
-          title: `The melody is in ${m.melody.meter.beats}/${m.melody.meter.unit}; ${lyPlural(clash.length, 'section header')} declare another meter`,
+          title: `The melody is in ${m.melody.meter.beats}/${m.melody.meter.unit}; ${uiCount(clash.length, 'section header')} declare another meter`,
           where: clash.map((s) => s.title).join(', '),
           lines: [],
           text: 'The harness takes the meter from a declared melody, which repeats for every line. Both are kept as written.',
@@ -826,7 +825,7 @@ function lyLocalChecks(model) {
         category: 'Story',
         title: !n.ok
           ? 'The story plan cannot be read'
-          : `The story plan names ${lyPlural(n.steps.length, 'section')}; the song has ${sung}`,
+          : `The story plan names ${uiCount(n.steps.length, 'section')}; the song has ${sung}`,
         where: 'Structure & story',
         lines: [],
         text: 'One story job per sung section, with a junction before every job after the first. Change the plan or the sections so they agree.',
@@ -985,11 +984,11 @@ function lyRunChecks(model) {
         id,
         tone: 'issue',
         category: 'Writer draft',
-        title: `The writer returned a ${lyPlural(run.final.length, 'line')} draft`,
+        title: `The writer returned a ${uiCount(run.final.length, 'line')} draft`,
         where: 'Whole draft',
         lines: [],
         text: run.base
-          ? `Your draft had ${lyPlural(run.base.length, 'sung line')} when you asked; the lines do not correspond one to one, so this can only be taken whole.`
+          ? `Your draft had ${uiCount(run.base.length, 'sung line')} when you asked; the lines do not correspond one to one, so this can only be taken whole.`
           : 'This reply was recovered without the draft it was asked about, so it cannot be compared line by line. It can only be taken whole.',
         whole: run.final,
         decision: { run: run.id, whole: true },
@@ -1043,7 +1042,7 @@ function lyRunChecks(model) {
         id: `banned:${t.name}`,
         tone: 'issue',
         category: 'Banned pairs',
-        title: `${lyPlural(t.banned_pairs, 'banned pair')} standing`,
+        title: `${uiCount(t.banned_pairs, 'banned pair')} standing`,
         where: t.name,
         lines: [],
         text: 'The two-tier ban is unskippable: this song is not finished while they stand.',
@@ -1116,7 +1115,7 @@ function lyRunChecks(model) {
         id: 'cov:unasked',
         tone: 'note',
         category: 'Coverage',
-        title: `${lyPlural(unasked.length, 'check')} not requested`,
+        title: `${uiCount(unasked.length, 'check')} not requested`,
         where: 'Writer run',
         lines: [],
         text: 'Disclosed by the run and not asked of this song; they are neither passed nor failed.',
@@ -1252,7 +1251,7 @@ function lyDeclarationRefusal(run, model) {
   return `Your [SETUP] declarations changed after you asked the writer (${what}), so this suggestion was never checked against them. Nothing was changed. Ask the writer to review the current draft.`;
 }
 function lyIssueRefusal(issues, kept) {
-  return `Applying it would add ${lyPlural(issues.length, 'issue')} this page checks: ${issues
+  return `Applying it would add ${uiCount(issues.length, 'issue')} this page checks: ${issues
     .slice(0, 3)
     .map((i) => i.title)
     .join('; ')}${issues.length > 3 ? '; …' : ''}. ${kept}`;
@@ -1299,7 +1298,7 @@ function lyCheckApply(item) {
     k = n - 1;
   if (current.length !== run.base.length)
     return fail(
-      `Your draft now has ${lyPlural(current.length, 'sung line')}; the suggestion was made for ${run.base.length}. Line numbers no longer line up, so nothing was changed.`
+      `Your draft now has ${uiCount(current.length, 'sung line')}; the suggestion was made for ${run.base.length}. Line numbers no longer line up, so nothing was changed.`
     );
   if (current[k] !== run.base[k])
     return fail(
@@ -1452,7 +1451,7 @@ function lyEditSections(mutate, message) {
     text,
     message +
       (dropped
-        ? ` ${lyPlural(dropped, 'declared link member')} pointed at removed lines and ${dropped === 1 ? 'was' : 'were'} removed.`
+        ? ` ${uiCount(dropped, 'declared link member')} pointed at removed lines and ${dropped === 1 ? 'was' : 'were'} removed.`
         : '')
   );
 }
@@ -1607,7 +1606,7 @@ function lyRenderHead() {
   const status = lyRunStatus(LY.run);
   const bits = [
     `Session: ${app.workspaceName || 'Untitled session'}`,
-    lyPlural(model.sung.length, 'line'),
+    uiCount(model.sung.length, 'line'),
   ];
   $ui('ly-meta').innerHTML =
     bits.map(esc).join(' · ') +
@@ -1618,8 +1617,8 @@ function lyRenderHead() {
         : '');
 }
 function lySectionMeta(s) {
-  const parts = [lyPlural(s.sung.length, 'line')];
-  if (s.header?.bars != null) parts.push(lyPlural(s.header.bars, 'bar'));
+  const parts = [uiCount(s.sung.length, 'line')];
+  if (s.header?.bars != null) parts.push(uiCount(s.header.bars, 'bar'));
   if (s.header?.meter) parts.push(s.header.meter);
   if (s.returnOf) parts.push(`Same as ${s.returnOf.title}`);
   else if (s.uses > 1) parts.push(`Used ${s.uses} times`);
@@ -1685,10 +1684,10 @@ function lyRenderSong(items) {
           lyMenuItem('ly-add-section', 'Other name…', 'pencil', ''),
         { cls: 'cm-btn ly-add' }
       ) +
-      `<p class="ly-totals">${esc(lyPlural(model.sung.length, 'line'))} · ${
+      `<p class="ly-totals">${esc(uiCount(model.sung.length, 'line'))} · ${
         allBars
           ? esc(
-              lyPlural(
+              uiCount(
                 bars.reduce((t, s) => t + s.header.bars, 0),
                 'bar'
               )
@@ -1703,7 +1702,7 @@ function lyRenderSong(items) {
       'Structure & story',
       'file-text',
       model.sections.length
-        ? `${[...new Set(model.sections.map((s) => s.base))].join(' – ')} · ${lyPlural(model.sections.length, 'section')}`
+        ? `${[...new Set(model.sections.map((s) => s.base))].join(' – ')} · ${uiCount(model.sections.length, 'section')}`
         : 'No sections yet',
       'violet',
     ],
@@ -1726,11 +1725,11 @@ function lyRenderSong(items) {
         const rel = lySetupOf(model, 'relation')[0];
         if (rel) bits.push(rel.value);
         const g = lySetupOf(model, 'rhyme groups').flatMap((d) => lyParseGroups(d.value));
-        if (g.length) bits.push(lyPlural(g.length, 'link'));
+        if (g.length) bits.push(uiCount(g.length, 'link'));
         if (lySetupOf(model, 'title').length) bits.push('title');
         if (lySetupOf(model, 'hook').length) bits.push('hook');
         const w = lySetupOf(model, 'require').length + lySetupOf(model, 'avoid').length;
-        if (w) bits.push(lyPlural(w, 'word rule'));
+        if (w) bits.push(uiCount(w, 'word rule'));
         return bits.join(' · ') || 'Nothing declared';
       })(),
       'pink',
@@ -1743,7 +1742,7 @@ function lyRenderSong(items) {
         const r = lySetupOf(model, 'reading');
         const need = r.filter((x) => x.state !== 'declared').length;
         return r.length
-          ? `${lyPlural(r.length - need, 'reading')} chosen${need ? ` · ${need} open` : ''}`
+          ? `${uiCount(r.length - need, 'reading')} chosen${need ? ` · ${need} open` : ''}`
           : 'No readings declared';
       })(),
       'blue',
@@ -1766,7 +1765,7 @@ function lyPlanHtml() {
     return `<div class="ly-pad">${uiEmptyState({ title: 'No writer plan yet', text: 'Plans come from the writer: it sweeps seeds, screens rhyme pairs and then draws a plan. An inspection-only plan can be looked at but cannot qualify a production song.', actions: lyBtn('new-lyrics', 'New song with the writer', 'sparkles', { cls: '' }) })}</div>`;
   const steps = w
     ? [
-        ['Sweep', w.sweeps?.length ? `${lyPlural(w.sweeps.length, 'sweep')}` : ''],
+        ['Sweep', w.sweeps?.length ? `${uiCount(w.sweeps.length, 'sweep')}` : ''],
         ['Screen', w.screen ? 'done' : ''],
         ['Plan', w.plan ? 'done' : ''],
         ['Grade', w.grade ? 'done' : ''],
@@ -1843,10 +1842,10 @@ function lyRenderDoc(items, current) {
   if (prefs.setupRows.get() && model.setup.length)
     html += `<div class="ly-setup-block"><div class="ly-block-label">${icon('settings', 14)}<span>Declared for the writer</span>${lyBtn('ly-tool', 'Edit', '', { id: 'rhymes', cls: 'ly-link-btn' })}</div><ul>${model.setup.map((d) => `<li>${esc(d.raw.slice(1, -1).replace(/^SETUP\s+—\s+/i, ''))}</li>`).join('')}</ul></div>`;
   for (const s of model.sections) {
-    const meta = [lyPlural(s.sung.length, 'line')];
+    const meta = [uiCount(s.sung.length, 'line')];
     if (s.header?.bars != null || s.header?.meter)
       meta.push(
-        `${s.header.bars != null ? lyPlural(s.header.bars, 'bar') : ''}${s.header.meter ? `${s.header.bars != null ? ' of ' : ''}${s.header.meter}` : ''}${s.header.pickup ? `, ${s.header.pickup}` : ''}`
+        `${s.header.bars != null ? uiCount(s.header.bars, 'bar') : ''}${s.header.meter ? `${s.header.bars != null ? ' of ' : ''}${s.header.meter}` : ''}${s.header.pickup ? `, ${s.header.pickup}` : ''}`
       );
     const ret = s.returnOf
       ? lyBtn('ly-goto', `Same as ${s.returnOf.title}`, 'repeat', {
@@ -1895,7 +1894,7 @@ function lyRenderStatus() {
       left = [
         row.section?.title,
         `Line ${row.n}`,
-        lyPlural(lyWordCount(row.text), 'word'),
+        uiCount(lyWordCount(row.text), 'word'),
         word && `Word: ${word}`,
       ]
         .filter(Boolean)
@@ -1910,14 +1909,14 @@ function lyRenderStatus() {
     left = [
       row.section?.title,
       `Line ${row.n}`,
-      lyPlural(lyWordCount(row.text), 'word'),
-      readings && lyPlural(readings, 'reading'),
+      uiCount(lyWordCount(row.text), 'word'),
+      readings && uiCount(readings, 'reading'),
     ]
       .filter(Boolean)
       .join(' · ');
   } else left = 'Select a line to see its tools';
   $ui('ly-status').innerHTML =
-    `<span>${esc(left)}</span><span>${esc(`${lyPlural(model.sung.length, 'line')} · ${lyPlural(model.sections.length, 'section')}`)}</span>`;
+    `<span>${esc(left)}</span><span>${esc(`${uiCount(model.sung.length, 'line')} · ${uiCount(model.sections.length, 'section')}`)}</span>`;
 }
 
 // ── Review: one active decision at a time ─────────────────────────────────
@@ -1952,7 +1951,7 @@ function lyItemHtml(item, count, index) {
   if (item.text) html += `<p class="ly-item-text">${esc(item.text)}</p>`;
   if (item.original !== undefined) {
     const n = item.decision.n;
-    html += `<div class="ly-compare"><div class="ly-orig"><span>Original</span><p>${esc(item.original)}</p></div><div class="ly-sugg"><span>Suggested</span><p>${esc(item.proposal)}</p></div></div><p class="ly-meta">${esc(`${lyPlural(lyWordCount(item.original), 'word')} → ${lyPlural(lyWordCount(item.proposal), 'word')}`)}</p>`;
+    html += `<div class="ly-compare"><div class="ly-orig"><span>Original</span><p>${esc(item.original)}</p></div><div class="ly-sugg"><span>Suggested</span><p>${esc(item.proposal)}</p></div></div><p class="ly-meta">${esc(`${uiCount(lyWordCount(item.original), 'word')} → ${uiCount(lyWordCount(item.proposal), 'word')}`)}</p>`;
     if (out?.state === 'failed')
       html += `<div class="ly-outcome" data-tone="danger" role="alert">${icon('circle-alert', 16)}<span><strong>Not applied.</strong> ${esc(out.message)}</span></div>`;
     if (own !== undefined)
@@ -2036,7 +2035,7 @@ function lyRenderReview(itemsIn) {
           : 'No notes.';
     html += `<div class="ly-pad">${uiEmptyState({ title: `No ${LY_TONES[LY.reviewTab].label.toLowerCase()}`, text, actions: LY.model.sung.length ? lyBtn('ly-ask-review', 'Ask the writer to review', 'sparkles', { cls: '' }) : '' })}</div>`;
   }
-  html += `<button type="button" class="ly-row" data-ui="ly-tool" data-id="checks">${icon('circle-check', 18)}<span><strong>All checks & coverage</strong><small>${esc(`${lyPlural(counts.issue, 'issue')} · ${counts.input} need input · ${lyPlural(counts.note, 'note')}`)}</small></span>${icon('chevron-right', 16)}</button>`;
+  html += `<button type="button" class="ly-row" data-ui="ly-tool" data-id="checks">${icon('circle-check', 18)}<span><strong>All checks & coverage</strong><small>${esc(`${uiCount(counts.issue, 'issue')} · ${counts.input} need input · ${uiCount(counts.note, 'note')}`)}</small></span>${icon('chevron-right', 16)}</button>`;
   const rec = lyRecoveryState();
   if (rec.attention || rec.busy)
     html += `<button type="button" class="ly-row" data-ui="ly-pane" data-id="history" data-tone="${rec.busy ? 'info' : 'warning'}">${icon(rec.busy ? 'loader' : 'triangle-alert', 18)}<span><strong>${rec.busy ? 'Writer running' : 'Earlier run interrupted'}</strong><small>${rec.busy ? 'Its progress stays in the writer conversation.' : 'Accepted work is kept; open History to recover it safely.'}</small></span><span class="ly-row-link">Open history</span>${icon('arrow-right', 16)}</button>`;
@@ -2112,7 +2111,7 @@ function lyRenderHistory() {
     card(
       'warning',
       'triangle-alert',
-      `Parked with ${lyPlural((lyric.open || []).length, 'open line')}`,
+      `Parked with ${uiCount((lyric.open || []).length, 'open line')}`,
       'The run stopped with lines unresolved. The next step is a rewritten draft for those lines.',
       lyBtn('ly-pane', 'Continue in the writer', 'message-circle', {
         id: 'writer',
@@ -2137,7 +2136,7 @@ function lyRenderHistory() {
       status.tone || 'info',
       status.tone === 'success' ? 'circle-check' : 'file-text',
       `Last writer reply: ${status.word}`,
-      `${new Date(run.at).toLocaleTimeString()} · ${accepted ? `accepted draft of ${lyPlural(accepted.length, 'line')}` : 'no draft in this reply'}${run.base ? '' : ' · asked about an unknown draft'}.`,
+      `${new Date(run.at).toLocaleTimeString()} · ${accepted ? `accepted draft of ${uiCount(accepted.length, 'line')}` : 'no draft in this reply'}${run.base ? '' : ' · asked about an unknown draft'}.`,
       accepted && !lySame(accepted, lySungTexts(LY.model))
         ? lyBtn('ly-review-run', 'Review its changes', 'circle-alert', {
             cls: 'cm-btn cm-btn-outline',
@@ -2300,7 +2299,7 @@ function lyPlacementHtml(model) {
       return `<tr data-place="${r.n}"><th scope="row">${r.n}</th><td class="ly-cell-text">${esc(r.text)}</td><td><input class="cm-input ly-num-in" inputmode="numeric" data-p="bar" value="${p.bar ?? ''}" placeholder="—" aria-label="Line ${r.n} bar"></td><td><input class="cm-input ly-num-in" inputmode="decimal" data-p="beat" value="${p.beat ?? ''}" placeholder="—" aria-label="Line ${r.n} starting beat"></td><td><input class="cm-input ly-num-in" inputmode="decimal" data-p="duration" value="${p.duration ?? ''}" placeholder="—" aria-label="Line ${r.n} duration in beats"></td></tr>`;
     })
     .join('');
-  return `<details class="cm-accordion ly-placement"${have.size || LY.picks.placementOpen ? ' open' : ''}><summary>Line placement (advanced) ${have.size ? lyStatus('success', `${lyPlural(have.size, 'line')} placed`) : lyStatus('', 'Not declared')}</summary><p class="ly-note">Where each line sits: its bar, the beat it starts on and how many beats it lasts. Declared only — nothing here derives placement from the words or assumes a tempo. Lines left empty stay undeclared.${span ? ` ${esc(sec.title)} spans bars ${span[0]}–${span[1]} by its header.` : ''}</p><div class="ly-form"><label class="ly-label" for="ly-place-sec">Section</label><select class="cm-select" id="ly-place-sec">${secs.map((x) => `<option value="${x.index}"${x.index === k ? ' selected' : ''}>${esc(x.title)}</option>`).join('')}</select></div><div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Line</th><th>Text</th><th>Bar</th><th>Beat</th><th>Beats long</th></tr></thead><tbody>${rows}</tbody></table></div><div class="ly-actions">${lyBtn('ly-place-save', 'Save placement', 'check', { id: k, cls: 'cm-btn cm-btn-tonal' })}</div><p class="ly-note" id="ly-place-error" role="alert"></p></details>`;
+  return `<details class="cm-accordion ly-placement"${have.size || LY.picks.placementOpen ? ' open' : ''}><summary>Line placement (advanced) ${have.size ? lyStatus('success', `${uiCount(have.size, 'line')} placed`) : lyStatus('', 'Not declared')}</summary><p class="ly-note">Where each line sits: its bar, the beat it starts on and how many beats it lasts. Declared only — nothing here derives placement from the words or assumes a tempo. Lines left empty stay undeclared.${span ? ` ${esc(sec.title)} spans bars ${span[0]}–${span[1]} by its header.` : ''}</p><div class="ly-form"><label class="ly-label" for="ly-place-sec">Section</label><select class="cm-select" id="ly-place-sec">${secs.map((x) => `<option value="${x.index}"${x.index === k ? ' selected' : ''}>${esc(x.title)}</option>`).join('')}</select></div><div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Line</th><th>Text</th><th>Bar</th><th>Beat</th><th>Beats long</th></tr></thead><tbody>${rows}</tbody></table></div><div class="ly-actions">${lyBtn('ly-place-save', 'Save placement', 'check', { id: k, cls: 'cm-btn cm-btn-tonal' })}</div><p class="ly-note" id="ly-place-error" role="alert"></p></details>`;
 }
 function lyMelodyHtml(model) {
   const d = lySetupOf(model, 'melody')[0];
@@ -2328,7 +2327,7 @@ function lyMelodyHtml(model) {
 <p class="ly-note">One repeating monophonic phrase, sung once per line. The writer plans meter, phrase length and subdivision from it. It is an instruction, not a recording: pitch, underlay and performance are not certified by any grade.</p>
 <div class="ly-form"><label class="ly-label" for="ly-mel-meter">Meter, beat groups, bars per line and ticks per beat</label><input class="cm-input ly-num-in" id="ly-mel-meter" placeholder="4/4" value="${esc(draft.meter)}" aria-label="Meter"><input class="cm-input ly-num-in" id="ly-mel-groups" placeholder="2+2" value="${esc(draft.groups)}" aria-label="Beat groups (2s and 3s)"><input class="cm-input ly-num-in" id="ly-mel-bars" type="number" min="1" placeholder="bars" value="${esc(draft.bars)}" aria-label="Bars per line"><select class="cm-select" id="ly-mel-sub" aria-label="Ticks per beat">${['1', '2', '4'].map((v) => `<option${draft.subdivision === v ? ' selected' : ''}>${v}</option>`).join('')}</select></div>
 <div class="ly-form"><label class="ly-label" for="ly-mel-events">Events in order: hertz:ticks, or rest:ticks</label><input class="cm-input" id="ly-mel-events" placeholder="440:4 rest:2 493.9:2 440:8" value="${esc(draft.events)}"></div>
-<p class="ly-note" id="ly-mel-status" role="status">${esc(parsed?.error || (m ? `${m.notes.reduce((t, n) => t + n.ticks, 0)} ticks · ${lyPlural(m.notes.filter((n) => n.pitch_hz !== null).length, 'note')}, ${lyPlural(m.notes.filter((n) => n.pitch_hz === null).length, 'rest')}` : ''))}</p>
+<p class="ly-note" id="ly-mel-status" role="status">${esc(parsed?.error || (m ? `${m.notes.reduce((t, n) => t + n.ticks, 0)} ticks · ${uiCount(m.notes.filter((n) => n.pitch_hz !== null).length, 'note')}, ${uiCount(m.notes.filter((n) => n.pitch_hz === null).length, 'rest')}` : ''))}</p>
 <div class="ly-actions">${lyBtn('ly-melody-save', 'Save melody', 'check', { cls: 'cm-btn cm-btn-tonal' })}${d ? lyBtn('ly-melody-clear', 'Remove melody', 'trash-2', { cls: 'cm-btn' }) : ''}</div></details>`;
 }
 function lyToolPronunciation(model) {
@@ -2674,7 +2673,7 @@ async function lyConfirmReset() {
   if (chatState.busy || !(lyLiveWaiting(lyric) || lyric?.parked)) return true;
   const saved = !!(chatState.continuationId || chatState.pending);
   const what = lyric.parked
-    ? `The writer’s run is parked with ${lyPlural((lyric.open || []).length, 'open line')}.`
+    ? `The writer’s run is parked with ${uiCount((lyric.open || []).length, 'open line')}.`
     : 'The writer is waiting for your answer.';
   const ok = await confirmDialog({
     title: 'Start a new writer conversation?',
@@ -2836,11 +2835,7 @@ const LY_ACTIONS = {
       (lySetupOf(LY.model, 'title')[0]?.value || app.workspaceName || 'lyrics')
         .replace(/[^\w\- ]+/g, '')
         .trim() || 'lyrics';
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([lyDraft().value], { type: 'text/plain;charset=utf-8' }));
-    a.download = name + '.txt';
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    uiDownload(name + '.txt', lyDraft().value, 'text/plain;charset=utf-8');
   },
   'ly-import'() {
     lyCloseMenus();
@@ -3480,7 +3475,7 @@ function lyFindUpdate() {
   if (LY.find.at >= hits.length) LY.find.at = 0;
   $ui('ly-find-count').textContent = LY.find.q
     ? hits.length
-      ? `${LY.find.at + 1} of ${lyPlural(hits.length, 'line')}`
+      ? `${LY.find.at + 1} of ${uiCount(hits.length, 'line')}`
       : 'No matches'
     : '';
   return hits;
@@ -3635,7 +3630,7 @@ function lyWire(surface) {
   // and a waiting question shows as soon as the writer is idle.
   const dock = $ui('chat-dock');
   let busy = chatState.busy;
-  if (dock && typeof MutationObserver === 'function')
+  if (dock)
     new MutationObserver(() => {
       if (chatState.busy === busy) return;
       busy = chatState.busy;
@@ -3643,7 +3638,7 @@ function lyWire(surface) {
     }).observe(dock, { attributes: true, attributeFilter: ['class'] });
   // The shell hands every writer reply to uiReceiveReply; read it after.
   const shellReceive = window.uiReceiveReply;
-  if (typeof shellReceive === 'function' && !shellReceive.lyWrapped) {
+  if (!shellReceive.lyWrapped) {
     const wrapped = function (payload, request) {
       const result = shellReceive.apply(this, arguments);
       try {

@@ -1,5 +1,5 @@
 /* exported renderInstrumentDiscovery, uiInspectInstrument */
-/* global $ui, CODEX_IMAGE_MANIFEST, uiEmptyState, uiFind, uiFocus, uiAddInstrument, FamName, INSTRUMENT_FILTER_PILLS, Catalog, ChainItem, Inst, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, PREFACE_CAT_ORDER, loadPrefaceRecent, makeCard, normalizeSearch, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, passesInstrumentFilter, suggestPrefaceForCard, traditionCardOpts, uiButton, uiNavigate, uiRegisterPage */
+/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiTabIndex */
 /* Instrument page. Owned by the Instrument page worker; see docs/ui-foundation.md.
 
    Three columns over the Your recipe dock: the catalogue (families, classes,
@@ -61,18 +61,11 @@ const IP_TABS = [
   ['chain', 'Signal chain', 'link'],
   ['stack', 'Output', 'eye'],
 ];
-const IP_FORMATS = [
-  ['rich', 'Rich'],
-  ['tags', 'Tags'],
-  ['prose', 'Prose'],
-  ['compact', 'Compact'],
-];
 const ipHuman = (s) => {
   const t = String(s || '').replaceAll('_', ' ');
   return t.charAt(0).toUpperCase() + t.slice(1);
 };
 const ipPill = (id) => INSTRUMENT_FILTER_PILLS.find((p) => p.id === id);
-const ipCount = (n, one, many = one + 's') => n.toLocaleString('en') + ' ' + (n === 1 ? one : many);
 
 // ── Images ── references/_image_manifest.json (openly licensed image links),
 // inlined by the build as CODEX_IMAGE_MANIFEST. An id without an entry, no
@@ -104,7 +97,7 @@ function ipCredit(id, { link = false } = {}) {
 function ipLoadManifest() {
   // Inlined at build time (null until the manifest exists): no request, and
   // the same on file:// as on the site.
-  IP.manifest = typeof CODEX_IMAGE_MANIFEST !== 'undefined' ? CODEX_IMAGE_MANIFEST : null;
+  IP.manifest = CODEX_IMAGE_MANIFEST;
 }
 
 // ── Catalogue ──
@@ -126,9 +119,6 @@ function ipSorted(list) {
     return list.sort((a, b) => (b.parts || []).length - (a.parts || []).length || byName(a, b));
   return list.sort(byName);
 }
-function ipDestinations() {
-  return [...new Set(app.cards.map((c) => c.traditionId).filter(Boolean))];
-}
 function ipDest() {
   return $ui('instrument-destination')?.value || '';
 }
@@ -140,7 +130,7 @@ function ipDestName(dest = ipDest()) {
 function ipDestinationOptions(value) {
   return (
     `<option value="">Independent instrument</option>` +
-    ipDestinations()
+    uiRecipeGenres()
       .map(
         (id) =>
           `<option value="${esc(id)}"${id === value ? ' selected' : ''}>${esc(Tradition(id)?.name || id)}</option>`
@@ -152,7 +142,7 @@ function ipSyncDestination() {
   const dest = $ui('instrument-destination');
   if (!dest) return false;
   const before = dest.value,
-    known = ipDestinations();
+    known = uiRecipeGenres();
   // The recipe's per-genre "Add instrument" sets app._addToTradition and brings
   // the user here: that genre is offered even before it holds a card.
   const pending = app._addToTradition || '';
@@ -179,7 +169,7 @@ function renderInstrumentDiscovery() {
     fam = INSTRUMENT_FAMILIES.find((f) => f.id === UI.instrumentFamily);
   const filtered = ipSorted(INSTRUMENTS.filter((i) => ipMatches(i, { q, filters })));
   const scope = INSTRUMENTS.filter((i) => ipMatches(i, { q, family: '', cls: '', filters }));
-  $ui('ip-total').textContent = ipCount(INSTRUMENTS.length, 'instrument');
+  $ui('ip-total').textContent = uiCount(INSTRUMENTS.length, 'instrument');
   host.dataset.view = IP.view?.get() || 'list';
   host.classList.toggle('ip-cats-open', IP.catsOpen);
   host.innerHTML = ipRenderCategories(scope, q, filters) + ipRenderList(filtered, fam, q, filters);
@@ -267,14 +257,14 @@ function ipRenderList(filtered, fam, q, filters) {
     .map((i) => {
       const parts = (i.parts || []).length;
       const current = UI.instrumentPreview === i.id;
-      return `<div class="ip-row"${current ? ' aria-current="true"' : ''}><button type="button" class="ip-row-main" data-ui="instrument-inspect" data-id="${esc(i.id)}" aria-label="${esc(i.name)}: configure before adding">${ipImage(i.id, 44)}<span class="ip-row-text"><span class="ip-row-name">${esc(i.name)}</span><span class="ip-row-meta">${esc(FamName(i.family))} · ${esc(ipHuman(i.class))} · ${ipCount(parts, 'customizable part')}</span>${ipCredit(i.id)}</span></button>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i.id)}" aria-label="Add ${esc(i.name)} with catalog defaults to ${esc(dest)}" data-tooltip="Adds with catalog defaults to ${esc(dest)}"`)}</div>`;
+      return `<div class="ip-row"${current ? ' aria-current="true"' : ''}><button type="button" class="ip-row-main" data-ui="instrument-inspect" data-id="${esc(i.id)}" aria-label="${esc(i.name)}: configure before adding">${ipImage(i.id, 44)}<span class="ip-row-text"><span class="ip-row-name">${esc(i.name)}</span><span class="ip-row-meta">${esc(FamName(i.family))} · ${esc(ipHuman(i.class))} · ${uiCount(parts, 'customizable part')}</span>${ipCredit(i.id)}</span></button>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i.id)}" aria-label="Add ${esc(i.name)} with catalog defaults to ${esc(dest)}" data-tooltip="Adds with catalog defaults to ${esc(dest)}"`)}</div>`;
     })
     .join('');
   const more =
     filtered.length > UI.limit
       ? `<div class="ip-more-row"><span>Showing ${Math.min(UI.limit, filtered.length).toLocaleString('en')} of ${filtered.length.toLocaleString('en')}</span>${uiButton('more', 'Show more', 'chevron-down', 'class="cm-btn cm-btn-outline"')}</div>`
       : '';
-  return `<section class="ip-list" aria-labelledby="ip-list-title">${crumbs}<div class="ip-list-head"><h2 id="ip-list-title">${esc(title)}</h2><span class="ip-list-count" role="status">${ipCount(filtered.length, 'instrument')}</span>${controls}</div>${classChips}${active}<div class="ip-rows">${rows}</div>${more}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</section>`;
+  return `<section class="ip-list" aria-labelledby="ip-list-title">${crumbs}<div class="ip-list-head"><h2 id="ip-list-title">${esc(title)}</h2><span class="ip-list-count" role="status">${uiCount(filtered.length, 'instrument')}</span>${controls}</div>${classChips}${active}<div class="ip-rows">${rows}</div>${more}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</section>`;
 }
 // No results says which constraints are in force and offers to lift each one.
 // Conflicting properties are named when the catalogue never has them together.
@@ -284,7 +274,7 @@ function uiInstrumentNoResults(q, fam) {
   if (q) why.push('the search “' + $ui('instrument-search').value.trim() + '”');
   if (fam)
     why.push(UI.instrumentClass ? ipHuman(UI.instrumentClass) : 'the ' + fam.name + ' family');
-  if (filters.size) why.push(ipCount(filters.size, 'sound property', 'sound properties'));
+  if (filters.size) why.push(uiCount(filters.size, 'sound property', 'sound properties'));
   const on = [...filters];
   const clashes = [];
   for (let a = 0; a < on.length; a++)
@@ -505,7 +495,7 @@ function ipRenderParts(inst) {
               : ''
           }</div>`
         : '';
-      return `<section class="ip-part${open ? ' is-open' : ''}"><h3 class="ip-part-head"><button type="button" data-ui="ip-part" data-id="${esc(part.id)}" aria-expanded="${open}" data-ip-key="part:${esc(part.id)}"><span class="ip-part-name">${esc(part.name || ipHuman(part.id))}</span><span class="ip-part-value${cur ? '' : ' is-unset'}">${cur ? esc(cur.name) : 'Not set'}${pinned ? ' · your choice' : ''}</span><span class="ip-part-count">${ipCount(part.variants.length, 'option')}</span>${icon('chevron-down', 16)}</button></h3>${body}</section>`;
+      return `<section class="ip-part${open ? ' is-open' : ''}"><h3 class="ip-part-head"><button type="button" data-ui="ip-part" data-id="${esc(part.id)}" aria-expanded="${open}" data-ip-key="part:${esc(part.id)}"><span class="ip-part-name">${esc(part.name || ipHuman(part.id))}</span><span class="ip-part-value${cur ? '' : ' is-unset'}">${cur ? esc(cur.name) : 'Not set'}${pinned ? ' · your choice' : ''}</span><span class="ip-part-count">${uiCount(part.variants.length, 'option')}</span>${icon('chevron-down', 16)}</button></h3>${body}</section>`;
     })
     .join('');
 }
@@ -518,22 +508,22 @@ function ipRenderMore(inst, part, expanded, cur) {
 // search predicate and recently-used list. Only the target differs: a pick
 // configures the preview card instead of a recipe card.
 function ipPrefaceChip(e, grouped) {
-  const g = typeof prefaceGlyphsHTML === 'function' ? prefaceGlyphsHTML(e, 15, grouped) : '';
+  const g = prefaceGlyphsHTML(e, 15, grouped);
   return `<button type="button" class="cm-chip ip-pchip" data-ui="ip-preface" data-id="${esc(e.id)}" aria-pressed="${IP.card.preface === e.id}"${e.note ? ` data-tooltip="${esc(e.note)}"` : ''}>${g}<span>${esc(e.id)}</span></button>`;
 }
 function ipPrefaceCategory(cat, list, open) {
-  return `<details class="ip-pcat" data-ip-pcat="${esc(cat)}"${open ? ' open' : ''}><summary data-ip-key="pcat:${esc(cat)}">${typeof prefaceCatGlyphHTML === 'function' ? prefaceCatGlyphHTML(cat, 16) : ''}<span class="ip-pcat-name">${esc(cat)}</span><span class="ip-pcat-count">${list.length}</span></summary>${open ? `<div class="ip-pcat-items">${list.map((e) => ipPrefaceChip(e, true)).join('')}</div>` : ''}</details>`;
+  return `<details class="ip-pcat" data-ip-pcat="${esc(cat)}"${open ? ' open' : ''}><summary data-ip-key="pcat:${esc(cat)}">${prefaceCatGlyphHTML(cat, 16)}<span class="ip-pcat-name">${esc(cat)}</span><span class="ip-pcat-count">${list.length}</span></summary>${open ? `<div class="ip-pcat-items">${list.map((e) => ipPrefaceChip(e, true)).join('')}</div>` : ''}</details>`;
 }
 function ipRenderCharacter() {
   const card = IP.card;
   const suggested = suggestPrefaceForCard(card);
-  const lex = typeof PREFACE_LEXICON !== 'undefined' ? PREFACE_LEXICON : [];
+  const lex = PREFACE_LEXICON;
   const byId = (id) => lex.find((e) => e.id === id);
   const q = normalizeSearch(IP.prefQuery);
   const matches = (e) =>
     !q || normalizeSearch(e.id).includes(q) || normalizeSearch(e.note || '').includes(q);
-  const groups = typeof prefaceGroups === 'function' ? prefaceGroups() : {};
-  const order = typeof PREFACE_CAT_ORDER !== 'undefined' ? PREFACE_CAT_ORDER : Object.keys(groups);
+  const groups = prefaceGroups();
+  const order = PREFACE_CAT_ORDER;
   let total = 0;
   const cats = order
     .map((cat) => {
@@ -542,16 +532,13 @@ function ipRenderCharacter() {
       if (!list.length) return '';
       // While searching every category with a hit is open, as in the editor.
       if (q)
-        return `<section class="ip-pcat ip-pcat-hit"><h4>${typeof prefaceCatGlyphHTML === 'function' ? prefaceCatGlyphHTML(cat, 16) : ''}<span class="ip-pcat-name">${esc(cat)}</span><span class="ip-pcat-count">${list.length}</span></h4><div class="ip-pcat-items">${list.map((e) => ipPrefaceChip(e, true)).join('')}</div></section>`;
+        return `<section class="ip-pcat ip-pcat-hit"><h4>${prefaceCatGlyphHTML(cat, 16)}<span class="ip-pcat-name">${esc(cat)}</span><span class="ip-pcat-count">${list.length}</span></h4><div class="ip-pcat-items">${list.map((e) => ipPrefaceChip(e, true)).join('')}</div></section>`;
       return ipPrefaceCategory(cat, list, IP.pcats.has(cat));
     })
     .join('');
-  const recent =
-    !q && typeof loadPrefaceRecent === 'function'
-      ? loadPrefaceRecent().map(byId).filter(Boolean)
-      : [];
+  const recent = q ? [] : loadPrefaceRecent().map(byId).filter(Boolean);
   const sug = suggested && suggested !== card.preface ? byId(suggested) : null;
-  return `<div class="ip-block"><p class="ip-current"><span class="ip-label">Character</span><strong>${esc(card.preface || 'None')}</strong><span class="ip-muted">${card.prefaceAuto === false ? 'chosen' : 'automatic, from the parts'}</span></p>${card.prefaceAuto === false ? uiButton('ip-auto', 'Back to automatic', 'refresh-cw', 'class="cm-btn cm-btn-outline"') : ''}<p class="ip-help">Picking a character re-derives the parts, tuning, room and chain toward it (the same cascade as the editor). What moved is listed under Your changes.</p>${sug ? `<div class="ip-suggest"><span class="ip-label">Suggested for this sound</span>${ipPrefaceChip(sug, false)}</div>` : ''}<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" id="ip-pref-q" data-ip-key="pref-q" value="${esc(IP.prefQuery)}" placeholder="Search ${lex.length.toLocaleString('en')} characters (bitter, dreamy, haunted…)" aria-label="Search characters"></label><div class="ip-pref-browser" role="group" aria-label="Browse characters by category"><div class="ip-pref-bar"><span class="ip-muted" role="status">${q ? ipCount(total, 'match', 'matches') : `${lex.length.toLocaleString('en')} characters · ${order.length} categories`}</span>${q ? '' : uiButton('ip-pcat-all', 'Expand all', 'chevron-down', 'class="ip-link" data-id="all"') + uiButton('ip-pcat-all', 'Collapse all', 'chevron-right', 'class="ip-link" data-id="none"')}</div>${recent.length ? `<div class="ip-pref-recent"><span class="ip-label">Recently used</span><div class="ip-pcat-items">${recent.map((e) => ipPrefaceChip(e, false)).join('')}</div></div>` : ''}${cats}${q && !total ? `<p class="ip-muted">No character matches “${esc(IP.prefQuery)}”.</p>` : ''}</div></div>`;
+  return `<div class="ip-block"><p class="ip-current"><span class="ip-label">Character</span><strong>${esc(card.preface || 'None')}</strong><span class="ip-muted">${card.prefaceAuto === false ? 'chosen' : 'automatic, from the parts'}</span></p>${card.prefaceAuto === false ? uiButton('ip-auto', 'Back to automatic', 'refresh-cw', 'class="cm-btn cm-btn-outline"') : ''}<p class="ip-help">Picking a character re-derives the parts, tuning, room and chain toward it (the same cascade as the editor). What moved is listed under Your changes.</p>${sug ? `<div class="ip-suggest"><span class="ip-label">Suggested for this sound</span>${ipPrefaceChip(sug, false)}</div>` : ''}<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" id="ip-pref-q" data-ip-key="pref-q" value="${esc(IP.prefQuery)}" placeholder="Search ${lex.length.toLocaleString('en')} characters (bitter, dreamy, haunted…)" aria-label="Search characters"></label><div class="ip-pref-browser" role="group" aria-label="Browse characters by category"><div class="ip-pref-bar"><span class="ip-muted" role="status">${q ? uiCount(total, 'match', 'matches') : `${lex.length.toLocaleString('en')} characters · ${order.length} categories`}</span>${q ? '' : uiButton('ip-pcat-all', 'Expand all', 'chevron-down', 'class="ip-link" data-id="all"') + uiButton('ip-pcat-all', 'Collapse all', 'chevron-right', 'class="ip-link" data-id="none"')}</div>${recent.length ? `<div class="ip-pref-recent"><span class="ip-label">Recently used</span><div class="ip-pcat-items">${recent.map((e) => ipPrefaceChip(e, false)).join('')}</div></div>` : ''}${cats}${q && !total ? `<p class="ip-muted">No character matches “${esc(IP.prefQuery)}”.</p>` : ''}</div></div>`;
 }
 function ipEnvSource() {
   // The recipe renders ONE environment: the first card that has one
@@ -619,7 +606,7 @@ function ipRenderChain() {
 }
 function ipRenderOutput() {
   const text = compileStack(IP.card, IP.fmt);
-  return `<div class="ip-block"><div class="cm-segmented" role="group" aria-label="Output format">${IP_FORMATS.map(([id, label]) => `<button type="button" data-ui="ip-format" data-id="${id}" aria-pressed="${IP.fmt === id}">${label}</button>`).join('')}</div><p class="ip-help">This instrument on its own, as it would be added. The whole recipe's output is in Your recipe's preview.</p><pre class="ip-out" aria-label="${esc(IP.fmt)} output">${text ? esc(text) : 'Nothing configured yet.'}</pre><div class="ip-out-foot"><span class="ip-muted">${text.length.toLocaleString('en')} characters</span>${uiButton('ip-copy', 'Copy', 'copy', 'class="cm-btn cm-btn-outline"')}</div></div>`;
+  return `<div class="ip-block"><div class="cm-segmented" role="group" aria-label="Output format">${RECIPE_FORMATS.map(([id, label]) => `<button type="button" data-ui="ip-format" data-id="${id}" aria-pressed="${IP.fmt === id}">${label}</button>`).join('')}</div><p class="ip-help">This instrument on its own, as it would be added. The whole recipe's output is in Your recipe's preview.</p><pre class="ip-out" aria-label="${esc(IP.fmt)} output">${text ? esc(text) : 'Nothing configured yet.'}</pre><div class="ip-out-foot"><span class="ip-muted">${text.length.toLocaleString('en')} characters</span>${uiButton('ip-copy', 'Copy', 'copy', 'class="cm-btn cm-btn-outline"')}</div></div>`;
 }
 function ipEditKey(e) {
   return e.k === 'part'
@@ -717,7 +704,7 @@ function ipFilterList(input) {
     if (hit) shown++;
   }
   const count = input.parentElement.querySelector('.ip-filter-count');
-  if (count) count.textContent = q ? ipCount(shown, 'match', 'matches') : '';
+  if (count) count.textContent = q ? uiCount(shown, 'match', 'matches') : '';
 }
 function ipOverlay() {
   // Narrow layouts show the inspector over the catalogue.
@@ -801,7 +788,7 @@ async function ipAddConfigured() {
           ? ` as an independent instrument (${ipDestName(dest)} could not be loaded)`
           : '') +
       (configured.length
-        ? ` with ${ipCount(configured.length, 'changed setting')}. Undo removes it.`
+        ? ` with ${uiCount(configured.length, 'changed setting')}. Undo removes it.`
         : ' with catalog defaults.'),
   });
   if (added) renderInstrumentDiscovery();
@@ -920,16 +907,11 @@ uiRegisterPage({
     // Tabs: arrow keys move between them (WAI-ARIA tabs pattern).
     surface.addEventListener('keydown', (e) => {
       const tab = e.target.closest?.('[role="tab"][data-ui="ip-tab"]');
-      if (!tab || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
-      e.preventDefault();
+      if (!tab) return;
       const ids = IP_TABS.map((t) => t[0]);
-      let i = ids.indexOf(tab.dataset.id);
-      i =
-        e.key === 'Home'
-          ? 0
-          : e.key === 'End'
-            ? ids.length - 1
-            : (i + (e.key === 'ArrowRight' ? 1 : -1) + ids.length) % ids.length;
+      const i = uiTabIndex(e.key, ids.indexOf(tab.dataset.id), ids.length);
+      if (i < 0) return;
+      e.preventDefault();
       IP.tab = ids[i];
       ipRenderInspector('tab:' + ids[i]);
     });
@@ -1041,7 +1023,7 @@ uiRegisterPage({
       ipRenderInspector('part:' + id);
     },
     'ip-preface'(id) {
-      if (typeof recordPrefaceRecent === 'function') recordPrefaceRecent(id);
+      recordPrefaceRecent(id);
       ipChoose({ k: 'preface', id }, 'pref-q');
     },
     'ip-pcat-all'(id) {
