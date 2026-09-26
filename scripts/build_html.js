@@ -375,7 +375,8 @@ for (const f of SOURCE_FILES) {
 // Instrument photographs: references/_image_manifest.json (openly licensed
 // image links, produced by scripts/fetch_image_manifest.js) reduced to what the
 // Instrument page shows — per instrument id the thumbnail, licence, credit and
-// source page, as [thumb, licence, credit, sourcePage]. Low-confidence matches
+// source page, as [thumb, licence, credit, sourcePage, fullImage?] (the full
+// image only when it is not the thumb itself). Low-confidence matches
 // (a stand-in of the same kind, e.g. a generic frame drum for an obscure one)
 // are kept: the owner prefers a representative picture to the glyph. Picks a
 // review found wrong are dropped upstream via REJECTED in
@@ -392,6 +393,10 @@ function compactImageManifest() {
     if (typeof e.id !== 'string' || typeof thumb !== 'string' || !/^https:\/\//.test(thumb))
       continue;
     out[e.id] = [thumb, e.license_raw || e.license || '', e.credit || '', e.source_page || ''];
+    // The photo lightbox (uiLightbox) shows the full image when no larger
+    // Commons rendition of the thumb loads.
+    if (typeof e.image_url === 'string' && /^https:\/\//.test(e.image_url) && e.image_url !== thumb)
+      out[e.id].push(e.image_url);
   }
   const ids = Object.keys(out).sort();
   return {
