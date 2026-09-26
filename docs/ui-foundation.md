@@ -67,12 +67,16 @@ URL; adds nothing; an explicit `#section` wins).
 |---|---|
 | `uiNavigate(view, { push })` | Show a section. `push: true` for a user's own navigation, so Back/Forward step between sections. |
 | `uiAddGenre(id)` | Add a genre's configured ensemble to the shared recipe through the canonical import. Resolves `{ added, expected }`; refuses a second concurrent addition; the toast offers Undo (refused if later changes followed) or Retry. |
-| `uiAddInstrument(id, { configure, message })` | Add one instrument through the canonical picker path, to the destination selected in the Instrument page's "Add to". Resolves to the added card, or `null` when nothing was added. `configure(card)` runs on the new card before its history entry (one Undo removes the configured addition); `message(card)` words the success toast. |
+| `uiAddInstrument(id, { configure, message, destination })` | Add one instrument through the canonical picker path, to `destination` (a genre id, or `''` for an independent instrument; left out, the Instrument page's "Add to"). Resolves to the added card, or `null` when nothing was added. `configure(card)` runs on the new card before its history entry (one Undo removes the configured addition); `message(card)` words the success toast. |
 | `uiOpenEditor(cardId)` | Open the shared editor on a card. |
 | `uiSaveLyrics()` | Commit `#lyrics-draft` to the session (`app.lyrics`) and autosave. |
 | `uiNewTask(domain)`, `uiChatOpen()` | Start or open the one AI writer (`recipe`, `lyrics`, `lyrics-edit`). |
 | `uiButton(action, label, icon, extra)` | A labelled button with an icon; `data-ui` routes the click. |
 | `listenLink(name, instrument)` | The external YouTube search link ("Listen"). There is no native player. |
+| `uiRecipeGenres()` | The genres in Your recipe, in first-card order. |
+| `uiCount(n, one, many)` | A count and its noun (`1 genre`, `2,588 traditions`). |
+| `uiTabIndex(key, index, count)` | WAI-ARIA tab roving: the tab a Left/Right/Home/End key moves to, or `-1`. |
+| `uiDownload(name, text, type)` | Save text as a downloaded file. |
 | `uiEmptyState({ title, text, actions, tone })` | Empty, no-results and failure blocks (`tone: 'danger'`), with recovery actions. |
 | `uiFocus(el)`, `uiFind(selector, key, value)` | Focus return helpers (match by `dataset`, no `CSS.escape`). |
 | `showToast(message, kind, action)` | `kind` `success`/`error`; `action` `{ label, run }` adds one button. |
