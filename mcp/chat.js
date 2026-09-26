@@ -103,7 +103,8 @@ export const CHAT_LIMITS = {
   // a mood, a room, an era, a piece of gear, and which instrument each applies
   // to — so a user with a real brief had to cut it down before asking. At the
   // deployed model's input price 5000 chars is ~1250 tokens, and even re-sent on
-  // every hop of a 12-step turn that is under $0.002, against the per-turn
+  // every hop of a ~~12-step~~ **50-step (2026-09-26)** turn that is ~~under
+  // $0.002~~ **about $0.016**, against the per-turn
   // ceiling `maxTurnUsd` enforces (~~$0.10~~ **$2.50** since 2026-09-02).
   // The cap that actually bounds spend is that one, not this.
   maxMessageChars: num('CHAT_MAX_MESSAGE', 5000),
@@ -168,6 +169,18 @@ export const CHAT_LIMITS = {
 export function chatCeilings(limits = CHAT_LIMITS, agent = LIMITS, model = undefined) {
   const budget = turnBudget(agent, model === undefined ? DEFAULT_MODEL : model);
   const perTurn = budget === null ? 'UNPRICED_MODEL' : budget.capBinds ? 'maxTurnUsd' : 'maxSteps';
+  // Which ceiling a worst-case turn meets first ON EACH SURFACE: a lyric hop
+  // requests ~16x the output tokens of a recipe hop, so one answer for both
+  // would describe neither (`turnBudget().surfaces`, 2026-09-26).
+  const perTurnBySurface =
+    budget === null
+      ? null
+      : Object.fromEntries(
+          Object.entries(budget.surfaces).map(([name, s]) => [
+            name,
+            s.capBinds ? 'maxTurnUsd' : 'maxSteps',
+          ])
+        );
   const turnCapExceedsDay = agent.maxTurnUsd > limits.dailyUsd;
   // AND THE DAY HAS TWO CEILINGS OF ITS OWN, WHICH IS THE SAME QUESTION ONE
   // AXIS OVER. `dailyUsd` bounds the day in dollars and `maxTurnsPerDay`
@@ -181,7 +194,8 @@ export function chatCeilings(limits = CHAT_LIMITS, agent = LIMITS, model = undef
     perTurn: budget === null ? 'UNPRICED_MODEL' : 'perRequestReservation',
     admissionStrategy: 'per-model-request-reservation',
     dayBudgetScope: 'chat-and-kitchen-mcp',
-    outerModelEstimate: budget === null ? null : { perTurn, ...budget, scope: 'outer-model-only' },
+    outerModelEstimate:
+      budget === null ? null : { perTurn, perTurnBySurface, ...budget, scope: 'outer-model-only' },
     turnUsd: agent.maxTurnUsd,
     dailyUsd: limits.dailyUsd,
     turnCapExceedsDay,
@@ -793,8 +807,14 @@ export async function createChatRouter({
       const envelope = { history: run.history, workspace: run.workspace };
       if (run.lyric != null) envelope.lyric = run.lyric;
       envelope.task = run.task;
+      // A recipe the SERVER finished the turn with (the step limit or another
+      // limit ended it first — `stopped_detail.finish`) is delivered even when
+      // it is the uncustomized starting recipe: the stop note says exactly
+      // that, and an empty hand is the one answer this surface never gives.
       const lastRecipe =
-        run.task?.requiresCustomization && !run.task?.customized
+        run.task?.requiresCustomization &&
+        !run.task?.customized &&
+        run.stoppedDetail?.finish?.by !== 'server'
           ? null
           : [...run.calls].reverse().find((c) => c.recipe && !c.isError);
       res.json({
@@ -869,6 +889,9 @@ export async function createChatRouter({
           // by the connector for wandering off a suspended run.
           declarations_carried: c.declarations_carried ?? false,
           refused_by_connector: c.refused_by_connector ?? false,
+          // The recipe the server rendered or seeded to finish a turn a limit
+          // ended (runTurn's `finishRecipe`) — not a call the model made.
+          by_server: c.by_server === true,
           // M-235: the proposal record, copied by name as the M-216 fields are.
           asked: c.asked ?? null,
           folded: c.folded ?? null,

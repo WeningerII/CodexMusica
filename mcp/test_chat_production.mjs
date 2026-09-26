@@ -1126,6 +1126,130 @@ test('recipe creation needs a successful customization; explicit browse can retu
   }
 });
 
+test('a recipe turn the step limit ends reaches the page as the recipe it reached, and continues', async () => {
+  // The owner's report, end to end through /chat and the real connector: a
+  // model that only searches used every hop and the page showed "No
+  // customized Rich recipe has been produced yet." The last hops now carry
+  // mode ANY over the finishing tools; this mock ignores that (as a provider
+  // might), so its late searches are refused and the SERVER seeds the recipe
+  // from the tradition its own search found — delivered in `recipe`, with the
+  // workspace the page's "Use recipe" button needs and a note saying what it is.
+  const router = await createChatRouter({
+    buildServer: buildRealServer,
+    Client,
+    InMemoryTransport,
+    apiKey: 'offline',
+    limits: { ...CHAT_LIMITS, perIpPerMinute: 1000, perIpPerHour: 1000 },
+    turnLimits: { ...LIMITS, maxSteps: 4 },
+  });
+  const app = express();
+  app.use(express.json({ limit: '2mb' }));
+  app.use(router);
+  const server = app.listen(0, '127.0.0.1');
+  await once(server, 'listening');
+  const post = async (body) => {
+    const res = await nativeFetch(`http://127.0.0.1:${server.address().port}/chat`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    return { status: res.status, body: await res.json() };
+  };
+  const bodies = [];
+  let script = () => [];
+  globalThis.fetch = async (_url, request) => {
+    const body = JSON.parse(request.body);
+    bodies.push(body);
+    return response(script(body, bodies.length - 1));
+  };
+  try {
+    script = (_body, hop) =>
+      hop === 0
+        ? [
+            fc('search_catalog', { query: 'delta blues' }),
+            fc('search_prefaces', { query: 'brooding' }),
+          ]
+        : [fc('search_prefaces', { query: 'hushed intimate' })];
+    const first = await post({
+      message: 'Folk gospel with deep delta blues, intimate low male voice with preacher-like hush',
+      task: { domain: 'recipe' },
+    });
+    assert.equal(first.status, 200);
+    const p = first.body;
+    assert.equal(bodies.length, 4, 'every hop of the ceiling was taken');
+    assert.deepEqual(
+      bodies.map((b) => b.toolConfig.functionCallingConfig.mode),
+      ['AUTO', 'AUTO', 'ANY', 'ANY']
+    );
+    assert.deepEqual(bodies[3].toolConfig.functionCallingConfig.allowedFunctionNames, [
+      'start_recipe',
+      'edit_recipe',
+      'render_recipe',
+    ]);
+    assert.equal(p.stopped, 'MAX_STEPS');
+    assert.equal(typeof p.recipe, 'string');
+    assert.equal(p.reply, p.recipe);
+    assert.ok(p.recipe.length > 0 && p.recipe.length <= 1000);
+    assert.notEqual(p.reply, 'No customized Rich recipe has been produced yet.');
+    assert.deepEqual(p.stopped_detail.finish, {
+      by: 'server',
+      action: 'seed',
+      tradition: 'delta_blues',
+      applied: false,
+      customized: false,
+    });
+    assert.match(p.stopped_detail.note, /^Reached the step limit before a recipe was started/);
+    assert.equal(p.stopped_detail.maxSteps, 4);
+    const last = p.tools.at(-1);
+    assert.equal(last.name, 'start_recipe');
+    assert.equal(last.by_server, true);
+    assert.equal(last.error, null);
+    assert.ok(p.tools.slice(0, -1).every((t) => t.by_server === false));
+    assert.deepEqual(
+      p.tools.filter((t) => t.not_run).map((t) => t.name),
+      ['search_prefaces', 'search_prefaces'],
+      'the two searches on finishing hops were refused, not run'
+    );
+    assert.ok(Array.isArray(p.cards) && p.cards.length > 0);
+    assert.ok(Array.isArray(p.workspace?.cards) && p.workspace.cards.length > 0);
+    assert.equal(p.task.customized, false);
+
+    // The signed envelope carries the seeded workspace: the next message edits it.
+    const brooding = p.tools.find((t) => t.name === 'search_prefaces' && !t.not_run);
+    assert.ok(brooding, 'the first hop searched prefaces');
+    bodies.length = 0;
+    script = (_body, hop) =>
+      hop === 0
+        ? [
+            fc('edit_recipe', {
+              edits: [{ action: 'set_preface', card: 'voice', preface: 'brooding' }],
+            }),
+          ]
+        : [{ text: 'Done.' }];
+    const next = await post({
+      message: 'Make the voice brooding.',
+      history: p.history,
+      workspace: p.workspace,
+      task: p.task,
+      sig: p.sig,
+    });
+    assert.equal(next.status, 200);
+    assert.ok(
+      bodies[0].contents.some(
+        (c) => c.role === 'model' && c.parts.some((part) => part.text?.includes(p.recipe))
+      ),
+      "the model's next turn is told what the user received"
+    );
+    assert.equal(next.body.stopped, null);
+    assert.equal(next.body.task.customized, true);
+    assert.equal(next.body.reply, next.body.recipe);
+    assert.notEqual(next.body.recipe, p.recipe);
+  } finally {
+    globalThis.fetch = nativeFetch;
+    await new Promise((resolve) => server.close(resolve));
+  }
+});
+
 test('durable continuation bypasses wire-size limits and admits exactly one successor', async () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'chat-continuation-'));
   const store = new JobStore(dir);

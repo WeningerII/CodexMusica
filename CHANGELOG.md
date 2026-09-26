@@ -6,6 +6,38 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — a recipe chat turn always ends with a recipe; the tool-round ceiling is 50
+
+A recipe brief with seven descriptors ("Folk gospel with deep delta blues …
+fingerpicked acoustic guitar, fiddle, and brush-played snare") drew fourteen
+tool calls — one search per descriptor, one model round each — and ended on
+"No customized Rich recipe has been produced yet." beside "Stopped after the
+maximum number of tool calls". Three repairs in `mcp/gemini_agent.js`, recipe
+surface only. **The last two rounds of a recipe turn can only finish it**:
+Gemini is sent `functionCallingConfig` mode `ANY` limited to `start_recipe`,
+`edit_recipe` and `render_recipe`, the round's instruction says how many steps
+are left and to apply what was found and render now, and any other call on
+those rounds is refused without running. **A recipe turn a limit still ends
+without a recipe is finished by the server** — the step limit, the turn's
+dollar cap, or a provider that stopped answering usably: it renders the
+current workspace through the same connector tool, host format and
+1,000-character ceiling, or, with no workspace yet, seeds one from the
+best-ranked tradition the turn's own `search_catalog` calls returned. The
+call is on the record as `by_server`, the reply and `recipe` carry it, and
+`stopped_detail` says what it is (`finish`, `note`: "Reached the step limit —
+this is the recipe so far; ask for more changes to refine it.", or that it is
+the starting recipe when no change had landed); the page shows that note
+instead of "no recipe". A model that chooses to end without customizing is
+still `RECIPE_UNFINISHED`. **Fewer rounds**: every call in one model response
+already ran in that round, and the recipe instructions now ask for all of a
+request's lookups in one step, then one batched `edit_recipe`. On the owner's
+ruling the ceiling (`LIMITS.maxSteps`) is **50** rounds for recipes and lyrics
+alike; the $2.50 turn cap and 40-minute wall are unchanged, and
+`turnBudget().surfaces` / `/chat/status` report each surface on its own output
+budget (a worst-case recipe turn is $0.78 and bounded by the step count; a
+worst-case lyric turn meets the dollar cap at 40 rounds). Tests in
+`mcp/test.mjs` and `mcp/test_chat_production.mjs`.
+
 ### Changed — the app ships as one `<script>` per source module, off the size ceiling
 
 `codex.html` carried the whole application as a single `// ─── runtime ───`
