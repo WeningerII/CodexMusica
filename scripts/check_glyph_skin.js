@@ -17,10 +17,21 @@
 // Objects that are legitimately yellow (🔥 🌽 👑 🌙) are outside both signals
 // and stay untouched, which is the point: the convention is about skin, not
 // about yellow.
+//
+// It also checks that every glyph a table names still draws. The stores share
+// artwork (scripts/_glyph_stores.js): a tradition or instrument codepoint that is
+// byte-identical in NAV_GLYPH_SVGS is stored only there, so losing it there
+// would blank that glyph with every other check still green.
 
 const fs = require('fs');
 const path = require('path');
 const { inFaceRange, NON_HUMAN_SKIN_YELLOW } = require('./_glyph_skin.js');
+const {
+  readGlyphStores,
+  glyphReferences,
+  reliedOnNav,
+  unresolvedGlyphs,
+} = require('./_glyph_stores.js');
 
 const APP_FILE = path.join(__dirname, '..', 'src', 'app.js');
 const NAV_FILE = path.join(__dirname, '..', 'references', '09_nav_glyphs.js');
@@ -35,6 +46,36 @@ function storeFrom(file, constName) {
   } catch {
     return null;
   }
+}
+
+// Every codepoint TRADITION_GLYPH_CP, EMOJI_REGISTRY, FAMILY_FALLBACK_EMOJI,
+// FAMILY_HEADER_EMOJI and NAV_GLYPH_CP name resolves in its own store or in
+// NAV_GLYPH_SVGS. Returns the failures and the control's result.
+function checkResolution() {
+  const stores = readGlyphStores();
+  const refs = glyphReferences(stores);
+  const relied = reliedOnNav(stores);
+  // Control: plant the failure this check exists for — the one shared copy
+  // gone — and require the check to name every reference to it. Planted on
+  // the codepoint that most references reach only through NAV_GLYPH_SVGS.
+  const plantCp = relied.size
+    ? Array.from(relied.keys()).sort((a, b) => relied.get(b).length - relied.get(a).length)[0]
+    : refs[0].cp;
+  const planted = { ...stores };
+  for (const store of ['TRADITION_GLYPH_SVGS', 'EMOJI_SVGS', 'NAV_GLYPH_SVGS']) {
+    planted[store] = { ...stores[store] };
+    delete planted[store][plantCp];
+  }
+  const expected = refs.filter((r) => r.cp === plantCp).length;
+  const caught = unresolvedGlyphs(planted).filter((r) => r.cp === plantCp).length;
+  const failures = unresolvedGlyphs(stores).map(
+    (r) => `${r.table}:${r.key} → ${r.cp} — no artwork in ${r.own} or NAV_GLYPH_SVGS`
+  );
+  if (!expected || caught !== expected)
+    failures.push(
+      `control: removing ${plantCp} should blank ${expected} reference(s), the check saw ${caught}`
+    );
+  return { failures, refs: refs.length, shared: relied.size, plantCp, caught };
 }
 
 function main() {
@@ -87,8 +128,22 @@ function main() {
     process.exit(1);
   }
 
+  const res = checkResolution();
+  if (res.failures.length) {
+    console.error(
+      `check_glyph_skin: FAIL — ${res.failures.length} glyph reference(s) draw nothing`
+    );
+    res.failures.slice(0, 30).forEach((f) => console.error('  ✗', f));
+    console.error(
+      '  a codepoint missing from its own store must be in NAV_GLYPH_SVGS; run node scripts/build_nav_glyphs.js'
+    );
+    process.exit(1);
+  }
+
   console.log(
-    `check_glyph_skin: OK — ${checked} glyphs across ${stores.length} store(s) follow the skin convention`
+    `check_glyph_skin: OK — ${checked} glyphs across ${stores.length} store(s) follow the skin convention; ` +
+      `${res.refs} glyph references resolve (${res.shared} codepoints only through NAV_GLYPH_SVGS; ` +
+      `control: removing ${res.plantCp} blanks ${res.caught})`
   );
 }
 

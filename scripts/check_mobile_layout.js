@@ -82,8 +82,9 @@ const VIEWPORTS = [
 
 // Everything the desktop can do, keyed by what the USER is trying to do. Each
 // entry lists the controls that satisfy it; any one reachable control passes.
-// `inOverflow` marks capabilities allowed to live behind the #btn-more sheet
-// below 900px — the gate opens it and checks the proxy is really tappable.
+// A capability with no reachable control on screen gets a second look inside
+// the shell menu ([data-ui="menu"] → #ui-menu), which counts only when the menu
+// trigger is itself reachable (assertion C).
 const CAPABILITIES = [
   // The four sections of the workbench header. They are what a header that
   // stops fitting a phone loses first: below 900px the header is a grid whose
@@ -120,19 +121,16 @@ const CAPABILITIES = [
     id: 'save',
     label: 'save the workspace',
     sel: ['#btn-save', '[data-proxy="btn-save"]'],
-    inOverflow: true,
   },
   {
     id: 'saved',
     label: 'open saved workspaces',
     sel: ['#btn-saved', '#ui-menu [data-ui="saved"]'],
-    inOverflow: true,
   },
   {
     id: 'credits',
     label: 'open image credits',
     sel: ['#btn-attributions'],
-    inOverflow: true,
   },
 ];
 

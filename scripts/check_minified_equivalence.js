@@ -37,6 +37,11 @@
 //     rendered in every format. Catches the engine diverging.
 //   • Preface suggestion — the matcher that decides which named signature a
 //     word resolves to.
+//   • Stylesheets — since 2026-09-26 the CSS is squeezed too (minifyCss).
+//     jsdom keeps selector and media text verbatim, so it cannot tell a
+//     harmless dropped space from a lost descendant combinator. Chromium's
+//     CSSOM serializes every rule canonically, so every <style> block of the
+//     two builds must parse there to the same rules, rule for rule.
 //
 // WHY --embedded FOR BOTH: it makes each build self-contained, so this gate
 // compares minification against minification alone and needs no fetch shim.
@@ -208,6 +213,60 @@ const CAPTURE_PROBE = `
   return out;
 `;
 
+// Honour PLAYWRIGHT_BROWSERS_PATH the way the other browser gates do.
+function chromiumPath() {
+  const base = process.env.PLAYWRIGHT_BROWSERS_PATH;
+  if (!base || !fs.existsSync(base)) return undefined;
+  for (const d of fs.readdirSync(base)) {
+    if (!/^chromium-\d+$/.test(d)) continue;
+    const exe = path.join(base, d, 'chrome-linux', 'chrome');
+    if (fs.existsSync(exe)) return exe;
+  }
+  return undefined;
+}
+
+// Every <style> block of each page, parsed by Chromium and reprinted rule by
+// rule (a grouping rule's cssText includes its nested rules). Chromium
+// reprints standard declarations canonically but keeps a custom property's
+// value as the author wrote it, so whitespace the CSS grammar never reads —
+// runs, and space beside a comma or just inside parentheses — is folded on
+// both sides. Space BEFORE `(` is kept: `and (` vs `and(` is a real change.
+const canonCss = (t) =>
+  t
+    .replace(/\s+/g, ' ')
+    .replace(/\s*,\s*/g, ',')
+    .replace(/\(\s+/g, '(')
+    .replace(/\s+\)/g, ')');
+async function cssomOf(pages) {
+  const { chromium } = require('playwright');
+  const browser = await chromium.launch({
+    headless: true,
+    executablePath: chromiumPath(),
+    args: ['--no-sandbox', '--disable-dev-shm-usage'],
+  });
+  try {
+    const page = await browser.newPage();
+    const out = [];
+    for (const html of pages) {
+      const sheets = [...html.matchAll(/<style>([\s\S]*?)<\/style>/g)].map((m) => m[1]);
+      out.push(
+        await page.evaluate(
+          (texts) =>
+            texts.map((text) => {
+              const sheet = new globalThis.CSSStyleSheet(); // runs in the page
+              sheet.replaceSync(text);
+              return { bytes: text.length, rules: [...sheet.cssRules].map((r) => r.cssText) };
+            }),
+          sheets
+        )
+      );
+    }
+    return out;
+  } finally {
+    await browser.close();
+  }
+}
+
 function compare(label, a, b) {
   const sa = typeof a === 'string' ? a : JSON.stringify(a);
   const sb = typeof b === 'string' ? b : JSON.stringify(b);
@@ -276,6 +335,35 @@ function compare(label, a, b) {
     note(`compared ${Object.keys(a.catalog).length} traditions and ${a.counts.prefaces} prefaces`);
   }
 
+  // Stylesheets, in Chromium. The control check again: the minified CSS must
+  // be smaller, or --no-minify stopped opting the CSS out and this compares
+  // the squeezed sheets against themselves.
+  const [plainCss, minCss] = await cssomOf([plain, min]);
+  const cssBytes = (sheets) => sheets.reduce((n, x) => n + x.bytes, 0);
+  const cssRules = (sheets) => sheets.reduce((n, x) => n + x.rules.length, 0);
+  if (plainCss.length !== minCss.length || !plainCss.length) {
+    fail(`<style> block count differs or is zero (${plainCss.length} vs ${minCss.length})`);
+  } else if (cssBytes(plainCss) <= cssBytes(minCss)) {
+    fail(
+      `the control stylesheets are not larger than the minified ones ` +
+        `(${cssBytes(plainCss)} vs ${cssBytes(minCss)}) — the CSS is not being squeezed, or ` +
+        `--no-minify no longer opts it out`
+    );
+  } else {
+    for (const sheets of [plainCss, minCss])
+      for (const sheet of sheets) sheet.rules = sheet.rules.map(canonCss);
+    plainCss.forEach((sheet, i) =>
+      compare(
+        `<style> block ${i + 1} — ${sheet.rules.length} rules (Chromium CSSOM)`,
+        sheet.rules,
+        minCss[i].rules
+      )
+    );
+    note(
+      `stylesheets: ${cssRules(plainCss)} rules, ${cssBytes(plainCss)} -> ${cssBytes(minCss)} bytes`
+    );
+  }
+
   if (problems.length) {
     console.error(`\nMINIFIED EQUIVALENCE: FAIL — ${problems.length} difference(s):`);
     for (const p of problems) console.error('  ✗ ' + p);
@@ -290,7 +378,8 @@ function compare(label, a, b) {
   console.error(
     `\nMINIFIED EQUIVALENCE: PASS — the minified app matches the unminified one across ` +
       `${Object.keys(a.catalog).length} traditions, ${Object.keys(a.pickers).length} rendered surfaces, ` +
-      `${IMPORT_SAMPLE.length} imports, 4 recipe formats and ${PREFACE_QUERIES.length} preface queries.`
+      `${IMPORT_SAMPLE.length} imports, 4 recipe formats, ${PREFACE_QUERIES.length} preface queries ` +
+      `and ${cssRules(plainCss)} CSS rules parsed in Chromium.`
   );
 })().catch((e) => {
   console.error('check_minified_equivalence failed:', (e && e.stack) || e);

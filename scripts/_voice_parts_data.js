@@ -278,7 +278,6 @@ const TRADITION_VOICE_OVERRIDES = {
   'shomyo_japanese': { voice_articulation: 'narrative_voice', voice_speech_song: 'voice_ametrical_chant' },
   'japanese_gidayu_bushi': { voice_tradition: 'japanese_min_yo_tradition', voice_articulation: 'narrative_voice', voice_speech_song: 'voice_recitative_free_rhythm' },
   'chinese_kunqu_opera': { voice_tradition: 'chinese_classical_vocal_tradition', voice_articulation: 'melisma_voice' },
-  'jingju': { voice_tradition: 'chinese_classical_vocal_tradition', voice_articulation: 'melisma_voice' },
   'mandopop': { voice_tradition: 'chinese_classical_vocal_tradition' },
   'vietnamese_ca_tru': { voice_tradition: 'chinese_classical_vocal_tradition', voice_articulation: 'melisma_voice' },
   'vietnamese_quan_ho': { voice_articulation: 'call_response_voice', voice_speech_song: 'voice_syllabic_singing' },
@@ -290,7 +289,6 @@ const TRADITION_VOICE_OVERRIDES = {
   'thai_luk_thung': { voice_articulation: 'narrative_voice' },
   'thai_luk_krung': { voice_articulation: 'narrative_voice' },
   // Tibetan
-  'tibetan_gyuto': { voice_articulation: 'narrative_voice', voice_speech_song: 'voice_ametrical_chant' },
   'tibetan_ache_lhamo': { voice_articulation: 'narrative_voice' },
   'tibetan_yang_chant': { voice_articulation: 'narrative_voice', voice_speech_song: 'voice_ametrical_chant' },
   // Sami / Tuvan / Mongolian
@@ -299,10 +297,8 @@ const TRADITION_VOICE_OVERRIDES = {
   'sami_skolt_leudd': { voice_articulation: 'narrative_voice', voice_speech_song: 'voice_recitative_free_rhythm' },
   'sami_southern_vuelie': { voice_articulation: 'narrative_voice', voice_speech_song: 'voice_recitative_free_rhythm' },
   'tuvan_throat': { voice_tradition: 'khoomei_tuvan_tradition', voice_speech_song: 'voice_pure_vocalise' },
-  'inuit_katajjaq_games': { voice_tradition: 'inuit_katajjaq_tradition', voice_articulation: 'hocket_voice', voice_speech_song: 'voice_non_lexical_vocable' },
   // Mediterranean polyphony
   'sardinian_polyphony': { voice_tradition: 'mediterranean_demotic_tradition', voice_articulation: 'call_response_voice' },
-  'sardinian_cantu_a_tenore': { voice_tradition: 'mediterranean_demotic_tradition', voice_articulation: 'call_response_voice' },
   'corsican_paghjella': { voice_tradition: 'mediterranean_demotic_tradition', voice_articulation: 'call_response_voice' },
   'rebetiko': { voice_tradition: 'mediterranean_demotic_tradition', voice_articulation: 'melisma_voice' },
   // Iberian / Lusophone
@@ -320,7 +316,6 @@ const TRADITION_VOICE_OVERRIDES = {
   'hawaiian_oli_mele': { voice_tradition: 'polynesian_oli_tradition', voice_articulation: 'narrative_voice', voice_speech_song: 'voice_recitative_free_rhythm' },
   // Latin American
   'mariachi': { voice_articulation: 'narrative_voice', voice_speech_song: 'voice_syllabic_singing' },
-  'mariachi_traditional': { voice_articulation: 'narrative_voice', voice_speech_song: 'voice_syllabic_singing' },
   'ranchera': { voice_articulation: 'narrative_voice', voice_speech_song: 'voice_syllabic_singing' },
   'corrido': { voice_articulation: 'narrative_voice', voice_speech_song: 'voice_syllabic_singing' },
   'andean_huayno': { voice_articulation: 'narrative_voice', voice_speech_song: 'voice_syllabic_singing' },
