@@ -160,6 +160,11 @@
   function byName(a, b) {
     return a.name.localeCompare(b.name, 'en');
   }
+  // A to Z by a shown label, case- and accent-insensitive: how a ranked list
+  // (a count, a distance, a match) orders its ties.
+  function az(a, b) {
+    return a.localeCompare(b, 'en', { sensitivity: 'base' });
+  }
   function esc(s) {
     return String(s)
       .replace(/&/g, '&amp;')
@@ -1078,9 +1083,10 @@
   function groupCounts(pts) {
     var counts = {};
     for (var i = 0; i < pts.length; i++) counts[pts[i].root] = (counts[pts[i].root] || 0) + 1;
+    // Largest first; a tie reads A to Z by the group's name, as shown.
     return Object.keys(counts)
       .sort(function (a, b) {
-        return counts[b] - counts[a] || (a < b ? -1 : 1);
+        return counts[b] - counts[a] || az(rootLabel(a), rootLabel(b));
       })
       .map(function (r) {
         return [r, counts[r]];
@@ -1528,7 +1534,7 @@
           return x[1] > 0.08;
         })
         .sort(function (a, b) {
-          return b[1] - a[1];
+          return b[1] - a[1] || byName(S.byId[a[0]], S.byId[b[0]]);
         })
         .slice(0, 6)
         .map(function (x) {
@@ -1542,7 +1548,9 @@
             return q.id !== p.id;
           })
           .sort(function (a, b) {
-            return Math.hypot(a.x - p.x, a.y - p.y) - Math.hypot(b.x - p.x, b.y - p.y);
+            return (
+              Math.hypot(a.x - p.x, a.y - p.y) - Math.hypot(b.x - p.x, b.y - p.y) || byName(a, b)
+            );
           });
       };
       var sameNode = p.node
@@ -2006,8 +2014,9 @@
       var r = p.region;
       (groups[r] = groups[r] || []).push(p);
     });
+    // Largest region first; a tie reads A to Z. Rows in a region are A to Z.
     var names = Object.keys(groups).sort(function (a, b) {
-      return groups[b].length - groups[a].length;
+      return groups[b].length - groups[a].length || az(a, b);
     });
 
     var html =
@@ -2133,15 +2142,24 @@
     }
     if (S.thread) exitThread();
     if (ql && S.routeIndex !== null) clearRoute();
+    // A name that is exactly the search comes first; the rest read A to Z, not
+    // in the catalog's declaration order (as the Genre page's search did).
+    var exact = function (p) {
+      return p.name.toLowerCase() === ql ? 0 : 1;
+    };
     var all = !ql
       ? []
-      : S.pts.filter(function (p) {
-          return (
-            p.name.toLowerCase().indexOf(ql) >= 0 ||
-            p.id.indexOf(ql.replace(/\s+/g, '_')) >= 0 ||
-            p.place.toLowerCase().indexOf(ql) >= 0
-          );
-        });
+      : S.pts
+          .filter(function (p) {
+            return (
+              p.name.toLowerCase().indexOf(ql) >= 0 ||
+              p.id.indexOf(ql.replace(/\s+/g, '_')) >= 0 ||
+              p.place.toLowerCase().indexOf(ql) >= 0
+            );
+          })
+          .sort(function (a, b) {
+            return exact(a) - exact(b) || byName(a, b);
+          });
     var ids = new Set(
       all.map(function (p) {
         return p.id;

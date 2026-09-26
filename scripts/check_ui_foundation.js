@@ -41,11 +41,22 @@
 //      environment names the card the recipe really renders it from and opens
 //      the editor there; the format selector drives the preview.
 //
+//   A TO Z
+//   N. At a desktop and a phone width, every row of All genres, a Browse
+//      branch, All instruments, a family, a family's classes, a class and an
+//      instrument search reads A to Z by the name it shows, as before the
+//      redesign. Ranked lists keep their rank — a genre search its match tier,
+//      a sound target and Similar sounds their distance, the map key and the
+//      map's In view their group size, a map search an exact name first — and
+//      read A to Z within a tie. Curated orders (the taxonomy's categories,
+//      the instrument families, the starter recipes) are not this rule's to
+//      change.
+//
 // Usage: node scripts/check_ui_foundation.js [--html=codex.html]
 // Exit 0 if every assertion passes, 1 otherwise.
 
 'use strict';
-/* global document, window, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync */
+/* global document, window, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync, Catalog, INSTRUMENTS, normalizeSearch, renderGenreDiscovery, gpRenderMain, renderInstrumentDiscovery, computeDistance */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -103,6 +114,22 @@ function check(ok, message) {
   checks++;
   if (!ok) failures.push(message);
   return ok;
+}
+// The first place a list stops reading A to Z, or '' when it never does. A
+// ranked list passes { name, key } rows: key ascending comes first (a match
+// tier, a distance), and rows with the same key must be A to Z. The collation
+// is the app's: English, case- and accent-insensitive.
+function azBreak(rows) {
+  const az = (a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' });
+  const items = rows.map((r) => (typeof r === 'string' ? { name: r, key: 0 } : r));
+  for (let i = 1; i < items.length; i++) {
+    const a = items[i - 1],
+      b = items[i];
+    if (a.key > b.key) return `#${i} "${b.name}" ranks above "${a.name}" but follows it`;
+    if (a.key === b.key && az(a.name, b.name) > 0)
+      return `#${i} "${a.name}" comes before "${b.name}"`;
+  }
+  return '';
 }
 
 // Records data-theme at the moment <body> is inserted, before any script in the
@@ -775,6 +802,202 @@ async function loadDelta(page) {
       await ctx.close();
     }
 
+    // ── N. the lists read A to Z ─────────────────────────────────────────
+    // Read from the DOM, at a desktop and a phone width: what a reader scans.
+    stage = 'N. A to Z';
+    for (const vp of [
+      { name: 'desktop', opts: {} },
+      {
+        name: 'phone',
+        opts: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true },
+      },
+    ]) {
+      const { ctx, page } = await newPage(vp.opts);
+      await page.goto(url + '#genre');
+      await ready(page);
+      const where = (list) => `N. ${vp.name}: ${list}`;
+      // Every row of a list, not the first page of it.
+      const all = (render) =>
+        page.evaluate((fn) => {
+          UI.limit = 1e6;
+          ({ renderGenreDiscovery, gpRenderMain, renderInstrumentDiscovery })[fn]();
+        }, render);
+      const names = (sel) =>
+        page.$$eval(sel, (els) => els.map((e) => e.textContent.replace(/\s+/g, ' ').trim()));
+      // Similar sounds (the featured genre's, open on Start exploring) ranks by
+      // distance across the 13 characteristics; the same distance reads A to Z.
+      stage = `N. ${vp.name}: Similar sounds`;
+      const similar = await page.evaluate(() => {
+        const d = document.querySelector('#genre-detail');
+        if (!d) return [];
+        return [...d.querySelectorAll('#gp-panel-similar [data-ui="genre-select"]')].map((b) => ({
+          name: Tradition(b.dataset.id).name,
+          key: computeDistance(d.dataset.gpId, b.dataset.id),
+        }));
+      });
+      check(similar.length > 1, where('the featured genre lists no similar sounds'));
+      check(
+        azBreak(similar) === '',
+        where('Similar sounds is not A to Z at equal distance: ' + azBreak(similar))
+      );
+      stage = `N. ${vp.name}: All genres`;
+      await page.click('#genre-maintabs [data-ui="genre-view-tab"][data-id="all"]');
+      await all('renderGenreDiscovery');
+      const genres = await names('#genre-list .gp-row-name');
+      check(
+        genres.length === (await page.evaluate(() => Catalog.all().length)),
+        where(`All genres shows ${genres.length} rows, not the whole catalog`)
+      );
+      check(azBreak(genres) === '', where('All genres is not A to Z: ' + azBreak(genres)));
+      check(
+        /A to Z/.test(await page.textContent('#gp-count')),
+        where('All genres does not say it is A to Z')
+      );
+      stage = `N. ${vp.name}: a branch`;
+      await page.evaluate(() =>
+        document.querySelector('#genre-browse [data-ui="genre-branch"]').click()
+      );
+      await all('renderGenreDiscovery');
+      const branch = await names('#genre-list .gp-row-name');
+      check(branch.length > 1, where('a Browse branch lists no genres'));
+      check(azBreak(branch) === '', where('a Browse branch is not A to Z: ' + azBreak(branch)));
+      await page.evaluate(() =>
+        document.querySelector('#genre-list [data-ui="genre-all"]').click()
+      );
+      // Search ranks by where the query matches; within each tier, A to Z.
+      stage = `N. ${vp.name}: search`;
+      await page.getByLabel('Search genres').fill('blues');
+      await all('gpRenderMain');
+      const found = await page.evaluate(() => {
+        const q = normalizeSearch('blues');
+        return [...document.querySelectorAll('#genre-list .gp-row-name')].map((e) => {
+          const n = normalizeSearch(e.textContent);
+          return {
+            name: e.textContent,
+            key: n === q ? 0 : n.startsWith(q) ? 1 : n.includes(q) ? 2 : 3,
+          };
+        });
+      });
+      check(found.length > 1, where('a search for "blues" finds nothing'));
+      check(
+        azBreak(found) === '',
+        where('search results are not A to Z within a match tier: ' + azBreak(found))
+      );
+      await page.getByLabel('Search genres').fill('');
+      // A sound target ranks by distance; the same distance reads A to Z.
+      stage = `N. ${vp.name}: a sound target`;
+      await page.evaluate(() => document.querySelector('#genre-browse input[data-axis]').click());
+      await all('gpRenderMain');
+      const near = await page.evaluate(() => {
+        const input = document.querySelector('#genre-browse .gp-axis.is-applied input');
+        const axis = input.dataset.axis,
+          v = Number(input.value);
+        return [...document.querySelectorAll('#genre-list .gp-row')].map((row) => ({
+          name: row.querySelector('.gp-row-name').textContent,
+          key: Math.abs((Catalog.ext(row.dataset.gpId)?.axes?.[axis] ?? 0) - v),
+        }));
+      });
+      check(near.length > 1, where('a sound target lists no genres'));
+      check(
+        azBreak(near) === '',
+        where('sound-target results are not A to Z at equal distance: ' + azBreak(near))
+      );
+      await page.evaluate(() => document.querySelector('[data-ui="genre-sound-reset"]').click());
+      // Instrument: the catalogue, a family, a class and a search, by name.
+      stage = `N. ${vp.name}: Instrument`;
+      await page.click('button[data-view="instrument"]');
+      await all('renderInstrumentDiscovery');
+      const insts = await names('#instrument-body .ip-row-name');
+      check(
+        insts.length === (await page.evaluate(() => INSTRUMENTS.length)),
+        where(`All instruments shows ${insts.length} rows, not the whole catalogue`)
+      );
+      check(azBreak(insts) === '', where('All instruments is not A to Z: ' + azBreak(insts)));
+      for (const [label, sel] of [
+        ['a family', '#instrument-body [data-ui="instrument-family"][data-id="percussion"]'],
+        ['a class', '#instrument-body [data-ui="instrument-class"]'],
+      ]) {
+        await page.evaluate((s) => document.querySelector(s).click(), sel);
+        await all('renderInstrumentDiscovery');
+        const rows = await names('#instrument-body .ip-row-name');
+        check(rows.length > 1, where(`${label} lists fewer than two instruments`));
+        check(azBreak(rows) === '', where(`${label} is not A to Z: ` + azBreak(rows)));
+        // The family's classes, by the label on each chip (less its count).
+        const classes = (await names('#instrument-body [data-ui="instrument-class"]')).map((c) =>
+          c.replace(/ · [\d,]+$/, '')
+        );
+        check(classes.length > 1, where(`${label} offers fewer than two classes`));
+        check(
+          azBreak(classes) === '',
+          where(`the classes beside ${label} are not A to Z: ` + azBreak(classes))
+        );
+      }
+      await page.evaluate(() => document.querySelector('[data-ui="instrument-all"]')?.click());
+      await page.fill('#instrument-search', 'guitar');
+      await all('renderInstrumentDiscovery');
+      const guitars = await names('#instrument-body .ip-row-name');
+      check(guitars.length > 1, where('a search for "guitar" finds nothing'));
+      check(azBreak(guitars) === '', where('instrument search is not A to Z: ' + azBreak(guitars)));
+      // Map key: largest group first, a tie A to Z by the name shown. London
+      // has tied groups at this zoom; the world view is checked too.
+      for (const at of ['atlas.html', 'atlas.html?trad=acid_breaks']) {
+        stage = `N. ${vp.name}: map key at ${at}`;
+        await page.goto(base + at);
+        await page.waitForFunction(() => document.querySelector('#legend-key .key-row'), null, {
+          timeout: 60000,
+        });
+        await page.waitForTimeout(1500); // the deep link flies there
+        const key = await page.$$eval('#legend-key .key-row', (rows) =>
+          rows.map((r) => ({
+            name: r.querySelector('.key-name').textContent,
+            key: -Number(r.querySelector('.key-n').textContent),
+          }))
+        );
+        check(key.length > 1, where(`the map key at ${at} names fewer than two groups`));
+        check(
+          azBreak(key) === '',
+          where(`the map key at ${at} is not A to Z within a count: ` + azBreak(key))
+        );
+        // In view: largest region first, a tie A to Z; each region's rows A to Z.
+        const inView = await page.$$eval('#list .list-group', (groups) =>
+          groups.map((g) => ({
+            name: g.querySelector('.list-region > span').textContent,
+            key: -Number(g.querySelector('.list-region > .list-n').textContent),
+            rows: [...g.querySelectorAll('.rowname')].map((r) => r.textContent),
+          }))
+        );
+        check(inView.length > 0, where(`In view at ${at} lists no region`));
+        check(
+          azBreak(inView) === '',
+          where(`In view at ${at} is not A to Z within a count: ` + azBreak(inView))
+        );
+        for (const g of inView)
+          check(
+            azBreak(g.rows) === '',
+            where(`In view at ${at}: ${g.name} is not A to Z: ` + azBreak(g.rows))
+          );
+      }
+      // Map search: a name that is exactly the search first, then A to Z.
+      stage = `N. ${vp.name}: map search`;
+      await page.fill('#search', 'blues');
+      await page.waitForFunction(() => document.querySelector('#results .rowname'), null, {
+        timeout: 20000,
+      });
+      const mapHits = await page.$$eval('#results .rowname', (els) =>
+        els.map((e) => ({
+          name: e.textContent,
+          key: e.textContent.toLowerCase() === 'blues' ? 0 : 1,
+        }))
+      );
+      check(mapHits.length > 1, where('a map search for "blues" finds nothing'));
+      check(mapHits[0].key === 0, where('a map search for "blues" does not put Blues first'));
+      check(
+        azBreak(mapHits) === '',
+        where('map search results are not A to Z: ' + azBreak(mapHits))
+      );
+      await ctx.close();
+    }
+
     // ── K. a phone: the Recipe sheet leaves the map on screen ────────────
     stage = 'K. a phone';
     {
@@ -830,7 +1053,8 @@ async function loadDelta(page) {
       'reload restores, Undo/Redo, truthful autosave, layered Escape with focus return, ' +
       'Back/Forward, ?trad= once and below #section, remembered collapse + Reset layout, another tab ' +
       'reported, empty and no-results recovery, phone Map sheet, toast action leaves with the toast, ' +
-      'Your recipe on the right with its menus, truthful environment source and output format.'
+      'Your recipe on the right with its menus, truthful environment source and output format, ' +
+      'genre, instrument and map lists A to Z (within a tie when ranked) on desktop and phone.'
   );
   process.exit(0);
 })();
