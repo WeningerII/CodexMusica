@@ -21,8 +21,10 @@
 // per flagged line, several lines re-asked), putting the last replays near
 // 34 + 15 x 38 ≈ 600s. The budget is set AT that envelope rather than 2x
 // over it because the sum it feeds is already margin-checked one layer up:
-// the battery's turn deadline is maxSteps x this value, and the workflow's
-// own timeout carries the 2x. "Eventually free the box" (the constant's
+// the battery's turn deadline is ~~maxSteps x this value~~ the turn's own
+// wall (`LIMITS.maxTurnMs`) plus ONE of this value (M-258; maxSteps is 50
+// since 2026-09-26 and no longer enters it), and the workflow's own timeout
+// carries the 2x. "Eventually free the box" (the constant's
 // standing job since lyric_tools.js first declared it) still holds — the
 // bound is ten minutes, not never.
 export const DEFAULT_TOOL_BUDGET_MS = 600_000;

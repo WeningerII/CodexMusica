@@ -6,6 +6,46 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — a recipe chat turn always ends with a recipe; the tool-round ceiling is 50
+
+A recipe brief with seven descriptors ("Folk gospel with deep delta blues …
+fingerpicked acoustic guitar, fiddle, and brush-played snare") drew fourteen
+tool calls — one search per descriptor, one model round each — and ended on
+"No customized Rich recipe has been produced yet." beside "Stopped after the
+maximum number of tool calls". Recipe surface only, in `mcp/gemini_agent.js`:
+**the last two rounds of a recipe turn can only finish it** (Gemini
+`functionCallingConfig` mode `ANY` limited to `start_recipe`, `edit_recipe` and
+`render_recipe`, a round instruction saying how many steps are left, and any
+other call on those rounds refused without running). **A recipe turn the model
+did not end on a deliverable recipe is finished by the server** — whatever
+ended it: the step limit, the turn or day budget, the wall clock, a provider
+that stopped answering usably, a model that ignored the finishing rounds, or a
+model that answered in text (a question such as "Which fiddle?"). The server
+renders the current workspace through the same connector tool, host format and
+1,000-character ceiling, or, with no workspace yet, seeds one from the
+best-ranked tradition the turn's own `search_catalog` calls returned; the
+model's own text is kept beside the recipe. Only a cancelled request and a
+provider block are left alone, and only a turn with no workspace and no
+search hit ends without a recipe (the model's words are then the reply). The
+call is on the record as `by_server`, and `stopped_detail` says what the recipe
+is (`finish`, with `applied` meaning an edit landed in this turn, and `note`:
+"Reached the step limit — this is the recipe so far; ask for more changes to
+refine it.", or that no change landed this turn, or that it is the starting
+recipe); the page shows that note instead of "no recipe". **Owner-directed
+contract change:** a model that ends in text without customizing used to
+receive "No customized Rich recipe has been produced yet."; it now receives the
+recipe so far with its words and a `RECIPE_UNFINISHED` stop, and a text answer
+over a workspace an earlier turn customized is a finished turn. **Fewer
+rounds**: every call in one model response already ran in that round, and the
+recipe instructions now ask for all of a request's lookups in one step, then
+one batched `edit_recipe`. On the owner's ruling the ceiling
+(`LIMITS.maxSteps`) is **50** rounds for recipes and lyrics alike; the $2.50
+turn cap and 40-minute wall are unchanged, and `turnBudget().surfaces` /
+`/chat/status` report each surface on its own output budget (a worst-case
+recipe turn is $0.78 and bounded by the step count; a worst-case lyric turn
+meets the dollar cap at 40 rounds). Tests in `mcp/test.mjs`,
+`mcp/test_chat_production.mjs` and `scripts/check_workbench.js`.
+
 ### Changed — the app ships as one `<script>` per source module, off the size ceiling
 
 `codex.html` carried the whole application as a single `// ─── runtime ───`
