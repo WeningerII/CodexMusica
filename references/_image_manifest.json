@@ -29,7 +29,7 @@
     },
     "tradition": {
       "total": 2588,
-      "with_image": 2577,
+      "with_image": 2588,
       "by_source": {
         "wikidata_commons": 395,
         "enwiki_lead_image": 295,
@@ -37,7 +37,7 @@
         "openverse": 282,
         "wikidata_performer": 234,
         "wikidata_performer_manual": 415,
-        "commons_search": 594,
+        "commons_search": 605,
         "commons_depicts": 107,
         "europeana": 26,
         "wikidata_p18": 6,
@@ -47,9 +47,9 @@
         "artic_open_access": 4
       },
       "by_license": {
-        "CC BY-SA": 1351,
-        "Public Domain": 503,
-        "CC BY": 595,
+        "CC BY-SA": 1357,
+        "Public Domain": 504,
+        "CC BY": 599,
         "CC0": 128
       }
     }
@@ -22387,6 +22387,20 @@
       "matched_label": "American primitive guitar"
     },
     {
+      "id": "anadolu_rock",
+      "kind": "tradition",
+      "name": "Anadolu rock",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2021_09_15_Moda_Cem_Karaca_Heykeli.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/2021_09_15_Moda_Cem_Karaca_Heykeli.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/2021_09_15_Moda_Cem_Karaca_Heykeli.jpg/500px-2021_09_15_Moda_Cem_Karaca_Heykeli.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "HalitBaris",
+      "match_confidence": "low",
+      "matched_label": "File:2021 09 15 Moda Cem Karaca Heykeli.jpg (search: \"Cem Karaca\")"
+    },
+    {
       "id": "anarcho_punk_crass",
       "kind": "tradition",
       "name": "Anarcho-punk (Crass)",
@@ -26798,6 +26812,20 @@
       "credit": "bobistraveling via flickr",
       "match_confidence": "low",
       "matched_label": "Beòlach (Cape Breton) Folk Festival Richmond VA 20221008_001230532"
+    },
+    {
+      "id": "cape_breton_milling",
+      "kind": "tradition",
+      "name": "Cape Breton milling-frolic",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Big_Fiddle_of_the_Ceilidh_Sydney,_Nova_Scotia_CANADA_October_2010.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Big_Fiddle_of_the_Ceilidh_Sydney%2C_Nova_Scotia_CANADA_October_2010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Big_Fiddle_of_the_Ceilidh_Sydney%2C_Nova_Scotia_CANADA_October_2010.jpg/500px-Big_Fiddle_of_the_Ceilidh_Sydney%2C_Nova_Scotia_CANADA_October_2010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "Mark Seymour from Amherst, Nova Scotia, Canada",
+      "match_confidence": "low",
+      "matched_label": "File:Big Fiddle of the Ceilidh Sydney, Nova Scotia CANADA October 2010.jpg (search: \"Cape Breton fiddler\")"
     },
     {
       "id": "cape_jazz",
@@ -38737,6 +38765,34 @@
       "matched_label": "Charlotte, NC Hip Hop Editathon speakers and attendees.jpg (broadened search: hip hop producer)"
     },
     {
+      "id": "jeju_haenyeo_songs",
+      "kind": "tradition",
+      "name": "Jeju haenyeo songs",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Haenyeo_2.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Haenyeo_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Haenyeo_2.jpg/500px-Haenyeo_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0 kr",
+      "credit": "김형찬",
+      "match_confidence": "medium",
+      "matched_label": "File:Haenyeo 2.jpg"
+    },
+    {
+      "id": "jersey_club",
+      "kind": "tradition",
+      "name": "Jersey club",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Michel_de_Hey.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Michel_de_Hey.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Michel_de_Hey.jpg/500px-Michel_de_Hey.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "Eerio",
+      "match_confidence": "low",
+      "matched_label": "File:Michel de Hey.jpg (search: \"club DJ turntables\")"
+    },
+    {
       "id": "jewish_cantorial_recitative",
       "kind": "tradition",
       "name": "Jewish cantorial recitative (golden-age hazzanut)",
@@ -41177,6 +41233,20 @@
       "matched_label": "flickr: Tiki Room Audio Geeking (broadened query \"exotica music\")"
     },
     {
+      "id": "lounge_music",
+      "kind": "tradition",
+      "name": "Lounge (cocktail-bar mood music)",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Satellite_484_(cosmic_lounge).jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Satellite_484_%28cosmic_lounge%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Satellite_484_%28cosmic_lounge%29.jpg/500px-Satellite_484_%28cosmic_lounge%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Satellite 484",
+      "match_confidence": "low",
+      "matched_label": "File:Satellite 484 (cosmic lounge).jpg (search: \"lounge singer\")"
+    },
+    {
       "id": "lovers_rock",
       "kind": "tradition",
       "name": "Lovers' rock",
@@ -43199,6 +43269,20 @@
       "credit": "לידור חדידה (Lidor Hadida)",
       "match_confidence": "medium",
       "matched_label": "Sarit Hadad (Mizrahi music performer)"
+    },
+    {
+      "id": "mod_60s_british",
+      "kind": "tradition",
+      "name": "Mod (1960s British)",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Mods-_Shaping_a_Generation.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Mods-_Shaping_a_Generation.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Mods-_Shaping_a_Generation.jpg/500px-Mods-_Shaping_a_Generation.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "license": "CC BY",
+      "license_raw": "CC BY 2.0",
+      "credit": "It's No Game",
+      "match_confidence": "medium",
+      "matched_label": "File:Mods- Shaping a Generation.jpg"
     },
     {
       "id": "mod_revival",
@@ -46504,6 +46588,20 @@
       "matched_label": "File:Pacific Partnership 2024-1- Band Concert at Bethlehem Park (8180376).jpg (broadened query \"Palauan music\")"
     },
     {
+      "id": "palm_wine",
+      "kind": "tradition",
+      "name": "Palm-wine guitar",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Highlife_guitar.tif",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Highlife_guitar.tif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Highlife_guitar.tif/lossy-page1-500px-Highlife_guitar.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Dr clave",
+      "match_confidence": "low",
+      "matched_label": "File:Highlife guitar.tif (search: \"highlife music\")"
+    },
+    {
       "id": "palo_mayombe_mambo",
       "kind": "tradition",
       "name": "Palo Mayombe Kongo mambo ritual chant",
@@ -49348,6 +49446,20 @@
       "matched_label": "Luca Marenzio (madrigal composer)"
     },
     {
+      "id": "renaissance_sacred_polyphony",
+      "kind": "tradition",
+      "name": "Renaissance sacred polyphony (1450-1600)",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Carved_wood_Renaissance_choir_stalls,_Basel_Historical_Museum,_Basel,_Switzerland_julesvernex2.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Carved_wood_Renaissance_choir_stalls%2C_Basel_Historical_Museum%2C_Basel%2C_Switzerland_julesvernex2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Carved_wood_Renaissance_choir_stalls%2C_Basel_Historical_Museum%2C_Basel%2C_Switzerland_julesvernex2.jpg/500px-Carved_wood_Renaissance_choir_stalls%2C_Basel_Historical_Museum%2C_Basel%2C_Switzerland_julesvernex2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 4.0",
+      "credit": "Jules Verne Times Two",
+      "match_confidence": "medium",
+      "matched_label": "File:Carved wood Renaissance choir stalls, Basel Historical Museum, Basel, Switzerland julesvernex2.jpg (search: \"renaissance choir\")"
+    },
+    {
       "id": "repente_embolada",
       "kind": "tradition",
       "name": "Repente and embolada (NE Brazilian improvised)",
@@ -51523,6 +51635,20 @@
       "credit": "Anual",
       "match_confidence": "high",
       "matched_label": "sevillanas"
+    },
+    {
+      "id": "sfyria_antia",
+      "kind": "tradition",
+      "name": "Sfyria whistled language (Antia, Greece)",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:El_Silbo.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/El_Silbo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/El_Silbo.jpg/500px-El_Silbo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Akalvin",
+      "match_confidence": "medium",
+      "matched_label": "File:El Silbo.jpg (search: \"sfyria\")"
     },
     {
       "id": "sgija",
@@ -55161,6 +55287,20 @@
       "matched_label": "Moon Stream Concert @ Anime Weekend Atlanta '11 (Openverse/flickr, broadened L3 q=\"streaming pop music\")"
     },
     {
+      "id": "tillana",
+      "kind": "tradition",
+      "name": "Tillana (Carnatic concert-closer rhythmic showpiece)",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Bharata_Natyam_Performance_DS.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Bharata_Natyam_Performance_DS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Bharata_Natyam_Performance_DS.jpg/500px-Bharata_Natyam_Performance_DS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "license": "CC BY-SA",
+      "license_raw": "CC BY-SA 3.0",
+      "credit": "Augustus Binu/ facebook",
+      "match_confidence": "low",
+      "matched_label": "File:Bharata Natyam Performance DS.jpg (search: \"bharatanatyam\")"
+    },
+    {
       "id": "timba",
       "kind": "tradition",
       "name": "Timba",
@@ -56905,6 +57045,20 @@
       "credit": "Graham Crumb",
       "match_confidence": "low",
       "matched_label": "File:Vanuatu-humans-of-vanuatu-29.jpg (stand-in search: \"Vanuatu women\")"
+    },
+    {
+      "id": "vapor_aesthetic",
+      "kind": "tradition",
+      "name": "Vaporwave aesthetic",
+      "source": "commons_search",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Vaporwave_sunset.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Vaporwave_sunset.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Vaporwave_sunset.jpg/500px-Vaporwave_sunset.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "license": "Public Domain",
+      "license_raw": "Public domain",
+      "credit": "\"Created using AI tools\" by SeleneBright, no software specified",
+      "match_confidence": "medium",
+      "matched_label": "File:Vaporwave sunset.jpg (search: \"vaporwave\")"
     },
     {
       "id": "vapor_soul",
