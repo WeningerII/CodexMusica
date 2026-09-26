@@ -230,15 +230,18 @@ for (const f of SOURCE_FILES) {
 // image links, produced by scripts/fetch_image_manifest.js) reduced to what the
 // Instrument page shows — per instrument id the thumbnail, licence, credit and
 // source page, as [thumb, licence, credit, sourcePage]. Low-confidence matches
-// are left out: a photo of the wrong instrument under its name is worse than
-// the glyph. No manifest yet: the constant is null and the page shows glyphs.
+// (a stand-in of the same kind, e.g. a generic frame drum for an obscure one)
+// are kept: the owner prefers a representative picture to the glyph. Picks a
+// review found wrong are dropped upstream via REJECTED in
+// scripts/fetch_image_manifest.js. No manifest yet: the constant is null and
+// the page shows glyphs.
 const IMAGE_MANIFEST = path.join(REFS, '_image_manifest.json');
 function compactImageManifest() {
   if (!fs.existsSync(IMAGE_MANIFEST)) return null;
   const m = JSON.parse(fs.readFileSync(IMAGE_MANIFEST, 'utf8'));
   const out = {};
   for (const e of Array.isArray(m.images) ? m.images : []) {
-    if (!e || e.kind !== 'instrument' || e.match_confidence === 'low') continue;
+    if (!e || e.kind !== 'instrument') continue;
     const thumb = e.thumb_url || e.image_url;
     if (typeof e.id !== 'string' || typeof thumb !== 'string' || !/^https:\/\//.test(thumb))
       continue;
