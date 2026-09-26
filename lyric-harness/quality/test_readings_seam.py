@@ -3,6 +3,8 @@
 
     python3 quality/test_readings_seam.py            # ~10s
     python3 quality/test_readings_seam.py --quick    # skip the corpus counts
+    python3 quality/test_readings_seam.py --eng      # + §8b, the eng_* song corpus
+                                                     #   (~1.5 min; nightly runs it)
 
 WHAT WAS BROKEN, AND WHY IT WAS THE WORST SHAPE OF BROKEN
 
@@ -646,13 +648,14 @@ def test_end_to_end():
 # any channel — which is the check that this is a REFUSAL and not a rewrite.
 #
 # RECORDED, from the same code (`--quick` skips the re-derivation):
-# (RE-DATED 2026-09-26: this table is a RECORD of the 143-file corpus it was
-# measured on. `corpus/song/eng_*` is 1,297 files now, so §8b's pin of it no
-# longer reproduces -- measured by the harness cleanup audit with `--eng`,
-# 343,892 pairs. Repinning or retiring §8b is an owner ruling; until then
-# the figures below are history, not the corpus.)
+# (THE ENGLISH TABLE WAS REPINNED 2026-09-26 by the owner's ruling. The first
+# table below is the RECORD of the 143-file corpus it was measured on, kept as
+# the history it is -- its "1,053 reads out of 189,414 pairs" above with it;
+# the second is the corpus as it stands, re-derived by `--eng` on that date,
+# and it is what §8b now pins, file and pair counts beside the moves.)
 #
-#   corpus/song/eng_*  143 files, 189,414 adjacent line-final pairs
+#   ~~corpus/song/eng_*  143 files, 189,414 adjacent line-final pairs~~
+#   SUPERSEDED 2026-09-26 -- the original record:
 #     channel      exposed  True->None  False->None  untouched
 #     onset           3776          49          198     189167
 #     coda            3843          36          874     188504
@@ -660,6 +663,17 @@ def test_end_to_end():
 #     phones         26404         290          140     188984
 #     nucleus        21248           0            0     189414  (was right)
 #     prominence     19808           0            0     189414  (was right)
+#
+#   corpus/song/eng_*  1,297 files, 343,892 adjacent line-final pairs
+#   REPINNED 2026-09-26, `python3 quality/test_readings_seam.py --eng`:
+#     channel      exposed  True->None  False->None  untouched
+#     onset          6708         104          387     343401
+#     coda           6695          72         1536     342284
+#     consonants    12917         112          169     343611
+#     phones        45813         499          274     343119
+#     nucleus       36521           0            0     343892  (was right)
+#     prominence    33795           0            0     343892  (was right)
+#   Still every move a confident verdict onto a refusal, none the other way.
 #
 #   corpus/song/ltc_huajianji.txt  花間集, 3,732 adjacent line-final pairs
 #     onset            517           1           14       3717
@@ -778,23 +792,40 @@ def test_corpus_counts():
     _report("MIDDLE CHINESE 花間集", t, e, n,
             {"onset": (1, 14), "coda": (0, 0), "consonants": (1, 14),
              "phones": (1, 6), "nucleus": (0, 0), "prominence": (0, 0)})
-    print("      corpus/song/eng_* was RECORDED in this section's comment at "
-          "~~143 files, 189,414 pairs~~ (the corpus of that day; it is "
-          "%d files now, re-dated 2026-09-26, and §8b's pin of the old count "
-          "is stale pending a ruling) rather than re-run: the sonnets above "
-          "exercise the same code on the same phonology."
-          % len(glob.glob(os.path.join(CORPUS, "song", "eng_*.txt"))))
+    print("      corpus/song/eng_* (%d files, %s pairs) is §8b, not run here: "
+          "it is a ~1.5 min pass and the sonnets above exercise the same code "
+          "on the same phonology. The nightly job runs it."
+          % (ENG_CORPUS_FILES, f"{ENG_CORPUS_PAIRS:,}"))
     print("      re-run it with: python3 quality/test_readings_seam.py --eng")
 
 
+#: §8b's PIN, REPINNED 2026-09-26 by the owner's ruling to the corpus as it
+#: stands, re-derived by this section (`--eng`). ~~143 files, 189,414 pairs:
+#: onset (49, 198), coda (36, 874), consonants (56, 91), phones (290, 140)~~
+#: is the original record, kept in §8's table. It had stopped reproducing
+#: when the corpus grew to 1,297 files, and no runner passed `--eng`, so the
+#: pin sat red and unasked; the nightly job runs it now. THE FILE AND PAIR
+#: COUNTS ARE PINNED BESIDE THE MOVES (doctrine 58): every move count is a
+#: coordinate of the corpus it was taken over, so a changed corpus now fails
+#: as a CORPUS change, named as one, rather than as a mystery in the channels.
+ENG_CORPUS_FILES = 1297
+ENG_CORPUS_PAIRS = 343892
+ENG_CORPUS_MOVES = {"onset": (104, 387), "coda": (72, 1536),
+                    "consonants": (112, 169), "phones": (499, 274),
+                    "nucleus": (0, 0), "prominence": (0, 0)}
+
+
 def test_eng_song_corpus():
-    print("\n8b. the eng_* song corpus, re-derived against the ~~143-file~~ "
-          "record of 143 files (STALE since the corpus grew; 2026-09-26)")
-    t, e, n = _corpus_moves(
-        glob.glob(os.path.join(CORPUS, "song", "eng_*.txt")), E_UNC)
-    _report("ENGLISH corpus/song/eng_*", t, e, n,
-            {"onset": (49, 198), "coda": (36, 874), "consonants": (56, 91),
-             "phones": (290, 140), "nucleus": (0, 0), "prominence": (0, 0)})
+    print("\n8b. the eng_* song corpus (%d files), re-derived" % ENG_CORPUS_FILES)
+    paths = glob.glob(os.path.join(CORPUS, "song", "eng_*.txt"))
+    t, e, n = _corpus_moves(paths, E_UNC)
+    check("ENGLISH corpus/song/eng_*: the corpus is the one the pin was taken "
+          "over -- %d files, %s pairs" % (ENG_CORPUS_FILES, f"{ENG_CORPUS_PAIRS:,}"),
+          len(paths) == ENG_CORPUS_FILES and n == ENG_CORPUS_PAIRS,
+          f"measured {len(paths)} files, {n:,} pairs: a different corpus, so "
+          f"every count below is a different measurement -- repin with the "
+          f"date, not the moves alone")
+    _report("ENGLISH corpus/song/eng_*", t, e, n, ENG_CORPUS_MOVES)
 
 
 # ---------------------------------------------------------------------------

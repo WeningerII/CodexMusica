@@ -4122,6 +4122,18 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/sentencehood.py --check
 
+      # A PIN NOTHING ASKED, WIRED 2026-09-26 BY THE OWNER'S RULING. §8b of
+      # test_readings_seam sits behind `--eng`, which no runner passed, so its
+      # pin drifted with the corpus (143 files -> 1,297) and sat red on main
+      # with nobody told (M-21's shape). REPINNED in the same PR, re-derived,
+      # and passing on its tree. MEASURED locally on a loaded 4-vCPU box: 82 s
+      # for the whole file. The budget paragraph at the top of this job is
+      # re-measured off the next nightly run, per its own rule, not extended.
+      - name: The eng_* song corpus through the readings seam (test_readings_seam §8b, --eng)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/test_readings_seam.py --eng
+
       # THE IN-LINE RHYME CHECK WAS HERE AND WAS REMOVED 2026-08-23, in the
       # commit that withdrew its registration: the owner stopped that
       # calibration mid-run (it calibrated ONE cell of a 77-schema
