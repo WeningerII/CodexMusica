@@ -1237,16 +1237,18 @@ const RECIPE_BATCH_NOTE =
   'word or phrase), then apply all of them in ONE batched edit_recipe call. A turn has a limited ' +
   'number of steps, and its last steps can only apply and render.';
 export const RECIPE_FINISH_TOOLS = Object.freeze(['start_recipe', 'edit_recipe', 'render_recipe']);
-function RECIPE_FINISH_NOTE(remaining, hasRecipe) {
+function RECIPE_FINISH_NOTE(remaining, hasRecipe, browse = false) {
   return (
     `STEP LIMIT: ${remaining} step${remaining === 1 ? '' : 's'} left in this turn, and only ` +
     'start_recipe, edit_recipe and render_recipe can be called now. Stop searching and apply what ' +
     'you have already found. ' +
-    (hasRecipe
-      ? 'Make ONE edit_recipe call that batches every change you have real ids for (set_preface, ' +
-        'set_variant, set_environment, add/remove), or render_recipe if nothing is left to apply. '
-      : 'No recipe exists yet: call start_recipe now with the best tradition id your searches ' +
-        'returned, and edit it on the next step if one remains. ') +
+    (!hasRecipe
+      ? 'No recipe exists yet: call start_recipe now with the best tradition id your searches ' +
+        `returned${browse ? '' : ', and edit it on the next step if one remains'}. `
+      : browse
+        ? 'The stock recipe exists: call render_recipe to return it. '
+        : 'Make ONE edit_recipe call that batches every change you have real ids for (set_preface, ' +
+          'set_variant, set_environment, add/remove), or render_recipe if nothing is left to apply. ') +
     'Use only ids you have seen in a tool result. The recipe this turn ends with is what the user receives.'
   );
 }
@@ -1746,7 +1748,7 @@ export async function runTurn({
         ? { functionCallingConfig: { mode: 'ANY', allowedFunctionNames: [...finishTools] } }
         : { functionCallingConfig: { mode: 'AUTO' } };
       const hopSi = finishTools
-        ? withHopNote(si, RECIPE_FINISH_NOTE(limits.maxSteps - step, !!ws))
+        ? withHopNote(si, RECIPE_FINISH_NOTE(limits.maxSteps - step, !!ws, task.phase === 'browse'))
         : si;
       if (hopSi) body.systemInstruction = hopSi;
       else delete body.systemInstruction;
