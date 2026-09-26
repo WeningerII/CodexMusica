@@ -20,6 +20,7 @@ const fs = require('fs');
 const path = require('path');
 
 const EMOJI_DIR = path.join(__dirname, '..', 'references', '_assets', 'emoji');
+const NAV_FILE = path.join(__dirname, '..', 'references', '09_nav_glyphs.js');
 const MAP_FILE = path.join(__dirname, '_instrument_emoji_map.json');
 const MANIFEST = path.join(__dirname, '..', 'references', '08_asset_manifest.js');
 
@@ -130,6 +131,20 @@ function main() {
     console.warn('Could not validate IDs against catalog: ' + e.message);
   }
 
+  // ONE COPY PER PICTURE. The page also ships NAV_GLYPH_SVGS
+  // (references/09_nav_glyphs.js, built by build_nav_glyphs.js from the same
+  // vendored Twemoji), and most of these codepoints are in it byte-for-byte.
+  // Those are left out of EMOJI_SVGS; image() / familyImage() in src/app.js
+  // read NAV_GLYPH_SVGS when EMOJI_SVGS has no entry. Only a byte-identical copy
+  // is dropped: a codepoint whose NAV artwork differs (a skin recolour) keeps
+  // its own entry here.
+  const nav = (() => {
+    const src = fs.readFileSync(NAV_FILE, 'utf8');
+    return new Function(src + '\nreturn NAV_GLYPH_SVGS;')();
+  })();
+  const shared = Object.keys(svgs).filter((cp) => nav[cp] === svgs[cp]);
+  for (const cp of shared) delete svgs[cp];
+
   // Emit registry block
   const existing = fs.readFileSync(MANIFEST, 'utf8');
   // Strip a previously emitted block before re-emitting. This must match the
@@ -159,6 +174,7 @@ function main() {
   lines.push('// EMOJI_SVGS at render time. Saves ~530 KB vs storing SVG content per entry.');
   lines.push('//');
   lines.push('// Unique SVG blobs: ' + Object.keys(svgs).length);
+  lines.push('// Served from NAV_GLYPH_SVGS (09_nav_glyphs.js, byte-identical): ' + shared.length);
   lines.push('// Instrument mappings: ' + Object.keys(registry).length);
   lines.push('// Family fallbacks: ' + Object.keys(familyFallback).length);
   lines.push('// To regenerate: node scripts/fetch_emoji.js && node scripts/build_emoji.js');
@@ -190,7 +206,13 @@ function main() {
   lines.push('');
 
   fs.writeFileSync(MANIFEST, cleaned + lines.join('\n'));
-  console.log('Wrote EMOJI_SVGS: ' + Object.keys(svgs).length + ' unique SVG blobs');
+  console.log(
+    'Wrote EMOJI_SVGS: ' +
+      Object.keys(svgs).length +
+      ' unique SVG blobs (' +
+      shared.length +
+      ' more served from NAV_GLYPH_SVGS)'
+  );
   console.log(
     'Wrote EMOJI_REGISTRY: ' + Object.keys(registry).length + ' instrument → codepoint mappings'
   );

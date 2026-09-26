@@ -602,7 +602,7 @@ check('Icons — every name called is defined in ICONS map', () => {
   // Catches typos and references to icons that were never added to the library.
   // Resolves each icon('name') call through the SAME logic the runtime icon()
   // uses: ICON_ALIASES[name] || name, then ICON_PATHS[resolved] ||
-  // ICON_PATHS_LOCAL[resolved]. ICON_PATHS (96) and ICON_ALIASES (63) live in
+  // ICON_PATHS_LOCAL[resolved]. ICON_PATHS and ICON_ALIASES live in
   // references/08_asset_manifest.js (loaded via _loader); ICON_PATHS_LOCAL is a
   // small inline map in the bottom template. Earlier this check scanned only the
   // bottom template for a `'name': '<` literal and so false-flagged every aliased
