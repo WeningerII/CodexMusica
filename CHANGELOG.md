@@ -8,7 +8,7 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ### Removed — the dead, legacy and unread weight in `codex.html`; the atlas shows genre photos
 
-`codex.html` goes from 6,198,902 to 5,083,249 bytes (-18.0%). Removed: the
+`codex.html` goes from 6,198,864 to 5,083,211 bytes (-18.0%). Removed: the
 surfaces the redesigned shell only hid or rerouted (the old Add-instrument modal
 body, the old empty state, the old app bar and its overflow sheet, the
 fingerprint mini-charts, part-row thumbnails, the editor tab status and the AI
@@ -22,8 +22,8 @@ the catalog fields and tables no page code reads (`match_tokens`,
 `canonical_tags`, the three CLI-only tables and smaller audit fields): 923 KB.
 references/, api/, the connector and the CLI keep full data. The atlas read an
 image-manifest shape that never existed and matched no entry; it now reads
-`references/_image_manifest.json` with the Genre page's rules, so 2,577 of the
-2,588 genres on the map show a credited photo. Since the tradition and emoji
+`references/_image_manifest.json` with the Genre page's rules, so all 2,588
+genres on the map have a credited photo. Since the tradition and emoji
 tables now draw 29 codepoints only from `NAV_GLYPH_SVGS`,
 `build_nav_glyphs.js` keeps every codepoint they rely on and
 `check_glyph_skin.js` fails on any glyph that resolves nowhere.
