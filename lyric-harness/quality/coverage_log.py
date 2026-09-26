@@ -127,33 +127,6 @@ def run(*argv):
         fh.write(json.dumps(rec) + "\n")
     return rec
 
-def inspect_codes(lines, mandate, **kw):
-    """-> (per_line_codes, whole_codes) READ FROM THE FINDING SET, not the page.
-
-    THE GREP PATH ABOVE IS NOT A COVERAGE MEASUREMENT and rung 1 proved it:
-    on one two-line draft it reported 18 codes where the API reports 8. All
-    ten extras were PROSE -- `PREDICTABLE_RHYME` appears inside
-    `EXTRAPOLATED_LENGTH`'s explanation of tolerance bands, `RADIF_LICENSED`
-    and `CLICHE_PAIR` inside other findings' evidence. A report that explains
-    which checks did NOT run necessarily names them, so grepping a report for
-    code names counts the disclosure as the finding -- and inflates in the
-    OPTIMISTIC direction, which is the direction that would have made this
-    whole experiment report a healthier pipeline than exists.
-
-    Doctrine 91 states the rule this function obeys: a count is a coordinate
-    of the RENDERING, so the rendering must not be the source of the count.
-    `Reviser.inspect()` returns `per_line` and `whole` as structured findings
-    carrying `.code`; that is the population. Output-grepping is kept only for
-    pure-CLI surfaces that expose no API.
-    """
-    sys.path.insert(0, ROOT)
-    from quality.revise import Reviser
-    d = Reviser().inspect(lines, mandate, **kw)
-    per = sorted({f.code for v in d["per_line"].values() for f in v})
-    whole = sorted({f.code for f in d["whole"]})
-    return per, whole
-
-
 def codes_for(lines, mandate, **kw):
     """-> frozenset of the codes that FIRED. The measurement, rebuilt.
 
@@ -161,6 +134,17 @@ def codes_for(lines, mandate, **kw):
     Refusal codes are findings here and are counted as fired: `NO_SETTING`
     firing IS the layer refusing, which is a state the experiment must see,
     not a silence it must explain away.
+
+    THE GREP PATH ABOVE IS NOT A COVERAGE MEASUREMENT and rung 1 proved it:
+    on one two-line draft it reported 18 codes where the API reports 8. All
+    ten extras were PROSE -- a report that explains which checks did NOT run
+    necessarily names them, so grepping it counts the disclosure as the
+    finding, in the OPTIMISTIC direction. Doctrine 91: a count is a
+    coordinate of the RENDERING, so the rendering must not be the source of
+    the count. (That argument lived on `inspect_codes()`, the per-line/whole
+    split of this same call; nothing read the split, and it was DELETED
+    2026-09-26 -- M-291's reason for keeping it cited a preregistration
+    sentence that had already been struck, since the rebuild landed here.)
     """
     sys.path.insert(0, ROOT)
     from quality.revise import Reviser

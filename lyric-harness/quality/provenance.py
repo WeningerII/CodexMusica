@@ -52,7 +52,7 @@ import csv
 import os
 import sys
 from collections import Counter, defaultdict
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass, asdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
@@ -276,9 +276,6 @@ class ProvenanceDeclaration:
 
     def cutoff_death_year(self):
         return self.current_year - self.term_years
-
-    def cutoff_publication_year(self):
-        return self.current_year - self.anon_term_years
 
 
 @dataclass

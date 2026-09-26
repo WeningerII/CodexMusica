@@ -2,6 +2,11 @@
 data/*.txt
 data/*.zip
 data/nltk/
+# ...and as a FILE or SYMLINK too (2026-09-26): `data/nltk/` alone matches
+# only a directory, and `quality/mutate.py` (and a hand-staged checkout)
+# links the staged tagger in as a symlink, which showed as `?? data/nltk` --
+# the lesson the label-cache block below had already written down.
+data/nltk
 data/feature_cache.json
 cmudict.dict
 # REFUSED 2026-08-22 under doctrine 85 (MISSING.md, the frequency
@@ -20,7 +25,6 @@ __pycache__/
 !data/sources.tsv
 !data/authority.tsv
 data/provenance_ledger.tsv
-data/authority_src/
 data/authority_src/
 
 # Derived label tables — regenerate with data/labels/*/build_*.py

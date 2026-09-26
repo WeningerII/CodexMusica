@@ -480,8 +480,11 @@ surprises in either direction.
 
 **Doctrine 91 is the rule that was broken and is now obeyed:** a count is a
 coordinate of the RENDERING, so the rendering must not be the source of the
-count. `coverage_log.inspect_codes()` reads the structured finding set;
-output-grepping survives only for pure-CLI surfaces exposing no API.
+count. ~~`coverage_log.inspect_codes()`~~ **`coverage_log.codes_for()`**
+reads the structured finding set; output-grepping survives only for pure-CLI
+surfaces exposing no API. (REPOINTED 2026-09-26: the rebuild below landed on
+`codes_for()`, nothing ever read `inspect_codes()`'s per-line/whole split, and
+the cleanup that found it unread deleted it.)
 
 ### Instrument defects found by rungs 0 and 1 — six, and zero harness defects
 

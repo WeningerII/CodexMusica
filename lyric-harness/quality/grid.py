@@ -709,22 +709,6 @@ for _s in SECTION_FUNCTIONS.values():
             f"{_s.name!r} offers placement evidence and claims nothing.")
 
 
-def placement_of(function):
-    """-> the placement claims for one function, as a plain dict.
-
-    THE ONE READER.  derives its pattern space from this and the
-    grader checks a draft against it, so the planner and the grader cannot
-    disagree about where a section may go -- which is the shape  had to be collapsed into one constant to fix (doctrine 1).
-    """
-    sp = SECTION_FUNCTIONS[as_function(function)]
-    return {"boundary": sp.boundary, "requires": tuple(sp.requires),
-            "adjacent_after": sp.adjacent_after,
-            "adjacent_before": sp.adjacent_before,
-            "needs_before": sp.needs_before, "needs_after": sp.needs_after,
-            "evidence": sp.placement_evidence,
-            "refused": sp.placement_refused}
-
-
 PLACEMENT_CODES = ("SECTION_NOT_AT_BOUNDARY", "SECTION_REQUIREMENT_ABSENT",
                    "SECTION_AT_EDGE", "SECTION_NOT_ADJACENT")
 

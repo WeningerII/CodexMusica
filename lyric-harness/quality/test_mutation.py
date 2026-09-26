@@ -1420,7 +1420,8 @@ def _parser():
                          "over the declared list). Full coverage takes N "
                          "runs; the verdict names the slice it asked about")
     # COMPUTE THE BASELINE AND STOP. `run_suite` baselines
-    # `mutate.discover_tests()` -- the WHOLE tree, 98 files -- whatever slice
+    # `mutate.discover_tests()` -- the WHOLE tree, ~~98~~ 113 files (re-counted
+    # 2026-09-26; 98 was the tree of the day this was written) -- whatever slice
     # the shard was asked for, and the comment inside it says why that matters:
     # "the unmutated baseline runs first and is the expensive phase", and a
     # completed one "hands the next person the baseline's share of the shard

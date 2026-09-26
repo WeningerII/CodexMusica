@@ -959,6 +959,7 @@ async function viaOpenverse(entities, skipped) {
 // title matches and Openverse hits are not verified here; review new ones.
 const REJECTED = {
   'instrument:acoustic_resonator_steel': 'Steel_guitar-KayEss.1.jpeg',
+  'instrument:apinti': 'A_traveler_plays_the_drum_among_the_Namibian_Himba.jpg',
   'instrument:bandola_andina': ['Bandolallanera.jpg', 'Bandola_dusepo.jpg'],
   'instrument:barrel_organ': 'Barrel_piano_-_Λατέρνα(laterna).JPG',
   'instrument:bass_vi':
@@ -1085,6 +1086,7 @@ const REJECTED = {
   'instrument:tanbur_maltese': ['midp89.4.1384.jpg', '1918.347_print.jpg'],
   'instrument:tar_azerbaijani': 'DP-26166-003.jpg',
   'instrument:tar_frame_drum': ['Tār_MET_midp89.4.1858.jpg', 'midp89.4.1858.jpg'],
+  'instrument:tchopa_drums': 'A_traveler_plays_the_drum_among_the_Namibian_Himba.jpg',
   'instrument:tekero': 'Chiesa_di_San_Maurizio_-_Museo_della_Musica_in_Venice_-_Ghironda_1850_.jpg',
   'instrument:tilinca': 'f39862d97cfc43a99c4150501a9be23a.jpg',
   'instrument:tinde': 'Tindé_Ber_6.jpg',

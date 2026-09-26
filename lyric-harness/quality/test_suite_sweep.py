@@ -21,6 +21,7 @@ exists to tell apart and none of them is in the tree.
 """
 
 import ast
+import fnmatch
 import os
 import shutil
 import subprocess
@@ -131,8 +132,19 @@ def test_discovery_and_exclusions():
     check("every exclusion carries a written reason, not a bare name",
           all(len(v) > 60 for v in SS.EXCLUDED.values()),
           str([k for k, v in SS.EXCLUDED.items() if len(v) <= 60]))
-    check("nothing is both discovered and excluded",
-          not (set(found) & set(SS.EXCLUDED)))
+    # REPAIRED 2026-09-26. This read "nothing is both discovered and
+    # excluded", TRUE BY CONSTRUCTION: every EXCLUDED key lies outside
+    # SUITE_GLOB, so `discover()`'s `if rel in EXCLUDED` filter never fired and
+    # the check examined nothing. The dead filter is gone; what the table now
+    # claims is that it names runners OUTSIDE the population, so a suite put
+    # in it would be run anyway -- and that is the claim checked, two-sided.
+    inside = [k for k in SS.EXCLUDED if fnmatch.fnmatch(k, SS.SUITE_GLOB)]
+    check("every EXCLUDED key lies OUTSIDE the suite glob -- the table is a "
+          "disclosure of runners that are not suites, and discovery has no "
+          "filter that would honour a suite named in it",
+          not inside, str(inside))
+    check("...and that check can fire: a suite-shaped key IS inside the glob",
+          fnmatch.fnmatch("quality/test_zz_planted.py", SS.SUITE_GLOB))
     # SAME FOR THE BOUNDS TABLE: an override on a suite that has been renamed
     # is a declared coordinate pointing at nothing.
     bad = [k for k in SS.SUITE_TIMEOUT

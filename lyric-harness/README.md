@@ -12,14 +12,18 @@ this sentence said did not exist. There are two rosters, and which verb is on
 which side is MEASURED by `quality/test_verbs.py` §47 with the resources
 hidden, not declared here:
 
-- **26 of the 32 dispatched verbs never reach the slop floor** — `score`,
+- **~~26 of the 32~~ 27 of the 34 dispatched verbs never reach the slop floor**
+  (RE-COUNTED 2026-09-26: the dispatcher has 34 verbs; `recover` joined on
+  this side and `tryline` on the other — with `--seed=` and the resources
+  hidden it REFUSES at exit 2 for the tagger, measured) — `score`,
   `candidates`, `meter`, `scheme`, `chains`, `graph`, `plan` (and
   `plan --sweep`), `readability`, `relations`, `fit`, `grid`, `function`,
   `types`, `capacity` and the rest — and run on the standard library over
   CMUdict, which the first run downloads (~3.5 MB; the frequency list ships in
   the repo as `data/opensubtitles_en_50k.tsv`).
-- **The six GRADING verbs — `song`, `brief`, `verify`, `revise`, `screen`,
-  `finish` — reach the floor**, which needs the `nltk` package and the current
+- **The ~~six~~ seven GRADING verbs — `song`, `brief`, `verify`, `revise`,
+  `screen`, `finish`, `tryline` — reach the floor**, which needs the `nltk`
+  package and the current
   POS-tagger model. Stage the production resources once:
 
       python3 -m pip install nltk && python3 quality/fetch_data.py --runtime
@@ -46,9 +50,11 @@ hidden, not declared here:
 - score: multi-channel comparator — nucleus / coda / interior-onset / stress,
   each sub-score exposed; band-passed: REPEAT and RIME_RICHE are relations,
   not high scores (d, band-pass)
-- candidates: reverse index over 20k common words, perfect/strong/slant tiers
-- check_meter: syllable count + strong-position agreement vs template
-- check_scheme: full pairwise score matrix diffed against target letters —
+- candidates: reverse index over ~~20k common words~~ the 50k-word
+  `data/opensubtitles_en_50k.tsv` frequency table (the 20k list was refused
+  2026-08-22; re-dated 2026-09-26), perfect/strong/slant tiers
+- ~~check_meter~~ `meter`: syllable count + strong-position agreement vs template
+- ~~check_scheme~~ `scheme`: full pairwise score matrix diffed against target letters —
   violations, cross-letter collisions, transitivity-defect triangle count
 - value flags: cliche_pair (30-pair seed list), shared_suffix (stem-checked),
   identical_word, semirhyme
@@ -59,11 +65,16 @@ hidden, not declared here:
 - Lexical stress is a proxy for scansion; monosyllable promotion/demotion is
   not modeled, so meter agreement is advisory.
 - Cross-syllable coda redistribution (blades/Hades) scores conservatively.
-- No beat grid (time layer), no perplexity strain check (doggerel signature),
+- ~~No beat grid (time layer),~~ no perplexity strain check (doggerel signature),
   no performance vowel-deformation allowance. Inventoried, cut knowingly.
-- OOV without G2P: coinages and slang (shiesty, blimini) transcribe empty
+  (STRUCK 2026-09-26: the beat grid exists — the `grid` and `fit` verbs,
+  `quality/grid.py`, `quality/fit.py` and `quality/time_layer.py`.)
+- ~~OOV without G2P: coinages and slang (shiesty, blimini) transcribe empty
   and fragment chains; the g-dropping fallback (feelin' -> feeling, NG->N)
-  covers the common case only. A real G2P model is the fix.
+  covers the common case only. A real G2P model is the fix.~~ STRUCK
+  2026-09-26: `quality/g2p.py` is that model, reached with `--fallback=`;
+  without it an out-of-vocabulary word still transcribes empty and is
+  refused rather than guessed.
 - Liquid codas score as hard mismatches against open syllables
   (bankroll/go/snow/pole reads as broken); a fitted matrix softens this.
 - Compound stress: "door hinge" anchors on hinge per citation form; the forced
@@ -110,7 +121,20 @@ verse where chain lengths are improvised and the sound moves.
 
 ## Song structure layer
     python3 lyric_harness.py song quality/fixtures/song.blueprint.json \
-        quality/fixtures/song.txt '--returns=6,13;7,14' --subdivision 2
+        quality/fixtures/song.txt '--returns=6,14;7,15' --subdivision 2 \
+        --input-format=source
+
+(REPAIRED 2026-09-26. The command read ~~`'--returns=6,13;7,14'`~~ with no
+`--input-format`, and it had stopped running: since A-3 (2026-09-22; `python3
+lyric_harness.py --help` documents the flag) a draft is read LITERALLY by default, so the
+fixture's `[Section]` headers counted as lines and `song` REFUSED at exit 2 —
+*blueprint declares 16 line(s), 23 were handed to the loop*. `--input-format=source`
+is the declaration that the file carries source apparatus. And the fixture's
+two chorus returns are lines 6/14 and 7/15, so the old `--returns=` charged
+`RETURN_NOT_VERBATIM` twice against lines that were never the chorus. As
+written now it grades all 16 lines and exits 2 with `EXIT 2 — required checks
+remain unjudged`, because the density/prominence readers decline `every` and
+`wire`; an unjudged check is reported, never passed (doctrine 20).)
 
 checks a lyric sheet against a declared blueprint. A blueprint is BARS, not
 stanzas: each section declares `bars`, `start_bar`, an optional `function` and
@@ -159,10 +183,12 @@ rather than guessing. `quality/fixtures/string_meter.blueprint.json` is the
 specimen; it was this repo's own root `blueprint.json` until 2026-08-14, and
 the command line above used to name it.
 
-## Next step
-Wrap these six functions as MCP tools (mcp-builder pattern) and point the
+## ~~Next step~~ Shipped
+~~Wrap these six functions as MCP tools (mcp-builder pattern) and point the
 model at them: draft -> check_scheme + check_meter -> revise flagged lines
-only -> re-check.
+only -> re-check.~~ STRUCK 2026-09-26: the wrap shipped on 2026-08-18 as the
+connector's lyric tools (`mcp/lyric_tools.js`; `CLAUDE.md`, "The loop, and
+the MCP wrap plan").
 
 ### Declared tempo and seconds
 

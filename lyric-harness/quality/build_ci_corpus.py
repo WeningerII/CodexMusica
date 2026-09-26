@@ -743,18 +743,6 @@ def write_orthography(res, clones, path=ORTH_TSV, songdir=SONGDIR):
             "recovered_tokens": sum(r[4] for r in rows)}
 
 
-def load_orthography(path=ORTH_TSV):
-    """-> {char: target}. Absent file is not an error; it is the default."""
-    out = {}
-    if not os.path.exists(path):
-        return out
-    with open(path, encoding="utf-8") as fh:
-        rows = [l for l in fh if not l.startswith("#")]
-    for r in csv.DictReader(rows, delimiter="\t"):
-        out[r["char"]] = r["target"]
-    return out
-
-
 def load_aliases(path=ALIAS_TSV):
     """-> {alias: [tune, ...]}.  Absent file is not an error: the spec table
     alone covers 95.7% of the corpus and the verifier says so."""

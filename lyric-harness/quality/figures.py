@@ -124,7 +124,7 @@ def line_figures(stream, names=None, keep_refusals=True):
         for inst in res:
             if inst.verdict is not True:
                 continue
-            a, b = _origin_line(inst.a), _origin_line(inst.b)
+            a, b = R._origin_line(inst.a), R._origin_line(inst.b)
             if a is None or a != b:
                 # A CROSS-LINE INSTANCE OF AN INTRA-LINE SCHEMA IS DROPPED
                 # HERE, and it is not lost: `line_pairs_for` is the consumer
@@ -140,15 +140,6 @@ def line_figures(stream, names=None, keep_refusals=True):
                 "reads": tuple((c, i, r.value) for c, i, r in inst.reads),
             })
     return {"lines": out, "refused": refused, "asked": asked}
-
-
-def _origin_line(span):
-    """-> 1-based line number from a `Span.origin`, or None."""
-    o = getattr(span, "origin", "") or ""
-    if not o.startswith("L"):
-        return None
-    head = o.split(".", 1)[0][1:]
-    return int(head) + 1 if head.isdigit() else None
 
 
 __all__ = ["INTRA_LINE_PLACEMENTS", "intra_line_schemas", "line_figures"]
