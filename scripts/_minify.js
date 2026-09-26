@@ -158,4 +158,15 @@ function minifyCss(css, label) {
   return out;
 }
 
-module.exports = { minifyJs, minifyCss, OPTIONS };
+// The top-level statements of a script, parsed by the same terser the minifier
+// runs (AST nodes: `.TYPE` is 'Const', 'Let', 'Var', 'Defun', 'If', …).
+function topLevelStatements(code, label) {
+  try {
+    return minify_sync(code, { compress: false, mangle: false, format: { ast: true, code: false } })
+      .ast.body;
+  } catch (e) {
+    throw new Error(`parse failed for ${label}: ${e.message}`);
+  }
+}
+
+module.exports = { minifyJs, minifyCss, topLevelStatements, OPTIONS };

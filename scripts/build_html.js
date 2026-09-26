@@ -39,9 +39,12 @@
 //
 // EXIT CODES
 //   0  success
-//   2  missing required source (src/index.template.html or src/app.js)
-//   4  embedded data block failed to parse, a table did not read back, or an
-//      emitted <script> does not compile on its own (--check)
+//   2  missing required source (src/index.template.html or src/app.js), or
+//      --embedded together with --lazy
+//   3  an unknown or retired flag (--validate, --strict), or a positional argument
+//   4  embedded data block failed to parse, a table did not read back, an
+//      emitted <script> does not compile on its own (--check), or a references
+//      file the page-only strip rewrites holds anything but table declarations
 //   5  template is missing the <!--@CODEX_BODY--> or <!--@THEME_BOOT--> marker
 //   6  an emitted <script> is all comment, a runtime block became strict-mode
 //      code, or a block exceeds the hard byte ceiling (--check)
@@ -77,6 +80,7 @@ const SOURCE_FILES = [
 
 const args = process.argv.slice(2);
 const flags = {};
+const stray = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a.startsWith('--')) {
@@ -89,7 +93,30 @@ for (let i = 0; i < args.length; i++) {
         i++;
       } else flags[a.slice(2)] = true;
     }
-  }
+  } else stray.push(a);
+}
+
+// Only the flags in USAGE are read, and anything else is refused rather than
+// ignored: a mistyped `--embed` used to build the lazy shell without a word, and
+// a caller still passing --strict (which once also ran --check) would be told
+// the build was checked when nothing was.
+const KNOWN_FLAGS = new Set(['out', 'embedded', 'lazy', 'check', 'quiet', 'no-minify']);
+const RETIRED_FLAGS = {
+  validate: 'run `npm run validate` (scripts/validate.js) before the build instead',
+  strict: 'run `npm run validate` before the build and pass --check',
+};
+const refused = Object.keys(flags)
+  .filter((f) => !KNOWN_FLAGS.has(f))
+  .map((f) =>
+    RETIRED_FLAGS[f]
+      ? `--${f} is retired: ${RETIRED_FLAGS[f]}`
+      : `--${f} is not a flag of this script`
+  )
+  .concat(stray.map((a) => `unexpected argument "${a}" (build_html takes flags only)`));
+if (refused.length) {
+  refused.forEach((r) => console.error('build_html: ' + r));
+  console.error('  flags: ' + Array.from(KNOWN_FLAGS, (f) => '--' + f).join(' ') + ' (see USAGE)');
+  process.exit(3);
 }
 
 const outputPath = flags.out || DEFAULT_OUTPUT;
@@ -179,7 +206,7 @@ const MAX_SCRIPT_BYTES = 1024 * 1024; // hard ceiling on actual emitted UTF-8 by
 // on it. That is left alone on purpose: the budget exists to stay below a
 // renderer's parse-memory limit, and this only adds headroom. Retuning it would
 // move every chunk boundary, which is a separate change with its own risk.
-const { minifyJs, minifyCss } = require('./_minify.js');
+const { minifyJs, minifyCss, topLevelStatements } = require('./_minify.js');
 // Escape hatch for reading the shipped artifact by hand. NOT used by CI and not
 // used by sync-pages.yml, and it cannot leak into the committed page: that file
 // is byte-compared against a default build by check_artifact_fresh.js, so an
@@ -270,6 +297,33 @@ function stripForPage(file, source) {
     (m) => m[1]
   );
   if (!names.some((n) => PAGE_DROP_TABLES.has(n) || PAGE_DROP_FIELDS[n])) return source;
+  // Only those declarations survive the re-emit, so a file that is rewritten
+  // may hold nothing else at top level. A function, an `if`, a statement that
+  // patches a table after its declaration, a lower-case or destructured name,
+  // a second declarator on one line: each would vanish from the page without a
+  // word. Parsed, not pattern-matched, by the parser the minifier uses.
+  const parsed = [];
+  const other = [];
+  for (const node of topLevelStatements(source, file)) {
+    const line = node.start ? node.start.line : '?';
+    if (!['Const', 'Let', 'Var'].includes(node.TYPE)) {
+      other.push(`line ${line}: a top-level ${node.TYPE} statement`);
+      continue;
+    }
+    for (const d of node.definitions) {
+      const name = d.name && typeof d.name.name === 'string' ? d.name.name : null;
+      if (name && /^[A-Z_][A-Z0-9_]*$/.test(name)) parsed.push(name);
+      else other.push(`line ${line}: a declaration of ${name || 'a destructuring pattern'}`);
+    }
+  }
+  if (!other.length && parsed.join() !== names.join())
+    other.push(`the parser finds ${parsed.join(', ')}; the re-emit would keep ${names.join(', ')}`);
+  if (other.length) {
+    console.error(`build_html: ${file} holds more than upper-case table declarations,`);
+    console.error('  and the page-only strip re-emits nothing else:');
+    other.slice(0, 10).forEach((o) => console.error('  ✗ ' + o));
+    process.exit(4);
+  }
   const ctx = vm.createContext({});
   vm.runInContext(source, ctx, { filename: file });
   const out = [`// ${file}, page copy: see "page-only data strip" in scripts/build_html.js`];
