@@ -243,6 +243,10 @@ function compactImageManifest() {
     if (typeof e.id !== 'string' || typeof thumb !== 'string' || !/^https:\/\//.test(thumb))
       continue;
     out[e.id] = [thumb, e.license_raw || e.license || '', e.credit || '', e.source_page || ''];
+    // A fifth field, the full image, when it is not the thumb itself: the
+    // photo lightbox (uiLightbox) shows it when no larger Commons rendition loads.
+    if (typeof e.image_url === 'string' && /^https:\/\//.test(e.image_url) && e.image_url !== thumb)
+      out[e.id].push(e.image_url);
   }
   const ids = Object.keys(out).sort();
   return {

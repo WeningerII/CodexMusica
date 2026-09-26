@@ -17,6 +17,7 @@
    and records the whole addition as one history entry. Row "Add" buttons keep
    the quick path: catalog defaults, same destination. */
 'use strict';
+/* global uiPhoto */
 
 // Page-private state. UI.instrumentFamily / UI.instrumentClass /
 // UI.instrumentPreview are this page's shell-visible state.
@@ -79,24 +80,36 @@ const ipCount = (n, one, many = one + 's') => n.toLocaleString('en') + ' ' + (n 
 // manifest, or an image that fails to load falls back to the catalog glyph.
 // Wherever a photograph appears its credit and licence appear with it.
 function ipImageEntry(id) {
-  // [thumb, licence, credit, sourcePage], as scripts/build_html.js inlines it.
+  // [thumb, licence, credit, sourcePage, fullImage?], as scripts/build_html.js
+  // inlines it.
   if (IP.failed.has(id)) return null;
   const e = IP.manifest?.instruments?.[id];
   if (!Array.isArray(e) || typeof e[0] !== 'string' || !/^https:\/\//.test(e[0])) return null;
-  return { src: e[0], licence: e[1] || '', credit: e[2] || '', source: e[3] || '' };
+  return {
+    src: e[0],
+    licence: e[1] || '',
+    credit: e[2] || '',
+    source: e[3] || '',
+    full: e[4] || '',
+    text: 'Photo: ' + [e[2] || 'uncredited', e[1] || 'licence not stated'].join(' · '),
+  };
 }
-function ipImage(id, size) {
+// A photo is a button that shows it large (uiPhoto), so a row puts its picture
+// beside the row's own button, never inside it.
+function ipImage(id, size, name) {
   const e = ipImageEntry(id);
   if (!e) return `<span class="ip-glyph">${image(id, size)}</span>`;
-  return `<img class="ip-photo" src="${esc(e.src)}" alt="" loading="lazy" width="${size}" height="${size}" data-ip-fallback="${esc(id)}" data-ip-size="${size}">`;
+  return uiPhoto(
+    `<img class="ip-photo" src="${esc(e.src)}" alt="" loading="lazy" width="${size}" height="${size}" data-ip-fallback="${esc(id)}" data-ip-size="${size}">`,
+    { name, full: e.full, credit: e.text, href: e.source }
+  );
 }
 // The credit and licence that travel with a photo. `link` makes the credit a
 // link to the source page; inside a row (a <button>) it stays plain text.
 function ipCredit(id, { link = false } = {}) {
   const e = ipImageEntry(id);
   if (!e) return '';
-  const text =
-    'Photo: ' + [e.credit || 'uncredited', e.licence || 'licence not stated'].join(' · ');
+  const text = e.text;
   return link && /^https:\/\//.test(e.source)
     ? `<a class="ip-credit" data-ip-for="${esc(id)}" href="${esc(e.source)}" target="_blank" rel="noopener noreferrer">${esc(text)}</a>`
     : `<span class="ip-credit" data-ip-for="${esc(id)}">${esc(text)}</span>`;
@@ -267,7 +280,7 @@ function ipRenderList(filtered, fam, q, filters) {
     .map((i) => {
       const parts = (i.parts || []).length;
       const current = UI.instrumentPreview === i.id;
-      return `<div class="ip-row"${current ? ' aria-current="true"' : ''}><button type="button" class="ip-row-main" data-ui="instrument-inspect" data-id="${esc(i.id)}" aria-label="${esc(i.name)}: configure before adding">${ipImage(i.id, 44)}<span class="ip-row-text"><span class="ip-row-name">${esc(i.name)}</span><span class="ip-row-meta">${esc(FamName(i.family))} · ${esc(ipHuman(i.class))} · ${ipCount(parts, 'customizable part')}</span>${ipCredit(i.id)}</span></button>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i.id)}" aria-label="Add ${esc(i.name)} with catalog defaults to ${esc(dest)}" data-tooltip="Adds with catalog defaults to ${esc(dest)}"`)}</div>`;
+      return `<div class="ip-row"${current ? ' aria-current="true"' : ''}>${ipImage(i.id, 44, i.name)}<button type="button" class="ip-row-main" data-ui="instrument-inspect" data-id="${esc(i.id)}" aria-label="${esc(i.name)}: configure before adding"><span class="ip-row-text"><span class="ip-row-name">${esc(i.name)}</span><span class="ip-row-meta">${esc(FamName(i.family))} · ${esc(ipHuman(i.class))} · ${ipCount(parts, 'customizable part')}</span>${ipCredit(i.id)}</span></button>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i.id)}" aria-label="Add ${esc(i.name)} with catalog defaults to ${esc(dest)}" data-tooltip="Adds with catalog defaults to ${esc(dest)}"`)}</div>`;
     })
     .join('');
   const more =
@@ -681,12 +694,12 @@ function ipRenderInspector(focusKey) {
     chain: ipRenderChain,
     stack: ipRenderOutput,
   };
-  host.innerHTML = `<div class="ip-insp-scroll"><div class="ip-insp-top">${prev ? uiButton('ip-trail-back', 'Back to ' + prev.name, 'arrow-left', 'class="ip-back"') : ''}<nav class="ip-crumbs" aria-label="Instrument family"><button type="button" class="ip-link" data-ui="instrument-family" data-id="${esc(inst.family)}">${esc(FamName(inst.family))}</button><span aria-hidden="true">›</span><button type="button" class="ip-link" data-ui="ip-class" data-id="${esc(inst.class)}" data-family="${esc(inst.family)}">${esc(ipHuman(inst.class))}</button></nav>${uiButton('close-preview', 'Close', 'x', 'class="cm-btn cm-btn-icon ip-close" aria-label="Close instrument preview" data-tooltip="Close (Esc)"')}</div><div class="ip-hero"><div class="ip-hero-text"><h2 id="ip-title" tabindex="-1">${esc(inst.name)}</h2><p class="ip-muted">${esc(inst.short || '')} · catalog id <code>${esc(inst.id)}</code></p><div class="ip-hero-actions">${listenLink(inst.name, true)}<a class="ip-link" href="#ip-similar" data-ui="ip-similar-jump">Similar instruments ${icon('arrow-right', 14)}</a></div></div><figure class="ip-media">${ipImage(id, 96)}</figure></div>${ipCredit(id) ? `<p class="ip-media-credit">${ipCredit(id, { link: true })}</p>` : ''}<div class="ip-tabs" role="tablist" aria-label="Instrument settings">${IP_TABS.map(([t, label, ic]) => `<button type="button" role="tab" class="cm-tab" id="ip-tab-${t}" data-ui="ip-tab" data-id="${t}" aria-selected="${tab === t}" aria-controls="ip-panel-${t}" tabindex="${tab === t ? 0 : -1}" data-ip-key="tab:${t}">${icon(ic, 16)}<span>${label}</span></button>`).join('')}</div>${IP_TABS.map(([t]) => `<div class="ip-panel" id="ip-panel-${t}" role="tabpanel" aria-labelledby="ip-tab-${t}"${t === tab ? '' : ' hidden'}>${panels[t]()}</div>`).join('')}<section class="ip-similar" id="ip-similar" aria-labelledby="ip-similar-title"><h3 id="ip-similar-title">Similar instruments</h3><p class="ip-help">Closest by sound axes; your recipe and the list stay as they are.</p>${similar
+  host.innerHTML = `<div class="ip-insp-scroll"><div class="ip-insp-top">${prev ? uiButton('ip-trail-back', 'Back to ' + prev.name, 'arrow-left', 'class="ip-back"') : ''}<nav class="ip-crumbs" aria-label="Instrument family"><button type="button" class="ip-link" data-ui="instrument-family" data-id="${esc(inst.family)}">${esc(FamName(inst.family))}</button><span aria-hidden="true">›</span><button type="button" class="ip-link" data-ui="ip-class" data-id="${esc(inst.class)}" data-family="${esc(inst.family)}">${esc(ipHuman(inst.class))}</button></nav>${uiButton('close-preview', 'Close', 'x', 'class="cm-btn cm-btn-icon ip-close" aria-label="Close instrument preview" data-tooltip="Close (Esc)"')}</div><div class="ip-hero"><div class="ip-hero-text"><h2 id="ip-title" tabindex="-1">${esc(inst.name)}</h2><p class="ip-muted">${esc(inst.short || '')} · catalog id <code>${esc(inst.id)}</code></p><div class="ip-hero-actions">${listenLink(inst.name, true)}<a class="ip-link" href="#ip-similar" data-ui="ip-similar-jump">Similar instruments ${icon('arrow-right', 14)}</a></div></div><figure class="ip-media">${ipImage(id, 96, inst.name)}</figure></div>${ipCredit(id) ? `<p class="ip-media-credit">${ipCredit(id, { link: true })}</p>` : ''}<div class="ip-tabs" role="tablist" aria-label="Instrument settings">${IP_TABS.map(([t, label, ic]) => `<button type="button" role="tab" class="cm-tab" id="ip-tab-${t}" data-ui="ip-tab" data-id="${t}" aria-selected="${tab === t}" aria-controls="ip-panel-${t}" tabindex="${tab === t ? 0 : -1}" data-ip-key="tab:${t}">${icon(ic, 16)}<span>${label}</span></button>`).join('')}</div>${IP_TABS.map(([t]) => `<div class="ip-panel" id="ip-panel-${t}" role="tabpanel" aria-labelledby="ip-tab-${t}"${t === tab ? '' : ' hidden'}>${panels[t]()}</div>`).join('')}<section class="ip-similar" id="ip-similar" aria-labelledby="ip-similar-title"><h3 id="ip-similar-title">Similar instruments</h3><p class="ip-help">Closest by sound axes; your recipe and the list stay as they are.</p>${similar
     .map((n) => {
       const shared = getMatchingInstrumentAxes(id, n.id, 2)
         .map((m) => m.axis.name.toLowerCase())
         .join(', ');
-      return `<div class="ip-sim"><button type="button" class="ip-sim-main" data-ui="ip-similar" data-id="${esc(n.id)}">${ipImage(n.id, 28)}<span><span class="ip-row-name">${esc(n.name)}</span><span class="ip-row-meta">Closest on ${esc(shared)}</span>${ipCredit(n.id)}</span></button>${listenLink(n.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(n.id)}" aria-label="Add ${esc(n.name)} with catalog defaults"`)}</div>`;
+      return `<div class="ip-sim">${ipImage(n.id, 28, n.name)}<button type="button" class="ip-sim-main" data-ui="ip-similar" data-id="${esc(n.id)}"><span><span class="ip-row-name">${esc(n.name)}</span><span class="ip-row-meta">Closest on ${esc(shared)}</span>${ipCredit(n.id)}</span></button>${listenLink(n.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(n.id)}" aria-label="Add ${esc(n.name)} with catalog defaults"`)}</div>`;
     })
     .join(
       ''
@@ -912,11 +925,16 @@ uiRegisterPage({
         }
         for (const el of surface.querySelectorAll('img.ip-photo')) {
           if (el.dataset.ipFallback === id)
-            el.outerHTML = `<span class="ip-glyph">${image(id, +el.dataset.ipSize || 32)}</span>`;
+            (el.closest('.cm-photo') || el).outerHTML =
+              `<span class="ip-glyph">${image(id, +el.dataset.ipSize || 32)}</span>`;
         }
       },
       true
     );
+    // A row's glyph (no photo) opens the row, as it did inside the row's button.
+    surface.addEventListener('click', (e) => {
+      e.target.closest('.ip-row > .ip-glyph, .ip-sim > .ip-glyph')?.nextElementSibling?.click();
+    });
     // Tabs: arrow keys move between them (WAI-ARIA tabs pattern).
     surface.addEventListener('keydown', (e) => {
       const tab = e.target.closest?.('[role="tab"][data-ui="ip-tab"]');

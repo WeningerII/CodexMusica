@@ -287,6 +287,16 @@ const PRECONDITIONS = {
   'map view': `
     uiNavigate('map');
   `,
+  // The Instrument inspector on voice (as the drill-down above), then its
+  // photo clicked. Remote photos are a local PNG in this gate (see main), and
+  // a photo still loading opens as well as a loaded one.
+  'photo enlarged': `
+    app.similarInstFor = 'voice';
+    if (typeof renderInstPicker === 'function') renderInstPicker();
+    openModal('modal-add');
+    if (typeof renderInstrumentDiscovery === 'function') renderInstrumentDiscovery();
+    document.querySelector('#instrument-preview .ip-media [data-ui="lightbox"]').click();
+  `,
 };
 
 // Modal-open preconditions are dynamic (one per modal id). Generator:
@@ -367,8 +377,9 @@ async function main() {
   // the 5.7 MB script per group. The reset snippet brings the page back to
   // fresh-boot state (empty workspace, no modals open, no editing flags set).
   const RESET = `
-    // Close any open modals
+    // Close any open modals, and an enlarged photo
     document.querySelectorAll('.modal-bg.open').forEach(m => m.classList.remove('open'));
+    if (typeof uiCloseLightbox === 'function') uiCloseLightbox();
     // Reset workspace state
     app.cards = [];
     app.selected = null;
@@ -420,6 +431,14 @@ async function main() {
     // One page for the whole check — reloading per group is expensive (5.7 MB
     // script parse per reload). Reset script between groups instead.
     const page = await browser.newPage();
+    // Remote photos are a local PNG: the gate runs offline, and whether a
+    // photo's controls exist must not depend on the network.
+    const placeholder = fs.readFileSync(path.join(__dirname, '..', 'assets', 'icon-192.png'));
+    await page.route(/^https:\/\//, (route) =>
+      route.request().resourceType() === 'image'
+        ? route.fulfill({ contentType: 'image/png', body: placeholder })
+        : route.fallback()
+    );
     page.on('pageerror', (err) => {
       console.error(`  ! page error: ${err.message}`);
     });

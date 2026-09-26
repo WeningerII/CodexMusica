@@ -82,6 +82,7 @@ const UI_SHELL_ACTIONS = new Set([
   'recipe-env',
   'recipe-open-editor',
   'recipe-filter',
+  'lightbox',
 ]);
 // Page interface (docs/ui-foundation.md has the full contract):
 //   id            one of UI_ROUTES
@@ -922,6 +923,9 @@ function uiStart() {
         b.focus({ preventScroll: true });
         break;
       }
+      case 'lightbox':
+        uiLightbox(b);
+        break;
       default:
         await UI_PAGE_ACTIONS[a]?.(id, b, e);
     }
@@ -997,7 +1001,8 @@ function uiStart() {
 }
 
 // ── Layers ── Escape closes the topmost open layer only and returns focus to
-// whatever opened it: a dialog (src/app.js handles those), then the More
+// whatever opened it: an enlarged photo (uiLightbox, below, owns its own
+// Escape), a dialog (src/app.js handles those), then the More
 // menu, the AI writer, the Recipe sheet (below 900px), the editor, and last
 // whatever the current page opened (page.escape()).
 function uiFocus(el) {
@@ -1012,6 +1017,147 @@ function uiFind(selector, key, value) {
 }
 function uiFocusCard(id) {
   return uiFocus(uiFind('.sb-card', 'cardId', id));
+}
+
+// ── Photo lightbox ── A catalog photo is a uiPhoto button around the page's
+// own <img>: a click, Enter or Space shows it large over the dimmed page with
+// its credit and licence, linked to the source page. One click anywhere,
+// Escape or Back closes it (it is the topmost layer and owns that Escape) and
+// focus returns to the photo. The thumb shows at once, scaled up; a larger
+// copy replaces it when it loads, and if none loads the thumb stays. Nothing
+// larger is requested before the click.
+/* exported uiPhoto */
+const uiPhoto = (img, { name, full = '', credit = '', href = '' }) =>
+  `<button type="button" class="cm-photo" data-ui="lightbox" aria-label="Enlarge photo of ${esc(name)}" data-name="${esc(name)}" data-full="${esc(full)}" data-credit="${esc(credit)}" data-href="${esc(href)}">${img}</button>`;
+const UI_LIGHTBOX_WIDTH = 1280;
+let uiLightboxOpen = null,
+  uiLightboxLeaving = false; // our own history.back() is on its way
+// Larger copies, best first: a Commons thumb's 1280px rendition (Commons
+// refuses one wider than the original, so the full image follows it), then
+// the full image.
+function uiPhotoSources(thumb, full) {
+  const out = [];
+  const m =
+    /^(https:\/\/[a-z]+\.wikimedia\.org\/.+\/thumb\/.+\/(?:[a-z0-9-]*-)?)\d+px-([^/]+)$/i.exec(
+      thumb
+    );
+  if (m) out.push(m[1] + UI_LIGHTBOX_WIDTH + 'px-' + m[2]);
+  if (/^https:\/\//i.test(full) && full !== thumb) out.push(full);
+  return out;
+}
+function uiLightboxNode() {
+  let dialog = $ui('ui-lightbox');
+  if (dialog) return dialog;
+  dialog = document.createElement('dialog');
+  dialog.id = 'ui-lightbox';
+  dialog.className = 'cm-lightbox';
+  dialog.tabIndex = -1;
+  dialog.setAttribute('role', 'dialog');
+  dialog.setAttribute('aria-modal', 'true');
+  dialog.setAttribute('aria-describedby', 'ui-lightbox-caption');
+  dialog.innerHTML = `<figure><img alt="" decoding="async"><figcaption id="ui-lightbox-caption"><span class="cm-lightbox-credit"></span><span class="cm-lightbox-hint">Click anywhere to close</span></figcaption></figure>`;
+  // Any click closes it — the photo, its frame, the dimmed page. The credit
+  // link still opens the source page in a new tab.
+  dialog.addEventListener('click', uiCloseLightbox);
+  dialog.addEventListener('keydown', (e) => {
+    const enter = (e.key === 'Enter' || e.key === ' ') && e.target === dialog && !e.repeat;
+    if (e.key !== 'Escape' && !enter) return;
+    e.preventDefault();
+    e.stopPropagation();
+    uiCloseLightbox();
+  });
+  dialog.addEventListener('cancel', (e) => {
+    e.preventDefault();
+    uiCloseLightbox();
+  });
+  window.addEventListener('popstate', () => {
+    if (uiLightboxLeaving) {
+      uiLightboxLeaving = false; // the Back it took itself when it closed
+      return;
+    }
+    if (!uiLightboxOpen) return;
+    uiLightboxOpen.pushed = false; // Back already took its history entry
+    uiCloseLightbox();
+  });
+  document.body.append(dialog);
+  return dialog;
+}
+function uiLightbox(trigger) {
+  const thumb = trigger.querySelector('img');
+  if (!thumb || uiLightboxOpen || (thumb.complete && !thumb.naturalWidth)) return;
+  const dialog = uiLightboxNode();
+  const img = dialog.querySelector('img');
+  const { name, full, credit, href } = trigger.dataset;
+  const src = thumb.currentSrc || thumb.src;
+  const larger = uiPhotoSources(src, full);
+  const box = { trigger, key: thumb.getAttribute('src'), pushed: false };
+  // The width the photo is shown at (never past a copy's natural size) and
+  // its proportions; CSS fits that inside the viewport, uncropped.
+  const size = (el, w, h) => {
+    el.style.setProperty('--lb-w', Math.round(w));
+    el.style.setProperty('--lb-h', Math.round(h));
+  };
+  const thumbSize = (t) => {
+    const w = larger.length ? UI_LIGHTBOX_WIDTH : t.naturalWidth;
+    size(img, w, (w * t.naturalHeight) / t.naturalWidth);
+  };
+  if (thumb.naturalWidth) thumbSize(thumb);
+  else size(img, UI_LIGHTBOX_WIDTH, UI_LIGHTBOX_WIDTH * 0.75);
+  img.onload = () => uiLightboxOpen === box && !box.large && thumbSize(img);
+  img.src = src;
+  img.alt = 'Photo of ' + name;
+  dialog.setAttribute('aria-label', 'Photo of ' + name);
+  dialog.querySelector('.cm-lightbox-credit').innerHTML = !credit
+    ? ''
+    : /^https:\/\//i.test(href)
+      ? `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(credit)}</a>`
+      : esc(credit);
+  dialog.querySelector('.cm-lightbox-hint').textContent =
+    (matchMedia('(pointer: coarse)').matches ? 'Tap' : 'Click') + ' anywhere to close';
+  uiLightboxOpen = box;
+  document.documentElement.classList.add('cm-lightbox-open');
+  dialog.showModal();
+  dialog.focus();
+  // Back (a phone's back gesture) closes the photo, not the section.
+  if (/^https?:$/.test(location.protocol)) {
+    history.pushState(history.state, '');
+    box.pushed = true;
+  }
+  const next = (i) => {
+    if (i >= larger.length || uiLightboxOpen !== box) return;
+    const probe = new Image();
+    // The loaded copy itself takes the thumb's place: nothing is fetched twice.
+    probe.onload = () => {
+      if (uiLightboxOpen !== box) return;
+      box.large = true;
+      probe.alt = img.alt;
+      size(probe, probe.naturalWidth, probe.naturalHeight);
+      img.replaceWith(probe);
+    };
+    probe.onerror = () => next(i + 1);
+    probe.src = larger[i];
+  };
+  next(0);
+}
+function uiCloseLightbox() {
+  const box = uiLightboxOpen;
+  if (!box) return;
+  uiLightboxOpen = null;
+  const dialog = $ui('ui-lightbox');
+  dialog.close();
+  dialog.querySelector('img').removeAttribute('src');
+  document.documentElement.classList.remove('cm-lightbox-open');
+  if (box.pushed) {
+    uiLightboxLeaving = true;
+    history.back();
+  }
+  // The photo that opened it, or the same photo if its page repainted.
+  uiFocus(box.trigger) ||
+    uiFocus(
+      [...document.querySelectorAll('[data-ui="lightbox"]')].find(
+        (b) => b.querySelector('img')?.getAttribute('src') === box.key
+      )
+    );
 }
 function uiCloseEditor() {
   const id = app.selected;

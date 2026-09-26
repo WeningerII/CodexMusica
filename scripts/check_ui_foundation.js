@@ -41,11 +41,23 @@
 //      environment names the card the recipe really renders it from and opens
 //      the editor there; the format selector drives the preview.
 //
+//   PHOTOS
+//   N. A catalog photo (Instrument inspector; a Genre row, and a genre's
+//      details) enlarges on a click, Enter or Space: a modal dialog with the
+//      photo scaled up at once, then replaced by the larger copy — never past
+//      that copy's natural size, never cropped — and the credit and licence
+//      linked to the source page. One click anywhere (the photo or the
+//      dimmed page), Escape or Back closes it and focus returns to the photo;
+//      Escape closes nothing under it, the page underneath neither moves nor
+//      scrolls, closing leaves no history entry behind, and when no larger
+//      copy loads the thumb stays. On a phone the photo fits the screen.
+//
 // Usage: node scripts/check_ui_foundation.js [--html=codex.html]
 // Exit 0 if every assertion passes, 1 otherwise.
 
 'use strict';
 /* global document, window, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync */
+/* global innerWidth, UITheme, uiInspectInstrument */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -136,6 +148,41 @@ const SURFACES = `(() => {
   return out;
 })()`;
 
+// Remote photos are local PNGs in this gate: a 192px thumb and a 1024px copy
+// for anything larger (a Commons rendition or a full image), so no network is
+// needed and the two stages can be told apart. The larger copy can be held
+// back until release() or refused (fail()).
+async function stubPhotos(ctx) {
+  const thumb = fs.readFileSync(path.join(ROOT, 'assets/icon-192.png'));
+  const large = fs.readFileSync(path.join(ROOT, 'assets/icon-1024.png'));
+  const seen = [];
+  let mode = 'ok',
+    gate = null,
+    open = () => {};
+  await ctx.route(/^https:\/\//, async (route) => {
+    if (route.request().resourceType() !== 'image') return route.fallback();
+    const u = route.request().url();
+    seen.push(u);
+    if (/\/\d+px-[^/]+$/.test(u) && !/\/1280px-/.test(u))
+      return route.fulfill({ contentType: 'image/png', body: thumb });
+    if (mode === 'fail') return route.fulfill({ status: 404, body: '' });
+    if (gate) await gate;
+    return route.fulfill({ contentType: 'image/png', body: large });
+  });
+  return {
+    requested: () => seen.slice(),
+    hold() {
+      gate = new Promise((resolve) => (open = resolve));
+    },
+    release() {
+      open();
+      gate = null;
+    },
+    fail() {
+      mode = 'fail';
+    },
+  };
+}
 async function ready(page) {
   await page.waitForFunction(() => typeof UI !== 'undefined' && UI.ready, null, {
     timeout: 60000,
@@ -775,6 +822,273 @@ async function loadDelta(page) {
       await ctx.close();
     }
 
+    // ── N. a photo enlarges; one click anywhere puts it back ─────────────
+    stage = 'N. photo lightbox';
+    {
+      // Tall enough that the 1024px copy fits whole: it must then be shown
+      // at exactly its natural size.
+      const { ctx, page } = await newPage({
+        viewport: { width: 1280, height: 1200 },
+        colorScheme: 'light',
+      });
+      const photos = await stubPhotos(ctx);
+      const lightbox = () =>
+        page.evaluate(() => {
+          const d = document.getElementById('ui-lightbox');
+          const img = d?.querySelector('img');
+          const r = img?.getBoundingClientRect();
+          const link = d?.querySelector('figcaption a');
+          return {
+            open: !!d?.open,
+            role: d?.getAttribute('role'),
+            modal: d?.getAttribute('aria-modal'),
+            label: d?.getAttribute('aria-label') || '',
+            src: img?.getAttribute('src') || '',
+            width: r ? Math.round(r.width) : 0,
+            height: r ? Math.round(r.height) : 0,
+            natural: img ? [img.naturalWidth, img.naturalHeight] : [0, 0],
+            inView:
+              !!r && r.left >= 0 && r.top >= 0 && r.right <= innerWidth && r.bottom <= innerHeight,
+            credit: d?.querySelector('figcaption')?.textContent || '',
+            href: link?.href || '',
+            focusInside: !!d && d.contains(document.activeElement),
+            locked: document.documentElement.classList.contains('cm-lightbox-open'),
+          };
+        });
+      const focusedPhoto = (sel) =>
+        page.evaluate((s) => document.activeElement === document.querySelector(s), sel);
+      const loaded = (sel) =>
+        page.waitForFunction((s) => document.querySelector(s)?.naturalWidth > 0, sel, {
+          timeout: 15000,
+        });
+      await page.goto(url + '#genre');
+      await ready(page);
+      await page.click('button[data-view="instrument"]');
+      await page.evaluate(() => uiInspectInstrument('oud'));
+      const hero = '#instrument-preview .ip-media [data-ui="lightbox"]';
+      await loaded(hero + ' img');
+      const trigger = await page.evaluate((s) => {
+        const b = document.querySelector(s);
+        return {
+          label: b.getAttribute('aria-label'),
+          cursor: getComputedStyle(b).cursor,
+          href: b.dataset.href,
+          thumb: b.querySelector('img').getAttribute('src'),
+        };
+      }, hero);
+      check(
+        /^Enlarge photo of .*Ūd/.test(trigger.label) && trigger.cursor === 'zoom-in',
+        `N. the inspector photo is not an "Enlarge photo of" control with a zoom-in cursor (${JSON.stringify(trigger)})`
+      );
+      const pageBox = () =>
+        page.evaluate(() => {
+          const r = document.getElementById('instrument-preview').getBoundingClientRect();
+          const s = document.querySelector('#instrument-preview .ip-insp-scroll');
+          return { box: [r.left, r.top, r.width, r.height], scroll: s.scrollTop };
+        });
+      const before = await pageBox();
+      // Open: the thumb at once, scaled up, while the larger copy is held back.
+      photos.hold();
+      await page.click(hero);
+      const thumbStage = await lightbox();
+      check(
+        thumbStage.open && thumbStage.role === 'dialog' && thumbStage.modal === 'true',
+        `N. clicking the photo did not open a modal dialog (${JSON.stringify(thumbStage)})`
+      );
+      check(
+        /^Photo of .*Ūd/.test(thumbStage.label) && thumbStage.focusInside,
+        `N. the open photo is unnamed or does not take focus (${thumbStage.label})`
+      );
+      check(
+        /Photo: .+ · .+/.test(thumbStage.credit) && thumbStage.href === trigger.href,
+        `N. the enlarged photo lacks its credit and licence linked to the source page (${thumbStage.credit} → ${thumbStage.href})`
+      );
+      check(
+        thumbStage.src === trigger.thumb && thumbStage.width > 192 && thumbStage.inView,
+        `N. the thumb is not shown at once, scaled up and on screen (${JSON.stringify(thumbStage)})`
+      );
+      check(
+        photos.requested().some((u) => /\/1280px-/.test(u)),
+        'N. no larger copy of the photo was requested once it was opened'
+      );
+      const during = await pageBox();
+      await page.mouse.move(640, 500);
+      await page.mouse.wheel(0, 600);
+      await page.waitForTimeout(200);
+      const scrolled = await pageBox();
+      check(
+        thumbStage.locked &&
+          JSON.stringify(during.box) === JSON.stringify(before.box) &&
+          scrolled.scroll === before.scroll,
+        `N. the page under the photo moved or scrolled (${JSON.stringify({ before, during, scrolled })})`
+      );
+      photos.release();
+      await page
+        .waitForFunction(
+          () => /\/1280px-/.test(document.querySelector('#ui-lightbox img')?.src || ''),
+          null,
+          { timeout: 10000 }
+        )
+        .catch(() => {});
+      const largeStage = await lightbox();
+      check(
+        /\/1280px-/.test(largeStage.src) &&
+          largeStage.width === largeStage.natural[0] &&
+          Math.abs(
+            largeStage.width / largeStage.height - largeStage.natural[0] / largeStage.natural[1]
+          ) < 0.02,
+        `N. the larger copy did not replace the thumb at its natural size, uncropped (${JSON.stringify(largeStage)})`
+      );
+      // One click anywhere — here the photo itself — closes it.
+      await page.click('#ui-lightbox img');
+      const closed = await lightbox();
+      check(!closed.open && !closed.locked, 'N. a click on the enlarged photo did not close it');
+      check(await focusedPhoto(hero), 'N. closing the photo did not return focus to it');
+      // Keyboard: Enter opens, Escape closes this layer only.
+      await page.keyboard.press('Enter');
+      check((await lightbox()).open, 'N. Enter on a focused photo did not enlarge it');
+      await page.keyboard.press('Escape');
+      const escaped = await page.evaluate(() => ({
+        open: document.getElementById('ui-lightbox').open,
+        preview: UI.instrumentPreview,
+      }));
+      check(
+        !escaped.open && escaped.preview === 'oud',
+        `N. Escape did not close only the photo (${JSON.stringify(escaped)})`
+      );
+      check(await focusedPhoto(hero), 'N. Escape did not return focus to the photo');
+      // Space opens; a click on the dimmed page closes.
+      await page.keyboard.press(' ');
+      check((await lightbox()).open, 'N. Space on a focused photo did not enlarge it');
+      await page.mouse.click(4, 4);
+      check(!(await lightbox()).open, 'N. a click on the dimmed page did not close the photo');
+      check(await focusedPhoto(hero), 'N. a backdrop click did not return focus to the photo');
+      // Back closes the photo and stays in the section; closing by a click
+      // left no history entry behind, so Back after it leaves the section.
+      await page.click(hero);
+      await page.goBack();
+      await page.waitForTimeout(300);
+      const back = await page.evaluate(() => ({
+        open: document.getElementById('ui-lightbox').open,
+        view: UI.view,
+        preview: UI.instrumentPreview,
+      }));
+      check(
+        !back.open && back.view === 'instrument' && back.preview === 'oud',
+        `N. Back did not close the photo in place (${JSON.stringify(back)})`
+      );
+      await page.goBack();
+      await page.waitForTimeout(300);
+      check(
+        (await page.evaluate(() => UI.view)) === 'genre',
+        'N. an enlarged photo left a history entry behind: Back did not return to Genre'
+      );
+
+      // Genre: a row's photo enlarges without opening the row; the photo in
+      // a genre's details does too, and keeps the thumb when no larger copy loads.
+      await page.getByLabel('Search genres').fill('Delta blues');
+      const row = '#genre-list .gp-row[data-gp-id="delta_blues"] [data-ui="lightbox"]';
+      await page.waitForSelector(row, { timeout: 15000 });
+      await loaded(row + ' img');
+      await page.click(row);
+      const fromRow = await page.evaluate(() => ({
+        open: document.getElementById('ui-lightbox').open,
+        label: document.getElementById('ui-lightbox').getAttribute('aria-label'),
+        detail: !!document.getElementById('genre-detail'),
+      }));
+      check(
+        fromRow.open && /Delta blues/i.test(fromRow.label) && !fromRow.detail,
+        `N. a Genre row's photo did not enlarge on its own (${JSON.stringify(fromRow)})`
+      );
+      await page.mouse.click(1270, 1190);
+      check(!(await lightbox()).open, 'N. a click anywhere did not close a Genre photo');
+      check(await focusedPhoto(row), 'N. closing a Genre row photo did not return focus to it');
+      await page.click('#genre-list .gp-row[data-gp-id="delta_blues"] .gp-open');
+      const detailPhoto = '#genre-detail .gp-media [data-ui="lightbox"]';
+      await page.waitForSelector(detailPhoto, { timeout: 10000 });
+      await loaded(detailPhoto + ' img');
+      photos.fail();
+      await page.click(detailPhoto);
+      await page.waitForTimeout(600);
+      const failed = await lightbox();
+      const detailThumb = await page.$eval(detailPhoto + ' img', (i) => i.getAttribute('src'));
+      check(
+        failed.open && failed.src === detailThumb && failed.natural[0] > 0,
+        `N. with no larger copy loading, the enlarged genre photo did not keep its thumb (${JSON.stringify(failed)})`
+      );
+      await page.keyboard.press('Escape');
+      check(
+        !(await lightbox()).open &&
+          (await page.evaluate(() => !!document.getElementById('genre-detail'))),
+        "N. Escape on a genre's enlarged photo closed its details too"
+      );
+      check(
+        await focusedPhoto(detailPhoto),
+        "N. closing a genre's photo did not return focus to it"
+      );
+      // Dark: the frame is a neutral surface, like every other.
+      await page.evaluate(() => UITheme.set('dark'));
+      await page.click(detailPhoto);
+      const frame = await page.evaluate(
+        () => getComputedStyle(document.querySelector('#ui-lightbox figure')).backgroundColor
+      );
+      const [r, g, b] = (frame.match(/\d+/g) || []).map(Number);
+      check(
+        Math.max(r, g, b) - Math.min(r, g, b) <= 2 && r < 64,
+        `N. in Dark the photo's frame is not a dark neutral surface (${frame})`
+      );
+      await page.keyboard.press('Escape');
+      await ctx.close();
+    }
+    stage = 'N. photo lightbox on a phone';
+    {
+      const { ctx, page } = await newPage({
+        viewport: { width: 390, height: 844 },
+        isMobile: true,
+        hasTouch: true,
+      });
+      await stubPhotos(ctx);
+      await page.goto(url + '#instrument');
+      await ready(page);
+      await page.evaluate(() => uiInspectInstrument('oud'));
+      const hero = '#instrument-preview .ip-media [data-ui="lightbox"]';
+      await page.waitForFunction(
+        (s) => document.querySelector(s)?.naturalWidth > 0,
+        hero + ' img',
+        { timeout: 15000 }
+      );
+      await page.tap(hero);
+      await page.waitForTimeout(400);
+      const phone = await page.evaluate(() => {
+        const d = document.getElementById('ui-lightbox');
+        const r = d.querySelector('img').getBoundingClientRect();
+        const c = d.querySelector('figcaption').getBoundingClientRect();
+        return {
+          open: d.open,
+          img: [r.left, r.right, r.top, r.bottom].map(Math.round),
+          caption: [c.left, c.right, c.top, c.bottom].map(Math.round),
+          vw: innerWidth,
+          vh: innerHeight,
+        };
+      });
+      check(
+        phone.open &&
+          phone.img[0] >= 8 &&
+          phone.img[1] <= phone.vw - 8 &&
+          phone.img[1] - phone.img[0] >= phone.vw * 0.8 &&
+          phone.caption[0] >= 0 &&
+          phone.caption[1] <= phone.vw &&
+          phone.caption[3] <= phone.vh,
+        `N. on a phone the enlarged photo does not fill the screen's width with its credit on screen (${JSON.stringify(phone)})`
+      );
+      await page.tap('#ui-lightbox', { position: { x: 10, y: 10 } });
+      check(
+        !(await page.evaluate(() => document.getElementById('ui-lightbox').open)),
+        'N. a tap anywhere did not close the photo on a phone'
+      );
+      await ctx.close();
+    }
+
     // ── K. a phone: the Recipe sheet leaves the map on screen ────────────
     stage = 'K. a phone';
     {
@@ -830,7 +1144,8 @@ async function loadDelta(page) {
       'reload restores, Undo/Redo, truthful autosave, layered Escape with focus return, ' +
       'Back/Forward, ?trad= once and below #section, remembered collapse + Reset layout, another tab ' +
       'reported, empty and no-results recovery, phone Map sheet, toast action leaves with the toast, ' +
-      'Your recipe on the right with its menus, truthful environment source and output format.'
+      'Your recipe on the right with its menus, truthful environment source and output format, ' +
+      'photos that enlarge and close on a click anywhere, Escape or Back.'
   );
   process.exit(0);
 })();

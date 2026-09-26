@@ -12,6 +12,7 @@
    shell's sidebar. Everything shown is read from the catalog: names, counts,
    the 13 sound characteristics, rosters, cross-references, exemplars. */
 'use strict';
+/* global uiPhoto */
 
 // Page-private state. UI.genre (the open genre) and UI.genreNode (the branch)
 // are the shell-visible part; everything else lives here.
@@ -196,6 +197,7 @@ function gpImage(id) {
     credit: `Photo: ${credit} · ${licence}`,
     href:
       typeof e.source_page === 'string' && /^https:\/\//i.test(e.source_page) ? e.source_page : '',
+    full: typeof e.image_url === 'string' ? e.image_url : '',
   };
 }
 function gpMedia(id, size) {
@@ -206,8 +208,14 @@ function gpMedia(id, size) {
       html: `<span class="gp-media gp-media-glyph" aria-hidden="true">${glyph}</span>`,
       credit: '',
     };
+  // The picture is a button that shows it large (uiPhoto); so it sits beside
+  // a row's own button, never inside it.
+  const photo = uiPhoto(
+    `<img class="gp-img" src="${esc(img.src)}" alt="" loading="lazy" decoding="async">`,
+    { name: Tradition(id)?.name || id, full: img.full, credit: img.credit, href: img.href }
+  );
   return {
-    html: `<span class="gp-media"><img class="gp-img" src="${esc(img.src)}" alt="" loading="lazy" decoding="async">${glyph}</span>`,
+    html: `<span class="gp-media">${photo}${glyph}</span>`,
     credit: img.credit,
     href: img.href,
   };
@@ -293,7 +301,7 @@ function gpRow(t, extra = '') {
     m = gpMedia(id, 30),
     branch = gpPath(id).slice(-1)[0]?.name || '',
     lede = gpLede(id);
-  return `<div class="catalog-row gp-row" data-gp-id="${esc(id)}"><button type="button" class="catalog-name gp-open" data-ui="genre-select" data-id="${esc(id)}" aria-expanded="false" aria-label="${esc(t.name)} — show details">${m.html}<span class="gp-row-text"><span class="gp-row-name">${esc(t.name)}</span><span class="gp-row-meta">${esc(branch)}${n ? `<span class="gp-in-recipe">${icon('check', 12)}In recipe</span>` : ''}</span>${lede ? `<span class="gp-row-desc">${esc(lede)}</span>` : ''}${extra}${gpCreditText(m)}</span></button>${listenLink(t.name)}${uiButton('genre-add', n ? 'Add again' : 'Add to recipe', 'plus', `data-id="${esc(id)}" aria-label="Add ${esc(t.name)}"`)}<span class="gp-chevron" aria-hidden="true">${icon('chevron-right', 20)}</span></div>`;
+  return `<div class="catalog-row gp-row" data-gp-id="${esc(id)}">${m.html}<button type="button" class="catalog-name gp-open" data-ui="genre-select" data-id="${esc(id)}" aria-expanded="false" aria-label="${esc(t.name)} — show details"><span class="gp-row-text"><span class="gp-row-name">${esc(t.name)}</span><span class="gp-row-meta">${esc(branch)}${n ? `<span class="gp-in-recipe">${icon('check', 12)}In recipe</span>` : ''}</span>${lede ? `<span class="gp-row-desc">${esc(lede)}</span>` : ''}${extra}${gpCreditText(m)}</span></button>${listenLink(t.name)}${uiButton('genre-add', n ? 'Add again' : 'Add to recipe', 'plus', `data-id="${esc(id)}" aria-label="Add ${esc(t.name)}"`)}<span class="gp-chevron" aria-hidden="true">${icon('chevron-right', 20)}</span></div>`;
 }
 // Why a row is in a sound-target result: how close it is on the targets.
 function gpTargetReason(r) {
@@ -935,8 +943,8 @@ uiRegisterPage({
     });
     if (typeof ResizeObserver === 'function')
       new ResizeObserver(() => gpFitPlaceholder()).observe($ui('genre-search'));
-    // The rest of a row (its picture margin, the chevron) opens it too; the
-    // name button is the keyboard route.
+    // The rest of a row (a glyph picture, its margins, the chevron) opens it
+    // too; the name button is the keyboard route. A photo is its own button.
     surface.addEventListener('click', (e) => {
       const row = e.target.closest('.gp-row');
       if (row && !e.target.closest('button, a, input, select, label'))

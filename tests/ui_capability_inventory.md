@@ -2,7 +2,7 @@
 
 The single source of truth for every interactive surface in the codex. Read this before changing the UI. Update this in the same commit as any UI change. The build's reachability gate (`scripts/ui_reachability_check.js`) enforces that every `status: reachable` entry's selector resolves to at least one element under the entry's precondition. Surfaces that aren't catalogued here are invisible to the build gate, which is how the master-detail refactor silently dropped the stack signature panel, the tradition-group delete, and three drag-drop interactions.
 
-**Updated:** 2026-09-25 for the reference Your recipe panel (right-hand column, row and genre menus, Recording environment, Recipe preview format, AI entry; see "Your recipe — the reference panel" at the end) and before that for the shared UI foundation (theme, shell, one recipe panel on every route, lifecycle states; see `docs/ui-foundation.md` and the section at the end). Previously 2026-09-12 for the production shared workspace. Reachability is enforced by `scripts/ui_reachability_check.js`; this structural check proves selectors exist under stated preconditions, not that every workflow is usable. Browser mobile checks and `scripts/check_workbench.js` cover separate interaction and state boundaries.
+**Updated:** 2026-09-26 for the photo lightbox (a catalog photo enlarges on a click; see "Photo lightbox" at the end), and 2026-09-25 for the reference Your recipe panel (right-hand column, row and genre menus, Recording environment, Recipe preview format, AI entry; see "Your recipe — the reference panel" at the end) and before that for the shared UI foundation (theme, shell, one recipe panel on every route, lifecycle states; see `docs/ui-foundation.md` and the section at the end). Previously 2026-09-12 for the production shared workspace. Reachability is enforced by `scripts/ui_reachability_check.js`; this structural check proves selectors exist under stated preconditions, not that every workflow is usable. Browser mobile checks and `scripts/check_workbench.js` cover separate interaction and state boundaries.
 
 ---
 
@@ -63,6 +63,7 @@ The reachability check supports these standardized preconditions. The check grou
 | `instrument search: no results` | Type a query no instrument matches into `#instrument-search`, `renderInstrumentDiscovery()`. Surfaces the no-results state and its recovery actions. |
 | `genre just imported` | `await importTraditionWithFeedback('delta_blues')`. Surfaces the import toast and its Undo action. |
 | `map view` | `uiNavigate('map')`. The Map presents Your recipe as a dock. RESET returns every group to the Genre section with both search fields cleared. |
+| `photo enlarged` | As `instrument picker open, similar drill-down active` (the Instrument inspector on `voice`), then its photo (`.ip-media [data-ui="lightbox"]`) is clicked. The gate serves every remote photo as a local PNG, so the photo exists offline. RESET closes it (`uiCloseLightbox`). |
 | `modal open: <id>` | `openModal(<id>)`. Modal IDs: `modal-add`, `modal-trad`, `modal-saved`, `modal-save`, `modal-preface`, `modal-recipe-stack`, `modal-attributions`. Use this only when the entry targets the modal frame itself (`#modal-X.open`), not its contents — for contents, use one of the populated-state preconditions above. |
 
 When a future capability needs a precondition not listed here, add the precondition spec to `scripts/ui_reachability_check.js` AND document it in the table above in the same commit.
@@ -1993,7 +1994,7 @@ precondition: empty
 name: genre-media-photo-or-glyph
 kind: widget
 selector: '#surface-genre .gp-media'
-surface: Genre — a genre's picture in rows, cards and details. When references/_image_manifest.json is served (PR #389), a tradition with an entry shows its thumb_url with "Photo: <credit> · <licence>" (linked to the source page in the details); without an entry, without the manifest (a 404 is one quiet request, no script error), or when the image fails to load, the tradition's glyphs show whole and no credit is left behind
+surface: Genre — a genre's picture in rows, cards and details. When references/_image_manifest.json is served (PR #389), a tradition with an entry shows its thumb_url with "Photo: <credit> · <licence>" (linked to the source page in the details), and the photo is a button that enlarges it (photo-enlarge); in a row it sits beside the row's name button, never inside it; without an entry, without the manifest (a 404 is one quiet request, no script error), or when the image fails to load, the tradition's glyphs show whole and no credit is left behind
 implementation: gpLoadOptional / gpIndexImages / gpImage / gpMedia and the image error listener in src/pages/genre.js
 status: reachable
 precondition: empty
@@ -2179,7 +2180,7 @@ notes: check_layout_usability.js loads atlas.html standalone at every width; che
 
 ## Instrument page (src/pages/instrument.js)
 
-The Instrument route is the reference layout: categories and sound properties, the catalogue, and an inspector that configures an instrument **before** it is added, over the Your recipe dock (`recipe: 'dock'`). The inspector works on a preview card built by the canonical engine (`makeCard` with the destination's `traditionCardOpts`, the seed `addInstrumentFromPicker` uses); choices run through `applyPartEdit(card, part, { quiet: true })`, `inverseConfigureForPreface` and the editor's plain environment/chain writes. Photos come from `CODEX_IMAGE_MANIFEST`, inlined by `scripts/build_html.js` from `references/_image_manifest.json` (the file is on main since #389), each with its credit and licence. The preview never enters `app.cards`. Its inspector entries use the `instrument picker open, similar drill-down active` precondition, which opens it on `voice` (via `uiOpenSurface`).
+The Instrument route is the reference layout: categories and sound properties, the catalogue, and an inspector that configures an instrument **before** it is added, over the Your recipe dock (`recipe: 'dock'`). The inspector works on a preview card built by the canonical engine (`makeCard` with the destination's `traditionCardOpts`, the seed `addInstrumentFromPicker` uses); choices run through `applyPartEdit(card, part, { quiet: true })`, `inverseConfigureForPreface` and the editor's plain environment/chain writes. Photos come from `CODEX_IMAGE_MANIFEST`, inlined by `scripts/build_html.js` from `references/_image_manifest.json` (the file is on main since #389), each with its credit and licence; a click on one enlarges it (see "Photo lightbox"). The preview never enters `app.cards`. Its inspector entries use the `instrument picker open, similar drill-down active` precondition, which opens it on `voice` (via `uiOpenSurface`).
 
 ```yaml
 name: instrument-categories
@@ -2353,4 +2354,30 @@ surface: Instrument — Your recipe as the dock under the page (select, duplicat
 implementation: uiRegisterPage({ recipe: 'dock' }) in src/pages/instrument.js; dock presentation in src/workbench.css
 status: reachable
 precondition: instrument picker open
+```
+
+## Photo lightbox (2026-09-26)
+
+A catalog photo enlarges on a click and one more click anywhere puts it back. One shared helper serves every page: `uiPhoto` wraps a page's own `<img>` in a button (`data-ui="lightbox"`, a shell action) and `uiLightbox` opens it in a native modal `<dialog>`. Behaviour — not just presence — is gated by `scripts/check_ui_foundation.js` N. The Map's atlas card thumbnail (inside the atlas frame) is not a lightbox photo.
+
+```yaml
+name: photo-enlarge
+kind: data-action
+selector: '#instrument-preview .ip-media [data-ui="lightbox"]'
+surface: A catalog photo — the Instrument inspector's, a catalogue row's or card's and a Similar instruments row's; a Genre row's, card's and details' (when references/_image_manifest.json is served). Named "Enlarge photo of <name>", with a zoom-in cursor; a click, Enter or Space shows it large. In a row it sits beside the row's own button, never inside it, where that button's padding used to put it; a glyph in its place (no photo, or one that failed to load) opens the row as before
+implementation: uiPhoto and the 'lightbox' shell action (uiLightbox) in src/workbench.js; ipImage in src/pages/instrument.js; gpMedia in src/pages/genre.js
+status: reachable
+precondition: instrument picker open, similar drill-down active
+notes: check_ui_foundation.js N clicks the Instrument inspector's photo, a Genre row's photo (which must not open the row) and a genre's details' photo, and opens them with Enter and Space.
+```
+
+```yaml
+name: photo-lightbox
+kind: modal
+selector: '#ui-lightbox[open][role="dialog"][aria-modal="true"]'
+surface: Photo lightbox — the photo as large as the viewport allows over the dimmed page, never cropped and never past its natural size, with "Photo: <credit> · <licence>" linked to the source page and "Click anywhere to close" ("Tap" on a touch screen). The thumb shows at once, scaled up; a 1280px Commons rendition, else the full image, replaces it when it loads, and if none loads the thumb stays. Nothing larger is requested before the click. A click anywhere (the photo, its frame, the dimmed page), Escape or Back closes it and focus returns to the photo
+implementation: uiLightbox, uiCloseLightbox and uiPhotoSources in src/workbench.js; .cm-lightbox in src/workbench.css; the full image is the fifth field of CODEX_IMAGE_MANIFEST (scripts/build_html.js) and image_url in references/_image_manifest.json
+status: reachable
+precondition: photo enlarged
+notes: The topmost layer — it owns its Escape, so nothing under it closes on the same key. The page underneath is inert and neither moves nor scrolls. Back is a history entry pushed on open (http and https only) and taken back when it closes any other way. check_ui_foundation.js N, on a desktop and a phone, in Light and Dark.
 ```

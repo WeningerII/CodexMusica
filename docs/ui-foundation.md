@@ -78,6 +78,7 @@ URL; adds nothing; an explicit `#section` wins).
 | `showToast(message, kind, action)` | `kind` `success`/`error`; `action` `{ label, run }` adds one button. |
 | `UITheme` | `preference()` (`system`/`light`/`dark`), `theme()` (resolved), `set(pref)`, `onChange(fn)`, `token(name, fallback)` for canvas drawing. |
 | `UILayout` | `splitter({ side: 'left'|'right'|'top' })` (drag, arrows, Home, End, double-click), `floating`, `anchor`, `remember(key, initial)`, `refresh`, `reset`, `tooltips`. |
+| `uiPhoto(img, { name, full, credit, href })` | A catalog photo that enlarges: wraps the page's own `<img>` in a button ("Enlarge photo of <name>", `data-ui="lightbox"`) that opens the shell's photo lightbox — the photo large over the dimmed page with `credit` linked to `href`; `full` is the full image, tried when no larger Commons rendition of the thumb loads. One click anywhere, Escape or Back closes it and focus returns to the photo. A row puts the photo beside its own button, never inside it. Styles: `.cm-photo`, `.cm-lightbox` in `src/workbench.css`. |
 
 State: `app.*` (src/app.js) is the recipe and session — cards, selection,
 history, `workspaceName`, `lyrics`. `UI.*` is shell state; `UI.genre`/`UI.genreNode`
@@ -185,8 +186,8 @@ panel, editor, dialogs, AI writer).
 
 ## Layers, keyboard and focus
 
-Escape closes the topmost layer only and returns focus to what opened it: a
-dialog (src/app.js), then an open … menu in Your recipe, then More, the AI writer, the Recipe sheet (below
+Escape closes the topmost layer only and returns focus to what opened it: an
+enlarged photo (`uiPhoto`; it owns its Escape), a dialog (src/app.js), then an open … menu in Your recipe, then More, the AI writer, the Recipe sheet (below
 900 px), the editor, then the page's own `escape()` (Genre: the inline tree,
 then a genre's detail; Instrument: the preview). Back and Forward step between
 sections. Dragging keeps working and every drag has a keyboard or button
