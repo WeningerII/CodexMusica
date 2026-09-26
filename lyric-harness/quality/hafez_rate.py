@@ -121,7 +121,9 @@ until this date all three were collapsed into the NO:
             radif, so there IS no qāfiya word to compare. `qafiya_words` DROPPED
             those, correctly, and then reported the two counts it had dropped
             between as the hard-coded literals "20,661" and "273" in a print
-            string, computed by nobody and checked by nothing.
+            string, computed by nobody and checked by nothing. (`qafiya_words`
+            itself, by then a one-line wrapper over `qafiya_slots` that nothing
+            called, was DELETED 2026-09-26.)
   VERDICT   `Verdicts.verdict` already BRANCHES on the two causes of None and
             then throws the branch away -- see the next paragraph, which is the
             finding of the 2026-08-13 audit and the reason this file was opened.
@@ -525,17 +527,6 @@ class Verdicts:
         memo = self.tally(groups, causes)
         assert direct == memo, (direct, memo)
         return direct
-
-
-def qafiya_words(sets, phon):
-    """-> per ghazal, its qāfiya words, normalised, Nones dropped.
-
-    `Persian.qafiya` returns the token immediately before the radif, or the
-    line-final token where no radif was detected, or None where a line does not
-    carry the detected radif. Dropping the Nones is what makes the pair count
-    20,388 rather than 20,661.
-    """
-    return qafiya_slots(sets, phon)[0]
 
 
 def qafiya_slots(sets, phon):
