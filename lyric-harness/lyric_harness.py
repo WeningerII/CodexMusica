@@ -2997,14 +2997,6 @@ class Attribution(dict):
 
     # -- the reporting questions ------------------------------------------
     @property
-    def kind_a(self):
-        return self["kind_a"]
-
-    @property
-    def kind_b(self):
-        return self["kind_b"]
-
-    @property
     def kinds(self):
         return (self["kind_a"], self["kind_b"])
 

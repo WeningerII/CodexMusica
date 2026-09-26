@@ -16189,10 +16189,12 @@ COMMENT.**
   - **`Attribution["candidates_a"]` / `["candidates_b"]` — 0 non-test
     readers.** These are the FACTORS of the doctrine-56 coordinate, the
     decomposition of k into the two side-searches, and no production path can
-    see either. `Attribution` exposes derived properties for `kind_a`,
-    `kind_b`, `kinds`, `exact`, `differs`, `mosaic` and `tied` and none for
+    see either. `Attribution` exposes derived properties for ~~`kind_a`,
+    `kind_b`,~~ `kinds`, `exact`, `differs`, `mosaic` and `tied` and none for
     these — under its own docstring reading *"a derived value stored as a bare
-    key is a value someone recomputes differently. Doctrine 45."*
+    key is a value someone recomputes differently. Doctrine 45."* (The two
+    struck accessors were DELETED 2026-09-26 by the harness cleanup: nothing
+    read either property, and every reader subscripts `["kind_a"]`.)
 
 **AND ONE THAT DECLARES AN ENFORCEMENT ORDER NOTHING READS.**
 `lyric_harness.py:1978`:
