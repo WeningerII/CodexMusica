@@ -28,10 +28,10 @@
 //   node scripts/build_html.js                    # lazy shell (default) into OUTPUT_DIR (see _paths.js; CODEX_OUT_DIR overrides)
 //   node scripts/build_html.js --out=path.html    # custom output path
 //   node scripts/build_html.js --embedded         # fully-embedded single-file variant (all tables in the page; no api/ needed)
-//   node scripts/build_html.js --lazy             # explicit lazy shell (same as the default; kept for back-compat)
-//   node scripts/build_html.js --validate         # run validate.js first; abort on failure
+//   node scripts/build_html.js --lazy             # explicit lazy shell (same output as the default). Kept, not dead:
+//                                                 #   check_lazy_app.js passes it so both of its builds name their mode,
+//                                                 #   and `npm run build:html:lazy` and docs/place-production-plan.md cite it
 //   node scripts/build_html.js --check            # post-build: eval data block, assert no block is all-comment, assert <script> byte ceiling
-//   node scripts/build_html.js --strict           # --validate + --check, both run
 //   node scripts/build_html.js --quiet            # suppress per-source-file size summary
 //   node scripts/build_html.js --no-minify        # skip minification (reading the artifact by hand; never used by CI or publish)
 //
@@ -44,7 +44,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
 const vm = require('vm');
 
 const SKILL_ROOT = path.join(__dirname, '..');
@@ -117,25 +116,6 @@ if (!fs.existsSync(TEMPLATE) || !fs.existsSync(APP)) {
   process.exit(2);
 }
 
-// ──────────────────────────── pre-build: --validate ────────────────────────────
-// When --validate or --strict is set, run validate.js synchronously and abort the
-// build on any failure. Without this gate, a broken catalog can silently produce
-// a broken HTML — and the failure mode (open the file in a browser, see a JS
-// syntax error in devtools) is far worse than a fast pre-build abort.
-
-const runValidate = flags.validate || flags.strict;
-if (runValidate) {
-  try {
-    const out = execSync('node ' + path.join(__dirname, 'validate.js'), { encoding: 'utf8' });
-    if (!flags.quiet) console.error('validate: PASS — ' + out.trim().split('\n').pop());
-  } catch (e) {
-    console.error('validate: FAIL — aborting build');
-    if (e.stdout) console.error(e.stdout.toString());
-    if (e.stderr) console.error(e.stderr.toString());
-    process.exit(3);
-  }
-}
-
 // ──────────────────────────── build ────────────────────────────
 
 const template = fs.readFileSync(TEMPLATE, 'utf8');
@@ -204,7 +184,14 @@ const { minifyJs } = require('./_minify.js');
 const MINIFY = !flags['no-minify'];
 const squeeze = (code, label) => (MINIFY ? minifyJs(code, label) : code);
 
+// Every emitted block opens its own <script>, closing the one before it. The
+// template supplies only the final </script>, right after <!--@CODEX_BODY-->,
+// which closes the runtime block.
 const dataParts = [];
+const openScript = (label) => {
+  if (dataParts.length) dataParts.push(`</script>`);
+  dataParts.push(`<script>// ─── ${label} ───`);
+};
 const sourceSizes = [];
 for (const f of SOURCE_FILES) {
   if (LAZY && LAZY_OMIT.has(f)) continue;
@@ -216,10 +203,9 @@ for (const f of SOURCE_FILES) {
   for (let i = 0; i < chunks.length; i++) {
     if (!chunks[i].trim()) continue; // skip empty splits
     const label = chunks.length === 1 ? f : `${f} [${i + 1}/${chunks.length}]`;
-    dataParts.push(`</script>`);
     // The label comment is emitted OUTSIDE the minified body, so it survives:
     // the shipped page still says which source each block came from.
-    dataParts.push(`<script>// ─── ${label} ───`);
+    openScript(label);
     dataParts.push(squeeze(chunks[i].trimEnd(), label));
   }
 }
@@ -248,16 +234,14 @@ function compactImageManifest() {
   };
 }
 const imageManifest = compactImageManifest();
-dataParts.push(`</script>`);
-dataParts.push(`<script>// ─── instrument images (references/_image_manifest.json) ───`);
+openScript('instrument images (references/_image_manifest.json)');
 dataParts.push(
   `const CODEX_IMAGE_MANIFEST = ${JSON.stringify(imageManifest).replace(/</g, '\\u003c')};`
 );
 
 // Open a final script tag — the family-parts merge + the app (src/app.js) write
 // into this one. The template tail (after the marker) closes it with </script>.
-dataParts.push(`</script>`);
-dataParts.push(`<script>// ─── runtime ───`);
+openScript('runtime');
 if (LAZY) {
   // The lazy-shell switch. src/app.js sees this const, skips the (absent)
   // embedded tables, and resolves its CATALOG_READY boot promise by fetching
@@ -406,8 +390,7 @@ if (!flags.quiet) {
 // the data files. Reports concrete catalog sizes (traditions, instruments,
 // preface lexicon entries) so the operator can eyeball expected vs actual.
 
-const runCheck = flags.check || flags.strict;
-if (runCheck) {
+if (flags.check) {
   // The assembled dataBlock interleaves literal </script>/<script> markers (the
   // per-file tag splitting that fixes the renderer OOM). Those are HTML, not JS,
   // so eval-ing dataBlock verbatim always throws "Unexpected token '<'". Strip the
@@ -508,11 +491,7 @@ if (runCheck) {
   //
   // SCOPED TO THE BLOCKS THIS BUILDER LABELS, which is exactly the set at risk:
   // a `// ─── … ───` line is the only comment here that ever sits directly above
-  // injected source, so it is the only one that can swallow any. The template's
-  // own <script> opens with a hand-written banner and carries the CODEX_BODY
-  // marker, but the first thing substituted at that marker is a `</script>` —
-  // the banner block is closed before a byte of source reaches it, and flagging
-  // it would be flagging the template for containing a comment.
+  // injected source, so it is the only one that can swallow any.
   const LABEL = /^\s*\/\/ ─── /;
   const hollow = [];
   for (const block of scriptBlocks) {

@@ -121,7 +121,6 @@
     focus: new Set(),
     qmatch: null,
     hit: [],
-    clusters: [],
     sel: null,
     kin: [],
     kinWhy: {},
@@ -231,8 +230,6 @@
     wave: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h3l2-6 4 12 3-9 2 3h6"/></svg>',
     layers:
       '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>',
-    route:
-      '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8 16.5C13 14 11 8 15.8 7"/></svg>',
     pin: '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
     genre:
       '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l9-9h8v8l-9 9z"/><circle cx="15.5" cy="8.5" r="1.5"/></svg>',
@@ -953,7 +950,6 @@
     if (S.routesOn) drawRoutes(ctx);
 
     var cls = buildClusters();
-    S.clusters = cls;
 
     S.hit = [];
     drawDimmed(ctx);

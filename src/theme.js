@@ -16,13 +16,11 @@ var UITheme = (function () {
   var CHOICES = ['system', 'light', 'dark'];
   var media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
   var listeners = [];
-  var stored = true;
   function read() {
     try {
       var value = localStorage.getItem(KEY);
       return CHOICES.indexOf(value) >= 0 ? value : 'system';
     } catch {
-      stored = false;
       return 'system';
     }
   }
@@ -70,9 +68,8 @@ var UITheme = (function () {
     preference = pref;
     try {
       localStorage.setItem(KEY, pref);
-      stored = true;
     } catch {
-      stored = false;
+      /* Storage unavailable: the choice holds for this page only. */
     }
     apply();
     relay();
@@ -99,15 +96,11 @@ var UITheme = (function () {
   });
   apply();
   return {
-    CHOICES: CHOICES.slice(),
     preference: function () {
       return preference;
     },
     theme: function () {
       return resolve(preference);
-    },
-    persisted: function () {
-      return stored;
     },
     set: set,
     onChange: function (fn) {

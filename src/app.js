@@ -12910,14 +12910,11 @@ function _kebab(label) {
 // modern Lucide slugs (circle-alert, trash-2, house) — the alias map covers both.
 // Renders at default 16px, or icon(name, NN) for custom size.
 
-// Library-extension overlay: a small set of family-level music glyphs that
-// predate Lucide vendoring and aren't yet in lucide-static. Merged into the
-// runtime ICONS lookup so existing callers keep resolving.
+// Library-extension overlay: a music glyph that predates Lucide vendoring and
+// isn't in lucide-static. Merged into the runtime ICONS lookup so existing
+// callers keep resolving.
 const ICON_PATHS_LOCAL = {
   'music':   '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
-  'music-2': '<circle cx="8" cy="18" r="4"/><path d="M12 18V2l7 4"/>',
-  'music-3': '<path d="M21 15V6"/><path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/><path d="M12 12H3"/><path d="M16 6H3"/><path d="M12 18H3"/>',
-  'library': '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
 };
 
 function icon(name, size = 16) {
@@ -17325,9 +17322,6 @@ function handleAction(action, card, trigger) {
   } else if (action === 'drift-close') {
     card.drift = null;
     rerenderCard(card);
-  } else if (action === 'get-stack') {
-    card.stackPanel = card.stackPanel ? null : { format: 'prose' };
-    rerenderCard(card);
   } else if (action === 'stack-close') {
     card.stackPanel = null;
     rerenderCard(card);
@@ -18051,8 +18045,6 @@ function _initApp() {
 .fam-glyph svg { display: block; }
 .similar-card-glyph { display: inline-flex; align-items: center; vertical-align: middle; margin-right: 5px; }
 .similar-card-glyph svg { display: block; }
-.qp-glyph { display: inline-flex; align-items: center; vertical-align: middle; margin-right: 6px; }
-.qp-glyph svg { display: block; }
 .tree-row-desc { font-size: var(--fs-caption); color: var(--text-3); margin-top: 2px; line-height: 1.4; }
 .tree-row-count { font-size: var(--fs-micro); color: var(--text-3); font-variant-numeric: tabular-nums; padding-left: var(--s2); white-space: nowrap; }
 
@@ -19642,9 +19634,9 @@ async function _chatSubmit(e) {
   }
 }
 
-// Reveal the dock only if the backend is actually there and configured. A chat
-// bar that is visibly present and fails on every message is a worse experience
-// than no chat bar, and the page cannot know which it is without asking.
+// Wire the ask bar. Revealing it and checking the backend's status is the
+// shell's job (uiStart / uiCheckAI in src/workbench.js), which keeps the dock
+// visible and says so in #ai-status when the writer is offline.
 function initChatDock() {
   const dock = _chatEl('chat-dock');
   const form = _chatEl('chat-form');
@@ -19686,8 +19678,4 @@ function initChatDock() {
   });
   const reset = _chatEl('chat-reset');
   if (reset) reset.addEventListener('click', _chatReset);
-
-  if(typeof UI==='undefined'){
-    fetch(`${CHAT_BACKEND}/chat/status`).then(r=>r.ok?r.json():null).then(status=>{if(status?.ok&&status.enabled!==false)dock.hidden=false;}).catch(()=>{});
-  }
 }

@@ -1,4 +1,4 @@
-/* exported renderGenreDiscovery, renderGenreWeb */
+/* exported renderGenreDiscovery */
 /* global $ui, Catalog, Inst, STARTER_TRADITIONS, Tradition, UI, UILayout, _addedInstrumentMessage, _determinePrimaryCard, addInstrumentFromPicker, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderAll, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiButton, uiEmptyState, uiFind, uiFocus, uiNavigate, uiOpenEditor, uiRegisterPage */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
@@ -693,13 +693,6 @@ function renderGenreDiscovery() {
   gpRenderMain();
   gpRestoreFocus(focus);
 }
-// Kept for callers of the previous page API: a genre's details.
-function renderGenreWeb(id) {
-  if (!Tradition(id)) return;
-  UI.genre = id;
-  renderGenreDiscovery();
-}
-
 // ── Focus and position ───────────────────────────────────────────────────
 function gpFocusKey() {
   const a = document.activeElement;
