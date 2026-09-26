@@ -54,7 +54,8 @@ src/app.js
 # matrix_eval.json: generated output, owned by the tool that writes it. This
 # line ended a 15-run red streak on the CI gate job that began the hour the
 # first drawn-relation song was banked. Hand-authored blueprints elsewhere
-# (examples/, fixtures) keep the old rationale and stay formatted.
+# (~~examples/,~~ fixtures) keep the old rationale and stay formatted.
+# (`examples/` struck 2026-09-26: the directory was deleted in 11aa19b.)
 lyric-harness/songs/*.blueprint.json
 lyric-harness/corpus
 lyric-harness/data
