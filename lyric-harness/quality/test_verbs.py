@@ -3135,6 +3135,25 @@ def test_every_test_file_is_accounted_for_by_ci():
           "calls it, accounts for the suite (the npm route is READ)",
           heard, f"`run: npm run zz:planted` added: "
           f"{'accounted for' if heard else 'STILL AN ORPHAN'}")
+    # THE OFFLINE RESEARCH TOOLS (declared 2026-09-26, the owner's ruling:
+    # declare, do not delete). `data/labels/*` holds five builders, a shared
+    # helper and `verify.py`, a 24-assertion suite this census never saw
+    # because it globs `quality/test_*.py`. CI cannot run any of them -- they
+    # fetch their inputs -- so they are accounted for by DECLARATION, in the
+    # one table `wiring` prints: every .py under data/ must have a row saying
+    # how it is run, and every row must name a file that exists.
+    offline = set()
+    for dirpath, _dirs, files in os.walk(os.path.join(ROOT, "data")):
+        offline |= {os.path.relpath(os.path.join(dirpath, f), ROOT)
+                    .replace(os.sep, "/") for f in files if f.endswith(".py")}
+    declared = set(lh.OFFLINE_RESEARCH_TOOLS)
+    check("every .py under data/ -- the offline label builders and their "
+          "verify.py -- is DECLARED with how it is run, and no declared tool "
+          "is missing",
+          bool(declared) and offline == declared,
+          f"{len(offline)} on disk, {len(declared)} declared; undeclared: "
+          f"{sorted(offline - declared) or 'none'}; ghosts: "
+          f"{sorted(declared - offline) or 'none'}")
     via_npm = sorted((named - _ci_accounted(src, {})) & on_disk)
     check("the suites only `npm test` runs are accounted for THROUGH "
           "package.json, not through the ci.yml comment that names them",
