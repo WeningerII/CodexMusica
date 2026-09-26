@@ -1148,10 +1148,29 @@ words — so the 25% inflation above is LIVE, and Check J's messages said
 otherwise until the same date. This entry's RESOLVED covers the DETECTOR
 (Check J, below) and never the normalisation. Wiring the joiner into
 `line_tokens` moves the comparator fingerprint (`line_tokens` is in its
-closure, standing rule 4) and the MATTR/CV calibrations with it, so it is an
+closure, standing rule 4) ~~and the MATTR/CV calibrations with it~~ (**struck
+2026-09-26, measured false: MATTR, FWR and the token count read
+`features._tokens` and CV/anaphora read `str.split`, none of them
+`line_tokens`, and all 8,536 calibration items' five cheap statistics are
+byte-identical after the wiring**), so it is an
 owner ruling, recorded here rather than taken; the function stays in place
 until then. (It has a defect of its own to settle first: `for 't`, "for it",
-would join to `for't`.) ~~**Still open:** nothing detects WHICH
+would join to `for't`.) **WIRED 2026-09-26 BY THE OWNER'S BATCHED COMPARATOR
+RE-PIN (`MISSING.md` M-315), so the claim struck above is TRUE AGAIN for the
+rhyme path, re-dated rather than restored:** `join_spaced_enclitics` now runs
+inside `line_tokens`, `raw_final_token` and `Lexicon.transcribe` — all three
+of `lyric_harness.py`'s tokenisers, because readers that disagree about a
+word misalign `for_token(index)` and make `line_anchors` refuse — and
+`line_tokens("There 's high and low")` is `["There's", "high", "and", "low"]`.
+The defect was settled first: `ENCLITICS` lost `'t` and `'n` (elided WORDS —
+all 99 spaced `'t` in the calibration population are "it", all 5 spaced `'n`
+are "than"/"and"/"an"/"him"), so `for 't` stays two words; three joins of
+2,119 still glue an elided pronoun (`o 's`, `At 's`, `gie 'm`), keyed on
+form, named in `ENCLITICS`' comment. **STILL TRUE AND NOT FIXED HERE:** the
+quality layer's counts (`features._tokens` for MATTR/FWR/N, `str.split` for
+CV and anaphora) still read `There 's` as two words; wiring them moves
+`quality/features.py`, every length curve and the discrimination AUCs, and
+the owner's batch did not ask for it. ~~**Still open:** nothing detects WHICH
 convention an edition uses, so a corpus mixing both is silently
 inconsistent.~~
 
@@ -28720,3 +28739,19 @@ its own M-311 and #398 takes M-312.
 **NOT CLAIMED.** That the N-relation model is right — that is #380's ruling. That the nightly is green: the next run measures it, and on `cb077b29` it was also red at two steps this entry does not touch — the song-profile slice (exit 124, the memo rebuilt from scratch after #380 moved the comparator fingerprint, M-299) and the deployment freshness check (the live connector's surface differs from the tree's; M-308, a redeploy). Why the within-item Exp 1 draw falls under a median that holds is not decomposed per seed (doctrine 58). And `quality/floor.py` still quotes the 2026-09-14 figures — 0.758 in its module docstring, 0.894 in `CALIBRATION["known_limits"]`, and a predictability-only 0.638 / 0.737 in `PREDICTABLE_RHYME`'s evidence strings, which `test_floor.py` pins. M-293 did not walk it either (those two read 0.637 / 0.731 from 2026-09-17; today 0.645 / 0.732). Its qualitative claim — above chance in both, well under the ten-feature 0.967, so a weak separator that stays a NOTE — holds at today's figures; it is runtime text that ships to the connector, so it is left for its owner rather than changed in a nightly repin.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~368~~ -> **369**.
+
+### M-315 · The owner's batched comparator re-pin: the spaced-enclitic joiner WIRED into all three of `lyric_harness.py`'s tokenisers with its join set corrected (`for 't` no longer becomes `for't`), and `nucleus_agrees`' docstring made true — one fingerprint move, one cold memo, and every calibration HOLDS `CLOSED` 2026-09-26 (built; re-pinned; the next nightly and qualification run cold by design) — under the owner's order to batch the two comparator edits the 2026-09-26 harness audit found (CLAUDE.md standing rule 4) and pay the re-pin once
+
+**THE TWO EDITS, BOTH INSIDE THE COMPARATOR'S CLOSURE.** (1) `MISSING.md` F-5: `join_spaced_enclitics` was defined and called nowhere — `line_tokens("There 's high and low")` returned `'s` as its own token, which `transcribe_word` strips to `s` and reads as the LETTER S (EH1 S), a stressed syllable nobody wrote. It now runs inside `line_tokens`, `raw_final_token` and `Lexicon.transcribe`: wiring one alone would have made `line_anchors` refuse any line whose last token and end word disagree, and misaligned `for_token(index)`, whose index is `line_tokens`'. The joiner's own defect was fixed first: `ENCLITICS` was `'s 'll 're 've 'd 'm 't 'n`, and over `lyric_reader.calibration_items` of `corpus/song/eng_*` all 99 spaced `'t` are the pronoun "it" (`for 't`, `in 't`, the split `'tis` in `now 't is done`) and all 5 spaced `'n` are elided "than"/"and"/"an"/"him" — words, not clitics — so the set is the six clitic forms and `_SPACED_ENCLITIC` is built from it (one definition, which Check J reads too). Under it 1,971 sung lines in 223 files carry 2,119 joins; three of them still glue an elided pronoun (`o 's heit`, `At 's curpin`, `gie 'm his dues`), keyed on form and named in `ENCLITICS`' comment. The fold comes with the joiner: `line_tokens` and `transcribe` now fold every typographic apostrophe, as `raw_final_token` already did, which changes the token TEXT, never the count, on 14 calibration lines of Watts and Lanier (`` `tis `` -> `'tis`; `transcribe_word` strips the apostrophe, so the lookup is unchanged) and ends one disagreement: `line_tokens` used to drop the backtick while `raw_final_token` kept it. (2) `nucleus_agrees` said the scalar shape was "still the default"; since `fa80a8f7` `Declaration.nucleus_agreement` defaults to `"licensed"`, and the docstring now says so with the old words struck.
+
+**WHAT MOVED.** `check_comparator_pin.py`: MOVED — 1 of 7 inputs, `lyric_harness.py closure`; the other six byte-identical. `1e2d0c2dc62c` -> `6a0dd9c1004e`. The predictability memo was rebuilt FROM NOTHING over twelve shards of `length_curve_calibration.py compute --shard I/12` at commit `1028d8a6` — four in this session, eight on two cloud workers — 8,536 items, every CACHE line "new (no file yet)", 37,194 CPU-s (10.3 CPU-hours; twelve processes each warm their own `RhymeField`, so the sharding bought wall-clock and cost CPU). `check --rows` over the twelve: **RESULT: HOLDS**, mattr/fwr/anaphora to every digit, cv and predictability at 21 knots each. Item by item, all 8,536 rows equal the rows banked at the old pin (`quality/results/n_relation_2026-09-22/calibration-rows.tsv`) in all five statistics to the printed repr — 0 items changed. Warm on the merged memo, `song_profile_calibration.py --check` (`song`) and `--check --profile short` each answer 21 of 21 and reproduce every shipped constant, and `expected_drift.py song_profile_calibration-fast` observes 0 drift. Nothing moved, so nothing is re-adopted and nothing was tuned (doctrine 58); the pin advances on `quality/results/comparator_repin_2026-09-26/curve-check.txt`, with the twelve shards' rows, sidecars and COMPUTE logs banked beside it.
+
+**WHAT ELSE MOVED, EACH RE-DERIVED BY ITS OWN INSTRUMENT.** `audit_corpus.py --verify-shape`: NOTE ~~1193~~ -> **1195**, Check J alone — with `'t` out of the set an attached `o't` stops counting as attached-convention evidence, the partition goes attached-only 1049 -> 1067 / spaced-only 0 / both 245 -> 226, and two editions become spaced-DOMINANT (`eng_celtic_msm_andrew_scott` 43/39, `eng_celtic_msm_robert_lochore` 40/29); every other finding is line-identical to an `origin/main` run. `mutate.py` M22 was STALE (its anchor was the fold line the joiner replaced) and is RE-ANCHORED on the line that now carries the decision, the planted defect unchanged and still caught by `test_mut_oracle.py` §6. `counters.py`'s public-symbol row moves one symbol from NOWHERE to tests-only (`join_spaced_enclitics`, now pinned by `test_readability.py` §17). `capacity.certification_identity` MOVES — `lyric_harness.py`'s module-level statements and reached definitions are hashed as AST — so CI's `capacity-proof` job re-proves it.
+
+**WHAT DID NOT MOVE, AND WHY IT COULD NOT.** MATTR, FWR and the token count read `features._tokens`; CV and anaphora read `str.split`; none reads `line_tokens`, and all 8,536 calibration items' five cheap statistics are byte-identical to the rows banked at the old pin — F-5's "and the MATTR/CV calibrations with it" is struck as measured false. No line in `corpus/song/` ends in a joinable enclitic, so no end word, rhyme table or readability rate moves (`test_readability.py` §5 passes unchanged). `discriminate.py`'s corpora (`sonnets.txt`, `whitman.txt`, `generated/`) carry zero spaced enclitics and zero non-curly apostrophes, so its AUCs are unmoved by construction; its feature cache (keyed on the whole `lyric_harness.py`) re-warms cold.
+
+**THE NIGHTLY.** The song-profile slice restores a memo carrying `1e2d0c2dc62c`, discards it as stale, and rebuilds cold — ~164 minutes for the whole corpus, inside the step's 200-minute bound since 2026-09-22 (M-307), so exit 124 on that night would be progress, not drift. Production qualification's `curves` component runs cold the same way. That is the guard working (M-299), and it is the one payment this batch exists to make once.
+
+**NOT DONE, NAMED.** The quality layer's word counts still split `There 's` — wiring `features._tokens` moves `quality/features.py`, every length curve and the discrimination AUCs, and the owner's batch did not ask for it. A spaced `'t` is still read as the letter T by `transcribe_word`'s apostrophe strip (pre-existing, unchanged here).
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~369~~ -> **370**.

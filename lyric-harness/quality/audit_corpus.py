@@ -3240,7 +3240,17 @@ def main(argv=None):
 #: REPINNED 2026-09-15 (M-5): NOTE 1200 -> 1193. Five Finnish mixed
 #: w/v notes now report the actual allograph census; seven uniform-v files
 #: lose inapplicable "ZERO destroying" notes. No other finding changes.
-PINNED_SHAPE = {"files": 1430, "FAIL": 0, "WARN": 95, "NOTE": 1193}
+#: REPINNED 2026-09-26 (the batched comparator re-pin, `MISSING.md` F-5 /
+#: M-315): NOTE ~~1193~~ -> 1195. `lyric_harness.ENCLITICS` lost `'t` and
+#: `'n` (elided words, not enclitics), and Check J counts through that set,
+#: so an attached `o't` is no longer evidence of the attached convention. J's
+#: partition moves attached-only 1049 -> 1067, spaced-only 0 -> 0, both
+#: 245 -> 226 (one file carried only `'t`/`'n` evidence and leaves), and the
+#: spaced-DOMINANT list goes 26 -> 28: `eng_celtic_msm_andrew_scott.txt`
+#: (spaced/attached 44/71 -> 43/39) and `eng_celtic_msm_robert_lochore.txt`
+#: (42/52 -> 40/29). Those two notes are the whole delta; every other finding
+#: is identical line for line against an `origin/main` run of the same day.
+PINNED_SHAPE = {"files": 1430, "FAIL": 0, "WARN": 95, "NOTE": 1195}
 
 
 def _verify_shape(files, findings):

@@ -667,10 +667,18 @@ MUTATIONS = [
             "headline in the direction that flatters the harness."),
     ),
     # ------------------------------------------------------------- ingestion
+    # RE-ANCHORED 2026-09-26 (`MISSING.md` M-315): ~~old='    norm =
+    # text.replace("\u2019", "\'").replace("\u2018", "\'")'~~. `line_tokens`
+    # now folds through `join_spaced_enclitics` (F-5 wired), so the decision
+    # this plants against moved onto that line; the planted defect is the same
+    # -- `line_tokens` reads raw text and `prepar\u2019d` splits -- and
+    # `test_mut_oracle.py` \u00a76 still asks exactly that. `raw_final_token`
+    # carries an identical `norm =` line, so the anchor includes the closing
+    # docstring quotes that only `line_tokens`' copy follows.
     Mutation(
         name="M22", layer="ingestion", file=LH,
-        old='    norm = text.replace("\u2019", "\'").replace("\u2018", "\'")',
-        new="    norm = text",
+        old='    """\n    norm = join_spaced_enclitics(text)\n',
+        new='    """\n    norm = text\n',
         subset=T_INGEST,
         rationale=(
             "Doctrine 26, planted: U+2019 stops being normalised where a word "
