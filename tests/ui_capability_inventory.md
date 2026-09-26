@@ -2130,7 +2130,7 @@ surface: Map — tradition inspector: classification path, name and place, Liste
 implementation: select, renderCard, requestAdd and the genre-added listener in src/atlas.js; src/pages/map.js relays add-genre and genre-web
 status: reachable
 precondition: 'map view'
-notes: In-frame #card, [data-act="add"], .add-status, [data-act="genre-page"], [data-act="copy"], [data-act="toggle-recipe"], [data-act="retry-detail"], [data-open-thread], [data-open-route], .card-sources. A thumbnail appears only when references/_image_manifest.json lists one with a credit or licence, which is shown beneath it; otherwise the group glyph. check_ui_foundation.js E (add reports what arrived); test_atlas_controls.js 6, 7.
+notes: In-frame #card, [data-act="add"], .add-status, [data-act="genre-page"], [data-act="copy"], [data-act="toggle-recipe"], [data-act="retry-detail"], [data-open-thread], [data-open-route], .card-sources. A thumbnail appears when references/_image_manifest.json has a tradition entry for the genre (read with the Genre page's rules, gpIndexImages / gpImage): its credit and licence are shown beneath it, linked to the Commons source page; with no entry, or when the thumbnail fails to load, the group glyph. Exercised in Chromium on 2026-09-26 with the thumbnails stubbed (photo, credit, licence and link shown) and with them blocked (glyph fallback). check_ui_foundation.js E (add reports what arrived); test_atlas_controls.js 6, 7.
 ```
 
 ```yaml
