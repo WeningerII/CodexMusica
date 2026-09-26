@@ -15,6 +15,8 @@ than one G2P with three tables:
        rime dictionary, so it is a lookup and not a G2P problem at all
 
 THE COMMITMENTS, INHERITED FROM quality/ipa.py
+(`quality/ipa.py` was retired 2026-09-26: this package superseded it and no
+production module imported it. The commitments below are its legacy.)
 
 1. **Notation is declared, never sniffed.** Each module states what it reads.
 2. **Unknown never produces an answer.** Out-of-inventory input returns None,
