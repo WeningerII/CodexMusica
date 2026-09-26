@@ -1944,7 +1944,7 @@ name: genre-detail-instrument-destination
 kind: widget
 selector: '#genre-detail #gp-inst-dest'
 surface: Genre detail — Instruments: "Add single instruments to" this genre (set up as it plays it; the group is created if absent), another genre already in Your recipe, or an independent instrument
-implementation: gpInstruments / gpAddInstrument in src/pages/genre.js — the canonical addInstrumentFromPicker path; the toast names the destination
+implementation: gpInstruments / gpAddInstrument in src/pages/genre.js — the shell's uiAddInstrument with this destination (the canonical addInstrumentFromPicker path); the toast names the destination
 status: reachable
 precondition: empty
 ```

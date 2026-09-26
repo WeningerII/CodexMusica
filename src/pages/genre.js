@@ -1,5 +1,5 @@
 /* exported renderGenreDiscovery */
-/* global $ui, Catalog, Inst, STARTER_TRADITIONS, Tradition, UI, UILayout, _addedInstrumentMessage, _determinePrimaryCard, addInstrumentFromPicker, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderAll, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiButton, uiEmptyState, uiFind, uiFocus, uiNavigate, uiOpenEditor, uiRegisterPage */
+/* global $ui, Catalog, Inst, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiTabIndex */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css.
@@ -115,9 +115,6 @@ function gpLede(id, max = 170) {
 function gpRecipeCount(id) {
   return app.cards.filter((c) => c.traditionId === id).length;
 }
-function gpRecipeGenres() {
-  return [...new Set(app.cards.map((c) => c.traditionId).filter(Boolean))];
-}
 // The strongest characteristics of a genre as words, strongest first.
 function gpSoundWords(id, n = 4) {
   const axes = Catalog.ext(id)?.axes || {};
@@ -132,7 +129,7 @@ function gpSoundWords(id, n = 4) {
 // Both are read lazily and are never required: without them the page shows
 // glyphs and leaves the place out. Nothing is invented to fill the gap.
 function gpLoadOptional() {
-  if (!/^https?:$/.test(location.protocol) || typeof fetch !== 'function') return;
+  if (!/^https?:$/.test(location.protocol)) return;
   const get = (url) =>
     Promise.resolve()
       .then(() => fetch(url))
@@ -338,7 +335,7 @@ function gpDetail(id) {
         `class="cm-btn cm-btn-primary" data-id="${esc(id)}" aria-label="Add ${esc(t.name)} to Your recipe"`
       );
   const summary = n
-    ? `${n} instrument${n === 1 ? '' : 's'} from ${esc(t.name)} in Your recipe`
+    ? `${uiCount(n, 'instrument')} from ${esc(t.name)} in Your recipe`
     : `Adds its ${insts.length}-instrument ensemble`;
   const panel = (key, html) =>
     `<div class="gp-panel" role="tabpanel" id="gp-panel-${key}" aria-labelledby="gp-tab-${key}"${key === tab ? '' : ' hidden'}>${html}</div>`;
@@ -373,7 +370,7 @@ function gpSoundProfile(id, ext) {
 }
 function gpInstruments(id, t) {
   const insts = t.instruments || [];
-  const others = gpRecipeGenres().filter((g) => g !== id);
+  const others = uiRecipeGenres().filter((g) => g !== id);
   const dest = G.instDest[id] ?? id;
   const opt = (value, label) =>
     `<option value="${esc(value)}"${value === dest ? ' selected' : ''}>${esc(label)}</option>`;
@@ -459,7 +456,7 @@ function gpFindSound() {
 function gpSoundStatus() {
   const n = gpTargets().length;
   if (!n) return 'Choose a target, then match.';
-  return `${n} target${n === 1 ? '' : 's'} applied to All genres.`;
+  return `${uiCount(n, 'target')} applied to All genres.`;
 }
 // One compact row per characteristic: its two ends either side of a slider
 // (sparse ——o—— dense polyphonic), as in the reference. The name is the
@@ -509,8 +506,7 @@ function gpScheduleList() {
     gpListFrame = 0;
     gpRenderMain();
   };
-  gpListFrame =
-    typeof requestAnimationFrame === 'function' ? requestAnimationFrame(run) : setTimeout(run, 0);
+  gpListFrame = requestAnimationFrame(run);
 }
 
 // ── Main pane ────────────────────────────────────────────────────────────
@@ -533,13 +529,10 @@ function gpStart(open) {
 // Genres close to Your recipe's primary genre and not already in it — the
 // same axis-distance neighbours the recipe panel suggests from.
 function gpSuggestions() {
-  const primaryCard =
-    typeof _determinePrimaryCard === 'function'
-      ? app.cards.find((c) => c.id === _determinePrimaryCard(app.cards))
-      : null;
+  const primaryCard = app.cards.find((c) => c.id === _determinePrimaryCard(app.cards));
   const primary = primaryCard?.traditionId;
   if (!primary || !Tradition(primary)) return '';
-  const inRecipe = new Set(gpRecipeGenres());
+  const inRecipe = new Set(uiRecipeGenres());
   const pool = findSimilar(primary, 16)
     .filter((s) => !inRecipe.has(s.id))
     .slice(0, 4);
@@ -599,7 +592,7 @@ function gpAll(open) {
       ? ' · best name matches first'
       : ' · A to Z';
   let html = pinned ? `<div class="gp-pinned">${gpDetail(open)}</div>` : '';
-  html += `<div class="catalog-count gp-count-line" id="gp-count" tabindex="-1">${results.length.toLocaleString()} genre${results.length === 1 ? '' : 's'}${node ? ' in ' + esc(node.name) : ''}${results.length ? order : ''}</div>${chips.length ? `<div class="gp-chips" aria-label="Constraints in force">${chips.join('')}</div>` : ''}`;
+  html += `<div class="catalog-count gp-count-line" id="gp-count" tabindex="-1">${uiCount(results.length, 'genre')}${node ? ' in ' + esc(node.name) : ''}${results.length ? order : ''}</div>${chips.length ? `<div class="gp-chips" aria-label="Constraints in force">${chips.join('')}</div>` : ''}`;
   if (!results.length) html += gpNoResults(q, node, targets);
   else
     html +=
@@ -619,10 +612,7 @@ function gpNoResults(q, node, targets) {
   const why = [];
   if (q) why.push('the search “' + $ui('genre-search').value.trim() + '”');
   if (node) why.push('the branch ' + node.name);
-  if (targets.length)
-    why.push(
-      targets.length + ' sound target' + (targets.length === 1 ? '' : 's') + ' (within one step)'
-    );
+  if (targets.length) why.push(uiCount(targets.length, 'sound target') + ' (within one step)');
   return uiEmptyState({
     title: q
       ? `No genres match “${$ui('genre-search').value.trim()}”`
@@ -784,15 +774,10 @@ function gpCloseTree() {
 // Arrow keys, Home and End move between tabs (both tab lists on the page).
 function gpTabKeys(e) {
   const tab = e.target.closest?.('#surface-genre [role="tab"]');
-  if (!tab || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+  if (!tab) return;
   const tabs = [...tab.parentElement.querySelectorAll('[role="tab"]')];
-  let i = tabs.indexOf(tab);
-  i =
-    e.key === 'Home'
-      ? 0
-      : e.key === 'End'
-        ? tabs.length - 1
-        : (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+  const i = uiTabIndex(e.key, tabs.indexOf(tab), tabs.length);
+  if (i < 0) return;
   e.preventDefault();
   const { ui, id } = tabs[i].dataset;
   tabs[i].click();
@@ -819,7 +804,7 @@ function gpRecipeSignature() {
 }
 function gpWatchRecipe() {
   const panel = $ui('workspace-sidebar');
-  if (!panel || typeof MutationObserver !== 'function') return;
+  if (!panel) return;
   let pending = 0;
   new MutationObserver(() => {
     if (pending) return;
@@ -841,28 +826,16 @@ function gpWatchRecipe() {
 // Instrument page. The canonical picker path does the work: it configures the
 // card as the destination genre plays it, places it in that group, and pushes
 // one history entry.
+// The shell's add, with this genre's destination picker as the destination.
 async function gpAddInstrument(instId, genreId) {
   if (UI.busy) {
     showToast('An addition is already in progress.', 'error');
     return;
   }
   const select = $ui('gp-inst-dest');
-  const dest =
+  const destination =
     select && select.dataset.genre === genreId ? select.value : (G.instDest[genreId] ?? genreId);
-  UI.busy = true;
-  try {
-    app._addToTradition = dest || null;
-    const card = await addInstrumentFromPicker(instId);
-    if (!card) throw Error('Instrument unavailable');
-    renderAll();
-    uiOpenEditor(card.id);
-    showToast(_addedInstrumentMessage(instId, card), 'success');
-  } catch (e) {
-    app._addToTradition = null;
-    showToast(e.message || 'Could not add the instrument', 'error');
-  } finally {
-    UI.busy = false;
-  }
+  await uiAddInstrument(instId, { destination });
 }
 
 // ── View on map ──────────────────────────────────────────────────────────

@@ -1,5 +1,5 @@
 /* global UI, UI_ICONS, UILayout, uiAddGenre, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
-/* exported INSTRUMENT_FILTER_PILLS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition */
+/* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition */
 
 
 // ============================================================
@@ -15327,6 +15327,9 @@ function renderSidebarStaple() {
 // progress bar, fade-truncated text, and "Open full stack →" → modal-recipe-stack.
 // Last compiled sidebar recipe, keyed on the card state that produced it. See
 // the lookup below for why this is a content key and not a dirty flag.
+// The four named recipe formats, in menu order: the preview here and the
+// Instrument page's Output tab both offer them.
+const RECIPE_FORMATS = [['rich', 'Rich'], ['tags', 'Tags'], ['prose', 'Prose'], ['compact', 'Compact']];
 let _recipePreviewCache = { key: null, text: '' };
 function renderSidebarRecipePreview() {
   const host = document.getElementById('sidebar-recipe-preview');
@@ -15360,8 +15363,7 @@ function renderSidebarRecipePreview() {
   //
   // The format is the one the full-recipe dialog uses (app.recipeStackFormat),
   // so the preview, Copy recipe and Open full recipe always agree.
-  const FORMATS = [['rich', 'Rich'], ['tags', 'Tags'], ['prose', 'Prose'], ['compact', 'Compact']];
-  const fmt = FORMATS.some(([id]) => id === app.recipeStackFormat) ? app.recipeStackFormat : 'rich';
+  const fmt = RECIPE_FORMATS.some(([id]) => id === app.recipeStackFormat) ? app.recipeStackFormat : 'rich';
   const key = CEILING + '\u0000' + fmt + '\u0000' + JSON.stringify(app.cards);
   if (_recipePreviewCache.key === key) {
     text = _recipePreviewCache.text;
@@ -15403,7 +15405,7 @@ function renderSidebarRecipePreview() {
     '<div class="rp-head">' +
       '<h3 class="rp-label" id="rp-label">Recipe preview</h3>' +
       '<select class="cm-select rp-format" id="sb-recipe-format" aria-label="Recipe format">' +
-        FORMATS.map(([id, label]) => '<option value="' + id + '"' + (id === fmt ? ' selected' : '') + '>' + label + '</option>').join('') +
+        RECIPE_FORMATS.map(([id, label]) => '<option value="' + id + '"' + (id === fmt ? ' selected' : '') + '>' + label + '</option>').join('') +
       '</select>' +
       '<span class="rp-count ' + band + '" data-tooltip="Recipes stay within ' + group(CEILING) + ' characters">' +
         '<span class="rp-count-n">' + group(len) + ' / ' + group(CEILING) + '</span><span class="rp-count-unit"> characters</span></span>' +
