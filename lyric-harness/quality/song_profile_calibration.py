@@ -189,7 +189,6 @@ import argparse
 import datetime
 import glob
 import hashlib
-import inspect
 import os
 import random
 import re

@@ -1,5 +1,20 @@
 # Narrative proxy calibration — first recorded run, 2026-08-25
 
+> **REPINNED 2026-09-26 (owner's ruling), re-derived by `python3
+> quality/narrative_bands.py --check` on the corpus as it stands.** Everything
+> below this block is the FIRST recorded run, 2026-08-25, and stays as that
+> record; where a figure below is struck, the struck value is that run's and
+> the one beside it is today's. The pin had drifted unrecorded because no CI
+> job ran `--check`; the nightly job runs it now. Today's run, whole:
+> population **8,652** songs, 0 refused for missing marks,
+> 557 blocks skipped; P1 **0.5916** over **40,697** seams against a
+> within-song null of 0.5834–0.5887 (median **0.5869**), excess
+> +0.47pp — still above every draw, and still refused as an enforcement
+> instrument on size; by seam pair verse->verse 0.6149 (n=36,320); verse->burden 0.358 (n=1,567); burden->verse 0.4008 (n=1,330); verse->refrain 0.3473 (n=524); refrain->verse 0.3294 (n=507); chorus->verse 0.6636 (n=214); verse->chorus 0.6493 (n=211); P2 back-to-back **0.0042** over
+> **1,653** invariant-return pairs, by function verse 0.948 over 38,837; burden 0.0 over 1,184; refrain 0.0026 over 380; chorus 0.0674 over 89. No conclusion
+> below changes. Which corpus or reader change moved which figure is not
+> bisected here.
+
 Registered protocol: `quality/NARRATIVE_BANDS_PREREGISTRATION.md`.
 Instrument: `quality/narrative_bands.py` (whose `PINNED` block carries
 this run's headline counts and whose `--check` re-derives them). Run
@@ -12,7 +27,7 @@ P2 label predates a label-only edit and reads "same-function pairs"; the
 COUNT it prints (1,676) is the invariant-return population exactly
 (burden 1,184 + refrain 382 + chorus 110), and `--check` re-derives it.
 
-**Population: 8,667 songs, 0 refused for missing marks, 409 blocks
+**Population: ~~8,667~~ 8,652 songs, 0 refused for missing marks, 409 blocks
 skipped with no content types — three counts, never summed.** The zero
 is a fact about this corpus's staging discipline (every staged song
 carries at least one function mark), not about the refusal path, which
@@ -20,9 +35,9 @@ the smoke run exercised.
 
 ## P1 — cross-seam continuity: SEPARATES, AND IS REFUSED AS AN ENFORCEMENT INSTRUMENT
 
-Observed nonzero-continuity rate over 40,970 adjacent seams: **0.5902**.
+Observed nonzero-continuity rate over ~~40,970~~ 40,697 adjacent seams: **~~0.5902~~ 0.5916**.
 The within-song shuffle null, all ten draws: 0.5805–0.5862, median
-**0.5824**. The observation sits above the entire null range, so real
+**~~0.5824~~ 0.5869**. The observation sits above the entire null range, so real
 adjacency does carry more continuity than shuffled adjacency — the
 registration's outright-refusal clause does not fire on direction.
 **It is refused anyway, on SIZE**: the excess is **+0.78pp**, and an
@@ -48,9 +63,9 @@ its own registration.
 
 ## P2 — room between returns: A NEAR-UNIVERSAL LAW, MEASURED
 
-Over **1,676** consecutive instance pairs of the invariant-return marks
+Over **~~1,676~~ 1,653** consecutive instance pairs of the invariant-return marks
 (burden, chorus, hook, refrain, tag as staged in this corpus), the
-back-to-back rate is **0.0048** — burden 0 of 1,184, refrain 0.0026 of
+back-to-back rate is **~~0.0048~~ 0.0042** — burden 0 of 1,184, refrain 0.0026 of
 382, chorus 0.0636 of 110. Human practice puts material between
 invariant returns in **99.5%** of cases. The verse row (excluded from
 the headline by its own gloss — "returns with NEW WORDS") runs the

@@ -3020,6 +3020,49 @@ def test_the_last_two_traceback_shapes_refuse():
           rc3 == 0 and "REFUSED" not in out3, f"rc {rc3}")
 
 
+def _ci_runnable_text(src):
+    """ci.yml with every line that cannot EXECUTE removed: full-line comments
+    (YAML's own, and the shell's inside a `run:` block) and `name:` labels.
+    What is left is the text a runner can actually run."""
+    return "\n".join(l for l in src.splitlines()
+                     if not re.match(r"\s*(?:#|-?\s*name:)", l))
+
+
+#: An npm script is REACHED by `npm test`, `npm run NAME`, or
+#: `scripts/run_parallel.js NAME` (which reads NAME's own text out of
+#: package.json and follows its `npm run` links; see that file's header).
+_NPM_REF = re.compile(r"\bnpm\s+(?:run(?:-script)?\s+([\w:.-]+)|(test)\b)"
+                      r"|run_parallel\.js\s+([\w:.-]+)")
+
+
+def _npm_reached_suites(runnable, scripts):
+    """-> the `quality/test_X.py` stems that package.json scripts RUN,
+    counting only the scripts an `npm` call in `runnable` reaches."""
+    todo = [a or b or c for a, b, c in _NPM_REF.findall(runnable)]
+    seen, stems = set(), set()
+    while todo:
+        name = todo.pop()
+        if name in seen or name not in scripts:
+            continue
+        seen.add(name)
+        body = scripts[name]
+        stems |= set(re.findall(r"quality/test_([a-z0-9_]+)\.py", body))
+        todo += [a or b or c for a, b, c in _NPM_REF.findall(body)]
+    return stems
+
+
+def _ci_accounted(src, scripts):
+    """-> the suite stems ci.yml RUNS: the words of its `for f in ...; do`
+    loops, every `quality/test_X.py` on a line that can execute, and every
+    one a package.json script reached from such a line runs."""
+    code = _ci_runnable_text(src)
+    named = set()
+    for m in re.finditer(r"for f in ([\s\S]*?); do", code):
+        named |= {w for w in m.group(1).replace("\\", "").split() if w}
+    named |= set(re.findall(r"quality/test_([a-z0-9_]+)\.py", code))
+    return named | _npm_reached_suites(code, scripts)
+
+
 def test_every_test_file_is_accounted_for_by_ci():
     print("\n24. every quality/test_*.py is RUN, REFUSED BY NAME, or the "
           "census fails (FIXED 2026-08-15)")
@@ -3040,17 +3083,27 @@ def test_every_test_file_is_accounted_for_by_ci():
     # LIST THAT IS COMPLETE. ci.yml's own comment states the arithmetic and
     # then says it "is a check a human has to run" -- which is doctrine 48
     # written down beside the thing it condemns. This is that check, run.
+    #
+    # AND THE CENSUS HAD A BLIND SPOT OF ITS OWN, CLOSED 2026-09-26 (harness
+    # cleanup audit). It counted a suite as accounted for when
+    # `quality/test_X.py` appeared ANYWHERE in ci.yml — comments and step
+    # labels included — and never read package.json. Two suites
+    # (`session_repairs`, `pronunciation_choices`) were accounted for ONLY by a
+    # comment saying `npm test` runs them: true, but had that npm line dropped
+    # them this section would have stayed green, and so would any future suite
+    # merely MENTIONED in a comment. It now reads the lines that can EXECUTE
+    # (`_ci_runnable_text`) plus the package.json scripts an `npm` call on
+    # those lines reaches (`_npm_reached_suites`), and the CONTROL below
+    # plants the old blind spot's shape and requires it to be reported.
     ci = os.path.join(ROOT, "..", ".github", "workflows", "ci.yml")
     src = open(ci, encoding="utf-8").read()
+    with open(os.path.join(ROOT, "..", "package.json"), encoding="utf-8") as fh:
+        scripts = json.load(fh).get("scripts", {})
     on_disk = {os.path.basename(p)[len("test_"):-len(".py")]
                for p in glob.glob(os.path.join(ROOT, "quality", "test_*.py"))}
-    # Every name this file mentions in a runnable position: the cheap loop, the
-    # revision step, and anything refused BY NAME with a reason.
-    named = set()
-    for m in re.finditer(r"for f in ([\s\S]*?); do", src):
-        named |= {w for w in m.group(1).replace("\\", "").split() if w}
-    for m in re.finditer(r"quality/test_([a-z0-9_]+)\.py", src):
-        named.add(m.group(1))
+    # Every name a runnable line reaches: the cheap loop, the revision step,
+    # the jobs of their own, and the npm gate.
+    named = _ci_accounted(src, scripts)
     orphans = sorted(on_disk - named)
     check("no test file is executed and named by NOTHING in ci.yml",
           not orphans,
@@ -3061,6 +3114,50 @@ def test_every_test_file_is_accounted_for_by_ci():
                         os.path.join(ROOT, "quality", f"test_{n}.py")))
     check("and ci.yml names no suite that does not exist on disk",
           not ghosts, f"named-but-missing: {ghosts or 'none'}")
+    # THE CONTROL (doctrine 48: a census that cannot fail is decoration). A
+    # suite named only in a comment, only in a step label and only in an npm
+    # script no CI line reaches is exactly what the old census PASSED; it
+    # must be an orphan now. And the npm route must be two-sided: the same
+    # script, once a runnable line calls it, must account for the suite.
+    planted = "zz_planted_orphan"
+    salted = (src + f"\n      # quality/test_{planted}.py, named in a comment"
+              f"\n      - name: quality/test_{planted}.py in a label\n")
+    unreached = dict(scripts, **{
+        "zz:planted": f"python3 lyric-harness/quality/test_{planted}.py"})
+    blind = planted in _ci_accounted(salted, unreached)
+    check("CONTROL: a suite named only in a ci.yml comment, a `- name:` "
+          "label and an npm script nothing runs is reported as an ORPHAN",
+          not blind, f"test_{planted}.py planted in all three places: "
+          f"{'ACCOUNTED FOR — the census reads text that cannot execute' if blind else 'orphan'}")
+    heard = planted in _ci_accounted(
+        salted + "        run: npm run zz:planted\n", unreached)
+    check("CONTROL: ...and the same npm script, once a runnable ci.yml line "
+          "calls it, accounts for the suite (the npm route is READ)",
+          heard, f"`run: npm run zz:planted` added: "
+          f"{'accounted for' if heard else 'STILL AN ORPHAN'}")
+    # THE OFFLINE RESEARCH TOOLS (declared 2026-09-26, the owner's ruling:
+    # declare, do not delete). `data/labels/*` holds five builders, a shared
+    # helper and `verify.py`, a 24-assertion suite this census never saw
+    # because it globs `quality/test_*.py`. CI cannot run any of them -- they
+    # fetch their inputs -- so they are accounted for by DECLARATION, in the
+    # one table `wiring` prints: every .py under data/ must have a row saying
+    # how it is run, and every row must name a file that exists.
+    offline = set()
+    for dirpath, _dirs, files in os.walk(os.path.join(ROOT, "data")):
+        offline |= {os.path.relpath(os.path.join(dirpath, f), ROOT)
+                    .replace(os.sep, "/") for f in files if f.endswith(".py")}
+    declared = set(lh.OFFLINE_RESEARCH_TOOLS)
+    check("every .py under data/ -- the offline label builders and their "
+          "verify.py -- is DECLARED with how it is run, and no declared tool "
+          "is missing",
+          bool(declared) and offline == declared,
+          f"{len(offline)} on disk, {len(declared)} declared; undeclared: "
+          f"{sorted(offline - declared) or 'none'}; ghosts: "
+          f"{sorted(declared - offline) or 'none'}")
+    via_npm = sorted((named - _ci_accounted(src, {})) & on_disk)
+    check("the suites only `npm test` runs are accounted for THROUGH "
+          "package.json, not through the ci.yml comment that names them",
+          bool(via_npm), f"accounted only via npm: {via_npm or 'none'}")
     # The label a reader trusts must equal the list it labels. The struck
     # (`~~...~~`) line is history under doctrine 17 and is deliberately skipped.
     live = [l for l in src.splitlines()
@@ -3915,8 +4012,7 @@ def test_every_report_names_the_draft_it_read():
           asked and moved.lines == [changing[0], answer])
     md = next((ln for ln in moved.disclosure() if "DRAFT" in ln), "")
     in_fp = getattr(moved, "input_fingerprint", "")
-    out_fp = RV.draft_fingerprint(moved.lines) \
-        if hasattr(RV, "draft_fingerprint") else ""
+    out_fp = RV.draft_fingerprint(moved.lines)
     check("...and a run that CHANGED the draft shows two different "
           "fingerprints with no (UNCHANGED) claim — the marker is derived, "
           "not decoration",

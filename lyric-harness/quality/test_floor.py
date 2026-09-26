@@ -33,6 +33,21 @@ def check(name, cond, detail=""):
         FAILURES.append(name)
 
 
+def _discriminate_pin(arm, field):
+    """-> `quality/test_discriminate.py`'s `PINNED[arm][field]`, parsed with
+    `ast` rather than imported (that module loads the feature extractors).
+    The instrument's pin is the one statement of the figure; this suite and
+    floor.py's evidence string are held to it, not to a copy of it."""
+    import ast
+    with open(os.path.join(HERE, "test_discriminate.py"), encoding="utf-8") as fh:
+        tree = ast.parse(fh.read())
+    for node in tree.body:
+        if (isinstance(node, ast.Assign)
+                and any(getattr(t, "id", None) == "PINNED" for t in node.targets)):
+            return ast.literal_eval(node.value)[arm][field]
+    raise LookupError("test_discriminate.py no longer defines PINNED")
+
+
 def codes(lines, scheme=None):
     return {f.code for f in FLOOR.check(lines, scheme)}
 
@@ -711,10 +726,19 @@ def test_predictability_is_demoted():
     # REPINNED 2026-09-14: 0.648 -> 0.638 with the tokenizer normalization
     # (`test_discriminate.PINNED["abs_exp2"]["joint_solo"]` moved with every
     # other pin that day); the string and this check move together.
-    check("its evidence carries the COLD predictability-only AUC",
-          all("0.638" in f.evidence for f in fs) and bool(fs),
+    # ~~"0.638"~~ READ FROM THE PIN 2026-09-26: the literal here followed that
+    # pin BY HAND, and when it moved twice more (M-293, 2026-09-17; M-314,
+    # 2026-09-25 -> 0.645) neither this check nor floor.py's string was told,
+    # so both went on agreeing with each other about a figure no instrument
+    # produced. The rendered pin is now parsed out of test_discriminate.py
+    # (ast, no import), so the next move of the pin turns THIS check red.
+    solo = "%.3f" % _discriminate_pin("abs_exp2", "joint_solo")
+    check("its evidence carries the COLD predictability-only AUC -- the "
+          "figure test_discriminate pins, rendered",
+          all(solo in f.evidence for f in fs) and bool(fs),
           "predictability-only joint, Exp 2, absolute feature set, cold "
-          "(quality/test_discriminate.py PINNED abs_exp2.joint_solo)")
+          "(quality/test_discriminate.py PINNED abs_exp2.joint_solo = %s)"
+          % solo)
     check("and does not still carry the superseded warm figure",
           all("0.560" not in f.evidence for f in fs) and bool(fs),
           "REPINNED 2026-08-14: 0.560 was a warm reading and 'which is "
@@ -1038,7 +1062,8 @@ def test_the_song_profile_makes_no_separation_claim():
         # "AUC" would pass on the disclaimer and fail on the honest text. What
         # must not appear is a NUMBER after it — UNLESS the number is
         # attributed to the arm that produced it. PREDICTABLE_RHYME
-        # legitimately cites the sonnet arm's 0.638/0.737/0.967; what it may
+        # legitimately cites the sonnet arm's ~~0.638/0.737~~ 0.645/0.732
+        # (re-derived 2026-09-26, M-314) and 0.967; what it may
         # not do is print them bare, where a reader takes them for this
         # profile's separation (doctrine 58).
         for f in fs:

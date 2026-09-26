@@ -62,14 +62,29 @@ P2_INVARIANT_RETURNS = ("burden", "chorus", "hook", "refrain", "tag")
 #: (quality/RESULTS_NARRATIVE_BANDS.md). Measured facts, not thresholds —
 #: the registration forbids adopting a threshold the sitting it is first
 #: measured. `--check` re-derives these exactly and exits 3 on drift.
+#:
+#: REPINNED 2026-09-26 by the owner's ruling, re-derived by `--check` on the
+#: corpus as it stands. The staged population is 8,652 items, not 8,667
+#: (`MISSING.md` K-1, repinned 2026-09-18), and six of the seven figures
+#: moved; which corpus or reader change moved which figure is not bisected
+#: here. No CI job ran `--check`, so the drift sat unrecorded until the
+#: harness cleanup audit ran it. The nightly job runs it now. No threshold is
+#: adopted: these remain measured facts.
+#:   songs_measured         ~~8667~~ 8652
+#:   seams                  ~~40970~~ 40697
+#:   p1_nonzero_rate        ~~0.5902~~ 0.5916
+#:   p1_null_median_rate    ~~0.5824~~ 0.5869
+#:   p2_pairs               ~~1676~~ 1653
+#:   p2_back_to_back_rate   ~~0.0048~~ 0.0042
+#:   songs_refused_unmarked  0 (unchanged)
 PINNED = {
-    "songs_measured": 8667,
+    "songs_measured": 8652,
     "songs_refused_unmarked": 0,
-    "seams": 40970,
-    "p1_nonzero_rate": 0.5902,
-    "p1_null_median_rate": 0.5824,
-    "p2_pairs": 1676,
-    "p2_back_to_back_rate": 0.0048,
+    "seams": 40697,
+    "p1_nonzero_rate": 0.5916,
+    "p1_null_median_rate": 0.5869,
+    "p2_pairs": 1653,
+    "p2_back_to_back_rate": 0.0042,
 }
 
 

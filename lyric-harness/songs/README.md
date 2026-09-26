@@ -34,6 +34,22 @@ length again. Each song's `*.log.tsv` names the harness commit its plan was draw
 re-derive a plan at THAT commit, or grade against the committed blueprint,
 which is the declaration the song was actually written to.
 
+**AND THE `song` LINES BELOW REFUSE AT HEAD WITHOUT `--input-format=source`
+(recorded 2026-09-26 by the harness cleanup audit).** Since A-3 (2026-09-22)
+a lyric file is read LITERALLY by default, so each song's `[SECTION]` headers
+count as lines, and every one of the eleven `song` commands below REFUSES at
+exit 2 — *blueprint declares N line(s), M were handed to the loop*. Append
+`--input-format=source`, the declaration that the file carries section
+apparatus, and all eleven are graded. MEASURED on this date with it: none
+refuses; nine report 0 FLAG; `crooked_waltz` (11 FLAG) and
+`the_frost_ledger` (22 FLAG) no longer grade clean, because the grader has
+moved since they were banked (which change is not bisected here); and all
+eleven exit 2, not the recorded 0, because the grader now reports a check
+its readers decline as UNJUDGED rather than passing it (doctrine 20). The
+commands and outcomes below are left as they were run — they are the record
+— and `quality/song_record.py --check` is what re-derives each song against
+its newest banked row.
+
 **THE COMMITTED BLUEPRINTS ARE PRETTIER-FORMATTED AND `plan --out` IS NOT**
 (`MISSING.md` M-94). Re-running any reproduction command below rewrites its
 blueprint at `indent=1` and the repository's `gate` job refuses that file, so
@@ -774,10 +790,14 @@ deterministic control, not the verdict.
 
 The forward loop closed today on the owner's instruction, four songs in:
 `long_bridge` (the defect record), `taught_me_time` (the forward
-validation), `wheat_mane` (seed 2), `matinee` (seed 3). Seed 4's plan is
+validation), `wheat_mane` (seed 2), `matinee` (seed 3). ~~Seed 4's plan is
 drawn and recorded (`songs/song5.log.tsv`, plan step 1 plus the first
 family screens) and stops there — a stub for whichever session reopens the
-loop. What four points support, stated as four points and not a slope:
+loop.~~ (STRUCK 2026-09-26: that log is not in the tree and no commit on
+`main` ever added it — the repository's history for its path is empty — so
+the stub this sentence points a later session at was never
+banked. The rest of this section is the dated record it was.) What four
+points support, stated as four points and not a slope:
 
 **The cause profile moved even where the round count did not.**
 taught_me_time needed four grading rounds of WRITING repairs;

@@ -1167,9 +1167,15 @@ def test_tier2_still_resolves_a_joint_conflict_through_group_brief():
     # REPINNED 2026-09-01 WITH TEST 4 (`MISSING.md` M-185): the menu no
     # longer offers a word whose own head holds the call, so the backtrack
     # lands on a pair that does not re-open and BOTH routes — the stub and
-    # this `GroupBrief` proposer — reach SUCCESS with nothing pursued. The
-    # claim this check makes is unchanged: the contract route stops exactly
-    # as the stub does; what the stub does moved, and this pin with it.
+    # this `GroupBrief` proposer — ~~reach SUCCESS~~ close the repair with
+    # nothing pursued. The claim this check makes is unchanged: the contract
+    # route stops exactly as the stub does; what the stub does moved, and this
+    # pin with it. (STRUCK 2026-09-26: the check below was repinned beside
+    # test 4's when coverage certification landed — `LoopResult.
+    # coverage_certified` in `quality/loop.py` — and it asserts the OPPOSITE of
+    # "reach SUCCESS": nothing is pursued, but an obligation stays unjudged,
+    # so both routes stop `no_progress` with coverage uncertified. The check
+    # moved and this comment was not told.)
     check("the GroupBrief route closes the same repair but cannot certify incomplete coverage",
           res.stop_reason == "no_progress" and res.coverage.get("certified") is False
           and bool(res.unresolved_unjudged)

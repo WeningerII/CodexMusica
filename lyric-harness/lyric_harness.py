@@ -2997,14 +2997,6 @@ class Attribution(dict):
 
     # -- the reporting questions ------------------------------------------
     @property
-    def kind_a(self):
-        return self["kind_a"]
-
-    @property
-    def kind_b(self):
-        return self["kind_b"]
-
-    @property
     def kinds(self):
         return (self["kind_a"], self["kind_b"])
 
@@ -6567,6 +6559,52 @@ the quality layer (each says which module answered):
   readability FILE        what the ingestion layer could not read"""
 
 
+#: OFFLINE RESEARCH TOOLS, DECLARED (doctrine 1; the owner's ruling of
+#: 2026-09-26: declare, do not delete). The `data/labels/*` builders rebuild
+#: the survival-label tables `quality/LABELS.md` inventories, from sources
+#: they FETCH (and, for GRETIL, from text the provenance gate refuses to
+#: admit), so no CI job can run them and no production module imports them.
+#: That left them invisible to both instruments meant to find such things:
+#: `wiring` skips `data/`, and test_verbs §24's orphan census globbed only
+#: `quality/test_*.py` -- `verify.py` is a 24-assertion suite it never saw.
+#: path (relative to lyric-harness/) -> how it is run. `wiring` prints this
+#: table and checks it against every `.py` under `data/`, and §24 requires the
+#: two to agree both ways, so a builder added without a row, or a row whose
+#: file has gone, fails. Their outputs are gitignored (`.gitignore`).
+OFFLINE_RESEARCH_TOOLS = {
+    "data/labels/finnic_variant_counts/build_finnic_variant_counts.py":
+        "python3 data/labels/finnic_variant_counts/build_finnic_variant_counts.py"
+        " -- fetches hsci-r/filter-data and rahvaluule/erab into $FINNIC_CACHE"
+        " (default /tmp/finnic_cache) and writes the label_variant_count /"
+        " label_parish_spread tables beside itself",
+    "data/labels/finnic_variant_counts/verify.py":
+        "python3 data/labels/finnic_variant_counts/verify.py -- AFTER the"
+        " builder, on the same $FINNIC_CACHE: an independent re-derivation of"
+        " the emitted tables, 24 assertions, exit 1 on any failure (an offline"
+        " suite: its inputs are fetched, so it cannot run in CI)",
+    "data/labels/ja_hyakunin_isshu/build_ja_hyakunin_isshu.py":
+        "python3 data/labels/ja_hyakunin_isshu/build_ja_hyakunin_isshu.py --"
+        " fetches borh/hachidaishu (hachidai.db) and nyoronjp's Ogura"
+        " Hyakunin Isshu CSV itself",
+    "data/labels/pa_bani/build_pa_bani.py":
+        "python3 data/labels/pa_bani/build_pa_bani.py -- fetches"
+        " @shabados/database (version pinned in the file) from"
+        " registry.npmjs.org into .shabados_cache/",
+    "data/labels/sa_subhasita/build_sa_subhasita.py":
+        "python3 data/labels/sa_subhasita/build_sa_subhasita.py -- fetches"
+        " GRETIL through a git-pinned mirror into .gretil_cache/ (CC BY-NC-SA:"
+        " the TEXT is inadmissible here, the LABEL is a fact about it); run"
+        " it BEFORE sa_amarusataka",
+    "data/labels/sa_subhasita/gretil_io.py":
+        "not run: the GRETIL fetch / verse-extraction helper both sa builders"
+        " import",
+    "data/labels/sa_amarusataka/build_sa_amarusataka.py":
+        "python3 data/labels/sa_amarusataka/build_sa_amarusataka.py -- fetches"
+        " the GRETIL Amarusataka itself and reads sa_subhasita's dedup table,"
+        " so that builder runs first",
+}
+
+
 #: verb spelling -> (module that answers it, what that layer is).
 #: `wiring` prints this and then checks it against the dispatch.
 VERB_LAYERS = (
@@ -9270,6 +9308,28 @@ def main():
                   "imported or runnable")
         else:
             print(f"  stranded total: {tot:,} lines")
+
+        # THE OFFLINE RESEARCH TOOLS under data/, which the walk above skips
+        # on purpose (a data directory is not a module tree) and which were
+        # therefore findable by nothing. DECLARED in `OFFLINE_RESEARCH_TOOLS`
+        # with how each is run, and CHECKED here against the tree both ways.
+        on_disk = sorted(m for m in prod if m.startswith("data" + _os.sep))
+        on_disk = [m.replace(_os.sep, "/") for m in on_disk]
+        undeclared = [m for m in on_disk if m not in OFFLINE_RESEARCH_TOOLS]
+        ghosts = [m for m in OFFLINE_RESEARCH_TOOLS if m not in on_disk]
+        print(f"\nOFFLINE RESEARCH TOOLS (declared; they fetch their sources, "
+              f"so CI runs none of them): {len(OFFLINE_RESEARCH_TOOLS)}")
+        for m, how in OFFLINE_RESEARCH_TOOLS.items():
+            print(f"    {m}\n        {how}")
+        if undeclared or ghosts:
+            for m in undeclared:
+                print(f"  UNDECLARED  {m} — a .py under data/ with no row in "
+                      f"OFFLINE_RESEARCH_TOOLS")
+            for m in ghosts:
+                print(f"  GHOST  {m} — declared, not on disk")
+        else:
+            print("  every .py under data/ is declared, and every declared "
+                  "tool is on disk")
 
     elif cmd == "types":
         from quality import rhyme_types as RT

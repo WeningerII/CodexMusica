@@ -141,6 +141,19 @@ def test_the_exit_vocabulary_is_per_instrument():
           "swallow an instrument that ran",
           not PS._MISSING_DEP.search(
               "RESULT: PASS\n  [ok  ] committed 84, measured 84"), None)
+    # AND THE REPOSITORY'S OWN PACKAGE IS NOT A THIRD-PARTY INSTALL (2026-09-26).
+    # `type_canon.py --check` crashed on `No module named 'quality'` and was
+    # filed as a missing third-party module; the diagnosis now separates the
+    # two, both ways.
+    _own = _crash.replace("numpy as np", "quality").replace("'numpy'",
+                                                              "'quality'")
+    check("a missing `quality` module is the INSTRUMENT's broken import path, "
+          "not a third-party module to install",
+          PS.missing_dependency(_own) == ("quality", True),
+          PS.missing_dependency(_own))
+    check("...and numpy is still a third-party dependency",
+          PS.missing_dependency(_crash) == ("numpy", False),
+          PS.missing_dependency(_crash))
 
     check("...and its zero still reads HOLDS",
           PS.verdict_for("quality/not_in_the_table.py", 0) == "HOLDS")

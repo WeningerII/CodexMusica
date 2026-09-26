@@ -673,13 +673,12 @@ def test_four_languages_four_anchors():
 
         `answer()` works the extent out from the line's accentuation class,
         which is that module's version of this cell's finding: the span is
-        per member and it is not one rule. Fall back to the older single-
-        extent `skeleton()` where `answer()` is not present.
+        per member and it is not one rule. (The fall-back to the older
+        single-extent `skeleton()` for a `cym` without `answer()` was removed
+        2026-09-26: `answer()` has shipped since, so the arm could not run.)
         """
-        if hasattr(cym, "answer"):
-            a = cym.answer(first, second)
-            return a.get("first"), a.get("second")
-        return cym.skeleton(first), cym.skeleton(second)
+        a = cym.answer(first, second)
+        return a.get("first"), a.get("second")
 
     off = {"croes": [], "traws": []}
     try:

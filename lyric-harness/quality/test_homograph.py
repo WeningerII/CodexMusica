@@ -33,7 +33,11 @@ THE THREE THINGS THIS FILE HAS TO SHOW, IN THIS ORDER
   2. NINE MODULES, UNMOVED. `cym fin fas ltc msa non san som eng` all construct
      `Syllable`. Every one of them is byte-identical after the change, over
      2,489 real word-syllabifications from this repo's own corpora, and the
-     sonnet battery still prints 1064 / 1014 / 50 / 81.
+     sonnet battery ~~still prints~~ printed 1064 / 1014 / 50 / 81 when this
+     landed. (RE-DATED 2026-09-26: that was the oracle of its day, not a
+     claim about it now; the pin is `quality/battery_pin.py`, mandated 1064 /
+     judged 936 / refused 128 / violations 9 on that date, moved by later
+     comparator changes that argue themselves in `battery.py`.)
   3. THE TWO MODULES THAT GENUINELY HAVE HOMOGRAPHS, and what each now returns
      — with the honest answer about whether that is an IMPROVEMENT or merely a
      REFUSAL, which is a different verdict for the two of them.
@@ -555,9 +559,13 @@ def test_the_seam():
     # AMENDED 2026-08-11: this asserted the DEFECT, and the defect is fixed
     # (quality/relations.py, cell O). The reader returns the PRODUCT now, so
     # uncertain(), _seq's guard and _bucket_key's guard can all see it.
+    # REPAIRED 2026-09-26: this read `R.is_uncertain(...) if hasattr(R,
+    # "is_uncertain") else isinstance(..., frozenset)`, and `quality.relations`
+    # has no `is_uncertain`, so the check only ever ran the weaker frozenset
+    # test (true of a ONE-reading set too). It now calls the phonology's own
+    # predicate, imported above: MORE THAN ONE reading, not merely a set.
     check("`_rd_phones` no longer splices the set INTO the phone sequence",
-          R.is_uncertain(read["phones"])
-          if hasattr(R, "is_uncertain") else isinstance(read["phones"], frozenset),
+          is_uncertain(read["phones"]),
           f"{read['phones']!r} -- the product, not a tuple with a set inside. "
           f"The wind/find comparison is still False and always was CORRECT, "
           f"because `phones` carries the ONSET and W/F disagree under every "

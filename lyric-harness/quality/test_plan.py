@@ -995,8 +995,12 @@ def test_the_measure():
     # exists to permit, not the corpus arriving at the dice. The guard did
     # its job: it caught the new reference the sitting it was added, for the
     # second time.
+    # `placement_of` LEFT 2026-09-26: `grid.placement_of` was deleted by the
+    # harness cleanup (no code anywhere called it; its "THE ONE READER"
+    # docstring was false -- `plan.py` reads `placement_findings`), so the
+    # allow-list stops naming a function that no longer exists.
     ALLOWED_FROM_GRID = {"SECTION_FUNCTIONS", "FunctionSpec", "as_function",
-                         "placement_findings", "placement_of",
+                         "placement_findings",
                          "specialisation_of", "UnknownFunction"}
     # `floor` JOINED THE ALLOW-LIST 2026-08-23, ON THE SAME ARGUMENT AS
     # `meter_bands` AND WITH THE SAME RE-TIGHTENING AS `grid`. The owner's

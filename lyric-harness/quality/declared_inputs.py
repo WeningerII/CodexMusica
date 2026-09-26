@@ -723,10 +723,6 @@ def get_declared(code, supplied=None):
                                   f"{sorted(DECLARED) or 'nothing'}")
 
 
-def withdraw(code):
-    DECLARED.pop(code, None)
-
-
 def clear_declarations():
     DECLARED.clear()
 
@@ -1298,7 +1294,7 @@ __all__ = ["ROUTES", "STATUSES", "DeclaredInputError", "MissingDeclaredInput",
            "Undecided", "Refusal", "Verdict", "InputSpec", "Family",
            "Orthography", "PeriodPhonology", "SenseAnnotation",
            "SlangRegister", "BeatGrid", "ToneChannel", "FAMILIES", "DECLARED",
-           "declare", "get_declared", "withdraw", "clear_declarations",
+           "declare", "get_declared", "clear_declarations",
            "PERIOD_PHONOLOGIES", "register_period", "get_period",
            "eye_rhyme", "historical_rhyme", "antanaclasis", "rhyming_slang",
            "offbeat", "tone_rhyme", "attempt", "probe_all", "scheduled",

@@ -57,7 +57,6 @@ Run:  python3 quality/readability.py corpus/song/*.txt
 """
 
 import os
-import re
 import sys
 from dataclasses import dataclass, field
 

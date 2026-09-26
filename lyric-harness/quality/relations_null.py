@@ -730,12 +730,6 @@ def _statistics_of(toks, phon, schema, statistics, language, chans=None,
     return vals, st, refusal
 
 
-def _statistic_of(toks, phon, schema, statistic, language, chans=None):
-    vals, st, refusal = _statistics_of(toks, phon, schema, [statistic],
-                                       language, chans)
-    return (None if vals is None else vals[0]), st, refusal
-
-
 def run_many(lines, phon, schema, statistics, null="line_permutation",
              n=200, seed=SEED, language="", chans=None, tokeniser=R.tokenise,
              prepare=None, stanzas=None, stanza_source=""):

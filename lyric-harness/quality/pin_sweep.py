@@ -296,6 +296,26 @@ _USAGE_ERROR = re.compile(r"^usage: .*\n(.|\n)*?: error: ", re.M)
 #: tell this apart from the instrument's OWN word for inconclusive.
 _MISSING_DEP = re.compile(r"ModuleNotFoundError: No module named '([^']+)'")
 
+#: A MISSING MODULE THAT IS THIS REPOSITORY'S OWN IS NOT A MISSING INSTALL
+#: (2026-09-26, found by the harness cleanup audit). `quality/type_canon.py
+#: --check` died on `No module named 'quality'` -- no `sys.path` bootstrap,
+#: so run as a script it could not reach the harness root -- and this sweep
+#: filed it as "needs the third-party module 'quality', which is not
+#: installed", sending the reader to `pip` for a package that does not exist.
+#: Still CANNOT RUN (nothing ran, so nothing moved), but the evidence names
+#: the instrument's own defect, which has a different remedy.
+_OWN_TOP_LEVEL = ("quality", "lyric_harness", "battery")
+
+
+def missing_dependency(out):
+    """-> (module, own) for the first `ModuleNotFoundError` in `out`, or None.
+    `own` is True when the module is one of this repository's own top-level
+    names (`_OWN_TOP_LEVEL`), i.e. a broken import path, not an install."""
+    m = _MISSING_DEP.search(out)
+    if not m:
+        return None
+    return m.group(1), m.group(1).split(".", 1)[0] in _OWN_TOP_LEVEL
+
 #: Per-instrument exit-code vocabulary, DECLARED because the instruments do
 #: not share one.  A code absent from an entry falls through to the default
 #: reading below it.
@@ -418,10 +438,19 @@ def run_one(rel, root=ROOT, timeout=DEFAULT_TIMEOUT):
         lines, how = [out[:200]], "error"
     elif _MISSING_DEP.search(out):
         v = "CANNOT RUN"
-        lines = ["needs the third-party module %r, which is not installed on "
-                 "this runner -- the instrument never ran, so none of its "
-                 "figures moved" % _MISSING_DEP.search(out).group(1)]
-        how = "missing dependency"
+        module, own = missing_dependency(out)
+        if own:
+            lines = ["cannot import this repository's OWN module %r -- the "
+                     "instrument's sys.path does not reach the harness root, "
+                     "a defect in the instrument (a missing bootstrap), not a "
+                     "package to install; it never ran, so none of its "
+                     "figures moved" % module]
+            how = "broken import path"
+        else:
+            lines = ["needs the third-party module %r, which is not installed "
+                     "on this runner -- the instrument never ran, so none of "
+                     "its figures moved" % module]
+            how = "missing dependency"
     elif _USAGE_ERROR.search(out):
         # The sweep asked the wrong question. That is never a statement about
         # the instrument's figures, and calling it MOVED would manufacture a

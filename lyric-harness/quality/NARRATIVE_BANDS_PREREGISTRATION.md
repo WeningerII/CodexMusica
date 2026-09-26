@@ -75,11 +75,15 @@ commit.**
 
 First recorded run, 2026-08-25 — full account in
 `quality/RESULTS_NARRATIVE_BANDS.md`, counts pinned in
-`quality/narrative_bands.py`. Headlines: 8,667 songs / 40,970 seams;
-P1 separates from its shuffle null (0.5902 against a 0.5805–0.5862
-null range) and is REFUSED as an enforcement instrument on size
-(+0.78pp), with the salvage being that continuity is a function-pair
+`quality/narrative_bands.py`. Headlines: ~~8,667~~ 8,652 songs / ~~40,970~~ 40,697 seams;
+P1 separates from its shuffle null (~~0.5902~~ 0.5916 against a ~~0.5805–0.5862~~
+0.5834–0.5887 null range) and is REFUSED as an enforcement instrument on size
+(~~+0.78pp~~ +0.47pp), with the salvage being that continuity is a function-pair
 coordinate (verse→verse 0.61 against verse→refrain 0.35); P2's
-back-to-back rate over 1,676 invariant-return pairs is 0.0048 — the
+back-to-back rate over ~~1,676~~ 1,653 invariant-return pairs is ~~0.0048~~ 0.0042 — the
 reframe precondition is a near-universal law of the corpus. P3
 deferred as registered. Nothing adopted this sitting, per §6.
+(REPINNED 2026-09-26 by the owner's ruling: the struck figures are the
+2026-08-25 run's, the ones beside them re-derived by `narrative_bands.py
+--check` on the corpus as it stands; no conclusion changes. Only this
+outcome block moves -- the registration above the line does not.)
