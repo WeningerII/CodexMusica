@@ -22765,6 +22765,27 @@ report (~45 KB on the record) pushes the prompt past the ceiling inside the
 turn. `hopsAffordable` is therefore an UPPER bound on a grading turn and an
 accurate reading on a conversational one, and the function's docstring says
 so rather than letting a reader take six for a floor.
+**ADDENDUM 2026-09-26 — ONE CEILING OF 50 HOPS, AND THE TWO SURFACES
+REPORTED APART.** The owner raised `LIMITS.maxSteps` from 14 to **50** for
+recipes and lyrics alike (*"raise the ceiling to 50 rounds. it's still super
+cheap for us and it gives us breathing room"*), after a recipe brief with
+seven descriptors spent all fourteen hops on one search per word and the
+chat answered *"No customized Rich recipe has been produced yet"*. The
+figures above are the 2026-09-02 measurement and stand as that. MEASURED at
+the raise: the base (recipe) hop is still **$0.015572**, the worst legal
+turn **$0.7786**, **160** hops affordable of 50, `capBinds` false. NEW,
+because one answer had been describing two surfaces: `turnBudget().surfaces`
+prices a lyric hop on the output budget a lyric hop actually requests and
+the paid ledger reserves (`maxLyricOutputTokens`, 32,768) — **$0.061652** a
+hop, a worst legal turn of **$3.0826**, **40** hops affordable of 50,
+`capBinds` TRUE — so at the new ceiling a worst-case LYRIC turn meets the
+$2.50 cap before the step count, and `/chat/status` says so per surface
+(`outerModelEstimate.perTurnBySurface`: recipe `maxSteps`, lyrics
+`maxTurnUsd`). The cap and the 40-minute wall stay where the owner put them.
+The recipe turn's last two hops can only finish it, and a recipe turn the
+model did not end on a deliverable recipe is finished by the server
+(`runTurn`'s `finishRecipe`; CHANGELOG, 2026-09-26); the lyrics loop gained
+the ceiling and nothing else.
 
 ### M-198 · Re-opening a mandate dropped its PLACEMENTS — every group came back bound at its end, `groups` byte-identical, and nothing could see it `CLOSED` 2026-09-02 — found by test_loop §19's slot probes, written for M-184's tier-2 repair, returning the end word on a mandate whose group declared `1.T2`
 
