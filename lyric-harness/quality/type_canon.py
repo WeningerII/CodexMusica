@@ -389,6 +389,15 @@ def check(argv=()):
 
 
 if __name__ == "__main__":                               # pragma: no cover
+    # THE CLI PIN HAD NEVER RUN (found 2026-09-26 by the harness cleanup
+    # audit). `check()` imports `quality.rhyme_types`, and run as
+    # `python3 quality/type_canon.py --check` the script's own directory is
+    # on `sys.path` and the harness root is not, so it died on
+    # `ModuleNotFoundError: No module named 'quality'` -- and `pin_sweep`
+    # reported that as a missing THIRD-PARTY module. The root goes on the path
+    # here, for the script only, the way the sibling runners bootstrap.
+    import os
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     _argv = tuple(sys.argv[1:])
     _bad = [a for a in _argv if a != "--check"]
     if _bad:

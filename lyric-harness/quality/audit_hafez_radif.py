@@ -81,14 +81,6 @@ def radif_share(poem):
     return sum(1 for f in even if f == target) / len(even)
 
 
-def has_radif(poem, min_fraction=1.0):
-    """Kept, and kept BOOLEAN, because the nulls and the sweep both want the
-    predicate. A refusal is False here -- but no caller now reaches this
-    without `shares()` having already counted the refusals separately."""
-    s = radif_share(poem)
-    return s is not None and s >= min_fraction
-
-
 def shares(poems):
     """Every ghazal's share, computed ONCE. -> (list of share-or-None).
 
@@ -96,6 +88,9 @@ def shares(poems):
     thresholds and discarded everything but the boolean, six times over. It is
     the same arithmetic; doing it once is cheaper than doing it six times, and
     what falls out of keeping it is doctrine 67's question -- see `where()`.
+    (`has_radif` itself was DELETED 2026-09-26: nothing had called it since
+    this function and `counts()` replaced it, and its docstring's "the nulls
+    and the sweep both want the predicate" had stopped being true.)
     """
     return [radif_share(p) for p in poems]
 

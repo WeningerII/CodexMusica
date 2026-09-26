@@ -54,13 +54,6 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from quality.g2p import SUFFIXES, stem_candidates          # noqa: E402
 
-#: The affix inventory, as NAMES, derived from the shipped table. A schema
-#: comparing affixes compares these, not the raw orthographic string, so
-#: `-ed` and `-'d` are ONE affix (they are the same morpheme, elided) and
-#: `sings`/`singes` land on `-s` together. That is a linguistic claim and it
-#: is made here, once, rather than in each caller.
-AFFIX_NAMES = ()   # filled below, once `_TABLE` exists
-
 #: MINIMUM RESIDUE. `g2p` uses 2 and so does this: a one-letter root is not a
 #: root, and allowing one turns `as` into `a` + `-s`. Declared rather than
 #: inlined so the two files can be compared at a glance.
@@ -394,9 +387,7 @@ def report(limit=25):
         print(f"   {w:18s} -> {r:14s} {a:32s} | {gs}")
 
 
-AFFIX_NAMES = tuple(sorted({name for _sfx, name in _TABLE}))
-
-__all__ = ["AFFIX_NAMES", "MIN_ROOT", "DERIVATIONAL", "segment", "root",
+__all__ = ["MIN_ROOT", "DERIVATIONAL", "segment", "root",
            "affix", "ENG_RESOURCES", "report", "_known_words"]
 
 

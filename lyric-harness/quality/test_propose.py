@@ -1392,27 +1392,6 @@ def _proposed_word(prompt, marker):
     return m.group(1) if m else None
 
 
-def _first_option(prompt, heading):
-    """-> the first word offered under `heading`, or None.
-
-    Reads the RENDERED prompt, the same way `_reads_the_prompt` does for
-    tier 1: a stub that reached into the `GroupBrief` instead would prove
-    nothing about what the prompt actually carries.
-    """
-    rows = prompt.split("\n")
-    for i, row in enumerate(rows):
-        if heading in row:
-            for nxt in rows[i + 1:]:
-                words = re.findall(r"[A-Za-z']+", nxt)
-                if not nxt.strip():
-                    continue
-                if not nxt.startswith(" "):
-                    break
-                if words:
-                    return words[0]
-    return None
-
-
 def test_model_proposer_surface():
     print("\n7b. ModelProposer's own contract")
     calls = []

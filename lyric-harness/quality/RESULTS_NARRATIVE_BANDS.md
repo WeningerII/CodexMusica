@@ -1,5 +1,20 @@
 # Narrative proxy calibration — first recorded run, 2026-08-25
 
+> **REPINNED 2026-09-26 (owner's ruling), re-derived by `python3
+> quality/narrative_bands.py --check` on the corpus as it stands.** Everything
+> below this block is the FIRST recorded run, 2026-08-25, and stays as that
+> record, unedited: every figure below is that run's, and today's figures are
+> the ones in this block. The pin had drifted unrecorded because no CI
+> job ran `--check`; the nightly job runs it now. Today's run, whole:
+> population **8,652** songs, 0 refused for missing marks,
+> 557 blocks skipped; P1 **0.5916** over **40,697** seams against a
+> within-song null of 0.5834–0.5887 (median **0.5869**), excess
+> +0.47pp — still above every draw, and still refused as an enforcement
+> instrument on size; by seam pair verse->verse 0.6149 (n=36,320); verse->burden 0.358 (n=1,567); burden->verse 0.4008 (n=1,330); verse->refrain 0.3473 (n=524); refrain->verse 0.3294 (n=507); chorus->verse 0.6636 (n=214); verse->chorus 0.6493 (n=211); P2 back-to-back **0.0042** over
+> **1,653** invariant-return pairs, by function verse 0.948 over 38,837; burden 0.0 over 1,184; refrain 0.0026 over 380; chorus 0.0674 over 89. No conclusion
+> below changes. Which corpus or reader change moved which figure is not
+> bisected here.
+
 Registered protocol: `quality/NARRATIVE_BANDS_PREREGISTRATION.md`.
 Instrument: `quality/narrative_bands.py` (whose `PINNED` block carries
 this run's headline counts and whose `--check` re-derives them). Run

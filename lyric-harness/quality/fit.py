@@ -307,7 +307,6 @@ class LineUnits:
                        for u in self.units)
 
 
-_WORDISH = re.compile(r"[^\W\d_]+(?:['’‑-][^\W\d_]+)*", re.UNICODE)
 #: COORDINATES THAT ARE DECLARED AND INERT, in the shape `quality/relations.py`
 #: settled on (see its `Inert`/`INERT`/`check_inert`). Doctrine 1: a coordinate
 #: nobody reads is a stated assumption that is not in force, and doctrine 48: a
@@ -1085,17 +1084,6 @@ class LineFit:
         return all(f.satisfiable for f in self.findings)
 
     @property
-    def unsatisfiable_causes(self):
-        return [f for f in self.findings if not f.satisfiable]
-
-    @property
-    def unconditional_failures(self):
-        """The placement contradictions that hold with no extra coordinate at
-        all — as opposed to the ones conditional on a declared subdivision."""
-        return [f for f in self.findings
-                if not f.satisfiable and not f.conditional_on]
-
-    @property
     def prominence_findings(self):
         return [f for f in self.findings if f.kind == "prominence"]
 
@@ -1650,10 +1638,6 @@ class SectionFit:
     @property
     def unsatisfiable(self):
         return [l for l in self.lines if not l.satisfiable]
-
-    @property
-    def refused_tokens(self):
-        return [r for l in self.lines for r in l.units.refused]
 
     def overlaps(self):
         """Pairs of lines whose declared spans intersect -> (i, j, pulses).

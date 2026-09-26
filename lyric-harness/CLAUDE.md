@@ -312,9 +312,12 @@ either.
 
 ## The loop, and the MCP wrap plan
 
-Tools: transcribe, score, candidates, check_scheme, check_meter,
+~~Tools: transcribe, score, candidates, check_scheme, check_meter,
 check_song, infer_chains, rhyme_graph, internal, density, qafiya,
-cynghanedd, weight. Loop: spec -> draft -> check -> revise flagged
+cynghanedd, weight.~~ (STRUCK 2026-09-26: that was the pre-wrap PLAN's tool
+list, several of them function names that never became verbs; what shipped
+is the history below, and the verbs are `python3 lyric_harness.py --help`.)
+Loop: spec -> draft -> check -> revise flagged
 lines only -> re-check. Model never self-certifies. `screen` and the
 plan/render pair joined 2026-08-18 (standing rule 3): the wrap exposes
 only real entrances, and pair screening + performance-order rendering
@@ -3034,6 +3037,16 @@ function BLUEPRINT [--function=SECTION:FN,...] [--title=T] [--hook=H]
 [--rhyme-key=cmudict] | refrain NOTATION|FORM [FILE] |
 brief FILE [MANDATE] | verify BEFORE AFTER [MANDATE] [lines] |
 revise FILE [MANDATE] | readability FILE
+
+THE PLANNER-FIRST FRONT DOOR, MISSING FROM THIS ROSTER UNTIL 2026-09-26 (the
+paragraph above says the map, `--help` and the dispatch are three sets the
+tests hold equal; this roster is a FOURTH copy nothing checks, and it had
+fallen six verbs behind the dispatcher's 34): plan --seed=N [--form=]
+[--lines=N] [--relation=NAME] | plan --sweep=LO-HI [--want=PRED;PRED] |
+screen W1 W2 [W3...] [--bank] | finish DRAFT --seed=N [the plan flags] |
+tryline DRAFT LINE "the new line" --seed=N | recover LYRIC.txt
+[--placements=end,head,T4] | capacity WORD|--top=N. `python3
+lyric_harness.py --help` is the authority; `wiring` checks it.
 
 Four of those shipped on 2026-08-11 and closed the gap that had reopened
 underneath the quality layer:

@@ -10,9 +10,11 @@ will never return one. Two project rules force that shape:
     clarity is not derivable; it is a genre's answer, so it belongs in a
     declaration rather than in a constant.
   - Rejection, not selection. Detecting bad writing held out at AUC 0.967;
-    ranking good writing at 0.758. Enforce a floor, do not order what passes.
-    (Both ABSOLUTE ten-feature joints, cold: 0.967 is Experiment 2, human vs
-    generated; 0.758 is Experiment 1, anthologized vs not. REPINNED
+    ranking good writing at ~~0.758~~ 0.760. Enforce a floor, do not order what
+    passes. (Both ABSOLUTE ten-feature joints, cold: 0.967 is Experiment 2, human
+    vs generated; 0.760 is Experiment 1, anthologized vs not. REPINNED 2026-09-26
+    from 0.758, which this module still quoted after M-293 (0.761, 2026-09-17)
+    and M-314 (0.760, 2026-09-25) had both moved it -- the N-relation model moved the rhyme-predictability channel, `MISSING.md` M-314; before that
     2026-09-14 from 0.960/0.723 for the tokenizer normalization, before that
     2026-08-22 from 0.964/0.717 for M-31, and 2026-08-14 from 0.971/0.709 —
     see the cold-repin section below.)
@@ -65,9 +67,12 @@ owes its own replication before anyone leans on it.
 
 One check is a NOTE for a reason that changed under it. PREDICTABLE_RHYME, this
 project's former candidate universal, was recorded here as reproducing its own
-withdrawal at 0.560 — chance. Cold, the predictability-only joint reads 0.638
-on human-vs-generated and 0.737 on anthologized-vs-not (2026-09-14; 0.648 and
-0.710 to then): above chance in both,
+withdrawal at 0.560 — chance. Cold, the predictability-only joint reads
+~~0.638~~ 0.645 on human-vs-generated and ~~0.737~~ 0.732 on anthologized-vs-not
+(REPINNED 2026-09-26 from the 2026-09-14 figures, re-derived through
+`quality/test_discriminate.py`'s `measure()`: the N-relation model moved the rhyme-predictability channel, `MISSING.md` M-314; M-293's 0.637 / 0.731
+of 2026-09-17 never reached this module; 0.648 and 0.710 before 2026-09-14):
+above chance in both,
 and far under the 0.967 the ten-feature joint reaches on the same
 human-vs-generated split. So predictability is a WEAK separator carried by
 stronger features rather than a dead one, and it is STILL a note that may not
@@ -92,23 +97,32 @@ overwritten (doctrine 17):
         pre-fix 0.709  ->  warm 0.659  ->  COLD 0.717
         ->  0.723 (2026-08-22, the M-31 sentinel fix)
         ->  0.758 (2026-09-14, the tokenizer normalization)
+        ->  0.761 (2026-09-17, M-293)  ->  0.760 (2026-09-25, M-314)
     absolute joint held-out, Exp 2 (ten features, human vs generated)
         pre-fix 0.971  ->  warm 0.975  ->  COLD 0.964
         ->  0.960 (2026-08-22, the M-31 sentinel fix)
         ->  0.967 (2026-09-14, the tokenizer normalization)
     within-item joint, Exp 1 (respecified eight)
         warm 0.604  ->  COLD 0.638  ->  0.621 (2026-08-22)  ->  0.621 (2026-09-14)
+        ->  0.618 (2026-09-25, M-314)
     within-item joint, Exp 2 (respecified eight)
         warm 0.877  ->  COLD 0.891  ->  0.896 (2026-08-22)  ->  0.894 (2026-09-14)
+        ->  0.898 (2026-09-25, M-314)
     predictability-only joint, Exp 2 (two features)
-        warm 0.560  ->  COLD 0.648  ->  0.638 (2026-09-14)
+        warm 0.560  ->  COLD 0.648  ->  0.638 (2026-09-14)  ->  0.637 (2026-09-17,
+        M-293)  ->  0.645 (2026-09-25, M-314)
+    (THE LADDER ABOVE WAS LAST WALKED 2026-09-14 AND IS WALKED TO 2026-09-25 ON
+    2026-09-26: M-314 recorded that this module still quoted the 2026-09-14
+    figures and left it for its owner; every value added is re-derived cold by
+    `test_discriminate.measure()`, which reproduces that suite's pins.)
 
 THREE AXES, AND THE SENTENCE THIS MODULE CARRIED COLLAPSED ALL THREE. "Removing
 level effects dropped joint AUC from 0.971 to 0.877" subtracted a WITHIN-ITEM,
 WARM figure from an ABSOLUTE, PRE-FIX one, so it charged the respecification
 for the out-of-vocabulary fix and for a stale cache as well. Like for like —
 same design, same cache state, only the feature set moving — it is 0.960 ->
-0.891 at the 2026-08-13 reading and 0.967 -> 0.894 at the 2026-09-14 one. DESIGN (Exp 1 / Exp 2), FEATURE SET (ten absolute / eight within-item /
+0.891 at the 2026-08-13 reading, 0.967 -> 0.894 at the 2026-09-14 one, and
+0.967 -> 0.898 at the 2026-09-25 one. DESIGN (Exp 1 / Exp 2), FEATURE SET (ten absolute / eight within-item /
 two predictability-only) and CACHE STATE (pre-fix / warm / cold) are three
 separate coordinates, and a figure quoted without all three is unreadable
 (doctrine 58).
@@ -328,7 +342,7 @@ CALIBRATION = {
                     "gap. Reads register and period as well as craft; five of "
                     "ten features separated with the wrong sign, and removing "
                     "level effects takes the human-vs-generated joint from "
-                    "0.967 (ten absolute features) to 0.894 (eight within-item "
+                    "0.967 (ten absolute features) to 0.898 (eight within-item "
                     "ones) -- same design, same cold reading, only the feature "
                     "set moving. The "
                     "`song` profile is NOT part of this: it has no generated "
@@ -525,7 +539,7 @@ CALIBRATION = {
         "separates at |0.853|, third-best here; being unregistered it is a "
         "post-hoc finding and needs its own replication. || "
         "PREDICTABLE_RHYME was this project's candidate universal and is not "
-        "one. Cold, the predictability-only joint reaches 0.638 on "
+        "one. Cold, the predictability-only joint reaches 0.645 on "
         "human-vs-generated against 0.967 for the ten-feature joint on the "
         "same split: a real but weak separator, carried by stronger features. "
         "It stays a NOTE and may not reject (doctrine 7). REPINNED 2026-08-14 "
@@ -2284,8 +2298,8 @@ class SlopFloor:
                     f"ON THE SONNET ARM — 152 Shakespeare sonnets against 40 "
                     f"model ones, a different length and a different "
                     f"population from this one — held out and cold, "
-                    f"predictability alone reaches AUC 0.638 on "
-                    f"human-vs-generated and 0.737 on anthologized-vs-not "
+                    f"predictability alone reaches AUC 0.645 on "
+                    f"human-vs-generated and 0.732 on anthologized-vs-not "
                     f"(n=15): above chance in both, and well under the 0.967 "
                     f"the ten-feature joint reaches on the same "
                     f"human-vs-generated split, so it is a weak separator "

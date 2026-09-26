@@ -128,8 +128,6 @@ FALSE = "FALSE"
 UNVERIFIABLE = "UNVERIFIABLE"
 ERROR = "ERROR"
 
-_VERDICT_ORDER = {FALSE: 0, ERROR: 1, MOVED: 2, UNVERIFIABLE: 3, CONFIRMED: 4}
-
 
 # ---------------------------------------------------------------------------
 # 0. Reading the register
@@ -207,10 +205,6 @@ class Check:
         self.question = question
         self.fn = fn
         self.why = why
-
-
-def _nums_in(text):
-    return [float(x.replace(",", "")) for x in re.findall(r"(?<![\w.])(\d[\d,]*(?:\.\d+)?)", text)]
 
 
 def _chk_m3_m4_shared_denominator(entries):
@@ -1749,10 +1743,6 @@ _EXTERNAL_HINT = re.compile(
     r"|\b(?:ed\.|trans\.|p\.|pp\.|vol\.|ISBN|doi)\b"    # a citation form
     r"|\b(?:Wikisource|Gutenberg|GRETIL|DCS|Ganjoor|Perseus)\b",
     re.I)
-
-_INTERNAL_REF = re.compile(r"[✓]?[ECGSIX]\d+|R\d+[a-z]?|repo doctrine|"
-                           r"repository's own|quality/phonology|CLAUDE\.md", re.I)
-
 
 def provenance_report():
     """The list of names whose only witness is this project.
