@@ -86,6 +86,7 @@ import quality.relations as R                                    # noqa: E402
 from quality.phonology import (Readings, Syllable,               # noqa: E402
                                merge_readings)
 from quality.phonology import eng, ltc                           # noqa: E402
+from quality.battery_pin import EXPECTED as _BATTERY_PIN         # noqa: E402
 
 FAILURES = []
 LEX = lh.Lexicon()
@@ -645,6 +646,11 @@ def test_end_to_end():
 # any channel — which is the check that this is a REFUSAL and not a rewrite.
 #
 # RECORDED, from the same code (`--quick` skips the re-derivation):
+# (RE-DATED 2026-09-26: this table is a RECORD of the 143-file corpus it was
+# measured on. `corpus/song/eng_*` is 1,297 files now, so §8b's pin of it no
+# longer reproduces -- measured by the harness cleanup audit with `--eng`,
+# 343,892 pairs. Repinning or retiring §8b is an owner ruling; until then
+# the figures below are history, not the corpus.)
 #
 #   corpus/song/eng_*  143 files, 189,414 adjacent line-final pairs
 #     channel      exposed  True->None  False->None  untouched
@@ -772,14 +778,18 @@ def test_corpus_counts():
     _report("MIDDLE CHINESE 花間集", t, e, n,
             {"onset": (1, 14), "coda": (0, 0), "consonants": (1, 14),
              "phones": (1, 6), "nucleus": (0, 0), "prominence": (0, 0)})
-    print("      corpus/song/eng_* (143 files, 189,414 pairs) is RECORDED in "
-          "this section's comment rather than re-run: it is a 40s pass and "
-          "the sonnets above exercise the same code on the same phonology.")
+    print("      corpus/song/eng_* was RECORDED in this section's comment at "
+          "~~143 files, 189,414 pairs~~ (the corpus of that day; it is "
+          "%d files now, re-dated 2026-09-26, and §8b's pin of the old count "
+          "is stale pending a ruling) rather than re-run: the sonnets above "
+          "exercise the same code on the same phonology."
+          % len(glob.glob(os.path.join(CORPUS, "song", "eng_*.txt"))))
     print("      re-run it with: python3 quality/test_readings_seam.py --eng")
 
 
 def test_eng_song_corpus():
-    print("\n8b. the 143-file eng_* song corpus, re-derived")
+    print("\n8b. the eng_* song corpus, re-derived against the ~~143-file~~ "
+          "record of 143 files (STALE since the corpus grew; 2026-09-26)")
     t, e, n = _corpus_moves(
         glob.glob(os.path.join(CORPUS, "song", "eng_*.txt")), E_UNC)
     _report("ENGLISH corpus/song/eng_*", t, e, n,
@@ -806,8 +816,10 @@ def test_the_default_is_untouched():
     check("every channel of every unit reads identically old vs new under the "
           "shipped `eng`", same,
           "the fix is inert wherever no channel holds a set, which is every "
-          "shipped phonology today. `python3 battery.py` still prints "
-          "1064 / 1014 / 50 / 81.")
+          "shipped phonology today. `python3 battery.py` ~~still prints~~ "
+          "printed 1064 / 1014 / 50 / 81 when this landed; its pin is now "
+          "%(mandated)d / %(judged)d / %(refused)d / %(violations)d "
+          "(`quality/battery_pin.py`, read at run time)." % _BATTERY_PIN)
     check("...and `Alternatives` is only ever constructed from an uncertain "
           "channel",
           not any(isinstance(R.DEFAULT_CHANNELS.read(u, c, st),

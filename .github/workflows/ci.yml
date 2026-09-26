@@ -1898,7 +1898,8 @@ jobs:
       # quality/test_mutation.py` runs the FULL SWEEP at
       # `--jobs=os.cpu_count()`, forking the whole test suite once per
       # mutation — mutate.py prices the honest version of that instrument at
-      # ~53 CPU-minutes. That is a nightly or a human's machine, never a step
+      # ~~about 53 CPU-minutes~~ (struck 2026-09-26: a 30-mutation price, four times
+      # low by 2026-08-24 per `nightly`). That is a nightly or a human's machine, never a step
       # in a job budgeted in seconds. This is why test_mutation.py is also
       # deferred by name in the `suites` job: a bare glob would have run the
       # sweep on every pull request.
@@ -2157,7 +2158,10 @@ jobs:
           OPENBLAS_NUM_THREADS: '1'
         run: python3 quality/audit_fwer_fpr.py --check
 
-  # ── The suites: 45 test modules that nothing had ever run ────────────────
+  # ── The suites: ~~45 test modules that nothing had ever run~~ ────────────
+  # (RE-DATED 2026-09-26: 45 was this job's first list. The cheap step below
+  # names 103 of the 113 `quality/test_*.py` files; the rest are accounted for
+  # in the note above that step.)
   #
   # AND THE CENSUS ITSELF WAS STALE — TWO MORE FILES RAN NOWHERE, FIXED
   # 2026-08-15. `quality/test_*.py` is 48 files. This job named 42 in the cheap
@@ -2170,7 +2174,8 @@ jobs:
   #
   # THIS IS THE FAILURE THE LIST'S OWN DESIGN INVITES, and the file says so
   # eighty lines down: "Named, never globbed". Naming is right — a glob is how
-  # test_mutation.py's 53-CPU-minute sweep arrives without anybody deciding it
+  # test_mutation.py's ~~53-CPU-minute~~ sweep (a figure struck 2026-09-26, see
+  # the cheap step) arrives without anybody deciding it
   # should — but a hand-kept list has the mirror-image defect, which is that a
   # file added later joins nothing and nothing notices, because a list that is
   # short looks exactly like a list that is complete. Same shape as the
@@ -2240,7 +2245,9 @@ jobs:
   #   test_mutation.py      bare, this is a PARALLEL FULL SWEEP at
   #                         --jobs=os.cpu_count(): 1328 CPU-s against 600s wall
   #                         before being killed, and mutate.py prices the
-  #                         honest version at ~53 CPU-min. A plain
+  #                         honest version at ~~about 53 CPU-min~~ (struck
+  #                         2026-09-26: a 30-mutation price, four times low
+  #                         by 2026-08-24 per `nightly`). A plain
   #                         `quality/test_*.py` glob would put that on every
   #                         pull request, which is why this job names its files
   #                         and does not glob. `--static` runs in `record` at
@@ -2382,7 +2389,11 @@ jobs:
         run: python3 quality/fetch_data.py --research
 
       # Named, never globbed -- see the header. A glob is how test_mutation.py's
-      # 53-CPU-minute sweep would arrive here without anybody deciding it should.
+      # ~~53-CPU-minute~~ sweep would arrive here without anybody deciding it should.
+      # (STRUCK 2026-09-26: ~53 CPU-min is mutate.py's price for THIRTY
+      # mutations over a ~106 CPU-s suite; the `nightly` note on the move to the
+      # `mutation` job records it wrong by a factor of four by 2026-08-24, and
+      # the list is 59 mutations now. The argument stands; the figure does not.)
       # Threads pinned: a sibling instrument measured 625 CPU-s of BLAS
       # spin-wait against 32 pinned, on matrices too small to be worth a thread.
       # ~~- name: The 42 cheap suites (15 of them under 1 CPU-s)~~
@@ -2412,7 +2423,191 @@ jobs:
       # caught `nc_census` on the run that added it — and `structures` on
       # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: "The 103 cheap suites (figure_exhibits joined 2026-09-25 with the intra-line evidence route in `quality/schema_census.py`, added in the same commit as the module it gates so it never joins the orphan census below -- the section that earns its place is 4, which re-grades every recorded grader FINDING and goes red when the grader moves instead of letting the finding prose go stale; label 102 to 103; source_identity joined 2026-09-22; backlog_status joined 2026-09-19 with M-298's queue-versus-register census, added in the same commit as the module it gates so it never joins the orphan census below -- the gap it closes is adversary 8's own blind spot: `audit_register.py` is the instrument for `do the documents agree with each other` and it reads `BACKLOG.md` in prose comments ONLY, never parsing that file's status table, so 16 queue rows could list an entry as open for weeks after the register closed it with every gate in the tree green; the section that earns its place is 2, which proves the LAST-status rule is load-bearing -- both documents supersede in place with `~~OPEN~~ CLOSED`, so reading the FIRST token reports every already-reconciled row as broken and says nothing about the ones that are, which is the census inverted; 0.11 s wall over three runs, label 99 to 100; song_shape joined 2026-09-19 with H-3's first item, added in the same commit as the module it gates so it never joins the orphan census below -- the PREVIOUS suite in this list did join it, one commit earlier, which is why this one is here before CI had to say so; the sections that earn its place are the two that make the answer honest rather than merely present: the population is proven to be `song_record.songs()` by SHRINKING that function and requiring the census to follow, and each duplicate group is verified against the RAW marks so a shared order cannot be an artefact of stripping instance digits; 0.04 s wall over three runs, the cheapest entry in this list, label 98 to 99 -- REPINNED 2026-09-19 to 0.99-1.03 s over three runs and NO LONGER the cheapest (type_canon is), because the suite gained the seed census that makes H-3 item 1's confound mechanical and a hook census that imports `grid` and reads 16 blueprints; the figure is re-measured rather than left standing, since a cost stated here and never re-run is a threshold nobody wrote down (doctrine 58); type_canon joined 2026-09-19 with M-35's interim tradition gate, added in the same commit as the module it gates so it never joins the orphan census below -- and the census caught it anyway on this PR's own first CI run, which is the same shape it has caught every other time a suite arrived without its ci.yml line, so the line is here because the check said so and not because anybody read the diff; the section that earns its place is the pair that CONSTRUCTS each refused inheritance route -- by NAMED cell and by a schema's `aka=` -- and requires it to differ from what ships, because a test asserting only the shipped behaviour would pass against a build that took either one; 0.10 s wall over three runs, the cheapest in this list, label 97 to 98; field_store joined 2026-09-18 with M-244's persistent floor-field store, added in the same commit as the module it gates so it never joins the orphan census below -- the store is keyed on the word AND the whole declaration it was scored under, which is the coordinate the existing store in `quality/calibration_rebuild.py` records as `repr(Declaration())` and so would serve one declaration's field to another declaration's caller; the section that earns its place is the CROSS-PROCESS one, because a second call in the same process is answered by the in-memory cache this store sits behind and would prove nothing about the defect, 42 s wall, label 96 to 97; comparator_pin joined 2026-09-17 with the comparator pin, added in the same commit as the module it gates so it never joins the orphan census below -- the gate exists because six PRs moved `lyric_harness.py` in one day on 2026-09-16 and the only instrument that noticed was the most expensive one in the tree, which noticed late and on somebody else's commit; its five sections all MUTATE, because a pin that always says HOLDS reads exactly like a pin that works, label 95 to 96; interlocking_chain joined for M-40; melody joined 2026-09-16 with I-1's melody-first entrance -- the suite shipped in that lot WITHOUT this line, and test_verbs 24's orphan census caught it in CI rather than anybody reading the diff, which is the same shape it has caught every other time a suite arrived without its ci.yml line; rhyme_organization joined 2026-09-15 with the L-1/L-2 conditional-null redesign, exact orbits and unsupported timing refusal; stub_resolution joined 2026-09-15 for A-1 full chorus blocks; tempo joined 2026-09-15 for C-5 declared elapsed-time conversion; computational_audit joined 2026-09-14 with the lyrics computational audit -- 24 unittest cases over the corrected occurrence, boundary and Sidak arithmetic, 6.4 s -- caught by test_verbs §24's orphan census on the audit's own PR, the same shape it has caught every time a suite arrived without its ci.yml line, label 89 to 90; within_item joined 2026-09-10 with M-270's subclass-aware concreteness-norm gate, in the same commit as the fix — the within-item extractor's three norm-backed features had been NaN on every item for two days behind a green tree, because the one suite that would have said so is cold and heavy and lives outside this job; floor_window, capacity_receipt and candidate_pair_projection joined 2026-09-08 for the per-line query cost regression; production_data, production_harness, production_journal, production_relations and production_revision joined 2026-09-08 for the production audit repairs; audit_regressions joined 2026-09-07 for verification identity, coverage and durable proposal replay; propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak; door_census 2026-08-26 with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the same commit as the module it gates -- and this label went from 71 to 72 with it, which `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the list it labels, and a suite added without moving the number is a list that is short looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike and M-140 -- the chance-rate measurement had by then been improvised TWICE from uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here in the same commit as the module so it never joins the orphan census above; verify_figures 2026-08-28 with M-33's live/history citation instrument, added the sitting after its module -- the orphan census caught it on the full test_verbs run, the same shape a fourth time, and the label moved 73 to 74 with it; replay_memo 2026-08-29 with M-167's deferred-replay grading memo — the warm worker's cross-request answer to the quadratic resume cost round 9 measured, added in the same commit as the module it gates, label 74 to 75; staging 2026-09-01 with the retried, atomic staged download -- run #1195 lost a whole CI run to one TLS reset in a step that had not begun any test, and the `suites` shard matrix in this same commit took the number of jobs performing that unretried download from 5 to 8 per run, so the sharding made the failure MORE likely and this is the cost being paid rather than deferred, label 75 to 76; ban_convergence 2026-09-02 with the ban-against-the-bank instrument (M-168, triage C18), added in the same commit as the module it gates — its 13 checks re-derive one song's README triple through `Reviser.inspect` and kill a one-word mutation, ~2 min, label 76 to 77; cross_song 2026-09-02 with the cross-song disclosure M-111's ruling built (triage C08), added in the same commit as the module it gates — the section that earns its place is the PREFIX PIN, which holds `screen` output as a byte prefix of `screen --bank` and so makes the GATE the ruling refused mechanically unreachable rather than merely discouraged; the null half of the pin costs ~60s of corpus tagging and is `cross_song.py --check`'s business, which pin_sweep discovers by itself, label 77 to 78; brief_provenance 2026-09-02 with the gate on WHETHER A REVISION WAS BRIEFED (M-200), added in the same commit as the module it gates — the loop had been computing a complete OFFERED field per bound position, excluding both ban tiers, and nothing required a writer to read it, so a session hand-guessed five replacement pairs across three `finish` runs and every one came back BANNED; the check that earns its place is the FINGERPRINT one, which makes a brief earned on one draft unable to launder a hand-edit made to another, label 78 to 79; plan + capacity OUT to their own dealt matrix jobs and shard IN — the one dealing-and-timing idiom every dealt suite now calls — 2026-09-05 (M-244), label 79 to 78; battery_rounds 2026-09-06 with the one-row-per-round battery table and its closed layer vocabulary (M-254 D), added in the same commit as the module it gates — six checks, under a second, label 78 to 79; source_identity joined 2026-09-22 with M-299's comparator closure, added in the same commit as the function it gates so it never joins the orphan census below — the section that earns its place is 4, the one that checks the ASSUMPTION the narrowing rests on rather than the narrowing itself: a closure taken by name is complete only while nothing reachable looks a module-level name up through getattr/globals/eval, and that is PARSED and COUNTED (0 over 62 definitions, 104,556 characters) instead of asserted, with the population printed beside the verdict so the section cannot pass by examining nothing; section 3 plants a comment inside a definition NO entry point names and requires the real `comparator_fingerprint()` to move, which is the transitivity claim CLAUDE.md standing rule 4's coverage argument rests on; 10.8-11.5 s wall over three runs on this box — nearly all of it importing `lyric_harness` and `quality.features` and re-reading a 13k-line file six times, and the figure is stated because a cost written down and never re-run is a threshold nobody wrote down (doctrine 58); label 100 to 101)"
+      #
+      # RE-DATED 2026-09-26 — THE ARITHMETIC ABOVE IS 2026-08-18's AND IS NOT
+      # TODAY'S. ~~`ls quality/test_*.py` is 54 … 49 + 2 + 1 + 2 = 54~~.
+      # Measured on this date: `ls quality/test_*.py` is 113. This step names
+      # 103; `revision-loop` names 2 (revise, loop); the `plan`, `capacity` and
+      # `verbs` jobs name 1 each; `record` runs `triage` (and `mutation`
+      # --static, whose sweep has its own `mutation` job); `nightly` runs
+      # `discriminate`; and `npm test` (test:production:offline) runs
+      # `session_repairs` and `pronunciation_choices`. 103 + 2 + 3 + 1 + 1 + 1
+      # + 2 = 113. The human-run command is no longer the check:
+      # `test_verbs.py` §24 is, and from this date it reads only lines that can
+      # EXECUTE (comment lines and `- name:` labels are dropped) plus the
+      # `package.json` scripts an `npm` call here reaches.
+      #
+      # THE LIST'S HISTORY, MOVED OFF THE STEP LABEL 2026-09-26 (harness cleanup).
+      # Until then all of it sat inside the `- name:` below as ONE line of 13,901
+      # bytes, which the Actions UI printed whole on every run. It is kept
+      # here word for word, in the order it was written (doctrine 17: a record
+      # moves, it is not deleted). test_verbs.py §24 needs only `The N cheap
+      # suites` on the `- name:` line that says "cheap suites", and that stays
+      # on the label.
+      #
+      #   figure_exhibits joined 2026-09-25 with the intra-line evidence route in
+      #   `quality/schema_census.py`, added in the same commit as the module it gates so it never
+      #   joins the orphan census below -- the section that earns its place is 4, which re-grades
+      #   every recorded grader FINDING and goes red when the grader moves instead of letting the
+      #   finding prose go stale; label 102 to 103; source_identity joined 2026-09-22;
+      #   backlog_status joined 2026-09-19 with M-298's queue-versus-register census, added in the
+      #   same commit as the module it gates so it never joins the orphan census below -- the gap
+      #   it closes is adversary 8's own blind spot: `audit_register.py` is the instrument for `do
+      #   the documents agree with each other` and it reads `BACKLOG.md` in prose comments ONLY,
+      #   never parsing that file's status table, so 16 queue rows could list an entry as open for
+      #   weeks after the register closed it with every gate in the tree green; the section that
+      #   earns its place is 2, which proves the LAST-status rule is load-bearing -- both
+      #   documents supersede in place with `~~OPEN~~ CLOSED`, so reading the FIRST token reports
+      #   every already-reconciled row as broken and says nothing about the ones that are, which
+      #   is the census inverted; 0.11 s wall over three runs, label 99 to 100; song_shape joined
+      #   2026-09-19 with H-3's first item, added in the same commit as the module it gates so it
+      #   never joins the orphan census below -- the PREVIOUS suite in this list did join it, one
+      #   commit earlier, which is why this one is here before CI had to say so; the sections that
+      #   earn its place are the two that make the answer honest rather than merely present: the
+      #   population is proven to be `song_record.songs()` by SHRINKING that function and
+      #   requiring the census to follow, and each duplicate group is verified against the RAW
+      #   marks so a shared order cannot be an artefact of stripping instance digits; 0.04 s wall
+      #   over three runs, the cheapest entry in this list, label 98 to 99 -- REPINNED 2026-09-19
+      #   to 0.99-1.03 s over three runs and NO LONGER the cheapest (type_canon is), because the
+      #   suite gained the seed census that makes H-3 item 1's confound mechanical and a hook
+      #   census that imports `grid` and reads 16 blueprints; the figure is re-measured rather
+      #   than left standing, since a cost stated here and never re-run is a threshold nobody
+      #   wrote down (doctrine 58); type_canon joined 2026-09-19 with M-35's interim tradition
+      #   gate, added in the same commit as the module it gates so it never joins the orphan
+      #   census below -- and the census caught it anyway on this PR's own first CI run, which is
+      #   the same shape it has caught every other time a suite arrived without its ci.yml line,
+      #   so the line is here because the check said so and not because anybody read the diff; the
+      #   section that earns its place is the pair that CONSTRUCTS each refused inheritance route
+      #   -- by NAMED cell and by a schema's `aka=` -- and requires it to differ from what ships,
+      #   because a test asserting only the shipped behaviour would pass against a build that took
+      #   either one; 0.10 s wall over three runs, the cheapest in this list, label 97 to 98;
+      #   field_store joined 2026-09-18 with M-244's persistent floor-field store, added in the
+      #   same commit as the module it gates so it never joins the orphan census below -- the
+      #   store is keyed on the word AND the whole declaration it was scored under, which is the
+      #   coordinate the existing store in `quality/calibration_rebuild.py` records as
+      #   `repr(Declaration())` and so would serve one declaration's field to another
+      #   declaration's caller; the section that earns its place is the CROSS-PROCESS one, because
+      #   a second call in the same process is answered by the in-memory cache this store sits
+      #   behind and would prove nothing about the defect, 42 s wall, label 96 to 97;
+      #   comparator_pin joined 2026-09-17 with the comparator pin, added in the same commit as
+      #   the module it gates so it never joins the orphan census below -- the gate exists because
+      #   six PRs moved `lyric_harness.py` in one day on 2026-09-16 and the only instrument that
+      #   noticed was the most expensive one in the tree, which noticed late and on somebody
+      #   else's commit; its five sections all MUTATE, because a pin that always says HOLDS reads
+      #   exactly like a pin that works, label 95 to 96; interlocking_chain joined for M-40;
+      #   melody joined 2026-09-16 with I-1's melody-first entrance -- the suite shipped in that
+      #   lot WITHOUT this line, and test_verbs 24's orphan census caught it in CI rather than
+      #   anybody reading the diff, which is the same shape it has caught every other time a suite
+      #   arrived without its ci.yml line; rhyme_organization joined 2026-09-15 with the L-1/L-2
+      #   conditional-null redesign, exact orbits and unsupported timing refusal; stub_resolution
+      #   joined 2026-09-15 for A-1 full chorus blocks; tempo joined 2026-09-15 for C-5 declared
+      #   elapsed-time conversion; computational_audit joined 2026-09-14 with the lyrics
+      #   computational audit -- 24 unittest cases over the corrected occurrence, boundary and
+      #   Sidak arithmetic, 6.4 s -- caught by test_verbs §24's orphan census on the audit's own
+      #   PR, the same shape it has caught every time a suite arrived without its ci.yml line,
+      #   label 89 to 90; within_item joined 2026-09-10 with M-270's subclass-aware
+      #   concreteness-norm gate, in the same commit as the fix — the within-item extractor's
+      #   three norm-backed features had been NaN on every item for two days behind a green tree,
+      #   because the one suite that would have said so is cold and heavy and lives outside this
+      #   job; floor_window, capacity_receipt and candidate_pair_projection joined 2026-09-08 for
+      #   the per-line query cost regression; production_data, production_harness,
+      #   production_journal, production_relations and production_revision joined 2026-09-08 for
+      #   the production audit repairs; audit_regressions joined 2026-09-07 for verification
+      #   identity, coverage and durable proposal replay; propose + verify_entries joined
+      #   2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in,
+      #   verbs out to its own sharded job, structure_census with its artifact, screen with the
+      #   no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18;
+      #   corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19;
+      #   expected_drift with the declared-drift ruling and data_row_claims with the re-derived
+      #   provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS,
+      #   found by the very check in test_verbs.py that exists because a list that is short looks
+      #   exactly like a list that is complete; mandate_relation + relation_shapes +
+      #   relations_null 2026-08-22, the SAME check catching the same shape a second time in one
+      #   day — three suites written during the relation-ladder work and never added here, so
+      #   every one of them was green on a developer machine and unrun in CI; placement 2026-08-22
+      #   with the section-constraint layer, added in the same commit as the suite rather than
+      #   after somebody noticed; section_marks the same day with the bracketed-mark triage, whose
+      #   own `--check` is the gate that a corpus load printing a NEW mark turns red instead of
+      #   joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate
+      #   and recover the same day with the second door into the pipeline, each added in the same
+      #   commit as the module it gates so neither joins the census below; capabilities 2026-08-23
+      #   — the SAME orphan census a third time, and this one had been unrun since the day it was
+      #   written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim
+      #   CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census
+      #   2026-08-23 with the census of which findings can refuse anything, added in the same
+      #   commit as the module it gates — and the instrument's own first run is why it is here
+      #   rather than a sitting later: it named two constructors, measured 46 codes, and omitted
+      #   `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs
+      #   2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read
+      #   at all: zero checks under quality/, zero mentions here, and two of the five had shipped
+      #   with their section structure missing while every gate in the tree stayed green;
+      #   render_form the same day — the check that reads a MESSAGE, which no other gate can, plus
+      #   the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket
+      #   with its apparatus stripped; songs_record the same day — the SERIES, because every
+      #   report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its
+      #   claim check is the one gate in this tree aimed at the narrator rather than the code;
+      #   songs_log the same day — the PROCESS beside the product, because the series banks what a
+      #   song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a
+      #   markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110
+      #   noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as
+      #   the module and its SUITE joined nothing, the census's own defect one more time, caught
+      #   by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written
+      #   across the M-121 narrative-layer sittings and never added here, and the census's finding
+      #   was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116
+      #   breakage two sections in front of it, so a crash in one section hid an orphan in another
+      #   — the fix that cleared the crash is what let the census speak; door_census 2026-08-26
+      #   with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the
+      #   same commit as the module it gates -- and this label went from 71 to 72 with it, which
+      #   `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the
+      #   list it labels, and a suite added without moving the number is a list that is short
+      #   looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike
+      #   and M-140 -- the chance-rate measurement had by then been improvised TWICE from
+      #   uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here
+      #   in the same commit as the module so it never joins the orphan census above;
+      #   verify_figures 2026-08-28 with M-33's live/history citation instrument, added the
+      #   sitting after its module -- the orphan census caught it on the full test_verbs run, the
+      #   same shape a fourth time, and the label moved 73 to 74 with it; replay_memo 2026-08-29
+      #   with M-167's deferred-replay grading memo — the warm worker's cross-request answer to
+      #   the quadratic resume cost round 9 measured, added in the same commit as the module it
+      #   gates, label 74 to 75; staging 2026-09-01 with the retried, atomic staged download --
+      #   run #1195 lost a whole CI run to one TLS reset in a step that had not begun any test,
+      #   and the `suites` shard matrix in this same commit took the number of jobs performing
+      #   that unretried download from 5 to 8 per run, so the sharding made the failure MORE
+      #   likely and this is the cost being paid rather than deferred, label 75 to 76;
+      #   ban_convergence 2026-09-02 with the ban-against-the-bank instrument (M-168, triage C18),
+      #   added in the same commit as the module it gates — its 13 checks re-derive one song's
+      #   README triple through `Reviser.inspect` and kill a one-word mutation, ~2 min, label 76
+      #   to 77; cross_song 2026-09-02 with the cross-song disclosure M-111's ruling built (triage
+      #   C08), added in the same commit as the module it gates — the section that earns its place
+      #   is the PREFIX PIN, which holds `screen` output as a byte prefix of `screen --bank` and
+      #   so makes the GATE the ruling refused mechanically unreachable rather than merely
+      #   discouraged; the null half of the pin costs ~60s of corpus tagging and is `cross_song.py
+      #   --check`'s business, which pin_sweep discovers by itself, label 77 to 78;
+      #   brief_provenance 2026-09-02 with the gate on WHETHER A REVISION WAS BRIEFED (M-200),
+      #   added in the same commit as the module it gates — the loop had been computing a complete
+      #   OFFERED field per bound position, excluding both ban tiers, and nothing required a
+      #   writer to read it, so a session hand-guessed five replacement pairs across three
+      #   `finish` runs and every one came back BANNED; the check that earns its place is the
+      #   FINGERPRINT one, which makes a brief earned on one draft unable to launder a hand-edit
+      #   made to another, label 78 to 79; plan + capacity OUT to their own dealt matrix jobs and
+      #   shard IN — the one dealing-and-timing idiom every dealt suite now calls — 2026-09-05
+      #   (M-244), label 79 to 78; battery_rounds 2026-09-06 with the one-row-per-round battery
+      #   table and its closed layer vocabulary (M-254 D), added in the same commit as the module
+      #   it gates — six checks, under a second, label 78 to 79; source_identity joined 2026-09-22
+      #   with M-299's comparator closure, added in the same commit as the function it gates so it
+      #   never joins the orphan census below — the section that earns its place is 4, the one
+      #   that checks the ASSUMPTION the narrowing rests on rather than the narrowing itself: a
+      #   closure taken by name is complete only while nothing reachable looks a module-level name
+      #   up through getattr/globals/eval, and that is PARSED and COUNTED (0 over 62 definitions,
+      #   104,556 characters) instead of asserted, with the population printed beside the verdict
+      #   so the section cannot pass by examining nothing; section 3 plants a comment inside a
+      #   definition NO entry point names and requires the real `comparator_fingerprint()` to
+      #   move, which is the transitivity claim CLAUDE.md standing rule 4's coverage argument
+      #   rests on; 10.8-11.5 s wall over three runs on this box — nearly all of it importing
+      #   `lyric_harness` and `quality.features` and re-reading a 13k-line file six times, and the
+      #   figure is stated because a cost written down and never re-run is a threshold nobody
+      #   wrote down (doctrine 58); label 100 to 101
+      - name: The 103 cheap suites (their history is the comment above)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'

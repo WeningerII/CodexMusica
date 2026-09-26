@@ -33,7 +33,11 @@ THE THREE THINGS THIS FILE HAS TO SHOW, IN THIS ORDER
   2. NINE MODULES, UNMOVED. `cym fin fas ltc msa non san som eng` all construct
      `Syllable`. Every one of them is byte-identical after the change, over
      2,489 real word-syllabifications from this repo's own corpora, and the
-     sonnet battery still prints 1064 / 1014 / 50 / 81.
+     sonnet battery ~~still prints~~ printed 1064 / 1014 / 50 / 81 when this
+     landed. (RE-DATED 2026-09-26: that was the oracle of its day, not a
+     claim about it now; the pin is `quality/battery_pin.py`, mandated 1064 /
+     judged 936 / refused 128 / violations 9 on that date, moved by later
+     comparator changes that argue themselves in `battery.py`.)
   3. THE TWO MODULES THAT GENUINELY HAVE HOMOGRAPHS, and what each now returns
      — with the honest answer about whether that is an IMPROVEMENT or merely a
      REFUSAL, which is a different verdict for the two of them.
