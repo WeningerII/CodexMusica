@@ -227,8 +227,12 @@ function ipRenderCategories(scope, q, filters) {
   return `<button type="button" class="ip-cats-toggle cm-btn cm-btn-outline" data-ui="ip-cats" aria-expanded="${IP.catsOpen}" aria-controls="ip-cats">${icon('funnel', 18)}<span>Categories and sound properties${filters.size ? ' · ' + filters.size + ' on' : ''}</span></button><nav class="ip-cats" id="ip-cats" aria-label="Instrument categories and sound properties"><h2 class="ip-side-title">Categories${narrowed ? ' <span class="ip-side-note">matching</span>' : ''}</h2><div class="ip-cat-list">${families}</div><div class="ip-side-head"><h2 class="ip-side-title">Sound properties</h2>${filters.size ? uiButton('clear-filters', 'Clear', 'x', 'class="ip-link" aria-label="Clear sound properties"') : ''}</div><p class="ip-side-hint">An instrument must have every checked property. Numbers show how many would match.</p>${props}</nav>`;
 }
 function ipRenderList(filtered, fam, q, filters) {
+  // A family's classes A–Z by the label shown. INSTRUMENTS is ordered by
+  // family, then short label, so first appearance is no order a reader knows.
   const classes = fam
-    ? [...new Set(INSTRUMENTS.filter((i) => i.family === fam.id).map((i) => i.class))]
+    ? [...new Set(INSTRUMENTS.filter((i) => i.family === fam.id).map((i) => i.class))].sort(
+        (a, b) => ipHuman(a).localeCompare(ipHuman(b), 'en', { sensitivity: 'base' })
+      )
     : [];
   const inFamily = fam ? INSTRUMENTS.filter((i) => ipMatches(i, { q, cls: '', filters })) : [];
   const crumbs = fam

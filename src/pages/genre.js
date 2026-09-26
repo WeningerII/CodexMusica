@@ -230,10 +230,13 @@ function gpQuery() {
 function gpTargets() {
   return Object.entries(G.targets);
 }
-// The All genres list. Search ranks exact name, name prefix, name, then
-// lineage/description (the tree picker's order); the branch keeps members,
-// cross-listed ones included; sound targets keep genres within one step of
-// every target and rank by total distance — the engine's --axis-target rule.
+// The All genres list. Search ranks by where the query matches: exact name,
+// name prefix, anywhere in the name, then lineage/description only. The branch
+// keeps members, cross-listed ones included; sound targets keep genres within
+// one step of every target and rank by total distance — the engine's
+// --axis-target rule. Every tie is A–Z by name, as the list was before the
+// redesign: with no search and no targets that is the whole order, and within
+// a match tier or a distance it is the order a reader scans.
 function gpResults() {
   const q = gpQuery();
   let rows;
@@ -276,13 +279,7 @@ function gpResults() {
       .filter((r) => r.within);
   }
   const byName = (a, b) => a.t.name.localeCompare(b.t.name, 'en', { sensitivity: 'base' });
-  rows.sort(
-    (a, b) =>
-      (targets.length ? a.dist - b.dist : 0) ||
-      a.rank - b.rank ||
-      (q && a.rank > 0 ? a.t.name.length - b.t.name.length : 0) ||
-      byName(a, b)
-  );
+  rows.sort((a, b) => (targets.length ? a.dist - b.dist : 0) || a.rank - b.rank || byName(a, b));
   return rows;
 }
 
