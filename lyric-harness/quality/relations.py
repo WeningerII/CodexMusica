@@ -174,15 +174,6 @@ def tri_and(vals):
     return True
 
 
-def tri_or(vals):
-    vals = list(vals)
-    if any(v is True for v in vals):
-        return True
-    if any(v is None for v in vals):
-        return None
-    return False
-
-
 class NoReferent(Exception):
     """The rule has no referent in this declaration.  Raised, caught by the
     producer, and reported as a Refusal -- never coerced to False."""
@@ -406,10 +397,6 @@ class Unit:
         """
         last = self.line_last if self.line_last >= 0 else self.line_tokens - 1
         return self.token == last and self.word_final
-
-    @property
-    def tok_syl_from_end(self):
-        return self.tok_len - 1 - self.tok_syl
 
 
 @dataclass
@@ -7149,38 +7136,6 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
     return VocabularyPairResults(res, res.undecided, res.refused, res.lines)
 
 
-#: THE ONE SENTENCE THIS TREE SAYS ABOUT THE ROUTE ABOVE, SAID ONCE
-#: (doctrine 1/48, `MISSING.md` M-139). The candidate field
-#: (`quality.revise.Reviser._field_one`) is built per WORD and the judge
-#: above answers per LINE PAIR, so the schema half of the default is not
-#: askable at that site at any depth -- and a field silent about a whole
-#: acceptance route reads as though nothing else could answer (doctrine 20).
-#:
-#: The sentence must NOT say the offered words fail the schemas and must NOT
-#: imply a deeper field would reach a schema-satisfying pair (M-139).
-SCHEMA_ROUTE_NOTE = (
-    "THE REGISTRY SCHEMAS WERE NOT CONSULTED FOR THIS FIELD. Every mandated "
-    "pair is judged against every coarse relation AND every registry schema "
-    "(`relations.whole_vocabulary_pairs`); this field offers words by the "
-    "coarse relations only, because a schema judges LINE PAIRS over a built "
-    "stream and this site holds one WORD. That is a limit of the field and "
-    "not a verdict on these words -- a pair can satisfy the mandate through a "
-    "schema with none of them taken, and a word absent from this list has "
-    "not been refused by the schemas.")
-
-#: WHAT A RENDERER SAYS WHEN THE OBJECT DOES NOT CARRY THE COORDINATE, and
-#: it is a DIFFERENT CLAIM rather than a second copy of the one above. THREE
-#: STATES, NEVER TWO: a `Brief` stand-in that predates the field renders
-#: through `getattr`, and a default of `""` would make ABSENCE render as
-#: "the route is shut" -- doctrine 20's own collapse reproduced inside the
-#: disclosure that exists to end it.
-SCHEMA_ROUTE_UNKNOWN = (
-    "WHETHER THE 77-SCHEMA HALF OF THE DEFAULT WAS CONSULTED FOR THIS FIELD "
-    "IS NOT RECORDED HERE -- this brief does not carry the coordinate, which "
-    "is inconclusive by construction and is not a statement that it was "
-    "consulted (doctrine 20).")
-
-
 def planning_traits(names=None):
     """-> {name: {"gap": int|None, "claims": ((channel, coord, pred),...)}}
     for every registry schema (or `names`) — the coordinates the PLANNER's
@@ -8784,7 +8739,7 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "mark_refrain_tail", "search_caesura", "mark_printed_caesura",
            "declare_orthography",
            "REGISTRY", "QUERIES", "declare", "all_schemas",
-           "capability_report", "tri_and", "tri_or",
+           "capability_report", "tri_and",
            "Tradition", "CANON", "LANG_CELL", "UNSOURCED", "SCOPES",
            "canon_entries", "cited_cells", "named_cells", "tradition_scope",
            "tradition_report", "search_burden", "relation_report",

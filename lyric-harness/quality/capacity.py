@@ -149,8 +149,6 @@ ADOPTED = {
 #: deepest, one mid-tail, and the two the density conversation named.
 CHECK_SAMPLE = ("IY", "AY-ER", "EH-R", "UW-Z", "EY-N", "AO-R")
 
-_PAIR_RE = re.compile(r"L(\d+)/L(\d+)")
-
 
 #: Largest actually witnessed class:RHYME group in the current artifact.
 #: Re-adopted 2026-09-08: 23 words in IY-Z, after all 81 families were rebuilt

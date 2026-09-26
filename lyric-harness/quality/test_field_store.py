@@ -41,7 +41,6 @@ Sections:
 
 import copy
 import dataclasses
-import hashlib
 import json
 import os
 import pickle
@@ -66,10 +65,6 @@ def check(name, cond, detail=""):
     print(f"  {tag}  {name}" + (f"  [{detail}]" if detail and not cond else ""))
     if not cond:
         FAILS.append(name)
-
-
-def digest(value):
-    return hashlib.sha256(repr(value).encode("utf-8")).hexdigest()
 
 
 def run(source, *args, env=None):

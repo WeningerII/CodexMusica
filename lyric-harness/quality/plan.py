@@ -4251,7 +4251,6 @@ def brief_legend(plan):
     registry rather than typed. The brief used to name `T5`, `headrime`
     and `Scots vowel-length rhyme (Aitken's Law)` with no gloss anywhere
     a writer could reach, and the connector returns only this text."""
-    from quality import slots as _SLb
     from quality import relations as _RLb
     out = []
     places = []

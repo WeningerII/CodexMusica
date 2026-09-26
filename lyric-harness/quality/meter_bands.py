@@ -45,9 +45,12 @@ ROOT = os.path.dirname(HERE)
 #: The population, exactly as preregistered.
 CORPUS_GLOB = os.path.join("corpus", "song", "eng_*.txt")
 
-#: A lyric line is a stripped, non-empty line that is not a comment (`#`),
-#: a source marker (`---`), or a structure marker (`[VERSE n]`/`[CHORUS]`).
-STRUCTURAL_PREFIXES = ("#", "---", "[")
+#: What counts as a lyric line is `quality/lyric_reader.py`'s rule, read
+#: through `lyric_lines()` below. (~~A lyric line is a stripped, non-empty line
+#: that is not a comment (`#`), a source marker (`---`), or a structure marker
+#: (`[VERSE n]`/`[CHORUS]`).~~ STRUCK 2026-09-26 with the `STRUCTURAL_PREFIXES`
+#: it described: M-291 removed `historical_lyric_lines`, the last function
+#: here that applied the rule, and nothing has read the constant since.)
 
 #: Preregistered percentile points, and the pair the bands are cut at.
 PERCENTILE_POINTS = (1, 5, 25, 50, 75, 95, 99)

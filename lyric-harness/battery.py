@@ -15,10 +15,11 @@ CORPUS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "corpus")
 
 
 def corpus_path(name):
-    """Corpora live in corpus/; fall back to the script directory so an older
-    layout still runs."""
-    p = os.path.join(CORPUS, name)
-    return p if os.path.exists(p) else name
+    """Corpora live in corpus/. (The fall-back to the script directory "so an
+    older layout still runs" was removed 2026-09-26: `corpus/sonnets.txt` and
+    `corpus/whitman.txt` are tracked and no root copy exists, so the branch
+    could only turn a missing corpus into a bare relative path.)"""
+    return os.path.join(CORPUS, name)
 
 lex = Lexicon()
 decl = Declaration()
