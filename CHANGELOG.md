@@ -6,6 +6,26 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — one copy of each shared glyph; the nav glyph set loads on demand
+
+`codex.html` goes from 5,083,570 to 4,245,520 bytes (-16.5%). The room and
+preface glyph artwork (`NAV_GLYPH_SVGS`) is drawn only in the editor's Character
+and Environment tabs, the preface browser and the Instrument page's character
+lists, so the lazy shell leaves it out of the page and fetches
+`api/nav_glyphs.json` (written by `build_static_api.js`, checked by
+`check_api.js`) the first time one of them draws; its slots fill in place when
+it arrives. The embedded build keeps it. First paint never waits on it: the 75
+codepoints the tradition store and the nav store both carried in different
+Twemoji encodings rendered the same side by side and within a few pixels at
+64px, so each is stored once, in the eager tradition store, with the newer
+(smaller) encoding. Every tradition and instrument codepoint now has eager
+artwork (`TRADITION_GLYPH_SVGS`, `EMOJI_SVGS`), and the nav store leaves out and
+draws from there every codepoint they hold byte-for-byte. `check_glyph_skin.js`
+fails a first-paint codepoint whose artwork is only in the lazy set (planted
+control: move the most-used one there) and any codepoint stored twice;
+`build_nav_glyphs.js` refuses to write such a split, and `build_html.js --check`
+fails a lazy page that ships the nav artwork.
+
 ### Removed — the dead, legacy and unread weight in `codex.html`; the atlas shows genre photos
 
 `codex.html` goes from 6,198,864 to 5,083,211 bytes (-18.0%). Removed: the

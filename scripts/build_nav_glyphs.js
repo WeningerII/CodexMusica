@@ -215,7 +215,7 @@ function main() {
   const blank = unresolvedGlyphs({ ...stores, NAV_GLYPH_SVGS: svgs, NAV_GLYPH_CP: charToCp });
   if (blank.length) {
     console.error(
-      `build_nav_glyphs: FAIL — ${blank.length} glyph reference(s) would draw nothing:`
+      `build_nav_glyphs: FAIL — ${blank.length} glyph reference(s) would draw blank (first-paint glyphs must be in an eager store):`
     );
     blank
       .slice(0, 20)
