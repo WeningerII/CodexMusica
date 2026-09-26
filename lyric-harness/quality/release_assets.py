@@ -135,6 +135,21 @@ def inventory(*, root=ROOT, staged=None, release=True, manifest_path=None):
             "manifest_sha256": sha256(manifest_path), "python": sys.version.split()[0], "nltk": nltk}
 
 
+def runtime_modules(root=ROOT):
+    """-> the source files `assemble` ships as runtime code, and no others.
+
+    `lyric_harness.py` and every non-test module under `quality/`. Nothing
+    else in the harness reaches the image -- not `battery.py`, not
+    `corpus/`, not `songs/` -- so a shipped module that imports one of them
+    at import time runs in the source tree and crashes only in the image.
+    `quality/test_production_data.py` builds a tree from this list and
+    imports every module the runtime reaches inside it.
+    """
+    root = Path(root)
+    return [root / "lyric_harness.py"] + [path for path in sorted((root / "quality").rglob("*.py"))
+                                          if not path.name.startswith("test_")]
+
+
 def assemble(target, *, root=ROOT, staged=None):
     """Copy only executable runtime modules and approved, byte-verified assets."""
     root, target = Path(root).resolve(), Path(target).resolve()
@@ -154,10 +169,7 @@ def assemble(target, *, root=ROOT, staged=None):
     if errors:
         raise ValueError("; ".join(errors))
     target.mkdir(parents=True)
-    files = [root / "lyric_harness.py"] + sorted((root / "quality").rglob("*.py"))
-    for source in files:
-        if source.name.startswith("test_"):
-            continue
+    for source in runtime_modules(root):
         destination = target / source.relative_to(root)
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, destination)

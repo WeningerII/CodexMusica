@@ -644,6 +644,108 @@ print("WordNet staging contract holds")
             self.assertIn("unresolved", " ".join(result["errors"]))
             self.assertEqual(result["manifest_sha256"], r.sha256(installed_manifest))
 
+    def test_every_module_the_runtime_reaches_imports_inside_the_shipped_tree(self):
+        """The image ships `release_assets.runtime_modules` and no other code.
+
+        Production qualification run 36223006454 (main be562b45) failed every
+        capacity cell on `grade`: `quality/chance_rate.py` had gained a
+        module-level `import battery`, `battery.py` is not shipped, and the
+        source tree -- where every other suite runs -- has it. So this builds
+        the runtime tree from the same list `assemble` copies (code only: on
+        2026-09-26 every reached module imports without data) and imports, in
+        a clean process rooted there, every module reachable by import from
+        the image's two Python entry points: `lyric_harness.py` (CLI and warm
+        worker) and `quality/verify_capacity.py` (the build-time proof).
+        Imports inside functions count as reachable, because the runtime
+        calls them; importing each reached module runs exactly the code the
+        image runs at import. Then it plants that defect's shape in the tree
+        and requires the check to go red, so a check that cannot fail does
+        not pass here.
+        """
+        import ast
+        import subprocess
+        from quality import release_assets as r
+        shipped = r.runtime_modules(ROOT)
+        self.assertIn(ROOT / "quality" / "chance_rate.py", shipped)
+        self.assertNotIn(ROOT / "battery.py", shipped)
+
+        def resolve(name):
+            parts = name.split(".")
+            for base in (ROOT, ROOT / "quality"):
+                for path in (base.joinpath(*parts).with_suffix(".py"),
+                             base.joinpath(*parts, "__init__.py")):
+                    if path.is_file():
+                        return path
+            return None
+
+        def module_name(path):
+            parts = list(path.relative_to(ROOT).with_suffix("").parts)
+            return ".".join(parts[:-1] if parts[-1] == "__init__" else parts)
+
+        entries = [ROOT / "lyric_harness.py", ROOT / "quality" / "verify_capacity.py"]
+        reached, pending = set(), list(entries)
+        while pending:
+            path = pending.pop()
+            if path in reached:
+                continue
+            reached.add(path)
+            for node in ast.walk(ast.parse(path.read_text(encoding="utf-8"))):
+                names = []
+                if isinstance(node, ast.Import):
+                    names = [alias.name for alias in node.names]
+                elif isinstance(node, ast.ImportFrom) and node.module and not node.level:
+                    names = [node.module] + [f"{node.module}.{a.name}" for a in node.names]
+                for name in names:
+                    target = resolve(name)
+                    # Only shipped modules are walked: an unshipped one
+                    # reached at import time fails the import below, and one
+                    # reached only inside a research CLI's function is that
+                    # CLI's business, not the image's.
+                    if target is not None and target in shipped:
+                        pending.append(target)
+        self.assertGreater(len(reached), 40, "the reachability walk found too little to mean anything")
+        names = sorted(module_name(path) for path in reached)
+
+        script = (
+            "import importlib, sys, traceback\n"
+            "tree = sys.argv[1]\n"
+            "sys.path[:] = [tree] + [p for p in sys.path if p not in ('', '.')]\n"
+            "failed = []\n"
+            "for name in sys.argv[2:]:\n"
+            "    try:\n"
+            "        module = importlib.import_module(name)\n"
+            "    except BaseException:\n"
+            "        failed.append(name + ': ' + traceback.format_exc().strip().splitlines()[-1])\n"
+            "        continue\n"
+            "    if not module.__file__.startswith(tree):\n"
+            "        failed.append(name + ': imported from outside the shipped tree: ' + module.__file__)\n"
+            "print('\\n'.join(failed))\n"
+            "sys.exit(1 if failed else 0)\n")
+        env = {k: v for k, v in os.environ.items() if k != "PYTHONPATH"}
+
+        def import_all(tree):
+            return subprocess.run([sys.executable, "-c", script, str(tree), *names],
+                                  cwd=tree, env=env, capture_output=True, text=True, timeout=300)
+
+        with tempfile.TemporaryDirectory() as directory:
+            tree = Path(directory) / "lyric-harness"
+            for source in shipped:
+                destination = tree / source.relative_to(ROOT)
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(source, destination)
+            result = import_all(tree)
+            self.assertEqual(result.returncode, 0,
+                             f"of {len(names)} modules the runtime reaches, these do not import in "
+                             f"the shipped tree (ship what they need through quality/release_assets.py, "
+                             f"or stop the runtime importing it):\n{result.stdout}{result.stderr}")
+            # THE MUTATION: the defect as it shipped, one module-level import
+            # of the unshipped battery, planted in the entry point itself.
+            with open(tree / "lyric_harness.py", "a", encoding="utf-8") as entry:
+                entry.write("\nimport battery  # planted by test_production_data\n")
+            planted = import_all(tree)
+            self.assertNotEqual(planted.returncode, 0, "a planted unshipped import went unnoticed")
+            self.assertIn("No module named 'battery'", planted.stdout)
+
     def test_missing_item_source_cannot_bypass_terms_by_date(self):
         gate = p.ProvenanceGate(sources={}, authority={
             "old": p.AuthorRecord("old", 1700, verification_source="printed_authority:fixture")})

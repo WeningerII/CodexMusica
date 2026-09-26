@@ -363,7 +363,14 @@ def whitman_battery():
 # (readings/schemas undecided) and two new violations, both argument/spent
 # (sonnets 76 and 104): scalar 0.901 but the pair now stands in NO coarse
 # relation and NO schema, so it is charged. Measured by `python3 battery.py`.
-EXPECTED = {"mandated": 1064, "judged": 936, "refused": 128, "violations": 9}
+# MOVED 2026-09-26, NOT REPINNED: the numbers are unchanged. The dict itself
+# now lives in `quality/battery_pin.py` and this name IS that object, because
+# the production image ships `quality/` and not this file, and
+# `quality/chance_rate.py` reads the pin on every grade (the crash that moved
+# it is in `quality/battery_pin.py`'s docstring). ~~EXPECTED = {"mandated":
+# 1064, "judged": 936, "refused": 128, "violations": 9}~~ stood here. A repin
+# edits `quality/battery_pin.py` and still argues itself in THIS history.
+from quality.battery_pin import EXPECTED  # noqa: E402
 
 
 def assert_pinned(got, expected=EXPECTED):
@@ -394,7 +401,8 @@ if __name__ == "__main__":
         print("  A moved number here is not automatically a defect; it is a "
               "REPIN that has to be argued. Say which layer moved -- "
               "ingestion / projection / anchor / comparator / band / "
-              "structure / value -- and repin EXPECTED with the reason.")
+              "structure / value -- and repin EXPECTED "
+              "(quality/battery_pin.py) with the reason written here.")
         sys.exit(1)
     print(f"\nSONNET ORACLE PINNED: mandated {v['mandated']}, "
           f"judged {v['judged']}, refused {v['refused']}, "
