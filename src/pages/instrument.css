@@ -343,6 +343,21 @@
   background: var(--cm-surface-sunken);
   object-fit: cover;
 }
+/* A row's picture sits beside its button (a photo is a button of its own that
+   shows it large, uiPhoto) where the button's padding used to put it. A glyph
+   there opens the row, as before. */
+.ip-row > .cm-photo,
+.ip-row > .ip-glyph {
+  margin: 4px 2px 4px 4px;
+}
+.ip-sim > .cm-photo,
+.ip-sim > .ip-glyph {
+  margin: 4px 0 4px 4px;
+}
+.ip-row > .ip-glyph,
+.ip-sim > .ip-glyph {
+  cursor: pointer;
+}
 .ip-row-text {
   display: flex;
   flex-direction: column;
@@ -417,9 +432,12 @@
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 12px;
 }
+/* A card is a grid — the picture, the name (taking the card's spare height)
+   and Listen | Add — so the picture, its own button, stays on the name. */
 #instrument-body[data-view='grid'] .ip-row {
-  flex-wrap: wrap;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto 1fr auto;
   padding: 8px;
   border-color: var(--cm-border-subtle);
 }
@@ -429,14 +447,26 @@
   align-items: flex-start;
   gap: 8px;
 }
-#instrument-body[data-view='grid'] .ip-row-main .ip-glyph,
-#instrument-body[data-view='grid'] .ip-row-main .ip-photo {
-  width: 100%;
+#instrument-body[data-view='grid'] .ip-row > .ip-glyph,
+#instrument-body[data-view='grid'] .ip-row > .cm-photo,
+#instrument-body[data-view='grid'] .ip-row > .ip-row-main {
+  grid-column: 1 / -1;
+}
+#instrument-body[data-view='grid'] .ip-row > .ip-row-main {
+  align-self: start;
+  min-height: 0;
+}
+#instrument-body[data-view='grid'] .ip-row > .ip-glyph,
+#instrument-body[data-view='grid'] .ip-row > .cm-photo {
+  width: auto;
+  margin: 4px 4px -4px;
+}
+#instrument-body[data-view='grid'] .ip-row > .ip-glyph,
+#instrument-body[data-view='grid'] .ip-row .ip-photo {
   height: 96px;
 }
-#instrument-body[data-view='grid'] .ip-row > .listen,
-#instrument-body[data-view='grid'] .ip-row > [data-ui='instrument-add'] {
-  flex: 1;
+#instrument-body[data-view='grid'] .ip-row .ip-photo {
+  width: 100%;
 }
 
 /* ── Inspector ── */
@@ -1059,6 +1089,19 @@ details.ip-changes[open] .ip-changes-sum > span:last-child {
   }
   .ip-row-main {
     flex: 1 0 100%;
+  }
+  /* In a list the picture keeps its place beside the name; Listen and Add
+     wrap below. */
+  .ip-row > .cm-photo,
+  .ip-row > .ip-glyph {
+    margin-right: 6px;
+  }
+  #instrument-body:not([data-view='grid']) .ip-row > .ip-row-main {
+    flex: 1 0 calc(100% - 62px);
+  }
+  #instrument-body[data-view='grid'] .ip-row > .ip-glyph,
+  #instrument-body[data-view='grid'] .ip-row > .cm-photo {
+    margin-bottom: 0;
   }
   .ip-row > .listen,
   .ip-row > [data-ui='instrument-add'] {

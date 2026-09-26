@@ -2470,3 +2470,115 @@ body.workbench {
     z-index: 2;
   }
 }
+
+/* ── Photo lightbox ── uiPhoto / uiLightbox in src/workbench.js. A catalog
+   photo is a plain button: no frame of its own, a zoom-in cursor. Open, the
+   photo is shown as large as the viewport allows under its credit — never
+   cropped, never past its natural size — and the whole layer is one click
+   that closes it. The page underneath does not move or scroll. */
+button.cm-photo {
+  display: block;
+  flex-shrink: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--cm-radius-sm);
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: 0;
+  cursor: zoom-in;
+}
+button.cm-photo:hover {
+  background: none;
+}
+.cm-photo img {
+  cursor: inherit;
+}
+html.cm-lightbox-open,
+html.cm-lightbox-open body {
+  overflow: hidden;
+}
+.cm-lightbox {
+  box-sizing: border-box;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 16px;
+  border: 0;
+  background: var(--cm-scrim);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  color: var(--cm-text);
+  cursor: zoom-out;
+  overscroll-behavior: contain;
+}
+.cm-lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cm-lightbox::backdrop {
+  background: transparent;
+}
+.cm-lightbox:focus {
+  outline: none;
+}
+.cm-lightbox figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  margin: 0;
+  padding: 8px;
+  border-radius: var(--cm-radius-lg);
+  background: var(--cm-surface-overlay);
+  box-shadow: var(--cm-shadow-3);
+}
+/* --lb-w is the width to show (the copy's natural width, or the width a
+   larger copy is expected at) and --lb-w / --lb-h its proportions. The
+   narrowest of: that width, the viewport's width, and the width at which the
+   height fits the viewport above a two-line caption (48px of frame across,
+   100px of frame and caption down). */
+.cm-lightbox img {
+  display: block;
+  width: min(
+    calc(var(--lb-w) * 1px),
+    calc(100vw - 48px),
+    calc((100vh - 100px) * var(--lb-w) / var(--lb-h))
+  );
+  width: min(
+    calc(var(--lb-w) * 1px),
+    calc(100vw - 48px),
+    calc((100dvh - 100px) * var(--lb-w) / var(--lb-h))
+  );
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: var(--lb-w) / var(--lb-h);
+  object-fit: contain;
+  border-radius: var(--cm-radius-md);
+  background: var(--cm-surface-sunken);
+}
+.cm-lightbox figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px 12px;
+  max-width: 36em;
+  color: var(--cm-text-secondary);
+  font: var(--cm-text-sm) / 1.4 var(--cm-font);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.cm-lightbox figcaption a {
+  color: var(--cm-link);
+}
+.cm-lightbox-hint {
+  color: var(--cm-text-muted);
+}

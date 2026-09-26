@@ -6,6 +6,24 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — a catalog photo enlarges on a click, and one more click puts it back
+
+Every catalog photo — the Instrument inspector's, a catalogue row's or card's,
+a Similar instruments row's, and a Genre row's, card's and details' — is now a
+button ("Enlarge photo of …", a zoom-in cursor). A click, Enter or Space shows
+it as large as the window allows over the dimmed page, never cropped and never
+past its natural size, with its "Photo: credit · licence" linked to the source
+page. The thumb shows at once, scaled up; a 1280px Commons rendition (or the
+full image) replaces it when it loads, and if none loads the thumb stays.
+Nothing larger is fetched before the click. A click anywhere, Escape or Back
+closes it and focus returns to the photo; the page underneath neither moves nor
+scrolls. One shared helper does it for both pages (`uiPhoto` / `uiLightbox` in
+`src/workbench.js`, a native modal `<dialog>`). A row's photo now sits beside
+the row's own button instead of inside it, at the same place; a glyph there
+still opens the row. The Instrument page's inlined manifest carries the full
+image as a fifth field when it differs from the thumb.
+`scripts/check_ui_foundation.js` O gates the behaviour on a desktop and a phone.
+
 ### Removed — the dead, legacy and unread weight in `codex.html`; the atlas shows genre photos
 
 `codex.html` goes from 6,198,864 to 5,083,211 bytes (-18.0%). Removed: the
