@@ -479,7 +479,6 @@ def main():
             if nm in UNSOURCED:
                 print(f"      SOURCE NEEDED: {UNSOURCED[nm]}")
     if rep["blocked"]:
-        from collections import Counter
         print("\n  WHAT IS LEFT, and what each one needs:")
         by = {}
         for name, miss in rep["blocked"].items():

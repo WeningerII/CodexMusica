@@ -58,7 +58,6 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-OUT_DIR = os.path.join(ROOT, "corpus", "song")
 
 #: member -> (verdict, reason). Every one of the eight, so a reader can see
 #: what was looked at and not only what was taken (doctrine 39).
@@ -108,7 +107,6 @@ _POETRY = re.compile(r"<poetry>(.*?)</poetry>", re.S)
 _LINE = re.compile(r"<line>(.*?)</line>", re.S)
 _CHAPTER = re.compile(r'<chapter number="(\d+)" title="(.*?)">(.*?)</chapter>',
                       re.S)
-_META = re.compile(r"<%s>(.*?)</%s>")
 
 
 def _meta(text, field):

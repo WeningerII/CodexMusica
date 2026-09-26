@@ -789,7 +789,6 @@ def d1_diagnostic():
     # RETURNED, not only printed: a figure a checker cannot READ is a figure
     # only a human can compare, which is how this section drifted.
     return {"pool": len(pool), "table": dict(tab), "agree": (agree, judged)}
-    return 0
 
 
 def check():

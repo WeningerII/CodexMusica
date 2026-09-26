@@ -48,7 +48,7 @@ import random
 import sys
 from bisect import bisect_right
 from collections import Counter
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))

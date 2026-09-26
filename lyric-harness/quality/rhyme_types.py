@@ -543,23 +543,6 @@ class RhymeType:
         return self.realises("onset")
 
     @property
-    def declared_rhyme(self):
-        """The phonology's own rhyme verdict, or None if it was not asked.
-
-        Not asked means one of: the phonology declares no rhyme relation, a
-        member is more than one token, or the caller declared a locator of
-        their own -- in which case `phon.rhymes()` is answering a DIFFERENT
-        question and its answer is not evidence about this one.
-        """
-        v = getattr(self, "_declared_rhyme", _NOT_ASKED)
-        return None if v is _NOT_ASKED else v
-
-    @property
-    def declared_alliteration(self):
-        v = getattr(self, "_declared_allit", _NOT_ASKED)
-        return None if v is _NOT_ASKED else v
-
-    @property
     def route(self):
         """-> {'rhyme': ..., 'alliteration': ...}, each 'channels' or
         'declared_relation'. Which route produced each verdict."""
@@ -2414,7 +2397,9 @@ def names_at(a, b, phon, position, preset=None):
 
     EVERY ALIGNMENT counts: a name any alignment `classify_pair` tried
     supports is a name the pair stands in. The registry schemas the pair
-    stands in are `schema_names_at`.
+    stands in are `relations.whole_vocabulary_pairs` over the two-line stream
+    `[a, b]`. (~~`schema_names_at`~~ -- a wrapper over exactly that call which
+    nothing ever called; deleted 2026-09-26.)
     """
     if position not in POSITION:
         raise ValueError(f"position {position!r} is not in the declared "
@@ -2446,17 +2431,6 @@ def names_at(a, b, phon, position, preset=None):
     return tuple(found), tuple(n for n in skipped if n not in found)
 
 
-def schema_names_at(a, b, phon):
-    """-> {"true": (names...), "undecided": (...), "refused": (...)} — every
-    `relations.REGISTRY` schema the two words stand in when each ends a line
-    of its own (the two-line stream [a, b]); the whole registry is asked."""
-    from quality import relations as _R
-    res = _R.whole_vocabulary_pairs([str(a), str(b)], phon)
-    return {"true": tuple(res.get((1, 2), ())),
-            "undecided": tuple(res.undecided.get((1, 2), ())),
-            "refused": tuple(sorted(res.refused))}
-
-
 __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
            "LENGTH", "REALISATION", "CELL_NAMES", "RhymeType",
            "agreement_cells", "classify_pair", "verdict", "Indeterminate",
@@ -2464,7 +2438,7 @@ __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
            "named_count", "classify", "Anchor", "ANCHOR_RULES", "DETERMINACY",
            "SPAN_RULES", "PROMINENCE_RULES", "FRAME_RULES", "ANCHOR_VALUES",
            "PRESETS", "Frame", "Unverifiable", "resolve_anchor", "alliterates",
-           "names_at", "schema_names_at",
+           "names_at",
            "UNLOCATED", "LAST_PROMINENT", "WORD_INITIAL", "FINAL_UNPROMINENT",
            "PENULTIMATE_PROMINENT", "SECOND_AKSARA", "LINE_PENULT",
            "PROMINENT_ONSET_SEARCH", "PROMINENT_SEARCH", "WELSH_PENULT",

@@ -17098,8 +17098,15 @@ ITS RULING ALONE.** ~~17 of 19 sites are short of it~~: `python3
 quality/door_census.py --check` at HEAD reports **21 sites — FULL 4,
 INCOMPLETE 0, PER_WORD 1, RENDERING 3, VALIDATION 1, ARGUED 12, PASS**;
 the last two INCOMPLETE sites were ruled ARGUED under M-145 (CLOSED). The
-PER_WORD site is `_field_one`, which cannot ask a line-pair judge of one
-word and says so through `SCHEMA_ROUTE_NOTE`. The field side this entry's
+PER_WORD site is `_field_one`, which ~~cannot ask a line-pair judge of one
+word and says so through `SCHEMA_ROUTE_NOTE`~~ **(STRUCK 2026-09-26: since the
+N-relation migration of 2026-09-22, `67c3cc5c`, the default field carries the
+schema half itself — `quality/test_revise.py` §45a pins partners that stand in
+a registry schema and in no admitted coarse relation — and §45b pins that NO
+RENDERER DISCLOSES A SKIPPED ROUTE any more; the `SCHEMA_ROUTE_NOTE` /
+`SCHEMA_ROUTE_UNKNOWN` sentences in `quality/relations.py` had been read by
+nothing since then and said the opposite, and the harness cleanup deleted them
+on this date)**. The field side this entry's
 lane opened moved again on 2026-09-01: one field per binding PLACE
 (M-184) and an offer screened from the offered word's own side (M-185).
 What is still owed is the `--cliques` ruling above.

@@ -3372,7 +3372,6 @@ class Reviser:
                 f"differently-spelled partner or a declared near "
                 f"rhyme, not the next word in the same spelling "
                 f"family.", [i, j], (v["label"],))
-            return None
         # TIER 2 — the ~~frequency~~ EVIDENCE-GATED ban over the
         # differently-spelled remainder (2026-09-24, `MISSING.md` M-310:
         # only partners the song table has seen answer the call, at most
