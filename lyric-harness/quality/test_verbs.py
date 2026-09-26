@@ -3915,8 +3915,7 @@ def test_every_report_names_the_draft_it_read():
           asked and moved.lines == [changing[0], answer])
     md = next((ln for ln in moved.disclosure() if "DRAFT" in ln), "")
     in_fp = getattr(moved, "input_fingerprint", "")
-    out_fp = RV.draft_fingerprint(moved.lines) \
-        if hasattr(RV, "draft_fingerprint") else ""
+    out_fp = RV.draft_fingerprint(moved.lines)
     check("...and a run that CHANGED the draft shows two different "
           "fingerprints with no (UNCHANGED) claim — the marker is derived, "
           "not decoration",

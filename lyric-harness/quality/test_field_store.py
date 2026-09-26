@@ -68,10 +68,6 @@ def check(name, cond, detail=""):
         FAILS.append(name)
 
 
-def digest(value):
-    return hashlib.sha256(repr(value).encode("utf-8")).hexdigest()
-
-
 def run(source, *args, env=None):
     """One probe as its own PROCESS. The store is structurally cold in the
     first and structurally warm in the second; nothing in memory survives

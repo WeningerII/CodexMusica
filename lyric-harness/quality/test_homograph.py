@@ -555,9 +555,13 @@ def test_the_seam():
     # AMENDED 2026-08-11: this asserted the DEFECT, and the defect is fixed
     # (quality/relations.py, cell O). The reader returns the PRODUCT now, so
     # uncertain(), _seq's guard and _bucket_key's guard can all see it.
+    # REPAIRED 2026-09-26: this read `R.is_uncertain(...) if hasattr(R,
+    # "is_uncertain") else isinstance(..., frozenset)`, and `quality.relations`
+    # has no `is_uncertain`, so the check only ever ran the weaker frozenset
+    # test (true of a ONE-reading set too). It now calls the phonology's own
+    # predicate, imported above: MORE THAN ONE reading, not merely a set.
     check("`_rd_phones` no longer splices the set INTO the phone sequence",
-          R.is_uncertain(read["phones"])
-          if hasattr(R, "is_uncertain") else isinstance(read["phones"], frozenset),
+          is_uncertain(read["phones"]),
           f"{read['phones']!r} -- the product, not a tuple with a set inside. "
           f"The wind/find comparison is still False and always was CORRECT, "
           f"because `phones` carries the ONSET and W/F disagree under every "
