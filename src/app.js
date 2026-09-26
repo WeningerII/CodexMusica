@@ -15458,12 +15458,12 @@ function renderSidebarRecipePreview() {
   // so the preview, Copy recipe and Open full recipe always agree.
   const FORMATS = [['rich', 'Rich'], ['tags', 'Tags'], ['prose', 'Prose'], ['compact', 'Compact']];
   const fmt = FORMATS.some(([id]) => id === app.recipeStackFormat) ? app.recipeStackFormat : 'rich';
-  const key = CEILING + ' ' + fmt + ' ' + JSON.stringify(app.cards);
+  const key = CEILING + '\u0000' + fmt + '\u0000' + JSON.stringify(app.cards);
   if (_recipePreviewCache.key === key) {
     text = _recipePreviewCache.text;
   } else {
     try { text = compileRecipeStack(app.cards, fmt, { ceiling: CEILING }) || ''; } catch { text = ''; }
-    _recipePreviewCache = { key: CEILING + ' ' + fmt + ' ' + JSON.stringify(app.cards), text };
+    _recipePreviewCache = { key: CEILING + '\u0000' + fmt + '\u0000' + JSON.stringify(app.cards), text };
   }
   const len = text.length;
   const pct = Math.min(100, Math.round((len / CEILING) * 100));
