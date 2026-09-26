@@ -1147,7 +1147,9 @@ class Lexicon:
         a second voice (kept). Demotes function-word stress so the anchor
         reaches the content word (mosaic rhyme: "spit in it")."""
         self = self.for_line(text)
-        text = text.replace("\u2019", "'").replace("\u2018", "'")
+        # `line_tokens`'s reading, spaced enclitics joined (2026-09-26): the
+        # token INDEX here keys `for_token`, so the two must cut alike.
+        text = join_spaced_enclitics(text)
         if self.strip_parens:
             text = re.sub(r"\([^)]*\)", " ", text)
         phones, oov = [], []
@@ -2271,8 +2273,15 @@ def line_tokens(text, strip_parens=True):
     `False` to keep parenthetical (and `*asterisk*`-wrapped, never special
     here) text as real words; `quality/build_song_frequency.py` never passes
     it, so the shipped frequency tables are unaffected.
+
+    A SPACED ENCLITIC IS PART OF ITS WORD (2026-09-26, `MISSING.md` F-5):
+    `There 's high` is `['There's', 'high']`, not three tokens with `'s` read
+    as the letter S -- the joiner was defined and called nowhere until this
+    date. `for 't` stays two words (`ENCLITICS`). Every typographic apostrophe
+    folds here too, as it already did in `raw_final_token`, so the two agree
+    on Watts's `` `tis `` instead of disagreeing about its first character.
     """
-    norm = text.replace("’", "'").replace("‘", "'")
+    norm = join_spaced_enclitics(text)
     if strip_parens:
         norm = re.sub(r"\([^)]*\)", " ", norm)
     return [t for t in _TOKEN_RUN.findall(norm) if LATIN_SCRIPT.search(t)]
@@ -2295,7 +2304,9 @@ def raw_final_token(text, strip_parens=True):
     """
     # Locate before English repertoire filtering: a printed final 我 is
     # still the endpoint and cannot silently turn the preceding cat into it.
-    norm = fold_apostrophes(text)
+    # The enclitic join is `line_tokens`'s, so the two still agree on the
+    # last word (`line_anchors` refuses a line where they do not).
+    norm = join_spaced_enclitics(text)
     if strip_parens:
         norm = re.sub(r"\([^)]*\)", " ", norm)
     runs, current = [], []
@@ -3565,7 +3576,11 @@ def nucleus_agrees(ta, tb, decl):
     """The nucleus channel's PREDICATE shapes: `identity` and `licensed`.
 
     The scalar shape is not here — it is the `min(vowel_sim(...))` in
-    `channel_agreement`, unchanged and still the default. This function exists
+    `channel_agreement`, unchanged, and ~~still the default~~ NOT the default
+    since commit fa80a8f7 (2026-09-22): `Declaration.nucleus_agreement`
+    defaults to `"licensed"`, the second shape below, so identity plus the
+    AH~IH unstressed licence is what every undeclared caller gets and
+    `"scalar"` must be declared (corrected 2026-09-26). This function exists
     because "a cut on a graded similarity matrix" is a SHAPE and it was never
     declared as one; making the alternatives reachable is what keeps the
     difference measurable (doctrine 84).
@@ -5068,13 +5083,36 @@ def fold_apostrophes(text):
 #: The set is CLOSED and each member must be the WHOLE token, so word-initial
 #: apheresis is untouched: Dorset's `'ithin`, `'twer`, `'oman` are single
 #: tokens and never match, and neither does Scots `a'` or `o'`.
-ENCLITICS = ("'s", "'ll", "'re", "'ve", "'d", "'m", "'t", "'n")
+#:
+#: ~~`'t` and `'n` WERE MEMBERS~~ -- STRUCK 2026-09-26, the day the joiner was
+#: first wired (into `line_tokens`, `raw_final_token` and `Lexicon.transcribe`,
+#: `MISSING.md` F-5). Neither is an enclitic: each is an ELIDED WORD that the
+#: compositor set as a word. MEASURED over `lyric_reader.calibration_items` of
+#: `corpus/song/eng_*`, all 99 spaced `'t` are the pronoun "it" -- `for 't`,
+#: `in 't`, `Is 't Kate`, and the split proclitic of `'tis` in `now 't is
+#: done` -- and all 5 spaced `'n` are elided "than"/"and"/"an"/Dorset "him"
+#: (`More 'n it`, `keounty 'n' all`, `wi 'n`). Joining glued them onto the
+#: word before (`for't`, `now't is`), which is a different word count and a
+#: different end word, so the set is the six clitic FORMS and nothing else.
+#: THE SET IS KEYED ON FORM, NOT SENSE, and three joins in that population
+#: still glue an elided pronoun, named rather than hidden: `o 's heit` and
+#: `At 's curpin` (`'s` = "his") and `gie 'm his dues` (`'m` = "them"), 3 of
+#: 2,119. Telling those from `there 's`/`I 'm` needs the parse, not a list.
+ENCLITICS = ("'s", "'ll", "'re", "'ve", "'d", "'m")
 _SPACED_ENCLITIC = re.compile(
-    r"(\w)\s+('(?:s|ll|re|ve|d|m|t|n))\b", re.I)
+    r"(\w)\s+(" + "|".join(re.escape(e) for e in ENCLITICS) + r")\b", re.I)
 
 
 def join_spaced_enclitics(text):
-    """`There 's` -> `There's`. Leaves apheresis and elision alone."""
+    """`There 's` -> `There's`; `for 't` stays two words. Folds apostrophes.
+
+    The ONE reading of a spaced enclitic, and it is wired at every place this
+    file cuts a line into words -- `line_tokens`, `raw_final_token` and
+    `Lexicon.transcribe` -- because three tokenisers that disagree about what
+    a word is misalign `for_token(index)` and make `line_anchors` refuse a
+    line whose last token and end word no longer match. Leaves apheresis,
+    elision and the elided words `'t`/`'n` alone (see `ENCLITICS`).
+    """
     return _SPACED_ENCLITIC.sub(r"\1\2", fold_apostrophes(text))
 
 

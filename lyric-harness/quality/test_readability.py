@@ -1196,6 +1196,63 @@ def test_the_letter_repertoire_is_declared_and_the_two_sites_agree():
           LH.letters_outside_repertoire("jaÿ and tân"))
 
 
+def test_a_spaced_enclitic_joins_its_word_and_an_elided_word_does_not():
+    """§17 — `MISSING.md` F-5, wired 2026-09-26. `join_spaced_enclitics` was
+    DEFINED AND CALLED NOWHERE: `line_tokens("There 's high and low")` was
+    five tokens and `'s` was read as the letter S (EH1 S), a stressed syllable
+    the poet never wrote. It is wired into all three places the rhyme path cuts
+    a line into words, and the join set is the six clitic FORMS: `'t` and `'n`
+    are elided WORDS (`for 't` is "for it", `now 't is` is a split `'tis`), and
+    gluing them made `for't`. Each half is asked of all three readers, because
+    §10's lesson is that readers which disagree about a word are worse than
+    readers which are wrong together."""
+    print("\n17. a spaced enclitic joins its word; an elided word stays a word")
+    import lyric_harness as LH
+    LEX = Lexicon()
+
+    joined = "There 's high and low"
+    check("`There 's` is ONE token in line_tokens",
+          LH.line_tokens(joined) == ["There's", "high", "and", "low"],
+          LH.line_tokens(joined))
+    _ph, words, _oov = LEX.transcribe(joined)
+    check("transcribe cuts it the same way (its token INDEX keys for_token)",
+          words == LH.line_tokens(joined), words)
+    check("and reads `there's` (DH EH1 R Z), not the letter S after `there`",
+          _ph[:4] == ["DH", "EH1", "R", "Z"] and _ph[4] == "HH", _ph)
+    check("every clitic form joins: 'll 're 've 'd 'm 's",
+          LH.join_spaced_enclitics("Wha 'll ye 're we 've I 'd I 'm she 's")
+          == "Wha'll ye're we've I'd I'm she's",
+          LH.join_spaced_enclitics("Wha 'll ye 're we 've I 'd I 'm she 's"))
+    check("the curly apostrophe is folded first, so the join sees it",
+          LH.line_tokens("There ’s high") == ["There's", "high"],
+          LH.line_tokens("There ’s high"))
+
+    elided = "Tak' my word for 't, my friend"
+    check("the joiner itself leaves `for 't` alone (the old set made `for't`)",
+          LH.join_spaced_enclitics(elided) == elided,
+          LH.join_spaced_enclitics(elided))
+    check("`for 't` stays TWO words — `'t` is the elided pronoun, never `for't`",
+          LH.line_tokens(elided)[3:5] == ["for", "'t"], LH.line_tokens(elided))
+    check("the split `'tis` is not glued to the word before it",
+          LH.line_tokens("now 't is done") == ["now", "'t", "is", "done"],
+          LH.line_tokens("now 't is done"))
+    check("`'n` (than / and) is a word too",
+          LH.line_tokens("More 'n it would") == ["More", "'n", "it", "would"],
+          LH.line_tokens("More 'n it would"))
+    check("ENCLITICS is the closed six, the set Check J and the joiner share",
+          LH.ENCLITICS == ("'s", "'ll", "'re", "'ve", "'d", "'m"),
+          LH.ENCLITICS)
+    line = "When the Clerk, as he cites him to answer for 't,"
+    check("raw_final_token agrees with line_tokens on a line ENDING in `'t`",
+          LH.raw_final_token(line) == LH.line_tokens(line)[-1] == "'t",
+          (LH.raw_final_token(line), LH.line_tokens(line)[-1:]))
+    line = "Nor do I know how soon `twill come"
+    check("Watts's backtick folds in line_tokens as raw_final_token folds it",
+          LH.line_tokens(line)[-2] == "'twill"
+          and LH.raw_final_token(line) == LH.line_tokens(line)[-1],
+          LH.line_tokens(line))
+
+
 def test_interior_is_derived_by_position():
     """The regression test for the 328-of-328 misfiling.
 
@@ -1885,7 +1942,8 @@ if __name__ == "__main__":
                test_a_wordless_score_says_identity_was_not_asked,
                test_empty_coda_evidence_is_omitted,
                test_the_assonance_profile_says_the_band_is_off,
-               test_the_default_doors_are_priced_where_they_answer):
+               test_the_default_doors_are_priced_where_they_answer,
+               test_a_spaced_enclitic_joins_its_word_and_an_elided_word_does_not):
         fn()
     _every_section_runs((
         test_readable_pairs_are_untouched, test_constructed_oov_final,
@@ -1900,7 +1958,8 @@ if __name__ == "__main__":
         test_a_wordless_score_says_identity_was_not_asked,
         test_empty_coda_evidence_is_omitted,
         test_the_assonance_profile_says_the_band_is_off,
-        test_the_default_doors_are_priced_where_they_answer))
+        test_the_default_doors_are_priced_where_they_answer,
+        test_a_spaced_enclitic_joins_its_word_and_an_elided_word_does_not))
     print("=" * 68)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")
