@@ -649,7 +649,7 @@ name: modal-add-instrument-chip
 kind: data-action
 selector: '[data-ui="instrument-add"]'
 surface: Instrument catalog
-implementation: click handler calls addCard(instrumentId), closes modal, toasts confirmation, scrolls new card into view
+implementation: click calls uiAddInstrument(id) (src/workbench.js) — adds the instrument with catalog defaults to the genre chosen in "Add to" (#instrument-destination), or as an independent card; re-renders; opens the new card's editor in Your recipe (uiOpenEditor, which also opens the session panel on a phone); toasts confirmation. There is no modal to close.
 status: reachable
 precondition: instrument picker open
 ```
