@@ -55,7 +55,6 @@ Run: python3 quality/time_attainable.py [--corpus] [--floor] [--levers]
 Sibling that measures the family: python3 quality/fwer_family.py
 """
 
-import math
 import os
 import random
 import sys

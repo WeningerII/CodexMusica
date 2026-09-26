@@ -121,7 +121,6 @@ import collections
 import os
 import random
 import re
-import statistics
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))

@@ -81,12 +81,22 @@ SUITE_GLOB = "quality/test_*.py"
 #: that silently skips is a sweep whose coverage is a matter of opinion; the
 #: exclusions are a table so a reader can disagree with one (doctrine 58 -- an
 #: exclusion nobody writes down is a threshold nobody wrote down).
+#:
+#: A DISCLOSURE, NOT A FILTER (2026-09-26). Every key lies OUTSIDE
+#: `SUITE_GLOB`, so `discover()` never met one: its `if rel in EXCLUDED:
+#: continue` could not fire and `test_suite_sweep.py`'s "nothing is both
+#: discovered and excluded" was true by construction. The dead filter is gone;
+#: the table is printed at the end of every run, and the suite now checks the
+#: claim that makes a filter unnecessary -- no key is a `quality/test_*.py`.
 EXCLUDED = {
     "battery.py":
         "the sonnet/limerick ORACLE, not a suite. It prints measurements "
-        "(mandated/judged/refused/violations) that a reader compares against "
-        "the pinned baseline by hand; it has no pass/fail of its own to "
-        "read, so a verdict here would be this module inventing one.",
+        "(mandated/judged/refused/violations) against the pinned baseline. "
+        "~~It has no pass/fail of its own to read, so a verdict here would "
+        "be this module inventing one.~~ STRUCK 2026-09-26: since 9396946 "
+        "(2026-08-11) `assert_pinned` exits 1 on drift, so it does carry a "
+        "verdict. It stays out because it is not in this glob and "
+        "`quality/counters.py` runs it as the `sonnet battery` counter.",
     "quality/negative_control.py":
         "the negative control. Same shape as the battery: it reports a rate "
         "against a null, and a rate is not a verdict.",
@@ -115,7 +125,9 @@ SUITE_TIMEOUT = {
     # pays a full lexicon load, so its wall clock moves with machine load far
     # more than a single-process suite's does.
     "quality/test_mutation.py": 7200,
-    # MEASURED 2026-08-22: it plants 57 mutations and runs a declared subset
+    # MEASURED 2026-08-22: it plants ~~57~~ 59 mutations (59 re-counted
+    # 2026-09-26 by `quality/mutate.py --dry-run`; the bound was not re-measured
+    # with them) and runs a declared subset
     # of the suite against each, so its runtime is roughly the sweep's own.
     # At the 1,200s default it returns CANNOT RUN every time -- correct, and
     # useless. `--static` (~0.3s) is NOT what the sweep runs: that arm's own
@@ -172,8 +184,6 @@ def discover(root=ROOT, only=None):
         if not fnmatch.fnmatch(name, pat):
             continue
         rel = os.path.join(os.path.dirname(SUITE_GLOB), name)
-        if rel in EXCLUDED:
-            continue
         if only and not fnmatch.fnmatch(name, only):
             continue
         found.append(rel)

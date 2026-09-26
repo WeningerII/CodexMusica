@@ -12,7 +12,7 @@ import math
 import os
 import random
 import sys
-from dataclasses import asdict, dataclass, replace
+from dataclasses import asdict, dataclass
 from itertools import combinations
 
 import numpy as np

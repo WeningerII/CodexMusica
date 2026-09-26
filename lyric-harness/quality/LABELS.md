@@ -36,6 +36,32 @@ label contributes nothing to the experiment.
 | **de** | school-canon membership | 155 poems against DLK's 72,588 |
 | **spa** | canonical-author membership | 5,078 Golden Age sonnets by 53 canonical poets vs 1,088 by 472 minor authors |
 
+## How the tables are rebuilt — the offline builders (declared 2026-09-26)
+
+The tables above that are rebuilt in this repository come from the builders
+under `data/labels/`. They are OFFLINE RESEARCH TOOLS: each fetches its own
+sources (GRETIL's text is CC BY-NC-SA and is never admitted — the LABEL is a
+fact about it), so no CI job runs them, and their outputs are gitignored. The
+owner's ruling of 2026-09-26 was to DECLARE them rather than delete them
+(doctrine 1): `lyric_harness.OFFLINE_RESEARCH_TOOLS` names each one with how it
+is run, `python3 lyric_harness.py wiring` prints that table and checks it
+against every `.py` under `data/`, and `quality/test_verbs.py` §24's orphan
+census requires the two to agree both ways. Run from `lyric-harness/`:
+
+    python3 data/labels/finnic_variant_counts/build_finnic_variant_counts.py
+    python3 data/labels/finnic_variant_counts/verify.py
+    python3 data/labels/ja_hyakunin_isshu/build_ja_hyakunin_isshu.py
+    python3 data/labels/pa_bani/build_pa_bani.py
+    python3 data/labels/sa_subhasita/build_sa_subhasita.py
+    python3 data/labels/sa_amarusataka/build_sa_amarusataka.py
+
+`verify.py` is the Finnic tables' independent check (24 assertions) and reads
+the builder's `$FINNIC_CACHE` (default `/tmp/finnic_cache`), so it runs after
+the builder. `build_sa_amarusataka.py` reads `sa_subhasita`'s dedup table, so
+that builder runs first; both import `data/labels/sa_subhasita/gretil_io.py`.
+`data/labels/finnic_variant_counts/README.md` documents the Finnic tables in
+full.
+
 ## Rejected — and why this half matters more
 
 **Candidates this project proposed that do not survive:**

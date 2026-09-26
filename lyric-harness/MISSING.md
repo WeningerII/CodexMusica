@@ -1136,9 +1136,22 @@ times in Nairne and 81 in Hogg, against **13 in all 17,555 lines of Burns**.
 Same language, same register, opposite tokenisation, and the only cause is
 which compositor set the type. It inflates a line's word count by up to 25%,
 the same defect class as counting a bare hyphen as a word.
-`lyric_harness.join_spaced_enclitics()` re-attaches a CLOSED set, each of which
+`lyric_harness.join_spaced_enclitics()` ~~re-attaches~~ **would re-attach** a CLOSED set, each of which
 must be the whole token, so Dorset apheresis (`'ithin`, `'twer`) and Scots
-elision (`a'`, `o'`) are untouched. ~~**Still open:** nothing detects WHICH
+elision (`a'`, `o'`) are untouched. **STRUCK AND AMENDED 2026-09-26, found by
+the harness cleanup audit: the joiner is DEFINED AND NOT WIRED.** Nothing in
+the tree calls it (`counters.py` lists it NOWHERE), `line_tokens("There 's high
+and low")` returns `'s` as its own token, and over
+`lyric_reader.calibration_items` of `corpus/song/eng_*` **2,066 lines in 241
+files carry 2,223 spaced enclitics** that every word count reads as separate
+words — so the 25% inflation above is LIVE, and Check J's messages said
+otherwise until the same date. This entry's RESOLVED covers the DETECTOR
+(Check J, below) and never the normalisation. Wiring the joiner into
+`line_tokens` moves the comparator fingerprint (`line_tokens` is in its
+closure, standing rule 4) and the MATTR/CV calibrations with it, so it is an
+owner ruling, recorded here rather than taken; the function stays in place
+until then. (It has a defect of its own to settle first: `for 't`, "for it",
+would join to `for't`.) ~~**Still open:** nothing detects WHICH
 convention an edition uses, so a corpus mixing both is silently
 inconsistent.~~
 
@@ -3896,8 +3909,12 @@ NAMES would be guessing, so the `relations` verb prints the row and states in
 its own output that the tradition did not match, the rule shape did.
 
 > **POPULATED 2026-08-11 (commit `e4cc054`) — and this entry does NOT close.**
-> 75 of 77 schemas now carry traditions: **298 distinct `Tradition` rows, 319
-> attachments**, and only `blues AAB stanza` and `refrain by reference` carry
+> ~~75 of 77~~ 76 of 78 schemas now carry traditions: **299 distinct
+> `Tradition` rows, 320 attachments** (REPINNED 2026-09-26 from ~~298 / 319~~,
+> the count at `e4cc054`: M-40 added the 78th schema, E44, on 2026-09-16 with
+> one tradition, and `quality/audit_register.py` D21 read this line MOVED
+> from then until this date — the title was repinned, this sentence was not),
+> and only `blues AAB stanza` and `refrain by reference` carry
 > none. The scoping was not invented from schema names — it was taken from
 > `quality/RHYME_CANON.md`, which is better — but **every single
 > `Tradition.source` is an `R<n>` pointer back into that document**, and the
@@ -16189,10 +16206,12 @@ COMMENT.**
   - **`Attribution["candidates_a"]` / `["candidates_b"]` — 0 non-test
     readers.** These are the FACTORS of the doctrine-56 coordinate, the
     decomposition of k into the two side-searches, and no production path can
-    see either. `Attribution` exposes derived properties for `kind_a`,
-    `kind_b`, `kinds`, `exact`, `differs`, `mosaic` and `tied` and none for
+    see either. `Attribution` exposes derived properties for ~~`kind_a`,
+    `kind_b`,~~ `kinds`, `exact`, `differs`, `mosaic` and `tied` and none for
     these — under its own docstring reading *"a derived value stored as a bare
-    key is a value someone recomputes differently. Doctrine 45."*
+    key is a value someone recomputes differently. Doctrine 45."* (The two
+    struck accessors were DELETED 2026-09-26 by the harness cleanup: nothing
+    read either property, and every reader subscripts `["kind_a"]`.)
 
 **AND ONE THAT DECLARES AN ENFORCEMENT ORDER NOTHING READS.**
 `lyric_harness.py:1978`:
@@ -17096,8 +17115,15 @@ ITS RULING ALONE.** ~~17 of 19 sites are short of it~~: `python3
 quality/door_census.py --check` at HEAD reports **21 sites — FULL 4,
 INCOMPLETE 0, PER_WORD 1, RENDERING 3, VALIDATION 1, ARGUED 12, PASS**;
 the last two INCOMPLETE sites were ruled ARGUED under M-145 (CLOSED). The
-PER_WORD site is `_field_one`, which cannot ask a line-pair judge of one
-word and says so through `SCHEMA_ROUTE_NOTE`. The field side this entry's
+PER_WORD site is `_field_one`, which ~~cannot ask a line-pair judge of one
+word and says so through `SCHEMA_ROUTE_NOTE`~~ **(STRUCK 2026-09-26: since the
+N-relation migration of 2026-09-22, `67c3cc5c`, the default field carries the
+schema half itself — `quality/test_revise.py` §45a pins partners that stand in
+a registry schema and in no admitted coarse relation — and §45b pins that NO
+RENDERER DISCLOSES A SKIPPED ROUTE any more; the `SCHEMA_ROUTE_NOTE` /
+`SCHEMA_ROUTE_UNKNOWN` sentences in `quality/relations.py` had been read by
+nothing since then and said the opposite, and the harness cleanup deleted them
+on this date)**. The field side this entry's
 lane opened moved again on 2026-09-01: one field per binding PLACE
 (M-184) and an offer screened from the offered word's own side (M-185).
 What is still owed is the `--cliques` ruling above.
@@ -26548,7 +26574,7 @@ A second, narrower path reaches the same refusal without any exception: a child 
 
 **WHAT WAS REMOVED.** (1) `quality/figures.findings` (37 lines, and its `__all__` entry) — it built `LINE_FIGURE` and `LINE_FIGURE_REFUSED` tuples in the shape `quality/revise.Finding` takes, and **`LINE_FIGURE` appears nowhere else in the repository**: a producer of a code nothing reads. Nothing in `MISSING.md` or `BACKLOG.md` names it as pending work, so no future was invented for it either (doctrine 20). (2) `quality/song_profile_calibration.historical_items_in` (14 lines) and (3) `quality/meter_bands.historical_lyric_lines` (10 lines) — each sits directly beside its live successor (`items_in`, `lyric_lines`) and claims historical reproduction; **no pinned figure names either one, no test exercises either one, and the record mentions neither**, so the reproduction claim had no consumer and no check. Git history holds them. (4) `mcp/chatgpt_sessions.js` no longer exists and `mcp/chatgpt_tools.js` no longer exists: the 7- and 5-line `Temporary import compatibility` shims from #276's rename, `workflow_sessions.js` and `workflow_tools.js` export every name they re-exported, and **nothing in the tree imports either shim** — `mcp/test_chatgpt.mjs` imports the successors directly, and `server_http.js`'s `/mcp/chatgpt` strings are route paths, not module paths.
 
-**TWO CANDIDATES WERE DECLINED, on the record's own terms rather than on taste.** `quality/internal_rhyme_rate.py` (~~406~~ 411 lines, repinned 2026-09-24 for the N-relation model) reads as a whole dead module, and its own preregistration says it is *retired as a standalone instrument **in the same commit that lands its successor***. The successor — the web-wide placement work — has not landed. Deleting it now would make that sentence false and would strand five frozen evidence manifests that record the file's sha256. `quality/coverage_log.inspect_codes` (25 lines) is named twice by `quality/COVERAGE_PREREGISTRATION.md`, once as *until the measurement is rebuilt on `inspect_codes()`* — it is the declared basis of a rebuild that is owed, which is a different thing from unused.
+**TWO CANDIDATES WERE DECLINED, on the record's own terms rather than on taste.** `quality/internal_rhyme_rate.py` (~~406~~ 411 lines, repinned 2026-09-24 for the N-relation model) reads as a whole dead module, and its own preregistration says it is *retired as a standalone instrument **in the same commit that lands its successor***. The successor — the web-wide placement work — has not landed. Deleting it now would make that sentence false and would strand five frozen evidence manifests that record the file's sha256. `quality/coverage_log.inspect_codes` (25 lines) is named twice by `quality/COVERAGE_PREREGISTRATION.md`, once as *until the measurement is rebuilt on `inspect_codes()`* — ~~it is the declared basis of a rebuild that is owed, which is a different thing from unused.~~ **STRUCK 2026-09-26, the premise had already gone when this was written:** that preregistration sentence is itself struck (*REPINNED 2026-08-16. The rebuild landed at `9a8a426`*), and the rebuild landed on `codes_for()`, not on `inspect_codes()` — the preregistration's own "Two functions replace the grep" names `codes_for()` and `effect_of()`. Nothing read `inspect_codes()`, so the harness cleanup of 2026-09-26 deleted it, repointed the one unstruck preregistration sentence that still named it, and moved its doctrine-91 argument onto `codes_for()`'s docstring.
 
 **THE FALSE POSITIVE, AND IT WOULD HAVE BROKEN SOMETHING.** `quality.capacity.corpus_files` sits in the same NOWHERE bucket and **is live**: `quality/corpus_manifest.py` imports `quality.capacity` by module name and reaches the function through `hasattr(mod, "corpus_files")`, a declared protocol hook no static sweep can see. `counters.py` warns about exactly this — *a NOWHERE symbol may still be reached by a `getattr` this sweep refused* — and the warning is not decorative. **The bucket is a queue of questions, not a delete list**, and the difference is one `hasattr` that a confident reader would have stepped straight past. Every symbol removed above was checked against the dynamic-dispatch sites and against the bare identifier repo-wide before it was cut.
 

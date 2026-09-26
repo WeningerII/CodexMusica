@@ -15,6 +15,8 @@ than one G2P with three tables:
        rime dictionary, so it is a lookup and not a G2P problem at all
 
 THE COMMITMENTS, INHERITED FROM quality/ipa.py
+(`quality/ipa.py` was retired 2026-09-26: this package superseded it and no
+production module imported it. The commitments below are its legacy.)
 
 1. **Notation is declared, never sniffed.** Each module states what it reads.
 2. **Unknown never produces an answer.** Out-of-inventory input returns None,
@@ -62,7 +64,7 @@ that assumes "stress" gets an explicit refusal rather than a wrong number.
 import itertools
 import os
 import sys
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
@@ -379,16 +381,12 @@ class Phonology:
         """
         return [self.syllabify(word)]
 
-    def syllabify_uncertain(self, word):
-        """-> `[Syllable]` with a `Readings` on every channel the readings
-        disagree about.  Empty is a refusal; `reading_status` says which of the
-        two kinds it is."""
-        return merge_readings(self.parses(word))[0]
-
     def reading_status(self, word):
         """-> `(status, note)`.  Separates 'one reading', 'several readings
         merged', 'several readings and no alignment', and 'unreadable', which
-        `syllabify_uncertain` alone cannot express (doctrines 79 and 88)."""
+        the merged syllables alone (`merge_readings(self.parses(word))[0]`,
+        where an empty list is a refusal of either kind) cannot express
+        (doctrines 79 and 88)."""
         _, status, note = merge_readings(self.parses(word))
         return status, note
 

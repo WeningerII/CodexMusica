@@ -55,26 +55,6 @@ import battery               # noqa: E402
 
 SONNET_SCHEME = "ABABCDCDEFEFGG"
 
-#: The five span kinds, worst first, with the sentence each one means for a
-#: reader who was shown the end words. `exact` is the only one where the two
-#: printed words ARE the evidence.
-KIND_MEANS = {
-    lh.SPAN_UNATTRIBUTED:
-        "no provenance: the anchor was not built by line_anchors, so the "
-        "claim cannot be checked at all (doctrine 28: 'cannot tell')",
-    lh.SPAN_SUBSTITUTED:
-        "the token did not all read: the label names a string the harness "
-        "never transcribed",
-    lh.SPAN_REACH:
-        "the span reaches back PAST the end word: the printed word is one "
-        "member of the evidence, not the evidence",
-    lh.SPAN_PART:
-        "the span is INSIDE the end word: the printed word claims evidence "
-        "that was never compared (the declared anchor cut, made visible)",
-    lh.SPAN_EXACT:
-        "the span IS the end word, whole: the report line is true as printed",
-}
-
 
 def _bar(n, total, width=40):
     if not total:

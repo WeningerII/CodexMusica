@@ -79,11 +79,11 @@ REGIONS_TSV = os.path.join(ROOT, "data", "song_regions.tsv")
 FUNCTIONS_TSV = os.path.join(ROOT, "data", "song_functions_eng.tsv")
 SONG_DIR = os.path.join(ROOT, "corpus", "song")
 
-#: Header keys (in `# key: value` lines) and song keys (in `--- KEY: value`
-#: lines).  The song spelling is uppercase by the corpus's own convention
-#: for song-level apparatus (--- TITLE:, --- SOURCE:).
-HEADER_REGION = "region"
-HEADER_FUNCTION = "function"
+#: Song keys (in `--- KEY: value` lines).  The spelling is uppercase by the
+#: corpus's own convention for song-level apparatus (--- TITLE:, --- SOURCE:).
+#: The two HEADER keys (`# region:` / `# function:`) are spelled once, in
+#: `read_file_taxonomy`'s pattern; the `HEADER_REGION`/`HEADER_FUNCTION`
+#: constants that restated them were read by nothing and went 2026-09-26.
 SONG_REGION = "--- REGION:"
 SONG_FUNCTION = "--- FUNCTION:"
 SONG_TITLE = "--- TITLE:"
