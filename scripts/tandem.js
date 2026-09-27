@@ -545,30 +545,67 @@ check('CSS — no orphan color token refs', () => {
   // touched. Derive the answer instead: collect what is DEFINED, collect what is
   // REFERENCED, and fail on the difference. That catches a genuinely undefined
   // token — including one nobody thought to ban — and stops accusing live ones.
-  const css = fs.readFileSync(path.join(ROOT, 'src/index.template.html'), 'utf8');
-  const js = fs.readFileSync(path.join(ROOT, 'src/app.js'), 'utf8');
-
-  // Definitions are `--name: value` in a declaration position. Both files can
-  // define (app.js carries injected style blocks), so the union is the vocabulary.
-  const defined = new Set();
-  for (const src of [css, js]) {
-    for (const m of src.matchAll(/(^|[;{\s])(--[a-z0-9-]+)\s*:/gi)) defined.add(m[2]);
-  }
-  const missing = [];
-  for (const [src, where] of [
-    [css, 'top'],
-    [js, 'bottom'],
-  ]) {
-    for (const m of src.matchAll(/var\(\s*(--[a-z0-9-]+)\s*(?:,|\))/gi)) {
-      // A var() with a fallback (`var(--x, #fff)`) is deliberate and safe.
-      if (!defined.has(m[1]) && !m[0].endsWith(',')) missing.push(`${where}:${m[1]}`);
+  //
+  // ~~The vocabulary was the template and app.js only.~~ WIDENED 2026-09-27: the
+  // page's tokens now live in the stylesheets build_html.js inlines (theme.css,
+  // workbench.css, layout.css, pages/*.css — #405/#409 moved the template's
+  // `:root` block out), and some are set from script with
+  // `style.setProperty('--x', …)`, including by prefix (`'--panel-' + name`).
+  // Reading only the template and app.js reported 38 live tokens as orphans on
+  // the first tandem after #409. Every stylesheet and script under src/ is now
+  // both a place that may DEFINE and a place whose `var()`s are checked, so the
+  // question is unchanged and its reach is the whole page.
+  const listDir = (dir, ext) =>
+    fs
+      .readdirSync(path.join(ROOT, dir))
+      .filter((f) => f.endsWith(ext))
+      .map((f) => `${dir}/${f}`);
+  const files = [
+    'src/index.template.html',
+    ...listDir('src', '.js'),
+    ...listDir('src', '.css'),
+    ...listDir('src/pages', '.js'),
+    ...listDir('src/pages', '.css'),
+  ];
+  const sources = files.map((rel) => [rel, fs.readFileSync(path.join(ROOT, rel), 'utf8')]);
+  const orphans = (srcs) => {
+    const defined = new Set();
+    const prefixes = new Set();
+    for (const [, src] of srcs) {
+      for (const m of src.matchAll(/(^|[;{\s])(--[a-z0-9-]+)\s*:/gi)) defined.add(m[2]);
+      for (const m of src.matchAll(/setProperty\(\s*['"`](--[a-z0-9-]+)['"`]\s*,/gi))
+        defined.add(m[1]);
+      for (const m of src.matchAll(/setProperty\(\s*['"`](--[a-z0-9-]+-)['"`]\s*\+/gi))
+        prefixes.add(m[1]);
     }
-  }
-  if (missing.length) {
-    const uniq = [...new Set(missing)];
-    throw new Error(`undefined color tokens referenced: ${uniq.join(', ')}`);
-  }
-  return `${defined.size} tokens defined, every var() reference resolves`;
+    const missing = [];
+    for (const [where, src] of srcs) {
+      for (const m of src.matchAll(/var\(\s*(--[a-z0-9-]+)\s*(?:,|\))/gi)) {
+        // A var() with a fallback (`var(--x, #fff)`) is deliberate and safe.
+        if (m[0].endsWith(',') || defined.has(m[1])) continue;
+        if ([...prefixes].some((p) => m[1].startsWith(p))) continue;
+        missing.push(`${where}:${m[1]}`);
+      }
+    }
+    return { defined, missing: [...new Set(missing)] };
+  };
+  // CONTROL: the derivation can fail — a planted reference to a token nothing
+  // defines must be reported, and a planted definition must clear it.
+  const planted = orphans([
+    ...sources,
+    ['planted', '.x{color:var(--tandem-planted-orphan)}'],
+  ]).missing;
+  if (!planted.includes('planted:--tandem-planted-orphan'))
+    throw new Error('control: a planted orphan was not reported');
+  const cleared = orphans([
+    ...sources,
+    ['planted', ':root{--tandem-planted-orphan:red}.x{color:var(--tandem-planted-orphan)}'],
+  ]).missing;
+  if (cleared.some((m) => m.endsWith('--tandem-planted-orphan')))
+    throw new Error('control: a planted definition did not clear its reference');
+  const { defined, missing } = orphans(sources);
+  if (missing.length) throw new Error(`undefined color tokens referenced: ${missing.join(', ')}`);
+  return `${defined.size} tokens defined across ${files.length} files, every var() reference resolves (planted-orphan control fires)`;
 });
 check('CSS/JS — no hardcoded font-size or font-weight', () => {
   // Catches re-introduction of pixel-literal font values that the Phase 2 type
