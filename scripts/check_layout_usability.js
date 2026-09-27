@@ -108,7 +108,8 @@ async function noOverflow(page) {
       const errors = [];
       page.on('pageerror', (e) => errors.push(e.message));
       await page.goto(base + '/codex.html');
-      await page.locator('.catalog-row').first().waitFor();
+      // The genre catalogue: cards in Rows (the default), rows in List.
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
       await noOverflow(page);
       await page.getByRole('button', { name: 'Browse tree', exact: true }).click();
       const tree = page.locator('.inline-tree > .modal');

@@ -1,10 +1,12 @@
 /* exported renderInstrumentDiscovery, uiInspectInstrument */
-/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiTabIndex */
+/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile */
 /* Instrument page. Owned by the Instrument page worker; see docs/ui-foundation.md.
 
    Three columns over the Your recipe dock: the catalogue (families, classes,
-   the 15 sound-property filters, search, sort, list/grid), the list, and an
-   inspector that configures the instrument BEFORE it is added.
+   the 15 sound-property filters, search, sort, rows/list), the list, and an
+   inspector that configures the instrument BEFORE it is added. Rows (the
+   default) is one scrolling row of cards per family, largest first — or per
+   class within the family being browsed — with a bar to jump between them.
 
    Configure-before-add. The inspector works on a preview card built by the
    canonical engine (makeCard with the destination's traditionCardOpts, exactly
@@ -23,7 +25,7 @@
 // UI.instrumentPreview are this page's shell-visible state.
 const IP = {
   sort: 'name',
-  view: null, // UILayout.remember preference: 'list' | 'grid'
+  view: null, // UILayout.remember preference: 'rows' | 'list'
   manifest: null, // CODEX_IMAGE_MANIFEST (see ipLoadManifest)
   failed: new Set(), // instrument ids whose photograph failed to load
   trail: [], // inspector history (Similar instruments → Back)
@@ -173,9 +175,44 @@ function ipSyncDestination() {
   }
   return dest.value !== before;
 }
+const ipView = () => (IP.view?.get() === 'list' ? 'list' : 'rows');
+// A card in Rows: the photo (or the catalog glyph), the name, family · class.
+function ipTile(i) {
+  const e = ipImageEntry(i.id);
+  return uiTile({
+    kind: 'instrument',
+    id: i.id,
+    name: i.name,
+    sub: `${FamName(i.family)} · ${ipHuman(i.class)}`,
+    photo: e && { src: e.src, credit: e.text, href: e.source },
+    glyph: (id) => image(id, 56),
+    open: 'instrument-inspect',
+    add: 'instrument-add',
+    addLabel: `Add ${i.name} with catalog defaults to ${ipDestName()}`,
+    // ✓ and its removal are about the "Add to" group only.
+    scope: ipDest(),
+  });
+}
+// Rows: a row per family, or per class inside the family being browsed,
+// largest first by the catalogue's own sizes, so a row keeps its place while a
+// search or a filter narrows it.
+function ipGroups(filtered, fam) {
+  const pick = fam ? (i) => i.class : (i) => i.family;
+  const size = new Map();
+  for (const i of INSTRUMENTS)
+    if (!fam || i.family === fam.id) size.set(pick(i), (size.get(pick(i)) || 0) + 1);
+  const label = (k) => (fam ? ipHuman(k) : FamName(k));
+  return [...size.keys()]
+    .sort(
+      (a, b) =>
+        size.get(b) - size.get(a) || label(a).localeCompare(label(b), 'en', { sensitivity: 'base' })
+    )
+    .map((k) => ({ key: k, label: label(k), items: filtered.filter((i) => pick(i) === k) }));
+}
 function renderInstrumentDiscovery() {
   const host = $ui('instrument-body');
   if (!host) return;
+  const keep = uiRowsKeep(host);
   const changed = ipSyncDestination();
   const q = ipQuery(),
     filters = app.instrumentAxisFilters,
@@ -183,9 +220,9 @@ function renderInstrumentDiscovery() {
   const filtered = ipSorted(INSTRUMENTS.filter((i) => ipMatches(i, { q, filters })));
   const scope = INSTRUMENTS.filter((i) => ipMatches(i, { q, family: '', cls: '', filters }));
   $ui('ip-total').textContent = uiCount(INSTRUMENTS.length, 'instrument');
-  host.dataset.view = IP.view?.get() || 'list';
   host.classList.toggle('ip-cats-open', IP.catsOpen);
   host.innerHTML = ipRenderCategories(scope, q, filters) + ipRenderList(filtered, fam, q, filters);
+  uiRowsRestore(host, keep);
   if (changed && UI.instrumentPreview) ipRebuild();
 }
 function ipRenderCategories(scope, q, filters) {
@@ -246,8 +283,8 @@ function ipRenderList(filtered, fam, q, filters) {
     : fam
       ? fam.name
       : 'All instruments';
-  const view = IP.view?.get() || 'list';
-  const controls = `<div class="ip-controls"><label class="ip-field"><span>Sort</span><select id="ip-sort" class="cm-select" aria-label="Sort instruments"><option value="name"${IP.sort === 'name' ? ' selected' : ''}>Name A–Z</option><option value="name-desc"${IP.sort === 'name-desc' ? ' selected' : ''}>Name Z–A</option><option value="parts"${IP.sort === 'parts' ? ' selected' : ''}>Most customizable</option></select></label><div class="cm-segmented ip-view" role="group" aria-label="Catalogue layout"><button type="button" data-ui="ip-view" data-id="list" aria-pressed="${view === 'list'}">${icon('list', 16)}<span>List</span></button><button type="button" data-ui="ip-view" data-id="grid" aria-pressed="${view === 'grid'}">${icon('layout-grid', 16)}<span>Grid</span></button></div></div>`;
+  const view = ipView();
+  const controls = `<div class="ip-controls"><label class="ip-field"><span>Sort</span><select id="ip-sort" class="cm-select" aria-label="Sort instruments"><option value="name"${IP.sort === 'name' ? ' selected' : ''}>Name A–Z</option><option value="name-desc"${IP.sort === 'name-desc' ? ' selected' : ''}>Name Z–A</option><option value="parts"${IP.sort === 'parts' ? ' selected' : ''}>Most customizable</option></select></label><div class="cm-segmented ip-view" role="group" aria-label="Catalogue layout"><button type="button" data-ui="ip-view" data-id="rows" aria-pressed="${view === 'rows'}" aria-label="Rows" data-tooltip="Rows">${icon('rows', 16)}<span>Rows</span></button><button type="button" data-ui="ip-view" data-id="list" aria-pressed="${view === 'list'}" aria-label="List" data-tooltip="List">${icon('list', 16)}<span>List</span></button></div></div>`;
   const classChips = fam
     ? `<div class="ip-classes" role="group" aria-label="${esc(fam.name)} classes"><button type="button" class="cm-chip" data-ui="instrument-class-all" aria-pressed="${!UI.instrumentClass}">All · ${inFamily.length}</button>${classes
         .map(
@@ -268,6 +305,22 @@ function ipRenderList(filtered, fam, q, filters) {
         )
         .join('')}${uiButton('clear-filters', 'Clear all', 'x', 'class="ip-link"')}</div>`
     : '';
+  const body = view === 'rows' ? ipRowsBody(filtered, fam) : ipListBody(filtered);
+  return `<section class="ip-list" aria-labelledby="ip-list-title">${crumbs}<div class="ip-list-head"><h2 id="ip-list-title">${esc(title)}</h2><span class="ip-list-count" role="status">${uiCount(filtered.length, 'instrument')}</span>${controls}</div>${classChips}${active}${body}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</section>`;
+}
+// Rows: the family (or class) bar when two or more rows have instruments, then the rows.
+function ipRowsBody(filtered, fam) {
+  const groups = ipGroups(filtered, fam);
+  const jump =
+    groups.filter((g) => g.items.length).length > 1
+      ? uiRowsJumpHTML('instrument', groups, {
+          label: fam ? `Jump to a ${fam.name} class` : 'Jump to a family',
+          noun: 'instrument',
+        })
+      : '';
+  return jump + uiRowsHTML('instrument', groups, { tile: ipTile, noun: 'instrument' });
+}
+function ipListBody(filtered) {
   const dest = ipDestName();
   const rows = filtered
     .slice(0, UI.limit)
@@ -281,7 +334,7 @@ function ipRenderList(filtered, fam, q, filters) {
     filtered.length > UI.limit
       ? `<div class="ip-more-row"><span>Showing ${Math.min(UI.limit, filtered.length).toLocaleString('en')} of ${filtered.length.toLocaleString('en')}</span>${uiButton('more', 'Show more', 'chevron-down', 'class="cm-btn cm-btn-outline"')}</div>`
       : '';
-  return `<section class="ip-list" aria-labelledby="ip-list-title">${crumbs}<div class="ip-list-head"><h2 id="ip-list-title">${esc(title)}</h2><span class="ip-list-count" role="status">${uiCount(filtered.length, 'instrument')}</span>${controls}</div>${classChips}${active}<div class="ip-rows">${rows}</div>${more}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</section>`;
+  return `<div class="ip-rows">${rows}</div>${more}`;
 }
 // No results says which constraints are in force and offers to lift each one.
 // Conflicting properties are named when the catalogue never has them together.
@@ -815,7 +868,7 @@ uiRegisterPage({
   id: 'instrument',
   recipe: 'dock',
   mount(surface) {
-    IP.view = UILayout.remember('instrument-view', 'list', () => renderInstrumentDiscovery());
+    IP.view = UILayout.remember('instrument-view', 'rows', () => renderInstrumentDiscovery());
     surface.innerHTML = `<div class="ip" id="ip-root"><header class="ip-head"><h1 class="ip-title">Instruments <span id="ip-total" class="ip-total"></span></h1><label class="cm-search ip-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="ip-field destination"><span>Add to</span><select id="instrument-destination" class="cm-select" aria-label="Add instrument to"></select></label></header><div id="instrument-body" class="ip-body"></div><aside id="instrument-preview" class="ip-inspector" aria-label="Instrument preview"></aside></div>`;
     $ui('instrument-search').addEventListener('input', () => {
       UI.limit = 50;
@@ -1031,7 +1084,7 @@ uiRegisterPage({
       uiFocus(document.querySelector('[data-ui="ip-cats"]'));
     },
     'ip-view'(id) {
-      IP.view.set(id);
+      IP.view.set(id === 'list' ? 'list' : 'rows');
       renderInstrumentDiscovery();
       uiFocus(uiFind('[data-ui="ip-view"]', 'id', id));
     },

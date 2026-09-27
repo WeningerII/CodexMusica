@@ -273,6 +273,12 @@ const PRECONDITIONS = {
   'genre just imported': `
     (async () => { await importTraditionWithFeedback('delta_blues'); })()
   `,
+  'genre: all genres': `
+    document.querySelector('#genre-maintabs [data-ui="genre-view-tab"][data-id="all"]').click();
+  `,
+  'genre list layout': `
+    document.querySelector('#genre-maintabs [data-ui="genre-layout"][data-id="list"]').click();
+  `,
   'map view': `
     uiNavigate('map');
   `,
@@ -393,6 +399,9 @@ async function main() {
     }
     if (typeof uiNavigate === 'function' && typeof UI !== 'undefined' && UI.view !== 'genre')
       uiNavigate('genre');
+    // The Genre catalogue as it opens: Start exploring, in Rows.
+    for (const sel of ['[data-ui="genre-layout"][data-id="rows"]', '[data-ui="genre-view-tab"][data-id="start"]'])
+      document.querySelector('#genre-maintabs ' + sel + ':not([aria-pressed="true"]):not([aria-selected="true"])')?.click();
     // Install storage mock if not present. Claude.ai provides window.storage
     // as a host API at runtime; the standalone site installs a browser-backed
     // shim (tagged _local_shim) so Save persists in real Chromium. Either way,
