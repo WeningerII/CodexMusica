@@ -1177,3 +1177,20 @@ one this rewrite makes. This song declares seed 32 and is NOT a twin: it must
 not be panelled against the river song, and `song_shape.py` now reads three
 seed-32 songs of which two share an order — one more measurement that a plan
 is a function of its seed AND the planner.
+
+**WHAT A SEVENTEENTH SONG MOVED ELSEWHERE, REPINNED WITH ITS CAUSE.**
+`song_shape.py` (17 songs, 15 orders, 19 functions with `outro` entering, and
+the first committed blueprint carrying a drawn `hook_slot`),
+`ban_convergence.py`'s population pins (17 songs, and one `banked` mandate
+source, this song's recorded one) and `cross_song.py`'s observed type spectrum
+were repinned for this song and for nothing else. Two instruments were already
+red on `1e0b1c7d` before this song existed and are left as they read there:
+`cross_song.py --check` on its null half and `human_songs` (8666 pinned, 8651
+measured), and `ban_convergence.py --check` on its bank totals (eligible 458
+pinned, 459 measured; outside 215 pinned, 216 measured) — this song adds its
+own pairs and screens to those totals, and folding a corpus-side move and a new
+song into one repin would leave neither attributable. `regrade_verdicts.py`
+re-derives this song at 59/59/0 because it builds one cover in which the two
+declared returns are mandated groups, where `song` and `revise` report the
+returns apart; the seam is adopted in its `REGRADE_MOVED` table with that
+cause, and the triple at the head of this section stays the log's.
