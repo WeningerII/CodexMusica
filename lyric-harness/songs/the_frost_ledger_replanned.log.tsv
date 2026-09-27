@@ -440,3 +440,22 @@ the_frost_ledger_replanned	22	2026-09-27	e5ea4528-WORKING	song	0	mandate_groups_
 the_frost_ledger_replanned	22	2026-09-27	e5ea4528-WORKING	song	0	mandate_returns_text	1,18;2,19
 the_frost_ledger_replanned	22	2026-09-27	e5ea4528-WORKING	song	0	draft_file	songs/drafts/the_frost_ledger_replanned.0d4c533740de.draft.txt
 the_frost_ledger_replanned	22	2026-09-27	e5ea4528-WORKING	song	0	draft_lines	21
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	stop_reason	SUCCESS
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	rounds	0
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	md5_in	0d4c533740de
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	md5_out	0d4c533740de
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	unchanged	yes
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	mandated	57
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	judged	57
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	pairs_refused	0
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	stamp_seed	declared mandate
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	stamp_exit	0
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	stop_reason	SUCCESS
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	rounds	0
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	unresolved	0
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	whole_flags	0
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	command	python3 lyric_harness.py revise songs/the_frost_ledger_replanned.txt --input-format=source '--groups=1.T2,2.T3;1.T1,2.T6;3.headrime,4.T4,6.T7,7.headrime;4.endword,5.T4;5.T6,7.T7;4.T3,5.T3;5,6.T5;9.T6,10.T5;8.T7,9.endword,10.T1;8.T3,9.T1,10.endword;11.T4,12.T7,14.T4;13.T1,15;16.T6,17.T4;11.head,13.endword,16.head;11.endword,12.T6,13.T3,15.T5,16.endword,17.T5;13.T2,14.T3,16.T3,17;15.headrime,17.T6;20,21.endword;20.headrime,21.T5;20.T2,21.T2;1,2;3,6,7;12,14' '--returns=1,18;2,19' --blueprint=songs/the_frost_ledger_replanned.blueprint.json --subdivision 4
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	mandate_groups_text	1.T2,2.T3;1.T1,2.T6;3.headrime,4.T4,6.T7,7.headrime;4.endword,5.T4;5.T6,7.T7;4.T3,5.T3;5,6.T5;9.T6,10.T5;8.T7,9.endword,10.T1;8.T3,9.T1,10.endword;11.T4,12.T7,14.T4;13.T1,15;16.T6,17.T4;11.head,13.endword,16.head;11.endword,12.T6,13.T3,15.T5,16.endword,17.T5;13.T2,14.T3,16.T3,17;15.headrime,17.T6;20,21.endword;20.headrime,21.T5;20.T2,21.T2;1,2;3,6,7;12,14
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	mandate_returns_text	1,18;2,19
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	draft_file	songs/drafts/the_frost_ledger_replanned.0d4c533740de.draft.txt
+the_frost_ledger_replanned	23	2026-09-27	8c976aeb	revise	0	draft_lines	21
