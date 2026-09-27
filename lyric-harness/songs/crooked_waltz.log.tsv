@@ -486,3 +486,32 @@ crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	mandate_groups_text	1.T2,2
 crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	mandate_returns_text	1,8;2,9
 crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	draft_file	songs/drafts/crooked_waltz.943fc1499c97.draft.txt
 crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	draft_lines	17
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	mandate_groups	11
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	lines	17
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	mandated_pairs	18
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	mandate_source	declared
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	md5	943fc1499c97
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	briefed	17
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	per_line_flag	0
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	per_line_note	54
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	whole_draft	10
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	whole_draft_flag	0
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:FLOOR_LOCUS_SCOPE	NOTE x1
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:FUNCTION_UNDECLARED	NOTE x1
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:LATE_ENTRY	NOTE x9
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:NEAR_COLLISION	NOTE x3
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:NO_SETTING	NOTE x1
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:PROMINENCE_CANNOT_ALIGN	NOTE x17
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x14
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:REPEAT_ACROSS_GROUPS	NOTE x2
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:RETURN_LOCKED	NOTE x1
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:RETURN_NEVER_RETURNS	NOTE x1
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:SINGLE_INSTANCE	NOTE x3
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:SPARSE	NOTE x9
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	finding:UNIFORM_ANACRUSIS	NOTE x1
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	command	python3 lyric_harness.py song songs/crooked_waltz.blueprint.json songs/crooked_waltz.txt --input-format=source '--groups=1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17' '--returns=1,8;2,9' --subdivision 1
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	mandate_groups_text	1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	mandate_returns_text	1,8;2,9
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	draft_file	songs/drafts/crooked_waltz.943fc1499c97.draft.txt
+crooked_waltz	42	2026-09-27	3ecb6125	song	0	draft_lines	17
