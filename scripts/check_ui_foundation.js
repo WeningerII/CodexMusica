@@ -60,9 +60,14 @@
 //      A–Z bar scrolls to a row and marks it. Hovering a card shows Listen
 //      and Add on its photo; its ⋮ opens Add, Listen, Details and Photo
 //      credit and Escape returns to it; the photo opens the genre's details;
-//      Add puts the genre in Your recipe (✓), and ✓ takes it out. A card's
-//      name and line stay inside it. On a touch screen Listen and Add show
-//      without a hover, and the page never scrolls sideways.
+//      Add puts the genre in Your recipe (✓), and ✓ takes it out; the
+//      removal's Undo puts it back, but only while it is the latest change.
+//      A jump takes focus to its row; a search starts at the top of its
+//      results; sound targets are one ranked row with each card's reason. An
+//      instrument's ✓ is about the "Add to" group only. A card's name and line
+//      stay inside it. On a touch screen Listen and Add show without a hover,
+//      every card control and jump letter is 44px to a thumb, the A–Z bar
+//      fades where it continues, and the page never scrolls sideways.
 //
 //   PHOTOS
 //   O. A catalog photo (Instrument inspector; a Genre row, and a genre's
@@ -87,7 +92,7 @@
 
 'use strict';
 /* global document, window, openPrefaceModal, renderPrefaceModalBody, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync, Catalog, INSTRUMENTS, normalizeSearch, renderGenreDiscovery, gpRenderMain, renderInstrumentDiscovery, computeDistance */
-/* global innerWidth, UITheme, uiInspectInstrument, INSTRUMENT_FAMILIES */
+/* global innerWidth, UITheme, uiInspectInstrument, INSTRUMENT_FAMILIES, uiAddGenre */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -1404,6 +1409,22 @@ async function loadDelta(page) {
         m.gap >= 0 && m.gap <= 48 && m.current === 'M',
         `Q. the A–Z bar did not bring the M row just under it, marked (${JSON.stringify(m)})`
       );
+      // The jump takes focus to that row, so the next Tab goes on into it.
+      const inRow = () =>
+        page.evaluate(() => [
+          document.activeElement?.closest('.cm-rows-group')?.dataset.rows,
+          document.activeElement?.className,
+        ]);
+      const landed = await inRow();
+      check(
+        landed[0] === 'genre:M' && landed[1] === 'cm-rows-label',
+        `Q. after a jump, focus is not on the M row's heading (${landed})`
+      );
+      await page.keyboard.press('Tab');
+      check(
+        (await inRow())[0] === 'genre:M',
+        `Q. Tab after a jump did not go on into the M row (${await inRow()})`
+      );
       // Hover shows Listen and Add on the photo; ⋮ opens the card's menu.
       const card = '.cm-rows-group[data-rows="genre:M"] .cm-tile:nth-child(2)';
       const shown = () =>
@@ -1474,16 +1495,45 @@ async function loadDelta(page) {
         await page.$eval(card + ' .cm-tile-add', (b) => b.classList.contains('is-on')),
         'Q. a genre added from its card is not marked ✓ in the row'
       );
+      const inRecipe = () => page.evaluate((i) => app.cards.some((c) => c.traditionId === i), id);
       await page.click(card + ' .cm-tile-add');
       await page.waitForTimeout(300);
+      check(!(await inRecipe()), 'Q. ✓ on a card did not take the genre out of Your recipe');
+      // The removal's Undo puts it back while it is the latest change…
+      await page.click('#toast .toast-action');
+      await page.waitForTimeout(300);
       check(
-        !(await page.evaluate((i) => app.cards.some((c) => c.traditionId === i), id)),
-        'Q. ✓ on a card did not take the genre out of Your recipe'
+        (await inRecipe()) &&
+          (await page.$eval(card + ' .cm-tile-add', (b) => b.classList.contains('is-on'))),
+        'Q. Undo on the removal did not put the genre back, marked ✓'
       );
-      // A card's text stays inside the card.
+      // …and once a later change followed, it undoes nothing: not the later
+      // change, and not the removal (owner review).
+      await page.click(card + ' .cm-tile-add');
+      await page.waitForTimeout(300);
+      await page.evaluate(() => {
+        app.workspaceName = 'Named after the removal';
+        pushHistory();
+        uiSync();
+      });
+      await page.click('#toast .toast-action');
+      await page.waitForTimeout(300);
+      const late = await page.evaluate(() => ({
+        name: app.workspaceName,
+        toast: document.getElementById('toast').textContent,
+      }));
+      check(
+        !(await inRecipe()) &&
+          late.name === 'Named after the removal' &&
+          /Later changes/.test(late.toast),
+        `Q. a stale removal Undo changed the recipe (${JSON.stringify(late)})`
+      );
+      // A card's text stays inside the card, and its line is the genre's branch.
       const spill = await page.evaluate(() => {
         const out = [];
         for (const t of [...document.querySelectorAll('#genre-list .cm-tile')].slice(0, 120)) {
+          const sub = t.querySelector('.cm-tile-sub').textContent;
+          if (!sub || /^\d+$/.test(sub)) out.push(`${t.dataset.id} reads "${sub}"`);
           const r = t.getBoundingClientRect();
           for (const el of t.querySelectorAll('.cm-tile-name, .cm-tile-sub')) {
             const b = el.getBoundingClientRect();
@@ -1492,9 +1542,21 @@ async function loadDelta(page) {
         }
         return out;
       });
-      check(spill.length === 0, `Q. card text overflows its card: ${spill.slice(0, 5)}`);
-      // A search narrows the rows; a letter with nothing left has no row.
+      check(
+        spill.length === 0,
+        `Q. card text overflows its card or its line is not a branch: ${spill.slice(0, 5)}`
+      );
+      // A search narrows the rows, from their beginning (not where a jump
+      // left the last list); a letter with nothing left has no row.
+      await jump('M');
+      const scrolled = () => page.evaluate(() => document.getElementById('genre-main').scrollTop);
+      const before = await scrolled();
       await page.getByLabel('Search genres').fill('blues');
+      const after = await scrolled();
+      check(
+        before > 0 && after === 0,
+        `Q. a search after a jump does not start at the top of its results (${before} → ${after})`
+      );
       const narrowed = await page.$$eval('#genre-list .cm-rows-group', (g) =>
         g.map((x) => x.dataset.rows)
       );
@@ -1502,6 +1564,24 @@ async function loadDelta(page) {
         narrowed.length > 1 && !narrowed.includes('genre:Q') && !narrowed.includes('genre:X'),
         `Q. a search did not narrow the letter rows (${narrowed.join(' ')})`
       );
+      await page.getByLabel('Search genres').fill('');
+      // Sound targets rank: one row, closest first, each card saying how close.
+      await page.evaluate(() => document.querySelector('#genre-browse input[data-axis]').click());
+      await page.waitForTimeout(200);
+      const near = await page.evaluate(() =>
+        [...document.querySelectorAll('#genre-list .cm-rows-group')].map((g) => ({
+          label: g.querySelector('.cm-rows-label')?.textContent,
+          subs: [...g.querySelectorAll('.cm-tile-sub')].slice(0, 5).map((x) => x.textContent),
+        }))
+      );
+      check(
+        near.length === 1 &&
+          near[0].label === 'Closest to your sound' &&
+          near[0].subs.length &&
+          near[0].subs.every((t) => /^(Matches|Exact on)/.test(t)),
+        `Q. sound targets in Rows are not one ranked row with the reasons (${JSON.stringify(near)})`
+      );
+      await page.click('[data-ui="genre-sound-reset"]');
       // Instrument: Rows by default, one row per family, largest first; a
       // family's rows are its classes.
       await page.click('button[data-view="instrument"]');
@@ -1516,6 +1596,46 @@ async function loadDelta(page) {
         fams.length === (await page.evaluate(() => INSTRUMENT_FAMILIES.length)) &&
           fams.every((n, i) => !i || n <= fams[i - 1]),
         `Q. All instruments is not one row per family, largest first (${fams})`
+      );
+      // An instrument card's ✓ is about the "Add to" group only (owner
+      // review): Voice in Delta blues and Zydeco is no independent Voice, and
+      // with Delta blues chosen, ✓ takes out that one card.
+      await page.evaluate(async () => {
+        await uiAddGenre('delta_blues');
+        await uiAddGenre('zydeco');
+      });
+      await page.click('#instrument-body [data-ui="instrument-family"][data-id="voice"]');
+      const voice = '#instrument-body .cm-tile[data-id="voice"]';
+      const addTo = async (v) => {
+        await page.selectOption('#instrument-destination', { value: v });
+        await page.waitForTimeout(200);
+      };
+      const voiceAdd = () =>
+        page.$eval(voice + ' .cm-tile-add', (b) => ({
+          on: b.classList.contains('is-on'),
+          label: b.getAttribute('aria-label'),
+        }));
+      await addTo('');
+      const solo = await voiceAdd();
+      check(
+        !solo.on,
+        `Q. with Add to: Independent, Voice (only in genres) shows ✓ (${solo.label})`
+      );
+      await addTo('delta_blues');
+      const inDelta = await voiceAdd();
+      check(
+        inDelta.on && /Delta blues/.test(inDelta.label),
+        `Q. with Add to: Delta blues, Voice is not ✓ for Delta blues (${inDelta.label})`
+      );
+      await page.hover(voice + ' .cm-tile-shot');
+      await page.click(voice + ' .cm-tile-add');
+      await page.waitForTimeout(300);
+      const voices = await page.evaluate(() =>
+        app.cards.filter((c) => c.instrumentId === 'voice').map((c) => c.traditionId)
+      );
+      check(
+        voices.length === 1 && voices[0] === 'zydeco',
+        `Q. ✓ on Voice with Add to: Delta blues did not take out that card alone (left: ${voices})`
       );
       await page.click('#instrument-body [data-ui="instrument-family"][data-id="percussion"]');
       const classes = await page.$$eval('#instrument-body .cm-rows-group', (g) =>
@@ -1552,6 +1672,34 @@ async function loadDelta(page) {
       check(
         touch.controls.every((o) => o === '1') && touch.arrows === 'none' && touch.overflow <= 0,
         `Q. on a touch screen Listen and Add need a hover, or the page scrolls sideways (${JSON.stringify(touch)})`
+      );
+      // A thumb's 44px: 21px either side of each control's centre still hits it
+      // (the circles are drawn smaller); a jump letter is 44px tall to a
+      // thumb; the A–Z bar fades where letters continue past its edge.
+      const thumbs = await page.evaluate(() => {
+        const t = document.querySelector('#genre-list .cm-tile-credit').closest('.cm-tile');
+        t.scrollIntoView({ block: 'center' });
+        const hits = (el, dx, dy) => {
+          const r = el.getBoundingClientRect(),
+            x = r.left + r.width / 2,
+            y = r.top + r.height / 2;
+          return [
+            [x - dx, y],
+            [x + dx, y],
+            [x, y - dy],
+            [x, y + dy],
+          ].every(([a, b]) => el.contains(document.elementFromPoint(a, b)));
+        };
+        const miss = ['.cm-tile-play', '.cm-tile-add', '.cm-tile-more', '.cm-tile-credit'].filter(
+          (s) => !hits(t.querySelector(s), 21, 21)
+        );
+        const nav = document.querySelector('#genre-maintabs .cm-rows-jump');
+        if (!hits(nav.querySelector('button:not(:disabled)'), 0, 21)) miss.push('a jump letter');
+        return { miss, fades: nav.classList.contains('is-more-end') };
+      });
+      check(
+        thumbs.miss.length === 0 && thumbs.fades,
+        `Q. on a touch screen these are under 44px to a thumb, or the A–Z bar gives no sign of more (${JSON.stringify(thumbs)})`
       );
       await ctx.close();
     }

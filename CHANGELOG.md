@@ -18,8 +18,12 @@ the photo's proportions) with the name and one line (a genre's branch, an
 instrument's family · class). Hover or keyboard focus shows Listen, Add and the
 photo credit over the photo — always, on a touch screen; ⋮ opens Add or Remove,
 Listen, Details and Photo credit; the photo and the name open the existing
-details. Add shows ✓ once the genre or instrument is in Your recipe, and ✓ takes
-it out as one Undo step. A row gets its cards only when it comes near the
+details. Add shows ✓ once the genre is in Your recipe — an instrument, once it
+is in the "Add to" group — and ✓ takes those cards out in one step, whose Undo
+works only while it is the latest change. A jump takes focus to its row, a new
+search starts at the top of its results, and sound targets are one ranked row
+with each card's reason. On a touch screen every card control and jump letter
+is 44px to a thumb. A row gets its cards only when it comes near the
 screen, 30 at a time, so first paint costs the rows in view. The shared pieces
 are `uiRowsHTML`, `uiRowsJumpHTML` and `uiTile` in `src/workbench.js`;
 `check_ui_foundation.js` Q gates them, and Grid's code, styles and gate stage

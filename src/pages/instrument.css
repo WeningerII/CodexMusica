@@ -229,10 +229,28 @@
 
 /* ── List ── */
 .ip-list {
+  container: ip-list / inline-size;
   min-height: 0;
   min-width: 0;
   overflow: auto;
   padding: 12px 20px 24px;
+}
+/* A narrow list (the inspector open beside it) keeps its heading, count, Sort
+   and layout on one line: the words "Sort", "Rows" and "List" stay the
+   controls' names but are not drawn. */
+@container ip-list (max-width: 720px) {
+  .ip-list .ip-list-head h2 {
+    font-size: var(--cm-text-xl);
+  }
+  .ip-list-head .ip-field > span,
+  .ip-view span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
 }
 .ip-crumbs {
   display: flex;

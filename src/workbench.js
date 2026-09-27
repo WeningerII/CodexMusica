@@ -1,6 +1,6 @@
 /* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload */
 /* global UILayout */
-/* global ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, rmCard, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
+/* global ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
    canonical app (src/app.js) and catalog, which stay the only engine.
@@ -962,7 +962,7 @@ function uiStart() {
         uiTileCredit(b);
         break;
       case 'recipe-remove':
-        uiRemoveFromRecipe(b.dataset.kind, id);
+        uiRemoveFromRecipe(b.dataset.kind, id, b.dataset.scope);
         break;
       default:
         await UI_PAGE_ACTIONS[a]?.(id, b, e);
@@ -1216,17 +1216,33 @@ const UI_TILE_RATIO = new Map(); // photo src → its width / height, clamped
 const UI_TILE_FAILED = new Set(); // photo srcs that did not load
 const UI_TILE_GLYPH = new Map(); // kind → (id) → the catalog glyph, drawn only when there is no photo
 const uiTileRatio = (w, h) => Math.min(2.05, Math.max(0.86, w / h));
-const uiInRecipe = (kind, id) =>
-  app.cards.some((c) => (kind === 'genre' ? c.traditionId : c.instrumentId) === id);
+// The cards a card's Add and ✓ are about: a genre's cards; for an instrument,
+// its cards in the group its Add goes to (`scope`: a genre id, '' for
+// independent instruments), never the same instrument elsewhere.
+const uiTileCards = (kind, id, scope) =>
+  app.cards.filter((c) =>
+    kind === 'genre'
+      ? c.traditionId === id
+      : c.instrumentId === id && (c.traditionId || '') === (scope || '')
+  );
+const uiTileWhere = (kind, scope) =>
+  kind === 'genre'
+    ? 'Your recipe'
+    : scope
+      ? (Tradition(scope)?.name || scope) + ' in Your recipe'
+      : 'the independent instruments in Your recipe';
 // The card's Add: the page's own add action, or ✓ (in Your recipe) that removes it.
-function uiTileAdd(kind, id, name, add, label, on) {
-  const data = `data-kind="${kind}" data-id="${esc(id)}" data-add="${add}" data-add-label="${esc(label)}"`;
+// t: { kind, id, name, add, addLabel, scope }
+function uiTileAdd(t) {
+  const on = uiTileCards(t.kind, t.id, t.scope).length > 0;
+  const data = `data-kind="${t.kind}" data-id="${esc(t.id)}" data-add="${t.add}" data-add-label="${esc(t.addLabel)}"${t.scope === undefined ? '' : ` data-scope="${esc(t.scope)}"`}`;
   return on
-    ? `<span class="cm-tile-badge">In recipe</span><button type="button" class="cm-tile-add is-on" data-ui="recipe-remove" ${data} aria-label="Remove ${esc(name)} from Your recipe">${icon('check', 18)}</button>`
-    : `<button type="button" class="cm-tile-add" data-ui="${add}" ${data} aria-label="${esc(label)}">${icon('plus', 18)}</button>`;
+    ? `<span class="cm-tile-badge">In recipe</span><button type="button" class="cm-tile-add is-on" data-ui="recipe-remove" ${data} aria-label="Remove ${esc(t.name)} from ${esc(uiTileWhere(t.kind, t.scope))}">${icon('check', 18)}</button>`
+    : `<button type="button" class="cm-tile-add" data-ui="${t.add}" ${data} aria-label="${esc(t.addLabel)}">${icon('plus', 18)}</button>`;
 }
 // o: { kind: 'genre' | 'instrument', id, name, sub, photo: { src, credit, href } | null,
-//      glyph: (id) → html, open (the page action that opens the details), add, addLabel }
+//      glyph: (id) → html, open (the page action that opens the details), add, addLabel,
+//      scope (instruments: the genre id their Add goes to, '' for independent) }
 function uiTile(o) {
   UI_TILE_GLYPH.set(o.kind, o.glyph);
   const src = o.photo?.src && !UI_TILE_FAILED.has(o.photo.src) ? o.photo.src : '';
@@ -1242,7 +1258,7 @@ function uiTile(o) {
       ? `<button type="button" class="cm-tile-credit" data-ui="tile-credit" data-credit="${esc(o.photo.credit)}" data-href="${esc(o.photo.href || '')}" aria-label="Photo credit for ${name}" data-tooltip="${esc(o.photo.credit)}">${icon('info', 14)}</button>`
       : '') +
     `<a class="cm-tile-play" href="${listenHref(o.name, o.kind === 'instrument')}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${name} on YouTube">${icon('play', 16)}</a>` +
-    uiTileAdd(o.kind, o.id, o.name, o.add, o.addLabel, uiInRecipe(o.kind, o.id)) +
+    uiTileAdd(o) +
     `</div><div class="cm-tile-cap"><button type="button" class="cm-tile-name" data-ui="${o.open}" data-id="${id}" title="${name}">${name}</button><span class="cm-tile-sub" title="${esc(o.sub)}">${esc(o.sub)}</span><button type="button" class="cm-tile-more" data-menu-toggle aria-controls="cm-tile-menu" aria-haspopup="menu" aria-expanded="false" aria-label="More for ${name}">${icon('ellipsis-vertical', 18)}</button></div></div>`
   );
 }
@@ -1265,7 +1281,7 @@ function uiRowsHTML(prefix, groups, { tile, noun }) {
             `<button type="button" data-ui="rows-scroll" data-id="${esc(key)}" data-dir="${dir}" aria-label="Scroll ${label || 'the row'} ${way}"${dir < 0 ? ' disabled' : ''}>${icon(ic, 18)}</button>`
         )
         .join('');
-      return `<section class="cm-rows-group" data-rows="${esc(key)}"${label ? ` aria-label="${label}"` : ''}><div class="cm-rows-head">${label ? `<h3 class="cm-rows-label">${label}</h3><span class="cm-rows-count">${uiCount(g.items.length, noun)}</span>` : ''}<div class="cm-rows-nav">${arrows}</div></div><div class="cm-rows-track" role="list" data-rows="${esc(key)}"${label ? ` aria-label="${label}"` : ''}></div></section>`;
+      return `<section class="cm-rows-group" data-rows="${esc(key)}"${label ? ` aria-label="${label}"` : ''}><div class="cm-rows-head">${label ? `<h3 class="cm-rows-label" tabindex="-1">${label}</h3><span class="cm-rows-count">${uiCount(g.items.length, noun)}</span>` : ''}<div class="cm-rows-nav">${arrows}</div></div><div class="cm-rows-track" role="list" data-rows="${esc(key)}"${label ? ` aria-label="${label}"` : ''}></div></section>`;
     })
     .join('');
 }
@@ -1299,7 +1315,13 @@ function uiRowsAppend(t, upTo) {
   const row = UI_ROWS.get(t.dataset.rows);
   const from = t.childElementCount;
   if (row && upTo > from)
-    t.insertAdjacentHTML('beforeend', row.items.slice(from, upTo).map(row.tile).join(''));
+    t.insertAdjacentHTML(
+      'beforeend',
+      row.items
+        .slice(from, upTo)
+        .map((x) => row.tile(x))
+        .join('')
+    );
 }
 // A row near the screen and near its end takes its next cards; its arrows
 // say whether it can move.
@@ -1325,6 +1347,7 @@ function uiRowsRestore(host, keep) {
     }
     uiRowsFill(t);
   }
+  document.querySelectorAll('.cm-rows-jump').forEach(uiRowsEdges);
   // A card menu whose card was just repainted has nothing left to act on.
   if (uiMenuOpen?.menu.id === 'cm-tile-menu' && !uiMenuOpen.trigger.isConnected) uiCloseMenu(false);
   const f = keep?.focus;
@@ -1333,6 +1356,15 @@ function uiRowsRestore(host, keep) {
     uiFocus(tile?.querySelector('.' + f.part));
   }
   uiRowsSpy();
+}
+// A jump bar wider than its box fades at the edge it continues past.
+function uiRowsEdges(nav) {
+  const more = nav.scrollWidth > nav.clientWidth + 1;
+  nav.classList.toggle('is-more-start', more && nav.scrollLeft > 1);
+  nav.classList.toggle(
+    'is-more-end',
+    more && nav.scrollLeft + nav.clientWidth < nav.scrollWidth - 1
+  );
 }
 // The jump bar marks the last row whose top has passed under it.
 function uiRowsSpy() {
@@ -1394,41 +1426,54 @@ function uiRowsJump(b) {
   for (const x of nav.children) x.setAttribute('aria-current', String(x === b));
   uiRowsSettle(400);
   scroller.scrollBy({ top: sec.getBoundingClientRect().top - stuck - 8, behavior: uiMotion() });
+  // The next Tab goes on into that row.
+  sec.querySelector('.cm-rows-label')?.focus({ preventScroll: true });
 }
-// Remove every card of a genre (or of one instrument) as one Undo step.
-function uiRemoveFromRecipe(kind, id) {
-  const key = kind === 'genre' ? 'traditionId' : 'instrumentId';
-  const cards = app.cards.filter((c) => c[key] === id);
+// ✓ removes what the card's Add would have added — every card of a genre, or
+// the instrument's cards in its scope — as one Undo step. The toast's Undo
+// takes back only this removal, and only while it is still the latest change
+// (as an addition's Undo does).
+function uiRemoveFromRecipe(kind, id, scope) {
+  const cards = uiTileCards(kind, id, scope);
   if (!cards.length) return;
   const name = (kind === 'genre' ? Tradition(id) : Inst(id))?.name || id;
-  for (const c of cards) rmCard(c.id, { skipHistory: true });
+  app.cards = app.cards.filter((c) => !cards.includes(c));
   pushHistory();
+  const at = app.historyIndex;
+  renderAll();
   uiSync();
   showToast(
-    `Removed ${name} from Your recipe` + (cards.length > 1 ? ` (${cards.length} cards)` : ''),
+    `Removed ${name} from ${uiTileWhere(kind, scope)}` +
+      (cards.length > 1 ? ` (${cards.length} cards)` : ''),
     'success',
     {
       label: 'Undo',
       run: () => {
+        if (app.historyIndex !== at) {
+          showToast(
+            'Later changes followed this removal. Use Undo in the header to step back.',
+            'error'
+          );
+          return;
+        }
         undo();
         uiSync();
       },
     }
   );
 }
-// Cards follow Your recipe: ✓ where it holds the genre or instrument, + elsewhere.
+// Cards follow Your recipe: ✓ where it holds what their Add adds, + elsewhere.
 function uiTilesSync() {
-  const genres = new Set(app.cards.map((c) => c.traditionId)),
-    insts = new Set(app.cards.map((c) => c.instrumentId));
   for (const b of document.querySelectorAll('.cm-tile-add')) {
     const tile = b.closest('.cm-tile'),
-      { id } = tile.dataset;
-    const on = (tile.dataset.tile === 'genre' ? genres : insts).has(id);
+      { id } = tile.dataset,
+      { kind, scope, add, addLabel } = b.dataset;
+    const on = uiTileCards(kind, id, scope).length > 0;
     if (on === b.classList.contains('is-on')) continue;
     const focused = document.activeElement === b;
     const name = tile.querySelector('.cm-tile-name').textContent;
     tile.querySelector('.cm-tile-badge')?.remove();
-    b.outerHTML = uiTileAdd(tile.dataset.tile, id, name, b.dataset.add, b.dataset.addLabel, on);
+    b.outerHTML = uiTileAdd({ kind, id, name, add, addLabel, scope });
     if (focused) uiFocus(tile.querySelector('.cm-tile-add'));
   }
 }
@@ -1448,7 +1493,7 @@ function uiTileMenu(menu, trigger) {
       add.dataset.ui,
       on ? 'Remove from recipe' : 'Add to recipe',
       on ? 'x' : 'plus',
-      `${id} data-kind="${add.dataset.kind}"`
+      `${id} data-kind="${add.dataset.kind}"${add.dataset.scope === undefined ? '' : ` data-scope="${esc(add.dataset.scope)}"`}`
     ) +
     `<a role="menuitem" href="${esc(tile.querySelector('.cm-tile-play').href)}" target="_blank" rel="noopener noreferrer">${icon('play', 18)}<span>Listen on YouTube</span></a>` +
     item(name.dataset.ui, 'Details', 'eye', id) +
@@ -1486,6 +1531,7 @@ function uiRowsControls() {
     document.querySelectorAll('.cm-rows-track:empty').forEach((t) => touched.add(t));
     touched.forEach(uiRowsFill);
     touched.clear();
+    document.querySelectorAll('.cm-rows-jump').forEach(uiRowsEdges);
     if (!uiRowsJumping) uiRowsSpy();
   };
   const later = () => {

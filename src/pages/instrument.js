@@ -189,6 +189,8 @@ function ipTile(i) {
     open: 'instrument-inspect',
     add: 'instrument-add',
     addLabel: `Add ${i.name} with catalog defaults to ${ipDestName()}`,
+    // ✓ and its removal are about the "Add to" group only.
+    scope: ipDest(),
   });
 }
 // Rows: a row per family, or per class inside the family being browsed,
@@ -282,7 +284,7 @@ function ipRenderList(filtered, fam, q, filters) {
       ? fam.name
       : 'All instruments';
   const view = ipView();
-  const controls = `<div class="ip-controls"><label class="ip-field"><span>Sort</span><select id="ip-sort" class="cm-select" aria-label="Sort instruments"><option value="name"${IP.sort === 'name' ? ' selected' : ''}>Name A–Z</option><option value="name-desc"${IP.sort === 'name-desc' ? ' selected' : ''}>Name Z–A</option><option value="parts"${IP.sort === 'parts' ? ' selected' : ''}>Most customizable</option></select></label><div class="cm-segmented ip-view" role="group" aria-label="Catalogue layout"><button type="button" data-ui="ip-view" data-id="rows" aria-pressed="${view === 'rows'}">${icon('rows', 16)}<span>Rows</span></button><button type="button" data-ui="ip-view" data-id="list" aria-pressed="${view === 'list'}">${icon('list', 16)}<span>List</span></button></div></div>`;
+  const controls = `<div class="ip-controls"><label class="ip-field"><span>Sort</span><select id="ip-sort" class="cm-select" aria-label="Sort instruments"><option value="name"${IP.sort === 'name' ? ' selected' : ''}>Name A–Z</option><option value="name-desc"${IP.sort === 'name-desc' ? ' selected' : ''}>Name Z–A</option><option value="parts"${IP.sort === 'parts' ? ' selected' : ''}>Most customizable</option></select></label><div class="cm-segmented ip-view" role="group" aria-label="Catalogue layout"><button type="button" data-ui="ip-view" data-id="rows" aria-pressed="${view === 'rows'}" aria-label="Rows" data-tooltip="Rows">${icon('rows', 16)}<span>Rows</span></button><button type="button" data-ui="ip-view" data-id="list" aria-pressed="${view === 'list'}" aria-label="List" data-tooltip="List">${icon('list', 16)}<span>List</span></button></div></div>`;
   const classChips = fam
     ? `<div class="ip-classes" role="group" aria-label="${esc(fam.name)} classes"><button type="button" class="cm-chip" data-ui="instrument-class-all" aria-pressed="${!UI.instrumentClass}">All · ${inFamily.length}</button>${classes
         .map(

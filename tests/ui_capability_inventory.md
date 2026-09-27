@@ -2392,7 +2392,7 @@ Rows is the default layout of the Genre and Instrument catalogues (List is the o
 name: browse-rows-genre-letters
 kind: widget
 selector: '#genre-list .cm-rows-group[aria-label]'
-surface: Genre — All genres in Rows: one row per first letter (accents folded; # for digits), A to Z within it, headed by the letter and its count; search, the Browse branch and sound targets narrow the rows and an empty row disappears
+surface: Genre — All genres in Rows: one row per first letter (accents folded; # for digits), A to Z within it, headed by the letter and its count; search and the Browse branch narrow the rows and an empty row disappears; with sound targets it is one row, Closest to your sound, closest first, each card's line saying how close. A new list (search, branch, sound targets, tab) starts at the top of its results
 implementation: gpLetterGroups / gpTile / gpAll in src/pages/genre.js; uiRowsHTML in src/workbench.js
 status: reachable
 precondition: 'genre: all genres'
@@ -2402,7 +2402,7 @@ precondition: 'genre: all genres'
 name: browse-rows-jump-letters
 kind: widget
 selector: '#genre-maintabs .cm-rows-jump [data-ui="rows-jump"]'
-surface: Genre — the A–Z bar, sticky under the Start exploring / All genres tabs; a letter scrolls its row under the bar and is marked current (aria-current) while its row is the one in view; a letter with no genres is disabled
+surface: Genre — the A–Z bar, sticky under the Start exploring / All genres tabs; a letter scrolls its row under the bar, is marked current (aria-current) while its row is the one in view, and takes focus to that row's heading so the next Tab goes on into the row; a letter with no genres is disabled; the bar fades at an edge its letters continue past; on a touch screen each letter is 44px tall to a thumb
 implementation: uiRowsJumpHTML, uiRowsJump and uiRowsSpy in src/workbench.js
 status: reachable
 precondition: 'genre: all genres'
@@ -2453,8 +2453,8 @@ precondition: empty
 name: browse-card-listen-add
 kind: widget
 selector: '#surface-genre .cm-tile-play'
-surface: Over a card's photo on hover or keyboard focus (always on a touch screen), with a scrim and a slight zoom — Listen (the YouTube search Listen opens elsewhere) and Add (the page's own add; ✓ once the genre or instrument is in Your recipe, and ✓ takes every card of it out as one Undo step)
-implementation: uiTile, uiTileAdd, uiTilesSync and the 'recipe-remove' shell action (uiRemoveFromRecipe) in src/workbench.js
+surface: Over a card's photo on hover or keyboard focus (always on a touch screen, 44px to a thumb), with a scrim and a slight zoom — Listen (the YouTube search Listen opens elsewhere) and Add (the page's own add). ✓ shows once the genre is in Your recipe — for an instrument, once it is in the Instrument page's "Add to" group — and takes those cards (a genre's, or the instrument's in that group only) out as one step; its toast's Undo puts them back only while the removal is the latest change
+implementation: uiTile, uiTileAdd, uiTileCards, uiTilesSync and the 'recipe-remove' shell action (uiRemoveFromRecipe) in src/workbench.js; the instrument card's scope is ipDest() in src/pages/instrument.js
 status: reachable
 precondition: empty
 ```

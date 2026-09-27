@@ -2596,6 +2596,31 @@ html.cm-lightbox-open body {
 .cm-rows-jump::-webkit-scrollbar {
   display: none;
 }
+/* Letters past the bar's edge: it fades there (uiRowsEdges). */
+.cm-rows-jump.is-more-end {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+}
+.cm-rows-jump.is-more-start {
+  -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 40px), transparent);
+  mask-image: linear-gradient(to left, #000 calc(100% - 40px), transparent);
+}
+.cm-rows-jump.is-more-start.is-more-end {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 40px,
+    #000 calc(100% - 40px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 40px,
+    #000 calc(100% - 40px),
+    transparent
+  );
+}
 .cm-rows-jump button {
   flex: 0 0 auto;
   min-width: 30px;
@@ -2632,6 +2657,9 @@ html.cm-lightbox-open body {
   gap: 10px;
   min-height: 34px;
   margin-bottom: 6px;
+}
+.cm-rows-label:focus:not(:focus-visible) {
+  outline: none;
 }
 .cm-rows-label {
   margin: 0;
@@ -2906,9 +2934,41 @@ html.cm-lightbox-open body {
     right: 8px;
   }
   .cm-tile-more {
+    position: relative;
     width: 36px;
     height: 36px;
     margin: -6px -6px 0 0;
+  }
+  .cm-tile-credit {
+    top: 10px;
+    right: 10px;
+  }
+  /* Every control a thumb can hit is 44px, the circles drawn smaller inside. */
+  .cm-tile-play::after,
+  .cm-tile-add::after,
+  .cm-tile-more::after,
+  .cm-tile-credit::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+  }
+  .cm-tile-add::after {
+    inset: -6px;
+  }
+  /* ::before: a [data-tooltip] control's ::after belongs to the tooltip. */
+  .cm-tile-credit::before {
+    inset: -9px;
+  }
+  .cm-rows-jump {
+    padding-block: 7px;
+  }
+  .cm-rows-jump button {
+    position: relative;
+  }
+  .cm-rows-jump button::after {
+    content: '';
+    position: absolute;
+    inset: -7px 0;
   }
 }
 @media (max-width: 640px) {

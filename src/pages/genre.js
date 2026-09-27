@@ -301,21 +301,28 @@ function gpRow(t, extra = '') {
   return `<div class="catalog-row gp-row" data-gp-id="${esc(id)}">${m.html}<button type="button" class="catalog-name gp-open" data-ui="genre-select" data-id="${esc(id)}" aria-expanded="false" aria-label="${esc(t.name)} — show details"><span class="gp-row-text"><span class="gp-row-name" title="${esc(t.name)}">${esc(t.name)}</span><span class="gp-row-meta">${esc(branch)}${n ? `<span class="gp-in-recipe">${icon('check', 12)}In recipe</span>` : ''}</span>${lede ? `<span class="gp-row-desc">${esc(lede)}</span>` : ''}${extra}${gpCreditText(m)}</span></button>${listenLink(t.name)}${uiButton('genre-add', n ? 'Add again' : 'Add to recipe', 'plus', `data-id="${esc(id)}" aria-label="Add ${esc(t.name)}"`)}<span class="gp-chevron" aria-hidden="true">${icon('chevron-right', 20)}</span></div>`;
 }
 // Why a row is in a sound-target result: how close it is on the targets.
-function gpTargetReason(r) {
+function gpTargetText(r) {
   const n = gpTargets().length;
-  return `<span class="gp-row-reason">${icon('sliders-horizontal', 12)}${r.exact === n ? (n === 1 ? 'Matches the target' : `Matches all ${n} targets`) : `Exact on ${r.exact} of ${n} · within one step on the rest`}</span>`;
+  return r.exact === n
+    ? n === 1
+      ? 'Matches the target'
+      : `Matches all ${n} targets`
+    : `Exact on ${r.exact} of ${n} · within one step on the rest`;
+}
+function gpTargetReason(r) {
+  return `<span class="gp-row-reason">${icon('sliders-horizontal', 12)}${gpTargetText(r)}</span>`;
 }
 function gpLayout() {
   return G.view?.get() === 'list' ? 'list' : 'rows';
 }
-// A card in Rows: the photo (or glyphs), the name and its branch.
-function gpTile(t) {
+// A card in Rows: the photo (or glyphs), the name and its branch (or `sub`).
+function gpTile(t, sub) {
   const img = gpImage(t.id);
   return uiTile({
     kind: 'genre',
     id: t.id,
     name: t.name,
-    sub: gpPath(t.id).slice(-1)[0]?.name || '',
+    sub: sub ?? (gpPath(t.id).slice(-1)[0]?.name || ''),
     photo: img && { src: img.src, credit: img.credit, href: img.href },
     glyph: (id) => traditionGlyphsHTML(id, 56),
     open: 'genre-select',
@@ -539,6 +546,7 @@ function gpApplyAxis(input) {
   gpSyncSoundHead();
   G.tab = 'all';
   UI.limit = 50;
+  gpListToTop();
   gpScheduleList();
 }
 function gpSyncSoundHead() {
@@ -639,17 +647,25 @@ function gpAll(open) {
       )
     );
   }
-  const order = rows
-    ? ' · A to Z by first letter'
-    : targets.length
-      ? ' · closest to your sound targets first'
+  const order = targets.length
+    ? ' · closest to your sound targets first'
+    : rows
+      ? ' · A to Z by first letter'
       : q
         ? ' · best name matches first'
         : ' · A to Z';
   let html = pinned ? `<div class="gp-pinned">${gpDetail(open)}</div>` : '';
   html += `<div class="catalog-count gp-count-line" id="gp-count" tabindex="-1">${uiCount(results.length, 'genre')}${node ? ' in ' + esc(node.name) : ''}${results.length ? order : ''}</div>${chips.length ? `<div class="gp-chips" aria-label="Constraints in force">${chips.join('')}</div>` : ''}`;
   if (!results.length) html += gpNoResults(q, node, targets);
-  else if (rows) {
+  else if (rows && targets.length) {
+    // Sound targets rank: one row, closest first, each card saying how close.
+    const why = new Map(results.map((r) => [r.t.id, gpTargetText(r)]));
+    html += uiRowsHTML(
+      'genre',
+      [{ key: 'near', label: 'Closest to your sound', items: results.map((r) => r.t) }],
+      { tile: (t) => gpTile(t, why.get(t.id)), noun: 'genre' }
+    );
+  } else if (rows) {
     const letters = gpLetterGroups(results);
     G.jump = uiRowsJumpHTML('genre', letters, { label: 'Jump to a letter', noun: 'genre' });
     html += uiRowsHTML('genre', letters, { tile: gpTile, noun: 'genre' });
@@ -824,6 +840,20 @@ function uiGenreBack() {
 function gpForgetPosition() {
   G.listScroll = null;
   G.origin = null;
+  gpListToTop();
+}
+// In Rows a new list (search, branch, sound targets, tab) starts at its
+// beginning, not wherever a jump left the last one.
+function gpListToTop() {
+  const main = $ui('genre-main');
+  if (gpLayout() !== 'rows' || !main) return;
+  main.scrollTop = 0;
+  for (let p = main.parentElement; p; p = p.parentElement) {
+    if (!p.scrollTop) continue;
+    const top = p === document.scrollingElement ? 0 : p.getBoundingClientRect().top;
+    const past = top - main.getBoundingClientRect().top;
+    if (past > 0) p.scrollTop -= past;
+  }
 }
 function gpTreeOpen() {
   const t = $ui('modal-trad');
@@ -1044,6 +1074,7 @@ uiRegisterPage({
     'genre-back'() {
       UI.genreNode = getTreeNode(UI.genreNode)?.parent || '';
       UI.limit = 50;
+      gpListToTop();
       renderGenreDiscovery();
       uiFocus(document.querySelector('#genre-browse [data-ui="genre-back"]')) ||
         uiFocus(document.querySelector('#genre-browse [data-ui="genre-all"]'));
@@ -1093,6 +1124,7 @@ uiRegisterPage({
     'genre-clear-search'() {
       $ui('genre-search').value = '';
       UI.limit = 50;
+      gpListToTop();
       gpRenderMain();
       $ui('genre-search').focus();
     },
@@ -1119,11 +1151,13 @@ uiRegisterPage({
     'genre-sound-clear'(id) {
       delete G.targets[id];
       UI.limit = 50;
+      gpListToTop();
       renderGenreDiscovery();
     },
     'genre-sound-reset'() {
       G.targets = {};
       UI.limit = 50;
+      gpListToTop();
       renderGenreDiscovery();
       uiFocus(document.querySelector('#surface-genre input[type="range"][data-axis]'));
     },
@@ -1137,6 +1171,7 @@ uiRegisterPage({
       UI.genre = null;
       UI.genreNode = '';
       UI.limit = 50;
+      gpListToTop();
       $ui('genre-search').value = '';
       renderGenreDiscovery();
       showToast(`Sound targets set from ${Tradition(id).name}'s profile`, 'success');
