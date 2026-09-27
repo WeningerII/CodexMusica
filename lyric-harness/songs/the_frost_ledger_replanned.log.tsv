@@ -379,3 +379,35 @@ the_frost_ledger_replanned	20	2026-09-27	e148e3c0	screen	0	banned	0
 the_frost_ledger_replanned	20	2026-09-27	e148e3c0	screen	0	refused	0
 the_frost_ledger_replanned	20	2026-09-27	e148e3c0	screen	0	standing_in_some	3
 the_frost_ledger_replanned	20	2026-09-27	e148e3c0	screen	0	standing_in_none	0
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	mandate_groups	23
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	lines	21
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	mandated_pairs	57
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	mandate_source	declared
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	md5	91d6390b5f5c
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	briefed	21
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	per_line_flag	2
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	per_line_note	82
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	whole_draft	9
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	whole_draft_flag	0
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:SLOTS_EXCEEDED	FLAG x2
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:BAND_UNJUDGED	NOTE x1
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:CROWDED	NOTE x21
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:FLOOR_LOCUS_SCOPE	NOTE x1
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:FUNCTION_UNDECLARED	NOTE x1
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:LATE_ENTRY	NOTE x14
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:NO_SETTING	NOTE x1
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:PROMINENCE_CANNOT_ALIGN	NOTE x19
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x21
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:PROMINENCE_UNDECIDED	NOTE x1
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:REPEAT_ACROSS_GROUPS	NOTE x2
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:RETURN_LOCKED	NOTE x1
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:SCHEME_COLLISION	NOTE x3
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:SINGLE_INSTANCE	NOTE x2
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:STACKED_LINE	NOTE x1
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:UNCOVERED_BARS	NOTE x1
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	finding:UNIFORM_LINE_LENGTH	NOTE x1
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	command	python3 lyric_harness.py song songs/the_frost_ledger_replanned.blueprint.json songs/the_frost_ledger_replanned.txt --input-format=source '--groups=1.T2,2.T3;1.T1,2.T6;3.headrime,4.T4,6.T7,7.headrime;4.endword,5.T4;5.T6,7.T7;4.T3,5.T3;5,6.T5;9.T6,10.T5;8.T7,9.endword,10.T1;8.T3,9.T1,10.endword;11.T4,12.T7,14.T4;13.T1,15;16.T6,17.T4;11.head,13.endword,16.head;11.endword,12.T6,13.T3,15.T5,16.endword,17.T5;13.T2,14.T3,16.T3,17;15.headrime,17.T6;20,21.endword;20.headrime,21.T5;20.T2,21.T2;1,2;3,6,7;12,14' '--returns=1,18;2,19' --subdivision 4
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	mandate_groups_text	1.T2,2.T3;1.T1,2.T6;3.headrime,4.T4,6.T7,7.headrime;4.endword,5.T4;5.T6,7.T7;4.T3,5.T3;5,6.T5;9.T6,10.T5;8.T7,9.endword,10.T1;8.T3,9.T1,10.endword;11.T4,12.T7,14.T4;13.T1,15;16.T6,17.T4;11.head,13.endword,16.head;11.endword,12.T6,13.T3,15.T5,16.endword,17.T5;13.T2,14.T3,16.T3,17;15.headrime,17.T6;20,21.endword;20.headrime,21.T5;20.T2,21.T2;1,2;3,6,7;12,14
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	mandate_returns_text	1,18;2,19
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	draft_file	songs/drafts/the_frost_ledger_replanned.91d6390b5f5c.draft.txt
+the_frost_ledger_replanned	21	2026-09-27	dc90340f-WORKING	song	2	draft_lines	21
