@@ -1,7 +1,7 @@
 {
  "hook_slot": 1,
  "hooks": [
-  "Frost writes the ledger on the pane"
+  "Dawn signs the frost ledger in grey"
  ],
  "lines": [
   {
@@ -9,21 +9,21 @@
    "beat": 2.0,
    "duration": 2.0,
    "section": "CHORUS1",
-   "text": "Frost writes the ledger on the pane"
+   "text": "Dawn signs the frost ledger in grey"
   },
   {
    "bar": 2,
    "beat": 2.0,
    "duration": 2.0,
    "section": "CHORUS1",
-   "text": "Each white line marks a loss we weigh"
+   "text": "Each white line marks a wrong we weigh"
   },
   {
    "bar": 5,
    "beat": 2.0,
    "duration": 2.0,
    "section": "FALSE_ENDING1",
-   "text": "Snow shuts the book on every field"
+   "text": "Snow shuts the book on the fallow field"
   },
   {
    "bar": 6,
@@ -37,21 +37,21 @@
    "beat": 2.0,
    "duration": 2.0,
    "section": "FALSE_ENDING1",
-   "text": "Out past black sheds the moon bows down"
+   "text": "Out past black sheds the spruce bows down"
   },
   {
    "bar": 8,
    "beat": 2.0,
    "duration": 2.0,
    "section": "FALSE_ENDING1",
-   "text": "Cart, sled, bell, scythe, hound, lamb, goat, sheep"
+   "text": "A cart, a sled, hound, lamb, goat, sheep"
   },
   {
    "bar": 9,
    "beat": 2.0,
    "duration": 2.0,
    "section": "FALSE_ENDING1",
-   "text": "Fold it and wait for a new leaf"
+   "text": "Fold it and wait for a loose leaf"
   },
   {
    "bar": 10,
@@ -65,14 +65,14 @@
    "beat": 1.75,
    "duration": 2.25,
    "section": "VERSE1",
-   "text": "Worms sleep below where no sun can dig"
+   "text": "Worms sleep below where the sun cannot dig"
   },
   {
    "bar": 12,
    "beat": 1.75,
    "duration": 2.25,
    "section": "VERSE1",
-   "text": "Split ice gives way, blood wakes, sap will stir"
+   "text": "Split ice gives way, blood warms the turf"
   },
   {
    "bar": 13,
@@ -86,7 +86,7 @@
    "beat": 1.0,
    "duration": 3.0,
    "section": "PRECHORUS1",
-   "text": "It came in on the west gusts through the wood"
+   "text": "It came in on the west front through the wood"
   },
   {
    "bar": 15,
@@ -100,42 +100,42 @@
    "beat": 1.0,
    "duration": 3.0,
    "section": "PRECHORUS1",
-   "text": "Not one voice among us, the hearth gone to soot"
+   "text": "Not a voice among them, the hearth gone to soot"
   },
   {
    "bar": 17,
    "beat": 1.0,
    "duration": 3.0,
    "section": "PRECHORUS1",
-   "text": "Rye by the rail fence lay stiff and charred"
+   "text": "Vines by the rail fence lay stiff and charred"
   },
   {
    "bar": 18,
    "beat": 1.0,
    "duration": 3.0,
    "section": "PRECHORUS1",
-   "text": "Cold hard coin pays the thaw what is left"
+   "text": "Cold hard coin pays the mill what is left"
   },
   {
    "bar": 19,
    "beat": 1.0,
    "duration": 3.0,
    "section": "PRECHORUS1",
-   "text": "We give it cloth, hens, lime, and joy"
+   "text": "Then the old kiln, spent, lies without noise"
   },
   {
    "bar": 20,
    "beat": 2.0,
    "duration": 2.0,
    "section": "CHORUS2",
-   "text": "Frost writes the ledger on the pane"
+   "text": "Dawn signs the frost ledger in grey"
   },
   {
    "bar": 21,
    "beat": 2.0,
    "duration": 2.0,
    "section": "CHORUS2",
-   "text": "Each white line marks a loss we weigh"
+   "text": "Each white line marks a wrong we weigh"
   },
   {
    "bar": 22,
