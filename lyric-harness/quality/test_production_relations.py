@@ -390,6 +390,67 @@ class ProductionRelations(unittest.TestCase):
             report = R.relation_report(stream(lines),schemas={name:R.REGISTRY[name]})
             self.assertEqual(report['ran_and_fired'],0,(name,report))
 
+    def test_chain_rhyme_judges_a_declared_pair_at_the_pair(self):
+        # M-316 (M-311 F3). A DECLARED `schema:chain rhyme (rap)` pair was
+        # answered by the REGISTRY's `forall`/song figure, which needs one
+        # component spanning every line and never assembles, so a pair that
+        # chains was a SCHEME_VIOLATION (crooked_waltz, group Q, stir~carpenter).
+        from quality.revise import Reviser
+        from quality.schemes import mandate
+        sch = R.REGISTRY['chain rhyme (rap)']
+        declared = R.declared_pair_schema(sch)
+        self.assertEqual((sch.figure.quantifier, sch.figure.frame), ('forall', 'song'))
+        self.assertFalse(R.pair_scope_representable(sch))
+        self.assertTrue(R.pair_scope_representable(declared))
+        self.assertEqual(dataclasses.replace(declared, figure=sch.figure), sch)
+        chains = ['the kitchen light was fading fast', 'a silver ship went sailing past',
+                  'go slow', 'we sat where the heater sighs']
+        broken = [chains[0], chains[2], chains[1], chains[3]]
+        # The premise: the whole-song assembly finds no pair anywhere here.
+        self.assertFalse(R.line_pairs_for(sch, stream(chains)))
+        self.assertIs(R.line_pairs_for(declared, stream(chains),
+                                       requested_pairs=[(1, 2)]).verdict((1, 2)), True)
+        self.assertIs(R.line_pairs_for(declared, stream(broken),
+                                       requested_pairs=[(1, 2)]).verdict((1, 2)), False)
+        rv = Reviser()
+        for lines, violated in ((chains, False), (broken, True)):
+            got = rv.grade(list(lines), mandate(
+                [['1', '2']], n_lines=len(lines),
+                default_relation='schema:chain rhyme (rap)'))
+            self.assertFalse(got['refusals'], lines)
+            self.assertEqual(bool(got['violations']), violated, lines)
+
+    def test_chain_rhyme_rescues_nothing_under_the_default_rule(self):
+        # M-316, the owner's scope: the declared-pair figure is read ONLY where
+        # a mandate names chain rhyme. An UNDECLARED group (the whole-vocabulary
+        # default, `battery.py`'s route) keeps the REGISTRY figure, so Sonnet
+        # 105's L10/L12 words~affords stays flagged. The mutation proves the
+        # check live: with the declared figure in the REGISTRY, chain rhyme
+        # would rescue exactly that pair.
+        import lyric_harness as lh
+        with open(os.path.join(os.path.dirname(os.path.dirname(
+                os.path.abspath(__file__))), 'corpus', 'sonnets.txt'),
+                encoding='utf-8') as f:
+            text = [ln.strip() for ln in f.read().splitlines()]
+        start = text.index('Let not my love be call’d idolatry,')
+        sonnet = text[start:start + 14]
+        self.assertTrue(sonnet[11].endswith('scope affords.'), sonnet[11])
+        lex, decl = lh.Lexicon(), lh.Declaration()
+
+        def flagged():
+            R._WVP_MEMO.clear()
+            res = lh.check_scheme(lex, sonnet, 'ABABCDCDEFEFGG', decl)
+            return {(v[0], v[1]) for v in res['violations']}
+        sch = R.REGISTRY['chain rhyme (rap)']
+        self.assertIn((10, 12), flagged())
+        R.REGISTRY['chain rhyme (rap)'] = R.declared_pair_schema(sch)
+        try:
+            self.assertNotIn((10, 12), flagged())
+        finally:
+            R.REGISTRY['chain rhyme (rap)'] = sch
+            R._WVP_MEMO.clear()
+        self.assertIn((10, 12), flagged())
+
     def test_scalar_pronunciation_consensus(self):
         import lyric_harness as lh
         lex, decl = lh.Lexicon(), lh.Declaration()
