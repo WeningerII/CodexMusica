@@ -89,11 +89,14 @@ BAN_CODES = ("HOMEOTELEUTON", "MODAL_RHYME")
 # is a defect report (MISSING.md M-168 addendum).
 PINNED = {
     "songs": 16,
-    "mandate_readme": 11, "mandate_log": 4, "mandate_refused": 1,
+    # REPINNED 2026-09-27: crooked_waltz was re-planned and rewritten, and
+    # its grading invocation is RECORDED (log steps 37-43), so its mandate
+    # is read from the bank: readme ~~11~~ -> 10, banked ~~0~~ -> 1.
+    "mandate_readme": 10, "mandate_log": 4, "mandate_refused": 1,
     # M-196, 2026-09-17: no invocation facts in the historical bank. Adding
     # the reader does not manufacture the two missing graded mandates.
-    "mandate_banked": 0,
-    "screen_homeo": 366, "screen_modal": 395, "screen_clean": 792,
+    "mandate_banked": 1,
+    "screen_homeo": 366, "screen_modal": 398, "screen_clean": 819,
     "screen_refused": 11, "screen_other": 1,
     # REPINNED AS A SET 2026-09-17, RESULTS_M196_BANKED_MANDATE.md.
     # The unchanged main reader and the M-196 reader independently returned
@@ -143,9 +146,21 @@ PINNED = {
     # moves every tail index), so the partner-rank line moves too: ~~median
     # 22.0, min 1, max 185 over 246 ranked pairs~~ -> median 21, min 0, max
     # 180 over 243 (`--check`, 2026-09-24, every pinned total holds).
-    "pairs_mandated": 719, "pairs_judged": 518, "pairs_refused": 201,
-    "eligible": 458, "banned_in_final": 3,
-    "rank_head": 3, "rank_tail": 240, "rank_outside": 215,
+    # REPINNED 2026-09-27, ONE CAUSE: crooked_waltz was re-planned and
+    # rewritten (songs/README.md, its re-plan subsection), and every total
+    # below moved by that song's own delta and no other's, measured by
+    # `--check` on this tree. Its final went from the README command's old
+    # mandate on the old draft (47/21/26) to its banked invocation on the new
+    # one (20/20/0, the two return classes folded in as pairs): mandated
+    # ~~719~~ -> 692, judged ~~518~~ -> 517, refused ~~201~~ -> 175; eligible
+    # ~~458~~ -> 466, tail ~~240~~ -> 244, outside ~~215~~ -> 219, head and
+    # banned unchanged at 3 (it adds none); partner ranks median 21, min 0,
+    # max 180 over 247. Its 30 new screen rows are 27 clean and 3
+    # MODAL_RHYME: clean ~~792~~ -> 819, modal ~~395~~ -> 398, other stays 1
+    # (the classifier above reads the M-309 row shape).
+    "pairs_mandated": 692, "pairs_judged": 517, "pairs_refused": 175,
+    "eligible": 466, "banned_in_final": 3,
+    "rank_head": 3, "rank_tail": 244, "rank_outside": 219,
 }
 
 
@@ -346,11 +361,20 @@ def screened_pool(song):
         if r["verb"] != "screen" or not r["fact"].startswith("pair:"):
             continue
         v = r["value"]
-        if v == "BANNED: HOMEOTELEUTON":
+        # THE M-309 ROW SHAPE (read since 2026-09-27, when crooked_waltz's
+        # re-plan banked the first screens printed by the relation-set
+        # verb): a banned pair carries its relation list after the code
+        # (`BANNED: MODAL_RHYME  |  10 relation(s): ...`) and an unbanned
+        # one prints the relations it stands in (`relation(s): ...`) where
+        # the older verb printed CLEAN. Read by exact code or exact prefix,
+        # so the older rows land where they always did; before this, all
+        # 30 of that song's new rows fell into `other`.
+        code = v.split("  |  ", 1)[0].strip()
+        if code == "BANNED: HOMEOTELEUTON":
             c["screen_homeo"] += 1
-        elif v == "BANNED: MODAL_RHYME":
+        elif code == "BANNED: MODAL_RHYME":
             c["screen_modal"] += 1
-        elif v == "CLEAN":
+        elif v == "CLEAN" or v.startswith("relation(s): "):
             c["screen_clean"] += 1
         elif v.startswith("REFUSED"):
             c["screen_refused"] += 1

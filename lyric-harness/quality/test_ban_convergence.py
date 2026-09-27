@@ -56,8 +56,16 @@ def test_population():
           (counts["readme"], counts["log"], counts[None]) ==
           (BC.PINNED["mandate_readme"], BC.PINNED["mandate_log"],
            BC.PINNED["mandate_refused"]), counts)
-    check("no historical invocation facts are invented by adding a reader",
-          counts["banked"] == BC.PINNED["mandate_banked"] == 0, counts)
+    # ~~counts["banked"] == BC.PINNED["mandate_banked"] == 0~~ — REPINNED
+    # 2026-09-27: crooked_waltz's re-plan is the first song whose grading
+    # invocation was RECORDED (log steps 37-43, after M-196), so exactly one
+    # source is banked. That is a fact the log holds, not a historical
+    # mandate invented; every song graded before M-196 still reads none.
+    check("no historical invocation facts are invented by adding a reader — "
+          "the one banked source is crooked_waltz's 2026-09-27 re-plan",
+          counts["banked"] == BC.PINNED["mandate_banked"] == 1
+          and [s for s, v in src.items() if v == "banked"]
+          == ["crooked_waltz.txt"], counts)
     check("oar_lair.txt is REFUSED — no README command, no plan row: the "
           "mandate is banked nowhere and is not invented (doctrine 20)",
           src.get("oar_lair.txt") is None
