@@ -187,18 +187,32 @@ MATCH_POOL_MIN = 30
 #: THRESHOLDS — nothing in this tree compares a draft, a word or a song
 #: against any of them, and `test_cross_song.py` §4 is what holds that.
 #: `--check` re-derives them and exits 3 on drift.
+#: THE OBSERVED HALF REPINNED 2026-09-27, AND ONLY IT, when the bank gained
+#: `the_frost_ledger_replanned` (`songs/README.md`): ~~bank_songs 16,
+#: bank_types 951~~, and every k's FIRST element ~~263, 110, 53, 27, 13, 5,
+#: 2, 2, 0, 0, 0, 0, 0, 0, 0~~ -> the values below, k=17 added. Those are
+#: facts about the committed bytes and this song moved them. THE NULL HALF
+#: AND `human_songs` ARE LEFT AS PINNED: `--check` measured them drifted on
+#: 1e0b1c7d BEFORE this song existed (human_songs 8666 -> 8651, and the
+#: null columns with it), a corpus-side move whose cause this repin does
+#: not name, and a 17th matched draw moves them again — so re-pinning them
+#: here would fold two causes into one number. `--check` stays red on them
+#: exactly as it was; `test_cross_song.py` reads the observed half.
 PINNED = {
-    "bank_songs": 16,
-    "bank_types": 951,
+    "bank_songs": 17,
+    "bank_types": 1008,
     "human_songs": 8666,
     "human_files": 1297,
     # per k: (observed types at depth >= k, null median, null max)
     "spectrum": {
-        2: (263, 194.0, 235), 3: (110, 71.0, 98), 4: (53, 32.0, 50),
-        5: (27, 17.0, 28), 6: (13, 9.0, 18), 7: (5, 5.0, 10),
-        8: (2, 3.0, 8), 9: (2, 2.0, 6), 10: (0, 1.0, 4),
+        2: (278, 194.0, 235), 3: (117, 71.0, 98), 4: (63, 32.0, 50),
+        5: (31, 17.0, 28), 6: (17, 9.0, 18), 7: (7, 5.0, 10),
+        8: (3, 3.0, 8), 9: (2, 2.0, 6), 10: (1, 1.0, 4),
         11: (0, 0.0, 3), 12: (0, 0.0, 2), 13: (0, 0.0, 1),
         14: (0, 0.0, 1), 15: (0, 0.0, 1), 16: (0, 0.0, 0),
+        # k=17 is new with the 17th song; its null half is this date's
+        # measurement (median 0.0, max 0), there being no earlier pin.
+        17: (0, 0.0, 0),
     },
 }
 

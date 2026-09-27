@@ -68,7 +68,7 @@ def test_population():
           "the same reach `ban_convergence.songs()` takes, never a second "
           "copy (doctrine 1)",
           CS.songs() == _songs(), len(CS.songs()))
-    check("sixteen songs banked at the pin",
+    check("seventeen songs banked at the pin (sixteen until 2026-09-27)",
           len(CS.songs()) == CS.PINNED["bank_songs"], len(CS.songs()))
     src = ast.parse(open(os.path.join(HERE, "cross_song.py"),
                          encoding="utf-8").read())
@@ -115,9 +115,9 @@ def test_depth():
     all_names = sorted(types_by_song)
     six = CS.subset("panel6", all_names)
     ten = CS.subset("after_panel", all_names)
-    check("panel6 and after_panel PARTITION the bank — six and ten, "
-          "disjoint, together the whole population",
-          len(six) == 6 and len(ten) == 10
+    check("panel6 and after_panel PARTITION the bank — six and eleven "
+          "(~~ten~~ until 2026-09-27), disjoint, together the whole population",
+          len(six) == 6 and len(ten) == 11
           and sorted(six + ten) == all_names, (len(six), len(ten)))
     bad = None
     try:
@@ -264,7 +264,7 @@ def test_the_prefix_pin():
     check("the appended block says out loud that it moves nothing above it",
           "moves no verdict" in tail and "no threshold" in tail)
     check("and it discloses the depth with the null beside it",
-          "7 of 16" in tail and "matched-null median" in tail, tail[:200])
+          "7 of 17" in tail and "matched-null median" in tail, tail[:200])
     # The summary counts are the line a gate would have to move, and the
     # prefix property already forbids that; this states the consequence in
     # the counts' own words so a reader does not have to derive it.

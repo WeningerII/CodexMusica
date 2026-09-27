@@ -332,11 +332,18 @@ def test_the_bytes_behind_the_md5_are_banked():
     all_md5 = [(s, r) for s in sorted(os.path.basename(p) for p in R.songs())
                for r in L.read_log(s)
                if r["fact"] in ("md5", "md5_in", "md5_out")]
-    check("...and it actually separates the bank in two — every md5 row the "
-          "sixteen songs carry was measured BEFORE it, so no banked row sits "
-          "on the boundary where the rule cannot decide",
-          all_md5 and all(r["measured"] < L.DRAFT_BANKING_SINCE
-                          for _s, r in all_md5),
+    # ~~every md5 row the sixteen songs carry was measured BEFORE it~~ — true
+    # until 2026-09-27, when `the_frost_ledger_replanned` became the first
+    # song graded AFTER the mechanism existed. The property the check exists
+    # for is unchanged: the date still cuts the bank in two with no row ON it.
+    after = {"the_frost_ledger_replanned.txt"}
+    check("...and it actually separates the bank in two — every md5 row of "
+          "the sixteen songs banked before the mechanism was measured BEFORE "
+          "it and every row of the song banked after it AFTER it, so no "
+          "banked row sits on the boundary where the rule cannot decide",
+          all_md5 and all((r["measured"] > L.DRAFT_BANKING_SINCE) if s in after
+                          else (r["measured"] < L.DRAFT_BANKING_SINCE)
+                          for s, r in all_md5),
           f"{len(all_md5)} md5 row(s), latest "
           f"{max(r['measured'] for _s, r in all_md5)}")
     rc, out = run(["quality/song_log.py", "--drafts"])

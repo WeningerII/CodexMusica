@@ -88,11 +88,15 @@ BAN_CODES = ("HOMEOTELEUTON", "MODAL_RHYME")
 # the shared box could not afford. A pin that moved without a register line
 # is a defect report (MISSING.md M-168 addendum).
 PINNED = {
-    "songs": 16,
+    # ~~16~~ -> 17 and ~~mandate_banked 0~~ -> 1, 2026-09-27: the bank gained
+    # `the_frost_ledger_replanned`, whose graded mandate is RECORDED with its
+    # draft (the first song banked after M-196), so it is the one `banked`
+    # source; the historical sixteen are unchanged.
+    "songs": 17,
     "mandate_readme": 11, "mandate_log": 4, "mandate_refused": 1,
     # M-196, 2026-09-17: no invocation facts in the historical bank. Adding
     # the reader does not manufacture the two missing graded mandates.
-    "mandate_banked": 0,
+    "mandate_banked": 1,
     "screen_homeo": 366, "screen_modal": 395, "screen_clean": 792,
     "screen_refused": 11, "screen_other": 1,
     # REPINNED AS A SET 2026-09-17, RESULTS_M196_BANKED_MANDATE.md.

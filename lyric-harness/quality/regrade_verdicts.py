@@ -130,6 +130,14 @@ REGRADE_MOVED = {
         "from ~~(71, 36, 35)~~ under nucleus_agreement='licensed': "
         "against/blaze now differ across unresolved pronunciation readings "
         "(`against`'s two vowels) and refuse"),
+    "the_frost_ledger_replanned.txt": (
+        (59, 59, 0),
+        "NOT A MOVE — A COUNTING SEAM, adopted 2026-09-27 the day the song "
+        "was banked: this module builds ONE cover in which the two declared "
+        "returns (1,18;2,19) are mandated groups, so it counts 57 + 2 pairs; "
+        "`song`/`revise` at 1e0b1c7d count the returns apart as full-line "
+        "obligations and report 57/57/0, the README's (and the log's) "
+        "triple. Every pair judged, none refused, either way"),
 }
 
 

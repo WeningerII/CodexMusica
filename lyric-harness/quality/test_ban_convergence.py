@@ -45,7 +45,7 @@ def test_population():
     pop = BC.songs()
     check("the population is song_record's (a lyric with a blueprint)",
           pop == [os.path.basename(p) for p in _songs()], pop)
-    check("sixteen songs banked at the pin", len(pop) == BC.PINNED["songs"],
+    check("seventeen songs banked at the pin", len(pop) == BC.PINNED["songs"],
           len(pop))
     src = {s: BC.mandate_spec(s)[0] for s in pop}
     counts = {"readme": 0, "log": 0, "banked": 0, None: 0}
@@ -56,8 +56,14 @@ def test_population():
           (counts["readme"], counts["log"], counts[None]) ==
           (BC.PINNED["mandate_readme"], BC.PINNED["mandate_log"],
            BC.PINNED["mandate_refused"]), counts)
-    check("no historical invocation facts are invented by adding a reader",
-          counts["banked"] == BC.PINNED["mandate_banked"] == 0, counts)
+    # ~~mandate_banked == 0~~ until 2026-09-27: `the_frost_ledger_replanned`
+    # is the first song whose graded mandate was RECORDED with its draft, so
+    # exactly one banked source now exists and it is that song's; the
+    # historical sixteen still carry none.
+    check("no historical invocation facts are invented by adding a reader — "
+          "the one banked mandate is the song recorded after M-196",
+          counts["banked"] == BC.PINNED["mandate_banked"] == 1
+          and src.get("the_frost_ledger_replanned.txt") == "banked", counts)
     check("oar_lair.txt is REFUSED — no README command, no plan row: the "
           "mandate is banked nowhere and is not invented (doctrine 20)",
           src.get("oar_lair.txt") is None
