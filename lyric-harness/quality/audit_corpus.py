@@ -2251,14 +2251,23 @@ def check_enclitic_convention(files, src):
     (`There 's high and low`) 189 times in Nairne against 13 in all of
     Burns — same language, opposite tokenisation, decided by the
     compositor. ~~`join_spaced_enclitics` NORMALISES the spaced form at
-    read time~~ -- STRUCK 2026-09-26: `join_spaced_enclitics` is DEFINED
+    read time~~ -- STRUCK 2026-09-26: ~~`join_spaced_enclitics` is DEFINED
     and NOT WIRED; nothing calls it, `line_tokens("There 's high")` still
     returns `'s` as its own token, and over `lyric_reader.calibration_items`
     of `corpus/song/eng_*` 2,066 lines in 241 files carry 2,223 spaced
     enclitics that every measurement counts as separate words. Wiring it
     into `line_tokens` moves the comparator fingerprint and is an owner
-    ruling. What nothing did either was SAY which convention an edition
-    uses, so a corpus mixing both was silently inconsistent and any
+    ruling.~~ -- AND WIRED LATER THE SAME DAY (the batched comparator
+    re-pin, `MISSING.md` F-5): `line_tokens`, `raw_final_token` and
+    `Lexicon.transcribe` now read through the joiner, so the struck claim
+    is TRUE for the rhyme path's three tokenisers (`line_tokens("There 's
+    high")` is `["There's", "high"]`). It is NOT true of the quality
+    layer's `features._tokens` or of the `str.split` counts behind line CV,
+    which never read `line_tokens`. The set lost `'t` and `'n` the same
+    day -- elided words, not enclitics (`for 't` is "for it") -- and this
+    check counts through the corrected set, so an edition's `for 't`
+    is no longer evidence of either convention. What nothing did either
+    was SAY which convention an edition uses, so a corpus mixing both was silently inconsistent and any
     per-edition rate was unstratifiable. This check answers it per file, reading the
     SAME closed set the joiner reads (`lyric_harness.ENCLITICS` via
     `_SPACED_ENCLITIC` — one definition, doctrine 1), and it charges
@@ -2302,10 +2311,11 @@ def check_enclitic_convention(files, src):
         "spaced-only %d, both %d file(s); three counts, never summed"
         % (attached_only, spaced_only, both),
         "the SPACED convention (`There 's`) is the edition's, not the "
-        "language's; `join_spaced_enclitics` is defined but NOT WIRED, so "
-        "no reader re-attaches it and the split tokens are counted as "
-        "words — this check makes the convention SAYABLE per file so a "
-        "per-edition rate can be stratified. %d file(s) are "
+        "language's; `join_spaced_enclitics` re-attaches it at read time "
+        "in the rhyme path's tokenisers (wired 2026-09-26; the quality "
+        "layer's word counts still split it) — this check makes the "
+        "convention SAYABLE per file so a per-edition rate can be "
+        "stratified. %d file(s) are "
         "spaced-DOMINANT (spaced > attached) and are named below"
         % len(dominant),
         "a convention is not a defect and nothing here charges one; what "
@@ -2318,9 +2328,10 @@ def check_enclitic_convention(files, src):
             "this edition sets enclitics SPACED — %d spaced against %d "
             "attached" % (spaced, attached),
             "the file's dominant convention is the compositor's spaced "
-            "setting; `join_spaced_enclitics` is defined but NOT WIRED, "
-            "so every measurement over this file counts the split tokens "
-            "as separate words",
+            "setting; `join_spaced_enclitics` re-attaches it in the rhyme "
+            "path's tokenisers (wired 2026-09-26), while the quality "
+            "layer's word counts over this file still read the split "
+            "tokens as separate words",
             "named so a reader computing a per-edition rate knows this "
             "file's tokenisation was set by its printer, not its poet",
             "1"))
@@ -3229,7 +3240,17 @@ def main(argv=None):
 #: REPINNED 2026-09-15 (M-5): NOTE 1200 -> 1193. Five Finnish mixed
 #: w/v notes now report the actual allograph census; seven uniform-v files
 #: lose inapplicable "ZERO destroying" notes. No other finding changes.
-PINNED_SHAPE = {"files": 1430, "FAIL": 0, "WARN": 95, "NOTE": 1193}
+#: REPINNED 2026-09-26 (the batched comparator re-pin, `MISSING.md` F-5 /
+#: M-315): NOTE ~~1193~~ -> 1195. `lyric_harness.ENCLITICS` lost `'t` and
+#: `'n` (elided words, not enclitics), and Check J counts through that set,
+#: so an attached `o't` is no longer evidence of the attached convention. J's
+#: partition moves attached-only 1049 -> 1067, spaced-only 0 -> 0, both
+#: 245 -> 226 (one file carried only `'t`/`'n` evidence and leaves), and the
+#: spaced-DOMINANT list goes 26 -> 28: `eng_celtic_msm_andrew_scott.txt`
+#: (spaced/attached 44/71 -> 43/39) and `eng_celtic_msm_robert_lochore.txt`
+#: (42/52 -> 40/29). Those two notes are the whole delta; every other finding
+#: is identical line for line against an `origin/main` run of the same day.
+PINNED_SHAPE = {"files": 1430, "FAIL": 0, "WARN": 95, "NOTE": 1195}
 
 
 def _verify_shape(files, findings):

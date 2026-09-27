@@ -1,0 +1,4 @@
+CACHE  /tmp/claude-0/-home-user-CodexMusica/29d97899-a7a6-584d-b764-3b92976f0b85/scratchpad/shards/memo-2-of-12.tsv
+       fingerprint 6a0dd9c1004e | new (no file yet) | hits 0, misses 0
+POPULATION  108 files, 108 distinct authors, 1012 items, 31727 sung lines
+COMPUTE  shard 2/12: 108 files, 1012 rows -> /tmp/claude-0/-home-user-CodexMusica/29d97899-a7a6-584d-b764-3b92976f0b85/scratchpad/shards/rows-2-of-12.tsv; cache hits 0 misses 1012; 4040 CPU-s, 5404 wall-s

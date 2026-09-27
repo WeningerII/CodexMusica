@@ -1,0 +1,105 @@
+RECEIPT — the owner's BATCHED comparator re-pin, 2026-09-26 (`MISSING.md` M-315).
+Two edits, one fingerprint move, one cold memo, and every calibration HOLDS.
+
+WHAT MOVED THE COMPARATOR.  Commit 1028d8a6 on claude/comparator-repin, two edits,
+both inside `lyric_harness.py`'s comparator closure (CLAUDE.md standing rule 4):
+  1. `MISSING.md` F-5: `join_spaced_enclitics` (defined, called nowhere) is wired
+     into `line_tokens`, `raw_final_token` and `Lexicon.transcribe`, and its join
+     set is corrected from `'s 'll 're 've 'd 'm 't 'n` to the six clitic forms --
+     `'t` and `'n` are elided WORDS (`for 't` is "for it"), which the old set
+     glued onto the word before.
+  2. `nucleus_agrees`' docstring: the scalar shape is NOT the default since
+     fa80a8f7; `Declaration.nucleus_agreement` defaults to "licensed".
+`check_comparator_pin.py` reported "MOVED — 1 of 7 inputs": `lyric_harness.py
+closure`. `features.py`, `cmudict.dict`, `opensubtitles_en_50k.tsv`,
+`Declaration()`, `predictability_frac` and `_couplet_pairs` are byte-identical to
+the 2026-09-24 pin. Fingerprint
+  1e2d0c2dc62c448bef24a3744ee3d0db15a17b9d381a32f4eb534e5fcfae385a  (2026-09-24 pin,
+      quality/results/n_relation_2026-09-22/curves-measurement.txt)
+  -> 6a0dd9c1004ebf2a02d618479687b6198a6cbb1fba6c9d39fb485e7c8f408d94
+confirmed unchanged by every later edit on the branch (the tests, `audit_corpus.py`,
+`mutate.py` and the documents are outside the closure) before the pin was written.
+
+HOW THE MEMO WAS REBUILT — FROM NOTHING, the moved fingerprint having discarded
+it.  `quality/length_curve_calibration.py compute --shard I/12` (every 12th corpus
+file from I), each shard to its own memo, all at commit 1028d8a6. No prior memo was
+read or merged: every shard's CACHE line reads "new (no file yet)" and every
+COMPUTE line reads "cache hits 0". Every shard carries the same provenance, which
+`check --rows` re-verifies: comparator 6a0dd9c1004e, corpus_sha256 294831223fff,
+population 08584341b359, question d53e59446e1a, tagger 0189b5b3824b, nltk 3.10.3 —
+the corpus, population, question and tagger digests are the 2026-09-24 rows' own.
+Rows, sidecars and COMPUTE logs are banked beside this file in shards/.
+
+   1/12   1153 items  row_sha256 19c5a8c797aeb811   3226 CPU-s  4582 wall-s  this session (local, 4-core box shared with other sessions)
+   2/12   1012 items  row_sha256 9669437d1bedb632   4040 CPU-s  5404 wall-s  this session (local, 4-core box shared with other sessions)
+   3/12    514 items  row_sha256 9b9a845ba591716f   2413 CPU-s  3757 wall-s  this session (local, 4-core box shared with other sessions)
+   4/12    934 items  row_sha256 7f0eb00ddc951d94   3220 CPU-s  4571 wall-s  this session (local, 4-core box shared with other sessions)
+   5/12    556 items  row_sha256 61c27a91d4d0f5c9   3175 CPU-s  3221 wall-s  cloud worker, branch claude/repin-shards-a
+   6/12   1306 items  row_sha256 9e122efd76c2e3d7   3884 CPU-s  3932 wall-s  cloud worker, branch claude/repin-shards-a
+   7/12    409 items  row_sha256 664c81d14cf7b7c7   2877 CPU-s  2920 wall-s  cloud worker, branch claude/repin-shards-a
+   8/12    556 items  row_sha256 f209e5846b9b09af   2984 CPU-s  3025 wall-s  cloud worker, branch claude/repin-shards-a
+   9/12    396 items  row_sha256 40b6c83725970105   2459 CPU-s  2489 wall-s  cloud worker, branch claude/repin-shards-b
+  10/12    512 items  row_sha256 89c02f01a1f7d2be   3052 CPU-s  3081 wall-s  cloud worker, branch claude/repin-shards-b
+  11/12    530 items  row_sha256 d1066684e8c01885   2591 CPU-s  2618 wall-s  cloud worker, branch claude/repin-shards-b
+  12/12    658 items  row_sha256 77509febc6834c2f   3273 CPU-s  3302 wall-s  cloud worker, branch claude/repin-shards-b
+  total  8536 items  = the lyric profile's n_human (8536); 1,297 files by the shard
+         reader (109 + 11 x 108) against the population reader's 1,296, the same
+         unadjusted disagreement every receipt since 2026-09-18 records.
+
+COST, MEASURED: 37,194 CPU-s (10.3 CPU-hours) summed over the twelve COMPUTE lines,
+90 minutes of wall clock at the slowest shard. That is nearly twice the C-2
+rebuild's 20,224 CPU-s over six shards, and the difference is the sharding, not the
+memo: each process warms its own `RhymeField`, so an end word shared by twelve
+shards is looked up cold up to twelve times. Twelve shards bought wall-clock; they
+did not buy CPU. Neither CLAUDE.md's ~2.1 CPU-hour figure nor the C-2 receipt's
+5.6 is re-pinned here — both describe a one- or six-process build.
+
+THE CHECK THE PIN NAMES, VERBATIM:
+    python3 quality/length_curve_calibration.py check --rows shards/rows-{1..12}-of-12.tsv
+    ROWS  from 12 file(s): 8536 items
+    MATTR/TTR  532 of 8536 items degenerate at calibration window 50 -> HOLDS
+      mattr          C1  shipped [0.49968978828344063, 0.03751889880962087]  re-derived [0.49968978828344063, 0.03751889880962087]  -> HOLDS
+      fwr            C1  shipped [0.5604841642384619, -0.014308228025864213]  re-derived [0.5604841642384619, -0.014308228025864213]  -> HOLDS
+      anaphora       C2  shipped [1.1413067296229165, -0.24203952493270758, 0.01609986645877518]  re-derived [1.1413067296229165, -0.24203952493270758, 0.01609986645877518]  -> HOLDS
+      cv             CK  shipped 21 knots, re-derived 21  -> HOLDS
+      predictability CK  shipped 21 knots, re-derived 21  -> HOLDS
+    RESULT: HOLDS — the lyric row's 5 curves re-derive from the corpus
+    exit=0
+
+ITEM BY ITEM, AGAINST THE ROWS BANKED AT THE OLD PIN
+(quality/results/n_relation_2026-09-22/calibration-rows.tsv, comparator 1e2d0c2dc62c):
+all 8,536 items match on file, author, title, n_lines, n_tokens AND all five
+statistics to the exact printed repr — mattr, fwr, anaphora, cv and predictability
+(defined on 8,480, as before). 0 items changed. That is stronger than the check,
+which compares fitted coefficients and knot counts.
+
+WHY NOTHING MOVED, MEASURED RATHER THAN ARGUED.  MATTR, FWR and the token count
+read `features._tokens`; CV and anaphora read `str.split`; none of them reads
+`line_tokens`. Predictability reads its end words through `features._tokens` too,
+and `RhymeField.field` calls `line_anchors` on ONE word, where a join has nothing
+to join. So the comparator moved and no calibrated statistic could — which is what
+the twelve shards measured, independently of this paragraph.
+
+THE OTHER CALIBRATIONS THIS COMPARATOR FEEDS, warm on a memo merged from the
+twelve shard memos with the module's own `merge-cache` (8,536 entries, every one
+carrying 6a0dd9c1004e):
+  * `song_profile_calibration.py --check` (profile `song`, the nightly's
+    component): "asked 21, answered 21, refused 0 ... every shipped constant
+    reproduces." 8,536 hits, 0 misses, 104.8 CPU-s.
+  * `song_profile_calibration.py --check --profile short`: "asked 21, answered 21,
+    refused 0 ... every shipped constant reproduces." 5,442 hits, 0 misses.
+  * `expected_drift.py song_profile_calibration-fast` (record's four-check run):
+    "observed 0 drifted value(s), declared 0" -> PASS.
+
+REPRODUCE (one process, the nightly's path, ~2.4+ CPU-hours cold):
+    python3 quality/length_curve_calibration.py check
+or, from the banked rows (~45 CPU-s):
+    python3 quality/length_curve_calibration.py check --rows \
+        quality/results/comparator_repin_2026-09-26/shards/rows-{1,2,3,4,5,6,7,8,9,10,11,12}-of-12.tsv
+
+VERDICT.  HOLDS: every coefficient, every knot count and every one of the 8,536
+items' five statistics re-derives exactly under the new comparator, and both band
+rows reproduce every shipped constant. Nothing moved, so nothing is re-adopted and
+nothing was tuned (doctrine 16/58); only the fingerprint the pin records advances.
+Still open and not touched here: held-out E2 on `short` (+2.95, firing since
+2026-09-08, RESULTS_LENGTH_CURVE.md §9).

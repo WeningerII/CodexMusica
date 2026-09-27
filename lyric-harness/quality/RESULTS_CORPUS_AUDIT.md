@@ -1,6 +1,14 @@
 # RESULTS — the corpus audit (adversary 5)
 
-Current result, 2026-09-15 (M-5): **1,430 files, 0 FAIL, 95 WARN, 1,193 NOTE**.
+Current result, 2026-09-26 (`MISSING.md` M-315): **1,430 files, 0 FAIL, 95 WARN,
+1,195 NOTE** (~~1,193 NOTE~~, 2026-09-15). Check J's enclitic set lost `'t` and
+`'n` — elided words, not enclitics — when the joiner was wired into the rhyme
+path, so two more editions are spaced-DOMINANT (`eng_celtic_msm_andrew_scott`
+43 spaced / 39 attached, `eng_celtic_msm_robert_lochore` 40 / 29) and J's
+partition reads attached-only 1,067, spaced-only 0, both 226; nothing else
+moved. The 2026-09-15 result it supersedes:
+
+Result, 2026-09-15 (M-5): **1,430 files, 0 FAIL, 95 WARN, 1,193 NOTE**.
 The allograph census replaces Finnish's destroying/preserving spelling probe.
 Five mixed-printing notes remain, now with the two glyph counts and the
 explicit unchanged `fold_w=False` calibration. Seven uniform-v files lose

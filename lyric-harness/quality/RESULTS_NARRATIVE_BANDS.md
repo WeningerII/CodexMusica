@@ -1,5 +1,17 @@
 # Narrative proxy calibration — first recorded run, 2026-08-25
 
+> **REPINNED AGAIN 2026-09-26, by the owner's batched comparator re-pin
+> (`MISSING.md` M-315), re-derived by `python3 quality/narrative_bands.py
+> --check`.** One cause, bisected: `content_types` tokenises with
+> `lyric_harness.line_tokens`, which now joins a spaced enclitic onto its word
+> (`There 's` -> `There's`, `MISSING.md` F-5), so the content-type sets on a
+> seam change where a compositor spaced the apostrophe. On `origin/main`
+> 3909fa89 the block below still reproduces exactly; on the branch P1
+> ~~**0.5916**~~ **0.5914** and the null median ~~**0.5869**~~ **0.5868**
+> (draws 0.5832–0.5886), excess ~~+0.47pp~~ +0.46pp, still above every draw;
+> verse->verse 0.6149 -> 0.6148. Population, seams, P2 and every other
+> by-pair and by-function figure are unchanged. No conclusion changes.
+>
 > **REPINNED 2026-09-26 (owner's ruling), re-derived by `python3
 > quality/narrative_bands.py --check` on the corpus as it stands.** Everything
 > below this block is the FIRST recorded run, 2026-08-25, and stays as that
@@ -7,10 +19,11 @@
 > the ones in this block. The pin had drifted unrecorded because no CI
 > job ran `--check`; the nightly job runs it now. Today's run, whole:
 > population **8,652** songs, 0 refused for missing marks,
-> 557 blocks skipped; P1 **0.5916** over **40,697** seams against a
-> within-song null of 0.5834–0.5887 (median **0.5869**), excess
-> +0.47pp — still above every draw, and still refused as an enforcement
-> instrument on size; by seam pair verse->verse 0.6149 (n=36,320); verse->burden 0.358 (n=1,567); burden->verse 0.4008 (n=1,330); verse->refrain 0.3473 (n=524); refrain->verse 0.3294 (n=507); chorus->verse 0.6636 (n=214); verse->chorus 0.6493 (n=211); P2 back-to-back **0.0042** over
+> 557 blocks skipped; P1 ~~**0.5916**~~ **0.5914** over **40,697** seams against a
+> within-song null of ~~0.5834–0.5887~~ 0.5832–0.5886 (median ~~**0.5869**~~ **0.5868**), excess
+> ~~+0.47pp~~ +0.46pp (struck values: this block's own reading before the enclitic
+> repin in the block above, same day) — still above every draw, and still refused as an enforcement
+> instrument on size; by seam pair verse->verse ~~0.6149~~ 0.6148 (n=36,320); verse->burden 0.358 (n=1,567); burden->verse 0.4008 (n=1,330); verse->refrain 0.3473 (n=524); refrain->verse 0.3294 (n=507); chorus->verse 0.6636 (n=214); verse->chorus 0.6493 (n=211); P2 back-to-back **0.0042** over
 > **1,653** invariant-return pairs, by function verse 0.948 over 38,837; burden 0.0 over 1,184; refrain 0.0026 over 380; chorus 0.0674 over 89. No conclusion
 > below changes. Which corpus or reader change moved which figure is not
 > bisected here.
