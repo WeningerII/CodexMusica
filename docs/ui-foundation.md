@@ -82,6 +82,7 @@ URL; adds nothing; an explicit `#section` wins).
 | `showToast(message, kind, action)` | `kind` `success`/`error`; `action` `{ label, run }` adds one button. |
 | `UITheme` | `preference()` (`system`/`light`/`dark`), `theme()` (resolved), `set(pref)`, `onChange(fn)`, `token(name, fallback)` for canvas drawing. |
 | `UILayout` | `splitter({ side: 'left'|'right'|'top' })` (drag, arrows, Home, End, double-click), `floating`, `anchor`, `remember(key, initial)`, `refresh`, `reset`, `tooltips`. |
+| `uiRowsHTML(prefix, groups, { tile, noun })`, `uiRowsJumpHTML(prefix, groups, { label, noun })`, `uiTile(card)` | Browse rows (Genre and Instrument's default layout): one horizontally scrolling row per `{ key, label, items }` group, headed by its label and count, with ‹ › on desktop; a row gets its cards (`tile(item)`, usually `uiTile`) only when near the screen, 30 at a time, more as it scrolls. `uiTile` is a photo (width from its proportions) with name, one line and ⋮; the photo and name run the page's `open` action, and Listen, Add (✓ when in Your recipe, which removes it) and the photo credit show over the photo on hover, focus or touch. The jump bar scrolls a row under itself and marks the one in view. Bracket a repaint with `const keep = uiRowsKeep(host)` … `uiRowsRestore(host, keep)` so rows keep their place, length and focus. Styles: `.cm-rows-*`, `.cm-tile-*` in `src/workbench.css`. |
 | `uiPhoto(img, { name, full, credit, href })` | A catalog photo that enlarges: wraps the page's own `<img>` in a button ("Enlarge photo of <name>", `data-ui="lightbox"`) that opens the shell's photo lightbox — the photo large over the dimmed page with `credit` linked to `href`; `full` is the full image, tried when no larger Commons rendition of the thumb loads. One click anywhere, Escape or Back closes it and focus returns to the photo. A row puts the photo beside its own button, never inside it. Styles: `.cm-photo`, `.cm-lightbox` in `src/workbench.css`. |
 
 State: `app.*` (src/app.js) is the recipe and session — cards, selection,
@@ -224,7 +225,7 @@ an entry in `tests/ui_capability_inventory.md`, and a gate where it is a claim.
 
 - **Genre** — the reference layout (Browse column, Start exploring / All genres,
   recipe sidebar on the right: set `recipe: 'sidebar-right'` in the
-  `uiRegisterPage` call in `src/pages/genre.js`); List/Grid; "Find a sound" with the 13
+  `uiRegisterPage` call in `src/pages/genre.js`); Rows/List; "Find a sound" with the 13
   characteristics as applied, clearable controls; Overview / Sound profile /
   Instruments / Similar sounds / Background tabs; recordings and references
   only from real sources; an explicit destination when adding one instrument

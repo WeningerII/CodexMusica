@@ -189,6 +189,11 @@
   --cm-touch: 44px;
   --cm-focus-width: 3px;
   --cm-focus-offset: 2px;
+  /* Controls laid over a photo: the same in both themes, since the photo is. */
+  --cm-photo-scrim: linear-gradient(to top, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0) 55%);
+  --cm-photo-control: #ffffff;
+  --cm-photo-control-text: #111111;
+  --cm-photo-control-glass: rgba(0, 0, 0, 0.32);
 }
 
 /* 2. Legacy aliases. */

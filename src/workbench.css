@@ -2582,3 +2582,352 @@ html.cm-lightbox-open body {
 .cm-lightbox-hint {
   color: var(--cm-text-muted);
 }
+
+/* ── Browse rows (uiRowsHTML, uiTile in src/workbench.js) ── One scrolling row
+   of cards per group. A card's height is fixed and its width follows its
+   photo's proportions (--ar, clamped 0.86–2.05), so a row reads as a strip. */
+.cm-rows-jump {
+  display: flex;
+  gap: 2px;
+  overflow-x: auto;
+  padding: 4px 0 8px;
+  scrollbar-width: none;
+}
+.cm-rows-jump::-webkit-scrollbar {
+  display: none;
+}
+.cm-rows-jump button {
+  flex: 0 0 auto;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: var(--cm-radius-pill);
+  background: none;
+  color: var(--cm-text-muted);
+  font: 700 var(--cm-text-sm) var(--cm-font);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.cm-rows-jump button:hover:not(:disabled) {
+  background: var(--cm-hover);
+  color: var(--cm-text);
+}
+.cm-rows-jump button:disabled {
+  color: var(--cm-text-disabled);
+  cursor: default;
+}
+.cm-rows-jump button[aria-current='true']:not(:disabled) {
+  background: var(--cm-accent-soft);
+  color: var(--cm-accent-text);
+}
+.cm-rows-group {
+  --cm-tile-h: 168px;
+  padding: 12px 0 2px;
+}
+.cm-rows-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-height: 34px;
+  margin-bottom: 6px;
+}
+.cm-rows-label {
+  margin: 0;
+  color: var(--cm-text);
+  font: 700 var(--cm-text-2xl) / 1.1 var(--cm-font);
+  overflow-wrap: anywhere;
+}
+.cm-rows-count {
+  color: var(--cm-text-muted);
+  font-size: var(--cm-text-sm);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.cm-rows-nav {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+  align-self: center;
+}
+.cm-rows-nav button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--cm-border);
+  border-radius: 50%;
+  background: var(--cm-surface);
+  color: var(--cm-text-secondary);
+  cursor: pointer;
+}
+.cm-rows-nav button:hover:not(:disabled) {
+  background: var(--cm-hover);
+}
+.cm-rows-nav button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.cm-rows-track {
+  display: flex;
+  gap: 12px;
+  /* Room for a focus ring at either end. */
+  margin: 0 -6px;
+  padding: 6px 6px 10px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 6px;
+  scrollbar-color: var(--cm-border) transparent;
+  scrollbar-width: thin;
+  /* A row is as tall before its cards arrive (uiRowsFill) as after. */
+  min-height: calc(var(--cm-tile-h) + 59px);
+}
+.cm-tile {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 7px;
+  width: calc(var(--cm-tile-h) * var(--ar, 1.333));
+  min-width: 0;
+  scroll-snap-align: start;
+}
+.cm-tile-shot {
+  position: relative;
+  height: var(--cm-tile-h);
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--cm-radius-lg);
+  background: var(--cm-surface-sunken);
+  cursor: pointer;
+}
+.cm-tile-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+.cm-tile-glyph {
+  display: none;
+}
+.cm-tile-shot.is-glyph .cm-tile-glyph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 16%;
+}
+.cm-tile-glyph .sb-trad-glyphs {
+  display: flex;
+  justify-content: center;
+  gap: 6%;
+  width: 100%;
+  height: 100%;
+}
+.cm-tile-glyph svg,
+.cm-tile-glyph img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cm-tile-shot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--cm-photo-scrim);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.cm-tile-play,
+.cm-tile-add,
+.cm-tile-credit,
+.cm-tile-badge {
+  position: absolute;
+  z-index: 2;
+}
+.cm-tile-play,
+.cm-tile-add {
+  bottom: 10px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  cursor: pointer;
+}
+.cm-tile-play {
+  left: 10px;
+  border: 0;
+  background: var(--cm-photo-control);
+  color: var(--cm-photo-control-text);
+}
+.cm-tile-play svg {
+  fill: currentColor;
+}
+.cm-tile-add {
+  right: 10px;
+  border: 2px solid var(--cm-photo-control);
+  background: var(--cm-photo-control-glass);
+  color: var(--cm-photo-control);
+}
+.cm-tile-add.is-on {
+  background: var(--cm-photo-control);
+  color: var(--cm-photo-control-text);
+}
+.cm-tile-credit {
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--cm-photo-control-glass);
+  color: var(--cm-photo-control);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+.cm-tile-badge {
+  top: 8px;
+  left: 8px;
+  padding: 3px 8px;
+  border-radius: var(--cm-radius-pill);
+  background: var(--cm-success-text);
+  color: var(--cm-photo-control);
+  font: 700 var(--cm-text-xs) var(--cm-font);
+  pointer-events: none;
+}
+.cm-tile:hover .cm-tile-img {
+  transform: scale(1.04);
+}
+.cm-tile:hover .cm-tile-shot::after,
+.cm-tile:focus-within .cm-tile-shot::after {
+  opacity: 1;
+}
+.cm-tile:hover :is(.cm-tile-play, .cm-tile-add, .cm-tile-credit),
+.cm-tile:focus-within :is(.cm-tile-play, .cm-tile-add, .cm-tile-credit) {
+  opacity: 1;
+  transform: none;
+}
+.cm-tile-cap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: 2px;
+}
+.cm-tile-name {
+  grid-column: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--cm-text);
+  font: 700 var(--cm-text-md) / 1.35 var(--cm-font);
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.cm-tile-name:hover {
+  text-decoration: underline;
+}
+.cm-tile-sub {
+  grid-column: 1;
+  min-width: 0;
+  color: var(--cm-text-muted);
+  font: var(--cm-text-xs) / 1.35 var(--cm-font);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cm-tile-more {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-top: -3px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--cm-text-muted);
+  cursor: pointer;
+}
+.cm-tile-more:hover,
+.cm-tile-more[aria-expanded='true'] {
+  background: var(--cm-hover);
+  color: var(--cm-text);
+}
+.workbench #cm-tile-menu a[role='menuitem'] {
+  text-decoration: none;
+}
+/* Touch screens have no hover: the controls are always on the photo. */
+@media (hover: none) {
+  .cm-rows-nav {
+    display: none;
+  }
+  .cm-tile-shot::after {
+    opacity: 0.85;
+  }
+  .cm-tile-play,
+  .cm-tile-add,
+  .cm-tile-credit {
+    opacity: 1;
+    transform: none;
+  }
+  .cm-tile-play,
+  .cm-tile-add {
+    bottom: 8px;
+    width: 36px;
+    height: 36px;
+  }
+  .cm-tile-play {
+    left: 8px;
+  }
+  .cm-tile-add {
+    right: 8px;
+  }
+  .cm-tile-more {
+    width: 36px;
+    height: 36px;
+    margin: -6px -6px 0 0;
+  }
+}
+@media (max-width: 640px) {
+  .cm-rows-group {
+    --cm-tile-h: 128px;
+  }
+  .cm-rows-track {
+    gap: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cm-tile-img,
+  .cm-tile-shot::after,
+  .cm-tile-play,
+  .cm-tile-add,
+  .cm-tile-credit {
+    transition: none;
+  }
+  .cm-tile:hover .cm-tile-img {
+    transform: none;
+  }
+}

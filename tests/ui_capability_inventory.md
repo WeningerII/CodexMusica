@@ -62,6 +62,8 @@ The reachability check supports these standardized preconditions. The check grou
 | `genre search: no results` | Type a query no genre matches into `#genre-search`, clear `UI.genre`, `renderGenreDiscovery()`. Surfaces the no-results state and its Clear search. |
 | `instrument search: no results` | Type a query no instrument matches into `#instrument-search`, `renderInstrumentDiscovery()`. Surfaces the no-results state and its recovery actions. |
 | `genre just imported` | `await importTraditionWithFeedback('delta_blues')`. Surfaces the import toast and its Undo action. |
+| `genre: all genres` | Click the Genre page's All genres tab. In Rows (the default layout) it is one row per first letter with the A–Z bar. RESET returns the page to Start exploring in Rows. |
+| `genre list layout` | Click the Genre page's List layout button (Rows is the default). Surfaces the List rows. RESET returns the page to Rows. |
 | `map view` | `uiNavigate('map')`. The Map presents Your recipe as a dock. RESET returns every group to the Genre section with both search fields cleared. |
 | `photo enlarged` | As `instrument picker open, similar drill-down active` (the Instrument inspector on `voice`), then its photo (`.ip-media [data-ui="lightbox"]`) is clicked. The gate serves every remote photo as a local PNG, so the photo exists offline. RESET closes it (`uiCloseLightbox`). |
 | `modal open: <id>` | `openModal(<id>)`. Modal IDs: `modal-trad`, `modal-saved`, `modal-save`, `modal-preface`, `modal-recipe-stack`, `modal-attributions` (`modal-add` has no dialog; it routes to the Instrument page). Use this only when the entry targets the modal frame itself (`#modal-X.open`), not its contents — for contents, use one of the populated-state preconditions above. |
@@ -1070,7 +1072,7 @@ precondition: empty
 ```yaml
 name: instrument-listen
 kind: widget
-selector: '#surface-instrument .listen'
+selector: '#surface-instrument .listen, #surface-instrument .cm-tile-play'
 surface: shared workbench
 implementation: src/workbench.js
 status: reachable
@@ -1825,7 +1827,7 @@ notes: Kept alongside the exact returns in one declaration in the harness's spel
 
 ## Genre page redesign (2026-09-25)
 
-The Genre page (`src/pages/genre.js`, `src/pages/genre.css`): a Browse column (the 25 taxonomy roots, the current branch, Find a sound) beside the catalogue (Start exploring / All genres, List or Grid), with Your recipe as the shell's sidebar. On a fresh session Start exploring opens the first starter recipe (Delta blues) in place, so its five detail tabs resolve under `empty`. Selectors below are presence checks; the interactions were exercised in Chromium for the PR (targets filter and rank, tab keys, both instrument destinations, View on map and back, list position on return).
+The Genre page (`src/pages/genre.js`, `src/pages/genre.css`): a Browse column (the 25 taxonomy roots, the current branch, Find a sound) beside the catalogue (Start exploring / All genres, Rows or List), with Your recipe as the shell's sidebar. On a fresh session Start exploring opens the first starter recipe (Delta blues) in place, so its five detail tabs resolve under `empty`. Selectors below are presence checks; the interactions were exercised in Chromium for the PR (targets filter and rank, tab keys, both instrument destinations, View on map and back, list position on return).
 
 ```yaml
 name: genre-view-tabs
@@ -1839,11 +1841,11 @@ notes: A search always shows All genres; the six starter recipes, Suggestions fo
 ```
 
 ```yaml
-name: genre-layout-list-grid
+name: genre-layout-rows-list
 kind: widget
 selector: '#surface-genre [data-ui="genre-layout"]'
-surface: Genre — List / Grid (the same rows as cards; an open genre spans the grid)
-implementation: genre-layout in src/pages/genre.js; remembered as the layout preference codex-layout:genre-view, cleared by Reset layout
+surface: Genre — Rows / List. Rows (the default) is a row of cards per first letter under All genres (see "Browse rows"), and one row each for the starter recipes and the suggestions; a genre's details open at the top of the catalogue. List is the compact rows, details in place
+implementation: genre-layout and gpLayout in src/pages/genre.js; remembered as the layout preference codex-layout:genre-view (a stored Grid reads as Rows), cleared by Reset layout
 status: reachable
 precondition: empty
 ```
@@ -1984,17 +1986,17 @@ precondition: empty
 name: genre-row-open
 kind: widget
 selector: '#genre-list .gp-row .gp-open'
-surface: Genre — a list row: picture, name, branch, description; the text column fills the row up to Listen and Add to recipe, and the chevron sits at the row's right edge. The name button opens the details in place (keyboard route); a click anywhere else on the row that is not a control does the same
+surface: Genre — a List row: picture, name, branch, description; the text column fills the row up to Listen and Add to recipe, and the chevron sits at the row's right edge. The name button opens the details in place (keyboard route); a click anywhere else on the row that is not a control does the same
 implementation: gpRow and the row click listener in src/pages/genre.js
 status: reachable
-precondition: empty
+precondition: genre list layout
 ```
 
 ```yaml
 name: genre-media-photo-or-glyph
 kind: widget
 selector: '#surface-genre .gp-media'
-surface: Genre — a genre's picture in rows, cards and details. When references/_image_manifest.json is served (PR #389), a tradition with an entry shows its thumb_url with "Photo: <credit> · <licence>" (linked to the source page in the details), and the photo is a button that enlarges it (photo-enlarge); in a row it sits beside the row's name button, never inside it; without an entry, without the manifest (a 404 is one quiet request, no script error), or when the image fails to load, the tradition's glyphs show whole and no credit is left behind
+surface: Genre — a genre's picture in List rows and details (a Rows card's picture is uiTile's; see "Browse rows"). When references/_image_manifest.json is served (PR #389), a tradition with an entry shows its thumb_url with "Photo: <credit> · <licence>" (linked to the source page in the details), and the photo is a button that enlarges it (photo-enlarge); in a row it sits beside the row's name button, never inside it; without an entry, without the manifest (a 404 is one quiet request, no script error), or when the image fails to load, the tradition's glyphs show whole and no credit is left behind
 implementation: gpLoadOptional / gpIndexImages / gpImage / gpMedia and the image error listener in src/pages/genre.js
 status: reachable
 precondition: empty
@@ -2207,8 +2209,8 @@ notes: Grouping only — the predicates are INSTRUMENT_FILTER_PREDS. A pill the 
 name: instrument-sort-and-view
 kind: widget
 selector: '#instrument-body #ip-sort'
-surface: Instrument list header — Sort (Name A–Z, Name Z–A, Most customizable) and List / Grid
-implementation: ipSorted; ip-view action (UILayout.remember 'instrument-view') in src/pages/instrument.js
+surface: Instrument list header — Sort (Name A–Z, Name Z–A, Most customizable, within each row in Rows) and Rows / List (Rows, the default: see "Browse rows")
+implementation: ipSorted; ip-view action (UILayout.remember 'instrument-view'; a stored Grid reads as Rows) in src/pages/instrument.js
 status: reachable
 precondition: instrument picker open
 ```
@@ -2364,11 +2366,11 @@ A catalog photo enlarges on a click and one more click anywhere puts it back. On
 name: photo-enlarge
 kind: data-action
 selector: '#instrument-preview .ip-media [data-ui="lightbox"]'
-surface: A catalog photo — the Instrument inspector's, a catalogue row's or card's and a Similar instruments row's; a Genre row's, card's and details' (when references/_image_manifest.json is served). Named "Enlarge photo of <name>", with a zoom-in cursor; a click, Enter or Space shows it large. In a row it sits beside the row's own button, never inside it, where that button's padding used to put it; a glyph in its place (no photo, or one that failed to load) opens the row as before
+surface: A catalog photo — the Instrument inspector's, a List row's and a Similar instruments row's; a Genre List row's and details' (when references/_image_manifest.json is served). Named "Enlarge photo of <name>", with a zoom-in cursor; a click, Enter or Space shows it large. In a row it sits beside the row's own button, never inside it, where that button's padding used to put it; a glyph in its place (no photo, or one that failed to load) opens the row as before
 implementation: uiPhoto and the 'lightbox' shell action (uiLightbox) in src/workbench.js; ipImage in src/pages/instrument.js; gpMedia in src/pages/genre.js
 status: reachable
 precondition: instrument picker open, similar drill-down active
-notes: check_ui_foundation.js O clicks the Instrument inspector's photo, a Genre row's photo (which must not open the row) and a genre's details' photo, and opens them with Enter and Space.
+notes: check_ui_foundation.js O clicks the Instrument inspector's photo, a Genre List row's photo (which must not open the row) and a genre's details' photo, and opens them with Enter and Space. A Rows card's photo opens the details instead (Browse rows); the details' photo enlarges.
 ```
 
 ```yaml
@@ -2380,4 +2382,99 @@ implementation: uiLightbox, uiCloseLightbox and uiPhotoSources in src/workbench.
 status: reachable
 precondition: photo enlarged
 notes: The topmost layer — it owns its Escape, so nothing under it closes on the same key. The page underneath is inert and neither moves nor scrolls. Back is a history entry pushed on open (http and https only) and taken back when it closes any other way. check_ui_foundation.js O, on a desktop and a phone, in Light and Dark.
+```
+
+## Browse rows (2026-09-27)
+
+Rows is the default layout of the Genre and Instrument catalogues (List is the other; Grid was retired). One shared component in `src/workbench.js` (`uiRowsHTML`, `uiRowsJumpHTML`, `uiTile`, `uiRowsKeep` / `uiRowsRestore`; styles `.cm-rows-*`, `.cm-tile-*` in `src/workbench.css`): one horizontally scrolling row of cards per group, a card being a photo (width from its proportions) with the name and one line (a genre's branch; an instrument's family · class). A row gets its cards when it comes near the screen, 30 at a time, and more as it is scrolled toward its end. Behaviour is gated by `scripts/check_ui_foundation.js` Q.
+
+```yaml
+name: browse-rows-genre-letters
+kind: widget
+selector: '#genre-list .cm-rows-group[aria-label]'
+surface: Genre — All genres in Rows: one row per first letter (accents folded; # for digits), A to Z within it, headed by the letter and its count; search, the Browse branch and sound targets narrow the rows and an empty row disappears
+implementation: gpLetterGroups / gpTile / gpAll in src/pages/genre.js; uiRowsHTML in src/workbench.js
+status: reachable
+precondition: 'genre: all genres'
+```
+
+```yaml
+name: browse-rows-jump-letters
+kind: widget
+selector: '#genre-maintabs .cm-rows-jump [data-ui="rows-jump"]'
+surface: Genre — the A–Z bar, sticky under the Start exploring / All genres tabs; a letter scrolls its row under the bar and is marked current (aria-current) while its row is the one in view; a letter with no genres is disabled
+implementation: uiRowsJumpHTML, uiRowsJump and uiRowsSpy in src/workbench.js
+status: reachable
+precondition: 'genre: all genres'
+```
+
+```yaml
+name: browse-rows-instrument-families
+kind: widget
+selector: '#instrument-body .cm-rows-group[aria-label]'
+surface: Instrument — All instruments in Rows: one row per family, largest first (by the catalogue's sizes, so rows keep their places while a search narrows them); inside a family, one row per class; Sort orders each row
+implementation: ipGroups / ipTile in src/pages/instrument.js; uiRowsHTML in src/workbench.js
+status: reachable
+precondition: instrument picker open
+```
+
+```yaml
+name: browse-rows-jump-families
+kind: widget
+selector: '#instrument-body .cm-rows-jump [data-ui="rows-jump"]'
+surface: Instrument — the family bar (the class bar inside a family), sticky at the top of the catalogue; shown when two or more rows have instruments
+implementation: uiRowsJumpHTML, uiRowsJump and uiRowsSpy in src/workbench.js
+status: reachable
+precondition: instrument picker open
+```
+
+```yaml
+name: browse-rows-scroll
+kind: widget
+selector: '#surface-genre [data-ui="rows-scroll"]'
+surface: A row's ‹ › buttons (desktop; hidden on a touch screen, which swipes), disabled at either end
+implementation: the 'rows-scroll' shell action and uiRowsFill in src/workbench.js
+status: reachable
+precondition: empty
+notes: Start exploring shows the starter recipes as one row.
+```
+
+```yaml
+name: browse-card-details
+kind: widget
+selector: '#surface-genre .cm-tile-name[data-ui="genre-select"]'
+surface: A card's name (one line, ellipsis, full name as its title) and its photo open the page's existing details — a genre's details at the top of the catalogue, an instrument's inspector; closing them returns focus to the card
+implementation: uiTile and the photo click listener in src/workbench.js; genre-select (src/pages/genre.js), instrument-inspect (src/pages/instrument.js)
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: browse-card-listen-add
+kind: widget
+selector: '#surface-genre .cm-tile-play'
+surface: Over a card's photo on hover or keyboard focus (always on a touch screen), with a scrim and a slight zoom — Listen (the YouTube search Listen opens elsewhere) and Add (the page's own add; ✓ once the genre or instrument is in Your recipe, and ✓ takes every card of it out as one Undo step)
+implementation: uiTile, uiTileAdd, uiTilesSync and the 'recipe-remove' shell action (uiRemoveFromRecipe) in src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: browse-card-photo-credit
+kind: widget
+selector: '#instrument-body .cm-tile-credit'
+surface: A card's ⓘ (top right of a photo): the credit and licence as its tooltip; a click shows them with a link to the source page. A photo that fails to load gives way to the glyph and its ⓘ goes with it
+implementation: uiTile, uiTileCredit and the 'tile-credit' shell action in src/workbench.js
+status: reachable
+precondition: instrument picker open
+```
+
+```yaml
+name: browse-card-menu
+kind: widget
+selector: '#surface-genre .cm-tile-more[aria-haspopup="menu"]'
+surface: A card's ⋮ — Add to recipe (Remove from recipe once in it), Listen on YouTube, Details, Photo credit; Up/Down between items, Escape back to the ⋮
+implementation: uiTileMenu (one #cm-tile-menu filled from the card), uiToggleMenu and uiMenuControls in src/workbench.js
+status: reachable
+precondition: empty
 ```

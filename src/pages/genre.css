@@ -405,6 +405,14 @@
 .gp-layout {
   margin-bottom: 6px;
 }
+/* All genres in Rows: the A–Z bar is the tabs' second line, and sticks. */
+.gp-maintabs-jump {
+  flex-wrap: wrap;
+}
+.gp-maintabs > .cm-rows-jump {
+  flex: 1 0 100%;
+  margin-top: -2px;
+}
 .gp-h {
   display: flex;
   align-items: center;
@@ -440,7 +448,7 @@
   margin: 4px 0 16px;
 }
 
-/* Items: a list of rows or a grid of cards, from the same markup. */
+/* Items: the List layout's rows (Rows is src/workbench.css's .cm-rows-*). */
 .gp-items {
   display: flex;
   flex-direction: column;
@@ -628,61 +636,6 @@
   display: block;
   width: 100%;
   height: auto;
-}
-
-/* Grid */
-.gp-items.gp-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 12px;
-}
-.gp-grid .gp-item-open {
-  grid-column: 1 / -1;
-}
-#surface-genre .gp-grid .gp-row {
-  flex-wrap: wrap;
-  align-items: stretch;
-  height: 100%;
-  padding: 8px;
-}
-#surface-genre .gp-grid .gp-open {
-  flex: 1 1 100%;
-  flex-direction: column;
-  align-items: flex-start;
-}
-/* A card's text is as wide as the card, never its own max-content: a long name
-   wraps (two lines, then an ellipsis), the description keeps its two-line
-   clamp and the photo credit its one-line ellipsis, all inside the card. */
-#surface-genre .gp-grid .gp-row,
-#surface-genre .gp-grid .gp-open {
-  min-width: 0;
-}
-#surface-genre .gp-grid .gp-row-text {
-  align-self: stretch;
-  width: 100%;
-}
-#surface-genre .gp-grid .gp-row-name {
-  display: -webkit-box;
-  overflow: hidden;
-  overflow-wrap: normal;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-.gp-grid .gp-media {
-  width: 100%;
-  height: 96px;
-}
-.gp-grid .gp-row > .gp-media {
-  flex: 1 1 100%;
-  margin: 6px 6px 0;
-}
-#surface-genre .gp-grid .gp-chevron {
-  display: none;
-}
-#surface-genre .gp-grid .gp-row > .listen,
-#surface-genre .gp-grid .gp-row > [data-ui='genre-add'] {
-  flex: 1;
-  justify-content: center;
 }
 
 /* ── Detail ────────────────────────────────────────────────────────────── */
@@ -1194,6 +1147,9 @@
     margin: 0 -12px 12px;
     padding: 4px 12px 0;
   }
+  .gp-maintabs.gp-maintabs-jump {
+    position: sticky;
+  }
   .gp-viewtabs .cm-tab {
     padding: 0 10px;
     font-size: var(--cm-text-md);
@@ -1205,10 +1161,6 @@
   .gp-list .gp-row .gp-media {
     width: 72px;
     height: 52px;
-  }
-  .gp-items.gp-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 8px;
   }
   .gp-detail-head {
     padding: 12px 12px 6px;
@@ -1253,15 +1205,12 @@
     height: 44px;
   }
 }
-/* Glyphs in a wide box (list rows, grid cards) are sized by its height and
-   shown whole; the open detail's square picture keeps the default rule. */
+/* Glyphs in a wide box (list rows) are sized by its height and shown whole;
+   the open detail's square picture keeps the default rule. */
 .gp-row .gp-media.gp-media-glyph .gp-glyph {
   justify-content: center;
   height: 100%;
   padding: 10px;
-}
-.gp-grid .gp-row .gp-media.gp-media-glyph .gp-glyph {
-  padding: 14px;
 }
 .gp-row .gp-media .sb-trad-glyphs {
   justify-content: center;
@@ -1279,8 +1228,4 @@
   max-width: 100%;
   height: 100%;
   object-fit: contain;
-}
-#surface-genre .gp-grid .gp-row > .listen,
-#surface-genre .gp-grid .gp-row > [data-ui='genre-add'] {
-  white-space: nowrap;
 }
