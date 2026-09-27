@@ -193,8 +193,15 @@ def census():
 
 #: MEASURED 2026-09-19. Counts, never a threshold — `--check` reports that the
 #: series MOVED, which is an answer and not a failure of any song.
-PINNED = {"songs": 16, "distinct": 14, "duplicate_groups": 2,
-          "functions_used": 18,
+#: REPINNED 2026-09-27 when `the_frost_ledger_replanned` was banked (seed 32
+#: re-planned at HEAD, `songs/README.md`): ~~songs 16, distinct 14,
+#: functions_used 18, hook_declared 10, blueprints_with_hook_slot 0~~ -> 17,
+#: 15, 19 (`outro` enters), 11, 1. Its order is new, so the duplicate
+#: groups and the confound stay 2 and 2 — and the seed-32 group now holds
+#: THREE songs of which only two share an order: the same seed under a later
+#: planner drew a different song, measured rather than argued.
+PINNED = {"songs": 17, "distinct": 15, "duplicate_groups": 2,
+          "functions_used": 19,
           # THE CONFOUND. Both duplicate section orders are also duplicate
           # SEEDS -- 2 of 2 -- so neither is evidence about craft that is
           # independent of the draw. Pinned so that a third duplicate order
@@ -202,8 +209,8 @@ PINNED = {"songs": 16, "distinct": 14, "duplicate_groups": 2,
           "seed_duplicate_groups": 2, "orders_confounded_by_seed": 2,
           "seeds_missing": 1,
           # THE HOOK. Counts, not a norm.
-          "hook_declared": 10, "hook_spread_over_functions": 0,
-          "blueprints_with_hook_slot": 0}
+          "hook_declared": 11, "hook_spread_over_functions": 0,
+          "blueprints_with_hook_slot": 1}
 
 
 def report(c=None):
@@ -252,8 +259,8 @@ def report(c=None):
         out.append(f"    {fn:14s} {n}")
     out.append(f"  PROVENANCE REFUSED — `hook_slot` is in "
                f"{h['blueprints_with_hook_slot']} of {h['songs']} committed "
-               f"blueprints, which predate the field, so whether a hook "
-               f"position was DRAWN or CHOSEN is not recoverable here.")
+               f"blueprints; the rest predate the field, so whether their "
+               f"hook position was DRAWN or CHOSEN is not recoverable here.")
     return "\n".join(out)
 
 

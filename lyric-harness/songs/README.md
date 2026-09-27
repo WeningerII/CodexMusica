@@ -50,6 +50,17 @@ commands and outcomes below are left as they were run — they are the record
 — and `quality/song_record.py --check` is what re-derives each song against
 its newest banked row.
 
+**ANNOTATED 2026-09-27, NOT STRUCK — THE `the_frost_ledger` FIGURE IS STILL
+TRUE AND IS NOW BISECTED.** Its twenty-two flags come from two grader repairs
+made after it was banked, `0593fa15` (M-148 P2) and `608a2a4` (M-149(b)), over a
+plan drawn before M-149(a). The banked bytes are NOT rewritten, because they
+are pair 1's bare twin in `quality/NARRATIVE_PREREGISTRATION.md`; the song was
+re-planned and rewritten as `the_frost_ledger_replanned.txt`, the last section
+of this file, which grades clean at exit 0. Its narrative twin
+`the_river_keeps_the_score` carries no `song` command here and so was never
+among the eleven; re-derived the same day with the shared command it grades
+seventeen flags, recorded in that same last section.
+
 **THE COMMITTED BLUEPRINTS ARE PRETTIER-FORMATTED AND `plan --out` IS NOT**
 (`MISSING.md` M-94). Re-running any reproduction command below rewrites its
 blueprint at `indent=1` and the repository's `gate` job refuses that file, so
@@ -749,6 +760,10 @@ above turn_the_wheel and keep_the_light [RESULTS: mattr keep_the_light.txt]
 word and four more on two homophones, which is a fact about THIS drawn
 sheet and not yet a trend.
 
+(2026-09-27: this song's banked grade no longer re-derives at HEAD, and it is
+kept unchanged as pair 1's bare twin; the re-planned rewrite is
+`the_frost_ledger_replanned.txt`, the last section of this file.)
+
 ---
 
 ## `the_river_keeps_the_score.txt` — "The River Keeps the Score", seed 32, pair 1's NARRATIVE twin: the joker card played on a real song
@@ -1052,3 +1067,113 @@ open. The vamp now answers its own echo, the postchorus counts what the
 dark hours lost, and the coda's ledger is sewn, on loan, and unknown —
 which is to say the mandated web finally says what the plan drew, at the
 placements it drew them.
+
+---
+
+## `the_frost_ledger_replanned.txt` — "The Frost Ledger", seed 32 re-planned at HEAD, 2026-09-27: the rewrite is banked BESIDE pair 1's bare twin, never over it
+
+    python3 lyric_harness.py plan --seed=32 --lines=21 --narrative=off '--title=The Frost Ledger'
+    python3 lyric_harness.py plan --seed=32 --lines=21 --narrative=off '--title=The Frost Ledger' \
+        --input-format=source --fill=songs/the_frost_ledger_replanned.txt \
+        --out=songs/the_frost_ledger_replanned.blueprint.json
+    python3 lyric_harness.py song songs/the_frost_ledger_replanned.blueprint.json \
+        songs/the_frost_ledger_replanned.txt --input-format=source \
+        '--groups=1.T2,2.T3;1.T1,2.T6;3.headrime,4.T4,6.T7,7.headrime;4.endword,5.T4;5.T6,7.T7;4.T3,5.T3;5,6.T5;9.T6,10.T5;8.T7,9.endword,10.T1;8.T3,9.T1,10.endword;11.T4,12.T7,14.T4;13.T1,15;16.T6,17.T4;11.head,13.endword,16.head;11.endword,12.T6,13.T3,15.T5,16.endword,17.T5;13.T2,14.T3,16.T3,17;15.headrime,17.T6;20,21.endword;20.headrime,21.T5;20.T2,21.T2;1,2;3,6,7;12,14' \
+        '--returns=1,18;2,19' --subdivision 4
+
+`song` exit 0, md5 `0d4c533740de`, 57 pairs mandated / 57 judged / 0 refused;
+`revise` SUCCESS in 0 rounds, draft unchanged, on the default `stub`
+proposer — no model was called at any step. 0 FLAG per line, 0 whole-draft
+flags, and nothing UNJUDGED: exit 0, not the exit 2 the older songs now
+return. Planned, screened, graded and revised at harness commits
+`1e0b1c7d`..`8c976aeb` on the day of this entry; every invocation is a row in
+`songs/the_frost_ledger_replanned.log.tsv` and every graded draft is banked in
+`songs/drafts/`.
+
+**WHY THE SONG WAS RE-PLANNED.** A bisect on 2026-09-27 showed that
+`the_frost_ledger.txt`'s banked clean grade was earned under two grader
+defects since repaired — `0593fa15` (M-148 P2: a slot-declared schema is now
+judged at the declared word positions) and `608a2a4` (M-149(b): a refusal no
+longer masks the other groups on the same line pair) — and that its plan was
+drawn by the planner before M-149(a), which could put line-opening figures
+(anaphora, head rhyme) on slots such as `13.endword`; the writer satisfied
+them elsewhere. Re-derived at `1e0b1c7d` with its own command above plus
+`--input-format=source`, the banked bytes grade twenty-two per-line flags,
+every one a SCHEME_VIOLATION, with 71 mandated, 25 judged and 46 refused, at
+exit 2. The defect is the song's, not the grader's, so the song was written
+again against a plan the current planner draws.
+
+**WHY IT IS A NEW FILE AND NOT AN EDIT.** `the_frost_ledger.txt` is the BARE
+twin of pair 1 of the preregistered narrative harm check
+(`quality/NARRATIVE_PREREGISTRATION.md`), and a re-plan at HEAD cannot keep
+that pair's control. The registration's unit is "one seed, two drafts" against
+"the identical plan", and its confounder 4 rests on "shape is controlled
+exactly (same seed)" — but seed 32 at HEAD is a different plan from the one
+both twins were written to at `3333d67`, so overwriting the bare twin would
+leave the narrative twin paired with a song written to another demand sheet.
+It would also move three gates that re-derive this file as it was banked:
+`regrade_verdicts.py`'s adopted triple, `ban_convergence.py`'s per-pair
+pins and `song_shape.py`'s CONFOUNDED seed-32 group. So the bare twin's lyric,
+blueprint and log are left byte-for-byte as banked on 2026-08-25 (bank-day
+fingerprint `5f2a1371b4d8`, plan drawn at `3333d67`, the section above) and
+stay the record; the rewrite is banked here under its own name, its own log and
+its own RESULTS rows.
+
+**WHAT WAS HELD, AND WHAT THE PLANNER WOULD NOT HOLD.** Seed 32, the title,
+`--narrative=off` and the length are the song's identity, and all four are
+declared. The meter and the section order are not coordinates `plan` accepts,
+so they are what seed 32 draws at HEAD: **21 lines, 7 sections**, 3/8 grouped
+3, chorus-solo-false_ending-verse-prechorus-chorus-outro, 23 groups with the
+chorus returning at lines 18 and 19, and NO drawn relation — every group is
+judged against every relation and is satisfied by any one its pairs stand in.
+The banked plan was 10/8 grouped 2+3+2+3 over intro-drop-verse-chorus-postchorus
+with seventeen drawn relations. A `--functions=intro,drop,verse,chorus,postchorus`
+roster was tried through the same verb and not banked: a roster permits and
+cannot compel, and it drew chorus-verse-chorus in 11/8, further from the
+original, so the plain command stands as the closest this planner draws.
+
+**WHAT THE WRITING PAID.** Eighteen recorded screens over every bound word
+family, twelve of them before the first grade; the chorus's first end pair came
+back MODAL_RHYME (`pane`/`grain`) and `hummed` has no CMUdict entry. Three
+graded drafts. The first carried six per-line flags and one whole-draft flag at exit
+2, 57 mandated with 51 judged: three SCHEME_VIOLATIONs where an assonance
+scored under the 0.75 cut (`earth`/`stir` 0.65, `rum`/`gusts` 0.72,
+`soil`/`joy` 0.65), three lines over the calibrated prominence band, the
+title missing from the hook, and six pairs UNJUDGED because an open syllable
+against a closed one stands only in schemas the pair cannot decide. The rule
+the rewrite followed is that every bound pair must stand in a coarse relation
+at the cut on the screen, so each family moved to closed codas of one kind
+(`turf`, `front`, `noise`, `kiln`, `lies`, `loose`) and the hook took
+the title. The second draft's two flags were SLOTS_EXCEEDED — nine syllables in
+eight slots and ten in nine — and it was cut to the slot counts. The third
+graded clean. Two unrecorded `song` runs over the same committed bytes as the
+first and second recorded grades were read for the full evidence text, which
+`--record` does not bank. Four screens were refused before they ran, because a
+data download's partial file had made the tree dirty; they banked no row and
+were re-run.
+
+**TWO THINGS THE LOG SAYS THAT A READER SHOULD NOT MISREAD.** The three `song`
+rows carry a `-WORKING` stamp although each ran on a clean committed tree:
+`song_log.py --record` takes the row's commit stamp after writing the graded
+draft into `songs/drafts/`, so its own new file dirties the tree it is
+stamping. The `revise` row, whose draft file already existed, is stamped on its
+commit. And `npx prettier --write` is a no-op on this blueprint — the song
+bank's blueprints are in `.prettierignore` since 2026-08-25 — so the committed
+file is exactly what `plan --fill --out` emitted.
+
+**WHAT THIS MEANS FOR PAIR 1.** Nothing in pair 1 moved: both twins' lyrics,
+blueprints and logs are the bytes banked on 2026-08-25, the registration's
+results section is still empty, and no panel has read either twin. What the
+owner should know before one does: re-derived at `1e0b1c7d` with the shared
+command, the NARRATIVE twin no longer grades clean either — seventeen per-line
+flags, every one a SCHEME_VIOLATION, with 71 mandated, 20 judged and 51
+refused, at exit 2. The registration asks both twins to reach exit 0 and
+`revise` SUCCESS "through the identical gate set before the panel sees
+either", which they did together at their bank commit, and it says a twin that
+cannot "is recorded, not replaced in silence". This entry is that record for
+both. Whether pair 1 is panelled as banked, or re-drawn as a pair under the
+current planner with the bare twin written first, is the owner's ruling and not
+one this rewrite makes. This song declares seed 32 and is NOT a twin: it must
+not be panelled against the river song, and `song_shape.py` now reads three
+seed-32 songs of which two share an order — one more measurement that a plan
+is a function of its seed AND the planner.

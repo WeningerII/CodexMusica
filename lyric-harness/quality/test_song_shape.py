@@ -170,11 +170,26 @@ def test_the_duplicate_orders_are_confounded_by_the_seed():
           per_group and all(per_group)
           and c["orders_confounded_by_seed"] == len(c["duplicates"]),
           f"{c['orders_confounded_by_seed']} of {len(c['duplicates'])}")
-    check("and the seed duplicates are exactly the order duplicates, not "
-          "merely as many — the correspondence is on MEMBERSHIP",
-          {tuple(v) for v in c["seed_duplicates"].values()}
-          == {tuple(v) for v in c["duplicates"].values()},
+    # ~~the seed duplicates are exactly the order duplicates~~ — TRUE until
+    # 2026-09-27, when `the_frost_ledger_replanned` joined seed 32 with an
+    # order of its own: it was planned at HEAD, its two seed-mates at
+    # 3333d67, and a plan is a function of the seed AND the planner (§6). So
+    # the membership claim is now the containment it always implied: every
+    # order duplicate sits INSIDE one seed duplicate, and the one seed-mate
+    # outside every order duplicate is the song re-planned under a later
+    # planner.
+    order_groups = [set(v) for v in c["duplicates"].values()]
+    seed_groups = [set(v) for v in c["seed_duplicates"].values()]
+    outside = sorted(n for g in seed_groups for n in g
+                     if not any(n in o for o in order_groups))
+    check("and each order duplicate is contained in ONE seed duplicate — "
+          "the correspondence is on MEMBERSHIP, not merely on count",
+          all(any(o <= s for s in seed_groups) for o in order_groups)
+          and len(seed_groups) == len(order_groups),
           f"seeds {sorted(c['seed_duplicates'].values())}")
+    check("the only seed-mate outside every shared order is the song "
+          "re-planned at a later planner, not a second draw of the same plan",
+          outside == ["the_frost_ledger_replanned.txt"], f"{outside}")
     check("the report SAYS so rather than leaving a reader to notice — the "
           "word CONFOUNDED appears once per confounded group",
           SS.report(c).count("CONFOUNDED") == c["orders_confounded_by_seed"])
@@ -195,7 +210,7 @@ def test_the_hook_is_a_fact_and_its_provenance_is_refused():
     h = SS.hook_census()
     check("the three counts partition the series and are never summed with "
           "each other (doctrine 79)",
-          h["declared"] + h["undeclared"] == h["songs"] == 16,
+          h["declared"] + h["undeclared"] == h["songs"] == 17,
           f"{h['declared']} declared + {h['undeclared']} undeclared "
           f"= {h['songs']}")
     check("NO song's hook phrase reaches a second section function — a "
@@ -208,10 +223,14 @@ def test_the_hook_is_a_fact_and_its_provenance_is_refused():
     # census of hook placement would be a census of the planner's own draw --
     # but that reasoning does not reach THIS population, and saying it did
     # would be crediting a mechanism the artifacts cannot show.
-    check("PROVENANCE REFUSED — `hook_slot` is in 0 of 16 committed "
-          "blueprints, so whether a hook position was DRAWN or CHOSEN is "
-          "not recoverable and is not attributed either way",
-          h["blueprints_with_hook_slot"] == 0)
+    # REPINNED 2026-09-27 (~~0 of 16~~): `the_frost_ledger_replanned` is the
+    # first committed blueprint the current planner emitted, so it carries
+    # the drawn `hook_slot`; the other sixteen still predate the field.
+    check("PROVENANCE REFUSED for the rest — `hook_slot` is in 1 of 17 "
+          "committed blueprints (the one planned at HEAD), so whether the "
+          "other hook positions were DRAWN or CHOSEN is not recoverable and "
+          "is not attributed either way",
+          h["blueprints_with_hook_slot"] == 1)
     check("the report states the refusal rather than printing a bare "
           "distribution a reader would take for craft",
           "PROVENANCE REFUSED" in SS.report())
