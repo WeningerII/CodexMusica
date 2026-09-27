@@ -18,9 +18,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const { readGlyphStores } = require('./_glyph_stores.js');
 
 const EMOJI_DIR = path.join(__dirname, '..', 'references', '_assets', 'emoji');
-const NAV_FILE = path.join(__dirname, '..', 'references', '09_nav_glyphs.js');
 const MAP_FILE = path.join(__dirname, '_instrument_emoji_map.json');
 const MANIFEST = path.join(__dirname, '..', 'references', '08_asset_manifest.js');
 
@@ -131,20 +131,16 @@ function main() {
     console.warn('Could not validate IDs against catalog: ' + e.message);
   }
 
-  // ONE COPY PER PICTURE. The page also ships NAV_GLYPH_SVGS
-  // (references/09_nav_glyphs.js, built by build_nav_glyphs.js from the same
-  // vendored Twemoji), and most of these codepoints are in it byte-for-byte.
-  // Those are left out of EMOJI_SVGS; image() / familyImage() in src/app.js
-  // read NAV_GLYPH_SVGS when EMOJI_SVGS has no entry. Only a byte-identical copy
-  // is dropped: a codepoint whose NAV artwork differs (a skin recolour) keeps
-  // its own entry here. build_nav_glyphs.js keeps a dropped codepoint in
-  // NAV_GLYPH_SVGS even when no room or preface uses it any more, and
-  // check_glyph_skin.js fails if one resolves nowhere (scripts/_glyph_stores.js).
-  const nav = (() => {
-    const src = fs.readFileSync(NAV_FILE, 'utf8');
-    return new Function(src + '\nreturn NAV_GLYPH_SVGS;')();
-  })();
-  const shared = Object.keys(svgs).filter((cp) => nav[cp] === svgs[cp]);
+  // ONE COPY PER PICTURE. The tradition glyph store in src/app.js
+  // (TRADITION_GLYPH_SVGS) is the other store the page draws on first paint,
+  // and a few instrument codepoints are in it byte-for-byte. Those are left out
+  // of EMOJI_SVGS; image() / familyImage() in src/app.js read the tradition
+  // store when EMOJI_SVGS has no entry. Only a byte-identical copy is dropped.
+  // Never the nav glyph store: that one is fetched on demand, and an
+  // instrument glyph must draw on first paint. check_glyph_skin.js fails if an
+  // instrument codepoint has no eager artwork (scripts/_glyph_stores.js).
+  const { TRADITION_GLYPH_SVGS } = readGlyphStores();
+  const shared = Object.keys(svgs).filter((cp) => TRADITION_GLYPH_SVGS[cp] === svgs[cp]);
   for (const cp of shared) delete svgs[cp];
 
   // Emit registry block
@@ -176,7 +172,7 @@ function main() {
   lines.push('// EMOJI_SVGS at render time. Saves ~530 KB vs storing SVG content per entry.');
   lines.push('//');
   lines.push('// Unique SVG blobs: ' + Object.keys(svgs).length);
-  lines.push('// Served from NAV_GLYPH_SVGS (09_nav_glyphs.js, byte-identical): ' + shared.length);
+  lines.push('// Served from TRADITION_GLYPH_SVGS (src/app.js, byte-identical): ' + shared.length);
   lines.push('// Instrument mappings: ' + Object.keys(registry).length);
   lines.push('// Family fallbacks: ' + Object.keys(familyFallback).length);
   lines.push('// To regenerate: node scripts/fetch_emoji.js && node scripts/build_emoji.js');
@@ -213,7 +209,7 @@ function main() {
       Object.keys(svgs).length +
       ' unique SVG blobs (' +
       shared.length +
-      ' more served from NAV_GLYPH_SVGS)'
+      ' more served from TRADITION_GLYPH_SVGS)'
   );
   console.log(
     'Wrote EMOJI_REGISTRY: ' + Object.keys(registry).length + ' instrument → codepoint mappings'

@@ -1,20 +1,24 @@
 // The page's three glyph artwork stores, read from the committed files, and the
-// rule that ties them together.
+// rules that tie them together.
 //
-//   TRADITION_GLYPH_SVGS  src/app.js                    (hand-kept)
-//   EMOJI_SVGS            references/08_asset_manifest.js (scripts/build_emoji.js)
-//   NAV_GLYPH_SVGS        references/09_nav_glyphs.js     (scripts/build_nav_glyphs.js)
+//   TRADITION_GLYPH_SVGS  src/app.js                       eager (hand-kept)
+//   EMOJI_SVGS            references/08_asset_manifest.js  eager (scripts/build_emoji.js)
+//   NAV_GLYPH_SVGS        references/09_nav_glyphs.js      LAZY  (scripts/build_nav_glyphs.js)
 //
-// Each picture is stored once. A codepoint whose Twemoji artwork is byte-identical
-// in NAV_GLYPH_SVGS is left out of the other two stores, and the page falls back
-// to NAV_GLYPH_SVGS for it (_sharedGlyphInner() in src/app.js). So a codepoint that
-// TRADITION_GLYPH_CP, EMOJI_REGISTRY, FAMILY_FALLBACK_EMOJI or FAMILY_HEADER_EMOJI
-// names, and that its own store lacks, is drawn only because NAV_GLYPH_SVGS has it.
-// NAV_GLYPH_SVGS is built from room and preface assignments, so reassigning one
-// preface could otherwise drop artwork a dozen instruments draw with, and nothing
-// would say so. Two guards read this module:
-//   - scripts/build_nav_glyphs.js keeps every codepoint another store relies on;
-//   - scripts/check_glyph_skin.js fails when any named codepoint resolves nowhere.
+// First paint draws tradition glyphs (the Genre list) and instrument emoji, so
+// that artwork is in the page. NAV_GLYPH_SVGS is drawn only by the room and
+// preface lists, so the lazy shell leaves it out of codex.html and fetches it
+// from api/nav_glyphs.json the first time one of those lists draws
+// (navGlyphSvg() in src/app.js).
+//
+// Each picture is stored once, and a picture first paint needs is stored eagerly:
+//   - EMOJI_SVGS leaves out a codepoint byte-identical in TRADITION_GLYPH_SVGS;
+//   - NAV_GLYPH_SVGS leaves out a codepoint byte-identical in either eager
+//     store, and the page draws that nav glyph from the eager copy.
+// scripts/check_glyph_skin.js fails when a codepoint that TRADITION_GLYPH_CP,
+// EMOJI_REGISTRY, FAMILY_FALLBACK_EMOJI or FAMILY_HEADER_EMOJI names has no
+// eager artwork (it would draw blank until the nav set arrived, or never), when
+// a nav codepoint resolves nowhere, and when one codepoint is stored twice.
 'use strict';
 const fs = require('fs');
 const path = require('path');
@@ -23,6 +27,9 @@ const ROOT = path.join(__dirname, '..');
 const APP_FILE = path.join(ROOT, 'src', 'app.js');
 const EMOJI_FILE = path.join(ROOT, 'references', '08_asset_manifest.js');
 const NAV_FILE = path.join(ROOT, 'references', '09_nav_glyphs.js');
+
+const EAGER_STORES = ['TRADITION_GLYPH_SVGS', 'EMOJI_SVGS'];
+const LAZY_STORE = 'NAV_GLYPH_SVGS';
 
 // src/app.js is a runtime file, not data, so its two tables are read as the JSON
 // literals they are rather than by running the file.
@@ -55,35 +62,43 @@ function readGlyphStores() {
   };
 }
 
-// Every codepoint a table names, with the store the page reads first for it.
+// Every codepoint a table names. `eager` marks the tables first paint draws.
 function glyphReferences(s) {
   const refs = [];
   for (const [ch, cp] of Object.entries(s.TRADITION_GLYPH_CP))
-    refs.push({ table: 'TRADITION_GLYPH_CP', key: ch, cp, own: 'TRADITION_GLYPH_SVGS' });
+    refs.push({ table: 'TRADITION_GLYPH_CP', key: ch, cp, eager: true });
   for (const table of ['EMOJI_REGISTRY', 'FAMILY_FALLBACK_EMOJI', 'FAMILY_HEADER_EMOJI'])
-    for (const [key, cp] of Object.entries(s[table]))
-      refs.push({ table, key, cp, own: 'EMOJI_SVGS' });
+    for (const [key, cp] of Object.entries(s[table])) refs.push({ table, key, cp, eager: true });
   for (const [ch, cp] of Object.entries(s.NAV_GLYPH_CP))
-    refs.push({ table: 'NAV_GLYPH_CP', key: ch, cp, own: 'NAV_GLYPH_SVGS' });
+    refs.push({ table: 'NAV_GLYPH_CP', key: ch, cp, eager: false });
   return refs;
 }
 
-// codepoint → ['TABLE:key', …] for every codepoint that resolves only through
-// NAV_GLYPH_SVGS: named by a tradition or emoji table, absent from its own store.
-function reliedOnNav(s) {
-  const out = new Map();
-  for (const r of glyphReferences(s)) {
-    if (r.own === 'NAV_GLYPH_SVGS' || s[r.own][r.cp]) continue;
-    if (!out.has(r.cp)) out.set(r.cp, []);
-    out.get(r.cp).push(`${r.table}:${r.key}`);
-  }
-  return out;
-}
+const eagerArt = (s, cp) => EAGER_STORES.map((st) => s[st][cp]).find(Boolean) || null;
 
-// References whose codepoint has artwork in neither its own store nor
-// NAV_GLYPH_SVGS: the page draws nothing for them.
+// References the page cannot draw as promised: an eager table's codepoint with
+// no eager artwork (`lazyOnly` when only NAV_GLYPH_SVGS has it), or a nav
+// codepoint with artwork nowhere.
 function unresolvedGlyphs(s) {
-  return glyphReferences(s).filter((r) => !s[r.own][r.cp] && !s.NAV_GLYPH_SVGS[r.cp]);
+  return glyphReferences(s)
+    .filter((r) => !eagerArt(s, r.cp) && (r.eager || !s[LAZY_STORE][r.cp]))
+    .map((r) => ({ ...r, lazyOnly: !!s[LAZY_STORE][r.cp] }));
 }
 
-module.exports = { readGlyphStores, glyphReferences, reliedOnNav, unresolvedGlyphs };
+// codepoint → [store, …] for every codepoint stored in more than one store.
+function storedTwice(s) {
+  const seen = new Map();
+  for (const st of [...EAGER_STORES, LAZY_STORE])
+    for (const cp of Object.keys(s[st])) seen.set(cp, [...(seen.get(cp) || []), st]);
+  return new Map([...seen].filter(([, sts]) => sts.length > 1));
+}
+
+module.exports = {
+  EAGER_STORES,
+  LAZY_STORE,
+  readGlyphStores,
+  glyphReferences,
+  eagerArt,
+  unresolvedGlyphs,
+  storedTwice,
+};

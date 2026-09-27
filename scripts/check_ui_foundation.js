@@ -63,11 +63,18 @@
 //      scrolls, closing leaves no history entry behind, and when no larger
 //      copy loads the thumb stays. On a phone the photo fits the screen.
 //
+//   NAV GLYPHS
+//   P. The room and preface glyph artwork (api/nav_glyphs.json) is not in the
+//      page. With that file refused, the preface browser draws every glyph —
+//      the missing ones as their emoji character, none blank — and asks for it
+//      at most twice however often it re-renders; once the file is served
+//      again, coming back online swaps the artwork in place.
+//
 // Usage: node scripts/check_ui_foundation.js [--html=codex.html]
 // Exit 0 if every assertion passes, 1 otherwise.
 
 'use strict';
-/* global document, window, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync, Catalog, INSTRUMENTS, normalizeSearch, renderGenreDiscovery, gpRenderMain, renderInstrumentDiscovery, computeDistance */
+/* global document, window, openPrefaceModal, renderPrefaceModalBody, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync, Catalog, INSTRUMENTS, normalizeSearch, renderGenreDiscovery, gpRenderMain, renderInstrumentDiscovery, computeDistance */
 /* global innerWidth, UITheme, uiInspectInstrument */
 const fs = require('fs');
 const http = require('http');
@@ -1338,6 +1345,66 @@ async function loadDelta(page) {
       await ctx.close();
     }
 
+    // ── P. nav glyphs: never blank, fetched with backoff, filled in place ─
+    stage = 'P. nav glyphs';
+    {
+      const { ctx, page } = await newPage();
+      let refuse = true;
+      let asked = 0;
+      await ctx.route(/\/api\/nav_glyphs\.json$/, (route) => {
+        asked++;
+        return refuse ? route.fulfill({ status: 404, body: '' }) : route.fallback();
+      });
+      await page.goto(url + '#genre');
+      await ready(page);
+      await loadDelta(page);
+      await page.evaluate(() => openPrefaceModal(app.cards[0]));
+      await page.waitForTimeout(400);
+      // Re-render as a search does, keystroke by keystroke.
+      await page.evaluate(() => {
+        for (let i = 0; i < 6; i++) renderPrefaceModalBody();
+      });
+      await page.waitForTimeout(300);
+      const refused = await page.evaluate(() => {
+        const glyphs = [...document.querySelectorAll('#preface-modal-body svg.codex-glyph')];
+        return {
+          total: glyphs.length,
+          blank: glyphs.filter((g) => !g.childElementCount).length,
+          fallback: glyphs.filter((g) => g.hasAttribute('data-nav-cp')).length,
+        };
+      });
+      check(refused.total > 100, `P. the preface browser drew ${refused.total} glyphs`);
+      check(
+        refused.blank === 0,
+        `P. with api/nav_glyphs.json refused, ${refused.blank} of ${refused.total} preface glyphs are blank`
+      );
+      check(refused.fallback > 0, 'P. no preface glyph waited on api/nav_glyphs.json');
+      check(
+        asked >= 1 && asked <= 2,
+        `P. api/nav_glyphs.json was asked for ${asked} time(s) across 7 renders (want 1-2)`
+      );
+      refuse = false;
+      await page.evaluate(() => window.dispatchEvent(new Event('online')));
+      await page
+        .waitForFunction(
+          () => !document.querySelector('#preface-modal-body svg[data-nav-cp]'),
+          null,
+          {
+            timeout: 15000,
+          }
+        )
+        .catch(() => {});
+      const served = await page.evaluate(() => ({
+        waiting: document.querySelectorAll('#preface-modal-body svg[data-nav-cp]').length,
+        text: document.querySelectorAll('#preface-modal-body svg.codex-glyph text').length,
+      }));
+      check(
+        served.waiting === 0 && served.text === 0,
+        `P. back online, ${served.waiting} preface glyph(s) still wait and ${served.text} still show an emoji character`
+      );
+      await ctx.close();
+    }
+
     // ── K. a phone: the Recipe sheet leaves the map on screen ────────────
     stage = 'K. a phone';
     {
@@ -1395,7 +1462,8 @@ async function loadDelta(page) {
       'reported, empty and no-results recovery, phone Map sheet, toast action leaves with the toast, ' +
       'Your recipe on the right with its menus, truthful environment source and output format, ' +
       'genre, instrument and map lists A to Z (within a tie when ranked) on desktop and phone, ' +
-      'photos that enlarge and close on a click anywhere, Escape or Back.'
+      'photos that enlarge and close on a click anywhere, Escape or Back; ' +
+      'nav glyphs never blank without api/nav_glyphs.json, fetched with backoff, filled in place.'
   );
   process.exit(0);
 })();

@@ -21,6 +21,7 @@
 //     against the current catalog (the "every id resolvable" promise) — this is what
 //     catches the published snapshot drifting from references/.
 //   • index.json counts match the catalog.
+//   • nav_glyphs.json is exactly NAV_GLYPH_SVGS (the art the lazy shell fetches).
 //
 // Usage:
 //   node scripts/check_api.js                 # check the committed api/
@@ -240,6 +241,23 @@ if (browse) {
         .slice(0, 5)
         .map((x) => x.id)
         .join(', ')})`
+    );
+}
+
+// ───────────────────────── nav_glyphs.json (room and preface glyph art, fetched on demand) ─────────────────────────
+// The lazy shell draws every room and preface glyph not in an eager store from
+// this file, so it must be exactly NAV_GLYPH_SVGS: a stale copy draws the wrong
+// picture or an empty slot, and nothing else would say so.
+const navGlyphs = readJson('nav_glyphs.json');
+if (navGlyphs) {
+  const want = C.NAV_GLYPH_SVGS || {};
+  const got = navGlyphs.svgs || {};
+  const wrong = Object.keys({ ...want, ...got }).filter((cp) => want[cp] !== got[cp]);
+  if (wrong.length || navGlyphs.count !== Object.keys(want).length)
+    fail(
+      `nav_glyphs.json: ${wrong.length} codepoint(s) differ from NAV_GLYPH_SVGS (e.g. ${wrong
+        .slice(0, 5)
+        .join(', ')}), count=${navGlyphs.count}; run npm run build:api`
     );
 }
 
