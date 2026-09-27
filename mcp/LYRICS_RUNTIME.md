@@ -25,6 +25,7 @@ a transactional shared store before they can safely use this protocol.
 | State | Default file under `LYRIC_RUNTIME_DIR` |
 |---|---|
 | Request intents, progress and responses | `jobs/<request_id>.json` |
+| Connector workflow sessions and operations (`/mcp` and its aliases) | `sessions/<id>.json` |
 | Generated chat signing key | `chat-secret.key` |
 | Shared model admission/accounting ledger | `model-spend.json` |
 | Legacy chat turn counters | `chat-spend.json` |
@@ -117,8 +118,10 @@ request never executed. It must not trigger transparent resubmission.
 
 ## Capacity and identity
 
-Storage is bounded to 128 full payloads, 8192 receipt identifiers, 8 MiB per record
-and 256 MiB total. To admit new requests within these limits, the oldest completed
+The `/chat` store is bounded to 128 full payloads, 8192 receipt identifiers, 8 MiB per record
+and 256 MiB total. Connector sessions have their own store with limits sized for
+connector traffic (`SESSION_STORE_LIMITS` in `mcp/workflow_sessions.js`); the same
+retirement rules apply to it. To admit new requests within these limits, the oldest completed
 or interrupted payload can be retired early. Its small `retired` tombstone retains
 the identifier and request digest, preventing that identifier from executing again.
 A retired receipt returns no checkpoint or response and cannot be resumed.

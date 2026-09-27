@@ -9,6 +9,10 @@
 //   GATE  : `// @covers: <id>` tags in scripts/*.js
 // Any id present in one set but missing from another is an orphan and fails CI.
 //
+// Tags alone let a doc claim more than its gate checks while every set stays
+// equal. A row that lists `doc_terms` also binds wording: each term must appear
+// in the registry claim and in the doc paragraph its marker closes.
+//
 // Usage: node scripts/check_promises.js [--verbose]   (exit 0 = bijection holds)
 
 'use strict';
@@ -27,8 +31,22 @@ const DOCS = ['AGENTS.md', 'llms.txt', 'README.md', 'SKILL.md'];
 const PROMISE_RE = /@promise:\s*([a-z0-9_-]+)/gi;
 const COVERS_RE = /@covers:\s*([a-z0-9 ,_-]+)/gi;
 
-// ── collect DOC markers: id -> [files] ──
+// The claim a marker stands for is the paragraph (or list item) it closes:
+// from the nearest blank line or list bullet before the marker up to it.
+function paragraphBefore(text, index) {
+  const start = Math.max(
+    text.lastIndexOf('\n\n', index),
+    text.lastIndexOf('\n- ', index),
+    text.lastIndexOf('\n* ', index)
+  );
+  return text.slice(start < 0 ? 0 : start, index);
+}
+// Wording is compared without case, code ticks or line wrapping.
+const plain = (text) => text.toLowerCase().replaceAll('`', '').replace(/\s+/g, ' ');
+
+// ── collect DOC markers: id -> [files], and id@file -> the paragraph it closes ──
 const docMarkers = new Map();
+const docParagraphs = new Map();
 for (const rel of DOCS) {
   const p = path.join(ROOT, rel);
   if (!fs.existsSync(p)) continue;
@@ -39,6 +57,7 @@ for (const rel of DOCS) {
     const id = m[1];
     if (!docMarkers.has(id)) docMarkers.set(id, []);
     docMarkers.get(id).push(rel);
+    docParagraphs.set(`${id}@${rel}`, paragraphBefore(text, m.index));
   }
 }
 
@@ -74,6 +93,22 @@ for (const r of REGISTRY) {
   else if (!inDocs.includes(r.doc))
     problems.push(`promise "${r.id}" marker is in ${inDocs.join(',')} but registry says ${r.doc}`);
 
+  // The words, not only the tags: each bound term appears in the registry claim
+  // (which the gate is written against) and in the doc paragraph readers see.
+  if (r.doc_terms !== undefined) {
+    const paragraph = docParagraphs.get(`${r.id}@${r.doc}`);
+    if (!Array.isArray(r.doc_terms) || !r.doc_terms.length)
+      problems.push(`promise "${r.id}" has an empty or malformed doc_terms list`);
+    for (const term of r.doc_terms || []) {
+      if (!plain(r.claim).includes(plain(term)))
+        problems.push(`promise "${r.id}" binds the term "${term}", which its registry claim lacks`);
+      if (paragraph !== undefined && !plain(paragraph).includes(plain(term)))
+        problems.push(
+          `promise "${r.id}": ${r.doc} no longer says "${term}" in the paragraph its marker closes`
+        );
+    }
+  }
+
   const inGates = gateCovers.get(r.id) || [];
   if (!inGates.length)
     problems.push(`promise "${r.id}" has NO gate (add // @covers: ${r.id} to ${r.gate})`);
@@ -102,13 +137,15 @@ if (VERBOSE && problems.length === 0) {
 }
 if (problems.length === 0) {
   console.log(
-    `PASS — all ${REGISTRY.length} promises are documented AND gated; 0 orphans on any side.`
+    `PASS — all ${REGISTRY.length} promises are documented AND gated; 0 orphans on any side; ` +
+      `${REGISTRY.filter((r) => r.doc_terms).length} bind their wording to the doc.`
   );
   process.exit(0);
 }
 console.error(`FAIL — ${problems.length} coverage gap(s):`);
 for (const p of problems) console.error(`  ✗ ${p}`);
 console.error(
-  `\nEvery promise needs all three: a registry row, a <!-- @promise: id --> doc marker, and a // @covers: id gate tag.`
+  `\nEvery promise needs all three: a registry row, a <!-- @promise: id --> doc marker, and a // @covers: id gate tag.` +
+    `\nA row with doc_terms also needs each term in its claim and in the doc paragraph its marker closes.`
 );
 process.exit(1);

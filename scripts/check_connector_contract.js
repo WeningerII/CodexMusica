@@ -1,19 +1,27 @@
 #!/usr/bin/env node
 // check_connector_contract.js — the MCP surface is a contract; assert it.
 //
-// Three promises live here, all read off ONE live listTools()/callTool()
-// round-trip against a real in-memory client rather than off a compiled guess:
+// These promises are read off live listTools()/callTool() round-trips against
+// real in-memory clients rather than off a compiled guess:
 //
 //   published schemas stay representable by a restricted client
 // @covers: connector-schema-subset
 //   the advertised tool surface and its annotations are what we claim
-// @covers: connector-tools-read-only
+// @covers: connector-tool-effects
 //   every edit action is visible in the response that reports it
 // @covers: connector-edit-visible
 //   the derived Gemini declarations carry nothing that client rejects
 // @covers: connector-gemini-legal
 //   a chain id can be used without guessing which of eight stages takes it
 // @covers: chain-id-stage-known
+//
+// WHICH SERVERS. The raw engine (buildServer: /mcp/recipe, /mcp/lyrics, stdio)
+// carries the behavioural checks. The surface promises — annotations, schema
+// subset, Gemini legality — are checked on EVERY connector surface hosts are
+// given: the raw engine and its two task scopes, the shared /mcp endpoint
+// (sessions plus caller-managed compatibility) and the /mcp/chatgpt aliases.
+// This gate once read only the raw engine, so it stayed green while /mcp — the
+// endpoint the docs send hosts to — contradicted the promise it covered.
 //
 // WHY A ROUND-TRIP AND NOT z.toJSONSchema():
 // the SDK does not publish what a bare compile produces. It converts through
@@ -423,6 +431,163 @@ function scanSchema(toolName, schema) {
     JSON.stringify(stateTools.slice().sort()) === JSON.stringify(publishState) &&
       publishState.length > 0,
     `${JSON.stringify(stateTools)} vs ${JSON.stringify(publishState)}`
+  );
+
+  // ── every other connector surface ─────────────────────────────────────────
+  //
+  // The checks above read the raw engine. Hosts are sent to /mcp, which wraps
+  // every raw tool in a session layer with its own annotations and schemas, and
+  // ChatGPT to the /mcp/chatgpt aliases; the task endpoints scope the raw engine.
+  // Each is listed live and held to the same three promises.
+  console.log('\n=== Every other connector surface: effects, schema subset, Gemini legality ===');
+  const mcpModule = (file) => import(pathToFileURL(path.join(__dirname, '..', 'mcp', file)).href);
+  const { buildWorkflowServer } = await mcpModule('workflow_tools.js');
+  const { WorkflowSessions } = await mcpModule('workflow_sessions.js');
+  const { JobStore } = await mcpModule('job_store.js');
+  const listed = async (built) => {
+    const [c, s] = InMemoryTransport.createLinkedPair();
+    const lister = new Client(
+      { name: 'contract-gate-surface', version: '0' },
+      { capabilities: {} }
+    );
+    await Promise.all([built.connect(s), lister.connect(c)]);
+    try {
+      return (await lister.listTools()).tools;
+    } finally {
+      await lister.close();
+      await built.close();
+    }
+  };
+  const sessions = new WorkflowSessions({ store: new JobStore() });
+  const workflow = (domain, compatibility) =>
+    buildWorkflowServer({ domain, sessions, compatibility });
+  const recipeTools = EXPECTED_TOOLS.filter((name) => !name.startsWith('lyric_'));
+  const lyricTools = EXPECTED_TOOLS.filter((name) => name.startsWith('lyric_'));
+  const CONTROLS = ['get_operation', 'resume_operation'];
+  const otherSurfaces = [
+    {
+      label: 'raw /mcp/recipe',
+      tools: await listed(buildServer({ task: { domain: 'recipe' } })),
+      expect: recipeTools,
+    },
+    {
+      label: 'raw /mcp/lyrics',
+      tools: await listed(buildServer({ task: { domain: 'lyrics' } })),
+      expect: lyricTools,
+    },
+    {
+      label: '/mcp',
+      session: true,
+      compatibility: true,
+      tools: await listed(await workflow(null, true)),
+      expect: [...EXPECTED_TOOLS, ...CONTROLS, 'begin_lyrics'],
+    },
+    {
+      label: '/mcp/chatgpt',
+      session: true,
+      tools: await listed(await workflow(null, false)),
+      expect: [...EXPECTED_TOOLS, ...CONTROLS, 'begin_lyrics'],
+    },
+    {
+      label: '/mcp/chatgpt/recipe',
+      session: true,
+      tools: await listed(await workflow('recipe', false)),
+      expect: [...recipeTools, ...CONTROLS],
+    },
+    {
+      label: '/mcp/chatgpt/lyrics',
+      session: true,
+      tools: await listed(await workflow('lyrics', false)),
+      expect: [...lyricTools, ...CONTROLS, 'begin_lyrics'],
+    },
+  ];
+  // Lookups read the catalog or the lexicon and hold nothing for the caller.
+  const LOOKUPS = new Set([
+    'search_catalog',
+    'search_prefaces',
+    'get_instrument',
+    'get_tradition',
+    'list_traditions',
+    'list_options',
+    'lyric_types',
+    'get_operation',
+  ]);
+  // On a session surface every tool that opens or takes a session_id records
+  // it. A repeat with the same session_id and arguments returns the same
+  // operation, except where a call opens a new session, or (on /mcp) runs the
+  // raw engine without one, whose lyric_revise advances its run.
+  const effects = (surface, name) => {
+    if (!surface.session) return { read: name !== 'lyric_revise', same: name !== 'lyric_revise' };
+    if (LOOKUPS.has(name)) return { read: true, same: true };
+    const opens = ['start_recipe', 'begin_lyrics'].includes(name);
+    return { read: false, same: !opens && !(surface.compatibility && name === 'lyric_revise') };
+  };
+  const leaksCarried = (declarations) =>
+    declarations
+      .filter(
+        (d) =>
+          d.parameters?.properties?.[WORKSPACE_PROPERTY] ||
+          d.parameters?.properties?.[STATE_PROPERTY]
+      )
+      .map((d) => d.name);
+  for (const surface of otherSurfaces) {
+    const listedNames = surface.tools.map((t) => t.name).sort();
+    check(
+      `${surface.label}: advertises exactly its ${surface.expect.length} tools`,
+      JSON.stringify(listedNames) === JSON.stringify([...surface.expect].sort()),
+      JSON.stringify(listedNames)
+    );
+    const misdescribed = surface.tools.filter((t) => {
+      const a = t.annotations || {};
+      const e = effects(surface, t.name);
+      return (
+        a.openWorldHint !== false ||
+        a.destructiveHint === true ||
+        a.readOnlyHint !== e.read ||
+        a.idempotentHint !== e.same
+      );
+    });
+    check(
+      `${surface.label}: annotations say what each tool touches, and none reaches outside`,
+      misdescribed.length === 0,
+      misdescribed.map((t) => `${t.name} ${JSON.stringify(t.annotations)}`).join('; ')
+    );
+    const structural = surface.tools
+      .flatMap((t) => scanSchema(t.name, t.inputSchema))
+      .filter((hit) => !EXEMPT.has(hit));
+    check(
+      `${surface.label}: no unexempted structural keywords`,
+      structural.length === 0,
+      structural.join(', ')
+    );
+    const derived = toGeminiDeclarations(surface.tools);
+    const rejected = [
+      ...scanGeminiIllegal(derived.declarations),
+      ...leaksCarried(derived.declarations),
+    ];
+    check(
+      `${surface.label}: derived Gemini declarations are legal and carry no workspace or state`,
+      rejected.length === 0 && derived.declarations.length === surface.tools.length,
+      rejected.join(', ')
+    );
+  }
+  // The website chat's own server is published nowhere, but the declarations
+  // derived from it are the document Google actually parses for the chat bar.
+  const chatTools = await listed(buildServer({ kitchen: true }));
+  const chatDerived = toGeminiDeclarations(chatTools).declarations;
+  const chatRejected = [...scanGeminiIllegal(chatDerived), ...leaksCarried(chatDerived)];
+  check(
+    "website chat's server: derived Gemini declarations are legal and carry no workspace or state",
+    chatRejected.length === 0,
+    chatRejected.join(', ')
+  );
+  const outward = chatTools
+    .filter((t) => t.annotations?.openWorldHint !== false)
+    .map((t) => t.name);
+  check(
+    "website chat's server: only its lyric_revise reaches a model provider",
+    JSON.stringify(outward) === '["lyric_revise"]',
+    JSON.stringify(outward)
   );
 
   // ── a chain id is usable, not merely findable ─────────────────────────────

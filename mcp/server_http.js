@@ -3,17 +3,18 @@ import { CONNECTOR_VERSION } from './contract_version.js';
 // server_http.js — run the CodexMusica MCP server over Streamable HTTP.
 //
 // This is the deployable entry point. Host it at an HTTPS URL and add it in
-// Claude → Add connectors → custom → paste the URL. No login: the engine is
-// recipe compute is public; optional paid lyrics use the shared admission ledger.
-// Open is not the same as unguarded —
+// Claude → Add connectors → custom → paste the URL. No login: recipe compute is
+// public, and the connector's lyric tools plan and grade without calling a model;
+// only /chat spends, against its admission ledger. Open is not the same as unguarded —
 // per-IP limits live below (MCP_LIMITS) and per-request size ceilings live in
 // schemas.js. An edge limiter in front is still welcome; it is no longer the
 // only thing standing between an open endpoint and a busy loop.
 //
 // STATELESS mode: a fresh server + transport is created per request and no
 // session id is issued. This is the robust pattern for a hosted connector — an
-// instance restart cannot orphan a transport session. Lyrics run capabilities
-// and durable /chat receipts have their own explicit recovery lifecycle. (The earlier stateful/in-memory variant
+// instance restart cannot orphan a transport session. Connector workflow
+// sessions (session_id / operation_id) and durable /chat receipts have their own
+// explicit, persisted recovery lifecycle. (The earlier stateful/in-memory variant
 // dropped sessions on every redeploy, which surfaced as "execution errors" on
 // calls made after a deploy.) Each tool call is self-contained.
 
@@ -39,7 +40,11 @@ import { lyricCapacity, lyricWorkerState } from './lyric_tools.js';
 import { createOperationBudget } from './paid_budget.js';
 import { effectiveConfiguration } from './runtime_config.js';
 import { runtimeAssets } from './runtime_assets.js';
-import { WorkflowSessions } from './workflow_sessions.js';
+import {
+  WorkflowSessions,
+  SESSION_STORE_LIMITS,
+  INTEGRATION as SESSION_INTEGRATION,
+} from './workflow_sessions.js';
 import { buildWorkflowServer } from './workflow_tools.js';
 
 const PORT = process.env.PORT || 3000;
@@ -237,23 +242,46 @@ app.use((req, res, next) => {
 // Awaited before listen() so the in-memory MCP client it drives is connected
 // before the first request can arrive.
 const buildIdentity = runtimeBuildIdentity();
+const runtimeDir = (name) =>
+  process.env.LYRIC_RUNTIME_DIR ? path.join(process.env.LYRIC_RUNTIME_DIR, name) : null;
 let jobStore;
 try {
-  jobStore = new JobStore(
-    process.env.LYRIC_RUNTIME_DIR ? path.join(process.env.LYRIC_RUNTIME_DIR, 'jobs') : null
-  );
+  jobStore = new JobStore(runtimeDir('jobs'));
 } catch (err) {
-  console.error('[chat] recovery persistence is unusable; paid chat is disabled:', err.message);
+  console.error(
+    '[chat] /chat recovery persistence is unusable; /chat is disabled until repaired:',
+    err.message
+  );
   jobStore = new JobStore();
   jobStore.failure = err.message;
 }
+// Connector sessions keep their own store, so neither surface's traffic, disk
+// failure or capacity can stop the other. Sessions an earlier release wrote to
+// the /chat store stay readable and continuable from it until they expire.
+let sessionStore;
+try {
+  sessionStore = new JobStore(runtimeDir('sessions'), SESSION_STORE_LIMITS);
+} catch (err) {
+  console.error(
+    '[mcp] session persistence is unusable; recipe calls answer without saving a session and lyric sessions are refused until repaired:',
+    err.message
+  );
+  sessionStore = new JobStore(null, SESSION_STORE_LIMITS);
+  sessionStore.failure = err.message;
+}
 let chatRouter;
-const workflowSessions = new WorkflowSessions({ store: jobStore, build: buildIdentity });
+const workflowSessions = new WorkflowSessions({
+  store: sessionStore,
+  legacyStore: jobStore,
+  build: buildIdentity,
+});
 app.use(
   createJobRouter({
     store: jobStore,
     build: buildIdentity,
     recoverCheckpoint: (record) => chatRouter?.recoverCheckpoint?.(record),
+    // Session receipts hold private continuation state; only get_operation reads them.
+    exposes: (record) => record.intent?.integration !== SESSION_INTEGRATION,
   })
 );
 
@@ -311,6 +339,14 @@ app.get('/health', (_req, res) =>
       max_records: jobStore.maxRecords,
       max_payload_records: jobStore.maxPayloadRecords,
       healthy: !jobStore.failure,
+      sessions: {
+        durable: sessionStore.durable,
+        retention_ms: sessionStore.ttlMs,
+        max_records: sessionStore.maxRecords,
+        max_payload_records: sessionStore.maxPayloadRecords,
+        max_bytes: sessionStore.maxBytes,
+        healthy: !sessionStore.failure,
+      },
     },
   })
 );
@@ -318,12 +354,16 @@ app.get('/health', (_req, res) =>
 app.get('/ready', (_req, res) => {
   const lyrics = chatRouter.readiness();
   const assets = runtimeAssets();
-  const ready = lyrics.ready === true && !jobStore.failure && assets.ok;
+  const ready = lyrics.ready === true && !jobStore.failure && !sessionStore.failure && assets.ok;
   res.status(ready ? 200 : 503).json({
     ready,
     capabilities: { recipe: true, lyrics: ready },
     lyrics,
-    recovery: { durable: jobStore.durable, healthy: !jobStore.failure },
+    recovery: {
+      durable: jobStore.durable,
+      healthy: !jobStore.failure,
+      sessions: { durable: sessionStore.durable, healthy: !sessionStore.failure },
+    },
     queue: lyricCapacity(),
     build: buildIdentity,
     assets,

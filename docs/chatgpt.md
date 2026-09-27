@@ -47,8 +47,13 @@ background lyric operations and the shared recovery controls. The older task vie
 `/mcp/recipe` and `/mcp/lyrics` remain for strict maintained SDK consumers during migration.
 
 Stateful tools return a typed `structuredContent` envelope. `tool_result` contains
-the underlying output with private workspace/state fields removed; the envelope is also delivered as MCP text, including recovery IDs. The actual recipe and song text and
-grader qualifications remain the output authority. `completed` means the call
+the underlying output with private workspace/state fields removed. The MCP content
+carries that same output first, block for block and unchanged, so a text-only host
+reads the recipe or song exactly as the tool wrote it; the last block is the
+envelope as JSON (without `tool_result`), including the recovery IDs. A read of an
+operation whose tool refused is not itself an error: it reports `tool_error: true`.
+`lyric_types` is a lookup and answers directly, without a session. The actual
+recipe and song text and grader qualifications remain the output authority. `completed` means the call
 returned, not that a song is certified. The envelope's `resumable` describes an
 interrupted operation; a completed lyric tool's own verdict describes whether its
 revision can continue through `lyric_revise`.
@@ -72,24 +77,34 @@ writer.
 - Explicit `resume_operation` is allowed only with a safe retained checkpoint.
   Original replay input stays distinct from accepted lyrics. Unknown provider
   outcomes, changed scoring semantics, finished journals and exhausted journal
-  capacity cannot replay a proposal. Recover the accepted draft and disclose the
-  stop. Regrading a changed draft and starting a new run is a separate action.
+  capacity cannot replay a proposal. Recover the accepted draft (`accepted_draft`,
+  or `lyric_revise` with `recover_only: true`, which exports the journal a session
+  holds without an operation) and disclose the stop. An interrupted operation that
+  cannot resume still returns a `session_id`: grading a kept draft and starting a
+  new run from it is a separate action, and every refusal names the call that works.
 - A resumed lyric operation retains the last accepted draft before dispatch.
   If it is interrupted again before saving new progress, `get_operation` still
   exports those exact lyrics, including after restart. This inherited text is
   recovery data only: it does not make the new operation safe to replay. New
   worker progress takes precedence. See [the repeated-interruption repair](workflow-recovery.md).
-- Sessions use the existing private `JobStore` and share its storage limits with
-  `/chat`: by default 8,192 metadata records, 128 retained payloads and 256 MB.
-  Completed/interrupted metadata expires after 24 hours without a work update;
-  full payloads can retire sooner, superseded and completed receipts first. An
+- Sessions have their own private `JobStore`, apart from `/chat`'s receipts, sized
+  for connector traffic (`SESSION_STORE_LIMITS` in `mcp/workflow_sessions.js`), so
+  neither surface's load, capacity or disk failure stops the other. Sessions saved
+  in the `/chat` store by an earlier release stay readable and continuable until
+  they expire, and `/chat/jobs` never serves them. Completed/interrupted metadata
+  expires `retention_ms` after its last work update (`expires_at` gives the time);
+  full payloads can retire sooner, superseded and completed receipts first, and a
+  retired id reads `status: retired`. An
   interrupted operation that holds accepted lyrics, including an inherited
   draft from a safe resume, is never retired for space,
   only by expiry. A session is temporary working state, not a permanent song
   archive. IDs grant access to that state without an account login.
-- The shared workflow store admits at most 16 active operations across its endpoints. The
-  existing serialized Python queue and tool deadlines still apply. Each operation
-  makes no model call and spends nothing from the website chat's paid ledger.
+- The workflow queue admits a bounded number of background lyric operations across
+  its endpoints; recipe calls are answered within their own request and do not
+  count against it. If the session store refuses a recipe call, the recipe is still
+  computed and returned with `status: unsaved` and a note. The existing serialized
+  Python queue and tool deadlines still apply. Each operation makes no model call
+  and spends nothing from the website chat's paid ledger.
 - Keep one Node process on one instance with the mounted runtime directory and
   stable signing key. Multiple replicas require a transactional shared store.
   See [runtime requirements](../mcp/LYRICS_RUNTIME.md) and

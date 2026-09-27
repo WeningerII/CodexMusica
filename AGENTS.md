@@ -95,19 +95,28 @@ has a separate run lifecycle and can make paid external model calls.
   preface is still auto-derived, that can change which preface the card is heading toward. It is
   not a bare field write — batch a `set_preface` first if you want to steer the cascade.
   <!-- @promise: connector-edit-parity -->
-- Recipe tools are **read-only, idempotent and closed-world**; thread the returned `workspace`.
-  `lyric_revise` stores private run state. You write every lyric line: no connector surface
-  hands a song to the service's own writer, which runs only inside the website chat.
-  `/chat` persists request receipts, accepted progress, signed continuations and accounting
-  when durable storage is configured. Preserve `run_id` and `run_revision` for direct
+- **What each tool touches.** Recipe computation is deterministic and closed-world, and no tool on
+  any connector surface reaches a model provider or the open web (`openWorldHint: false`
+  throughout); the website chat's own server is the only one whose `lyric_revise` calls a model.
+  On the raw engine (`/mcp/recipe`, `/mcp/lyrics`, stdio) every tool is read-only and idempotent
+  except `lyric_revise`, which advances its run; a caller-managed client threads the returned
+  `workspace`. On the session endpoints (`/mcp`, `/mcp/chatgpt*`) the lookups and `get_operation`
+  are read-only, and every tool that opens or takes a `session_id` records the session, so it is
+  annotated as a write: a repeat with the same `session_id` and arguments returns the same
+  operation, except `start_recipe` and `begin_lyrics`, which open a new session each call, and
+  `lyric_revise` on `/mcp`, whose caller-managed mode advances a run. You write every lyric line:
+  no connector surface hands a song to the service's own writer, which runs only inside the
+  website chat. `/chat` persists request receipts, accepted progress, signed continuations and
+  accounting when durable storage is configured. Preserve `run_id` and `run_revision` for direct
   continuations, and `request_id` for chat recovery. See `mcp/LYRICS_RUNTIME.md`.
-  <!-- @promise: connector-tools-read-only -->
+  <!-- @promise: connector-tool-effects -->
 - Use `/mcp` for one shared connection. Consume initialization instructions and
   full tool descriptions/schemas. The shared `/mcp` endpoint exposes both families and
   cannot infer an external host's task. Use session IDs for saved recipe workspaces and background lyrics; caller-managed state remains supported. Recipes default to Rich with a 1,000-character
   ceiling. A recipe request does not authorize lyric work.
-- Published tool schemas stay inside the shape a restricted function-calling client can represent:
-  no `additionalProperties`, `propertyNames`, `anyOf`/`oneOf`/`allOf`, `$ref` or empty schema nodes,
+- Published tool schemas on every connector surface — the raw engine and the session endpoints
+  alike — stay inside the shape a restricted function-calling client can represent: no
+  `additionalProperties`, `propertyNames`, `anyOf`/`oneOf`/`allOf`, `$ref` or empty schema nodes,
   beyond a short exemption list enumerated and justified in the gate itself.
   <!-- @promise: connector-schema-subset -->
 - Each card in a recipe response carries `changed` — the parts, room, tuning and chain stages that
@@ -120,9 +129,10 @@ has a separate run lifecycle and can make paid external model calls.
   take it rather than a bare "Unknown".
   <!-- @promise: chain-id-stage-known -->
 - The tool surface also drives **restricted function-calling clients** (Gemini and the like), whose
-  schema dialect is narrower than MCP's. The declarations derived from a live `tools/list` carry no
-  keyword such a client rejects and no `workspace` parameter — the caller holds the workspace and
-  threads it, so the model never emits one.
+  schema dialect is narrower than MCP's. The declarations `mcp/gemini_tools.js` derives from a live
+  `tools/list` — of the website chat's own server and of every connector surface — carry no keyword
+  such a client rejects and no `workspace` or `state` parameter: the caller holds those and threads
+  them (a session caller holds only its `session_id`), so the model never emits one.
   <!-- @promise: connector-gemini-legal -->
 - A chain override is validated for **shape** as well as id. A multi-select stage such as `fx` holds
   a list; passing one id is accepted and lifted, and anything else is refused loudly rather than

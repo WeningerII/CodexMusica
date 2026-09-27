@@ -28,7 +28,8 @@ interpret messages, drive the tools, write lyrics and propose repairs.
   stores them on the server; without durable storage, they remain process-local.
   A request without `request_id` has no recoverable request receipt.
 - **Workflow sessions.** The shared `/mcp` endpoint and its compatibility aliases automatically issue session and operation identifiers and retain
-  their requests and results in the same recovery store. Recipe workspaces,
+  their requests and results in their own recovery store (`sessions/` under the
+  runtime directory), apart from `/chat`'s receipts. Recipe workspaces,
   lyric workflow receipts and private continuation state remain on the service.
   These sessions follow the receipt retention policy below. Without durable
   storage they are process-local and transient.

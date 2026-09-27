@@ -10,7 +10,12 @@ or a successful paid forty-minute kitchen qualification.
   sweep → screen → program plan → exact-draft grade → revise receipt checks as
   the Gemini host. A model cannot replace the plan with a hand-authored mandate.
   Discovery is still available, and an explicit host `phase: 'edit'` permits
-  work on an existing song. Tool arguments cannot select that phase.
+  work on an existing song. In the maintained client only the host selects that
+  phase; tool arguments cannot. On the shared `/mcp` endpoint a remote host has
+  no other channel, so `begin_lyrics`'s `phase` argument selects it for the
+  session, and the tool's description says edit is only for lyrics the user
+  supplied. The server enforces the creation receipts for `create`; it cannot
+  tell whether a host chose `edit` honestly.
 * Native continuation: the host stores the exact returned state and run arguments,
   restores them on subsequent calls, rejects conflicting continuation fields,
   and serializes workflow calls. Public surface metadata cannot mutate authority.
@@ -58,11 +63,14 @@ editing, explicitly choose `--phase=edit`. SDK users retain the connection, or
 privately persist `connection.snapshot()` and supply it as `session` on reconnect.
 This is trusted host state, not a tool argument to offer the model.
 
-The raw MCP endpoint still exposes independent tools. MCP cannot observe user
-intent or prevent a third-party host from ignoring its instructions or printing
-text without calling it. Use the maintained client or the Gemini host for
-mechanically enforced creation order. A local MCP replay exercises real tools
-and graders but does not certify a particular external host's integration.
+The raw MCP endpoints (`/mcp/recipe`, `/mcp/lyrics`, and `/mcp` called without a
+`session_id`) still expose independent tools with caller-managed state and no
+creation order. MCP cannot observe user intent or prevent a third-party host from
+ignoring its instructions or printing text without calling it. Mechanically
+enforced creation order comes from the maintained client, the Gemini host, or a
+`/mcp` session opened with `begin_lyrics` in phase `create`. A local MCP replay
+exercises real tools and graders but does not certify a particular external
+host's integration.
 
 ## Boundaries that must not be disguised as fixes
 

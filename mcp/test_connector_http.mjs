@@ -3,7 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { createServer } from 'node:net';
-import { mkdtempSync, rmSync, readFileSync } from 'node:fs';
+import { mkdtempSync, rmSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -68,7 +68,14 @@ test(
         await new Promise((resolve) => setTimeout(resolve, 25));
       }
       assert(health?.ok, output);
-      assert.equal((await health.json()).commit, 'a'.repeat(40));
+      const healthBody = await health.json();
+      assert.equal(healthBody.commit, 'a'.repeat(40));
+      // Connector sessions have their own store, sized apart from /chat's.
+      assert.equal(healthBody.recovery.sessions.durable, true);
+      assert.equal(healthBody.recovery.sessions.healthy, true);
+      assert(
+        healthBody.recovery.sessions.max_payload_records > healthBody.recovery.max_payload_records
+      );
       const card = await (await fetch(`${base}/.well-known/mcp.json`)).json();
       const manifest = JSON.parse(readFileSync(new URL('../server.json', import.meta.url), 'utf8'));
       assert.equal(
@@ -311,6 +318,75 @@ test(
       const code = await new Promise((resolve) => checker.once('exit', resolve));
       assert.equal(code, 3, checkOutput);
       assert.match(checkOutput, /lyrics capability is unavailable/);
+    } finally {
+      child.kill('SIGTERM');
+      await exited;
+      rmSync(root, { recursive: true, force: true });
+    }
+  }
+);
+
+test(
+  'an unusable session store stops no recipe, refuses lyric sessions, and says both at startup',
+  { timeout: 60_000 },
+  async () => {
+    const port = await freePort(),
+      root = mkdtempSync(join(tmpdir(), 'connector-http-'));
+    // A file where the session store's directory should be.
+    writeFileSync(join(root, 'sessions'), 'not a directory');
+    const base = `http://127.0.0.1:${port}`;
+    const child = spawn(
+      process.execPath,
+      [fileURLToPath(new URL('./server_http.js', import.meta.url))],
+      {
+        cwd: fileURLToPath(new URL('..', import.meta.url)),
+        env: { ...process.env, PORT: String(port), GEMINI_API_KEY: '', LYRIC_RUNTIME_DIR: root },
+      }
+    );
+    let output = '';
+    child.stdout.on('data', (c) => {
+      output += c;
+    });
+    child.stderr.on('data', (c) => {
+      output += c;
+    });
+    const exited = new Promise((resolve) => child.once('exit', resolve));
+    try {
+      let health;
+      const deadline = Date.now() + 45_000;
+      while (Date.now() < deadline) {
+        try {
+          health = await fetch(`${base}/health`);
+          if (health.ok) break;
+        } catch {}
+        if (child.exitCode != null) assert.fail(`HTTP server exited: ${output}`);
+        await new Promise((resolve) => setTimeout(resolve, 25));
+      }
+      assert(health?.ok, output);
+      assert.match(
+        output,
+        /session persistence is unusable; recipe calls answer without saving a session and lyric sessions are refused/
+      );
+      assert.doesNotMatch(output, /\/chat is disabled/);
+      const recovery = (await health.json()).recovery;
+      assert.equal(recovery.healthy, true);
+      assert.equal(recovery.sessions.healthy, false);
+      const client = new Client({ name: 'broken-store', version: '1' }, { capabilities: {} });
+      await client.connect(new StreamableHTTPClientTransport(new URL(`${base}/mcp`)));
+      try {
+        const started = await client.callTool({
+          name: 'start_recipe',
+          arguments: { traditions: ['delta_blues'] },
+        });
+        assert(!started.isError, JSON.stringify(started));
+        const payload = JSON.parse(started.content[0].text);
+        assert(payload.workspace);
+        assert.match(JSON.parse(started.content.at(-1).text).note, /^NOT SAVED/);
+        const begun = await client.callTool({ name: 'begin_lyrics', arguments: {} });
+        assert.equal(begun.isError, true);
+      } finally {
+        await client.close();
+      }
     } finally {
       child.kill('SIGTERM');
       await exited;

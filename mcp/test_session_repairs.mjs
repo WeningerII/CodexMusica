@@ -242,7 +242,7 @@ test('mixing session_id with caller-managed state names the offending fields, an
     for (const key of ['state', 'checkpoint', 'run_id', 'run_revision'])
       assert.match(
         revise.inputSchema.properties[key].description,
-        /^CALLER-MANAGED STATE — omit with session_id/,
+        /^CALLER-MANAGED STATE — only without session_id: a session carries this/,
         key
       );
     for (const key of ['draft', 'pronunciations', 'seed'])
@@ -255,4 +255,66 @@ test('mixing session_id with caller-managed state names the offending fields, an
     await client.close();
     await server.close();
   }
+});
+
+test('the maintained client never keeps a stopped run as a pending question', async () => {
+  const { McpServer } = await import('@modelcontextprotocol/sdk/server/mcp.js');
+  const { z } = await import('zod');
+  const { revisionStopped } = await import('./client.js');
+  const verdicts = [
+    { exit_code: 4, status: 'awaiting_proposal', state: 'suspended', run_id: 'r', run_revision: 1 },
+    // A stop hands its journal back as `state` for provenance.
+    {
+      exit_code: 3,
+      measurement_status: 'finished',
+      state: 'archived',
+      run_id: 'r',
+      run_revision: 2,
+    },
+  ];
+  const server = new McpServer(
+    { name: 'stub', version: '1' },
+    { instructions: '=== LYRICS TASK ===\nstub' }
+  );
+  server.registerTool(
+    'lyric_revise',
+    {
+      inputSchema: {
+        scheme: z.string().optional(),
+        draft: z.array(z.string()).optional(),
+        answer: z.string().optional(),
+        state: z.string().optional(),
+        run_id: z.string().optional(),
+        run_revision: z.number().optional(),
+      },
+    },
+    async () => ({ content: [{ type: 'text', text: JSON.stringify(verdicts.shift()) }] })
+  );
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  await server.connect(a);
+  const c = await connectConnector({
+    task: { domain: 'lyrics', phase: 'edit' },
+    transport: b,
+    verifySurface: false,
+  });
+  try {
+    await c.call('lyric_revise', { scheme: 'AA', draft: ['a', 'b'] });
+    assert.equal(c.snapshot().continuation.args.state, 'suspended');
+    await c.call('lyric_revise', { answer: 'x' });
+    assert.equal(c.snapshot().continuation, null);
+  } finally {
+    await c.close();
+    await server.close();
+  }
+  for (const verdict of [{ exit_code: 0 }, { exit_code: 2, resumable: false }])
+    assert(revisionStopped(verdict));
+  assert(!revisionStopped({ exit_code: 4 }));
+});
+
+test('the tree’s expected surface is built once per domain, not per connection', async () => {
+  const { expectedSurfaceFor } = await import('./client.js');
+  assert.equal(expectedSurfaceFor('recipe'), expectedSurfaceFor('recipe'));
+  assert.notEqual(expectedSurfaceFor('recipe'), expectedSurfaceFor('lyrics'));
+  const { tools } = await expectedSurfaceFor('recipe');
+  assert(tools.some((tool) => tool.name === 'edit_recipe'));
 });

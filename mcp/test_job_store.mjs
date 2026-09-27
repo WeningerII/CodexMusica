@@ -15,6 +15,7 @@ import {
   loadChatSecret,
   runtimeBuildIdentity,
   redactJobCapability,
+  requestDigest,
 } from './job_store.js';
 import { SpendStore } from './spend_store.js';
 import { requestContext } from './execution_context.js';
@@ -67,11 +68,15 @@ function signed(secret, lyric = null) {
     sig: crypto.createHmac('sha256', secret).update(JSON.stringify(envelope)).digest('hex'),
   };
 }
-async function serve(store, handler) {
+async function serve(store, handler, { exposes } = {}) {
   const app = express();
   app.use(express.json());
   app.use(
-    createJobRouter({ store, build: { commit: 'fixture-build', source_sha256: 'fixture-source' } })
+    createJobRouter({
+      store,
+      build: { commit: 'fixture-build', source_sha256: 'fixture-source' },
+      ...(exposes ? { exposes } : {}),
+    })
   );
   app.post('/chat', (req, res, next) => {
     if (typeof req.body?.message !== 'string' || !req.body.message.trim())
@@ -196,6 +201,59 @@ test('a killed process leaves an interrupted receipt and preserved signed checkp
     await host.close();
     fs.rmSync(dir, { recursive: true, force: true });
   }
+});
+
+test('receipts another surface keeps in the same store are never served by the chat routes', async () => {
+  // Connector sessions written before they had their own store live beside
+  // /chat's receipts until they expire. Their stored body holds private
+  // continuation state the connector never shows; knowing a session id, and
+  // the intent it was opened with, must not read it back through /chat.
+  const dir = temp();
+  const store = new JobStore(dir);
+  const session = id();
+  const intent = { request_id: session, integration: 'chatgpt-v1', action: 'open' };
+  store.begin(session, intent, {}, { session: { workspace: 'private' } });
+  store.complete(session, 200, { session: { native: { continuation: { state: 'secret' } } } });
+  const hidden = (record) => record.intent?.integration !== 'chatgpt-v1';
+  const unfiltered = await serve(store, (_req, res) => res.json({ reply: 'chat' }));
+  const host = await serve(store, (_req, res) => res.json({ reply: 'chat' }), { exposes: hidden });
+  try {
+    // The counterexample: without the filter the stored body comes back.
+    const leaked = await post(unfiltered.url, intent);
+    assert.match(await leaked.text(), /secret/);
+    const read = await fetch(`${host.url}/chat/jobs/${session}`);
+    assert.equal(read.status, 404);
+    const replay = await post(host.url, intent);
+    assert.equal(replay.status, 409);
+    assert.doesNotMatch(await replay.text(), /secret|private/);
+  } finally {
+    await unfiltered.close();
+    await host.close();
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('an intent carrying undefined fields digests as its JSON and is admitted', () => {
+  const store = new JobStore();
+  const request_id = id();
+  const intent = { request_id, action: { tool: 'x', arguments: { a: undefined, b: [undefined] } } };
+  const { record } = store.begin(request_id, intent, {}, null);
+  assert.equal(record.digest, requestDigest(JSON.parse(JSON.stringify(intent))));
+  assert.equal(store.get(request_id).state, 'pending');
+});
+
+test('adopting a finished receipt copies it unchanged and keeps one already held', () => {
+  const source = new JobStore();
+  const target = new JobStore();
+  const request_id = id();
+  source.begin(request_id, { request_id }, {}, null);
+  source.complete(request_id, 200, { ok: true });
+  const adopted = target.adopt(source.get(request_id));
+  assert.deepEqual(adopted, source.get(request_id));
+  assert.deepEqual(target.adopt({ ...source.get(request_id), state: 'pending' }), adopted);
+  const pending = id();
+  source.begin(pending, { request_id: pending }, {}, null);
+  assert.throws(() => target.adopt(source.get(pending)), /Only a finished receipt/);
 });
 
 test('final receipt survives a lost response and is available to a second HTTP connection', async () => {
