@@ -5101,10 +5101,45 @@ declare(RelationSchema(
     spans=(FREE_MULTI, FREE_MULTI), align="flush_right",
     channels=(ChannelRule("nucleus", AGREE, "each"),),
     placement=(Placement("line_gap_at_most", (4,)),), identity=(DISTINCT,),
+    # The REGISTRY figure is deliberately left `forall`/song: it is what the
+    # whole-vocabulary DEFAULT (`whole_vocabulary_pairs`, the rescue route
+    # for an undeclared group) asks, and the owner's ruling of 2026-09-27
+    # keeps that route unchanged. A DECLARED pair is judged under
+    # `DECLARED_PAIR_FIGURES` below (`MISSING.md` M-316, M-311 F3).
     figure=Figure(quantifier="forall", frame="song"),
     note="the object a set partition cannot hold when members overlap "
          "(doctrine 2). Each new member is laid against the ESTABLISHED CHAIN, "
          "so the relation is N-ARY; schemes.Cover is the receiver."))
+
+
+#: THE DECLARED-PAIR FIGURE — ONE RULE, `MISSING.md` M-316 (owner ruling
+#: 2026-09-27). A mandate that DECLARES `schema:<name>` on a group asks, of
+#: each of its pairs, whether THOSE TWO LINES stand in the relation. For the
+#: names below the REGISTRY figure cannot answer that: `chain rhyme (rap)`'s
+#: `forall`/song figure asks every line of the song to join ONE connected
+#: component (`assemble`), which the overlapping free-run spans of even a
+#: single line pair never form, so every declared pair was VIOLATED however
+#: it rhymed (M-311 F3; crooked_waltz group Q, `stir~carpenter`). A declared
+#: pair of these names is therefore judged AT THE PAIR — `exists_k`, k=2:
+#: one relation component of two distinct members, which is one agreeing
+#: edge between the two declared lines. The readers are the declared-mandate
+#: route in `revise.Reviser.grade` and the census's gate on that route
+#: (`schema_census.py`), and nothing else. The whole-vocabulary DEFAULT
+#: (undeclared groups, the rescue route) reads `REGISTRY` and is UNCHANGED:
+#: the owner ruled that a group which never named chain rhyme gains no new
+#: leniency from it (`quality/test_production_relations.py` pins both halves).
+DECLARED_PAIR_FIGURES = {
+    "chain rhyme (rap)": Figure(quantifier="exists_k", k=2, frame="song"),
+}
+
+
+def declared_pair_schema(schema):
+    """-> the schema a DECLARED mandate pair is judged under: `schema`
+    itself, unless `DECLARED_PAIR_FIGURES` names it, in which case the same
+    row with that figure (spans, channels, placement and identity kept).
+    Never read by the whole-vocabulary default (`whole_vocabulary_pairs`)."""
+    fig = DECLARED_PAIR_FIGURES.get(schema.name)
+    return schema if fig is None else replace(schema, figure=fig)
 
 declare(RelationSchema(
     name="alliterative long line",
@@ -7485,6 +7520,14 @@ DRAWABLE_EXHIBITS = {
     "assonance": (
         ("we walked out in the sun", "it never felt like much", "1", "2"),
         ("we walked out in the sun", "and started in to roam", "1", "2")),
+    # CONSTRUCTED (doctrine 94): no public-domain rap is quotable. The
+    # pre-2026-09-08 row, word for word; it sat in `WITNESS_FINDINGS` as
+    # M-311 F3 while a declared pair was judged by the whole-song `forall`
+    # figure, which never assembles. Judged at the declared pair since M-316.
+    "chain rhyme (rap)": (
+        ("the kitchen light was fading fast",
+         "a silver ship went sailing past", "1", "2"),
+        ("the kitchen light was fading fast", "go slow", "1", "2")),
     "cluster consonance / skothending span": (
         ("she kept the fast", "he lost the lost", "1", "2"),
         ("she kept the day", "he lost the sea", "1", "2")),
@@ -7705,13 +7748,10 @@ CENSUS_EXHIBITS = {
 #: before any row could be graded; `schema_census` names the capability
 #: the grade route cannot be handed.
 WITNESS_FINDINGS = {
-    "chain rhyme (rap)": ("M-311 F3", (
-        # CONSTRUCTED (doctrine 94): no public-domain rap is quotable. The
-        # pre-2026-09-08 exhibit row, kept word for word.
-        (("the kitchen light was fading fast",
-          "a silver ship went sailing past"), ("1", "2"), None, True),
-        (("the kitchen light was fading fast", "go slow"),
-         ("1", "2"), None, False))),
+    # ~~"chain rhyme (rap)": M-311 F3~~ — REPAIRED 2026-09-27 (`MISSING.md`
+    # M-316): a DECLARED pair is judged at the pair (`DECLARED_PAIR_FIGURES`)
+    # and the row answers [True, False] as it should, so it has moved to
+    # `DRAWABLE_EXHIBITS` (doctrine 17: a repaired finding is not evidence).
     "enjambed rhyme": (
         "M-311 F7 (schema cannot distinguish enjambed from linked rhyme)", (
         # Torry Anderson — eng_celtic_msm_rev_t_g_torry_anderson.txt:96-97,

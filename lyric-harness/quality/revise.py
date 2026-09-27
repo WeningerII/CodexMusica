@@ -1806,9 +1806,14 @@ class Reviser:
                                   (not m.slots_declared() or
                                    (_SL.is_default(m.slot_of(k, i)) and
                                     _SL.is_default(m.slot_of(k, j))))}
+                    # A DECLARED pair is judged at the pair
+                    # (`relations.declared_pair_schema`, M-316): the REGISTRY
+                    # row for every schema but those whose figure cannot
+                    # answer a two-line question (`chain rhyme (rap)`). The
+                    # whole-vocabulary default below reads REGISTRY unchanged.
                     _sch_pairs[w] = _R_mod.line_pairs_for(
-                        _R_mod.REGISTRY[_canon], _stream,
-                        requested_pairs=_requested)
+                        _R_mod.declared_pair_schema(_R_mod.REGISTRY[_canon]),
+                        _stream, requested_pairs=_requested)
         # THE SLOT PATH, and it is entered only by a mandate that declares
         # one. `slots_declared()` is False for every mandate written before
         # the coordinate existed and for every ordinary end-rhyme mandate, so

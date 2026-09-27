@@ -336,7 +336,8 @@ def census():
                               "blocker": None if ok else
                               "declared census controls do not both produce "
                               "definite expected verdicts"}
-        elif name in R.DRAWABLE_EXHIBITS and R.pair_scope_representable(sch):
+        elif name in R.DRAWABLE_EXHIBITS and R.pair_scope_representable(
+                R.declared_pair_schema(sch)):
             controls = []
             for a,b,sa,sb in R.DRAWABLE_EXHIBITS[name]:
                 got = verifier.grade([a,b], mandate([[sa,sb]], n_lines=2,

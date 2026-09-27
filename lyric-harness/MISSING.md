@@ -28383,7 +28383,7 @@ added on the review say 2026-09-25.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~364~~ -> **365**.
 
-### M-311 · Twenty English pair-rhyme schemas carried no semantic evidence; ~~eleven~~ ten now answer a real witness and a minimal contrast, and six of the rest are GRADER FINDINGS — three rules too generous, one figure that can never assemble, two negatives the route cannot reach — plus four schemas the grade route cannot be handed the declaration they need, and one schema that cannot tell itself from linked rhyme `PARTIAL` 2026-09-25 — the coordinator's split of the 55 unvalidated schemas, English end/pair rhymes
+### M-311 · Twenty English pair-rhyme schemas carried no semantic evidence; ~~eleven~~ ten now answer a real witness and a minimal contrast, and ~~six~~ five of the rest are GRADER FINDINGS — three rules too generous, ~~one figure that can never assemble,~~ two negatives the route cannot reach — plus four schemas the grade route cannot be handed the declaration they need, and one schema that cannot tell itself from linked rhyme `PARTIAL` 2026-09-25 — the coordinator's split of the 55 unvalidated schemas, English end/pair rhymes
 
 **THE GAP.** `quality/schema_census.py` printed, at `e08cd207`:
 
@@ -28464,7 +28464,11 @@ enjambed witness.)
   Separately, any line holding a word with two CMUdict readings ("the")
   refuses: "the knight rode"~"the night rowed" REFUSES where "knight
   rode"~"night rowed" is satisfied.
-- **F3 — chain rhyme (rap) can never assemble: `[False, False]`.** On the
+- **~~F3 — chain rhyme (rap) can never assemble: `[False, False]`.~~
+  REPAIRED 2026-09-27 by M-316 for a DECLARED pair only: the declared
+  route judges it at the pair and the row answers `[True, False]` from
+  `DRAWABLE_EXHIBITS`; the whole-vocabulary default keeps the figure below
+  by the owner's ruling.** On the
   constructed pre-2026-09-08 exhibit ("fading fast"~"sailing past"),
   `realise` returns 13 edges, 7 True and 6 None; `assemble`'s `forall`
   keeps a frame only when the surviving edges form ONE connected component,
@@ -28515,10 +28519,10 @@ enjambed witness.)
   schema apart from `linked rhyme`. Whether the schema needs that member is
   a registry question for a ruling.
 
-**STILL OPEN.** F1-F4 and F6 are judge or phonology repairs, the
+**STILL OPEN.** ~~F1-F4~~ F1, F2, F4 (F3 repaired, M-316) and F6 are judge or phonology repairs, the
 declaration channel of F5 is an interface change, and F7 is a registry
-ruling; none is attempted here. ~~Nine~~ Ten of the twenty remain
-`unvalidated`: chain rhyme (rap), enjambed rhyme, eye rhyme, holorhyme,
+ruling; none is attempted here. ~~Nine~~ ~~Ten~~ Nine of the twenty remain
+`unvalidated`: ~~chain rhyme (rap),~~ (M-316) enjambed rhyme, eye rhyme, holorhyme,
 mosaic rhyme, offbeat internal rhyme, parechesis / general consonance,
 sung-delivery rhyme, transformative / bent rhyme, wrenched rhyme.
 
@@ -28776,3 +28780,17 @@ its own M-311 and #398 takes M-312.
 **NOT DONE, NAMED.** The quality layer's word counts still split `There 's` — wiring `features._tokens` moves `quality/features.py`, every length curve and the discrimination AUCs, and the owner's batch did not ask for it. A spaced `'t` is still read as the letter T by `transcribe_word`'s apostrophe strip (pre-existing, unchanged here).
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~369~~ -> **370**.
+
+### M-316 · A DECLARED `schema:chain rhyme (rap)` pair was judged by a whole-song figure that never assembles, so every declared chain-rhyme pair was VIOLATED however it rhymed; a declared pair is now judged at the pair, and the whole-vocabulary default is deliberately unchanged `CLOSED` 2026-09-27 — found grading `songs/crooked_waltz.txt` (group Q, `stir~carpenter`, flagged while the pair chains); the scope is the owner's ruling of 2026-09-27
+
+**THE DEFECT.** `chain rhyme (rap)` is declared `Figure(quantifier="forall", frame="song")`. Since `a75da39f` `line_pairs_for` sends every schema failing `pair_scope_representable` through `assemble()`, whose `forall` branch keeps a frame only when the surviving edges form ONE connected component covering every line of the song. The overlapping `free_run` spans of even one line pair form several components, so the figure never assembles and `line_pairs_for` returns the empty set on every text — M-311 F3 recorded it as a grader finding on the constructed exhibit ("fading fast"~"sailing past" graded `[False, False]`). A mandate that DECLARES the schema on a group asks, of each pair, whether THOSE TWO LINES chain, and was answered by that figure: `crooked_waltz` group Q `[1, 2]` was a SCHEME_VIOLATION on a pair the same judge reads as a chain.
+
+**THE RULE, ONE AND NAMED.** `relations.DECLARED_PAIR_FIGURES` maps a schema name to the figure a DECLARED pair is judged under, and `relations.declared_pair_schema(schema)` returns the REGISTRY row with that figure (spans, channels, placement and identity kept) or the row itself. It holds one entry: `chain rhyme (rap)` -> `exists_k`, k=2 over the song frame — one relation component of two distinct members, which is one agreeing edge between the two declared lines, judged pair-locally. Its readers are the declared-mandate route in `revise.Reviser.grade` (the `line_pairs_for` call over a group's declared `schema:` relation) and `schema_census.py`'s gate on that route, and nothing else. The slotted route (`relations.pair_satisfies`) is not touched: a `free_run` span binds no single token, so a slotted chain-rhyme pair refuses there before and after.
+
+**THE DEFAULT RULE IS UNCHANGED, BY RULING.** The REGISTRY figure stays `forall`/song, and `whole_vocabulary_pairs` — the rescue route for an undeclared group, and `battery.py`'s and `check_scheme`'s route — reads REGISTRY, so a group that never named chain rhyme gains no new leniency from it. The first repair (the REGISTRY figure itself made `exists_k` k=2) was measured by the helper that drafted it to move three pinned oracles because chain rhyme then rescued undeclared pairs — the sonnet battery, `relation_shapes`' figure profile, and `test_relations.py` X2 on `metidja.txt` — and the owner ruled the fix be scoped to the declaration instead. `quality/test_production_relations.py` pins the scope by mutation: Sonnet 105's L10/L12 `words~affords` stays flagged by `check_scheme`, and with the declared figure written into REGISTRY chain rhyme rescues exactly that pair.
+
+**MEASURED ON THIS TREE.** `crooked_waltz` graded by `songs/README.md`'s command with `--input-format=source`: ~~11 FLAG~~ -> **10 FLAG**, group Q `[1, 2]` HOLDS (L1 `stir`), every other finding unchanged. The M-311 F3 row answers `[True, False]` through `Reviser.grade` and has moved from `WITNESS_FINDINGS` to `DRAWABLE_EXHIBITS` (doctrine 17: a repaired finding is not evidence), so `test_mandate_relation.py` §10 and §13 grade it with the other drawable names. NOT MOVED, each by its own instrument: the sonnet battery (`battery.py`, read by `counters.py --check`) 9/936 violations, `mandated 1064, judged 936, refused 128`, as pinned; `counters.py --check` passes every other row, and its public-symbol row moves only by the one def this entry adds (`declared_pair_schema`, outside `relations.__all__` beside `pair_scope_representable`: outside-count ~~92~~ -> **93**), written by `counters.py --write`; `relation_shapes.py --check` PASS and `test_relation_shapes.py` pass (the REGISTRY figure profile, `PINNED_ARITY` included, is unchanged); `test_relations.py` X2 on `metidja.txt` REFUSED 27 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 22, as pinned; `check_comparator_pin.py` HOLDS (`relations.py`, `revise.py` and `schema_census.py` are outside the comparator's closure).
+
+**NOT CLAIMED.** That the rap chain is fully modelled: a declared pair is judged as a pair, and "each new member laid against the ESTABLISHED CHAIN" (the schema's note) over three or more members is still asked by no route. Nor that the default rule is right to ignore chain rhyme — that is the owner's ruling, recorded here, and changing it moves the three oracles above.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~370~~ -> **371**.
