@@ -104,7 +104,7 @@ deploys disabled in `render.yaml`) exposes the full *editable* engine as MCP too
 app: seed a recipe, then edit prefaces / variants / room / chain / tuning, add/remove
 instruments and traditions, and re-render. The shared Streamable HTTP endpoint requires
 no account login. Recipe operations are deterministic; lyrics have a separate revision
-lifecycle, and kitchen revision can make paid external model calls. Workflow sessions
+lifecycle in which the caller writes every line. Workflow sessions
 retain requests and results for recovery.
 
 - Endpoint: `https://mcp.codexmusica.com/mcp`

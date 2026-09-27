@@ -23,7 +23,7 @@ const env = {
 };
 const previous = Object.fromEntries(Object.keys(env).map((key) => [key, process.env[key]]));
 Object.assign(process.env, env);
-const server = buildServer();
+const server = buildServer({ kitchen: true }); // the website chat's server: the only one with the service writer
 const client = new Client({ name: 'writer-work-budget', version: '1' }, { capabilities: {} });
 const [c, s] = InMemoryTransport.createLinkedPair();
 try {

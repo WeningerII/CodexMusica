@@ -256,7 +256,11 @@ def resolve(name):
         f"{name!r} is not a declared structure or alias — the catalog "
         f"holds {len(STRUCTURES)} structures and {len(_ALIAS)} aliases; "
         f"`quality/structures.py names()` lists them. An unknown name is "
-        f"refused, never defaulted (doctrine 20).")
+        f"refused, never defaulted (doctrine 20). "
+        # Spelled out here because a caller reaching the catalog only
+        # through this refusal has no `names()` to call.
+        f"Structures: {', '.join(STRUCTURES)}. "
+        f"Aliases: {', '.join(f'{a} -> {c}' for a, c in sorted(_ALIAS.items()))}.")
 
 
 def get(name):

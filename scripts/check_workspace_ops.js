@@ -267,15 +267,21 @@ check(
 // path, the clear, the untouched single-select path, and loud failure on every
 // malformed input. The re-clone step is the one that actually reproduced it — a
 // single setEnvironment call looked fine.
+//
+// A lifted id is ADDED to the list. These checks used to assert that the list
+// came back as exactly the one id asked for — `fx.length === 1` — which pinned
+// the very loss the paragraph above describes: the seeded plate_reverb gone
+// because a fuzz was asked for. The app's multi-select chip appends
+// (`[...cur, itemId]`), so the connector does too, and `clear` is how a list is
+// emptied or replaced.
 {
   const fxSeed = W.seed(['tamil_filmi']);
   const fxCard = fxSeed.cards[0].id;
   const afterString = W.setEnvironment(fxSeed, fxCard, { chain: { fx: 'fuzz_germanium' } });
   check(
-    'chain: bare string at a multi-select stage lifts to a one-element array',
-    Array.isArray(afterString.cards[0].chain.fx) &&
-      afterString.cards[0].chain.fx.length === 1 &&
-      afterString.cards[0].chain.fx[0] === 'fuzz_germanium'
+    'chain: bare string at a multi-select stage is lifted and ADDED to the list',
+    JSON.stringify(afterString.cards[0].chain.fx) === '["plate_reverb","fuzz_germanium"]',
+    JSON.stringify(afterString.cards[0].chain.fx)
   );
   // The regression itself: survive a SECOND edit, which is what clones the card.
   const recloned = W.setEnvironment(afterString, afterString.cards[0].id, {
@@ -283,23 +289,29 @@ check(
   });
   check(
     'chain: fx survives a subsequent edit without spreading into characters',
-    Array.isArray(recloned.cards[0].chain.fx) &&
-      recloned.cards[0].chain.fx.length === 1 &&
-      recloned.cards[0].chain.fx[0] === 'fuzz_germanium'
+    JSON.stringify(recloned.cards[0].chain.fx) === '["plate_reverb","fuzz_germanium"]',
+    JSON.stringify(recloned.cards[0].chain.fx)
+  );
+  const reclonedRender = W.render(recloned, { format: 'rich', ceiling: 1000 });
+  check(
+    'chain: both effects still render after a re-clone (section not silently dropped)',
+    /germanium|fuzz/i.test(reclonedRender) && /plate/i.test(reclonedRender)
   );
   check(
-    'chain: fx still renders after a re-clone (section not silently dropped)',
-    /germanium|fuzz/i.test(W.render(recloned, { format: 'rich', ceiling: 1000 }))
+    'chain: adding an id already in the list leaves the list as it was',
+    JSON.stringify(
+      W.setEnvironment(afterString, fxCard, { chain: { fx: 'plate_reverb' } }).cards[0].chain.fx
+    ) === '["plate_reverb","fuzz_germanium"]'
   );
 
   const s2 = W.seed(['tamil_filmi']);
   check(
-    'chain: array of ids accepted at a multi-select stage',
+    'chain: array of ids accepted at a multi-select stage (added in order, no duplicates)',
     JSON.stringify(
       W.setEnvironment(s2, s2.cards[0].id, {
         chain: { fx: ['fuzz_germanium', 'plate_reverb'] },
       }).cards[0].chain.fx
-    ) === '["fuzz_germanium","plate_reverb"]'
+    ) === '["plate_reverb","fuzz_germanium"]'
   );
 
   const s3 = W.seed(['tamil_filmi']);
@@ -308,6 +320,24 @@ check(
     JSON.stringify(
       W.setEnvironment(s3, s3.cards[0].id, { chain: { fx: null } }).cards[0].chain.fx
     ) === '[]'
+  );
+  check(
+    'clear: empties a multi-select stage',
+    JSON.stringify(W.setEnvironment(s3, s3.cards[0].id, { clear: ['fx'] }).cards[0].chain.fx) ===
+      '[]'
+  );
+  check(
+    'clear runs before the edit sets: clear + one id replaces the list',
+    JSON.stringify(
+      W.setEnvironment(s3, s3.cards[0].id, { clear: ['fx'], chain: { fx: 'fuzz_germanium' } })
+        .cards[0].chain.fx
+    ) === '["fuzz_germanium"]'
+  );
+  const cleared = W.setEnvironment(s3, s3.cards[0].id, { clear: ['room', 'tuning', 'mic'] })
+    .cards[0];
+  check(
+    'clear: room, tuning and a single-select stage go to null (the app\'s "Not set")',
+    cleared.room === null && cleared.tuning === null && cleared.chain.mic === null
   );
 
   const s4 = W.seed(['tamil_filmi']);
@@ -324,11 +354,150 @@ check(
   check('chain: unknown stage rejected', bad({ bogus: 'x' }));
   check('chain: unknown single-select id rejected', bad({ mic: 'not_a_real_mic' }));
   check('chain: non-string, non-array value at a multi-select stage rejected', bad({ fx: 42 }));
+  check(
+    'clear: an unknown field is rejected',
+    throws(() => W.setEnvironment(s5, s5.cards[0].id, { clear: ['rooms'] }))
+  );
 
   // IMMUTABLE: the seed workspace is untouched by every branch above.
   check(
     'IMMUTABLE: fx seed workspace still holds its original single effect',
     JSON.stringify(fxSeed.cards[0].chain.fx) === '["plate_reverb"]'
+  );
+}
+
+// ── set_environment with no card: the card the environment renders from ────
+//
+// The renderer takes the environment from the first card that HAS one
+// (envCardOf). An omitted card used to mean cards[0], which is a different card
+// as soon as a bare instrument reaches the front — and writing a room onto that
+// bare card made it the environment card, so the recipe lost its tuning and its
+// whole signal chain. Asserted on the exact shape that reproduced it.
+console.log('\nset_environment with no card:');
+{
+  const { envCardOf } = require('./_recipe_stack.js');
+  let w = W.seed(['appalachian_folk']);
+  const envBefore = envCardOf(w.cards);
+  w = W.addInstrument(w, 'theremin');
+  w = W.moveInstrument(w, 'theremin');
+  check('a bare card at the front is not the environment card', envCardOf(w.cards) !== w.cards[0]);
+  const after = W.setEnvironment(w, null, { room: 'cathedral' });
+  const target = envCardOf(after.cards);
+  check(
+    'an omitted card writes to the environment card, not to cards[0]',
+    target.id === envBefore.id && target.room === 'cathedral' && after.cards[0].room === null,
+    `wrote to ${target.id}; cards[0].room=${after.cards[0].room}`
+  );
+  check(
+    'the tuning and chain the recipe had are still there',
+    target.tuning === envBefore.tuning && target.chain.mic === envBefore.chain.mic
+  );
+  const rendered = W.render(after, { format: 'rich', ceiling: 1000 });
+  check(
+    'the recipe renders the new room AND keeps the rest of the environment',
+    /cathedral/.test(rendered) && /ribbon/.test(rendered),
+    rendered.slice(-200)
+  );
+  check(
+    'with no cards at all there is nothing to set, and it says so',
+    throws(() => W.setEnvironment({ cards: [] }, null, { room: 'cathedral' }))
+  );
+}
+
+// ── card ids belong to the workspace, not the process ─────────────────────
+//
+// Ids used to come from a module-level counter, so a workspace minted by one
+// process and edited by the next (any restart or deploy) got the next process's
+// card_1 for a new card while card_1 already stood in it — and remove_instrument
+// then deleted both. Both halves run in FRESH child processes: this process has
+// minted plenty of cards by now, and a counter that is already high would pass
+// the check without the fix.
+console.log('\ncard ids across processes:');
+{
+  const { execFileSync } = require('child_process');
+  const inChild = (code, input) =>
+    JSON.parse(
+      execFileSync(process.execPath, ['-e', "const W=require('./_workspace_ops.js');" + code], {
+        cwd: __dirname,
+        encoding: 'utf8',
+        input,
+      })
+    );
+  const minted = inChild(
+    "let w=W.seed(['garage_rock']);w=W.addInstrument(w,'theremin');" +
+      'process.stdout.write(JSON.stringify(w));'
+  );
+  const ids = minted.cards.map((c) => c.id);
+  check(
+    'a seed numbers its cards from card_1 in any process',
+    ids[0] === 'card_1' && new Set(ids).size === ids.length
+  );
+  const next = inChild(
+    "const w=JSON.parse(require('fs').readFileSync(0,'utf8'));" +
+      "process.stdout.write(JSON.stringify(W.addInstrument(w,'harmonica')));",
+    JSON.stringify(minted)
+  );
+  const added = next.cards[next.cards.length - 1];
+  check(
+    'a card added by a second fresh process takes an id the workspace does not already hold',
+    !ids.includes(added.id) && new Set(next.cards.map((c) => c.id)).size === next.cards.length,
+    added.id
+  );
+  const removed = W.removeInstrument(next, added.id);
+  check(
+    'removing it by id removes exactly that one card',
+    removed.cards.length === minted.cards.length &&
+      removed.cards.every((c, i) => c.id === minted.cards[i].id)
+  );
+  // A workspace made before ids were derived can already hold a duplicate.
+  const legacy = JSON.parse(JSON.stringify(minted));
+  legacy.cards[legacy.cards.length - 1].id = legacy.cards[0].id;
+  const pruned = W.removeInstrument(legacy, legacy.cards[0].id);
+  check(
+    'a legacy workspace with a duplicated id loses one card per removal, not both',
+    pruned.cards.length === legacy.cards.length - 1
+  );
+  check(
+    'and a new card never reuses an id already present',
+    !legacy.cards.some((c) => c.id === W.addInstrument(legacy, 'harmonica').cards.at(-1).id)
+  );
+  check(
+    'start_recipe is idempotent in its ids as well as its recipe',
+    JSON.stringify(W.seed(['garage_rock'])) === JSON.stringify(W.seed(['garage_rock']))
+  );
+}
+
+// ── add_instrument into a tradition: configured and placed as the app does ──
+console.log('\nadd_instrument with a tradition:');
+{
+  const base = W.seed(['bluegrass', 'tamil_filmi']);
+  const guest = W.addInstrument(base, 'theremin', { tradition: 'bluegrass' });
+  const idx = guest.cards.findIndex((c) => c.instrumentId === 'theremin');
+  const card = guest.cards[idx];
+  const seeded = W.seed(['bluegrass']).cards[0];
+  check(
+    "an off-roster guest gets the tradition's whole recording chain, not just room and tuning",
+    JSON.stringify(card.chain) === JSON.stringify(seeded.chain) &&
+      card.room === seeded.room &&
+      card.tuning === seeded.tuning,
+    JSON.stringify(card.chain)
+  );
+  const lastBluegrass = base.cards.map((c) => c.traditionId).lastIndexOf('bluegrass');
+  check(
+    "it lands after that tradition's last card (src/app.js _placeCardAfterTraditionRun)",
+    idx === lastBluegrass + 1,
+    `index ${idx}, expected ${lastBluegrass + 1}`
+  );
+  const { envCardOf, _kebab } = require('./_recipe_stack.js');
+  const moved = W.moveInstrument(guest, card.id);
+  const medium = ((C.CHAIN_SECTIONS.find((x) => x.id === 'medium') || {}).items || []).find(
+    (it) => it.id === seeded.chain.medium
+  );
+  check(
+    'moved to the front, it is the environment card and renders the chain it was given',
+    envCardOf(moved.cards).id === card.id &&
+      !!medium &&
+      W.render(moved, { format: 'rich', ceiling: 1000 }).includes(_kebab(medium.name))
   );
 }
 

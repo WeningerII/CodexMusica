@@ -14,7 +14,39 @@ import {
   initializationDrift,
 } from './surface_contract.js';
 
-export async function connectConnector({ url, task, transport, session = null } = {}) {
+// The tree's own surface for a task never changes within a process: build it
+// once per domain, not once per connection.
+const expectedSurfaces = new Map();
+export function expectedSurfaceFor(domain) {
+  if (!expectedSurfaces.has(domain)) {
+    const pending = expectedSurface(domain);
+    pending.catch(() => expectedSurfaces.delete(domain));
+    expectedSurfaces.set(domain, pending);
+  }
+  return expectedSurfaces.get(domain);
+}
+
+// A stopped revision returns its journal as `state` for provenance. It is the
+// record of a finished run, not a question awaiting an answer, so it never
+// becomes the connection's live continuation.
+export function revisionStopped(verdict) {
+  return (
+    verdict.measurement_status === 'finished' ||
+    verdict.resumable === false ||
+    !!verdict.new_run_required ||
+    [0, 3].includes(verdict.exit_code)
+  );
+}
+
+// `verifySurface: false` is for a transport to a server this process built from
+// this tree: comparing that server with the tree compares the tree with itself.
+export async function connectConnector({
+  url,
+  task,
+  transport,
+  session = null,
+  verifySurface = true,
+} = {}) {
   const domain = taskDomain(task);
   const selected = structuredClone(
     typeof task === 'string' ? { domain, format: 'rich', maxChars: 1000 } : task
@@ -53,21 +85,23 @@ export async function connectConnector({ url, task, transport, session = null } 
     await client.connect(transport);
     const initialization = client.getInstructions();
     const instructions = instructionsForTask(initialization, domain);
-    const tools = await listAll(client);
-    const expected = await expectedSurface(domain);
-    const drift = [
-      ...surfaceDrift(expected.tools, tools),
-      ...initializationDrift(expected.init, readInitialization(client)),
-    ];
-    if (drift.length)
-      throw new Error(
-        'Connector contract is incompatible: ' +
-          drift.map((row) => `${row.tool}: ${row.what}`).join('; ')
-      );
-    const scoped = tools;
+    const expected = await expectedSurfaceFor(domain);
+    let tools = expected.tools;
+    if (verifySurface) {
+      tools = await listAll(client);
+      const drift = [
+        ...surfaceDrift(expected.tools, tools),
+        ...initializationDrift(expected.init, readInitialization(client)),
+      ];
+      if (drift.length)
+        throw new Error(
+          'Connector contract is incompatible: ' +
+            drift.map((row) => `${row.tool}: ${row.what}`).join('; ')
+        );
+    }
     return {
       // Pass the entire surface to the driving host; never print only names.
-      surface: { task: structuredClone(selected), initialization, instructions, tools: scoped },
+      surface: { task: structuredClone(selected), initialization, instructions, tools },
       snapshot: () =>
         structuredClone({
           version: 1,
@@ -81,7 +115,7 @@ export async function connectConnector({ url, task, transport, session = null } 
             throw new Error('A connector session must execute its workflow calls sequentially.');
           args = structuredClone(args);
           assertToolTask(selected, name, args);
-          if (!scoped.some((t) => t.name === name)) throw new Error('Unknown task tool: ' + name);
+          if (!tools.some((t) => t.name === name)) throw new Error('Unknown task tool: ' + name);
           if (name === 'lyric_revise' && selected.phase === 'create' && !args.recover_only) {
             if (continuation && !args.new_run) {
               for (const [key, value] of Object.entries(continuation.args)) {
@@ -122,7 +156,8 @@ export async function connectConnector({ url, task, transport, session = null } 
           recordCreation(workflowTask, name, args, verdict, result.isError);
           if (!result.isError && name === 'lyric_plan') continuation = null;
           if (!result.isError && name === 'lyric_revise' && verdict && !args.recover_only) {
-            if (verdict.state || verdict.checkpoint) {
+            if (revisionStopped(verdict)) continuation = null;
+            else if (verdict.state || verdict.checkpoint) {
               const next = { ...args };
               for (const key of ['answer', 'answers', 'new_run', 'state', 'checkpoint'])
                 delete next[key];
@@ -135,7 +170,7 @@ export async function connectConnector({ url, task, transport, session = null } 
                 if (verdict[key] != null) next[key] = verdict[key];
               }
               continuation = { seed: args.seed, args: next };
-            } else if (verdict.measurement_status === 'finished') continuation = null;
+            }
           }
           return result;
         } finally {

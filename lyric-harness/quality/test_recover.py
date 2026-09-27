@@ -260,13 +260,22 @@ def test_the_doctrine_14_claim_is_GRADED_not_grepped():
     placed = [e for e in reps
               if "." in str(e["a"]) or "." in str(e["b"])]
     if placed:
-        check("a REPEAT edge binding at a PLACEMENT is REFUSED and names its "
-              "remedy — no mandate spelling in this harness can hold one, "
-              "and flattening it to line numbers would declare an identity "
+        # REPOINTED 2026-09-27: this check required the reason to name
+        # `_normalise_returns` as the unmigrated remedy, i.e. it pinned the
+        # claim that no mandate spelling can hold a placed repeat. M-142 made
+        # placed returns spellable (`--returns=1.head,3.head`), so that claim
+        # went false while this check kept it green. The refusal stands; the
+        # reason must now say the spelling exists, name the edges, and say
+        # why the cover still does not use it.
+        _why = r.how.get("repeats_at_a_placement", ("", ""))[1]
+        check("a REPEAT edge binding at a PLACEMENT is REFUSED with a true "
+              "reason — the placed spelling exists, the edges are named, and "
+              "flattening them to line numbers would declare an identity "
               "between two line ENDS this module never measured",
               r.how.get("repeats_at_a_placement", ("", ""))[0] == "REFUSED"
-              and "_normalise_returns" in
-              r.how.get("repeats_at_a_placement", ("", ""))[1],
+              and "A placed return IS spellable" in _why
+              and f"{placed[0]['a']}~{placed[0]['b']}" in _why
+              and "_normalise_returns" not in _why,
               f"{len(placed)} placed REPEAT edge(s)")
 
 

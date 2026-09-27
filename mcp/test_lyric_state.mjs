@@ -20,7 +20,7 @@ import {
 
 const peers = [];
 async function connect(name) {
-  const server = buildServer();
+  const server = buildServer({ kitchen: true }); // the chat's server: kitchen runs are exercised here
   const client = new Client({ name, version: '1' }, { capabilities: {} });
   const [c, s] = InMemoryTransport.createLinkedPair();
   await Promise.all([server.connect(s), client.connect(c)]);
@@ -306,11 +306,13 @@ try {
   narrow.retained_metadata = 'x'.repeat(
     WORKER_STATE_BYTES - 100 - Buffer.byteLength(JSON.stringify(workerState), 'utf8')
   );
+  // Within the 200-character line bound (a longer line is refused on its own
+  // before any journal arithmetic) and still past the 100 bytes left.
   const overflowAnswer = await a.callTool({
     name: 'lyric_revise',
     arguments: {
       state: encodeState(narrow),
-      answer: 'x'.repeat(1000),
+      answer: 'x'.repeat(180),
     },
   });
   assert.match(

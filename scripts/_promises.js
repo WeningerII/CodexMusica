@@ -11,6 +11,11 @@
 //
 // To add a promise: add a row here, drop the `@promise` marker in its doc, and
 // add (or extend) the `@covers` tag in its gate. All three or it won't pass.
+//
+// `doc_terms` (optional) binds the WORDS as well as the tags: each term must
+// appear both in the row's `claim` and in the doc paragraph that carries the
+// marker (case, backticks and line breaks ignored). A doc that widens or
+// narrows a claim then fails until the registry, and so the gate, agree.
 
 module.exports = [
   {
@@ -114,17 +119,31 @@ module.exports = [
       'a chain override is validated for SHAPE as well as id, so a multi-select stage can never be corrupted into characters',
   },
   {
-    id: 'connector-tools-read-only',
+    // Was `connector-tools-read-only`: "every advertised MCP tool is read-only,
+    // idempotent and closed-world", which lyric_revise contradicted on the raw
+    // engine and every session tool contradicted on /mcp, while the gate read
+    // only the raw engine. The claim now names what each surface's annotations
+    // say, and the gate reads every surface.
+    id: 'connector-tool-effects',
     doc: 'AGENTS.md',
     gate: 'check_connector_contract.js',
-    claim: 'every advertised MCP tool is read-only, idempotent and closed-world',
+    claim:
+      'no tool on any connector surface reaches a model provider or the open web (openWorldHint: false throughout); on the raw engine every tool is read-only and idempotent except lyric_revise; on the session endpoints the lookups and get_operation are read-only, and every tool that opens or takes a session_id is annotated as a write, idempotent except start_recipe and begin_lyrics, and lyric_revise on /mcp',
+    doc_terms: [
+      'openWorldHint: false',
+      'read-only and idempotent except lyric_revise',
+      'get_operation are read-only',
+      'annotated as a write',
+      'except start_recipe and begin_lyrics',
+    ],
   },
   {
     id: 'connector-schema-subset',
     doc: 'AGENTS.md',
     gate: 'check_connector_contract.js',
     claim:
-      'published tool schemas carry no structural keyword a restricted client cannot represent, beyond an enumerated exemption list',
+      'published tool schemas on every connector surface (raw engine, /mcp, /mcp/chatgpt*) carry no structural keyword a restricted client cannot represent, beyond an enumerated exemption list',
+    doc_terms: ['on every connector surface', 'exemption list'],
   },
   {
     id: 'connector-edit-visible',
@@ -137,7 +156,12 @@ module.exports = [
     doc: 'AGENTS.md',
     gate: 'check_connector_contract.js',
     claim:
-      'the function declarations derived from the live tool list are accepted by a restricted function-calling client (no keyword it rejects, and no workspace parameter)',
+      "the function declarations mcp/gemini_tools.js derives from the live tool list of the website chat's own server and of every connector surface are accepted by a restricted function-calling client: no keyword it rejects, and no workspace or state parameter",
+    doc_terms: [
+      'mcp/gemini_tools.js',
+      'every connector surface',
+      'no workspace or state parameter',
+    ],
   },
   {
     id: 'chain-id-stage-known',

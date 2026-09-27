@@ -12,10 +12,19 @@ function editsHold(run) {
   const card = (ref) =>
     (ws.cards || []).find((c) => c.id === ref) ||
     (ws.cards || []).find((c) => c.instrumentId === ref);
+  // A set_environment with no card writes to the card the recipe renders its
+  // environment from: the first card that has any (scripts/_recipe_stack.js
+  // envCardOf), which is cards[0] only while cards[0] has an environment.
+  const hasEnv = (c) =>
+    !!c &&
+    (c.tuning ||
+      c.room ||
+      Object.values(c.chain || {}).some((v) => (Array.isArray(v) ? v.length > 0 : !!v)));
+  const envCard = () => (ws.cards || []).find(hasEnv) || ws.cards?.[0];
   for (const call of run.calls) {
     if (call.name !== 'edit_recipe' || call.isError) continue;
     for (const e of call.args?.edits || []) {
-      const c = e.card ? card(e.card) : e.action === 'set_environment' ? ws.cards?.[0] : null;
+      const c = e.card ? card(e.card) : e.action === 'set_environment' ? envCard() : null;
       switch (e.action) {
         case 'set_variant':
           if (!c || c.parts?.[e.part] !== e.variant) return false;
@@ -27,12 +36,13 @@ function editsHold(run) {
           if (!c) return false;
           if (e.room !== undefined && c.room !== e.room) return false;
           if (e.tuning !== undefined && c.tuning !== e.tuning) return false;
+          // Every id asked for must be there. A multi-select stage (fx) ADDS
+          // to its list, so the list may also hold effects it had before.
           for (const [stage, id] of Object.entries(e.chain || {})) {
             const got = c.chain?.[stage];
             const expected = Array.isArray(id) ? id : [id];
             const actual = Array.isArray(got) ? got : [got];
-            if (expected.length !== actual.length || expected.some((x) => !actual.includes(x)))
-              return false;
+            if (expected.some((x) => !actual.includes(x))) return false;
           }
           break;
         case 'add_instrument':

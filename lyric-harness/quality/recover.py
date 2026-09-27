@@ -418,23 +418,32 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
           f"`--groups=` charges one SCHEME_VIOLATION per REPEAT edge; this "
           f"split is what makes the doctrine-14 claim below true")
     if placed_repeats:
+        # WHY THESE ARE NOT SPELLED INTO `--returns=`, although a placed
+        # return is spellable there since M-142 (`1.head,3.head`, the placed
+        # word-identity judge): the two sides do not ask one question. A
+        # REPEAT edge here is the scorer's identity — the same word as the
+        # lexicon reads it, so `You` ~ `you` — while the placed judge compares
+        # the word as written and charges `You`/`you` RETURN_NOT_VERBATIM.
+        # Handing the edges over would charge the writer for identities this
+        # module admitted. Named with the remedy rather than dropped.
+        _shown = ", ".join(f"{e['a']}~{e['b']}" for e in placed_repeats[:12])
+        _more = (f" and {len(placed_repeats) - 12} more"
+                 if len(placed_repeats) > 12 else "")
         r.put("repeats_at_a_placement", len(placed_repeats), "REFUSED",
               f"{len(placed_repeats)} recovered REPEAT edge(s) bind at a "
-              f"PLACEMENT, and NO mandate spelling in this harness can hold "
-              f"them: `--groups=` charges a REPEAT as a violation, and "
-              f"`--returns=` REFUSES any member carrying a locus — "
-              f"`quality/schemes.py`'s `_normalise_returns` coerces every "
-              f"member with `int(x)`, the SAME `int()` M-72 removed from "
-              f"`_normalise_groups` when placement became spellable, one "
-              f"function over and unmigrated (measured: "
-              f"`--returns=1.head,3` refuses with `invalid literal for "
-              f"int() with base 10: '1.head'`). They are NOT flattened to "
-              f"their line numbers: `4.head ~ 8.head` spelled `4 ~ 8` "
-              f"declares an identity between two line ENDS this module never "
-              f"measured. The remedy is `_normalise_returns` taking the slot "
-              f"spelling `_normalise_groups` already takes. REFUSED rather "
-              f"than dropped, because a silently unspellable binding reads "
-              f"as a song with fewer relations in it (doctrine 20)")
+              f"PLACEMENT ({_shown}{_more}) and are not in the mandate "
+              f"spelling. A placed return IS spellable — `--returns=` takes "
+              f"members such as `1.head,3.head` — but this cover's REPEAT is "
+              f"the same word as the lexicon reads it (so `You` ~ `you`), "
+              f"while the placed-return judge compares the word as written "
+              f"and charges `You`/`you` RETURN_NOT_VERBATIM; and a placed "
+              f"class may not hold one line at two placements, which "
+              f"recovered edges can. Spelling them would have the grader "
+              f"charge identities this module admitted. "
+              f"They are not flattened to line numbers either: `4.head ~ "
+              f"8.head` spelled `4 ~ 8` declares an identity between two line "
+              f"ENDS this module never measured. Declare the placed returns "
+              f"the song means in `--returns=`")
     _cut_said = (f"at theta {theta}, DECLARED by the caller"
                  if theta_declared else
                  f"at the cut the grader judges each pair at "
@@ -464,20 +473,35 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
 
 
 def recover_file(path, input_format="source", **kw):
-    """Use the grader's normalized reader and retain physical row positions."""
+    """Use the grader's normalized reader and retain physical row positions.
+
+    The result also carries WHICH TEXT its coordinates are numbered over:
+    `sung_lines` are the lines every line number in the cover refers to, and
+    `set_aside` the nonblank rows the reader did not count as sung (section
+    marks, `#` notes, `---` notes), each with its physical row. A caller
+    handing the mandate on hands `sung_lines` with it, so the next verb
+    numbers the same lines this one did.
+    """
     if input_format == "literal":
         from lyric_harness import load_draft_lines, read_lyric_text
         raw = read_lyric_text(path).splitlines()
-        return recover(load_draft_lines(path), raw_lines=raw,
-                       lyric_indices={i for i, line in enumerate(raw) if line.strip()}, **kw)
+        lines = load_draft_lines(path)
+        rec = recover(lines, raw_lines=raw,
+                      lyric_indices={i for i, line in enumerate(raw) if line.strip()}, **kw)
+        rec.sung_lines, rec.set_aside = list(lines), []
+        return rec
     if input_format != "source":
         raise ValueError("input format must be literal or source")
     from quality.lyric_reader import normalized_rows
     rows = list(normalized_rows(path))
     indices = {i for i, row in enumerate(rows) if row.kind == "lyric"}
-    return recover([row.text for row in rows if row.kind == "lyric"],
-                   raw_lines=[row.text for row in rows],
-                   lyric_indices=indices, **kw)
+    lines = [row.text for row in rows if row.kind == "lyric"]
+    rec = recover(lines, raw_lines=[row.text for row in rows],
+                  lyric_indices=indices, **kw)
+    rec.sung_lines = lines
+    rec.set_aside = [{"row": row.lineno, "kind": row.kind, "text": row.text}
+                     for row in rows if row.kind in ("apparatus", "title")]
+    return rec
 
 
 def render(r):

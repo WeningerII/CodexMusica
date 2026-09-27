@@ -1290,6 +1290,10 @@ function compileStack(cards, format, ceiling) {
 
 module.exports = {
   buildStackParts,
+  // Which card the one rendered environment comes from. Exported because the
+  // connector's set_environment targets it when no card is named, and its
+  // responses report it — both have to agree with the renderer, not restate it.
+  envCardOf,
   assignDedupedPrefaces,
   compileStack,
   compressProseRecipe,

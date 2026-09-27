@@ -555,8 +555,15 @@ test('recipe acceptance measures exact delivered rich artifact and real declared
   assert.equal(
     judge(primary).pass,
     true,
-    'the public edit API defaults environment edits to the primary card'
+    'the public edit API defaults environment edits to the environment card'
   );
+  // The environment card is the first card that HAS an environment, which is not
+  // cards[0] once a bare card leads; the judge must read the same card the edit
+  // wrote to, or it fails a run whose edit landed.
+  const bareLead = recipeRun();
+  bareLead.calls.at(-1).args.edits = primary.calls.at(-1).args.edits;
+  bareLead.workspace.cards.unshift({ id: 'card0', instrumentId: 'theremin', parts: {}, chain: {} });
+  assert.equal(judge(bareLead).pass, true, 'a bare lead card is not the environment card');
   primary.workspace.cards[0].chain.recording = ['tape'];
   assert.equal(judge(primary).pass, false);
 });
@@ -649,5 +656,110 @@ test('production contract matches the legacy service during migration and binds 
     assert.notEqual(runtimeSourceFingerprint(dir), before);
   } finally {
     await fs.rm(dir, { recursive: true, force: true });
+  }
+});
+
+// Owner's rule, 2026-09-27: the service's Gemini writer runs only where Gemini
+// writes the whole song — the website chat. Every outside server publishes no
+// writer choice, says so in its instructions, and refuses a carried one.
+test('only the website chat server can reach the service writer', async () => {
+  for (const task of [null, { domain: 'lyrics' }]) {
+    const c = await local(task);
+    try {
+      const revise = (await c.client.listTools()).tools.find((t) => t.name === 'lyric_revise');
+      assert.equal(revise.inputSchema.properties.writer, undefined);
+      assert.equal(revise.annotations.openWorldHint, false);
+      assert.match(revise.description, /YOU WRITE EVERY LINE/);
+      assert.doesNotMatch(revise.description, /kitchen|service writer answers/i);
+      assert.match(revise.inputSchema.properties.checkpoint.description, /^Only with recover_only/);
+      const instructions = c.client.getInstructions();
+      assert.doesNotMatch(instructions, /kitchen|any client may ask/i);
+      assert.match(instructions, /you write every line/);
+      const refused = await c.client.callTool({
+        name: 'lyric_revise',
+        arguments: { draft: ['a', 'b'], scheme: 'AA', checkpoint: '{}' },
+      });
+      assert.match(JSON.stringify(refused), /KITCHEN_CHAT_ONLY/);
+    } finally {
+      await c.close();
+    }
+  }
+  const server = buildServer({ kitchen: true });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  await server.connect(a);
+  const client = new Client({ name: 'chat-surface', version: '1' }, { capabilities: {} });
+  await client.connect(b);
+  try {
+    const revise = (await client.listTools()).tools.find((t) => t.name === 'lyric_revise');
+    assert.deepEqual(revise.inputSchema.properties.writer.enum, ['interview', 'kitchen']);
+    assert.equal(revise.annotations.openWorldHint, true);
+    assert.match(revise.description, /SERVICE WRITER ANSWERS/);
+  } finally {
+    await client.close();
+  }
+});
+
+// The harness's report is written for its command line. What a connector
+// caller receives names connector tools, not `python3 lyric_harness.py …`, and
+// shows no worker temp path or internal ticket number.
+test('published lyric reports name connector tools and hide server internals', () => {
+  const { publishedReport } = _verdictInternals;
+  const out = publishedReport(
+    'NEXT: python3 lyric_harness.py plan --seed=21\n' +
+      'IT: python3 lyric_harness.py brief /tmp/lyric-xLYdQa/draft.txt\n' +
+      'PROPOSER: defer:/tmp/lyric-D5owVA/state.json — 3 answer(s) (M-184)\n' +
+      'BLUEPRINT: /tmp/finish_bp_cwwu1qom.json — meter joins (M-191; M-192)\n' +
+      'a rule (doctrine 46)'
+  );
+  assert.match(out, /NEXT: lyric_plan with seed 21/);
+  assert.match(out, /IT: lyric_check/);
+  assert.doesNotMatch(out, /python3|\/tmp\/|M-1\d\d/);
+  assert.match(out, /PROPOSER: \[server temporary file\] — 3 answer\(s\)\n/);
+  assert.match(out, /doctrine 46/);
+});
+
+// A misspelled edit field beside a valid one used to be stripped by the schema
+// parse and silently ignored. Both the raw server and the shared /mcp server
+// refuse it now, naming the field, before anything is applied.
+test('edit_recipe refuses an undeclared edit field on every server', async () => {
+  const { buildWorkflowServer } = await import('./workflow_tools.js');
+  const { WorkflowSessions } = await import('./workflow_sessions.js');
+  const { JobStore } = await import('./job_store.js');
+  const raw = await local({ domain: 'recipe' });
+  const shared = await buildWorkflowServer({
+    sessions: new WorkflowSessions({ store: new JobStore() }),
+    compatibility: true,
+  });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  await shared.connect(a);
+  const client = new Client({ name: 'edit-keys', version: '1' }, { capabilities: {} });
+  await client.connect(b);
+  try {
+    const started = await raw.client.callTool({
+      name: 'start_recipe',
+      arguments: { traditions: ['bluegrass'] },
+    });
+    const workspace = JSON.parse(started.content[0].text).workspace;
+    const typo = [{ action: 'set_environment', room: 'cathedral', tunning: 'just_intonation' }];
+    const rawResult = await raw.client.callTool({
+      name: 'edit_recipe',
+      arguments: { workspace, edits: typo },
+    });
+    assert.equal(rawResult.isError, true);
+    assert.match(rawResult.content[0].text, /Unknown edit field\(s\): edits\[0\]\.tunning/);
+    const opened = await client.callTool({
+      name: 'start_recipe',
+      arguments: { traditions: ['bluegrass'] },
+    });
+    const sharedResult = await client.callTool({
+      name: 'edit_recipe',
+      arguments: { session_id: opened.structuredContent.session_id, edits: typo },
+    });
+    assert.equal(sharedResult.isError, true);
+    assert.match(sharedResult.content[0].text, /edits\[0\]\.tunning/);
+  } finally {
+    await raw.close();
+    await client.close();
+    await shared.close();
   }
 });

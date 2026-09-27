@@ -1,13 +1,13 @@
 # Codex Musica in ChatGPT
 
-The ChatGPT integration reuses the maintained connector, recipe engine, lyric
-graders and kitchen writer. The shared interface stores exact workspaces and lyric
+The ChatGPT integration reuses the maintained connector, recipe engine and lyric
+graders. ChatGPT writes every lyric line itself. The shared interface stores exact workspaces and lyric
 workflow receipts, so clients carry short session capabilities between calls.
 Long lyric calls run as operations that can be read after the MCP connection closes.
 
 This is a source implementation and acceptance plan. Merging the code does not
 deploy the routes, register a ChatGPT connection or publish a plugin. Local MCP
-tests do not establish native ChatGPT behavior or a successful live kitchen run.
+tests do not establish native ChatGPT behavior.
 
 ## Access policy
 
@@ -47,8 +47,13 @@ background lyric operations and the shared recovery controls. The older task vie
 `/mcp/recipe` and `/mcp/lyrics` remain for strict maintained SDK consumers during migration.
 
 Stateful tools return a typed `structuredContent` envelope. `tool_result` contains
-the underlying output with private workspace/state fields removed; the envelope is also delivered as MCP text, including recovery IDs. The actual recipe and song text and
-grader qualifications remain the output authority. `completed` means the call
+the underlying output with private workspace/state fields removed. The MCP content
+carries that same output first, block for block and unchanged, so a text-only host
+reads the recipe or song exactly as the tool wrote it; the last block is the
+envelope as JSON (without `tool_result`), including the recovery IDs. A read of an
+operation whose tool refused is not itself an error: it reports `tool_error: true`.
+`lyric_types` is a lookup and answers directly, without a session. The actual
+recipe and song text and grader qualifications remain the output authority. `completed` means the call
 returned, not that a song is certified. The envelope's `resumable` describes an
 interrupted operation; a completed lyric tool's own verdict describes whether its
 revision can continue through `lyric_revise`.
@@ -56,9 +61,10 @@ revision can continue through `lyric_revise`.
 Creation executes sweep → screen → plan → exact-draft grade → revise through
 the maintained client. The server persists executed receipts and rejects skipped
 steps or fabricated state. Edit phase is for user-supplied existing lyrics.
-Kitchen is the default writer, matching the website; interview remains an
-explicit alternative. ChatGPT handles conversation and initial drafting, while
-kitchen repairs use the service's configured Gemini model and accounting.
+ChatGPT writes every line — the draft and every answer the revise loop asks
+for. The service's own Gemini writer runs only inside the website chat, where
+Gemini writes the whole song (owner's rule, 2026-09-27); `begin_lyrics` takes no
+writer.
 
 ## Recovery and runtime
 
@@ -71,26 +77,34 @@ kitchen repairs use the service's configured Gemini model and accounting.
 - Explicit `resume_operation` is allowed only with a safe retained checkpoint.
   Original replay input stays distinct from accepted lyrics. Unknown provider
   outcomes, changed scoring semantics, finished journals and exhausted journal
-  capacity cannot replay a proposal. Recover the accepted draft and disclose the
-  stop. Regrading a changed draft and starting a new run is a separate action.
+  capacity cannot replay a proposal. Recover the accepted draft (`accepted_draft`,
+  or `lyric_revise` with `recover_only: true`, which exports the journal a session
+  holds without an operation) and disclose the stop. An interrupted operation that
+  cannot resume still returns a `session_id`: grading a kept draft and starting a
+  new run from it is a separate action, and every refusal names the call that works.
 - A resumed lyric operation retains the last accepted draft before dispatch.
   If it is interrupted again before saving new progress, `get_operation` still
   exports those exact lyrics, including after restart. This inherited text is
   recovery data only: it does not make the new operation safe to replay. New
   worker progress takes precedence. See [the repeated-interruption repair](workflow-recovery.md).
-- Sessions use the existing private `JobStore` and share its storage limits with
-  `/chat`: by default 8,192 metadata records, 128 retained payloads and 256 MB.
-  Completed/interrupted metadata expires after 24 hours without a work update;
-  full payloads can retire sooner, superseded and completed receipts first. An
+- Sessions have their own private `JobStore`, apart from `/chat`'s receipts, sized
+  for connector traffic (`SESSION_STORE_LIMITS` in `mcp/workflow_sessions.js`), so
+  neither surface's load, capacity or disk failure stops the other. Sessions saved
+  in the `/chat` store by an earlier release stay readable and continuable until
+  they expire, and `/chat/jobs` never serves them. Completed/interrupted metadata
+  expires `retention_ms` after its last work update (`expires_at` gives the time);
+  full payloads can retire sooner, superseded and completed receipts first, and a
+  retired id reads `status: retired`. An
   interrupted operation that holds accepted lyrics, including an inherited
   draft from a safe resume, is never retired for space,
   only by expiry. A session is temporary working state, not a permanent song
   archive. IDs grant access to that state without an account login.
-- The shared workflow store admits at most 16 active operations across its endpoints. The
-  existing serialized Python queue and tool deadlines still apply. Each operation
-  uses the existing shared paid ledger, with `CHAT_MAX_TURN_USD` and
-  `CHAT_DAILY_USD` allowances. Unknown usage remains charged. Kitchen sessions
-  refuse without durable recovery storage; beginning a session makes no paid call.
+- The workflow queue admits a bounded number of background lyric operations across
+  its endpoints; recipe calls are answered within their own request and do not
+  count against it. If the session store refuses a recipe call, the recipe is still
+  computed and returned with `status: unsaved` and a note. The existing serialized
+  Python queue and tool deadlines still apply. Each operation makes no model call
+  and spends nothing from the website chat's paid ledger.
 - Keep one Node process on one instance with the mounted runtime directory and
   stable signing key. Multiple replicas require a transactional shared store.
   See [runtime requirements](../mcp/LYRICS_RUNTIME.md) and
@@ -141,9 +155,8 @@ endpoints without user credentials. Eleven checks covered readiness, recipe
 edits after reconnect, duplicate/stale submissions, exact engine output in all
 four formats, lyric creation order, declared pronunciation, interview continuation
 and a bounded kitchen operation. The interview continuation finished with exit
-code 0. The kitchen check used one round and one attempt, recorded two provider
-calls costing USD 0.0008405 with no unknown spend, and stopped with open lines
-(exit code 3); it verifies dispatch, recovery and accounting, not a finished song.
+code 0. (The kitchen check exercised a writer that no connector endpoint offers
+since 2026-09-27; it is kept here as the historical record of that acceptance.)
 Final health and readiness checks reported the same deployed commit and healthy
 durable storage.
 
@@ -167,12 +180,11 @@ installed plugin for these conversations:
 | “Blend delta blues with dream pop; give the voice a worn sound.” | Catalog IDs resolved; both traditions retained; requested voice edits appear in the exact engine recipe and warnings are read. |
 | “Make that prose,” then change the shared room or move the primary instrument. | Same session/workspace continues; explicit view and edits match the browser engine; output stays at most 1,000 characters in all four formats. |
 | Create a new song with stated structural wants. | Actual sweep, successful screen, plan, exact-draft grade and revision receipts; declarations preserved across calls. |
-| Check/revise supplied existing lyrics. | Edit phase; actual coverage and stop/certification reported; the chosen writer remains fixed. |
-| Disconnect while lyric work is pending, then reconnect. | Poll retrieves the same operation without repeating a paid proposal; latest session continues the task. |
+| Check/revise supplied existing lyrics. | Edit phase; actual coverage and stop/certification reported; ChatGPT answers every revise question. |
+| Disconnect while lyric work is pending, then reconnect. | Poll retrieves the same operation without repeating it; latest session continues the task. |
 | Restart after a safe checkpoint or an unknown provider outcome. | Safe explicit resume preserves accepted work; unknown outcome exports the draft and blocks replay. |
 | Indirect recipe wording and a request that needs neither tool family. | Appropriate tool selection and skill triggering; recipe requests do not start lyrics. |
 
-Paid kitchen acceptance should use the established bounded qualification setup.
 Record actual tool traces and delivered artifacts; a text claim by the model or
 a passing local transport test is not evidence that the deployed workflow passed.
 

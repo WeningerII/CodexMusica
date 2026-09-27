@@ -185,7 +185,7 @@ test('required production mode exports exact recovery without Python or assets w
       assert.equal(_workerInternals.pid(),null);
       const ordinary=await client.callTool({name:'lyric_sweep',arguments:{seed_from:1,count:1}});
       assert.equal(ordinary.isError,true); assert.match(ordinary.content[0].text,/LYRIC_ASSETS_UNAVAILABLE/);
-      for(const patch of [{writer:'kitchen'},{answer:'change'},{state:checkpoint}]) {
+      for(const patch of [{answer:'change'},{state:checkpoint}]) {
         const bad=await client.callTool({name:'lyric_revise',arguments:{recover_only:true,checkpoint,...patch}});
         assert.equal(bad.isError,true);assert.match(bad.content[0].text,/Recovery requires/);
       }

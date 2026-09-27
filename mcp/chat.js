@@ -277,11 +277,14 @@ export async function createChatRouter({
     );
     return router;
   }
-  // THE KITCHEN'S WRITER IS THE CHAT'S OWN MODEL (M-254): declared here once
-  // (GEMINI_MODEL, else DEFAULT_MODEL) and handed to the harness processes
-  // through their env, so mcp/gemini_proposer.py asks the model the service
-  // says it runs and no second model name exists anywhere. Set before any
-  // harness worker spawns (they spawn lazily on the first lyric call).
+  // THE KITCHEN'S WRITER MODEL (M-254). The line writer is pinned apart from
+  // the chat's own model where the service is configured — render.yaml and
+  // production-config.json set LYRIC_PROPOSER_MODEL to a different model than
+  // GEMINI_MODEL, and render.yaml's comment records why. Only when nothing
+  // pins it does the writer fall back to the chat's model, handed to the
+  // harness processes through their env so mcp/gemini_proposer.py asks the
+  // model this process runs. Set before any harness worker spawns (they
+  // spawn lazily on the first lyric call).
   if (!process.env.LYRIC_PROPOSER_MODEL) process.env.LYRIC_PROPOSER_MODEL = model;
 
   if (!apiKey) {
@@ -309,7 +312,11 @@ export async function createChatRouter({
   // that is the path the zod schemas validate, and schemas.js is explicit that
   // reaching the engine another way inherits none of it and degrades silently
   // instead of throwing.
-  const server = buildServer();
+  //
+  // This is the one server built with the kitchen on: Gemini is writing the
+  // whole song here, so the service's writer may answer its revise questions.
+  // Every outside surface builds without it (see buildServer in tools.js).
+  const server = buildServer({ kitchen: true });
   const [clientSide, serverSide] = InMemoryTransport.createLinkedPair();
   const client = new Client({ name: 'codex-musica-chat', version: '1.0.0' }, { capabilities: {} });
   await Promise.all([server.connect(serverSide), client.connect(clientSide)]);

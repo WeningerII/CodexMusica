@@ -63,55 +63,79 @@ The raw endpoint cannot enforce an external host's user intent. See
 `docs/session-workflow-repairs.md` for the exact integration and verification scope.
 
 `edit_recipe` also supports `move_instrument` (`card`, optional `before`); omitting
-`before` makes that existing card primary without rebuilding its settings. Rich
-compression prioritizes explicitly pinned part descriptors. Inspect the returned
-`render_warnings` for requested words absent from the actual output, and
-`render_scope` for the one shared environment; neither a preface nor a chain
-description establishes a measured audio result.
+`before` moves that existing card to the front without rebuilding its settings — its
+tradition leads the header, and the environment moves with it only if the card has one.
+Rich compression prioritizes explicitly pinned part descriptors. Inspect the returned
+`render_warnings` for requested words — part descriptors, prefaces, environment
+settings — absent from the actual output, and `render_scope` for the one shared
+environment and the card it comes from; neither a preface nor a chain description
+establishes a measured audio result.
 
 A hosted **Model Context Protocol** server is the headless twin of the browser app — it
 exposes the full *editable* engine as tools. Seed a recipe from any tradition, then edit
 it (re-pick a preface, swap a part variant, override room/chain/tuning, add/remove
-instruments or traditions) and re-render. Recipe operations are deterministic and pass `workspace` in and out. Lyrics revision
-has a separate run lifecycle and can make paid external model calls.
+instruments or traditions) and re-render. Recipe operations are deterministic; on `/mcp` the server
+keeps the workspace in a session (the task endpoints pass it in and out instead). A separate lyrics
+pipeline plans and grades songs whose every line you write; no connector call reaches a model provider.
 
 - **Endpoint** (Streamable HTTP, no auth): `https://mcp.codexmusica.com/mcp`
 - **Add in Claude:** Settings → Connectors → Add custom connector → paste the URL.
 - **Server card** (capabilities, for clients that auto-discover): `https://mcp.codexmusica.com/.well-known/mcp.json`
-- **Tools:** `start_recipe`, `edit_recipe`, `render_recipe`, `search_catalog`, `search_prefaces`, `get_instrument`, `get_tradition`, `list_traditions`, `list_options`.
+- **Recipe tools:** `start_recipe`, `edit_recipe`, `render_recipe`, `search_catalog`, `search_prefaces`, `get_instrument`, `get_tradition`, `list_traditions`, `list_options`.
+- **Lyric tools:** `lyric_sweep`, `lyric_screen`, `lyric_plan`, `lyric_grade`, `lyric_revise`, `lyric_recover`, `lyric_check`, `lyric_verify`, `lyric_types`.
+  A new song: `begin_lyrics` → `lyric_sweep` → `lyric_screen` → `lyric_plan` → write the draft →
+  `lyric_grade` → `lyric_revise` (answer each question it asks until it stops). Lyrics the user
+  pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
+- **Session controls** (on `/mcp`): `begin_lyrics`, `get_operation`, `resume_operation`.
 - `render_recipe` takes `format`: `rich` (default), `tags`, `prose`, `compact`. Every one of
   them returns the byte-identical string the app shows for the same workspace.
   <!-- @promise: connector-render-parity -->
-- **The recipe's environment comes from the FIRST card.** Tuning, room and every signal-chain
-  stage are rendered from `cards[0]` alone — in all four formats, in both the connector renderer
-  and the browser (`buildStackParts(cards[0])`), which is why the app calls that card primary.
-  Instruments come from every card; the environment comes from one. So "record the whole thing in
-  a cathedral" is a SINGLE `set_environment` edit, and `card` is optional there — omit it and it
-  targets the primary. Setting an environment on any other card writes fields nothing renders; it
-  can only surface at all by nudging that one card's auto-derived preface label.
-- `set_variant` **reshapes the rest of the card**, exactly as picking a variant does in the app:
-  the same inverse cascade a preface pick runs, pinning the part you set so your choice is never
-  reverted while the other axes move toward the preface the new sound implies. On a card whose
-  preface is still auto-derived, that can change which preface the card is heading toward. It is
-  not a bare field write — batch a `set_preface` first if you want to steer the cascade.
+- **The recipe's environment comes from ONE card: the first card that has one.** Tuning, room and
+  every signal-chain stage are rendered, whole, from that card (`envCardOf` in
+  `scripts/_recipe_stack.js`, mirrored in the browser, whose Recording environment panel edits the
+  same card) — in all four formats. Instruments come from every card; the environment comes from
+  one, and every response names it in `render_scope.environment_card`. So "record the whole thing
+  in a cathedral" is a SINGLE `set_environment` edit, and `card` is optional there — omit it and it
+  lands on that card. Setting an environment on any other card writes fields nothing renders, and
+  the response says so (`ENVIRONMENT_NOT_RENDERED`). The environment lives on its card: removing or
+  moving that card hands the environment to the next card that has one, and a `set_preface` on it
+  re-derives its room, tuning and chain — `render_warnings` reports both (`ENVIRONMENT_MOVED`,
+  `ENVIRONMENT_OVERWRITTEN`), so put `set_environment` after `set_preface` in a batch.
+- `set_variant` does exactly what picking a variant does in the app: it sets and pins the part (your
+  choice is never reverted), and on a card whose preface is still auto-derived it re-derives the
+  preface label from the new sound. A **material** part (woods, strings and other shared materials)
+  also runs the inverse cascade a preface pick runs, so other parts of that card may move toward the
+  preface — most edits move nothing else. Room, tuning and the chain never move. Batch a
+  `set_preface` first if you want to steer the cascade.
   <!-- @promise: connector-edit-parity -->
-- Recipe tools are **read-only, idempotent and closed-world**; thread the returned `workspace`.
-  `lyric_revise` stores private run state and its kitchen writer makes paid external calls.
-  `/chat` persists request receipts, accepted progress, signed continuations and accounting
-  when durable storage is configured. Preserve `run_id` and `run_revision` for direct
+- **What each tool touches.** Recipe computation is deterministic and closed-world, and no tool on
+  any connector surface reaches a model provider or the open web (`openWorldHint: false`
+  throughout); the website chat's own server is the only one whose `lyric_revise` calls a model.
+  On the raw engine (`/mcp/recipe`, `/mcp/lyrics`, stdio) every tool is read-only and idempotent
+  except `lyric_revise`, which advances its run; a caller-managed client threads the returned
+  `workspace`. On the session endpoints (`/mcp`, `/mcp/chatgpt*`) the lookups and `get_operation`
+  are read-only, and every tool that opens or takes a `session_id` records the session, so it is
+  annotated as a write: a repeat with the same `session_id` and arguments returns the same
+  operation, except `start_recipe` and `begin_lyrics`, which open a new session each call, and
+  `lyric_revise` on `/mcp`, whose caller-managed mode advances a run. You write every lyric line:
+  no connector surface hands a song to the service's own writer, which runs only inside the
+  website chat. `/chat` persists request receipts, accepted progress, signed continuations and
+  accounting when durable storage is configured. Preserve `run_id` and `run_revision` for direct
   continuations, and `request_id` for chat recovery. See `mcp/LYRICS_RUNTIME.md`.
-  <!-- @promise: connector-tools-read-only -->
+  <!-- @promise: connector-tool-effects -->
 - Use `/mcp` for one shared connection. Consume initialization instructions and
   full tool descriptions/schemas. The shared `/mcp` endpoint exposes both families and
   cannot infer an external host's task. Use session IDs for saved recipe workspaces and background lyrics; caller-managed state remains supported. Recipes default to Rich with a 1,000-character
   ceiling. A recipe request does not authorize lyric work.
-- Published tool schemas stay inside the shape a restricted function-calling client can represent:
-  no `additionalProperties`, `propertyNames`, `anyOf`/`oneOf`/`allOf`, `$ref` or empty schema nodes,
+- Published tool schemas on every connector surface — the raw engine and the session endpoints
+  alike — stay inside the shape a restricted function-calling client can represent: no
+  `additionalProperties`, `propertyNames`, `anyOf`/`oneOf`/`allOf`, `$ref` or empty schema nodes,
   beyond a short exemption list enumerated and justified in the gate itself.
   <!-- @promise: connector-schema-subset -->
 - Each card in a recipe response carries `changed` — the parts, room, tuning and chain stages that
-  differ from the card as it was seeded — so an edit can be confirmed without diffing the workspace
-  or trusting a recipe string that may have been truncated. Absent on an untouched card.
+  differ from the card as it was seeded (or as `add_instrument` built it), and a pinned preface the
+  card now shows instead of the one it would show — so an edit can be confirmed without diffing the
+  workspace or trusting a recipe string that may have been truncated. Absent on an untouched card.
   <!-- @promise: connector-edit-visible -->
 - A chain id never needs guesswork: `search_catalog types=["chain"]` returns each hit with the
   `stage` that accepts it (a chain id is only usable as `chain: {<stage>: <id>}`, and there are
@@ -119,16 +143,18 @@ has a separate run lifecycle and can make paid external model calls.
   take it rather than a bare "Unknown".
   <!-- @promise: chain-id-stage-known -->
 - The tool surface also drives **restricted function-calling clients** (Gemini and the like), whose
-  schema dialect is narrower than MCP's. The declarations derived from a live `tools/list` carry no
-  keyword such a client rejects and no `workspace` parameter — the caller holds the workspace and
-  threads it, so the model never emits one.
+  schema dialect is narrower than MCP's. The declarations `mcp/gemini_tools.js` derives from a live
+  `tools/list` — of the website chat's own server and of every connector surface — carry no keyword
+  such a client rejects and no `workspace` or `state` parameter: the caller holds those and threads
+  them (a session caller holds only its `session_id`), so the model never emits one.
   <!-- @promise: connector-gemini-legal -->
 - A chain override is validated for **shape** as well as id. A multi-select stage such as `fx` holds
-  a list; passing one id is accepted and lifted, and anything else is refused loudly rather than
-  written through and silently dropped at render time.
+  a list; passing one id is accepted, lifted and **added** to the list (as picking an effect does in
+  the app), `clear: ["fx"]` empties it, and anything else is refused loudly rather than written
+  through and silently dropped at render time.
   <!-- @promise: chain-stage-validated -->
 
-**No MCP client?** Then use the static JSON below — it is the default recipe per tradition,
+**No MCP client?** Then use the static JSON above — it is the default recipe per tradition,
 read-only. Editing needs the connector; there is no HTTP fallback that edits.
 
 **The default seed is scaffolding, not the answer.** `start_recipe` returns a
@@ -139,7 +165,7 @@ Map intent to edits — each mapping below is one `edit_recipe` op:
 |---|---|
 | a mood / feel / aesthetic word ("bitter", "dreamy", "face-melting") | `search_prefaces` → `set_preface` on **each** instrument it should color — this re-derives that instrument's physical settings toward the word |
 | specific gear / material / technique ("brushes", "mahogany", "fingerpicked") | `get_instrument` → `set_variant` |
-| a space, era, or medium ("in a cathedral", "1950s broadcast", "on wax") | `set_environment` — any room, tuning, or chain stage |
+| a space, era, or medium ("in a cathedral", "1950s broadcast", "on wax") | `set_environment` with no `card` — one edit for the whole recording; any room, tuning, or chain stage |
 | an instrument to add or drop | `add_instrument` / `remove_instrument` — any instrument fits any tradition |
 | another style to fold in | `add_tradition` / `remove_tradition` |
 
@@ -147,18 +173,24 @@ Map intent to edits — each mapping below is one `edit_recipe` op:
 physically impossible here — recipes are *words for audio generation*, so a
 Delta-blues igil through a cathedral chain onto shellac is exactly as renderable
 as the period-correct default. The catalog's researched defaults are flavor to
-keep or override, never a wall. Every id-valid combination renders; the only
-errors are unknown ids.
+keep or override, never a wall. Every id-valid combination renders; an edit is
+refused only for an unknown id, a misspelled field, or doing nothing (a tradition
+already in the recipe, an environment edit with nothing to set, a batch that
+leaves no cards), and the refusal names what to do instead.
 
-A typical exchange ("haunted Appalachian murder ballad, banjo like it's underwater"):
-`search_catalog "appalachian ballad"` → `start_recipe {traditions:["appalachian_ballad_singing"]}`
-→ `search_prefaces "haunted eerie"` and `search_prefaces "underwater submerged"`
-→ one `edit_recipe` with `[{action:"set_preface", card:"voice", preface:"<haunted-hit>"},
-{action:"set_preface", card:"five_string_banjo", preface:"<underwater-hit>"}]`
+A typical exchange ("haunted Appalachian murder ballad, banjo drowned in reverb, recorded
+like it's underwater"):
+`search_catalog "appalachian ballad"` → `start_recipe {traditions:["appalachian_folk"]}`
+→ `search_prefaces "haunted"` (→ `haunting`), `search_prefaces "submerged"` (→ `drowning`) and
+`search_catalog "underwater"` (→ `hydrophone_piezo`, stage `mic`)
+→ one `edit_recipe` with `[{action:"set_preface", card:"voice", preface:"haunting"},
+{action:"set_preface", card:"banjo_5_string", preface:"drowning"},
+{action:"set_environment", chain:{mic:"hydrophone_piezo"}}]` — the environment edit last, and
+with no `card`, because it is the whole recording's
 → present the returned `recipe` verbatim. One search per user-word, one batched
 edit call, done.
 
-Use the connector for *composition*; the static JSON below is the browse layer —
+Use the connector for *composition*; the static JSON above is the browse layer —
 read it when you only need a tradition's default recipe as reference.
 
 ## Full functionality (clone & run)

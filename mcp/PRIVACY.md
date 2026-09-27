@@ -1,18 +1,19 @@
 # Privacy Policy — CodexMusica MCP server
 
-_Last updated: 2026-09-13_
+_Last updated: 2026-09-27_
 
 CodexMusica provides deterministic recording-recipe tools and a separate lyrics
-pipeline. Lyrics revision and chat can call an external model and retain working
-content for recovery. The service does not require an account login.
+pipeline. The website chat calls an external model; connector (MCP) calls do not.
+Both retain working content for recovery. The service does not require an account
+login.
 
 ## What it does
 
 Recipe tools receive music-catalog parameters and return a deterministic recording
 recipe. Lyrics tools plan, analyze and revise lyrics. Local planning and grading
-use code and staged lexical data; the kitchen writer calls Google's Gemini API to
-propose repairs. The `/chat` surface also calls Gemini to interpret messages and
-drive the tools.
+use code and staged lexical data. Through the MCP connector the caller writes every
+lyric line. Only the website `/chat` surface calls Google's Gemini API — to
+interpret messages, drive the tools, write lyrics and propose repairs.
 
 ## What it collects and retains
 
@@ -27,10 +28,11 @@ drive the tools.
   stores them on the server; without durable storage, they remain process-local.
   A request without `request_id` has no recoverable request receipt.
 - **Workflow sessions.** The shared `/mcp` endpoint and its compatibility aliases automatically issue session and operation identifiers and retain
-  their requests and results in the same recovery store. Recipe workspaces,
+  their requests and results in their own recovery store (`sessions/` under the
+  runtime directory), apart from `/chat`'s receipts. Recipe workspaces,
   lyric workflow receipts and private continuation state remain on the service.
-  These sessions follow the receipt retention policy below. Kitchen sessions
-  require durable storage; local recipe and interview sessions can be transient.
+  These sessions follow the receipt retention policy below. Without durable
+  storage they are process-local and transient.
 - **Retention.** Completed or interrupted receipt metadata becomes eligible for
   expiration 24 hours after its last work update and is removed when store cleanup
   runs. Full request/response payloads may be retired sooner to
@@ -86,9 +88,9 @@ as private working data rather than publishing them in an issue.
   Google's Gemini API. The recipe workspace is withheld from the model as a
   separate state object and injected into local tools; recipe information can
   nevertheless appear in tool results or the conversation.
-- A lyrics kitchen call sends the relevant lyric draft/context, constraints and
-  repair prompt to Gemini. This also applies when the kitchen is invoked
-  directly through `/mcp`. Google processes submitted text under its own terms.
+- The chat's lyric revision sends the relevant lyric draft/context, constraints
+  and repair prompt to Gemini. No MCP connector endpoint does. Google processes
+  submitted text under its own terms.
 - Recipe tools and local lyrics analysis do not themselves invoke an external
   model. The caller's own MCP client or model provider can also process content
   under that caller's separate arrangement.

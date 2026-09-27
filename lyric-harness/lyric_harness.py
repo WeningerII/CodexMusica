@@ -6288,7 +6288,8 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
 USAGE = """--input-format=literal|source (default: literal):
   Draft files retain every nonblank line, including #, [ and --- prefixes.
   Use source explicitly for printed apparatus and section headers; mandate
-  coordinates then refer to the extracted sung lines. MCP drafts are literal.
+  coordinates then refer to the extracted sung lines. MCP drafts are literal;
+  the connector's recover reads a paste as source and returns its sung lines.
 
 --pronunciations=<JSON> on song, finish, brief, revise, verify and recover:
 explicit occurrence readings: a list of {line, token, word, phones, basis, source}.
@@ -6783,6 +6784,50 @@ def _strip_flag(args, flag, bare=False):
             continue
         out.append(a)
     return out
+
+
+def _ban_bindings(found, findings):
+    """Where each two-tier ban sits, and which pairs the ban never asked.
+
+    A HOMEOTELEUTON / MODAL_RHYME finding names its two LINES, and the ban is
+    about the WORDS the mandate binds there — which are the end words only
+    when the group binds at the line end. `binding` is read off the grade's
+    own pair verdict for that group (its bound words and the mandate's slot
+    for each member), so a writer told to replace a banned word is told which
+    word, at which place. The ban is an end-rhyme instrument and is skipped on
+    a pair judged under a declared non-default structure; `not_asked` names
+    those pairs so a count of zero bans is never read as clean when the
+    question was not put. Machine-record fields only: no finding, severity or
+    verdict changes.
+    """
+    from quality import slots as _SLb
+    from quality import structures as _STb
+    m = found.get("mandate")
+    verdicts = (found.get("grade") or {}).get("verdicts") or []
+    by_pair = {}
+    for v in verdicts:
+        by_pair.setdefault((tuple(v["lines"]), v["label"]), v)
+    if m is not None:
+        for f in findings:
+            if f.get("code") not in ("HOMEOTELEUTON", "MODAL_RHYME"):
+                continue
+            for label in f.get("groups") or ():
+                v = by_pair.get((tuple(f.get("locations") or ()), label))
+                if v is None:
+                    continue
+                binding = []
+                for line, word in zip(v["lines"], v["endwords"]):
+                    slot = m.slot_of(v["group"], line)
+                    binding.append({"line": line, "word": word,
+                                    "place": _SLb.spell_slot(slot),
+                                    "what": _SLb.word_phrase(slot)})
+                f["binding"] = binding
+                break
+    not_asked = [{"lines": list(v["lines"]), "group": v["label"],
+                  "structure": v.get("structure")}
+                 for v in verdicts
+                 if v.get("structure") not in (None, _STb.DEFAULT)]
+    return {"asked": len(verdicts) - len(not_asked), "not_asked": not_asked}
 
 
 def _lyric_result(**record):
@@ -9570,6 +9615,20 @@ def main():
         print("      (`revise FILE MANDATE --propose=defer:STATE.json` is the "
               "same mandate driven to a stop condition and stamped)")
         _refs = rec.refusals()
+        # THE MACHINE RECORD: the sung lines the mandate is numbered over,
+        # the rows the reader set aside, the two flags and every refusal WITH
+        # its reason. The render above names two refused keys only in its
+        # closing list, so a reader of the report alone gets no reason for
+        # them; the record carries all of them, read off `rec.how`.
+        _lyric_result(status="recovered", exit=3 if _refs else 0,
+                      input_format=input_format,
+                      lines=list(getattr(rec, "sung_lines", []) or []),
+                      set_aside=list(getattr(rec, "set_aside", []) or []),
+                      sections=rec.get("sections") or [],
+                      mandate={"groups": ms.get("--groups=", ""),
+                               "returns": ms.get("--returns=", "")},
+                      refusals=[{"coordinate": k, "why": why}
+                                for k, why in _refs.items()])
         if _refs:
             print(f"  EXIT 3 — {len(_refs)} coordinate(s) REFUSED "
                   f"({', '.join(_refs)}): a work order for the caller to "
@@ -11904,12 +11963,14 @@ def main():
             _machine_findings = [_finding_dict(f)
                                  for fs in found["per_line"].values() for f in fs]
             _machine_findings.extend(_finding_dict(f) for f in whole)
+            _ban_scope = _ban_bindings(found, _machine_findings)
             _machine = {"version": 1, "status": "graded", "command": cmd,
                         "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
                         "final_draft": list(lines), "coverage": found["coverage"],
                         "pronunciations": lex.pronunciations,
                         "pronunciation_options": reading_options(lex, lines),
-                        "findings": _machine_findings}
+                        "findings": _machine_findings,
+                        "ban_scope": _ban_scope}
             print("  lyric result: " + json.dumps(_machine, ensure_ascii=False,
                                                   separators=(",", ":")), flush=True)
             # Rhyme groups and full-line returns are distinct obligations.

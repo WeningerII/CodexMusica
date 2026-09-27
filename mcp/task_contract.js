@@ -1,4 +1,9 @@
-// Task authority belongs to the host request/endpoint, never model tool arguments.
+// Task authority belongs to the host request/endpoint. The maintained client and
+// the task endpoints (/mcp/recipe, /mcp/lyrics) never take it from model tool
+// arguments. The shared session endpoint is the one declared exception: a remote
+// host has no other channel, so begin_lyrics's `phase` argument selects create or
+// edit, and the session then holds that phase fixed (workflow_tools.js says so in
+// the tool's own description).
 export const RECIPE_MARKER = '=== RECIPE TASK ===';
 export const LYRICS_MARKER = '=== LYRICS TASK ===';
 export const TASK_DOMAINS = Object.freeze(['recipe', 'lyrics']);

@@ -10,7 +10,10 @@ const list = (value) =>
     .filter(Boolean)
     .sort();
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-const PLAN_FIELDS = [
+// The declarations a plan is a function of, and the reading declarations a
+// grade is taken under. Exported so the published tool text names exactly
+// the fields these receipts compare.
+export const PLAN_FIELDS = [
   'seed',
   'form',
   'lines',
@@ -21,7 +24,7 @@ const PLAN_FIELDS = [
   'melody',
   'wants',
 ];
-const READING_FIELDS = ['pronunciations', 'fallback', 'voices'];
+export const READING_FIELDS = ['pronunciations', 'fallback', 'voices'];
 const readingValue = (key, value) =>
   value ?? (key === 'pronunciations' ? [] : key === 'voices' ? false : null);
 const UNPLANNED_FIELDS = ['scheme', 'groups', 'returns', 'structures', 'blueprint', 'subdivision'];
@@ -159,9 +162,13 @@ export function creationRefusal(task, name, args, lyric = null) {
     return w.sweeps.length
       ? null
       : 'CREATION_ORDER: execute a successful lyric_sweep before screening.';
+  // lyric_verify is a diff of one revision and records nothing, so it serves a
+  // new song's revision rounds too. lyric_check and lyric_recover grade or
+  // structure a draft without the plan, which would route around the plan and
+  // lyric_grade this phase enforces.
   if (!['lyric_plan', 'lyric_grade', 'lyric_revise'].includes(name)) {
-    if (['lyric_check', 'lyric_verify', 'lyric_recover'].includes(name))
-      return 'CREATION_PLAN: a new song must use the program plan and lyric_grade. Pasted-song tools require an explicit edit task.';
+    if (['lyric_check', 'lyric_recover'].includes(name))
+      return `CREATION_PLAN: ${name} is for lyrics the user supplied. In this new-song session, grade your draft with lyric_grade (same seed and declarations as lyric_plan); for lyrics the user supplied, call begin_lyrics with phase 'edit'.`;
     return null;
   }
   if (!w.sweeps.length || !w.screen)
@@ -171,7 +178,7 @@ export function creationRefusal(task, name, args, lyric = null) {
       return 'CREATION_PLAN: an inspection-only plan cannot qualify a production song.';
     return sweepFor(w, args)
       ? null
-      : 'CREATION_PLAN: use an accepted sweep seed with the same form, lines, functions and wants.';
+      : "CREATION_PLAN: plan a seed an accepted lyric_sweep returned, with that sweep's form, lines, functions and melody, and its `want` list as `wants`.";
   }
   if (!w.plan)
     return 'CREATION_PLAN: execute lyric_plan successfully before grading or revising a new song.';
@@ -242,10 +249,11 @@ export function recordCreation(task, name, args, verdict, isError = false) {
     verdict.accepted_shown.length
   ) {
     const accepted = verdict.accepted_shown.filter(Number.isInteger);
-    if (accepted.length) {
+    // A later sweep page keeps the screen receipt: the screen step records
+    // that candidate words were screened in this session, and nothing it
+    // checked depends on which sweep window the seed came from.
+    if (accepted.length)
       w.sweeps = [...w.sweeps, { args: structuredClone(args), accepted }].slice(-8);
-      w.screen = null;
-    }
   } else if (name === 'lyric_screen' && answered(verdict) && w.sweeps.length) {
     w.screen = { words: structuredClone(args.words || []), relation: args.relation ?? null };
   } else if (name === 'lyric_plan') {

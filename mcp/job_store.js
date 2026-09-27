@@ -65,10 +65,16 @@ export function atomicPrivateWrite(file, data) {
   if (failure) throw failure;
 }
 
+// The digest of a value is the digest of its JSON: a record is stored as JSON
+// and re-digested from it, so an `undefined` field (absent in JSON) must digest
+// as absent, and an `undefined` array item as null. Otherwise an in-process
+// intent carrying one reads back as a corrupt record.
 function canonical(value) {
+  if (value === undefined) return 'null';
   if (value === null || typeof value !== 'object') return JSON.stringify(value);
   if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
   return `{${Object.keys(value)
+    .filter((key) => value[key] !== undefined)
     .sort()
     .map((key) => `${JSON.stringify(key)}:${canonical(value[key])}`)
     .join(',')}}`;
@@ -425,6 +431,23 @@ export class JobStore {
     return { created: true, record: copy(saved) };
   }
 
+  // Take in a finished receipt written by another store, unchanged, so work can
+  // continue from it here under this store's single-successor rule. An id this
+  // store already holds is kept as it is.
+  adopt(record) {
+    this.assertHealthy();
+    const held = this.get(record?.request_id);
+    if (held) return held;
+    if (!['completed', 'interrupted'].includes(record?.state))
+      throw new Error('Only a finished receipt can be adopted');
+    if (this.records.size >= this.maxRecords)
+      throw Object.assign(
+        new Error('Recovery store is full; retry after existing receipts expire'),
+        { status: 503 }
+      );
+    return copy(this.write(copy(record)));
+  }
+
   checkpoint(id, payload) {
     boundedPayload(
       payload,
@@ -518,7 +541,16 @@ export class JobStore {
   }
 }
 
-export function createJobRouter({ store, build = {}, recoverCheckpoint = null }) {
+// `exposes` names the receipts this router may answer for. A store can hold
+// receipts that belong to another surface (connector sessions written before
+// they had their own store); those carry private continuation state their own
+// surface never shows, so here they read as absent.
+export function createJobRouter({
+  store,
+  build = {},
+  recoverCheckpoint = null,
+  exposes = () => true,
+}) {
   const router = express.Router();
   const publicRecord = (record) => {
     const visible = store.publicRecord(record);
@@ -531,7 +563,8 @@ export function createJobRouter({ store, build = {}, recoverCheckpoint = null })
   router.get('/chat/jobs/:id', (req, res) => {
     res.set('Cache-Control', 'no-store');
     try {
-      const record = store.get(req.params.id);
+      const found = store.get(req.params.id);
+      const record = found && exposes(found) ? found : null;
       if (!record && store.failure)
         return res
           .status(503)
@@ -553,7 +586,8 @@ export function createJobRouter({ store, build = {}, recoverCheckpoint = null })
       resolve: (id) => {
         if (typeof id !== 'string' || !ID.test(id))
           throw Object.assign(new Error('Invalid continuation_id.'), { status: 400 });
-        const record = store.get(id);
+        const found = store.get(id);
+        const record = found && exposes(found) ? found : null;
         if (record?.successor_id && record.successor_id !== req.body?.request_id)
           throw Object.assign(
             new Error(
@@ -607,7 +641,7 @@ export function createJobRouter({ store, build = {}, recoverCheckpoint = null })
       try {
         const existing = store.get(id);
         if (existing) {
-          if (existing.digest !== requestDigest(req.body))
+          if (!exposes(existing) || existing.digest !== requestDigest(req.body))
             return res.status(409).json({ error: 'request_id already belongs to different input' });
           return existingReply(existing);
         }

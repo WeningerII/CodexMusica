@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """gemini_proposer.py — THE KITCHEN (owner ruling 2026-09-06, `MISSING.md`
 M-254): a `--propose=call:gemini_proposer:make` proposer that asks Gemini
-for ONE line per question, on the harness's own rendered brief, so the loop
-runs to a stop condition on the server and the chat model only starts it.
+to answer each question on the harness's own rendered brief — one line for a
+single-line question, every line of the group for a group question — so the
+loop runs to a stop condition on the server and the chat model only starts it.
 
 WHY THIS FILE EXISTS, AND WHY IT LIVES HERE AND NOT IN THE HARNESS. Twenty-
 two flash-battery rounds asked the CHAT model to be the writer through a
@@ -43,16 +44,18 @@ CONFIGURATION IS ENVIRONMENT, DECLARED BY THE CONNECTOR AT WORKER SPAWN:
                                not raise: the harness calls it before the
                                loop, outside the clause that turns this
                                into a REFUSED)
-  LYRIC_PROPOSER_MODEL         the model, set by the connector from the one
-                               place the chat's model is declared
-                               (`chat.js`: GEMINI_MODEL or DEFAULT_MODEL);
-                               absent, GEMINI_MODEL; absent both, refused
+  LYRIC_PROPOSER_MODEL         the model. Production pins it apart from the
+                               chat's GEMINI_MODEL (render.yaml,
+                               production-config.json); where nothing pins
+                               it, `chat.js` sets it to the chat's model
+                               (GEMINI_MODEL or DEFAULT_MODEL). Absent here,
+                               GEMINI_MODEL; absent both, refused
   LYRIC_PROPOSER_API_BASE      default Gemini's; a test points it at a stub
   LYRIC_PROPOSER_TEMPERATURE   default 0.8 — NOT the chat driver's 0: a
                                rejected line is re-asked with its rejection
                                quoted, and at 0 the re-ask returns the same
                                bytes and spends the attempt for nothing
-  LYRIC_PROPOSER_MAX_TOKENS    default 1024 per requested line, up to31;
+  LYRIC_PROPOSER_MAX_TOKENS    default 1024 per requested line, up to 31;
                                an explicit lower allowance refuses dispatch
 
 THE TRANSIENT POLICY RESTATES `gemini_agent.js`'s (RETRY_TRANSIENT
@@ -453,7 +456,7 @@ class _Kitchen:
 
     def with_capacity(self, prompt, *, max_lines):
         if type(max_lines) is not int or not 1 <= max_lines <= MAX_PROPOSAL_LINES:
-            self._refuse("PROPOSER_CONFIG", "proposal line capacity must be an integer from1 to31")
+            self._refuse("PROPOSER_CONFIG", "proposal line capacity must be an integer from 1 to 31")
         self._max_lines = max_lines
         self._call_started = time.monotonic()
         self.finish_reason = self.prompt_feedback = self.failure_code = None

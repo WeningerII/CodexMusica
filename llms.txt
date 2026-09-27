@@ -10,8 +10,8 @@
 The full editable engine is a Model Context Protocol server: seed a recipe from any
 tradition, then re-pick prefaces, swap part variants, override room/chain/tuning, and
 add/remove instruments or traditions. Recipe tools are deterministic; use the returned session_id for saved workspaces
-or retain the original caller-managed workspace contract. Lyrics revision retains private run state,
-and optional kitchen writing sends briefs and drafts to a paid external provider.
+or retain the original caller-managed workspace contract. Lyrics tools plan and grade; you write every
+line (the service never writes lyrics for a connector caller), and revision retains private run state.
 The chat surface supports durable request receipts. Everything below this
 section is a SEPARATE read-only product — one pre-compiled recipe per tradition, built by
 a different pipeline and worded differently. Use it for bulk reads; use the connector for
@@ -20,14 +20,15 @@ anything you want to change, and do not expect the two strings to match.
 - Shared endpoint (Streamable HTTP, no auth): https://mcp.codexmusica.com/mcp
 - One Codex Musica connection exposes all 18 music tools to any compatible MCP client.
 - Shared workflow controls: begin_lyrics, get_operation, resume_operation.
+- You write every lyric line: no connector call reaches a model provider.
 - Saved sessions retain exact state and recover background lyric operations after disconnects.
-- Existing /mcp/recipe and /mcp/lyrics task views remain compatible during migration.
+- Task-scoped raw views /mcp/recipe and /mcp/lyrics serve the maintained client (mcp/client.js); AI hosts use /mcp.
 - Native clients must preserve initialization guidance, complete tool metadata,
   the host-selected task and exact returned artifacts; use the maintained adapter
   documented in docs/connector.md. Keep run and request capabilities private.
 - Server card (capabilities, for auto-discovery): https://mcp.codexmusica.com/.well-known/mcp.json
 - Tools: start_recipe, edit_recipe, render_recipe, search_catalog, search_prefaces, get_instrument, get_tradition, list_traditions, list_options.
-- Lyric tools (separate planning/grading/revision pipeline; kitchen writing is paid): lyric_screen, lyric_sweep, lyric_plan, lyric_grade, lyric_recover, lyric_check, lyric_verify, lyric_revise, lyric_types.
+- Lyric tools (separate planning/grading/revision pipeline; you write the lines): lyric_screen, lyric_sweep, lyric_plan, lyric_grade, lyric_recover, lyric_check, lyric_verify, lyric_revise, lyric_types.
 
 Do NOT fetch codex.html: it is a multi-megabyte browser GUI, it will blow your context or
 fail to load, and it contains no instructions for you.
@@ -48,7 +49,7 @@ cheaply or to work offline; use the connector above to change anything.
 NOT a snapshot of what start_recipe returns. These recipes come from a search over the
 axis space, the connector's from seeding a workspace and rendering it, so the two describe
 the same tradition in different words. If you need the string a user would see in the app,
-call the connector; if you need 2503 recipes in one fetch, this is the only thing that
+call the connector; if you need 2588 recipes in one fetch, this is the only thing that
 does that.
 - ALL default recipes in one fetch: https://codexmusica.com/api/all.json
 - List of traditions: https://codexmusica.com/api/traditions/index.json

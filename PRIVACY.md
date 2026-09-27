@@ -1,6 +1,6 @@
 # Privacy
 
-Last updated: 2026-09-08
+Last updated: 2026-09-27
 
 CodexMusica exposes public recipe tools, a separate lyrics pipeline and a browser
 chat service. There is no user account system. Random run and request identifiers
@@ -9,10 +9,14 @@ Keep these identifiers and signed continuation envelopes private.
 
 ## Processing and storage
 
-Recipe tool operations pass their workspace in and out and do not save a recipe
-workspace as a server account. The browser chat protocol can retain that workspace
-alongside a conversation receipt. The workspace is passed to the engine outside
-the model's prompt.
+The shared connector endpoint (`/mcp` and its aliases) issues session and
+operation identifiers and retains recipe workspaces, lyric workflow receipts and
+private continuation state in the runtime store, so a host carries only a short
+capability between calls; [mcp/PRIVACY.md](mcp/PRIVACY.md) describes exactly what
+those sessions hold. Callers of the task endpoints (`/mcp/recipe`, `/mcp/lyrics`)
+pass their workspace in and out instead. The browser chat protocol can retain a
+workspace alongside a conversation receipt; the workspace is passed to the engine
+outside the model's prompt.
 
 Direct `lyric_revise` calls retain private run state in a process-local cache
 (default: 64 records, six-hour inactivity limit). Returned state and checkpoints
@@ -31,10 +35,10 @@ configured as durable. Local development without persistent storage is temporary
 ## External model processing
 
 Browser chat sends conversation text and relevant tool results to Google's Gemini
-API. `lyric_revise` with `writer: kitchen` also sends the lyric brief, draft and
-revision context to Gemini, including when called directly through MCP. These are
-paid model requests made with the service's API key. The `interview` writer uses
-answers supplied by the caller instead of invoking the server's kitchen model.
+API, and its lyric revision sends the lyric brief, draft and revision context to
+Gemini as well. These are paid model requests made with the service's API key.
+MCP connector calls (`/mcp`, `/mcp/recipe`, `/mcp/lyrics` and their aliases) send
+nothing to a model provider: the connecting host writes every lyric line itself.
 Your connecting AI host may independently process the information you give it.
 
 ## Logs

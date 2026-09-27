@@ -13,7 +13,14 @@
 // as ordinary successful answers.
 
 import { z } from 'zod';
-import { RECIPE_CHAR_CEILING, CHAIN_STAGE_IDS, CHAIN_MULTI_STAGE_IDS } from './engine.js';
+import {
+  RECIPE_CHAR_CEILING,
+  CHAIN_STAGE_IDS,
+  CHAIN_MULTI_STAGE_IDS,
+  ENV_FIELDS,
+  LIST_TRADITIONS_MAX,
+  OPTION_KINDS,
+} from './engine.js';
 
 export const renderShape = {
   format: z
@@ -66,7 +73,13 @@ export const workspaceSchema = z
     // engine's business to trust — the array arrives from the network.
     cards: z.array(z.any()).max(MAX_WORKSPACE_CARDS),
   })
-  .describe('The workspace returned by the previous recipe call. Thread it through unchanged.');
+  // Threading is described HERE and only here. A tool's main description is
+  // published on every surface, including the session endpoint where the server
+  // carries the workspace and this parameter is optional or absent; this
+  // parameter's description is published only where the caller holds the state.
+  .describe(
+    'The `workspace` returned by the previous recipe call (start_recipe, edit_recipe or render_recipe), passed back unchanged. Every recipe call returns the next one.'
+  );
 
 export const editSchema = z.object({
   action: z
@@ -92,32 +105,56 @@ export const editSchema = z.object({
     .string()
     .optional()
     .describe(
-      'Card reference for move_instrument. Omit to move the selected card to the front, making its tradition and environment primary. Existing settings are preserved.'
+      'Card reference for move_instrument: the card is placed just before this one. Omit to move it to the front, ' +
+        'which puts its tradition first in the header; the environment follows only if that card has one (the recipe ' +
+        'renders the environment of the first card that has any). Existing settings are preserved.'
     ),
   card: z
     .string()
     .optional()
     .describe(
-      'Card reference (the `card` id from a prior response, or an instrument id) — for remove_instrument / set_variant / set_preface. ' +
-        'OPTIONAL for set_environment: the recipe renders tuning/room/chain from the first card only, so omitting it targets that card, ' +
-        'which is what "record the whole thing in X" means.'
+      'Card reference (the `card` id from a prior response, or an instrument id) — for remove_instrument / set_variant / ' +
+        'set_preface / move_instrument. OPTIONAL for set_environment, and usually best omitted: the recipe renders one ' +
+        'environment, taken from render_scope.environment_card, and an omitted card writes there — "record the whole thing ' +
+        'in X" is one edit. Naming another card stores a setting no format renders.'
     ),
   part: z.string().optional().describe('Part id — for set_variant (see get_instrument).'),
   variant: z
     .string()
     .optional()
     .describe(
-      'Variant id — for set_variant (see get_instrument). Setting it reshapes the rest of the ' +
-        'card toward its preface (the app does the same); this part is pinned and never reverted.'
+      'Variant id — for set_variant (see get_instrument). The part is set and pinned (never reverted). As in the app, ' +
+        'an auto-derived preface label is re-derived from the new sound; a material part (woods, strings and other ' +
+        'shared materials) may also move other parts of that card toward the preface. Room, tuning and chain never move.'
     ),
   preface: z
     .string()
     .optional()
     .describe(
-      "Preface id — for set_preface (see search_prefaces). Deterministically re-derives the card's settings toward it, then labels it verbatim."
+      "Preface id — for set_preface (see search_prefaces). Deterministically re-derives the card's parts, room, tuning and " +
+        'chain toward it, then labels it verbatim. On the environment card this replaces an environment set earlier, so ' +
+        'put set_environment after set_preface.'
     ),
-  room: z.string().optional().describe('Room id — for set_environment.'),
-  tuning: z.string().optional().describe('Tuning id — for set_environment.'),
+  room: z
+    .string()
+    .optional()
+    .describe('Room id — for set_environment (search_catalog types=["room"]).'),
+  tuning: z
+    .string()
+    .optional()
+    .describe('Tuning id — for set_environment (search_catalog types=["tuning"]).'),
+  // Clearing needs a field of its own because the id fields cannot say "none":
+  // a null would publish a type union (anyOf), outside the schema subset. An enum
+  // list is plain JSON Schema, and it is also how a multi-select stage is emptied
+  // or replaced, which a one-id-per-edit `chain` value cannot express.
+  clear: z
+    .array(z.enum(ENV_FIELDS))
+    .max(ENV_FIELDS.length)
+    .optional()
+    .describe(
+      'For set_environment: settings to unset before this edit applies its own values — room, tuning, or a chain stage ' +
+        '(a multi-select stage is emptied). {"clear":["fx"],"chain":{"fx":"<id>"}} leaves exactly that one effect.'
+    ),
   // Named stages, not an open record.
   //
   // z.record compiles to propertyNames + additionalProperties, both outside the
@@ -131,12 +168,15 @@ export const editSchema = z.object({
   // A plain z.object SILENTLY STRIPS an unrecognised key, so `{"mick":"<id>"}`
   // would reach the engine as `{}` — a no-op the model is never told about. That
   // is the same silent class as the fx-corruption this schema sat above; a typo
-  // must come back as "Unknown chain stage", not as nothing happening.
+  // must come back as "Unknown chain stage", not as nothing happening. The
+  // message is set here because this refusal happens at the schema, before the
+  // engine's own "Unknown chain stage" could name the stages.
   //
   // Every stage takes ONE id, including the multi-select ones — the SSOT lifts a
-  // bare id into a list. A union of string|array would publish anyOf and buy
+  // bare id into the list. A union of string|array would publish anyOf and buy
   // nothing: z.record(z.string(), z.string()) never accepted an array either, so
-  // no caller loses a shape it could previously send.
+  // no caller loses a shape it could previously send. Several effects are
+  // several edits, each adding one; `clear` empties the list.
   chain: z
     .strictObject(
       Object.fromEntries(
@@ -148,16 +188,26 @@ export const editSchema = z.object({
             .describe(
               `${stage} id` +
                 (CHAIN_MULTI_STAGE_IDS.includes(stage)
-                  ? ' (multi-select stage; one id per call)'
+                  ? ' (multi-select stage: each edit ADDS one id to the list; clear it with clear:["' +
+                    stage +
+                    '"])'
                   : '')
             ),
         ])
-      )
+      ),
+      {
+        error: (issue) =>
+          issue.code === 'unrecognized_keys'
+            ? `Unknown chain stage ${issue.keys.map((k) => `"${k}"`).join(', ')}. Stages: ${CHAIN_STAGE_IDS.join(', ')}. ` +
+              'search_catalog types=["chain"] returns each chain id with the stage that takes it.'
+            : undefined,
+      }
     )
     .optional()
     .describe(
-      `Chain stage overrides — for set_environment, e.g. {"mic":"<id>","medium":"<id>"}. ` +
-        `Stages: ${CHAIN_STAGE_IDS.join(', ')}. Ids from list_options or search_catalog types=["chain"].`
+      `Chain stage settings — for set_environment, e.g. {"mic":"<id>","medium":"<id>"}. ` +
+        `Stages: ${CHAIN_STAGE_IDS.join(', ')}. Ids from search_catalog types=["chain"], which returns each id with ` +
+        'the stage that takes it.'
     ),
 });
 
@@ -175,6 +225,22 @@ export const editSchema = z.object({
 // So the schemas are exported rather than inlined at their registration sites:
 // anything that calls the engine parses against THESE objects first. One
 // definition, so a second caller can never drift from what the connector accepts.
+
+// Schema parsing strips keys an edit does not declare before any handler runs,
+// so a misspelled field beside a valid one ({room, tunning}) would vanish without
+// a word. The published schema cannot forbid extra keys (connector-schema-subset
+// allows no additionalProperties there), so the servers check the raw arguments
+// with this before parsing (guardEditKeys in tools.js).
+export function unknownEditKeys(args) {
+  const known = new Set(Object.keys(editSchema.shape));
+  const unknown = [];
+  (Array.isArray(args?.edits) ? args.edits : []).forEach((edit, i) => {
+    if (edit && typeof edit === 'object' && !Array.isArray(edit))
+      for (const key of Object.keys(edit)) if (!known.has(key)) unknown.push(`edits[${i}].${key}`);
+  });
+  return unknown;
+}
+
 export const TOOL_SCHEMAS = {
   start_recipe: z.object({
     traditions: z
@@ -254,24 +320,36 @@ export const TOOL_SCHEMAS = {
   }),
   get_tradition: z.object({ id: z.string().describe('Tradition id (see search_catalog).') }),
   list_traditions: z.object({
-    query: z.string().optional(),
-    family: z.string().optional(),
-    limit: z.number().int().positive().optional(),
-    offset: z.number().int().nonnegative().optional(),
+    query: z
+      .string()
+      .optional()
+      .describe('Keep traditions whose id or name contains this text (case-insensitive).'),
+    family: z
+      .string()
+      .optional()
+      .describe(
+        'Keep one family, by its exact id (list_options kind="tradition_families"); case-insensitive.'
+      ),
+    limit: z
+      .number()
+      .int()
+      .positive()
+      .max(LIST_TRADITIONS_MAX)
+      .optional()
+      .describe(`Rows per page (default 50, max ${LIST_TRADITIONS_MAX}).`),
+    offset: z
+      .number()
+      .int()
+      .nonnegative()
+      .optional()
+      .describe("Rows to skip; pass the previous response's next_offset for the next page."),
   }),
   list_options: z.object({
     kind: z
-      .enum([
-        'rooms',
-        'tunings',
-        'chain_sections',
-        'archetypes',
-        'aesthetics',
-        'arrangements',
-        'instrument_families',
-        'tradition_families',
-        'axes',
-      ])
-      .describe('Which option space to enumerate.'),
+      .enum(OPTION_KINDS)
+      .describe(
+        'Which list to enumerate. rooms and tunings are ids set_environment takes; chain_sections are the stage ' +
+          'names of its `chain`; tradition_families filter list_traditions; the rest are reference only.'
+      ),
   }),
 };

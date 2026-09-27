@@ -81,7 +81,12 @@ test('moving a card changes primary order without rebuilding or mutating any car
     [...result.workspace.cards].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0)),
     [...original.workspace.cards].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
   );
-  assert.throws(() => W.moveInstrument(original.workspace, 'absent'), /Unknown card/);
+  // The refusal names the roster, like every other unknown-card refusal, so a
+  // caller that guessed a card has something to correct toward.
+  assert.throws(
+    () => W.moveInstrument(original.workspace, 'absent'),
+    /No card matching "absent"\. Cards in this recipe: voice, /
+  );
 });
 
 test('explicit part descriptors survive before stock descriptors; losses are disclosed', () => {
@@ -196,33 +201,40 @@ test('mixing session_id with caller-managed state names the offending fields, an
     await client.connect(b);
     // Measured on the hosted connector, 2026-09-21: a caller that mirrored
     // the published schema sent `writer: 'interview'` beside its session_id
-    // (begin_lyrics had already fixed the writer) and was refused with
-    // "never both" and no field name — it could not tell which of writer,
-    // draft or pronunciations to drop. The refusal names the keys now.
+    // and was refused with "never both" and no field name. The refusal names
+    // the keys now. Since 2026-09-27 no outside surface publishes `writer` at
+    // all — the caller writes every line — so sending it changes nothing and
+    // is not refused.
     const begun = await client.callTool({
       name: 'begin_lyrics',
       arguments: { writer: 'interview' },
     });
+    assert(!begun.isError, JSON.stringify(begun));
     const session_id = begun.structuredContent.session_id;
     const mixed = await client.callTool({
       name: 'lyric_revise',
-      arguments: { session_id, seed: 31, writer: 'interview', run_id: 'abc' },
+      arguments: { session_id, seed: 31, run_id: 'abc', run_revision: 2 },
     });
     assert(mixed.isError, JSON.stringify(mixed));
     const text = mixed.content[0].text;
     assert.match(text, /never both: /);
-    assert.match(text, /\bwriter\b/);
     assert.match(text, /\brun_id\b/);
+    assert.match(text, /\brun_revision\b/);
     assert.match(
       text,
       /are caller-managed state the session already carries; omit it with session_id/
     );
     const one = await client.callTool({
       name: 'lyric_revise',
-      arguments: { session_id, seed: 31, writer: 'interview' },
+      arguments: { session_id, seed: 31, run_id: 'abc' },
     });
     assert(one.isError);
-    assert.match(one.content[0].text, /never both: writer is caller-managed state/);
+    assert.match(one.content[0].text, /never both: run_id is caller-managed state/);
+    const writerOnly = await client.callTool({
+      name: 'lyric_revise',
+      arguments: { session_id, seed: 31, writer: 'interview', draft: ['a line'] },
+    });
+    assert.doesNotMatch(writerOnly.content[0].text, /never both/);
     // Ordinary arguments are not caller-managed state: the refusal is not raised for them.
     const plain = await client.callTool({
       name: 'lyric_revise',
@@ -231,10 +243,11 @@ test('mixing session_id with caller-managed state names the offending fields, an
     assert.doesNotMatch(plain.content[0].text, /never both/);
     // And the schema says which fields are caller-managed before any call is made.
     const revise = (await client.listTools()).tools.find((t) => t.name === 'lyric_revise');
-    for (const key of ['writer', 'state', 'checkpoint', 'run_id', 'run_revision'])
+    assert.equal(revise.inputSchema.properties.writer, undefined);
+    for (const key of ['state', 'checkpoint', 'run_id', 'run_revision'])
       assert.match(
         revise.inputSchema.properties[key].description,
-        /^CALLER-MANAGED STATE — omit with session_id/,
+        /^CALLER-MANAGED STATE — only without session_id: a session carries this/,
         key
       );
     for (const key of ['draft', 'pronunciations', 'seed'])
@@ -247,4 +260,66 @@ test('mixing session_id with caller-managed state names the offending fields, an
     await client.close();
     await server.close();
   }
+});
+
+test('the maintained client never keeps a stopped run as a pending question', async () => {
+  const { McpServer } = await import('@modelcontextprotocol/sdk/server/mcp.js');
+  const { z } = await import('zod');
+  const { revisionStopped } = await import('./client.js');
+  const verdicts = [
+    { exit_code: 4, status: 'awaiting_proposal', state: 'suspended', run_id: 'r', run_revision: 1 },
+    // A stop hands its journal back as `state` for provenance.
+    {
+      exit_code: 3,
+      measurement_status: 'finished',
+      state: 'archived',
+      run_id: 'r',
+      run_revision: 2,
+    },
+  ];
+  const server = new McpServer(
+    { name: 'stub', version: '1' },
+    { instructions: '=== LYRICS TASK ===\nstub' }
+  );
+  server.registerTool(
+    'lyric_revise',
+    {
+      inputSchema: {
+        scheme: z.string().optional(),
+        draft: z.array(z.string()).optional(),
+        answer: z.string().optional(),
+        state: z.string().optional(),
+        run_id: z.string().optional(),
+        run_revision: z.number().optional(),
+      },
+    },
+    async () => ({ content: [{ type: 'text', text: JSON.stringify(verdicts.shift()) }] })
+  );
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  await server.connect(a);
+  const c = await connectConnector({
+    task: { domain: 'lyrics', phase: 'edit' },
+    transport: b,
+    verifySurface: false,
+  });
+  try {
+    await c.call('lyric_revise', { scheme: 'AA', draft: ['a', 'b'] });
+    assert.equal(c.snapshot().continuation.args.state, 'suspended');
+    await c.call('lyric_revise', { answer: 'x' });
+    assert.equal(c.snapshot().continuation, null);
+  } finally {
+    await c.close();
+    await server.close();
+  }
+  for (const verdict of [{ exit_code: 0 }, { exit_code: 2, resumable: false }])
+    assert(revisionStopped(verdict));
+  assert(!revisionStopped({ exit_code: 4 }));
+});
+
+test('the tree’s expected surface is built once per domain, not per connection', async () => {
+  const { expectedSurfaceFor } = await import('./client.js');
+  assert.equal(expectedSurfaceFor('recipe'), expectedSurfaceFor('recipe'));
+  assert.notEqual(expectedSurfaceFor('recipe'), expectedSurfaceFor('lyrics'));
+  const { tools } = await expectedSurfaceFor('recipe');
+  assert(tools.some((tool) => tool.name === 'edit_recipe'));
 });

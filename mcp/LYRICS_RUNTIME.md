@@ -1,7 +1,9 @@
 # Lyrics runtime: durable requests and paid-work recovery
 
-The lyrics kitchen spans an HTTP request, Gemini chat hops, MCP calls, a serialized
-Python worker and paid proposal calls. A caller timeout does not establish which
+The lyrics kitchen — the service's own Gemini writer, which runs only inside the
+website chat (no MCP connector endpoint offers it since 2026-09-27) — spans an
+HTTP request, Gemini chat hops, MCP calls, a serialized Python worker and paid
+proposal calls. A caller timeout does not establish which
 of those operations completed. Recovery therefore follows a durable request
 receipt; it does not automatically repeat an uncertain request.
 
@@ -23,6 +25,7 @@ a transactional shared store before they can safely use this protocol.
 | State | Default file under `LYRIC_RUNTIME_DIR` |
 |---|---|
 | Request intents, progress and responses | `jobs/<request_id>.json` |
+| Connector workflow sessions and operations (`/mcp` and its aliases) | `sessions/<id>.json` |
 | Generated chat signing key | `chat-secret.key` |
 | Shared model admission/accounting ledger | `model-spend.json` |
 | Legacy chat turn counters | `chat-spend.json` |
@@ -115,8 +118,10 @@ request never executed. It must not trigger transparent resubmission.
 
 ## Capacity and identity
 
-Storage is bounded to 128 full payloads, 8192 receipt identifiers, 8 MiB per record
-and 256 MiB total. To admit new requests within these limits, the oldest completed
+The `/chat` store is bounded to 128 full payloads, 8192 receipt identifiers, 8 MiB per record
+and 256 MiB total. Connector sessions have their own store with limits sized for
+connector traffic (`SESSION_STORE_LIMITS` in `mcp/workflow_sessions.js`); the same
+retirement rules apply to it. To admit new requests within these limits, the oldest completed
 or interrupted payload can be retired early. Its small `retired` tombstone retains
 the identifier and request digest, preventing that identifier from executing again.
 A retired receipt returns no checkpoint or response and cannot be resumed.
@@ -202,11 +207,15 @@ make live Gemini calls or deploy a service.
 
 ## Production contract after the audit
 
-Choose the task through `/mcp/recipe`, `/mcp/lyrics`, or the browser task selector.
-The server dispatches only that tool family and preserves the task outside the
-model transcript. Recipe creation uses Rich and a maximum of 1,000 characters;
-its delivery is the engine's exact rendered string. The legacy combined endpoint
-cannot enforce a task an external host has never supplied.
+AI hosts connect to the shared `/mcp` endpoint, which serves both tool families
+and keeps workflow sessions on the server; a lyrics session opened with
+`begin_lyrics` in phase `create` enforces the creation order from receipts the
+server records. The task-scoped views `/mcp/recipe` and `/mcp/lyrics` (used by the
+maintained client) and the browser task selector dispatch only one tool family
+and preserve the task outside the model transcript. Recipe creation uses Rich and
+a maximum of 1,000 characters; its delivery is the engine's exact rendered string.
+No endpoint can enforce a task an external host never states: `/mcp` serves
+whichever family the host calls.
 
 Direct lyric continuations require the returned `run_revision` with `run_id`.
 A concurrent continuation or stale revision refuses before work starts. Original

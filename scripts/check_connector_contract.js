@@ -1,19 +1,27 @@
 #!/usr/bin/env node
 // check_connector_contract.js — the MCP surface is a contract; assert it.
 //
-// Three promises live here, all read off ONE live listTools()/callTool()
-// round-trip against a real in-memory client rather than off a compiled guess:
+// These promises are read off live listTools()/callTool() round-trips against
+// real in-memory clients rather than off a compiled guess:
 //
 //   published schemas stay representable by a restricted client
 // @covers: connector-schema-subset
 //   the advertised tool surface and its annotations are what we claim
-// @covers: connector-tools-read-only
+// @covers: connector-tool-effects
 //   every edit action is visible in the response that reports it
 // @covers: connector-edit-visible
 //   the derived Gemini declarations carry nothing that client rejects
 // @covers: connector-gemini-legal
 //   a chain id can be used without guessing which of eight stages takes it
 // @covers: chain-id-stage-known
+//
+// WHICH SERVERS. The raw engine (buildServer: /mcp/recipe, /mcp/lyrics, stdio)
+// carries the behavioural checks. The surface promises — annotations, schema
+// subset, Gemini legality — are checked on EVERY connector surface hosts are
+// given: the raw engine and its two task scopes, the shared /mcp endpoint
+// (sessions plus caller-managed compatibility) and the /mcp/chatgpt aliases.
+// This gate once read only the raw engine, so it stayed green while /mcp — the
+// endpoint the docs send hosts to — contradicted the promise it covered.
 //
 // WHY A ROUND-TRIP AND NOT z.toJSONSchema():
 // the SDK does not publish what a bare compile produces. It converts through
@@ -202,11 +210,11 @@ function scanSchema(toolName, schema) {
   for (const t of tools) {
     const a = t.annotations || {};
     const revision = t.name === 'lyric_revise';
+    // No outside surface reaches a model provider (owner's rule, 2026-09-27):
+    // lyric_revise mutates its run, but the caller writes every line.
     check(
-      `${t.name}: annotations describe mutation and paid external calls`,
-      a.readOnlyHint === !revision &&
-        a.idempotentHint === !revision &&
-        a.openWorldHint === revision,
+      `${t.name}: annotations describe mutation and no external calls`,
+      a.readOnlyHint === !revision && a.idempotentHint === !revision && a.openWorldHint === false,
       JSON.stringify(a)
     );
   }
@@ -257,6 +265,19 @@ function scanSchema(toolName, schema) {
     (seedPayload?.cards || []).every((c) => !c.changed)
   );
 
+  // Rule for published text: a recipe tool's MAIN description is served on
+  // every surface, including the shared endpoint whose session carries the
+  // workspace for the caller. Threading the workspace is a raw-surface mechanic,
+  // so it belongs on the `workspace` parameter and in the raw instructions.
+  for (const name of ['start_recipe', 'edit_recipe', 'render_recipe']) {
+    const t = tools.find((x) => x.name === name);
+    check(
+      `${name}: the main description does not describe threading a workspace`,
+      !!t && !/workspace/i.test(t.description || ''),
+      (t?.description || '').match(/.{0,40}workspace.{0,40}/i)?.[0]
+    );
+  }
+
   // ── every edit action is visible ──────────────────────────────────────────
   console.log('\n=== Edit visibility ===');
   const ws = seedPayload.workspace;
@@ -287,11 +308,41 @@ function scanSchema(toolName, schema) {
     { action: 'set_environment', card, chain: { fx: 'fuzz_germanium' } },
   ]);
   const fxRow = fxRes.cards?.find((c) => c.card === card);
+  // The seeded plate_reverb has to still be there: an added effect joins the
+  // list, as it does in the app. This used to read `fx[0] === 'fuzz_germanium'`,
+  // which only held because the add replaced the list.
   check(
-    'a multi-select chain stage is reported as a list, not a string',
-    Array.isArray(fxRow?.changed?.chain?.fx) && fxRow.changed.chain.fx[0] === 'fuzz_germanium',
+    'a multi-select chain stage is reported as a list, with the added id beside the seeded one',
+    Array.isArray(fxRow?.changed?.chain?.fx) &&
+      fxRow.changed.chain.fx.includes('fuzz_germanium') &&
+      fxRow.changed.chain.fx.includes('plate_reverb'),
     JSON.stringify(fxRow?.changed?.chain?.fx)
   );
+  const clearRes = await edited([{ action: 'set_environment', clear: ['fx', 'room'] }]);
+  const clearRow = clearRes.cards?.find((c) => c.card === card);
+  check(
+    'clear is visible in `changed` (room null, fx empty)',
+    clearRow?.changed?.room === null &&
+      Array.isArray(clearRow?.changed?.chain?.fx) &&
+      clearRow.changed.chain.fx.length === 0,
+    JSON.stringify(clearRow?.changed)
+  );
+
+  // `changed` is absent on an untouched card — including one just added. A bare
+  // card's empty fx list used to read as a change against a baseline with no fx
+  // key, and a guest card's tradition environment as changes nobody made.
+  for (const add of [
+    { action: 'add_instrument', instrument: 'theremin' },
+    { action: 'add_instrument', instrument: 'theremin', tradition: 'bluegrass' },
+  ]) {
+    const addRes = await edited([add]);
+    const addRow = addRes.cards?.find((c) => c.instrument === 'theremin');
+    check(
+      `an untouched added card carries no \`changed\` (${add.tradition ? 'guest' : 'bare'})`,
+      !!addRow && !addRow.changed,
+      JSON.stringify(addRow?.changed)
+    );
+  }
 
   // Derive a real (card, part, non-default variant) from the catalog rather than
   // naming one. A hardcoded 'guitar' card silently skipped this whole assertion
@@ -425,6 +476,163 @@ function scanSchema(toolName, schema) {
     `${JSON.stringify(stateTools)} vs ${JSON.stringify(publishState)}`
   );
 
+  // ── every other connector surface ─────────────────────────────────────────
+  //
+  // The checks above read the raw engine. Hosts are sent to /mcp, which wraps
+  // every raw tool in a session layer with its own annotations and schemas, and
+  // ChatGPT to the /mcp/chatgpt aliases; the task endpoints scope the raw engine.
+  // Each is listed live and held to the same three promises.
+  console.log('\n=== Every other connector surface: effects, schema subset, Gemini legality ===');
+  const mcpModule = (file) => import(pathToFileURL(path.join(__dirname, '..', 'mcp', file)).href);
+  const { buildWorkflowServer } = await mcpModule('workflow_tools.js');
+  const { WorkflowSessions } = await mcpModule('workflow_sessions.js');
+  const { JobStore } = await mcpModule('job_store.js');
+  const listed = async (built) => {
+    const [c, s] = InMemoryTransport.createLinkedPair();
+    const lister = new Client(
+      { name: 'contract-gate-surface', version: '0' },
+      { capabilities: {} }
+    );
+    await Promise.all([built.connect(s), lister.connect(c)]);
+    try {
+      return (await lister.listTools()).tools;
+    } finally {
+      await lister.close();
+      await built.close();
+    }
+  };
+  const sessions = new WorkflowSessions({ store: new JobStore() });
+  const workflow = (domain, compatibility) =>
+    buildWorkflowServer({ domain, sessions, compatibility });
+  const recipeTools = EXPECTED_TOOLS.filter((name) => !name.startsWith('lyric_'));
+  const lyricTools = EXPECTED_TOOLS.filter((name) => name.startsWith('lyric_'));
+  const CONTROLS = ['get_operation', 'resume_operation'];
+  const otherSurfaces = [
+    {
+      label: 'raw /mcp/recipe',
+      tools: await listed(buildServer({ task: { domain: 'recipe' } })),
+      expect: recipeTools,
+    },
+    {
+      label: 'raw /mcp/lyrics',
+      tools: await listed(buildServer({ task: { domain: 'lyrics' } })),
+      expect: lyricTools,
+    },
+    {
+      label: '/mcp',
+      session: true,
+      compatibility: true,
+      tools: await listed(await workflow(null, true)),
+      expect: [...EXPECTED_TOOLS, ...CONTROLS, 'begin_lyrics'],
+    },
+    {
+      label: '/mcp/chatgpt',
+      session: true,
+      tools: await listed(await workflow(null, false)),
+      expect: [...EXPECTED_TOOLS, ...CONTROLS, 'begin_lyrics'],
+    },
+    {
+      label: '/mcp/chatgpt/recipe',
+      session: true,
+      tools: await listed(await workflow('recipe', false)),
+      expect: [...recipeTools, ...CONTROLS],
+    },
+    {
+      label: '/mcp/chatgpt/lyrics',
+      session: true,
+      tools: await listed(await workflow('lyrics', false)),
+      expect: [...lyricTools, ...CONTROLS, 'begin_lyrics'],
+    },
+  ];
+  // Lookups read the catalog or the lexicon and hold nothing for the caller.
+  const LOOKUPS = new Set([
+    'search_catalog',
+    'search_prefaces',
+    'get_instrument',
+    'get_tradition',
+    'list_traditions',
+    'list_options',
+    'lyric_types',
+    'get_operation',
+  ]);
+  // On a session surface every tool that opens or takes a session_id records
+  // it. A repeat with the same session_id and arguments returns the same
+  // operation, except where a call opens a new session, or (on /mcp) runs the
+  // raw engine without one, whose lyric_revise advances its run.
+  const effects = (surface, name) => {
+    if (!surface.session) return { read: name !== 'lyric_revise', same: name !== 'lyric_revise' };
+    if (LOOKUPS.has(name)) return { read: true, same: true };
+    const opens = ['start_recipe', 'begin_lyrics'].includes(name);
+    return { read: false, same: !opens && !(surface.compatibility && name === 'lyric_revise') };
+  };
+  const leaksCarried = (declarations) =>
+    declarations
+      .filter(
+        (d) =>
+          d.parameters?.properties?.[WORKSPACE_PROPERTY] ||
+          d.parameters?.properties?.[STATE_PROPERTY]
+      )
+      .map((d) => d.name);
+  for (const surface of otherSurfaces) {
+    const listedNames = surface.tools.map((t) => t.name).sort();
+    check(
+      `${surface.label}: advertises exactly its ${surface.expect.length} tools`,
+      JSON.stringify(listedNames) === JSON.stringify([...surface.expect].sort()),
+      JSON.stringify(listedNames)
+    );
+    const misdescribed = surface.tools.filter((t) => {
+      const a = t.annotations || {};
+      const e = effects(surface, t.name);
+      return (
+        a.openWorldHint !== false ||
+        a.destructiveHint === true ||
+        a.readOnlyHint !== e.read ||
+        a.idempotentHint !== e.same
+      );
+    });
+    check(
+      `${surface.label}: annotations say what each tool touches, and none reaches outside`,
+      misdescribed.length === 0,
+      misdescribed.map((t) => `${t.name} ${JSON.stringify(t.annotations)}`).join('; ')
+    );
+    const structural = surface.tools
+      .flatMap((t) => scanSchema(t.name, t.inputSchema))
+      .filter((hit) => !EXEMPT.has(hit));
+    check(
+      `${surface.label}: no unexempted structural keywords`,
+      structural.length === 0,
+      structural.join(', ')
+    );
+    const derived = toGeminiDeclarations(surface.tools);
+    const rejected = [
+      ...scanGeminiIllegal(derived.declarations),
+      ...leaksCarried(derived.declarations),
+    ];
+    check(
+      `${surface.label}: derived Gemini declarations are legal and carry no workspace or state`,
+      rejected.length === 0 && derived.declarations.length === surface.tools.length,
+      rejected.join(', ')
+    );
+  }
+  // The website chat's own server is published nowhere, but the declarations
+  // derived from it are the document Google actually parses for the chat bar.
+  const chatTools = await listed(buildServer({ kitchen: true }));
+  const chatDerived = toGeminiDeclarations(chatTools).declarations;
+  const chatRejected = [...scanGeminiIllegal(chatDerived), ...leaksCarried(chatDerived)];
+  check(
+    "website chat's server: derived Gemini declarations are legal and carry no workspace or state",
+    chatRejected.length === 0,
+    chatRejected.join(', ')
+  );
+  const outward = chatTools
+    .filter((t) => t.annotations?.openWorldHint !== false)
+    .map((t) => t.name);
+  check(
+    "website chat's server: only its lyric_revise reaches a model provider",
+    JSON.stringify(outward) === '["lyric_revise"]',
+    JSON.stringify(outward)
+  );
+
   // ── a chain id is usable, not merely findable ─────────────────────────────
   //
   // Every other id in this catalog is addressed by itself. A chain id is only
@@ -499,6 +707,19 @@ function scanSchema(toolName, schema) {
       `${misfiledLabel} → ${misfiledErr}`
     );
   }
+
+  // A stage that does not exist is refused by the published schema (chain is
+  // strict) before the engine sees it, so the schema's message is the only one
+  // a caller gets — it has to name the stages, not just "Unrecognized key".
+  const badStage = await edited([{ action: 'set_environment', chain: { mick: 'x' } }]);
+  check(
+    'an unknown chain stage is refused with the stages that exist',
+    !!badStage.err &&
+      // The SDK prints the issue as JSON, so the quotes arrive escaped.
+      /Unknown chain stage \\?"mick\\?"/.test(badStage.err) &&
+      [...stageIds].every((s) => badStage.err.includes(s)),
+    badStage.err?.slice(0, 200)
+  );
 
   // ── a variant id is usable, not merely findable ───────────────────────────
   //

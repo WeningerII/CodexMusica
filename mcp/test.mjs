@@ -206,11 +206,12 @@ await check('edit_recipe set_variant applies + chains multiple edits', () => {
   assert.ok(!r.cards.some((c) => c.instrument === 'tonewheel_organ'));
 });
 
-await check('set_environment with no card targets the primary (and only it)', () => {
-  // The recipe renders its tuning/room/chain from cards[0] alone, so an omitted
-  // `card` has one correct meaning. Asserting the recipe MOVED (not just that a
-  // field was written) is the point: a default that wrote to some other card
-  // would leave the output identical and look like it had worked.
+await check('set_environment with no card targets the environment card (and only it)', () => {
+  // The recipe renders its tuning/room/chain from ONE card — the first that has
+  // any (envCardOf) — so an omitted `card` has one correct meaning. Asserting the
+  // recipe MOVED (not just that a field was written) is the point: a default that
+  // wrote to some other card would leave the output identical and look like it
+  // had worked.
   const s = E.startRecipe({ traditions: ['ethio_jazz'] });
   const r = E.editRecipe({
     workspace: thread(s.workspace),
@@ -219,6 +220,8 @@ await check('set_environment with no card targets the primary (and only it)', ()
   assert.notEqual(r.recipe, s.recipe, 'recipe did not change');
   assert.match(r.recipe, /cathedral/);
   assert.equal(r.workspace.cards[0].room, 'cathedral');
+  assert.equal(r.render_scope.environment_card, r.workspace.cards[0].id);
+  assert.equal(r.render_scope.environment_settings.room, 'cathedral');
   assert.equal(
     r.cards.filter((c) => c.changed).length,
     1,
@@ -236,15 +239,292 @@ await check('set_environment with no card targets the primary (and only it)', ()
       `${bad.action} should still require a card`
     );
   }
-  // No cards at all is still an error, with the guiding message.
+  // No cards at all is still an error, and it names what to do instead.
   assert.throws(
     () =>
       E.editRecipe({
         workspace: { cards: [] },
         edits: [{ action: 'set_environment', room: 'cathedral' }],
       }),
-    /requires "card"/
+    /no cards.*start_recipe/
   );
+});
+
+await check('a card-less set_environment keeps the tuning and chain when a bare card leads', () => {
+  // The audit repro: a bare theremin moved to the front is cards[0] but not the
+  // environment card. Writing the room onto it made it the environment card and
+  // the recipe lost its tuning, mic, pre, tape and console.
+  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+  const lead = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'add_instrument', instrument: 'theremin' },
+      { action: 'move_instrument', card: 'theremin' },
+    ],
+  });
+  assert.equal(lead.workspace.cards[0].instrumentId, 'theremin');
+  const envBefore = lead.render_scope.environment_settings;
+  const r = E.editRecipe({
+    workspace: thread(lead.workspace),
+    edits: [{ action: 'set_environment', room: 'cathedral' }],
+  });
+  assert.equal(r.workspace.cards[0].room, null, 'the bare lead card was written to');
+  assert.equal(r.render_scope.environment_card, lead.render_scope.environment_card);
+  assert.deepEqual(r.render_scope.environment_settings, { ...envBefore, room: 'cathedral' });
+  assert.match(r.recipe, /cathedral/);
+  assert.match(r.recipe, /ribbon/, 'the mic the recipe had is gone');
+});
+
+await check('an environment that stops rendering is reported, not lost silently', () => {
+  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+  const set = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [{ action: 'set_environment', room: 'cathedral' }],
+  });
+  assert.deepEqual(set.render_warnings, []);
+  const envCard = set.render_scope.environment_card;
+  for (const edits of [
+    [{ action: 'remove_instrument', card: envCard }],
+    [{ action: 'move_instrument', card: set.cards[1].card }],
+  ]) {
+    const r = E.editRecipe({ workspace: thread(set.workspace), edits });
+    assert.doesNotMatch(r.recipe, /cathedral/);
+    const w = r.render_warnings.find((x) => x.code === 'ENVIRONMENT_MOVED');
+    assert.ok(w, `${edits[0].action} dropped the room without a warning`);
+    assert.equal(w.card, envCard);
+    assert.equal(w.settings.room.was, 'cathedral');
+    assert.equal(w.environment_card, r.render_scope.environment_card);
+    // The named next step works: repeating the edit restores the room.
+    const again = E.editRecipe({
+      workspace: thread(r.workspace),
+      edits: [{ action: 'set_environment', room: 'cathedral' }],
+    });
+    assert.match(again.recipe, /cathedral/);
+  }
+  // A seeded environment changing hands is what move_instrument is for — no warning.
+  const blend = E.startRecipe({ traditions: ['garage_rock', 'delta_blues'] });
+  const moved = E.editRecipe({
+    workspace: thread(blend.workspace),
+    edits: [{ action: 'move_instrument', card: blend.cards.at(-1).card }],
+  });
+  assert.ok(!moved.render_warnings.some((x) => x.code === 'ENVIRONMENT_MOVED'));
+});
+
+await check('set_preface after set_environment reports the environment it replaced', () => {
+  // Same batch, same card: the preface cascade re-derives the room, as the app's
+  // preface pick does. The ordering is documented; the response says so too.
+  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+  const r = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'set_preface', card: 'voice', preface: 'raging' },
+    ],
+  });
+  assert.notEqual(r.workspace.cards[0].room, 'cathedral', 'fixture: raging must move the room');
+  const w = r.render_warnings.find((x) => x.code === 'ENVIRONMENT_OVERWRITTEN');
+  assert.ok(w, 'no warning for an overwritten room');
+  assert.equal(w.edit, 1);
+  assert.equal(w.settings.room.was, 'cathedral');
+  // The documented order keeps both.
+  const ordered = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_preface', card: 'voice', preface: 'raging' },
+      { action: 'set_environment', room: 'cathedral' },
+    ],
+  });
+  assert.equal(ordered.workspace.cards[0].room, 'cathedral');
+  assert.equal(ordered.workspace.cards[0].preface, 'raging');
+  assert.ok(!ordered.render_warnings.some((x) => x.code === 'ENVIRONMENT_OVERWRITTEN'));
+});
+
+await check('an environment edit that does not reach the output is not confirmed silently', () => {
+  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+  // On a card the recipe does not render the environment from.
+  const other = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [{ action: 'set_environment', card: s.cards.at(-1).card, room: 'cathedral' }],
+  });
+  assert.equal(other.recipe, s.recipe, 'fixture: a non-environment card must not render');
+  const nr = other.render_warnings.find((x) => x.code === 'ENVIRONMENT_NOT_RENDERED');
+  assert.ok(nr, 'changed reported a room the recipe does not contain, with no warning');
+  assert.equal(nr.environment_card, s.render_scope.environment_card);
+  // Compressed out of a long blend.
+  const big = E.startRecipe({
+    traditions: ['afrobeat', 'bluegrass', 'gamelan', 'zydeco', 'bossa_nova'],
+  });
+  const r = E.editRecipe({
+    workspace: thread(big.workspace),
+    format: 'compact',
+    edits: [{ action: 'set_environment', room: 'cathedral', chain: { mic: 'hydrophone_piezo' } }],
+  });
+  assert.doesNotMatch(r.recipe, /cathedral/i, 'fixture: compact must drop the environment here');
+  const nl = r.render_warnings.find((x) => x.code === 'ENVIRONMENT_NOT_LITERAL');
+  assert.deepEqual(
+    nl?.items.map((it) => it.id),
+    ['cathedral', 'hydrophone_piezo']
+  );
+  // …and silent when the words are there.
+  const rich = E.renderRecipe({ workspace: thread(r.workspace) });
+  assert.match(rich.recipe, /cathedral/);
+  assert.ok(!rich.render_warnings.some((x) => x.code === 'ENVIRONMENT_NOT_LITERAL'));
+});
+
+await check('fx: an added effect joins the list; clear empties or replaces it', () => {
+  const s = E.startRecipe({ traditions: ['tamil_filmi'] });
+  const r = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_environment', chain: { fx: 'analog_delay' } },
+      { action: 'set_environment', chain: { fx: 'digital_delay' } },
+    ],
+  });
+  assert.deepEqual(r.render_scope.environment_settings.chain.fx, [
+    'plate_reverb',
+    'analog_delay',
+    'digital_delay',
+  ]);
+  const replaced = E.editRecipe({
+    workspace: thread(r.workspace),
+    edits: [{ action: 'set_environment', clear: ['fx'], chain: { fx: 'analog_delay' } }],
+  });
+  assert.deepEqual(replaced.render_scope.environment_settings.chain.fx, ['analog_delay']);
+  const cleared = E.editRecipe({
+    workspace: thread(r.workspace),
+    edits: [{ action: 'set_environment', clear: ['fx', 'room', 'tuning'] }],
+  });
+  const env = cleared.render_scope.environment_settings;
+  assert.equal(env.room, null);
+  assert.equal(env.tuning, null);
+  assert.equal(env.chain.fx, undefined);
+  // Clearing EVERY setting leaves the card with no environment, so the recipe
+  // renders the next card's — in a seeded tradition, the same one. Said, not
+  // left for the caller to discover in an unchanged recipe.
+  const all = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [{ action: 'set_environment', clear: [...E.ENV_FIELDS] }],
+  });
+  const moved = all.render_warnings.find((x) => x.code === 'ENVIRONMENT_MOVED');
+  assert.ok(moved, 'a clear that changed nothing visible came back without a warning');
+  assert.equal(moved.card, s.render_scope.environment_card);
+  assert.equal(moved.environment_card, all.render_scope.environment_card);
+  assert.notEqual(moved.environment_card, moved.card);
+});
+
+await check('edits that would do nothing, or undo the recipe, are refused with a next step', () => {
+  const s = E.startRecipe({ traditions: ['tamil_filmi'] });
+  const ws = () => thread(s.workspace);
+  const refuses = (edits, re) =>
+    assert.throws(() => E.editRecipe({ workspace: ws(), edits }), re, JSON.stringify(edits));
+  // A misspelled field is dropped before the engine sees it; what arrives sets nothing.
+  refuses([{ action: 'set_environment' }], /sets nothing.*room, tuning, chain/);
+  refuses([{ action: 'set_environment', chain: {} }], /sets nothing/);
+  refuses(
+    [{ action: 'add_tradition', tradition: 'tamil_filmi' }],
+    /already in this recipe.*add_instrument/
+  );
+  refuses(
+    [{ action: 'remove_tradition', tradition: 'bluegrass' }],
+    /not in this recipe.*tamil_filmi/
+  );
+  refuses([{ action: 'remove_tradition', tradition: 'tamil_filmi' }], /no cards.*start_recipe/);
+  refuses([{ action: 'move_instrument', card: 'nope' }], /No card matching "nope".*voice/);
+  refuses(
+    [{ action: 'move_instrument', card: 'voice', before: 'nope' }],
+    /No card matching "nope"/
+  );
+  refuses([{ action: 'set_environment', clear: ['rooms'] }], /Cannot clear "rooms".*room, tuning/);
+  assert.throws(() => E.startRecipe({ traditions: ['bluegrass', 'bluegrass'] }), /more than once/);
+  // A swap that passes through an empty roster is fine.
+  const swap = E.editRecipe({
+    workspace: ws(),
+    edits: [
+      { action: 'remove_tradition', tradition: 'tamil_filmi' },
+      { action: 'add_tradition', tradition: 'bluegrass' },
+    ],
+  });
+  assert.ok(swap.recipe.startsWith('Bluegrass, '));
+});
+
+await check('the AGENTS.md worked example runs as written', () => {
+  // Its ids once named a tradition and an instrument that never existed, and one
+  // of its searches returned nothing. Each id and search below is quoted from the
+  // example, and the example must still quote them.
+  const doc = readFileSync(new URL('../AGENTS.md', import.meta.url), 'utf8');
+  const example = doc.slice(doc.indexOf('A typical exchange'), doc.indexOf('edit call, done.'));
+  for (const quoted of [
+    'search_catalog "appalachian ballad"',
+    'traditions:["appalachian_folk"]',
+    'search_prefaces "haunted"',
+    'search_prefaces "submerged"',
+    'search_catalog "underwater"',
+    'card:"banjo_5_string", preface:"drowning"',
+    'chain:{mic:"hydrophone_piezo"}',
+  ])
+    assert.ok(example.includes(quoted), `the worked example no longer says ${quoted}`);
+  assert.ok(
+    E.searchCatalog({ query: 'appalachian ballad' }).items.some((x) => x.id === 'appalachian_folk')
+  );
+  assert.equal(E.searchPrefaces({ query: 'haunted' }).items[0].id, 'haunting');
+  assert.equal(E.searchPrefaces({ query: 'submerged' }).items[0].id, 'drowning');
+  const mic = E.searchCatalog({ query: 'underwater' }).items[0];
+  assert.deepEqual([mic.id, mic.stage], ['hydrophone_piezo', 'mic']);
+  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+  const r = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_preface', card: 'voice', preface: 'haunting' },
+      { action: 'set_preface', card: 'banjo_5_string', preface: 'drowning' },
+      { action: 'set_environment', chain: { mic: 'hydrophone_piezo' } },
+    ],
+  });
+  assert.match(r.recipe, /haunting voice/);
+  assert.match(r.recipe, /drowning five-string-banjo/);
+  assert.match(r.recipe, /hydrophone/);
+  assert.deepEqual(r.render_warnings, []);
+});
+
+await check('`changed` reports what shows: no preface noise, no empty fx on a new card', () => {
+  const s = E.startRecipe({ traditions: ['garage_rock'] });
+  // A non-material part on an auto-preface card rewrites the stored preface
+  // cache; the displayed preface is what `changed` must follow.
+  let unchangedShown = 0;
+  for (const c of s.workspace.cards) {
+    const inst = E.getInstrument({ id: c.instrumentId });
+    for (const p of inst.parts) {
+      const alt = p.variants.find((v) => !v.default && !v.borrowed);
+      if (!alt) continue;
+      const r = E.editRecipe({
+        workspace: thread(s.workspace),
+        edits: [{ action: 'set_variant', card: c.id, part: p.id, variant: alt.id }],
+      });
+      const before = s.cards.find((x) => x.card === c.id).preface;
+      const row = r.cards.find((x) => x.card === c.id);
+      if (row.preface === before) {
+        unchangedShown++;
+        assert.equal(row.changed?.preface, undefined, `${c.instrumentId}.${p.id}: preface noise`);
+      } else if (row.preface_locked) {
+        assert.equal(row.changed?.preface, row.preface);
+      }
+    }
+  }
+  assert.ok(unchangedShown > 5, 'fixture: too few edits kept their preface');
+  // set_preface to a preface the card was not showing is reported.
+  const p = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [{ action: 'set_preface', card: 'voice', preface: 'satirical' }],
+  });
+  assert.equal(p.cards.find((x) => x.instrument === 'voice').changed?.preface, 'satirical');
+  // A new card is not a changed card.
+  const added = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'add_instrument', instrument: 'theremin' },
+      { action: 'add_instrument', instrument: 'banjo_5_string', tradition: 'bluegrass' },
+    ],
+  });
+  for (const row of added.cards.slice(-2)) assert.equal(row.changed, undefined, row.instrument);
 });
 
 await check('render_recipe re-renders threaded state', () => {
@@ -263,6 +543,25 @@ await check('search_prefaces returns preface ids', () => {
   assert.ok(r.items.some((x) => x.id === 'satirical'));
 });
 
+await check('search_prefaces ranks a preface first for its own id, as search_catalog does', () => {
+  // It used to count substring hits, so "keening" put demotic-keening first and
+  // 71 of 624 single-word ids were not the top hit for their own name. Both
+  // searches now share one scorer; every id in the lexicon is checked.
+  const misses = [];
+  for (const p of C.PREFACE_LEXICON) {
+    if (E.searchPrefaces({ query: p.id }).items[0]?.id !== p.id) misses.push(p.id);
+    if (E.searchCatalog({ query: p.id, types: ['preface'] }).items[0]?.id !== p.id)
+      misses.push(`catalog:${p.id}`);
+  }
+  assert.deepEqual(misses, []);
+  assert.equal(E.searchPrefaces({ query: 'keening' }).items[0].id, 'keening');
+  // An inflected mood word reaches the preface named for its root, and a note
+  // outranks a token that dozens of prefaces share.
+  assert.equal(E.searchPrefaces({ query: 'haunted' }).items[0].id, 'haunting');
+  assert.equal(E.searchPrefaces({ query: 'eerie' }).items[0].id, 'chilling');
+  assert.ok(E.searchPrefaces({ query: 'eerie' }).items[0].note);
+});
+
 await check('get_instrument exposes variant ids for set_variant', () => {
   const i = E.getInstrument({ id: 'electric_guitar_single_coil' });
   const bw = i.parts.find((p) => p.id === 'body_wood');
@@ -272,6 +571,39 @@ await check('get_instrument exposes variant ids for set_variant', () => {
 await check('list_options enumerates rooms', () => {
   const o = E.listOptions({ kind: 'rooms' });
   assert.ok(o.count > 0 && o.items[0].id);
+});
+
+await check('list_options says what takes its ids; chain_sections are stage names only', () => {
+  assert.match(E.listOptions({ kind: 'rooms' }).accepted_by, /set_environment room/);
+  const stages = E.listOptions({ kind: 'chain_sections' });
+  assert.deepEqual(
+    stages.items.map((x) => x.id),
+    [...E.CHAIN_STAGE_IDS]
+  );
+  assert.match(stages.accepted_by, /search_catalog types=\["chain"\]/);
+  for (const kind of ['archetypes', 'aesthetics', 'arrangements', 'instrument_families', 'axes'])
+    assert.match(E.listOptions({ kind }).accepted_by, /no edit takes/, kind);
+});
+
+await check('list_traditions: family per its description, and a bounded page', () => {
+  const lower = E.listTraditions({ family: 'rock' });
+  assert.ok(lower.total > 0);
+  assert.equal(
+    E.listTraditions({ family: 'Rock' }).total,
+    lower.total,
+    'family is case-insensitive'
+  );
+  assert.equal(
+    E.listTraditions({ family: 'roc' }).total,
+    0,
+    'family is an exact id, not a substring'
+  );
+  const all = E.listTraditions({ limit: Number.MAX_SAFE_INTEGER });
+  assert.equal(all.count, E.LIST_TRADITIONS_MAX);
+  assert.equal(all.next_offset, E.LIST_TRADITIONS_MAX);
+  const last = E.listTraditions({ offset: all.total - 1 });
+  assert.equal(last.count, 1);
+  assert.equal(last.next_offset, undefined);
 });
 
 await check('validation: actionable errors', () => {
@@ -704,7 +1036,7 @@ await check('validation: actionable errors', () => {
 
   // ── M-195: the pasted-song door on the connector ─────────────────────────
   {
-    const { LYRIC_TOOL_SCHEMAS: S, _verdictInternals: VI } = await import('./lyric_tools.js');
+    const { LYRIC_TOOL_SCHEMAS: S } = await import('./lyric_tools.js');
     const { _agentInternals: AI } = await import('./gemini_agent.js');
     await check(
       'lyric_recover exists; lyric_check and lyric_revise take a blueprint; lyric_revise no longer requires a seed',
@@ -720,58 +1052,10 @@ await check('validation: actionable errors', () => {
         assert.ok(!S.lyric_grade.seed.isOptional(), 'and still required on lyric_grade');
       }
     );
-    // REPINNED 2026-09-02: the stdout below is the harness's REAL render
-    // shape (`  key  [REFUSED] value` + an indented reason line + the
-    // closing key list), copied from `recover` on a four-line unmarked
-    // paste. The first pin fed the extractor `  meter: REFUSED — …`, a line
-    // the harness never prints, and passed while every real `refusals` came
-    // back `[]` — the self-grep shape M-142 charged test_recover §6 with.
-    // The live section below drives the real verb as well.
-    await check('the recovered mandate and the refusals are read off the recover report', () => {
-      const stdout = [
-        'RECOVERED STRUCTURE — every coordinate with how it was obtained',
-        '  total_lines          [counted] 4',
-        '  sections             [REFUSED] none',
-        '      the text carries no [SECTION] mark and no blank-line block, so its sectioning cannot be read off it. Mark the sections, or declare a blueprint',
-        '  syllables_per_line   [counted] 8-10 syllables, 37 total',
-        '  web                  [derived] 3 admitted pair(s)',
-        '      every admitted pair over 14 binding sites at 4 placements per line',
-        '  meter                [REFUSED] None',
-        '      a bar grid is a DECLARED coordinate (doctrine 4). Declare one with --blueprint=',
-        '',
-        '  3 REFUSED coordinate(s) — each is a work order, not a failure (doctrine 20)',
-        '      sections',
-        '      meter',
-        '      repeats_at_a_placement',
-        '  MANDATE SPELLING (the cover as the two CLI flags — hand them to brief/revise):',
-        '    --groups=1,3;2,4.head',
-        '    --returns=5,13',
-        '  EXIT 3 — 3 coordinate(s) REFUSED (sections, meter, repeats_at_a_placement)',
-      ].join('\n');
-      const v = VI.verdictOf({ code: 3, stdout, stderr: '' });
-      assert.deepEqual(VI.extractRecoveredMandate(stdout), {
-        groups: '1,3;2,4.head',
-        returns: '5,13',
-      });
-      assert.deepEqual(VI.extractRecoverRefusals(stdout), [
-        {
-          coordinate: 'sections',
-          why: 'the text carries no [SECTION] mark and no blank-line block, so its sectioning cannot be read off it. Mark the sections, or declare a blueprint',
-        },
-        {
-          coordinate: 'meter',
-          why: 'a bar grid is a DECLARED coordinate (doctrine 4). Declare one with --blueprint=',
-        },
-        { coordinate: 'repeats_at_a_placement', why: '' },
-      ]);
-      assert.deepEqual(
-        VI.extractRecoverRefusals('  meter: REFUSED — the shape the first pin fed'),
-        [],
-        'the old synthetic shape reads as NO refusal, which is what it always was'
-      );
-      assert.equal(v.exit_code, 3);
-      assert.equal(VI.extractRecoveredMandate('nothing here'), null);
-    });
+    // The recover report's prose extractors are gone: lyric_recover reads its
+    // sung lines, mandate and refusals (each with its reason) off the verb's
+    // authenticated record. The live recover checks in the lyric family and
+    // mcp/test_high_report.mjs drive the real verb.
     await check(
       'a recovered mandate fits the check/revise ceiling (M-195, repinned 2026-09-02)',
       () => {
@@ -860,14 +1144,6 @@ await check('validation: actionable errors', () => {
         'the declared mandate'
       );
     });
-    await check("the stamp of a pasted song's run parses with no seed", () => {
-      const rec = VI.extractLoopRecord(
-        '  [FINISHED — declared mandate — exit 3 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L2]'
-      );
-      assert.equal(rec.seed, null);
-      assert.equal(rec.stop_reason, 'NO_PROGRESS');
-      assert.deepEqual(rec.unresolved_lines, ['L2']);
-    });
   }
 
   // ── M-186: the verdict carries what the report says, not only the code ──
@@ -930,10 +1206,6 @@ await check('validation: actionable errors', () => {
         assert.equal(rejected.answer, 'a new line');
         assert.deepEqual(rejected.reasons, []);
         assert.equal(rejected.source, 'unverified');
-        assert.deepEqual(VI.priorReasons(prompt2), [
-          "L3 took the modal candidate 'higher'",
-          'L3 wants six beats, got 7',
-        ]);
         // Moving to another question while attempts remain proves no outcome.
         const accepted = VI.foldedOf(
           prev,
@@ -999,7 +1271,6 @@ await check('validation: actionable errors', () => {
         assert.equal(VI.draftFp(['a', 'b']).length, 10);
         assert.notEqual(VI.draftFp(['a', 'b']), VI.draftFp(['a', 'c']));
         assert.equal(VI.draftFp('not an array'), null);
-        assert.deepEqual(VI.priorReasons('no rejection here'), []);
       }
     );
     // ── M-237: THE RUN RECORD, KEPT BY THE TOOL ──────────────────────────
@@ -1537,22 +1808,6 @@ await check('validation: actionable errors', () => {
         );
       }
     );
-    await check('the standing findings at a stop are parsed off the report (M-232)', () => {
-      const st =
-        "  FINDING [FLAG] METER: L3 early\n\n  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:\n    L3: FINDING [FLAG] METER: L3 wants six beats\n    L5: FINDING [FLAG] SLOP: too predictable\n    WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK: the title is not in the hook\n         title 'zebra confetti' vs hook \"Go on.\"; the title phrase occurs 0 time(s).\n\n  THE SONG, PERFORMANCE ORDER:\n\nx\n";
-      // The shape a real parked `revise` prints (measured on keep_the_light
-      // retitled, 2026-09-04): a finding's detail line rides with it.
-      assert.deepEqual(VI.extractStanding(st), [
-        'L3: FINDING [FLAG] METER: L3 wants six beats',
-        'L5: FINDING [FLAG] SLOP: too predictable',
-        'WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK: the title is not in the hook — title \'zebra confetti\' vs hook "Go on."; the title phrase occurs 0 time(s).',
-      ]);
-      assert.deepEqual(
-        VI.extractStanding('no block here\n  FINDING [FLAG] METER: L3'),
-        [],
-        "the report's own findings before the block are not the standing ones"
-      );
-    });
     await check('a whole-only exit 3 is labelled by its cause, not as open lines', () => {
       const coverage = {
         scope: 'requested_layers',
@@ -1770,24 +2025,6 @@ await check('validation: actionable errors', () => {
       assert.equal(v.unreadable_findings[1].code, 'SCHEME_UNREADABLE');
       const none = VI.verdictOf({ code: 0, stdout: '  nothing flagged\n', stderr: '' });
       assert.ok(!('unreadable' in none), 'absent means none found, never zero invented');
-    });
-    await check('the loop stamp carries the whole-draft flags as their own count', () => {
-      const rec = VI.extractLoopRecord(
-        '  [FINISHED — seed 16 — exit 3 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L2, L5 — WHOLE-DRAFT FLAG: STACKED_DRAFT, TITLE_NOT_IN_HOOK]'
-      );
-      assert.equal(rec.unresolved, 2);
-      assert.deepEqual(rec.unresolved_lines, ['L2', 'L5']);
-      assert.equal(rec.whole_flags, 2);
-      assert.deepEqual(rec.whole_flag_codes, ['STACKED_DRAFT', 'TITLE_NOT_IN_HOOK']);
-      const only = VI.extractLoopRecord(
-        '  [FINISHED — seed 16 — exit 3 — SUCCESS after 1 round(s) — no flag stands — WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK]'
-      );
-      assert.equal(only.unresolved, 0, 'no open line');
-      assert.equal(only.whole_flags, 1, 'and still not finished');
-      const old = VI.extractLoopRecord(
-        '  [FINISHED — seed 16 — exit 0 — SUCCESS after 1 round(s) — no flag stands]'
-      );
-      assert.equal(old.whole_flags, 0, 'the pre-M-186 stamp still parses');
     });
     await check('the pursued findings printed at the stop reach banned_pairs', () => {
       const stdout = [
@@ -3454,7 +3691,11 @@ await check('validation: actionable errors', () => {
         assert.ok(/TITLE_NOT_IN_HOOK/.test(si));
         assert.ok(/METER: L1 wants six beats/.test(si), 'the standing findings ride the reminder');
         assert.ok(/all 2 lines, in order/.test(si));
-        assert.ok(/Do NOT send `answer`/.test(si));
+        assert.ok(/send the rewritten draft and the seed only/.test(si));
+        assert.ok(
+          !/`answer`|`state`/.test(si),
+          'the reminder names no field the model cannot send'
+        );
         assert.ok(!/SUSPENDED/.test(si), 'a parked run is not a suspended one');
         // exit 0: no RUN reminder on the last hop. The skipped-steps note
         // (M-162) is a different reminder and correctly stands here: this
@@ -4676,25 +4917,8 @@ await check('validation: actionable errors', () => {
       // carries them with the replay memo's tally, the stale-answer count and
       // the plan's line count, and loopFields puts all of them in the tool row.
       const { _workerInternals: WK, _verdictInternals: VI } = await import('./lyric_tools.js');
-      const { verdictOf, extractRunRecord } = VI;
+      const { verdictOf } = VI;
       const { _agentInternals: AG } = await import('./gemini_agent.js');
-      const rec = extractRunRecord(
-        '  PLAN: form=verse-chorus seed=7045 -> 16 line(s), 8 section(s): x\n' +
-          '  REPLAY MEMO: warm — 14 of 28 grading call(s) answered from the process memo (runs held: 1 of 4)\n' +
-          '  2 of those answer(s) were recorded against a DIFFERENT draft (L3 attempt 1): this state file was reused\n'
-      );
-      assert.deepEqual(rec, {
-        memo_state: 'warm',
-        memo_hit: 14,
-        memo_asked: 28,
-        stale_answers: 2,
-        plan_lines: 16,
-      });
-      assert.deepEqual(
-        extractRunRecord('nothing here'),
-        { stale_answers: 0 },
-        'no line, no number — and stale is 0, not absent'
-      );
       const v = verdictOf({
         code: 0,
         stdout: '  REPLAY MEMO: cold — 0 of 2 grading call(s) answered',
@@ -4787,7 +5011,10 @@ await check('validation: actionable errors', () => {
     // Round 10 was diagnosed off a stamp the MODEL retyped into its reply,
     // which is the measured thing reporting its own measurement.
     const lt = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
-    assert.ok(/function extractLoopRecord/.test(lt), 'the extractor exists');
+    assert.ok(
+      !/function extractLoopRecord/.test(lt),
+      'no prose extractor stands in for the record'
+    );
     assert.ok(
       /v\.loop_stop_reason = record\.stop_reason/.test(lt),
       'the authenticated machine record carries the stop reason'
@@ -4928,6 +5155,10 @@ await check('validation: actionable errors', () => {
       'mcp/test_connector_contracts.mjs': 'offline connector and release contract regressions',
       'mcp/test_connector_http.mjs': 'offline public HTTP and Origin regressions',
       'mcp/test_chatgpt.mjs': 'offline ChatGPT session adapter regressions',
+      'mcp/test_chatgpt_harness.mjs':
+        'session adapter regressions that drive the real lyric harness, executed by CI',
+      'mcp/test_chatgpt_revise.mjs':
+        'session adapter revise-loop regressions on the real lyric harness, executed by CI',
       'mcp/test_release_gates.mjs': 'offline verified CI and battery acceptance regressions',
       'mcp/test_run_continuation.mjs': 'offline real run continuation regressions',
       'mcp/test_writer_work_budget.mjs': 'real native writer candidate-work admission regression',
@@ -7275,10 +7506,14 @@ try {
   for (const t of lyric) {
     const writes = t.name === 'lyric_revise';
     assert.equal(t.annotations?.readOnlyHint, !writes, `${t.name} declares its state effects`);
-    assert.equal(t.annotations?.openWorldHint, writes, `${t.name} declares its model access`);
+    // No outside server reaches a model provider: only the website chat's
+    // server (buildServer({ kitchen: true })) lets the service writer answer.
+    assert.equal(t.annotations?.openWorldHint, false, `${t.name} declares no model access`);
     assert.equal(t.annotations?.idempotentHint, !writes, `${t.name} declares replay semantics`);
   }
-  console.log('  ok  lyric family advertised: 9 tools, revise declares model and state effects');
+  console.log(
+    '  ok  lyric family advertised: 9 tools, revise declares its state effects and no model access'
+  );
   passed++;
 
   // DEPLOYMENT FRESHNESS HAS AN INSTRUMENT (M-127): check_live.mjs compares
@@ -8178,7 +8413,8 @@ try {
     assert.equal(survivingBan.certified, false);
     assert.ok(!Object.hasOwn(survivingBan, 'banned_pairs'));
     assert.ok(!Object.hasOwn(survivingBan, 'flags'));
-    assert.ok(/does not report banned pairs/.test(survivingBan.scope));
+    assert.ok(/one that survived the change untouched is not reported/.test(survivingBan.scope));
+    assert.ok(/introduces is in `new`/.test(survivingBan.scope));
 
     // `structures` REACHES lyric_check (MISSING.md M-103's flag, wired here).
     // Mirrors quality/test_verbs.py §39: the binding assertion is a
@@ -8226,10 +8462,22 @@ try {
       narrowed.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
       [['SCHEME_VIOLATION', [3, 4]]]
     );
-    // THE DISCLOSURE IS THE REASON THE FIELD IS SAFE TO EXPOSE. Every
-    // declarable row is uncalibrated for English, so the two-tier ban is
-    // skipped on the structured group and an absent banned_pairs means the
-    // question was not asked.
+    // THE DISCLOSURE IS THE REASON THE FIELD IS SAFE TO EXPOSE. The two-tier
+    // ban is not asked of a pair judged under a non-default structure, and
+    // the verdict names those pairs instead of letting a zero read as clean.
+    assert.deepEqual(
+      structured.ban_not_asked.map((row) => row.lines),
+      [[3, 4]],
+      'the structured group B is named as not asked'
+    );
+    assert.equal(typeof structured.banned_pairs, 'number', 'group A was asked, so a count stands');
+    const allStructured = await callText('lyric_check', {
+      lines: stLines,
+      groups: '1,2;3,4',
+      structures: 'A:kalevala-alliteration,B:kalevala-alliteration',
+    });
+    assert.equal(allStructured.banned_pairs, null, 'no pair asked: null, never a clean zero');
+    assert.match(allStructured.banned_pairs_reason, /not asked/);
     assert.ok(
       structured.structures_uncalibrated &&
         structured.structures_uncalibrated.includes('kalevala-alliteration'),
@@ -8511,7 +8759,8 @@ try {
     // an absent banned_pairs here would read as "no banned pairs".
     assert.ok(!('banned_pairs' in ok), 'no banned_pairs field: verify cannot answer that');
     assert.ok(
-      /does not report banned pairs/i.test(ok.scope) && /lyric_grade/.test(ok.scope),
+      /one that survived the change untouched is not reported/i.test(ok.scope) &&
+        /lyric_grade/.test(ok.scope),
       '...and the scope field says so, pointing at the verb that can'
     );
     // TARGETED IS THE SOLE GATE on the untargeted-rewrite rejection, and

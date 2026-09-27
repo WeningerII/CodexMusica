@@ -81,6 +81,12 @@ __all__ = ["render_line", "parse_line", "render_group", "parse_group",
 #: this cap never fires; it exists for a caller who raised that one.
 OFFERED_SHOWN = 40
 
+#: The longest line a writer's answer may carry. The connector admits no
+#: longer sung line, so the brief states the bound where the writer reads
+#: it and `ModelProposer` rejects a longer parse before it can enter the
+#: journal.
+MAX_LINE_CHARS = 200
+
 _FENCE_RE = re.compile(r"```[^\n]*\n(.*?)```", re.DOTALL)
 _LINE_MARK_RE = re.compile(r"^[ \t]*LINE[ \t]*:[ \t]*(.*)$",
                            re.IGNORECASE | re.MULTILINE)
@@ -685,8 +691,9 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
         out.append("  An unjudged required check is UNKNOWN, not a lyric violation. "
                    "A replacement can make the declared anchor or reading judgeable. "
                    "Keep the intended meaning; do not invent a pronunciation to obtain a pass. "
-                   "If the current reading is intentional, decline the rewrite and retain "
-                   "the draft for an explicit reading declaration and regrade.")
+                   "If the current reading is intentional, no rewrite fixes it: whatever "
+                   "line comes back is graded as the replacement. The remedy is an explicit "
+                   "reading declaration and a regrade, outside this question.")
     if findings:
         out.extend(_finding_lines(findings))
     else:
@@ -928,6 +935,8 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     out.append("  two candidate lines, a quoted line, an explanation with no "
                "marker — is discarded")
     out.append("  unread and costs you this attempt.")
+    out.append(f"  The line is at most {MAX_LINE_CHARS} characters; a longer "
+               "one is not accepted.")
     return "\n".join(out)
 
 
@@ -1267,6 +1276,8 @@ def render_group(group_brief):
                "guessing wrong writes each")
     out.append("  line into another's place. No quotation marks, no "
                "commentary.")
+    out.append(f"  Each line is at most {MAX_LINE_CHARS} characters; a "
+               "longer one is not accepted.")
     return "\n".join(out)
 
 
@@ -1442,7 +1453,7 @@ class ModelProposer:
 
     # The connector's admitted artifact line bound. Reject before a parsed
     # provider answer can enter the journal or accepted draft.
-    MAX_LINE_CHARS = 200
+    MAX_LINE_CHARS = MAX_LINE_CHARS
 
     def propose(self, brief, lines, attempt, reasons=None, whole=()):
         """-> a replacement line for `brief.line_no`, or `None`."""
