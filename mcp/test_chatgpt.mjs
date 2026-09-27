@@ -1,18 +1,13 @@
 import { randomBytes } from 'node:crypto';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { JobStore } from './job_store.js';
-import {
-  WorkflowSessions,
-  SESSION_STORE_LIMITS,
-  publicToolResult,
-  verdictOf,
-} from './workflow_sessions.js';
+import { WorkflowSessions, SESSION_STORE_LIMITS, publicToolResult } from './workflow_sessions.js';
 import { buildWorkflowServer } from './workflow_tools.js';
 import { startRecipe, editRecipe, renderRecipe } from './engine.js';
 import { requestContext } from './execution_context.js';
@@ -240,42 +235,6 @@ test('creation receipts cannot be fabricated through MCP input or skipped', asyn
   assert.doesNotMatch(begin.description, /kitchen|Gemini/i);
 });
 
-test('real lyric sweep, screen and plan receipts persist between operations', async (t) => {
-  const { store, directory } = storeFor(t);
-  let sessions = new WorkflowSessions({ store });
-  let session_id = sessions.open('lyrics').session_id;
-  const run = async (name, args) => {
-    const q = sessions.submit(session_id, 'lyrics', name, args);
-    await sessions.wait(q.operation_id);
-    const r = sessions.status(q.operation_id, 'lyrics');
-    assert(!r.tool_result.isError, JSON.stringify(r));
-    session_id = r.session_id;
-    return verdictOf(r.tool_result);
-  };
-  const swept = await run('lyric_sweep', { seed_from: 31, count: 1, lines: 12 });
-  assert.equal(swept.exit_code, 0);
-  const seed = swept.accepted_shown[0];
-  assert(Number.isInteger(seed));
-  const screened = await run('lyric_screen', {
-    words: ['stove', 'coat'],
-    relation: 'class:ASSONANCE',
-  });
-  assert.equal(screened.exit_code, 0, JSON.stringify(screened));
-  sessions = new WorkflowSessions({ store: new JobStore(directory) });
-  const planned = await run('lyric_plan', { seed, lines: 12 });
-  assert.equal(planned.exit_code, 0);
-  assert(sessions.store.get(session_id).response.body.session.native.task.workflow.plan);
-  const q = sessions.submit(session_id, 'lyrics', 'lyric_revise', {
-    seed,
-    draft: Array(12).fill('The kettle whistles by the stove'),
-  });
-  await sessions.wait(q.operation_id);
-  assert.match(
-    sessions.status(q.operation_id, 'lyrics').tool_result.content[0].text,
-    /CREATION_GRADE/
-  );
-});
-
 test('restart marks admitted work interrupted and never automatically executes it', async (t) => {
   const { store, directory } = storeFor(t);
   let release;
@@ -302,44 +261,6 @@ test('restart marks admitted work interrupted and never automatically executes i
   assert.throws(() => recovered.resume(q.operation_id, 'lyrics'), /CONTINUATION_UNCERTAIN/);
   release();
   await sessions.wait(q.operation_id);
-});
-
-test('real edit revision restores a question across reconnect and rejects changed replay input without losing the session', async (t) => {
-  const { store, directory } = storeFor(t);
-  let sessions = new WorkflowSessions({ store });
-  let session_id = sessions.open('lyrics', { phase: 'edit' }).session_id;
-  const run = async (args) => {
-    const q = sessions.submit(session_id, 'lyrics', 'lyric_revise', args);
-    await sessions.wait(q.operation_id);
-    const r = sessions.status(q.operation_id, 'lyrics');
-    assert.equal(r.status, 'completed', JSON.stringify(r));
-    session_id = r.session_id;
-    return r.tool_result;
-  };
-  const initial = await run({
-    scheme: 'AA',
-    relation: 'type:rime riche',
-    draft: ['Copper cat', 'Azure dog'],
-    max_rounds: 1,
-    backtrack: 0,
-  });
-  assert.equal(verdictOf(initial).exit_code, 4);
-  assert(!/run_[a-f0-9]{64}/.test(JSON.stringify(initial)));
-  // The raw engine's footnote names run_id; the session's names what works here.
-  assert.match(
-    initial.content[0].text,
-    /\n\nCONTINUE: call lyric_revise with the latest session_id and `answer`[^\n]*The session carries the run, its state and its draft\.$/
-  );
-  sessions = new WorkflowSessions({ store: new JobStore(directory) });
-  const changed = await run({
-    draft: ['Different song', 'Entirely replaced'],
-    answer: 'I hold you.',
-  });
-  assert(changed.isError);
-  assert.match(changed.content[0].text, /SESSION_CONTINUATION/);
-  const answered = await run({ answer: 'I left the basket underneath the oak' });
-  assert(!answered.isError, JSON.stringify(answered));
-  assert(verdictOf(answered).folded, JSON.stringify(answered));
 });
 
 function checkpoint(overrides = {}) {
@@ -963,135 +884,6 @@ test('an omitted recipe format means rich on every call, not the last format use
   const edits = [{ action: 'set_preface', card: 'voice', preface: 'worn' }];
   const edited = data(await call(client, 'edit_recipe', { session_id: compact.session_id, edits }));
   assert.equal(value(edited).recipe, editRecipe({ workspace, edits }).recipe);
-});
-
-test('lyric_types is a lookup: it answers at once and takes no session', async (t) => {
-  const sessions = new WorkflowSessions({
-    store: storeFor(t).store,
-    execute: () => assert.fail('a lookup queues no session work'),
-  });
-  for (const client of [await connect(t, 'lyrics', sessions), await connectShared(t, sessions)]) {
-    const tool = (await client.listTools()).tools.find((x) => x.name === 'lyric_types');
-    assert.equal(tool.inputSchema.properties.session_id, undefined);
-    assert.equal(tool.annotations.readOnlyHint, true);
-    assert.equal(tool.outputSchema, undefined);
-    const result = await call(client, 'lyric_types', { word_a: 'cat', word_b: 'hat' });
-    assert(!result.isError, JSON.stringify(result));
-    assert.equal(result.structuredContent, undefined);
-  }
-  assert.equal(sessions.store.records.size, 0);
-});
-
-test('recover_only exports what a lyrics session holds, without an operation', async (t) => {
-  const sessions = new WorkflowSessions({ store: storeFor(t).store });
-  const client = await connect(t, 'lyrics', sessions);
-  const begun = data(await call(client, 'begin_lyrics', { phase: 'edit' }));
-  const nothing = await call(client, 'lyric_revise', {
-    session_id: begun.session_id,
-    recover_only: true,
-  });
-  assert.equal(nothing.isError, true);
-  assert.match(nothing.content[0].text, /NOTHING_TO_RECOVER: .*accepted_draft/);
-  const draft = ['Copper cat', 'Azure dog'];
-  const queued = data(
-    await call(client, 'lyric_revise', {
-      session_id: begun.session_id,
-      scheme: 'AA',
-      relation: 'type:rime riche',
-      draft,
-      max_rounds: 1,
-      attempts: 0,
-      backtrack: 0,
-    })
-  );
-  await sessions.wait(queued.operation_id);
-  const stopped = data(await call(client, 'get_operation', { operation_id: queued.operation_id }));
-  assert.equal(verdictOf(stopped.tool_result).exit_code, 3, JSON.stringify(stopped));
-  // The stop's note is the session procedure, and no run capability leaks.
-  assert.match(
-    stopped.tool_result.content[0].text,
-    /CONTINUE: no question is pending\. Rewrite the open line\(s\), then call lyric_revise with the latest session_id, the complete rewritten draft, the same declarations/
-  );
-  assert.doesNotMatch(JSON.stringify(stopped), /run_[a-f0-9]{64}|run_id/);
-  const records = sessions.store.records.size;
-  const exported = await call(client, 'lyric_revise', {
-    session_id: stopped.session_id,
-    recover_only: true,
-  });
-  assert(!exported.isError, JSON.stringify(exported));
-  const artifact = JSON.parse(exported.content[0].text);
-  assert.equal(artifact.status, 'recovered_artifact');
-  assert.equal(artifact.resumable, false);
-  assert(artifact.journal && typeof artifact.journal === 'object');
-  // Nothing was recorded, and the session continues from the same id.
-  assert.equal(sessions.store.records.size, records);
-  assert.equal(data(exported).session_id, stopped.session_id);
-  const mixed = await call(client, 'lyric_revise', {
-    session_id: stopped.session_id,
-    recover_only: true,
-    draft: ['x'],
-  });
-  assert.equal(mixed.isError, true);
-  assert.match(mixed.content[0].text, /send only session_id, recover_only/);
-  const revise = (await client.listTools()).tools.find((x) => x.name === 'lyric_revise');
-  assert.match(revise.inputSchema.properties.recover_only.description, /^With session_id: true/);
-  assert.doesNotMatch(revise.inputSchema.properties.recover_only.description, /supplied state/);
-});
-
-test('a parked new song continues exactly as its note says', { timeout: 300_000 }, async (t) => {
-  const sessions = new WorkflowSessions({ store: storeFor(t).store });
-  let session_id = sessions.open('lyrics').session_id;
-  const run = async (name, args) => {
-    const q = sessions.submit(session_id, 'lyrics', name, args);
-    await sessions.wait(q.operation_id);
-    const r = sessions.status(q.operation_id, 'lyrics');
-    if (r.session_id) session_id = r.session_id;
-    return r;
-  };
-  const swept = await run('lyric_sweep', { seed_from: 31, count: 1, lines: 12 });
-  const seed = verdictOf(swept.tool_result).accepted_shown[0];
-  await run('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
-  await run('lyric_plan', { seed, lines: 12 });
-  const draft = [
-    'The kettle hums a low and steady tone',
-    'I hear it singing when I am alone',
-    'Morning light',
-    'The window holds the frost',
-    'I count the things I lost',
-    'Morning light',
-    'Down the road the old dog sleeps',
-    'Down the lane the cold fog creeps',
-    'Nobody calls the house at night',
-    'Nobody walls the mouse from sight',
-    'I will keep the fire going',
-    'I will keep the fire glowing',
-  ];
-  const budget = { max_rounds: 1, attempts: 0, backtrack: 0 };
-  await run('lyric_grade', { seed, draft });
-  const parked = await run('lyric_revise', { seed, draft, ...budget });
-  assert.equal(verdictOf(parked.tool_result).exit_code, 3, JSON.stringify(parked));
-  const note = parked.tool_result.content[0].text.match(/\n\nCONTINUE: [\s\S]*$/)[0];
-  const procedure =
-    'grade the complete rewritten draft with lyric_grade, then call lyric_revise with that exact draft and new_run: true';
-  const plain = (text) => text.replaceAll('`', '');
-  assert(plain(note).includes(procedure), note);
-  // The plugin skill hosts load gives the same procedure, word for word.
-  const skill = readFileSync(
-    new URL('../plugins/codex-musica/skills/lyric-workflows/SKILL.md', import.meta.url),
-    'utf8'
-  );
-  assert(plain(skill).includes(procedure));
-  const rewritten = draft.map((line) =>
-    line === 'Morning light' ? 'Morning comes in slow' : line
-  );
-  // Skipping the grade is refused, and the refusal names the grade.
-  const skipped = await run('lyric_revise', { draft: rewritten, new_run: true, ...budget });
-  assert.match(skipped.tool_result.content[0].text, /CREATION_GRADE: lyric_grade must answer/);
-  // Following the note starts the new run.
-  await run('lyric_grade', { seed, draft: rewritten });
-  const resumed = await run('lyric_revise', { draft: rewritten, new_run: true, ...budget });
-  assert(!resumed.tool_error, JSON.stringify(resumed));
-  assert([0, 3].includes(verdictOf(resumed.tool_result).exit_code), JSON.stringify(resumed));
 });
 
 test('an uncertain revision blocks only its own replay; free work and a new run go on', async (t) => {

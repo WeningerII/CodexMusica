@@ -5155,6 +5155,10 @@ await check('validation: actionable errors', () => {
       'mcp/test_connector_contracts.mjs': 'offline connector and release contract regressions',
       'mcp/test_connector_http.mjs': 'offline public HTTP and Origin regressions',
       'mcp/test_chatgpt.mjs': 'offline ChatGPT session adapter regressions',
+      'mcp/test_chatgpt_harness.mjs':
+        'session adapter regressions that drive the real lyric harness, executed by CI',
+      'mcp/test_chatgpt_revise.mjs':
+        'session adapter revise-loop regressions on the real lyric harness, executed by CI',
       'mcp/test_release_gates.mjs': 'offline verified CI and battery acceptance regressions',
       'mcp/test_run_continuation.mjs': 'offline real run continuation regressions',
       'mcp/test_writer_work_budget.mjs': 'real native writer candidate-work admission regression',
