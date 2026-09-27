@@ -1,0 +1,249 @@
+{
+ "hook_slot": 1,
+ "hooks": [
+  "Frost writes the ledger on the pane"
+ ],
+ "lines": [
+  {
+   "bar": 1,
+   "beat": 2.0,
+   "duration": 2.0,
+   "section": "CHORUS1",
+   "text": "Frost writes the ledger on the pane"
+  },
+  {
+   "bar": 2,
+   "beat": 2.0,
+   "duration": 2.0,
+   "section": "CHORUS1",
+   "text": "Each white line marks a loss we weigh"
+  },
+  {
+   "bar": 5,
+   "beat": 2.0,
+   "duration": 2.0,
+   "section": "FALSE_ENDING1",
+   "text": "Snow shuts the book on every field"
+  },
+  {
+   "bar": 6,
+   "beat": 2.0,
+   "duration": 2.0,
+   "section": "FALSE_ENDING1",
+   "text": "The barn cats roam for frozen bread"
+  },
+  {
+   "bar": 7,
+   "beat": 2.0,
+   "duration": 2.0,
+   "section": "FALSE_ENDING1",
+   "text": "Out past black sheds the moon bows down"
+  },
+  {
+   "bar": 8,
+   "beat": 2.0,
+   "duration": 2.0,
+   "section": "FALSE_ENDING1",
+   "text": "Cart, sled, bell, scythe, hound, lamb, goat, sheep"
+  },
+  {
+   "bar": 9,
+   "beat": 2.0,
+   "duration": 2.0,
+   "section": "FALSE_ENDING1",
+   "text": "Fold it and wait for a new leaf"
+  },
+  {
+   "bar": 10,
+   "beat": 1.75,
+   "duration": 2.25,
+   "section": "VERSE1",
+   "text": "Deep in earth the bulbs hold wicks"
+  },
+  {
+   "bar": 11,
+   "beat": 1.75,
+   "duration": 2.25,
+   "section": "VERSE1",
+   "text": "Worms sleep below where no sun can dig"
+  },
+  {
+   "bar": 12,
+   "beat": 1.75,
+   "duration": 2.25,
+   "section": "VERSE1",
+   "text": "Split ice gives way, blood wakes, sap will stir"
+  },
+  {
+   "bar": 13,
+   "beat": 1.0,
+   "duration": 3.0,
+   "section": "PRECHORUS1",
+   "text": "Coal, salt, lard, rum, all taken on debt"
+  },
+  {
+   "bar": 14,
+   "beat": 1.0,
+   "duration": 3.0,
+   "section": "PRECHORUS1",
+   "text": "It came in on the west gusts through the wood"
+  },
+  {
+   "bar": 15,
+   "beat": 1.0,
+   "duration": 3.0,
+   "section": "PRECHORUS1",
+   "text": "Stark soil, dead seed, no winter coat"
+  },
+  {
+   "bar": 16,
+   "beat": 1.0,
+   "duration": 3.0,
+   "section": "PRECHORUS1",
+   "text": "Not one voice among us, the hearth gone to soot"
+  },
+  {
+   "bar": 17,
+   "beat": 1.0,
+   "duration": 3.0,
+   "section": "PRECHORUS1",
+   "text": "Rye by the rail fence lay stiff and charred"
+  },
+  {
+   "bar": 18,
+   "beat": 1.0,
+   "duration": 3.0,
+   "section": "PRECHORUS1",
+   "text": "Cold hard coin pays the thaw what is left"
+  },
+  {
+   "bar": 19,
+   "beat": 1.0,
+   "duration": 3.0,
+   "section": "PRECHORUS1",
+   "text": "We give it cloth, hens, lime, and joy"
+  },
+  {
+   "bar": 20,
+   "beat": 2.0,
+   "duration": 2.0,
+   "section": "CHORUS2",
+   "text": "Frost writes the ledger on the pane"
+  },
+  {
+   "bar": 21,
+   "beat": 2.0,
+   "duration": 2.0,
+   "section": "CHORUS2",
+   "text": "Each white line marks a loss we weigh"
+  },
+  {
+   "bar": 22,
+   "beat": 2.0,
+   "duration": 2.0,
+   "section": "OUTRO1",
+   "text": "June wipes the glass and reads the sum"
+  },
+  {
+   "bar": 23,
+   "beat": 2.0,
+   "duration": 2.0,
+   "section": "OUTRO1",
+   "text": "The rime goes soft, dew beads and runs"
+  }
+ ],
+ "sections": [
+  {
+   "bars": 2,
+   "function": "chorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS1",
+   "start_bar": 1
+  },
+  {
+   "bars": 2,
+   "function": "solo",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "SOLO1",
+   "start_bar": 3
+  },
+  {
+   "bars": 5,
+   "function": "false_ending",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "FALSE_ENDING1",
+   "start_bar": 5
+  },
+  {
+   "bars": 3,
+   "function": "verse",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "VERSE1",
+   "start_bar": 10
+  },
+  {
+   "bars": 7,
+   "function": "prechorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "PRECHORUS1",
+   "start_bar": 13
+  },
+  {
+   "bars": 2,
+   "function": "chorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS2",
+   "start_bar": 20
+  },
+  {
+   "bars": 2,
+   "function": "outro",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "OUTRO1",
+   "start_bar": 22
+  }
+ ],
+ "title": "The Frost Ledger"
+}
