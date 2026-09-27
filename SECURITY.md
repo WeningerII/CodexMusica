@@ -1,9 +1,12 @@
 # Security Policy
 
-CodexMusica is a read-only service: a static catalog site (GitHub Pages) and a
-stateless MCP connector that performs deterministic, in-memory computation. It
-stores no user data, requires no authentication, and has no database or
-persistent state (see [PRIVACY.md](PRIVACY.md)).
+CodexMusica is a static catalog site (GitHub Pages), an unauthenticated MCP
+connector and a browser chat service. Recipe computation is deterministic. The
+connector keeps short-lived working state — recipe workspaces, lyric workflow
+sessions, run state and recovery receipts — in a private runtime store, and the
+browser chat retains conversation receipts and makes paid Gemini calls. See
+[PRIVACY.md](PRIVACY.md) and [mcp/PRIVACY.md](mcp/PRIVACY.md) for what is stored
+and for how long. Session, run and request identifiers are bearer capabilities.
 
 ## Reporting a vulnerability
 
@@ -30,5 +33,8 @@ In scope:
 Out of scope:
 
 - Volumetric denial-of-service against the public endpoint — it is intentionally
-  open and unauthenticated; rate-limiting is handled at the edge.
+  open and unauthenticated. The server applies per-IP request limits in code
+  (`mcp/server_http.js`); there is no separate edge limiter.
+- Exhausting the browser chat's daily model allowance through ordinary use; the
+  allowance is a deliberate cap (`CHAT_DAILY_USD`).
 - Findings that require an already-compromised host or browser.

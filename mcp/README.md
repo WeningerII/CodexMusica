@@ -179,7 +179,7 @@ stateless. See [LYRICS_RUNTIME.md](./LYRICS_RUNTIME.md) for receipt retention an
 [BATTERY_RECOVERY.md](./BATTERY_RECOVERY.md) for safe battery continuation.
 
 The workspace is **removed from the function declarations** rather than reformatted: it
-is a part-id → variant-id map over 4051 part ids and cannot be typed, so it reaches the
+is a part-id → variant-id map over every part of every instrument and cannot be typed, so it reaches the
 wire as an empty node, which restricted function-calling clients reject. The server holds
 it and injects it. `mcp/gemini_tools.js` carries the arithmetic; `connector-gemini-legal`
 gates the result off a live `tools/list`.
