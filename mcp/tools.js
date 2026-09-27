@@ -34,6 +34,29 @@ import { jsonBytes, HTTP_REQUEST_BYTES, assertStateFits } from './payload_limits
 // Re-exported so existing importers keep working; the definitions live in
 // schemas.js, which does not import the MCP SDK.
 export { renderShape, workspaceSchema, editSchema, TOOL_SCHEMAS } from './schemas.js';
+import { editSchema, unknownEditKeys } from './schemas.js';
+
+// Refuse an edit_recipe call whose edits carry an undeclared key, before the
+// SDK's schema parse strips it (see unknownEditKeys). The SDK validates input
+// in McpServer.validateToolInput; wrapping it is the one place the raw
+// arguments are visible. mcp/test_connector_contracts.mjs fails if this hook
+// stops running on either server.
+export function guardEditKeys(server) {
+  const validate = server.validateToolInput?.bind(server);
+  if (!validate)
+    throw new Error('The MCP SDK no longer exposes validateToolInput; move the edit-key guard.');
+  server.validateToolInput = async (tool, args, toolName) => {
+    if (toolName === 'edit_recipe') {
+      const unknown = unknownEditKeys(args);
+      if (unknown.length)
+        throw new Error(
+          `Unknown edit field(s): ${unknown.join(', ')}. An edit takes ${Object.keys(editSchema.shape).join(', ')} — check the spelling. Nothing was applied.`
+        );
+    }
+    return validate(tool, args, toolName);
+  };
+  return server;
+}
 
 // No tool declares an outputSchema and none returns structuredContent, so this
 // text block is opaque to the protocol — a client is entitled to assume nothing
@@ -280,7 +303,7 @@ export function buildServer({ task = null, kitchen = false } = {}) {
     `roster → add/remove_instrument and add/remove_tradition (any instrument fits any tradition). There are NO ` +
     `coherence fences: nothing is anachronistic, out-of-region, or physically impossible here — the catalog's ` +
     `period-accurate defaults are flavor to keep or override, and every id-valid combination renders. Batch ` +
-    `several edits in one edit_recipe call; thread the returned 'workspace' into the next call; resolve every word ` +
+    `several edits in one edit_recipe call; ${kitchen ? 'the chat carries the recipe workspace between calls for you' : "thread the returned 'workspace' into the next call"}; resolve every word ` +
     `to an id with search_catalog / search_prefaces (never guess ids). Deterministic and reproducible — identical ` +
     `to what a human sees in the app. Present the FINAL recipe string to the user verbatim (exact characters) — ` +
     `final meaning after your edits, not the untouched default.` +
@@ -307,5 +330,5 @@ export function buildServer({ task = null, kitchen = false } = {}) {
   });
   Object.defineProperty(server, 'kitchen', { value: kitchen === true });
   registerTools(server);
-  return server;
+  return guardEditKeys(server);
 }

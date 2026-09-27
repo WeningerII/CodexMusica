@@ -389,6 +389,45 @@ test('safe resume carries original replay input and accepted journal, and dedupl
   );
 });
 
+// The shared /mcp endpoint serves both families, so its server has no domain of
+// its own: resume_operation must take the domain from the operation's session.
+// (Found by the 2026-09-27 re-audit: every lyric resume over /mcp was refused
+// SESSION_SCOPE, and the tests above only resumed through the session API.)
+test('resume_operation continues an interrupted lyric operation over the shared endpoint', async (t) => {
+  const { store } = storeFor(t);
+  let executions = 0;
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async (session) => {
+      executions++;
+      if (executions === 1) {
+        requestContext().onCheckpoint(checkpoint());
+        throw new Error('lost result');
+      }
+      assert.deepEqual(decodeState(session.native.continuation.args.state).accepted_lines, [
+        'accepted',
+      ]);
+      return { session, result: { content: [{ type: 'text', text: 'resumed over /mcp' }] } };
+    },
+  });
+  for (const client of [await connectShared(t, sessions), await connect(t, null, sessions)]) {
+    executions = 0;
+    const opened = sessions.open('lyrics');
+    const q = sessions.submit(opened.session_id, 'lyrics', 'lyric_revise', { seed: 31 });
+    await sessions.wait(q.operation_id);
+    const read = data(await call(client, 'get_operation', { operation_id: q.operation_id }));
+    assert.equal(read.status, 'interrupted');
+    assert.equal(read.resumable, true);
+    const resumed = data(await call(client, 'resume_operation', { operation_id: q.operation_id }));
+    assert.equal(resumed.tool, 'lyric_revise');
+    await sessions.wait(resumed.operation_id);
+    const done = await call(client, 'get_operation', { operation_id: resumed.operation_id });
+    assert.equal(data(done).status, 'completed');
+    assert.equal(done.content[0].text, 'resumed over /mcp');
+    assert.equal(executions, 2);
+  }
+});
+
 test('unknown provider outcome blocks resume while retaining accepted lyrics', async (t) => {
   const { store } = storeFor(t);
   const sessions = new WorkflowSessions({

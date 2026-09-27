@@ -8,7 +8,7 @@
 // engine's own guidance under a paragraph saying what the session replaces.
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
-import { buildServer } from './tools.js';
+import { buildServer, guardEditKeys } from './tools.js';
 import { requestContext } from './execution_context.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
@@ -45,7 +45,9 @@ const resultShape = {
   tool_result: z
     .object({ content: z.array(textBlock), isError: z.boolean().optional() })
     .optional()
-    .describe("The tool's own result. In the content blocks it comes first, unchanged."),
+    .describe(
+      "The tool's own result. In the content blocks it comes first, with private state withheld."
+    ),
   tool_error: z.boolean().optional(),
   accepted_draft: z.array(z.string()).optional(),
   interruption: z.string().optional(),
@@ -77,7 +79,7 @@ async function surface(domain) {
   return surfaces.get(domain);
 }
 
-// Content leads with the tool's own blocks, unchanged, so a text-only host sees
+// Content leads with the tool's own blocks (private state withheld), so a text-only host sees
 // the deliverable first and exactly as the tool wrote it. The receipt follows as
 // the last block, without repeating those blocks: text-only hosts still need the
 // recovery ids. structuredContent carries the whole envelope.
@@ -115,7 +117,7 @@ function sessionGuide(domains, compatibility) {
       ? "Codex Musica serves recording recipes and lyrics on this one connection. Use the tools the user's request calls for: a recipe request does not start lyrics, and a combined request uses both. Keep each workflow's latest session_id separately."
       : `Codex Musica ${recipe ? 'recording recipes' : 'lyrics'}, with sessions kept by the server.`,
     `SESSIONS. ${opens} and return a session_id; pass the latest session_id to that workflow's next call. The server carries what the engine guidance below has a caller-managed client thread by hand — ${carried} — so never send those with a session_id.`,
-    "Every call that opens a session or takes a session_id, and get_operation, ends its content with a receipt (a JSON object) holding the next session_id. Every block before the receipt is the tool's own output, unchanged: the first of them is the deliverable the guidance below says to reproduce exactly.",
+    "Every call that opens a session or takes a session_id, and get_operation, ends its content with a receipt (a JSON object) holding the next session_id. Every block before the receipt is the tool's own output with private state withheld (workspace, run state and ids are removed from its JSON, and a continue footnote is rewritten for the session); the deliverable text — song, plan, recipe string — is exact, and the first block is the deliverable the guidance below says to reproduce exactly.",
     recipe ? 'Recipe calls answer at once.' : null,
     lyrics
       ? 'Lyric calls queue a background operation and return its operation_id (lyric_types, a lookup, answers at once and takes no session): poll get_operation until it is no longer pending, never submit to a session while its operation is pending, and continue from the session_id in the completed receipt.'
@@ -137,12 +139,12 @@ function sessionParagraph(name, domain, shape, compatibility) {
       "SESSION: opens a recipe session. The first content block is this tool's own output" +
       (compatibility
         ? ' — the recipe, its cards and the caller-managed `workspace` — with the new session_id added'
-        : ', unchanged') +
+        : ', with private state withheld') +
       '; the last block is the session receipt. Pass its session_id to edit_recipe or render_recipe and the server keeps the workspace. '
     );
   if (domain === 'recipe')
     return (
-      "SESSION: pass the latest session_id; the server applies this call to the workspace it keeps. Every content block before the last is this tool's own output, unchanged; the last is the receipt holding the next session_id." +
+      "SESSION: pass the latest session_id; the server applies this call to the workspace it keeps. Every content block before the last is this tool's own output with private state withheld; the last is the receipt holding the next session_id." +
       (compatibility
         ? ' Without session_id, pass `workspace` instead (caller-managed): the raw engine runs and returns its own result, edited workspace included. Never send both.'
         : '') +
@@ -152,9 +154,12 @@ function sessionParagraph(name, domain, shape, compatibility) {
   return (
     'SESSION: pass the latest session_id. This call queues a background operation and returns its operation_id at once' +
     (name === 'lyric_revise' ? ' (recover_only: true answers at once instead)' : '') +
-    ". Poll get_operation until it is no longer pending: a completed operation's content leads with this tool's own result blocks, unchanged — wherever this description speaks of the first content block, it is the first of those — and ends with the receipt holding the next session_id." +
+    ". Poll get_operation until it is no longer pending: a completed operation's content leads with this tool's own result blocks, private state withheld and the song or plan text exact — wherever this description speaks of the first content block, it is the first of those — and ends with the receipt holding the next session_id." +
     (carried.length
       ? ` The session carries the run, its ${carried.join(', ')} and the draft it opened on.`
+      : '') +
+    (['lyric_check', 'lyric_recover'].includes(name)
+      ? " For lyrics the user supplied (a begin_lyrics phase 'edit' session); a new-song session refuses it — grade your draft with lyric_grade there."
       : '') +
     (compatibility
       ? ' Without session_id (caller-managed) this call runs the raw engine synchronously and returns its own result directly, and no creation order is enforced; never send session_id together with caller-managed state.'
@@ -229,7 +234,7 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
     {
       title: 'Read a saved operation',
       description:
-        "Read an operation (or any session) by its id; this never dispatches work. pending: poll again after retry_after_seconds. completed: the content leads with the tool's own result blocks, unchanged — present the deliverable from them exactly — and ends with the receipt, whose session_id is the next step's; a refused call reads tool_error: true, and its session_id continues the session as it was before that call. interrupted: when resumable is true, call resume_operation; otherwise accepted_draft holds the accepted lyrics, lyric_revise with recover_only: true exports the journal, and session_id (when present) starts new work from before the interruption. retired: the saved state is gone; open a new session. If successor_id is present, read it first: an older id cannot branch the workflow. Ids are private capabilities.",
+        "Read an operation (or any session) by its id; this never dispatches work. pending: poll again after retry_after_seconds. completed: the content leads with the tool's own result blocks, private state withheld — present the deliverable from them exactly — and ends with the receipt, whose session_id is the next step's; a refused call reads tool_error: true, and its session_id continues the session as it was before that call. interrupted: when resumable is true, call resume_operation; otherwise accepted_draft holds the accepted lyrics, lyric_revise with recover_only: true exports the journal, and session_id (when present) starts new work from before the interruption. retired: the saved state is gone; open a new session. If successor_id is present, read it first: an older id cannot branch the workflow. Ids are private capabilities.",
       inputSchema: z.object({ operation_id: id }),
       outputSchema: resultShape,
       annotations: readOnly,
@@ -262,7 +267,12 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
         description:
           "Open a private lyrics session and return its session_id. Phase 'create' (the default) is for a new song: the session enforces sweep → screen → plan → exact-draft grade → revise from receipts the server records. Phase 'edit' is only for lyrics the user supplied: it skips those receipts, so choose it only then — this argument is the only thing that selects it. The phase is fixed for the session. You write every line; the service plans and grades, and lyric_revise asks you each question it needs answered. No lyric call reaches a model provider or spends money.",
         inputSchema: z.object({
-          phase: z.enum(['create', 'edit']).default('create'),
+          phase: z
+            .enum(['create', 'edit'])
+            .default('create')
+            .describe(
+              "'create' (default) for a new song; 'edit' only for lyrics the user supplied. Fixed for the session."
+            ),
         }),
         outputSchema: resultShape,
         annotations: { ...stateful, idempotentHint: false },
@@ -433,14 +443,14 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
             ...read,
             tool: 'lyric_revise',
             tool_result: exported,
-            note: 'Exported without an operation: the session is unchanged, and its session_id still continues it.',
+            note: 'Exported without an operation: nothing in the session changed.',
           });
         }
         return response(sessions.submit(session_id, taskDomain, tool.name, args));
       }
     );
   }
-  return server;
+  return guardEditKeys(server);
 }
 
 // Release verification compares the exact deployed public contract, including

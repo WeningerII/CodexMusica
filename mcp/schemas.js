@@ -225,6 +225,22 @@ export const editSchema = z.object({
 // So the schemas are exported rather than inlined at their registration sites:
 // anything that calls the engine parses against THESE objects first. One
 // definition, so a second caller can never drift from what the connector accepts.
+
+// Schema parsing strips keys an edit does not declare before any handler runs,
+// so a misspelled field beside a valid one ({room, tunning}) would vanish without
+// a word. The published schema cannot forbid extra keys (connector-schema-subset
+// allows no additionalProperties there), so the servers check the raw arguments
+// with this before parsing (guardEditKeys in tools.js).
+export function unknownEditKeys(args) {
+  const known = new Set(Object.keys(editSchema.shape));
+  const unknown = [];
+  (Array.isArray(args?.edits) ? args.edits : []).forEach((edit, i) => {
+    if (edit && typeof edit === 'object' && !Array.isArray(edit))
+      for (const key of Object.keys(edit)) if (!known.has(key)) unknown.push(`edits[${i}].${key}`);
+  });
+  return unknown;
+}
+
 export const TOOL_SCHEMAS = {
   start_recipe: z.object({
     traditions: z

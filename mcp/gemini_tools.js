@@ -23,9 +23,9 @@
 
 // The property every recipe tool takes and no model ever writes.
 //
-// The workspace is a part-id → variant-id map over 4051 distinct part ids across
-// 1406 instruments. It cannot be typed — the trick that fixed `chain` (name the
-// stages, all eight of them, from the catalog) does not survive four thousand
+// The workspace is a part-id → variant-id map over every part of every
+// instrument. It cannot be typed — the trick that fixed `chain` (name the
+// stages, all eight of them, from the catalog) does not survive thousands of
 // part ids, and z.record / passthrough / catchall each emit a keyword Gemini
 // rejects. The arithmetic is written out in check_connector_contract.js's EXEMPT
 // list. On the wire it is therefore an empty node, `items: {}`, and an empty node
@@ -42,10 +42,9 @@
 // the model cannot branch — it cannot hold two recipes side by side and edit
 // them alternately, because the second start_recipe overwrites the first. Every
 // prompt in the probe suite is a single recipe, and the chat bar builds one
-// recipe per conversation, so nothing today needs branching. A content-addressed
-// handle store would lift the limit and is deliberately NOT built: it would
-// break `connector-tools-read-only` ("nothing is stored server-side… no handle
-// to hold"), which is a promise gated in CI, not a preference.
+// recipe per conversation, so nothing today needs branching. The connector's
+// /mcp sessions (workflow_sessions.js) do hold workspaces server-side; the chat
+// keeps its own single workspace because one per conversation is all it needs.
 export const WORKSPACE_PROPERTY = 'workspace';
 
 // The second carried property, and the same argument one tool over (2026-08-28).
@@ -175,8 +174,9 @@ const STATE_NOTE =
   ' The revise run is carried for you automatically — there is no state parameter to pass, and ' +
   'the run is named for you on every continuing call. Keep seed and the other declarations ' +
   'identical across one song’s calls. ' +
-  'While a run is carried, its draft is carried too: omit `draft` on a continuing call — the run ' +
-  'replays onto the one draft it started with.';
+  'While a run waits on a question, its draft is carried too: omit `draft` when continuing it — the ' +
+  'run replays onto the one draft it started with. A PARKED run (no question pending) continues only ' +
+  'with a REWRITTEN draft, sent whole as `draft_text`.';
 
 /**
  * @param {Array<{name:string,description?:string,inputSchema?:object}>} tools

@@ -162,9 +162,13 @@ export function creationRefusal(task, name, args, lyric = null) {
     return w.sweeps.length
       ? null
       : 'CREATION_ORDER: execute a successful lyric_sweep before screening.';
+  // lyric_verify is a diff of one revision and records nothing, so it serves a
+  // new song's revision rounds too. lyric_check and lyric_recover grade or
+  // structure a draft without the plan, which would route around the plan and
+  // lyric_grade this phase enforces.
   if (!['lyric_plan', 'lyric_grade', 'lyric_revise'].includes(name)) {
-    if (['lyric_check', 'lyric_verify', 'lyric_recover'].includes(name))
-      return 'CREATION_PLAN: a new song must use the program plan and lyric_grade. Pasted-song tools require an explicit edit task.';
+    if (['lyric_check', 'lyric_recover'].includes(name))
+      return `CREATION_PLAN: ${name} is for lyrics the user supplied. In this new-song session, grade your draft with lyric_grade (same seed and declarations as lyric_plan); for lyrics the user supplied, call begin_lyrics with phase 'edit'.`;
     return null;
   }
   if (!w.sweeps.length || !w.screen)

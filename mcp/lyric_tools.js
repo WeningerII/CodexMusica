@@ -732,6 +732,37 @@ function resumeEvidenceOf(r) {
   return { resume_proof: compact, resume_proof_error: null };
 }
 
+// The harness writes its report for a person at its command line. A connector
+// caller cannot run `python3 lyric_harness.py …`, and the worker's temporary
+// files mean nothing outside this process, so the published report names the
+// connector tool instead and hides the paths. Ticket references (M-123) are the
+// harness's internal bookkeeping and are dropped; its doctrine citations point
+// at published rules (lyric-harness/CLAUDE.md) and stay.
+const HARNESS_VERB_TOOL = {
+  plan: 'lyric_plan',
+  song: 'lyric_grade',
+  brief: 'lyric_check',
+  finish: 'lyric_revise',
+  revise: 'lyric_revise',
+  screen: 'lyric_screen',
+  sweep: 'lyric_sweep',
+  recover: 'lyric_recover',
+  verify: 'lyric_verify',
+  types: 'lyric_types',
+};
+function publishedReport(text) {
+  if (typeof text !== 'string') return text;
+  return text
+    .replace(/python3 lyric_harness\.py (\w+)([^\n]*)/g, (_all, verb, rest) => {
+      const tool = HARNESS_VERB_TOOL[verb];
+      if (!tool) return 'the matching lyric_* tool';
+      const seed = /--seed[= ](-?\d+)/.exec(rest);
+      return seed ? `${tool} with seed ${seed[1]}` : tool;
+    })
+    .replace(/(?:defer:|replay:)?\/tmp\/[^\s"'—,;)]+/g, '[server temporary file]')
+    .replace(/ ?\((?:[MG]-\d+[a-z]?)(?:[,;/] ?[MG]-\d+[a-z]?)*\)/g, '');
+}
+
 function verdictOf(r) {
   // Only the per-process authenticated record carries machine truth. The report
   // can quote arbitrary lyrics, including text that looks exactly like a stamp.
@@ -740,7 +771,7 @@ function verdictOf(r) {
     exit_code: r.code,
     meaning:
       EXIT_MEANING[r.code] || `subprocess failure (${r.code}): ${(r.stderr || '').slice(0, 400)}`,
-    report: r.stdout,
+    report: publishedReport(r.stdout),
     ...verificationEvidenceOf(r),
     ...resumeEvidenceOf(r),
   };
@@ -1440,6 +1471,7 @@ export function answerFromRows(rows, pending) {
 export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
+  publishedReport,
   verificationEvidenceOf,
   resumeEvidenceOf,
   extractProposerRecord,
@@ -1613,7 +1645,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .boolean()
       .optional()
       .describe(
-        'true exports accepted/input lyrics and the exact stored journal from one supplied state or checkpoint, including after a semantic migration refusal. No replay, grading, writer call or run mutation occurs. Omit every other argument except that state/checkpoint and optional recovery_part. Recovery is bounded to 512 KiB decoded data and 2 MiB serialized result; if journal_included is false, repeat with recovery_part:journal and the same original wire. The artifact is uncertified and nonresumable; legacy JSON has no checksum proof.'
+        'true exports accepted/input lyrics and the exact stored journal of one run, from the run envelope you pass (its `state` or `checkpoint`, whichever this surface declares), including after a semantic migration refusal. No replay, grading, writer call or run mutation occurs. Omit every other argument except that envelope and optional recovery_part. Recovery is bounded to 512 KiB decoded data and 2 MiB serialized result; if journal_included is false, repeat with recovery_part:journal and the same original wire. The artifact is uncertified and nonresumable; legacy JSON has no checksum proof.'
       ),
     recovery_part: z
       .enum(['all', 'journal'])
@@ -1640,7 +1672,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .boolean()
       .optional()
       .describe(
-        'true to open a fresh independent run on the draft you send, ignoring run_id. Existing runs remain intact. Send only the draft and the declarations with it.'
+        'true to open a fresh independent run on the draft you send; any run in progress is set aside intact. Send only the draft and the declarations with it.'
       ),
     writer: z
       .enum(WRITERS)
@@ -1714,9 +1746,17 @@ export const LYRIC_TOOL_SCHEMAS = {
     melody: melodyField,
   },
   lyric_verify: {
-    before: draftField.optional(),
+    before: draftField
+      .optional()
+      .describe(
+        'The draft BEFORE the revision: lines in performance order, one string per line, repeated sections written out in full. No [SECTION] markers.'
+      ),
     before_text: textTwinOf('before').optional(),
-    after: draftField.optional(),
+    after: draftField
+      .optional()
+      .describe(
+        'The draft AFTER the revision, line for line against `before` under the same mandate: lines in performance order, repeated sections written out in full. No [SECTION] markers.'
+      ),
     after_text: textTwinOf('after').optional(),
     blueprint: blueprintField,
     subdivision: subdivisionField,
@@ -1905,10 +1945,12 @@ function reviseDescription({ kitchen = false } = {}) {
     'flagged and banned line open, and keeps going until a stop condition. THERE IS NO SONG IN ANY RESPONSE ' +
     "UNTIL THE LOOP REACHES A STOP CONDITION. At a stop condition the tool result's first text block is the " +
     'rendered song in performance order under its bracket headers with a [FINISHED — seed N — exit E — ' +
-    'STOP_REASON — ...] stamp: exit 0 is converged clean; coverage and certified disclose whether every ' +
-    'mandated pair was judged, and exit 2 can mean uncertified coverage. Exit 3 names the lines still open, ' +
-    'or — with no line open — the WHOLE-DRAFT FLAG(S) standing: a PARKED song either way — present it only as ' +
-    'parked, never as finished; `status` says which of the two, and `loop_whole_flag_codes` names the flags. ' +
+    'STOP_REASON — ...] stamp. The stamp marks a stop, not a finished song: ONLY exit 0 with certified ' +
+    'coverage is finished. Exit 3 names the lines still open, or — with no line open — the WHOLE-DRAFT ' +
+    'FLAG(S) standing: a PARKED song either way; `status` says which of the two, and `loop_whole_flag_codes` ' +
+    'names the flags. Exit 2 means coverage was not certified (`coverage` and `certified` say which pairs ' +
+    'went unjudged); when its stamp also names UNRESOLVED lines, the song is parked as well. Present an exit ' +
+    '2 or 3 stop as parked or uncertified, never as finished — its note says what to do next. ' +
     'The two-tier ban is enforced by the loop itself: banned pairs hold their lines open and the loop keeps ' +
     'asking for replacements. Budget fields (max_rounds, attempts, backtrack) are declared once per run; a ' +
     'moved declaration is refused. Writer execution enforces the registry-derived capacity ' +
@@ -1928,11 +1970,11 @@ function reviseDescription({ kitchen = false } = {}) {
   const chat =
     'ON THIS SURFACE THE SERVICE WRITER ANSWERS: send the draft and the declarations; one call runs the ' +
     'loop to a stop condition, the writer answering each question (a group question asks for every line of ' +
-    'the group at once). An interrupted call returns `checkpoint` for explicit resume, `final_draft` as the ' +
-    'exact accepted lines and `replay_draft` as the original input; never replay answers against ' +
-    'final_draft, and never resume an unknown provider completion. After a migration refusal, ' +
-    '`recover_only: true` with only the original checkpoint exports its accepted lyrics and journal ' +
-    'without replay or restamping. ';
+    'the group at once). An interrupted call records a checkpoint that the next lyric_revise call for the ' +
+    'same song resumes (the chat carries it for you), with `final_draft` as the exact accepted lines and ' +
+    '`replay_draft` as the original input; never replay answers against final_draft, and never resume an ' +
+    'unknown provider completion. After a migration refusal, `recover_only: true` with only the original ' +
+    'checkpoint exports its accepted lyrics and journal without replay or restamping. ';
   return common + (kitchen ? chat : interview);
 }
 
@@ -2443,7 +2485,7 @@ export function registerLyricTools(server, tool) {
               const planOnly = PLAN_ONLY_FIELDS.filter((k) => sent.has(k));
               if (!seeded && planOnly.length)
                 throw refuse(
-                  `${planOnly.join(', ')} ${planOnly.length === 1 ? 'is a plan declaration' : 'are plan declarations'} and apply only to a seeded run. A pasted song's run is declared by its mandate — scheme or groups, with returns, relation, structures and blueprint as lyric_check took them. Drop ${planOnly.length === 1 ? 'it' : 'them'}, or revise a planned song with its seed.`
+                  `${planOnly.join(', ')} ${planOnly.length === 1 ? 'is a plan declaration and applies' : 'are plan declarations and apply'} only to a seeded run. A pasted song's run is declared by its mandate — scheme or groups, with returns, relation, structures and blueprint as lyric_check took them. Drop ${planOnly.length === 1 ? 'it' : 'them'}, or revise a planned song with its seed.`
                 );
               if (!seeded && ((hasScheme && hasGroups) || (!hasScheme && !hasGroups && !a.returns)))
                 throw refuse(
@@ -2794,10 +2836,23 @@ export function registerLyricTools(server, tool) {
                       ? '\n\nSTANDING AT THE STOP — what the open lines and the whole draft still carry:\n' +
                         verdict.standing.map((x) => `  ${x}`).join('\n')
                       : '';
+                  // Exit 2 outranks 3 in the harness, so an uncertified stop can
+                  // still have lines open: it is parked too, and gets the same
+                  // next step. An exit 2 with nothing open is uncertified only.
+                  const linesOpen =
+                    (typeof verdict.loop_unresolved === 'number' && verdict.loop_unresolved > 0) ||
+                    (Array.isArray(verdict.loop_whole_flag_codes) &&
+                      verdict.loop_whole_flag_codes.length > 0);
+                  const rewriteNote = `\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with \`run_id\`, \`run_revision\`${verdict.run_revision != null ? ` ${verdict.run_revision}` : ''} and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`${verdict.run_id ? ` (run ${verdict.run_id}; \`new_run: true\` starts independently)` : ''}.`;
                   const parkNote =
                     r.code === 3
-                      ? `\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with \`run_id\`, \`run_revision\`${verdict.run_revision != null ? ` ${verdict.run_revision}` : ''} and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`${verdict.run_id ? ` (run ${verdict.run_id}; \`new_run: true\` starts independently)` : ''}.`
-                      : '';
+                      ? rewriteNote
+                      : r.code === 2 && linesOpen
+                        ? '\n\nNOT FINISHED: this stop left lines open and its coverage uncertified — present it as parked.' +
+                          rewriteNote
+                        : r.code === 2
+                          ? '\n\nNOT CERTIFIED: no line is open, but coverage is incomplete (see `coverage`) — present it as uncertified, not finished. Resolve the unread words with `pronunciations` (lyric_grade lists the options; never guess a reading), grade again, and start a new run with `new_run: true`.'
+                          : '';
                   return {
                     content: [
                       { type: 'text', text: render + standingText + parkNote },
@@ -3205,7 +3260,7 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'not 4/4, rhyme plan, hook slot) and write to its brief, honoring the verbatim returns — declare the `title` ' +
     'here if the song has one, because an undeclared title leaves "is the title in the hook?" REFUSED and a ' +
     'declared one that is not a run of words inside the hook line is a FLAG; (3) lyric_grade with the SAME seed ' +
-    `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — a declaration dropped here grades a different plan) ` +
+    `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — without a session, a declaration dropped here grades a different plan; a session restores the ones its plan recorded) ` +
     `and the draft, under the reading declarations (${READING_DECLARATIONS}) — its render is the INTERIM graded ` +
     'draft, and the [GRADED — seed …] stamp under it is a grade, not a finish; (4) lyric_revise with the SAME ' +
     'seed and declarations — it drives the revise loop and returns a song ONLY past a stop condition, under a ' +
@@ -3213,8 +3268,9 @@ export function lyricInstructions({ kitchen = false } = {}) {
     (kitchen
       ? "the service's writer answering every question, so ONE call returns the stop condition. "
       : 'the loop asks one question per suspended call and you answer it (`answer`, or `answers` for a batch or group), called repeatedly until it stops. ') +
-    'THE FINISHED SONG COMES FROM lyric_revise AND NOWHERE ELSE: a song presented without ' +
-    'its [FINISHED …] stamp is an interim draft and must be presented as one, and stopping at step (3) ' +
+    'THE FINISHED SONG COMES FROM lyric_revise AND NOWHERE ELSE, and only at exit 0 with certified coverage: ' +
+    'a song presented without its [FINISHED …] stamp is an interim draft and must be presented as one, a stop ' +
+    'at exit 2 or 3 is parked or uncertified (its note says what to do next), and stopping at step (3) ' +
     'because the draft "looks done" is the exact hand-wash the loop exists to end — the loop, not you, ' +
     'says when revision is over. THE BAN IS UNSKIPPABLE: a grade verdict with banned_pairs above zero is ' +
     'the harness answering NO — the song is not finished whatever the exit code, and inside lyric_revise those ' +

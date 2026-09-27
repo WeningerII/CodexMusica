@@ -174,9 +174,9 @@ physically impossible here — recipes are *words for audio generation*, so a
 Delta-blues igil through a cathedral chain onto shellac is exactly as renderable
 as the period-correct default. The catalog's researched defaults are flavor to
 keep or override, never a wall. Every id-valid combination renders; an edit is
-refused only for an unknown id or for doing nothing (a tradition already in the
-recipe, an environment edit with nothing to set, a batch that leaves no cards),
-and the refusal names what to do instead.
+refused only for an unknown id, a misspelled field, or doing nothing (a tradition
+already in the recipe, an environment edit with nothing to set, a batch that
+leaves no cards), and the refusal names what to do instead.
 
 A typical exchange ("haunted Appalachian murder ballad, banjo drowned in reverb, recorded
 like it's underwater"):

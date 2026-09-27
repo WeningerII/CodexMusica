@@ -391,7 +391,7 @@ test('lyric_revise: a pasted run refuses plan declarations, a long answer, and f
     for (const extra of [{ title: 'Road Tonight' }, { lines: 12 }, { melody: 'not json' }]) {
       const refused = await raw({ draft_text, scheme: 'ABAB', ...extra });
       assert.ok(refused.isError, JSON.stringify(extra));
-      assert.match(refused.content[0].text, /apply only to a seeded run/);
+      assert.match(refused.content[0].text, /applies only to a seeded run/);
     }
     const seededGrid = await raw({ draft_text, seed: 5, subdivision: 2 });
     assert.ok(seededGrid.isError);

@@ -545,15 +545,19 @@ export class WorkflowSessions {
     return session;
   }
 
+  // `domain` is null on the shared /mcp endpoint, which serves both families;
+  // the operation's own session says which one it belongs to.
   resume(id, domain) {
-    const { record } = this.record(id, domain);
+    const { record, session } = this.record(id, domain);
     if (record.state !== 'interrupted')
       throw fail(
         'RESUME_NOT_INTERRUPTED',
         `Only an interrupted operation can be resumed; this one is ${record.state}. Read it with get_operation and continue from its session_id.`
       );
     const { tool, arguments: args } = record.intent.action;
-    return this.submit(id, domain, tool, tool === 'lyric_revise' ? {} : args, { resumed: true });
+    return this.submit(id, session.task.domain, tool, tool === 'lyric_revise' ? {} : args, {
+      resumed: true,
+    });
   }
 
   // Export, without an operation, the revision journal a lyric session holds:
