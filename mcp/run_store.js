@@ -100,7 +100,7 @@ export class RunStore {
     const t = this.now();
     // An active operation owns both the record and its revision until its
     // final write. Evicting that record mid-call makes put() reset the
-    // revision to1, allowing a stale revision to name a different state.
+    // revision to 1, allowing a stale revision to name a different state.
     for (const [k, r] of this.map)
       if (!this.locks.has(k) && t - r.updated_at > this.ttlMs) this.map.delete(k);
     for (const k of this.map.keys()) {
@@ -119,6 +119,17 @@ export class RunStore {
   }
   byId(runId) {
     return this.get(runId);
+  }
+  // The run whose LATEST state is exactly this wire. The connector writes a
+  // digest of the run's id into every state it encodes, so two runs never
+  // share a state and an exact match names one run; an older state (a retry
+  // or a fork) matches none. Holding the latest state is already the whole
+  // continuation, so this grants its holder nothing the state did not.
+  byState(wire) {
+    this._sweep();
+    if (typeof wire !== 'string') return null;
+    for (const r of this.map.values()) if (r.state === wire) return this.get(r.run_id);
+    return null;
   }
   put(key, rec) {
     const previous = rec.run_id ? this.map.get(rec.run_id) : null;
@@ -174,10 +185,10 @@ export function runRefusal(rec, args) {
     return 'REFUSED: a continuation cannot replace the original replay draft. Omit draft to carry it, or use new_run with the new draft.';
   const who = typeof rec.seed === 'number' ? `seed ${rec.seed}` : 'the declared mandate';
   if (rec.status === 'uncertified')
-    return `REFUSED by the tool: the lyric_revise run for ${who} is UNCERTIFIED at exit 2 (no question pending). Coverage remains unresolved: ${(rec.refused_obligations || []).join(', ') || 'see the returned coverage record'}. Keep the returned final_draft. Inspect lyric_grade pronunciation options and explicitly declare any pronunciation you can establish, then use new_run:true with that draft and those declarations. Do not guess a reading to obtain certification.`;
+    return `REFUSED by the tool: the lyric_revise run for ${who} is UNCERTIFIED at exit 2 (no question pending). Coverage remains unresolved: ${(rec.refused_obligations || []).join(', ') || 'see the returned coverage record'}. Keep the returned final_draft. Inspect lyric_grade pronunciation options and explicitly declare any pronunciation you can establish, regrade, then send new_run:true with that draft and those declarations. Do not guess a reading to obtain certification.`;
   if (rec.status === 'parked') {
     const open = Array.isArray(rec.open) && rec.open.length ? rec.open.join(', ') : 'none';
-    const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`run_id\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`. Or send \`new_run: true\` to start an independent run on the draft you hold. (run ${rec.run_id})`;
+    const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`run_id\`, \`run_revision\` ${rec.revision} and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`. Or send \`new_run: true\` to start an independent run on the draft you hold. (run ${rec.run_id})`;
     const head = `REFUSED by the tool: the lyric_revise run for ${who} is PARKED at exit 3 (no question pending)`;
     if (
       args.answer != null ||

@@ -167,12 +167,16 @@ const WORKSPACE_NOTE =
 // Same sentence, other family. Without it a model that read the server's own
 // instructions ("pass `state` back VERBATIM") would conclude the declaration is
 // broken and refuse the call — the instructions describe the MCP contract, and
-// on this path the adapter fulfils that contract on the model's behalf.
+// on this path the adapter fulfils that contract on the model's behalf. It says
+// only what holds whoever answers the loop's questions: on the kitchen surface
+// the model has no `answer` to send, so the note does not name one (the answer
+// fields' own descriptions carry that half where they are declared).
 const STATE_NOTE =
-  ' The revise state is carried for you automatically — there is no state parameter to pass. ' +
-  'Keep seed and the other declarations identical across one song’s calls, and put your ' +
-  'proposal in `answer`. After a suspended call the draft is carried too: omit `draft` on the ' +
-  'continuing call — the run replays onto the one draft it started with.';
+  ' The revise run is carried for you automatically — there is no state parameter to pass, and ' +
+  'the run is named for you on every continuing call. Keep seed and the other declarations ' +
+  'identical across one song’s calls. ' +
+  'While a run is carried, its draft is carried too: omit `draft` on a continuing call — the run ' +
+  'replays onto the one draft it started with.';
 
 /**
  * @param {Array<{name:string,description?:string,inputSchema?:object}>} tools

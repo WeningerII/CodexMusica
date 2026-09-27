@@ -1920,7 +1920,8 @@ def resolve_relation(name):
             hit = low[rest.lower()]
             return hit, ("named" if ns == "type" else ns)
         raise RelationRefused(
-            f"{rest!r} is not a name in the {ns!r} namespace.")
+            f"{rest!r} is not a name in the {ns!r} namespace. "
+            f"{_vocabulary_listing(v, only=ns)}")
 
     # 2. A BARE NAME: exact across all three, and AMBIGUITY REFUSES.
     hits = [ns for ns in NAMESPACES if key in v[ns]]
@@ -1961,7 +1962,24 @@ def resolve_relation(name):
         f"distinct names) -- ask "
         f"`quality.rhyme_types.relation_vocabulary()`. REFUSED rather than "
         f"graded as the default: a relation that does not exist, judged as "
-        f"the default, is a silently different question (doctrine 20).")
+        f"the default, is a silently different question (doctrine 20). "
+        f"{_vocabulary_listing(v)}")
+
+
+def _vocabulary_listing(v, only=None):
+    """The declarable names, spelled out inside the refusal itself.
+
+    A caller that reaches this engine only through a refusal (the connector,
+    a chat model) has no `relation_vocabulary()` to call, so the refusal is
+    the one place the vocabulary can be read. Derived from the same table
+    `resolve_relation` resolves against, never retyped."""
+    parts = []
+    for ns in NAMESPACES:
+        if only is not None and ns != only:
+            continue
+        names = sorted(v.get(ns) or (), key=str.lower)
+        parts.append(f"{ns}: {', '.join(names)}")
+    return ("Declarable, namespaced as ns:name -- " + "; ".join(parts) + ".")
 
 
 #: POSITION IS THE COORDINATE THAT MAKES `NAMED` REACHABLE, and

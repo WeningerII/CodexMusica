@@ -277,11 +277,14 @@ export async function createChatRouter({
     );
     return router;
   }
-  // THE KITCHEN'S WRITER IS THE CHAT'S OWN MODEL (M-254): declared here once
-  // (GEMINI_MODEL, else DEFAULT_MODEL) and handed to the harness processes
-  // through their env, so mcp/gemini_proposer.py asks the model the service
-  // says it runs and no second model name exists anywhere. Set before any
-  // harness worker spawns (they spawn lazily on the first lyric call).
+  // THE KITCHEN'S WRITER MODEL (M-254). The line writer is pinned apart from
+  // the chat's own model where the service is configured — render.yaml and
+  // production-config.json set LYRIC_PROPOSER_MODEL to a different model than
+  // GEMINI_MODEL, and render.yaml's comment records why. Only when nothing
+  // pins it does the writer fall back to the chat's model, handed to the
+  // harness processes through their env so mcp/gemini_proposer.py asks the
+  // model this process runs. Set before any harness worker spawns (they
+  // spawn lazily on the first lyric call).
   if (!process.env.LYRIC_PROPOSER_MODEL) process.env.LYRIC_PROPOSER_MODEL = model;
 
   if (!apiKey) {

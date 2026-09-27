@@ -21,7 +21,7 @@ Every lyric tool except `lyric_types` (a lookup that answers at once) needs the 
 
 ## Existing lyrics and stops
 
-For supplied lyrics, run the same steps a planned song gets: `lyric_recover` first (blank stanza breaks as empty entries) to read the rhyme groups and returns the text actually carries, then `lyric_check` with that mandate, then `lyric_revise` without a seed and with the same mandate. Use `lyric_verify` to compare a specific before/after revision, understanding that unchanged defects can survive that comparison. Declare pronunciation assumptions when needed and preserve any refused coverage.
+For supplied lyrics, run the same steps a planned song gets: `lyric_recover` first (blank stanza breaks as empty entries, `[SECTION]` rows as they are) to read the rhyme groups and returns the text actually carries — it returns the sung `lines` its mandate is numbered over — then `lyric_check` with those lines and that mandate, then `lyric_revise` without a seed and with the same lines and mandate. Use `lyric_verify` to compare a specific before/after revision, understanding that unchanged defects can survive that comparison. Declare pronunciation assumptions when needed and preserve any refused coverage.
 
 Read both the operation status and the underlying tool verdict. `completed` means the tool call returned. `certified`, requested-layer coverage, findings and the actual lyric stop describe its outcome. Do not replace them with an unconditional success claim. Present the returned song and section headers verbatim, with the actual qualification beside it.
 

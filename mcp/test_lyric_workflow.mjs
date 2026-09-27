@@ -108,6 +108,27 @@ test('only accepted sweep seeds and unchanged declared structural predicates rea
     assert.match(creationRefusal(t, 'lyric_plan', args), /CREATION_PLAN/);
 });
 
+test('a later sweep page keeps the screen receipt, so its seed plans without a re-screen', () => {
+  // Paging the sweep used to wipe the screen receipt, forcing a screen of
+  // any words at all (nothing checks which) before the new page's seed could
+  // be planned. The screen records that the step ran in this session.
+  const t = fresh();
+  preplan(t);
+  recordCreation(
+    t,
+    'lyric_sweep',
+    { ...sweepArgs, seed_from: 20 },
+    { exit_code: 0, accepted_shown: [22] }
+  );
+  assert.equal(creationRefusal(t, 'lyric_plan', { seed: 22, wants: planArgs.wants }), null);
+  // The refusal for a plan that does not repeat the sweep names every field
+  // the receipt compares, melody included.
+  assert.match(
+    creationRefusal(t, 'lyric_plan', { seed: 22, wants: planArgs.wants, melody: '{}' }),
+    /form, lines, functions and melody, and its `want` list as `wants`/
+  );
+});
+
 test('a failed, forged, stale or unadmitted plan cannot establish creation qualification', () => {
   for (const alter of [
     (p) => {

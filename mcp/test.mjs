@@ -1036,7 +1036,7 @@ await check('validation: actionable errors', () => {
 
   // ── M-195: the pasted-song door on the connector ─────────────────────────
   {
-    const { LYRIC_TOOL_SCHEMAS: S, _verdictInternals: VI } = await import('./lyric_tools.js');
+    const { LYRIC_TOOL_SCHEMAS: S } = await import('./lyric_tools.js');
     const { _agentInternals: AI } = await import('./gemini_agent.js');
     await check(
       'lyric_recover exists; lyric_check and lyric_revise take a blueprint; lyric_revise no longer requires a seed',
@@ -1052,58 +1052,10 @@ await check('validation: actionable errors', () => {
         assert.ok(!S.lyric_grade.seed.isOptional(), 'and still required on lyric_grade');
       }
     );
-    // REPINNED 2026-09-02: the stdout below is the harness's REAL render
-    // shape (`  key  [REFUSED] value` + an indented reason line + the
-    // closing key list), copied from `recover` on a four-line unmarked
-    // paste. The first pin fed the extractor `  meter: REFUSED — …`, a line
-    // the harness never prints, and passed while every real `refusals` came
-    // back `[]` — the self-grep shape M-142 charged test_recover §6 with.
-    // The live section below drives the real verb as well.
-    await check('the recovered mandate and the refusals are read off the recover report', () => {
-      const stdout = [
-        'RECOVERED STRUCTURE — every coordinate with how it was obtained',
-        '  total_lines          [counted] 4',
-        '  sections             [REFUSED] none',
-        '      the text carries no [SECTION] mark and no blank-line block, so its sectioning cannot be read off it. Mark the sections, or declare a blueprint',
-        '  syllables_per_line   [counted] 8-10 syllables, 37 total',
-        '  web                  [derived] 3 admitted pair(s)',
-        '      every admitted pair over 14 binding sites at 4 placements per line',
-        '  meter                [REFUSED] None',
-        '      a bar grid is a DECLARED coordinate (doctrine 4). Declare one with --blueprint=',
-        '',
-        '  3 REFUSED coordinate(s) — each is a work order, not a failure (doctrine 20)',
-        '      sections',
-        '      meter',
-        '      repeats_at_a_placement',
-        '  MANDATE SPELLING (the cover as the two CLI flags — hand them to brief/revise):',
-        '    --groups=1,3;2,4.head',
-        '    --returns=5,13',
-        '  EXIT 3 — 3 coordinate(s) REFUSED (sections, meter, repeats_at_a_placement)',
-      ].join('\n');
-      const v = VI.verdictOf({ code: 3, stdout, stderr: '' });
-      assert.deepEqual(VI.extractRecoveredMandate(stdout), {
-        groups: '1,3;2,4.head',
-        returns: '5,13',
-      });
-      assert.deepEqual(VI.extractRecoverRefusals(stdout), [
-        {
-          coordinate: 'sections',
-          why: 'the text carries no [SECTION] mark and no blank-line block, so its sectioning cannot be read off it. Mark the sections, or declare a blueprint',
-        },
-        {
-          coordinate: 'meter',
-          why: 'a bar grid is a DECLARED coordinate (doctrine 4). Declare one with --blueprint=',
-        },
-        { coordinate: 'repeats_at_a_placement', why: '' },
-      ]);
-      assert.deepEqual(
-        VI.extractRecoverRefusals('  meter: REFUSED — the shape the first pin fed'),
-        [],
-        'the old synthetic shape reads as NO refusal, which is what it always was'
-      );
-      assert.equal(v.exit_code, 3);
-      assert.equal(VI.extractRecoveredMandate('nothing here'), null);
-    });
+    // The recover report's prose extractors are gone: lyric_recover reads its
+    // sung lines, mandate and refusals (each with its reason) off the verb's
+    // authenticated record. The live recover checks in the lyric family and
+    // mcp/test_high_report.mjs drive the real verb.
     await check(
       'a recovered mandate fits the check/revise ceiling (M-195, repinned 2026-09-02)',
       () => {
@@ -1192,14 +1144,6 @@ await check('validation: actionable errors', () => {
         'the declared mandate'
       );
     });
-    await check("the stamp of a pasted song's run parses with no seed", () => {
-      const rec = VI.extractLoopRecord(
-        '  [FINISHED — declared mandate — exit 3 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L2]'
-      );
-      assert.equal(rec.seed, null);
-      assert.equal(rec.stop_reason, 'NO_PROGRESS');
-      assert.deepEqual(rec.unresolved_lines, ['L2']);
-    });
   }
 
   // ── M-186: the verdict carries what the report says, not only the code ──
@@ -1262,10 +1206,6 @@ await check('validation: actionable errors', () => {
         assert.equal(rejected.answer, 'a new line');
         assert.deepEqual(rejected.reasons, []);
         assert.equal(rejected.source, 'unverified');
-        assert.deepEqual(VI.priorReasons(prompt2), [
-          "L3 took the modal candidate 'higher'",
-          'L3 wants six beats, got 7',
-        ]);
         // Moving to another question while attempts remain proves no outcome.
         const accepted = VI.foldedOf(
           prev,
@@ -1331,7 +1271,6 @@ await check('validation: actionable errors', () => {
         assert.equal(VI.draftFp(['a', 'b']).length, 10);
         assert.notEqual(VI.draftFp(['a', 'b']), VI.draftFp(['a', 'c']));
         assert.equal(VI.draftFp('not an array'), null);
-        assert.deepEqual(VI.priorReasons('no rejection here'), []);
       }
     );
     // ── M-237: THE RUN RECORD, KEPT BY THE TOOL ──────────────────────────
@@ -1869,22 +1808,6 @@ await check('validation: actionable errors', () => {
         );
       }
     );
-    await check('the standing findings at a stop are parsed off the report (M-232)', () => {
-      const st =
-        "  FINDING [FLAG] METER: L3 early\n\n  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:\n    L3: FINDING [FLAG] METER: L3 wants six beats\n    L5: FINDING [FLAG] SLOP: too predictable\n    WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK: the title is not in the hook\n         title 'zebra confetti' vs hook \"Go on.\"; the title phrase occurs 0 time(s).\n\n  THE SONG, PERFORMANCE ORDER:\n\nx\n";
-      // The shape a real parked `revise` prints (measured on keep_the_light
-      // retitled, 2026-09-04): a finding's detail line rides with it.
-      assert.deepEqual(VI.extractStanding(st), [
-        'L3: FINDING [FLAG] METER: L3 wants six beats',
-        'L5: FINDING [FLAG] SLOP: too predictable',
-        'WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK: the title is not in the hook — title \'zebra confetti\' vs hook "Go on."; the title phrase occurs 0 time(s).',
-      ]);
-      assert.deepEqual(
-        VI.extractStanding('no block here\n  FINDING [FLAG] METER: L3'),
-        [],
-        "the report's own findings before the block are not the standing ones"
-      );
-    });
     await check('a whole-only exit 3 is labelled by its cause, not as open lines', () => {
       const coverage = {
         scope: 'requested_layers',
@@ -2102,24 +2025,6 @@ await check('validation: actionable errors', () => {
       assert.equal(v.unreadable_findings[1].code, 'SCHEME_UNREADABLE');
       const none = VI.verdictOf({ code: 0, stdout: '  nothing flagged\n', stderr: '' });
       assert.ok(!('unreadable' in none), 'absent means none found, never zero invented');
-    });
-    await check('the loop stamp carries the whole-draft flags as their own count', () => {
-      const rec = VI.extractLoopRecord(
-        '  [FINISHED — seed 16 — exit 3 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L2, L5 — WHOLE-DRAFT FLAG: STACKED_DRAFT, TITLE_NOT_IN_HOOK]'
-      );
-      assert.equal(rec.unresolved, 2);
-      assert.deepEqual(rec.unresolved_lines, ['L2', 'L5']);
-      assert.equal(rec.whole_flags, 2);
-      assert.deepEqual(rec.whole_flag_codes, ['STACKED_DRAFT', 'TITLE_NOT_IN_HOOK']);
-      const only = VI.extractLoopRecord(
-        '  [FINISHED — seed 16 — exit 3 — SUCCESS after 1 round(s) — no flag stands — WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK]'
-      );
-      assert.equal(only.unresolved, 0, 'no open line');
-      assert.equal(only.whole_flags, 1, 'and still not finished');
-      const old = VI.extractLoopRecord(
-        '  [FINISHED — seed 16 — exit 0 — SUCCESS after 1 round(s) — no flag stands]'
-      );
-      assert.equal(old.whole_flags, 0, 'the pre-M-186 stamp still parses');
     });
     await check('the pursued findings printed at the stop reach banned_pairs', () => {
       const stdout = [
@@ -3786,7 +3691,11 @@ await check('validation: actionable errors', () => {
         assert.ok(/TITLE_NOT_IN_HOOK/.test(si));
         assert.ok(/METER: L1 wants six beats/.test(si), 'the standing findings ride the reminder');
         assert.ok(/all 2 lines, in order/.test(si));
-        assert.ok(/Do NOT send `answer`/.test(si));
+        assert.ok(/send the rewritten draft and the seed only/.test(si));
+        assert.ok(
+          !/`answer`|`state`/.test(si),
+          'the reminder names no field the model cannot send'
+        );
         assert.ok(!/SUSPENDED/.test(si), 'a parked run is not a suspended one');
         // exit 0: no RUN reminder on the last hop. The skipped-steps note
         // (M-162) is a different reminder and correctly stands here: this
@@ -5008,25 +4917,8 @@ await check('validation: actionable errors', () => {
       // carries them with the replay memo's tally, the stale-answer count and
       // the plan's line count, and loopFields puts all of them in the tool row.
       const { _workerInternals: WK, _verdictInternals: VI } = await import('./lyric_tools.js');
-      const { verdictOf, extractRunRecord } = VI;
+      const { verdictOf } = VI;
       const { _agentInternals: AG } = await import('./gemini_agent.js');
-      const rec = extractRunRecord(
-        '  PLAN: form=verse-chorus seed=7045 -> 16 line(s), 8 section(s): x\n' +
-          '  REPLAY MEMO: warm — 14 of 28 grading call(s) answered from the process memo (runs held: 1 of 4)\n' +
-          '  2 of those answer(s) were recorded against a DIFFERENT draft (L3 attempt 1): this state file was reused\n'
-      );
-      assert.deepEqual(rec, {
-        memo_state: 'warm',
-        memo_hit: 14,
-        memo_asked: 28,
-        stale_answers: 2,
-        plan_lines: 16,
-      });
-      assert.deepEqual(
-        extractRunRecord('nothing here'),
-        { stale_answers: 0 },
-        'no line, no number — and stale is 0, not absent'
-      );
       const v = verdictOf({
         code: 0,
         stdout: '  REPLAY MEMO: cold — 0 of 2 grading call(s) answered',
@@ -5119,7 +5011,10 @@ await check('validation: actionable errors', () => {
     // Round 10 was diagnosed off a stamp the MODEL retyped into its reply,
     // which is the measured thing reporting its own measurement.
     const lt = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
-    assert.ok(/function extractLoopRecord/.test(lt), 'the extractor exists');
+    assert.ok(
+      !/function extractLoopRecord/.test(lt),
+      'no prose extractor stands in for the record'
+    );
     assert.ok(
       /v\.loop_stop_reason = record\.stop_reason/.test(lt),
       'the authenticated machine record carries the stop reason'
@@ -8514,7 +8409,8 @@ try {
     assert.equal(survivingBan.certified, false);
     assert.ok(!Object.hasOwn(survivingBan, 'banned_pairs'));
     assert.ok(!Object.hasOwn(survivingBan, 'flags'));
-    assert.ok(/does not report banned pairs/.test(survivingBan.scope));
+    assert.ok(/one that survived the change untouched is not reported/.test(survivingBan.scope));
+    assert.ok(/introduces is in `new`/.test(survivingBan.scope));
 
     // `structures` REACHES lyric_check (MISSING.md M-103's flag, wired here).
     // Mirrors quality/test_verbs.py §39: the binding assertion is a
@@ -8562,10 +8458,22 @@ try {
       narrowed.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
       [['SCHEME_VIOLATION', [3, 4]]]
     );
-    // THE DISCLOSURE IS THE REASON THE FIELD IS SAFE TO EXPOSE. Every
-    // declarable row is uncalibrated for English, so the two-tier ban is
-    // skipped on the structured group and an absent banned_pairs means the
-    // question was not asked.
+    // THE DISCLOSURE IS THE REASON THE FIELD IS SAFE TO EXPOSE. The two-tier
+    // ban is not asked of a pair judged under a non-default structure, and
+    // the verdict names those pairs instead of letting a zero read as clean.
+    assert.deepEqual(
+      structured.ban_not_asked.map((row) => row.lines),
+      [[3, 4]],
+      'the structured group B is named as not asked'
+    );
+    assert.equal(typeof structured.banned_pairs, 'number', 'group A was asked, so a count stands');
+    const allStructured = await callText('lyric_check', {
+      lines: stLines,
+      groups: '1,2;3,4',
+      structures: 'A:kalevala-alliteration,B:kalevala-alliteration',
+    });
+    assert.equal(allStructured.banned_pairs, null, 'no pair asked: null, never a clean zero');
+    assert.match(allStructured.banned_pairs_reason, /not asked/);
     assert.ok(
       structured.structures_uncalibrated &&
         structured.structures_uncalibrated.includes('kalevala-alliteration'),
@@ -8847,7 +8755,8 @@ try {
     // an absent banned_pairs here would read as "no banned pairs".
     assert.ok(!('banned_pairs' in ok), 'no banned_pairs field: verify cannot answer that');
     assert.ok(
-      /does not report banned pairs/i.test(ok.scope) && /lyric_grade/.test(ok.scope),
+      /one that survived the change untouched is not reported/i.test(ok.scope) &&
+        /lyric_grade/.test(ok.scope),
       '...and the scope field says so, pointing at the verb that can'
     );
     // TARGETED IS THE SOLE GATE on the untargeted-rewrite rejection, and

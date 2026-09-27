@@ -807,7 +807,7 @@ const SUSPENDED_RUN_NOTE = (seed) =>
   'Nothing you write in chat reaches the harness: the run advances ONLY ' +
   'when you call lyric_revise again with `seed` and `answer` (or `answers`) — NOTHING ELSE. ' +
   'When the question asked about SEVERAL lines at once, send `answers` instead of `answer`: ' +
-  'one {line, text} object per asked line, every one required, nothing else (M-236, M-248). ' +
+  'one {line, text} object per asked line, every one required, nothing else. ' +
   'Do NOT send `draft`: the draft and the state are carried for you, and a ' +
   're-sent draft is where the call has broken before. Put the line(s) in the ' +
   "tool call's `answer`/`answers` field — do not print them as your reply. The song " +
@@ -837,12 +837,12 @@ function PARKED_RUN_NOTE(lyr) {
     (whole ? `, and the whole-draft flag(s) ${whole} stand` : '') +
     '. The song is NOT finished and cannot be presented as finished.' +
     standing +
-    ' No question is pending, so there is nothing to `answer`. The ONLY way forward: ' +
+    ' No question is pending. The ONLY way forward: ' +
     'REWRITE the flagged line(s) yourself (new words, new end words — screen them with ' +
     'lyric_screen first), keep every other line byte-identical, and call lyric_revise ' +
     `again with \`seed\` and \`draft_text\`: the FULL song as ONE plain string, one line per row, newline-separated${n ? ` (all ${n} lines, in order)` : ''} — ` +
     'a string, NOT an array (the array is where your calls have broken). ' +
-    "The run's declarations are carried for you. Do NOT send `answer` or `state`; do NOT " +
+    "The run's declarations are carried for you: send the rewritten draft and the seed only. Do NOT " +
     're-send the same draft (the loop is deterministic — it parks again on the same lines); ' +
     'do NOT plan or sweep again. Put the lines in the tool call, not in your reply.'
   );
@@ -883,11 +883,22 @@ const RUN_KEY_FIELDS = new Set(['seed', 'scheme', 'groups', 'returns', 'relation
 // model never answers a revise question: every lyric_revise call it makes is
 // sent with `writer: 'kitchen'`, and the interview fields (`state`, `answer`,
 // `answers`, `writer`) leave the declaration it sees, so there is nothing to
-// fumble. The server's own writer (mcp/gemini_proposer.py) takes the loop to
-// a stop condition. `LYRIC_CHAT_WRITER=interview` restores the old surface
-// for a measured comparison. Explicit recovery-only exports carry the original
-// checkpoint unchanged and never enter the writer.
-const INTERVIEW_FIELDS = new Set(['state', 'answer', 'answers', 'writer', 'checkpoint', 'run_id']);
+// fumble. The run capability goes with them — `run_id` AND `run_revision`,
+// which the adapter injects together from the carried record, so the model is
+// never shown half of a pair it cannot complete. The server's own writer
+// (mcp/gemini_proposer.py) takes the loop to a stop condition.
+// `LYRIC_CHAT_WRITER=interview` restores the old surface for a measured
+// comparison. Explicit recovery-only exports carry the original checkpoint
+// unchanged and never enter the writer.
+const INTERVIEW_FIELDS = new Set([
+  'state',
+  'answer',
+  'answers',
+  'writer',
+  'checkpoint',
+  'run_id',
+  'run_revision',
+]);
 const RECOVERY_FIELDS = new Set(['recover_only', 'recovery_part', 'checkpoint']);
 
 export function declarationsFor(surface, lyr, writer = chatWriter()) {
@@ -1041,7 +1052,7 @@ function parkedRefusal(lyr, name, args) {
       : null;
   const who = typeof lyr.seed === 'number' ? `seed ${lyr.seed}` : 'the declared mandate';
   const open = Array.isArray(lyr.open) && lyr.open.length ? lyr.open.join(', ') : 'none';
-  const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`seed\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`. The song cannot finish through any other call.`;
+  const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`seed\` and \`draft_text\` (the full song as ONE newline-separated string) and nothing else. The song cannot finish through any other call.`;
   const head = `REFUSED by the connector: a lyric_revise run for ${who} is PARKED at exit 3 (no question pending)`;
   if (WANDER_ALWAYS.has(name)) return `${head}, and ${name} starts another song.${tail}`;
   if (WANDER_KEYED.has(name)) {
