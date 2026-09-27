@@ -1,13 +1,15 @@
 /* exported renderGenreDiscovery */
-/* global $ui, Catalog, Inst, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiTabIndex */
+/* global $ui, Catalog, Inst, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css.
 
    Layout: a Browse column (the 25 taxonomy roots, the branch you are in, and
-   Find a sound) beside the catalogue (Start exploring / All genres, List or
-   Grid). A genre's details open in place — inside its row, or at the top when
-   it is not in the list you are looking at — with five tabs: Overview, Sound
+   Find a sound) beside the catalogue (Start exploring / All genres, Rows or
+   List). All genres in Rows is one scrolling row of cards per first letter,
+   with an A–Z bar to jump between them. A genre's details open in place —
+   inside its List row, or at the top when it is not in the list you are
+   looking at or the list is Rows — with five tabs: Overview, Sound
    profile, Instruments, Similar sounds and Background. Your recipe is the
    shell's sidebar. Everything shown is read from the catalog: names, counts,
    the 13 sound characteristics, rosters, cross-references, exemplars. */
@@ -27,7 +29,8 @@ const G = {
   instDest: {}, // genre id -> destination for single instruments from its roster
   listScroll: null, // list position before a pinned detail opened
   origin: null, // the list row a chain of details was opened from
-  view: null, // UILayout.remember('genre-view') — 'list' | 'grid'
+  view: null, // UILayout.remember('genre-view') — 'rows' | 'list'
+  jump: '', // the A–Z bar for All genres in Rows, drawn with the main tabs
   members: null, // taxonomy membership, computed once from the catalog
   sorted: null, // the catalog sorted by name, computed once
   geo: null, // data/atlas-geo.json coords, when it can be read
@@ -298,15 +301,65 @@ function gpRow(t, extra = '') {
   return `<div class="catalog-row gp-row" data-gp-id="${esc(id)}">${m.html}<button type="button" class="catalog-name gp-open" data-ui="genre-select" data-id="${esc(id)}" aria-expanded="false" aria-label="${esc(t.name)} — show details"><span class="gp-row-text"><span class="gp-row-name" title="${esc(t.name)}">${esc(t.name)}</span><span class="gp-row-meta">${esc(branch)}${n ? `<span class="gp-in-recipe">${icon('check', 12)}In recipe</span>` : ''}</span>${lede ? `<span class="gp-row-desc">${esc(lede)}</span>` : ''}${extra}${gpCreditText(m)}</span></button>${listenLink(t.name)}${uiButton('genre-add', n ? 'Add again' : 'Add to recipe', 'plus', `data-id="${esc(id)}" aria-label="Add ${esc(t.name)}"`)}<span class="gp-chevron" aria-hidden="true">${icon('chevron-right', 20)}</span></div>`;
 }
 // Why a row is in a sound-target result: how close it is on the targets.
-function gpTargetReason(r) {
+function gpTargetText(r) {
   const n = gpTargets().length;
-  return `<span class="gp-row-reason">${icon('sliders-horizontal', 12)}${r.exact === n ? (n === 1 ? 'Matches the target' : `Matches all ${n} targets`) : `Exact on ${r.exact} of ${n} · within one step on the rest`}</span>`;
+  return r.exact === n
+    ? n === 1
+      ? 'Matches the target'
+      : `Matches all ${n} targets`
+    : `Exact on ${r.exact} of ${n} · within one step on the rest`;
+}
+function gpTargetReason(r) {
+  return `<span class="gp-row-reason">${icon('sliders-horizontal', 12)}${gpTargetText(r)}</span>`;
 }
 function gpLayout() {
-  return G.view?.get() === 'grid' ? 'grid' : 'list';
+  return G.view?.get() === 'list' ? 'list' : 'rows';
 }
-function gpList(items, open, reason) {
-  return `<div class="gp-items gp-${gpLayout()}" role="list">${items
+// A card in Rows: the photo (or glyphs), the name and its branch (or `sub`).
+function gpTile(t, sub) {
+  const img = gpImage(t.id);
+  return uiTile({
+    kind: 'genre',
+    id: t.id,
+    name: t.name,
+    sub: sub ?? (gpPath(t.id).slice(-1)[0]?.name || ''),
+    photo: img && { src: img.src, credit: img.credit, href: img.href },
+    glyph: (id) => traditionGlyphsHTML(id, 56),
+    open: 'genre-select',
+    add: 'genre-add',
+    addLabel: 'Add ' + t.name,
+  });
+}
+// Rows files a genre under its first letter, accents folded (Ōkinawa under O);
+// a name that starts with a digit files under #. A to Z within each letter.
+const GP_LETTERS = ['#', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+const gpByName = new Intl.Collator('en', { sensitivity: 'base' }).compare;
+function gpLetter(name) {
+  const c = name
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .charAt(0)
+    .toUpperCase();
+  return c >= 'A' && c <= 'Z' ? c : '#';
+}
+function gpLetterGroups(results) {
+  const by = new Map(GP_LETTERS.map((k) => [k, []]));
+  for (const r of results) by.get(gpLetter(r.t.name)).push(r.t);
+  return GP_LETTERS.map((k) => ({
+    key: k,
+    label: k,
+    items: by.get(k).sort((a, b) => gpByName(a.name, b.name)),
+  }));
+}
+// A list in the chosen layout. Rows is one row here (the starter recipes,
+// suggestions); All genres in Rows is a row per letter (gpAll).
+function gpList(items, open, reason, prefix) {
+  if (gpLayout() === 'rows')
+    return uiRowsHTML(prefix, [{ key: 'all', label: '', items: items.map((r) => r.t) }], {
+      tile: gpTile,
+      noun: 'genre',
+    });
+  return `<div class="gp-items gp-list" role="list">${items
     .map((r) => {
       const html = r.t.id === open ? gpDetail(r.t.id) : gpRow(r.t, reason ? reason(r) : '');
       return `<div role="listitem" class="gp-item${r.t.id === open ? ' gp-item-open' : ''}">${html}</div>`;
@@ -493,6 +546,7 @@ function gpApplyAxis(input) {
   gpSyncSoundHead();
   G.tab = 'all';
   UI.limit = 50;
+  gpListToTop();
   gpScheduleList();
 }
 function gpSyncSoundHead() {
@@ -524,9 +578,9 @@ function gpStart(open) {
   const starters = STARTER_TRADITIONS.map((id) => Tradition(id))
     .filter(Boolean)
     .map((t) => ({ t }));
-  const pinned = open && !starters.some((r) => r.t.id === open);
+  const pinned = open && (gpLayout() === 'rows' || !starters.some((r) => r.t.id === open));
   let html = pinned ? `<div class="gp-pinned">${gpDetail(open)}</div>` : '';
-  html += `<h2 class="gp-h">Six starter recipes</h2><p class="gp-note">Chosen to span the catalog: sparse and dense, acoustic and electronic, modal and functional, equal-tempered and not.</p>${gpList(starters, pinned ? null : open)}`;
+  html += `<h2 class="gp-h">Six starter recipes</h2><p class="gp-note">Chosen to span the catalog: sparse and dense, acoustic and electronic, modal and functional, equal-tempered and not.</p>${gpList(starters, pinned ? null : open, null, 'genre-start')}`;
   html += gpSuggestions();
   html += `<div class="gp-browse-all">${uiButton('genre-all', `Browse all ${gpCatalogSize().toLocaleString()} traditions`, 'arrow-right', 'class="cm-btn gp-linkbtn"')}</div>`;
   return html;
@@ -551,7 +605,8 @@ function gpSuggestions() {
         getMatchingAxes(primary, r.t.id, 2)
           .map((mm) => axisLabel(mm.axis, mm.bv))
           .join(' · ')
-      )}</span>`
+      )}</span>`,
+    'genre-suggest'
   )}`;
 }
 function gpAll(open) {
@@ -559,8 +614,9 @@ function gpAll(open) {
   const q = gpQuery();
   const node = UI.genreNode ? getTreeNode(UI.genreNode) : null;
   const targets = gpTargets();
-  const shown = results.slice(0, UI.limit);
-  const pinned = open && !shown.some((r) => r.t.id === open);
+  const rows = gpLayout() === 'rows';
+  const shown = rows ? results : results.slice(0, UI.limit);
+  const pinned = open && (rows || !shown.some((r) => r.t.id === open));
   const chips = [];
   if (q)
     chips.push(
@@ -593,13 +649,27 @@ function gpAll(open) {
   }
   const order = targets.length
     ? ' · closest to your sound targets first'
-    : q
-      ? ' · best name matches first'
-      : ' · A to Z';
+    : rows
+      ? ' · A to Z by first letter'
+      : q
+        ? ' · best name matches first'
+        : ' · A to Z';
   let html = pinned ? `<div class="gp-pinned">${gpDetail(open)}</div>` : '';
   html += `<div class="catalog-count gp-count-line" id="gp-count" tabindex="-1">${uiCount(results.length, 'genre')}${node ? ' in ' + esc(node.name) : ''}${results.length ? order : ''}</div>${chips.length ? `<div class="gp-chips" aria-label="Constraints in force">${chips.join('')}</div>` : ''}`;
   if (!results.length) html += gpNoResults(q, node, targets);
-  else
+  else if (rows && targets.length) {
+    // Sound targets rank: one row, closest first, each card saying how close.
+    const why = new Map(results.map((r) => [r.t.id, gpTargetText(r)]));
+    html += uiRowsHTML(
+      'genre',
+      [{ key: 'near', label: 'Closest to your sound', items: results.map((r) => r.t) }],
+      { tile: (t) => gpTile(t, why.get(t.id)), noun: 'genre' }
+    );
+  } else if (rows) {
+    const letters = gpLetterGroups(results);
+    G.jump = uiRowsJumpHTML('genre', letters, { label: 'Jump to a letter', noun: 'genre' });
+    html += uiRowsHTML('genre', letters, { tile: gpTile, noun: 'genre' });
+  } else
     html +=
       gpList(shown, pinned ? null : open, targets.length ? gpTargetReason : null) +
       (results.length > UI.limit
@@ -638,6 +708,7 @@ function gpRenderMain() {
   const focus = gpFocusKey();
   const open = gpOpenId();
   const layout = gpLayout();
+  const keep = uiRowsKeep(host);
   gpRecipeSig = gpRecipeSignature();
   $ui('genre-maintabs').innerHTML =
     `<div class="gp-viewtabs" role="tablist" aria-label="What to show">${[
@@ -649,8 +720,8 @@ function gpRenderMain() {
           `<button type="button" role="tab" class="cm-tab" id="gp-view-${k}" data-ui="genre-view-tab" data-id="${k}" aria-controls="genre-list" aria-selected="${G.tab === k}" tabindex="${G.tab === k ? 0 : -1}">${l}</button>`
       )
       .join('')}</div><div class="cm-segmented gp-layout" role="group" aria-label="Layout">${[
+      ['rows', 'Rows', 'rows'],
       ['list', 'List', 'list'],
-      ['grid', 'Grid', 'layout-grid'],
     ]
       .map(
         ([k, l, ic]) =>
@@ -659,7 +730,12 @@ function gpRenderMain() {
       .join('')}</div>`;
   // A search always shows its results (All genres), however it was set.
   if (gpQuery()) G.tab = 'all';
+  G.jump = '';
   host.innerHTML = G.tab === 'all' ? gpAll(open) : gpStart(open);
+  // All genres in Rows: the A–Z bar sticks under the tabs.
+  $ui('genre-maintabs').insertAdjacentHTML('beforeend', G.jump);
+  $ui('genre-maintabs').classList.toggle('gp-maintabs-jump', !!G.jump);
+  uiRowsRestore(host, keep);
   gpMarkOpen(open);
   gpRestoreFocus(focus);
   // Keep the Browse column's pressed states truthful without rebuilding it
@@ -675,7 +751,7 @@ function gpMarkOpen(open) {
 }
 function renderGenreDiscovery() {
   if (!$ui('genre-body')) return;
-  if (!G.view) G.view = UILayout.remember('genre-view', 'list', () => gpRenderMain());
+  if (!G.view) G.view = UILayout.remember('genre-view', 'rows', () => gpRenderMain());
   gpLoadOptional();
   if (gpTreeOpen()) return;
   const focus = gpFocusKey();
@@ -764,6 +840,20 @@ function uiGenreBack() {
 function gpForgetPosition() {
   G.listScroll = null;
   G.origin = null;
+  gpListToTop();
+}
+// In Rows a new list (search, branch, sound targets, tab) starts at its
+// beginning, not wherever a jump left the last one.
+function gpListToTop() {
+  const main = $ui('genre-main');
+  if (gpLayout() !== 'rows' || !main) return;
+  main.scrollTop = 0;
+  for (let p = main.parentElement; p; p = p.parentElement) {
+    if (!p.scrollTop) continue;
+    const top = p === document.scrollingElement ? 0 : p.getBoundingClientRect().top;
+    const past = top - main.getBoundingClientRect().top;
+    if (past > 0) p.scrollTop -= past;
+  }
 }
 function gpTreeOpen() {
   const t = $ui('modal-trad');
@@ -984,6 +1074,7 @@ uiRegisterPage({
     'genre-back'() {
       UI.genreNode = getTreeNode(UI.genreNode)?.parent || '';
       UI.limit = 50;
+      gpListToTop();
       renderGenreDiscovery();
       uiFocus(document.querySelector('#genre-browse [data-ui="genre-back"]')) ||
         uiFocus(document.querySelector('#genre-browse [data-ui="genre-all"]'));
@@ -1020,7 +1111,7 @@ uiRegisterPage({
       renderGenreDiscovery();
     },
     'genre-layout'(id) {
-      G.view.set(id === 'grid' ? 'grid' : 'list');
+      G.view.set(id === 'list' ? 'list' : 'rows');
       gpRenderMain();
     },
     'genre-browse-toggle'() {
@@ -1033,6 +1124,7 @@ uiRegisterPage({
     'genre-clear-search'() {
       $ui('genre-search').value = '';
       UI.limit = 50;
+      gpListToTop();
       gpRenderMain();
       $ui('genre-search').focus();
     },
@@ -1059,11 +1151,13 @@ uiRegisterPage({
     'genre-sound-clear'(id) {
       delete G.targets[id];
       UI.limit = 50;
+      gpListToTop();
       renderGenreDiscovery();
     },
     'genre-sound-reset'() {
       G.targets = {};
       UI.limit = 50;
+      gpListToTop();
       renderGenreDiscovery();
       uiFocus(document.querySelector('#surface-genre input[type="range"][data-axis]'));
     },
@@ -1077,6 +1171,7 @@ uiRegisterPage({
       UI.genre = null;
       UI.genreNode = '';
       UI.limit = 50;
+      gpListToTop();
       $ui('genre-search').value = '';
       renderGenreDiscovery();
       showToast(`Sound targets set from ${Tradition(id).name}'s profile`, 'success');

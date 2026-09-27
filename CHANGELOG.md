@@ -6,6 +6,29 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — Genre and Instrument browse in rows
+
+Rows is the default layout of the Genre and Instrument catalogues and replaces
+Grid; List stays as the other layout. All genres is one horizontally scrolling
+row per first letter (# for digits, accents folded), A to Z within it, with an
+A–Z bar that sticks under the tabs, scrolls to a row and marks the one in view;
+All instruments is one row per family, largest first, and per class inside a
+family, with a family bar. A card is the photo (a fixed height, its width from
+the photo's proportions) with the name and one line (a genre's branch, an
+instrument's family · class). Hover or keyboard focus shows Listen, Add and the
+photo credit over the photo — always, on a touch screen; ⋮ opens Add or Remove,
+Listen, Details and Photo credit; the photo and the name open the existing
+details. Add shows ✓ once the genre is in Your recipe — an instrument, once it
+is in the "Add to" group — and ✓ takes those cards out in one step, whose Undo
+works only while it is the latest change. A jump takes focus to its row, a new
+search starts at the top of its results, and sound targets are one ranked row
+with each card's reason. On a touch screen every card control and jump letter
+is 44px to a thumb. A row gets its cards only when it comes near the
+screen, 30 at a time, so first paint costs the rows in view. The shared pieces
+are `uiRowsHTML`, `uiRowsJumpHTML` and `uiTile` in `src/workbench.js`;
+`check_ui_foundation.js` Q gates them, and Grid's code, styles and gate stage
+are gone.
+
 ### Changed — one copy of each shared glyph; the nav glyph set is out of the page
 
 `codex.html` loses 838,050 bytes (-16.5% against 5,083,570). The room and

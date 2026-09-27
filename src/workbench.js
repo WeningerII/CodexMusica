@@ -83,6 +83,10 @@ const UI_SHELL_ACTIONS = new Set([
   'recipe-open-editor',
   'recipe-filter',
   'lightbox',
+  'rows-scroll',
+  'rows-jump',
+  'tile-credit',
+  'recipe-remove',
 ]);
 // Page interface (docs/ui-foundation.md has the full contract):
 //   id            one of UI_ROUTES
@@ -137,8 +141,10 @@ const uiButton = (act, label, ic = 'plus', extra = '') =>
 // true now, and the actions that move on from it. tone 'danger' = a failure.
 const uiEmptyState = ({ title, text = '', actions = '', tone = '' }) =>
   `<div class="cm-empty"${tone ? ` data-tone="${tone}"` : ''} role="status"><strong>${esc(title)}</strong>${text ? `<span>${esc(text)}</span>` : ''}${actions ? `<div class="cm-empty-actions">${actions}</div>` : ''}</div>`;
+const listenHref = (name, instrument = false) =>
+  `https://www.youtube.com/results?search_query=${encodeURIComponent(name + (instrument ? ' musical instrument solo demonstration' : ' music'))}`;
 const listenLink = (name, instrument = false) =>
-  `<a class="listen" href="https://www.youtube.com/results?search_query=${encodeURIComponent(name + (instrument ? ' musical instrument solo demonstration' : ' music'))}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${esc(name)} on YouTube">${icon('play', 16)}<span>Listen</span></a>`;
+  `<a class="listen" href="${listenHref(name, instrument)}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${esc(name)} on YouTube">${icon('play', 16)}<span>Listen</span></a>`;
 // `push` is set only for a user's own navigation, so Back and Forward step
 // between sections; boot and deep links replace the entry instead.
 function uiNavigate(view, { push = false } = {}) {
@@ -944,6 +950,20 @@ function uiStart() {
       case 'lightbox':
         uiLightbox(b);
         break;
+      case 'rows-scroll': {
+        const t = uiFind('.cm-rows-track', 'rows', id);
+        t?.scrollBy({ left: Number(b.dataset.dir) * t.clientWidth * 0.85, behavior: uiMotion() });
+        break;
+      }
+      case 'rows-jump':
+        uiRowsJump(b);
+        break;
+      case 'tile-credit':
+        uiTileCredit(b);
+        break;
+      case 'recipe-remove':
+        uiRemoveFromRecipe(b.dataset.kind, id, b.dataset.scope);
+        break;
       default:
         await UI_PAGE_ACTIONS[a]?.(id, b, e);
     }
@@ -998,6 +1018,7 @@ function uiStart() {
   UI.ready = true;
   uiLayoutControls();
   uiMenuControls();
+  uiRowsControls();
   renderAll();
   // codex.html?trad=<id> (the standalone atlas links here) opens that
   // tradition's Genre detail. It adds nothing by itself: Add stays explicit,
@@ -1177,6 +1198,398 @@ function uiCloseLightbox() {
       )
     );
 }
+// ── Browse rows ── The Genre and Instrument pages' default layout: one
+// horizontally scrolling row of cards per group (a letter, a family, a class).
+// A card is a photo (or the catalog glyph) with the name and one line under it.
+// The photo and the name open the page's own details; on hover or keyboard
+// focus — always, on a touch screen — Listen, Add and the photo credit show
+// over the photo, and ⋮ opens the same commands as a menu. A row gets its
+// cards only when it comes near the screen, UI_ROWS_CHUNK at a time, and more
+// as it is scrolled toward its end: first paint costs the rows in view.
+// Pages build rows with uiRowsHTML (and a jump bar with uiRowsJumpHTML), and
+// bracket a repaint with uiRowsKeep / uiRowsRestore so each row keeps its
+// place, its length and the focused card control.
+/* exported uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTile, listenHref */
+const UI_ROWS_CHUNK = 30;
+const UI_ROWS = new Map(); // row key → { items, tile, sig }
+const UI_TILE_RATIO = new Map(); // photo src → its width / height, clamped
+const UI_TILE_FAILED = new Set(); // photo srcs that did not load
+const UI_TILE_GLYPH = new Map(); // kind → (id) → the catalog glyph, drawn only when there is no photo
+const uiTileRatio = (w, h) => Math.min(2.05, Math.max(0.86, w / h));
+// The cards a card's Add and ✓ are about: a genre's cards; for an instrument,
+// its cards in the group its Add goes to (`scope`: a genre id, '' for
+// independent instruments), never the same instrument elsewhere.
+const uiTileCards = (kind, id, scope) =>
+  app.cards.filter((c) =>
+    kind === 'genre'
+      ? c.traditionId === id
+      : c.instrumentId === id && (c.traditionId || '') === (scope || '')
+  );
+const uiTileWhere = (kind, scope) =>
+  kind === 'genre'
+    ? 'Your recipe'
+    : scope
+      ? (Tradition(scope)?.name || scope) + ' in Your recipe'
+      : 'the independent instruments in Your recipe';
+// The card's Add: the page's own add action, or ✓ (in Your recipe) that removes it.
+// t: { kind, id, name, add, addLabel, scope }
+function uiTileAdd(t) {
+  const on = uiTileCards(t.kind, t.id, t.scope).length > 0;
+  const data = `data-kind="${t.kind}" data-id="${esc(t.id)}" data-add="${t.add}" data-add-label="${esc(t.addLabel)}"${t.scope === undefined ? '' : ` data-scope="${esc(t.scope)}"`}`;
+  return on
+    ? `<span class="cm-tile-badge">In recipe</span><button type="button" class="cm-tile-add is-on" data-ui="recipe-remove" ${data} aria-label="Remove ${esc(t.name)} from ${esc(uiTileWhere(t.kind, t.scope))}">${icon('check', 18)}</button>`
+    : `<button type="button" class="cm-tile-add" data-ui="${t.add}" ${data} aria-label="${esc(t.addLabel)}">${icon('plus', 18)}</button>`;
+}
+// o: { kind: 'genre' | 'instrument', id, name, sub, photo: { src, credit, href } | null,
+//      glyph: (id) → html, open (the page action that opens the details), add, addLabel,
+//      scope (instruments: the genre id their Add goes to, '' for independent) }
+function uiTile(o) {
+  UI_TILE_GLYPH.set(o.kind, o.glyph);
+  const src = o.photo?.src && !UI_TILE_FAILED.has(o.photo.src) ? o.photo.src : '';
+  const ratio = src ? UI_TILE_RATIO.get(src) || 4 / 3 : 1;
+  const id = esc(o.id),
+    name = esc(o.name);
+  return (
+    `<div class="cm-tile" role="listitem" data-tile="${o.kind}" data-id="${id}" style="--ar:${ratio.toFixed(3)}"><div class="cm-tile-shot${src ? '' : ' is-glyph'}">` +
+    (src
+      ? `<img class="cm-tile-img" src="${esc(src)}" alt="" loading="lazy" decoding="async">`
+      : `<span class="cm-tile-glyph" aria-hidden="true">${o.glyph(o.id)}</span>`) +
+    (src && o.photo.credit
+      ? `<button type="button" class="cm-tile-credit" data-ui="tile-credit" data-credit="${esc(o.photo.credit)}" data-href="${esc(o.photo.href || '')}" aria-label="Photo credit for ${name}" data-tooltip="${esc(o.photo.credit)}">${icon('info', 14)}</button>`
+      : '') +
+    `<a class="cm-tile-play" href="${listenHref(o.name, o.kind === 'instrument')}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${name} on YouTube">${icon('play', 16)}</a>` +
+    uiTileAdd(o) +
+    `</div><div class="cm-tile-cap"><button type="button" class="cm-tile-name" data-ui="${o.open}" data-id="${id}" title="${name}">${name}</button><span class="cm-tile-sub" title="${esc(o.sub)}">${esc(o.sub)}</span><button type="button" class="cm-tile-more" data-menu-toggle aria-controls="cm-tile-menu" aria-haspopup="menu" aria-expanded="false" aria-label="More for ${name}">${icon('ellipsis-vertical', 18)}</button></div></div>`
+  );
+}
+// groups: [{ key, label, items }] (items carry .id); tile(item) → uiTile(...).
+// `prefix` names the list, so a row's key is unique on the page. A row with no
+// items is left out; `label: ''` draws the row without a heading.
+function uiRowsHTML(prefix, groups, { tile, noun }) {
+  return groups
+    .filter((g) => g.items.length)
+    .map((g) => {
+      const key = prefix + ':' + g.key,
+        label = esc(g.label || '');
+      UI_ROWS.set(key, { items: g.items, tile, sig: g.items.map((x) => x.id).join() });
+      const arrows = [
+        [-1, 'chevron-left', 'back'],
+        [1, 'chevron-right', 'on'],
+      ]
+        .map(
+          ([dir, ic, way]) =>
+            `<button type="button" data-ui="rows-scroll" data-id="${esc(key)}" data-dir="${dir}" aria-label="Scroll ${label || 'the row'} ${way}"${dir < 0 ? ' disabled' : ''}>${icon(ic, 18)}</button>`
+        )
+        .join('');
+      return `<section class="cm-rows-group" data-rows="${esc(key)}"${label ? ` aria-label="${label}"` : ''}><div class="cm-rows-head">${label ? `<h3 class="cm-rows-label" tabindex="-1">${label}</h3><span class="cm-rows-count">${uiCount(g.items.length, noun)}</span>` : ''}<div class="cm-rows-nav">${arrows}</div></div><div class="cm-rows-track" role="list" data-rows="${esc(key)}"${label ? ` aria-label="${label}"` : ''}></div></section>`;
+    })
+    .join('');
+}
+// Buttons that scroll the page to each row, the one in view marked current.
+// `short` is the button's text when the label is long; empty rows are disabled.
+function uiRowsJumpHTML(prefix, groups, { label, noun }) {
+  return `<nav class="cm-rows-jump" aria-label="${esc(label)}">${groups
+    .map(
+      (g) =>
+        `<button type="button" data-ui="rows-jump" data-id="${esc(prefix + ':' + g.key)}" title="${esc(g.label)} · ${uiCount(g.items.length, noun)}"${g.items.length ? '' : ' disabled'}>${esc(g.short || g.label)}</button>`
+    )
+    .join('')}</nav>`;
+}
+function uiRowsKeep(host) {
+  const rows = new Map();
+  for (const t of host?.querySelectorAll('.cm-rows-track') || [])
+    rows.set(t.dataset.rows, {
+      left: t.scrollLeft,
+      shown: t.childElementCount,
+      sig: UI_ROWS.get(t.dataset.rows)?.sig,
+    });
+  const a = document.activeElement,
+    tile = a?.closest?.('.cm-tile');
+  const focus =
+    tile && host?.contains(tile)
+      ? { id: tile.dataset.id, part: [...a.classList].find((c) => c.startsWith('cm-tile-')) }
+      : null;
+  return { rows, focus };
+}
+function uiRowsAppend(t, upTo) {
+  const row = UI_ROWS.get(t.dataset.rows);
+  const from = t.childElementCount;
+  if (row && upTo > from)
+    t.insertAdjacentHTML(
+      'beforeend',
+      row.items
+        .slice(from, upTo)
+        .map((x) => row.tile(x))
+        .join('')
+    );
+}
+// A row near the screen and near its end takes its next cards; its arrows
+// say whether it can move.
+function uiRowsFill(t) {
+  const row = UI_ROWS.get(t.dataset.rows);
+  if (!row || !t.isConnected) return;
+  const r = t.getBoundingClientRect();
+  if (!r.height || r.top > Math.max(2 * innerHeight, 1800) || r.bottom < -innerHeight) return;
+  if (t.scrollLeft + 2 * t.clientWidth >= t.scrollWidth)
+    uiRowsAppend(t, t.childElementCount + UI_ROWS_CHUNK);
+  const [back, on] = t.parentElement.querySelectorAll('[data-ui="rows-scroll"]');
+  if (back) back.disabled = t.scrollLeft <= 1;
+  if (on)
+    on.disabled =
+      t.scrollLeft + t.clientWidth >= t.scrollWidth - 1 && t.childElementCount >= row.items.length;
+}
+function uiRowsRestore(host, keep) {
+  for (const t of host.querySelectorAll('.cm-rows-track')) {
+    const was = keep?.rows.get(t.dataset.rows);
+    if (was?.shown && was.sig === UI_ROWS.get(t.dataset.rows)?.sig) {
+      uiRowsAppend(t, was.shown);
+      t.scrollLeft = was.left;
+    }
+    uiRowsFill(t);
+  }
+  document.querySelectorAll('.cm-rows-jump').forEach(uiRowsEdges);
+  // A card menu whose card was just repainted has nothing left to act on.
+  if (uiMenuOpen?.menu.id === 'cm-tile-menu' && !uiMenuOpen.trigger.isConnected) uiCloseMenu(false);
+  const f = keep?.focus;
+  if (f && !host.contains(document.activeElement)) {
+    const tile = [...host.querySelectorAll('.cm-tile')].find((el) => el.dataset.id === f.id);
+    uiFocus(tile?.querySelector('.' + f.part));
+  }
+  uiRowsSpy();
+}
+// A jump bar wider than its box fades at the edge it continues past.
+function uiRowsEdges(nav) {
+  const more = nav.scrollWidth > nav.clientWidth + 1;
+  nav.classList.toggle('is-more-start', more && nav.scrollLeft > 1);
+  nav.classList.toggle(
+    'is-more-end',
+    more && nav.scrollLeft + nav.clientWidth < nav.scrollWidth - 1
+  );
+}
+// The jump bar marks the last row whose top has passed under it.
+function uiRowsSpy() {
+  for (const nav of document.querySelectorAll('.cm-rows-jump')) {
+    if (!nav.getClientRects().length) continue;
+    const line = nav.getBoundingClientRect().bottom + 16;
+    const rows = new Map(
+      [...document.querySelectorAll('.cm-rows-group')].map((s) => [s.dataset.rows, s])
+    );
+    let cur = null;
+    for (const b of nav.querySelectorAll('button:not(:disabled)')) {
+      const sec = rows.get(b.dataset.id);
+      if (sec && (!cur || sec.getBoundingClientRect().top <= line)) cur = b;
+    }
+    if (!cur || cur.getAttribute('aria-current') === 'true') continue;
+    for (const b of nav.children) b.setAttribute('aria-current', String(b === cur));
+    // A new current row brings its button into the bar's view (and only then,
+    // so a hand scrolling the bar is not pulled back).
+    if (nav.scrollWidth > nav.clientWidth) {
+      const l =
+        cur.getBoundingClientRect().left - nav.getBoundingClientRect().left + nav.scrollLeft;
+      if (l < nav.scrollLeft || l + cur.offsetWidth > nav.scrollLeft + nav.clientWidth)
+        nav.scrollLeft = l - (nav.clientWidth - cur.offsetWidth) / 2;
+    }
+  }
+}
+const uiMotion = () =>
+  matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
+function uiScrollParent(el) {
+  for (let p = el.parentElement; p; p = p.parentElement) {
+    const y = getComputedStyle(p).overflowY;
+    if ((y === 'auto' || y === 'scroll') && p.scrollHeight > p.clientHeight) return p;
+  }
+  return document.scrollingElement;
+}
+// Scroll so the row's heading sits just under the jump bar (sticky, with
+// whatever sticks with it), wherever the bar is when it is clicked. Until that
+// scroll settles the bar keeps the row it was asked for (the last rows cannot
+// reach the top, and the rows passed on the way are not the answer).
+let uiRowsJumping = 0;
+const uiRowsSettle = (ms) => {
+  clearTimeout(uiRowsJumping);
+  uiRowsJumping = setTimeout(() => (uiRowsJumping = 0), ms);
+};
+function uiRowsJump(b) {
+  const sec = uiFind('.cm-rows-group', 'rows', b.dataset.id);
+  if (!sec) return;
+  const nav = b.closest('.cm-rows-jump'),
+    scroller = uiScrollParent(sec);
+  let sticky = nav;
+  for (let p = nav; p && p !== scroller; p = p.parentElement)
+    if (getComputedStyle(p).position === 'sticky') sticky = p;
+  const top = scroller === document.scrollingElement ? 0 : scroller.getBoundingClientRect().top;
+  const stuck =
+    top +
+    (parseFloat(getComputedStyle(sticky).top) || 0) +
+    nav.getBoundingClientRect().bottom -
+    sticky.getBoundingClientRect().top;
+  for (const x of nav.children) x.setAttribute('aria-current', String(x === b));
+  uiRowsSettle(400);
+  scroller.scrollBy({ top: sec.getBoundingClientRect().top - stuck - 8, behavior: uiMotion() });
+  // The next Tab goes on into that row.
+  sec.querySelector('.cm-rows-label')?.focus({ preventScroll: true });
+}
+// ✓ removes what the card's Add would have added — every card of a genre, or
+// the instrument's cards in its scope — as one Undo step. The toast's Undo
+// takes back only this removal, and only while it is still the latest change
+// (as an addition's Undo does).
+function uiRemoveFromRecipe(kind, id, scope) {
+  const cards = uiTileCards(kind, id, scope);
+  if (!cards.length) return;
+  const name = (kind === 'genre' ? Tradition(id) : Inst(id))?.name || id;
+  app.cards = app.cards.filter((c) => !cards.includes(c));
+  pushHistory();
+  const at = app.historyIndex;
+  renderAll();
+  uiSync();
+  showToast(
+    `Removed ${name} from ${uiTileWhere(kind, scope)}` +
+      (cards.length > 1 ? ` (${cards.length} cards)` : ''),
+    'success',
+    {
+      label: 'Undo',
+      run: () => {
+        if (app.historyIndex !== at) {
+          showToast(
+            'Later changes followed this removal. Use Undo in the header to step back.',
+            'error'
+          );
+          return;
+        }
+        undo();
+        uiSync();
+      },
+    }
+  );
+}
+// Cards follow Your recipe: ✓ where it holds what their Add adds, + elsewhere.
+function uiTilesSync() {
+  for (const b of document.querySelectorAll('.cm-tile-add')) {
+    const tile = b.closest('.cm-tile'),
+      { id } = tile.dataset,
+      { kind, scope, add, addLabel } = b.dataset;
+    const on = uiTileCards(kind, id, scope).length > 0;
+    if (on === b.classList.contains('is-on')) continue;
+    const focused = document.activeElement === b;
+    const name = tile.querySelector('.cm-tile-name').textContent;
+    tile.querySelector('.cm-tile-badge')?.remove();
+    b.outerHTML = uiTileAdd({ kind, id, name, add, addLabel, scope });
+    if (focused) uiFocus(tile.querySelector('.cm-tile-add'));
+  }
+}
+// The ⋮ menu: one menu for every card, filled from the card it opens on.
+function uiTileMenu(menu, trigger) {
+  const tile = trigger.closest('.cm-tile'),
+    add = tile.querySelector('.cm-tile-add'),
+    name = tile.querySelector('.cm-tile-name'),
+    credit = tile.querySelector('.cm-tile-credit');
+  const on = add.classList.contains('is-on');
+  const item = (ui, label, ic, data) =>
+    `<button type="button" role="menuitem" data-ui="${ui}" ${data}>${icon(ic, 18)}<span>${label}</span></button>`;
+  const id = `data-id="${esc(tile.dataset.id)}"`;
+  menu.setAttribute('aria-label', name.textContent);
+  menu.innerHTML =
+    item(
+      add.dataset.ui,
+      on ? 'Remove from recipe' : 'Add to recipe',
+      on ? 'x' : 'plus',
+      `${id} data-kind="${add.dataset.kind}"${add.dataset.scope === undefined ? '' : ` data-scope="${esc(add.dataset.scope)}"`}`
+    ) +
+    `<a role="menuitem" href="${esc(tile.querySelector('.cm-tile-play').href)}" target="_blank" rel="noopener noreferrer">${icon('play', 18)}<span>Listen on YouTube</span></a>` +
+    item(name.dataset.ui, 'Details', 'eye', id) +
+    (credit
+      ? item(
+          'tile-credit',
+          'Photo credit',
+          'info',
+          `data-credit="${esc(credit.dataset.credit)}" data-href="${esc(credit.dataset.href)}"`
+        )
+      : '');
+}
+function uiTileCredit(b) {
+  const href = b.dataset.href;
+  showToast(
+    b.dataset.credit,
+    undefined,
+    /^https:\/\//i.test(href)
+      ? { label: 'Source', run: () => window.open(href, '_blank', 'noopener,noreferrer') }
+      : undefined
+  );
+}
+function uiRowsControls() {
+  const menu = document.createElement('div');
+  menu.id = 'cm-tile-menu';
+  menu.className = 'cm-menu sb-menu';
+  menu.setAttribute('role', 'menu');
+  menu.hidden = true;
+  document.body.append(menu);
+  let frame = 0;
+  const touched = new Set();
+  const run = () => {
+    frame = 0;
+    // The rows scrolled, and any row still empty that came near the screen.
+    document.querySelectorAll('.cm-rows-track:empty').forEach((t) => touched.add(t));
+    touched.forEach(uiRowsFill);
+    touched.clear();
+    document.querySelectorAll('.cm-rows-jump').forEach(uiRowsEdges);
+    if (!uiRowsJumping) uiRowsSpy();
+  };
+  const later = () => {
+    if (!frame) frame = requestAnimationFrame(run);
+  };
+  document.addEventListener(
+    'scroll',
+    (e) => {
+      if (e.target.classList?.contains('cm-rows-track')) touched.add(e.target);
+      else if (uiRowsJumping) uiRowsSettle(200);
+      later();
+    },
+    true
+  );
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.cm-rows-track').forEach((t) => touched.add(t));
+    later();
+  });
+  // A photo sets its card's width from its own proportions; one that fails
+  // gives way to the glyph, and its credit goes with it.
+  document.addEventListener(
+    'load',
+    (e) => {
+      const img = e.target;
+      if (!img.classList?.contains('cm-tile-img') || !img.naturalWidth) return;
+      const r = uiTileRatio(img.naturalWidth, img.naturalHeight);
+      UI_TILE_RATIO.set(img.getAttribute('src'), r);
+      img.closest('.cm-tile')?.style.setProperty('--ar', r.toFixed(3));
+    },
+    true
+  );
+  document.addEventListener(
+    'error',
+    (e) => {
+      const img = e.target;
+      if (!img.classList?.contains('cm-tile-img')) return;
+      UI_TILE_FAILED.add(img.getAttribute('src'));
+      const shot = img.closest('.cm-tile-shot'),
+        tile = shot.parentElement;
+      shot.classList.add('is-glyph');
+      shot.querySelector('.cm-tile-credit')?.remove();
+      tile.style.setProperty('--ar', '1');
+      img.outerHTML = `<span class="cm-tile-glyph" aria-hidden="true">${UI_TILE_GLYPH.get(tile.dataset.tile)?.(tile.dataset.id) || ''}</span>`;
+    },
+    true
+  );
+  // The photo opens the details, as the name does (the name is the keyboard route).
+  document.addEventListener('click', (e) => {
+    const shot = e.target.closest?.('.cm-tile-shot');
+    if (shot && !e.target.closest('button, a'))
+      shot.parentElement.querySelector('.cm-tile-name').click();
+  });
+  let pending = 0;
+  new MutationObserver(() => {
+    clearTimeout(pending);
+    pending = setTimeout(uiTilesSync, 120);
+  }).observe($ui('workspace-sidebar'), { childList: true, subtree: true });
+}
 function uiCloseEditor() {
   const id = app.selected;
   UI.editor = false;
@@ -1225,9 +1638,11 @@ function uiCloseMenu(focusTrigger) {
 }
 function uiToggleMenu(trigger) {
   const menu = $ui(trigger.getAttribute('aria-controls'));
-  const same = uiMenuOpen?.menu === menu;
+  // One menu can serve many triggers (a browse card's ⋮): the same trigger closes it.
+  const same = uiMenuOpen?.menu === menu && uiMenuOpen.trigger === trigger;
   uiCloseMenu(false);
   if (same || !menu) return;
+  if (trigger.classList.contains('cm-tile-more')) uiTileMenu(menu, trigger);
   menu.hidden = false;
   menu.closest('.sb-tradition-header, .sb-card-row')?.classList.add('has-open-menu');
   trigger.setAttribute('aria-expanded', 'true');
@@ -1437,6 +1852,14 @@ const UI_ICONS = {
   ),
   // A tuning fork: two tines over a stem (drawn for the shell, Lucide style).
   'tuning-fork': uiSvg('<path d="M8 2v7a4 4 0 0 0 8 0V2"></path><path d="M12 13v9"></path>'),
+  'chevron-left': uiSvg('<path d="m15 18-6-6 6-6"></path>'),
+  'ellipsis-vertical': uiSvg(
+    '<circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle>'
+  ),
+  // Rows of cards of different widths (drawn for the shell, Lucide style).
+  rows: uiSvg(
+    '<rect x="3" y="4" width="7" height="6" rx="1"></rect><rect x="12" y="4" width="9" height="6" rx="1"></rect><rect x="3" y="14" width="9" height="6" rx="1"></rect><rect x="14" y="14" width="7" height="6" rx="1"></rect>'
+  ),
   'panel-bottom': uiSvg(
     '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 15h18"></path>'
   ),

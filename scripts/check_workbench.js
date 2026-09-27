@@ -60,6 +60,10 @@ const run = (code) => dom.window.eval(code);
     button.click();
   };
   assert.equal(doc.querySelector('.ui-wheel, .genre-web'), null);
+  // Rows (the default layout) gives a row its cards when it is on screen, and
+  // jsdom lays nothing out; the List layout reaches the same controls here.
+  // check_ui_foundation.js Q drives Rows in a real browser.
+  click('[data-ui="genre-layout"][data-id="list"]');
   assert.match(
     doc.querySelector('#genre-body .listen').href,
     /^https:\/\/www\.youtube\.com\/results\?search_query=/
@@ -82,6 +86,7 @@ const run = (code) => dom.window.eval(code);
   click('#genre-body [data-close]');
   assert.ok(doc.querySelector('#genre-body .catalog-row'), 'closing tree restores the genre list');
   run("uiNavigate('instrument')");
+  click('#instrument-body [data-ui="ip-view"][data-id="list"]');
   click('#instrument-body [data-ui="instrument-family"]');
   click('#instrument-body [data-ui="instrument-class"]');
   assert.ok(run('UI.instrumentClass'));

@@ -229,10 +229,28 @@
 
 /* ── List ── */
 .ip-list {
+  container: ip-list / inline-size;
   min-height: 0;
   min-width: 0;
   overflow: auto;
   padding: 12px 20px 24px;
+}
+/* A narrow list (the inspector open beside it) keeps its heading, count, Sort
+   and layout on one line: the words "Sort", "Rows" and "List" stay the
+   controls' names but are not drawn. */
+@container ip-list (max-width: 720px) {
+  .ip-list .ip-list-head h2 {
+    font-size: var(--cm-text-xl);
+  }
+  .ip-list-head .ip-field > span,
+  .ip-view span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
 }
 .ip-crumbs {
   display: flex;
@@ -426,47 +444,17 @@
   margin-top: 16px;
 }
 
-/* Grid view: the same rows as cards. */
-#instrument-body[data-view='grid'] .ip-rows {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: 12px;
+/* Rows: the family (or class) bar sticks at the top of the catalogue. */
+.ip-list > .cm-rows-jump {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--cm-border-subtle);
+  background: var(--cm-surface);
 }
-/* A card is a grid — the picture, the name (taking the card's spare height)
-   and Listen | Add — so the picture, its own button, stays on the name. */
-#instrument-body[data-view='grid'] .ip-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: auto 1fr auto;
-  padding: 8px;
-  border-color: var(--cm-border-subtle);
-}
-#instrument-body[data-view='grid'] .ip-row-main {
-  flex: 1 0 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
-#instrument-body[data-view='grid'] .ip-row > .ip-glyph,
-#instrument-body[data-view='grid'] .ip-row > .cm-photo,
-#instrument-body[data-view='grid'] .ip-row > .ip-row-main {
-  grid-column: 1 / -1;
-}
-#instrument-body[data-view='grid'] .ip-row > .ip-row-main {
-  align-self: start;
-  min-height: 0;
-}
-#instrument-body[data-view='grid'] .ip-row > .ip-glyph,
-#instrument-body[data-view='grid'] .ip-row > .cm-photo {
-  width: auto;
-  margin: 4px 4px -4px;
-}
-#instrument-body[data-view='grid'] .ip-row > .ip-glyph,
-#instrument-body[data-view='grid'] .ip-row .ip-photo {
-  height: 96px;
-}
-#instrument-body[data-view='grid'] .ip-row .ip-photo {
-  width: 100%;
+#surface-instrument .cm-rows-label {
+  font-size: var(--cm-text-xl);
 }
 
 /* ── Inspector ── */
@@ -997,7 +985,9 @@ details.ip-changes[open] .ip-changes-sum > span:last-child {
 @container discovery (max-width: 1180px) {
   #instrument-body {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto minmax(0, 1fr);
+    /* The list's box holds all of it (not one screen), so the Rows jump bar
+       can stick for the whole scroll. */
+    grid-template-rows: auto auto 1fr;
     overflow: auto;
     align-content: start;
   }
@@ -1025,6 +1015,7 @@ details.ip-changes[open] .ip-changes-sum > span:last-child {
     border: 1px solid var(--cm-border-subtle);
   }
   .ip-list {
+    min-height: auto;
     overflow: visible;
   }
 }
@@ -1096,12 +1087,8 @@ details.ip-changes[open] .ip-changes-sum > span:last-child {
   .ip-row > .ip-glyph {
     margin-right: 6px;
   }
-  #instrument-body:not([data-view='grid']) .ip-row > .ip-row-main {
+  #instrument-body .ip-row > .ip-row-main {
     flex: 1 0 calc(100% - 62px);
-  }
-  #instrument-body[data-view='grid'] .ip-row > .ip-glyph,
-  #instrument-body[data-view='grid'] .ip-row > .cm-photo {
-    margin-bottom: 0;
   }
   .ip-row > .listen,
   .ip-row > [data-ui='instrument-add'] {

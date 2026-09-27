@@ -52,6 +52,23 @@
 //      the instrument families, the starter recipes) are not this rule's to
 //      change.
 //
+//   ROWS
+//   Q. Rows is the default layout of Genre and Instrument: All genres is one
+//      scrolling row per first letter (# for digits), A to Z within it, and
+//      All instruments one row per family, largest first (per class inside a
+//      family). Rows far below get their cards only when scrolled near; the
+//      A–Z bar scrolls to a row and marks it. Hovering a card shows Listen
+//      and Add on its photo; its ⋮ opens Add, Listen, Details and Photo
+//      credit and Escape returns to it; the photo opens the genre's details;
+//      Add puts the genre in Your recipe (✓), and ✓ takes it out; the
+//      removal's Undo puts it back, but only while it is the latest change.
+//      A jump takes focus to its row; a search starts at the top of its
+//      results; sound targets are one ranked row with each card's reason. An
+//      instrument's ✓ is about the "Add to" group only. A card's name and line
+//      stay inside it. On a touch screen Listen and Add show without a hover,
+//      every card control and jump letter is 44px to a thumb, the A–Z bar
+//      fades where it continues, and the page never scrolls sideways.
+//
 //   PHOTOS
 //   O. A catalog photo (Instrument inspector; a Genre row, and a genre's
 //      details) enlarges on a click, Enter or Space: a modal dialog with the
@@ -75,7 +92,7 @@
 
 'use strict';
 /* global document, window, openPrefaceModal, renderPrefaceModalBody, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync, Catalog, INSTRUMENTS, normalizeSearch, renderGenreDiscovery, gpRenderMain, renderInstrumentDiscovery, computeDistance */
-/* global innerWidth, UITheme, uiInspectInstrument */
+/* global innerWidth, UITheme, uiInspectInstrument, INSTRUMENT_FAMILIES, uiAddGenre */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -620,7 +637,7 @@ async function loadDelta(page) {
       check(/No genres match/.test(none), 'J. a search with no results does not say so');
       await page.click('[data-ui="genre-clear-search"]');
       check(
-        (await page.locator('#genre-body .catalog-row').count()) > 0,
+        (await page.locator('#genre-body .catalog-row, #genre-body .cm-tile').count()) > 0,
         'J. Clear search did not restore the genre list'
       );
       await ctx.close();
@@ -896,6 +913,8 @@ async function loadDelta(page) {
       );
       stage = `N. ${vp.name}: All genres`;
       await page.click('#genre-maintabs [data-ui="genre-view-tab"][data-id="all"]');
+      // The List layout: every row of it, in its order. (Rows is Q.)
+      await page.click('[data-ui="genre-layout"][data-id="list"]');
       await all('renderGenreDiscovery');
       const genres = await names('#genre-list .gp-row-name');
       check(
@@ -907,32 +926,6 @@ async function loadDelta(page) {
         /A to Z/.test(await page.textContent('#gp-count')),
         where('All genres does not say it is A to Z')
       );
-      // Grid cards keep their text inside the card: the name, the description
-      // and the photo credit are as wide as the card, never their own
-      // max-content spilling over the next card (owner report, 2026-09-26).
-      stage = `N. ${vp.name}: grid cards contain their text`;
-      await page.click('[data-ui="genre-layout"][data-id="grid"]');
-      await all('gpRenderMain');
-      const spill = await page.evaluate(() => {
-        const out = [];
-        const rows = [...document.querySelectorAll('#genre-list .gp-grid .gp-row')].slice(0, 80);
-        for (const row of rows) {
-          const r = row.getBoundingClientRect();
-          for (const el of row.querySelectorAll('.gp-row-name, .gp-row-desc, .gp-credit')) {
-            const b = el.getBoundingClientRect();
-            if (b.width && (b.right > r.right + 1 || b.left < r.left - 1))
-              out.push(`${row.dataset.gpId} .${el.className.split(' ')[0]}`);
-          }
-        }
-        return { rows: rows.length, out };
-      });
-      check(spill.rows > 0, where('the grid layout rendered no cards'));
-      check(
-        spill.out.length === 0,
-        where(`grid card text overflows its card: ${spill.out.slice(0, 5).join(', ')}`)
-      );
-      await page.click('[data-ui="genre-layout"][data-id="list"]');
-      await all('gpRenderMain');
       stage = `N. ${vp.name}: a branch`;
       await page.evaluate(() =>
         document.querySelector('#genre-browse [data-ui="genre-branch"]').click()
@@ -986,6 +979,7 @@ async function loadDelta(page) {
       // Instrument: the catalogue, a family, a class and a search, by name.
       stage = `N. ${vp.name}: Instrument`;
       await page.click('button[data-view="instrument"]');
+      await page.click('[data-ui="ip-view"][data-id="list"]');
       await all('renderInstrumentDiscovery');
       const insts = await names('#instrument-body .ip-row-name');
       check(
@@ -1240,8 +1234,10 @@ async function loadDelta(page) {
         'O. an enlarged photo left a history entry behind: Back did not return to Genre'
       );
 
-      // Genre: a row's photo enlarges without opening the row; the photo in
-      // a genre's details does too, and keeps the thumb when no larger copy loads.
+      // Genre (List layout): a row's photo enlarges without opening the row;
+      // the photo in a genre's details does too, and keeps the thumb when no
+      // larger copy loads. (In Rows a card's photo opens the details: Q.)
+      await page.click('[data-ui="genre-layout"][data-id="list"]');
       await page.getByLabel('Search genres').fill('Delta blues');
       const row = '#genre-list .gp-row[data-gp-id="delta_blues"] [data-ui="lightbox"]';
       await page.waitForSelector(row, { timeout: 15000 });
@@ -1341,6 +1337,369 @@ async function loadDelta(page) {
       check(
         !(await page.evaluate(() => document.getElementById('ui-lightbox').open)),
         'O. a tap anywhere did not close the photo on a phone'
+      );
+      await ctx.close();
+    }
+
+    // ── Q. Rows: the Genre and Instrument pages' default layout ───────────
+    stage = 'Q. Rows';
+    {
+      const { ctx, page } = await newPage({ colorScheme: 'light' });
+      await stubPhotos(ctx);
+      await page.goto(url + '#genre');
+      await ready(page);
+      const pressed = (sel) => page.$eval(sel, (b) => b.getAttribute('aria-pressed'));
+      check(
+        (await pressed('[data-ui="genre-layout"][data-id="rows"]')) === 'true',
+        "Q. Rows is not the Genre page's default layout"
+      );
+      await page.click('#genre-maintabs [data-ui="genre-view-tab"][data-id="all"]');
+      // A row per first letter, # first, A to Z within each and filed right;
+      // together they hold the whole catalog.
+      const rows = await page.evaluate(() =>
+        [...document.querySelectorAll('#genre-list .cm-rows-group')].map((g) => ({
+          key: g.dataset.rows,
+          label: g.querySelector('.cm-rows-label')?.textContent,
+          count: Number(g.querySelector('.cm-rows-count').textContent.replace(/\D/g, '')),
+          names: [...g.querySelectorAll('.cm-tile-name')].map((b) => b.textContent),
+        }))
+      );
+      check(
+        rows[0]?.label === '#' && rows.some((r) => r.key === 'genre:A' && r.label === 'A'),
+        `Q. All genres has no # row first and no A row (${rows.map((r) => r.label).join(' ')})`
+      );
+      check(
+        rows.reduce((n, r) => n + r.count, 0) === (await page.evaluate(() => Catalog.all().length)),
+        'Q. the letter rows do not hold the whole catalog between them'
+      );
+      const fold = (n) => n.normalize('NFD').replace(/[̀-ͯ]/g, '').charAt(0).toUpperCase();
+      for (const r of rows.filter((x) => x.names.length)) {
+        check(azBreak(r.names) === '', `Q. row ${r.label} is not A to Z: ${azBreak(r.names)}`);
+        const stray = r.names.find((n) => (/[A-Z]/.test(fold(n)) ? fold(n) : '#') !== r.label);
+        check(!stray, `Q. "${stray}" is filed under ${r.label}`);
+      }
+      const zTiles = () =>
+        page.$$eval('.cm-rows-track[data-rows="genre:Z"] .cm-tile', (t) => t.length);
+      check(
+        (await zTiles()) === 0 &&
+          (await page.$$eval('#genre-list .cm-tile', (t) => t.length)) <= 12 * 30,
+        'Q. rows far below the screen got their cards on first paint'
+      );
+      // The A–Z bar scrolls a row under itself and marks it; the last row,
+      // which cannot reach the top, is marked too, and gets its cards.
+      const jump = async (k) => {
+        await page.click(`[data-ui="rows-jump"][data-id="genre:${k}"]`);
+        await page.waitForTimeout(1200);
+        return page.evaluate((key) => {
+          const nav = document.querySelector('#genre-maintabs .cm-rows-jump');
+          const sec = document.querySelector(`.cm-rows-group[data-rows="genre:${key}"]`);
+          return {
+            gap: Math.round(sec.getBoundingClientRect().top - nav.getBoundingClientRect().bottom),
+            current: nav.querySelector('[aria-current="true"]')?.textContent,
+          };
+        }, k);
+      };
+      const z = await jump('Z');
+      check(
+        z.current === 'Z' && (await zTiles()) > 0,
+        `Q. the A–Z bar did not bring the Z row on screen, filled and marked (${JSON.stringify(z)})`
+      );
+      const m = await jump('M');
+      check(
+        m.gap >= 0 && m.gap <= 48 && m.current === 'M',
+        `Q. the A–Z bar did not bring the M row just under it, marked (${JSON.stringify(m)})`
+      );
+      // The jump takes focus to that row, so the next Tab goes on into it.
+      const inRow = () =>
+        page.evaluate(() => [
+          document.activeElement?.closest('.cm-rows-group')?.dataset.rows,
+          document.activeElement?.className,
+        ]);
+      const landed = await inRow();
+      check(
+        landed[0] === 'genre:M' && landed[1] === 'cm-rows-label',
+        `Q. after a jump, focus is not on the M row's heading (${landed})`
+      );
+      await page.keyboard.press('Tab');
+      check(
+        (await inRow())[0] === 'genre:M',
+        `Q. Tab after a jump did not go on into the M row (${await inRow()})`
+      );
+      // Hover shows Listen and Add on the photo; ⋮ opens the card's menu.
+      const card = '.cm-rows-group[data-rows="genre:M"] .cm-tile:nth-child(2)';
+      const shown = () =>
+        page.$eval(card, (t) =>
+          ['.cm-tile-play', '.cm-tile-add'].map((s) => getComputedStyle(t.querySelector(s)).opacity)
+        );
+      check(
+        (await shown()).every((o) => o === '0'),
+        'Q. Listen and Add show on a card nobody is pointing at'
+      );
+      await page.hover(card + ' .cm-tile-shot');
+      await page.waitForTimeout(400);
+      check(
+        (await shown()).every((o) => o === '1'),
+        `Q. hovering a card does not show Listen and Add (${await shown()})`
+      );
+      const id = await page.$eval(card, (t) => t.dataset.id);
+      await page.click(card + ' .cm-tile-more');
+      const menu = await page.evaluate(() => {
+        const m = document.getElementById('cm-tile-menu');
+        return {
+          open: !m.hidden,
+          items: [...m.querySelectorAll('[role="menuitem"]')].map((i) => i.textContent),
+          focus: m.contains(document.activeElement),
+        };
+      });
+      check(
+        menu.open &&
+          menu.focus &&
+          ['Add to recipe', 'Listen on YouTube', 'Details'].every((i) => menu.items.includes(i)),
+        `Q. ⋮ does not open the card's menu (${JSON.stringify(menu)})`
+      );
+      await page.keyboard.press('Escape');
+      check(
+        await page.evaluate(
+          (s) =>
+            document.getElementById('cm-tile-menu').hidden &&
+            document.activeElement === document.querySelector(s + ' .cm-tile-more'),
+          card
+        ),
+        'Q. Escape did not close the card menu back to its ⋮'
+      );
+      // The photo opens the genre's details; closing them returns to the card.
+      await page.click(card + ' .cm-tile-shot', { position: { x: 30, y: 30 } });
+      check(
+        (await page.evaluate(() => document.getElementById('genre-detail')?.dataset.gpId)) === id,
+        "Q. a card's photo did not open that genre's details"
+      );
+      await page.keyboard.press('Escape');
+      check(
+        await page.evaluate(
+          (i) =>
+            !document.getElementById('genre-detail') &&
+            document.activeElement?.matches('.cm-tile-name') &&
+            document.activeElement.dataset.id === i,
+          id
+        ),
+        'Q. closing the details did not return focus to the card'
+      );
+      // Add from the card, then ✓ takes it out again.
+      await page.hover(card + ' .cm-tile-shot');
+      await page.click(card + ' .cm-tile-add');
+      await page.waitForFunction((i) => app.cards.some((c) => c.traditionId === i), id, {
+        timeout: 20000,
+      });
+      await page.waitForTimeout(300);
+      check(
+        await page.$eval(card + ' .cm-tile-add', (b) => b.classList.contains('is-on')),
+        'Q. a genre added from its card is not marked ✓ in the row'
+      );
+      const inRecipe = () => page.evaluate((i) => app.cards.some((c) => c.traditionId === i), id);
+      await page.click(card + ' .cm-tile-add');
+      await page.waitForTimeout(300);
+      check(!(await inRecipe()), 'Q. ✓ on a card did not take the genre out of Your recipe');
+      // The removal's Undo puts it back while it is the latest change…
+      await page.click('#toast .toast-action');
+      await page.waitForTimeout(300);
+      check(
+        (await inRecipe()) &&
+          (await page.$eval(card + ' .cm-tile-add', (b) => b.classList.contains('is-on'))),
+        'Q. Undo on the removal did not put the genre back, marked ✓'
+      );
+      // …and once a later change followed, it undoes nothing: not the later
+      // change, and not the removal (owner review).
+      await page.click(card + ' .cm-tile-add');
+      await page.waitForTimeout(300);
+      await page.evaluate(() => {
+        app.workspaceName = 'Named after the removal';
+        pushHistory();
+        uiSync();
+      });
+      await page.click('#toast .toast-action');
+      await page.waitForTimeout(300);
+      const late = await page.evaluate(() => ({
+        name: app.workspaceName,
+        toast: document.getElementById('toast').textContent,
+      }));
+      check(
+        !(await inRecipe()) &&
+          late.name === 'Named after the removal' &&
+          /Later changes/.test(late.toast),
+        `Q. a stale removal Undo changed the recipe (${JSON.stringify(late)})`
+      );
+      // A card's text stays inside the card, and its line is the genre's branch.
+      const spill = await page.evaluate(() => {
+        const out = [];
+        for (const t of [...document.querySelectorAll('#genre-list .cm-tile')].slice(0, 120)) {
+          const sub = t.querySelector('.cm-tile-sub').textContent;
+          if (!sub || /^\d+$/.test(sub)) out.push(`${t.dataset.id} reads "${sub}"`);
+          const r = t.getBoundingClientRect();
+          for (const el of t.querySelectorAll('.cm-tile-name, .cm-tile-sub')) {
+            const b = el.getBoundingClientRect();
+            if (b.right > r.right + 1 || b.left < r.left - 1) out.push(t.dataset.id);
+          }
+        }
+        return out;
+      });
+      check(
+        spill.length === 0,
+        `Q. card text overflows its card or its line is not a branch: ${spill.slice(0, 5)}`
+      );
+      // A search narrows the rows, from their beginning (not where a jump
+      // left the last list); a letter with nothing left has no row.
+      await jump('M');
+      const scrolled = () => page.evaluate(() => document.getElementById('genre-main').scrollTop);
+      const before = await scrolled();
+      await page.getByLabel('Search genres').fill('blues');
+      const after = await scrolled();
+      check(
+        before > 0 && after === 0,
+        `Q. a search after a jump does not start at the top of its results (${before} → ${after})`
+      );
+      const narrowed = await page.$$eval('#genre-list .cm-rows-group', (g) =>
+        g.map((x) => x.dataset.rows)
+      );
+      check(
+        narrowed.length > 1 && !narrowed.includes('genre:Q') && !narrowed.includes('genre:X'),
+        `Q. a search did not narrow the letter rows (${narrowed.join(' ')})`
+      );
+      await page.getByLabel('Search genres').fill('');
+      // Sound targets rank: one row, closest first, each card saying how close.
+      await page.evaluate(() => document.querySelector('#genre-browse input[data-axis]').click());
+      await page.waitForTimeout(200);
+      const near = await page.evaluate(() =>
+        [...document.querySelectorAll('#genre-list .cm-rows-group')].map((g) => ({
+          label: g.querySelector('.cm-rows-label')?.textContent,
+          subs: [...g.querySelectorAll('.cm-tile-sub')].slice(0, 5).map((x) => x.textContent),
+        }))
+      );
+      check(
+        near.length === 1 &&
+          near[0].label === 'Closest to your sound' &&
+          near[0].subs.length &&
+          near[0].subs.every((t) => /^(Matches|Exact on)/.test(t)),
+        `Q. sound targets in Rows are not one ranked row with the reasons (${JSON.stringify(near)})`
+      );
+      await page.click('[data-ui="genre-sound-reset"]');
+      // Instrument: Rows by default, one row per family, largest first; a
+      // family's rows are its classes.
+      await page.click('button[data-view="instrument"]');
+      check(
+        (await pressed('[data-ui="ip-view"][data-id="rows"]')) === 'true',
+        "Q. Rows is not the Instrument page's default layout"
+      );
+      const fams = await page.$$eval('#instrument-body .cm-rows-group', (g) =>
+        g.map((x) => Number(x.querySelector('.cm-rows-count').textContent.replace(/\D/g, '')))
+      );
+      check(
+        fams.length === (await page.evaluate(() => INSTRUMENT_FAMILIES.length)) &&
+          fams.every((n, i) => !i || n <= fams[i - 1]),
+        `Q. All instruments is not one row per family, largest first (${fams})`
+      );
+      // An instrument card's ✓ is about the "Add to" group only (owner
+      // review): Voice in Delta blues and Zydeco is no independent Voice, and
+      // with Delta blues chosen, ✓ takes out that one card.
+      await page.evaluate(async () => {
+        await uiAddGenre('delta_blues');
+        await uiAddGenre('zydeco');
+      });
+      await page.click('#instrument-body [data-ui="instrument-family"][data-id="voice"]');
+      const voice = '#instrument-body .cm-tile[data-id="voice"]';
+      const addTo = async (v) => {
+        await page.selectOption('#instrument-destination', { value: v });
+        await page.waitForTimeout(200);
+      };
+      const voiceAdd = () =>
+        page.$eval(voice + ' .cm-tile-add', (b) => ({
+          on: b.classList.contains('is-on'),
+          label: b.getAttribute('aria-label'),
+        }));
+      await addTo('');
+      const solo = await voiceAdd();
+      check(
+        !solo.on,
+        `Q. with Add to: Independent, Voice (only in genres) shows ✓ (${solo.label})`
+      );
+      await addTo('delta_blues');
+      const inDelta = await voiceAdd();
+      check(
+        inDelta.on && /Delta blues/.test(inDelta.label),
+        `Q. with Add to: Delta blues, Voice is not ✓ for Delta blues (${inDelta.label})`
+      );
+      await page.hover(voice + ' .cm-tile-shot');
+      await page.click(voice + ' .cm-tile-add');
+      await page.waitForTimeout(300);
+      const voices = await page.evaluate(() =>
+        app.cards.filter((c) => c.instrumentId === 'voice').map((c) => c.traditionId)
+      );
+      check(
+        voices.length === 1 && voices[0] === 'zydeco',
+        `Q. ✓ on Voice with Add to: Delta blues did not take out that card alone (left: ${voices})`
+      );
+      await page.click('#instrument-body [data-ui="instrument-family"][data-id="percussion"]');
+      const classes = await page.$$eval('#instrument-body .cm-rows-group', (g) =>
+        g.map((x) => x.dataset.rows)
+      );
+      check(
+        classes.length > 1 &&
+          (await page.$$eval('#instrument-body [data-ui="rows-jump"]', (b) => b.length)) > 1,
+        `Q. a family is not a row per class with its jump bar (${classes.join(' ')})`
+      );
+      await ctx.close();
+    }
+    stage = 'Q. Rows on a touch screen';
+    {
+      const { ctx, page } = await newPage({
+        viewport: { width: 390, height: 844 },
+        isMobile: true,
+        hasTouch: true,
+      });
+      await stubPhotos(ctx);
+      await page.goto(url + '#genre');
+      await ready(page);
+      await page.tap('#genre-maintabs [data-ui="genre-view-tab"][data-id="all"]');
+      const touch = await page.evaluate(() => {
+        const t = document.querySelector('#genre-list .cm-tile');
+        return {
+          controls: ['.cm-tile-play', '.cm-tile-add'].map(
+            (s) => getComputedStyle(t.querySelector(s)).opacity
+          ),
+          arrows: getComputedStyle(document.querySelector('#genre-list .cm-rows-nav')).display,
+          overflow: document.documentElement.scrollWidth - innerWidth,
+        };
+      });
+      check(
+        touch.controls.every((o) => o === '1') && touch.arrows === 'none' && touch.overflow <= 0,
+        `Q. on a touch screen Listen and Add need a hover, or the page scrolls sideways (${JSON.stringify(touch)})`
+      );
+      // A thumb's 44px: 21px either side of each control's centre still hits it
+      // (the circles are drawn smaller); a jump letter is 44px tall to a
+      // thumb; the A–Z bar fades where letters continue past its edge.
+      const thumbs = await page.evaluate(() => {
+        const t = document.querySelector('#genre-list .cm-tile-credit').closest('.cm-tile');
+        t.scrollIntoView({ block: 'center' });
+        const hits = (el, dx, dy) => {
+          const r = el.getBoundingClientRect(),
+            x = r.left + r.width / 2,
+            y = r.top + r.height / 2;
+          return [
+            [x - dx, y],
+            [x + dx, y],
+            [x, y - dy],
+            [x, y + dy],
+          ].every(([a, b]) => el.contains(document.elementFromPoint(a, b)));
+        };
+        const miss = ['.cm-tile-play', '.cm-tile-add', '.cm-tile-more', '.cm-tile-credit'].filter(
+          (s) => !hits(t.querySelector(s), 21, 21)
+        );
+        const nav = document.querySelector('#genre-maintabs .cm-rows-jump');
+        if (!hits(nav.querySelector('button:not(:disabled)'), 0, 21)) miss.push('a jump letter');
+        return { miss, fades: nav.classList.contains('is-more-end') };
+      });
+      check(
+        thumbs.miss.length === 0 && thumbs.fades,
+        `Q. on a touch screen these are under 44px to a thumb, or the A–Z bar gives no sign of more (${JSON.stringify(thumbs)})`
       );
       await ctx.close();
     }
@@ -1463,6 +1822,8 @@ async function loadDelta(page) {
       'Your recipe on the right with its menus, truthful environment source and output format, ' +
       'genre, instrument and map lists A to Z (within a tie when ranked) on desktop and phone, ' +
       'photos that enlarge and close on a click anywhere, Escape or Back; ' +
+      'Rows by default on Genre and Instrument: letter and family rows, the A–Z bar, hover and ' +
+      'touch controls, the card menu, details from the photo, Add and ✓; ' +
       'nav glyphs never blank without api/nav_glyphs.json, fetched with backoff, filled in place.'
   );
   process.exit(0);
