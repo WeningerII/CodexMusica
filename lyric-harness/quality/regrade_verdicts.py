@@ -115,14 +115,22 @@ REGRADE_MOVED = {
         "MOVED AGAIN 2026-09-22, nucleus_agreement='licensed' (N-relation batch): near vowels no longer carry RHYME/ASSONANCE, so pairs whose permitted readings differ only in the vowel now disagree across readings and REFUSE: swans/Response (was (116, 111, 5)). "
         "a75da39f, 2026-09-08: pear/Prayer/heir/flair and grace/Bass/vase "
         "differ across unresolved pronunciation readings"),
+    # ~~"crooked_waltz.txt": ((47, 24, 23), "M-144, 2026-08-26: a declared
+    # slot resolving to NO ANCHOR is a REFUSAL and was counted as JUDGED. 12
+    # of this song's 45 binding sites resolve to nothing the phonology can
+    # anchor (L1 `T5` is `by`) and 22 of its 47 mandated pairs touch one.
+    # MOVED AGAIN 2026-09-14 from ~~(47, 25, 22)~~: wide/Pylons' default
+    # relation stays unresolved in schema(s) (a75da39f, 2026-09-08)")~~ —
+    # STRUCK 2026-09-27: that entry measured the 2026-08-25 draft, and the
+    # song was RE-PLANNED AND REWRITTEN (songs/README.md, its re-plan
+    # subsection). Its old block is SUPERSEDED below, not re-graded.
     "crooked_waltz.txt": (
-        (47, 24, 23),
-        "M-144, 2026-08-26: a declared slot resolving to NO ANCHOR is a "
-        "REFUSAL and was counted as JUDGED. 12 of this song's 45 binding "
-        "sites resolve to nothing the phonology can anchor (L1 `T5` is "
-        "`by`) and 22 of its 47 mandated pairs touch one. MOVED AGAIN "
-        "2026-09-14 from ~~(47, 25, 22)~~: wide/Pylons' default relation "
-        "stays unresolved in schema(s) (a75da39f, 2026-09-08)"),
+        (20, 20, 0),
+        "2026-09-27, the re-planned song: `revise` printed 18/18/0 and this "
+        "module measures 20/20/0 — the difference is exactly the two "
+        "declared return classes (`--returns=1,8;2,9`), which this module "
+        "folds into the cover as pairs (the docstring's rule) and the verb "
+        "at 1e0b1c7d reports apart as full-line obligations"),
     "the_frost_ledger.txt": (
         (71, 35, 36),
         "M-144, same cause and the larger share: 35 of 71 mandated pairs "
@@ -139,10 +147,22 @@ def regrade(readme=None):
     path = readme or os.path.join(root, "songs", "README.md")
     text = open(path, encoding="utf-8").read()
     lex, decl = LH.Lexicon(), LH.Declaration()
-    holds, moved, cannot = [], [], []
-    for m in _CMD.finditer(text):
+    holds, moved, cannot, superseded = [], [], [], []
+    # A RE-PLANNED SONG KEEPS ITS OLD BLOCK AS THE RECORD (doctrine 17) and
+    # appends a new one naming the SAME lyric file, whose bytes are now the
+    # new song's. Only the NEWEST block per lyric describes those bytes, so
+    # an earlier block is listed as SUPERSEDED and never graded: grading the
+    # old mandate against the new words would answer a question nobody
+    # asked (added 2026-09-27 with crooked_waltz's re-plan).
+    blocks = list(_CMD.finditer(text))
+    newest = {os.path.basename(m.group(2)): m.start() for m in blocks}
+    for m in blocks:
         draft, flags = m.group(2), m.group(3)
         name = os.path.basename(draft)
+        if newest[name] != m.start():
+            superseded.append(f"{name}: an earlier block, kept as the record "
+                              f"— a later block names the same lyric")
+            continue
         t = _TRIPLE.search(text[m.end():m.end() + 400])
         g = _GROUPS.search(flags)
         if not t:
@@ -183,7 +203,7 @@ def regrade(readme=None):
     print("RE-DERIVED — every banked mandated/judged/refused triple in "
           "songs/README.md, against THIS tree")
     for label, rows in (("HOLDS", holds), ("MOVED", moved),
-                        ("CANNOT RUN", cannot)):
+                        ("CANNOT RUN", cannot), ("SUPERSEDED", superseded)):
         print(f"\n  {label} {len(rows)}")
         for row in rows:
             print(f"    {row}")

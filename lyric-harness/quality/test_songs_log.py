@@ -332,13 +332,19 @@ def test_the_bytes_behind_the_md5_are_banked():
     all_md5 = [(s, r) for s in sorted(os.path.basename(p) for p in R.songs())
                for r in L.read_log(s)
                if r["fact"] in ("md5", "md5_in", "md5_out")]
-    check("...and it actually separates the bank in two — every md5 row the "
-          "sixteen songs carry was measured BEFORE it, so no banked row sits "
-          "on the boundary where the rule cannot decide",
-          all_md5 and all(r["measured"] < L.DRAFT_BANKING_SINCE
+    # ~~every md5 row the sixteen songs carry was measured BEFORE it~~ —
+    # REPINNED 2026-09-27: crooked_waltz's re-plan is the first song graded
+    # AFTER the mechanism went live (steps 37, 39, 40, 41), so the bank now
+    # has rows on both sides. What the check was for is unchanged: no row
+    # sits ON the boundary date, where "before" and "after" cannot decide.
+    check("...and it actually separates the bank in two — no md5 row the "
+          "sixteen songs carry was measured ON the boundary date, so every "
+          "row is decidably before it or after it",
+          all_md5 and all(r["measured"] != L.DRAFT_BANKING_SINCE
                           for _s, r in all_md5),
-          f"{len(all_md5)} md5 row(s), latest "
-          f"{max(r['measured'] for _s, r in all_md5)}")
+          f"{len(all_md5)} md5 row(s), "
+          f"{sum(r['measured'] < L.DRAFT_BANKING_SINCE for _s, r in all_md5)}"
+          f" before, latest {max(r['measured'] for _s, r in all_md5)}")
     rc, out = run(["quality/song_log.py", "--drafts"])
     m = re.search(r"(\d+) BANKED, (\d+) RECOVERABLE.*?, (\d+) LOST.*?, "
                   r"(\d+) FAILING", out)

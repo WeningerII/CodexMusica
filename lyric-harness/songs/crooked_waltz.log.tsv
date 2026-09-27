@@ -284,3 +284,205 @@ crooked_waltz	23	2026-08-25	6d79e08-WORKING	revise	0	unchanged	yes
 crooked_waltz	23	2026-08-25	6d79e08-WORKING	revise	0	mandated	47
 crooked_waltz	23	2026-08-25	6d79e08-WORKING	revise	0	judged	47
 crooked_waltz	23	2026-08-25	6d79e08-WORKING	revise	0	pairs_refused	0
+crooked_waltz	24	2026-09-27	6784376e	plan	0	form	verse-chorus
+crooked_waltz	24	2026-09-27	6784376e	plan	0	seed	31
+crooked_waltz	24	2026-09-27	6784376e	plan	0	lines	17
+crooked_waltz	24	2026-09-27	6784376e	plan	0	sections	5
+crooked_waltz	24	2026-09-27	6784376e	plan	0	pattern	chorus-patter-chorus-postchorus-verse
+crooked_waltz	24	2026-09-27	6784376e	plan	0	meter	12/8 as (2, 2, 3, 3, 2)
+crooked_waltz	24	2026-09-27	6784376e	plan	0	subdivision	1
+crooked_waltz	24	2026-09-27	6784376e	plan	0	groups	1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17
+crooked_waltz	24	2026-09-27	6784376e	plan	0	returns	1,8;2,9
+crooked_waltz	25	2026-09-27	6784376e-WORKING	screen	0	pair:burn~learn	BANNED: MODAL_RHYME  |  10 relation(s): ASSONANCE, CONSONANCE, RHYME, Scots vowel-length rhyme (Aitken's Law), assonance, cluster consonance / skothending span, consonance, family rhyme, pantun ABAB, perfect rhyme  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	25	2026-09-27	6784376e-WORKING	screen	0	banned	1
+crooked_waltz	25	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	25	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	0
+crooked_waltz	25	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	26	2026-09-27	6784376e-WORKING	screen	0	pair:dance~hands	relation(s): ASSONANCE, assonance  |  20 undecided at the pair: Middle Chinese end rhyme (同用 group), additive rhyme, amphisbaenic rhyme, antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cluster consonance / skothending span, cynghanedd lusg, dialect rhyme, eye rhyme, family rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, subtractive rhyme, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	26	2026-09-27	6784376e-WORKING	screen	0	banned	0
+crooked_waltz	26	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	26	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	1
+crooked_waltz	26	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	27	2026-09-27	6784376e-WORKING	screen	0	pair:rent~debts	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	27	2026-09-27	6784376e-WORKING	screen	0	pair:rent~step	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	27	2026-09-27	6784376e-WORKING	screen	0	pair:debts~step	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	27	2026-09-27	6784376e-WORKING	screen	0	banned	0
+crooked_waltz	27	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	27	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	3
+crooked_waltz	27	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	28	2026-09-27	6784376e-WORKING	screen	0	pair:fee~key	relation(s): ASSONANCE, RHYME, Scots vowel-length rhyme (Aitken's Law), assonance, consonance, family rhyme, pantun ABAB, perfect rhyme  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme  |  coda: no evidence (both codas empty on 1 of 1 syllable(s); 0.350 of the historical gift total was agreement by absence and is NOT scored here — coda_empty_evidence='cannot_tell', E-5)
+crooked_waltz	28	2026-09-27	6784376e-WORKING	screen	0	banned	0
+crooked_waltz	28	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	28	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	1
+crooked_waltz	28	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	29	2026-09-27	6784376e-WORKING	screen	0	pair:string~spin	relation(s): ASSONANCE, assonance, family rhyme  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	29	2026-09-27	6784376e-WORKING	screen	0	banned	0
+crooked_waltz	29	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	29	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	1
+crooked_waltz	29	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	30	2026-09-27	6784376e-WORKING	screen	0	pair:rhythm~hymn	relation(s): additive rhyme, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme — NAMED PAIR IS NOT THE EVIDENCE: scored on: -rhythm [last 1 of 2 syllables of 'rhythm']  ~  hymn   (best of k=6)
+crooked_waltz	30	2026-09-27	6784376e-WORKING	screen	0	banned	0
+crooked_waltz	30	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	30	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	1
+crooked_waltz	30	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	31	2026-09-27	6784376e-WORKING	screen	0	pair:slow~toe	relation(s): ASSONANCE, RHYME, Scots vowel-length rhyme (Aitken's Law), assonance, consonance, family rhyme, pantun ABAB, perfect rhyme  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme  |  coda: no evidence (both codas empty on 1 of 1 syllable(s); 0.350 of the historical gift total was agreement by absence and is NOT scored here — coda_empty_evidence='cannot_tell', E-5)
+crooked_waltz	31	2026-09-27	6784376e-WORKING	screen	0	banned	0
+crooked_waltz	31	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	31	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	1
+crooked_waltz	31	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	32	2026-09-27	6784376e-WORKING	screen	0	pair:shoulders~slower	relation(s): assonance, subtractive rhyme  |  13 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, transformative / bent rhyme, wrenched rhyme — NAMED PAIR IS NOT THE EVIDENCE: scored on: -shoulders [last 1 of 2 syllables of 'shoulders']  ~  -slower [last 1 of 2 syllables of 'slower']   (best of k=9)
+crooked_waltz	32	2026-09-27	6784376e-WORKING	screen	0	banned	0
+crooked_waltz	32	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	32	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	1
+crooked_waltz	32	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	33	2026-09-27	6784376e-WORKING	screen	0	pair:down~around	relation(s): ASSONANCE, CONSONANCE, RHYME, assonance  |  23 undecided at the pair: Middle Chinese end rhyme (同用 group), Scots vowel-length rhyme (Aitken's Law), additive rhyme, amphisbaenic rhyme, antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cluster consonance / skothending span, consonance, dialect rhyme, eye rhyme, family rhyme, historical rhyme, offbeat internal rhyme, pantun ABAB, perfect rhyme, proest, rhyming slang, subtractive rhyme, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme — NAMED PAIR IS NOT THE EVIDENCE: scored on: down  ~  -around [last 1 of 2 syllables of 'around']   (best of k=8)
+crooked_waltz	33	2026-09-27	6784376e-WORKING	screen	0	banned	0
+crooked_waltz	33	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	33	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	1
+crooked_waltz	33	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	34	2026-09-27	6784376e-WORKING	screen	0	pair:carts~dark	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	34	2026-09-27	6784376e-WORKING	screen	0	banned	0
+crooked_waltz	34	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	34	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	1
+crooked_waltz	34	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	35	2026-09-27	6784376e-WORKING	screen	0	pair:coat~both	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	35	2026-09-27	6784376e-WORKING	screen	0	pair:coat~wrote	relation(s): ASSONANCE, CONSONANCE, RHYME, Scots vowel-length rhyme (Aitken's Law), assonance, cluster consonance / skothending span, consonance, family rhyme, pantun ABAB, perfect rhyme  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	35	2026-09-27	6784376e-WORKING	screen	0	pair:coat~homeward	relation(s): assonance  |  14 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	35	2026-09-27	6784376e-WORKING	screen	0	pair:both~wrote	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	35	2026-09-27	6784376e-WORKING	screen	0	pair:both~homeward	relation(s): assonance  |  14 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	35	2026-09-27	6784376e-WORKING	screen	0	pair:wrote~homeward	relation(s): assonance  |  14 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	35	2026-09-27	6784376e-WORKING	screen	0	banned	0
+crooked_waltz	35	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	35	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	6
+crooked_waltz	35	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	36	2026-09-27	6784376e-WORKING	screen	0	pair:burn~heard	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	36	2026-09-27	6784376e-WORKING	screen	0	pair:burn~word	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	36	2026-09-27	6784376e-WORKING	screen	0	pair:burn~stern	BANNED: MODAL_RHYME  |  10 relation(s): ASSONANCE, CONSONANCE, RHYME, Scots vowel-length rhyme (Aitken's Law), assonance, cluster consonance / skothending span, consonance, family rhyme, pantun ABAB, perfect rhyme  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	36	2026-09-27	6784376e-WORKING	screen	0	pair:heard~word	BANNED: MODAL_RHYME  |  10 relation(s): ASSONANCE, CONSONANCE, RHYME, Scots vowel-length rhyme (Aitken's Law), assonance, cluster consonance / skothending span, consonance, family rhyme, pantun ABAB, perfect rhyme  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	36	2026-09-27	6784376e-WORKING	screen	0	pair:heard~stern	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	36	2026-09-27	6784376e-WORKING	screen	0	pair:word~stern	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	36	2026-09-27	6784376e-WORKING	screen	0	banned	2
+crooked_waltz	36	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	36	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	4
+crooked_waltz	36	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	mandate_groups	11
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	lines	17
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	mandated_pairs	18
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	mandate_source	declared
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	md5	775218d72b0a
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	briefed	17
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	per_line_flag	0
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	per_line_note	60
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	whole_draft	12
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	whole_draft_flag	0
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:BAND_UNJUDGED	NOTE x4
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:COUNT_IS_A_LOWER_BOUND	NOTE x1
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:FLOOR_LOCUS_SCOPE	NOTE x1
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:FUNCTION_UNDECLARED	NOTE x1
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:LATE_ENTRY	NOTE x9
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:NEAR_COLLISION	NOTE x3
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:NO_SETTING	NOTE x1
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:PROMINENCE_CANNOT_ALIGN	NOTE x17
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x11
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:PROMINENCE_UNDECIDED	NOTE x1
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:REPEAT_ACROSS_GROUPS	NOTE x2
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:RETURN_LOCKED	NOTE x1
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:RETURN_NEVER_RETURNS	NOTE x1
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:SCHEME_UNREADABLE	NOTE x4
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:SINGLE_INSTANCE	NOTE x3
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:SPARSE	NOTE x10
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	finding:UNIFORM_ANACRUSIS	NOTE x1
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	command	python3 lyric_harness.py song songs/crooked_waltz.blueprint.json songs/crooked_waltz.txt --input-format=source '--groups=1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17' '--returns=1,8;2,9' --subdivision 1
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	mandate_groups_text	1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	mandate_returns_text	1,8;2,9
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	draft_file	songs/drafts/crooked_waltz.775218d72b0a.draft.txt
+crooked_waltz	37	2026-09-27	6784376e-WORKING	song	2	draft_lines	17
+crooked_waltz	38	2026-09-27	6784376e-WORKING	screen	0	pair:coat~both	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	38	2026-09-27	6784376e-WORKING	screen	0	pair:coat~wrote	relation(s): ASSONANCE, CONSONANCE, RHYME, Scots vowel-length rhyme (Aitken's Law), assonance, cluster consonance / skothending span, consonance, family rhyme, pantun ABAB, perfect rhyme  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	38	2026-09-27	6784376e-WORKING	screen	0	pair:coat~home	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	38	2026-09-27	6784376e-WORKING	screen	0	pair:both~wrote	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	38	2026-09-27	6784376e-WORKING	screen	0	pair:both~home	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	38	2026-09-27	6784376e-WORKING	screen	0	pair:wrote~home	relation(s): ASSONANCE, assonance  |  15 undecided at the pair: Middle Chinese end rhyme (同用 group), antanaclasis, broken rhyme, chain rhyme (interlocking scheme), cynghanedd lusg, dialect rhyme, eye rhyme, historical rhyme, offbeat internal rhyme, proest, rhyming slang, sung-delivery rhyme, syllabic rhyme, transformative / bent rhyme, wrenched rhyme
+crooked_waltz	38	2026-09-27	6784376e-WORKING	screen	0	banned	0
+crooked_waltz	38	2026-09-27	6784376e-WORKING	screen	0	refused	0
+crooked_waltz	38	2026-09-27	6784376e-WORKING	screen	0	standing_in_some	6
+crooked_waltz	38	2026-09-27	6784376e-WORKING	screen	0	standing_in_none	0
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	mandate_groups	11
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	lines	17
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	mandated_pairs	18
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	mandate_source	declared
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	md5	70ca1025004e
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	briefed	17
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	per_line_flag	1
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	per_line_note	54
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	whole_draft	10
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	whole_draft_flag	0
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:PROMINENCE_OUT_OF_BAND	FLAG x1
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:FLOOR_LOCUS_SCOPE	NOTE x1
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:FUNCTION_UNDECLARED	NOTE x1
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:LATE_ENTRY	NOTE x9
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:NEAR_COLLISION	NOTE x3
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:NO_SETTING	NOTE x1
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:PROMINENCE_CANNOT_ALIGN	NOTE x17
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x14
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:REPEAT_ACROSS_GROUPS	NOTE x2
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:RETURN_LOCKED	NOTE x1
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:RETURN_NEVER_RETURNS	NOTE x1
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:SINGLE_INSTANCE	NOTE x3
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:SPARSE	NOTE x9
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	finding:UNIFORM_ANACRUSIS	NOTE x1
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	command	python3 lyric_harness.py song songs/crooked_waltz.blueprint.json songs/crooked_waltz.txt --input-format=source '--groups=1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17' '--returns=1,8;2,9' --subdivision 1
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	mandate_groups_text	1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	mandate_returns_text	1,8;2,9
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	draft_file	songs/drafts/crooked_waltz.70ca1025004e.draft.txt
+crooked_waltz	39	2026-09-27	6784376e-WORKING	song	3	draft_lines	17
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	mandate_groups	11
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	lines	17
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	mandated_pairs	18
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	mandate_source	declared
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	md5	943fc1499c97
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	briefed	17
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	per_line_flag	0
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	per_line_note	54
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	whole_draft	10
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	whole_draft_flag	0
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:FLOOR_LOCUS_SCOPE	NOTE x1
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:FUNCTION_UNDECLARED	NOTE x1
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:LATE_ENTRY	NOTE x9
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:NEAR_COLLISION	NOTE x3
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:NO_SETTING	NOTE x1
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:PROMINENCE_CANNOT_ALIGN	NOTE x17
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x14
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:REPEAT_ACROSS_GROUPS	NOTE x2
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:RETURN_LOCKED	NOTE x1
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:RETURN_NEVER_RETURNS	NOTE x1
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:SINGLE_INSTANCE	NOTE x3
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:SPARSE	NOTE x9
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	finding:UNIFORM_ANACRUSIS	NOTE x1
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	command	python3 lyric_harness.py song songs/crooked_waltz.blueprint.json songs/crooked_waltz.txt --input-format=source '--groups=1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17' '--returns=1,8;2,9' --subdivision 1
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	mandate_groups_text	1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	mandate_returns_text	1,8;2,9
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	draft_file	songs/drafts/crooked_waltz.943fc1499c97.draft.txt
+crooked_waltz	40	2026-09-27	6784376e-WORKING	song	0	draft_lines	17
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	stop_reason	SUCCESS
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	rounds	0
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	md5_in	943fc1499c97
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	md5_out	943fc1499c97
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	unchanged	yes
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	mandated	18
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	judged	18
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	pairs_refused	0
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	stamp_seed	declared mandate
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	stamp_exit	0
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	stop_reason	SUCCESS
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	rounds	0
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	unresolved	0
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	whole_flags	0
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	command	python3 lyric_harness.py revise songs/crooked_waltz.txt '--groups=1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17' '--returns=1,8;2,9' --blueprint=songs/crooked_waltz.blueprint.json --subdivision 1 --input-format=source
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	mandate_groups_text	1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	mandate_returns_text	1,8;2,9
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	draft_file	songs/drafts/crooked_waltz.943fc1499c97.draft.txt
+crooked_waltz	41	2026-09-27	6784376e-WORKING	revise	0	draft_lines	17

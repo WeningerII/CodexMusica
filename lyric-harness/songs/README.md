@@ -41,7 +41,12 @@ count as lines, and every one of the eleven `song` commands below REFUSES at
 exit 2 — *blueprint declares N line(s), M were handed to the loop*. Append
 `--input-format=source`, the declaration that the file carries section
 apparatus, and all eleven are graded. MEASURED on this date with it: none
-refuses; nine report 0 FLAG; `crooked_waltz` (11 FLAG) and
+refuses; nine report 0 FLAG; `crooked_waltz` (11 FLAG — **annotated
+2026-09-27: bisected, the banked record was earned under two grader
+defects since REPAIRED — M-148 P2 at `0593fa15` and M-149(b) at
+`608a2a45` — and 10 FLAG once #417 fixed declared chain rhyme; the song
+was re-planned and rewritten and grades exit 0 with no flag, see its
+section**) and
 `the_frost_ledger` (22 FLAG) no longer grade clean, because the grader has
 moved since they were banked (which change is not bisected here); and all
 eleven exit 2, not the recorded 0, because the grader now reports a check
@@ -646,8 +651,12 @@ remedy.
         '--groups=1.T7,2.T4;1.T5,2.T5;3.T4,5.T2;4.head,6.T3,8.T4;7.head,9;3.T6,4.T2,5.T1,7.T2;3.endword,4.T6,5.T5,6.head,7.endword,8.head;4.T4,6.endword,8.endword;4.T5,8.T6;12.headrime,13.T4;10.T1,11.head,12.T3,13.endword;10.T2,12.T7,13.headrime;10,12;15,16.T2;16.T4,17.T1;15.headrime,17.endword;1,2' \
         '--relations=A:schema:anaphora,B:schema:light rhyme,C:schema:chain rhyme (rap),D:schema:pararhyme,E:schema:family rhyme,F:schema:chain rhyme (rap),H:schema:head rhyme (positional),I:schema:chain rhyme (rap),J:schema:pantun ABAB,K:schema:anaphora,L:schema:internal rhyme,M:schema:family rhyme,N:schema:subtractive rhyme,O:schema:anaphora,P:schema:head rhyme (positional),Q:schema:chain rhyme (rap)' --subdivision 2
 
-`song` exit 0, md5 `2673775a65a1`, 47 pairs mandated / 47 judged / 0
-refused; `revise` SUCCESS in 0 rounds, draft unchanged. Seventeen lines of
+`song` exit 0, md5 ~~`2673775a65a1`~~, 47 pairs mandated / 47 judged / 0
+refused; `revise` SUCCESS in 0 rounds, draft unchanged. **(STRUCK
+2026-09-27 as the song on disk, kept as the 2026-08-25 record: those
+bytes are banked at `songs/drafts/crooked_waltz.2673775a65a1.draft.txt`
+and are log steps 22–23; the song was re-planned and rewritten, see the
+subsection at the end of this section.)** Seventeen lines of
 11/8 grouped 3+3+2+3, and the relation coordinates came from the PLANNER'S
 OWN DICE (M-117), which no banked song before this one could say: sixteen
 of the seventeen groups carry a drawn `schema:` name — light rhyme,
@@ -685,7 +694,10 @@ the head. The intro's light-rhyme pair was screened the same way —
 clean 1 [LOG: clean_or_non_rhyme crooked_waltz.txt carpenter] — before
 either end word was sung.
 
-**WHAT THE BANKED NUMBERS SAY, cited not remembered.** Rhyme
+**WHAT THE BANKED NUMBERS SAY, cited not remembered.** (Annotated
+2026-09-27: the figures in this paragraph are the 2026-08-25 lyric's,
+last banked at `6059e09c`; since the re-plan below, these citations
+resolve to the rewritten song's row.) Rhyme
 predictability 0.718198 is the second-lowest of the ten banked songs [RESULTS: rhyme_predictability_mean crooked_waltz.txt],
 above only wheat_mane's 0.609665 [RESULTS: rhyme_predictability_mean wheat_mane.txt]
 — the screen-first direction holding on a third consecutive song — and
@@ -694,6 +706,87 @@ under long_bridge's 3.945395 [RESULTS: concreteness_mean long_bridge.txt].
 At 17 lines [RESULTS: n_lines crooked_waltz.txt] its column records what
 the dice asked a writer to do, with no second drawn-relation song banked
 yet to compare it against.
+
+### crooked_waltz, re-planned and rewritten 2026-09-27 under the repaired planner and grader
+
+    python3 lyric_harness.py plan --seed=31 --title='Crooked Waltz' --lines=17
+    python3 lyric_harness.py plan --seed=31 --title='Crooked Waltz' --lines=17 \
+        --input-format=source --fill=songs/crooked_waltz.txt \
+        --out=songs/crooked_waltz.blueprint.json
+    python3 lyric_harness.py song songs/crooked_waltz.blueprint.json \
+        songs/crooked_waltz.txt --input-format=source \
+        '--groups=1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17' \
+        '--returns=1,8;2,9' --subdivision 1
+
+`song` exit 0, 0 FLAG, md5 `943fc1499c97`, 18 pairs mandated / 18 judged / 0 refused;
+`revise` SUCCESS in 0 rounds, draft unchanged, under
+
+    python3 lyric_harness.py revise songs/crooked_waltz.txt \
+        '--groups=1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17' \
+        '--returns=1,8;2,9' --blueprint=songs/crooked_waltz.blueprint.json \
+        --subdivision 1 --input-format=source
+
+**WHY IT WAS RE-PLANNED, AND WHY THE FIX IS THE SONG'S.** A bisect on
+2026-09-27 showed the section above's clean record was earned under two
+grader defects that have since been repaired: M-148 P2 (`0593fa15`, a
+slot-declared schema is now judged at the DECLARED word positions) and
+M-149(b) (`608a2a45`, one group's refusal on a line pair no longer masks
+the other groups on that pair). And the plan itself was drawn by the
+pre-M-149(a) planner, which could put line-opening figures — anaphora, head
+rhyme — on slots such as `13.endword` or `16.T4`; the writer satisfied them
+at the line openings instead, which the broken judge accepted. Graded at
+`1e0b1c7d` (#417's chain-rhyme repair) by the command above with
+`--input-format=source` added, the 2026-08-25 draft comes back exit 2 with
+ten per-line flags, all of them scheme violations, eleven before #417; 47
+pairs mandated, 21 judged, 26 refused; and two function questions (one
+of them HOOK_UNDECLARED), one line's prominence and the 26 refused rhyme
+questions UNJUDGED. No word change can honestly satisfy a plan that
+asks a line opening to answer at a line end, so the song was re-planned
+rather than patched. Nothing above this subsection is deleted: the old
+plan (seed 31, drawn relations and all), its commands, its grade at
+`6d79e08` (log steps 19–23) and its md5 are the record, and its bytes are banked through
+`song_log.py --bank-draft` beside the drafts below.
+
+**WHAT THE PLANNER DREW AT HEAD, AND WHAT IT COULD NOT HOLD.** Same seed,
+same title, the original seventeen lines. It could not hold the original
+shape. The meter is 12/8 grouped 2+2+3+3+2, not 11/8 grouped 3+3+2+3, and
+the pattern is chorus-patter-chorus-postchorus-verse, the second chorus a
+declared verbatim return of the first (`--returns=1,8;2,9`), with line 1 as
+the declared hook. And the dice no longer draw relations at all: since the
+N-relation model (M-309, #375/#380) the planner leaves every group bare, to
+be judged against every coarse relation and every registry schema, so this
+song's point in 2026-08 ("the dice drew the relations") cannot be repeated.
+Here the dice drew the placements and the writer chose which relation
+answers each one. `--want='beats_per_line=11'` does reach 11/8, but only by
+rejecting seed 31's own draw and taking candidate seed
+1118191882204332296 (grouped 3+2+3+3, a different pattern); keeping the
+seed's own draw was the closer reading of "same seed", so the want was not
+declared.
+
+**THE WRITING, CHARGED AGAINST THE LOG.** Every mandated family was
+screened before the draft was sung. The first chorus pair tried,
+burn/learn, came back with 1 [LOG: banned crooked_waltz.txt learn] banned
+pair, MODAL_RHYME; the second screen of partners for `burn` banned
+2 [LOG: banned crooked_waltz.txt stern] (burn/stern, and heard/word, a
+pair the song never binds), and `heard`, clean against `burn`, took the
+end. The first draft (md5 775218d72b0a) answered every group and still exited 2:
+four words carry two dictionary readings of different shape (`fiddler`,
+`rattling`, `us`, `nobody`), so their lines' counts were lower bounds, and
+`homeward` left two pairs of the four-member verse group unresolved. Each
+was replaced by a single-reading word and the verse group was re-screened
+with `home`. The second draft (md5 70ca1025004e) came back at exit 3 on
+one flag, PROMINENCE_OUT_OF_BAND, eight prominent syllables on L15 against
+a calibrated ceiling of seven; the line was rewritten with six. The third
+draft is the song. Every draft is banked under `songs/drafts/`.
+
+**WHAT THE GRADE DOES AND DOES NOT CLAIM.** No check is UNJUDGED and none
+is refused: the 18 mandated pairs are every pair the eleven groups make
+(the two return classes are held verbatim and reported apart, as
+RETURN_LOCKED), and no hook or title question is left undeclared,
+because the plan declares both. It does not claim that a drawn relation was honoured:
+none was drawn. Its notes stand as measurements (SPARSE lines under a
+12-pulse bar, LATE_ENTRY, UNIFORM_ANACRUSIS from the plan's own one-beat
+pickups, two chorus returns ending on their own end words).
 
 ---
 
