@@ -146,21 +146,25 @@ PINNED = {
     # moves every tail index), so the partner-rank line moves too: ~~median
     # 22.0, min 1, max 185 over 246 ranked pairs~~ -> median 21, min 0, max
     # 180 over 243 (`--check`, 2026-09-24, every pinned total holds).
-    # REPINNED 2026-09-27, ONE CAUSE: crooked_waltz was re-planned and
-    # rewritten (songs/README.md, its re-plan subsection), and every total
-    # below moved by that song's own delta and no other's, measured by
-    # `--check` on this tree. Its final went from the README command's old
-    # mandate on the old draft (47/21/26) to its banked invocation on the new
-    # one (20/20/0, the two return classes folded in as pairs): mandated
-    # ~~719~~ -> 692, judged ~~518~~ -> 517, refused ~~201~~ -> 175; eligible
-    # ~~458~~ -> 466, tail ~~240~~ -> 244, outside ~~215~~ -> 219, head and
-    # banned unchanged at 3 (it adds none); partner ranks median 21, min 0,
-    # max 180 over 247. Its 30 new screen rows are 27 clean and 3
-    # MODAL_RHYME: clean ~~792~~ -> 819, modal ~~395~~ -> 398, other stays 1
-    # (the classifier above reads the M-309 row shape).
+    # REPINNED 2026-09-27 BY ONE SONG'S DELTA, AND BY NOTHING ELSE:
+    # crooked_waltz was re-planned and rewritten (songs/README.md, its
+    # re-plan subsection). MEASURED PER SONG on both trees: at 1e0b1c7d the
+    # README command's old mandate on the old draft gives 47/21/26, eligible
+    # 11, tail 1, outside 10; the banked invocation on the new draft gives
+    # 20/20/0 (the two return classes folded in as pairs), eligible 18, tail
+    # 5, outside 13, head and banned 0 in both. So mandated ~~719~~ -> 692,
+    # judged ~~518~~ -> 517, refused ~~201~~ -> 175, eligible ~~458~~ -> 465,
+    # tail ~~240~~ -> 244, outside ~~215~~ -> 218. Its 30 new screen rows are
+    # 27 clean and 3 MODAL_RHYME: clean ~~792~~ -> 819, modal ~~395~~ -> 398,
+    # other stays 1 (the classifier above reads the M-309 row shape).
+    # NOT ADOPTED: `--check` was ALREADY MOVED at 1e0b1c7d, before this song
+    # changed, on eligible (458 pinned, 459 measured) and outside (215, 216);
+    # that +1 is not this song's and is not bisected here, so it stays
+    # visible as a MOVED line (--check measures 466 / 219 on this tree)
+    # rather than folded into a pin with no cause.
     "pairs_mandated": 692, "pairs_judged": 517, "pairs_refused": 175,
-    "eligible": 466, "banned_in_final": 3,
-    "rank_head": 3, "rank_tail": 244, "rank_outside": 219,
+    "eligible": 465, "banned_in_final": 3,
+    "rank_head": 3, "rank_tail": 244, "rank_outside": 218,
 }
 
 
