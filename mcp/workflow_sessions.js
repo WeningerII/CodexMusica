@@ -33,6 +33,11 @@ function closeBudget(budget) {
     return error;
   }
 }
+const retiredWriter = () =>
+  fail(
+    'SESSION_WRITER_RETIRED',
+    "This session was opened for the service's own writer, which now runs only inside the website chat. Call begin_lyrics for a new session — you write every line — and grade your draft there before revising."
+  );
 const privateFields = new Set([
   'workspace',
   'state',
@@ -106,7 +111,9 @@ export async function executeNative(session, name, input) {
         args[key] = clone(value);
       }
     }
-    args.writer = next.writer;
+    // Sessions opened before 2026-09-27 could name the service's writer. That
+    // writer now runs only inside the website chat; such a session cannot revise.
+    if (next.writer === 'kitchen') throw retiredWriter();
   }
   const server = buildServer({ task: next.task });
   const [a, b] = InMemoryTransport.createLinkedPair();
@@ -170,17 +177,14 @@ export class WorkflowSessions {
     return { record, session };
   }
 
-  open(domain, { phase = 'create', writer = 'kitchen', format = 'rich' } = {}) {
-    if (domain === 'lyrics' && writer === 'kitchen' && !this.store.durable)
-      throw fail(
-        'DURABLE_STORAGE_REQUIRED',
-        'Kitchen sessions require the configured persistent recovery store.'
-      );
+  open(domain, { phase = 'create', format = 'rich' } = {}) {
     const task = domain === 'recipe' ? { domain, format, maxChars: 1000 } : { domain, phase };
     const session = {
       version: 1,
       task,
-      writer: domain === 'lyrics' ? writer : null,
+      // Kept on the record so a session from before 2026-09-27 still reads
+      // back as the writer it was opened for (and is refused revision).
+      writer: domain === 'lyrics' ? 'interview' : null,
       semantic_identity: continuationSemanticIdentity(),
       workspace: null,
       native: {
@@ -328,6 +332,7 @@ export class WorkflowSessions {
     const session = clone(original);
     assertContinuationSemantics(session.semantic_identity);
     if (record.intent.action.tool !== 'lyric_revise') return session;
+    if (session.writer === 'kitchen') throw retiredWriter();
     const progress = record.progress;
     if (
       !progress ||
@@ -356,7 +361,7 @@ export class WorkflowSessions {
       args: {
         ...declarations,
         draft: progress.input_draft,
-        [session.writer === 'interview' ? 'state' : 'checkpoint']: wire,
+        state: wire,
       },
     };
     return session;

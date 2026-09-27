@@ -309,7 +309,11 @@ export async function createChatRouter({
   // that is the path the zod schemas validate, and schemas.js is explicit that
   // reaching the engine another way inherits none of it and degrades silently
   // instead of throwing.
-  const server = buildServer();
+  //
+  // This is the one server built with the kitchen on: Gemini is writing the
+  // whole song here, so the service's writer may answer its revise questions.
+  // Every outside surface builds without it (see buildServer in tools.js).
+  const server = buildServer({ kitchen: true });
   const [clientSide, serverSide] = InMemoryTransport.createLinkedPair();
   const client = new Client({ name: 'codex-musica-chat', version: '1.0.0' }, { capabilities: {} });
   await Promise.all([server.connect(serverSide), client.connect(clientSide)]);

@@ -96,7 +96,8 @@ has a separate run lifecycle and can make paid external model calls.
   not a bare field write — batch a `set_preface` first if you want to steer the cascade.
   <!-- @promise: connector-edit-parity -->
 - Recipe tools are **read-only, idempotent and closed-world**; thread the returned `workspace`.
-  `lyric_revise` stores private run state and its kitchen writer makes paid external calls.
+  `lyric_revise` stores private run state. You write every lyric line: no connector surface
+  hands a song to the service's own writer, which runs only inside the website chat.
   `/chat` persists request receipts, accepted progress, signed continuations and accounting
   when durable storage is configured. Preserve `run_id` and `run_revision` for direct
   continuations, and `request_id` for chat recovery. See `mcp/LYRICS_RUNTIME.md`.

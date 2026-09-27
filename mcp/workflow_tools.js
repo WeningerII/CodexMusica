@@ -47,7 +47,6 @@ const privateInput = new Set([
   'checkpoint',
   'run_id',
   'run_revision',
-  'writer',
   'recover_only',
   'recovery_part',
 ]);
@@ -69,7 +68,7 @@ function response(value) {
 const recipeInstructions =
   'Recipe session contract: start_recipe returns session_id. Pass the latest session_id to edit_recipe/render_recipe; the server carries the workspace. Each call returns the next session_id. Resolve catalog IDs, realize requested preferences through edits, and present the final recipe verbatim. Rich is the default; format may explicitly select tags, prose or compact. Recipes stay within 1000 characters. Do not start lyrics for a recipe-only request.';
 const lyricInstructions =
-  'Lyrics session contract: begin_lyrics selects create or edit and the writer. Tools submit work and return operation_id. Poll get_operation until completed, then use its session_id for the next step. Never submit another operation while one is pending. Creation requires sweep → screen → plan → exact-draft grade → revise; receipts and continuations are stored by the server. Resume interrupted operations only when resumable is true. Never treat a finished call as proof of certification.';
+  'Lyrics session contract: begin_lyrics selects create or edit; you write every line. Tools submit work and return operation_id. Poll get_operation until completed, then use its session_id for the next step. Never submit another operation while one is pending. Creation requires sweep → screen → plan → exact-draft grade → revise; receipts and continuations are stored by the server. Resume interrupted operations only when resumable is true. Never treat a finished call as proof of certification.';
 // Compatibility dispatch invokes the same tool engine with the caller's original
 // state. It does not manufacture create-phase receipts or reinterpret old runs.
 async function rawCall(name, args) {
@@ -136,7 +135,7 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
       title: 'Read a saved operation',
       description:
         'Read pending work, exact completed output, the next session_id, or accepted lyrics after interruption. This call never dispatches a worker or provider. If successor_id exists, read it before continuing; an older capability cannot branch the workflow. Retained IDs are private capabilities.',
-      inputSchema: z.object({ operation_id: id }).strict(),
+      inputSchema: z.object({ operation_id: id }),
       outputSchema: resultShape,
       annotations: readOnly,
     },
@@ -149,9 +148,9 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
       title: 'Resume interrupted work',
       description:
         'Explicitly continue an interrupted operation after get_operation reports resumable:true. Preserves its exact workspace or lyric declarations and accepted checkpoint. Unknown provider outcomes cannot resume. Repeating this request returns its existing successor rather than spending again.',
-      inputSchema: z.object({ operation_id: id }).strict(),
+      inputSchema: z.object({ operation_id: id }),
       outputSchema: resultShape,
-      annotations: { ...stateful, openWorldHint: domain !== 'recipe' },
+      annotations: stateful,
     },
     async ({ operation_id }) => {
       const taskDomain = operationDomain(operation_id);
@@ -168,13 +167,10 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
       {
         title: 'Begin a lyric task',
         description:
-          'Create a private lyrics session. Use create for a new song; edit only for existing lyrics supplied by the user. Kitchen (default) uses the service Gemini writer and budget accounting, matching the website. Interview uses proposals supplied by the caller. The phase and writer are fixed for this session. Returns session_id; performs no paid work.',
-        inputSchema: z
-          .object({
-            phase: z.enum(['create', 'edit']).default('create'),
-            writer: z.enum(['kitchen', 'interview']).default('kitchen'),
-          })
-          .strict(),
+          'Create a private lyrics session. Use create for a new song; edit only for existing lyrics supplied by the user. You write every line: the service plans and grades, and lyric_revise asks you each question it needs answered. The phase is fixed for this session. Returns session_id; performs no paid work.',
+        inputSchema: z.object({
+          phase: z.enum(['create', 'edit']).default('create'),
+        }),
         outputSchema: resultShape,
         annotations: { ...stateful, idempotentHint: false },
       },
@@ -220,7 +216,7 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
     const contract =
       domain === 'recipe'
         ? 'SESSION CONTRACT: pass session_id instead of workspace. The server carries the exact workspace and returns the next session_id. '
-        : 'SESSION CONTRACT: requires the latest session_id; submits a background operation. Poll get_operation for its result and next session_id. State, checkpoint, run_id and writer are carried by the server, replacing the raw transport instructions below. ';
+        : 'SESSION CONTRACT: requires the latest session_id; submits a background operation. Poll get_operation for its result and next session_id. The server carries the run state, run_id and run_revision; do not send them. ';
     register(
       tool.name,
       {
@@ -231,7 +227,7 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
             ? 'Compatibility: callers without session_id may use the original caller-managed workspace/state contract. Never mix both modes. '
             : '') +
           tool.description,
-        inputSchema: z.object(shape).strict(),
+        inputSchema: z.object(shape),
         ...(compatibility ? {} : { outputSchema: resultShape }),
         annotations: {
           ...stateful,
@@ -239,7 +235,7 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
             compatibility && domain === 'lyrics'
               ? (tool.annotations?.idempotentHint ?? false)
               : tool.name !== 'start_recipe',
-          openWorldHint: tool.name === 'lyric_revise',
+          openWorldHint: false,
         },
       },
       async ({ session_id, ...args }) => {

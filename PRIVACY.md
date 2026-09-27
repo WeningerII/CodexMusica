@@ -31,10 +31,10 @@ configured as durable. Local development without persistent storage is temporary
 ## External model processing
 
 Browser chat sends conversation text and relevant tool results to Google's Gemini
-API. `lyric_revise` with `writer: kitchen` also sends the lyric brief, draft and
-revision context to Gemini, including when called directly through MCP. These are
-paid model requests made with the service's API key. The `interview` writer uses
-answers supplied by the caller instead of invoking the server's kitchen model.
+API, and its lyric revision sends the lyric brief, draft and revision context to
+Gemini as well. These are paid model requests made with the service's API key.
+MCP connector calls (`/mcp`, `/mcp/recipe`, `/mcp/lyrics` and their aliases) send
+nothing to a model provider: the connecting host writes every lyric line itself.
 Your connecting AI host may independently process the information you give it.
 
 ## Logs

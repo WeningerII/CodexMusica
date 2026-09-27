@@ -202,11 +202,11 @@ function scanSchema(toolName, schema) {
   for (const t of tools) {
     const a = t.annotations || {};
     const revision = t.name === 'lyric_revise';
+    // No outside surface reaches a model provider (owner's rule, 2026-09-27):
+    // lyric_revise mutates its run, but the caller writes every line.
     check(
-      `${t.name}: annotations describe mutation and paid external calls`,
-      a.readOnlyHint === !revision &&
-        a.idempotentHint === !revision &&
-        a.openWorldHint === revision,
+      `${t.name}: annotations describe mutation and no external calls`,
+      a.readOnlyHint === !revision && a.idempotentHint === !revision && a.openWorldHint === false,
       JSON.stringify(a)
     );
   }

@@ -651,3 +651,43 @@ test('production contract matches the legacy service during migration and binds 
     await fs.rm(dir, { recursive: true, force: true });
   }
 });
+
+// Owner's rule, 2026-09-27: the service's Gemini writer runs only where Gemini
+// writes the whole song — the website chat. Every outside server publishes no
+// writer choice, says so in its instructions, and refuses a carried one.
+test('only the website chat server can reach the service writer', async () => {
+  for (const task of [null, { domain: 'lyrics' }]) {
+    const c = await local(task);
+    try {
+      const revise = (await c.client.listTools()).tools.find((t) => t.name === 'lyric_revise');
+      assert.equal(revise.inputSchema.properties.writer, undefined);
+      assert.equal(revise.annotations.openWorldHint, false);
+      assert.match(revise.description, /YOU WRITE EVERY LINE/);
+      assert.doesNotMatch(revise.description, /kitchen|service writer answers/i);
+      assert.match(revise.inputSchema.properties.checkpoint.description, /^Only with recover_only/);
+      const instructions = c.client.getInstructions();
+      assert.doesNotMatch(instructions, /kitchen|any client may ask/i);
+      assert.match(instructions, /you write every line/);
+      const refused = await c.client.callTool({
+        name: 'lyric_revise',
+        arguments: { draft: ['a', 'b'], scheme: 'AA', checkpoint: '{}' },
+      });
+      assert.match(JSON.stringify(refused), /KITCHEN_CHAT_ONLY/);
+    } finally {
+      await c.close();
+    }
+  }
+  const server = buildServer({ kitchen: true });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  await server.connect(a);
+  const client = new Client({ name: 'chat-surface', version: '1' }, { capabilities: {} });
+  await client.connect(b);
+  try {
+    const revise = (await client.listTools()).tools.find((t) => t.name === 'lyric_revise');
+    assert.deepEqual(revise.inputSchema.properties.writer.enum, ['interview', 'kitchen']);
+    assert.equal(revise.annotations.openWorldHint, true);
+    assert.match(revise.description, /SERVICE WRITER ANSWERS/);
+  } finally {
+    await client.close();
+  }
+});

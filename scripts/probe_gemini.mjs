@@ -123,7 +123,7 @@ const { Client } = await sdk('@modelcontextprotocol/sdk/dist/esm/client/index.js
 const { InMemoryTransport } = await sdk('@modelcontextprotocol/sdk/dist/esm/inMemory.js');
 const { buildServer } = await import(pathToFileURL(path.join(ROOT, 'mcp', 'tools.js')).href);
 
-const server = buildServer();
+const server = buildServer({ kitchen: true }); // the website chat's server, which this probe drives
 const [clientSide, serverSide] = InMemoryTransport.createLinkedPair();
 const client = new Client({ name: 'gemini-probe', version: '0' }, { capabilities: {} });
 await Promise.all([server.connect(serverSide), client.connect(clientSide)]);

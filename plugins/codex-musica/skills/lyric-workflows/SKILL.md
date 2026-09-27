@@ -7,7 +7,7 @@ Use the single Codex Musica MCP connection at `https://mcp.codexmusica.com/mcp` 
 
 ## Begin the requested task
 
-Call `begin_lyrics` with `phase: create` for a new song or `phase: edit` for existing lyrics supplied by the user. Preserve that choice throughout the session. The default `writer: kitchen` matches the website and uses the service's Gemini writer and paid-call accounting for repairs. Select `interview` only when caller-written repair proposals are requested. Beginning the session itself makes no paid model call.
+Call `begin_lyrics` with `phase: create` for a new song or `phase: edit` for existing lyrics supplied by the user. Preserve that choice throughout the session. You write every line — the complete draft and every answer the revise loop asks for; the service plans and grades and never writes lyrics for you. No lyric call makes a model call or spends money.
 
 Every lyric tool needs the latest `session_id` and submits a background operation. Read its `operation_id` with `get_operation`; respect `retry_after_seconds`. While pending, poll that operation instead of submitting the work again. Once completed, use its returned `session_id` for the next step. The server holds workflow receipts, original replay input and continuation envelopes. Never manufacture or send state, checkpoint, workflow receipts or internal run IDs.
 
@@ -17,11 +17,11 @@ Every lyric tool needs the latest `session_id` and submits a background operatio
 2. Screen candidate end words with `lyric_screen`. A refusal is not a successful screening.
 3. Call `lyric_plan` with an accepted seed and the same structural requirements. Carry declared title and rhyme relation when supplied. Read the returned executable plan and writer brief; an inspection-only or refused plan does not authorize drafting.
 4. Write the complete draft to that plan, preserving line counts, returns and section functions. Grade the exact draft with `lyric_grade` under the same declarations. The service restores omitted plan coordinates and refuses contradictory ones.
-5. Call `lyric_revise` only after the exact draft has been graded. Keep the same session. For kitchen, the service answers repair proposals. For interview, answer the requested lines through `answer` or `answers`; continuation state stays on the service.
+5. Call `lyric_revise` only after the exact draft has been graded. Keep the same session. Each suspended call asks one question: answer the requested lines through `answer` (one line) or `answers` (one `{line, text}` per asked line); continuation state stays on the service. Repeat until the loop reaches a stop condition.
 
 ## Existing lyrics and stops
 
-Use `lyric_check` for supplied lyrics with a declared scheme or line groups; use `lyric_recover` for a repair mandate. Use `lyric_verify` to compare a specific before/after revision, understanding that unchanged defects can survive that comparison. Declare pronunciation assumptions when needed and preserve any refused coverage.
+For supplied lyrics, run the same steps a planned song gets: `lyric_recover` first (blank stanza breaks as empty entries) to read the rhyme groups and returns the text actually carries, then `lyric_check` with that mandate, then `lyric_revise` without a seed and with the same mandate. Use `lyric_verify` to compare a specific before/after revision, understanding that unchanged defects can survive that comparison. Declare pronunciation assumptions when needed and preserve any refused coverage.
 
 Read both the operation status and the underlying tool verdict. `completed` means the tool call returned. `certified`, requested-layer coverage, findings and the actual lyric stop describe its outcome. Do not replace them with an unconditional success claim. Present the returned song and section headers verbatim, with the actual qualification beside it.
 

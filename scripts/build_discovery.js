@@ -63,8 +63,8 @@ const llms = `# Codex Musica
 The full editable engine is a Model Context Protocol server: seed a recipe from any
 tradition, then re-pick prefaces, swap part variants, override room/chain/tuning, and
 add/remove instruments or traditions. Recipe tools are deterministic; use the returned session_id for saved workspaces
-or retain the original caller-managed workspace contract. Lyrics revision retains private run state,
-and optional kitchen writing sends briefs and drafts to a paid external provider.
+or retain the original caller-managed workspace contract. Lyrics tools plan and grade; you write every
+line (the service never writes lyrics for a connector caller), and revision retains private run state.
 The chat surface supports durable request receipts. Everything below this
 section is a SEPARATE read-only product — one pre-compiled recipe per tradition, built by
 a different pipeline and worded differently. Use it for bulk reads; use the connector for
@@ -80,7 +80,7 @@ anything you want to change, and do not expect the two strings to match.
   documented in docs/connector.md. Keep run and request capabilities private.
 - Server card (capabilities, for auto-discovery): https://mcp.codexmusica.com/.well-known/mcp.json
 - Tools: start_recipe, edit_recipe, render_recipe, search_catalog, search_prefaces, get_instrument, get_tradition, list_traditions, list_options.
-- Lyric tools (separate planning/grading/revision pipeline; kitchen writing is paid): lyric_screen, lyric_sweep, lyric_plan, lyric_grade, lyric_recover, lyric_check, lyric_verify, lyric_revise, lyric_types.
+- Lyric tools (separate planning/grading/revision pipeline; you write the lines): lyric_screen, lyric_sweep, lyric_plan, lyric_grade, lyric_recover, lyric_check, lyric_verify, lyric_revise, lyric_types.
 
 Do NOT fetch codex.html: it is a multi-megabyte browser GUI, it will blow your context or
 fail to load, and it contains no instructions for you.
@@ -255,7 +255,7 @@ const serverManifest = {
   title: 'Codex Musica',
   description:
     `Recording recipes over ${tindex.count} traditions and a separate lyrics planning, grading and revision pipeline. ` +
-    'Recipe tools are deterministic. Lyrics revision stores private run state and optional kitchen writing makes paid external model calls.',
+    'Recipe tools are deterministic. Lyrics tools plan and grade; the caller writes every line, and revision stores private run state.',
   version: mcpPkg.version,
   websiteUrl: BASE,
   repository: {

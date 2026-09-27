@@ -235,7 +235,7 @@ test(
       try {
         const initial = await shared.callTool({
           name: 'begin_lyrics',
-          arguments: { writer: 'interview' },
+          arguments: {},
         });
         const queued = await shared.callTool({
           name: 'lyric_sweep',

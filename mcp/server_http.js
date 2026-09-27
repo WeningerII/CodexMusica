@@ -355,7 +355,7 @@ app.get('/.well-known/mcp.json', (_req, res) =>
     title: 'Codex Musica',
     description:
       `Recording recipes over ${counts.traditions} traditions and a separate lyrics planning, grading and revision pipeline. ` +
-      'Recipe tools are deterministic. Lyrics revision stores private run state and optional kitchen writing makes paid external model calls.',
+      'Recipe tools are deterministic. Lyrics tools plan and grade; the caller writes every line, and revision stores private run state.',
     version: CONNECTOR_VERSION,
     transport: 'streamable-http',
     endpoint: PUBLIC_MCP_URL,
@@ -363,7 +363,7 @@ app.get('/.well-known/mcp.json', (_req, res) =>
     taskEndpoints: { recipe: PUBLIC_MCP_URL + '/recipe', lyrics: PUBLIC_MCP_URL + '/lyrics' },
     workflowControls: ['begin_lyrics', 'get_operation', 'resume_operation'],
     privacy:
-      'Workflow sessions, lyrics requests, accepted drafts, recovery receipts and accounting can be persisted. Kitchen writing sends its brief to the configured provider.',
+      'Workflow sessions, lyrics requests, accepted drafts and recovery receipts can be persisted. Connector calls send nothing to a model provider.',
     documentation: 'https://codexmusica.com/AGENTS.md',
     websiteUrl: 'https://codexmusica.com',
     repository: 'https://github.com/WeningerII/CodexMusica',

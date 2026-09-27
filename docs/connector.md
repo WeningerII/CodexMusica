@@ -88,8 +88,8 @@ Beside the recipes — and never touching them — the `lyric_*` family plans an
 | `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
 
 Recipe tools pass `workspace` in and out. `lyric_revise` also retains run state;
-its optional kitchen writer sends the lyric brief and draft to Google and incurs
-model costs. `/chat` uses durable receipts to recover accepted work. See
+the caller answers every question it asks, and no connector call reaches a model
+provider. `/chat` uses durable receipts to recover accepted work. See
 [LYRICS_RUNTIME.md](../mcp/LYRICS_RUNTIME.md) for storage and continuation rules.
 
 ## How it works (recipe = under 1,000 chars)

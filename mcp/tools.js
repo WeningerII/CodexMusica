@@ -13,7 +13,7 @@ import { CONNECTOR_VERSION } from './contract_version.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import * as E from './engine.js';
 import { TOOL_SCHEMAS } from './schemas.js';
-import { registerLyricTools, LYRIC_INSTRUCTIONS } from './lyric_tools.js';
+import { registerLyricTools, lyricInstructions } from './lyric_tools.js';
 import { withExecutionContext, childExecutionContext } from './execution_context.js';
 import { performance } from 'node:perf_hooks';
 import { TOOL_BUDGET_MS } from './budget.js';
@@ -244,7 +244,13 @@ export function registerTools(server) {
   registerLyricTools(server, tool);
 }
 
-export function buildServer({ task = null } = {}) {
+// `kitchen` is the website chat's switch and nothing else's (owner's rule,
+// 2026-09-27): the service's own Gemini writer may answer revise questions only
+// where Gemini is writing the whole song. chat.js turns it on for its in-process
+// server; every outside surface — /mcp, /mcp/lyrics, the ChatGPT aliases, stdio —
+// builds without it, so its lyric_revise publishes no writer choice and the
+// caller writes every line.
+export function buildServer({ task = null, kitchen = false } = {}) {
   if (task) taskDomain(task);
   const recipeInstructions =
     `CodexMusica turns plain-language musical intent into a precise recording recipe over ${E.counts.traditions} ` +
@@ -274,7 +280,7 @@ export function buildServer({ task = null } = {}) {
       ? RECIPE_MARKER + '\n' + recipeInstructions + '\n'
       : '') +
     (!task || taskDomain(task) === 'lyrics'
-      ? LYRICS_MARKER + '\n' + LYRIC_INSTRUCTIONS + '\n'
+      ? LYRICS_MARKER + '\n' + lyricInstructions({ kitchen }) + '\n'
       : '');
   const server = new McpServer(
     { name: 'codex-musica', version: CONNECTOR_VERSION },
@@ -283,6 +289,7 @@ export function buildServer({ task = null } = {}) {
   Object.defineProperty(server, 'task', {
     value: task ? Object.freeze({ ...(typeof task === 'string' ? { domain: task } : task) }) : null,
   });
+  Object.defineProperty(server, 'kitchen', { value: kitchen === true });
   registerTools(server);
   return server;
 }

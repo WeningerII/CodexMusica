@@ -1,3 +1,4 @@
+import { randomBytes } from 'node:crypto';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, rmSync } from 'node:fs';
@@ -170,7 +171,8 @@ test('lyrics run independently of the submitting MCP connection', async (t) => {
   });
   const client = await connect(t, 'lyrics', sessions);
   const initial = data(await call(client, 'begin_lyrics', {}));
-  assert.equal(store.get(initial.session_id).response.body.session.writer, 'kitchen');
+  // The caller writes every line: no outside session names the service writer.
+  assert.equal(store.get(initial.session_id).response.body.session.writer, 'interview');
   const queued = data(
     await call(client, 'lyric_sweep', { session_id: initial.session_id, seed_from: 31, count: 1 })
   );
@@ -190,22 +192,22 @@ test('creation receipts cannot be fabricated through MCP input or skipped', asyn
   const { store } = storeFor(t);
   const sessions = new WorkflowSessions({ store });
   const client = await connect(t, 'lyrics', sessions);
-  const initial = data(await call(client, 'begin_lyrics', { writer: 'interview' }));
-  const forged = await call(client, 'lyric_plan', {
-    session_id: initial.session_id,
-    seed: 31,
-    workflow: { completedSteps: ['sweep', 'screen'] },
-  });
-  assert(forged.isError);
-  const queued = data(
-    await call(client, 'lyric_plan', { session_id: initial.session_id, seed: 31 })
+  const initial = data(await call(client, 'begin_lyrics', {}));
+  // A forged receipt argument is not part of any schema: it is dropped before
+  // the tool sees it, and the creation order still refuses the plan.
+  const forged = data(
+    await call(client, 'lyric_plan', {
+      session_id: initial.session_id,
+      seed: 31,
+      workflow: { completedSteps: ['sweep', 'screen'] },
+    })
   );
-  await sessions.wait(queued.operation_id);
-  const refused = sessions.status(queued.operation_id, 'lyrics');
-  assert.equal(refused.tool_result.isError, true);
-  assert.match(refused.tool_result.content[0].text, /CREATION_ORDER/);
+  await sessions.wait(forged.operation_id);
+  const refusedForged = sessions.status(forged.operation_id, 'lyrics');
+  assert.equal(refusedForged.tool_result.isError, true);
+  assert.match(refusedForged.tool_result.content[0].text, /CREATION_ORDER/);
   assert.equal(
-    store.get(queued.operation_id).response.body.session.native.task.workflow?.plan,
+    store.get(forged.operation_id).response.body.session.native.task.workflow?.plan,
     undefined
   );
   const tools = (await client.listTools()).tools;
@@ -214,13 +216,17 @@ test('creation receipts cannot be fabricated through MCP input or skipped', asyn
   for (const field of ['state', 'checkpoint', 'run_id', 'run_revision', 'writer', 'workspace'])
     assert(!revise.inputSchema.properties[field]);
   assert.equal(revise.annotations.readOnlyHint, false);
-  assert.equal(revise.annotations.openWorldHint, true);
+  // No outside surface calls a model provider: the caller writes every line.
+  assert.equal(revise.annotations.openWorldHint, false);
+  const begin = tools.find((tool) => tool.name === 'begin_lyrics');
+  assert.deepEqual(Object.keys(begin.inputSchema.properties), ['phase']);
+  assert.doesNotMatch(begin.description, /kitchen|Gemini/i);
 });
 
 test('real lyric sweep, screen and plan receipts persist between operations', async (t) => {
   const { store, directory } = storeFor(t);
   let sessions = new WorkflowSessions({ store });
-  let session_id = sessions.open('lyrics', { writer: 'interview' }).session_id;
+  let session_id = sessions.open('lyrics').session_id;
   const run = async (name, args) => {
     const q = sessions.submit(session_id, 'lyrics', name, args);
     await sessions.wait(q.operation_id);
@@ -266,7 +272,7 @@ test('restart marks admitted work interrupted and never automatically executes i
       return { session, result: { content: [] } };
     },
   });
-  const opened = sessions.open('lyrics', { writer: 'interview' });
+  const opened = sessions.open('lyrics');
   const q = sessions.submit(opened.session_id, 'lyrics', 'lyric_revise', {});
   // A fresh process sees the durable intent before any worker response.
   const recovered = new WorkflowSessions({
@@ -284,7 +290,7 @@ test('restart marks admitted work interrupted and never automatically executes i
 test('real edit revision restores a question across reconnect and rejects changed replay input without losing the session', async (t) => {
   const { store, directory } = storeFor(t);
   let sessions = new WorkflowSessions({ store });
-  let session_id = sessions.open('lyrics', { phase: 'edit', writer: 'interview' }).session_id;
+  let session_id = sessions.open('lyrics', { phase: 'edit' }).session_id;
   const run = async (args) => {
     const q = sessions.submit(session_id, 'lyrics', 'lyric_revise', args);
     await sessions.wait(q.operation_id);
@@ -321,7 +327,7 @@ function checkpoint(overrides = {}) {
     input_draft: ['original'],
     accepted_lines: ['accepted'],
     answered: { propose: [], propose_group: [] },
-    connector_declarations: { seed: 31, writer: 'kitchen' },
+    connector_declarations: { seed: 31, writer: 'interview' },
     connector_semantic_identity: continuationSemanticIdentity(),
     ...overrides,
   };
@@ -340,7 +346,7 @@ test('safe resume carries original replay input and accepted journal, and dedupl
       }
       const args = session.native.continuation.args;
       assert.deepEqual(args.draft, ['original']);
-      const decoded = decodeState(args.checkpoint);
+      const decoded = decodeState(args.state);
       assert.deepEqual(decoded.accepted_lines, ['accepted']);
       return { session, result: { content: [{ type: 'text', text: 'resumed' }] } };
     },
@@ -503,10 +509,29 @@ test('private result envelopes are hidden without changing the song or verdict',
   for (const field of ['state', 'workspace', 'checkpoint']) assert(!(field in verdict));
 });
 
-test('kitchen admission requires durable storage', () => {
+test('outside lyric sessions never hand revision to the service writer', async (t) => {
+  // Owner's rule (2026-09-27): the service's Gemini writer runs only where
+  // Gemini writes the whole song — the website chat. A lyrics session opens on
+  // any store, names the caller as its writer, and ignores a writer argument.
   const sessions = new WorkflowSessions({ store: new JobStore() });
-  assert.throws(() => sessions.open('lyrics'), /DURABLE_STORAGE_REQUIRED/);
+  const opened = sessions.open('lyrics', { writer: 'kitchen' });
+  assert.equal(opened.status, 'completed');
+  assert.equal(sessions.record(opened.session_id, 'lyrics').session.writer, 'interview');
   assert.equal(sessions.open('recipe').durable, false);
+  // A session recorded before the rule named the service writer; it cannot revise.
+  const { store } = storeFor(t);
+  const legacy = new WorkflowSessions({ store });
+  const session = legacy.record(legacy.open('lyrics').session_id, 'lyrics').session;
+  session.writer = 'kitchen';
+  const oldId = randomBytes(32).toString('hex');
+  const body = { request_id: oldId, integration: 'chatgpt-v1', action: 'open' };
+  store.begin(oldId, body, {}, { session });
+  store.complete(oldId, 200, { session, result: { content: [] } });
+  const q = legacy.submit(oldId, 'lyrics', 'lyric_revise', { seed: 31, draft: ['x'] });
+  await legacy.wait(q.operation_id);
+  const refused = legacy.status(q.operation_id, 'lyrics');
+  assert.equal(refused.tool_result.isError, true);
+  assert.match(refused.tool_result.content[0].text, /SESSION_WRITER_RETIRED/);
 });
 
 test('unsettled operation budget blocks replay even without a proposer usage callback', async (t) => {
@@ -683,7 +708,7 @@ test('one connection exposes both workflows, preserving independent sessions acr
   assert.match(client.getInstructions(), /Recipe session contract/);
   assert.match(client.getInstructions(), /Lyrics session contract/);
   const recipe = data(await call(client, 'start_recipe', { traditions: ['delta_blues'] }));
-  const lyrics = data(await call(client, 'begin_lyrics', { writer: 'interview' }));
+  const lyrics = data(await call(client, 'begin_lyrics', {}));
   const wrong = await call(client, 'render_recipe', { session_id: lyrics.session_id });
   assert.equal(wrong.isError, true);
   const wrongLyrics = await call(client, 'lyric_sweep', {

@@ -1603,6 +1603,11 @@ export const _verdictInternals = {
   loopStatusOf,
 };
 
+// lyric_revise's `writer` exists only where the service's own writer may run
+// (the website chat — buildServer({ kitchen: true })). Every outside surface
+// publishes LYRIC_TOOL_SCHEMAS.lyric_revise without it, and keeps `checkpoint`
+// only as an export door for runs that writer made before 2026-09-27.
+const KITCHEN_ONLY_FIELDS = ['writer'];
 export const LYRIC_TOOL_SCHEMAS = {
   lyric_screen: {
     words: z
@@ -1732,7 +1737,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_STATE_CHARS)
       .optional()
       .describe(
-        'The kitchen checkpoint returned by an interrupted call, VERBATIM. It includes original input, accepted lines, and completed answers; resume under the SAME declarations. Completed answers are verified again without another paid proposal. Never substitute the displayed final_draft for its original replay_draft.'
+        "The service writer's checkpoint returned by an interrupted call, VERBATIM. It includes original input, accepted lines, and completed answers; resume under the SAME declarations. Completed answers are verified again without another paid proposal. Never substitute the displayed final_draft for its original replay_draft."
       ),
     recover_only: z
       .boolean()
@@ -1771,7 +1776,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .enum(WRITERS)
       .optional()
       .describe(
-        "Who writes the lines. 'interview' (default): the loop suspends at each question and YOU answer through run_id or state + answer/answers. 'kitchen': the server asks its own writer model. A completed call returns a graded stop; an interrupted call returns a checkpoint for explicit continuation. Kitchen takes checkpoint, not interview state/answer. The chat surface uses kitchen."
+        "Who writes the lines. 'kitchen': the service's own writer answers every question and one call runs the loop to a stop; an interrupted call returns a checkpoint for explicit continuation. 'interview': the loop suspends at each question and the caller answers with answer/answers."
       ),
     answer: z
       .string()
@@ -1797,7 +1802,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(6)
       .optional()
       .describe(
-        "Tier-1 attempts per flagged line (this connector's default is 1 for writer:'interview' — a rejected line is re-briefed fresh next round with its rejection quoted, rather than re-asked at once — and 3 for writer:'kitchen', where the cook is re-asked at once). Same constancy rule as max_rounds."
+        'Tier-1 attempts per flagged line (default 1: a rejected line is re-briefed fresh next round with its rejection quoted, rather than re-asked at once). Same constancy rule as max_rounds.'
       ),
     backtrack: z
       .number()
@@ -1960,6 +1965,68 @@ export const LYRIC_TOOL_SCHEMAS = {
     word_b: z.string().max(MAX_WORD_CHARS).describe('Second word of the pair.'),
   },
 };
+// The website chat's full revise shape. Stored run declarations are parsed with
+// it too, so a record that names its writer keeps it.
+export const KITCHEN_REVISE_SCHEMA = Object.freeze({ ...LYRIC_TOOL_SCHEMAS.lyric_revise });
+for (const key of KITCHEN_ONLY_FIELDS) delete LYRIC_TOOL_SCHEMAS.lyric_revise[key];
+LYRIC_TOOL_SCHEMAS.lyric_revise.checkpoint = z
+  .string()
+  .max(MAX_STATE_CHARS)
+  .optional()
+  .describe(
+    'Only with recover_only:true: a checkpoint that an earlier server-written run returned, VERBATIM, to export its accepted lyrics and journal. It cannot resume a run here — you write every line.'
+  );
+
+const kitchenChatOnly = () =>
+  refuse(
+    "KITCHEN_CHAT_ONLY: the service's own writer runs only inside the website chat. Here you write every line: send the draft without writer/checkpoint and answer each question the loop asks. A checkpoint from an earlier server-written run can still be exported with recover_only:true."
+  );
+
+// ── lyric_revise's description ────────────────────────────────────────────
+// One text per surface. Outside surfaces (no kitchen) never mention a writer
+// choice: the caller writes every line. The website chat's surface adds the
+// service writer, which it drives on the chat model's behalf.
+function reviseDescription({ kitchen = false } = {}) {
+  const common =
+    "THE WORKING ORDER'S LAST STEP, and the only tool whose output contains a FINISHED song. It drives the " +
+    "harness's revise loop over the draft against the SAME plan lyric_plan drew (same seed, same declarations, " +
+    'or a DIFFERENT plan is revised) — or, for a pasted song, against the same mandate lyric_check graded ' +
+    '(no seed; scheme or groups, optional returns/structures/blueprint). The loop grades, holds every flagged ' +
+    'and banned line open, and keeps going until a stop condition. THERE IS NO SONG IN ANY RESPONSE UNTIL THE ' +
+    'LOOP REACHES A STOP CONDITION. At a stop condition the first block is the rendered song in performance ' +
+    'order under its bracket headers with a [FINISHED — seed N — exit E — STOP_REASON — ...] stamp: exit 0 is ' +
+    'converged clean; coverage and certified disclose whether every mandated pair was judged, and exit 2 can ' +
+    'mean uncertified coverage. Exit 3 names the lines still open, or — with no line open — the WHOLE-DRAFT ' +
+    'FLAG(S) standing: a PARKED song either way — present it only as parked, never as finished; `status` says ' +
+    'which of the two, and `loop_whole_flag_codes` names the flags. The two-tier ban is enforced by the loop ' +
+    'itself (MANDATORY_PURSUE): banned pairs hold their lines open and the loop keeps asking for ' +
+    "replacements. Keep any budget fields (max_rounds, attempts, backtrack) constant across one song's calls; " +
+    'a moved declaration is refused. Writer execution enforces the registry-derived capacity reported by ' +
+    'lyric_plan and 200 characters per sung line; larger pasted drafts remain measurable by lyric_check. A ' +
+    'journal_capacity stop preserves the exact journal and accepted draft and cannot resume; reduce the ' +
+    'requested scope before independent new_run work. ';
+  const interview =
+    "YOU WRITE EVERY LINE. A suspended call returns [AWAITING PROPOSAL] and the writer's brief for ONE " +
+    'question as its first block — which lines, what they must answer, which words are FORBIDDEN as too ' +
+    'predictable — and no song. Answer by calling lyric_revise again with `answer` (exactly one line of ' +
+    'song text) or `answers` (one {line, text} per asked line — the shape for a batch or a group question). ' +
+    'With a session_id the run, its declarations and the draft are carried for you. Without one, send the ' +
+    'same declarations again plus the `run_id` and `run_revision` from the last response (or its `state`, ' +
+    'VERBATIM), and omit `draft`: the run keeps the draft it opened on. Each call re-runs the loop from its ' +
+    'record (deterministic, so the same questions arrive in the same order). To start again on a different ' +
+    'draft, grade that draft first, then send it with `new_run: true`. After a migration refusal, ' +
+    '`recover_only: true` with only the original `state` exports its accepted lyrics and journal without ' +
+    'replay or restamping. ';
+  const chat =
+    'ON THIS SURFACE THE SERVICE WRITER ANSWERS: send the draft and the declarations; one call runs the ' +
+    'loop to a stop condition, the writer answering each question (a group question may ask for several ' +
+    'lines at once). An interrupted call returns `checkpoint` for explicit resume, `final_draft` as the ' +
+    'exact accepted lines and `replay_draft` as the original input; never replay answers against ' +
+    'final_draft, and never resume an unknown provider completion. After a migration refusal, ' +
+    '`recover_only: true` with only the original checkpoint exports its accepted lyrics and journal ' +
+    'without replay or restamping. ';
+  return common + (kitchen ? chat : interview);
+}
 
 // ── registration ───────────────────────────────────────────────────────────
 
@@ -2173,39 +2240,17 @@ export function registerLyricTools(server, tool) {
     'lyric_revise',
     {
       title: 'Drive the revise loop to a stop condition (the finishing step)',
-      description:
-        "THE WORKING ORDER'S LAST STEP, and the only tool whose output contains a FINISHED song. It drives the " +
-        "harness's revise loop over the draft against the SAME plan lyric_plan drew (same seed, same declarations, " +
-        'or a DIFFERENT plan is revised): the loop grades, holds every flagged and banned line open, and ASKS — the ' +
-        "first content block of a suspended call is the writer's brief for ONE question (which lines, what they " +
-        'must answer, which words are FORBIDDEN as too predictable). Answer it by calling again with the SAME ' +
-        'declarations (seed and the rest) plus `run_id` (an opaque private capability) or explicit `state` ' +
-        'and `answer` (the new line) or `answers` (one {line, text} per asked line, for a batch or a group); on such a continuing call OMIT ' +
-        '`draft` where the caller carries it (the chat connector does) — the draft is one draft for the whole ' +
-        'run and never changes between its calls, and re-sending it is where calls have broken. THERE IS NO SONG IN ANY RESPONSE UNTIL THE LOOP REACHES A STOP ' +
-        'CONDITION: a suspended call returns [AWAITING PROPOSAL] and the question, structurally without a render, ' +
-        'so a suspended response is a work record. At a stop condition the first block is the ' +
-        'rendered song in performance order under its bracket headers with a [FINISHED — seed N — exit E — ' +
-        'STOP_REASON — ...] stamp: exit 0 is converged clean; coverage and certified disclose whether every mandated pair was judged. Exit 2 can mean uncertified coverage. Exit 3 names the lines still open, or — with no line open — ' +
-        'the WHOLE-DRAFT FLAG(S) standing (a PARKED song either way — present it only as parked, never as finished; ' +
-        '`status` says which of the two, and `loop_whole_flag_codes` names the flags). The two-tier ban is enforced by the loop itself ' +
-        '(MANDATORY_PURSUE), not by a stamp: banned pairs hold their lines open and the loop keeps asking for ' +
-        'replacements. Each call re-runs the loop from its record (deterministic, so the same questions arrive in ' +
-        'the same order). Preserve the exact returned state or checkpoint and accepted draft, and resume only ' +
-        'when the typed result permits it; never replay an unknown provider completion. Keep any budget fields ' +
-        "constant across one song's calls. WHO WRITES THE LINES is `writer` (M-254): 'interview' (the default) is " +
-        "the question-and-answer contract above, for a client that writes its own lines; 'kitchen' runs the loop " +
-        'to a stop condition on the server with its own writer model answering every question one line at a ' +
-        'time on the same brief. A stop returns the song or a parked draft to rewrite. An interrupted kitchen returns `checkpoint` for explicit resume, `final_draft` as exact accepted lines, and `replay_draft` as original input. Never replay answers against final_draft. Writer execution also enforces the registry-derived capacity reported by lyric_plan and 200 characters per sung line; larger pasted drafts remain measurable. A journal_capacity stop preserves the exact journal and accepted draft and cannot resume. An identical restart may hit the same limit; reduce the requested scope explicitly before independent new_run work. After migration refusal, send recover_only:true with only the original state/checkpoint to export its accepted lyrics and journal without replay or restamping. The chat surface always cooks. ' +
-        EXECUTION_CONTRACT,
-      inputSchema: LYRIC_TOOL_SCHEMAS.lyric_revise,
-      annotations: { readOnlyHint: false, idempotentHint: false, openWorldHint: true },
+      description: reviseDescription({ kitchen: server.kitchen }) + EXECUTION_CONTRACT,
+      inputSchema: server.kitchen ? KITCHEN_REVISE_SCHEMA : LYRIC_TOOL_SCHEMAS.lyric_revise,
+      // Only the website chat's writer calls out to a model provider.
+      annotations: { readOnlyHint: false, idempotentHint: false, openWorldHint: server.kitchen },
     },
     (a) => {
       if (a.recovery_part != null && !a.recover_only)
         throw refuse(
           'recovery_part requires recover_only:true; it cannot request a writer continuation.'
         );
+      if (!server.kitchen && !a.recover_only && a.checkpoint != null) throw kitchenChatOnly();
       return a.recover_only
         ? recoverContinuationOnly(a)
         : withRunLock(a, () =>
@@ -2285,9 +2330,7 @@ export function registerLyricTools(server, tool) {
                         'CONTINUATION_INVALID: interview state lacks original input and declarations; preserve it as a recovery artifact.'
                       );
                     const decl = declarationsOf(
-                      z
-                        .object(LYRIC_TOOL_SCHEMAS.lyric_revise)
-                        .parse(decoded.connector_declarations)
+                      z.object(KITCHEN_REVISE_SCHEMA).parse(decoded.connector_declarations)
                     );
                     const moved = movedDeclarations(decl, a);
                     if (moved.length)
@@ -2340,9 +2383,7 @@ export function registerLyricTools(server, tool) {
                 checkLines(checkpoint.accepted_lines);
                 if (checkpoint.connector_declarations) {
                   const decl = declarationsOf(
-                    z
-                      .object(LYRIC_TOOL_SCHEMAS.lyric_revise)
-                      .parse(checkpoint.connector_declarations)
+                    z.object(KITCHEN_REVISE_SCHEMA).parse(checkpoint.connector_declarations)
                   );
                   const moved = movedDeclarations(decl, a);
                   if (moved.length)
@@ -2465,6 +2506,9 @@ export function registerLyricTools(server, tool) {
                   '`blueprint` needs `subdivision` — the slot questions refuse rather than assume a grid'
                 );
               const writer = a.writer || 'interview';
+              // Belt and braces: outside surfaces publish neither field, but a
+              // carried record could still name them.
+              if (!server.kitchen && (writer === 'kitchen' || checkpoint)) throw kitchenChatOnly();
               if (checkpoint && writer !== 'kitchen')
                 throw refuse('`checkpoint` resumes writer kitchen; interview resumes with state');
               if (
@@ -3151,52 +3195,60 @@ export function registerLyricTools(server, tool) {
 //: The paragraph buildServer appends to the server instructions — the same
 //: text the Gemini chat receives as its system prompt (buildSurface reads
 //: the live instructions), so the two surfaces stay one description.
-export const LYRIC_INSTRUCTIONS =
-  ' BESIDE THE RECIPES, AND NEVER TOUCHING THEM, the lyric_* family is a songwriting ' +
-  'system. The program plans and grades; lyrics come from the client or the declared kitchen writer. Its 77-schema registry includes 73 implemented shapes and 4 explicit unsupported-shape refusals. A pair stands in EVERY relation its sound supports (a perfect rhyme is also assonance and consonance; rime riche is also rhyme): the default judges every pair against every coarse relation and every registry schema, and a group is satisfied when its pairs stand in at least one; planning draws none. Full figures and refused obligations remain explicit. The working order that ' +
-  'produces one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what you ' +
-  'want the shape to be and it returns the seeds that hold, in seed order, unranked; ' +
-  '(1) lyric_screen candidate end-word pairs BEFORE writing — a banned pair ' +
-  '(HOMEOTELEUTON/MODAL_RHYME) is an answer, pick different words; (2) lyric_plan with a declared integer ' +
-  'seed for a complete shape (sections, meter — often not 4/4, rhyme plan, hook slot) and write to its ' +
-  'brief, honoring the verbatim returns — declare the `title` here if the song has one, because an ' +
-  'undeclared title leaves "is the title in the hook?" REFUSED and a declared one that is not a run of ' +
-  'words inside the hook line is a FLAG; (3) lyric_grade with the SAME seed AND THE SAME DECLARATIONS ' +
-  '(form, lines, relation, functions, title — a declaration dropped here grades a different plan) and ' +
-  'the draft — its render is the INTERIM graded draft, and the [GRADED — seed …] stamp under it is a ' +
-  'grade, not a finish; (4) lyric_revise with the SAME seed and declarations — it drives the revise loop ' +
-  'and returns a song ONLY past a stop condition, under a [FINISHED — seed … — exit …] stamp. With ' +
-  "`writer: 'kitchen'` (the chat surface always; any client may ask for it) the server's own writer answers " +
-  "every question and ONE call returns the stop condition; with the default 'interview' the loop asks one " +
-  'question per suspended call (answer with `state` passed back verbatim plus `answer`), called repeatedly. THE FINISHED SONG COMES FROM lyric_revise AND NOWHERE ELSE: a song presented without ' +
-  'its [FINISHED …] stamp is an interim draft and must be presented as one, and stopping at step (3) ' +
-  'because the draft "looks done" is the exact hand-wash the loop exists to end — the loop, not you, ' +
-  'says when revision is over. THE BAN IS UNSKIPPABLE: a grade verdict with banned_pairs above zero is ' +
-  'the harness answering ' +
-  'NO — the song is not finished even at exit 0, and inside lyric_revise those pairs hold their lines ' +
-  'open mechanically (MANDATORY_PURSUE). Replace the banned end words (screen the replacements ' +
-  'with lyric_screen) and keep answering; never present a song as finished while banned pairs stand. ' +
-  'PRESENTATION IS PART OF THE CONTRACT: the first content block returned by lyric_grade and lyric_plan ' +
-  'is the deliverable — reproduce it character for character, exactly as you reproduce a recipe string; ' +
-  'the bracket headers ([CHORUS — 3 lines — 6 bars of 6/8, half-beat pickup]) are measurements, ' +
-  'restyling them to bare [CHORUS] deletes what the format exists to carry, and the [GRADED — seed …] ' +
-  'stamp line under the song is part of the block and reaches the user with it. For lyrics a user ' +
-  "pastes, the SAME steps as a planned song (the owner's rule): lyric_recover FIRST to structure them (blank " +
-  "stanza breaks as empty entries; `placements: 'end'` for anything longer than a few lines) — it hands " +
-  'back the `mandate` (groups/returns) the text actually carries and the coordinates it REFUSED (the meter, ' +
-  'always) for the user to declare — then lyric_check with that mandate (and a declared blueprint + subdivision ' +
-  'when the user gives the grid), then lyric_revise WITHOUT a seed and with the same mandate to drive the loop ' +
-  'to a stop condition; a bare lyric_check on a paste is the rhyme and floor layers only, and its verdict says ' +
-  'so. lyric_verify judges a CHANGE to one, ' +
-  'which is the other half of a revision round: read its `accepted`, not its exit code, and remember it is a ' +
-  'DIFF that cannot report banned pairs surviving untouched. FLAGS are defects; banned pairs are ' +
-  'unskippable whatever their severity; other NOTES are measurements and are not to be "fixed". A verdict ' +
-  'carrying structures_uncalibrated is the third thing to read: correctness IS graded for that declared ' +
-  'structure and laziness is NOT, the two-tier ban is skipped on its pairs, and an absent banned_pairs ' +
-  'there means the question was not asked rather than answered clean. For unresolved pronunciation, read ' +
-  'pronunciation_options from grade/check, select the intended dictionary reading or supply ARPABET with ' +
-  'an honest source in pronunciations, then regrade. Choices bind exact line text and token position, ' +
-  'including every verbatim chorus return. Never choose phones just to pass a check. A revision can ' +
-  'remove an original occurrence; its reading is retained as retired and never applied to changed text. ' +
-  'New text is graded independently. Supplying new readings during revision requires regrading and a new run. Recipes ' +
-  'describe the SOUND, lyric tools govern the WORDS; the conversation is the only place they meet.';
+export function lyricInstructions({ kitchen = false } = {}) {
+  return (
+    ' BESIDE THE RECIPES, AND NEVER TOUCHING THEM, the lyric_* family is a songwriting ' +
+    'system. The program plans and grades; ' +
+    (kitchen
+      ? "on this chat surface the service's own writer answers the revise loop's questions. "
+      : 'you write every line — the service never writes lyrics for an outside caller. ') +
+    'Its 77-schema registry includes 73 implemented shapes and 4 explicit unsupported-shape refusals. A pair stands in EVERY relation its sound supports (a perfect rhyme is also assonance and consonance; rime riche is also rhyme): the default judges every pair against every coarse relation and every registry schema, and a group is satisfied when its pairs stand in at least one; planning draws none. Full figures and refused obligations remain explicit. The working order that ' +
+    'produces one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what you ' +
+    'want the shape to be and it returns the seeds that hold, in seed order, unranked; ' +
+    '(1) lyric_screen candidate end-word pairs BEFORE writing — a banned pair ' +
+    '(HOMEOTELEUTON/MODAL_RHYME) is an answer, pick different words; (2) lyric_plan with a declared integer ' +
+    'seed for a complete shape (sections, meter — often not 4/4, rhyme plan, hook slot) and write to its ' +
+    'brief, honoring the verbatim returns — declare the `title` here if the song has one, because an ' +
+    'undeclared title leaves "is the title in the hook?" REFUSED and a declared one that is not a run of ' +
+    'words inside the hook line is a FLAG; (3) lyric_grade with the SAME seed AND THE SAME DECLARATIONS ' +
+    '(form, lines, relation, functions, title — a declaration dropped here grades a different plan) and ' +
+    'the draft — its render is the INTERIM graded draft, and the [GRADED — seed …] stamp under it is a ' +
+    'grade, not a finish; (4) lyric_revise with the SAME seed and declarations — it drives the revise loop ' +
+    'and returns a song ONLY past a stop condition, under a [FINISHED — seed … — exit …] stamp, ' +
+    (kitchen
+      ? "the service's writer answering every question, so ONE call returns the stop condition. "
+      : 'the loop asks one question per suspended call and you answer it (`answer`, or `answers` for a batch or group), called repeatedly until it stops. ') +
+    'THE FINISHED SONG COMES FROM lyric_revise AND NOWHERE ELSE: a song presented without ' +
+    'its [FINISHED …] stamp is an interim draft and must be presented as one, and stopping at step (3) ' +
+    'because the draft "looks done" is the exact hand-wash the loop exists to end — the loop, not you, ' +
+    'says when revision is over. THE BAN IS UNSKIPPABLE: a grade verdict with banned_pairs above zero is ' +
+    'the harness answering ' +
+    'NO — the song is not finished even at exit 0, and inside lyric_revise those pairs hold their lines ' +
+    'open mechanically (MANDATORY_PURSUE). Replace the banned end words (screen the replacements ' +
+    'with lyric_screen) and keep answering; never present a song as finished while banned pairs stand. ' +
+    'PRESENTATION IS PART OF THE CONTRACT: the first content block returned by lyric_grade and lyric_plan ' +
+    'is the deliverable — reproduce it character for character, exactly as you reproduce a recipe string; ' +
+    'the bracket headers ([CHORUS — 3 lines — 6 bars of 6/8, half-beat pickup]) are measurements, ' +
+    'restyling them to bare [CHORUS] deletes what the format exists to carry, and the [GRADED — seed …] ' +
+    'stamp line under the song is part of the block and reaches the user with it. For lyrics a user ' +
+    "pastes, the SAME steps as a planned song (the owner's rule): lyric_recover FIRST to structure them (blank " +
+    "stanza breaks as empty entries; `placements: 'end'` for anything longer than a few lines) — it hands " +
+    'back the `mandate` (groups/returns) the text actually carries and the coordinates it REFUSED (the meter, ' +
+    'always) for the user to declare — then lyric_check with that mandate (and a declared blueprint + subdivision ' +
+    'when the user gives the grid), then lyric_revise WITHOUT a seed and with the same mandate to drive the loop ' +
+    'to a stop condition; a bare lyric_check on a paste is the rhyme and floor layers only, and its verdict says ' +
+    'so. lyric_verify judges a CHANGE to one, ' +
+    'which is the other half of a revision round: read its `accepted`, not its exit code, and remember it is a ' +
+    'DIFF that cannot report banned pairs surviving untouched. FLAGS are defects; banned pairs are ' +
+    'unskippable whatever their severity; other NOTES are measurements and are not to be "fixed". A verdict ' +
+    'carrying structures_uncalibrated is the third thing to read: correctness IS graded for that declared ' +
+    'structure and laziness is NOT, the two-tier ban is skipped on its pairs, and an absent banned_pairs ' +
+    'there means the question was not asked rather than answered clean. For unresolved pronunciation, read ' +
+    'pronunciation_options from grade/check, select the intended dictionary reading or supply ARPABET with ' +
+    'an honest source in pronunciations, then regrade. Choices bind exact line text and token position, ' +
+    'including every verbatim chorus return. Never choose phones just to pass a check. A revision can ' +
+    'remove an original occurrence; its reading is retained as retired and never applied to changed text. ' +
+    'New text is graded independently. Supplying new readings during revision requires regrading and a new run. Recipes ' +
+    'describe the SOUND, lyric tools govern the WORDS; the conversation is the only place they meet.'
+  );
+}

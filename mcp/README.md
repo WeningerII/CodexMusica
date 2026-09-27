@@ -44,9 +44,10 @@ from the result and `render_scope` for which shared environment is represented.
 [lyric harness](../lyric-harness/): planning, grading, writing and revision. It
 shares no state with the recipe workspace. The connector reaches the harness CLI
 through a serialized Python worker. Planning and grading use local code and
-staged lexical data; `lyric_revise` can maintain a run and, with `writer: kitchen`,
-call Google's Gemini API to propose lyric repairs. Revision is stateful and the
-kitchen's output is not deterministic. See [LYRICS_RUNTIME.md](./LYRICS_RUNTIME.md)
+staged lexical data; `lyric_revise` maintains a run whose questions the caller
+answers — the connector never writes a lyric line. Only the website chat's
+in-process server (`buildServer({ kitchen: true })`) lets the service's Gemini
+writer answer revise questions, because there Gemini writes the whole song. See [LYRICS_RUNTIME.md](./LYRICS_RUNTIME.md)
 for time budgets, paid-work accounting, run recovery and deployment requirements.
 
 | Tool | What it does |
@@ -56,7 +57,7 @@ for time budgets, paid-work accounting, run recovery and deployment requirements
 | `lyric_grade` | The whole-song verdict: re-derives the plan from the same seed AND the same declarations (a declaration dropped here grades a different plan), fills it with the draft, grades rhyme/returns/meter/functions/floor, and returns the rendered song (performance order, bracket headers) + the report. |
 | `lyric_check` | Grade pasted lyrics without a plan: declare a letter scheme (`ABAB`) or line-number groups (`1,3;2,4`), optional verbatim-return classes, an optional `relation`, and an optional per-group `structures` declaration (`B:kalevala-alliteration`) whose uncalibrated disclosure rides in the verdict. |
 | `lyric_sweep` | Find seeds whose shape matches a declared want (`lines>=16`, `uses=bridge`, `before=verse,chorus`) over a bounded window of consecutive seeds. Returns seeds in SEED ORDER and does not rank; three counts never summed; windows compose, so continue from `next_seed_from`. |
-| `lyric_revise` | Revise a draft under its declared plan or mandate. The interview writer returns questions; the kitchen writer proposes and verifies repairs through Gemini. Retain the returned state/checkpoint and opaque `run_id`; a seed is not a run capability. |
+| `lyric_revise` | Revise a draft under its declared plan or mandate. The loop asks the caller one question per call; answer with `answer`/`answers`. A session carries the run; without one, retain the returned `run_id` + `run_revision` (or `state`); a seed is not a run capability. |
 | `lyric_verify` | Did this revision earn it? Hand it a draft BEFORE and AFTER under the same mandate and it reports what the change FIXED and INTRODUCED. Read `accepted`, not `exit_code` — both verdicts exit 0. A DIFF, not a grade: it cannot report banned pairs that survived the change. |
 | `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
 
@@ -129,11 +130,11 @@ The Blueprint selects the Standard plan and a persistent lyrics disk, deploys fr
 provisions billable storage; committing it does not apply or deploy it.
 
 - **No account login is required.** Public recipe tools are deterministic compute.
-  Lyrics revision can mutate run state and spend model credit. The server applies
-  request limits and shares one model-accounting ledger across chat and kitchen
-  calls, including kitchen calls made directly through `/mcp`.
+  Lyrics revision mutates run state; connector calls spend no model credit. The
+  server applies request limits, and the website chat (including its kitchen
+  writer) draws on one model-accounting ledger.
 - `GET /health` reports liveness, commit, source/configuration fingerprints and
-  recovery-store status. It does not prove a successful kitchen run.
+  recovery-store status. It does not prove a successful chat kitchen run.
 - **Scaling:** durable receipts, signing and accounting currently require one Node
   process on one instance with mounted storage. Multiple processes or replicas
   require a transactional shared store; recipe state passing does not make the
@@ -146,8 +147,8 @@ provisions billable storage; committing it does not apply or deploy it.
 
 Recipe tools use deterministic local computation and make no model calls. Local
 lyrics planning and grading also use no model inference, but can require
-substantial CPU and memory. Both `/chat` and `lyric_revise` with `writer: kitchen`
-use the service's Gemini key, including kitchen calls through `/mcp`.
+substantial CPU and memory. Only the website `/chat` uses the service's Gemini key —
+its conversation model and its kitchen writer. No connector endpoint calls Gemini.
 
 Paid calls share the declared **$25 daily allowance** and **$2.50 per chat turn or
 direct MCP operation allowance**, configurable through `CHAT_DAILY_USD` and
@@ -187,15 +188,15 @@ Configuration (the Blueprint pins deployed values):
 
 | Env | Default or deployment value | What it controls |
 |---|---|---|
-| `GEMINI_API_KEY` | Unset | Required for `/chat` and the kitchen writer; recipe tools and local lyrics analysis need no model key. |
+| `GEMINI_API_KEY` | Unset | Required for `/chat` (and its kitchen writer); connector tools need no model key. |
 | `GEMINI_MODEL` | `gemini-3.1-flash-lite` | Chat model; it must have declared pricing. |
-| `LYRIC_PROPOSER_MODEL` | `gemini-3.5-flash-lite` in the Blueprint | Kitchen writer model. |
+| `LYRIC_PROPOSER_MODEL` | `gemini-3.5-flash-lite` in the Blueprint | The chat's kitchen writer model, pinned apart from `GEMINI_MODEL` (see `render.yaml`). |
 | `LYRIC_RUNTIME_DIR` | Unset locally; `/data/lyrics` in the Blueprint | Mounted storage for request receipts, signing key and accounting. |
 | `CHAT_SECRET` | Persisted generated key when runtime storage is configured; otherwise random per boot | Explicit envelope-signing override. Keep it stable to preserve signed continuations. |
 | `CHAT_IP_RPM` / `CHAT_IP_RPH` | 4 / 30 | Per-IP chat request limits. |
 | `CHAT_CONCURRENCY` | 2 | Simultaneous chat turns. |
-| `CHAT_DAILY_USD` | 25 | Shared chat/kitchen daily model allowance, tracked with reservations and reported usage. |
-| `CHAT_MAX_TURN_USD` | 2.5 | Chat-turn or direct MCP operation model allowance. |
+| `CHAT_DAILY_USD` | 25 | The website chat's daily model allowance (conversation and kitchen writer), tracked with reservations and reported usage. |
+| `CHAT_MAX_TURN_USD` | 2.5 | Per chat turn model allowance. |
 | `CHAT_MAX_TURNS` | 12 | Messages per conversation. |
 
 With correctly mounted runtime storage, counters, pending reservations and the
@@ -222,8 +223,9 @@ For submission to Anthropic's [Connectors Directory](https://claude.com/docs/con
 - Recipe tools use local deterministic computation and carry
   `readOnlyHint: true`, `idempotentHint: true`, `openWorldHint: false`.
 - `lyric_revise` carries `readOnlyHint: false`, `idempotentHint: false`,
-  `openWorldHint: true`: it changes run state and its kitchen writer calls an
-  external model. Do not describe every tool as read-only or deterministic.
+  `openWorldHint: false`: it changes run state; the caller writes every line and no
+  connector call reaches an external model. Do not describe every tool as
+  read-only or deterministic.
 - Lyrics calls can take minutes and return substantial state. Directory timing
   and payload requirements need separate verification; the recipe tools' speed
   does not establish lyrics compliance.

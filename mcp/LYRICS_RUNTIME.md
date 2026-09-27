@@ -1,7 +1,9 @@
 # Lyrics runtime: durable requests and paid-work recovery
 
-The lyrics kitchen spans an HTTP request, Gemini chat hops, MCP calls, a serialized
-Python worker and paid proposal calls. A caller timeout does not establish which
+The lyrics kitchen — the service's own Gemini writer, which runs only inside the
+website chat (no MCP connector endpoint offers it since 2026-09-27) — spans an
+HTTP request, Gemini chat hops, MCP calls, a serialized Python worker and paid
+proposal calls. A caller timeout does not establish which
 of those operations completed. Recovery therefore follows a durable request
 receipt; it does not automatically repeat an uncertain request.
 

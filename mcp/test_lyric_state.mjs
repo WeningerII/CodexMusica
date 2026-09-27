@@ -20,7 +20,7 @@ import {
 
 const peers = [];
 async function connect(name) {
-  const server = buildServer();
+  const server = buildServer({ kitchen: true }); // the chat's server: kitchen runs are exercised here
   const client = new Client({ name, version: '1' }, { capabilities: {} });
   const [c, s] = InMemoryTransport.createLinkedPair();
   await Promise.all([server.connect(s), client.connect(c)]);
