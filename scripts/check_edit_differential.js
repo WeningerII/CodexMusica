@@ -121,6 +121,9 @@ const INSTRUMENTS = ['kithara', 'guqin', 'concert_harp', 'drum_kit', 'saxophone'
 );
 const ROOMS = (C.ROOMS || []).slice(0, 12).map((r) => r.id);
 const TUNINGS = (C.TUNINGS || []).slice(0, 8).map((t) => t.id);
+const FX = (((C.CHAIN_SECTIONS || []).find((s) => s.id === 'fx') || {}).items || [])
+  .slice(0, 8)
+  .map((it) => it.id);
 const PREFACES = (C.PREFACE_LEXICON || []).slice(0, 24).map((p) => p.id);
 
 if (!TRADITIONS.length || !INSTRUMENTS.length) {
@@ -130,16 +133,38 @@ if (!TRADITIONS.length || !INSTRUMENTS.length) {
 
 // ── the app's inline environment write, mirrored + tripwired ────────────────
 // The app has no callable set_environment; its handler assigns the field inline
-// and re-renders. Same three writes check_edit_parity pins, same reason: if the
+// and re-renders. Same writes check_edit_parity pins, same reason: if the
 // handler stops being a plain assignment, this fails loudly instead of silently
-// testing a stale copy of the app.
+// testing a stale copy of the app. The last two pin the multi-select chip (an
+// unselected effect is appended) and the card the app's environment editor opens
+// on (envCardOf), which a card-less set_environment mirrors.
 const appSrc = fs.readFileSync(path.join(__dirname, '..', 'src', 'app.js'), 'utf8');
+const workbenchSrc = fs.readFileSync(path.join(__dirname, '..', 'src', 'workbench.js'), 'utf8');
 const ENV_WRITES = [
-  { label: 'tuning', re: /card\.tuning\s*=\s*t\.dataset\.setTuning\s*\|\|\s*null/ },
-  { label: 'room', re: /card\.room\s*=\s*t\.dataset\.setRoom\s*\|\|\s*null/ },
-  { label: 'chain stage', re: /card\.chain\[sId\]\s*=\s*itemId\s*\|\|\s*null/ },
+  { label: 'tuning', src: appSrc, re: /card\.tuning\s*=\s*t\.dataset\.setTuning\s*\|\|\s*null/ },
+  { label: 'room', src: appSrc, re: /card\.room\s*=\s*t\.dataset\.setRoom\s*\|\|\s*null/ },
+  { label: 'chain stage', src: appSrc, re: /card\.chain\[sId\]\s*=\s*itemId\s*\|\|\s*null/ },
+  {
+    label: 'multi-select chip toggle',
+    src: appSrc,
+    re: /card\.chain\[sId\]\s*=\s*cur\.includes\(itemId\)\s*\?\s*cur\.filter\(x\s*=>\s*x\s*!==\s*itemId\)\s*:\s*\[\.\.\.cur,\s*itemId\]/,
+  },
+  {
+    label: 'environment editor on envCardOf',
+    src: workbenchSrc,
+    re: /function uiOpenEnvironment\(which\)\s*\{\s*const card = envCardOf\(app\.cards\);/,
+  },
 ];
-const tripwireBroken = ENV_WRITES.filter((w) => !w.re.test(appSrc));
+// And the app's "add instrument to this tradition" sequence, which add_guest
+// below replays through the app's own traditionCardOpts, addCard and
+// _placeCardAfterTraditionRun (addInstrumentFromPicker itself awaits a catalog
+// load, so it is not called directly).
+ENV_WRITES.push({
+  label: 'add-to-tradition sequence',
+  src: appSrc,
+  re: /const cardOpts = traditionCardOpts\(tradId, instrumentId\);[\s\S]{0,600}?const card = addCard\(instrumentId, Object\.assign\(\{\}, cardOpts, \{ skipHistory: true \}\)\);\s*if \(!card\) return null;\s*_placeCardAfterTraditionRun\(card, tradId\);/,
+});
+const tripwireBroken = ENV_WRITES.filter((w) => !w.re.test(w.src));
 
 const cloneCards = (cards) => JSON.parse(JSON.stringify(cards));
 const hasEnv = (c) =>
@@ -185,6 +210,26 @@ const OPS_TABLE = {
     appply: (a) => app.addCard(a.iid, {}),
     conn: (ws, a) => W.addInstrument(ws, a.iid),
   },
+  // The TRADITION form of add_instrument: configured by the tradition (tuning,
+  // room, the whole recording chain, voice parts, amp) and placed after its
+  // run, as the app's add-to-tradition does. The connector used to give such a
+  // card room and tuning only and append it — a guest moved to the front then
+  // rendered no chain at all.
+  add_guest: {
+    plan: (rnd) => ({
+      iid: INSTRUMENTS[Math.floor(rnd() * INSTRUMENTS.length)],
+      tid: TRADITIONS[Math.floor(rnd() * TRADITIONS.length)],
+    }),
+    label: (a) => `add_instrument(${a.iid}, tradition=${a.tid})`,
+    appply: (a) => {
+      const card = app.addCard(
+        a.iid,
+        Object.assign({}, app.traditionCardOpts(a.tid, a.iid), { skipHistory: true })
+      );
+      app._placeCardAfterTraditionRun(card, a.tid);
+    },
+    conn: (ws, a) => W.addInstrument(ws, a.iid, { tradition: a.tid }),
+  },
   remove_instrument: {
     plan: (rnd, st) =>
       st.conn.cards.length ? { idx: Math.floor(rnd() * st.conn.cards.length) } : null,
@@ -229,20 +274,41 @@ const OPS_TABLE = {
     conn: (ws, a) => W.setPreface(ws, ws.cards[a.idx].id, a.word),
   },
   set_environment: {
+    // Some of these name no card, which the connector resolves to the card the
+    // environment renders from — the card the app's Recording environment panel
+    // edits. Composed with bare adds and removals, that is where a card-less edit
+    // and cards[0] part ways, so a card-less edit is likelier (two in three)
+    // while cards[0] has no environment, and one in three otherwise.
     plan: (rnd, st) => {
       if (!st.conn.cards.length) return null;
-      const idx = Math.floor(rnd() * st.conn.cards.length);
+      const cardless = rnd() < (hasEnv(st.conn.cards[0]) ? 1 / 3 : 2 / 3);
+      const idx = cardless ? null : Math.floor(rnd() * st.conn.cards.length);
       const pick = rnd();
-      if (pick < 0.5 && ROOMS.length)
+      if (pick < 0.4 && ROOMS.length)
         return { idx, patch: { room: ROOMS[Math.floor(rnd() * ROOMS.length)] } };
+      if (pick < 0.7 && FX.length) return { idx, fx: FX[Math.floor(rnd() * FX.length)] };
       if (TUNINGS.length)
         return { idx, patch: { tuning: TUNINGS[Math.floor(rnd() * TUNINGS.length)] } };
       return null;
     },
-    label: (a) => `set_environment(#${a.idx}, ${JSON.stringify(a.patch)})`,
-    // Mirrors the app's inline assignment; held honest by the tripwire above.
-    appply: (a) => Object.assign(app.app.cards[a.idx], a.patch),
-    conn: (ws, a) => W.setEnvironment(ws, ws.cards[a.idx].id, a.patch),
+    label: (a) =>
+      `set_environment(${a.idx == null ? 'no card' : '#' + a.idx}, ${a.fx ? `fx+=${a.fx}` : JSON.stringify(a.patch)})`,
+    // Mirrors the app's inline assignment and chip toggle; held honest by the
+    // tripwire above. An fx the card already holds is skipped rather than
+    // toggled off: the connector's add leaves it in place, and removal is
+    // `clear`, which check_edit_parity compares on its own.
+    appply: (a) => {
+      const card = a.idx == null ? app.envCardOf(app.app.cards) : app.app.cards[a.idx];
+      if (!a.fx) return Object.assign(card, a.patch);
+      const cur = card.chain.fx || [];
+      if (!cur.includes(a.fx)) card.chain.fx = [...cur, a.fx];
+    },
+    conn: (ws, a) =>
+      W.setEnvironment(
+        ws,
+        a.idx == null ? null : ws.cards[a.idx].id,
+        a.fx ? { chain: { fx: a.fx } } : a.patch
+      ),
   },
 };
 const OP_NAMES = Object.keys(OPS_TABLE);
@@ -276,6 +342,9 @@ let mismatches = 0;
 let shown = 0;
 let multiCardComparisons = 0;
 let envlessHeadStates = 0;
+// Card-less set_environment applied while cards[0] had no environment: the one
+// composition where "no card" and "cards[0]" name different cards.
+let cardlessOnEnvlessHead = 0;
 const failures = [];
 
 for (let s = 0; s < SCRIPTS; s++) {
@@ -301,6 +370,13 @@ for (let s = 0; s < SCRIPTS; s++) {
     }
     if (args == null) continue;
     const op = OPS_TABLE[name];
+    if (
+      name === 'set_environment' &&
+      args.idx == null &&
+      state.conn.cards.length &&
+      !hasEnv(state.conn.cards[0])
+    )
+      cardlessOnEnvlessHead++;
 
     try {
       op.appply(args);
@@ -356,6 +432,7 @@ console.log(`  comparisons: ${comparisons} (${FORMATS.length} formats after ever
 console.log(`  ops applied: ${OP_NAMES.map((n) => `${n}=${applied[n]}`).join('  ')}`);
 console.log(`  multi-card comparisons: ${multiCardComparisons}`);
 console.log(`  states with an env-less cards[0]: ${envlessHeadStates}`);
+console.log(`  card-less set_environment on an env-less cards[0]: ${cardlessOnEnvlessHead}`);
 
 const thin = OP_NAMES.filter((n) => applied[n] < MIN_PER_OP);
 const problems = [];
@@ -366,6 +443,10 @@ if (!multiCardComparisons) problems.push('never compared a roster of 2+ cards');
 if (!envlessHeadStates)
   problems.push(
     'never reached a state where cards[0] has no environment — the composition this harness exists to reach'
+  );
+if (!cardlessOnEnvlessHead)
+  problems.push(
+    'never applied a card-less set_environment while cards[0] had no environment — the case where it and cards[0] differ'
   );
 
 console.log('');

@@ -81,7 +81,12 @@ test('moving a card changes primary order without rebuilding or mutating any car
     [...result.workspace.cards].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0)),
     [...original.workspace.cards].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
   );
-  assert.throws(() => W.moveInstrument(original.workspace, 'absent'), /Unknown card/);
+  // The refusal names the roster, like every other unknown-card refusal, so a
+  // caller that guessed a card has something to correct toward.
+  assert.throws(
+    () => W.moveInstrument(original.workspace, 'absent'),
+    /No card matching "absent"\. Cards in this recipe: voice, /
+  );
 });
 
 test('explicit part descriptors survive before stock descriptors; losses are disclosed', () => {

@@ -41,7 +41,9 @@ or a successful paid forty-minute kitchen qualification.
   the output, and identify the shared environment card. These are text-presence
   checks, not proof of acoustic rendering or per-instrument attribution.
 * `move_instrument` reorders existing cards without rebuilding them. Omit `before`
-  to put the selected card first and make its tradition/environment primary.
+  to put the selected card first: its tradition leads the header, and the
+  environment moves with it only if the card has one (the recipe renders the
+  environment of the first card that has any).
 * Final recipe renderers enforce even limits smaller than their genre header.
 * Sweep predicates accept `sections.verse`, `min_lines.verse`, and
   `max_lines.verse`, and corresponding names for every declared section function.

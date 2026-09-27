@@ -502,29 +502,52 @@ if (prefaceCases === 0 || prefaceReshaped === 0) {
 //
 // The app has no callable set_environment: its handler writes the field inline
 // (src/app.js — `card.tuning = t.dataset.setTuning || null`, `card.room = ...`,
-// `card.chain[sId] = itemId || null`) and re-renders. So this section performs
-// that same assignment rather than calling an app function, which is the one
-// place in this gate where the app side is reproduced instead of invoked.
+// `card.chain[sId] = itemId || null`, and for a multi-select stage the chip
+// toggle `cur.includes(itemId) ? cur.filter(...) : [...cur, itemId]`) and
+// re-renders. So this section performs that same assignment rather than calling
+// an app function, which is the one place in this gate where the app side is
+// reproduced instead of invoked.
 //
 // That reproduction is held honest by the source tripwire below: if the app's
 // handler ever stops being a plain assignment, the assertion fails and whoever
 // changed it has to update this gate deliberately. A copied one-liner with no
 // tripwire is how a parity gate quietly starts testing itself.
 //
-// What is actually being gated is downstream of the assignment anyway: the
-// renderer reads tuning/room/chain from the PRIMARY card only, so the question
-// is whether both surfaces agree about what an environment edit does to the
-// output — and the app's real compileRecipeStack answers for the app side.
+// Four kinds of case, because a set_environment is four different writes:
+//   single-card   room + tuning + one single-select stage, on a lone card;
+//   multi-select  one fx item the card does not hold yet — the app's chip
+//                 APPENDS it, and this section used to filter multi-select
+//                 stages out entirely, which is how the connector's replace
+//                 semantics (a new delay deleting the seeded reverb) went
+//                 ungated;
+//   clear         `clear` against the app's "Not set": room/tuning/single stage
+//                 to null, every multi-select item toggled off;
+//   no card       a whole roster whose FIRST card is bare. The app's Recording
+//                 environment panel edits envCardOf(app.cards)
+//                 (src/workbench.js uiOpenEnvironment), and a card-less
+//                 set_environment must land on the same card — it used to land
+//                 on cards[0], wiping the rendered tuning and chain.
 console.log('\n=== Environment parity: app field write vs connector set_environment ===');
 const appSrc = fs.readFileSync(path.join(__dirname, '..', 'src', 'app.js'), 'utf8');
+const workbenchSrc = fs.readFileSync(path.join(__dirname, '..', 'src', 'workbench.js'), 'utf8');
 const ENV_WRITES = [
-  { label: 'tuning', re: /card\.tuning\s*=\s*t\.dataset\.setTuning\s*\|\|\s*null/ },
-  { label: 'room', re: /card\.room\s*=\s*t\.dataset\.setRoom\s*\|\|\s*null/ },
-  { label: 'chain stage', re: /card\.chain\[sId\]\s*=\s*itemId\s*\|\|\s*null/ },
+  { label: 'tuning', src: appSrc, re: /card\.tuning\s*=\s*t\.dataset\.setTuning\s*\|\|\s*null/ },
+  { label: 'room', src: appSrc, re: /card\.room\s*=\s*t\.dataset\.setRoom\s*\|\|\s*null/ },
+  { label: 'chain stage', src: appSrc, re: /card\.chain\[sId\]\s*=\s*itemId\s*\|\|\s*null/ },
+  {
+    label: 'multi-select chip toggle',
+    src: appSrc,
+    re: /card\.chain\[sId\]\s*=\s*cur\.includes\(itemId\)\s*\?\s*cur\.filter\(x\s*=>\s*x\s*!==\s*itemId\)\s*:\s*\[\.\.\.cur,\s*itemId\]/,
+  },
+  {
+    label: 'environment editor opens on envCardOf',
+    src: workbenchSrc,
+    re: /function uiOpenEnvironment\(which\)\s*\{\s*const card = envCardOf\(app\.cards\);/,
+  },
 ];
 let tripwireOk = true;
 for (const w of ENV_WRITES) {
-  if (!w.re.test(appSrc)) {
+  if (!w.re.test(w.src)) {
     tripwireOk = false;
     mismatches++;
     console.log(
@@ -534,12 +557,50 @@ for (const w of ENV_WRITES) {
 }
 if (tripwireOk) console.log('  ✓ the app still writes room/tuning/chain by plain assignment');
 
+// Both surfaces render the WHOLE roster from here on, since which card holds the
+// environment is part of what is being compared.
+function compareRosters(label, appCards, connCards) {
+  const d = [];
+  for (let k = 0; k < Math.max(appCards.length, connCards.length); k++) {
+    const lines = diff(appCards[k] || {}, connCards[k] || {});
+    for (const line of lines) d.push(`card ${k}: ${line}`);
+  }
+  if (d.length) {
+    mismatches++;
+    if (shown < SHOW) {
+      shown++;
+      console.log(`  ✗ ${label}`);
+      for (const line of d.slice(0, 8)) console.log(`      ${line}`);
+    }
+  }
+  for (const format of FORMATS) {
+    const appOut = app.compileRecipeStack(clone(appCards), format, { ceiling: CEILING });
+    const connOut = renderWorkspace(clone(connCards), { format, ceiling: CEILING });
+    rendersCompared++;
+    if (appOut !== connOut) {
+      renderMismatches++;
+      if (shown < SHOW) {
+        shown++;
+        const at = firstDiff(appOut, connOut);
+        console.log(`  ✗ RENDER ${label} [${format}] diverges at char ${at}`);
+        console.log(`      app:       ${appOut.slice(Math.max(0, at - 30), at + 60)}`);
+        console.log(`      connector: ${connOut.slice(Math.max(0, at - 30), at + 60)}`);
+      }
+    }
+  }
+}
+
 const rooms = (C.ROOMS || []).map((r) => r.id);
 const tunings = (C.TUNINGS || []).map((t) => t.id);
 const singleStages = (C.CHAIN_SECTIONS || []).filter(
   (s) => !s.multiSelect && (s.items || []).length
 );
+const multiStages = (C.CHAIN_SECTIONS || []).filter((s) => s.multiSelect && (s.items || []).length);
 let envCases = 0;
+let multiCases = 0;
+let clearCases = 0;
+let cardlessCases = 0;
+let cardlessMoved = 0;
 for (let i = 0; i < cases.length; i++) {
   const c = cases[i];
   const room = rooms[i % rooms.length];
@@ -548,51 +609,108 @@ for (let i = 0; i < cases.length; i++) {
   if (!room || !tuning || !stage) break;
   const item = stage.items[i % stage.items.length];
 
-  const appCard = clone(c.card);
-  appCard.room = room || null;
-  appCard.tuning = tuning || null;
-  appCard.chain[stage.id] = item.id || null;
+  // single-card: room + tuning + one single-select stage.
+  {
+    const appCard = clone(c.card);
+    appCard.room = room || null;
+    appCard.tuning = tuning || null;
+    appCard.chain[stage.id] = item.id || null;
+    const after = W.setEnvironment({ cards: [clone(c.card)] }, c.card.id, {
+      room,
+      tuning,
+      chain: { [stage.id]: item.id },
+    });
+    envCases++;
+    compareRosters(
+      `${c.tradition} / ${c.card.instrumentId} → room=${room} tuning=${tuning} ${stage.id}=${item.id}`,
+      [appCard],
+      after.cards
+    );
+  }
 
-  const after = W.setEnvironment({ cards: [clone(c.card)] }, c.card.id, {
-    room,
-    tuning,
-    chain: { [stage.id]: item.id },
-  });
-  const connCard = after.cards[0];
-  envCases++;
-
-  const d = diff(appCard, connCard);
-  if (d.length) {
-    mismatches++;
-    if (shown < SHOW) {
-      shown++;
-      console.log(
-        `  ✗ ${c.tradition} / ${c.card.instrumentId} → room=${room} tuning=${tuning} ${stage.id}=${item.id}`
+  // multi-select: one item the card does not hold yet — the app's chip adds it.
+  const multi = multiStages[i % Math.max(1, multiStages.length)];
+  if (multi) {
+    const held = c.card.chain[multi.id] || [];
+    const pool = multi.items.filter((it) => !held.includes(it.id));
+    const pick = pool[i % Math.max(1, pool.length)];
+    if (pick) {
+      const appCard = clone(c.card);
+      const sId = multi.id;
+      const itemId = pick.id;
+      const cur = appCard.chain[sId] || [];
+      appCard.chain[sId] = cur.includes(itemId)
+        ? cur.filter((x) => x !== itemId)
+        : [...cur, itemId];
+      const after = W.setEnvironment({ cards: [clone(c.card)] }, c.card.id, {
+        chain: { [sId]: itemId },
+      });
+      multiCases++;
+      compareRosters(
+        `${c.tradition} / ${c.card.instrumentId} → ${sId} += ${itemId}`,
+        [appCard],
+        after.cards
       );
-      for (const line of d.slice(0, 8)) console.log(`      ${line}`);
     }
   }
-  for (const format of FORMATS) {
-    const appOut = app.compileRecipeStack([clone(appCard)], format, { ceiling: CEILING });
-    const connOut = renderWorkspace(clone(after.cards), { format, ceiling: CEILING });
-    rendersCompared++;
-    if (appOut !== connOut) {
-      renderMismatches++;
-      if (shown < SHOW) {
-        shown++;
-        const at = firstDiff(appOut, connOut);
-        console.log(
-          `  ✗ RENDER ${c.tradition} / ${c.card.instrumentId} → environment [${format}] diverges at char ${at}`
-        );
-        console.log(`      app:       ${appOut.slice(Math.max(0, at - 30), at + 60)}`);
-        console.log(`      connector: ${connOut.slice(Math.max(0, at - 30), at + 60)}`);
+
+  // clear: the app's "Not set" for room, tuning and a single stage, and every
+  // multi-select item toggled off.
+  {
+    const appCard = clone(c.card);
+    appCard.room = null;
+    appCard.tuning = null;
+    appCard.chain[stage.id] = null;
+    const fields = ['room', 'tuning', stage.id];
+    if (multi) {
+      for (const itemId of [...(appCard.chain[multi.id] || [])]) {
+        const cur = appCard.chain[multi.id] || [];
+        appCard.chain[multi.id] = cur.includes(itemId)
+          ? cur.filter((x) => x !== itemId)
+          : [...cur, itemId];
       }
+      fields.push(multi.id);
     }
+    const after = W.setEnvironment({ cards: [clone(c.card)] }, c.card.id, { clear: fields });
+    clearCases++;
+    compareRosters(
+      `${c.tradition} / ${c.card.instrumentId} → clear ${fields}`,
+      [appCard],
+      after.cards
+    );
+  }
+
+  // no card: the tradition's full roster with a bare instrument moved to the
+  // front on odd cases, so cards[0] and the environment card differ.
+  {
+    let ws = W.seed([c.tradition]);
+    if (i % 2 === 1) {
+      ws = W.addInstrument(ws, c.card.instrumentId);
+      ws = W.moveInstrument(ws, ws.cards[ws.cards.length - 1].id);
+    }
+    const appCards = clone(ws.cards);
+    const target = app.envCardOf(appCards);
+    target.room = room || null;
+    target.tuning = tuning || null;
+    target.chain[stage.id] = item.id || null;
+    const after = W.setEnvironment(ws, null, { room, tuning, chain: { [stage.id]: item.id } });
+    cardlessCases++;
+    if (appCards.indexOf(target) !== 0) cardlessMoved++;
+    compareRosters(
+      `${c.tradition} roster (cards[0]=${ws.cards[0].instrumentId}) → card-less environment`,
+      appCards,
+      after.cards
+    );
   }
 }
-console.log(`  ${envCases} environment edit(s) compared`);
-if (envCases === 0) {
-  console.log('\nEDIT PARITY: FAIL — no environment case ran; agreement here proves nothing.');
+console.log(
+  `  ${envCases} single-card, ${multiCases} multi-select add, ${clearCases} clear and ` +
+    `${cardlessCases} card-less roster edit(s) compared (${cardlessMoved} with a bare card first)`
+);
+if (envCases === 0 || multiCases === 0 || clearCases === 0 || cardlessMoved === 0) {
+  console.log(
+    '\nEDIT PARITY: FAIL — an environment case kind never ran (single-card, multi-select, clear, or a card-less edit on a roster whose first card is bare); agreement there proves nothing.'
+  );
   process.exit(1);
 }
 

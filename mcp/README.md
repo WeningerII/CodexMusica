@@ -25,20 +25,24 @@ See [session workflow repairs](../docs/session-workflow-repairs.md) for continua
 verification evidence, and the limitations of independent raw MCP calls.
 
 Recipe edits include `move_instrument`, which preserves a card's settings while
-changing its position (`before` omitted means first). Rich compression prioritizes
-explicitly pinned descriptors; inspect `render_warnings` for explicit words absent
-from the result and `render_scope` for which shared environment is represented.
+changing its position (`before` omitted means first). The recipe renders one
+environment, from the first card that has one; `set_environment` without a card
+writes there, and a multi-select stage (`fx`) adds to its list (`clear` empties it).
+Rich compression prioritizes explicitly pinned descriptors; inspect `render_warnings`
+for explicit words — descriptors, prefaces, environment — absent from the result, or
+an environment that moved, was overwritten or was set on a card that does not render,
+and `render_scope` for which shared environment is represented.
 
 | Tool | What it does |
 |---|---|
 | `start_recipe` | Seed a recipe from one or more `traditions` (first = primary, rest = explicit staples). Returns the recipe, a per-card summary, and the `workspace` to thread on. |
-| `edit_recipe` | Apply an ordered `edits` list to a `workspace`: `set_preface` (re-derive an instrument toward a mood, labeled verbatim), `set_variant` (sets one part, then reshapes the rest of that card toward its preface with your part pinned — the same cascade the app runs), `set_environment`, `add_instrument` / `remove_instrument`, `add_tradition` / `remove_tradition`. |
+| `edit_recipe` | Apply an ordered `edits` list to a `workspace`: `set_preface` (re-derive an instrument toward a mood, labeled verbatim), `set_variant` (sets and pins one part; as in the app, an auto preface re-derives and a material part may move that card's other parts toward the preface), `set_environment`, `add_instrument` / `remove_instrument`, `add_tradition` / `remove_tradition`. |
 | `render_recipe` | Re-render a `workspace` (e.g. different `format` or `max_chars`) without editing it. |
 | `search_catalog` | Free-text search → ids, across traditions, instruments, variants, rooms, tunings, arrangements, aesthetics, prefaces, chain. Resolve words before guessing. |
 | `search_prefaces` | Mood/feel words → preface ids for `set_preface`. |
 | `get_instrument` | The **knob catalog** — every part and the variant ids you pass to `set_variant`. |
 | `get_tradition` / `list_traditions` | Full tradition record (incl. axis profile + default instruments); browse/filter traditions. |
-| `list_options` | Enumerate override spaces: `rooms`, `tunings`, `chain_sections`, `archetypes`, `aesthetics`, `arrangements`, `instrument_families`, `tradition_families`, `axes`. |
+| `list_options` | Enumerate `rooms` and `tunings` (ids `set_environment` takes), `chain_sections` (its stage names; chain ids come from `search_catalog types=["chain"]`), `tradition_families` (for `list_traditions`), and reference-only `archetypes`, `aesthetics`, `arrangements`, `instrument_families`, `axes`. |
 
 **The lyric family** is a disjoint songwriting pipeline over the
 [lyric harness](../lyric-harness/): planning, grading, writing and revision. It

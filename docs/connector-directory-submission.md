@@ -96,13 +96,13 @@ with a human-readable `title`.
 |---|---|---|
 | `start_recipe` | Start a recipe from tradition(s) | Seed a recipe from one or more tradition ids (first = primary, the rest explicit staples) — deterministic default cards, identical to the app's "Current Recipe". Returns the recipe, a per-card summary, and the `workspace` to thread on. |
 | `edit_recipe` | Edit the recipe | Apply an ordered list of edits to a workspace and re-render: `set_preface` (re-derive an instrument toward a mood, labeled verbatim), `set_variant`, `set_environment` (room/tuning/chain), `add`/`remove_instrument`, `add`/`remove_tradition`. |
-| `render_recipe` | Re-render the workspace | Render an existing workspace again (e.g. a different format or `max_chars`) without editing it. |
+| `render_recipe` | Re-render the recipe | Render the current recipe again (e.g. a different format or `max_chars`) without editing it. |
 | `search_catalog` | Search the whole catalog | Free-text search across every record type (traditions incl. lineage, instruments, part-variants, rooms, tunings, arrangements, aesthetics, prefaces) — turns request words into real ids. |
 | `search_prefaces` | Search prefaces | Search the 740 prefaces (aesthetic/technique/delivery signatures) by free text; returns ranked ids with their descriptor-token signatures. |
 | `get_instrument` | Get one instrument (the knob catalog) | Every part and the variant ids you can pass to `set_variant`, with labels and defaults. |
 | `get_tradition` | Get one tradition | Name, family, lineage, and the 13-axis profile for one tradition. |
-| `list_traditions` | List / filter traditions | Enumerate traditions, optionally filtered by substring or family. |
-| `list_options` | Enumerate an option space | Valid ids for rooms / tunings / chain sections / archetypes / aesthetics / arrangements / families / axes. |
+| `list_traditions` | List / browse traditions | Enumerate traditions, optionally filtered by an id/name substring or one exact family; paginated. |
+| `list_options` | Enumerate a catalog list | Rooms and tunings (ids `set_environment` takes), chain stage names, tradition families, and reference-only archetypes / aesthetics / arrangements / instrument families / axes. |
 
 ---
 

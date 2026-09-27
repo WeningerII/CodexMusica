@@ -26,8 +26,26 @@ const { TUNING_TO_VOICE_PARTS, TRADITION_VOICE_OVERRIDES } = require('./_voice_p
 const instById = (id) => (C.INSTRUMENTS || []).find((i) => i.id === id);
 const tradById = (id) => (C.TRADITIONS || []).find((t) => t.id === id);
 
-let _cardSeq = 0;
-const newId = () => `card_${++_cardSeq}`;
+// CARD IDS COME FROM THE WORKSPACE THEY JOIN, never from process state.
+//
+// A card id is how a caller names a card in its next edit, and the workspace
+// that holds it outlives the process that minted it: a caller-managed workspace
+// is threaded across calls, and a session stores one durably across deploys. A
+// module-level counter restarted at card_1 on every boot, so the first card
+// added after a restart took an id the workspace already held — and one
+// remove_instrument {card:"card_1"} then deleted two cards. Numbering past the
+// highest id already present is a pure function of the workspace, so it cannot
+// collide with anything in it, and a fresh seed numbers card_1..card_n every
+// time (start_recipe is idempotent in its ids as well as its recipe).
+const CARD_ID = /^card_(\d+)$/;
+function nextCardIds(existing, count) {
+  let max = 0;
+  for (const c of existing || []) {
+    const m = CARD_ID.exec((c && c.id) || '');
+    if (m) max = Math.max(max, Number(m[1]));
+  }
+  return Array.from({ length: count }, (_, i) => `card_${max + 1 + i}`);
+}
 
 // ── card construction (mirrors src/app.js) ──────────────────────────────────
 
@@ -84,7 +102,7 @@ function makeCard(instrumentId, opts = {}) {
     }
   }
   return {
-    id: newId(),
+    id: opts.id || nextCardIds([], 1)[0],
     instrumentId,
     parts,
     tuning: opts.tuning || null,
@@ -116,43 +134,57 @@ function resolveAmpVariant(inst, trad) {
   return candidates.find((a) => valid.has(a)) || null;
 }
 
+// The makeCard options for `instrumentId` joining `trad`: the tradition's tuning,
+// room and recording chain, its voice-part overrides and the amp that suits this
+// instrument. Mirrors src/app.js:traditionCardOpts, which is the single
+// derivation both of the app's paths run through — a tradition's own import, and
+// "add instrument to this tradition" for an instrument off its roster — so the
+// two cannot configure the same pairing differently. The connector used to build
+// the second path by hand from tuning and room alone, so a guest card had no
+// signal chain, and moved to the front it rendered a recipe with none.
+//
+// The chain is a fresh object per call: cards own their chain, and ops clone
+// before they write, but nothing should rely on that to keep siblings apart.
+function traditionCardOpts(trad, instrumentId) {
+  const inst = instById(instrumentId);
+  const partsOverride = voicePartsForTradition(trad);
+  const ampVariant = inst ? resolveAmpVariant(inst, trad) : null;
+  return {
+    traditionId: trad.id,
+    tuning: trad.tuning,
+    room: trad.room,
+    chain: {
+      fx: Array.isArray(trad.chain_fx) ? trad.chain_fx.slice() : [],
+      amp: null,
+      mic: trad.chain_mic || null,
+      pre: trad.chain_pre || null,
+      comp: trad.chain_comp || null,
+      eq: trad.chain_eq || null,
+      medium: trad.chain_medium || null,
+      console: trad.chain_console || null,
+    },
+    partsOverride: ampVariant
+      ? Object.assign({}, partsOverride, { amp_make: ampVariant })
+      : partsOverride,
+  };
+}
+
 // ── public: seed a tradition's deterministic default cards ───────────────────
 
 // Equivalent of src/app.js:importTradition(tradId) — the deterministic default
 // workspace for a tradition. Returns an array of cards (recipe order = the
-// tradition's `instruments` order), or null for an unknown tradition.
-function seedTraditionCards(traditionId) {
+// tradition's `instruments` order), or null for an unknown tradition. `existing`
+// is the workspace the cards will join; their ids continue past its highest.
+function seedTraditionCards(traditionId, existing = []) {
   const trad = tradById(traditionId);
   if (!trad) return null;
-  const partsOverride = voicePartsForTradition(trad);
-  // One shared environment object for every card in the tradition (the renderer
-  // reads env from card[0] under the shared-env assumption, as the app does).
-  const chain = {
-    fx: Array.isArray(trad.chain_fx) ? trad.chain_fx.slice() : [],
-    amp: null,
-    mic: trad.chain_mic || null,
-    pre: trad.chain_pre || null,
-    comp: trad.chain_comp || null,
-    eq: trad.chain_eq || null,
-    medium: trad.chain_medium || null,
-    console: trad.chain_console || null,
-  };
   const cards = [];
   for (const iid of trad.instruments || []) {
-    const inst = instById(iid);
-    const ampVariant = inst ? resolveAmpVariant(inst, trad) : null;
-    const cardPartsOverride = ampVariant
-      ? Object.assign({}, partsOverride, { amp_make: ampVariant })
-      : partsOverride;
-    const card = makeCard(iid, {
-      traditionId,
-      tuning: trad.tuning,
-      room: trad.room,
-      chain,
-      partsOverride: cardPartsOverride,
-    });
+    const card = makeCard(iid, traditionCardOpts(trad, iid));
     if (card) cards.push(card);
   }
+  const ids = nextCardIds(existing, cards.length);
+  cards.forEach((c, i) => (c.id = ids[i]));
   return cards;
 }
 
@@ -174,7 +206,7 @@ function recipeHeaderFromCards(cards) {
 
 // Render a workspace (array of cards) to the recipe string. Default format
 // 'rich' = the app's "Current Recipe". Header + body within `ceiling`, prefaces
-// auto-assigned (deduped) unless a card carries prefaceLock.
+// auto-assigned (deduped) unless a card's preface is pinned (prefaceAuto === false).
 function renderWorkspace(cards, { format = 'rich', ceiling } = {}) {
   if (!cards || cards.length === 0) return '';
   assignDedupedPrefaces(cards);
@@ -200,4 +232,6 @@ module.exports = {
   // building blocks (imported by the op layer)
   makeCard,
   defaultParts,
+  traditionCardOpts,
+  nextCardIds,
 };

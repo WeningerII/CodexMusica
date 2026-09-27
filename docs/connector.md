@@ -73,7 +73,7 @@ guitar-amp — if you can say it, it renders.
 | `search_catalog` | Turn request words into real catalog ids (traditions, instruments, variants, rooms, tunings, arrangements, aesthetics, prefaces). |
 | `search_prefaces` | Find prefaces by free text; returns ids + token signatures. |
 | `get_instrument` / `get_tradition` | Full record + swappable variants / 13-axis profile. |
-| `list_options` / `list_traditions` | Enumerate the override spaces and the tradition catalog. |
+| `list_options` / `list_traditions` | Enumerate rooms, tunings and chain stage names (what `set_environment` takes), tradition families and reference lists; browse the tradition catalog. |
 
 Beside the recipes — and never touching them — the `lyric_*` family plans and grades **songwriting**:
 

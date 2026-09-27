@@ -555,8 +555,15 @@ test('recipe acceptance measures exact delivered rich artifact and real declared
   assert.equal(
     judge(primary).pass,
     true,
-    'the public edit API defaults environment edits to the primary card'
+    'the public edit API defaults environment edits to the environment card'
   );
+  // The environment card is the first card that HAS an environment, which is not
+  // cards[0] once a bare card leads; the judge must read the same card the edit
+  // wrote to, or it fails a run whose edit landed.
+  const bareLead = recipeRun();
+  bareLead.calls.at(-1).args.edits = primary.calls.at(-1).args.edits;
+  bareLead.workspace.cards.unshift({ id: 'card0', instrumentId: 'theremin', parts: {}, chain: {} });
+  assert.equal(judge(bareLead).pass, true, 'a bare lead card is not the environment card');
   primary.workspace.cards[0].chain.recording = ['tape'];
   assert.equal(judge(primary).pass, false);
 });

@@ -206,11 +206,12 @@ await check('edit_recipe set_variant applies + chains multiple edits', () => {
   assert.ok(!r.cards.some((c) => c.instrument === 'tonewheel_organ'));
 });
 
-await check('set_environment with no card targets the primary (and only it)', () => {
-  // The recipe renders its tuning/room/chain from cards[0] alone, so an omitted
-  // `card` has one correct meaning. Asserting the recipe MOVED (not just that a
-  // field was written) is the point: a default that wrote to some other card
-  // would leave the output identical and look like it had worked.
+await check('set_environment with no card targets the environment card (and only it)', () => {
+  // The recipe renders its tuning/room/chain from ONE card — the first that has
+  // any (envCardOf) — so an omitted `card` has one correct meaning. Asserting the
+  // recipe MOVED (not just that a field was written) is the point: a default that
+  // wrote to some other card would leave the output identical and look like it
+  // had worked.
   const s = E.startRecipe({ traditions: ['ethio_jazz'] });
   const r = E.editRecipe({
     workspace: thread(s.workspace),
@@ -219,6 +220,8 @@ await check('set_environment with no card targets the primary (and only it)', ()
   assert.notEqual(r.recipe, s.recipe, 'recipe did not change');
   assert.match(r.recipe, /cathedral/);
   assert.equal(r.workspace.cards[0].room, 'cathedral');
+  assert.equal(r.render_scope.environment_card, r.workspace.cards[0].id);
+  assert.equal(r.render_scope.environment_settings.room, 'cathedral');
   assert.equal(
     r.cards.filter((c) => c.changed).length,
     1,
@@ -236,15 +239,292 @@ await check('set_environment with no card targets the primary (and only it)', ()
       `${bad.action} should still require a card`
     );
   }
-  // No cards at all is still an error, with the guiding message.
+  // No cards at all is still an error, and it names what to do instead.
   assert.throws(
     () =>
       E.editRecipe({
         workspace: { cards: [] },
         edits: [{ action: 'set_environment', room: 'cathedral' }],
       }),
-    /requires "card"/
+    /no cards.*start_recipe/
   );
+});
+
+await check('a card-less set_environment keeps the tuning and chain when a bare card leads', () => {
+  // The audit repro: a bare theremin moved to the front is cards[0] but not the
+  // environment card. Writing the room onto it made it the environment card and
+  // the recipe lost its tuning, mic, pre, tape and console.
+  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+  const lead = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'add_instrument', instrument: 'theremin' },
+      { action: 'move_instrument', card: 'theremin' },
+    ],
+  });
+  assert.equal(lead.workspace.cards[0].instrumentId, 'theremin');
+  const envBefore = lead.render_scope.environment_settings;
+  const r = E.editRecipe({
+    workspace: thread(lead.workspace),
+    edits: [{ action: 'set_environment', room: 'cathedral' }],
+  });
+  assert.equal(r.workspace.cards[0].room, null, 'the bare lead card was written to');
+  assert.equal(r.render_scope.environment_card, lead.render_scope.environment_card);
+  assert.deepEqual(r.render_scope.environment_settings, { ...envBefore, room: 'cathedral' });
+  assert.match(r.recipe, /cathedral/);
+  assert.match(r.recipe, /ribbon/, 'the mic the recipe had is gone');
+});
+
+await check('an environment that stops rendering is reported, not lost silently', () => {
+  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+  const set = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [{ action: 'set_environment', room: 'cathedral' }],
+  });
+  assert.deepEqual(set.render_warnings, []);
+  const envCard = set.render_scope.environment_card;
+  for (const edits of [
+    [{ action: 'remove_instrument', card: envCard }],
+    [{ action: 'move_instrument', card: set.cards[1].card }],
+  ]) {
+    const r = E.editRecipe({ workspace: thread(set.workspace), edits });
+    assert.doesNotMatch(r.recipe, /cathedral/);
+    const w = r.render_warnings.find((x) => x.code === 'ENVIRONMENT_MOVED');
+    assert.ok(w, `${edits[0].action} dropped the room without a warning`);
+    assert.equal(w.card, envCard);
+    assert.equal(w.settings.room.was, 'cathedral');
+    assert.equal(w.environment_card, r.render_scope.environment_card);
+    // The named next step works: repeating the edit restores the room.
+    const again = E.editRecipe({
+      workspace: thread(r.workspace),
+      edits: [{ action: 'set_environment', room: 'cathedral' }],
+    });
+    assert.match(again.recipe, /cathedral/);
+  }
+  // A seeded environment changing hands is what move_instrument is for — no warning.
+  const blend = E.startRecipe({ traditions: ['garage_rock', 'delta_blues'] });
+  const moved = E.editRecipe({
+    workspace: thread(blend.workspace),
+    edits: [{ action: 'move_instrument', card: blend.cards.at(-1).card }],
+  });
+  assert.ok(!moved.render_warnings.some((x) => x.code === 'ENVIRONMENT_MOVED'));
+});
+
+await check('set_preface after set_environment reports the environment it replaced', () => {
+  // Same batch, same card: the preface cascade re-derives the room, as the app's
+  // preface pick does. The ordering is documented; the response says so too.
+  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+  const r = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'set_preface', card: 'voice', preface: 'raging' },
+    ],
+  });
+  assert.notEqual(r.workspace.cards[0].room, 'cathedral', 'fixture: raging must move the room');
+  const w = r.render_warnings.find((x) => x.code === 'ENVIRONMENT_OVERWRITTEN');
+  assert.ok(w, 'no warning for an overwritten room');
+  assert.equal(w.edit, 1);
+  assert.equal(w.settings.room.was, 'cathedral');
+  // The documented order keeps both.
+  const ordered = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_preface', card: 'voice', preface: 'raging' },
+      { action: 'set_environment', room: 'cathedral' },
+    ],
+  });
+  assert.equal(ordered.workspace.cards[0].room, 'cathedral');
+  assert.equal(ordered.workspace.cards[0].preface, 'raging');
+  assert.ok(!ordered.render_warnings.some((x) => x.code === 'ENVIRONMENT_OVERWRITTEN'));
+});
+
+await check('an environment edit that does not reach the output is not confirmed silently', () => {
+  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+  // On a card the recipe does not render the environment from.
+  const other = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [{ action: 'set_environment', card: s.cards.at(-1).card, room: 'cathedral' }],
+  });
+  assert.equal(other.recipe, s.recipe, 'fixture: a non-environment card must not render');
+  const nr = other.render_warnings.find((x) => x.code === 'ENVIRONMENT_NOT_RENDERED');
+  assert.ok(nr, 'changed reported a room the recipe does not contain, with no warning');
+  assert.equal(nr.environment_card, s.render_scope.environment_card);
+  // Compressed out of a long blend.
+  const big = E.startRecipe({
+    traditions: ['afrobeat', 'bluegrass', 'gamelan', 'zydeco', 'bossa_nova'],
+  });
+  const r = E.editRecipe({
+    workspace: thread(big.workspace),
+    format: 'compact',
+    edits: [{ action: 'set_environment', room: 'cathedral', chain: { mic: 'hydrophone_piezo' } }],
+  });
+  assert.doesNotMatch(r.recipe, /cathedral/i, 'fixture: compact must drop the environment here');
+  const nl = r.render_warnings.find((x) => x.code === 'ENVIRONMENT_NOT_LITERAL');
+  assert.deepEqual(
+    nl?.items.map((it) => it.id),
+    ['cathedral', 'hydrophone_piezo']
+  );
+  // …and silent when the words are there.
+  const rich = E.renderRecipe({ workspace: thread(r.workspace) });
+  assert.match(rich.recipe, /cathedral/);
+  assert.ok(!rich.render_warnings.some((x) => x.code === 'ENVIRONMENT_NOT_LITERAL'));
+});
+
+await check('fx: an added effect joins the list; clear empties or replaces it', () => {
+  const s = E.startRecipe({ traditions: ['tamil_filmi'] });
+  const r = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_environment', chain: { fx: 'analog_delay' } },
+      { action: 'set_environment', chain: { fx: 'digital_delay' } },
+    ],
+  });
+  assert.deepEqual(r.render_scope.environment_settings.chain.fx, [
+    'plate_reverb',
+    'analog_delay',
+    'digital_delay',
+  ]);
+  const replaced = E.editRecipe({
+    workspace: thread(r.workspace),
+    edits: [{ action: 'set_environment', clear: ['fx'], chain: { fx: 'analog_delay' } }],
+  });
+  assert.deepEqual(replaced.render_scope.environment_settings.chain.fx, ['analog_delay']);
+  const cleared = E.editRecipe({
+    workspace: thread(r.workspace),
+    edits: [{ action: 'set_environment', clear: ['fx', 'room', 'tuning'] }],
+  });
+  const env = cleared.render_scope.environment_settings;
+  assert.equal(env.room, null);
+  assert.equal(env.tuning, null);
+  assert.equal(env.chain.fx, undefined);
+  // Clearing EVERY setting leaves the card with no environment, so the recipe
+  // renders the next card's — in a seeded tradition, the same one. Said, not
+  // left for the caller to discover in an unchanged recipe.
+  const all = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [{ action: 'set_environment', clear: [...E.ENV_FIELDS] }],
+  });
+  const moved = all.render_warnings.find((x) => x.code === 'ENVIRONMENT_MOVED');
+  assert.ok(moved, 'a clear that changed nothing visible came back without a warning');
+  assert.equal(moved.card, s.render_scope.environment_card);
+  assert.equal(moved.environment_card, all.render_scope.environment_card);
+  assert.notEqual(moved.environment_card, moved.card);
+});
+
+await check('edits that would do nothing, or undo the recipe, are refused with a next step', () => {
+  const s = E.startRecipe({ traditions: ['tamil_filmi'] });
+  const ws = () => thread(s.workspace);
+  const refuses = (edits, re) =>
+    assert.throws(() => E.editRecipe({ workspace: ws(), edits }), re, JSON.stringify(edits));
+  // A misspelled field is dropped before the engine sees it; what arrives sets nothing.
+  refuses([{ action: 'set_environment' }], /sets nothing.*room, tuning, chain/);
+  refuses([{ action: 'set_environment', chain: {} }], /sets nothing/);
+  refuses(
+    [{ action: 'add_tradition', tradition: 'tamil_filmi' }],
+    /already in this recipe.*add_instrument/
+  );
+  refuses(
+    [{ action: 'remove_tradition', tradition: 'bluegrass' }],
+    /not in this recipe.*tamil_filmi/
+  );
+  refuses([{ action: 'remove_tradition', tradition: 'tamil_filmi' }], /no cards.*start_recipe/);
+  refuses([{ action: 'move_instrument', card: 'nope' }], /No card matching "nope".*voice/);
+  refuses(
+    [{ action: 'move_instrument', card: 'voice', before: 'nope' }],
+    /No card matching "nope"/
+  );
+  refuses([{ action: 'set_environment', clear: ['rooms'] }], /Cannot clear "rooms".*room, tuning/);
+  assert.throws(() => E.startRecipe({ traditions: ['bluegrass', 'bluegrass'] }), /more than once/);
+  // A swap that passes through an empty roster is fine.
+  const swap = E.editRecipe({
+    workspace: ws(),
+    edits: [
+      { action: 'remove_tradition', tradition: 'tamil_filmi' },
+      { action: 'add_tradition', tradition: 'bluegrass' },
+    ],
+  });
+  assert.ok(swap.recipe.startsWith('Bluegrass, '));
+});
+
+await check('the AGENTS.md worked example runs as written', () => {
+  // Its ids once named a tradition and an instrument that never existed, and one
+  // of its searches returned nothing. Each id and search below is quoted from the
+  // example, and the example must still quote them.
+  const doc = readFileSync(new URL('../AGENTS.md', import.meta.url), 'utf8');
+  const example = doc.slice(doc.indexOf('A typical exchange'), doc.indexOf('edit call, done.'));
+  for (const quoted of [
+    'search_catalog "appalachian ballad"',
+    'traditions:["appalachian_folk"]',
+    'search_prefaces "haunted"',
+    'search_prefaces "submerged"',
+    'search_catalog "underwater"',
+    'card:"banjo_5_string", preface:"drowning"',
+    'chain:{mic:"hydrophone_piezo"}',
+  ])
+    assert.ok(example.includes(quoted), `the worked example no longer says ${quoted}`);
+  assert.ok(
+    E.searchCatalog({ query: 'appalachian ballad' }).items.some((x) => x.id === 'appalachian_folk')
+  );
+  assert.equal(E.searchPrefaces({ query: 'haunted' }).items[0].id, 'haunting');
+  assert.equal(E.searchPrefaces({ query: 'submerged' }).items[0].id, 'drowning');
+  const mic = E.searchCatalog({ query: 'underwater' }).items[0];
+  assert.deepEqual([mic.id, mic.stage], ['hydrophone_piezo', 'mic']);
+  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+  const r = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_preface', card: 'voice', preface: 'haunting' },
+      { action: 'set_preface', card: 'banjo_5_string', preface: 'drowning' },
+      { action: 'set_environment', chain: { mic: 'hydrophone_piezo' } },
+    ],
+  });
+  assert.match(r.recipe, /haunting voice/);
+  assert.match(r.recipe, /drowning five-string-banjo/);
+  assert.match(r.recipe, /hydrophone/);
+  assert.deepEqual(r.render_warnings, []);
+});
+
+await check('`changed` reports what shows: no preface noise, no empty fx on a new card', () => {
+  const s = E.startRecipe({ traditions: ['garage_rock'] });
+  // A non-material part on an auto-preface card rewrites the stored preface
+  // cache; the displayed preface is what `changed` must follow.
+  let unchangedShown = 0;
+  for (const c of s.workspace.cards) {
+    const inst = E.getInstrument({ id: c.instrumentId });
+    for (const p of inst.parts) {
+      const alt = p.variants.find((v) => !v.default && !v.borrowed);
+      if (!alt) continue;
+      const r = E.editRecipe({
+        workspace: thread(s.workspace),
+        edits: [{ action: 'set_variant', card: c.id, part: p.id, variant: alt.id }],
+      });
+      const before = s.cards.find((x) => x.card === c.id).preface;
+      const row = r.cards.find((x) => x.card === c.id);
+      if (row.preface === before) {
+        unchangedShown++;
+        assert.equal(row.changed?.preface, undefined, `${c.instrumentId}.${p.id}: preface noise`);
+      } else if (row.preface_locked) {
+        assert.equal(row.changed?.preface, row.preface);
+      }
+    }
+  }
+  assert.ok(unchangedShown > 5, 'fixture: too few edits kept their preface');
+  // set_preface to a preface the card was not showing is reported.
+  const p = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [{ action: 'set_preface', card: 'voice', preface: 'satirical' }],
+  });
+  assert.equal(p.cards.find((x) => x.instrument === 'voice').changed?.preface, 'satirical');
+  // A new card is not a changed card.
+  const added = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'add_instrument', instrument: 'theremin' },
+      { action: 'add_instrument', instrument: 'banjo_5_string', tradition: 'bluegrass' },
+    ],
+  });
+  for (const row of added.cards.slice(-2)) assert.equal(row.changed, undefined, row.instrument);
 });
 
 await check('render_recipe re-renders threaded state', () => {
@@ -263,6 +543,25 @@ await check('search_prefaces returns preface ids', () => {
   assert.ok(r.items.some((x) => x.id === 'satirical'));
 });
 
+await check('search_prefaces ranks a preface first for its own id, as search_catalog does', () => {
+  // It used to count substring hits, so "keening" put demotic-keening first and
+  // 71 of 624 single-word ids were not the top hit for their own name. Both
+  // searches now share one scorer; every id in the lexicon is checked.
+  const misses = [];
+  for (const p of C.PREFACE_LEXICON) {
+    if (E.searchPrefaces({ query: p.id }).items[0]?.id !== p.id) misses.push(p.id);
+    if (E.searchCatalog({ query: p.id, types: ['preface'] }).items[0]?.id !== p.id)
+      misses.push(`catalog:${p.id}`);
+  }
+  assert.deepEqual(misses, []);
+  assert.equal(E.searchPrefaces({ query: 'keening' }).items[0].id, 'keening');
+  // An inflected mood word reaches the preface named for its root, and a note
+  // outranks a token that dozens of prefaces share.
+  assert.equal(E.searchPrefaces({ query: 'haunted' }).items[0].id, 'haunting');
+  assert.equal(E.searchPrefaces({ query: 'eerie' }).items[0].id, 'chilling');
+  assert.ok(E.searchPrefaces({ query: 'eerie' }).items[0].note);
+});
+
 await check('get_instrument exposes variant ids for set_variant', () => {
   const i = E.getInstrument({ id: 'electric_guitar_single_coil' });
   const bw = i.parts.find((p) => p.id === 'body_wood');
@@ -272,6 +571,39 @@ await check('get_instrument exposes variant ids for set_variant', () => {
 await check('list_options enumerates rooms', () => {
   const o = E.listOptions({ kind: 'rooms' });
   assert.ok(o.count > 0 && o.items[0].id);
+});
+
+await check('list_options says what takes its ids; chain_sections are stage names only', () => {
+  assert.match(E.listOptions({ kind: 'rooms' }).accepted_by, /set_environment room/);
+  const stages = E.listOptions({ kind: 'chain_sections' });
+  assert.deepEqual(
+    stages.items.map((x) => x.id),
+    [...E.CHAIN_STAGE_IDS]
+  );
+  assert.match(stages.accepted_by, /search_catalog types=\["chain"\]/);
+  for (const kind of ['archetypes', 'aesthetics', 'arrangements', 'instrument_families', 'axes'])
+    assert.match(E.listOptions({ kind }).accepted_by, /no edit takes/, kind);
+});
+
+await check('list_traditions: family per its description, and a bounded page', () => {
+  const lower = E.listTraditions({ family: 'rock' });
+  assert.ok(lower.total > 0);
+  assert.equal(
+    E.listTraditions({ family: 'Rock' }).total,
+    lower.total,
+    'family is case-insensitive'
+  );
+  assert.equal(
+    E.listTraditions({ family: 'roc' }).total,
+    0,
+    'family is an exact id, not a substring'
+  );
+  const all = E.listTraditions({ limit: Number.MAX_SAFE_INTEGER });
+  assert.equal(all.count, E.LIST_TRADITIONS_MAX);
+  assert.equal(all.next_offset, E.LIST_TRADITIONS_MAX);
+  const last = E.listTraditions({ offset: all.total - 1 });
+  assert.equal(last.count, 1);
+  assert.equal(last.next_offset, undefined);
 });
 
 await check('validation: actionable errors', () => {

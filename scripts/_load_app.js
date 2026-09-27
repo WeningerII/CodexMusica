@@ -42,6 +42,16 @@ const EXPORTED = [
   // only on material parts, and 1052 of 1406 instruments have none. Gates must
   // call this, not the cascade.
   'applyPartEdit',
+  // Which card the app's "Recording environment" panel edits (src/workbench.js
+  // uiOpenEnvironment opens the editor on envCardOf(app.cards)). check_edit_parity
+  // resolves a card-less set_environment against the app's own copy of the rule.
+  'envCardOf',
+  // "Add instrument to this tradition" (src/app.js addInstrumentFromPicker):
+  // the card is configured by traditionCardOpts and placed after the
+  // tradition's run. check_edit_differential drives the connector's
+  // add_instrument {tradition} against these two.
+  'traditionCardOpts',
+  '_placeCardAfterTraditionRun',
 ];
 
 function loadApp() {

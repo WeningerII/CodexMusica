@@ -5,10 +5,14 @@ import { CONNECTOR_VERSION } from './contract_version.js';
 // tradition's deterministic default cards (== the app's "Current Recipe"), and
 // edit_recipe applies human-style edits (re-pick a preface — which deterministically
 // re-derives that instrument's settings — swap a part variant, override room/
-// chain/tuning, add/remove instruments, add/remove traditions). State is passed
-// in and out: every recipe call returns the `workspace` to thread into the next.
-// No hill-climb search, no auto-staple — the recipe is reproducible and equal to
-// what a human sees in the app.
+// chain/tuning, add/remove instruments, add/remove traditions). On this raw
+// surface state is passed in and out: every recipe call returns the `workspace`
+// to thread into the next. That mechanic is described on the `workspace`
+// parameter and in the raw instructions below, never in a tool's main
+// description — the shared /mcp endpoint publishes these same descriptions
+// behind a session that carries the workspace for the caller. No hill-climb
+// search, no auto-staple — the recipe is reproducible and equal to what a human
+// sees in the app.
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import * as E from './engine.js';
@@ -111,8 +115,9 @@ export function registerTools(server) {
         'Seed a recording recipe from any number of traditions — deterministic default cards, identical to what a human sees in the ' +
         'app ("Current Recipe"). This is the SCAFFOLD, not the finished answer: when the user gave any stylistic words (a mood, ' +
         'gear, a space, an era), follow with edit_recipe to realize them before presenting. First tradition is primary; any ' +
-        "others are explicit staples (NOT auto-added). Returns the recipe string, a per-card summary (with each instrument's " +
-        'preface), and the `workspace` to thread into edit_recipe. Resolve tradition names to ids with search_catalog first.',
+        'others are explicit staples (NOT auto-added); list each once. Returns the recipe string, a per-card summary (with each ' +
+        "instrument's preface) and render_scope (the card the environment renders from, and its settings). Resolve tradition " +
+        'names to ids with search_catalog first.',
       inputSchema: TOOL_SCHEMAS.start_recipe.shape,
     },
     (a) => E.startRecipe(a)
@@ -126,17 +131,18 @@ export function registerTools(server) {
       description:
         "The main tool — push the scaffold toward the user's words with an ordered batch of edits in ONE call. Edits: set_preface " +
         "(mood/aesthetic words land here — re-derives that instrument's variants/tuning/room/chain toward the preface, then labels " +
-        'it verbatim; apply per instrument, not just once), set_variant (set one part — material, build, technique — which then ' +
-        'RESHAPES the rest of that card toward its preface, exactly as picking a variant does in the app; your part is pinned and ' +
-        'never reverted, but the other axes may move, so set_preface FIRST if you want to steer where they land), ' +
-        'set_environment (any room/tuning/chain — freely across eras and regions; no combination is fenced. The recipe renders its ' +
-        'environment from the FIRST card only, so this is ONE edit for the whole recording — omit `card` and it lands there; ' +
-        'repeating it per instrument writes fields nothing renders), add_instrument / ' +
-        'remove_instrument (any instrument into any tradition), add_tradition / remove_tradition, move_instrument ' +
-        '(preserve the card and its settings; omit before to make it primary). Explicit part descriptors have priority in Rich ' +
-        'compression; inspect render_warnings for explicit words that could not survive. Pass the `workspace` from the ' +
-        'previous call; get back the edited workspace + new recipe. Iterate until the recipe reflects every word the user said, ' +
-        'then present the final `recipe` string VERBATIM.',
+        'it verbatim; apply per instrument, not just once), set_variant (set one part — material, build, technique; the part is ' +
+        'pinned and never reverted. As in the app, an auto-derived preface label re-derives from the new sound, and a material ' +
+        "part may also move that card's other parts toward the preface; room, tuning and chain never move), set_environment " +
+        '(any room/tuning/chain — freely across eras and regions; no combination is fenced. The recipe renders ONE environment, ' +
+        'from render_scope.environment_card; omit `card` and the edit lands there, so one edit sets the whole recording. A chain ' +
+        'id on a multi-select stage (fx) is added to its list; `clear` unsets room, tuning or a stage. The environment lives on ' +
+        'that card, so removing or moving the card, or a set_preface on it, changes what renders — render_warnings reports it; ' +
+        'put set_environment after set_preface in a batch), add_instrument / remove_instrument (any instrument into any ' +
+        'tradition), add_tradition / remove_tradition, move_instrument (preserve the card and its settings; omit before to move ' +
+        'it to the front). Explicit part descriptors have priority in Rich compression; inspect render_warnings for requested ' +
+        'words (parts, prefaces, environment) that did not survive into the output. Iterate until the recipe reflects every ' +
+        'word the user said, then present the final `recipe` string VERBATIM.',
       inputSchema: TOOL_SCHEMAS.edit_recipe.shape,
     },
     (a) => E.editRecipe(a)
@@ -146,9 +152,9 @@ export function registerTools(server) {
     server,
     'render_recipe',
     {
-      title: 'Re-render the workspace',
+      title: 'Re-render the recipe',
       description:
-        'Render an existing workspace again — e.g. a different format or max_chars — without editing it.',
+        'Render the current recipe again — a different format or max_chars — without editing it.',
       inputSchema: TOOL_SCHEMAS.render_recipe.shape,
     },
     (a) => E.renderRecipe(a)
@@ -165,8 +171,10 @@ export function registerTools(server) {
         'Free-text search across traditions, instruments, part-variants, rooms, tunings, arrangements, aesthetics, prefaces, and ' +
         'chain items. Use it to turn the CONCRETE words in a request into real ids — a genre, an instrument, a piece of gear, a ' +
         'material, a space, an era — and never guess an id. For MOOD and FEEL adjectives reach for search_prefaces instead: it ' +
-        'searches the same prefaces but returns their token profiles, which is what you need to choose between near-synonyms. ' +
-        'Hits on an id or name outrank hits in descriptor prose, and matching every term outranks matching some.',
+        "searches the same prefaces, ranked the same way, but returns each one's note and token profile, which is what you need " +
+        'to choose between near-synonyms. Hits on an id or name outrank hits in descriptor prose, and matching every term ' +
+        'outranks matching some. A chain hit carries the `stage` that takes it. Arrangement and aesthetic hits are reference ' +
+        'only — no edit takes those ids.',
       inputSchema: TOOL_SCHEMAS.search_catalog.shape,
     },
     (a) => E.searchCatalog(a)
@@ -179,8 +187,10 @@ export function registerTools(server) {
       title: 'Search prefaces (intent → preface id)',
       description:
         'Search the named prefaces (aesthetic/technique/delivery signatures: satirical, keening, brooding, …) by mood/feel words. ' +
-        'Reach for this whenever the user says ANY stylistic adjective — then realize the winning id on each relevant instrument ' +
-        'via edit_recipe set_preface. Any preface can target any instrument.',
+        "Ranked like search_catalog: an exact id first, then words in an id, then the preface's note, then its tokens. Reach " +
+        'for this whenever the user says ANY stylistic adjective — then realize the winning id on each relevant instrument via ' +
+        'edit_recipe set_preface. Any preface can target any instrument. A word with no preface hit may name gear or a space ' +
+        'instead: try search_catalog.',
       inputSchema: TOOL_SCHEMAS.search_prefaces.shape,
     },
     (a) => E.searchPrefaces(a)
@@ -193,9 +203,9 @@ export function registerTools(server) {
       title: 'Get one instrument (the knob catalog)',
       description:
         'The parts of one instrument and the variant ids valid for set_variant, with labels and which is ' +
-        'the default. Wide parts are SAMPLED, not dumped — a few instruments inherit a 655-entry materials ' +
-        'table, so each part reports its full `variant_count` and sets `truncated` when you are seeing a ' +
-        'slice. Narrow it rather than raising `limit`: `query` filters variants by name and descriptor ' +
+        'the default. Wide parts are SAMPLED, not dumped — shared materials tables give some parts hundreds ' +
+        `of variants (the widest has ${E.WIDEST_PART_VARIANTS}), so each part reports its full \`variant_count\` and sets ` +
+        '`truncated` when you are seeing a slice. Narrow it rather than raising `limit`: `query` filters variants by name and descriptor ' +
         '("mahogany", "phosphor bronze"), `part` focuses one part. The default variant is always included.',
       inputSchema: TOOL_SCHEMAS.get_instrument.shape,
     },
@@ -220,7 +230,9 @@ export function registerTools(server) {
     {
       title: 'List / browse traditions',
       description:
-        'List or substring-filter traditions (by id/name and/or family). Paginated. For free-text use search_catalog.',
+        'List traditions, optionally filtered: `query` keeps traditions whose id or name contains the text; `family` keeps one exact family (list_options ' +
+        `kind="tradition_families"). Paginated, at most ${E.LIST_TRADITIONS_MAX} per page; next_offset continues. For ` +
+        'free-text search use search_catalog.',
       inputSchema: TOOL_SCHEMAS.list_traditions.shape,
     },
     (a) => E.listTraditions(a)
@@ -230,9 +242,12 @@ export function registerTools(server) {
     server,
     'list_options',
     {
-      title: 'Enumerate an override space',
+      title: 'Enumerate a catalog list',
       description:
-        'Valid ids for an override space: rooms, tunings, chain_sections, archetypes, aesthetics, arrangements, instrument_families, tradition_families, axes.',
+        'Enumerate one catalog list. rooms and tunings are ids set_environment takes. chain_sections are the stage names of ' +
+        'set_environment\'s chain, not chain ids — search_catalog types=["chain"] returns those, each with its stage. ' +
+        'tradition_families filter list_traditions. archetypes, aesthetics, arrangements, instrument_families and axes are ' +
+        'reference only: no edit takes them. Each response says what accepts its ids (accepted_by).',
       inputSchema: TOOL_SCHEMAS.list_options.shape,
     },
     (a) => E.listOptions(a)
@@ -260,7 +275,8 @@ export function buildServer({ task = null, kitchen = false } = {}) {
     `adjective, a piece of gear, a material, a space, an era — follow with edit_recipe before presenting. Map ` +
     `intent to edits: mood/feel/aesthetic words → search_prefaces, then set_preface on EACH instrument it should ` +
     `color (this re-derives that instrument's physical settings toward the word); specific gear/material/technique ` +
-    `→ get_instrument, then set_variant; space/era/medium → set_environment (any room, tuning, or chain stage); ` +
+    `→ get_instrument, then set_variant; space/era/medium → set_environment, one edit with no card for the whole ` +
+    `recording (any room, tuning, or chain stage; after any set_preface on the same card); ` +
     `roster → add/remove_instrument and add/remove_tradition (any instrument fits any tradition). There are NO ` +
     `coherence fences: nothing is anachronistic, out-of-region, or physically impossible here — the catalog's ` +
     `period-accurate defaults are flavor to keep or override, and every id-valid combination renders. Batch ` +

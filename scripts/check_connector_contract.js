@@ -265,6 +265,19 @@ function scanSchema(toolName, schema) {
     (seedPayload?.cards || []).every((c) => !c.changed)
   );
 
+  // Rule for published text: a recipe tool's MAIN description is served on
+  // every surface, including the shared endpoint whose session carries the
+  // workspace for the caller. Threading the workspace is a raw-surface mechanic,
+  // so it belongs on the `workspace` parameter and in the raw instructions.
+  for (const name of ['start_recipe', 'edit_recipe', 'render_recipe']) {
+    const t = tools.find((x) => x.name === name);
+    check(
+      `${name}: the main description does not describe threading a workspace`,
+      !!t && !/workspace/i.test(t.description || ''),
+      (t?.description || '').match(/.{0,40}workspace.{0,40}/i)?.[0]
+    );
+  }
+
   // ── every edit action is visible ──────────────────────────────────────────
   console.log('\n=== Edit visibility ===');
   const ws = seedPayload.workspace;
@@ -295,11 +308,41 @@ function scanSchema(toolName, schema) {
     { action: 'set_environment', card, chain: { fx: 'fuzz_germanium' } },
   ]);
   const fxRow = fxRes.cards?.find((c) => c.card === card);
+  // The seeded plate_reverb has to still be there: an added effect joins the
+  // list, as it does in the app. This used to read `fx[0] === 'fuzz_germanium'`,
+  // which only held because the add replaced the list.
   check(
-    'a multi-select chain stage is reported as a list, not a string',
-    Array.isArray(fxRow?.changed?.chain?.fx) && fxRow.changed.chain.fx[0] === 'fuzz_germanium',
+    'a multi-select chain stage is reported as a list, with the added id beside the seeded one',
+    Array.isArray(fxRow?.changed?.chain?.fx) &&
+      fxRow.changed.chain.fx.includes('fuzz_germanium') &&
+      fxRow.changed.chain.fx.includes('plate_reverb'),
     JSON.stringify(fxRow?.changed?.chain?.fx)
   );
+  const clearRes = await edited([{ action: 'set_environment', clear: ['fx', 'room'] }]);
+  const clearRow = clearRes.cards?.find((c) => c.card === card);
+  check(
+    'clear is visible in `changed` (room null, fx empty)',
+    clearRow?.changed?.room === null &&
+      Array.isArray(clearRow?.changed?.chain?.fx) &&
+      clearRow.changed.chain.fx.length === 0,
+    JSON.stringify(clearRow?.changed)
+  );
+
+  // `changed` is absent on an untouched card — including one just added. A bare
+  // card's empty fx list used to read as a change against a baseline with no fx
+  // key, and a guest card's tradition environment as changes nobody made.
+  for (const add of [
+    { action: 'add_instrument', instrument: 'theremin' },
+    { action: 'add_instrument', instrument: 'theremin', tradition: 'bluegrass' },
+  ]) {
+    const addRes = await edited([add]);
+    const addRow = addRes.cards?.find((c) => c.instrument === 'theremin');
+    check(
+      `an untouched added card carries no \`changed\` (${add.tradition ? 'guest' : 'bare'})`,
+      !!addRow && !addRow.changed,
+      JSON.stringify(addRow?.changed)
+    );
+  }
 
   // Derive a real (card, part, non-default variant) from the catalog rather than
   // naming one. A hardcoded 'guitar' card silently skipped this whole assertion
@@ -664,6 +707,19 @@ function scanSchema(toolName, schema) {
       `${misfiledLabel} → ${misfiledErr}`
     );
   }
+
+  // A stage that does not exist is refused by the published schema (chain is
+  // strict) before the engine sees it, so the schema's message is the only one
+  // a caller gets — it has to name the stages, not just "Unrecognized key".
+  const badStage = await edited([{ action: 'set_environment', chain: { mick: 'x' } }]);
+  check(
+    'an unknown chain stage is refused with the stages that exist',
+    !!badStage.err &&
+      // The SDK prints the issue as JSON, so the quotes arrive escaped.
+      /Unknown chain stage \\?"mick\\?"/.test(badStage.err) &&
+      [...stageIds].every((s) => badStage.err.includes(s)),
+    badStage.err?.slice(0, 200)
+  );
 
   // ── a variant id is usable, not merely findable ───────────────────────────
   //

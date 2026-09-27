@@ -1104,16 +1104,20 @@ stays under ceiling, but the per-tradition distinction is gone. **If you need tw
 instrument to read distinctly, give them different instrument *ids*** (e.g. `voice` vs a specific vocal
 variant, or `violin_orchestral` vs `fiddle`) so they don't share a trailing noun — or accept the merge.
 
-### 9.4b GOTCHA — the environment (tuning/room/chain) comes from the FIRST card only
+### 9.4b GOTCHA — the environment (tuning/room/chain) comes from ONE card: the first that has one
 
-The env section of a recipe is built from `cards[0]` alone — one shared sonic environment for the whole
-recipe. Consequences:
-- Only the **primary (first) card's** tuning/room/chain render as env chunks. Other cards' tunings survive
+The env section of a recipe is built from a single card — the first card that carries any tuning, room
+or chain stage (`envCardOf` in `scripts/_recipe_stack.js`; the app mirrors it) — taken whole, never
+merged across cards. One shared sonic environment for the whole recipe. Consequences:
+- Only that **environment card's** tuning/room/chain render as env chunks. Other cards' tunings survive
   *only* as their own instrument-level descriptors, never as an env tuning. A 5-tradition build with five
   incompatible tunings (12-TET + maqam + shruti + just + Pythagorean) renders just **one** env
-  tuning — the first card's — and looks perfectly clean; the clash is **invisible, not flagged**.
-- To make a particular tuning/room/chain drive the recipe, put that card **first** (reordering the array
-  moves the env, confirmed). This is the same order-lever as the header (§9.1).
+  tuning — the environment card's — and looks perfectly clean; the clash is **invisible, not flagged**.
+- A bare card (added with no tradition: empty tuning, room and chain) is skipped, so it can sit first
+  without taking the environment away. That is also why the connector's `set_environment` with no
+  `card` writes to the environment card rather than to `cards[0]`.
+- To make a particular tuning/room/chain drive the recipe, put a card that has it **first** (reordering
+  the array moves the env, confirmed). This is the same order-lever as the header (§9.1).
 - Therefore **tuning coherence is the agent's judgment call, not something the output will surface** — the
   engine cannot show a tuning conflict because it only ever emits one env tuning. If you stapled
   incompatible-tuning traditions on purpose, fine; if not, the recipe won't warn you.

@@ -22,7 +22,14 @@
 
 const C = require('./_loader.js');
 const { inverseConfigure, SIGS } = require('./_inverse_configure.js');
-const { seedTraditionCards, renderWorkspace, makeCard } = require('./_seed_workspace.js');
+const {
+  seedTraditionCards,
+  renderWorkspace,
+  makeCard,
+  traditionCardOpts,
+  nextCardIds,
+} = require('./_seed_workspace.js');
+const { envCardOf } = require('./_recipe_stack.js');
 const { cardDescriptors } = require('./_card_descriptors.js');
 const { suggest } = require('./_preface_match.js');
 
@@ -53,13 +60,16 @@ function findCard(ws, ref) {
 }
 
 // Reordering preserves card identity and all explicit settings. A move to the
-// front also selects the primary tradition/environment used by the renderer.
+// front puts the card's tradition first in the header. It moves the rendered
+// environment only when the card HAS one: the renderer takes the environment
+// from the first card that carries any (envCardOf), so a bare card moved to the
+// front leaves the environment where it was.
 function moveInstrument(ws, ref, before = null) {
   const next = clone(ws);
   const card = findCard(next, ref);
+  if (!card) throw noCard(next, ref);
   const target = before == null ? null : findCard(next, before);
-  if (!card || (before != null && !target))
-    throw new WorkspaceError('Unknown card in move_instrument');
+  if (before != null && !target) throw noCard(next, before);
   if (card === target) return next;
   next.cards = next.cards.filter((c) => c !== card);
   const index = target ? next.cards.indexOf(target) : 0;
@@ -75,7 +85,7 @@ function seed(traditionIds) {
   if (ids.length === 0) throw new WorkspaceError('seed needs at least one tradition id');
   const ws = emptyWorkspace();
   for (const id of ids) {
-    const cards = seedTraditionCards(id);
+    const cards = seedTraditionCards(id, ws.cards);
     if (!cards) throw new WorkspaceError(`Unknown tradition: "${id}"`);
     ws.cards.push(...cards);
   }
@@ -83,9 +93,9 @@ function seed(traditionIds) {
 }
 
 function addTradition(ws, traditionId) {
-  const cards = seedTraditionCards(traditionId);
-  if (!cards) throw new WorkspaceError(`Unknown tradition: "${traditionId}"`);
   const next = clone(ws);
+  const cards = seedTraditionCards(traditionId, next.cards);
+  if (!cards) throw new WorkspaceError(`Unknown tradition: "${traditionId}"`);
   next.cards.push(...cards);
   return next;
 }
@@ -99,26 +109,32 @@ function removeTradition(ws, traditionId) {
 
 // ── instruments ───────────────────────────────────────────────────────────────
 
-// Add an instrument card. With { tradition } it inherits that tradition's env +
-// part overrides (a roster instrument seeds identically to import; a guest gets
-// the tradition's env + applicable overrides). Without context: bare defaults.
+// Add an instrument card. With { tradition } it is configured exactly as the
+// app's "add instrument to this tradition" configures it (traditionCardOpts: the
+// tradition's tuning, room, recording chain, voice-part overrides and amp — a
+// roster instrument therefore seeds identically to import) and placed after that
+// tradition's last card, as the app places it (_placeCardAfterTraditionRun).
+// Without context: bare defaults, appended.
 function addInstrument(ws, instrumentId, opts = {}) {
   if (!instById(instrumentId)) throw new WorkspaceError(`Unknown instrument: "${instrumentId}"`);
   const next = clone(ws);
+  const id = nextCardIds(next.cards, 1)[0];
   let card = null;
   if (opts.tradition) {
     const trad = tradById(opts.tradition);
     if (!trad) throw new WorkspaceError(`Unknown tradition context: "${opts.tradition}"`);
-    const seeded = seedTraditionCards(opts.tradition) || [];
-    const match = seeded.find((c) => c.instrumentId === instrumentId);
-    card =
-      match ||
-      makeCard(instrumentId, { traditionId: opts.tradition, tuning: trad.tuning, room: trad.room });
+    card = makeCard(instrumentId, { ...traditionCardOpts(trad, instrumentId), id });
   } else {
-    card = makeCard(instrumentId, {});
+    card = makeCard(instrumentId, { id });
   }
   if (!card) throw new WorkspaceError(`Could not build card for "${instrumentId}"`);
-  next.cards.push(card);
+  let last = -1;
+  if (opts.tradition)
+    next.cards.forEach((c, i) => {
+      if (c.traditionId === opts.tradition) last = i;
+    });
+  if (last === -1) next.cards.push(card);
+  else next.cards.splice(last + 1, 0, card);
   return next;
 }
 
@@ -135,11 +151,15 @@ function noCard(ws, cardRef) {
   );
 }
 
+// Removes exactly the card the reference resolves to — by identity, not by id.
+// Filtering on the id removed every card SHARING it, and a workspace minted
+// before card ids were derived from the workspace can hold two cards with one
+// id; one remove_instrument then deleted both.
 function removeInstrument(ws, cardRef) {
   const next = clone(ws);
   const c = findCard(next, cardRef);
   if (!c) throw noCard(next, cardRef);
-  next.cards = next.cards.filter((x) => x.id !== c.id);
+  next.cards = next.cards.filter((x) => x !== c);
   return next;
 }
 
@@ -213,8 +233,9 @@ function setVariant(ws, cardRef, partId, variantId) {
   // `prefaceLock` is deliberately NOT set here, and that is now purely a
   // statement about the card's SHAPE rather than about how it renders. The app's
   // apply() writes preface + prefaceAuto and nothing else, so neither does this;
-  // a variant edit is not an explicit preface choice, and prefaceLock is what
-  // reports one (engine.js cardsSummary → `preface_locked`).
+  // a variant edit is not an explicit preface choice, and prefaceLock marks one
+  // (set_preface). Nothing renders or reports from it: cardsSummary's
+  // `preface_locked` reads prefaceAuto === false, which is what renders verbatim.
   //
   // This comment used to end "claiming the lock would make the connector render
   // something the app does not", which had the render backwards and cost the
@@ -275,10 +296,52 @@ function setVariant(ws, cardRef, partId, variantId) {
   return next;
 }
 
-function setEnvironment(ws, cardRef, { room, tuning, chain } = {}) {
+// The fields `clear` may name: room, tuning, and every chain stage.
+const CLEARABLE = () => ['room', 'tuning', ...(C.CHAIN_SECTIONS || []).map((s) => s.id || s.stage)];
+
+// Set (or clear) a card's room, tuning and chain stages.
+//
+// WITH NO CARD it writes to the card the recipe renders its environment from —
+// envCardOf, the renderer's own rule and the card the app's "Recording
+// environment" panel edits. This used to mean cards[0], which is the same card
+// only while the first card has an environment: after a bare instrument reached
+// the front, "record it in a cathedral" landed on that bare card, made it the
+// environment card, and the recipe lost its tuning and whole signal chain.
+//
+// `clear` runs first, so one edit can replace a list: { clear: ['fx'], chain:
+// { fx: 'tape_echo' } } leaves exactly one effect. Clearing mirrors the app's
+// "Not set" (room, tuning, a single-select stage → null; a multi-select stage →
+// every item toggled off, i.e. an empty list).
+function setEnvironment(ws, cardRef, { room, tuning, chain, clear } = {}) {
   const next = clone(ws);
-  const card = findCard(next, cardRef);
-  if (!card) throw noCard(next, cardRef);
+  let card;
+  if (cardRef == null || cardRef === '') {
+    card = envCardOf(next.cards);
+    if (!card)
+      throw new WorkspaceError(
+        'The recipe has no cards, so there is no environment to set. Add a tradition or an ' +
+          'instrument first (add_tradition / add_instrument), or call start_recipe.'
+      );
+  } else {
+    card = findCard(next, cardRef);
+    if (!card) throw noCard(next, cardRef);
+  }
+  if (clear !== undefined) {
+    const valid = CLEARABLE();
+    const fields = Array.isArray(clear) ? clear : [clear];
+    for (const field of fields) {
+      if (!valid.includes(field))
+        throw new WorkspaceError(`Cannot clear "${field}". Clearable: ${valid.join(', ')}.`);
+    }
+    for (const field of fields) {
+      if (field === 'room' || field === 'tuning') {
+        card[field] = null;
+        continue;
+      }
+      const sec = (C.CHAIN_SECTIONS || []).find((x) => (x.id || x.stage) === field);
+      card.chain[field] = sec && sec.multiSelect ? [] : null;
+    }
+  }
   // Rooms and tunings are closed id spaces with a lookup that answers them, so
   // the refusal says which lookup. A bare "Unknown room" is a dead end: it tells
   // the caller the guess was wrong and nothing about where the right answer
@@ -365,8 +428,19 @@ function setEnvironment(ws, cardRef, { room, tuning, chain } = {}) {
         for (const one of ids) {
           if (typeof one !== 'string' || !known(one)) throw rejectId(one);
         }
+        // ADD, as picking an effect does in the app — never replace.
+        //
+        // The app's multi-select chip appends an unselected item to the list
+        // (src/app.js handleCardClick: `[...cur, itemId]`). This wrote `[id]`,
+        // so asking for a delay silently deleted the seeded plate reverb, and
+        // since the published schema takes one id per edit there was no way to
+        // hold two effects at all. An id already present stays where it is: the
+        // app's second click toggles it off, but a caller cannot see a chip's
+        // state, and a repeated edit must not undo itself. Removal is `clear`.
         // Fresh copy: never alias the caller's array into the workspace.
-        card.chain[stage] = ids.slice();
+        const list = Array.isArray(card.chain[stage]) ? card.chain[stage].slice() : [];
+        for (const one of ids) if (!list.includes(one)) list.push(one);
+        card.chain[stage] = list;
         continue;
       }
       if (id !== null && !known(id)) throw rejectId(id);
