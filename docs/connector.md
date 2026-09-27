@@ -12,14 +12,17 @@ naming the instruments, materials, room, signal chain, and per-instrument
   256 rooms · 122 tunings · 740 prefaces, placed in a 13-dimensional parameter space.
 - **Browser app:** <https://codexmusica.com/codex.html>
 - **Endpoint:** `https://mcp.codexmusica.com/mcp` · health: `/health`
-- **Auth:** public endpoint; run and request identifiers are private bearer capabilities.
-- **Task endpoints:** `/mcp/recipe` and `/mcp/lyrics`. `/health` reports liveness; `/ready` reports lyrics readiness.
+- **Auth:** public endpoint; session, operation, run and request identifiers are private bearer capabilities.
+- **`/mcp` is the endpoint for AI hosts:** one connection, both tool families, and sessions the
+  server keeps (a host carries only a `session_id`). `/mcp/recipe` and `/mcp/lyrics` are
+  task-scoped raw views for the maintained client (`mcp/client.js`, below): one tool family each,
+  state passed in and out by the caller. `/health` reports liveness; `/ready` reports lyrics readiness.
 
 ## Add it to Claude
 
 1. Claude → **Settings → Connectors → Add custom connector**.
-2. Paste `https://mcp.codexmusica.com/mcp/recipe` for recipe work, or use `/mcp/lyrics` for lyric work.
-3. No sign-in. Keep returned run and request capabilities private.
+2. Paste `https://mcp.codexmusica.com/mcp` — one connection serves recipes and lyrics.
+3. No sign-in. Keep returned session and operation ids private.
 
 ## ChatGPT integration
 
@@ -67,9 +70,9 @@ guitar-amp — if you can say it, it renders.
 
 | Tool | What it does |
 |---|---|
-| `start_recipe` | Seed a recipe from one or more tradition ids (first = primary, rest = explicit staples). Returns the recipe + a `workspace` to thread on. |
-| `edit_recipe` | Apply ordered edits to a `workspace`: `set_preface` (re-derive an instrument toward a mood), `set_variant`, `set_environment`, `add`/`remove_instrument`, `add`/`remove_tradition`. |
-| `render_recipe` | Re-render a `workspace` (e.g. a different format or length) without editing it. |
+| `start_recipe` | Seed a recipe from one or more tradition ids (first = primary, rest = explicit staples). On `/mcp` it opens a session and returns its `session_id`; on a task endpoint it returns the `workspace` to pass on. |
+| `edit_recipe` | Apply ordered edits: `set_preface` (re-derive an instrument toward a mood), `set_variant`, `set_environment` (room/tuning/chain; `clear` empties a setting), `add`/`remove_instrument`, `move_instrument`, `add`/`remove_tradition`. `render_warnings` names any requested word the rendered recipe lost. |
+| `render_recipe` | Re-render (e.g. a different format or length) without editing. |
 | `search_catalog` | Turn request words into real catalog ids (traditions, instruments, variants, rooms, tunings, arrangements, aesthetics, prefaces). |
 | `search_prefaces` | Find prefaces by free text; returns ids + token signatures. |
 | `get_instrument` / `get_tradition` | Full record + swappable variants / 13-axis profile. |
@@ -82,14 +85,23 @@ Beside the recipes — and never touching them — the `lyric_*` family plans an
 | `lyric_screen` | Screen 2–12 candidate end words: every pair judged by the song grader itself — CLEAN, BANNED (`HOMEOTELEUTON` / `MODAL_RHYME`), an honest non-rhyme, or the grader's own refusal. Use BEFORE writing. |
 | `lyric_plan` | A declared integer seed → a complete, reproducible song shape: sections with bars/meter/pickup, rhyme plan, verbatim returns, hook slot, and a writer brief. Writes no words. |
 | `lyric_grade` | The whole-song verdict: re-derives the plan from the same seed, fills it with the draft, grades rhyme/returns/meter/functions/floor, and returns the rendered song (performance order, bracket headers) + the report. |
+| `lyric_revise` | The finishing step: drives the revise loop over a graded draft (same seed and declarations, or a pasted song's mandate) and asks you one question per call — you write every answer — until a stop condition; only its `[FINISHED …]` song is finished. |
+| `lyric_recover` | The first step for pasted lyrics: counts sung lines and syllables, reads sections, and recovers the rhyme groups and returns the text actually carries, as the `mandate` to pass to `lyric_check` and `lyric_revise`; names the coordinates you must declare (always the meter). |
 | `lyric_check` | Grade pasted lyrics without a plan: declare a letter scheme (`ABAB`) or line-number groups (`1,3;2,4`), optional verbatim-return classes. |
-| `lyric_sweep` | Find seeds whose shape matches a declared want (`lines>=16`, `uses=bridge`, `before=verse,chorus`) over a bounded window of consecutive seeds. Returns seeds in SEED ORDER and does not rank; three counts never summed; windows compose, so continue from `next_seed_from`. |
-| `lyric_verify` | Did this revision earn it? Hand it a draft BEFORE and AFTER under the same mandate and it reports what the change FIXED and INTRODUCED. Read `accepted`, not `exit_code` — both verdicts exit 0. A DIFF, not a grade: it cannot report banned pairs that survived the change. |
+| `lyric_sweep` | Find seeds whose shape matches a declared want (`lines>=16`, `uses=bridge`, `before=verse,chorus`) over a bounded window of consecutive seeds. Returns seeds in SEED ORDER and does not rank; its counts (swept, planned, planner-refused, accepted) are never summed; windows compose, so continue from `next_seed_from`. Pass its `want` list to `lyric_plan` as `wants`. |
+| `lyric_verify` | Did this revision earn it? Hand it a draft BEFORE and AFTER under the same mandate and it reports what the change FIXED and INTRODUCED, including bans it introduced. Read `accepted`, not `exit_code` — both verdicts exit 0. A DIFF, not a grade: it says nothing about defects the change left untouched. |
 | `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
 
-Recipe tools pass `workspace` in and out. `lyric_revise` also retains run state;
-the caller answers every question it asks, and no connector call reaches a model
-provider. `/chat` uses durable receipts to recover accepted work. See
+On `/mcp` the server keeps each workflow in a session, and the lyric calls run as background
+operations: poll `get_operation`, and continue from the `session_id` in each completed receipt.
+
+| Session control | What it does |
+|---|---|
+| `begin_lyrics` | Open a lyrics session: `create` for a new song (the server enforces sweep → screen → plan → exact-draft grade → revise), `edit` for lyrics the user supplied. |
+| `get_operation` | Read an operation by id: pending, the completed result (the tool's own blocks first, then the receipt with the next `session_id`), or an interruption. |
+| `resume_operation` | Continue an interrupted operation when it reports `resumable: true`. |
+
+You answer every question `lyric_revise` asks; no connector call reaches a model provider. `/chat` uses durable receipts to recover accepted work. See
 [LYRICS_RUNTIME.md](../mcp/LYRICS_RUNTIME.md) for storage and continuation rules.
 
 ## How it works (recipe = under 1,000 chars)
@@ -103,7 +115,7 @@ present it verbatim.
 
 ## Privacy & support
 
-- **Privacy:** [PRIVACY.md](../PRIVACY.md) — lyrics storage, external processing and retention.
+- **Privacy:** [PRIVACY.md](../PRIVACY.md) and [the connector's policy](../mcp/PRIVACY.md) — sessions, lyrics storage, external processing and retention.
 - **Support:** [SUPPORT.md](../SUPPORT.md) — GitHub Issues.
 
 ## Native clients

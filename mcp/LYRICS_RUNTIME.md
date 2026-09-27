@@ -207,11 +207,15 @@ make live Gemini calls or deploy a service.
 
 ## Production contract after the audit
 
-Choose the task through `/mcp/recipe`, `/mcp/lyrics`, or the browser task selector.
-The server dispatches only that tool family and preserves the task outside the
-model transcript. Recipe creation uses Rich and a maximum of 1,000 characters;
-its delivery is the engine's exact rendered string. The legacy combined endpoint
-cannot enforce a task an external host has never supplied.
+AI hosts connect to the shared `/mcp` endpoint, which serves both tool families
+and keeps workflow sessions on the server; a lyrics session opened with
+`begin_lyrics` in phase `create` enforces the creation order from receipts the
+server records. The task-scoped views `/mcp/recipe` and `/mcp/lyrics` (used by the
+maintained client) and the browser task selector dispatch only one tool family
+and preserve the task outside the model transcript. Recipe creation uses Rich and
+a maximum of 1,000 characters; its delivery is the engine's exact rendered string.
+No endpoint can enforce a task an external host never states: `/mcp` serves
+whichever family the host calls.
 
 Direct lyric continuations require the returned `run_revision` with `run_id`.
 A concurrent continuation or stale revision refuses before work starts. Original

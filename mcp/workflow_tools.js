@@ -16,8 +16,11 @@ import { TOOL_SCHEMAS } from './schemas.js';
 import { LYRIC_TOOL_SCHEMAS } from './lyric_tools.js';
 import { expectedSurface } from './surface_contract.js';
 import { executeNative, publicToolResult } from './workflow_sessions.js';
+import { CONNECTOR_VERSION } from './contract_version.js';
 
-export const WORKFLOW_CONNECTOR_VERSION = '1.3.0';
+// /mcp is the endpoint the discovery card and server.json describe, so it
+// reports the same version they do.
+export const WORKFLOW_CONNECTOR_VERSION = CONNECTOR_VERSION;
 const id = z
   .string()
   .regex(/^[a-f0-9]{64}$/)

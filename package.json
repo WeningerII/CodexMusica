@@ -55,6 +55,7 @@
     "fix:docs": "node scripts/check_docs.js --fix",
     "check:api": "node scripts/check_api.js",
     "check:promises": "node scripts/check_promises.js",
+    "check:doc-tools": "node scripts/check_doc_tools.mjs",
     "check:prefaces": "node scripts/check_prefaces.js",
     "check:dead-tokens": "node scripts/audit_dead_tokens.js",
     "check:names": "node scripts/check_name_isolation.js",

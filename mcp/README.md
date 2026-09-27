@@ -35,9 +35,9 @@ and `render_scope` for which shared environment is represented.
 
 | Tool | What it does |
 |---|---|
-| `start_recipe` | Seed a recipe from one or more `traditions` (first = primary, rest = explicit staples). Returns the recipe, a per-card summary, and the `workspace` to thread on. |
-| `edit_recipe` | Apply an ordered `edits` list to a `workspace`: `set_preface` (re-derive an instrument toward a mood, labeled verbatim), `set_variant` (sets and pins one part; as in the app, an auto preface re-derives and a material part may move that card's other parts toward the preface), `set_environment`, `add_instrument` / `remove_instrument`, `add_tradition` / `remove_tradition`. |
-| `render_recipe` | Re-render a `workspace` (e.g. different `format` or `max_chars`) without editing it. |
+| `start_recipe` | Seed a recipe from one or more `traditions` (first = primary, rest = explicit staples). Returns the recipe and a per-card summary; on `/mcp` it opens a session (`session_id`), on a task endpoint it returns the `workspace` to pass on. |
+| `edit_recipe` | Apply an ordered `edits` list (to the session's workspace, or a passed `workspace`): `set_preface` (re-derive an instrument toward a mood, labeled verbatim), `set_variant` (sets and pins one part; as in the app, an auto preface re-derives and a material part may move that card's other parts toward the preface), `set_environment`, `add_instrument` / `remove_instrument`, `move_instrument`, `add_tradition` / `remove_tradition`. |
+| `render_recipe` | Re-render (e.g. different `format` or `max_chars`) without editing. |
 | `search_catalog` | Free-text search → ids, across traditions, instruments, variants, rooms, tunings, arrangements, aesthetics, prefaces, chain. Resolve words before guessing. |
 | `search_prefaces` | Mood/feel words → preface ids for `set_preface`. |
 | `get_instrument` | The **knob catalog** — every part and the variant ids you pass to `set_variant`. |
@@ -60,9 +60,10 @@ for time budgets, paid-work accounting, run recovery and deployment requirements
 | `lyric_plan` | A declared integer seed → a complete, reproducible song shape: sections with bars/meter/pickup, rhyme plan, verbatim returns, hook slot, and a writer brief. Writes no words. Optional declarations — `relation`, `functions`, `title` — are CARRIED, never sampled. |
 | `lyric_grade` | The whole-song verdict: re-derives the plan from the same seed AND the same declarations (a declaration dropped here grades a different plan), fills it with the draft, grades rhyme/returns/meter/functions/floor, and returns the rendered song (performance order, bracket headers) + the report. |
 | `lyric_check` | Grade pasted lyrics without a plan: declare a letter scheme (`ABAB`) or line-number groups (`1,3;2,4`), optional verbatim-return classes, an optional `relation`, and an optional per-group `structures` declaration (`B:kalevala-alliteration`) whose uncalibrated disclosure rides in the verdict. |
-| `lyric_sweep` | Find seeds whose shape matches a declared want (`lines>=16`, `uses=bridge`, `before=verse,chorus`) over a bounded window of consecutive seeds. Returns seeds in SEED ORDER and does not rank; three counts never summed; windows compose, so continue from `next_seed_from`. |
+| `lyric_sweep` | Find seeds whose shape matches a declared want (`lines>=16`, `uses=bridge`, `before=verse,chorus`) over a bounded window of consecutive seeds. Returns seeds in SEED ORDER and does not rank; its counts (swept, planned, planner-refused, accepted) are never summed; windows compose, so continue from `next_seed_from`. Pass its `want` list to `lyric_plan` as `wants`. |
 | `lyric_revise` | Revise a draft under its declared plan or mandate. The loop asks the caller one question per call; answer with `answer`/`answers`. A session carries the run; without one, retain the returned `run_id` + `run_revision` (or `state`); a seed is not a run capability. |
-| `lyric_verify` | Did this revision earn it? Hand it a draft BEFORE and AFTER under the same mandate and it reports what the change FIXED and INTRODUCED. Read `accepted`, not `exit_code` — both verdicts exit 0. A DIFF, not a grade: it cannot report banned pairs that survived the change. |
+| `lyric_recover` | The first step for pasted lyrics: counts sung lines and syllables, reads sections, and recovers the rhyme groups and returns the text carries as a `mandate` for `lyric_check` / `lyric_revise`; names the coordinates the caller must declare (always the meter). |
+| `lyric_verify` | Did this revision earn it? Hand it a draft BEFORE and AFTER under the same mandate and it reports what the change FIXED and INTRODUCED, including bans it introduced. Read `accepted`, not `exit_code` — both verdicts exit 0. A DIFF, not a grade: it says nothing about defects the change left untouched. |
 | `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
 
 ## Quick start
@@ -100,10 +101,12 @@ npm run inspect   # opens the MCP Inspector against the stdio server
 
 ### Hosted use (the Connectors menu)
 
-For ChatGPT, use the [session-aware integration](../docs/chatgpt.md). It adds
-separate recipe and lyrics endpoints, persisted workflow state, background lyric
-operations and bundled skills. Those routes must be deployed before connecting
-the plugin; see the setup and acceptance steps in that guide.
+Every AI host — Claude, ChatGPT or any MCP client — connects to the shared `/mcp`
+endpoint: one connection, both tool families, workflow sessions the server keeps,
+and background lyric operations (`begin_lyrics`, `get_operation`,
+`resume_operation`). For ChatGPT's bundled skills and acceptance steps see the
+[ChatGPT integration](../docs/chatgpt.md). `/mcp/recipe` and `/mcp/lyrics` are the
+task-scoped raw views the maintained client uses.
 
 This is what makes "CodexMusica" appear in Claude's **Connectors** list with its own
 toggle. Deploy `server_http.js` to any Node host (Render, Fly, Railway, a VPS):

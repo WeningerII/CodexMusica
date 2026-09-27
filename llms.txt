@@ -20,8 +20,9 @@ anything you want to change, and do not expect the two strings to match.
 - Shared endpoint (Streamable HTTP, no auth): https://mcp.codexmusica.com/mcp
 - One Codex Musica connection exposes all 18 music tools to any compatible MCP client.
 - Shared workflow controls: begin_lyrics, get_operation, resume_operation.
+- You write every lyric line: no connector call reaches a model provider.
 - Saved sessions retain exact state and recover background lyric operations after disconnects.
-- Existing /mcp/recipe and /mcp/lyrics task views remain compatible during migration.
+- Task-scoped raw views /mcp/recipe and /mcp/lyrics serve the maintained client (mcp/client.js); AI hosts use /mcp.
 - Native clients must preserve initialization guidance, complete tool metadata,
   the host-selected task and exact returned artifacts; use the maintained adapter
   documented in docs/connector.md. Keep run and request capabilities private.

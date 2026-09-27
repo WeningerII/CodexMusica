@@ -909,6 +909,12 @@ jobs:
       - name: Promise→gate coverage (every promise documented AND gated, 0 orphans)
         run: npm run check:promises
 
+      # Every doc that lists the connector's tools lists the tools /mcp serves.
+      # Needs the connector's dependencies (it builds the surface), so it runs
+      # here rather than with check-docs in the gate job.
+      - name: Connector tool lists in docs match the served surface
+        run: npm run check:doc-tools
+
       - name: Preface lexicon hygiene (no dup/empty/production-dead tokens, no dup ids)
         run: npm run check:prefaces
 

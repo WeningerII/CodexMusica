@@ -6,6 +6,47 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — Connector audit: the service writer is chat-only, and every tool says what it does
+
+A full reading of the connector (2026-09-27) found its published text had drifted
+from its behavior since the session layer shipped on 2026-09-13/14. Fixed:
+
+- **The service's Gemini writer runs only inside the website chat**, where Gemini
+  writes the whole song. `begin_lyrics` on `/mcp` had defaulted to it, so a host's
+  draft was rewritten by Gemini in one hidden, paid step charged to the website's
+  daily ledger. No outside surface (`/mcp`, `/mcp/recipe`, `/mcp/lyrics`,
+  `/mcp/chatgpt*`, stdio) publishes a `writer` now; the caller writes every line
+  and no connector call reaches a model provider. `buildServer({ kitchen: true })`
+  is the chat's switch.
+- **Session layer (`/mcp`).** A completed operation's content leads with the tool's
+  own blocks, verbatim, then the receipt; the text on every wrapped tool is true in
+  both modes; refusals name a call that works; recipe format no longer sticks;
+  connector sessions have their own store (the `/chat` store's 128-payload cap had
+  been evicting them); recipes still answer when the store refuses; `/chat/jobs`
+  no longer serves a connector session's private receipt; `recover_only` works in a
+  session; the `/mcp` instructions carry the engine's full guidance again.
+- **Recipe tools.** A card-less `set_environment` edits the card the recipe renders
+  its environment from (it had written to `cards[0]` and could wipe the whole
+  chain); adding an effect keeps the others (`clear` empties a setting); card ids no
+  longer collide across restarts; `render_warnings` covers the environment;
+  `search_prefaces` ranks like `search_catalog`; no-op edits and duplicate
+  traditions are refused with a next step.
+- **Lyric tools.** `lyric_recover` no longer counts `[Verse]` marks as sung lines;
+  `lyric_types` names ordinary rhymes again (`position`); the grade stamp names its
+  real state instead of "refused"; banned entries name the binding words; a ban not
+  asked reads as not asked, not 0; continue notes name `run_revision`; a `state`
+  continuation keeps one run; stale counts, dates, ticket numbers and timing
+  rationales are gone from published text.
+- **Gates.** The contract gate checks every connector surface, not only the raw
+  engine; `connector-tools-read-only` became `connector-tool-effects`, worded as
+  enforced; `check_promises.js` binds promise wording to its doc paragraph;
+  `check_doc_tools.mjs` (CI, `npm run check:doc-tools`) fails when a doc's tool
+  list drifts from the served surface.
+- **Docs.** Security, support, privacy, the directory submission, `docs/connector.md`,
+  `mcp/README.md` and AGENTS.md describe the stateful, session-keeping connector
+  that actually runs; `/mcp` is the endpoint for AI hosts. Connector version 3.2.0,
+  reported alike by `/mcp`, its discovery card and `server.json`.
+
 ### Changed — Genre and Instrument browse in rows
 
 Rows is the default layout of the Genre and Instrument catalogues and replaces

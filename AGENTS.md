@@ -74,13 +74,19 @@ establishes a measured audio result.
 A hosted **Model Context Protocol** server is the headless twin of the browser app — it
 exposes the full *editable* engine as tools. Seed a recipe from any tradition, then edit
 it (re-pick a preface, swap a part variant, override room/chain/tuning, add/remove
-instruments or traditions) and re-render. Recipe operations are deterministic and pass `workspace` in and out. Lyrics revision
-has a separate run lifecycle and can make paid external model calls.
+instruments or traditions) and re-render. Recipe operations are deterministic; on `/mcp` the server
+keeps the workspace in a session (the task endpoints pass it in and out instead). A separate lyrics
+pipeline plans and grades songs whose every line you write; no connector call reaches a model provider.
 
 - **Endpoint** (Streamable HTTP, no auth): `https://mcp.codexmusica.com/mcp`
 - **Add in Claude:** Settings → Connectors → Add custom connector → paste the URL.
 - **Server card** (capabilities, for clients that auto-discover): `https://mcp.codexmusica.com/.well-known/mcp.json`
-- **Tools:** `start_recipe`, `edit_recipe`, `render_recipe`, `search_catalog`, `search_prefaces`, `get_instrument`, `get_tradition`, `list_traditions`, `list_options`.
+- **Recipe tools:** `start_recipe`, `edit_recipe`, `render_recipe`, `search_catalog`, `search_prefaces`, `get_instrument`, `get_tradition`, `list_traditions`, `list_options`.
+- **Lyric tools:** `lyric_sweep`, `lyric_screen`, `lyric_plan`, `lyric_grade`, `lyric_revise`, `lyric_recover`, `lyric_check`, `lyric_verify`, `lyric_types`.
+  A new song: `begin_lyrics` → `lyric_sweep` → `lyric_screen` → `lyric_plan` → write the draft →
+  `lyric_grade` → `lyric_revise` (answer each question it asks until it stops). Lyrics the user
+  pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
+- **Session controls** (on `/mcp`): `begin_lyrics`, `get_operation`, `resume_operation`.
 - `render_recipe` takes `format`: `rich` (default), `tags`, `prose`, `compact`. Every one of
   them returns the byte-identical string the app shows for the same workspace.
   <!-- @promise: connector-render-parity -->
@@ -148,7 +154,7 @@ has a separate run lifecycle and can make paid external model calls.
   through and silently dropped at render time.
   <!-- @promise: chain-stage-validated -->
 
-**No MCP client?** Then use the static JSON below — it is the default recipe per tradition,
+**No MCP client?** Then use the static JSON above — it is the default recipe per tradition,
 read-only. Editing needs the connector; there is no HTTP fallback that edits.
 
 **The default seed is scaffolding, not the answer.** `start_recipe` returns a
@@ -184,7 +190,7 @@ with no `card`, because it is the whole recording's
 → present the returned `recipe` verbatim. One search per user-word, one batched
 edit call, done.
 
-Use the connector for *composition*; the static JSON below is the browse layer —
+Use the connector for *composition*; the static JSON above is the browse layer —
 read it when you only need a tradition's default recipe as reference.
 
 ## Full functionality (clone & run)
