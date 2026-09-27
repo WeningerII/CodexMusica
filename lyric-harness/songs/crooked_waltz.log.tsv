@@ -515,3 +515,22 @@ crooked_waltz	42	2026-09-27	3ecb6125	song	0	mandate_groups_text	1.T2,2.T3;3.head
 crooked_waltz	42	2026-09-27	3ecb6125	song	0	mandate_returns_text	1,8;2,9
 crooked_waltz	42	2026-09-27	3ecb6125	song	0	draft_file	songs/drafts/crooked_waltz.943fc1499c97.draft.txt
 crooked_waltz	42	2026-09-27	3ecb6125	song	0	draft_lines	17
+crooked_waltz	43	2026-09-27	da40da29	revise	0	stop_reason	SUCCESS
+crooked_waltz	43	2026-09-27	da40da29	revise	0	rounds	0
+crooked_waltz	43	2026-09-27	da40da29	revise	0	md5_in	943fc1499c97
+crooked_waltz	43	2026-09-27	da40da29	revise	0	md5_out	943fc1499c97
+crooked_waltz	43	2026-09-27	da40da29	revise	0	unchanged	yes
+crooked_waltz	43	2026-09-27	da40da29	revise	0	mandated	18
+crooked_waltz	43	2026-09-27	da40da29	revise	0	judged	18
+crooked_waltz	43	2026-09-27	da40da29	revise	0	pairs_refused	0
+crooked_waltz	43	2026-09-27	da40da29	revise	0	stamp_seed	declared mandate
+crooked_waltz	43	2026-09-27	da40da29	revise	0	stamp_exit	0
+crooked_waltz	43	2026-09-27	da40da29	revise	0	stop_reason	SUCCESS
+crooked_waltz	43	2026-09-27	da40da29	revise	0	rounds	0
+crooked_waltz	43	2026-09-27	da40da29	revise	0	unresolved	0
+crooked_waltz	43	2026-09-27	da40da29	revise	0	whole_flags	0
+crooked_waltz	43	2026-09-27	da40da29	revise	0	command	python3 lyric_harness.py revise songs/crooked_waltz.txt '--groups=1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17' '--returns=1,8;2,9' --blueprint=songs/crooked_waltz.blueprint.json --subdivision 1 --input-format=source
+crooked_waltz	43	2026-09-27	da40da29	revise	0	mandate_groups_text	1.T2,2.T3;3.headrime,4.headrime,6.T3;5,6.endword;10.T5,11.T4;12.T3,17.T2;14.T4,15.T7,16.T7,17.T3;13.head,15.T5;1,2;3,4;10,11;12,17
+crooked_waltz	43	2026-09-27	da40da29	revise	0	mandate_returns_text	1,8;2,9
+crooked_waltz	43	2026-09-27	da40da29	revise	0	draft_file	songs/drafts/crooked_waltz.943fc1499c97.draft.txt
+crooked_waltz	43	2026-09-27	da40da29	revise	0	draft_lines	17
