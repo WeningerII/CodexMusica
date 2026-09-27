@@ -788,6 +788,15 @@ none was drawn. Its notes stand as measurements (SPARSE lines under a
 12-pulse bar, LATE_ENTRY, UNIFORM_ANACRUSIS from the plan's own one-beat
 pickups, two chorus returns ending on their own end words).
 
+**THE RECORD MOVED BECAUSE THE BYTES DID.** `song_record.py --check`
+reported four of this song's features moved against its `6059e09c` row
+and no other song's, because the lyric was replaced; the row banked at
+`0a143b75` is the rewritten song's: rhyme predictability over adjacent
+couplets 0.949229 [RESULTS: rhyme_predictability_mean crooked_waltz.txt],
+concreteness 3.759180 [RESULTS: concreteness_mean crooked_waltz.txt], at
+17 lines [RESULTS: n_lines crooked_waltz.txt]. The couplet pairing is
+`song_record`'s declared uniform one, not this song's mandate.
+
 ---
 
 ## `the_frost_ledger.txt` — "The Frost Ledger", seed 32, pair 1's BARE twin: the experiment begins by breaking the gate three more times
