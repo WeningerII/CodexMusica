@@ -77,12 +77,27 @@ P2_INVARIANT_RETURNS = ("burden", "chorus", "hook", "refrain", "tag")
 #:   p2_pairs               ~~1676~~ 1653
 #:   p2_back_to_back_rate   ~~0.0048~~ 0.0042
 #:   songs_refused_unmarked  0 (unchanged)
+#:
+#: REPINNED AGAIN 2026-09-26, the same day, by the owner's batched comparator
+#: re-pin (`MISSING.md` M-315), re-derived by `--check` on that branch; the
+#: cause is BISECTED this time and it is one change. `content_types` reads
+#: `LH.line_tokens`, and `line_tokens` now joins a spaced enclitic onto its
+#: word (`There 's` -> `There's`, F-5 wired), so a seam's content-type sets
+#: gain `there's` where they held `there` and `'s`. On `origin/main` 3909fa89
+#: `--check` HOLDS at the values above; on the branch two figures move and
+#: five do not:
+#:   p1_nonzero_rate        ~~0.5916~~ 0.5914
+#:   p1_null_median_rate    ~~0.5869~~ 0.5868
+#:   songs_measured 8652, seams 40697, p2_pairs 1653, p2_back_to_back_rate
+#:   0.0042, songs_refused_unmarked 0 -- unchanged.
+#: The excess over the null median goes 0.0047 -> 0.0046; P1 still sits above
+#: every null draw (0.5832-0.5886), and no threshold is adopted.
 PINNED = {
     "songs_measured": 8652,
     "songs_refused_unmarked": 0,
     "seams": 40697,
-    "p1_nonzero_rate": 0.5916,
-    "p1_null_median_rate": 0.5869,
+    "p1_nonzero_rate": 0.5914,
+    "p1_null_median_rate": 0.5868,
     "p2_pairs": 1653,
     "p2_back_to_back_rate": 0.0042,
 }

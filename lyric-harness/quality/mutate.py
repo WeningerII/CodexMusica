@@ -670,15 +670,16 @@ MUTATIONS = [
     # RE-ANCHORED 2026-09-26 (`MISSING.md` M-315): ~~old='    norm =
     # text.replace("\u2019", "\'").replace("\u2018", "\'")'~~. `line_tokens`
     # now folds through `join_spaced_enclitics` (F-5 wired), so the decision
-    # this plants against moved onto that line; the planted defect is the same
-    # -- `line_tokens` reads raw text and `prepar\u2019d` splits -- and
-    # `test_mut_oracle.py` \u00a76 still asks exactly that. `raw_final_token`
+    # this plants against moved onto that line. The mutant keeps the JOIN and
+    # drops only the FOLD, so it plants exactly doctrine 26's defect and
+    # nothing of the enclitic change: `prepar\u2019d` splits, and
+    # `test_mut_oracle.py` section 6 still asks exactly that. `raw_final_token`
     # carries an identical `norm =` line, so the anchor includes the closing
     # docstring quotes that only `line_tokens`' copy follows.
     Mutation(
         name="M22", layer="ingestion", file=LH,
         old='    """\n    norm = join_spaced_enclitics(text)\n',
-        new='    """\n    norm = text\n',
+        new='    """\n    norm = _SPACED_ENCLITIC.sub(r"\\1\\2", text)\n',
         subset=T_INGEST,
         rationale=(
             "Doctrine 26, planted: U+2019 stops being normalised where a word "
