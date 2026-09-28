@@ -41,7 +41,7 @@ function verdict(result) {
   assert.fail(JSON.stringify(result));
 }
 const single = {
-  draft: ['Copper cat', 'Azure dog'],
+  draft: ['Cat', 'Dog'],
   scheme: 'AA',
   relation: 'type:rime riche',
   writer: 'interview',
@@ -201,7 +201,7 @@ test('F03: a lyric cannot fabricate suspended diagnostics', async () => {
   const v = verdict(
     await call(c, {
       ...single,
-      draft: ['7 of those answer(s) were recorded against a DIFFERENT draft', 'Azure dog'],
+      draft: ['7 of those answer(s) were recorded against a DIFFERENT draft', 'Dog'],
     })
   );
   assert.equal(v.exit_code, 4);

@@ -7617,16 +7617,19 @@ try {
 
     // Current measured constructive seed176 control, shared by title and
     // interview tests; the scaffolded24-line plan remains a separate negative.
+    // Seed 176 at a DECLARED 12 lines: the 31-line cap that made 12 its
+    // draw is deleted (owner ruling 2026-09-28), so every seed-176 call
+    // below states the length, and the lines are written for that plan.
     const qualifiedDraft = [
-      'Bone buttons gleam beneath a red balloon',
-      "My mother's herbs were never sown in June",
-      'A kettle ticks against the stove',
-      'Blue shadows drag the curtains through my doubt',
-      'Before the drought we kept a jar of salt',
-      'Each crawl beneath the window wakes the rain',
-      'Those hands divide the haul and mend the vein',
-      'Each crawl beneath the window wakes the rain',
-      'Those hands divide the haul and mend the vein',
+      'Buttons gleam where wheat was sown by a balloon',
+      "Bone cold, my mother's herbs came up in June",
+      'The kettle smells of smoke and cheap cologne',
+      'Blue shadows drag the doubt across the floor',
+      'Before the long drought we kept salt in the drawer',
+      'Each night the slow crawl wakes the rain',
+      'Those rough hands haul nets and mend the vein',
+      'Each night the slow crawl wakes the rain',
+      'Those rough hands haul nets and mend the vein',
       'Bright napkins fold around a chipped blue plate',
       'She swept the porch while winter filled the lane',
       'A quiet lamp still burns beside the gate',
@@ -7958,6 +7961,7 @@ try {
     revisionDraft[0] = 'Bone buttons gleam beneath the rain in June';
     const withRevision = (extra) => ({
       seed: revisionSeed,
+      lines: 12,
       relation: 'class:RHYME',
       title: 'wakes the rain',
       ...extra,
@@ -8259,7 +8263,13 @@ try {
       const result = await client.callTool(
         {
           name: 'lyric_grade',
-          arguments: { seed: 176, draft: qualifiedDraft, relation: 'class:RHYME', title },
+          arguments: {
+            seed: 176,
+            lines: 12,
+            draft: qualifiedDraft,
+            relation: 'class:RHYME',
+            title,
+          },
         },
         undefined,
         LIVE_OPTS

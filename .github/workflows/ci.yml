@@ -3161,7 +3161,14 @@ jobs:
     # (4 seeds a shard, four workers each), so no shard carries the whole
     # sweep. `SWEEP_WORKERS` is the default (four) here because this process
     # owns the runner. Headroom, not a budget.
-    timeout-minutes: 30
+    # ~~30~~ -> 60 (2026-09-28): the 31-line cap is deleted (owner ruling),
+    # so §3's seeds grade at their full drawn lengths again (80..394 lines
+    # on run 2760). Measured there: seed 6, 394 lines, 1705 s alone, and
+    # shard 2 at 1769 s — 29.5 min against a 30-min limit; shard 3 (seeds
+    # of 179..352 lines) was cancelled at it. Each shard's wall is its
+    # LONGEST seed (four workers run the four at once), so more shards
+    # would not shorten it; the limit is what moves.
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:

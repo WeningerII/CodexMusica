@@ -178,7 +178,11 @@ try {
   // (M-305) [1, 5, 6, 14, 15, 17, 19, 21, 23] (2026-09-24, N-relation model)
   // — the nine independent briefs the batch door sees on this tree (measured
   // at the harness's prefetch).
-  const originalIndependent = [1, 5, 6, 14, 15, 17, 19, 21, 23];
+  // REPINNED 2026-09-28 (measured at the harness's prefetch): the 31-line
+  // cap and the 12-beat line ceiling are deleted, so seed 1 at 24 lines
+  // draws longer lines (fewer overflow their bars) and a denser web; the
+  // door now sees seven independent briefs and admits the first four.
+  const originalIndependent = [1, 14, 15, 17, 19, 21, 23];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
   // door opens on continuation 0 (measured 2026-09-24). ~~18~~ -> 2.
@@ -187,7 +191,10 @@ try {
   // behind the group questions and three attempts per pivot of L5..L12) —
   // 2026-09-24: the tail is re-asked on the second batch at continuation 4
   // and folded after 5 (measured), so the pre-M-305 bound of 8 holds again.
-  const TAIL_BOUND = 8;
+  // ~~8~~ -> 10 (2026-09-28, measured): with the tail [19, 21, 23], 19 and
+  // 21 are re-asked on the second batch at continuation 4 and folded after
+  // 5; 23 rides the third batch at continuation 8 and is folded after 9.
+  const TAIL_BOUND = 10;
   const splitCall = (args) =>
     a.callTool({ name: 'lyric_revise', arguments: args }, undefined, {
       timeout: TOOL_BUDGET_MS + 30000,
@@ -253,10 +260,12 @@ try {
   const firstSubset = splitState.pending.record.records.map((r) => r.line);
   // ~~[1, 5, 6, 14, 15, 17, 19]~~ ~~[5, 6, 11, 14, 15, 17, 20]~~ (M-305)
   // [1, 5, 6, 14, 15, 17, 19] (2026-09-24, N-relation model; measured)
-  assert.deepEqual(firstSubset, [1, 5, 6, 14, 15, 17, 19]);
+  // [1, 14, 15, 17] (2026-09-28; measured)
+  assert.deepEqual(firstSubset, [1, 14, 15, 17]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)
-  assert.deepEqual(omittedTail, [21, 23]);
+  // [19, 21, 23] (2026-09-28; measured)
+  assert.deepEqual(omittedTail, [19, 21, 23]);
   for (const n of firstSubset) reached.add(n);
   const verifiedFirst = new Map();
   const tailFolded = new Set();
@@ -370,7 +379,7 @@ try {
   }
   assert.ok(
     omittedTail.every((n) => reached.has(n)),
-    'both original omitted questions are eventually asked'
+    'every original omitted question is eventually asked'
   );
   assert.deepEqual(splitState.accepted_lines, splitDraft);
   assert.ok(

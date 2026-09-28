@@ -2257,9 +2257,14 @@ def test_the_seed_sweep_is_a_verb():
     # THE SWEEP ITSELF, on the range the scratch script used before it was a
     # verb — and it returns the same answer, which is what makes this a verb
     # rather than a rewrite.
-    wants = [PLN.parse_sweep_want(w) for w in
-             ("sections<=6", "lines_per_section>=2", "group<=4",
-              "uses=verse,chorus", "before=verse,chorus", "pins_per_line<=5")]
+    # REPOINTED 2026-09-28: ~~sections<=6, group<=4~~ -> sections<=10,
+    # group<=8. The 31-line cap is deleted (owner ruling), so the raw draw
+    # runs to hundreds of lines and the old six accepted 0 of 160 — which
+    # would make the intersection check below pass on an empty set. These
+    # six accept 2 of 160 (measured), a strict minority and more than none.
+    PREFS = ("sections<=10", "lines_per_section>=2", "group<=8",
+             "uses=verse,chorus", "before=verse,chorus", "pins_per_line<=5")
+    wants = [PLN.parse_sweep_want(w) for w in PREFS]
     # ~~`res["accepted"] == [108]` over `range(120)`~~ — struck 2026-08-24
     # (`MISSING.md` M-106) — ~~and repinned to `[139, 284, 323]` over
     # `range(400)`~~ — struck again the SAME DAY, by M-107, and the second
@@ -2282,9 +2287,7 @@ def test_the_seed_sweep_is_a_verb():
     _R = range(160)
     singles = {w: set(PLN.sweep(_R, wants=[PLN.parse_sweep_want(w)])
                       ["accepted"])
-               for w in ("sections<=6", "lines_per_section>=2", "group<=4",
-                         "uses=verse,chorus", "before=verse,chorus",
-                         "pins_per_line<=5")}
+               for w in PREFS}
     res = PLN.sweep(_R, wants=wants)
 
     # MISSING.md M-79 — Finding 2: these six caller preferences still
@@ -3485,11 +3488,19 @@ def test_the_overhang_group():
     check("aliases of one word do not double-charge its extra syllable",
           PLN._overhang_budget(["head", "T1", "T4"], [1, 1], 5)
           == (5, 5, True))
+    # REPOINTED 2026-09-28: the density ceiling this pinned is deleted (owner
+    # ruling). A roomy bar now carries what it holds, and the same demand
+    # overflows only a bar that is genuinely too short for it.
     wide_grid = budget_plan("1,2;2.T11,3.T1",
                            {"A": "schema:semirhyme"}, slots=20)
-    check("surplus grid slots cannot evade the calibrated density ceiling",
-          [f[1] for f in overflows(wide_grid)] == [2]
-          and "at most 12" in overflows(wide_grid)[0][2])
+    tight_grid = budget_plan("1,2;2.T11,3.T1",
+                            {"A": "schema:semirhyme"}, slots=12)
+    check("a roomy bar is not capped by any syllable band: twenty slots hold "
+          "the eleventh word, the last word and its overhang, and twelve do "
+          "not",
+          overflows(wide_grid) == []
+          and [f[1] for f in overflows(tight_grid)] == [2]
+          and "at most 12" in overflows(tight_grid)[0][2])
     check("the new refusal belongs to the declared joint-gate vocabulary",
           "OVERHANG_EXCEEDS_SPAN" in PLN.JOINT_CODES)
     # A real pair through the schema judge and the independent meter fitter:
@@ -3863,10 +3874,14 @@ def test_the_delegated_rulings(FAILURES=None):
     # words and reported per pair (`relations.audible_relations`).
     m120_eb = sum(p["choices"]["audible"]["end_bound"] for p in plans.values())
     m120_bare = sum(p["choices"]["audible"]["bare"] for p in plans.values())
+    # REPINNED 2026-09-28: ~~156~~ -> 1314 end-bound groups. The 31-line cap
+    # that held every plan to 12..31 lines is deleted (owner ruling), so
+    # seeds 1-40 draw their full lengths and carry more groups; the claim —
+    # every one of them bare — is unchanged.
     check("M-120 superseded: over seeds 1-40 every END-BOUND group is bare "
-          "(judged against every relation) — 156 end-bound groups, 156 "
+          "(judged against every relation) — 1314 end-bound groups, 1314 "
           "bare, none carries an audible or inaudible drawn schema",
-          m120_eb == m120_bare == 156
+          m120_eb == m120_bare == 1314
           and not any(p["choices"]["audible"]["inaudible"]
                       or p["choices"]["audible"]["audible"]
                       for p in plans.values())
@@ -3882,8 +3897,11 @@ def test_the_delegated_rulings(FAILURES=None):
           m120_decl.get("relations") == {}
           and "NOT DRAWN" in m120_decl["choices"]["relations"]["chosen_from"]
           and m120_decl["relation"] == "schema:consonance"
-          and m120_decl["choices"]["audible"]["inaudible"] == ["consonance"] * 2
-          and m120_perf["choices"]["audible"]["audible"] == 2,
+          and m120_decl["choices"]["audible"]["end_bound"] > 0
+          and m120_decl["choices"]["audible"]["inaudible"]
+          == ["consonance"] * m120_decl["choices"]["audible"]["end_bound"]
+          and m120_perf["choices"]["audible"]["audible"]
+          == m120_perf["choices"]["audible"]["end_bound"],
           f"{m120_decl['choices']['audible']} / "
           f"{m120_perf['choices']['audible']}")
     check("...and audibility stays a RECORD, not a refusal: no JOINT_CODES "
