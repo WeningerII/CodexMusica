@@ -2065,7 +2065,7 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
         + (f" carrying every function `--form={form}` requires "
            f"({', '.join(sorted(need))})" if need else "")
         + (f" and drawing {', '.join(FORM_RECURS[form])} at least twice "
-           f"(the form's recurrence, M-190)" if FORM_RECURS.get(form) else "")
+           f"(the form's recurrence)" if FORM_RECURS.get(form) else "")
         + f". The placement constraints on `grid.SECTION_FUNCTIONS`"
         + (", the declared roster," if roster else "")
         + (", the form's membership," if need else "")
@@ -2122,7 +2122,7 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
 #: measure and takes exactly two function names.
 SWEEP_MEASURES = {
     "story_lineups": ("how many legal story line-ups the shape admits "
-                      "(quality/narrative.py, M-121) — `>=1` is the seed "
+                      "— `>=1` is the seed "
                       "filter for shapes that can carry a story at all",
                       lambda p: (p.get("narrative") or {}).get(
                           "lineups", 0)),
@@ -2141,17 +2141,16 @@ SWEEP_MEASURES = {
     "bars_per_line": ("bars per lyric line, as drawn",
                       lambda p: p["choices"]["bars_per_line"]),
     "beats_per_line": ("how many beats a lyric line runs — the length a "
-                       "listener hears (`MISSING.md` M-81(B))",
+                       "listener hears",
                        lambda p: p["choices"]["meter"]["beats_per_line"]),
     "slots_per_line": ("the widest line's slot capacity",
                        lambda p: max([float(s["duration"]) * p["subdivision"]
                                       for s in p["line_slots"]] or [0])),
     "hook": ("the hook's line number, or 0 where this shape declares none. "
-             "`hook>=1` asks for a song that HAS a hook, which since "
-             "`MISSING.md` M-84 means a shape whose hook sits in a function "
-             "the plan drew more than once — a hook is defined by RETURN, so "
-             "before that repair this coordinate could not be asked for "
-             "honestly",
+             "`hook>=1` asks for a song that HAS a hook, which means a shape "
+             "whose hook sits in a function the plan drew more than once — a "
+             "hook is defined by RETURN, so a hook slot in a function drawn "
+             "once does not answer it",
              lambda p: p.get("hook_slot") or 0),
     "returns": ("how many RETURN CLASSES this plan declares — sets of lines "
                 "that must come back WORD FOR WORD. `returns>=1` asks for a "
@@ -2160,15 +2159,15 @@ SWEEP_MEASURES = {
                 "recur without a second set of rhyme pins fighting the first",
                 lambda p: len([g for g in str(p.get("returns") or "").split(";")
                                if g.strip()])),
-    "binding_cap": ("the plan's own DENSITY coordinate (M-191): the most "
+    "binding_cap": ("the plan's own DENSITY coordinate: the most "
                     "web bindings any line was ASKED to draw, 1 (one web "
                     "binding a line — the classic end-rhyme song) to the "
                     "line-binding ceiling (the old draw); "
                     "`bound_words_per_line` is what the draw then measured",
                     lambda p: int(p["choices"].get("density", {})
                                   .get("binding_cap", 0))),
-    "pins_per_line": ("the most words any one line is bound at — the "
-                      "coordinate `M-79`'s Finding 3 says has none",
+    "pins_per_line": ("the most words any one line is bound at — a "
+                      "disclosure; no calibrated ceiling exists for it",
                       lambda p: max(_sweep_pins(p).values() or [0])),
     # THE MEAN, AND IT IS NOT A SECOND SPELLING OF THE MAX (`MISSING.md`
     # M-181). `pins_per_line` is a MAXIMUM over lines, so it asks "is EVERY

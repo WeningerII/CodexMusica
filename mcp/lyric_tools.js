@@ -760,7 +760,18 @@ function publishedReport(text) {
       return seed ? `${tool} with seed ${seed[1]}` : tool;
     })
     .replace(/(?:defer:|replay:)?\/tmp\/[^\s"'—,;)]+/g, '[server temporary file]')
-    .replace(/ ?\((?:[MG]-\d+[a-z]?)(?:[,;/] ?[MG]-\d+[a-z]?)*\)/g, '');
+    // A PARENTHESISED TICKET, in the three shapes the harness writes it: bare
+    // (`(M-184)`, `(M-191; M-192)`), with the register named (`` (`MISSING.md`
+    // M-81(B)) ``) and with a sub-part (`M-81(B)`). Only the first shape was
+    // matched until a live sweep published "since `MISSING.md` M-84 means" to a
+    // caller — and that one is NOT removable here, because striking the words
+    // out of the middle of a sentence leaves "which since  means". A bare
+    // reference is fixed where it is WRITTEN (`SWEEP_MEASURES`, gated by
+    // `quality/test_plan.py` §21); this is the net for the removable shape.
+    .replace(
+      / ?\((?:(?:`?MISSING\.md`? )?[MG]-\d+[a-z]?(?:\([A-Z]\))?)(?:[,;/] ?(?:`?MISSING\.md`? )?[MG]-\d+[a-z]?(?:\([A-Z]\))?)*\)/g,
+      ''
+    );
 }
 
 function verdictOf(r) {

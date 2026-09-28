@@ -40,6 +40,7 @@ import json
 import math
 import os
 import random
+import re
 import sys
 import tempfile
 from collections import Counter
@@ -4067,6 +4068,41 @@ def test_the_legend_states_the_whole_schema():
 #: loop as well, so no deal had dropped it; it had simply never joined. A
 #: section nobody runs is doctrine 48's own shape. Run under M-244 it
 #: passes in 40.1 s, so it sits here at that cost (2026-09-05).
+def test_the_published_vocabulary_names_no_ticket():
+    print("\n21. M-315 — the sweep's published `want` vocabulary is read by a "
+          "CALLER, so it carries no internal ticket reference: the connector "
+          "published `hook`'s description to a live host with "
+          "\"which since `MISSING.md` M-84 means\" in it, and the JS scrub only "
+          "strips a parenthesised (M-###)")
+    TICKET = re.compile(r"\b[MG]-\d+")
+    # ALL THREE DICTS THE RENDERER READS, not only the one that leaked.
+    # `lyric_harness.py`'s WANT line takes its gloss from `SWEEP_MEASURES`
+    # OR `SWEEP_SETS` OR `SWEEP_ORDERS`, so gating one of the three would
+    # leave two doors open — the shape of the defect this section exists for.
+    _published = {}
+    for _d in (PLN.SWEEP_MEASURES, PLN.SWEEP_SETS, PLN.SWEEP_ORDERS):
+        for _name, _row in _d.items():
+            _published[_name] = _row[0] if isinstance(_row, tuple) else _row
+    leaks = sorted(n for n, d in _published.items()
+                   if TICKET.search(str(d)) or "MISSING.md" in str(d))
+    check("no published want gloss names a ticket or MISSING.md, over all "
+          "three dicts the WANT line reads",
+          not leaks, f"{len(_published)} glosses, {len(leaks)} leak(s): {leaks}")
+    # NON-VACUOUS BY CONSTRUCTION: the check above passes on an EMPTY dict
+    # too, so the population is asserted. 78 today (76 + 1 + 1); pinned as a
+    # floor rather than an equality, because a new coordinate is a question
+    # for a person and not a merge conflict.
+    check("the gate examined the whole published vocabulary",
+          len(_published) >= 78, f"{len(_published)} glosses examined")
+    # THE GATE IS OVER THE PUBLISHED SURFACE AND NOT OVER THE FILE: the
+    # comments in `plan.py` cite tickets on purpose (doctrine 17 keeps a
+    # superseded value visible), and a check over the source text would
+    # forbid the record. What a caller reads is the gloss STRING.
+    check("a planted ticket in a gloss is CAUGHT — the gate is alive",
+          bool(TICKET.search("since `MISSING.md` M-84 means")),
+          "the planted reference must match")
+
+
 _SECTIONS = (
     test_the_seed_sweep_is_a_verb,
     test_the_form_is_read,
@@ -4088,6 +4124,7 @@ _SECTIONS = (
     test_the_bound_share,
     test_refusals,
     test_the_legend_states_the_whole_schema,
+    test_the_published_vocabulary_names_no_ticket,
 )
 
 if __name__ == "__main__":

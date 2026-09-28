@@ -4938,6 +4938,75 @@ def test_the_offer_falls_back_per_call_when_the_conjunction_is_empty():
           accepted, accepted[:3])
 
 
+def test_the_per_call_menu_is_screened_by_the_grader():
+    print("\n69. M-315 — a per-call menu is screened through the GRADE, "
+          "whether or not a relation is declared. `declared_offer` was "
+          "reachable only from the `_explicit` arm, so on a default mandate "
+          "the published menu was never graded: the live connector offered a "
+          "caller 24 words for the call `Your` and the grader rejected every "
+          "one, not for breaking a rhyme but for turning a JUDGED pair into a "
+          "REFUSAL, which `verify()` refuses the same way")
+    from quality.loop import swap_at_slot
+    # The live seed-7 shape: group I, a head placement against an ambiguous
+    # call word, which is what makes a satisfying schema come back undecided.
+    draft = ["Small paws drum a new tune", "You flop down, ears askew",
+             "Your nose finds my one shoe", "You learn my one small rule",
+             "Sun lays gold on you, too", "Sleep hums low; the day's through",
+             "Tug that rope, then let loose", "Dawn drums a bright cool noon",
+             "Grin wide, my small wild youth", "You drag one muddy boot",
+             "Mud dries to soft brown dune", "Your appetite keeps its groove",
+             "Bright eyes, a held-still hush", "Night folds down round your knees",
+             "Mine, my kind grown bright friend", "My good dog, my whole heart",
+             "My good dog, my whole heart", "Years roll on; you hold the road",
+             "Ears still sway; you steer me home", "Grown grey, gold dog, best kin"]
+    m = SC.mandate([["3.head", "7.T2", "8", "9.T3", "12.T2", "13.T5",
+                     "14.T1", "15.T5"]], n_lines=20)
+    b = {x.line_no: x for x in R.brief(draft, m, target_lines={14})}.get(14)
+    check("the defect's shape: L14 is briefed at a NON-DEFAULT place, the "
+          "conjunction is empty and the per-call fallback ran",
+          b is not None and b.joint_conflict and not b.candidates,
+          b and (b.joint_conflict, list(b.candidates)[:3]))
+    by_call = dict(getattr(b, "partial_by_call", ()) or ())
+    check("no menu is offered for the ambiguous call `Your` — every word the "
+          "band admitted there costs the pair's measurement",
+          "Your" not in by_call, sorted(by_call))
+    gref = tuple(getattr(b, "grader_refused", ()) or ())
+    check("and the drops are DISCLOSED rather than silently absent "
+          "(doctrine 20), in their own field beside `schema_refused`",
+          len(gref) >= 20 and not getattr(b, "schema_refused", ()),
+          f"{len(gref)} grader_refused, "
+          f"{len(getattr(b, 'schema_refused', ()) or ())} schema_refused")
+    # THE SENTENCE IS THE OTHER HALF: `schema_refused`'s prose names a
+    # DECLARED relation, and this group declares none, so reusing that field
+    # would have published a false reason (doctrine 79).
+    from quality import propose as _PRp
+    prompt = _PRp.render_line(b, draft)
+    check("the prompt says the grader could not JUDGE the pair, and does NOT "
+          "claim a declared relation declined to certify",
+          "could no" in prompt and "longer JUDGE this pair" in prompt
+          and "judged by its group's declared" not in prompt,
+          prompt[prompt.find("word(s) the band admitted"):
+                 prompt.find("word(s) the band admitted") + 220])
+    # NON-VACUOUS: every word that IS still offered must survive the grade it
+    # was screened by, spliced at the slot the brief names.
+    survived, broke = [], []
+    for call, words in by_call.items():
+        for w in list(words)[:4]:
+            moved = swap_at_slot(draft[13], b.slot, w)
+            if moved is None:
+                continue
+            after = list(draft)
+            after[13] = moved
+            g = R.grade(after, m, _only_groups={0})
+            lost = [x for x in g.get("refusals", ())
+                    if 14 in tuple(x.get("lines", ()))
+                    and "unresolved in schema" in str(x.get("reason", ""))]
+            (broke if lost else survived).append((call, w))
+    check("a word still on a menu does NOT cost the measurement — the screen "
+          "kept what it says it kept",
+          survived and not broke, f"kept {survived[:3]}, broke {broke[:3]}")
+
+
 def test_the_hook_is_read_from_the_slot_not_the_snapshot():
     print("\n56. M-212 — a blueprint that declares `hook_slot` has its hook "
           "re-read from THIS draft's line at that slot, so revising the "
@@ -5111,7 +5180,8 @@ if __name__ == "__main__":
     # ORDER is the balance: put the slowest first, from the SECTION COST
     # printout every run leaves behind.
     from quality.shard import run_sections
-    _SECTIONS = (test_the_loop_does_not_write,
+    _SECTIONS = (test_the_per_call_menu_is_screened_by_the_grader,
+                 test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
                test_a_revision_may_not_trade_one_defect_for_another,
                test_reject_taking_the_modal_candidate,
