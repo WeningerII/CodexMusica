@@ -456,6 +456,17 @@ class SlotField:
     #: every group that declares no `schema:` relation, which is every
     #: mandate written before relations existed.
     schema_refused: tuple = ()
+    #: WORDS THE BAND ADMITTED THAT THE GRADER COULD NOT JUDGE AT THIS PLACE.
+    #: Its own count beside `schema_refused` for that field's own reason
+    #: (doctrine 79): a DECLARED relation declining to certify a word and the
+    #: default judge losing the ABILITY TO COMPARE the pair are two facts
+    #: about two judges, and `schema_refused`'s published sentence — "judged
+    #: by its group's declared relation" — is false of a group that declares
+    #: none. These are the words `declared_offer` drops where the schema route
+    #: is OPEN: taking one leaves a satisfying schema undecided, so a pair the
+    #: grader can judge today becomes a REFUSAL, and `verify()` rejects the
+    #: revision for losing the measurement rather than for breaking a rhyme.
+    grader_refused: tuple = ()
     #: Candidates obtained after the ordinary rhyme menu was empty. M-257
     #: introduced an exact-vowel pool; the declared-offer fallback also
     #: searches ranked words and comparator candidates. This count does
@@ -690,6 +701,10 @@ class Brief:
     #: non-empty is a NARROWED offer, not a thin lexicon, and the renderers
     #: say which.
     schema_refused: tuple = ()
+    #: The `grader_refused` of the SlotField at `slot`, copied out the same
+    #: way: words the band admitted that the default judge could not compare
+    #: at this place, so offering one would cost the pair's measurement.
+    grader_refused: tuple = ()
     #: The `widened` of the SlotField at `slot`: an expanded candidate
     #: search, not proof of an exact-vowel pool or identical nuclei.
     field_widened: int = 0
@@ -5186,6 +5201,16 @@ class Reviser:
     #: the common case.
     _SCREEN_SCAN = 8
 
+    #: How many candidates of ONE per-call menu are put through the grade
+    #: (`MISSING.md` M-315). A bound on COST, not a coordinate of any verdict:
+    #: a word past it is UNSEARCHED and is never published, so the menu can
+    #: only be SHORTER than the screen would allow, never wrong. The screen
+    #: itself is what the menu owes — before it, every one of the 24 words the
+    #: live seed-7 brief offered for the call `Your` was rejected by the
+    #: grader. MEASURED on that draft, briefing the lines the loop asks about:
+    #: 25s with no screen, 171s screening all 24 of every menu, 62s here.
+    _MENU_SCREEN_MAX = 8
+
     def _offer_reopens(self, w, calls, fields, profile=None):
         """Would taking `w` file MODAL_RHYME against one of `calls` from
         `w`'s OWN side — is some call in `w`'s head? (M-185)
@@ -5588,11 +5613,12 @@ class Reviser:
                         _off, _forb, _drop = [], [], []
                     _explicit = any(m.relation_of(k) or
                                     not self.schema_route_open(m, k) for k in ks)
+                    _sections = None
+                    if _calls and blueprint is not None:
+                        _song, _ = GR.song_from_blueprint(blueprint)
+                        _sections = [row.section for row in _song.lines]
+                    _grader_ref = []
                     if _explicit and _calls:
-                        _sections = None
-                        if blueprint is not None:
-                            _song, _ = GR.song_from_blueprint(blueprint)
-                            _sections = [row.section for row in _song.lines]
                         _off, _rejected = self.declared_offer(
                             _off, lines, m, ln, _sl, ks,
                             profile=profile, sections=_sections)
@@ -5625,6 +5651,19 @@ class Reviser:
                             _off = _extra[:self.rdecl.offered]
                             _widened += len(_off)
                         _off = [w for w in _off if w not in {_cur, *_forb, *_drop}]
+                    # THE JOINT OFFER IS NOT SCREENED HERE, AND THE REASON IS
+                    # THE REFUSAL'S OWN TRIGGER RATHER THAN ITS COST
+                    # (`MISSING.md` M-315). A word in the joint offer answers
+                    # EVERY call at this place, so every pair it makes passes
+                    # the coarse relations, `v["why"]` is None, and `grade()`
+                    # never reaches the whole-vocabulary schema fan that files
+                    # "the default relation remains unresolved in schema(s)".
+                    # The refusal is reachable only where the coarse relations
+                    # FAIL and a satisfying schema comes back undecided —
+                    # which is the per-call fallback's own population, one
+                    # call answered and the rest failing. So the screen goes
+                    # exactly there, and MEASURED on the live seed-7 brief it
+                    # is also where every published-but-unusable word was.
                     _jc = (len(_calls) > 1 and not _off and not _forb)
                     # THE PER-CALL FALLBACK (`MISSING.md` M-202). Run ONLY
                     # when the conjunction came back empty at a place with
@@ -5643,19 +5682,44 @@ class Reviser:
                         for _c1 in _calls:
                             _o1, _f1, _d1 = self.joint_field_screened(
                                 [_c1], exclude=(_cur,), profile=profile)
-                            if _explicit and _o1:
+                            if _o1:
                                 # A fallback answers one call, but under the
                                 # same declared relation and actual locus as
                                 # the joint menu. Scalar rhyme alone is not
                                 # evidence for a named consonance offer.
+                                # ASKED WHETHER A RELATION IS DECLARED OR NOT
+                                # (`MISSING.md` M-315): this is the menu the
+                                # live run published and the menu whose every
+                                # word the grader rejected, and the screen was
+                                # skipped on exactly the mandate a caller gets
+                                # by declaring nothing.
                                 _obligations = {
                                     (min(ln, x), max(ln, x), k)
                                     for k in ks for x in dict(groups)[k]
                                     if self._slot_word(lines, m, k, x, endwords) == _c1}
+                                # BOUNDED, and the bound is on COST alone: one
+                                # trial grade per candidate, `offered` (24)
+                                # candidates, one menu per call, so an 8-call
+                                # pivot pays 192 grades. MEASURED on the
+                                # seed-7 draft, briefing the flagged lines the
+                                # loop actually asks about: 25s unscreened,
+                                # 171s screening all 24 of every menu, 62s at
+                                # this cap. `limit` stops early where words
+                                # PASS, so the cap binds only where they do
+                                # not. UNDER-offering is the safe direction —
+                                # a word past the cap is UNSEARCHED, which is
+                                # what the empty-menu text already says, and
+                                # never a word published that the grader
+                                # rejects.
                                 _o1, _no = self.declared_offer(
-                                    _o1, lines, m, ln, _sl, ks,
+                                    _o1[:self._MENU_SCREEN_MAX],
+                                    lines, m, ln, _sl, ks,
                                     profile=profile, sections=_sections,
+                                    limit=self._MENU_SCREEN_MAX,
                                     requested_obligations=_obligations)
+                                if not _explicit:
+                                    _grader_ref = list(
+                                        dict.fromkeys([*_grader_ref, *_no]))
                             if _o1:
                                 _bycall.append((_c1, tuple(_o1)))
                     b.fields_by_slot[sk] = SlotField(
@@ -5667,6 +5731,7 @@ class Reviser:
                         dropped=tuple(_drop),
                         by_call=tuple(_bycall),
                         schema_refused=tuple(_schema_ref),
+                        grader_refused=tuple(_grader_ref),
                         widened=_widened)
                 _pf = b.fields_by_slot.get(_primary)
                 calls = list(_pf.calls) if _pf else []
@@ -5701,6 +5766,8 @@ class Reviser:
                     b.partial_by_call = _pf.by_call
                     # M-204 — carried beside the field it narrowed.
                     b.schema_refused = _pf.schema_refused
+                    # M-315 — the same, for the judge that could not compare.
+                    b.grader_refused = _pf.grader_refused
                     # Expanded-search count, carried with its offer. Both
                     # exact-vowel and broader declared-offer routes use it.
                     b.field_widened = _pf.widened

@@ -741,6 +741,23 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
                    + (", …" if len(_sref) > 8 else "") + ").")
         out.append("  The list below is what that relation accepts — the "
                    "same judge the verdict uses.")
+    _gref = tuple(getattr(brief, "grader_refused", ()) or ())
+    if _gref:
+        # WHY THE OFFER IS SHORT WHERE NO RELATION IS DECLARED
+        # (`MISSING.md` M-315), and it is a DIFFERENT sentence from M-204's
+        # above (doctrine 79): nothing declined to certify these words. The
+        # grader could not COMPARE the pair once one of them stood at this
+        # place, so taking one costs the measurement, and the loop rejects
+        # that the same way it rejects a new flag. A writer told only "not
+        # offered" would widen the search, which is the wrong next move.
+        out.append(f"  {len(_gref)} word(s) the band admitted are NOT "
+                   f"offered: with one of them here the grader could no")
+        out.append(f"  longer JUDGE this pair at all "
+                   f"({', '.join(str(w) for w in _gref[:8])}"
+                   + (", …" if len(_gref) > 8 else "") + ").")
+        out.append("  Losing a measurement is refused like breaking a rhyme, "
+                   "so the list below is screened through the verdict's own "
+                   "grade.")
     _wid = int(getattr(brief, "field_widened", 0) or 0)
     if candidates and _wid:
         # M-257 originally supplied only an exact-vowel pool. The later

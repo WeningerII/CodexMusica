@@ -716,6 +716,24 @@ test('published lyric reports name connector tools and hide server internals', (
   assert.doesNotMatch(out, /python3|\/tmp\/|M-1\d\d/);
   assert.match(out, /PROPOSER: \[server temporary file\] — 3 answer\(s\)\n/);
   assert.match(out, /doctrine 46/);
+  // The register-named and sub-part shapes. A live sweep published
+  // "(`MISSING.md` M-81(B))" to a caller because the pattern matched only a
+  // BARE ticket inside the parentheses.
+  const named = publishedReport(
+    'a lyric line runs — the length a listener hears (`MISSING.md` M-81(B))\n' +
+      'the coordinate (MISSING.md M-79) names\n' +
+      'a pair (`MISSING.md` M-138; M-140) nobody priced'
+  );
+  assert.doesNotMatch(named, /M-\d+|MISSING\.md/);
+  assert.match(named, /the length a listener hears\n/);
+  assert.match(named, /the coordinate names\n/);
+  assert.match(named, /a pair nobody priced/);
+  // AND THE SHAPE THIS CANNOT FIX, asserted so the limit is not mistaken for
+  // coverage: a BARE mid-sentence reference is left alone, because removing it
+  // leaves "which since  means". That one is fixed where it is written, and
+  // `quality/test_plan.py` §21 is the gate that keeps it fixed.
+  const bare = publishedReport('a hook, which since `MISSING.md` M-84 means a shape');
+  assert.match(bare, /M-84/);
 });
 
 // A misspelled edit field beside a valid one used to be stripped by the schema
