@@ -5201,6 +5201,16 @@ class Reviser:
     #: the common case.
     _SCREEN_SCAN = 8
 
+    #: How many candidates of ONE per-call menu are put through the grade
+    #: (`MISSING.md` M-315). A bound on COST, not a coordinate of any verdict:
+    #: a word past it is UNSEARCHED and is never published, so the menu can
+    #: only be SHORTER than the screen would allow, never wrong. The screen
+    #: itself is what the menu owes — before it, every one of the 24 words the
+    #: live seed-7 brief offered for the call `Your` was rejected by the
+    #: grader. MEASURED on that draft, briefing the lines the loop asks about:
+    #: 25s with no screen, 171s screening all 24 of every menu, 62s here.
+    _MENU_SCREEN_MAX = 8
+
     def _offer_reopens(self, w, calls, fields, profile=None):
         """Would taking `w` file MODAL_RHYME against one of `calls` from
         `w`'s OWN side — is some call in `w`'s head? (M-185)
@@ -5687,9 +5697,25 @@ class Reviser:
                                     (min(ln, x), max(ln, x), k)
                                     for k in ks for x in dict(groups)[k]
                                     if self._slot_word(lines, m, k, x, endwords) == _c1}
+                                # BOUNDED, and the bound is on COST alone: one
+                                # trial grade per candidate, `offered` (24)
+                                # candidates, one menu per call, so an 8-call
+                                # pivot pays 192 grades. MEASURED on the
+                                # seed-7 draft, briefing the flagged lines the
+                                # loop actually asks about: 25s unscreened,
+                                # 171s screening all 24 of every menu, 62s at
+                                # this cap. `limit` stops early where words
+                                # PASS, so the cap binds only where they do
+                                # not. UNDER-offering is the safe direction —
+                                # a word past the cap is UNSEARCHED, which is
+                                # what the empty-menu text already says, and
+                                # never a word published that the grader
+                                # rejects.
                                 _o1, _no = self.declared_offer(
-                                    _o1, lines, m, ln, _sl, ks,
+                                    _o1[:self._MENU_SCREEN_MAX],
+                                    lines, m, ln, _sl, ks,
                                     profile=profile, sections=_sections,
+                                    limit=self._MENU_SCREEN_MAX,
                                     requested_obligations=_obligations)
                                 if not _explicit:
                                     _grader_ref = list(
