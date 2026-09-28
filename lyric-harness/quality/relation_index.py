@@ -242,10 +242,32 @@ def door_requirement(admit, conj):
     return tuple(alts) or None
 
 
-def last_syllables(lex, word):
-    """-> the LAST syllable, as `lyric_harness.syllabify` builds it, of every
-    reading `line_anchors` can take for `word` at a line end, or None (do not
-    filter: no dictionary reading, so the line end is read some other way)."""
+def span_end(rule):
+    """-> (which syllable of the bound word a slot span ENDS on, whether the
+    word is the line's last) for a slot's rule; None is the default slot.
+
+    `channel_agreement` aligns from the tail, so the syllable a span ends on
+    is the one compared last. `to_word_end` spans end on the word's last
+    syllable, a one-syllable span from the word's start on its first; any
+    other shape could end anywhere in the word, so every syllable is kept.
+    Only a line-final word's coda is its own: elsewhere the syllabifier may
+    hand its final consonants to the next word's onset, so the coda is not
+    read there (the vowel never moves)."""
+    if rule is None:
+        return "last", True
+    final = rule.locus == "line_final_token"
+    if rule.magnitude == "to_word_end" and rule.direction == 1:
+        return "last", final
+    if rule.anchor == "word_start" and rule.magnitude == 1:
+        return "first", final and False
+    return "all", False
+
+
+def last_syllables(lex, word, where=("last", True)):
+    """-> the syllable(s) a span on `word` can end on, as
+    `lyric_harness.syllabify` builds them, for every reading the end-anchor
+    code can take, or None (do not filter: no dictionary reading). A coda
+    that is not the word's own at this place is None."""
     import lyric_harness as LH
     if not word:
         return None
@@ -255,34 +277,45 @@ def last_syllables(lex, word):
     variants = (lex.pronunciation_variants(key)
                 if hasattr(lex, "pronunciation_variants")
                 else lex.entries.get(key, []))
+    which, final = where
     out = []
     for v in variants or ():
         sy = LH.syllabify(list(v))
-        if sy:
-            out.append(sy[-1])
+        if not sy:
+            continue
+        pick = (sy[-1:] if which == "last" else sy[:1] if which == "first"
+                else sy)
+        for x in pick:
+            out.append(x if final and which == "last" else dict(x, coda=None))
     return out or None
 
 
 def coarse_meets(alts, lw, lp, decl):
-    """Does some reading pair's last syllables meet one alternative?
+    """Does some reading pair's compared syllables meet one alternative?
 
     Stress is set to 0 on both sides before `channel_agreement` is asked:
     the one stress-dependent rule (`nucleus_licence_unstressed_only`) is
     most permissive there, and a weak end word is demoted to 0 in the line
-    anyway."""
+    anyway. Where either coda is not read (None), the coda half of a need is
+    not tested, and an alternative needing only the coda cannot exclude."""
     import lyric_harness as LH
     for a in lw:
         for b in lp:
-            a0, b0 = dict(a, stress=0), dict(b, stress=0)
+            coda_known = a["coda"] is not None and b["coda"] is not None
+            a0 = dict(a, stress=0, coda=a["coda"] or [])
+            b0 = dict(b, stress=0, coda=b["coda"] or [])
             nuc = coda = None
             for need in alts:
                 if "identity" in need:
-                    if (a["nucleus"] == b["nucleus"]
-                            and list(a["coda"]) == list(b["coda"])):
+                    if a["nucleus"] == b["nucleus"] and (
+                            not coda_known
+                            or list(a["coda"]) == list(b["coda"])):
                         return True
                     continue
                 if nuc is None:
                     nuc, coda = LH.channel_agreement([a0], [b0], decl)
+                if not coda_known:
+                    coda = True
                 if ("nucleus" not in need or nuc) and ("coda" not in need or coda):
                     return True
     return False

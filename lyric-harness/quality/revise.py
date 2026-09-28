@@ -4404,12 +4404,19 @@ class Reviser:
                 sl_lo = m.slot_of(k, lo) if slotted else None
                 position = _SL.position_of(sl_lo or lo)
                 pw = self._slot_word(lines, m, k, x, endwords)
+                # WHERE EACH SPAN ENDS: the syllable `channel_agreement`
+                # compares last, and whether its coda is the word's own.
+                coarse_ok = single(sl_c) and single(sl_p)
+                w_c = RI.span_end(None if sl_c is None or _SL.is_default(sl_c)
+                                  else _SL.as_slot(sl_c).rule)
+                w_p = RI.span_end(None if sl_p is None or _SL.is_default(sl_p)
+                                  else _SL.as_slot(sl_p).rule)
                 if door:
                     alts = (RI.door_requirement(self.decl.admit, conj)
-                            if both_default else None)
-                    lp = RI.last_syllables(self.lex, pw) if alts else None
+                            if coarse_ok else None)
+                    lp = RI.last_syllables(self.lex, pw, w_p) if alts else None
                     if lp is not None:
-                        tests.append(("last", alts, lp))
+                        tests.append(("last", (alts, w_c), lp))
                         filtered.append("admit door")
                     else:
                         unfiltered.append("admit door")
@@ -4443,18 +4450,19 @@ class Reviser:
                         if cells is not None and sp is not None:
                             tests.append(("sets", (cells,), sp))
                             added = True
-                    elif kind == "class" and both_default:
+                    elif kind == "class" and coarse_ok:
                         need = RI.class_requirement(canon, conj)
-                        lp = RI.last_syllables(self.lex, pw) if need else None
+                        lp = (RI.last_syllables(self.lex, pw, w_p)
+                              if need else None)
                         if lp is not None:
-                            tests.append(("last", (need,), lp))
+                            tests.append(("last", ((need,), w_c), lp))
                             added = True
                     (filtered if added else unfiltered).append(want)
         if not tests:
             return None
 
         def keep(word):
-            sw = kw = None
+            sw = None
             for kind, req, p in tests:
                 if kind == "sets":
                     if req == ():
@@ -4464,9 +4472,9 @@ class Reviser:
                     if sw and not any(RI.meets(alt, sw, p) for alt in req):
                         return False
                 else:
-                    if kw is None:
-                        kw = RI.last_syllables(self.lex, word) or ()
-                    if kw and not RI.coarse_meets(req, kw, p, self.decl):
+                    alts, where = req
+                    kw = RI.last_syllables(self.lex, word, where)
+                    if kw and not RI.coarse_meets(alts, kw, p, self.decl):
                         return False
             return True
         keep.filtered = tuple(dict.fromkeys(filtered))

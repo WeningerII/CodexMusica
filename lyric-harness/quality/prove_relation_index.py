@@ -5,7 +5,8 @@ widening, the words a declared relation's own definition says cannot stand in
 it. That is only sound if every dropped word is one the full grade refuses.
 This instrument checks exactly that, for every relation name a mandate can
 declare — all `schema:`, `type:` and `class:` names — on the two routes a
-place can take (the default end slot, and a declared single-token slot):
+place can take (the default end slot, declared single-token slots at the
+line's end, start and middle, and a pair mixing the two):
 
   1. build the two-line draft and the mandate declaring the relation;
   2. build the index's `keep` for the place and run it over the lexicon;
@@ -44,6 +45,12 @@ LAYOUTS = {
             [[1, 2]], 2),
     "token": (["the {call} was here", "the {inc} was there"],
               [["1.T2", "2.T2"]], 2),
+    "head": (["{call} was the word", "{inc} was the other"],
+             [["1.head", "2.head"]], 2),
+    "endword": (["a line that ends on {call}", "and one that ends on {inc}"],
+                [["1.endword", "2.endword"]], 2),
+    "mixed": (["a line that ends on {call}", "the {inc} was there"],
+              [["1.end", "2.T2"]], 2),
 }
 INCUMBENT = "stone"
 _NEAR = {}
