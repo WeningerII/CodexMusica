@@ -175,9 +175,7 @@ export function chatCeilings(limits = CHAT_LIMITS, agent = LIMITS, model = undef
   const perTurnBySurface =
     budget === null
       ? null
-      : Object.fromEntries(
-          Object.keys(budget.surfaces).map((name) => [name, 'maxTurnUsd'])
-        );
+      : Object.fromEntries(Object.keys(budget.surfaces).map((name) => [name, 'maxTurnUsd']));
   const turnCapExceedsDay = agent.maxTurnUsd > limits.dailyUsd;
   // AND THE DAY HAS TWO CEILINGS OF ITS OWN, WHICH IS THE SAME QUESTION ONE
   // AXIS OVER. `dailyUsd` bounds the day in dollars and `maxTurnsPerDay`

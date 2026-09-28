@@ -1706,7 +1706,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .min(1)
       .optional()
       .describe(
-        "Optional round budget (ReviseDeclaration.max_rounds). Omit it and there is no round limit: the loop keeps going while rounds fix something, and stops when the song is clean or a round fixes nothing. Declared once per run: a continuing call that moves it is refused, because the run replays its record under the budget it opened with."
+        'Optional round budget (ReviseDeclaration.max_rounds). Omit it and there is no round limit: the loop keeps going while rounds fix something, and stops when the song is clean or a round fixes nothing. Declared once per run: a continuing call that moves it is refused, because the run replays its record under the budget it opened with.'
       ),
     attempts: z
       .number()
