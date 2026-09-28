@@ -4301,6 +4301,178 @@ class Reviser:
                 break
         return kept, refused
 
+    def _widening_filter(self, lines, m, line, slot, group_indices, endwords,
+                         profile=None):
+        """-> `keep(word)` for the whole-lexicon widening at ONE place, or
+        None when nothing could be derived and the search skips nothing.
+
+        Every declared relation of every group bound here is asked, against
+        each partner whose text stays fixed in every trial draft, what it
+        NEEDS from the word at this place (`quality/relation_index.py`). A
+        word is dropped only where one of those requirements provably fails,
+        so `declared_offer` — which still grades every word kept — would have
+        refused it too: the offer is the one a full scan returns, reached
+        without grading words that cannot stand in the relation.
+
+        `keep.filtered` / `keep.unfiltered` name the relations that did and
+        did not contribute a requirement, so a caller can say which searches
+        are indexed and which still scan everything.
+        """
+        if getattr(self.lex, "pronunciations", ()):
+            # A member's reading may come from the declaration, not the
+            # dictionary; nothing here reads declarations.
+            return None
+        from quality import relation_index as RI
+        from quality import relations as _RL
+        from quality import rhyme_types as _RT
+        phon = self._relation_phonology()
+        # `score()`'s own conjunctive-band switch for this call: a profile
+        # with a zero coda weight turns it off, and RHYME then needs no
+        # channel to agree.
+        from lyric_harness import channel_profile as _CP
+        _prof = _CP(profile)
+        conj = self.decl.conjunctive_band and not (
+            _prof and _prof.get("weights", {}).get("coda", 1.0) == 0.0)
+        _struct = any(getattr(m, "structures", ()) or ())
+        if _struct:
+            from quality import structures as _ST_mod
+        ret = m.return_of(line)
+        targets = (set(ret.lines) if ret is not None and ret.verbatim is True
+                   else {line})
+        slotted = m.slots_declared()
+        box = {}
+
+        def stream():
+            if "s" not in box:
+                box["s"] = _RL.build_stream(lines, phon)
+            return box["s"]
+
+        def token_at(li, sl):
+            """The stream token a slot binds on 0-based line `li`, resolved
+            as `pair_satisfies` resolves it (and the default slot as the
+            `line_final_token` locus does)."""
+            st = stream()
+            if li >= len(st.lines) or not st.lines[li]:
+                return None
+            if sl is None or _SL.is_default(sl):
+                return st.units[st.lines[li][-1]].line_tokens - 1
+            t = _SL.token_of(sl)
+            if t is not None and t < 0:
+                t = ((len(st.lexical_tokens[li]) if st.lexical_tokens
+                      else st.units[st.lines[li][-1]].line_tokens) + t)
+            return t
+
+        def unit_sets(li, t):
+            ids = stream().tokens.get((li, t)) if t is not None else None
+            if not ids:
+                return None
+            return RI.syllable_sets([stream().units[i].syl for i in ids])
+
+        def single(sl):
+            return (sl is None or _SL.is_default(sl)
+                    or (_SL.token_of(sl) is not None
+                        and RI._confined(_SL.as_slot(sl).rule)))
+
+        # THE PLACE ITSELF MUST MAP TO ONE WORD IN EVERY TRIAL: the token the
+        # slot binds in the stream is the word the swap replaces.
+        own_t = token_at(line - 1, slot)
+        own_word = self._incumbent(lines, line, slot) or ""
+        own_ids = (stream().tokens.get((line - 1, own_t))
+                   if own_t is not None else None)
+        own_ok = bool(own_ids) and own_word.isalpha() and (
+            stream().units[own_ids[0]].token_text.lower() == own_word.lower())
+        tests, filtered, unfiltered = [], [], []
+        for k in group_indices:
+            wants = _relations_of(m, k)
+            # A BARE group is judged at the admit door, and only there, when
+            # its schema route is closed and it declares no structure.
+            door = (not wants and not self.schema_route_open(m, k)
+                    and not (_struct
+                             and m.structure_of(k) != _ST_mod.DEFAULT))
+            if not wants and not door:
+                continue
+            sl_c = m.slot_of(k, line) if slotted else None
+            for x in m.groups[k]:
+                if x == line or x in targets:
+                    continue
+                if getattr(m.requirement(line, x), "name", "") != "REQUIRE_RHYME":
+                    continue
+                sl_p = m.slot_of(k, x) if slotted else None
+                both_default = ((sl_c is None or _SL.is_default(sl_c))
+                                and (sl_p is None or _SL.is_default(sl_p)))
+                lo = min(line, x)
+                sl_lo = m.slot_of(k, lo) if slotted else None
+                position = _SL.position_of(sl_lo or lo)
+                pw = self._slot_word(lines, m, k, x, endwords)
+                if door:
+                    alts = (RI.door_requirement(self.decl.admit, conj)
+                            if both_default else None)
+                    lp = RI.last_syllables(self.lex, pw) if alts else None
+                    if lp is not None:
+                        tests.append(("last", alts, lp))
+                        filtered.append("admit door")
+                    else:
+                        unfiltered.append("admit door")
+                    continue
+                for want in wants:
+                    try:
+                        canon, kind = _RT.resolve_relation(want)
+                    except Exception:
+                        unfiltered.append(want)
+                        continue
+                    added = False
+                    if kind == "named" and single(sl_c) and single(sl_p):
+                        req = RI.type_requirement(canon, position)
+                        sp = RI.word_sets(phon, pw) if req else None
+                        if req == ():
+                            tests.append(("sets", (), None))
+                            added = True
+                        elif req is not None and sp is not None:
+                            tests.append(("sets", req, sp))
+                            added = True
+                    elif kind == "schema" and own_ok:
+                        # The two routes `grade()` takes: the default slots
+                        # through `line_pairs_for` over the pair-adapted
+                        # schema, a declared slot through `pair_satisfies`
+                        # over the registry row itself.
+                        route = "default" if both_default else "token"
+                        sch = (_RL.declared_pair_schema(_RL.REGISTRY[canon])
+                               if both_default else _RL.REGISTRY[canon])
+                        cells = RI.schema_requirement(sch, route)
+                        sp = unit_sets(x - 1, token_at(x - 1, sl_p))
+                        if cells is not None and sp is not None:
+                            tests.append(("sets", (cells,), sp))
+                            added = True
+                    elif kind == "class" and both_default:
+                        need = RI.class_requirement(canon, conj)
+                        lp = RI.last_syllables(self.lex, pw) if need else None
+                        if lp is not None:
+                            tests.append(("last", (need,), lp))
+                            added = True
+                    (filtered if added else unfiltered).append(want)
+        if not tests:
+            return None
+
+        def keep(word):
+            sw = kw = None
+            for kind, req, p in tests:
+                if kind == "sets":
+                    if req == ():
+                        return False
+                    if sw is None:
+                        sw = RI.word_sets(phon, word) or ()
+                    if sw and not any(RI.meets(alt, sw, p) for alt in req):
+                        return False
+                else:
+                    if kw is None:
+                        kw = RI.last_syllables(self.lex, word) or ()
+                    if kw and not RI.coarse_meets(req, kw, p, self.decl):
+                        return False
+            return True
+        keep.filtered = tuple(dict.fromkeys(filtered))
+        keep.unfiltered = tuple(dict.fromkeys(unfiltered))
+        return keep
+
     def schema_route_open(self, m, group_index):
         """Does ONE GROUP accept a pair through any registry schema?
 
@@ -5619,8 +5791,21 @@ class Reviser:
                                     _call, n=len(self.engine.index))
                                 _pool.extend(row["word"] for row in _raw.get("candidates", ())
                                              if row["word"] not in {_cur, *_forb})
+                            _cand = [w for w in dict.fromkeys(_pool)
+                                     if w not in {_cur, *_forb, *_drop}]
+                            # THE WIDENING INDEX (2026-09-28). The pool is the
+                            # whole lexicon; every word in it is still looked
+                            # at, and the ones each declared relation's own
+                            # definition says cannot stand in it are not
+                            # graded (`_widening_filter`). The words kept go
+                            # through the same full grade in the same order.
+                            _keep = self._widening_filter(lines, m, ln, _sl,
+                                                          ks, endwords,
+                                                          profile=profile)
+                            if _keep is not None:
+                                _cand = [w for w in _cand if _keep(w)]
                             _extra, _no = self.declared_offer(
-                                [w for w in _pool if w not in {_cur, *_forb, *_drop}],
+                                _cand,
                                 lines, m, ln, _sl, ks,
                                 profile=profile, sections=_sections,
                                 limit=self.rdecl.offered)
