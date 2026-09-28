@@ -1227,7 +1227,9 @@ const RECIPE_FINISH_MS = 10_000;
 // whether the workspace carries one from any turn.
 function recipeStopNote(stopped, finish, browse = false) {
   const why =
-    stopped === 'MAX_TURN_COST'
+    stopped === 'MAX_STEPS'
+      ? 'Reached the step limit'
+      : stopped === 'MAX_TURN_COST'
         ? "Reached this turn's spending limit"
         : stopped === 'DAILY_BUDGET'
           ? "Reached today's spending limit"
@@ -1521,6 +1523,7 @@ export async function runTurn({
   let stopped = null;
   let stoppedDetail = null;
   let reply = '';
+  const recipeTurn = task?.domain === 'recipe';
   // The tradition rows this turn's own search_catalog calls returned, in the
   // order seen — what the server seeds from if the turn ends with no recipe.
   const traditionHits = [];
@@ -1576,6 +1579,7 @@ export async function runTurn({
       ms: Math.max(0, clock() - turnStartedAt),
       cap: limits.maxTurnMs,
       hops,
+      maxSteps: limits.maxSteps,
     };
     return true;
   };
@@ -1661,7 +1665,9 @@ export async function runTurn({
     };
   };
   try {
-    for (let step = 0; ; step++) {
+    // No step limit unless the caller declares one (`limits.maxSteps`); the
+    // live chat declares none.
+    for (let step = 0; limits.maxSteps == null || step < limits.maxSteps; step++) {
       if (interruption(step)) break;
       body.contents = contents;
       // Rebuilt per hop from the LIVE carried state (M-158): `lyr` moves when
@@ -1735,7 +1741,7 @@ export async function runTurn({
           err?.code === 'ACCOUNTING_UNAVAILABLE'
         ) {
           stopped = err.code;
-          stoppedDetail = { detail: err.message, hops: step };
+          stoppedDetail = { detail: err.message, hops: step, maxSteps: limits.maxSteps };
           break;
         }
         if (!calls.length) throw err;
@@ -1747,6 +1753,7 @@ export async function runTurn({
           detail: String((err && err.message) || err).slice(0, 300),
           hops: step + 1,
           calls: calls.length,
+          maxSteps: limits.maxSteps,
         };
         contents.push({
           role: 'model',
@@ -1791,6 +1798,7 @@ export async function runTurn({
         const finishMessage = malformedText(candidate);
         malformedHops.push({ hop: step + 1, attempt: malformed, reasked: true, finishMessage });
         if (onEvent) onEvent({ type: 'malformed', attempt: malformed, finishMessage });
+        if (step === limits.maxSteps - 1) stopped = 'MAX_STEPS';
         continue;
       }
 
@@ -1814,6 +1822,7 @@ export async function runTurn({
           malformedRetries: malformed,
           retriesAllowed: MALFORMED_CALL_RETRY.retries,
           hops: step + 1,
+          maxSteps: limits.maxSteps,
           ...(stopped === 'MALFORMED_FUNCTION_CALL'
             ? { finishMessage: malformedText(candidate) }
             : {}),
@@ -1856,6 +1865,7 @@ export async function runTurn({
               malformedRetries: malformed,
               retriesAllowed: MALFORMED_CALL_RETRY.retries,
               hops: step + 1,
+              maxSteps: limits.maxSteps,
               finishMessage,
             };
           }
@@ -1898,6 +1908,7 @@ export async function runTurn({
               usd: spent,
               cap: limits.maxTurnUsd,
               hops: step + 1,
+              maxSteps: limits.maxSteps,
             };
           }
           result = {
@@ -2382,11 +2393,13 @@ export async function runTurn({
           usd: soFar,
           cap: limits.maxTurnUsd,
           hops: step + 1,
+          maxSteps: limits.maxSteps,
           budget: turnBudget(limits, model),
         };
         if (onEvent) onEvent({ type: 'stopped', reason: stopped, usd: soFar });
         break;
       }
+      if (step === limits.maxSteps - 1) stopped = 'MAX_STEPS';
     }
   } catch (err) {
     if (err && typeof err === 'object') {
@@ -2437,6 +2450,7 @@ export async function runTurn({
     const recipeStopDetail = (finish) => ({
       ...(stoppedDetail || {}),
       hops: stoppedDetail?.hops ?? hopsTaken,
+      maxSteps: limits.maxSteps,
       surface: 'recipe',
       finish,
       note: recipeStopNote(stopped, finish, browse),

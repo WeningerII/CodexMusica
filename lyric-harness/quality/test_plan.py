@@ -56,7 +56,6 @@ from quality.plan import (BLOCKED_FORMS, ENVELOPE,  # noqa: E402
                           meter_space_size)
 import quality.plan as PLN  # noqa: E402
 import lyric_harness as LH  # noqa: E402
-from quality import capacity as CAP  # noqa: E402
 from quality import meter_bands as MB  # noqa: E402
 from quality import slots as SL  # noqa: E402
 from quality import relations as RL  # noqa: E402
@@ -1028,12 +1027,10 @@ def test_the_measure():
     # `capacity` AND `slots` JOINED 2026-08-23, each with its own argument
     # and each RE-TIGHTENED the way `grid` and `floor` were.
     #
-    # `capacity` — the planner refuses a rhyme group larger than the lexicon
-    # is MEASURED to sustain, and that figure is an ADOPTED CALIBRATION
-    # constant of the same species as `meter_bands.ADOPTED`. It may name
-    # ONLY `ADOPTED_MAX_GROUP`: `capacity.read_table()` opens the artifact,
-    # and a planner reaching a table is the corpus arriving at the dice by a
-    # longer road.
+    # `capacity` — the planner no longer imports it (owner, 2026-09-28: no
+    # rhyme-family cap), so it may name NOTHING from it: `capacity.read_table()`
+    # opens the artifact, and a planner reaching a table is the corpus arriving
+    # at the dice by a longer road.
     # `slots` — the placement vocabulary a plan may draw from. A HAND-
     # DECLARED table of the same species as `structures` and
     # `SECTION_FUNCTIONS`, both already admitted. It may name ONLY
@@ -1047,9 +1044,7 @@ def test_the_measure():
     # rule) and are named here rather than re-implemented, which is the whole
     # point of the widening: a second answer to "which word is `headrime`?"
     # inside `plan.py` is exactly what this allow-list would otherwise force.
-    # Production admission validates an actual-runtime proof before using
-    # the adopted bound. Its result cannot become a generative coordinate.
-    ALLOWED_FROM_CAPACITY = {"ADOPTED_MAX_GROUP", "require_current_proof"}
+    ALLOWED_FROM_CAPACITY = set()
     ALLOWED_FROM_SLOTS = {"PLANNABLE_PLACEMENTS", "placement_word",
                           "LAST_WORD", "is_default_spelling",
                           "parse_slot", "spell_slot"}
@@ -1187,11 +1182,11 @@ def test_the_measure():
             elif n.value.id in ("_NV", "NV"):
                 nar_names.add(n.attr)
     check("plan.py imports exactly {schemes, meter_bands, structures, grid, "
-          "floor, capacity, slots, relations, narrative, melody, rhyme_types} from quality and "
+          "floor, slots, relations, narrative, melody, rhyme_types} from quality and "
           "opens NO file — the corpus cannot reach the dice (the owner's "
           "move-37 rule)",
           subs == {"schemes", "meter_bands", "structures", "grid", "floor",
-                   "capacity", "slots", "relations", "narrative", "melody",
+                   "slots", "relations", "narrative", "melody",
                    "rhyme_types"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
@@ -1247,7 +1242,7 @@ def test_the_measure():
           "arriving at the dice by a longer road",
           floor_names <= ALLOWED_FROM_FLOOR,
           f"names {sorted(floor_names)}")
-    check("...and from `capacity` ONLY the adopted bound and explicit production proof admission",
+    check("...and from `capacity` NOTHING — the planner reads no capacity bound",
           cap_names <= ALLOWED_FROM_CAPACITY, f"names {sorted(cap_names)}")
     parents = {id(child): parent for parent in ast.walk(tree) for child in ast.iter_child_nodes(parent)}
     proof_calls = [n for n in ast.walk(tree) if isinstance(n, ast.Call)
@@ -1261,8 +1256,8 @@ def test_the_measure():
             cursor = parents.get(id(cursor))
         guards.append(unused_result and cursor is not None and ast.unparse(cursor.test)
                       == "os.environ.get('LYRIC_RELEASE_ASSETS_REQUIRED') == '1'")
-    check("capacity proof is one production-only admission with no returned value entering the dice",
-          len(proof_calls) == 1 and all(guards))
+    check("and it asks for no capacity proof, since it uses no capacity bound",
+          len(proof_calls) == 0, f"{len(proof_calls)} proof call(s), guards {guards}")
     check("...and from `slots` ONLY the plannable placement vocabulary, "
           "never a resolver — `slots` reaches `relations`, which opens a "
           "file, so the narrowing is what the import allow-list stands for",
@@ -1933,13 +1928,14 @@ def test_the_planner_plans_the_whole_line():
           "binding and lines carrying several are both ordinary",
           part[1] > 0 and sum(v for k, v in part.items() if k >= 2) > 0,
           f"participation {dict(sorted(part.items()))}")
-    check("no group exceeds what the LEXICON is measured to sustain — the "
-          "capacity layer's deepest CERTIFIED chain, so a plan never asks "
-          "for a rhyme family no family can fill",
-          all(len(g) <= CAP.ADOPTED_MAX_GROUP
-              for pl in [make_plan(seed=k) for k in range(8)]
+    # No rhyme-family ceiling (owner, 2026-09-28); a group size the writer
+    # DECLARES is still honoured.
+    _declared = [make_plan(seed=k, wants=["group<=3"]) for k in range(4)]
+    check("a declared `group<=N` still bounds every drawn group — the only "
+          "group-size limit left is the one a writer asks for",
+          all(len(g) <= 3 for pl in _declared
               for g in [x.split(",") for x in pl["groups"].split(";")]),
-          f"ceiling {CAP.ADOPTED_MAX_GROUP}")
+          f"largest {max(len(x.split(',')) for pl in _declared for x in pl['groups'].split(';'))}")
 
 
 def _place_group_keyed_on_the_name(group, rng, max_token, used):
@@ -1974,9 +1970,8 @@ def test_the_joint_gate():
     check("the sweep produced plans to ask the question of",
           len(plans) == JOINT_SWEEP, f"{len(plans)} plans")
     check("NO plan in the sweep has a contradiction detected by this gate — the "
-          "gate is satisfied BY CONSTRUCTION, which is the relationship "
-          "`ADOPTED_MAX_GROUP` already has to the scheme sampler and is why "
-          "the mutations below are the only way to fire it",
+          "gate is satisfied BY CONSTRUCTION, which is why the mutations "
+          "below are the only way to fire it",
           all(PLN.joint_findings(p) == [] for p in plans),
           f"{sum(len(PLN.joint_findings(p)) for p in plans)} findings over "
           f"{len(plans)} plans")
