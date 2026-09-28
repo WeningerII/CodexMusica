@@ -325,9 +325,9 @@ function esc(s, n) {
 // rows recorded. A threshold nobody wrote down, sitting UNDER the pipeline's
 // measured envelope.
 //
-// The server's ceiling for one turn is the product of two constants it
-// declares: LIMITS.maxSteps tool round-trips (mcp/gemini_agent.js) of at most
-// CHAT_TOOL_TIMEOUT_MS each. The per-call factor is read from production-config.json's
+// The server ends a turn on its own wall clock (LIMITS.maxTurnMs,
+// mcp/gemini_agent.js); a tool call in flight takes at most
+// CHAT_TOOL_TIMEOUT_MS. The per-call factor is read from production-config.json's
 // pinned value — DEPLOY TRUTH since M-165: the pin is what the live box runs
 // on, and mcp/test.mjs holds it equal to mcp/budget.js's derived default so
 // the two spellings cannot drift. Both factors are READ from where they are
@@ -350,10 +350,9 @@ const TOOL_TIMEOUT_MS = Number(productionConfig.environment.CHAT_TOOL_TIMEOUT_MS
 if (!Number.isSafeInteger(TOOL_TIMEOUT_MS) || TOOL_TIMEOUT_MS <= 0)
   throw new Error('Production configuration requires a positive CHAT_TOOL_TIMEOUT_MS');
 
-const MAX_STEPS = readConst('mcp/gemini_agent.js', /maxSteps:\s*(\d+)/, 'LIMITS.maxSteps');
 // M-258 (round 25): the server ends a turn on its own wall clock
 // (`LIMITS.maxTurnMs`) after the hop in flight, so the client's deadline is
-// that wall plus ONE tool budget, not maxSteps tool budgets — the old
+// that wall plus ONE tool budget, not one per tool call — the old
 // product was 140 minutes and the edge in front of the service cut the
 // connection at 100 with the whole turn lost.
 const MAX_TURN_MS = readConst('mcp/gemini_agent.js', /maxTurnMs:\s*([\d_]+)/, 'LIMITS.maxTurnMs');
@@ -519,7 +518,7 @@ const { mkdirSync, appendFileSync } = await import('node:fs');
 mkdirSync(OUT, { recursive: true, mode: 0o700 });
 chmodSync(OUT, 0o700);
 console.log(
-  `turn deadline: ${TURN_DEADLINE_MS} ms (maxTurnMs ${MAX_TURN_MS} + CHAT_TOOL_TIMEOUT_MS ${TOOL_TIMEOUT_MS} ms, both read from source; maxSteps ${MAX_STEPS})`
+  `turn deadline: ${TURN_DEADLINE_MS} ms (maxTurnMs ${MAX_TURN_MS} + CHAT_TOOL_TIMEOUT_MS ${TOOL_TIMEOUT_MS} ms, both read from source)`
 );
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

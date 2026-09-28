@@ -168,7 +168,7 @@ export const CHAT_LIMITS = {
  */
 export function chatCeilings(limits = CHAT_LIMITS, agent = LIMITS, model = undefined) {
   const budget = turnBudget(agent, model === undefined ? DEFAULT_MODEL : model);
-  const perTurn = budget === null ? 'UNPRICED_MODEL' : budget.capBinds ? 'maxTurnUsd' : 'maxSteps';
+  const perTurn = budget === null ? 'UNPRICED_MODEL' : 'maxTurnUsd';
   // Which ceiling a worst-case turn meets first ON EACH SURFACE: a lyric hop
   // requests ~16x the output tokens of a recipe hop, so one answer for both
   // would describe neither (`turnBudget().surfaces`, 2026-09-26).
@@ -176,10 +176,7 @@ export function chatCeilings(limits = CHAT_LIMITS, agent = LIMITS, model = undef
     budget === null
       ? null
       : Object.fromEntries(
-          Object.entries(budget.surfaces).map(([name, s]) => [
-            name,
-            s.capBinds ? 'maxTurnUsd' : 'maxSteps',
-          ])
+          Object.keys(budget.surfaces).map((name) => [name, 'maxTurnUsd'])
         );
   const turnCapExceedsDay = agent.maxTurnUsd > limits.dailyUsd;
   // AND THE DAY HAS TWO CEILINGS OF ITS OWN, WHICH IS THE SAME QUESTION ONE
@@ -942,13 +939,10 @@ export async function createChatRouter({
           whole_flags: c.whole_flags ?? null,
         })),
         stopped: run.stopped,
-        // WHY IT STOPPED, WITH THE NUMBERS (2026-09-02, triage C11). A bare
-        // `MAX_TURN_COST` cannot be told from `MAX_STEPS` by a reader of the
-        // transcript, and the two ceilings answer one question — how many
-        // hops may a turn take. `stoppedDetail` carries what the turn spent,
-        // the cap it hit, the hops it bought and the hops it was allowed, so
-        // the battery banks the reason rather than the label. Null on every
-        // turn that stopped for any other reason.
+        // WHY IT STOPPED, WITH THE NUMBERS (2026-09-02, triage C11).
+        // `stoppedDetail` carries what the turn spent, the cap it hit and the
+        // hops it took, so the battery banks the reason rather than the
+        // label. Null on every turn that stopped for any other reason.
         stopped_detail: run.stoppedDetail ?? null,
         // WHAT EACH MALFORMED HOP CONTAINED (M-221): one entry per hop Gemini
         // ended on MALFORMED_FUNCTION_CALL, with the head of the call text it

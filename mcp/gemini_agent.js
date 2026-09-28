@@ -72,27 +72,9 @@ export function chatWriter() {
 // Re-measure with `--thinking=low` / default before changing this.
 export const DEFAULT_THINKING = { thinkingLevel: 'low' };
 
-// Ceilings. Each one is the difference between a bad turn costing cents and a
-// bad turn costing a bill, and every one of them is reachable by an ordinary
-// user with no ill intent — a model that loops on search_catalog hits MAX_STEPS
-// without anybody attacking anything.
+// A turn has no limit on how many tools it calls. It ends when the model
+// answers, or at the time and spending limits below.
 export const LIMITS = {
-  // Tool round-trips per user turn, recipe and lyrics alike (baseline
-  // observed: 6-9). ~~14~~ **50 since 2026-09-26**, on the owner's "raise the
-  // ceiling to 50 rounds. it's still super cheap for us and it gives us
-  // breathing room" — after a recipe brief with seven descriptors spent all
-  // fourteen hops on one search per word and returned no recipe. The $2.50
-  // turn cap (`maxTurnUsd`) and the 40-minute wall (`maxTurnMs`) still apply;
-  // `turnBudget().surfaces` says which of them a worst-case turn meets first.
-  maxSteps: 50,
-  // THE RECIPE SURFACE FINISHES ON ITS LAST HOPS (recipe only; the lyrics
-  // loop is untouched). The last N hops of a recipe turn may call only
-  // start_recipe, edit_recipe or render_recipe (Gemini `functionCallingConfig`
-  // mode ANY + allowedFunctionNames), with a hop instruction to apply what was
-  // found and render now; a turn that still ends without a recipe is finished
-  // by the server (`finishRecipe`), so a recipe turn never ends empty-handed
-  // when a recipe can be made.
-  recipeFinishHops: 2,
   // One monotonic deadline covers model requests, response bodies, backoff,
   // queue wait and every tool in a model hop. Interrupted tools get one short
   // cleanup window to return their checkpoint; no further work is admitted.
@@ -132,8 +114,8 @@ export const LIMITS = {
   // tokens at the measured ~4 bytes/token, i.e. ~$0.0125 a hop, so a late
   // turn kept at least eight hops under the $0.10 cap instead of four, which
   // is the arithmetic that sized this ceiling; at the $2.50 cap in force now
-  // `maxSteps` binds first on a recipe turn and this is a pure byte bound (a
-  // lyric turn's worst case is in `turnBudget().surfaces.lyrics`). On
+  // this is a pure byte bound (a lyric turn's worst case is in
+  // `turnBudget().surfaces.lyrics`). On
   // the record's shape stubbing alone lands well under it (~150 KB at
   // turn 9), so this only ever bites a pathological transcript.
   pruneMaxBytes: Number(process.env.CHAT_PRUNE_MAX_BYTES) || 200_000,
@@ -197,39 +179,14 @@ export function priceFor(model) {
 export const BYTES_PER_TOKEN = Number(process.env.CHAT_BYTES_PER_TOKEN) || 4;
 
 /**
- * What a turn's two ceilings actually buy, derived from the declared
- * coordinates and the model's own price. No number is invented here: every
- * input is `LIMITS` or `PRICING`, so a repin anywhere moves this.
+ * What the per-turn spending limit buys, derived from `LIMITS` and the
+ * model's own price. `hopsAffordable` is how many tool round-trips fit under
+ * `maxTurnUsd` with a prompt at the pruning ceiling and a full output budget
+ * on each; a turn's own tool results are not re-pruned inside the turn, so on
+ * a grading turn it is an upper bound. Each surface is reported on its own
+ * output budget, since a lyric hop requests several times a recipe hop's.
  *
- * `worstLegalTurnUsd` is what a turn costs if it uses EVERY one of its
- * `maxSteps` hops with a prompt at the pruning ceiling and a full output
- * budget on each. Read it against `maxTurnUsd`: if the cap is BELOW it, the
- * cap is the operative step limit and `maxSteps` is decoration — a turn that
- * is legal by the step counter is killed by the dollar counter, and the user
- * is told MAX_TURN_COST when what bound them was the hop budget. That is a
- * fact about the two coordinates, not a defect in either, and it is the
- * arithmetic the `CHAT_MAX_TURN_USD` ruling wants (triage C11).
- *
- * THE CEILING IS NOT THE WHOLE STORY AND THIS SAYS SO: `pruneHistory` runs
- * ONCE A TURN, on the PRIOR transcript, so a turn's own tool results append
- * on top of the pruned prior without being pruned again. A hop that folds a
- * `lyric_grade` report (~45 KB on the record) pushes the prompt past the
- * ceiling inside the turn, so `hopsAffordable` is an UPPER bound on a
- * grading turn and an accurate one on a conversational turn.
- *
- * EACH SURFACE IS REPORTED ON ITS OWN OUTPUT BUDGET (2026-09-26). The
- * top-level figures are the base coordinates — `maxSteps` hops at
- * `maxOutputTokens` — which is exactly a recipe (or untasked) turn, and they
- * keep the meaning every earlier reader relied on. A lyric turn requests, and
- * the paid ledger reserves, `maxLyricOutputTokens` on every hop, so its worst
- * hop is ~4x a recipe hop and the base figures understate it. `surfaces`
- * reports both: at 50 hops and the $2.50 cap a worst-case recipe turn is
- * bounded by `maxSteps` and a worst-case lyric turn by `maxTurnUsd` (hops at
- * the pruning ceiling with every output token spent — an upper bound, see
- * above).
- *
- * @returns {{perHopUsd:number, worstLegalTurnUsd:number,
- *            hopsAffordable:number, capBinds:boolean,
+ * @returns {{perHopUsd:number, hopsAffordable:number,
  *            surfaces:{recipe:object, lyrics:object}}|null} null when the
  *          model is unpriced — the same refusal `costOf` makes.
  */
@@ -239,25 +196,18 @@ export function turnBudget(limits = LIMITS, model = DEFAULT_MODEL) {
   const promptTokens = limits.pruneMaxBytes / BYTES_PER_TOKEN;
   const hopUsd = (outputTokens) => (promptTokens * price.input + outputTokens * price.output) / 1e6;
   const perHopUsd = hopUsd(limits.maxOutputTokens);
-  const worstLegalTurnUsd = perHopUsd * limits.maxSteps;
   const hopsAffordable = Math.floor(limits.maxTurnUsd / perHopUsd);
   const surface = (maxOutputTokens) => {
     const hop = hopUsd(maxOutputTokens);
-    const affordable = Math.floor(limits.maxTurnUsd / hop);
     return {
-      maxSteps: limits.maxSteps,
       maxOutputTokens,
       perHopUsd: hop,
-      worstLegalTurnUsd: hop * limits.maxSteps,
-      hopsAffordable: affordable,
-      capBinds: affordable < limits.maxSteps,
+      hopsAffordable: Math.floor(limits.maxTurnUsd / hop),
     };
   };
   return {
     perHopUsd,
-    worstLegalTurnUsd,
     hopsAffordable,
-    capBinds: hopsAffordable < limits.maxSteps,
     surfaces: {
       recipe: surface(limits.maxOutputTokens),
       lyrics: surface(lyricOutputTokensOf(limits)),
@@ -410,8 +360,8 @@ function rateLimitHintMs(res, json) {
 // whole battery pace (130 s) for the next user turn. Round 11: 8 of 9 turns
 // ended this way, two of them before any call was made. The malformed parts
 // are NOT appended (they would be re-read as context), the same request is
-// sent again, and each re-ask spends a hop of `maxSteps` and a request of the
-// quota like any other. Two re-asks, because the third failure in a row is a
+// sent again, and each re-ask spends a hop and a request of the quota like
+// any other. Two re-asks, because the third failure in a row is a
 // model that is not going to call this hop, and the turn should say so.
 export const MALFORMED_CALL_RETRY = { retries: 2 };
 // The head of the malformed call text that is kept per hop. Gemini's
@@ -1245,32 +1195,7 @@ function carriedKey(lyr) {
 const RECIPE_BATCH_NOTE =
   'Work in as few steps as possible: issue EVERY lookup the request needs together in ONE step ' +
   '(several search_catalog, search_prefaces and get_instrument calls in the same response, one per ' +
-  'word or phrase), then apply all of them in ONE batched edit_recipe call. A turn has a limited ' +
-  'number of steps, and its last steps can only apply and render.';
-export const RECIPE_FINISH_TOOLS = Object.freeze(['start_recipe', 'edit_recipe', 'render_recipe']);
-function RECIPE_FINISH_NOTE(remaining, hasRecipe, browse = false) {
-  return (
-    `STEP LIMIT: ${remaining} step${remaining === 1 ? '' : 's'} left in this turn, and only ` +
-    'start_recipe, edit_recipe and render_recipe can be called now. Stop searching and apply what ' +
-    'you have already found. ' +
-    (!hasRecipe
-      ? 'No recipe exists yet: call start_recipe now with the best tradition id your searches ' +
-        `returned${browse ? '' : ', and edit it on the next step if one remains'}. `
-      : browse
-        ? 'The stock recipe exists: call render_recipe to return it. '
-        : 'Make ONE edit_recipe call that batches every change you have real ids for (set_preface, ' +
-          'set_variant, set_environment, add/remove), or render_recipe if nothing is left to apply. ') +
-    'Use only ids you have seen in a tool result. The recipe this turn ends with is what the user receives.'
-  );
-}
-// A hop-specific note joins the builder's one text part rather than becoming
-// a second path to the model: the request still has exactly one
-// systemInstruction, and it is still the builder's text first.
-function withHopNote(si, note) {
-  if (!note) return si;
-  const base = si?.parts?.[0]?.text;
-  return { parts: [{ text: base ? `${base}\n\n${note}` : note }] };
-}
+  'word or phrase), then apply all of them in ONE batched edit_recipe call.';
 
 // A RECIPE TURN ENDS WITH A RECIPE WHENEVER ONE CAN BE MADE (owner,
 // 2026-09-26: "always return a recipe"). Whatever ended the turn — the step
@@ -1302,9 +1227,7 @@ const RECIPE_FINISH_MS = 10_000;
 // whether the workspace carries one from any turn.
 function recipeStopNote(stopped, finish, browse = false) {
   const why =
-    stopped === 'MAX_STEPS'
-      ? 'Reached the step limit'
-      : stopped === 'MAX_TURN_COST'
+    stopped === 'MAX_TURN_COST'
         ? "Reached this turn's spending limit"
         : stopped === 'DAILY_BUDGET'
           ? "Reached today's spending limit"
@@ -1598,18 +1521,10 @@ export async function runTurn({
   let stopped = null;
   let stoppedDetail = null;
   let reply = '';
-  // THE RECIPE SURFACE'S FINISH (recipe task only; zero hops anywhere else, so
-  // the lyrics loop and an untasked turn run exactly as before). The last
-  // `recipeFinishHops` hops may call only the tools that finish a recipe.
-  const recipeTurn = task?.domain === 'recipe';
-  const finishHops = recipeTurn
-    ? Math.max(0, Math.min(Number(limits.recipeFinishHops) || 0, limits.maxSteps))
-    : 0;
   // The tradition rows this turn's own search_catalog calls returned, in the
   // order seen — what the server seeds from if the turn ends with no recipe.
   const traditionHits = [];
   let hopsTaken = 0;
-  let finishTools = null;
   // Whether THIS turn landed an edit on the workspace it ends with: a later
   // start_recipe replaces the edited workspace, so it clears this again.
   let editedThisTurn = false;
@@ -1661,7 +1576,6 @@ export async function runTurn({
       ms: Math.max(0, clock() - turnStartedAt),
       cap: limits.maxTurnMs,
       hops,
-      maxSteps: limits.maxSteps,
     };
     return true;
   };
@@ -1747,7 +1661,7 @@ export async function runTurn({
     };
   };
   try {
-    for (let step = 0; step < limits.maxSteps; step++) {
+    for (let step = 0; ; step++) {
       if (interruption(step)) break;
       body.contents = contents;
       // Rebuilt per hop from the LIVE carried state (M-158): `lyr` moves when
@@ -1768,23 +1682,8 @@ export async function runTurn({
           ),
         },
       ];
-      // THE FINISHING HOPS (recipe only): the same declarations stay in the
-      // request, and the provider is told to call one of the finishing tools
-      // (mode ANY); the loop refuses any other call on these hops as well, so
-      // the restriction holds whatever the provider does with it.
-      finishTools =
-        finishHops > 0 && step >= limits.maxSteps - finishHops
-          ? RECIPE_FINISH_TOOLS.filter((n) =>
-              body.tools[0].functionDeclarations.some((d) => d.name === n)
-            )
-          : null;
-      if (finishTools && !finishTools.length) finishTools = null;
-      body.toolConfig = finishTools
-        ? { functionCallingConfig: { mode: 'ANY', allowedFunctionNames: [...finishTools] } }
-        : { functionCallingConfig: { mode: 'AUTO' } };
-      const hopSi = finishTools
-        ? withHopNote(si, RECIPE_FINISH_NOTE(limits.maxSteps - step, !!ws, task.phase === 'browse'))
-        : si;
+      body.toolConfig = { functionCallingConfig: { mode: 'AUTO' } };
+      const hopSi = si;
       if (hopSi) body.systemInstruction = hopSi;
       else delete body.systemInstruction;
       hopsTaken = step + 1;
@@ -1836,7 +1735,7 @@ export async function runTurn({
           err?.code === 'ACCOUNTING_UNAVAILABLE'
         ) {
           stopped = err.code;
-          stoppedDetail = { detail: err.message, hops: step, maxSteps: limits.maxSteps };
+          stoppedDetail = { detail: err.message, hops: step };
           break;
         }
         if (!calls.length) throw err;
@@ -1848,7 +1747,6 @@ export async function runTurn({
           detail: String((err && err.message) || err).slice(0, 300),
           hops: step + 1,
           calls: calls.length,
-          maxSteps: limits.maxSteps,
         };
         contents.push({
           role: 'model',
@@ -1893,7 +1791,6 @@ export async function runTurn({
         const finishMessage = malformedText(candidate);
         malformedHops.push({ hop: step + 1, attempt: malformed, reasked: true, finishMessage });
         if (onEvent) onEvent({ type: 'malformed', attempt: malformed, finishMessage });
-        if (step === limits.maxSteps - 1) stopped = 'MAX_STEPS';
         continue;
       }
 
@@ -1917,7 +1814,6 @@ export async function runTurn({
           malformedRetries: malformed,
           retriesAllowed: MALFORMED_CALL_RETRY.retries,
           hops: step + 1,
-          maxSteps: limits.maxSteps,
           ...(stopped === 'MALFORMED_FUNCTION_CALL'
             ? { finishMessage: malformedText(candidate) }
             : {}),
@@ -1960,7 +1856,6 @@ export async function runTurn({
               malformedRetries: malformed,
               retriesAllowed: MALFORMED_CALL_RETRY.retries,
               hops: step + 1,
-              maxSteps: limits.maxSteps,
               finishMessage,
             };
           }
@@ -1993,29 +1888,6 @@ export async function runTurn({
           responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
           continue;
         }
-        if (finishTools && !finishTools.includes(fc.name)) {
-          result = {
-            isError: true,
-            content: [
-              {
-                type: 'text',
-                text:
-                  `Not run: ${limits.maxSteps - step} step(s) left in this turn, and only ` +
-                  `${finishTools.join(', ')} can be called now — apply what you have found.`,
-              },
-            ],
-          };
-          calls.push({
-            name: fc.name,
-            args,
-            isError: true,
-            not_run: true,
-            error: result.content[0].text,
-          });
-          if (onEvent) onEvent({ type: 'tool', name: fc.name, isError: true, refused: true });
-          responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
-          continue;
-        }
         if (task?.domain === 'recipe') args.format = 'rich';
         const spent = totalCost();
         const overCost = limits.maxTurnUsd > 0 && (spent === null || spent >= limits.maxTurnUsd);
@@ -2026,7 +1898,6 @@ export async function runTurn({
               usd: spent,
               cap: limits.maxTurnUsd,
               hops: step + 1,
-              maxSteps: limits.maxSteps,
             };
           }
           result = {
@@ -2505,22 +2376,17 @@ export async function runTurn({
       if (limits.maxTurnUsd > 0 && (soFar === null || soFar >= limits.maxTurnUsd)) {
         stopped = soFar === null ? 'UNPRICED_MODEL' : 'MAX_TURN_COST';
         // WITH THE NUMBERS, NOT AS A BARE LABEL (2026-09-02, triage C11).
-        // `MAX_TURN_COST` alone cannot be told from `MAX_STEPS` by anyone
-        // reading a transcript, and round 10's rows are the evidence: a turn
-        // that stopped at hop 8 of 14 looks exactly like a turn that ran out
-        // of hops. What it spent, what the cap is, how many hops it bought
-        // and how many it was allowed all ride out with it.
+        // What it spent, what the cap is, and how many hops it bought all
+        // ride out with it.
         stoppedDetail = {
           usd: soFar,
           cap: limits.maxTurnUsd,
           hops: step + 1,
-          maxSteps: limits.maxSteps,
           budget: turnBudget(limits, model),
         };
         if (onEvent) onEvent({ type: 'stopped', reason: stopped, usd: soFar });
         break;
       }
-      if (step === limits.maxSteps - 1) stopped = 'MAX_STEPS';
     }
   } catch (err) {
     if (err && typeof err === 'object') {
@@ -2571,7 +2437,6 @@ export async function runTurn({
     const recipeStopDetail = (finish) => ({
       ...(stoppedDetail || {}),
       hops: stoppedDetail?.hops ?? hopsTaken,
-      maxSteps: limits.maxSteps,
       surface: 'recipe',
       finish,
       note: recipeStopNote(stopped, finish, browse),
@@ -2596,9 +2461,6 @@ export async function runTurn({
       const cancelled =
         stopped === 'CANCELLED' ||
         (turnSignal.aborted && turnSignal.reason?.code !== 'MAX_TURN_MS');
-      // A model that answered in text on a finishing hop ended the turn at
-      // its step limit as surely as one that ran out of hops.
-      if (finishTools && stopped == null) stopped = 'MAX_STEPS';
       const finished = !cancelled && recipeFinishable(stopped) ? await finishRecipe() : null;
       if (finished) {
         reply = modelText ? `${modelText}\n\n${finished.recipe}` : finished.recipe;

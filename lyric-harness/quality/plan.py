@@ -146,7 +146,6 @@ from functools import lru_cache
 
 from quality import schemes as SC
 from quality import relations as _RL
-from quality import capacity as _CAP
 from quality import floor as _FL
 from quality import slots as _SL
 from quality import meter_bands as MB
@@ -1129,9 +1128,7 @@ def _PLACE_POOL(max_token):
 # whose constraints cannot be met together is emitted, graded as legal, and
 # handed to a writer who discovers it three revise rounds in.
 #
-# `capacity.ADOPTED_MAX_GROUP` (above) was the only joint check that existed:
-# it refuses a rhyme group larger than any family in the lexicon is measured
-# to fill. This is the same shape, per LINE rather than per group.
+# This checks the conjunction per LINE.
 
 #: THE WORD A PLACEMENT BINDS, and the sentinel for the last one. RE-EXPORTED
 #: FROM `quality/slots.py` AND NOT RE-IMPLEMENTED: that module is the one
@@ -1495,14 +1492,6 @@ def end_rhyme_groups(plan):
                 else:
                     narrow += 1
                 continue
-            if len(room) > _CAP.ADOPTED_MAX_GROUP:
-                # THE CAPACITY GATE AGAIN, and it binds here for the same
-                # reason it binds the scheme sampler: a group of k members
-                # needs a family the lexicon is measured to fill k of at
-                # once. Trimmed rather than refused — this pass is additive,
-                # so asking for less of it is a real answer where refusing
-                # the whole plan would not be.
-                room = room[:_CAP.ADOPTED_MAX_GROUP]
             out.append([str(ln) for ln in room])
             for ln in room:
                 at.setdefault(ln, []).append("end")
@@ -1527,8 +1516,7 @@ def joint_findings(plan):
     the same terms as a generated one and so `make_plan`'s own draw cannot be
     what makes it pass. `make_plan` calls it on the finished dict and REFUSES
     on any finding; the generator is separately arranged to satisfy it by
-    construction, which is what makes a mutation the only way to fire it —
-    the same relationship `ADOPTED_MAX_GROUP` has to the scheme sampler.
+    construction, which is what makes a mutation the only way to fire it.
 
     THE CAUSES ARE REPORTED APART AND NEVER SUMMED (doctrine 79). They
     ask different things of whoever closes them: the first is a meter that
@@ -2538,13 +2526,6 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     feasible draw directly. Remaining predicates reject complete candidates.
     Candidate seeds and every rejection are disclosed; no candidates are ranked.
     """
-    # Installed planning may use this bound only after all reviewed witnesses
-    # have been verified by the actual image runtime, not another Python build.
-    if os.environ.get("LYRIC_RELEASE_ASSETS_REQUIRED") == "1":
-        try:
-            _CAP.require_current_proof()
-        except ValueError as exc:
-            raise PlanRefused(str(exc)) from exc
     if seed is None:
         raise PlanRefused("plan requires --seed=N — an explicit integer seed")
     if isinstance(wants, str):
@@ -2742,7 +2723,8 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                              if n == "lines_per_section" and op in (">=", "=")])
     _max_sections = min([ENVELOPE["sections"][1]] + [int(v) for n, op, v in _wants
                              if n == "sections" and op in ("<=", "=")])
-    _max_group = min([_CAP.ADOPTED_MAX_GROUP] + [int(v) for n, op, v in _wants
+    # No group-size limit unless the writer declares one (`group<=N`).
+    _max_group = min([float("inf")] + [int(v) for n, op, v in _wants
                              if n == "group" and op in ("<=", "=")])
     if _max_sections < 1 or _max_group < 2:
         raise PlanRefused("declared section/group bounds cannot carry the required song mandate")
@@ -3077,22 +3059,6 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
             if fn in VERBATIM_RETURNERS:
                 first_seen[fn] = first
             for _g in _abs_groups(by_func[fn], first):
-                # THE CAPACITY GATE (`MISSING.md` M-41). A rhyme group of k
-                # members needs a family the grader accepts k members of AT
-                # ONCE, and `quality/capacity.py` is what measured that: the
-                # adopted bound is the largest actually witnessed class:RHYME
-                # group, not a maximum-clique proof. Larger groups are not
-                # volunteered until a real witness establishes their capacity.
-                if len(_g) > _CAP.ADOPTED_MAX_GROUP:
-                    raise PlanRefused(
-                        f"this seed's scheme puts {len(_g)} lines in one "
-                        f"rhyme group, larger than the adopted "
-                        f"{_CAP.ADOPTED_MAX_GROUP}-member witness "
-                        f"(quality/capacity.py: the largest CERTIFIED chain, "
-                        f"a witness clique graded through the reviser). The "
-                        f"tier-1 ceiling reaches further and is ungraded, so "
-                        f"this refuses where the MEASUREMENT stops rather "
-                        f"than where the arithmetic does.")
                 groups.append(_place_group(_g, rng, _max_token, used))
             # OVERLAPPING GROUPS, DRAWN AND NOT ONLY DECLARABLE (2026-08-23).
             #

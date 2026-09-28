@@ -301,7 +301,6 @@ const EXIT_MEANING = {
 // Cache only by unguessable run capability; a seed never identifies an owner.
 export const RUNS = new RunStore();
 
-export const CONNECTOR_MAX_ROUNDS = 8;
 export const CONNECTOR_ATTEMPTS = 1;
 // THE KITCHEN'S OWN ATTEMPTS (M-257, round 24). One attempt per line was
 // M-236's budget for a CHAT model answering one question per hop, where a
@@ -1705,10 +1704,9 @@ export const LYRIC_TOOL_SCHEMAS = {
       .number()
       .int()
       .min(1)
-      .max(8)
       .optional()
       .describe(
-        "The loop's round budget (ReviseDeclaration.max_rounds; this connector's default is 8). Declared once per run: a continuing call that moves it is refused, because the run replays its record under the budget it opened with."
+        "Optional round budget (ReviseDeclaration.max_rounds). Omit it and there is no round limit: the loop keeps going while rounds fix something, and stops when the song is clean or a round fixes nothing. Declared once per run: a continuing call that moves it is refused, because the run replays its record under the budget it opened with."
       ),
     attempts: z
       .number()
@@ -2583,7 +2581,7 @@ export function registerLyricTools(server, tool) {
               // applied for the run's whole life, so the budget never moves
               // mid-run.
               const budget = {
-                max_rounds: a.max_rounds ?? CONNECTOR_MAX_ROUNDS,
+                max_rounds: a.max_rounds,
                 attempts:
                   a.attempts ?? (writer === 'kitchen' ? KITCHEN_ATTEMPTS : CONNECTOR_ATTEMPTS),
                 backtrack: a.backtrack ?? CONNECTOR_BACKTRACK,
@@ -2604,7 +2602,7 @@ export function registerLyricTools(server, tool) {
                   connector_semantic_identity: continuationSemanticIdentity(),
                   connector_run_ref: runRef(runId),
                 });
-              args.push(`--max-rounds=${budget.max_rounds}`);
+              if (budget.max_rounds !== undefined) args.push(`--max-rounds=${budget.max_rounds}`);
               args.push(`--attempts=${budget.attempts}`);
               args.push(`--backtrack=${budget.backtrack}`);
               const execution = requestContext();

@@ -1548,14 +1548,17 @@ await check('validation: actionable errors', () => {
       }
     );
     await check(
-      "the connector's revise budget is one attempt, ONE group rewrite per stuck line (backtrack 1, on since M-247), eight rounds, and the driver uses the verifier receipt ledger",
+      "the connector's revise budget is one attempt, ONE group rewrite per stuck line (backtrack 1, on since M-247), no round limit, and the driver uses the verifier receipt ledger",
       async () => {
         const LT = await import('./lyric_tools.js');
         assert.equal(LT.CONNECTOR_ATTEMPTS, 1);
         // M-257: the cook is re-asked at once; the chat model is not.
         assert.equal(LT.KITCHEN_ATTEMPTS, 3);
         assert.equal(LT.CONNECTOR_BACKTRACK, 1);
-        assert.equal(LT.CONNECTOR_MAX_ROUNDS, 8);
+        assert.equal(LT.CONNECTOR_MAX_ROUNDS, undefined, 'no connector round limit');
+        const rounds = LT.LYRIC_TOOL_SCHEMAS.lyric_revise.max_rounds;
+        assert.equal(rounds.safeParse(500).success, true, 'a declared budget has no ceiling');
+        assert.equal(rounds.safeParse(undefined).success, true, 'omitting it is no limit');
         const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
         const attempts = LT.LYRIC_TOOL_SCHEMAS.lyric_revise.attempts;
         assert.equal(attempts.safeParse(0).success, true, 'the schema preserves explicit zero');

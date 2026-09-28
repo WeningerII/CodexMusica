@@ -340,13 +340,11 @@ class ReviseDeclaration:
     #: same argument as `modal_exclusion=0`); it is not the default.
     field_band: str = "grader"
 
-    #: How many full write-check-fix ROUNDS `quality/loop.py` runs before it
-    #: stops and hands back whatever is still flagged, regardless of the
-    #: reason. Declared since the first commit of this file and unread by
-    #: anything until `quality/loop.py`: a bound on effort has to exist
-    #: before the loop that spends it does, or the loop's own author decides
-    #: it ad hoc the day it is finally driven end to end.
-    max_rounds: int = 4
+    #: How many full write-check-fix ROUNDS `quality/loop.py` may run. None,
+    #: the default, sets no round limit: the loop keeps going while rounds
+    #: fix something and stops on SUCCESS or when a round fixes nothing
+    #: (NO_PROGRESS). A number is the caller's own declared budget.
+    max_rounds: int | None = None
     #: a revision is rejected if it introduces MORE new findings than it fixes
     allow_net_new: int = 0
 
@@ -5095,8 +5093,7 @@ class Reviser:
             common &= set(pl)
         ranked = [w for w in pools[0] if w in common and w not in drop
                   and (len(w) >= 2 or w in ("a", "i"))]
-        limit = self._SCREEN_SCAN * self.rdecl.offered
-        offered = ranked[:limit]
+        offered = ranked
         for name in schema_names:
             if not offered:
                 break
@@ -5167,14 +5164,12 @@ class Reviser:
                 rhymes.append(w)
             else:
                 nears.append(w)
-        # THE SCREEN, bounded: each screen scores a few dozen pairs, and a
-        # common call's near-typed tier runs to hundreds of words, so at most
-        # `_SCREEN_SCAN` × `offered` candidates of each part are screened.
-        # `dropped` is the RHYME-typed words the screen refused — the count
-        # that says whether this call can be rhymed cleanly at all.
-        limit = self._SCREEN_SCAN * self.rdecl.offered
+        # THE SCREEN looks through every candidate of each part and stops
+        # only when the menu is full. `dropped` is the RHYME-typed words the
+        # screen refused — the count that says whether this call can be
+        # rhymed cleanly at all.
         rest, dropped = [], []
-        for w in rhymes[:limit]:
+        for w in rhymes:
             if len(rest) >= self.rdecl.offered:
                 break
             if self._offer_reopens(w, calls, fields, profile=profile):
@@ -5182,7 +5177,7 @@ class Reviser:
                 continue
             rest.append(w)
         for part in (nears, schema_only):
-            for w in part[:limit]:
+            for w in part:
                 if len(rest) >= self.rdecl.offered:
                     break
                 if part is schema_only and not all(
@@ -5193,23 +5188,6 @@ class Reviser:
                 rest.append(w)
         return rest, forbidden, dropped
 
-    #: How far past the menu's own length the screen scans EACH part, in
-    #: multiples of `ReviseDeclaration.offered` — a bound on cost, not a
-    #: coordinate of any verdict (the head is cut before this runs).
-    #: MEASURED 2026-09-01 on the call `door`: 32 rhyme-typed candidates
-    #: dropped, 24 survivors reached in 3.6 s cold, so 8× the menu covers
-    #: the common case.
-    _SCREEN_SCAN = 8
-
-    #: How many candidates of ONE per-call menu are put through the grade
-    #: (`MISSING.md` M-315). A bound on COST, not a coordinate of any verdict:
-    #: a word past it is UNSEARCHED and is never published, so the menu can
-    #: only be SHORTER than the screen would allow, never wrong. The screen
-    #: itself is what the menu owes — before it, every one of the 24 words the
-    #: live seed-7 brief offered for the call `Your` was rejected by the
-    #: grader. MEASURED on that draft, briefing the lines the loop asks about:
-    #: 25s with no screen, 171s screening all 24 of every menu, 62s here.
-    _MENU_SCREEN_MAX = 8
 
     def _offer_reopens(self, w, calls, fields, profile=None):
         """Would taking `w` file MODAL_RHYME against one of `calls` from
@@ -5632,15 +5610,13 @@ class Reviser:
                             # without that cut, then ask the same grade.
                             _pool = [word for word, _anchor, _rank in
                                      sorted(self.engine.index, key=lambda row: (row[2], row[0]))
-                                     [:self._SCREEN_SCAN * self.rdecl.offered]
                                      if word not in {_cur, *_forb}]
                             for _call in _calls:
                                 if any(str(_w).startswith("schema:") for k in ks
                                        for _w in _relations_of(m, k)):
-                                    _pool.extend(self._widen_pool(_call, profile=profile)
-                                                 [:self._SCREEN_SCAN * self.rdecl.offered])
+                                    _pool.extend(self._widen_pool(_call, profile=profile))
                                 _raw = self.engine.candidates(
-                                    _call, n=self._SCREEN_SCAN * self.rdecl.offered)
+                                    _call, n=len(self.engine.index))
                                 _pool.extend(row["word"] for row in _raw.get("candidates", ())
                                              if row["word"] not in {_cur, *_forb})
                             _extra, _no = self.declared_offer(
@@ -5697,25 +5673,13 @@ class Reviser:
                                     (min(ln, x), max(ln, x), k)
                                     for k in ks for x in dict(groups)[k]
                                     if self._slot_word(lines, m, k, x, endwords) == _c1}
-                                # BOUNDED, and the bound is on COST alone: one
-                                # trial grade per candidate, `offered` (24)
-                                # candidates, one menu per call, so an 8-call
-                                # pivot pays 192 grades. MEASURED on the
-                                # seed-7 draft, briefing the flagged lines the
-                                # loop actually asks about: 25s unscreened,
-                                # 171s screening all 24 of every menu, 62s at
-                                # this cap. `limit` stops early where words
-                                # PASS, so the cap binds only where they do
-                                # not. UNDER-offering is the safe direction —
-                                # a word past the cap is UNSEARCHED, which is
-                                # what the empty-menu text already says, and
-                                # never a word published that the grader
-                                # rejects.
+                                # Every word on the menu goes through the grade. `limit` stops the
+                                # screen once the menu is full; it never stops it short of that.
                                 _o1, _no = self.declared_offer(
-                                    _o1[:self._MENU_SCREEN_MAX],
+                                    _o1,
                                     lines, m, ln, _sl, ks,
                                     profile=profile, sections=_sections,
-                                    limit=self._MENU_SCREEN_MAX,
+                                    limit=self.rdecl.offered,
                                     requested_obligations=_obligations)
                                 if not _explicit:
                                     _grader_ref = list(
