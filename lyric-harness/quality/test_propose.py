@@ -147,6 +147,15 @@ class B:
         #: on no fixture in this file — no error, no red, and the suite
         #: pinning a prompt that a narrowed offer never produces.
         self.schema_refused = kw.get("schema_refused", ())
+        #: WORDS THE BAND ADMITTED THAT THE GRADER COULD NOT JUDGE
+        #: (`MISSING.md` M-315) — the FIFTH field §7c has paid for, and it
+        #: caught this one within the hour: the field went on `Brief` and not
+        #: here, so `render_line`'s `getattr` came back empty and the new
+        #: "the grader could no longer JUDGE this pair" sentence rendered on
+        #: no fixture in this file. Its own field beside `schema_refused`
+        #: because that one's sentence names a DECLARED relation and this
+        #: case has none (doctrine 79).
+        self.grader_refused = kw.get("grader_refused", ())
         #: THE POINTER AN EMPTY OFFER OWES (`MISSING.md` M-246, 2026-09-05),
         #: and §7c below is what forces it here: `render_line` reads it
         #: through `getattr`, and a stand-in without it renders the OLD
@@ -664,6 +673,24 @@ def test_a_pivot_and_a_joint_conflict_are_stated():
           "3 word(s) the band admitted are NOT offered" in _blk
           and "night, quite, white" in _blk
           and _blk.index("NOT offered") < _blk.index("attire"), _blk[:400])
+    # M-315: the same shape where NOTHING was declared. The count sentence is
+    # the same and the REASON must not be — `schema_refused`'s names a
+    # declared relation, and a group that declares none has no such judge, so
+    # rendering that sentence here would publish a false cause (doctrine 79).
+    _lost = render_line(
+        B(line_no=1, text=PLAIN_BRIEF.text, findings=PLAIN_BRIEF.findings,
+          candidates=["attire", "sire"], forbidden_modal=["fire"],
+          forbidden_incumbent="fire", field_computed=True,
+          grader_refused=("four", "sure", "score")),
+        DRAFT, attempt=0)
+    _lblk = _section(_lost, "OFFERED")
+    check("a menu narrowed by the GRADER says the pair could no longer be "
+          "JUDGED, names no declared relation, and says so before the list",
+          "3 word(s) the band admitted are NOT offered" in _lblk
+          and "longer JUDGE this pair" in _lblk
+          and "four, sure, score" in _lblk
+          and "judged by its group's declared" not in _lblk
+          and _lblk.index("NOT offered") < _lblk.index("attire"), _lblk[:400])
     check("an empty JOINT field says WHY rather than printing nothing, and "
           "no longer says the lexicon had no answer for this line",
           "no JOINT candidate field was offered" in _section(p, "OFFERED")
