@@ -947,10 +947,10 @@ def test_a_declared_return_is_not_slop():
 
 def test_the_field_is_the_graders_own_field():
     print("\n18. doctrine 94 — the brief and the verdict ask the same question")
-    from lyric_harness import admits, best_score
+    from lyric_harness import admits, admit_is_default, best_score
     lines = song_lines()
     m = R.mandate_from_graph(lines)
-    bad, tot = [], 0
+    bad, by_schema, tot = [], [], 0
     for b in R.brief(lines, m):
         calls = [w for _, _, cl in b.must_answer for _, w in cl]
         calls = [c for c in dict.fromkeys(calls) if c]
@@ -967,16 +967,42 @@ def test_the_field_is_the_graders_own_field():
                 # it stayed two-name, and a repair that widened it to the
                 # grader's own door turned this check RED. Fourth instance
                 # of the shape M-59 recorded in `test_homeoteleuton.py` §5.
-                if not admits(best_score(ax, ay, R.decl, wa, wb),
-                              R.decl.theta_rhyme,
-                              relations=frozenset(R.decl.admit)):
-                    bad.append((b.line_no, c, w))
-                    break
+                if admits(best_score(ax, ay, R.decl, wa, wb),
+                          R.decl.theta_rhyme,
+                          relations=frozenset(R.decl.admit)):
+                    continue
+                # AND THE SCHEMA HALF OF THE SAME DOOR — REPAIRED 2026-09-28.
+                # Since M-116 a default group is also satisfied by any schema
+                # the two line ends stand in, and the menu offers those words
+                # (`_offerable`). This check passed only while the screen's
+                # scan limit stopped before the menu reached them; with the
+                # limit removed the menu offered `frame`/`uranium`, which
+                # `grade()` accepts by `assonance` and `subtractive rhyme`.
+                # They are counted apart from the rhyme-door words (doctrine
+                # 79) and a sample is re-graded below through `grade()`.
+                if admit_is_default(R.decl) and R._end_pair_schemas(c, w):
+                    by_schema.append((b.line_no, c, w))
+                    continue
+                bad.append((b.line_no, c, w))
+                break
     check("no offered candidate is one the grader would reject",
           not bad,
           f"{tot} words offered across the song's flagged lines, "
-          f"{len(bad)} that `grade()` calls a non-rhyme"
+          f"{len(bad)} that `grade()` calls a non-rhyme, "
+          f"{len(by_schema)} (call, word) pair(s) held by a schema alone"
           + (f" -- e.g. {bad[:4]}" if bad else ""))
+    # THE SCHEMA HALF, ASKED OF `grade()` ITSELF: the predicate above is the
+    # menu's own, so a word it passes by schema is put on a real two-line
+    # draft under a plain `AA` mandate and must draw no violation.
+    regraded = []
+    for c, w in list(dict.fromkeys((c, w) for _l, c, w in by_schema))[:3]:
+        g = R.grade([f"the line that ends on {c}", f"the line that ends on {w}"],
+                    SC.mandate("AA", n_lines=2))
+        regraded.append((c, w, len(g["violations"])))
+    check("every schema-held word re-graded through `grade()` draws no violation",
+          all(n == 0 for _c, _w, n in regraded),
+          f"{regraded}" if regraded else
+          "no word on this song's menus was held by a schema alone")
     # THE FAILING CASE, constructed. A positive-case suite cannot find a rule
     # that is too generous, so the pre-fix predicate is run here on purpose.
     # UNDER THE DOOR THAT HAD THE DEFECT — 2026-08-22. This ran on `R.decl`,
