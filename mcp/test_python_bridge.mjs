@@ -720,7 +720,7 @@ test('real warm/cold CLI refuses invalid usage and truncated candidates with aut
   const draft = path.join(dir, 'draft.txt');
   await writeFile(
     draft,
-    'The elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat\n'
+    'The elephant elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat\n'
   );
   try {
     for (const workerEnabled of [true, false])

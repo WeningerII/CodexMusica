@@ -5062,7 +5062,6 @@ await check('validation: actionable errors', () => {
         'session adapter revise-loop regressions on the real lyric harness, executed by CI',
       'mcp/test_release_gates.mjs': 'offline verified CI and battery acceptance regressions',
       'mcp/test_run_continuation.mjs': 'offline real run continuation regressions',
-      'mcp/test_writer_work_budget.mjs': 'real native writer candidate-work admission regression',
       'mcp/test_deferred_continuation.mjs': 'real deferred provider recovery regression',
       'mcp/test_state_codec.mjs': 'offline portable state codec regressions',
       'mcp/test_runtime_assets.mjs': 'offline immutable runtime asset inventory regressions',

@@ -2928,8 +2928,12 @@ class Reviser:
         stated as an FPR (doctrine 22), and until that calibration
         exists the runs are disclosed and nothing more.
 
-        DENSITY [5, 12] syllables/line and PROMINENCE [2, 7] prominent/line
-        — measured over 139,694 sung English lines, adopted by the
+        PROMINENCE [2, 7] prominent/line. ~~DENSITY [5, 12] syllables/line~~
+        is NOT enforced: the owner deleted the syllable band 2026-09-28 (a
+        sung line may be one syllable or a hundred), with no replacement;
+        `meter_bands.ADOPTED` still carries the measured figure as a
+        measurement. The prominence band was
+        measured over 139,694 sung English lines, adopted by the
         registered rule (quality/RESULTS_METER_BANDS_READER.md), shipped as
         `meter_bands.ADOPTED`, and re-derived against the corpus by
         `python3 quality/meter_bands.py --check` so drift fails loud. Out of
@@ -2970,7 +2974,10 @@ class Reviser:
                 strip_parens=self.lex.strip_parens, fallback=phon.fallback))
             reader_lex.pronunciations = self.lex.pronunciations
             phon = English(fallback=phon.fallback, lexicon=reader_lex)
-        d_lo, d_hi = MB.ADOPTED["DENSITY"]
+        # THE SYLLABLE BAND IS GONE (owner ruling 2026-09-28): the 5-12
+        # syllables-per-line rule and its DENSITY_OUT_OF_BAND flag are
+        # deleted, not replaced. A sung line may be one syllable or a
+        # hundred. The prominence band below is a separate rule and stays.
         p_lo, p_hi = MB.ADOPTED["PROMINENCE"]
         basis = (f"band adopted at reader {MB.ADOPTED_READER!r} over "
                  f"139,694 corpus lines (RESULTS_METER_BANDS_READER.md; "
@@ -2986,32 +2993,11 @@ class Reviser:
             refused = [r.token for r in lu.refused]
             complete = not refused and bool(lu.units)
             fs = []
-            if complete and not (d_lo <= syl <= d_hi):
-                fs.append(Finding(
-                    "DENSITY_OUT_OF_BAND", "flag",
-                    f"{syl} syllable(s) — outside the calibrated "
-                    f"[{d_lo}, {d_hi}] band for a sung English line",
-                    f"{basis}. Fewer than {d_lo} and more than {d_hi} are "
-                    f"both refused; the fix is a rewrite of THIS line, not "
-                    f"a nudge in a direction.", [ln]))
-            elif not complete and syl > d_hi:
-                fs.append(Finding(
-                    "DENSITY_OUT_OF_BAND", "flag",
-                    f"at least {syl} syllable(s) — already over the "
-                    f"calibrated [{d_lo}, {d_hi}] band on the readable "
-                    f"tokens alone",
-                    f"{basis}. The count is a LOWER BOUND ({len(refused)} "
-                    f"token(s) refused: {', '.join(refused[:4])}"
-                    f"{'…' if len(refused) > 4 else ''}) and a lower bound "
-                    f"over the ceiling is a violation no missing token can "
-                    f"undo.", [ln]))
             prom_certain = complete and not undecided
             if coverage_out is not None:
-                coverage_out.extend([
-                    {"id": f"density:L{ln}", "layer": "density", "line": ln,
-                     "status": "answered" if complete or syl > d_hi else "refused"},
+                coverage_out.append(
                     {"id": f"prominence:L{ln}", "layer": "prominence", "line": ln,
-                     "status": "answered" if prom_certain or prom > p_hi else "refused"}])
+                     "status": "answered" if prom_certain or prom > p_hi else "refused"})
             # M-115: the runs beside the count, on the finding a diluting
             # repair is aimed at — "and the" strung as padding shows up
             # here as the weak run the count cannot see.
@@ -6011,18 +5997,6 @@ class Reviser:
                     f"lines {sorted(stray)} were changed but not targeted; "
                     f"revise flagged lines only")
                 return out
-        # A writer can increase the actual enumerated workload even inside
-        # the admitted line count. Refuse before any candidate menu or full
-        # assessment; callers retain the exact accepted `before` artifact.
-        from quality.plan import draft_execution_bound
-        work = draft_execution_bound(after, phon=self._relation_phonology())
-        if not work["within_budget"]:
-            out.update(stop_reason="RESOURCE_LIMIT", execution_limits=work)
-            out["reasons"].append(
-                "RESOURCE_LIMIT: proposed draft exceeds the declared candidate-work budget "
-                f"({work['max_candidate_pairs']} > {work['max_pairs']}; "
-                f"{work['limiting_schema']})")
-            return out
         b_before = {b.line_no: b for b in self.brief(before, m,
                                                     profile=profile,
                                                     blueprint=blueprint,

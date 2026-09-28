@@ -2928,10 +2928,7 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
             del seen[a.idx]
 
 
-MAX_CANDIDATE_PAIRS = 2_000_000
-
-
-def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=MAX_CANDIDATE_PAIRS,
+def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
             keep=("true", "none"), tally=None, skip_line_pairs=None,
             requested_line_pairs=None):
     """Find every instance of `schema` in the song.  -> [Instance] or Refusal.
@@ -3097,7 +3094,11 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=MAX_CANDIDATE_PAIR
     # nothing is refused by the bound that the exact count would have let
     # through -- nor the instances, their order, or the tally, which only the
     # evaluating pass writes.
-    if sum(len(v) for _, vs in layout for v in vs) > max_pairs:
+    # NO DEFAULT BOUND (owner ruling 2026-09-28: the 2,000,000-comparison
+    # cap is deleted). A caller may still declare `max_pairs`; none does in
+    # production, and the search then runs over every candidate pair.
+    if max_pairs is not None and \
+            sum(len(v) for _, vs in layout for v in vs) > max_pairs:
         n = 0
         for _ in _candidate_pairs(schema, layout, stream, a_keys, b_keys,
                                   skip_line_pairs,
@@ -8051,11 +8052,6 @@ def _token_figures(schema, stream):
     for (li, ti), ids in stream.tokens.items():
         if ids:
             by_line.setdefault(li, []).append(ti)
-    work = sum(math.comb(len(v), n) for v in by_line.values())
-    if work > MAX_CANDIDATE_PAIRS:
-        return Refusal(schema.name, "work_budget", "Full-figure candidate "
-                       f"count {work} exceeds {MAX_CANDIDATE_PAIRS}.",
-                       kind="work_budget")
     span_memo, result = {}, []
 
     def span(rule, li, ti):
@@ -8211,11 +8207,6 @@ def _full_shape(schema, stream):
                      li // 2 if schema.figure.frame == "line_pair" else None)
             frames.setdefault(frame, []).append(li)
     n = 2 if schema.name == "symploce" else schema.figure.nodes
-    work = sum(math.comb(len(ls), n) for ls in frames.values() if len(ls) >= n)
-    if work > MAX_CANDIDATE_PAIRS:
-        return Refusal(schema.name, "work_budget", "Full-figure candidate "
-                       f"count {work} exceeds {MAX_CANDIDATE_PAIRS}; narrow the declared "
-                       "frame before evaluating.", kind="work_budget")
     result = []
     edge_memo = {}
     for frame, ls in frames.items():
@@ -8938,50 +8929,3 @@ if __name__ == "__main__":
         __import__("os").path.dirname(__import__("os").path.abspath(__file__))))
     raise SystemExit(main(_sys.argv[1:]))
 
-
-def planning_work_bound(n_lines, max_syllables_per_line, max_pairs=MAX_CANDIDATE_PAIRS):
-    """Conservative candidate admission bound before text or paid writing.
-
-    Token counts are bounded by syllables for readable English draft lines.
-    Per-line span counts follow the actual locus/search magnitude vocabulary;
-    unknown future loci refuse the estimate. No phonological bucket pruning
-    is assumed, so this bound also covers a text sharing every bucket key.
-    """
-    import math
-    if (isinstance(n_lines, bool) or not isinstance(n_lines, int) or n_lines < 0
-            or isinstance(max_syllables_per_line, bool)
-            or not isinstance(max_syllables_per_line, int)
-            or max_syllables_per_line < 0):
-        raise ValueError('line and syllable bounds must be nonnegative integers')
-    n, length = n_lines, max_syllables_per_line
-    def count(rule):
-        if rule.locus == 'free_run' and rule.anchor == 'searched':
-            lo, hi = rule.magnitude if isinstance(rule.magnitude, tuple) else (rule.magnitude,)*2
-            return sum(max(0, length-k+1) for k in range(lo,min(hi,length)+1))
-        if rule.locus in ('any_token','lift','token_first_half','token_second_half'):
-            return length
-        if rule.locus in ('half_line_a','half_line_b'):
-            return max(0,length-1)
-        if rule.locus in ('line','line_initial_token','line_final_token',
-                          'line_head_index','line_final_before_refrain','line_refrain_tail'):
-            return int(length > 0)
-        return None
-    rows = []
-    for name, sch in sorted(REGISTRY.items()):
-        a, b = count(sch.spans[0]), count(sch.spans[-1])
-        bound = None if a is None or b is None else n*n*a*b
-        if not figure_pair_representable(sch):
-            if sch.name in ('analysed rhyme','blues AAB stanza'):
-                bound = max(bound or 0, math.comb(n,sch.figure.nodes)
-                            if n >= sch.figure.nodes else 0)
-            elif sch.name not in ('symploce',):
-                bound = 0  # explicit unsupported-shape refusal; no enumeration
-        rows.append({'schema':name,'upper_bound':bound})
-    unbounded = [row['schema'] for row in rows if row['upper_bound'] is None]
-    limiting = max((row for row in rows if row['upper_bound'] is not None),
-                   key=lambda row:row['upper_bound'], default={'schema':None,'upper_bound':0})
-    return {'bounded':not unbounded,
-            'within_budget':not unbounded and limiting['upper_bound'] <= max_pairs,
-            'limiting_schema':limiting['schema'],
-            'max_candidate_pairs':limiting['upper_bound'], 'max_pairs':max_pairs,
-            'unbounded_schemas':unbounded, 'schemas':rows}

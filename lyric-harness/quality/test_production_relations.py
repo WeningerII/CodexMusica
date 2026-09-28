@@ -460,16 +460,16 @@ class ProductionRelations(unittest.TestCase):
         self.assertIs(judge(lex,'wind','moon',decl,relation='RHYME'),False)
         self.assertIs(judge(lex,'qzxqzx','hat',decl),None)
 
-    def test_planning_resource_bound_precedes_text(self):
-        self.assertTrue(R.planning_work_bound(31,12)['within_budget'])
-        self.assertFalse(R.planning_work_bound(32,12)['within_budget'])
-        self.assertEqual(R.planning_work_bound(32,12)['max_pairs'],R.MAX_CANDIDATE_PAIRS)
-        for n in (1,3,8):
-            st = stream(['cat '*12]*n)
-            bounds = {x['schema']:x['upper_bound'] for x in R.planning_work_bound(n,12)['schemas']}
-            sch = R.REGISTRY['compound / phrasal rhyme']
-            actual = R.realise(sch,st,keep='all')
-            self.assertLessEqual(len(actual),bounds[sch.name])
+    def test_no_candidate_pair_cap_remains(self):
+        # The 2,000,000-comparison cap and the planning bound derived from it
+        # are deleted (owner ruling 2026-09-28): realise() enumerates every
+        # candidate pair unless a caller passes its own max_pairs.
+        self.assertFalse(hasattr(R, 'MAX_CANDIDATE_PAIRS'))
+        self.assertFalse(hasattr(R, 'planning_work_bound'))
+        sch = R.REGISTRY['compound / phrasal rhyme']
+        for n in (1, 3, 8):
+            st = stream(['cat ' * 12] * n)
+            self.assertIsInstance(R.realise(sch, st, keep='all'), list)
 
     def test_sanskrit_authoritative_line_and_boundaries(self):
         from quality import fit

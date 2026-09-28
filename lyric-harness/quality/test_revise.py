@@ -1161,11 +1161,9 @@ def test_the_four_rejections_on_the_songs_own_shape():
           not res["accepted"] and "not targeted" in " ".join(res["reasons"]),
           res["reasons"][0][:100])
 
-    bounded = R.verify(lines, sub(33, "So say the ledger. Say it low"),
-                       m, targeted=[33])
-    check("the historical full-song edit is explicitly refused at the work limit",
-          not bounded["accepted"] and bounded.get("stop_reason") == "RESOURCE_LIMIT",
-          bounded["reasons"])
+    # (The full-song edit was refused here at the candidate-work admission
+    # limit until the owner deleted that limit 2026-09-28; the induced
+    # subdraft below is what these rejections are proven on.)
 
     # Keep the real target's entire rhyme group, repeat partner and stray-line
     # control, with the original texts and relation. This admitted induced
@@ -1427,12 +1425,8 @@ def test_the_collision_set_is_partitioned_not_silenced():
           f"chorus's fourth line is the one that MOVES, and moves furthest")
 
     # (6) `verify` did not lose resolution when merges went to `whole`.
-    a = list(lines)
-    a[36] = "I don't get to leave"          # L37 'go' -> 'leave'
-    res = R.verify(lines, a, m, targeted=[37])
-    check("the historical full song cannot bypass the current candidate-work admission bound",
-          res.get("stop_reason") == "RESOURCE_LIMIT" and not res["accepted"],
-          res.get("reasons"))
+    # (The full-song check here pinned the candidate-work admission limit,
+    # deleted by the owner 2026-09-28; the admitted small draft carries it.)
     small = ["Cold rain broke against the bone", "A bell rang softly in the light",
              "Red seeds lay where the wheat was sown", "Blue smoke rose through the fading white",
              "Frost traced the edges of a cone", "Her hands let go the paper kite",
@@ -1841,13 +1835,8 @@ def test_meter_folds_into_the_same_finding_set():
     # `unsat`), so lengthen it past its bar's capacity while targeting a
     # real flagged rhyme line, and the EXISTING net-negative diff must catch
     # it -- this is the whole of what "wire meter into the loop" means.
-    after = list(lines)
-    after[0] += " elephant elephant elephant elephant elephant"
-    oversized = R.verify(lines, after, m, targeted={1}, blueprint=SONG_BLUEPRINT,
-                         subdivision=sub)
-    check("the historical full-song edit respects the work-admission bound",
-          not oversized["accepted"] and oversized.get("stop_reason") == "RESOURCE_LIMIT",
-          oversized["reasons"])
+    # (A full-song variant pinned the work-admission limit here until the
+    # owner deleted it 2026-09-28; the two-line blueprint below is the check.)
     small = ["My kettle whistles by the stove", "Your fingers brush my heavy coat"]
     bp = {"sections": [{"name": "V1", "bars": 2, "start_bar": 1,
                          "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],

@@ -138,6 +138,6 @@ must preserve the user-selected task outside model-generated arguments and retai
 the returned artifact verbatim. A connector cannot prevent an unrelated host from
 writing arbitrary prose after it ignores the tool result.
 
-Ordinary seeded lyric plans are admitted against the grader's work budget, reported
-in `execution_limits`. `inspection_only` exposes larger mathematical shapes but
-does not authorize writing. Carry `wants` unchanged through plan, grade and revise.
+Every seeded lyric plan can be written, graded and revised at any length the
+planner's envelope admits; there is no separate line or work-budget admission.
+Carry `wants` unchanged through plan, grade and revise.

@@ -382,26 +382,8 @@ try {
       assert.fail(message(result));
     };
     try {
-      const oversized = verdict(
-        await a.callTool(
-          {
-            name: 'lyric_revise',
-            arguments: {
-              scheme: 'A'.repeat(32),
-              draft: Array(32).fill('I hold your hand'),
-              writer: 'kitchen',
-              attempts: 1,
-              backtrack: 0,
-              max_rounds: 1,
-            },
-          },
-          undefined,
-          { timeout: 120000 }
-        )
-      );
-      assert.equal(oversized.exit_code, 2);
-      assert.match(oversized.refusal, /RESOURCE_LIMIT.*writer execution/);
-      assert.equal(calls, 0, 'oversize pasted writer request refuses before provider dispatch');
+      // (A 32-line pasted draft was refused here at the 31-line writing cap
+      // until the owner deleted that cap 2026-09-28.)
       const first = verdict(
         await a.callTool(
           {

@@ -399,9 +399,9 @@ def test_the_enforcement():
     lines = [
         # 1: in band both ways (8 syllables) — must carry NO band finding.
         "the bells ring out across the empty town",
-        # 2: 3 syllables — under the density floor.
+        # 2: 3 syllables — under the old density floor, which is deleted.
         "burn it down",
-        # 3: long — over both ceilings.
+        # 3: long — over the prominence ceiling.
         "dark stone cold black night falls dark stone cold black night falls tonight",
         # 4: in band, rhymes with 2 in the mandate so the rhyme layer has
         # its say too — the band layer must not disturb it.
@@ -412,30 +412,30 @@ def test_the_enforcement():
 
     def band_codes(ln):
         return sorted(f.code for f in per.get(ln, [])
-                      if f.code in ("DENSITY_OUT_OF_BAND",
-                                    "PROMINENCE_OUT_OF_BAND",
-                                    "BAND_UNJUDGED"))
+                      if f.code in ("PROMINENCE_OUT_OF_BAND",
+                                    "BAND_UNJUDGED")
+                      or "DENSITY" in f.code)
     check("an in-band line carries NO band finding — silence means clean, "
           "because the check runs unconditionally",
           band_codes(1) == [] and band_codes(4) == [], band_codes(1))
-    check("too FEW syllables is a FLAG — under the floor is refused, not "
-          "nudged",
-          band_codes(2) == ["DENSITY_OUT_OF_BAND"]
-          and all(f.severity == "flag" for f in per[2]
-                  if f.code == "DENSITY_OUT_OF_BAND"), band_codes(2))
-    check("too MANY syllables and too many prominents are BOTH flags on "
-          "the long line — a band, not a direction",
-          band_codes(3) == ["DENSITY_OUT_OF_BAND",
-                            "PROMINENCE_OUT_OF_BAND"], band_codes(3))
+    # THE SYLLABLE BAND IS DELETED (owner ruling 2026-09-28): a sung line
+    # may be one syllable or a hundred, so neither end of the old [5, 12]
+    # count charges anything, and nothing replaced it.
+    check("a three-syllable line carries NO band finding — the 5-12 "
+          "syllable rule is deleted, not moved",
+          band_codes(2) == [], band_codes(2))
+    check("too many prominents is still a FLAG on the long line, and it is "
+          "the ONLY band finding there — the syllable count charges nothing",
+          band_codes(3) == ["PROMINENCE_OUT_OF_BAND"], band_codes(3))
     check("...and every band violation is severity FLAG — the loop holds "
           "the line open until it is fixed, nothing to opt into",
           all(f.severity == "flag" for ln in (2, 3) for f in per[ln]
               if f.code.endswith("OUT_OF_BAND")))
 
     # The lower-bound asymmetry (doctrine 79). A numeral has no declared
-    # sung reading even at fallback-low: a short line gets NO density flag (the floor
-    # cannot be proven) and a BAND_UNJUDGED note instead; a line already
-    # over the ceiling on readable tokens alone flags DESPITE the refusal.
+    # sung reading even at fallback-low: a short line gets a BAND_UNJUDGED
+    # note and no flag; a line already over the prominence ceiling on
+    # readable tokens alone flags DESPITE the refusal.
     found = R.inspect(
         ["dance 66", "dark stone cold black night falls dark stone cold "
          "black night falls tonight 66"], mandate="AA")
@@ -446,10 +446,11 @@ def test_the_enforcement():
                 or "OUT_OF" in f.code)
     check("a refused token makes UNDER-the-floor unjudgeable: no flag, a "
           "BAND_UNJUDGED note names the token instead",
-          "DENSITY_OUT_OF_BAND" not in c1 and "BAND_UNJUDGED" in c1, c1)
-    check("...but OVER-the-ceiling flags anyway — a lower bound above 12 "
-          "is a violation no missing token can undo",
-          "DENSITY_OUT_OF_BAND" in c2 and "BAND_UNJUDGED" in c2, c2)
+          c1 == ["BAND_UNJUDGED"], c1)
+    check("...but OVER-the-ceiling flags anyway — a prominence lower bound "
+          "above 7 is a violation no missing token can undo",
+          "PROMINENCE_OUT_OF_BAND" in c2 and "BAND_UNJUDGED" in c2
+          and not any("DENSITY" in c for c in c2), c2)
 
     # THE INSTRUMENT MATCH, FALSIFIABLE. This dialect line reads COMPLETE
     # and in-band only under the calibration's own reader (section 8 proved

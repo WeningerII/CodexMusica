@@ -15,7 +15,7 @@ Every lyric tool except `lyric_types` (a lookup that answers at once) needs the 
 
 1. Translate the user's structural requirements into `lyric_sweep` predicates. Retain the declared form, line count, functions and wants; inspect accepted seeds in their returned order.
 2. Screen candidate end words with `lyric_screen`. A refusal is not a successful screening.
-3. Call `lyric_plan` with an accepted seed and the same structural requirements. Carry declared title and rhyme relation when supplied. Read the returned executable plan and writer brief; an inspection-only or refused plan does not authorize drafting.
+3. Call `lyric_plan` with an accepted seed and the same structural requirements. Carry declared title and rhyme relation when supplied. Read the returned plan and writer brief; a refused plan does not authorize drafting.
 4. Write the complete draft to that plan, preserving line counts, returns and section functions. Grade the exact draft with `lyric_grade` under the same declarations. The service restores omitted plan coordinates and refuses contradictory ones.
 5. Call `lyric_revise` only after the exact draft has been graded. Keep the same session. Each suspended call asks one question: answer the requested lines through `answer` (one line) or `answers` (one `{line, text}` per asked line); continuation state stays on the service. Repeat until the loop reaches a stop condition.
 

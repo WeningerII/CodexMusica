@@ -26,7 +26,6 @@ function planReceipt(seed = 16) {
     title: '',
     narrative: false,
     wants: ['lines<=30'],
-    inspection_only: false,
   };
   const plan = {
     plan_version: 3,
@@ -34,7 +33,6 @@ function planReceipt(seed = 16) {
     total_lines: 2,
     line_slots: [{}, {}],
     sections: [{ name: 'VERSE' }],
-    execution_limits: { max_lines: 31, admitted: true },
   };
   return { exit_code: 0, plan, plan_sha256: sha(plan), plan_request: request };
 }
@@ -103,7 +101,6 @@ test('only accepted sweep seeds and unchanged declared structural predicates rea
     { seed: 99, wants: planArgs.wants },
     { seed: 16 },
     { ...planArgs, lines: 12 },
-    { ...planArgs, inspection_only: true },
   ])
     assert.match(creationRefusal(t, 'lyric_plan', args), /CREATION_PLAN/);
 });
@@ -139,10 +136,6 @@ test('a failed, forged, stale or unadmitted plan cannot establish creation quali
     },
     (p) => {
       p.plan.request.seed = 17;
-      p.plan_sha256 = sha(p.plan);
-    },
-    (p) => {
-      p.plan.execution_limits.admitted = false;
       p.plan_sha256 = sha(p.plan);
     },
   ]) {

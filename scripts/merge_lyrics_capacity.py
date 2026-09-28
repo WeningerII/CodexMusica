@@ -65,7 +65,7 @@ MIN_TRACE_PER_SHARD = LEAK_MIN_BOUNDARIES
 #: Fields every shard must agree on. `source_sha256` is the load-bearing one:
 #: it is what makes three separate measurements evidence about ONE runtime.
 SHARED = ('source_sha256', 'source_sha256_after', 'limits', 'seeds',
-          'published_execution_limits', 'scope', 'version')
+          'scope', 'version')
 
 
 def load(path):
@@ -199,7 +199,6 @@ def merge(shards):
         'limits': LIMITS,
         'source_sha256': first.get('source_sha256'),
         'source_sha256_after': first.get('source_sha256_after'),
-        'published_execution_limits': first.get('published_execution_limits'),
         'isolation': {name: shard.get('isolation') for name, shard in shards},
         'measurements': measurements,
         'memory_trace': trace,

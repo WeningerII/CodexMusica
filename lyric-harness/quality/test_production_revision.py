@@ -20,7 +20,7 @@ from quality.propose import parse_group, parse_batch, render_line, render_group
 from quality.recover import recover
 
 CLEAN = ['My kettle whistles by the stove', 'Your fingers brush my heavy coat']
-LONG = 'The elephant elephant elephant elephant elephant elephant stove'
+LONG = 'The elephant elephant elephant elephant elephant elephant elephant stove'
 
 class ProductionRevisionTests(unittest.TestCase):
     @classmethod
@@ -549,7 +549,7 @@ class ProductionRevisionTests(unittest.TestCase):
         r = self.reviser
         result = r.verify([LONG, CLEAN[1]], ['The 123 stove', CLEAN[1]], self.m, targeted={1})
         self.assertFalse(result['accepted'])
-        self.assertIn('density:L1', result['layer_coverage_regressions'])
+        self.assertIn('prominence:L1', result['layer_coverage_regressions'])
         stopped = revise_loop(r, ['My 123 whistles by the stove', CLEAN[1]], self.m)
         self.assertFalse(stopped.coverage_certified)
         self.assertEqual(stopped.stop_reason, 'no_progress')
@@ -822,21 +822,6 @@ class ProductionRevisionTests(unittest.TestCase):
         self.assertEqual(again, full)
         self.assertEqual(slot['tally']['miss'], 2)
         self.assertEqual(slot['tally']['hit'], 1)
-
-    def test_proposal_work_overflow_preserves_artifact_before_assessment(self):
-        from unittest.mock import patch
-        original = [' '.join(['love'] * 12)] * 31
-        before = list(original)
-        after = [' '.join(['a'] * 100), *before[1:]]
-        self.assertEqual(len(after[0]), 199)
-        m = mandate([[1, 2]], n_lines=31, default_relation='class:RHYME')
-        with patch.object(self.reviser, 'brief', side_effect=AssertionError('menu before admission')), \
-                patch.object(self.reviser, 'inspect', side_effect=AssertionError('assessment before admission')):
-            result = self.reviser.verify(before, after, m, targeted={1})
-        self.assertFalse(result['accepted'])
-        self.assertEqual(result['stop_reason'], 'RESOURCE_LIMIT')
-        self.assertFalse(result['execution_limits']['within_budget'])
-        self.assertEqual(before, original)
 
     def test_recovery_does_not_turn_equal_words_into_equal_lines(self):
         lines = ['You shut the little kitchen door', 'I leave my shoes beside your door']

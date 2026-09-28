@@ -174,8 +174,6 @@ export function creationRefusal(task, name, args, lyric = null) {
   if (!w.sweeps.length || !w.screen)
     return 'CREATION_ORDER: execute lyric_sweep and lyric_screen before planning or writing a new song.';
   if (name === 'lyric_plan') {
-    if (args.inspection_only === true)
-      return 'CREATION_PLAN: an inspection-only plan cannot qualify a production song.';
     return sweepFor(w, args)
       ? null
       : "CREATION_PLAN: plan a seed an accepted lyric_sweep returned, with that sweep's form, lines, functions and melody, and its `want` list as `wants`.";
@@ -267,14 +265,9 @@ export function recordCreation(task, name, args, verdict, isError = false) {
       p.plan_version !== 3 ||
       verdict.plan_sha256 !== hash(p) ||
       !p.request ||
-      p.request.inspection_only ||
       !same(p.request, verdict.plan_request) ||
       !PLAN_FIELDS.every((key) => same(norm(key, args[key]), norm(key, p.request[key]))) ||
-      !p.execution_limits ||
-      p.execution_limits.admitted !== true ||
-      !Number.isInteger(p.execution_limits.max_lines) ||
       !Number.isInteger(p.total_lines) ||
-      p.total_lines > p.execution_limits.max_lines ||
       !Array.isArray(p.line_slots) ||
       p.line_slots.length !== p.total_lines ||
       !Array.isArray(p.sections) ||
@@ -287,7 +280,6 @@ export function recordCreation(task, name, args, verdict, isError = false) {
       sha256: verdict.plan_sha256,
       request: structuredClone(p.request),
       lines: p.total_lines,
-      execution_limits: structuredClone(p.execution_limits),
     };
     task.plan = {
       args: structuredClone(p.request),

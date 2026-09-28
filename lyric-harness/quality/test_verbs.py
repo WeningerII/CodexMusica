@@ -5354,9 +5354,11 @@ def test_the_plan_report_discloses_density_and_audibility():
           # none, and each group is briefed to stand in at least one.
           and "What each named relation asks" not in brief
           and "must stand in at least one relation" in brief
-          and re.search(r"^\s+up to \d+ syllables a line after the pickup; "
-                        r"the calibrated band asks at least \d+$", brief, re.M)
-          is not None)
+          and re.search(r"^\s+up to \d+ syllables a line after the pickup$",
+                        brief, re.M) is not None
+          # The syllable band is deleted (owner ruling 2026-09-28), so the
+          # brief no longer asks for a minimum.
+          and "the calibrated band asks" not in brief)
 
 
 def test_the_batch_door_asks_independent_lines_together():
@@ -5884,7 +5886,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           "exit 3", rc == 3 and row.get("accepted") is False, out[-300:])
     check("...naming the new FLAGS that rejected it",
           {tuple(x) for x in (row.get("new_flags") or ())}
-          >= {(1, "DENSITY_OUT_OF_BAND"), (1, "PROMINENCE_OUT_OF_BAND")},
+          >= {(1, "PROMINENCE_OUT_OF_BAND")},
           str(row.get("new_flags")))
     check("...while still reporting what it DID fix — a rejection is not a "
           "verdict that nothing happened", len(row.get("fixed") or ()) > 0,

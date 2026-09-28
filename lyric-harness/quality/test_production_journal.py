@@ -240,7 +240,7 @@ class KitchenVerificationReceipts(unittest.TestCase):
         from quality.schemes import mandate
         cls.r = Reviser(rdecl=ReviseDeclaration(attempts_per_line=1, max_rounds=2))
         cls.m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
-        cls.before = ['The elephant elephant elephant elephant elephant elephant stove',
+        cls.before = ['The elephant elephant elephant elephant elephant elephant elephant stove',
                       'Your fingers brush my heavy coat']
         cls.after = ['My kettle whistles by the stove', cls.before[1]]
 
@@ -419,7 +419,7 @@ class KitchenVerificationReceipts(unittest.TestCase):
         from quality.loop import _try_tier1
         from quality.schemes import mandate
         import hashlib
-        before = ['The elephant elephant elephant elephant elephant elephant ' + word
+        before = ['The elephant elephant elephant elephant elephant elephant elephant ' + word
                   for word in ['stove', 'coat', 'rain', 'stone']]
         answers = ['My kettle whistles by the stove', 'Your fingers brush my heavy coat',
                    'The window shakes beneath the heavy rain',

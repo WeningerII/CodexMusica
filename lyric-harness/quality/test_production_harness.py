@@ -50,13 +50,21 @@ class HarnessProduction(unittest.TestCase):
         self.assertEqual({c for c, _, _ in plan.joint_findings(p)},
                          {"TWO_GROUPS_ONE_WORD"})
 
-    def test_joint_free_word_check_obeys_density_ceiling(self):
-        p = {"subdivision": 4, "line_slots": [
-            {"line": 1, "duration": 99}, {"line": 2, "duration": 99}],
+    def test_joint_free_word_check_obeys_line_capacity(self):
+        # The line's own grid is the capacity: twelve slots hold twelve
+        # words, so twelve bindings leave no free word and eleven do.
+        p = {"subdivision": 1, "line_slots": [
+            {"line": 1, "duration": 12}, {"line": 2, "duration": 12}],
             "groups": ";".join(f"1.T{i},2.T{i}" for i in range(1, 13))}
         self.assertEqual({c for c, _, _ in plan.joint_findings(p)},
                          {"NO_FREE_WORD"})
         p["groups"] = ";".join(f"1.T{i},2.T{i}" for i in range(1, 12))
+        self.assertEqual(plan.joint_findings(p), [])
+        # No density ceiling caps a roomy line (deleted 2026-09-28): the
+        # same twelve bindings on 396 slots leave hundreds of free words.
+        p = {"subdivision": 4, "line_slots": [
+            {"line": 1, "duration": 99}, {"line": 2, "duration": 99}],
+            "groups": ";".join(f"1.T{i},2.T{i}" for i in range(1, 13))}
         self.assertEqual(plan.joint_findings(p), [])
 
     def test_joint_free_word_check_runs_before_writer_brief(self):
@@ -66,7 +74,9 @@ class HarnessProduction(unittest.TestCase):
             # Only a finished plan carries the drawn relation disclosure;
             # earlier additive passes still see the actual bindings.
             if "relations" in p:
-                return {s["line"]: [f"T{i}" for i in range(1, 13)]
+                sub = p["subdivision"]
+                return {s["line"]: [f"T{i}" for i in range(
+                            1, int(float(s["duration"]) * sub) + 1)]
                         for s in p["line_slots"]}
             return original(p)
 
@@ -194,41 +204,19 @@ class HarnessProduction(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "RESOURCE_LIMIT"):
             fit._max_prominent_on_heads(1000, (), range(1001), lambda _: False)
 
-    def test_default_plan_is_inside_execution_budget_and_large_is_inspection_only(self):
-        limits = plan.execution_limits()
-        self.assertEqual(limits["max_candidate_pairs"], __import__("quality.relations", fromlist=["MAX_CANDIDATE_PAIRS"]).MAX_CANDIDATE_PAIRS)
-        for seed in range(20):
-            p = plan.make_plan(seed)
-            self.assertTrue(p["execution_limits"]["admitted"])
-            self.assertLessEqual(p["total_lines"], limits["max_lines"])
-        with self.assertRaisesRegex(plan.PlanRefused, "RESOURCE_LIMIT"):
-            plan.make_plan(13, lines=144)
-        p = plan.make_plan(13, lines=144, inspection_only=True)
+    def test_a_long_plan_is_a_plan_not_an_inspection(self):
+        # The 31-line writing cap, the 2,000,000-comparison admission bound
+        # and the inspection-only mode that depended on them are deleted
+        # (owner ruling 2026-09-28): a declared length is planned and filled
+        # like any other, and no plan carries an execution-limit record.
+        p = plan.make_plan(13, lines=144)
         self.assertEqual(p["total_lines"], 144)
-        self.assertFalse(p["execution_limits"]["admitted"])
-        self.assertIn("INSPECTION ONLY", p["writer_brief"])
-        with self.assertRaisesRegex(plan.PlanRefused, "RESOURCE_LIMIT"):
-            plan.fill_plan(p, ["I hold your hand"] * 144)
-
-    def test_actual_draft_work_preflight(self):
-        # The same declared maximum accepts twelve syllables per line at
-        # the derived line ceiling, but catches proposal growth past it.
-        n = plan.execution_limits()["max_lines"]
-        before = [" ".join(["love"] * 12)] * n
-        self.assertTrue(plan.draft_execution_bound(before)["within_budget"])
-        after = list(before)
-        after[0] += " love"
-        self.assertFalse(plan.draft_execution_bound(after)["within_budget"])
-        self.assertEqual(before[0].split(), ["love"] * 12)
-        long_line = " ".join(["a"] * 100)
-        self.assertEqual(len(long_line), 199)
-        self.assertFalse(plan.draft_execution_bound([long_line] * n)["within_budget"])
-        # No aesthetic twelve-syllable ceiling: two very long lines still
-        # fit the actual computational budget.
-        self.assertTrue(plan.draft_execution_bound([long_line] * 2)["within_budget"])
-        ambiguous = plan.draft_execution_bound(["our fire"])
-        self.assertEqual(ambiguous["observed_line_units"], [4])
-        self.assertEqual(plan.draft_execution_bound(["love qzxqzx"])["observed_line_units"], [2])
+        self.assertNotIn("execution_limits", p)
+        self.assertNotIn("INSPECTION ONLY", p["writer_brief"])
+        self.assertFalse(hasattr(plan, "execution_limits"))
+        self.assertFalse(hasattr(plan, "draft_execution_bound"))
+        filled = plan.fill_plan(p, ["I hold your hand"] * 144)
+        self.assertEqual(len(filled["lines"]), 144)
 
     def test_explicit_briefs_are_reproducible_and_satisfied(self):
         wants = ["lines<=60", "sections<=6", "lines_per_section>=2", "group<=4",

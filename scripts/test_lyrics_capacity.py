@@ -505,7 +505,6 @@ class ShardedCapacityMerge(unittest.TestCase):
             'seeds': list(SEEDS), 'cells': [list(c) for c in cells],
             'scope': 'resource capacity with explicit refusal accounting; not lyric-quality certification',
             'limits': LIMITS, 'isolation': {'production_limits_verified': True},
-            'published_execution_limits': {'max_lines': 31},
             'measurements': [{'lines': size, 'seed': seed, 'mode': mode, 'rows': []}
                              for size, seed in cells for mode in MODES],
             'memory_trace': [{'lines': size, 'seed': seed, 'mode': mode,
