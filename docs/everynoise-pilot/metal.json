@@ -1,0 +1,629 @@
+{
+  "lane": "metal",
+  "researched_at": "2026-09-29",
+  "model_policy": "EveryNoise establishes membership only. The roster, room, chain, materials, tuning, part variants and 13-axis coordinates are explicitly selected production models, not measured session attributes or genre universals. All five use pin_parts:true. Source descriptions and exemplars are documentary; supported sonic interpretation is explained per entry.",
+  "membership_provenance": "Provided CodexMusica-genre-comparison.json, comparison_date 2026-09-29; all five status missing, zero repo/possible matches. EveryNoise URLs returned inaccessible via web tool; their labels/URLs come from supplied comparison, not an inferred historical account.",
+  "entries": [
+    {
+      "id": "action_rock",
+      "source_label": "action rock",
+      "every_noise_url": "https://everynoise.com/engenremap-actionrock.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.nuclearblast.com/blogs/news/the-hellacopters-release-video-for-brand-new-single-stay-with-you",
+          "title": "The Hellacopters — Stay With You",
+          "support": "Band label explicitly calls the single action rock and high-energy rock-and-roll; establishes Swedish cultural setting and guitar/vocal role.",
+          "kind": "primary_artist_or_label"
+        },
+        {
+          "url": "https://shop.nuclearblast.com/products/the-hellacopters-grande-rock-revisted-pre-order",
+          "title": "The Hellacopters — Grande Rock Revisited",
+          "support": "Label describes lead guitar, piano, percussion and backing additions in a revisited 1999 album; confirms keyboard/percussion are repertoire options, not obligatory core.",
+          "kind": "primary_artist_or_label"
+        },
+        {
+          "url": "https://open.spotify.com/artist/1lsXuaLnHnfL7GoJXKkUtH",
+          "title": "The Hellacopters — artist profile",
+          "support": "Artist-facing profile describes action rock from Stockholm; cultural anchor only.",
+          "kind": "primary_artist_or_label"
+        }
+      ],
+      "configuration": {
+        "family": "rock_punk",
+        "room": "live_room",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "mic_sm57_dynamic_shure",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_distressor_modern",
+        "chain_eq": "eq_console_surgical",
+        "chain_medium": "digital_high",
+        "tuning": "twelve_tet",
+        "chain_amp": "amp_marshall_plexi_1959",
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "id": "action_rock",
+        "name": "Action rock",
+        "lineage": "Scandinavian high-energy rock-and-roll and garage-punk continuum, represented by the Swedish Hellacopters. The action-rock label foregrounds immediate riff attack, melodic guitar leads and a driving band backbeat. This contemporary studio model selects the guitar-bass-drums core rather than prescribing every keyboard or percussion overdub heard across the repertoire.",
+        "instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+        "chain_fx": ["overdrive_low", "plate_reverb"],
+        "parts": {
+          "body_wood": "mahogany_h",
+          "pickup_magnet": "alnico_5_h",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "electric_technique": "electric_overdriven_lead",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take",
+          "voice_microtone": "tempered_voice",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "drumhead": "single_coated",
+          "drum_technique": "sticks_punk"
+        }
+      },
+      "axes": {
+        "harm": 1,
+        "pitch": -1,
+        "ornament": 1,
+        "meter": 2,
+        "density": 1,
+        "transmission": -1,
+        "improv": 0,
+        "soundTech": 1,
+        "intensity": 2,
+        "voice": 1,
+        "timbre": 2,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "axis_rationale": "Authored ordinal estimates of this selected arrangement; no tempo, loudness, studio measurement or physiological observation inferred from the coordinates.",
+      "nearest_neighbor_distinctions": [
+        {
+          "id": "garage_rock",
+          "reason": "Garage rock uses the catalog’s 1960s single-coil-and-organ ensemble; this action-rock model uses a humbucker lead, no organ, sticks_punk, and modern digital tracking."
+        },
+        {
+          "id": "hard_rock",
+          "reason": "Hard rock retains a broader classic blues-metal foundation; this model pins overdriven lead, punk attack and doubled rough sung voice with a compact core."
+        }
+      ],
+      "geo": {
+        "value": [59.33, 18.07, "Stockholm (Hellacopters cultural anchor)", "Europe"],
+        "rationale": "Artist/label cultural location, not exclusive genre birthplace."
+      }
+    },
+    {
+      "id": "alternative_metal",
+      "source_label": "alternative metal",
+      "every_noise_url": "https://everynoise.com/engenremap-alternativemetal.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.rhino.com/aod/the-real-thing-faith-no-more",
+          "title": "The Real Thing — Album of the Day",
+          "support": "Catalog label describes alternative rock, metal and funk fusion and lists voice, guitar, bass, drums and keyboards.",
+          "kind": "primary_artist_or_label"
+        },
+        {
+          "url": "https://www.rhino.com/article/happy-30th-faith-no-more-the-real-thing",
+          "title": "Happy 30th: Faith No More, The Real Thing",
+          "support": "Label documents 1989 release and production at Studio D, Sausalito; recording-city anchor.",
+          "kind": "primary_artist_or_label"
+        }
+      ],
+      "configuration": {
+        "family": "rock_punk",
+        "room": "live_room",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "mic_sm57_dynamic_shure",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_distressor_modern",
+        "chain_eq": "eq_console_surgical",
+        "chain_medium": "digital_high",
+        "tuning": "twelve_tet",
+        "chain_amp": "amp_california_modern",
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "id": "alternative_metal",
+        "name": "Alternative metal",
+        "lineage": "Late-1980s onward metal and alternative-rock crossover, represented here by Faith No More and the 1989 album The Real Thing. Heavy guitar riffing shares the arrangement with a rhythmically active bass, keyboards and an elastic sung vocal. The selected model emphasizes contrasts of riff, keyboard color and vocal register; funk bass and rap delivery are possible influences, not requirements of the entire genre.",
+        "instruments": [
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "analog_poly_synth",
+          "voice"
+        ],
+        "chain_fx": ["chorus_pedal"],
+        "parts": {
+          "body_wood": "mahogany_h",
+          "pickup_magnet": "alnico_5_h",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "electric_technique": "electric_palm_muted_chug",
+          "string_tuning": "drop_d",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "voice_register": "mix_voice",
+          "voice_quality": "register_break_voice",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_octave_double_self",
+          "voice_microtone": "tempered_voice",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "drumhead": "double_coated",
+          "drum_technique": "sticks_rock",
+          "electronic_technique": "electronic_pad_drone"
+        }
+      },
+      "axes": {
+        "harm": 1,
+        "pitch": 0,
+        "ornament": 1,
+        "meter": 1,
+        "density": 1,
+        "transmission": -1,
+        "improv": 0,
+        "soundTech": 1,
+        "intensity": 2,
+        "voice": 1,
+        "timbre": 2,
+        "percussion": 1,
+        "cyclicity": 1
+      },
+      "axis_rationale": "Authored ordinal estimates of this selected arrangement; no tempo, loudness, studio measurement or physiological observation inferred from the coordinates.",
+      "nearest_neighbor_distinctions": [
+        {
+          "id": "funk_metal",
+          "reason": "Funk metal pins slap_pop; this model selects fingerstyle_locked, register_break_voice, octave vocal doubling and a keyboard pad, allowing funk influence without making slap technique obligatory."
+        },
+        {
+          "id": "speed_metal",
+          "reason": "Speed metal centers fast heavy-metal attack and a belt voice; this model selects drop-D muted guitar, register shifts and keyboard color with less continuous pulse in the authored axes."
+        }
+      ],
+      "geo": {
+        "value": [37.86, -122.49, "Sausalito (The Real Thing recording anchor)", "North America"],
+        "rationale": "Studio D, Sausalito is the documented recording anchor, not an exclusive origin."
+      }
+    },
+    {
+      "id": "black_speed_metal",
+      "source_label": "black speed metal",
+      "every_noise_url": "https://everynoise.com/engenremap-blackspeedmetal.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://hellripper.bandcamp.com/album/coagulating-darkness",
+          "title": "Coagulating Darkness — Hellripper",
+          "support": "Artist identifies black/speed metal, dates DIY recording October 2016-February 2017, credits James McBain recording/mixing and tags Aberdeen/Scotland. No gear list claimed.",
+          "kind": "primary_artist_or_label"
+        },
+        {
+          "url": "https://peaceville.com/bands/hellripper/",
+          "title": "Hellripper — Peaceville",
+          "support": "Label describes hyperspeed riffing/solos and blackened thrash, gives Black Arts & Alchemy track credits and context.",
+          "kind": "primary_artist_or_label"
+        }
+      ],
+      "configuration": {
+        "family": "rock_punk",
+        "room": "studio_auteur_home_pro",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "mic_sm57_dynamic_shure",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_distressor_modern",
+        "chain_eq": "eq_console_surgical",
+        "chain_medium": "digital_high",
+        "tuning": "twelve_tet",
+        "chain_amp": "amp_marshall_jcm800",
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "id": "black_speed_metal",
+        "name": "Black speed metal",
+        "lineage": "Black-metal and speed/thrash-metal intersection represented by the Scottish solo recording project Hellripper, whose own account identifies black/speed metal and documents DIY recording of Coagulating Darkness in 2016-2017. Fast riffs, active lead guitar and harsh vocal attack retain the forward motion and compact song orientation of speed metal. The modern chain below is a reproducible authored model, not the equipment of that session.",
+        "instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+        "chain_fx": ["distortion_high"],
+        "parts": {
+          "body_wood": "mahogany_h",
+          "pickup_magnet": "ceramic_h",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "electric_technique": "electric_tremolo_picking",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_tube_saturation",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_microtone": "tempered_voice",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "drumhead": "double_coated",
+          "drum_technique": "sticks_rock"
+        }
+      },
+      "axes": {
+        "harm": 0,
+        "pitch": -1,
+        "ornament": 1,
+        "meter": 2,
+        "density": 2,
+        "transmission": -1,
+        "improv": 0,
+        "soundTech": 1,
+        "intensity": 2,
+        "voice": 1,
+        "timbre": 2,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "axis_rationale": "Authored ordinal estimates of this selected arrangement; no tempo, loudness, studio measurement or physiological observation inferred from the coordinates.",
+      "nearest_neighbor_distinctions": [
+        {
+          "id": "speed_metal",
+          "reason": "Speed metal pins a full_chest_belt_voice and muted guitar; this model selects worn_fold_voice with tube saturation and tremolo-picked guitar."
+        },
+        {
+          "id": "black_metal",
+          "reason": "Black metal is the broader lineage. This selected speed-facing model has a tight dry modern chain, explicitly pinned compact ensemble and DIY-project cultural anchor; it does not require ambient form or the original catalog’s basement cassette model."
+        }
+      ],
+      "geo": {
+        "value": [57.15, -2.09, "Aberdeen / Scotland (Hellripper cultural anchor)", "Europe"],
+        "rationale": "Artist release tags Aberdeen and Scotland; marker is a selected cultural anchor for a geographically mobile solo project."
+      }
+    },
+    {
+      "id": "atmospheric_post_metal",
+      "source_label": "atmospheric post-metal",
+      "every_noise_url": "https://everynoise.com/engenremap-atmosphericpostmetal.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.metalblade.com/us/artists/cult-of-luna/",
+          "title": "Cult of Luna — Metal Blade Records",
+          "support": "Firsthand Persson comments and label biography document dynamic density, cinematic sound, guitar-bass-drums-keyboard roster, writing and recording in Umeå.",
+          "kind": "primary_artist_or_label"
+        },
+        {
+          "url": "https://pelagic-records.com/artist/cult-of-luna/",
+          "title": "Cult of Luna — Pelagic Records",
+          "support": "Band-associated label page identifies Vertikal/Vertikal II and Metropolis concept, contrasted quiet soundtrack work. This page is not evidence Pelagic released every cited album.",
+          "kind": "primary_artist_or_label"
+        }
+      ],
+      "configuration": {
+        "family": "rock_punk",
+        "room": "live_room",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "mic_sm57_dynamic_shure",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_distressor_modern",
+        "chain_eq": "eq_console_surgical",
+        "chain_medium": "digital_high",
+        "tuning": "twelve_tet",
+        "chain_amp": "amp_british_orange_dirty",
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "id": "atmospheric_post_metal",
+        "name": "Atmospheric post-metal",
+        "lineage": "Atmosphere-centered strand of post-metal represented by Cult of Luna, extending heavy guitar-bass-drums writing with keyboards, long dynamic arcs and passages of reduced density. The Long Road North documents an Umeå-centered recording and writing practice. This selected arrangement places clean arpeggiation and sustained electronic texture beside distorted peaks and a textural harsh vocal, rather than treating the label as a separate universal origin story.",
+        "instruments": [
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "analog_synth",
+          "voice"
+        ],
+        "chain_fx": ["digital_delay", "hall_reverb"],
+        "parts": {
+          "body_wood": "mahogany_h",
+          "pickup_magnet": "alnico_5_h",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "electric_technique": "electric_arpeggiated_clean",
+          "string_tuning": "drop_c",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "voice_register": "chest_voice",
+          "voice_quality": "fry_bleed_voice",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_hall_reverb_long",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_microtone": "tempered_voice",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "drumhead": "double_coated",
+          "drum_technique": "sticks_rock",
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env"
+        }
+      },
+      "axes": {
+        "harm": 0,
+        "pitch": 0,
+        "ornament": 0,
+        "meter": 1,
+        "density": 1,
+        "transmission": -1,
+        "improv": 0,
+        "soundTech": 2,
+        "intensity": 1,
+        "voice": -1,
+        "timbre": 2,
+        "percussion": 1,
+        "cyclicity": 0
+      },
+      "axis_rationale": "Authored ordinal estimates of this selected arrangement; no tempo, loudness, studio measurement or physiological observation inferred from the coordinates.",
+      "nearest_neighbor_distinctions": [
+        {
+          "id": "post_metal",
+          "reason": "Generic post-metal has no synth card and pins power_chord guitar; this model adds analog_synth pad, triangle oscillator, svf filter, pad envelope and clean arpeggiation with delay/hall space."
+        },
+        {
+          "id": "atmospheric_black_metal",
+          "reason": "Atmospheric black metal pins a harsh tremolo/blast-oriented band configuration. This model focuses a post-metal dynamic arc, clean arpeggiation, keyboard sustain and reduced vocal foreground rather than continuous black-metal riffing."
+        }
+      ],
+      "geo": {
+        "value": [63.83, 20.26, "Umeå (Cult of Luna recording anchor)", "Europe"],
+        "rationale": "Umeå is documented as a writing and principal recording locus on the label biography, not sole origin."
+      }
+    },
+    {
+      "id": "ambient_black_metal",
+      "source_label": "ambient black metal",
+      "every_noise_url": "https://everynoise.com/engenremap-ambientblackmetal.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.season-of-mist.com/bands/darkspace/",
+          "title": "Darkspace — Season of Mist",
+          "support": "Band label documents 1999 Berne foundation and guitar/bass/vocal roster, ambient-black-metal context.",
+          "kind": "primary_artist_or_label"
+        },
+        {
+          "url": "https://www.season-of-mist.com/release/dark-space-i/",
+          "title": "Dark Space I — Season of Mist",
+          "support": "Label dates original 2003 release and explicitly describes ambient black metal.",
+          "kind": "primary_artist_or_label"
+        },
+        {
+          "url": "https://shopusa.season-of-mist.com/products/darkspace-dark-space-i-2003-cd-slipcase",
+          "title": "Dark Space I [2003] — Season of Mist",
+          "support": "Label describes heavy guitar plus electronic samples and extended tracks; supports electronic layer, not exact sampler model.",
+          "kind": "primary_artist_or_label"
+        }
+      ],
+      "configuration": {
+        "family": "rock_punk",
+        "room": "studio_auteur_home_pro",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "mic_sm57_dynamic_shure",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "tuning": "twelve_tet",
+        "chain_amp": "amp_modeling",
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "id": "ambient_black_metal",
+        "name": "Ambient black metal",
+        "lineage": "Ambient and black-metal intersection represented by the Swiss trio Darkspace, founded in Berne in 1999; its 2003 debut Dark Space I combines heavy guitar with electronic samples and extended immersive pieces. This configuration models a drone-and-sample-dominant passage with guitar, bass and distant harsh voice. It omits a percussion card for that passage without claiming the wider recordings are beatless.",
+        "instruments": ["electric_guitar_humbucker", "electric_bass", "sampler_classic", "voice"],
+        "chain_fx": ["hall_reverb", "digital_delay", "fx_true_stereo_reverb"],
+        "parts": {
+          "body_wood": "mahogany_h",
+          "pickup_magnet": "ceramic_h",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "electric_technique": "electric_feedback_drone",
+          "string_tuning": "d_standard",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend",
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_hall_reverb_long",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture",
+          "voice_microtone": "tempered_voice",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post"
+        }
+      },
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": -1,
+        "meter": -1,
+        "density": 1,
+        "transmission": -1,
+        "improv": 0,
+        "soundTech": 2,
+        "intensity": 1,
+        "voice": -1,
+        "timbre": 2,
+        "percussion": -2,
+        "cyclicity": 1
+      },
+      "axis_rationale": "Authored ordinal estimates of this selected arrangement; no tempo, loudness, studio measurement or physiological observation inferred from the coordinates.",
+      "nearest_neighbor_distinctions": [
+        {
+          "id": "atmospheric_black_metal",
+          "reason": "Atmospheric black metal has a drum-kit card and no sampler; this selected ambient passage adds sampler_classic loop layering and feedback guitar with no percussion card. The beatless selection is passage-specific."
+        },
+        {
+          "id": "dark_ambient",
+          "reason": "Dark ambient omits electric guitar/bass and favors electronic/ritual resonances. This model retains amplified guitar mass, electric bass and a distant harsh voice alongside the sampler."
+        }
+      ],
+      "geo": {
+        "value": [46.95, 7.45, "Berne (Darkspace cultural anchor)", "Europe"],
+        "rationale": "Artist/label cultural location, not exclusive genre birthplace."
+      }
+    }
+  ],
+  "validation": {
+    "catalog": "node scripts/validate.js passed: 2593 traditions, all references resolve",
+    "record_preservation": "All 2588 baseline tradition records, paired extras and existing geo entries deep-equal HEAD",
+    "duplicate_gate": "node scripts/check_duplicates.js passed: 0 unruled identity collisions; existing advisory pairs remain",
+    "cli": [
+      {
+        "id": "action_rock",
+        "length": 541,
+        "authored_pairs_retained": 28,
+        "traditions": ["action_rock", "hardcore_punk", "gypsy_punk"]
+      },
+      {
+        "id": "alternative_metal",
+        "length": 657,
+        "authored_pairs_retained": 29,
+        "traditions": ["alternative_metal", "melodic_death_metal", "nwobhm"]
+      },
+      {
+        "id": "black_speed_metal",
+        "length": 650,
+        "authored_pairs_retained": 28,
+        "traditions": ["black_speed_metal", "black_metal", "atmospheric_black_metal"]
+      },
+      {
+        "id": "atmospheric_post_metal",
+        "length": 561,
+        "authored_pairs_retained": 32,
+        "traditions": ["atmospheric_post_metal", "experimental_rock", "kosmische"]
+      },
+      {
+        "id": "ambient_black_metal",
+        "length": 674,
+        "authored_pairs_retained": 31,
+        "traditions": ["ambient_black_metal", "drone_metal", "dark_ambient"]
+      }
+    ],
+    "browser": [
+      {
+        "id": "action_rock",
+        "authored_pairs_retained": 28,
+        "lengths": {
+          "rich": 982,
+          "prose": 404,
+          "tags": 998,
+          "compact": 519
+        }
+      },
+      {
+        "id": "alternative_metal",
+        "authored_pairs_retained": 29,
+        "lengths": {
+          "rich": 993,
+          "prose": 395,
+          "tags": 997,
+          "compact": 498
+        }
+      },
+      {
+        "id": "black_speed_metal",
+        "authored_pairs_retained": 28,
+        "lengths": {
+          "rich": 990,
+          "prose": 383,
+          "tags": 985,
+          "compact": 484
+        }
+      },
+      {
+        "id": "atmospheric_post_metal",
+        "authored_pairs_retained": 32,
+        "lengths": {
+          "rich": 977,
+          "prose": 422,
+          "tags": 999,
+          "compact": 535
+        }
+      },
+      {
+        "id": "ambient_black_metal",
+        "authored_pairs_retained": 31,
+        "lengths": {
+          "rich": 983,
+          "prose": 404,
+          "tags": 991,
+          "compact": 527
+        }
+      }
+    ],
+    "issues": [
+      "CLI optimizer adds scored lineage staples (listed above); original roster and all authored valid part pairs remain intact.",
+      "CLI renderer optimizes environment through chain_archetype; explicit flat environment settings are faithfully seeded by browser import. Environment preservation is not asserted for the optimizer.",
+      "EveryNoise pages inaccessible through web lookup; membership is supported by the supplied comparison snapshot."
+    ]
+  }
+}

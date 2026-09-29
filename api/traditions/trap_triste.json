@@ -5,7 +5,7 @@
   "lineage": "Spanish-language melancholic trap crystallized in San Juan, Medellín and Madrid around 2016-2019 through Bad Bunny's early SoundCloud sides, Duki and Cazzu — 130-145 BPM half-time trap with rolled hi-hats and long 808 glides, minor-key detuned piano or guitar loops soaked in reverb, and heavily Auto-Tuned confessional vocals about heartbreak and dissociation delivered in a slurred, near-spoken register",
   "recipe": "classic 2016-2019 trap triste, mc Rhythm, reggaeton branch, us hip hop modern, tropical song functional song dark plugg dream plugg. vocal fry, rap, straight onset, interlocked note trading. chorus detuned thickener across stack multitrack vocal stack, roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, modern bright beech laminated maple laminated European tradition sitka spruce grand piano, cedar concert modern carbon fiber classical nylon-string guitar, low sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 703,
-  "score": 256.252,
+  "score": 257.115,
   "config": {
     "traditions": [
       "trap_triste",
@@ -60,7 +60,7 @@
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 0.43500000000000005,
+          "multitrack_stack_density": 0.675,
           "multitrack_stack_era_aesthetic": 0.4549999999999999,
           "multitrack_stack_processing": 2.9899999999999998
         }
@@ -73,7 +73,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 5.665,
+          "tr808_voice": 5.905,
           "drum_machine_808_context": 4.55,
           "tr808_production_origin": 2.8600000000000003
         }
@@ -90,7 +90,7 @@
           "electronic_technique": 3.925,
           "sample_bitdepth": 3.705,
           "sample_swing": 6.629999999999999,
-          "sample_processing": 3.4375
+          "sample_processing": 3.445
         }
       },
       {
@@ -111,7 +111,7 @@
           "grand_piano_size": 0.845,
           "grand_piano_brand": 1.8199999999999998,
           "piano_hammer": 7.085000000000001,
-          "piano_rim": 6.595000000000001,
+          "piano_rim": 6.49,
           "piano_soundboard": 5.600000000000001,
           "piano_pinblock": 5.925000000000001,
           "piano_plate": 7.085000000000001,
@@ -146,7 +146,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 19.46,
+          "electronic_technique": 19.94,
           "poly_archetypes": 1.4949999999999999,
           "poly_voices": 1.4949999999999999,
           "poly_maker_lineage": -1.0050000000000001

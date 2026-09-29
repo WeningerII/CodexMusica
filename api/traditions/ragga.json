@@ -5,7 +5,7 @@
   "lineage": "Jamaican digital dancehall style dating from the 1985 Sleng Teng riddim, codified by Wayne Smith, King Jammy, Steely & Clevie, Shabba Ranks and Buju Banton — Casio and drum-machine riddims at roughly 90-105 BPM with all-electronic kick, rimshot and bassline, no live band, and a hoarse, rapid-fire chatted DJ delivery in Jamaican Patois riding a single recycled riddim.",
   "recipe": "classic Caribbean mid-1980s ragga, bass System, Jamaican branch, dub descendants bass system, reggae diaspora bass system trip hop raggamuffin. thick, breath veiled tone, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, roland tr 8s modern aira digital recreation TR-909, sub bass analog poly synth, field chopped sampler, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, SSL surgical EQ. DAT pro mixdown spring reverb digital delay.",
   "recipe_chars": 666,
-  "score": 227.235,
+  "score": 227.34,
   "config": {
     "traditions": [
       "ragga",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.3499999999999996,
+          "voice_register": 1.3649999999999995,
           "voice_quality": 5.785000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -88,8 +88,8 @@
         },
         "scores": {
           "electronic_technique": 11.829999999999997,
-          "poly_archetypes": 0.87,
-          "poly_voices": 0.87,
+          "poly_archetypes": 0.915,
+          "poly_voices": 0.915,
           "poly_maker_lineage": -0.035
         }
       },

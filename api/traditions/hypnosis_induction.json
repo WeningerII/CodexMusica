@@ -5,7 +5,7 @@
   "lineage": "Clinical and stage tradition of spoken hypnotic induction descending from Franz Mesmer's eighteenth-century salons through James Braid, the Manchester surgeon who coined 'hypnotism' in the 1840s, into twentieth-century American practice. Milton H. Erickson developed conversational, indirect induction while Dave Elman codified rapid inductions for physicians; both styles rely on monotone, descending-cadence suggestion delivery, progressive-relaxation deepeners, and counted descents. From the 1970s onward the form also became a mass-market audio genre through self-hypnosis cassettes and later digital downloads.",
   "recipe": "classic mid-1840s hypnotic induction, spoken Word, intimate voice branch audiobook narration guided meditation. vocal fry, breath veiled tone, slow rate, interlocked note trading. closet booth. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 292,
-  "score": 126.741,
+  "score": 126.331,
   "config": {
     "traditions": [
       "hypnosis_induction",
@@ -47,9 +47,9 @@
           "voice_speech_song": 16.705000000000002,
           "voice_ensemble_config": 15.989999999999997,
           "voice_ornament_system": 4.485,
-          "voice_pitch_organization": 4.1901785714285715,
+          "voice_pitch_organization": 3.985428571428571,
           "voice_processing_chain": 9.100000000000001,
-          "voice_multitrack_stack": 7.0356071428571445
+          "voice_multitrack_stack": 6.830857142857145
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "2010s indie rock continuation of the broader 2000s blogosphere indie wave, characterized by mid-fi production, broad-melodic guitar-and-vocal arrangements, and explicit-festival-targeting commercial visibility. Tame Impala's 2010-onward Australian psych-rock-pop hybrid, Vampire Weekend's Afro-influenced indie, the War on Drugs, Real Estate, and the broader Domino Records and Secretly Canadian label rosters anchor the canonical 2010s indie rock roster.",
   "recipe": "classic modern modern indie rock, distorted Rock, alternative branch, experimental distorted rock post-rock krautrock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 620,
-  "score": 382.165,
+  "score": 382.587,
   "config": {
     "traditions": [
       "modern_indie_rock_2010s",
@@ -38,9 +38,9 @@
           "voice_quality": 11.829999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.521,
+          "voice_vibrato": 4.458,
           "voice_articulation": 13.194999999999997,
-          "voice_microtone": 35.135000000000005,
+          "voice_microtone": 35.18000000000001,
           "voice_tradition": 11.927499999999998,
           "voice_mechanism_compound": 4.615000000000001,
           "voice_estill_quality": 5.4925,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 12.934999999999995,
           "voice_ornament_system": 3.72,
           "voice_pitch_organization": 3.371,
-          "voice_processing_chain": 10.355,
-          "voice_multitrack_stack": 16.820999999999998
+          "voice_processing_chain": 10.5905,
+          "voice_multitrack_stack": 16.858499999999996
         }
       },
       {
@@ -70,17 +70,17 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 17.512999999999998,
+          "electric_technique": 17.481499999999997,
           "amp_make": 14.592499999999998,
           "body_wood": 6.825,
-          "neck_wood": 1.558,
-          "fretboard": 1.508,
-          "pickup_magnet": 1.56,
-          "pickup_winding": 1.56,
+          "neck_wood": 1.5265,
+          "fretboard": 1.4765,
+          "pickup_magnet": 1.71,
+          "pickup_winding": 1.71,
           "string_material": 1.04,
-          "bridge": 1.558,
+          "bridge": 1.5265,
           "scale_length": 6.175,
-          "string_gauge": 1.558,
+          "string_gauge": 1.5265,
           "finish": 0.195,
           "string_tuning": 18.915
         }
@@ -99,9 +99,9 @@
         "scores": {
           "amp_make": 14.235,
           "body_wood": 1.69,
-          "pickup_config": 3.1915,
-          "string_type": 33.804500000000004,
-          "scale_length_b": 1.7400000000000002,
+          "pickup_config": 3.3415,
+          "string_type": 33.6635,
+          "scale_length_b": 1.7550000000000001,
           "fretted_or_not": 0,
           "bass_technique": 27.875
         }

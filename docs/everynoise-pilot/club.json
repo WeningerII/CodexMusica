@@ -1,0 +1,418 @@
+{
+  "lane": "club",
+  "researched_on": "2026-09-29",
+  "base_commit": "fbd2644241757e194b08fe0e8a6d5bf1880a4bc0",
+  "scope": "Five actual missing EveryNoise labels; additive data and this source ledger only.",
+  "entries": [
+    {
+      "id": "bass_house",
+      "source_label": "bass house",
+      "every_noise_url": "https://everynoise.com/engenremap-basshouse.html",
+      "sources": [
+        {
+          "url": "https://edmidentity.com/2023/04/06/habstrakt-dives-into-the-creative-process-of-his-debut-album/",
+          "title": "Habstrakt Dives Into the Creative Process of His Debut Album",
+          "kind": "firsthand artist interview",
+          "support": "Habstrakt describes transition from dubstep via his 128-BPM Hellcat remix; renewed house/techno connection; club singles and experimental album work; interviewer visits home studio.",
+          "limits": "No specific synth type or mix-chain implementation is attested.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://www.insomniac.com/music/dustycloud-rains-down-dirty-glitch-happy-basslines-on-jumpin-for-in-rotation/",
+          "title": "Dustycloud Rains Down Dirty, Glitch-Happy Basslines on Jumpin for IN / ROTATION",
+          "kind": "label release description and firsthand interview",
+          "support": "Releasing label identifies bass house, dark animated bassline, sparse elements and low-end emphasis; artist describes computer-based bedroom work.",
+          "limits": "Used for bass-led club-single strand, not all productions by artist.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://www.insomniac.com/music/jauz-takes-a-bite-out-of-musical-boundaries-with-his-edc-las-vegas-2018-mix/",
+          "title": "Jauz Takes a Bite Out of Musical Boundaries With His EDC Las Vegas 2018 Mix",
+          "kind": "firsthand artist interview",
+          "support": "Bass-house association and explicit refusal to restrict his full identity to that genre; tracklist identifies Rock the Party.",
+          "limits": "The Los Angeles anchor is a representative circuit location, not exclusive genre origin.",
+          "accessed": "2026-09-29"
+        }
+      ],
+      "choices": {
+        "ensemble": "Wavetable synthesis represents moving distorted bass; layered sample-based drums represent transient-focused club pulse; separate sampler represents vocal cuts. No full sung vocal chair.",
+        "parts": "wt_chaotic/wt_industrial/mono bass and tight one-shot layers distinguish this from warmer G-house bass and modular-techno percussion. Exact architectures and bit depths are authored.",
+        "chain": "Direct electronic input, kick ducking, distortion, dynamic EQ and mono-safe low-end are authored contemporary modeling. No microphone prescribed for this line/sampled ensemble.",
+        "axes": "Authored 13-axis interpretation: nonfunctional bass motif, fixed temperament, strict grid, some density, high intensity and grain, foreground percussion, cyclic structure. Transmission neutral: learned from media and producer practice rather than a score/oral binary.",
+        "room": "Treated close-monitoring room is an authored mixdown setting."
+      },
+      "neighbors": [
+        {
+          "id": "electro_house_2000s",
+          "distinction": "Bass timbre and contemporary sampled drums are central rather than general electro-house lead synthesis."
+        },
+        {
+          "id": "fidget_house",
+          "distinction": "Moving bass sound design is prioritized over hyperactive rearrangement of vocal samples."
+        },
+        {
+          "id": "future_house",
+          "distinction": "Rough bass sound-design emphasis instead of chordal bounce."
+        }
+      ],
+      "geo_rationale": {
+        "anchor": [
+          34.05,
+          -118.24,
+          "Los Angeles / international bass-house circuit",
+          "North America"
+        ],
+        "basis": "Representative Jauz/Insomniac production and festival network. International convergence including French artists; no sole birthplace claimed."
+      },
+      "membership_evidence": {
+        "authority": "EveryNoise genre-label membership only",
+        "comparison_status": "missing",
+        "comparison_file": "CodexMusica-genre-comparison.json",
+        "review": "Existing names, IDs and nearest musical scopes checked; no equivalent replaced.",
+        "direct_retrieval": "All five EveryNoise genre URLs attempted with public web retrieval; inaccessible in this session. The supplied comparison establishes label membership; musical claims use the separately accessed sources."
+      },
+      "authored_recording_model": {
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "limits": "All numerical axes, room selection, exact instrument models, bit depths, effects and chain configuration are authored operational defaults. Source-supported genre traits and recording identities are listed separately; none is a forensic session reconstruction."
+      }
+    },
+    {
+      "id": "g_house",
+      "source_label": "g-house",
+      "every_noise_url": "https://everynoise.com/engenremap-ghouse.html",
+      "sources": [
+        {
+          "url": "https://amineedge.com/biography.html",
+          "title": "Biography — Amine Edge",
+          "kind": "artist-published biography",
+          "support": "Marseille record collecting, house and hip-hop/R&B influences; 2011 collaboration with DANCE; Goodie-Goodies breakthrough; G-house naming and CUFF network.",
+          "limits": "Artist retrospect is treated as one participant account, not proof of sole invention.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://www.skiddle.com/news/all/Amine-Edge--DANCE-talk-G-House/23534/",
+          "title": "Amine Edge & DANCE talk G House",
+          "kind": "firsthand artist interview",
+          "support": "DANCE describes prior hip-hop production and shared hip-hop/R&B roots; duo explain name and early Goodie-Goodies reception; touring and Ibiza villa studio work.",
+          "limits": "Groove description and all precise gear choices are authored interpretations, not equipment claims.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://soundcloud.com/sleazydeep/sets/amine-edge-dance-our-g-house",
+          "title": "Amine Edge & DANCE — Our G-House Sauce EP — SLEAZY G",
+          "kind": "label-published release listing",
+          "support": "Search-indexed official Sleazy Deep listing identifies the EP, Sleazy G imprint and November 25 release listing. Used to establish the second recording exemplar only.",
+          "limits": "No session chain, synth architecture or global genre-origin claim drawn from this listing.",
+          "accessed": "2026-09-29",
+          "retrieval": "Public search result title and description; direct page not relied on."
+        }
+      ],
+      "choices": {
+        "ensemble": "Monophonic bass and synthesized kit underpin a loop sampler holding rap hooks. Voice chair omitted because the chosen form uses recorded fragments.",
+        "parts": "Stable low bass, subtle swing and loop-layered clean samples distinguish G-house from bass-house wavetable animation and full hip-house rapped verses. SH-101/voltage-controlled lineage is an authored equivalent, not claimed session hardware.",
+        "chain": "Restrained VCA dynamics, parametric EQ and clean digital delay model a contemporary rolling club mix; direct line input, DAW summing and digital capture are authored.",
+        "axes": "Authored full13 profile: modal/repeating bass rather than progression, equal temperament, metrical groove with slight swing, moderate grain/intensity, vocal fragments alongside bass, strongly cyclic. Transmission neutral.",
+        "room": "Auteur home studio is an authored analogue of the participant-described portable production workflow."
+      },
+      "neighbors": [
+        {
+          "id": "hip_house",
+          "distinction": "Producer loops and short rap hooks rather than late-1980s full MC verses over house."
+        },
+        {
+          "id": "bass_house",
+          "distinction": "Stable rounded bass and subtle swing rather than aggressive digital timbral changes."
+        },
+        {
+          "id": "deep_house_soulful",
+          "distinction": "Hip-hop attitude and sampled hooks rather than soulful sung lead and sustained harmonic accompaniment."
+        }
+      ],
+      "geo_rationale": {
+        "anchor": [43.3, 5.37, "Marseille", "Europe"],
+        "basis": "Artist biography explicitly locates early record collecting and career in Marseille; anchor represents duo lineage, while online and club distribution is international."
+      },
+      "membership_evidence": {
+        "authority": "EveryNoise genre-label membership only",
+        "comparison_status": "missing",
+        "comparison_file": "CodexMusica-genre-comparison.json",
+        "review": "Existing names, IDs and nearest musical scopes checked; no equivalent replaced.",
+        "direct_retrieval": "All five EveryNoise genre URLs attempted with public web retrieval; inaccessible in this session. The supplied comparison establishes label membership; musical claims use the separately accessed sources."
+      },
+      "authored_recording_model": {
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "limits": "All numerical axes, room selection, exact instrument models, bit depths, effects and chain configuration are authored operational defaults. Source-supported genre traits and recording identities are listed separately; none is a forensic session reconstruction."
+      }
+    },
+    {
+      "id": "ambient_dub_techno",
+      "source_label": "ambient dub techno",
+      "every_noise_url": "https://everynoise.com/engenremap-ambientdubtechno.html",
+      "sources": [
+        {
+          "url": "https://soma-records.bandcamp.com/album/sommer",
+          "title": "Sommer — Deepchord — Soma Records",
+          "kind": "label-published recording description",
+          "support": "Detroit dub-techno artist; 2012 album; shifting textures and rhythmic elements; field recordings near artist home beach; bass/percussion inside an atmospheric soundfield; headphone and PA use.",
+          "limits": "No model of synth, microphone, EQ or reverb is specified by the label.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://www.somarecords.com/shop/music/soma_497/",
+          "title": "Campfire EP — Deepchord",
+          "kind": "label release page",
+          "support": "Confirms the later exemplar, three track titles, techno classification and release date 18 September 2017.",
+          "limits": "Used only for recording identity/date; current page contains no detailed sonic description.",
+          "accessed": "2026-09-29"
+        }
+      ],
+      "choices": {
+        "ensemble": "Sustained polyphonic synthesis, environmental sampler layers and soft synthesized percussion foreground atmosphere while retaining techno-derived pulse.",
+        "parts": "Jupiter-8 polyphonic-pad lineage and sampled field-workflow are authored catalog equivalents. Sine kick, hissy snare/hat and gentle swing represent subdued pulses.",
+        "chain": "Stereo XY field capture/portable preamp plus DAW summing, gentle optics, tilt EQ, tape-echo character and wide stereo reverb/panning are authored equivalents. No claim that Sommer used these named devices or this exact signal path.",
+        "axes": "Authored full13: one harmonic field, fixed temperament, plain melodic detail, mildly metrical changing pulse, moderate layers, lower intensity, no singing, neutral grain, subordinate percussion, cyclic evolution. Transmission neutral.",
+        "room": "Auteur home studio models assembly and processing of field material; it is not an asserted physical room on the album."
+      },
+      "neighbors": [
+        {
+          "id": "dub_techno",
+          "distinction": "Environmental atmospheres carry a principal voice above the soft beat instead of compact chord-and-kick dub tools."
+        },
+        {
+          "id": "ambient_dub",
+          "distinction": "Techno pulse and synthetic palette, without prescribing reggae riddim tuning, live bass and melodica."
+        },
+        {
+          "id": "ambient_techno",
+          "distinction": "Specifically dub-processing space and environmental sampling rather than all listening-techno."
+        }
+      ],
+      "geo_rationale": {
+        "anchor": [42.33, -83.05, "Detroit / Deepchord recording lineage", "North America"],
+        "basis": "Soma describes Deepchord as a Detroit dub-techno artist. Anchor marks the reference producer lineage, not a single origin for a global style."
+      },
+      "membership_evidence": {
+        "authority": "EveryNoise genre-label membership only",
+        "comparison_status": "missing",
+        "comparison_file": "CodexMusica-genre-comparison.json",
+        "review": "Existing names, IDs and nearest musical scopes checked; no equivalent replaced.",
+        "direct_retrieval": "All five EveryNoise genre URLs attempted with public web retrieval; inaccessible in this session. The supplied comparison establishes label membership; musical claims use the separately accessed sources."
+      },
+      "authored_recording_model": {
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "limits": "All numerical axes, room selection, exact instrument models, bit depths, effects and chain configuration are authored operational defaults. Source-supported genre traits and recording identities are listed separately; none is a forensic session reconstruction."
+      }
+    },
+    {
+      "id": "hypnotic_techno",
+      "source_label": "hypnotic techno",
+      "every_noise_url": "https://everynoise.com/engenremap-hypnotictechno.html",
+      "sources": [
+        {
+          "url": "https://hypnusrecords.com/orb-mag",
+          "title": "About us — Hypnus Records / Michel Iseneld interview",
+          "kind": "label-published firsthand founder interview",
+          "support": "Founded in Stockholm suburbs in 2013; cinematic atmosphere, deep techno and psychedelia; artist network includes Luigi Tozzi and Feral.",
+          "limits": "Does not specify a universal hardware method, drum machine or mix chain.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://www.delsinrecords.com/release.php?release_id=6363",
+          "title": "Variations — Donato Dozzy — Spazio Disponibile",
+          "kind": "distributor-published label release description",
+          "support": "2019 Parola rework with repetitive processed vocals and rolling drums; complementary melodic dreamy 12H.5 remix.",
+          "limits": "Supports selected arrangement traits; Eurorack and effects choices remain authored.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://hypnus.bandcamp.com/album/deep-blue",
+          "title": "Deep Blue — Luigi Tozzi — Hypnus Records",
+          "kind": "label recording page",
+          "support": "Confirms 2014 recording exemplar, Luigi Tozzi writing/production/mixing, hypnotic techno tags and Stockholm label base.",
+          "limits": "User fan comments are not used as evidence.",
+          "accessed": "2026-09-29"
+        }
+      ],
+      "choices": {
+        "ensemble": "Sequenced modular figure plus analog drum-machine pulse and atmospheric sampling emphasizes percussion-led cyclic depth. Modular is a usable authored architecture, not a genre requirement.",
+        "parts": "Arpeggiated sequencer, dense self-modulation, rigid drum grid and environmental sampler differ from ambient poly-pad seed and modular-techno sparse plucky patch.",
+        "chain": "Parallel dynamics with clean EQ, offset stereo delay and hall depth are authored contemporary settings; direct electronic input, digital master and DAW summing are not historical studio claims.",
+        "axes": "Authored full13: limited harmonic movement, equal temperament, plain melody, strict meter, layered texture, moderate intensity, instrumental, neutral grain, foreground drums, high cyclicity. Transmission neutral; generativity is moderate because this is the arranged-recording strand.",
+        "room": "Treated studio is a neutral authored monitoring choice."
+      },
+      "neighbors": [
+        {
+          "id": "minimal_techno",
+          "distinction": "Layered atmosphere and interlocking figures rather than maximally reduced dry elements."
+        },
+        {
+          "id": "ambient_dub_techno",
+          "distinction": "Keeps percussion prominent rather than placing field-recording atmosphere above the beat."
+        },
+        {
+          "id": "modular_techno",
+          "distinction": "Arrangement/listening aesthetic rather than defining a patch-performance method."
+        }
+      ],
+      "geo_rationale": {
+        "anchor": [59.33, 18.07, "Stockholm / Hypnus label network", "Europe"],
+        "basis": "The label founder explicitly identifies Stockholm suburbs. This network anchor coexists with important Italian producers and other international scenes."
+      },
+      "membership_evidence": {
+        "authority": "EveryNoise genre-label membership only",
+        "comparison_status": "missing",
+        "comparison_file": "CodexMusica-genre-comparison.json",
+        "review": "Existing names, IDs and nearest musical scopes checked; no equivalent replaced.",
+        "direct_retrieval": "All five EveryNoise genre URLs attempted with public web retrieval; inaccessible in this session. The supplied comparison establishes label membership; musical claims use the separately accessed sources."
+      },
+      "authored_recording_model": {
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "limits": "All numerical axes, room selection, exact instrument models, bit depths, effects and chain configuration are authored operational defaults. Source-supported genre traits and recording identities are listed separately; none is a forensic session reconstruction."
+      }
+    },
+    {
+      "id": "modular_techno",
+      "source_label": "modular techno",
+      "every_noise_url": "https://everynoise.com/engenremap-modulartechno.html",
+      "sources": [
+        {
+          "url": "https://www.superbooth.com/en/events/archive-2025/details/surgeon.html",
+          "title": "Surgeon — Superbooth 2025 performance archive",
+          "kind": "first-party performance institution/program",
+          "support": "Documents live modular synthesis, spontaneous composition, improvisation and a Birmingham resident artist.",
+          "limits": "Program does not list modules or a recording signal path.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://dj-surgeon.bandcamp.com/album/dtrlp3-from-farthest-known-objects",
+          "title": "DTRLP3 From Farthest Known Objects — Surgeon",
+          "kind": "artist-published recording notes",
+          "support": "2016 album, written and produced by Anthony Child; exploratory hardware process; Birmingham artist profile.",
+          "limits": "Artist narrative is imaginative; galaxy reception is not interpreted as literal recording provenance. Fan comments excluded.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://www.musicradar.com/news/surgeon-interview",
+          "title": "Surgeon on how he ditched the studio to record an album with a tabletop live setup",
+          "kind": "firsthand artist interview",
+          "support": "Describes modular improvisation, coherent strict sequencing, hands-on limitations and later synth takes arranged in Ableton.",
+          "limits": "2023 interview concerns a later evolving rig; not used as a hardware list for the 2016 album.",
+          "accessed": "2026-09-29"
+        }
+      ],
+      "choices": {
+        "ensemble": "Patchable synth and synthesized drum voices form two editable catalog chairs. Their roles can share one real rack; the partition does not assert two specific physical boxes.",
+        "parts": "Eurorack sequencer, west-coast plucky/timbral density, FM kick and two-oscillator snare are authored stand-ins for volatile patch percussion. Ring modulation and digital delay distinguish it from hypnotic dense-ambient patch.",
+        "chain": "Uncompressed line capture, parametric shaping and a digital/DAW finish are authored model choices. Hardware module identity, mic/preamp brand and exact session chain are not attested.",
+        "axes": "Authored full13: minimal harmonic progression, sequenced pitch, strict base pulse, timbral density, high real-time generativity, synthesized rough grain, foreground drums and cyclical figures. Transmission neutral.",
+        "room": "Auteur home studio represents the performer-controlled patch and recording process."
+      },
+      "neighbors": [
+        {
+          "id": "industrial_techno",
+          "distinction": "Patch-generation and improvisation define the practice; extreme distortion is optional."
+        },
+        {
+          "id": "hypnotic_techno",
+          "distinction": "Technique and performance workflow rather than a single atmospheric arrangement aesthetic."
+        },
+        {
+          "id": "minimal_techno",
+          "distinction": "Live timbral intervention and synthesized percussive variability, without requiring extreme subtraction."
+        }
+      ],
+      "geo_rationale": {
+        "anchor": [52.49, -1.89, "Birmingham / Surgeon recording lineage", "Europe"],
+        "basis": "Surgeon artist page identifies Birmingham; anchor represents this selected reference, not exclusive origin of modular-techno practice."
+      },
+      "membership_evidence": {
+        "authority": "EveryNoise genre-label membership only",
+        "comparison_status": "missing",
+        "comparison_file": "CodexMusica-genre-comparison.json",
+        "review": "Existing names, IDs and nearest musical scopes checked; no equivalent replaced.",
+        "direct_retrieval": "All five EveryNoise genre URLs attempted with public web retrieval; inaccessible in this session. The supplied comparison establishes label membership; musical claims use the separately accessed sources."
+      },
+      "authored_recording_model": {
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "limits": "All numerical axes, room selection, exact instrument models, bit depths, effects and chain configuration are authored operational defaults. Source-supported genre traits and recording identities are listed separately; none is a forensic session reconstruction."
+      }
+    }
+  ],
+  "validation": {
+    "reference_integrity": "node scripts/validate.js passes; 2593 traditions, all references resolve",
+    "identity": "node scripts/check_duplicates.js passes, 0 unruled collisions; existing unresolved instrument tar label advisory unchanged",
+    "focused": "Actual browser importTradition/compileRecipeStack versus connector seed/render, all four formats; CLI optimized roster and applicable authored slot survival; nonempty <=1000; no exemplar artist leakage. Final results recorded after last edits.",
+    "focused_results": [
+      {
+        "id": "bass_house",
+        "app_connector_parity": true,
+        "authored_slot_applications": 11,
+        "cli_roster_preserved": true,
+        "cli_recipe_chars": 383,
+        "format_chars": {
+          "rich": 994,
+          "tags": 973,
+          "prose": 383,
+          "compact": 492
+        }
+      },
+      {
+        "id": "g_house",
+        "app_connector_parity": true,
+        "authored_slot_applications": 13,
+        "cli_roster_preserved": true,
+        "cli_recipe_chars": 374,
+        "format_chars": {
+          "rich": 996,
+          "tags": 997,
+          "prose": 314,
+          "compact": 403
+        }
+      },
+      {
+        "id": "ambient_dub_techno",
+        "app_connector_parity": true,
+        "authored_slot_applications": 12,
+        "cli_roster_preserved": true,
+        "cli_recipe_chars": 483,
+        "format_chars": {
+          "rich": 984,
+          "tags": 987,
+          "prose": 410,
+          "compact": 536
+        }
+      },
+      {
+        "id": "hypnotic_techno",
+        "app_connector_parity": true,
+        "authored_slot_applications": 12,
+        "cli_roster_preserved": true,
+        "cli_recipe_chars": 387,
+        "format_chars": {
+          "rich": 1000,
+          "tags": 1000,
+          "prose": 366,
+          "compact": 471
+        }
+      },
+      {
+        "id": "modular_techno",
+        "app_connector_parity": true,
+        "authored_slot_applications": 8,
+        "cli_roster_preserved": true,
+        "cli_recipe_chars": 421,
+        "format_chars": {
+          "rich": 968,
+          "tags": 996,
+          "prose": 311,
+          "compact": 743
+        }
+      }
+    ]
+  }
+}

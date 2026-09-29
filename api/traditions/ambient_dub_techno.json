@@ -1,0 +1,134 @@
+{
+  "id": "ambient_dub_techno",
+  "name": "Ambient dub techno",
+  "family": "electronic",
+  "lineage": "Ambient-facing extension of dub techno represented by Detroit producer Deepchord and Soma releases such as Sommer (2012) and Campfire EP (2017). Field-recording atmospheres, submerged pulses and echo space carry the arrangement beyond the compact chord-and-kick dub-techno tool.",
+  "recipe": "classic early-2010s ambient dub techno, bass System, dub descendants branch, ambient experimental electric, techno electronic dance ambient house berlin school. sustained pad analog poly synth, field textural sampler, drum machine analog. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter true-stereo reverb auto-panner.",
+  "recipe_chars": 483,
+  "score": 32.904,
+  "config": {
+    "traditions": [
+      "ambient_dub_techno",
+      "ambient_house",
+      "berlin_school"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 14.785,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -1.015
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 5.690000000000001,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.45499999999999996,
+          "sampler_workflow": 8.629464285714288,
+          "sampler_classic_context": 1.95
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "noise_only_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 0.45499999999999996
+        }
+      }
+    ],
+    "pinned": {
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_pair_xy",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": "comp_optical",
+      "eq": "eq_tilt",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "tape_echo",
+      "fx_true_stereo_reverb",
+      "fx_auto_panner"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "jupiter_8",
+      "poly_voices": "poly_8_voice",
+      "poly_maker_lineage": "poly_roland_jupiter",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_field_recordings",
+      "sampler_classic_context": "sampler_classic_post",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "noise_only_snare",
+      "hat_voice": "noise_hat",
+      "shuffle_quantize": "shuffle_low"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_xy",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_optical",
+    "chain_eq": "eq_tilt",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "tape_echo",
+      "fx_true_stereo_reverb",
+      "fx_auto_panner"
+    ]
+  }
+}

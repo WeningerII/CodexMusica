@@ -1,0 +1,574 @@
+{
+  "lane": "hiphop",
+  "reviewed_on": "2026-09-29",
+  "baseline_commit": "fbd2644241757e194b08fe0e8a6d5bf1880a4bc0",
+  "scope": "Five assigned missing EveryNoise labels; existing source rows preserved.",
+  "model_policy": "Research grounds label scope, repertoire, cultural anchors and documented performance descriptions. Every explicit room, chain stage, tuning, numeric effect setting, sampler resolution/swing or instrument variant is an authored recording model unless a source note says otherwise. None of these recipes is presented as measured audio or an exact historical session reconstruction. The 808 instrument card represents 808-derived programmed rhythm, and the selected modern recreation does not imply use of a 1980s hardware unit.",
+  "entries": [
+    {
+      "id": "abstract_hip_hop",
+      "source_label": "abstract hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-abstracthiphop.html",
+      "sources": [
+        {
+          "url": "https://rhymesayers.com/pages/aesop-rock",
+          "title": "Aesop Rock — Official Artist Page | Rhymesayers",
+          "type": "label biography",
+          "support": "Explicitly identifies dense and abstract wordplay and his Def Jux affiliation; supports the writing-led description."
+        },
+        {
+          "url": "https://rhymesayers.com/blogs/news/aesop-rock-labor-days-20-year-anniversary",
+          "title": "Aesop Rock Labor Days 20 Year Anniversary",
+          "type": "label publication with artist first-person account",
+          "support": "Dates the album to 2001, names collaborators, and includes Aesop’s account of recording on a Roland VS-880, the Manhattan day job and Blockhead’s sample ear."
+        },
+        {
+          "url": "https://r4nt.com/2004/interview-with-blockhead/",
+          "title": "Interview with Blockhead — R4NT, May 1, 2004",
+          "type": "firsthand interview",
+          "support": "Blockhead explains finding samples by playing records and making music with a sampler and Pro Tools; NYC influence supports the New York anchor. Interview concerns his practice in 2004, not exact Labor Days session specifications."
+        }
+      ],
+      "model_choice": "A sample-based solo-MC strand of a wider writing-led genre: rhythmic speech with narrative articulation and a single lead, sixteen-bit chopped beat/sample cards with moderate swing. Ensoniq-model sampler is an authored catalog proxy, not an attested Labor Days instrument.",
+      "nearby_distinctions": {
+        "conscious_hip_hop": "Defined by socially or politically engaged topics, not necessarily associative abstract writing.",
+        "alternative_hip_hop": "A broader category; abstract MC writing selects a narrower emphasis.",
+        "instrumental_hip_hop": "Does not require a foreground MC, unlike this selected model."
+      },
+      "geo_rationale": "Manhattan anchors the selected Labor Days collaborators and Aesop’s first-person account of its creation; not an exclusive birthplace claim for abstract hip-hop.",
+      "comparison_status": "missing",
+      "every_noise_use": "Source genre label and comparison membership only. Direct EveryNoise genre-page retrieval failed in this session; no instrumentation, history or membership of a named exemplar is inferred from that failure.",
+      "chain_status": "authored_studio_model",
+      "axis_policy": "All thirteen integer coordinates are authored catalog positions for the selected model, not historical measurements.",
+      "geo": [40.72, -74, "Manhattan / New York recording anchor", "North America"],
+      "authored_settings": {
+        "instruments": ["voice", "sampler_drum_machine", "sampler_classic"],
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain": {
+          "chain_mic": "condenser_fet",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_fet",
+          "chain_eq": "eq_active_parametric",
+          "chain_medium": "digital_std"
+        },
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_vibrato": "straight_tone",
+          "voice_microtone": "tempered_voice",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break",
+          "sampler_classic_context": "sampler_classic_hiphop",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "voice_articulation": "narrative_voice",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 2,
+          "density": 1,
+          "transmission": 0,
+          "improv": -1,
+          "soundTech": 2,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 1,
+          "percussion": 2,
+          "cyclicity": 1
+        }
+      },
+      "verification": {
+        "checked": true,
+        "reference_validation": "scripts/validate.js: VALID, all references resolve",
+        "connector_browser_parity": "Byte-identical actual app import/compile vs connector seed/render across all four formats",
+        "authored_pins_checked_per_surface": 23,
+        "format_lengths": {
+          "rich": 997,
+          "tags": 997,
+          "prose": 301,
+          "compact": 960
+        },
+        "optimized_cli_recipe_chars": 351,
+        "optimized_cli_roster": ["voice", "sampler_drum_machine", "sampler_classic"],
+        "optimized_cli_context_traditions": ["abstract_hip_hop", "mafioso_rap", "boom_bap"],
+        "artist_name_leaks": 0,
+        "issues": []
+      }
+    },
+    {
+      "id": "alternative_hip_hop",
+      "source_label": "alternative hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-alternativehiphop.html",
+      "sources": [
+        {
+          "url": "https://lcweb2.loc.gov/static/programs/national-recording-preservation-board/documents/3-Feet-High-and-Rising.pdf",
+          "title": "3 Feet High and Rising — Library of Congress National Recording Registry essay by Vikki Tobak",
+          "type": "institutional recording essay containing producer testimony",
+          "support": "Documents Long Island / Amityville formation, Prince Paul’s demo overdubs and Calliope sessions, layered sample construction and skits; producer quotations support the selected collage strand."
+        },
+        {
+          "url": "https://www.wearedelasoul.com/",
+          "title": "De La Soul — official website",
+          "type": "artist recording catalog",
+          "support": "Lists 3 Feet High & Rising and De La Soul Is Dead; anchors the named repertoire, not every sonic claim."
+        }
+      ],
+      "model_choice": "Historical sample-collage strand with response-lane vocal exchanges, layered twelve-bit sample playback, swung breaks and ornamental turntable gestures. The SP-1200 proxy, bit depth and swing setting are authored. A period-compatible tape/inline-console chain is a model, not a claim about Calliope’s exact desk or tape speed.",
+      "nearby_distinctions": {
+        "conscious_hip_hop": "A topical orientation, whereas alternative covers formal and musical departures.",
+        "abstract_hip_hop": "Writing-led narrower emphasis, not coextensive with the alternative umbrella.",
+        "boom_bap": "A narrower rhythmic production designation; alternative can encompass live bands and electronic forms."
+      },
+      "geo_rationale": "Amityville represents the documented formative cultural circle; the essay places actual demo sessions at Calliope in New York. Coordinates identify the town approximately, not a studio address.",
+      "comparison_status": "missing",
+      "every_noise_use": "Source genre label and comparison membership only. Direct EveryNoise genre-page retrieval failed in this session; no instrumentation, history or membership of a named exemplar is inferred from that failure.",
+      "chain_status": "authored_studio_model",
+      "axis_policy": "All thirteen integer coordinates are authored catalog positions for the selected model, not historical measurements.",
+      "geo": [40.68, -73.42, "Amityville / Long Island cultural anchor", "North America"],
+      "authored_settings": {
+        "instruments": ["voice", "sampler_drum_machine", "sampler_classic", "turntable"],
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_80s_indie_commercial_us",
+        "chain": {
+          "chain_mic": "condenser_fet",
+          "chain_pre": "pre_console_inline_strip",
+          "chain_console": "console_british_class_a_70s",
+          "chain_comp": "comp_dbx_160_vca",
+          "chain_eq": "eq_console_surgical",
+          "chain_medium": "tape_30ips"
+        },
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_vibrato": "straight_tone",
+          "voice_microtone": "tempered_voice",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "heavy_swing",
+          "sample_processing": "chopped_break",
+          "sampler_classic_context": "sampler_classic_hiphop",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_workflow": "sampler_loop_layered",
+          "voice_articulation": "call_response_voice",
+          "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+          "turntable_technique": "turntable_chirp_baby"
+        },
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 2,
+          "density": 1,
+          "transmission": 0,
+          "improv": -1,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 1,
+          "percussion": 2,
+          "cyclicity": 2
+        }
+      },
+      "verification": {
+        "checked": true,
+        "reference_validation": "scripts/validate.js: VALID, all references resolve",
+        "connector_browser_parity": "Byte-identical actual app import/compile vs connector seed/render across all four formats",
+        "authored_pins_checked_per_surface": 25,
+        "format_lengths": {
+          "rich": 997,
+          "tags": 995,
+          "prose": 345,
+          "compact": 452
+        },
+        "optimized_cli_recipe_chars": 421,
+        "optimized_cli_roster": ["voice", "sampler_drum_machine", "sampler_classic", "turntable"],
+        "optimized_cli_context_traditions": ["alternative_hip_hop", "boom_bap", "mafioso_rap"],
+        "artist_name_leaks": 0,
+        "issues": []
+      }
+    },
+    {
+      "id": "comedy_rap",
+      "source_label": "comedy rap",
+      "every_noise_url": "https://everynoise.com/engenremap-comedyrap.html",
+      "sources": [
+        {
+          "url": "https://www.thelonelyisland.com/videos/lazy-sunday/",
+          "title": "Lazy Sunday — The Lonely Island",
+          "type": "artist video/repertoire page",
+          "support": "Identifies Andy and Chris Parnell rapping a comic Sunday narrative; dates the SNL Digital Short December 17, 2005 and connects it to Incredibad."
+        },
+        {
+          "url": "https://www.thelonelyisland.com/discography/incredibad/",
+          "title": "Incredibad — The Lonely Island",
+          "type": "artist album page",
+          "support": "Dates the album February 10, 2009 and lists rap tracks and collaborators. The page also demonstrates a mixed-style album; model selects its rap repertoire, not every song on it."
+        },
+        {
+          "url": "https://www.thetouratnbcstudios.com/",
+          "title": "The Tour at NBC Studios — official NBC site",
+          "type": "broadcaster institutional location",
+          "support": "Names Saturday Night Live among the shows made at NBC Studios and places the studios at 30 Rockefeller Plaza, Manhattan; supports the selected New York television/recording-context anchor, not the exact room where Lazy Sunday vocals were tracked."
+        }
+      ],
+      "model_choice": "A contemporary comedy-song studio model selecting rapid comic diction, response phrases, doubled delivery, straight-grid layered drum one-shots and pitched sampler stabs. No claim that every comedy rapper uses this arrangement, MPC model or sample resolution.",
+      "nearby_distinctions": {
+        "alternative_hip_hop": "Defined broadly by musical departure, while comedy rap is organized by comic purpose.",
+        "stand_up_comedy": "Spoken stage monologue need not retain rap meter, beat or song form.",
+        "hip_hop": "The wider tradition includes serious and comic purposes; occasional jokes are insufficient to define comedy rap."
+      },
+      "geo_rationale": "New York / SNL anchors the selected Lazy Sunday television setting, confirmed by the artist video page and NBC’s Manhattan location page. It is a recording-context point, not a claim about the exact vocal tracking room or birthplace of comedy rap.",
+      "comparison_status": "missing",
+      "every_noise_use": "Source genre label and comparison membership only. Direct EveryNoise genre-page retrieval failed in this session; no instrumentation, history or membership of a named exemplar is inferred from that failure.",
+      "chain_status": "authored_studio_model",
+      "axis_policy": "All thirteen integer coordinates are authored catalog positions for the selected model, not historical measurements.",
+      "geo": [40.76, -73.98, "New York / SNL recording anchor", "North America"],
+      "authored_settings": {
+        "instruments": ["voice", "sampler_drum_machine", "sampler_classic"],
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain": {
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_fet",
+          "chain_eq": "eq_active_parametric",
+          "chain_medium": "digital_std"
+        },
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_vibrato": "straight_tone",
+          "voice_microtone": "tempered_voice",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered",
+          "sampler_classic_context": "sampler_classic_hiphop",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "voice_articulation": "patter_voice",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": -1,
+          "meter": 2,
+          "density": 0,
+          "transmission": 0,
+          "improv": -2,
+          "soundTech": 2,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        }
+      },
+      "verification": {
+        "checked": true,
+        "reference_validation": "scripts/validate.js: VALID, all references resolve",
+        "connector_browser_parity": "Byte-identical actual app import/compile vs connector seed/render across all four formats",
+        "authored_pins_checked_per_surface": 23,
+        "format_lengths": {
+          "rich": 995,
+          "tags": 999,
+          "prose": 295,
+          "compact": 966
+        },
+        "optimized_cli_recipe_chars": 367,
+        "optimized_cli_roster": ["voice", "sampler_drum_machine", "sampler_classic"],
+        "optimized_cli_context_traditions": ["comedy_rap", "abstract_hip_hop", "nerdcore"],
+        "artist_name_leaks": 0,
+        "issues": []
+      }
+    },
+    {
+      "id": "dark_trap",
+      "source_label": "dark trap",
+      "every_noise_url": "https://everynoise.com/engenremap-darktrap.html",
+      "sources": [
+        {
+          "url": "https://nightlovell.bandcamp.com/album/concept-vague",
+          "title": "Concept Vague — Night Lovell",
+          "type": "artist album/recording page",
+          "support": "Provides the 2014 project and credits Dark Light to Night Lovell’s production. Used as an artist recording anchor; fan comments on the page are not evidence."
+        },
+        {
+          "url": "https://kindaneat.net/night-lovell/",
+          "title": "Episode 119: Night Lovell — Kinda Neat, November 2, 2016",
+          "type": "firsthand interview and studio performance",
+          "support": "Introduces the Ottawa artist as baritone-voiced and hosts his Contraband performance; supports low vocal character and the Ottawa anchor."
+        },
+        {
+          "url": "https://soundcloud.com/night_lovell/sets/concept-vague",
+          "title": "Concept Vague — Night Lovell original SoundCloud album playlist",
+          "type": "artist recording playlist",
+          "support": "Original December 2014 artist playlist links directly to the selected Bandcamp album, corroborating its provenance. No location is inferred from the cryptic Bandcamp profile coordinates."
+        }
+      ],
+      "model_choice": "A restrained ominous digital trap strand with a single low speech-derived lead, a sustained synth pad and 808-derived bass pulse. Triangle oscillator, saturating filter, minimal vocal effort, hall reverb and modern digital 808 recreation are authored creative approximations; they are not measured features of Concept Vague.",
+      "nearby_distinctions": {
+        "cloud_rap": "Broader atmospheric rap; this model privileges ominous baritone and weighty bass rather than weightless wash.",
+        "memphis_rap": "The existing historical cassette-economy lineage, not this 2010s digital model.",
+        "rage_rap": "Selects aggressive lead-synth and high-energy presentation; the dark model uses restrained vocal/pad space."
+      },
+      "geo_rationale": "Ottawa is explicitly documented by the performer interview and represents this selected recording lineage. Dark trap is internet-distributed and has no exclusive Ottawa origin claim.",
+      "comparison_status": "missing",
+      "every_noise_use": "Source genre label and comparison membership only. Direct EveryNoise genre-page retrieval failed in this session; no instrumentation, history or membership of a named exemplar is inferred from that failure.",
+      "chain_status": "authored_studio_model",
+      "axis_policy": "All thirteen integer coordinates are authored catalog positions for the selected model, not historical measurements.",
+      "geo": [45.42, -75.7, "Ottawa recording and artist anchor", "North America"],
+      "authored_settings": {
+        "instruments": ["voice", "drum_machine_808", "analog_synth"],
+        "room": "carpeted_bedroom",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_minimal_daw_bedroom",
+        "chain": {
+          "chain_mic": "condenser_fet",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_brick_wall_limiter",
+          "chain_eq": "eq_active_parametric",
+          "chain_medium": "digital_std",
+          "chain_fx": ["hall_reverb"]
+        },
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_vibrato": "straight_tone",
+          "voice_microtone": "tempered_voice",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern",
+          "voice_articulation": "spoken_voice",
+          "voice_effort": "effort_minimal_undersung",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "diode_cascade",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "axes": {
+          "harm": -1,
+          "pitch": -2,
+          "ornament": -1,
+          "meter": 2,
+          "density": -1,
+          "transmission": 0,
+          "improv": -1,
+          "soundTech": 2,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 1,
+          "percussion": 2,
+          "cyclicity": 2
+        }
+      },
+      "verification": {
+        "checked": true,
+        "reference_validation": "scripts/validate.js: VALID, all references resolve",
+        "connector_browser_parity": "Byte-identical actual app import/compile vs connector seed/render across all four formats",
+        "authored_pins_checked_per_surface": 23,
+        "format_lengths": {
+          "rich": 998,
+          "tags": 993,
+          "prose": 277,
+          "compact": 982
+        },
+        "optimized_cli_recipe_chars": 398,
+        "optimized_cli_roster": ["voice", "drum_machine_808", "analog_synth"],
+        "optimized_cli_context_traditions": ["dark_trap", "christian_trap", "country_rap"],
+        "artist_name_leaks": 0,
+        "issues": []
+      }
+    },
+    {
+      "id": "christian_trap",
+      "source_label": "christian trap",
+      "every_noise_url": "https://everynoise.com/engenremap-christiantrap.html",
+      "sources": [
+        {
+          "url": "https://www.reachrecords.com/artists/1k-phew/",
+          "title": "1K Phew — Reach Records artist biography",
+          "type": "label biography with artist testimony",
+          "support": "Describes What’s Understood 2 as trap shaped by East Atlanta and connects his music to faith/culture and testimony."
+        },
+        {
+          "url": "https://www.reachrecords.com/1k-phew-x-never-too-late-x-out-now/",
+          "title": "1K Phew x Never Too Late x Out Now — Reach Records, October 27, 2017",
+          "type": "label release announcement with artist testimony",
+          "support": "Provides the mixtape release date and artist’s faith-and-hope message; frames the music for both club and church."
+        },
+        {
+          "url": "https://www.reachrecords.com/videos/by/1k-phew/",
+          "title": "Artist 1K Phew — Reach Records official videos",
+          "type": "label recording catalog",
+          "support": "Lists Church House Trap House among official recordings. Confirms repertoire rather than a precise instrument or effect setting."
+        },
+        {
+          "url": "https://www.reachrecords.com/releases/by/1k-phew/",
+          "title": "Artist 1K Phew — Reach Records releases",
+          "type": "label release catalog",
+          "support": "Dates What’s Understood 2 October 31, 2019, Never Too Late October 27, 2017 and As I Am October 7, 2022, which includes Church House Trap House."
+        }
+      ],
+      "model_choice": "East Atlanta faith-centered trap production with 808-derived bass, short synth notes, punctuated MC delivery and ad-lib responses. Subtle 50–100 ms correction, oscillator/filter/envelope settings, digital delay and the Atlanta archetype are authored settings, not transcriptions of 1K Phew session documentation.",
+      "nearby_distinctions": {
+        "christian_hip_hop": "The existing broad thematic genre spans multiple beat traditions; Christian trap narrows to the trap-production strand.",
+        "trap": "The broad production umbrella is not restricted to faith/hope testimony.",
+        "pentecostal_gospel": "A different performance tradition; no choir, organ or congregation is inferred merely from Christian identity."
+      },
+      "geo_rationale": "East Atlanta is the artist’s explicitly documented formative trap context. Coordinates are an approximate cultural anchor; no source establishes a specific recording-room address.",
+      "comparison_status": "missing",
+      "every_noise_use": "Source genre label and comparison membership only. Direct EveryNoise genre-page retrieval failed in this session; no instrumentation, history or membership of a named exemplar is inferred from that failure.",
+      "chain_status": "authored_studio_model",
+      "axis_policy": "All thirteen integer coordinates are authored catalog positions for the selected model, not historical measurements.",
+      "geo": [33.73, -84.35, "East Atlanta cultural anchor", "North America"],
+      "authored_settings": {
+        "instruments": ["voice", "drum_machine_808", "analog_synth"],
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_atlanta_trap_2010s",
+        "chain": {
+          "chain_mic": "condenser_fet",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_pumping",
+          "chain_eq": "eq_dynamic",
+          "chain_medium": "digital_high",
+          "chain_fx": ["digital_delay"]
+        },
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_vibrato": "straight_tone",
+          "voice_microtone": "tempered_voice",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern",
+          "voice_articulation": "call_response_voice",
+          "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+          "electronic_technique": "electronic_pluck_short",
+          "oscillator": "square_pulse",
+          "filter_topology": "svf",
+          "envelope": "pluck_env",
+          "modulation": "lfo_filter"
+        },
+        "axes": {
+          "harm": 1,
+          "pitch": -2,
+          "ornament": 0,
+          "meter": 2,
+          "density": 0,
+          "transmission": 0,
+          "improv": -1,
+          "soundTech": 2,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        }
+      },
+      "verification": {
+        "checked": true,
+        "reference_validation": "scripts/validate.js: VALID, all references resolve",
+        "connector_browser_parity": "Byte-identical actual app import/compile vs connector seed/render across all four formats",
+        "authored_pins_checked_per_surface": 22,
+        "format_lengths": {
+          "rich": 990,
+          "tags": 991,
+          "prose": 316,
+          "compact": 418
+        },
+        "optimized_cli_recipe_chars": 429,
+        "optimized_cli_roster": ["voice", "drum_machine_808", "analog_synth"],
+        "optimized_cli_context_traditions": ["christian_trap", "dark_trap", "southern_gospel"],
+        "artist_name_leaks": 0,
+        "issues": []
+      }
+    }
+  ],
+  "verification_notes": [
+    "The temporary verification harness called scripts/_load_app.js to execute the actual browser source and scripts/_seed_workspace.js for connector seeding. It compared all formats and validated every applicable authored part choice on each card.",
+    "Actual recipe.js --tradition <id> --json output was checked after optimization. Neighbor labels may be stapled as scoring context; authored primary rosters and all applicable pins survived.",
+    "Node child-process spawning was blocked in this runtime (EPERM); shell-invoked CLI commands supplied JSON and recipe text to the verification harness. No test was omitted as a result.",
+    "Final integrated signatures and generated artifacts are owned by the root integration pass; this lane did not edit them."
+  ],
+  "verification_summary": {
+    "validate": "PASS — 2593 traditions; all references resolve",
+    "duplicate_gate": "PASS — 0 unruled identity collisions; 1 known unresolved instrument short-label collision and 319 advisory pairs in the existing catalog",
+    "diff_whitespace": "PASS — git diff --check",
+    "four_format_pairs": 20,
+    "applicable_pin_checks_per_surface": 116,
+    "cli_rosters_preserved": 5,
+    "actual_cli_generations": 10,
+    "timing_seconds": {
+      "initial_reference_validation": 1.43,
+      "combined_cli_and_browser_pin_verification": 5.53,
+      "final_validate_duplicate_and_diff_checks": 2.84
+    },
+    "timing_scope": "Tool-observed elapsed seconds for verification batches; research duration is not estimated."
+  }
+}

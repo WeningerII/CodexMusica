@@ -5,7 +5,7 @@
   "lineage": "Late-2000s American and British metalcore hybrid codified circa 2007-2012 by Attack Attack!, Asking Alexandria and Crossfaith, layering trance supersaw leads, sidechained pads and dubstep-style wobble drops over drop-tuned breakdown riffing, blast beats and triggered kick drums at 130-175 BPM, alternating screamed verses with heavily tuned clean choruses.",
   "recipe": "classic mid-2010s electronicore, distorted Rock, metal branch, thrash metal, emo distorted rock, trance electronic dance trancecore scenecore. thick, breath veiled tone, straight onset, interlocked note trading. drop a seven string electric, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, plucked short envelope digital subtractive, plucked short envelope wavetable synth, sampler drum machine. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 670,
-  "score": 271.632,
+  "score": 271.73,
   "config": {
     "traditions": [
       "electronicore",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 19.049999999999994,
+          "voice_register": 18.854999999999993,
           "voice_quality": 3.5100000000000016,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,12 +42,12 @@
           "voice_articulation": 18.914999999999992,
           "voice_microtone": 18.154999999999998,
           "voice_tradition": 4.517500000000001,
-          "voice_mechanism_compound": 21.191250000000004,
+          "voice_mechanism_compound": 21.296250000000004,
           "voice_estill_quality": 3.185000000000001,
           "voice_speech_song": 17.354999999999997,
           "voice_ensemble_config": 16.574999999999992,
           "voice_ornament_system": 0.045,
-          "voice_pitch_organization": 3.2375000000000007,
+          "voice_pitch_organization": 3.2825000000000006,
           "voice_processing_chain": 4.045749999999999,
           "voice_multitrack_stack": 9.88475
         }
@@ -59,7 +59,7 @@
           "seven_string_technique": "seven_string_djent_palm_mute"
         },
         "scores": {
-          "seven_string_tuning": 2.615625,
+          "seven_string_tuning": 2.900625,
           "seven_string_technique": 0.81
         }
       },
@@ -77,10 +77,10 @@
         "scores": {
           "amp_make": 9.555,
           "body_wood": 5.2,
-          "pickup_config": 5.1025,
-          "string_type": 19.2235,
-          "scale_length_b": 1.215,
-          "fretted_or_not": 0.195,
+          "pickup_config": 5.2,
+          "string_type": 19.1335,
+          "scale_length_b": 1.02,
+          "fretted_or_not": 0.24,
           "bass_technique": 16.625
         }
       },

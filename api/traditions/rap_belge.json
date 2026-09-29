@@ -3,9 +3,9 @@
   "name": "Rap belge",
   "family": "hip_hop",
   "lineage": "Francophone Belgian rap centered on Brussels and Liège, internationally established from 2015 by Damso, Hamza, Roméo Elvis and Caballero & JeanJass — 70-100 BPM trap and cloud-rap production with cold synth pads and heavy 808 sub, a markedly slower and more nasal-conversational flow than Paris rap, Brussels-Congolese slang and dry gallows humor, plus a separate Dutch-language Flemish wing.",
-  "recipe": "classic Western European mid-2010s rap belge, mc Rhythm, intl hip hop branch, us hip hop modern, Afro-diasporic MC rhythm dark plugg dream plugg. vocal fry, rap, straight onset, interlocked note trading. octuple plus dense stack multi track instrument chorus detuned thickener across stack multitrack vocal stack, behringer rd 8 modern clone analog circuit reproduction TR-808, low sub bass analog poly synth, sampled chopped sampler drum machine, stainless steel roundwound sub heavy electric bass. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 711,
-  "score": 255.13,
+  "recipe": "classic Western European mid-2010s rap belge, mc Rhythm, intl hip hop branch, us hip hop modern, Afro-diasporic MC rhythm dark plugg dream plugg. vocal fry, rap, straight onset, interlocked note trading. lead plus dense cluster 5 part stack chorus detuned thickener across stack multitrack vocal stack, behringer rd 8 modern clone analog circuit reproduction TR-808, low sub bass analog poly synth, sampled chopped sampler drum machine, stainless steel roundwound sub heavy electric bass. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 700,
+  "score": 256.17,
   "config": {
     "traditions": [
       "rap_belge",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 1.2349999999999999,
-          "voice_quality": 30.205000000000005,
+          "voice_quality": 30.340000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.7300000000000004,
@@ -44,10 +44,10 @@
           "voice_tradition": 8.125,
           "voice_mechanism_compound": 5.199999999999999,
           "voice_estill_quality": 6.11,
-          "voice_speech_song": 29.419999999999998,
+          "voice_speech_song": 29.765,
           "voice_ensemble_config": 19.044999999999995,
           "voice_ornament_system": 8.645000000000001,
-          "voice_pitch_organization": 2.585,
+          "voice_pitch_organization": 2.54,
           "voice_processing_chain": 18.785,
           "voice_multitrack_stack": 3.770000000000001
         }
@@ -55,12 +55,12 @@
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_octuple_plus",
+          "multitrack_stack_density": "multitrack_density_5_part_cluster",
           "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 1.19,
+          "multitrack_stack_density": 1.3,
           "multitrack_stack_era_aesthetic": 0.06499999999999999,
           "multitrack_stack_processing": 1.4949999999999999
         }
@@ -73,7 +73,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 8.945,
+          "tr808_voice": 9.14,
           "drum_machine_808_context": 5.46,
           "tr808_production_origin": 2.8600000000000003
         }
@@ -87,7 +87,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 13.785,
+          "electronic_technique": 14.175,
           "poly_archetypes": 1.4949999999999999,
           "poly_voices": 1.4949999999999999,
           "poly_maker_lineage": -2.05
@@ -126,7 +126,7 @@
           "string_type": 2.8600000000000003,
           "scale_length_b": 3.705,
           "fretted_or_not": 0.195,
-          "bass_technique": 8.63
+          "bass_technique": 8.540000000000001
         }
       }
     ],

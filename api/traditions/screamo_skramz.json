@@ -5,7 +5,7 @@
   "lineage": "1990s emocore and 2000s screamo subgenre developed from hardcore-punk emotional-aggressive register, characterized by screamed-and-melodic vocal alternation, dynamic-contrasted song structure, and confessional-emotional lyrical content. Saetia, City of Caterpillar, Pg.99, Orchid, and Hot Cross constitute the canonical American skramz roster; the parallel European screamo scene (Funeral Diner, Envy from Japan) extended international reach.",
   "recipe": "classic mid-1990s scramz / screamo, distorted Rock, emo branch, thrash metal groove metal speed metal. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
   "recipe_chars": 631,
-  "score": 337.195,
+  "score": 337.715,
   "config": {
     "traditions": [
       "screamo_skramz",
@@ -30,11 +30,11 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 11.072999999999995,
+          "voice_register": 10.967999999999995,
           "voice_quality": 8.06,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,14 +42,14 @@
           "voice_articulation": 13.324999999999996,
           "voice_microtone": 13.129999999999992,
           "voice_tradition": 4.875,
-          "voice_mechanism_compound": 37.45400000000001,
+          "voice_mechanism_compound": 37.5215,
           "voice_estill_quality": 1.7875,
           "voice_speech_song": 15.859999999999994,
           "voice_ensemble_config": 14.949999999999996,
           "voice_ornament_system": 1.5250000000000001,
           "voice_pitch_organization": 3.185,
-          "voice_processing_chain": 4.03,
-          "voice_multitrack_stack": 7.554
+          "voice_processing_chain": 4.095000000000001,
+          "voice_multitrack_stack": 7.6049999999999995
         }
       },
       {
@@ -70,8 +70,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 39.04775,
-          "amp_make": 19.3825,
+          "electric_technique": 39.178250000000006,
+          "amp_make": 19.512999999999998,
           "body_wood": 16.185000000000002,
           "neck_wood": 1.69,
           "fretboard": 1.625,
@@ -99,10 +99,10 @@
         "scores": {
           "amp_make": 5.655000000000001,
           "body_wood": 1.69,
-          "pickup_config": 0.645,
+          "pickup_config": 0.78,
           "string_type": 14.3,
           "scale_length_b": 1.69,
-          "fretted_or_not": 0.195,
+          "fretted_or_not": 0.24,
           "bass_technique": 14.25
         }
       },

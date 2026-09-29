@@ -2358,6 +2358,38 @@
       "kind": "material-provenance",
       "group": "species-material",
       "gloss": "Zelkova serrata (Japanese keyaki) wood; listed as culture-bearing in the prior audit"
+    },
+    "soft": {
+      "class": "sonic",
+      "note": "Low-intensity delivery or texture; no cultural attribution."
+    },
+    "controlled": {
+      "class": "sonic",
+      "note": "Deliberate dynamic and articulation control. Authored production attribute; no cultural origin claim."
+    },
+    "focused": {
+      "class": "sonic",
+      "note": "Centered attack and timbre. Authored production attribute; no cultural origin claim."
+    },
+    "stable": {
+      "class": "sonic",
+      "note": "Steady tone and timing. Authored production attribute; no cultural origin claim."
+    },
+    "clean-articulation-low-blur": {
+      "class": "sonic",
+      "note": "Clearly separated articulation with little smear. Authored production attribute; no cultural origin claim."
+    },
+    "clean": {
+      "class": "sonic",
+      "note": "Low audible distortion. Authored production attribute; no cultural origin claim."
+    },
+    "present": {
+      "class": "sonic",
+      "note": "Forward audibility in the authored mix. Authored production attribute; no cultural origin claim."
+    },
+    "tight-articulation": {
+      "class": "sonic",
+      "note": "Crisp onset and release alignment. Authored production attribute; no cultural origin claim."
     }
   }
 }

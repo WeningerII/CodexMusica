@@ -1,0 +1,189 @@
+{
+  "id": "albanian_pop",
+  "name": "Albanian pop",
+  "family": "pop",
+  "lineage": "Selected late-2010s Albanian-language electronic commercial pop represented by Elvana Gjata and the producer-led Me tana release of 2019, circulating through Festivali i Kenges and digital singles. This compact dance-song branch coexists with Kosovo and diaspora pop scenes, ballads and acoustic repertoire; Albanian language or nationality alone does not define one sound.",
+  "recipe": "classic 2017-2019 albanian pop, functional Song, europop branch, pop rock synthpop new romanticism. pure, equal tempered, modern pop training, nasal twang velar port open. roland jupiter lineage canonical jupiter 8 1981 osaka short envelope analog poly synth, sampler drum machine, ampeg svt amp rock bass amp ernie ball slinky sub heavy electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter stereo widener / width control.",
+  "recipe_chars": 577,
+  "score": 150.654,
+  "config": {
+    "traditions": [
+      "albanian_pop",
+      "synthpop",
+      "new_romantic"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "mix_voice",
+          "voice_quality": "speech_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_adlib_response_lane"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0.0315,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.585,
+          "voice_articulation": 0.045,
+          "voice_microtone": 34.07500000000001,
+          "voice_tradition": 35.501999999999995,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 2.6000000000000005,
+          "voice_speech_song": 2.275,
+          "voice_ensemble_config": 2.9899999999999998,
+          "voice_ornament_system": 0.3,
+          "voice_pitch_organization": 0.15,
+          "voice_processing_chain": 4.3549999999999995,
+          "voice_multitrack_stack": 2.6650000000000005
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 27.089999999999996,
+          "poly_archetypes": 3.7700000000000005,
+          "poly_voices": 0.585,
+          "poly_maker_lineage": 1.2349999999999994
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 0.2,
+          "sample_bitdepth": 0.195,
+          "sample_swing": 11.295,
+          "sample_processing": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 6.175000000000001,
+          "body_wood": 0.7709999999999999,
+          "pickup_config": 0.195,
+          "string_type": 9.425,
+          "scale_length_b": 0.363,
+          "fretted_or_not": 0.1815,
+          "bass_technique": 1.7099999999999997
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ]
+    },
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_tube",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_brick_wall_limiter",
+      "eq": "eq_dynamic",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay",
+      "fx_stereo_widener"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "parts": {
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_processing_chain": "voice_processing_plate_reverb_medium",
+      "voice_register": "mix_voice",
+      "voice_quality": "speech_voice",
+      "voice_microtone": "tempered_voice",
+      "voice_vibrato": "straight_tone",
+      "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+      "electronic_technique": "electronic_pluck_short",
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered",
+      "bass_technique": "sub_bass_synth_blend",
+      "voice_articulation": "legato_voice"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_tube",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_brick_wall_limiter",
+    "chain_eq": "eq_dynamic",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay",
+      "fx_stereo_widener"
+    ]
+  }
+}

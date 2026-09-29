@@ -1,0 +1,104 @@
+{
+  "id": "modular_techno",
+  "name": "Modular techno",
+  "family": "electronic",
+  "lineage": "Patch-centered techno practice developed across contemporary hardware scenes, represented here by Surgeon's live modular work and From Farthest Known Objects (2016). Voltage sequencing, synthesized percussion and hands-on timbral intervention distinguish the selected performance workflow.",
+  "recipe": "classic mid-2010s modular techno, electronic Dance, techno branch, industrial noise experimental electric, ambient experimental electric power noise. evolving modular modular synth, drum machine analog. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ring modulator.",
+  "recipe_chars": 421,
+  "score": 19.915,
+  "config": {
+    "traditions": [
+      "modular_techno",
+      "power_noise",
+      "industrial"
+    ],
+    "instruments": [
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 14.174999999999997,
+          "mod_voltage_source": 3.7299999999999995,
+          "mod_patch_density": 2.145,
+          "mod_lineage": 0.39
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 0.325
+        }
+      }
+    ],
+    "pinned": {
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "ring_mod",
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_modular_patch",
+      "mod_voltage_source": "mod_sequencer",
+      "mod_patch_density": "mod_west_coast",
+      "mod_lineage": "mod_doepfer_eurorack",
+      "kick_voice": "fm_pair_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "noise_hat",
+      "shuffle_quantize": "straight_quantize"
+    },
+    "pin_parts": true,
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "ring_mod",
+      "digital_delay"
+    ]
+  }
+}

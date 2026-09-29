@@ -1,0 +1,220 @@
+{
+  "id": "armenian_pop",
+  "name": "Armenian pop",
+  "family": "pop",
+  "lineage": "Selected Yerevan-centered 2008-2012 folk-inflected dance pop associated with Sirusho, connecting her pop-and-folk recordings and international Qele Qele and PreGomesh singles with contemporary electronic song production. This is one crossover branch among Armenian-language and diaspora pop practices, distinct from liturgical chant, acoustic folk ensembles and the wider rabiz scene.",
+  "recipe": "classic 2008-2012 armenian pop, functional Song, europop branch, pop rock functional song, middle eastern classical art music new wave yacht rock. fast rate, multi note runs per syllable, scooped attack, modern pop training. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley canonical 20th century armenian duduk, analog poly synth, sampler drum machine, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 617,
+  "score": 130.373,
+  "config": {
+    "traditions": [
+      "armenian_pop",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "mix_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_melismatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": -0.49000000000000005,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.585,
+          "voice_articulation": 1.51,
+          "voice_microtone": 1.14,
+          "voice_tradition": 40.60499999999999,
+          "voice_mechanism_compound": 0.195,
+          "voice_estill_quality": 3.575000000000001,
+          "voice_speech_song": 0.585,
+          "voice_ensemble_config": 4.355,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 0.42000000000000004,
+          "voice_processing_chain": 2.145,
+          "voice_multitrack_stack": 1.3649999999999998
+        }
+      },
+      {
+        "id": "duduk",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "duduk_use": "duduk_solo",
+          "duduk_pitch": "duduk_a",
+          "duduk_body_wood": "duduk_apricot_canonical",
+          "duduk_reed": "duduk_arundo_canonical",
+          "duduk_lineage": "duduk_djivan_gasparyan"
+        },
+        "scores": {
+          "wind_articulation": 0.15000000000000002,
+          "duduk_use": 1.2349999999999999,
+          "duduk_pitch": 0.045,
+          "duduk_body_wood": 3.499999999999999,
+          "duduk_reed": 3.499999999999999,
+          "duduk_lineage": 3.499999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 0.325,
+          "poly_archetypes": 10.985,
+          "poly_voices": 2.08,
+          "poly_maker_lineage": 0.19499999999999967
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0.78,
+          "sample_swing": 2.5,
+          "sample_processing": 0.24
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 11.309999999999999,
+          "body_wood": 2.275,
+          "pickup_config": 0.585,
+          "string_type": 27.4625,
+          "scale_length_b": 2.275,
+          "fretted_or_not": 0.045,
+          "bass_technique": 0.27499999999999997
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "duduk": [
+        "wind_articulation",
+        "duduk_use",
+        "duduk_pitch",
+        "duduk_body_wood",
+        "duduk_reed"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_tube",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_brick_wall_limiter",
+      "eq": "eq_dynamic",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "plate_reverb",
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_processing_chain": "voice_processing_plate_reverb_medium",
+      "voice_register": "mix_voice",
+      "voice_quality": "full_chest_belt_voice",
+      "voice_microtone": "bend_inflected",
+      "voice_vibrato": "fast_vibrato",
+      "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth",
+      "wind_articulation": "wind_ornament_heavy",
+      "duduk_use": "duduk_solo",
+      "duduk_pitch": "duduk_a",
+      "duduk_body_wood": "duduk_apricot_canonical",
+      "duduk_reed": "duduk_arundo_canonical",
+      "electronic_technique": "electronic_arpeggiated",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered",
+      "bass_technique": "fingerstyle_locked",
+      "voice_articulation": "melisma_voice"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_tube",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_brick_wall_limiter",
+    "chain_eq": "eq_dynamic",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "plate_reverb",
+      "digital_delay"
+    ]
+  }
+}

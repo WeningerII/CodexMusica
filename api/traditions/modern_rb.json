@@ -5,7 +5,7 @@
   "lineage": "Modern neo-soul breath-admixed contemporary-r&b vocal aesthetic codified through D’Angelo (Brown Sugar 1995, Voodoo 2000), Erykah Badu (Baduizm 1997), Maxwell, Lauryn Hill (The Miseducation of Lauryn Hill 1998), and the Soulquarians collective with Questlove and J Dilla — characterized by jazz-chord harmonic vocabulary, drum-machine-and-live-band hybrid production, and intimate-confessional vocal performance",
   "recipe": "classic mid-1990s modern r&b, functional Song, soul R&B branch, us hip hop modern cloud rap detroit trap. thick, breath admixed, straight onset, interlocked note trading. drum machine analog, sub bass wavetable synth, gospel runs electric piano tine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 396,
-  "score": 217.237,
+  "score": 218.91,
   "config": {
     "traditions": [
       "modern_rb",
@@ -24,7 +24,7 @@
         "scores": {
           "kick_voice": 5.85,
           "snare_voice": 5.85,
-          "hat_voice": 0.03525,
+          "hat_voice": 0,
           "shuffle_quantize": 5.85
         }
       },
@@ -37,10 +37,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 11.675249999999998,
+          "electronic_technique": 12.119999999999997,
           "wt_position": 5.85,
           "wt_family": 5.85,
-          "wt_polyphony": 0.12374999999999999
+          "wt_polyphony": 0.36374999999999996
         }
       },
       {
@@ -51,7 +51,7 @@
           "tine_effect": "tremolo_tine"
         },
         "scores": {
-          "keyboard_technique": 8.132375,
+          "keyboard_technique": 7.862124999999999,
           "tine_voicing": 5.85,
           "tine_effect": 0.45499999999999996
         }
@@ -77,16 +77,16 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.835249999999998,
+          "voice_register": 11.384999999999998,
           "voice_quality": 9.249999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.323375,
+          "voice_vibrato": 9.513125,
           "voice_articulation": 16.444999999999997,
           "voice_microtone": 15.859999999999992,
-          "voice_tradition": 16.184375000000003,
+          "voice_tradition": 16.498625,
           "voice_mechanism_compound": 5.59,
-          "voice_estill_quality": 7.675,
+          "voice_estill_quality": 7.915,
           "voice_speech_song": 19.564999999999994,
           "voice_ensemble_config": 16.184999999999995,
           "voice_ornament_system": 3.7700000000000014,

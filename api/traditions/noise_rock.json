@@ -3,14 +3,14 @@
   "name": "Noise rock",
   "family": "rock_punk",
   "lineage": "Late-1970s through 1990s experimental dissonance-foregrounded rock — codified through Sonic Youth (Daydream Nation 1988), The Jesus Lizard, Big Black (Songs About Fucking 1987), Swans, Glenn Branca’s symphonies, and the broader Touch and Go / SST label ecosystem; characterized by detuned guitars, feedback as compositional material, and aggressive-confrontational performance aesthetic",
-  "recipe": "classic North American 1977-1979 noise rock, distorted Rock, noise rock branch, experimental distorted rock, alternative distorted rock grunge. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape electro-harmonix big muff pi proco turbo RAT.",
+  "recipe": "classic North American 1977-1979 noise rock, distorted Rock, noise rock branch, experimental distorted rock, alternative distorted rock krautrock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape electro-harmonix big muff pi proco turbo RAT.",
   "recipe_chars": 791,
-  "score": 491.937,
+  "score": 474.12,
   "config": {
     "traditions": [
       "noise_rock",
       "experimental_rock",
-      "grunge"
+      "krautrock"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
-          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 40.72500000000002,
-          "voice_quality": 9.36,
+          "voice_register": 39.02500000000002,
+          "voice_quality": 8.905,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.2250000000000005,
-          "voice_articulation": 19.369999999999997,
-          "voice_microtone": 37.51000000000001,
-          "voice_tradition": 13.357499999999998,
-          "voice_mechanism_compound": 19.25,
-          "voice_estill_quality": 1.9499999999999997,
-          "voice_speech_song": 21.384999999999994,
-          "voice_ensemble_config": 19.499999999999996,
-          "voice_ornament_system": 1.95,
-          "voice_pitch_organization": 1.0399999999999998,
-          "voice_processing_chain": 7.445000000000001,
-          "voice_multitrack_stack": 6.660000000000001
+          "voice_vibrato": 3.0875000000000004,
+          "voice_articulation": 18.589999999999996,
+          "voice_microtone": 37.98000000000001,
+          "voice_tradition": 18.549999999999997,
+          "voice_mechanism_compound": 13.844999999999999,
+          "voice_estill_quality": 2.4699999999999998,
+          "voice_speech_song": 20.409999999999993,
+          "voice_ensemble_config": 18.719999999999995,
+          "voice_ornament_system": 2.4699999999999998,
+          "voice_pitch_organization": 0.6499999999999999,
+          "voice_processing_chain": 6.855,
+          "voice_multitrack_stack": 5.585000000000002
         }
       },
       {
@@ -62,7 +62,7 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_10",
+          "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_short",
           "finish": "oil_satin",
@@ -70,17 +70,17 @@
         },
         "scores": {
           "electric_technique": 14.974999999999998,
-          "amp_make": 25.9025,
+          "amp_make": 21.092499999999998,
           "body_wood": 0.48,
-          "neck_wood": 1.4300000000000002,
-          "fretboard": 1.4300000000000002,
-          "pickup_magnet": 1.4300000000000002,
-          "string_material": 1.4300000000000002,
+          "neck_wood": 1.625,
+          "fretboard": 1.625,
+          "pickup_magnet": 1.625,
+          "string_material": 1.625,
           "string_gauge": 0.39,
-          "bridge": 0.3,
+          "bridge": 0.44999999999999996,
           "scale_length": 0.735,
           "finish": 0.65,
-          "string_tuning": 20.085
+          "string_tuning": 20.67
         }
       },
       {
@@ -92,28 +92,28 @@
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": 14.974999999999998,
-          "amp_make": 25.9025,
-          "body_wood": 1.8199999999999998,
-          "neck_wood": 1.4300000000000002,
-          "fretboard": 1.4300000000000002,
+          "amp_make": 21.092499999999998,
+          "body_wood": 0.78,
+          "neck_wood": 1.625,
+          "fretboard": 1.625,
           "pickup_magnet": 0.39,
-          "pickup_winding": 0.21,
-          "string_material": 1.4300000000000002,
+          "pickup_winding": 0.9150000000000001,
+          "string_material": 1.625,
           "bridge": 0.39,
-          "scale_length": 2.6649999999999996,
+          "scale_length": 2.015,
           "string_gauge": 0.39,
           "finish": 0.65,
-          "string_tuning": 21.319999999999997
+          "string_tuning": 21.06
         }
       },
       {
@@ -123,18 +123,18 @@
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 18.98,
+          "amp_make": 19.175,
           "body_wood": 0.39,
-          "pickup_config": 0.45,
-          "string_type": 43.255,
-          "scale_length_b": 0.39,
+          "pickup_config": 0.195,
+          "string_type": 43.21,
+          "scale_length_b": 0.54,
           "fretted_or_not": 0,
-          "bass_technique": 40.425
+          "bass_technique": 38.425
         }
       },
       {
@@ -145,7 +145,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 35.875,
+          "drum_technique": 36.25,
           "drumhead": 2.1799999999999997,
           "drum_kit_kick_pedal": 0
         }

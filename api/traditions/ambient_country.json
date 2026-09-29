@@ -1,0 +1,140 @@
+{
+  "id": "ambient_country",
+  "name": "Ambient country",
+  "family": "vernacular",
+  "lineage": "Late-2010s onward instrumental country-ambient convergence represented by New York group SUSS: sustained pedal steel and resonator-guitar traces against synthesizer beds, with country timbre retained while dance pulse and verse-chorus singing recede. The selected three-instrument arrangement and clean digital recording chain are authored models, not a reconstruction of a documented studio session.",
+  "recipe": "classic 2017-2019 ambient country, experimental Elec, ambient branch, americana country, modal electric drone modal gulf and western hellbilly music. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, metal body three cone system national steel glass slide fingerpicked resonator guitar, pad like pad analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, American clean tube combo, tilt EQ. 24-bit digital analog bucket-brigade delay hall reverb.",
+  "recipe_chars": 583,
+  "score": 170.836,
+  "config": {
+    "traditions": [
+      "ambient_country",
+      "gulf_and_western",
+      "hellbilly"
+    ],
+    "instruments": [
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 30.760250000000003,
+          "amp_make": 29.59,
+          "pickup_steel": 0.845,
+          "string_setup": 12.675,
+          "bar_material": 4.097714285714285,
+          "pedal_steel_brand": 25.605,
+          "pedal_steel_neck_config": 28.265249999999998,
+          "pedal_steel_strings": 24.81
+        }
+      },
+      {
+        "id": "resonator_guitar",
+        "slots": {
+          "resonator_body": "resonator_national_tricone_metal",
+          "resonator_strings": "phosphor_resonator",
+          "resonator_technique": "resonator_bottleneck_slide_fingerpicked"
+        },
+        "scores": {
+          "resonator_body": 4.760249999999999,
+          "resonator_strings": 0,
+          "resonator_technique": 1.17525
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 11.499999999999998,
+          "oscillator": 0.195,
+          "filter_topology": 1.69,
+          "envelope": 5.57775,
+          "modulation": 0.09
+        }
+      }
+    ],
+    "pinned": {
+      "pedal_steel": [
+        "electric_technique",
+        "pickup_steel",
+        "string_setup",
+        "bar_material",
+        "pedal_steel_neck_config",
+        "pedal_steel_strings"
+      ],
+      "resonator_guitar": [
+        "resonator_body",
+        "resonator_strings",
+        "resonator_technique"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "envelope",
+        "modulation"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_tilt",
+      "amp": "amp_american_clean",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "analog_delay",
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electric_technique": "electric_steel_pedal_swells",
+      "pickup_steel": "humbucker_steel",
+      "string_setup": "standard_e9",
+      "bar_material": "steel_bar",
+      "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+      "pedal_steel_strings": "pedal_steel_george_l_e9",
+      "resonator_body": "resonator_national_tricone_metal",
+      "resonator_technique": "resonator_bottleneck_slide_fingerpicked",
+      "resonator_strings": "phosphor_resonator",
+      "electronic_technique": "electronic_pad_drone",
+      "oscillator": "triangle_osc",
+      "envelope": "pad_env",
+      "modulation": "no_mod"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_tilt",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "analog_delay",
+      "hall_reverb"
+    ],
+    "chain_amp": "amp_american_clean"
+  }
+}

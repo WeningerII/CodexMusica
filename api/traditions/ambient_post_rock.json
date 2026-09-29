@@ -1,0 +1,178 @@
+{
+  "id": "ambient_post_rock",
+  "name": "Ambient post-rock",
+  "family": "rock_punk",
+  "lineage": "2000s onward meeting of post-rock ensemble dynamics and ambient sustain, represented by Nashville duo Hammock. Their guitar-rooted work moves between atmospheric passages and fuller rhythmic arrivals; Everything and Nothing documents a guitar-based return, beats, vocals, and cello. This instrumental guitar-bass-drum-cello branch and modern multitrack chain are authored models rather than a session-equipment inventory.",
+  "recipe": "classic mid-2000s ambient post-rock, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal illbient. marshall plexi amp British rock amp mahogany maple alnico humbucker electric guitar, ampeg svt amp rock bass amp mahogany maple electric bass, sticks backbeat drum kit, venice catlin high twist renaissance bass engelmann spruce hard rock maple cello. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, class-A discrete pre, British class-A combo, parallel compression, parametric EQ. 24-bit digital digital delay hall reverb octave-up reverb.",
+  "recipe_chars": 634,
+  "score": 69.905,
+  "config": {
+    "traditions": [
+      "ambient_post_rock",
+      "illbient",
+      "ambient"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_tremolo_picking",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 0.45499999999999996,
+          "amp_make": 4.705,
+          "body_wood": 1.04,
+          "neck_wood": 1.04,
+          "fretboard": 0.975,
+          "pickup_magnet": 1.755,
+          "pickup_winding": 1.755,
+          "string_material": 0,
+          "bridge": 1.04,
+          "scale_length": 3.3799999999999994,
+          "string_gauge": 1.69,
+          "finish": 0,
+          "string_tuning": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_maple_cap",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 6.904999999999999,
+          "body_wood": 1.04,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 2.04,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 11,
+          "drumhead": 0.195,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_sul_tasto",
+          "cello_strings": "venice_catlin_cello",
+          "cello_top_wood": "engelmann_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
+          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "cello_strings": 2.5949999999999998,
+          "cello_top_wood": 3.75,
+          "cello_back_wood": 8.36,
+          "cello_varnish": 4.725,
+          "cello_setup_period": 6.495,
+          "cello_bow_grip": 0,
+          "cello_rosin": 6.3,
+          "cello_bow_stick": 3.95
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "body_wood",
+        "string_material",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drumhead"
+      ],
+      "cello": [
+        "bowed_technique"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "class_a_discrete",
+      "console": "console_in_the_box",
+      "comp": "comp_parallel_blend",
+      "eq": "eq_active_parametric",
+      "amp": "amp_british_class_a",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay",
+      "hall_reverb",
+      "octave_up_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electric_technique": "electric_tremolo_picking",
+      "body_wood": "mahogany_maple_cap",
+      "string_material": "pure_nickel_h",
+      "string_tuning": "standard_tuning",
+      "bass_technique": "fingerstyle_locked",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
+      "drum_technique": "sticks_rock",
+      "drumhead": "single_coated",
+      "bowed_technique": "bowed_sul_tasto"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "class_a_discrete",
+    "chain_comp": "comp_parallel_blend",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay",
+      "hall_reverb",
+      "octave_up_reverb"
+    ],
+    "chain_amp": "amp_british_class_a"
+  }
+}

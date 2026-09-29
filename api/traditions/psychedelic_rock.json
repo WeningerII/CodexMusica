@@ -5,7 +5,7 @@
   "lineage": "Mid-late 1960s through early 1970s rock genre informed by hallucinogenic-drug culture and Indian classical music influence — codified through The Beatles (Revolver 1966, Sgt Pepper 1967, Magical Mystery Tour 1967), The Jimi Hendrix Experience (Are You Experienced 1967, Axis Bold as Love 1967, Electric Ladyland 1968), Pink Floyd (the Syd Barrett era The Piper at the Gates of Dawn 1967), 13th Floor Elevators, Jefferson Airplane, the Grateful Dead (their early San Francisco psychedelic era), the Doors",
   "recipe": "classic Northern European 1967-1969 psychedelic rock, distorted Rock, classic branch, experimental distorted rock krautrock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, cedar bone maihar gharana instrumental concert lineage classical trained lineage sitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
   "recipe_chars": 920,
-  "score": 491.932,
+  "score": 492.212,
   "config": {
     "traditions": [
       "psychedelic_rock",
@@ -40,16 +40,16 @@
           "voice_effort": 0,
           "voice_vibrato": 6.98,
           "voice_articulation": 12.869999999999996,
-          "voice_microtone": 31.684999999999995,
-          "voice_tradition": 14.4015,
+          "voice_microtone": 31.729999999999993,
+          "voice_tradition": 14.7315,
           "voice_mechanism_compound": 5.915000000000002,
-          "voice_estill_quality": 6.264500000000001,
+          "voice_estill_quality": 6.323,
           "voice_speech_song": 14.299999999999995,
           "voice_ensemble_config": 12.609999999999994,
           "voice_ornament_system": 6.471500000000001,
           "voice_pitch_organization": 4.65,
-          "voice_processing_chain": 7.4895000000000005,
-          "voice_multitrack_stack": 14.069
+          "voice_processing_chain": 7.377000000000001,
+          "voice_multitrack_stack": 13.932500000000001
         }
       },
       {
@@ -96,7 +96,7 @@
         "scores": {
           "keyboard_technique": 2.3760000000000003,
           "drawbar_setting": 28.594499999999996,
-          "rotary_speed": 28.449999999999996,
+          "rotary_speed": 28.494999999999997,
           "percussion_setting": 14.819999999999999,
           "tonewheel_model": 13.552499999999997,
           "leslie_cabinet_model": 1
@@ -144,7 +144,7 @@
           "amp_make": 14.754999999999997,
           "body_wood": 1.69,
           "pickup_config": 0.15,
-          "string_type": 34.878,
+          "string_type": 34.884,
           "scale_length_b": 1.6,
           "fretted_or_not": 0,
           "bass_technique": 28.969499999999996
@@ -175,7 +175,7 @@
         "scores": {
           "keyboard_technique": 2.3760000000000003,
           "mellotron_voice": 14.819999999999999,
-          "mellotron_context": 3.7115,
+          "mellotron_context": 3.7565,
           "mellotron_model": 16.444999999999997,
           "mellotron_tape_material": 0.39
         }

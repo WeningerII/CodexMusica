@@ -1,0 +1,151 @@
+{
+  "id": "ambient_guitar",
+  "name": "Ambient guitar",
+  "family": "electronic",
+  "lineage": "1990s onward guitar-centered ambient practice represented by Windy & Carl: extended electric-string tones, bass foundation, and occasional keyboard sustain shape pieces without a conventional drum rhythm section. Their firsthand account emphasizes played textures through pedals and rack delays rather than computer transformation; this beatless guitar-bass-keyboard recipe uses an authored domestic tape model.",
+  "recipe": "classic mid-1990s ambient guitar, experimental Elec, ambient branch, modal electric drone modal. maple pau ferro ceramic conventional tuning standard pitch single coil electric guitar, ampeg svt amp rock bass amp electric bass, sustained pad analog synth. bedroom. dynamic moving-coil, console-strip pre, solid-state clean, cassette portastudio, tilt EQ. tascam portastudio 4-track cassette digital delay hall reverb.",
+  "recipe_chars": 417,
+  "score": 30.212,
+  "config": {
+    "traditions": [
+      "ambient_guitar"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 0.26,
+          "amp_make": 0.7149999999999997,
+          "body_wood": 0.1108125,
+          "neck_wood": 1.573,
+          "fretboard": 1.573,
+          "pickup_magnet": 1.573,
+          "string_material": 0,
+          "string_gauge": 0.2788125,
+          "bridge": 0.2158125,
+          "scale_length": 0.49462500000000004,
+          "finish": 0,
+          "string_tuning": 1.08025
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder",
+          "pickup_config": "split_coil",
+          "string_type": "flatwound",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 3.2234999999999996,
+          "body_wood": 0.1108125,
+          "pickup_config": 0,
+          "string_type": -0.07,
+          "scale_length_b": 0.43743750000000003,
+          "fretted_or_not": 0.30274999999999996,
+          "bass_technique": 0.2
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "sustain_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 12.052249999999997,
+          "oscillator": 3.0805,
+          "filter_topology": 2.9238124999999995,
+          "envelope": 0,
+          "modulation": 0.0765
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "body_wood",
+        "string_material",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "bass_technique"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "envelope",
+        "modulation"
+      ]
+    },
+    "room": "untreated_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_console_inline_strip",
+      "console": "console_home_portastudio",
+      "comp": "comp_none",
+      "eq": "eq_tilt",
+      "amp": "amp_solid_state_clean",
+      "medium": "medium_cassette_4track_bedroom"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay",
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "parts": {
+      "electric_technique": "electric_feedback_drone",
+      "body_wood": "alder",
+      "string_material": "pure_nickel",
+      "string_tuning": "standard_tuning",
+      "bass_technique": "thumb_muted",
+      "pickup_config": "split_coil",
+      "string_type": "flatwound",
+      "electronic_technique": "electronic_pad_drone",
+      "oscillator": "sine_osc",
+      "envelope": "sustain_env",
+      "modulation": "no_mod"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_tilt",
+    "chain_medium": "medium_cassette_4track_bedroom",
+    "chain_console": "console_home_portastudio",
+    "chain_fx": [
+      "digital_delay",
+      "hall_reverb"
+    ],
+    "chain_amp": "amp_solid_state_clean"
+  }
+}

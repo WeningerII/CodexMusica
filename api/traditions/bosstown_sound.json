@@ -5,7 +5,7 @@
   "lineage": "Short-lived psychedelic scene manufactured by MGM Records publicist Alan Lorber in Boston in 1967-69 around Ultimate Spinach, The Beacon Street Union and Orpheus — heavily overdubbed eight-track productions with fuzz guitar, harpsichord and combo organ, flute and string sweetening, tempo-shifting suite structures, mixed-meter passages, and mystical or literary lyrics delivered in dry close-miked mid-range vocals.",
   "recipe": "classic North American late-1960s bosstown sound, distorted Rock, art rock branch, experimental distorted rock, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, psychedelic foregrounded organ driven rock Leslie rotary block chord combo organ, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, powell boston canonical American orchestral flute, string quartet inst, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 906,
-  "score": 610.276,
+  "score": 607.036,
   "config": {
     "traditions": [
       "bosstown_sound",
@@ -40,16 +40,16 @@
           "voice_effort": 0,
           "voice_vibrato": 5.330000000000001,
           "voice_articulation": 15.144999999999996,
-          "voice_microtone": 51.06,
-          "voice_tradition": 20.92375,
+          "voice_microtone": 51.105000000000004,
+          "voice_tradition": 20.803749999999997,
           "voice_mechanism_compound": 3.575000000000001,
           "voice_estill_quality": 2.665000000000001,
           "voice_speech_song": 19.954999999999995,
           "voice_ensemble_config": 14.884999999999994,
           "voice_ornament_system": 0.7799999999999998,
           "voice_pitch_organization": 0.325,
-          "voice_processing_chain": 9.88625,
-          "voice_multitrack_stack": 8.28875
+          "voice_processing_chain": 9.93125,
+          "voice_multitrack_stack": 8.04875
         }
       },
       {
@@ -71,14 +71,14 @@
         "scores": {
           "electric_technique": 16.9625,
           "amp_make": 22.099999999999994,
-          "body_wood": 3.32,
-          "neck_wood": 3.32,
-          "fretboard": 3.27,
+          "body_wood": 3.08,
+          "neck_wood": 3.08,
+          "fretboard": 3.0300000000000002,
           "pickup_magnet": 0.975,
           "string_material": 0.975,
-          "string_gauge": 3.9699999999999998,
+          "string_gauge": 3.73,
           "bridge": 0.65,
-          "scale_length": 3.575,
+          "scale_length": 3.41,
           "finish": 0.195,
           "string_tuning": 19.435
         }
@@ -94,8 +94,8 @@
         },
         "scores": {
           "keyboard_technique": 16.177499999999995,
-          "combo_organ_model": 16.845,
-          "combo_organ_voicing": 18.754999999999995,
+          "combo_organ_model": 16.994999999999997,
+          "combo_organ_voicing": 18.364999999999995,
           "combo_organ_context": 20.085,
           "amp_make": 1.3499999999999999
         }
@@ -113,12 +113,12 @@
         },
         "scores": {
           "amp_make": 17.029999999999998,
-          "body_wood": 3.575,
+          "body_wood": 3.41,
           "pickup_config": 0.15,
-          "string_type": 39.58125,
-          "scale_length_b": 3.32,
-          "fretted_or_not": 0.045,
-          "bass_technique": 36.92
+          "string_type": 38.99625,
+          "scale_length_b": 3.08,
+          "fretted_or_not": 0,
+          "bass_technique": 36.875
         }
       },
       {
@@ -179,8 +179,8 @@
         },
         "scores": {
           "keyboard_technique": 16.177499999999995,
-          "grand_piano_size": 3.32,
-          "grand_piano_brand": 3.5637499999999998,
+          "grand_piano_size": 3.08,
+          "grand_piano_brand": 3.27875,
           "piano_hammer": 17.9075,
           "piano_rim": 17.549999999999997,
           "piano_soundboard": 15.749999999999996,

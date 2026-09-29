@@ -5,7 +5,7 @@
   "lineage": "Split off from plugg around 2018-2021 in the SoundCloud producer diaspora around MexikoDro's Plugg tradition, codified by producers such as Yung Icey, Ptolemy and StoopidXool with rappers like SosMula-adjacent underground figures, keeping plugg's 130-150 BPM bell and glassy-pad palette but shifting to minor-second dissonance, detuned brass or choir stabs, sparse distorted 808s with long glides, and heavily reverbed, murky vocals mixed low into the beat.",
   "recipe": "classic 2018-2021 dark plugg, mc Rhythm, modern branch, experimental MC rhythm, lofi experimental electric dungeon rap nerdcore. vocal fry, rap, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, low sub bass analog poly native instruments fm8 modern software 8 operator sub bass fm synth, sampled chopped sampler drum machine, low cupped muffled hand clap. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 524,
-  "score": 210.385,
+  "score": 210.52,
   "config": {
     "traditions": [
       "dark_plugg",
@@ -44,7 +44,7 @@
           "voice_tradition": 10.5625,
           "voice_mechanism_compound": 6.954999999999999,
           "voice_estill_quality": 6.5649999999999995,
-          "voice_speech_song": 18.685,
+          "voice_speech_song": 19.06,
           "voice_ensemble_config": 15.014999999999993,
           "voice_ornament_system": 6.435000000000002,
           "voice_pitch_organization": 1.88,
@@ -62,7 +62,7 @@
         "scores": {
           "tr808_voice": 6.720000000000001,
           "drum_machine_808_context": 2.4050000000000002,
-          "tr808_production_origin": 2.8600000000000003
+          "tr808_production_origin": 2.755
         }
       },
       {
@@ -77,7 +77,7 @@
           "electronic_technique": 9.64,
           "poly_archetypes": 1.1949999999999998,
           "poly_voices": 1.1949999999999998,
-          "poly_maker_lineage": -1.085
+          "poly_maker_lineage": -1.25
         }
       },
       {
@@ -93,8 +93,8 @@
           "electronic_technique": 9.64,
           "fm_algorithm": 1.3,
           "fm_modulator_ratio": 2.145,
-          "fm_polyphony": 0.195,
-          "fm_model_lineage": 2.755
+          "fm_polyphony": 0.48,
+          "fm_model_lineage": 2.65
         }
       },
       {
@@ -106,8 +106,8 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 6.310000000000001,
-          "sample_bitdepth": 4.385,
+          "electronic_technique": 6.460000000000001,
+          "sample_bitdepth": 4.28,
           "sample_swing": 10.530000000000001,
           "sample_processing": 2.34
         }
@@ -120,7 +120,7 @@
         },
         "scores": {
           "clap_technique": 2.495,
-          "clap_capture": 0.435
+          "clap_capture": 0.24
         }
       }
     ],

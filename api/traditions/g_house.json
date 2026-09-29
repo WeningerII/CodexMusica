@@ -1,0 +1,133 @@
+{
+  "id": "g_house",
+  "name": "G-house",
+  "family": "electronic",
+  "lineage": "Early-2010s G-house associated with Marseille duo Amine Edge & DANCE and their CUFF network; their hip-hop and R&B backgrounds shaped a heavy-bass house groove and fragmentary rap attitude, disseminated through online tracks and international club sets.",
+  "recipe": "classic 2010-2013 g-house, electronic Dance, house branch, us hip hop gangsta, deep house house. sub bass analog mono synth, drum machine analog, sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 374,
+  "score": 75.245,
+  "config": {
+    "traditions": [
+      "g_house",
+      "gangsta_rap",
+      "deep_house_soulful"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "sh_101",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 11.5525,
+          "mono_oscillator": 0.845,
+          "mono_filter": 1.8850000000000002,
+          "mono_archetypes": 0.195,
+          "mono_maker_lineage": -1.12
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 3.7049999999999996,
+          "snare_voice": 0,
+          "hat_voice": 0.1365,
+          "shuffle_quantize": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 6.550000000000001,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.2265,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 52.869
+        }
+      }
+    ],
+    "pinned": {
+      "analog_mono_synth": [
+        "electronic_technique",
+        "mono_oscillator",
+        "mono_filter",
+        "mono_archetypes",
+        "mono_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_vca",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_bass_sub",
+      "mono_oscillator": "mono_voltage_controlled",
+      "mono_filter": "moog_ladder",
+      "mono_archetypes": "sh_101",
+      "mono_maker_lineage": "mono_roland_kakehashi",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "shuffle_low",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm"
+    },
+    "pin_parts": true,
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_vca",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

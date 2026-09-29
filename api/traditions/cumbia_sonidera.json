@@ -5,7 +5,7 @@
   "lineage": "Mexico City and Puebla sound-system cumbia culture, formalized from the late 1970s onward by sonideros such as Sonido La Changa, Sonido Fascinación and Sonido Duende who slowed Colombian and Peruvian cumbia records to 85-100 BPM, drenched them in tape and spring echo, and overlaid live shouted dedicatorias to named neighbourhoods and migrants; the studio-produced strain that followed keeps the guacharaca-and-güiro paseo pattern, syncopated electric bass, teclado organ leads and thick slapback on every voice.",
   "recipe": "classic South American 1977-1979 cumbia sonidera, groove Percussion, Latin am branch, dub descendants bass system, tropical song functional song trip hop chicha. thick, full chest belt, breath pulsed, interlocked note trading. accordion, guacharaca, guiro, open slap hand drum congas, open slap hand drum timbales, ampeg svt amp rock bass amp mahogany la bella flats Detroit soul bass canon electric bass, lead instrument elevated psychedelic foregrounded organ driven rock combo organ, cencerro, turntable. boombox portable speaker. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
   "recipe_chars": 653,
-  "score": 199.602,
+  "score": 198.222,
   "config": {
     "traditions": [
       "cumbia_sonidera",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 3.8500000000000014,
+          "voice_register": 3.8950000000000014,
           "voice_quality": 12.544999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,12 +43,12 @@
           "voice_microtone": 25.025,
           "voice_tradition": 5.1025,
           "voice_mechanism_compound": 2.21,
-          "voice_estill_quality": 5.0600000000000005,
+          "voice_estill_quality": 4.865,
           "voice_speech_song": 27.885000000000005,
           "voice_ensemble_config": 24.895000000000003,
           "voice_ornament_system": 5.265,
           "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 6.37,
+          "voice_processing_chain": 6.295,
           "voice_multitrack_stack": 5.990000000000001
         }
       },
@@ -68,7 +68,7 @@
           "accordion_reed_material": 0.845,
           "musette_offset": 0.65,
           "reed_config": 0.195,
-          "bellows": 0.38999999999999996,
+          "bellows": 0,
           "voicing_chamber": 0.045,
           "accordion_maker_school": 0.435
         }
@@ -102,7 +102,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 4.675,
+          "percussion_technique": 4.48,
           "conga_set": 0.65,
           "conga_skin": 0.39,
           "conga_shell_wood": 0.24
@@ -116,7 +116,7 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 4.675,
+          "percussion_technique": 4.48,
           "timbales_shell": 0.15,
           "timbales_context": 1.95
         }
@@ -153,7 +153,7 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "combo_organ_model": 1.55,
+          "combo_organ_model": 1.595,
           "combo_organ_voicing": 0.78,
           "combo_organ_context": 2.5999999999999996,
           "amp_make": 0
@@ -168,7 +168,7 @@
         },
         "scores": {
           "cencerro_bell_type": 0.65,
-          "cencerro_context": 0.28500000000000003,
+          "cencerro_context": 0.18,
           "cencerro_build": 0.045
         }
       },
@@ -180,7 +180,7 @@
         },
         "scores": {
           "electronic_technique": 2.385,
-          "turntable_technique": 1.95
+          "turntable_technique": 1.635
         }
       }
     ],

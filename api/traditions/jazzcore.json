@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s downtown New York and Chicago collision of hardcore punk speed with free-jazz improvisation, codified by John Zorn's Naked City, Last Exit and later The Flying Luttenbachers and Zu — sub-minute compositions of jump-cut blocks, blast-tempo drumming under squealing alto saxophone, detuned or noise-processed guitar, and screamed vocal bursts used as percussive punctuation rather than lyric line.",
   "recipe": "classic North American 1984-1986 jazzcore, distorted Rock, noise rock branch, experimental distorted rock, American jazz avant avant-garde jazz european free jazz. thick, breath veiled tone, straight onset, interlocked note trading. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch mahogany thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, expressive clarinet jazz bass clarinet. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 819,
-  "score": 403.438,
+  "score": 399.673,
   "config": {
     "traditions": [
       "jazzcore",
@@ -31,7 +31,7 @@
           "sax_body_alloy": 15.169999999999998,
           "sax_mouthpiece": 1.04,
           "sax_technique": 15.375,
-          "sax_maker_school": 15.504583333333333
+          "sax_maker_school": 14.619583333333331
         }
       },
       {
@@ -82,7 +82,7 @@
           "amp_make": 6.715,
           "body_wood": 1.48,
           "pickup_config": 0.45499999999999996,
-          "string_type": 17.10458333333333,
+          "string_type": 16.219583333333333,
           "scale_length_b": 1.3900000000000001,
           "fretted_or_not": 1.045,
           "bass_technique": 14.912499999999998
@@ -97,7 +97,7 @@
         },
         "scores": {
           "drum_technique": 28.47,
-          "drumhead": 16.96458333333333,
+          "drumhead": 16.079583333333332,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -126,18 +126,18 @@
           "voice_quality": 7.020000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.500833333333333,
+          "voice_vibrato": 16.51583333333333,
           "voice_articulation": 21.58,
           "voice_microtone": 25.34083333333333,
-          "voice_tradition": 20.49791666666666,
-          "voice_mechanism_compound": 14.042083333333332,
+          "voice_tradition": 19.522916666666664,
+          "voice_mechanism_compound": 14.267083333333332,
           "voice_estill_quality": 1.9499999999999997,
           "voice_speech_song": 22.035,
           "voice_ensemble_config": 20.929999999999996,
           "voice_ornament_system": 4.485000000000001,
-          "voice_pitch_organization": 1.135,
+          "voice_pitch_organization": 1.09,
           "voice_processing_chain": 4.095000000000001,
-          "voice_multitrack_stack": 5.6850000000000005
+          "voice_multitrack_stack": 5.355
         }
       },
       {

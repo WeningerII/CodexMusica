@@ -3,14 +3,14 @@
   "name": "Mathcore",
   "family": "rock",
   "lineage": "Late-1990s through 2000s US extreme-metal-and-hardcore fusion genre incorporating math rock complex meter and rapid time-signature changes — codified through Converge (Jane Doe 2001), Dillinger Escape Plan (Calculating Infinity 1999, Miss Machine 2004), Botch, Coalesce, the modern continuation through Cult Leader and Frontierer",
-  "recipe": "classic Midwestern American 1997-1999 mathcore, distorted Rock, avant branch, experimental distorted rock nintendocore krautrock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 598,
-  "score": 326.998,
+  "recipe": "classic Midwestern American 1997-1999 mathcore, distorted Rock, avant branch, experimental distorted rock nintendocore ambient post-rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 614,
+  "score": 315.123,
   "config": {
     "traditions": [
       "mathcore",
       "nintendocore",
-      "krautrock"
+      "ambient_post_rock"
     ],
     "instruments": [
       {
@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 16.006500000000003,
-          "amp_make": 18.525,
-          "body_wood": 6.175,
-          "neck_wood": 0.845,
-          "fretboard": 0.845,
-          "pickup_magnet": 1.21,
-          "pickup_winding": 1.21,
-          "string_material": 0.845,
+          "electric_technique": 15.924,
+          "amp_make": 16.705,
+          "body_wood": 7.02,
+          "neck_wood": 0.65,
+          "fretboard": 0.65,
+          "pickup_magnet": 1.8599999999999999,
+          "pickup_winding": 1.8599999999999999,
+          "string_material": 0.65,
           "bridge": 0.39,
-          "scale_length": 7.02,
+          "scale_length": 7.475,
           "string_gauge": 0.39,
           "finish": 0.195,
-          "string_tuning": 17.68
+          "string_tuning": 16.249999999999996
         }
       },
       {
@@ -58,25 +58,25 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.309999999999999,
+          "amp_make": 11.114999999999998,
           "body_wood": 0.39,
-          "pickup_config": 1.4049999999999998,
-          "string_type": 26.741,
-          "scale_length_b": 1.69,
+          "pickup_config": 1.905,
+          "string_type": 24.957,
+          "scale_length_b": 2.34,
           "fretted_or_not": 0.0315,
-          "bass_technique": 25.375
+          "bass_technique": 23
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.875,
-          "drumhead": 4.125,
+          "drum_technique": 20.019999999999996,
+          "drumhead": 5.835,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -95,28 +95,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 25.869999999999997,
-          "voice_quality": 6.890000000000001,
+          "voice_register": 21.394999999999992,
+          "voice_quality": 4.550000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3480000000000003,
-          "voice_articulation": 15.534999999999995,
-          "voice_microtone": 24.96,
-          "voice_tradition": 12.870000000000003,
-          "voice_mechanism_compound": 24.155,
+          "voice_vibrato": 4.613,
+          "voice_articulation": 17.744999999999994,
+          "voice_microtone": 21.254999999999995,
+          "voice_tradition": 10.075000000000001,
+          "voice_mechanism_compound": 24.2225,
           "voice_estill_quality": 2.6650000000000005,
-          "voice_speech_song": 16.964999999999993,
-          "voice_ensemble_config": 15.274999999999993,
-          "voice_ornament_system": 1.7549999999999994,
-          "voice_pitch_organization": 0.6814999999999999,
-          "voice_processing_chain": 5.2325,
-          "voice_multitrack_stack": 6.467499999999999
+          "voice_speech_song": 18.52499999999999,
+          "voice_ensemble_config": 17.224999999999994,
+          "voice_ornament_system": 0.45500000000000007,
+          "voice_pitch_organization": 0.6499999999999998,
+          "voice_processing_chain": 5.1025,
+          "voice_multitrack_stack": 7.1075
         }
       }
     ],

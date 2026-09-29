@@ -3,14 +3,14 @@
   "name": "Synthcore",
   "family": "rock_punk",
   "lineage": "Late-1990s and 2000s hybrid, worked out by Refused, The Blood Brothers' peers and later Enter Shikari, fusing hardcore punk's screamed vocals, downpicked distorted guitar and blast-adjacent drumming with foregrounded analog and digital synthesizers, trance-derived arpeggios and breakdown-to-drop structures at 150-180 BPM.",
-  "recipe": "classic North American 1997-1999 synthcore, distorted Rock, punk branch, metal distorted rock, emo distorted rock, pop rock synthpop post-metal pagan metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth, digital subtractive, sampler. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe": "classic North American 1997-1999 synthcore, distorted Rock, punk branch, metal distorted rock, emo distorted rock, pop rock synthpop pagan metal math metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth, digital subtractive, sampler. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 692,
-  "score": 461.054,
+  "score": 459.378,
   "config": {
     "traditions": [
       "synthcore",
-      "post_metal",
-      "pagan_metal"
+      "pagan_metal",
+      "math_metal"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 27.81374999999999,
-          "voice_quality": 7.020000000000001,
+          "voice_register": 28.58874999999999,
+          "voice_quality": 5.525000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.405,
-          "voice_articulation": 17.809999999999995,
-          "voice_microtone": 23.225,
-          "voice_tradition": 9.1,
-          "voice_mechanism_compound": 39.335625,
-          "voice_estill_quality": 2.7300000000000004,
-          "voice_speech_song": 20.929999999999996,
-          "voice_ensemble_config": 18.134999999999998,
-          "voice_ornament_system": 0.8449999999999999,
-          "voice_pitch_organization": 0.585,
-          "voice_processing_chain": 6.1587499999999995,
-          "voice_multitrack_stack": 3.9000000000000004
+          "voice_vibrato": 3.25,
+          "voice_articulation": 20.669999999999995,
+          "voice_microtone": 23.65,
+          "voice_tradition": 10.855,
+          "voice_mechanism_compound": 37.635625000000005,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 21.709999999999994,
+          "voice_ensemble_config": 20.149999999999995,
+          "voice_ornament_system": 1.4849999999999997,
+          "voice_pitch_organization": 0.7799999999999998,
+          "voice_processing_chain": 4.225,
+          "voice_multitrack_stack": 4.615000000000001
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 33.091249999999995,
-          "amp_make": 24.18,
-          "body_wood": 13.194999999999999,
-          "neck_wood": 1.8849999999999996,
-          "fretboard": 1.8199999999999996,
+          "electric_technique": 30.541250000000005,
+          "amp_make": 24.2125,
+          "body_wood": 11.7,
+          "neck_wood": 2.0799999999999996,
+          "fretboard": 2.0149999999999997,
           "pickup_magnet": 1.265,
-          "pickup_winding": 0.78,
-          "string_material": 1.04,
-          "bridge": 1.8849999999999996,
-          "scale_length": 12.544999999999998,
+          "pickup_winding": 0.39,
+          "string_material": 0.845,
+          "bridge": 2.0799999999999996,
+          "scale_length": 10.855,
           "string_gauge": 2.0799999999999996,
           "finish": 0.16874999999999998,
-          "string_tuning": 24.05
+          "string_tuning": 21.905
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.05,
-          "body_wood": 1.8849999999999996,
+          "amp_make": 11.440000000000001,
+          "body_wood": 2.0799999999999996,
           "pickup_config": 1.265,
-          "string_type": 27.08875,
-          "scale_length_b": 1.8849999999999996,
+          "string_type": 25.71375,
+          "scale_length_b": 2.0799999999999996,
           "fretted_or_not": 0.09,
-          "bass_technique": 29.41
+          "bass_technique": 28.91
         }
       },
       {
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.375,
-          "drumhead": 2.8949999999999996,
+          "drum_technique": 21,
+          "drumhead": 2.3949999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -125,43 +125,43 @@
           "electronic_technique": "electronic_pluck_short",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
+          "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
           "electronic_technique": 2.5,
-          "poly_archetypes": 11.310000000000002,
+          "poly_archetypes": 10.660000000000002,
           "poly_voices": 1,
-          "poly_maker_lineage": -1.59
+          "poly_maker_lineage": -1.6949999999999998
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_pluck_short",
-          "va_archetypes": "novation_supernova",
+          "va_archetypes": "access_virus",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
           "electronic_technique": 2.5,
-          "va_archetypes": 1.885,
-          "digital_subtractive_context": 18.005
+          "va_archetypes": 1.69,
+          "digital_subtractive_context": 20.214999999999996
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "roland_s750",
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_emax",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.4749999999999999,
-          "sampler_archetypes": 1.04,
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 1,
           "sampler_bit_depth": 3.2175000000000002,
-          "sampler_workflow": 0.9149999999999998,
-          "sampler_classic_context": 19.499999999999996
+          "sampler_workflow": 0.875,
+          "sampler_classic_context": 21.514999999999997
         }
       }
     ],

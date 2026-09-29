@@ -5,7 +5,7 @@
   "lineage": "Late-1990s/2000s fusion of hip-hop tempo and IDM digital error, developed by Prefuse 73, Dabrye and Edit and later by the 110 BPM bass-heavy West Coast strain of Opiuo and Koan Sound, characterised by half-time boom-bap drum programming shredded with buffer stutters, bit-crushing and granular resampling, filthy modulated synth basslines and abrupt rhythmic gating.",
   "recipe": "classic 1997-1999 glitch hop, experimental Elec, idm glitch branch, experimental MC rhythm, lofi experimental electric, bass descendants bass system halftime drum & bass hexd. vocal fry, rap, straight onset, interlocked note trading. glitched textural sampler, glitched textural granular glitched textural wavetable synth, roland tr 8s modern aira digital recreation TR-808, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 574,
-  "score": 280.838,
+  "score": 280.628,
   "config": {
     "traditions": [
       "glitch_hop",
@@ -54,7 +54,7 @@
         "scores": {
           "electronic_technique": 17.045,
           "wt_position": 2.495,
-          "wt_family": 0.54,
+          "wt_family": 0.39,
           "wt_polyphony": 0.65
         }
       },
@@ -67,8 +67,8 @@
         },
         "scores": {
           "tr808_voice": 12.445,
-          "drum_machine_808_context": 8.305,
-          "tr808_production_origin": 1.9000000000000001
+          "drum_machine_808_context": 8.2,
+          "tr808_production_origin": 1.7950000000000002
         }
       },
       {
@@ -78,7 +78,7 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 5.235000000000001,
+          "electronic_technique": 5.385000000000001,
           "turntable_technique": 5.845000000000001
         }
       },

@@ -1,0 +1,209 @@
+{
+  "lane": "ambient",
+  "baseline_commit": "fbd2644241757e194b08fe0e8a6d5bf1880a4bc0",
+  "authorship_note": "Axes, instrument construction, room, microphone, preamp, compression, EQ, medium, console, amplification, and effects defaults are authored recording models. Sources establish musical practice and recording anchors, not these exact gear inventories. EveryNoise establishes label membership only; the supplied comparison classifies all five labels missing. Direct EveryNoise map retrieval returned internal errors, so no artist map-membership claims are made.",
+  "entries": [
+    {
+      "id": "ambient_country",
+      "source_label": "ambient country",
+      "every_noise_url": "https://everynoise.com/engenremap-ambientcountry.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://suss.bandcamp.com/album/night-suite",
+          "title": "SUSS — Night Suite",
+          "kind": "artist_release",
+          "support_notes": "Artist release identifies ambient-country practice, New York community, pedal steel/National guitar, loops/synthesizers; supports string/electronic ensemble and 2021 recording anchor."
+        },
+        {
+          "url": "https://suss.bandcamp.com/album/heat-haze",
+          "title": "SUSS — Heat Haze",
+          "kind": "artist_release",
+          "support_notes": "Artist release confirms the Americana-instrument/synth intersection and pedal-steel identity. Extra acoustic colors are optional rather than added to every seed."
+        }
+      ],
+      "choice_rationale": "Steel, resonator and synth overlap separates it from generic ambient. It removes vocal-band country rhythm and differs from ambient guitar by steel-led pitch motion.",
+      "neighbor_distinction": "Steel, resonator and synth overlap separates it from generic ambient. It removes vocal-band country rhythm and differs from ambient guitar by steel-led pitch motion.",
+      "authored_numeric_and_recording_model": "Authored axes favor free meter, sliding pitch, absent percussion and instrumental meditative intensity. Humbucking pedal steel volume-swells plus National-style resonator slide and static swelling triangle pad are selected; clean digital capture and analog delay/hall space are models, not sourced hardware.",
+      "geo_rationale": "New York is the artist recording community rather than a claim that ambient country originated there or in the imagined American West.",
+      "validation": {
+        "pins_checked": 13,
+        "lengths": {
+          "rich": 985,
+          "tags": 994,
+          "prose": 329,
+          "compact": 439
+        },
+        "cli_length": 583,
+        "browser_parity": true
+      }
+    },
+    {
+      "id": "ambient_folk",
+      "source_label": "ambient folk",
+      "every_noise_url": "https://everynoise.com/engenremap-ambientfolk.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.metroactive.com/music-clubs/grouper.html",
+          "title": "Shape Shifter — firsthand interview with Liz Harris, Gabe Meline, August 31 2010",
+          "kind": "firsthand_interview",
+          "support_notes": "In-person Portland interview: Harris describes taped/retaped layers and unusual EQ; article identifies the acoustic-guitar, quietly strummed, doubled-vocal song branch of Dragging a Dead Deer Up a Hill."
+        },
+        {
+          "url": "https://pitchfork.com/features/profile/groupers-liz-harris-explains-the-art-of-the-paradox-and-the-beauty-of-mistakes/",
+          "title": "Grouper’s Liz Harris Explains the Art of the Paradox and the Beauty of Mistakes, April 27 2018",
+          "kind": "firsthand_interview",
+          "support_notes": "Firsthand home interview confirms solitary four-track practice, outside-studio recording, and later Astoria residence. Used for domestic recording context, not a microphone inventory."
+        }
+      ],
+      "choice_rationale": "The quiet acoustic-song branch retains voice and guitar, distinct from instrumental ambient guitar and rhythm-section ambient pop. Existing folk/singer-songwriter models do not prioritize tape-mediated blur.",
+      "neighbor_distinction": "The quiet acoustic-song branch retains voice and guitar, distinct from instrumental ambient guitar and rhythm-section ambient pop. Existing folk/singer-songwriter models do not prioritize tape-mediated blur.",
+      "authored_numeric_and_recording_model": "Authored axes put sparse density and absent percussion below neutral, with retained song cyclicity and voice. Open strumming, silk/steel acoustic strings, low-effort breath-admixed doubled head-voice and medium plate space model a fragile song. Four-track domestic chain is not attributed to a specific album machine.",
+      "geo_rationale": "Portland anchors the documented 2010 interview and acoustic-song period, not all Harris sessions; later Astoria and earlier Bay Area work remain in the wider lineage.",
+      "validation": {
+        "pins_checked": 17,
+        "lengths": {
+          "rich": 993,
+          "tags": 985,
+          "prose": 305,
+          "compact": 777
+        },
+        "cli_length": 456,
+        "browser_parity": true
+      }
+    },
+    {
+      "id": "ambient_guitar",
+      "source_label": "ambient guitar",
+      "every_noise_url": "https://everynoise.com/engenremap-ambientguitar.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.astrangelyisolatedplace.com/blog/2020/4/10/isolatedmix-98-windy-amp-carl",
+          "title": "isolatedmix 98 — Windy & Carl, firsthand interview, April 10 2020",
+          "kind": "firsthand_interview",
+          "support_notes": "Musicians describe played textures, pedals/rack delays, mainly drummerless practice, and a spontaneous keyboard-guitar-bass recording to cassette four-track."
+        },
+        {
+          "url": "https://windyandcarl.bandcamp.com/",
+          "title": "Windy & Carl — artist catalog",
+          "kind": "artist_release",
+          "support_notes": "Artist profile supplies Dearborn geography and guitar/bass/keyboard roster with occasional vocals; albums include Depths and Antarctica."
+        }
+      ],
+      "choice_rationale": "Instrumental electric-string sustain rather than folk songs or pedal-steel Americana. Compared with ambient post-rock, drum absence and sustained low-motion texture are defining default choices.",
+      "neighbor_distinction": "Instrumental electric-string sustain rather than folk songs or pedal-steel Americana. Compared with ambient post-rock, drum absence and sustained low-motion texture are defining default choices.",
+      "authored_numeric_and_recording_model": "Authored axes use drone harmony, free meter, no percussion and instrumental focus. Feedback guitar, muted flatwound bass and static held sine keyboard preserve string foreground; domestic cassette, clean solid-state amplification and digital delay/hall are authored selections informed by the firsthand technique account.",
+      "geo_rationale": "Dearborn is the artist-profile anchor; it represents a community, not a universal ambient-guitar birthplace.",
+      "validation": {
+        "pins_checked": 12,
+        "lengths": {
+          "rich": 997,
+          "tags": 988,
+          "prose": 365,
+          "compact": 473
+        },
+        "cli_length": 417,
+        "browser_parity": true
+      }
+    },
+    {
+      "id": "ambient_pop",
+      "source_label": "ambient pop",
+      "every_noise_url": "https://everynoise.com/engenremap-ambientpop.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.cigarettesaftersex.com/record/apocalypse",
+          "title": "Cigarettes After Sex — Apocalypse official recording credits",
+          "kind": "artist_release",
+          "support_notes": "December 2015 Brooklyn date/location and vocal, electric/acoustic guitar, keyboards, bass and drums roster; selected model uses electric guitar and keyboard rather than every overdub."
+        },
+        {
+          "url": "https://cigarettesaftersex.bandcamp.com/album/cigarettes-after-sex",
+          "title": "Cigarettes After Sex — artist/Partisan album page",
+          "kind": "artist_release",
+          "support_notes": "2017 album and artist-authored ambient-pop/dream-pop tags establish the selected musical branch; these tags are supporting source context, not replacements for the EveryNoise label."
+        },
+        {
+          "url": "https://www.lpm.org/music/2020-01-08/cigarettes-after-sexs-greg-gonzalez-i-always-imagined-us-being-more-like-cocteau-twins",
+          "title": "Kyle Meredith interview with Greg Gonzalez, Louisville Public Media, January 8 2020",
+          "kind": "firsthand_interview",
+          "support_notes": "Gonzalez discusses intimate location recording; interview supports the slow, hushed delivery model. Different releases use different places."
+        }
+      ],
+      "choice_rationale": "A retained sung tune and recurring pop-band pulse distinguishes this from ambient folk and beatless ambient. Existing dream_pop has a larger synthesizer roster and a different vocal-stack/drum default.",
+      "neighbor_distinction": "A retained sung tune and recurring pop-band pulse distinguishes this from ambient folk and beatless ambient. Existing dream_pop has a larger synthesizer roster and a different vocal-stack/drum default.",
+      "authored_numeric_and_recording_model": "Authored axes favor functional song, central voice, cyclic form and smoother timbre. Low-effort single lead, clean arpeggios, locked flatwound bass, restrained rim clicks and one keyboard pad are distinct from the other four seeds. Optical compression, modern digital capture and reverberation remain proposed production choices.",
+      "geo_rationale": "Brooklyn is the explicitly credited Apocalypse recording site, rather than El Paso formation or current Los Angeles residence.",
+      "validation": {
+        "pins_checked": 23,
+        "lengths": {
+          "rich": 993,
+          "tags": 997,
+          "prose": 397,
+          "compact": 507
+        },
+        "cli_length": 681,
+        "browser_parity": true
+      }
+    },
+    {
+      "id": "ambient_post_rock",
+      "source_label": "ambient post-rock",
+      "every_noise_url": "https://everynoise.com/engenremap-ambientpostrock.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.hammockmusic.com/about",
+          "title": "Hammock — official biography",
+          "kind": "artist_release",
+          "support_notes": "Guitarist duo formed in 2003; distinguishes beatless work and guitar-rooted 2016 return. Supports ambient/post-rock intersection and dynamic range; no exact gear claims."
+        },
+        {
+          "url": "https://hammock.bandcamp.com/album/everything-and-nothing",
+          "title": "Hammock — Everything and Nothing artist release",
+          "kind": "artist_release",
+          "support_notes": "2016 self-recorded album notes identify beats and melodies, cello, Nashville artist anchor, and ambient/post-rock tags. The seed chooses an instrumental branch rather than album-wide vocals."
+        }
+      ],
+      "choice_rationale": "Processed guitar still develops as a band arrangement, unlike the drummerless ambient-guitar seed. It emphasizes textural/dynamic arrivals over ambient-pop vocal verse repetition. Cello is a supported optional color selected for this representative branch.",
+      "neighbor_distinction": "Processed guitar still develops as a band arrangement, unlike the drummerless ambient-guitar seed. It emphasizes textural/dynamic arrivals over ambient-pop vocal verse repetition. Cello is a supported optional color selected for this representative branch.",
+      "authored_numeric_and_recording_model": "Authored axes place density and percussion above the beatless neighbors, with neutral intensity balancing reflective passages and fuller arrivals. Tremolo humbucker guitar, rounded bass, stick backbeat and sul-tasto cello use parallel compression and layered digital spatial effects. These are recommendations, not actual Hammock session gear.",
+      "geo_rationale": "Nashville identifies Hammock’s cultural and recording community; documented mixing in Bridgeport is not used to relocate the musical lineage.",
+      "validation": {
+        "pins_checked": 11,
+        "lengths": {
+          "rich": 999,
+          "tags": 989,
+          "prose": 408,
+          "compact": 528
+        },
+        "cli_length": 634,
+        "browser_parity": true
+      }
+    }
+  ],
+  "validation_scope": "node scripts/validate.js passed; five CLI recipe strings are nonempty and below ceiling; exact authored rosters and all applicable pins checked in CLI optimized config and connector import; 20 format renders meet ceiling with no exemplar leaks; freshly embedded browser import preserves all parts and renders byte-identically to Node in all four formats. Shared signatures and final cultural-preface review remain integration responsibilities.",
+  "integration_render_review": {
+    "required": true,
+    "reason": "Before root adds per-tradition signatures, existing generic auto-preface scoring can select unrelated cultural labels; do not publish these outputs until root signature authoring and review resolve them. Source defaults and selected parts remain pinned.",
+    "affected": {
+      "ambient_country": ["street-pulsing resonator"],
+      "ambient_guitar": ["samul-percussive bass", "piercing synth"],
+      "ambient_pop": [
+        "spoken-flowing voice",
+        "street-pulsing guitar",
+        "samul-percussive bass",
+        "futuristic drum kit"
+      ],
+      "ambient_post_rock": [
+        "kora-cascading guitar",
+        "frustrated bass",
+        "shuffling drum kit",
+        "futuristic cello"
+      ]
+    }
+  }
+}

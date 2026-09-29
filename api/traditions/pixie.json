@@ -5,7 +5,7 @@
   "lineage": "Anglo-American female-fronted twee-adjacent indie pop cluster of roughly 2004-2012, centred on London, New York and Los Angeles and defined by Regina Spektor, Kate Nash, Lily Allen and Ingrid Michaelson — mid-tempo 90-120 BPM piano or ukulele-led songs, brushed or programmed light kit, glockenspiel and handclap sweeteners, close-miked conversational girlish soprano with spoken asides, hiccup phrasing and diaristic first-person lyrics, arranged in tight verse-chorus pop forms with chamber-pop string or brass cameos.",
   "recipe": "classic mid-2000s pixie, functional Song, pop rock branch, anglo singer song indie folk, alternative distorted rock college rock hamburger schule. thick, breath veiled tone, slow rate, interlocked note trading. block chord upright piano, ukulele, cedar phosphor bronze bronze strummed open chord ringing overtones parlor acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, mid attack plastic glockenspiel, plain gut sheep gut unsplit sitka spruce hard rock maple violin orchestral. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 715,
-  "score": 366.957,
+  "score": 366.653,
   "config": {
     "traditions": [
       "pixie",
@@ -40,8 +40,8 @@
           "voice_effort": 0,
           "voice_vibrato": 4.16,
           "voice_articulation": 17.484999999999992,
-          "voice_microtone": 35.28000000000001,
-          "voice_tradition": 22.46875,
+          "voice_microtone": 35.32500000000001,
+          "voice_tradition": 22.42375,
           "voice_mechanism_compound": 5.329999999999999,
           "voice_estill_quality": 5.3950000000000005,
           "voice_speech_song": 22.294999999999995,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.9399999999999997,
           "voice_pitch_organization": 2.1449999999999996,
           "voice_processing_chain": 7.605,
-          "voice_multitrack_stack": 2.6
+          "voice_multitrack_stack": 2.54
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "keyboard_technique": 19.075,
-          "upright_use": 3.685,
+          "upright_use": 3.79,
           "upright_piano_size": 0.345
         }
       },
@@ -88,11 +88,11 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 19.04375,
+          "acoustic_technique": 19.08875,
           "string_tuning": 1.3649999999999998,
-          "top_wood_parlor": 3.88,
+          "top_wood_parlor": 4.135,
           "back_sides_parlor": 0.585,
-          "string_acoustic_parlor": 4.075
+          "string_acoustic_parlor": 4.18
         }
       },
       {
@@ -108,10 +108,10 @@
         },
         "scores": {
           "amp_make": 9.685000000000002,
-          "body_wood": 4.12,
+          "body_wood": 4.225,
           "pickup_config": 0.435,
-          "string_type": 21.375625,
-          "scale_length_b": 3.685,
+          "string_type": 20.445625,
+          "scale_length_b": 3.79,
           "fretted_or_not": 0,
           "bass_technique": 20.17
         }
@@ -139,7 +139,7 @@
         "scores": {
           "percussion_technique": -0.05,
           "glockenspiel_size": 0.24,
-          "glockenspiel_mallet": 3.035
+          "glockenspiel_mallet": 2.99
         }
       },
       {
@@ -158,7 +158,7 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "orch_strings": 1.4187499999999997,
+          "orch_strings": 1.4299999999999997,
           "orch_top_wood": 1.8199999999999998,
           "orch_back_wood": 10.595,
           "orch_varnish": 0.12999999999999998,
