@@ -1762,7 +1762,7 @@ function lyPlanHtml() {
   const w = task?.domain === 'lyrics' ? task.workflow : null;
   const decl = lyric?.decl && typeof lyric.decl === 'object' ? lyric.decl : null;
   if (!w && !decl)
-    return `<div class="ly-pad">${uiEmptyState({ title: 'No writer plan yet', text: 'Plans come from the writer: it sweeps seeds, screens rhyme pairs and then draws a plan. An inspection-only plan can be looked at but cannot qualify a production song.', actions: lyBtn('new-lyrics', 'New song with the writer', 'sparkles', { cls: '' }) })}</div>`;
+    return `<div class="ly-pad">${uiEmptyState({ title: 'No writer plan yet', text: 'Plans come from the writer: it sweeps seeds, screens rhyme pairs and then draws a plan.', actions: lyBtn('new-lyrics', 'New song with the writer', 'sparkles', { cls: '' }) })}</div>`;
   const steps = w
     ? [
         ['Sweep', w.sweeps?.length ? `${uiCount(w.sweeps.length, 'sweep')}` : ''],

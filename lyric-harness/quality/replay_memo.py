@@ -182,7 +182,7 @@ class MemoReviser:
             return copy.deepcopy(store[key])
         out = compute()
         self._slot["tally"]["miss"] += 1
-        if len(store) >= self._slot["cap"]:
+        if self._slot["cap"] is not None and len(store) >= self._slot["cap"]:
             # Past the storage budget the RUN's memo is cleared rather than
             # partially evicted: the replay walks its prefix from the start,
             # so holding a suffix serves nothing, and a cleared store is the
@@ -257,8 +257,11 @@ def wrap(reviser, key, n_lines):
     # call. Group count/arity and width-squared tier-2 searches are not
     # bounded by the tier-1 attempt count. Overflow remains correct, and is
     # disclosed as eviction rather than a supposedly impossible event.
+    # With no declared round budget the store grows with the calls the run
+    # actually makes (cap None); a declared budget still sizes it.
     rd = reviser.rdecl
-    cap = (len(MEMOISED) * max(1, int(rd.max_rounds))
+    cap = (None if rd.max_rounds is None else
+           len(MEMOISED) * max(1, int(rd.max_rounds))
            * max(1, int(rd.attempts_per_line)) * max(1, int(n_lines)))
     slot = _run_slot(key, cap)
 

@@ -303,6 +303,7 @@ handed to whoever writes it.
 """
 
 import collections
+import itertools
 import os
 import re
 import sys
@@ -1900,7 +1901,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     # it did: the re-ask has already spent the reasons inside the round,
     # and `--attempts=0` asks nothing and stops honestly on the first.
     _barren, _barren_cap = 0, (2 if rdecl.attempts_per_line == 1 else 1)
-    for round_no in range(1, rdecl.max_rounds + 1):
+    for round_no in (itertools.count(1) if rdecl.max_rounds is None
+                     else range(1, rdecl.max_rounds + 1)):
         if _checkpoint is not None:
             _checkpoint(lines, round_no, "grading")
         briefs = reviser.brief(lines, mandate, profile=profile,

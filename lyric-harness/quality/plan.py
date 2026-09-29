@@ -19,14 +19,17 @@ GENERATOR over a space the enforcement layers already grade:
 - METERS are derived from the cycle grammar — any beat count whose pulse
   grouping is a composition into 2s and 3s (the attested additive-meter
   vocabulary), at any bars-per-line and subdivision, FILTERED by one derived
-  envelope — and BOTH OF ITS ENDS ARE THE SAME CALIBRATED BAND READ IN
-  DIFFERENT UNITS (2026-08-23, `MISSING.md` M-81(B)). CEILING, in BEATS: a
-  line runs at most `DENSITY` ceiling beats, because it carries at most that
-  many syllables and a sung line carries at least one syllable per beat
-  (`BEATS_PER_SYLLABLE_MAX`, the one declared step in the chain). FLOOR, in
-  SLOTS: a line holds at least `DENSITY` floor slots, because it must be able
-  to carry the fewest syllables the band permits and a syllable occupies one
-  slot. ~~the ceiling is the band's ceiling times one declared multiplier
+  envelope. CEILING, in BEATS: a line runs at most `MAX_LINE_CHARS` beats,
+  because a line is at most that many characters, a syllable is at least one
+  character, and a sung line carries at least one syllable per beat
+  (`BEATS_PER_SYLLABLE_MAX`, the one declared step in the chain). There is no
+  floor beyond the composition grammar's own two beats: a line of one
+  syllable is a line. ~~BOTH OF ITS ENDS ARE THE SAME CALIBRATED BAND READ IN
+  DIFFERENT UNITS (2026-08-23, `MISSING.md` M-81(B)): the ceiling the
+  `DENSITY` band's 12 in beats, the floor its 5 in slots~~ — struck
+  2026-09-28 by owner ruling: the 5–12 syllables-per-line band is a survey of
+  what is common, not a rule about what a line can be, and it is removed with
+  no replacement. ~~the ceiling is the band's ceiling times one declared multiplier
   (`SLOTS_CEILING_X`), beyond which every band-legal line under-fills the
   grid into decoration~~ — struck: it measured emptiness in SLOTS, and a slot
   is a subdivision unit, so it called a twelve-beat line and a forty-eight-
@@ -146,17 +149,16 @@ from functools import lru_cache
 
 from quality import schemes as SC
 from quality import relations as _RL
-from quality import capacity as _CAP
 from quality import floor as _FL
 from quality import slots as _SL
-from quality import meter_bands as MB
+from quality.propose import MAX_LINE_CHARS
 from quality import narrative as _NV
 
 __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "tokens_per_line_band", "gradeable_line_counts",
            "line_count_gaps", "song_line_counts", "stanza_line_floor",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
-           "make_plan", "execution_limits", "fill_plan", "writer_brief", "grading_command",
+           "make_plan", "fill_plan", "writer_brief", "grading_command",
            "render_song", "section_header",
            "meter_dims", "meter_space_size", "bell",
            "meter_factorisations", "beats_values",
@@ -315,26 +317,24 @@ FORM_TENDENCIES = {
 #: FORTY-EIGHT BEATS at subdivision 1, and this multiplier called those the
 #: same line.
 #:
-#: THE ENVELOPE IS STATED IN BEATS NOW, AND BOTH OF ITS ENDS ARE THE SAME
-#: CALIBRATED BAND READ IN DIFFERENT UNITS:
-#:   * CEILING — a line runs at most `DENSITY` ceiling BEATS, because it
-#:     carries at most that many syllables and a sung line carries at least
-#:     one syllable per beat. Beyond it the beat itself is decoration: the
-#:     grid is finer than the words need at EVERY level, subdivision
-#:     included, and nothing about the line is being measured by counting it.
-#:   * FLOOR — a line holds at least `DENSITY` floor SLOTS, because it must
-#:     be able to carry the fewest syllables the band permits and a syllable
-#:     occupies one slot (`fit.SLOTS_EXCEEDED`).
-#: So the ceiling is a bound on TIME and the floor a bound on CAPACITY, which
-#: is why they are in different units and why one multiplier could not be
-#: both.
-#:
-#: WHAT IS CALIBRATED AND WHAT IS DECLARED, kept apart (doctrine 16/22): the
-#: band `[5, 12]` syllables per line is MEASURED over 139,694 corpus lines
-#: (`meter_bands.ADOPTED`, three preregistrations). The step from syllables
-#: to beats is DECLARED and is `BEATS_PER_SYLLABLE_MAX` below — the one free
-#: choice left in this envelope, named so it can be overruled in one line
-#: rather than found in an expression.
+#: THE ENVELOPE IS STATED IN BEATS NOW. ~~AND BOTH OF ITS ENDS ARE THE SAME
+#: CALIBRATED BAND READ IN DIFFERENT UNITS: CEILING — a line runs at most
+#: `DENSITY` ceiling BEATS; FLOOR — a line holds at least `DENSITY` floor
+#: SLOTS.~~ STRUCK 2026-09-28 by owner ruling: the `DENSITY` band `[5, 12]`
+#: syllables per line was a survey of what is common in the corpus, not a
+#: rule about what a line can be — a one-syllable line and a line of well
+#: over a hundred syllables are both real — and it is removed from the
+#: planner with no replacement.
+#:   * CEILING — a line runs at most `MAX_LINE_CHARS` BEATS: it is at most
+#:     that many characters (the one line limit the harness keeps), a
+#:     syllable is at least one character, and a sung line carries at least
+#:     one syllable per beat.
+#:   * FLOOR — none beyond the composition grammar's two beats. A line must
+#:     hold at least one syllable, and every drawn line does.
+#: The step from syllables to beats is DECLARED and is
+#: `BEATS_PER_SYLLABLE_MAX` below — the one free choice left in this
+#: envelope, named so it can be overruled in one line rather than found in an
+#: expression.
 
 #: THE SLOWEST LINE THE PLANNER VOLUNTEERS, in beats per syllable. 1 is the
 #: IDENTITY — the point where the grid's own beat is the syllable rate — and
@@ -345,8 +345,8 @@ FORM_TENDENCIES = {
 #: themselves; a draft that holds a note is not refused by anything here.
 #: A CAPACITY, NOT A REQUIREMENT (the `SPARSE` reading M-79 got wrong): the
 #: ceiling is computed against the MOST syllables a line may carry, so a
-#: writer who fills a twelve-beat line with five syllables gets a slow line
-#: and no finding.
+#: writer who fills a long line with a few syllables gets a slow line and no
+#: finding.
 BEATS_PER_SYLLABLE_MAX = 1
 
 #: Exact scheme enumeration up to this many lines (Bell(10) = 115,975 —
@@ -533,12 +533,10 @@ def song_line_counts():
     MEASURED over 40 seeds at adoption: median drawn total 201 lines (was
     ~35 under 12..55), min 18, max 418, 0 refused, 440-line plans in ~4 s.
 
-    OPERATIONAL UPDATE 2026-09-08: this function still exposes the calibrated
-    structural domain. Ordinary `make_plan` draws from its intersection with
-    the registry-derived execution budget (currently 12..31); inspection_only
-    retains the full domain. This operational bound is not a musical rule or
-    proof of latency: actual text is checked again before writer admission,
-    and maximum-size repair still requires the measured capacity gate.
+    ~~OPERATIONAL UPDATE 2026-09-08: ... Ordinary `make_plan` draws from its
+    intersection with the registry-derived execution budget (currently
+    12..31)~~ — STRUCK 2026-09-28: the owner deleted the execution budget
+    (the 31-line cap), so `make_plan` draws from this domain whole.
 
     WHAT THIS COSTS, SAID PLAINLY: ~~a song of fewer than 17 (then 22) lines
     is now outside the planner's envelope — the cost ROSE by five lines with
@@ -652,32 +650,29 @@ def _envelope():
     # the floor's.
     ok = fillable_line_counts(PLAN_FORMS[0] if PLAN_FORMS else "verse-chorus")
     stanza = stanza_line_floor()
-    d_lo, d_hi = MB.ADOPTED["DENSITY"]
-    # TWO ENDS, ONE CALIBRATED BAND, TWO UNITS (`MISSING.md` M-81(B)). The
-    # ceiling bounds TIME and the floor bounds CAPACITY, which is why the old
-    # single `slots_per_line` pair could not carry both: 48 slots is twelve
-    # beats at subdivision 4 and forty-eight at subdivision 1, and one
-    # multiplier called those the same line.
-    beats_hi = max(2, int(d_hi * BEATS_PER_SYLLABLE_MAX))
+    # ~~TWO ENDS, ONE CALIBRATED BAND, TWO UNITS (`MISSING.md` M-81(B))~~ —
+    # the `DENSITY` band left the planner 2026-09-28 by owner ruling. The
+    # ceiling is the most syllables a line can carry, which is the one line
+    # limit the harness keeps: `MAX_LINE_CHARS` characters, one syllable at
+    # least one character.
+    beats_hi = max(2, int(MAX_LINE_CHARS * BEATS_PER_SYLLABLE_MAX))
     return {
         # BEATS PER LINE = bars_per_line x beats_per_bar, and it is the
         # quantity a listener hears as the length of the line. Ceiling
-        # DERIVED: a line carries at most `DENSITY` ceiling syllables and at
+        # DERIVED: a line carries at most `MAX_LINE_CHARS` syllables and at
         # least `BEATS_PER_SYLLABLE_MAX` beat each, so it runs at most that
         # many beats. Floor: the composition grammar's own — no cycle has
         # fewer than 2 beats, and a line is at least one bar.
         "beats_per_line": (2, beats_hi),
         # SLOTS PER LINE = beats_per_line x subdivision, so the ceiling
         # FOLLOWS from the beats ceiling and the finest grid this vocabulary
-        # models rather than being declared beside it. Floor DERIVED: the
-        # calibrated density band's floor — fewer slots than the minimum
-        # band-legal syllable count is unsatisfiable by construction, since a
-        # syllable occupies one slot (`fit.SLOTS_EXCEEDED`).
-        # KEPT AS AN ENTRY because `meter_dims` and the disclosure both read
-        # it, and because the FLOOR genuinely lives in this unit — but it is
-        # now the widest span any subdivision admits, not a bound the sampler
-        # draws against (see `_sample_meter`, which draws in beats).
-        "slots_per_line": (d_lo, beats_hi * max(ENVELOPE_SUBDIVISIONS)),
+        # models rather than being declared beside it. Floor: one slot, since
+        # a line carries at least one syllable and a syllable occupies one
+        # slot (`fit.SLOTS_EXCEEDED`); every drawn meter clears it.
+        # KEPT AS AN ENTRY because the disclosure reads it — it is the widest
+        # span any subdivision admits, not a bound the sampler draws against
+        # (see `_sample_meter`, which draws in beats).
+        "slots_per_line": (1, beats_hi * max(ENVELOPE_SUBDIVISIONS)),
         # LINES PER SECTION: bounded ONLY by what the whole song may carry.
         # There is no separate per-section calibration to derive a tighter
         # bound from — the floor grades a DRAFT, not a section — so inventing
@@ -865,22 +860,24 @@ def meter_dims():
     envelope. Pure arithmetic on the envelope; the beat count needs no cap of
     its own — the beats-per-line ceiling implies one.
 
-    BOTH ENDS COME FROM THE DENSITY BAND, in the two units M-81(B) separated:
-    the floor is the CAPACITY end (this pair must be able to hold the fewest
-    syllables the band permits, and a syllable occupies one slot) and the
-    ceiling is the TIME end (the whole line runs at most `DENSITY` ceiling
-    beats, so one bar of it runs at most that over the bar count).
+    Both ends come from the envelope, in the two units M-81(B) separated:
+    the floor is the CAPACITY end (this pair must hold at least
+    `slots_per_line`'s floor, one syllable, and a syllable occupies one slot)
+    and the ceiling is the TIME end (the whole line runs at most the
+    beats-per-line ceiling, so one bar of it runs at most that over the bar
+    count). ~~BOTH ENDS COME FROM THE DENSITY BAND~~ — struck 2026-09-28 with
+    the band itself.
     ~~`b_hi = slots_hi // (sub * bars)`~~ — struck 2026-08-23: dividing the
     SLOTS ceiling by the subdivision let a coarse grid buy length, which is
     how `bars=24, sub=1` became a legal shape for one lyric line.
     """
-    d_lo = MB.ADOPTED["DENSITY"][0]
+    s_lo = ENVELOPE["slots_per_line"][0]
     beats_hi = ENVELOPE["beats_per_line"][1]
     dims = {}
     for bars in range(ENVELOPE["bars_per_line"][0],
                       ENVELOPE["bars_per_line"][1] + 1):
         for sub in ENVELOPE["subdivisions"]:
-            b_lo = max(2, math.ceil(d_lo / (sub * bars)))
+            b_lo = max(2, math.ceil(s_lo / (sub * bars)))
             b_hi = beats_hi // bars
             if b_lo <= b_hi:
                 dims[(bars, sub)] = (b_lo, b_hi)
@@ -905,24 +902,25 @@ def meter_factorisations(beats_per_line):
     composition grammar's own floor: `_compositions_23` has no composition
     below 2, so a one-beat cycle is not a cycle here. The SUBDIVISION is
     filtered by the CAPACITY end of the envelope — a line must be able to
-    hold the fewest syllables the density band permits, and a syllable
-    occupies one slot, so `beats_per_line * sub` must clear the floor. That
-    is why a two-beat line exists only at the finest grid: two beats of
-    quarter-notes cannot carry five syllables and two beats of sixteenths
-    can.
+    hold `slots_per_line`'s floor, and a syllable occupies one slot, so
+    `beats_per_line * sub` must clear it. Since the density band left
+    (2026-09-28) that floor is one slot and every subdivision clears it:
+    ~~a two-beat line exists only at the finest grid, because two beats of
+    quarter-notes cannot carry five syllables~~ — five was the band's floor,
+    not a fact about lines.
     ~~took `slots` and divided~~ — struck 2026-08-23 with M-81(B). Slots are
     subdivision units, so drawing in them made a line's LENGTH a function of
     its grid resolution: 48 slots was twelve beats at subdivision 4 and
     forty-eight at subdivision 1.
     """
-    d_lo = MB.ADOPTED["DENSITY"][0]
+    s_lo = ENVELOPE["slots_per_line"][0]
     out = []
     for bars in range(ENVELOPE["bars_per_line"][0],
                       ENVELOPE["bars_per_line"][1] + 1):
         if beats_per_line % bars or beats_per_line // bars < 2:
             continue
         for sub in ENVELOPE["subdivisions"]:
-            if beats_per_line * sub >= d_lo:
+            if beats_per_line * sub >= s_lo:
                 out.append((bars, sub))
     return tuple(out)
 
@@ -932,7 +930,7 @@ def beats_values():
     """-> the beats-per-line counts the envelope can actually REALISE.
 
     COMPUTED rather than assumed: the moment `bars_per_line`, `subdivisions`
-    or the density floor moves, a count can stop being reachable, and a
+    or the slots floor moves, a count can stop being reachable, and a
     sampler drawing uniformly over counts it cannot realise would silently
     re-weight the ones it can.
     """
@@ -1123,15 +1121,13 @@ def _PLACE_POOL(max_token):
 #
 # EVERY GATE IN THIS MODULE PASSES AND THEIR CONJUNCTION DOES NOT, which is
 # the one defect under all four of `MISSING.md` M-79's findings. The meter is
-# drawn from a derived cycle space, the density band is a corpus calibration,
+# drawn from a derived cycle space, the bar holds one syllable a slot,
 # the schemes are exact-uniform over completions, the placements are bounded
 # by a reachable token index — and NO LAYER HOLDS THE CONJUNCTION, so a plan
 # whose constraints cannot be met together is emitted, graded as legal, and
 # handed to a writer who discovers it three revise rounds in.
 #
-# `capacity.ADOPTED_MAX_GROUP` (above) was the only joint check that existed:
-# it refuses a rhyme group larger than any family in the lexicon is measured
-# to fill. This is the same shape, per LINE rather than per group.
+# This checks the conjunction per LINE.
 
 #: THE WORD A PLACEMENT BINDS, and the sentinel for the last one. RE-EXPORTED
 #: FROM `quality/slots.py` AND NOT RE-IMPLEMENTED: that module is the one
@@ -1147,7 +1143,7 @@ placement_word = _SL.placement_word
 #: not a note: a plan is the one artifact in this pipeline nobody has spent
 #: any writing on yet, so refusing here costs a seed and refusing later costs
 #: a draft.
-#: How many words of a band-legal line the mandate never binds (M-171).
+#: How many words of a line the mandate never binds (M-171).
 #: DERIVED, not chosen: a line whose every word is dictated by some rhyme
 #: family is not a line a writer writes, so the minimal statement of "still
 #: writable" is that ONE word is the writer's own. The same reserve
@@ -1157,7 +1153,7 @@ placement_word = _SL.placement_word
 #: what `test_plan.py`'s mutation does to prove this bound is load-bearing.
 WORDS_LEFT_FREE = 1
 
-JOINT_CODES = ("SPAN_BELOW_DENSITY_FLOOR", "TOKEN_INDEX_UNREACHABLE",
+JOINT_CODES = ("TOKEN_INDEX_UNREACHABLE",
                "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD", "NO_FREE_WORD",
                "HOOK_IN_NONRECURRING_SECTION", "GROUP_CONTRADICTS_ITSELF",
                "IDENTITY_AT_TWO_LINE_ENDS", "PLACEMENT_CONTRADICTS_SCHEMA",
@@ -1167,21 +1163,23 @@ JOINT_CODES = ("SPAN_BELOW_DENSITY_FLOOR", "TOKEN_INDEX_UNREACHABLE",
 def line_syllable_ceiling(slots):
     """-> the most syllables a line of `slots` slots may LEGALLY carry.
 
-    The conjunction of two layers that never met. `quality/fit.py` refuses
-    more units than slots (`SLOTS_EXCEEDED`, `satisfiable=False`); the
-    calibrated density band refuses more than its ceiling. A line may carry
-    what BOTH admit, which is the smaller — and that is the number every
-    placement demand below is measured against.
+    `quality/fit.py` refuses more units than slots (`SLOTS_EXCEEDED`,
+    `satisfiable=False`), so a line may carry one syllable per slot, and that
+    is the number every placement demand below is measured against.
+    ~~The conjunction of two layers that never met ... the calibrated density
+    band refuses more than its ceiling. A line may carry what BOTH admit,
+    which is the smaller~~ — struck 2026-09-28: the density band is removed
+    by owner ruling, so the bar is the only layer left to conjoin.
 
-    THE OTHER DIRECTION IS NOT A CEILING AND MUST NOT BE READ AS ONE. A line
-    given MORE slots than the band's ceiling is a legitimately SLOWER line —
+    THE OTHER DIRECTION IS NOT A FLOOR AND MUST NOT BE READ AS ONE. A line
+    given MORE slots than its words need is a legitimately SLOWER line —
     `SPARSE`'s own gloss is *"fewer units than pulses"*, so slots are a
     CAPACITY and never a requirement. M-79's Finding 1 read 24 slots against a
     ceiling of 12 as a bar the writer could not legally fill and measured 78%
     of plans that way; the honest reading is that those plans are sparse and
     the unsatisfiable ones are elsewhere (see this module's own gate below).
     """
-    return min(slots, MB.ADOPTED["DENSITY"][1])
+    return slots
 
 
 def _overhang_binding(schema, members):
@@ -1224,12 +1222,16 @@ def line_binding_ceiling(max_token):
     """-> the most DISTINCT bound spans one line may be asked for.
 
     A binding occupies a SPAN and distinct bindings need distinct spans, so
-    the number a line can carry is bounded by its syllables — and the number
-    it is GUARANTEED to carry is bounded by the fewest syllables a band-legal
-    line may have, which is the calibrated density band's FLOOR. A writer may
-    legally write a five-syllable line wherever the grid allows twelve, so a
-    plan asking for six distinct spans has forced that writer above the band
-    floor to satisfy it.
+    the number a line can carry is bounded by its words. `max_token` is the
+    highest word index this plan may name — already held under the shortest
+    line's own capacity minus the final word (`plan_max_token`) — so a line
+    can be asked for that many numbered words plus its last word, less the
+    reserve below.
+    ~~and the number it is GUARANTEED to carry is bounded by the fewest
+    syllables a band-legal line may have, which is the calibrated density
+    band's FLOOR~~ — struck 2026-09-28: the density band is removed by owner
+    ruling, so there is no band-legal floor to guarantee against; the bound is
+    the plan's own lines, the question `plan_max_token` already asks.
 
     ~~and the ceiling is therefore the floor itself.~~ **STRUCK 2026-08-29
     (`MISSING.md` M-171): THAT BOUND PROTECTS THE LINE'S LENGTH AND NOT THE
@@ -1263,12 +1265,10 @@ def line_binding_ceiling(max_token):
     coordinate was in the wrong unit, and a unit error is repaired, not
     recalibrated.
 
-    NOT `joint_findings`' PER-LINE CEILING, WHICH IS A DIFFERENT AND WEAKER
-    QUESTION. That gate asks what THIS line's own grid admits at its declared
-    duration; this asks what ANY band-legal line is guaranteed to hold. The
-    gate is right to use the looser one — it refuses only the arithmetically
-    impossible — and the planner is right to volunteer against the tighter
-    one, and the two are kept apart rather than reconciled.
+    NOT `joint_findings`' PER-LINE CEILING. That gate asks what THIS line's
+    own grid admits at its declared duration; this asks what the plan's
+    SHORTEST line admits, so the planner volunteers against the tighter one
+    and the gate refuses only the arithmetically impossible.
 
     COUNTED IN WORDS, not in placement names: `end` and `endword` are one
     word between them and so are `head`, `headrime` and `T1` (M-80).
@@ -1280,7 +1280,7 @@ def line_binding_ceiling(max_token):
     second spelling of one bound produces (doctrine 1).
     """
     return max(1, min(len({placement_word(p) for p in _PLACE_POOL(max_token)}),
-                      MB.ADOPTED["DENSITY"][0] - WORDS_LEFT_FREE))
+                      max_token + 1 - WORDS_LEFT_FREE))
 
 
 def plan_max_token(plan):
@@ -1422,7 +1422,7 @@ def end_rhyme_groups(plan):
     placement draw had already spent an end, which is a fact about that draw;
     `narrow` is blocks whose lines cannot carry one more distinct span — the
     participation ceiling or the line's own grid — which is a fact about the
-    meter and the density band. Summing them would report a crowded line and
+    meter. Summing them would report a crowded line and
     a spent placement as one thing, and they are closed by different repairs.
     """
     schemes = (plan.get("choices") or {}).get("schemes") or {}
@@ -1445,8 +1445,8 @@ def end_rhyme_groups(plan):
         if LAST_WORD in words:
             return False
         # THE PARTICIPATION CEILING, and skipping it was this pass's own
-        # first defect. A line already carrying every span a band-legal line
-        # is GUARANTEED to hold cannot take another, whatever its own grid
+        # first defect. A line already carrying every span the plan's
+        # shortest line can hold cannot take another, whatever its own grid
         # admits — see `line_binding_ceiling`.
         if len(set(words)) >= ceiling:
             return False
@@ -1495,14 +1495,6 @@ def end_rhyme_groups(plan):
                 else:
                     narrow += 1
                 continue
-            if len(room) > _CAP.ADOPTED_MAX_GROUP:
-                # THE CAPACITY GATE AGAIN, and it binds here for the same
-                # reason it binds the scheme sampler: a group of k members
-                # needs a family the lexicon is measured to fill k of at
-                # once. Trimmed rather than refused — this pass is additive,
-                # so asking for less of it is a real answer where refusing
-                # the whole plan would not be.
-                room = room[:_CAP.ADOPTED_MAX_GROUP]
             out.append([str(ln) for ln in room])
             for ln in room:
                 at.setdefault(ln, []).append("end")
@@ -1527,16 +1519,16 @@ def joint_findings(plan):
     the same terms as a generated one and so `make_plan`'s own draw cannot be
     what makes it pass. `make_plan` calls it on the finished dict and REFUSES
     on any finding; the generator is separately arranged to satisfy it by
-    construction, which is what makes a mutation the only way to fire it —
-    the same relationship `ADOPTED_MAX_GROUP` has to the scheme sampler.
+    construction, which is what makes a mutation the only way to fire it.
 
     THE CAUSES ARE REPORTED APART AND NEVER SUMMED (doctrine 79). They
-    ask different things of whoever closes them: the first is a meter that
-    left no room after its own pickup, the second and third are a placement
-    reaching past what the line can hold, and the fourth is two declared rhyme
-    groups landing on ONE word — which is not an arithmetic impossibility at
-    all but the joint question `joint_field` answers WITH WORDS, and a plan
-    has none.
+    ask different things of whoever closes them: ~~the first is a meter that
+    left no room after its own pickup~~ (`SPAN_BELOW_DENSITY_FLOOR`, removed
+    2026-09-28 with the density band it measured against — every drawn line
+    holds at least one syllable), a placement reaching past what the line can
+    hold is two more, and two declared rhyme groups landing on ONE word is
+    not an arithmetic impossibility at all but the joint question
+    `joint_field` answers WITH WORDS, and a plan has none.
 
     M-79 also checks M-171's existing free-word reserve on the emitted plan.
     This is a declared writing constraint, not a proof that fully bound words
@@ -1554,7 +1546,6 @@ def joint_findings(plan):
     slots by construction, and a drift there is `RETURN_SLOT_DRIFT`'s to
     report rather than this gate's to refuse.
     """
-    lo = MB.ADOPTED["DENSITY"][0]
     sub = plan["subdivision"]
     span = {s["line"]: float(s["duration"]) * sub
             for s in plan["line_slots"]}
@@ -1564,15 +1555,6 @@ def joint_findings(plan):
     for ln in sorted(span):
         slots = span[ln]
         ceiling = line_syllable_ceiling(slots)
-        if ceiling < lo:
-            out.append((
-                "SPAN_BELOW_DENSITY_FLOOR", ln,
-                f"the line is given {slots:g} slot(s) and the calibrated "
-                f"density band's floor is {lo} syllable(s), so every legal "
-                f"line overflows its own bar: below the floor the band flags "
-                f"it and at or above it `fit.SLOTS_EXCEEDED` does. No draft "
-                f"clears both."))
-            continue
         places = at.get(ln, [])
         words = [placement_word(p) for p in places]
         landed = {}
@@ -1596,9 +1578,8 @@ def joint_findings(plan):
             out.append((
                 "TOKEN_INDEX_UNREACHABLE", ln,
                 f"a placement names word {top} of a line that may carry at "
-                f"most {ceiling:g} syllable(s) — {slots:g} slot(s) against a "
-                f"band ceiling of {MB.ADOPTED['DENSITY'][1]} — and a line has "
-                f"no more words than syllables."))
+                f"most {ceiling:g} syllable(s) — {slots:g} slot(s) — and a "
+                f"line has no more words than syllables."))
             continue
         need = top
         if LAST_WORD in words:
@@ -1611,25 +1592,22 @@ def joint_findings(plan):
                 "WORDS_EXCEED_SPAN", ln,
                 f"the placements on this line need {need} distinct words and "
                 f"the line may carry at most {ceiling:g} syllable(s) "
-                f"({slots:g} slot(s) against a band ceiling of "
-                f"{MB.ADOPTED['DENSITY'][1]}); a word is at least one "
-                f"syllable."))
+                f"({slots:g} slot(s)); a word is at least one syllable."))
         else:
             # Positions are individually reachable and distinct words fit;
             # their conjunction can still leave no word for the writer.
             # Count word identities, not placement aliases (M-80). A fraction
-            # of a slot cannot hold another word, and surplus slots do not
-            # lift the density ceiling. Returns add no new word bindings.
+            # of a slot cannot hold another word. Returns add no new word
+            # bindings.
             bound = len(set(words))
             capacity = math.floor(ceiling)
             if bound + WORDS_LEFT_FREE > capacity:
                 out.append((
                     "NO_FREE_WORD", ln,
                     f"{bound} distinct words are bound in a line that may "
-                    f"carry at most {capacity} words ({slots:g} slot(s) "
-                    f"against a density ceiling of {MB.ADOPTED['DENSITY'][1]} "
-                    f"syllables). The declared reserve is {WORDS_LEFT_FREE} "
-                    f"free word(s); no line within both limits can keep it."))
+                    f"carry at most {capacity} words ({slots:g} slot(s)). "
+                    f"The declared reserve is {WORDS_LEFT_FREE} free "
+                    f"word(s); no line within the bar can keep it."))
 
     # THE FIFTH CAUSE, and it is not per-word at all — it is the one
     # conjunction on this list a writer cannot answer BY WRITING (2026-08-23,
@@ -1754,7 +1732,7 @@ def joint_findings(plan):
                 f"group(s) {', '.join(_labels)} require an extra syllable "
                 f"on {len(_words)} distinct bound word(s). Together with "
                 f"this line's other placements they need at least {_need} "
-                f"syllables, but its grid and density band permit at most "
+                f"syllables, but its grid permits at most "
                 f"{_ceiling:g}. The required overhang cannot fit."))
     return out
 
@@ -2462,75 +2440,8 @@ def _sweep_one(job):
 
 
 
-def draft_execution_bound(lines, phon=None):
-    """Bound candidate work for this text before writer assessment or acceptance.
-
-    This is an operational bound, not a syllable-count verdict or a density
-    requirement. The maximum of every declared pronunciation is retained;
-    unreadable lexical tokens reserve one unit instead of vanishing from the
-    estimate. A short song may therefore exceed the calibrated density band
-    and still be admitted. Every proposed replacement must pass this same
-    calculation before it can replace the previously accepted draft.
-    """
-    if not isinstance(lines, (list, tuple)) or not all(isinstance(s, str) for s in lines):
-        raise ValueError("writer draft must be a sequence of text lines")
-    if phon is None:
-        from quality import phonology
-        phon = phonology.get("eng")
-    line_units, unreadable = [], []
-    for line in lines:
-        line_phon = phon.for_line(line) if hasattr(phon, "for_line") else phon
-        if hasattr(line_phon, "analyse_line"):
-            analysis = line_phon.analyse_line(line)
-            absent = len(analysis.refused)
-            # Lexical cardinality also bounds any-token locus enumeration.
-            count = max(len(analysis.tokens), len(analysis.syllables) + absent)
-        else:
-            count = absent = 0
-            declared_tokens = (line_phon.tokens_for_line(line)
-                               if hasattr(line_phon, "tokens_for_line") else None)
-            tokens = declared_tokens if declared_tokens is not None else _RL.tokenise(line)
-            for index, token in enumerate(tokens):
-                reader = line_phon.for_token(index) if hasattr(line_phon, "for_token") else line_phon
-                parses = reader.parses(token) if hasattr(reader, "parses") else [reader.syllabify(token)]
-                size = max((len(reading) for reading in parses), default=0)
-                count += max(1, size)
-                absent += int(size == 0)
-        line_units.append(count)
-        unreadable.append(absent)
-    maximum = max(line_units, default=0)
-    bound = _RL.planning_work_bound(len(lines), maximum)
-    return {**bound, "observed_line_units": line_units,
-            "unreadable_tokens_per_line": unreadable,
-            "max_observed_line_units": maximum,
-            "basis": "registry enumeration; maximum declared pronunciation length plus unreadable-token reservations",
-            "scope": "current draft candidate work; no density, latency or RSS verdict"}
-
-
-def execution_limits():
-    """Registry-derived operational admission, separate from musical space.
-
-    The bound covers all legal English lines within the declared density band.
-    It assumes no index selectivity and does not claim a latency or RSS SLO.
-    """
-    syllables = int(MB.ADOPTED["DENSITY"][1])
-    lo, hi = 0, ENVELOPE["total_lines"][1]
-    while lo < hi:
-        mid = (lo + hi + 1) // 2
-        if _RL.planning_work_bound(mid, syllables)["within_budget"]:
-            lo = mid
-        else:
-            hi = mid - 1
-    bound = _RL.planning_work_bound(lo, syllables)
-    return {"max_lines": lo, "max_syllables_per_line": syllables,
-            "max_candidate_pairs": bound["max_pairs"],
-            "limiting_schema": bound["limiting_schema"],
-            "basis": "registry span enumeration; no phonological bucket pruning assumed",
-            "scope": "English lines at or below the declared density ceiling; no latency/RSS guarantee"}
-
-
 def make_plan(seed, form="verse-chorus", lines=None, relation=None,
-              functions=None, title=None, narrative=None, wants=(), inspection_only=False, melody=None):
+              functions=None, title=None, narrative=None, wants=(), melody=None):
     """Plan under explicit brief predicates; never supply aesthetic defaults.
 
     The existing closed sweep vocabulary is also accepted at the generation
@@ -2538,13 +2449,6 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     feasible draw directly. Remaining predicates reject complete candidates.
     Candidate seeds and every rejection are disclosed; no candidates are ranked.
     """
-    # Installed planning may use this bound only after all reviewed witnesses
-    # have been verified by the actual image runtime, not another Python build.
-    if os.environ.get("LYRIC_RELEASE_ASSETS_REQUIRED") == "1":
-        try:
-            _CAP.require_current_proof()
-        except ValueError as exc:
-            raise PlanRefused(str(exc)) from exc
     if seed is None:
         raise PlanRefused("plan requires --seed=N — an explicit integer seed")
     if isinstance(wants, str):
@@ -2552,7 +2456,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     parsed = [parse_sweep_want(w) if isinstance(w, str) else
               parse_sweep_want("".join(w)) for w in wants]
     kw = dict(form=form, lines=lines, relation=relation, functions=functions,
-              title=title, narrative=narrative, _wants=parsed, inspection_only=inspection_only, melody=melody)
+              title=title, narrative=narrative, _wants=parsed, melody=melody)
     if not parsed:
         return _make_plan_candidate(seed, **kw)
     rng = random.Random(seed)
@@ -2583,7 +2487,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
 
 
 def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
-                         functions=None, title=None, narrative=None, _wants=(), inspection_only=False, melody=None):
+                         functions=None, title=None, narrative=None, _wants=(), melody=None):
     """A request -> the plan dict. Refuses rather than guessing.
 
     `relation`, `functions` and `title` are THE WRITER'S DECLARATION
@@ -2718,17 +2622,6 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     # space, CONDITIONED on the envelope (and on --lines when given).
     # Deterministic — the retries are the same rng stream.
     _GRADEABLE = fillable_line_counts(form)
-    operational = execution_limits()
-    if not inspection_only:
-        if lines is not None and lines > operational["max_lines"]:
-            raise PlanRefused(
-                f"RESOURCE_LIMIT: requested {lines} lines exceeds the registry-derived "
-                f"candidate budget ({operational['max_lines']} lines at "
-                f"{operational['max_syllables_per_line']} syllables per line; "
-                f"{operational['max_candidate_pairs']} candidates per schema). "
-                "No writing was started. --inspection-only permits mathematical "
-                "plan browsing outside this execution boundary, not a finishable run.")
-        _GRADEABLE = {n for n in _GRADEABLE if n <= operational["max_lines"]}
     for name, op, value in _wants:
         if name == "lines":
             n = int(value)
@@ -2742,7 +2635,8 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                              if n == "lines_per_section" and op in (">=", "=")])
     _max_sections = min([ENVELOPE["sections"][1]] + [int(v) for n, op, v in _wants
                              if n == "sections" and op in ("<=", "=")])
-    _max_group = min([_CAP.ADOPTED_MAX_GROUP] + [int(v) for n, op, v in _wants
+    # No group-size limit unless the writer declares one (`group<=N`).
+    _max_group = min([float("inf")] + [int(v) for n, op, v in _wants
                              if n == "group" and op in ("<=", "=")])
     if _max_sections < 1 or _max_group < 2:
         raise PlanRefused("declared section/group bounds cannot carry the required song mandate")
@@ -2923,9 +2817,9 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         bars, sub = melody["bars"], melody["subdivision"]
         beats, groups_m = melody["meter"]["beats"], melody["meter"]["groups"]
         beats_pl = bars * beats
-        lo, hi = ENVELOPE["beats_per_line"]
-        if not lo <= beats_pl <= hi or beats_pl * sub < ENVELOPE["slots_per_line"][0]:
-            raise PlanRefused("melody: phrase is outside the planner's declared beat/slot envelope")
+        # A DECLARED phrase is not held to the envelope the planner
+        # volunteers from: line length is a declaration (owner ruling
+        # 2026-09-28), and `validate_melody` already refuses a malformed one.
         n_beats = n_fact = 1
     else:
         bars, sub, beats, groups_m, (n_beats, n_fact, beats_pl) = \
@@ -2967,8 +2861,8 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     # AND THE PICKUP IS SUBTRACTED FROM THE SPAN THE ENVELOPE GUARANTEED, so
     # the choices are filtered against what is LEFT (`MISSING.md` M-80). The
     # envelope's floor is derived on `bars x beats x sub` — "fewer slots than
-    # the minimum band-legal syllable count is unsatisfiable BY CONSTRUCTION",
-    # this module's own docstring — and then every line is emitted with
+    # the minimum syllable count is unsatisfiable BY CONSTRUCTION", this
+    # module's own docstring — and then every line is emitted with
     # `duration = bars * beats - ana`, so a pickup of a whole beat at
     # subdivision 4 removes four slots from a floor that was checked before
     # they were taken. A derivation stated on one quantity and applied to
@@ -2977,7 +2871,9 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     # syllables) or by `fit.SLOTS_EXCEEDED` (too many for the bar).
     # THE FILTERED SET CANNOT BE EMPTY: `_anacrusis_choices` always contains
     # 0.0, and the envelope has already cleared the un-pickedup span.
-    _floor = MB.ADOPTED["DENSITY"][0]
+    # ~~the density floor~~ — since 2026-09-28 the floor is the envelope's
+    # own one slot, because the density band is removed by owner ruling.
+    _floor = ENVELOPE["slots_per_line"][0]
     ana_choices = [a for a in ([0.0] if melody is not None else _anacrusis_choices(sub))
                    if (bars * beats - a) * sub >= _floor]
     anacrusis = {fn: (0.0 if melody is not None else rng.choice(ana_choices))
@@ -3077,22 +2973,6 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
             if fn in VERBATIM_RETURNERS:
                 first_seen[fn] = first
             for _g in _abs_groups(by_func[fn], first):
-                # THE CAPACITY GATE (`MISSING.md` M-41). A rhyme group of k
-                # members needs a family the grader accepts k members of AT
-                # ONCE, and `quality/capacity.py` is what measured that: the
-                # adopted bound is the largest actually witnessed class:RHYME
-                # group, not a maximum-clique proof. Larger groups are not
-                # volunteered until a real witness establishes their capacity.
-                if len(_g) > _CAP.ADOPTED_MAX_GROUP:
-                    raise PlanRefused(
-                        f"this seed's scheme puts {len(_g)} lines in one "
-                        f"rhyme group, larger than the adopted "
-                        f"{_CAP.ADOPTED_MAX_GROUP}-member witness "
-                        f"(quality/capacity.py: the largest CERTIFIED chain, "
-                        f"a witness clique graded through the reviser). The "
-                        f"tier-1 ceiling reaches further and is ungraded, so "
-                        f"this refuses where the MEASUREMENT stops rather "
-                        f"than where the arithmetic does.")
                 groups.append(_place_group(_g, rng, _max_token, used))
             # OVERLAPPING GROUPS, DRAWN AND NOT ONLY DECLARABLE (2026-08-23).
             #
@@ -3153,14 +3033,12 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                 # the placement table happens to hold. A binding occupies a
                 # SPAN, and distinct bindings on one line need distinct
                 # spans, so the number a line can carry is bounded by its
-                # syllables — and the number it is GUARANTEED to carry is
-                # bounded by the fewest syllables a band-legal line may have,
-                # which is the calibrated density band's floor
-                # (`meter_bands.ADOPTED`, the same constant the slots
-                # envelope derives from). Bounding by the pool size instead
-                # would let a plan ask a five-syllable line for eleven
-                # distinct bound spans — arithmetic the line cannot satisfy
-                # at its own minimum legal length.
+                # syllables — and the number the planner volunteers is
+                # bounded by what this plan's shortest line can carry
+                # (`line_binding_ceiling`; ~~the calibrated density band's
+                # floor~~, removed 2026-09-28 by owner ruling). Bounding by
+                # the pool size instead would let a plan ask a short line for
+                # more distinct bound spans than it has words.
                 # AND THE POOL IS COUNTED IN WORDS, not in names: `end` and
                 # `endword` are one word between them and so are `head`,
                 # `headrime` and `T1`, so the number of names overstates what
@@ -3259,8 +3137,7 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         "plan_version": 3,
         "request": {"form": form, "lines": lines, "seed": seed,
                     "relation": relation, "functions": functions, "title": title,
-                    "narrative": narrative, "wants": ["".join(w) for w in _wants],
-                    "inspection_only": bool(inspection_only)},
+                    "narrative": narrative, "wants": ["".join(w) for w in _wants]},
         "envelope": {k: (list(v) if isinstance(v, tuple) else v)
                      for k, v in ENVELOPE.items()},
         "choices": {
@@ -3286,16 +3163,16 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                                      f"factorisation(s) of {beats_pl} beats, "
                                      f"then 1 of {_n_compositions_23(beats)} "
                                      f"groupings of {beats}. The line runs "
-                                     f"{beats_pl} beat(s) — at most the "
-                                     f"density band's ceiling, since a sung "
+                                     f"{beats_pl} beat(s) — at most "
+                                     f"{MAX_LINE_CHARS}, the longest line "
+                                     f"in characters, since a syllable is "
+                                     f"at least one character and a sung "
                                      f"line carries at least one syllable a "
                                      f"beat — and holds {beats_pl * sub} "
-                                     f"slot(s), at least the band's floor. "
-                                     f"Both ends are the same calibrated "
-                                     f"band in different units; the pair "
-                                     f"share follows from how many ways each "
-                                     f"beat count factorises. Unit is "
-                                     f"notation, never enforced"},
+                                     f"slot(s). The pair share follows from "
+                                     f"how many ways each beat count "
+                                     f"factorises. Unit is notation, never "
+                                     f"enforced"},
             # WHERE EACH REQUIREMENT BINDS, and the MEASURE it was drawn
             # under — disclosed because it is the coordinate that stopped
             # this generator being end-rhyme-only, and because the measure
@@ -3811,11 +3688,6 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                   if k != "reason"}}
     plan["choices"]["audible"] = audible_share(plan)
     plan["choices"]["shape_attempts"] = _attempt + 1
-    work_bound = _RL.planning_work_bound(total, operational["max_syllables_per_line"])
-    plan["execution_limits"] = dict(operational, admitted=work_bound["within_budget"],
-                                    inspection_only=bool(inspection_only),
-                                    candidate_upper_bound=work_bound["max_candidate_pairs"])
-    plan["choices"]["execution"] = dict(plan["execution_limits"])
     if melody is not None:
         plan["melody"] = melody
         plan["request"]["melody"] = deepcopy(melody)
@@ -3834,8 +3706,6 @@ def fill_plan(plan, lines):
     difference — the same argument `quality/fit.py` makes for its own count
     refusal.
     """
-    if not plan.get("execution_limits", {}).get("admitted", True):
-        raise PlanRefused("RESOURCE_LIMIT: this inspection-only plan is outside the execution budget; it cannot be filled for writing or grading")
     want = plan["total_lines"]
     got = [l for l in lines if l.strip()]
     if len(got) != want:
@@ -4043,9 +3913,7 @@ def writer_brief(plan):
     """The plan as a blind writer's seed — shape and rhyme plan, nothing
     about the harness (the coverage experiment's bias rule, kept)."""
     m = plan["sections"][0]["meter"]
-    out = (["INSPECTION ONLY — outside the execution candidate budget. Do not start paid writing."]
-           if not plan.get("execution_limits", {}).get("admitted", True) else [])
-    out += [f"Write a song: {plan['total_lines']} lines, "
+    out = [f"Write a song: {plan['total_lines']} lines, "
            f"{len(plan['sections'])} sections, in this order:"]
     for sec in plan["sections"]:
         slots = [s for s in plan["line_slots"]
@@ -4060,8 +3928,7 @@ def writer_brief(plan):
             _cap = int(line_syllable_ceiling(
                 slots[0]["duration"] * plan["subdivision"]))
             out.append(f"      up to {_cap} syllables a line after the "
-                       f"pickup; the calibrated band asks at least "
-                       f"{MB.ADOPTED['DENSITY'][0]}")
+                       f"pickup")
     out.append(f"Feel: {m['beats']}/{m['unit']} grouped "
                f"{'+'.join(str(g) for g in m['groups'])}.")
     if plan.get("melody"):

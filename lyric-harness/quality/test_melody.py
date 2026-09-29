@@ -49,9 +49,14 @@ class MelodyTests(unittest.TestCase):
         for value in cases:
             with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'melody:'):
                 validate_melody(value)
-        with self.assertRaisesRegex(plan.PlanRefused, 'envelope'):
-            plan.make_plan(3, lines=16, melody=dict(PHRASE, bars=100,
-                notes=[{'pitch_hz': 440, 'ticks': 800}]))
+        # A DECLARED phrase is not held to the envelope the planner
+        # volunteers from (owner ruling 2026-09-28: the 12-beat line ceiling
+        # is deleted, and line length is a declaration), so a 100-bar phrase
+        # plans, with its own length, where it used to refuse.
+        long = plan.make_plan(3, lines=16, melody=dict(PHRASE, bars=100,
+            notes=[{'pitch_hz': 440, 'ticks': 800}]))
+        self.assertEqual(long['choices']['meter']['beats_per_line'], 400)
+        self.assertEqual(long['melody']['bars'], 100)
 
     def test_cli_plan_fill_and_refill_carry_tune(self):
         root = Path(__file__).resolve().parents[1]

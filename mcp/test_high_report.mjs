@@ -9,7 +9,6 @@ import {
   _workerInternals,
   _verdictInternals,
   RUNS,
-  EXECUTABLE_MAX_LINES,
   PLAN_FORMS,
   TYPE_POSITIONS,
   LYRIC_TOOL_SCHEMAS,
@@ -112,6 +111,8 @@ test('real MCP preserves draft coordinates and uses the placed-return judge', as
   }
 });
 
+// The lyric_plan `lines` ceiling, as published in the tool schema.
+const PUBLISHED_MAX_LINES = () => LYRIC_TOOL_SCHEMAS.lyric_plan.lines.unwrap().maxValue;
 // ── The connector audit's lyric findings, each held by a check ─────────────
 
 // The published text states numbers and enumerates vocabularies the harness
@@ -125,13 +126,15 @@ test('published capacities and vocabularies match the harness they describe', ()
         '-c',
         'import json\n' +
           'from quality import plan, rhyme_types\n' +
-          'print(json.dumps({"max_lines": plan.execution_limits()["max_lines"], ' +
+          'print(json.dumps({"max_lines": plan.ENVELOPE["total_lines"][1], ' +
           '"forms": list(plan.PLAN_FORMS), "positions": list(rhyme_types.POSITION)}))',
       ],
       { cwd: HARNESS, encoding: 'utf8' }
     )
   );
-  assert.equal(EXECUTABLE_MAX_LINES, read.max_lines, 'the writable capacity');
+  // The 31-line writing cap is deleted (owner ruling 2026-09-28): the
+  // published ceiling is the planner's own envelope, nothing narrower.
+  assert.equal(PUBLISHED_MAX_LINES(), read.max_lines, 'the planner envelope');
   assert.deepEqual(PLAN_FORMS, read.forms, 'the planner forms');
   assert.deepEqual(TYPE_POSITIONS, read.positions, 'the rhyme-type positions');
 });
@@ -192,7 +195,8 @@ test('published lyric text carries no ticket, date, doctrine number or stale cla
     for (const field of [...PLAN_FIELDS.filter((f) => f !== 'seed'), ...READING_FIELDS])
       assert.ok(grade.includes(field), `lyric_grade names ${field}`);
     const lines = tools.find((t) => t.name === 'lyric_plan').inputSchema.properties.lines;
-    assert.ok(lines.description.includes(`at most ${EXECUTABLE_MAX_LINES} lines`));
+    assert.equal(lines.maximum, PUBLISHED_MAX_LINES());
+    assert.ok(lines.description.includes(`at most ${lines.maximum} `));
     const sweep = tools.find((t) => t.name === 'lyric_sweep');
     assert.match(sweep.description, /FOUR COUNTS/);
     assert.match(sweep.inputSchema.properties.want.description, /FILTER/);

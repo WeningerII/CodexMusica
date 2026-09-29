@@ -106,14 +106,16 @@ class CapacityReceiptTests(unittest.TestCase):
             with self.subTest(words=words), self.assertRaisesRegex(ValueError, 'CAPACITY_UNVERIFIED'):
                 verify_witness(self.reviser, row)
 
-    def test_missing_receipt_blocks_installed_lookup_and_planning(self):
+    def test_missing_receipt_blocks_installed_lookup_not_planning(self):
+        # Lookup reads the capacity table and still needs its proof. Planning
+        # no longer reads the capacity bound (owner, 2026-09-28: no rhyme-
+        # family cap), so it has nothing to prove and plans without it.
         with tempfile.TemporaryDirectory() as temp, patch.dict(os.environ, {
                 'LYRIC_RELEASE_ASSETS_REQUIRED': '1',
                 'LYRIC_CAPACITY_ATTESTATION': str(Path(temp, 'missing.json'))}):
             with self.assertRaisesRegex(ValueError, 'CAPACITY_UNVERIFIED'):
                 C.read_table()
-            with self.assertRaisesRegex(PlanRefused, 'CAPACITY_UNVERIFIED'):
-                make_plan(seed=1, lines=12)
+            self.assertEqual(make_plan(seed=1, lines=12)['total_lines'], 12)
 
     def test_changed_adopted_bound_invalidates_admission_and_its_cache(self):
         with tempfile.TemporaryDirectory() as temp:

@@ -56,7 +56,6 @@ from quality.plan import (BLOCKED_FORMS, ENVELOPE,  # noqa: E402
                           meter_space_size)
 import quality.plan as PLN  # noqa: E402
 import lyric_harness as LH  # noqa: E402
-from quality import capacity as CAP  # noqa: E402
 from quality import meter_bands as MB  # noqa: E402
 from quality import slots as SL  # noqa: E402
 from quality import relations as RL  # noqa: E402
@@ -686,18 +685,27 @@ def test_the_measure():
     _sshare = N / len(vals)
     _smean = sum(slot_n.elements()) / N
     _smid = (vals[0] + vals[-1]) / 2
+    # ~~within 15% of its share, mean within 1.0 of the midpoint~~ — sized
+    # for the 2..12 envelope (11 values, ~2,180 draws each, so 15% was about
+    # seven standard deviations). The 12-beat ceiling is deleted (owner
+    # ruling 2026-09-28) and the envelope is 2..200: ~120 draws a value, one
+    # standard deviation is ~9%, and a fixed 15% fails a uniform draw by
+    # chance. Both tolerances are now FOUR STANDARD ERRORS of the draw
+    # itself, derived from N and the value count, never typed.
+    _stol = 4 * math.sqrt(_sshare * (1 - 1 / len(vals)))
+    _mtol = 4 * math.sqrt((len(vals) ** 2 - 1) / 12) / math.sqrt(N)
     check("BEATS PER LINE — the coordinate the envelope is stated in, and "
           "the length a listener hears — is drawn UNIFORM over what the "
-          "envelope can realise: every value reached, each within 15% of "
-          "its share, and the observed mean within 1.0 of the envelope's "
-          "own midpoint. ~~SLOTS per line~~ (M-81(A)) had the ORDER right "
+          "envelope can realise: every value reached, each within four "
+          "standard errors of its share, and the observed mean within four "
+          "standard errors of the envelope's own midpoint. ~~SLOTS per line~~ (M-81(A)) had the ORDER right "
           "and the UNIT wrong: a slot is a subdivision unit, so drawing "
           "uniformly over slots made a line's LENGTH a function of its grid "
           "resolution — 48 slots is twelve beats at subdivision 4 and "
           "forty-eight at subdivision 1",
           len(slot_n) == len(vals)
-          and all(abs(v - _sshare) <= 0.15 * _sshare for v in slot_n.values())
-          and abs(_smean - _smid) <= 1.0,
+          and all(abs(v - _sshare) <= _stol for v in slot_n.values())
+          and abs(_smean - _smid) <= _mtol,
           f"{len(slot_n)}/{len(vals)} values, mean {_smean:.2f}, midpoint "
           f"{_smid}, max deviation "
           f"{max(abs(v - _sshare) / _sshare for v in slot_n.values()):.1%}")
@@ -745,16 +753,18 @@ def test_the_measure():
           f"max/min predicted {_ratio:.0f}x")
 
     # The envelope floor is DERIVED, not copied (the calibration chain).
-    from quality import meter_bands as MB
-    check("BOTH ENDS OF THE ENVELOPE ARE THE SAME CALIBRATED BAND READ IN "
-          "DIFFERENT UNITS, and neither is a literal (`MISSING.md` M-81(B), "
-          "doctrine 91): the BEATS ceiling is the density band's ceiling "
-          "times `BEATS_PER_SYLLABLE_MAX` — a line carries at most that many "
-          "syllables and at least one beat each — while the SLOTS floor is "
-          "the band's floor, because a syllable occupies one slot. Detach "
-          "either and this fails",
-          b_line == MB.ADOPTED["DENSITY"][1] * PLN.BEATS_PER_SYLLABLE_MAX
-          and lo == MB.ADOPTED["DENSITY"][0],
+    # REPOINTED 2026-09-28: the density band is deleted by owner ruling and
+    # nothing replaced it; the ceiling is the one line limit the harness
+    # keeps.
+    check("NEITHER END OF THE ENVELOPE IS A LITERAL (`MISSING.md` M-81(B), "
+          "doctrine 91): the BEATS ceiling is the longest line in characters "
+          "(`propose.MAX_LINE_CHARS`) times `BEATS_PER_SYLLABLE_MAX` — a "
+          "syllable is at least one character and a sung line carries at "
+          "least one syllable a beat — and the SLOTS floor is one slot, "
+          "because a line holds at least one syllable. Detach either and "
+          "this fails",
+          b_line == PLN.MAX_LINE_CHARS * PLN.BEATS_PER_SYLLABLE_MAX
+          and lo == 1,
           f"beats ceiling {b_line}, slots floor {lo}")
     check("...and the SLOTS ceiling is not declared beside them — it FOLLOWS "
           "from the beats ceiling and the finest grid this vocabulary models, "
@@ -830,15 +840,25 @@ def test_the_measure():
     # ONE bar, or a few. `bars_per_line` runs to `hi // 2` as a BOUND, and
     # under the old measure the median plan spent EIGHT bars on a line — the
     # same slots product spelled as many short bars instead of one long one.
+    # ~~median <= 2 bars and one-bar share > 40%~~ — true of the 2..12
+    # envelope, where most beat counts have few factorisations. With the
+    # 12-beat ceiling deleted (owner ruling 2026-09-28) a 150-beat line has
+    # many, so the one-bar share is what THIS sampler predicts — beats
+    # uniform, then one factorisation uniform — and that prediction is what
+    # the pair-uniform measure could not match. Held to four binomial
+    # standard errors over the 200 plans.
     bars_pl = sorted(p["choices"]["bars_per_line"] for p in
                      [make_plan(seed=s) for s in range(200)])
-    check("...and a line occupies ONE bar in most plans, which is what the "
-          "pair-uniform measure got wrong in the other direction: it is the "
-          "same slots product spelled as many short bars, and no song sets "
-          "one lyric line across eight of them",
-          bars_pl[100] <= 2 and sum(b == 1 for b in bars_pl) / 200 > 0.4,
-          f"median {bars_pl[100]} bars/line, "
-          f"one-bar {sum(b == 1 for b in bars_pl) / 200:.1%}")
+    _p1 = sum(sum(1 for (b, _s) in PLN.meter_factorisations(n) if b == 1)
+              / len(PLN.meter_factorisations(n)) for n in vals) / len(vals)
+    _o1 = sum(b == 1 for b in bars_pl) / 200
+    check("...and the ONE-BAR share is the sampler's own prediction from "
+          "`meter_factorisations`, which is what the pair-uniform measure got "
+          "wrong in the other direction: it spelled the same slots product "
+          "as many short bars",
+          abs(_o1 - _p1) <= 4 * math.sqrt(_p1 * (1 - _p1) / 200),
+          f"median {bars_pl[100]} bars/line, one-bar {_o1:.1%} against "
+          f"predicted {_p1:.1%}")
     check("the 4/4 bias is dead: many distinct meters over 200 seeds, both "
           "notation units, and 4/4 under 30% of plans. The COUNT is not "
           "pinned at a literal — it moves with the derived envelope — so "
@@ -908,8 +928,7 @@ def test_the_measure():
     # the planner DRAWS over `fillable_line_counts()`, 436 values (12..447),
     # so the expectation has to be computed over the draw's own domain or it
     # is an expectation for a set nothing samples.
-    _env = {n for n in _PL.fillable_line_counts()
-            if n <= _PL.execution_limits()["max_lines"]}
+    _env = set(_PL.fillable_line_counts())
     _lo, _hi = min(_env), max(_env)
     # REPINNED 2026-09-04 (`MISSING.md` M-239): the envelope is 12..447 now
     # and ~~300 draws~~ 200 draws (`_N_MEASURE`, the seed loop above; "300"
@@ -922,11 +941,17 @@ def test_the_measure():
     # again. Both ends within 5 of the derived limits, as before.
     import math as _m
     _expect = len(_env) * (1 - (1 - 1 / len(_env)) ** _N_MEASURE)
+    # ~~both ends within 5~~ — with the 31-line cap deleted (owner ruling
+    # 2026-09-28) the draw spans 12..463 again, and a uniform draw of 200
+    # misses an end by more than 5 about one time in fourteen. The end
+    # tolerance is now the distance a uniform draw overshoots with
+    # probability 1/1000: ceil(|env| * ln(1000) / draws).
+    _end_tol = _m.ceil(len(_env) * _m.log(1000) / _N_MEASURE)
     check("totals cover the envelope's order, not one shape: the distinct "
           "totals reached are most of what a UNIFORM draw over the DERIVED "
           "envelope reaches in this many seeds, both ends included",
-          len(totals) >= 0.85 * _expect and min(totals) <= _lo + 5
-          and max(totals) >= _hi - 5,
+          len(totals) >= 0.85 * _expect and min(totals) <= _lo + _end_tol
+          and max(totals) >= _hi - _end_tol,
           f"{len(totals)} distinct of {len(_env)} in the envelope "
           f"({100 * len(totals) / len(_env):.0f}%; a uniform draw expects "
           f"{_expect:.0f}), [{min(totals)}, {max(totals)}] against "
@@ -941,7 +966,7 @@ def test_the_measure():
     # These public post-draw helpers consume a supplied draft/blueprint.
     # They are not sampler dependencies. Prove that no other function in
     # this module references them before excluding their reader bodies.
-    post_draw = {"draft_execution_bound", "render_blueprint_song"}
+    post_draw = {"render_blueprint_song"}
     sampler_tree = ast.Module(body=[n for n in tree.body
                                    if not isinstance(n, ast.FunctionDef)
                                    or n.name not in post_draw], type_ignores=[])
@@ -1028,12 +1053,10 @@ def test_the_measure():
     # `capacity` AND `slots` JOINED 2026-08-23, each with its own argument
     # and each RE-TIGHTENED the way `grid` and `floor` were.
     #
-    # `capacity` — the planner refuses a rhyme group larger than the lexicon
-    # is MEASURED to sustain, and that figure is an ADOPTED CALIBRATION
-    # constant of the same species as `meter_bands.ADOPTED`. It may name
-    # ONLY `ADOPTED_MAX_GROUP`: `capacity.read_table()` opens the artifact,
-    # and a planner reaching a table is the corpus arriving at the dice by a
-    # longer road.
+    # `capacity` — the planner no longer imports it (owner, 2026-09-28: no
+    # rhyme-family cap), so it may name NOTHING from it: `capacity.read_table()`
+    # opens the artifact, and a planner reaching a table is the corpus arriving
+    # at the dice by a longer road.
     # `slots` — the placement vocabulary a plan may draw from. A HAND-
     # DECLARED table of the same species as `structures` and
     # `SECTION_FUNCTIONS`, both already admitted. It may name ONLY
@@ -1047,9 +1070,7 @@ def test_the_measure():
     # rule) and are named here rather than re-implemented, which is the whole
     # point of the widening: a second answer to "which word is `headrime`?"
     # inside `plan.py` is exactly what this allow-list would otherwise force.
-    # Production admission validates an actual-runtime proof before using
-    # the adopted bound. Its result cannot become a generative coordinate.
-    ALLOWED_FROM_CAPACITY = {"ADOPTED_MAX_GROUP", "require_current_proof"}
+    ALLOWED_FROM_CAPACITY = set()
     ALLOWED_FROM_SLOTS = {"PLANNABLE_PLACEMENTS", "placement_word",
                           "LAST_WORD", "is_default_spelling",
                           "parse_slot", "spell_slot"}
@@ -1115,8 +1136,7 @@ def test_the_measure():
                               "REGISTRY", "overhang_member",
                               "unsatisfiable_pairs", "group_satisfiable",
                               "identity_forced", "placement_bindable",
-                              "POSITION_PLACEMENT_KINDS", "planning_work_bound",
-                              "tokenise"}
+                              "POSITION_PLACEMENT_KINDS"}
     # The operational admission bound counts registry candidate positions;
     # it never builds a phonological stream or reads corpus/dictionary data.
     # `placement_bindable` joined 2026-09-03 (M-206) as `pair_bindable`'s
@@ -1186,15 +1206,33 @@ def test_the_measure():
             # operations, not module reads — the module travels as _NV.
             elif n.value.id in ("_NV", "NV"):
                 nar_names.add(n.attr)
-    check("plan.py imports exactly {schemes, meter_bands, structures, grid, "
-          "floor, capacity, slots, relations, narrative, melody, rhyme_types} from quality and "
+    # `meter_bands` LEFT 2026-09-28: the planner read only its `DENSITY`
+    # band, which the owner deleted. `propose` JOINED the same day, and it
+    # may name ONLY `MAX_LINE_CHARS` — the one line limit the harness keeps,
+    # which is now the envelope's beat ceiling. `propose.py` imports only
+    # `re` at module level and opens no file (checked below).
+    check("plan.py imports exactly {schemes, propose, structures, grid, "
+          "floor, slots, relations, narrative, melody, rhyme_types} from quality and "
           "opens NO file — the corpus cannot reach the dice (the owner's "
           "move-37 rule)",
-          subs == {"schemes", "meter_bands", "structures", "grid", "floor",
-                   "capacity", "slots", "relations", "narrative", "melody",
+          subs == {"schemes", "propose", "structures", "grid", "floor",
+                   "slots", "relations", "narrative", "melody",
                    "rhyme_types"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
+    prop_names = {a.name for n in ast.walk(tree)
+                  if isinstance(n, ast.ImportFrom)
+                  and n.module == "quality.propose" for a in n.names}
+    from quality import propose as _propose
+    import inspect as _inspect
+    prop_tree = ast.parse(_inspect.getsource(_propose))
+    prop_top = {a.name for n in prop_tree.body
+                if isinstance(n, ast.Import) for a in n.names}
+    check("...and from `propose` ONLY the line-length limit, from a module "
+          "whose own top-level imports are `re` alone",
+          prop_names == {"MAX_LINE_CHARS"} and prop_top == {"re"}
+          and not any(isinstance(n, ast.ImportFrom) for n in prop_tree.body),
+          f"names {sorted(prop_names)}, propose imports {sorted(prop_top)}")
     # M-304's report resolves an explicitly declared class/type/schema name.
     # The resolver reads namespace tables only. Admit that one function in
     # audible_share, never the module, a word classifier or a sampler import.
@@ -1247,7 +1285,7 @@ def test_the_measure():
           "arriving at the dice by a longer road",
           floor_names <= ALLOWED_FROM_FLOOR,
           f"names {sorted(floor_names)}")
-    check("...and from `capacity` ONLY the adopted bound and explicit production proof admission",
+    check("...and from `capacity` NOTHING — the planner reads no capacity bound",
           cap_names <= ALLOWED_FROM_CAPACITY, f"names {sorted(cap_names)}")
     parents = {id(child): parent for parent in ast.walk(tree) for child in ast.iter_child_nodes(parent)}
     proof_calls = [n for n in ast.walk(tree) if isinstance(n, ast.Call)
@@ -1261,8 +1299,8 @@ def test_the_measure():
             cursor = parents.get(id(cursor))
         guards.append(unused_result and cursor is not None and ast.unparse(cursor.test)
                       == "os.environ.get('LYRIC_RELEASE_ASSETS_REQUIRED') == '1'")
-    check("capacity proof is one production-only admission with no returned value entering the dice",
-          len(proof_calls) == 1 and all(guards))
+    check("and it asks for no capacity proof, since it uses no capacity bound",
+          len(proof_calls) == 0, f"{len(proof_calls)} proof call(s), guards {guards}")
     check("...and from `slots` ONLY the plannable placement vocabulary, "
           "never a resolver — `slots` reaches `relations`, which opens a "
           "file, so the narrowing is what the import allow-list stands for",
@@ -1848,6 +1886,7 @@ def test_the_planner_plans_the_whole_line():
     places, part, overlap, sizes = Counter(), Counter(), 0, []
     drawn = Counter()
     n = 0
+    over_ceiling, bound_full = [], []
     for seed in range(60):
         try:
             pl = make_plan(seed=seed)
@@ -1869,8 +1908,16 @@ def test_the_planner_plans_the_whole_line():
         sizes.append(len(m_.groups))
         if m_.overlapping_lines():
             overlap += 1
+        _ceil = PLN.line_binding_ceiling(PLN.plan_max_token(pl))
+        _span = {s["line"]: PLN.line_syllable_ceiling(
+            float(s["duration"]) * pl["subdivision"]) for s in pl["line_slots"]}
         for ln in range(1, m_.n_lines + 1):
-            part[len(m_.groups_of(ln))] += 1
+            k = len(m_.groups_of(ln))
+            part[k] += 1
+            if k > _ceil:
+                over_ceiling.append((seed, ln, k, _ceil))
+            if k >= math.floor(_span.get(ln, 0)):
+                bound_full.append((seed, ln, k, _span.get(ln)))
     check("every plan's groups PARSE back into a Mandate — the spelling the "
           "planner emits is the spelling the declaration layer reads, which "
           "is the only shape that proves the coordinate crossed the seam",
@@ -1911,35 +1958,37 @@ def test_the_planner_plans_the_whole_line():
     # unwritable line the planner was drawing (measured: 15.9% of 4,482 lines
     # over 121 seeds, at least one in 120 of them). A pin that passes on the
     # defect it names is doctrine 48 inside the suite that enforces it.
+    # REPOINTED 2026-09-28: the bound was the density band's floor less the
+    # reserve; the band is deleted (owner ruling), so the bound is the plan's
+    # own shortest line (`line_binding_ceiling(plan_max_token(plan))`).
     check("a line's participation leaves the writer at least "
-          f"{PLN.WORDS_LEFT_FREE} word of their own: it is bounded by what a "
-          "band-legal line can CARRY — the calibrated density band's floor — "
-          "MINUS the reserve, so no plan hands back a line whose every word "
-          "is dictated by some rhyme family",
-          max(part) <= MB.ADOPTED["DENSITY"][0] - PLN.WORDS_LEFT_FREE,
-          f"max participation {max(part)}, density floor "
-          f"{MB.ADOPTED['DENSITY'][0]} less reserve {PLN.WORDS_LEFT_FREE}")
+          f"{PLN.WORDS_LEFT_FREE} word of their own: it is bounded by what "
+          "the plan's shortest line can CARRY MINUS the reserve, so no plan "
+          "hands back a line whose every word is dictated by some rhyme "
+          "family",
+          not over_ceiling, f"lines over their plan's ceiling: "
+          f"{over_ceiling[:5]}")
     # THE INVARIANT ITSELF, not the constant that currently delivers it. The
     # check above compares against a bound the module declares, so it moves
     # when the bound moves; this one asks the question the entry is about and
     # would catch a future draw that reached the same place another way.
     check("...and that is the property, stated without reference to the "
-          "constant: NO line in any drawn plan is bound at every word",
-          all(b < MB.ADOPTED["DENSITY"][0] for b in part.elements())
-          if hasattr(part, "elements") else max(part) < MB.ADOPTED["DENSITY"][0],
-          f"participation {dict(sorted(part.items()))} against floor "
-          f"{MB.ADOPTED['DENSITY'][0]}")
+          "constant: NO line in any drawn plan is bound at every word its "
+          "own grid can carry",
+          not bound_full, f"participation {dict(sorted(part.items()))}; "
+          f"fully bound lines {bound_full[:5]}")
     check("...and it is not pinned at either extreme: lines carrying ONE "
           "binding and lines carrying several are both ordinary",
           part[1] > 0 and sum(v for k, v in part.items() if k >= 2) > 0,
           f"participation {dict(sorted(part.items()))}")
-    check("no group exceeds what the LEXICON is measured to sustain — the "
-          "capacity layer's deepest CERTIFIED chain, so a plan never asks "
-          "for a rhyme family no family can fill",
-          all(len(g) <= CAP.ADOPTED_MAX_GROUP
-              for pl in [make_plan(seed=k) for k in range(8)]
+    # No rhyme-family ceiling (owner, 2026-09-28); a group size the writer
+    # DECLARES is still honoured.
+    _declared = [make_plan(seed=k, wants=["group<=3"]) for k in range(4)]
+    check("a declared `group<=N` still bounds every drawn group — the only "
+          "group-size limit left is the one a writer asks for",
+          all(len(g) <= 3 for pl in _declared
               for g in [x.split(",") for x in pl["groups"].split(";")]),
-          f"ceiling {CAP.ADOPTED_MAX_GROUP}")
+          f"largest {max(len(x.split(',')) for pl in _declared for x in pl['groups'].split(';'))}")
 
 
 def _place_group_keyed_on_the_name(group, rng, max_token, used):
@@ -1974,9 +2023,8 @@ def test_the_joint_gate():
     check("the sweep produced plans to ask the question of",
           len(plans) == JOINT_SWEEP, f"{len(plans)} plans")
     check("NO plan in the sweep has a contradiction detected by this gate — the "
-          "gate is satisfied BY CONSTRUCTION, which is the relationship "
-          "`ADOPTED_MAX_GROUP` already has to the scheme sampler and is why "
-          "the mutations below are the only way to fire it",
+          "gate is satisfied BY CONSTRUCTION, which is why the mutations "
+          "below are the only way to fire it",
           all(PLN.joint_findings(p) == [] for p in plans),
           f"{sum(len(PLN.joint_findings(p)) for p in plans)} findings over "
           f"{len(plans)} plans")
@@ -2036,19 +2084,23 @@ def test_the_joint_gate():
           "coordinate `_place_group` was missing",
           fired(two_on_one) == ["TWO_GROUPS_ONE_WORD"], f"{fired(two_on_one)}")
 
-    far = dict(base, groups="1.T40,2.T40")
+    far = dict(base, groups="1.T1000,2.T1000")
     check("a placement naming a word past what the line can carry fires — a "
           "line has no more words than syllables, and no more syllables than "
-          "the smaller of its slots and the band's ceiling",
+          "its slots",
           "TOKEN_INDEX_UNREACHABLE" in fired(far), f"{fired(far)}")
 
+    # ~~SPAN_BELOW_DENSITY_FLOOR~~ — the density band is deleted (owner
+    # ruling 2026-09-28), so a short line is a line: the mutation that used
+    # to fire that cause now fires nothing, and the code is gone.
     starved = dict(base, groups="", line_slots=[
-        dict(s, duration=0.5) if s["line"] == 1 else s
+        dict(s, duration=1.0) if s["line"] == 1 else s
         for s in base["line_slots"]])
-    check("a line whose span falls under the calibrated density FLOOR fires "
-          "— below the floor the band flags it and at or above it "
-          "`fit.SLOTS_EXCEEDED` does, so no draft clears both",
-          fired(starved) == ["SPAN_BELOW_DENSITY_FLOOR"], f"{fired(starved)}")
+    check("a one-beat line is not refused — no density floor stands under "
+          "it, and the removed code is not a member of the declared set",
+          fired(starved) == []
+          and "SPAN_BELOW_DENSITY_FLOOR" not in PLN.JOINT_CODES,
+          f"{fired(starved)}")
 
     crowded = dict(base, subdivision=1, groups="1.T6,2.T6;1,3", line_slots=[
         dict(s, duration=6.0) for s in base["line_slots"]])
@@ -2141,15 +2193,14 @@ def test_the_joint_gate():
     # pulses", so slots are a CAPACITY and never a requirement.
     sparse = dict(base, groups="", line_slots=[
         dict(s, duration=99.0) for s in base["line_slots"]])
-    check("a line with far MORE slots than the density ceiling produces NO "
+    check("a line with far MORE slots than its words need produces NO "
           "joint finding — slots are a capacity, not a requirement, and "
           "M-79's Finding 1 read 78% of plans as impossible on exactly this "
           "confusion", PLN.joint_findings(sparse) == [],
           f"{PLN.joint_findings(sparse)[:1]}")
-    check("`line_syllable_ceiling` is the CONJUNCTION of the two layers — "
-          "the band's ceiling where the bar is roomy, the bar where it is "
-          "not — so neither layer answers for the other",
-          PLN.line_syllable_ceiling(99) == MB.ADOPTED["DENSITY"][1]
+    check("`line_syllable_ceiling` is the bar alone — one syllable a slot, "
+          "with no density band capping a roomy bar (deleted 2026-09-28)",
+          PLN.line_syllable_ceiling(99) == 99
           and PLN.line_syllable_ceiling(3) == 3,
           f"99 slots -> {PLN.line_syllable_ceiling(99)}, "
           f"3 slots -> {PLN.line_syllable_ceiling(3)}")
@@ -2231,9 +2282,14 @@ def test_the_seed_sweep_is_a_verb():
     # THE SWEEP ITSELF, on the range the scratch script used before it was a
     # verb — and it returns the same answer, which is what makes this a verb
     # rather than a rewrite.
-    wants = [PLN.parse_sweep_want(w) for w in
-             ("sections<=6", "lines_per_section>=2", "group<=4",
-              "uses=verse,chorus", "before=verse,chorus", "pins_per_line<=5")]
+    # REPOINTED 2026-09-28: ~~sections<=6, group<=4~~ -> sections<=10,
+    # group<=8. The 31-line cap is deleted (owner ruling), so the raw draw
+    # runs to hundreds of lines and the old six accepted 0 of 160 — which
+    # would make the intersection check below pass on an empty set. These
+    # six accept 2 of 160 (measured), a strict minority and more than none.
+    PREFS = ("sections<=10", "lines_per_section>=2", "group<=8",
+             "uses=verse,chorus", "before=verse,chorus", "pins_per_line<=5")
+    wants = [PLN.parse_sweep_want(w) for w in PREFS]
     # ~~`res["accepted"] == [108]` over `range(120)`~~ — struck 2026-08-24
     # (`MISSING.md` M-106) — ~~and repinned to `[139, 284, 323]` over
     # `range(400)`~~ — struck again the SAME DAY, by M-107, and the second
@@ -2256,9 +2312,7 @@ def test_the_seed_sweep_is_a_verb():
     _R = range(160)
     singles = {w: set(PLN.sweep(_R, wants=[PLN.parse_sweep_want(w)])
                       ["accepted"])
-               for w in ("sections<=6", "lines_per_section>=2", "group<=4",
-                         "uses=verse,chorus", "before=verse,chorus",
-                         "pins_per_line<=5")}
+               for w in PREFS}
     res = PLN.sweep(_R, wants=wants)
 
     # MISSING.md M-79 — Finding 2: these six caller preferences still
@@ -3459,11 +3513,19 @@ def test_the_overhang_group():
     check("aliases of one word do not double-charge its extra syllable",
           PLN._overhang_budget(["head", "T1", "T4"], [1, 1], 5)
           == (5, 5, True))
+    # REPOINTED 2026-09-28: the density ceiling this pinned is deleted (owner
+    # ruling). A roomy bar now carries what it holds, and the same demand
+    # overflows only a bar that is genuinely too short for it.
     wide_grid = budget_plan("1,2;2.T11,3.T1",
                            {"A": "schema:semirhyme"}, slots=20)
-    check("surplus grid slots cannot evade the calibrated density ceiling",
-          [f[1] for f in overflows(wide_grid)] == [2]
-          and "at most 12" in overflows(wide_grid)[0][2])
+    tight_grid = budget_plan("1,2;2.T11,3.T1",
+                            {"A": "schema:semirhyme"}, slots=12)
+    check("a roomy bar is not capped by any syllable band: twenty slots hold "
+          "the eleventh word, the last word and its overhang, and twelve do "
+          "not",
+          overflows(wide_grid) == []
+          and [f[1] for f in overflows(tight_grid)] == [2]
+          and "at most 12" in overflows(tight_grid)[0][2])
     check("the new refusal belongs to the declared joint-gate vocabulary",
           "OVERHANG_EXCEEDS_SPAN" in PLN.JOINT_CODES)
     # A real pair through the schema judge and the independent meter fitter:
@@ -3837,10 +3899,14 @@ def test_the_delegated_rulings(FAILURES=None):
     # words and reported per pair (`relations.audible_relations`).
     m120_eb = sum(p["choices"]["audible"]["end_bound"] for p in plans.values())
     m120_bare = sum(p["choices"]["audible"]["bare"] for p in plans.values())
+    # REPINNED 2026-09-28: ~~156~~ -> 1314 end-bound groups. The 31-line cap
+    # that held every plan to 12..31 lines is deleted (owner ruling), so
+    # seeds 1-40 draw their full lengths and carry more groups; the claim —
+    # every one of them bare — is unchanged.
     check("M-120 superseded: over seeds 1-40 every END-BOUND group is bare "
-          "(judged against every relation) — 156 end-bound groups, 156 "
+          "(judged against every relation) — 1314 end-bound groups, 1314 "
           "bare, none carries an audible or inaudible drawn schema",
-          m120_eb == m120_bare == 156
+          m120_eb == m120_bare == 1314
           and not any(p["choices"]["audible"]["inaudible"]
                       or p["choices"]["audible"]["audible"]
                       for p in plans.values())
@@ -3856,8 +3922,11 @@ def test_the_delegated_rulings(FAILURES=None):
           m120_decl.get("relations") == {}
           and "NOT DRAWN" in m120_decl["choices"]["relations"]["chosen_from"]
           and m120_decl["relation"] == "schema:consonance"
-          and m120_decl["choices"]["audible"]["inaudible"] == ["consonance"] * 2
-          and m120_perf["choices"]["audible"]["audible"] == 2,
+          and m120_decl["choices"]["audible"]["end_bound"] > 0
+          and m120_decl["choices"]["audible"]["inaudible"]
+          == ["consonance"] * m120_decl["choices"]["audible"]["end_bound"]
+          and m120_perf["choices"]["audible"]["audible"]
+          == m120_perf["choices"]["audible"]["end_bound"],
           f"{m120_decl['choices']['audible']} / "
           f"{m120_perf['choices']['audible']}")
     check("...and audibility stays a RECORD, not a refusal: no JOINT_CODES "
@@ -3915,9 +3984,7 @@ def test_the_delegated_rulings(FAILURES=None):
                 continue
             capn = int(_PL.line_syllable_ceiling(
                 slots[0]["duration"] * p["subdivision"]))
-            exp = (f"      up to {capn} syllables a line after the pickup; "
-                   f"the calibrated band asks at least "
-                   f"{MB.ADOPTED['DENSITY'][0]}")
+            exp = f"      up to {capn} syllables a line after the pickup"
             cap_ok = cap_ok and lines_b[i + 1] == exp
     check("...the brief carries a LEGEND: every place a group names and "
           "every relation it draws is glossed, derived from the slot "

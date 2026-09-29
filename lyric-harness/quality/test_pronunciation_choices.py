@@ -138,17 +138,18 @@ class PronunciationChoices(unittest.TestCase):
         self.assertEqual(len(stream.lexical_tokens[0]), 5)
         self.assertEqual(stream.units[stream.tokens[(0, 4)][0]].syl.nucleus, 'IH')
 
-    def test_scoped_cache_declarations_and_resource_bound(self):
-        from quality.plan import draft_execution_bound
+    def test_scoped_cache_declarations_and_declared_units(self):
+        from quality import relations as R
         line = 'record record'
         lex = self.lex([choice(line, 1), choice(line, 2, phones=VERB)])
         phon = English(lexicon=lex).for_line(line)
         self.assertNotEqual(phon.for_token(0).declaration(), phon.for_token(1).declaration())
         line = 'My Zzyzx'
         lex = self.lex([choice(line, 2, 'Zzyzx', ['AA1'] * 40, 'declared')])
-        bound = draft_execution_bound([line], English(lexicon=lex))
-        self.assertEqual(bound['observed_line_units'], [41])
-        self.assertEqual(bound['unreadable_tokens_per_line'], [0])
+        # (Read through the draft work bound until the owner deleted it
+        # 2026-09-28; the stream is the reader that bound counted.)
+        st = R.build_stream([line], English(lexicon=lex))
+        self.assertEqual(len(st.units), 41)
 
     def test_no_hidden_fallback_when_adapter_declares_dictionary_only(self):
         lex = lh.Lexicon(fallback='low')

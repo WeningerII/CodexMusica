@@ -1129,11 +1129,12 @@ test('recipe creation needs a successful customization; explicit browse can retu
 test('a recipe turn the step limit ends reaches the page as the recipe it reached, and continues', async () => {
   // The owner's report, end to end through /chat and the real connector: a
   // model that only searches used every hop and the page showed "No
-  // customized Rich recipe has been produced yet." The last hops now carry
-  // mode ANY over the finishing tools; this mock ignores that (as a provider
-  // might), so its late searches are refused and the SERVER seeds the recipe
-  // from the tradition its own search found — delivered in `recipe`, with the
-  // workspace the page's "Use recipe" button needs and a note saying what it is.
+  // customized Rich recipe has been produced yet." The live chat declares no
+  // step limit; this turn declares one, since the mock never stops. Every hop
+  // runs normally, and when the declared count ends the turn the SERVER seeds
+  // the recipe from the tradition its own search found — delivered in
+  // `recipe`, with the workspace the page's "Use recipe" button needs and a
+  // note saying what it is.
   const router = await createChatRouter({
     buildServer: buildRealServer,
     Client,
@@ -1176,16 +1177,13 @@ test('a recipe turn the step limit ends reaches the page as the recipe it reache
     });
     assert.equal(first.status, 200);
     const p = first.body;
-    assert.equal(bodies.length, 4, 'every hop of the ceiling was taken');
+    assert.equal(bodies.length, 4, 'every declared hop was taken');
     assert.deepEqual(
       bodies.map((b) => b.toolConfig.functionCallingConfig.mode),
-      ['AUTO', 'AUTO', 'ANY', 'ANY']
+      ['AUTO', 'AUTO', 'AUTO', 'AUTO'],
+      'no hop is restricted'
     );
-    assert.deepEqual(bodies[3].toolConfig.functionCallingConfig.allowedFunctionNames, [
-      'start_recipe',
-      'edit_recipe',
-      'render_recipe',
-    ]);
+    assert.equal(bodies[3].toolConfig.functionCallingConfig.allowedFunctionNames, undefined);
     assert.equal(p.stopped, 'MAX_STEPS');
     assert.equal(typeof p.recipe, 'string');
     assert.equal(p.reply, p.recipe);
@@ -1207,8 +1205,8 @@ test('a recipe turn the step limit ends reaches the page as the recipe it reache
     assert.ok(p.tools.slice(0, -1).every((t) => t.by_server === false));
     assert.deepEqual(
       p.tools.filter((t) => t.not_run).map((t) => t.name),
-      ['search_prefaces', 'search_prefaces'],
-      'the two searches on finishing hops were refused, not run'
+      [],
+      'no search was refused'
     );
     assert.ok(Array.isArray(p.cards) && p.cards.length > 0);
     assert.ok(Array.isArray(p.workspace?.cards) && p.workspace.cards.length > 0);

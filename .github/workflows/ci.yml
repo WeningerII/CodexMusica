@@ -2617,7 +2617,13 @@ jobs:
       #   `lyric_harness` and `quality.features` and re-reading a 13k-line file six times, and the
       #   figure is stated because a cost written down and never re-run is a threshold nobody
       #   wrote down (doctrine 58); label 100 to 101
-      - name: The 102 cheap suites (their history is the comment above)
+      #   relation_index joined 2026-09-28 with the widening index, added in the same commit as
+      #   the module it gates so it never joins the orphan census: the search that widens an
+      #   empty declared-relation menu to the whole lexicon skips only words the relation's own
+      #   definition refuses, and section 1 grades those dropped words through the exact judge
+      #   for every declarable name on both routes, section 2 proving the check catches an index
+      #   that drops too much; label 102 to 103
+      - name: The 103 cheap suites (their history is the comment above)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -2712,7 +2718,7 @@ jobs:
                    controls data_row_claims english_text stub_resolution melody meter tempo verify_figures expected_drift \
                    songs ban_convergence cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
-                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon song_shape backlog_status source_identity figure_exhibits; do
+                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon song_shape backlog_status source_identity figure_exhibits relation_index; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured
@@ -3155,7 +3161,14 @@ jobs:
     # (4 seeds a shard, four workers each), so no shard carries the whole
     # sweep. `SWEEP_WORKERS` is the default (four) here because this process
     # owns the runner. Headroom, not a budget.
-    timeout-minutes: 30
+    # ~~30~~ -> 60 (2026-09-28): the 31-line cap is deleted (owner ruling),
+    # so §3's seeds grade at their full drawn lengths again (80..394 lines
+    # on run 2760). Measured there: seed 6, 394 lines, 1705 s alone, and
+    # shard 2 at 1769 s — 29.5 min against a 30-min limit; shard 3 (seeds
+    # of 179..352 lines) was cancelled at it. Each shard's wall is its
+    # LONGEST seed (four workers run the four at once), so more shards
+    # would not shorten it; the limit is what moves.
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:

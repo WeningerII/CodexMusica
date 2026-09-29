@@ -6505,7 +6505,7 @@ the quality layer (each says which module answered):
                           and never a silent downgrade to the stub
   plan --seed=N [--form=verse-chorus] [--lines=N] [--relation=NAME]
        [--functions=a,b,c] [--title=TEXT] [--melody=JSON] [--fill=DRAFT]
-       [--want=PRED;PRED] [--inspection-only] [--out=PATH]
+       [--want=PRED;PRED] [--out=PATH]
                         the PLANNING phase: a request in, a blueprint and
                           a mandate out (quality/plan.py). Structure from a
                           declared pattern grammar, schemes from the FULL
@@ -6525,9 +6525,6 @@ the quality layer (each says which module answered):
                           refuse by name with the alternatives listed.
                           --want conditions the plan on the existing closed
                           sweep predicates; all candidate outcomes are disclosed.
-                          Default plans fit the registry-derived execution
-                          budget. --inspection-only exposes larger mathematical
-                          plans for inspection; they cannot be filled or finished.
   plan --sweep=LO-HI [--want=PRED;PRED] [the same declarations]
                           THE SEED SWEEP, a verb since 2026-08-23 (the last
                           instrument standing rule 3 named and left manual).
@@ -9952,8 +9949,6 @@ def main():
         narrative_raw = _flag_value(rest, "--narrative")
         sweep_raw = _flag_value(rest, "--sweep")
         want_raw = _flag_value(rest, "--want")
-        inspection_only = "--inspection-only" in rest
-        rest = [a for a in rest if a != "--inspection-only"]
         rest = _strip_flag(rest, "--narrative")
         rest = _strip_flag(rest, "--sweep")
         rest = _strip_flag(rest, "--want")
@@ -9971,7 +9966,7 @@ def main():
                             "[--lines=N] [--relation=NAME] "
                             "[--functions=a,b,c] [--title=TEXT] "
                             "[--narrative=off|ATOM,ATOM/JUNCTION,...] "
-                            "[--want=PRED;PRED] [--melody=JSON] [--inspection-only] "
+                            "[--want=PRED;PRED] [--melody=JSON] "
                             "[--fill=DRAFT] [--out=PATH]",
                             "   or: plan --sweep=LO-HI [--want=PRED;PRED] "
                             "[the same declarations]",
@@ -9994,7 +9989,6 @@ def main():
             title=title,
             narrative=narrative,
             melody=_parse_melody_flag(melody_raw),
-            inspection_only=inspection_only,
             functions=[x for x in (funcs_raw or "").split(",") if x.strip()]
             or None)
         if sweep_raw is not None:
@@ -10091,7 +10085,6 @@ def main():
               f"{len(the_plan['sections'])} section(s): "
               f"{'-'.join(pat['functions'])}")
         print(f"    (pattern drawn from {pat['chosen_from']})")
-        print("  EXECUTION LIMITS: " + json.dumps(the_plan["execution_limits"], sort_keys=True))
         if "brief_selection" in the_plan["choices"]:
             print("  BRIEF SELECTION: " + json.dumps(the_plan["choices"]["brief_selection"], sort_keys=True))
         # DECLARED, OUT LOUD. Silence here would make `plan --seed=3` and
@@ -10212,13 +10205,8 @@ def main():
             print(json.dumps(payload, indent=1, sort_keys=True))
         _lyric_result(status="planned", exit=0,
                       plan_lines=the_plan["total_lines"],
-                      plan_version=the_plan["plan_version"],
-                      execution_limits=the_plan["execution_limits"])
+                      plan_version=the_plan["plan_version"])
         print()
-        if not the_plan["execution_limits"]["admitted"]:
-            print("  INSPECTION ONLY: this shape exceeds the declared writer/grader "
-                  "capacity. Select an admitted plan before writing or filling it.")
-            return 0
         if fill:
             print("  GRADE IT: " + PLN.grading_command(
                 the_plan, draft_path=fill,
@@ -12777,30 +12765,10 @@ def main():
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
-                from quality.plan import execution_limits as _writer_limits
-                _limits = _writer_limits()
-                if len(lines) > _limits["max_lines"]:
-                    _refuse(
-                        f"RESOURCE_LIMIT: writer execution admits at most "
-                        f"{_limits['max_lines']} lines under the registry candidate "
-                        f"budget; this draft has {len(lines)}. Measurement verbs "
-                        "remain available for larger drafts; no writer was started.",
-                        machine={"execution_limits": _limits})
                 if any(len(line) > 200 for line in lines):
                     _refuse("RESOURCE_LIMIT: writer execution admits at most 200 "
                             "characters per sung line, the connector's declared "
                             "text capacity; no writer was started.")
-                from quality.plan import draft_execution_bound as _draft_work
-                _actual_work = _draft_work(lines, phon=rv._relation_phonology())
-                if not _actual_work["within_budget"]:
-                    _refuse(
-                        "RESOURCE_LIMIT: this draft's actual pronunciation spans "
-                        f"require up to {_actual_work['max_candidate_pairs']} "
-                        "candidate pairs per schema, above the declared "
-                        f"{_actual_work['max_pairs']} budget. Shorter drafts or "
-                        "less expansive lines may be admitted; no writer was started.",
-                        machine={"execution_limits": _actual_work,
-                                 "final_draft": list(lines), "certified": False})
                 if cmd == "tryline":
                     # `tryline DRAFT N "line" --seed=S` — THE PRE-FLIGHT
                     # (`MISSING.md` M-302). It answers ONE question, the one

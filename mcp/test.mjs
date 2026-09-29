@@ -1548,14 +1548,17 @@ await check('validation: actionable errors', () => {
       }
     );
     await check(
-      "the connector's revise budget is one attempt, ONE group rewrite per stuck line (backtrack 1, on since M-247), eight rounds, and the driver uses the verifier receipt ledger",
+      "the connector's revise budget is one attempt, ONE group rewrite per stuck line (backtrack 1, on since M-247), no round limit, and the driver uses the verifier receipt ledger",
       async () => {
         const LT = await import('./lyric_tools.js');
         assert.equal(LT.CONNECTOR_ATTEMPTS, 1);
         // M-257: the cook is re-asked at once; the chat model is not.
         assert.equal(LT.KITCHEN_ATTEMPTS, 3);
         assert.equal(LT.CONNECTOR_BACKTRACK, 1);
-        assert.equal(LT.CONNECTOR_MAX_ROUNDS, 8);
+        assert.equal(LT.CONNECTOR_MAX_ROUNDS, undefined, 'no connector round limit');
+        const rounds = LT.LYRIC_TOOL_SCHEMAS.lyric_revise.max_rounds;
+        assert.equal(rounds.safeParse(500).success, true, 'a declared budget has no ceiling');
+        assert.equal(rounds.safeParse(undefined).success, true, 'omitting it is no limit');
         const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
         const attempts = LT.LYRIC_TOOL_SCHEMAS.lyric_revise.attempts;
         assert.equal(attempts.safeParse(0).success, true, 'the schema preserves explicit zero');
@@ -4073,14 +4076,11 @@ await check('validation: actionable errors', () => {
 }
 
 {
-  // ── C11: which of the two turn ceilings actually binds ───────────────────
-  // `maxSteps` and `maxTurnUsd` are two answers to ONE question — how many
-  // hops may a turn take — and the smaller one wins in silence. `turnBudget`
-  // derives the answer from the declared coordinates (LIMITS + PRICING, no
-  // literal of its own) and the stop carries its numbers, so a reader of a
-  // transcript can tell a turn that ran out of HOPS from one that ran out of
-  // MONEY. Pinned as a RELATION, not as a dollar figure: the cap is the
-  // owner's to set, and this must keep holding when they set it.
+  // ── C11: what the per-turn spending limit buys ───────────────────────────
+  // The live chat has no step limit, so the spending limit is the per-turn
+  // ceiling. `turnBudget` derives what it buys from LIMITS + PRICING, with no
+  // literal of its own. Pinned as a RELATION, not as a dollar figure: the cap
+  // is the owner's to set, and this must keep holding when they set it.
   const {
     turnBudget,
     LIMITS: _L,
@@ -4096,36 +4096,22 @@ await check('validation: actionable errors', () => {
       ((_L.pruneMaxBytes / BYTES_PER_TOKEN) * price.input + _L.maxOutputTokens * price.output) /
       1e6;
     assert.ok(Math.abs(b.perHopUsd - expected) < 1e-12, `${b.perHopUsd} vs ${expected}`);
-    assert.ok(
-      Math.abs(b.worstLegalTurnUsd - expected * _L.maxSteps) < 1e-12,
-      'the worst legal turn is every declared hop at the ceiling'
-    );
     assert.equal(b.hopsAffordable, Math.floor(_L.maxTurnUsd / b.perHopUsd));
-    assert.equal(b.capBinds, b.hopsAffordable < _L.maxSteps);
+    assert.equal(_L.maxSteps, undefined, 'the live chat declares no step limit');
   });
   await check('an unpriced model refuses the arithmetic rather than returning a number', () => {
     assert.equal(turnBudget(_L, 'no-such-model'), null);
   });
-  await check('the code says WHICH of the two ceilings wins, and agrees with itself', async () => {
-    // ~~The measured state on 2026-09-02: $0.10 buys 6 hops of a legal 14, so
-    // the DOLLAR cap is the operative step limit.~~ The owner raised the cap
-    // to $2.50 the same day and the answer flipped to `maxSteps`, which is
-    // the pin doing its job — so what is pinned is the AGREEMENT between the
-    // derivation and the reported answer, never the answer itself.
-    const b = turnBudget();
-    const { chatCeilings } = await import('./chat.js');
-    assert.equal(b.capBinds, b.hopsAffordable < _L.maxSteps, 'capBinds IS that comparison');
-    assert.equal(
-      b.capBinds,
-      _L.maxTurnUsd < b.worstLegalTurnUsd,
-      'and a cap below the worst LEGAL turn is exactly what makes it bind'
-    );
-    assert.equal(
-      chatCeilings().outerModelEstimate.perTurn,
-      b.capBinds ? 'maxTurnUsd' : 'maxSteps',
-      'the reported per-turn ceiling is the derivation, not a second opinion'
-    );
-  });
+  await check(
+    'with no step limit, the spending limit is the per-turn ceiling it reports',
+    async () => {
+      const { chatCeilings } = await import('./chat.js');
+      const c = chatCeilings().outerModelEstimate;
+      assert.equal(c.perTurn, 'maxTurnUsd');
+      for (const [name, bound] of Object.entries(c.perTurnBySurface ?? {}))
+        assert.equal(bound, 'maxTurnUsd', `${name} surface`);
+    }
+  );
   await (async () => {
     // Drive a real turn into the cap in ONE hop. The prompt size is DERIVED
     // from the cap and the model's own input price, never typed: a literal
@@ -4168,7 +4154,7 @@ await check('validation: actionable errors', () => {
       globalThis.fetch = realFetch;
     }
     await check(
-      'a turn stopped by the cap carries what it spent, the cap and both hop counts',
+      'a turn stopped by the cap carries what it spent, the cap and the hops it took',
       () => {
         assert.equal(run.stopped, 'MAX_TURN_COST');
         const d = run.stoppedDetail;
@@ -4176,11 +4162,6 @@ await check('validation: actionable errors', () => {
         assert.ok(d.usd >= d.cap, `spent ${d.usd} against cap ${d.cap}`);
         assert.equal(d.cap, _L.maxTurnUsd);
         assert.equal(d.hops, 1, 'it bought one hop, the prompt being twice the cap');
-        assert.equal(d.maxSteps, _L.maxSteps, 'and names the hop budget it did NOT reach');
-        assert.ok(d.hops < d.maxSteps, 'so MAX_TURN_COST cannot be read as MAX_STEPS');
-        // ~~`capBinds === true`~~ — another literal that was a function of the
-        // cap, and it went false when the owner raised it. What the stop owes
-        // is the DERIVATION, and that it is the same one `turnBudget` reports.
         assert.equal(d.usd, run.cost, 'the tool admission stop reports total spending');
       }
     );
@@ -4204,11 +4185,13 @@ await check('validation: actionable errors', () => {
   // may only finish it (mode ANY over start/edit/render, a STEP LIMIT note);
   // a turn a limit still ends without a recipe is finished by the server; and
   // several calls in one response are one hop. The owner then raised the
-  // ceiling to 50 hops for BOTH surfaces; the lyrics loop gains nothing else.
+  // ceiling to 50 hops, and on 2026-09-28 removed it: the live chat declares
+  // no step limit, so the finishing hops went with it. The server still
+  // finishes a recipe turn that a limit ends — time, money, or a step count a
+  // caller declares, as the scripted models below do, since they never stop.
   const {
     runTurn: _rt,
     LIMITS: _L,
-    RECIPE_FINISH_TOOLS,
     turnBudget: _tb,
     PRICING: _P,
     DEFAULT_MODEL: _DM,
@@ -4268,6 +4251,9 @@ await check('validation: actionable errors', () => {
     turns: 0,
   });
   const fcall = (name, args = {}, id) => ({ functionCall: { name, args, ...(id ? { id } : {}) } });
+  // The step count these turns declare: a scripted model never stops calling
+  // tools on its own, and the live chat declares none.
+  const TURN_STEPS = 12;
   // A script returns the hop's parts, or `{ parts, finishReason }` for a hop
   // that ends on something other than STOP.
   const drive = async (script, { task = taskFor('recipe'), limits = {}, extra = {} } = {}) => {
@@ -4295,7 +4281,7 @@ await check('validation: actionable errors', () => {
         callTool: engineTool,
         userText: BRIEF,
         task,
-        limits: { ..._L, maxTurnUsd: 0, ...limits },
+        limits: { ..._L, maxTurnUsd: 0, maxSteps: TURN_STEPS, ...limits },
         ...extra,
       });
       return { out, requests, ran: [...ran] };
@@ -4313,11 +4299,13 @@ await check('validation: actionable errors', () => {
       : fcall('search_catalog', { query: WORDS[hop % WORDS.length] }),
   ];
 
-  await check('the tool-round ceiling is 50 hops for both surfaces (owner, 2026-09-26)', () => {
-    assert.equal(_L.maxSteps, 50, '"raise the ceiling to 50 rounds" — one ceiling, both surfaces');
-    assert.equal(_L.recipeFinishHops, 2, 'the last two recipe hops can only finish the recipe');
-    assert.deepEqual([...RECIPE_FINISH_TOOLS], ['start_recipe', 'edit_recipe', 'render_recipe']);
-  });
+  await check(
+    'the live chat declares no tool-call limit on either surface (owner, 2026-09-28)',
+    () => {
+      assert.equal(_L.maxSteps, undefined, 'no step limit');
+      assert.equal(_L.recipeFinishHops, undefined, 'and no finishing hops, which only served it');
+    }
+  );
 
   await check('turnBudget reports each surface on its own output budget', () => {
     const b = _tb();
@@ -4325,35 +4313,24 @@ await check('validation: actionable errors', () => {
     const hop = (tokens) => ((_L.pruneMaxBytes / _BPT) * price.input + tokens * price.output) / 1e6;
     const r = b.surfaces.recipe;
     const l = b.surfaces.lyrics;
-    assert.equal(r.maxSteps, _L.maxSteps);
-    assert.equal(l.maxSteps, _L.maxSteps);
     assert.equal(r.maxOutputTokens, _L.maxOutputTokens, 'a recipe hop requests the base budget');
     assert.equal(l.maxOutputTokens, _L.maxLyricOutputTokens, 'a lyric hop requests its own');
     assert.ok(Math.abs(r.perHopUsd - b.perHopUsd) < 1e-12, 'the base figures ARE the recipe hop');
-    assert.ok(Math.abs(r.worstLegalTurnUsd - b.worstLegalTurnUsd) < 1e-12);
     assert.ok(Math.abs(l.perHopUsd - hop(_L.maxLyricOutputTokens)) < 1e-12);
-    assert.ok(Math.abs(l.worstLegalTurnUsd - l.perHopUsd * _L.maxSteps) < 1e-12);
-    for (const s of [r, l]) {
-      assert.equal(s.hopsAffordable, Math.floor(_L.maxTurnUsd / s.perHopUsd));
-      assert.equal(s.capBinds, s.hopsAffordable < s.maxSteps);
-    }
+    for (const s of [r, l]) assert.equal(s.hopsAffordable, Math.floor(_L.maxTurnUsd / s.perHopUsd));
     const est = chatCeilings().outerModelEstimate;
     assert.deepEqual(
       est.perTurnBySurface,
-      {
-        recipe: r.capBinds ? 'maxTurnUsd' : 'maxSteps',
-        lyrics: l.capBinds ? 'maxTurnUsd' : 'maxSteps',
-      },
-      '/chat/status names the binding ceiling per surface, from the same derivation'
+      { recipe: 'maxTurnUsd', lyrics: 'maxTurnUsd' },
+      '/chat/status names the spending limit as the per-turn ceiling on both surfaces'
     );
   });
 
   {
     // (a) THE REPORTED SHAPE: a model that only ever searches, to the cap.
     const { out, requests, ran: tools } = await drive(oneSearchAHop);
-    const finishFrom = _L.maxSteps - _L.recipeFinishHops;
     await check('a search-only recipe turn still ends with a rendered recipe', () => {
-      assert.equal(requests.length, _L.maxSteps, 'every hop of the ceiling was taken');
+      assert.equal(requests.length, TURN_STEPS, 'every declared hop was taken');
       assert.equal(out.stopped, 'MAX_STEPS');
       assert.notEqual(out.reply, 'No customized Rich recipe has been produced yet.');
       assert.equal(typeof out.reply, 'string');
@@ -4369,8 +4346,8 @@ await check('validation: actionable errors', () => {
     await check('the server seeds from the best tradition this turn’s own searches found', () => {
       const d = out.stoppedDetail;
       assert.equal(d.surface, 'recipe');
-      assert.equal(d.hops, _L.maxSteps);
-      assert.equal(d.maxSteps, _L.maxSteps);
+      assert.equal(d.hops, TURN_STEPS);
+      assert.equal(d.maxSteps, TURN_STEPS);
       assert.equal(d.finish.by, 'server');
       assert.equal(d.finish.action, 'seed');
       assert.equal(d.finish.applied, false);
@@ -4397,31 +4374,18 @@ await check('validation: actionable errors', () => {
       assert.equal(tail.role, 'model', 'the next turn’s model is told what the user received');
       assert.ok(tail.parts.some((p) => p.text?.includes(out.reply)));
     });
-    await check('the last hops may only finish: mode ANY over start/edit/render', () => {
+    await check('no hop is restricted: every hop is AUTO and every search ran', () => {
       requests.forEach((body, hop) => {
-        if (hop >= finishFrom) {
-          assert.equal(mode(body), 'ANY', `hop ${hop + 1}`);
-          assert.deepEqual(allowed(body), ['start_recipe', 'edit_recipe', 'render_recipe']);
-          assert.match(siText(body), /STEP LIMIT: \d step/);
-          assert.match(siText(body), /No recipe exists yet: call start_recipe/);
-        } else {
-          assert.equal(mode(body), 'AUTO', `hop ${hop + 1}`);
-          assert.equal(allowed(body), undefined);
-          assert.doesNotMatch(siText(body), /STEP LIMIT/);
-        }
+        assert.equal(mode(body), 'AUTO', `hop ${hop + 1}`);
+        assert.equal(allowed(body), undefined);
+        assert.doesNotMatch(siText(body), /STEP LIMIT/);
         const names = body.tools[0].functionDeclarations.map((d) => d.name);
-        assert.ok(names.includes('search_catalog'), 'the declarations themselves never shrink');
+        assert.ok(names.includes('search_catalog'), 'the declarations never shrink');
         assert.ok(!names.includes('lyric_types'), 'and stay inside the recipe task');
       });
-      assert.match(siText(requests[finishFrom]), /STEP LIMIT: 2 steps left/);
-      assert.match(siText(requests[_L.maxSteps - 1]), /STEP LIMIT: 1 step left/);
-      const late = out.calls.filter((c) => !c.by_server).slice(-_L.recipeFinishHops);
-      for (const c of late) {
-        assert.equal(c.not_run, true, `${c.name} on a finishing hop is refused, not run`);
-        assert.match(c.error, /only start_recipe, edit_recipe, render_recipe can be called now/);
-      }
+      assert.ok(!out.calls.some((c) => c.not_run), 'no call was refused');
       const searches = tools.filter((t) => t.name.startsWith('search_')).length;
-      assert.equal(searches, finishFrom, 'no search reached the engine on a finishing hop');
+      assert.equal(searches, TURN_STEPS, "every hop's search reached the engine");
     });
   }
 
@@ -4453,39 +4417,6 @@ await check('validation: actionable errors', () => {
         );
       }
     );
-  }
-
-  {
-    // (a3) A model that OBEYS the finishing hops applies what it found; the
-    // turn ends on the model's own customized recipe and the server adds none.
-    const brooding = E.searchPrefaces({ query: 'brooding' }).items[0].id;
-    const { out, requests } = await drive((body, hop) => {
-      if (hop === 0) return [fcall('start_recipe', { traditions: ['delta_blues'] })];
-      if (mode(body) !== 'ANY') return oneSearchAHop(body, hop);
-      return /2 steps left/.test(siText(body))
-        ? [
-            fcall('edit_recipe', {
-              edits: [{ action: 'set_preface', card: 'voice', preface: brooding }],
-            }),
-          ]
-        : [fcall('render_recipe', {})];
-    });
-    await check('a model that finishes on the last hops delivers its own customized recipe', () => {
-      assert.equal(requests.length, _L.maxSteps);
-      assert.match(siText(requests[_L.maxSteps - 2]), /Make ONE edit_recipe call/);
-      assert.equal(out.stopped, 'MAX_STEPS');
-      assert.equal(out.task.customized, true);
-      assert.ok(!out.calls.some((c) => c.by_server), 'the server made no call of its own');
-      const edited = out.calls.find((c) => c.name === 'edit_recipe' && !c.isError);
-      assert.ok(edited, 'the edit landed');
-      assert.equal(out.reply, out.calls.at(-1).recipe);
-      assert.equal(out.reply, edited.recipe, 'render_recipe re-rendered the edited workspace');
-      assert.equal(out.stoppedDetail.finish.by, 'model');
-      assert.equal(
-        out.stoppedDetail.note,
-        'Reached the step limit — this is the recipe so far; ask for more changes to refine it.'
-      );
-    });
   }
 
   {
@@ -4547,7 +4478,7 @@ await check('validation: actionable errors', () => {
       assert.match(text, /ONE batched edit_recipe call/);
       assert.ok(
         requests.every((b) => mode(b) === 'AUTO'),
-        'no finishing hop was reached'
+        'every hop is AUTO'
       );
     });
   }
@@ -4660,36 +4591,6 @@ await check('validation: actionable errors', () => {
   }
 
   {
-    // BLOCKING (review of #413): a model that answers in TEXT on a finishing
-    // hop — ignoring mode ANY — with STOP or with another finish reason.
-    for (const finishReason of ['STOP', 'OTHER']) {
-      const { out, requests } = await drive((body, hop) =>
-        mode(body) === 'ANY'
-          ? { parts: [{ text: 'I would suggest a delta blues base.' }], finishReason }
-          : oneSearchAHop(body, hop)
-      );
-      await check(
-        `a text answer on a finishing hop (${finishReason}) still ends with a recipe`,
-        () => {
-          assert.equal(requests.length, _L.maxSteps - _L.recipeFinishHops + 1);
-          assert.equal(out.stopped, finishReason === 'STOP' ? 'MAX_STEPS' : 'OTHER');
-          const last = out.calls.at(-1);
-          assert.equal(last.name, 'start_recipe');
-          assert.equal(last.by_server, true);
-          assert.equal(out.reply, `I would suggest a delta blues base.\n\n${last.recipe}`);
-          assert.equal(out.stoppedDetail.finish.action, 'seed');
-          assert.match(
-            out.stoppedDetail.note,
-            finishReason === 'STOP'
-              ? /^Reached the step limit before a recipe was started/
-              : /^The model stopped early \(OTHER\) before a recipe was started/
-          );
-        }
-      );
-    }
-  }
-
-  {
     // The wall clock and the day's budget end a turn too; the render is local
     // and unbilled, so both are finished like the step limit.
     let now = 0;
@@ -4752,20 +4653,20 @@ await check('validation: actionable errors', () => {
   }
 
   {
-    // (c) THE LYRICS SURFACE: the same 50-hop ceiling, and nothing else of
-    // the recipe finish — no mode ANY, no step-limit note, no server call.
+    // (c) THE LYRICS SURFACE: a declared step count ends the turn, and none of
+    // the recipe finish applies — no restricted hop, no note, no server call.
     for (const task of [taskFor('lyrics'), null]) {
       const { out, requests } = await drive(() => [fcall('lyric_types', { a: 'x' })], { task });
       await check(
-        `${task ? 'a lyrics' : 'an untasked'} turn stops at ${_L.maxSteps} with MAX_STEPS, unchanged`,
+        `${task ? 'a lyrics' : 'an untasked'} turn stops at a declared ${TURN_STEPS} with MAX_STEPS`,
         () => {
-          assert.equal(requests.length, 50);
+          assert.equal(requests.length, TURN_STEPS);
           assert.equal(out.stopped, 'MAX_STEPS');
           assert.equal(out.stoppedDetail, null, 'the lyric stop carries no recipe finish');
           assert.ok(requests.every((b) => mode(b) === 'AUTO' && allowed(b) === undefined));
           assert.ok(requests.every((b) => !/STEP LIMIT/.test(siText(b))));
           assert.ok(!out.calls.some((c) => c.by_server || c.not_run));
-          assert.equal(out.calls.length, 50);
+          assert.equal(out.calls.length, TURN_STEPS);
           if (task) assert.equal(out.reply, 'This song has no certified final deliverable yet.');
         }
       );
@@ -5161,7 +5062,6 @@ await check('validation: actionable errors', () => {
         'session adapter revise-loop regressions on the real lyric harness, executed by CI',
       'mcp/test_release_gates.mjs': 'offline verified CI and battery acceptance regressions',
       'mcp/test_run_continuation.mjs': 'offline real run continuation regressions',
-      'mcp/test_writer_work_budget.mjs': 'real native writer candidate-work admission regression',
       'mcp/test_deferred_continuation.mjs': 'real deferred provider recovery regression',
       'mcp/test_state_codec.mjs': 'offline portable state codec regressions',
       'mcp/test_runtime_assets.mjs': 'offline immutable runtime asset inventory regressions',
@@ -7717,16 +7617,19 @@ try {
 
     // Current measured constructive seed176 control, shared by title and
     // interview tests; the scaffolded24-line plan remains a separate negative.
+    // Seed 176 at a DECLARED 12 lines: the 31-line cap that made 12 its
+    // draw is deleted (owner ruling 2026-09-28), so every seed-176 call
+    // below states the length, and the lines are written for that plan.
     const qualifiedDraft = [
-      'Bone buttons gleam beneath a red balloon',
-      "My mother's herbs were never sown in June",
-      'A kettle ticks against the stove',
-      'Blue shadows drag the curtains through my doubt',
-      'Before the drought we kept a jar of salt',
-      'Each crawl beneath the window wakes the rain',
-      'Those hands divide the haul and mend the vein',
-      'Each crawl beneath the window wakes the rain',
-      'Those hands divide the haul and mend the vein',
+      'Buttons gleam where wheat was sown by a balloon',
+      "Bone cold, my mother's herbs came up in June",
+      'The kettle smells of smoke and cheap cologne',
+      'Blue shadows drag the doubt across the floor',
+      'Before the long drought we kept salt in the drawer',
+      'Each night the slow crawl wakes the rain',
+      'Those rough hands haul nets and mend the vein',
+      'Each night the slow crawl wakes the rain',
+      'Those rough hands haul nets and mend the vein',
       'Bright napkins fold around a chipped blue plate',
       'She swept the porch while winter filled the lane',
       'A quiet lamp still burns beside the gate',
@@ -8058,6 +7961,7 @@ try {
     revisionDraft[0] = 'Bone buttons gleam beneath the rain in June';
     const withRevision = (extra) => ({
       seed: revisionSeed,
+      lines: 12,
       relation: 'class:RHYME',
       title: 'wakes the rain',
       ...extra,
@@ -8105,7 +8009,11 @@ try {
       'the native journal preserves the actual default attempt budget'
     );
     assert.equal(st1.connector_declarations.backtrack, 1);
-    assert.equal(st1.connector_declarations.max_rounds, 8);
+    assert.equal(
+      st1.connector_declarations.max_rounds,
+      undefined,
+      'no round limit is declared by default'
+    );
     // M-235: the row names the question left open; a first call folds nothing.
     assert.equal(rv1.asked && rv1.asked.kind, st1.pending.kind, 'the row names the open question');
     assert.equal(rv1.folded, null, 'a first call folds no answer');
@@ -8355,7 +8263,13 @@ try {
       const result = await client.callTool(
         {
           name: 'lyric_grade',
-          arguments: { seed: 176, draft: qualifiedDraft, relation: 'class:RHYME', title },
+          arguments: {
+            seed: 176,
+            lines: 12,
+            draft: qualifiedDraft,
+            relation: 'class:RHYME',
+            title,
+          },
         },
         undefined,
         LIVE_OPTS

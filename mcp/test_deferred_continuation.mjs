@@ -26,7 +26,7 @@ const verdict = (result) => {
   assert.fail(JSON.stringify(result));
 };
 try {
-  const input = ['Copper cat', 'Azure dog'];
+  const input = ['Cat', 'Dog'];
   const proposed = [
     'I left the basket underneath the oak',
     'The copper kettle cooled beside the door',

@@ -947,10 +947,10 @@ def test_a_declared_return_is_not_slop():
 
 def test_the_field_is_the_graders_own_field():
     print("\n18. doctrine 94 — the brief and the verdict ask the same question")
-    from lyric_harness import admits, best_score
+    from lyric_harness import admits, admit_is_default, best_score
     lines = song_lines()
     m = R.mandate_from_graph(lines)
-    bad, tot = [], 0
+    bad, by_schema, tot = [], [], 0
     for b in R.brief(lines, m):
         calls = [w for _, _, cl in b.must_answer for _, w in cl]
         calls = [c for c in dict.fromkeys(calls) if c]
@@ -967,16 +967,42 @@ def test_the_field_is_the_graders_own_field():
                 # it stayed two-name, and a repair that widened it to the
                 # grader's own door turned this check RED. Fourth instance
                 # of the shape M-59 recorded in `test_homeoteleuton.py` §5.
-                if not admits(best_score(ax, ay, R.decl, wa, wb),
-                              R.decl.theta_rhyme,
-                              relations=frozenset(R.decl.admit)):
-                    bad.append((b.line_no, c, w))
-                    break
+                if admits(best_score(ax, ay, R.decl, wa, wb),
+                          R.decl.theta_rhyme,
+                          relations=frozenset(R.decl.admit)):
+                    continue
+                # AND THE SCHEMA HALF OF THE SAME DOOR — REPAIRED 2026-09-28.
+                # Since M-116 a default group is also satisfied by any schema
+                # the two line ends stand in, and the menu offers those words
+                # (`_offerable`). This check passed only while the screen's
+                # scan limit stopped before the menu reached them; with the
+                # limit removed the menu offered `frame`/`uranium`, which
+                # `grade()` accepts by `assonance` and `subtractive rhyme`.
+                # They are counted apart from the rhyme-door words (doctrine
+                # 79) and a sample is re-graded below through `grade()`.
+                if admit_is_default(R.decl) and R._end_pair_schemas(c, w):
+                    by_schema.append((b.line_no, c, w))
+                    continue
+                bad.append((b.line_no, c, w))
+                break
     check("no offered candidate is one the grader would reject",
           not bad,
           f"{tot} words offered across the song's flagged lines, "
-          f"{len(bad)} that `grade()` calls a non-rhyme"
+          f"{len(bad)} that `grade()` calls a non-rhyme, "
+          f"{len(by_schema)} (call, word) pair(s) held by a schema alone"
           + (f" -- e.g. {bad[:4]}" if bad else ""))
+    # THE SCHEMA HALF, ASKED OF `grade()` ITSELF: the predicate above is the
+    # menu's own, so a word it passes by schema is put on a real two-line
+    # draft under a plain `AA` mandate and must draw no violation.
+    regraded = []
+    for c, w in list(dict.fromkeys((c, w) for _l, c, w in by_schema))[:3]:
+        g = R.grade([f"the line that ends on {c}", f"the line that ends on {w}"],
+                    SC.mandate("AA", n_lines=2))
+        regraded.append((c, w, len(g["violations"])))
+    check("every schema-held word re-graded through `grade()` draws no violation",
+          all(n == 0 for _c, _w, n in regraded),
+          f"{regraded}" if regraded else
+          "no word on this song's menus was held by a schema alone")
     # THE FAILING CASE, constructed. A positive-case suite cannot find a rule
     # that is too generous, so the pre-fix predicate is run here on purpose.
     # UNDER THE DOOR THAT HAD THE DEFECT — 2026-08-22. This ran on `R.decl`,
@@ -1135,11 +1161,9 @@ def test_the_four_rejections_on_the_songs_own_shape():
           not res["accepted"] and "not targeted" in " ".join(res["reasons"]),
           res["reasons"][0][:100])
 
-    bounded = R.verify(lines, sub(33, "So say the ledger. Say it low"),
-                       m, targeted=[33])
-    check("the historical full-song edit is explicitly refused at the work limit",
-          not bounded["accepted"] and bounded.get("stop_reason") == "RESOURCE_LIMIT",
-          bounded["reasons"])
+    # (The full-song edit was refused here at the candidate-work admission
+    # limit until the owner deleted that limit 2026-09-28; the induced
+    # subdraft below is what these rejections are proven on.)
 
     # Keep the real target's entire rhyme group, repeat partner and stray-line
     # control, with the original texts and relation. This admitted induced
@@ -1401,12 +1425,8 @@ def test_the_collision_set_is_partitioned_not_silenced():
           f"chorus's fourth line is the one that MOVES, and moves furthest")
 
     # (6) `verify` did not lose resolution when merges went to `whole`.
-    a = list(lines)
-    a[36] = "I don't get to leave"          # L37 'go' -> 'leave'
-    res = R.verify(lines, a, m, targeted=[37])
-    check("the historical full song cannot bypass the current candidate-work admission bound",
-          res.get("stop_reason") == "RESOURCE_LIMIT" and not res["accepted"],
-          res.get("reasons"))
+    # (The full-song check here pinned the candidate-work admission limit,
+    # deleted by the owner 2026-09-28; the admitted small draft carries it.)
     small = ["Cold rain broke against the bone", "A bell rang softly in the light",
              "Red seeds lay where the wheat was sown", "Blue smoke rose through the fading white",
              "Frost traced the edges of a cone", "Her hands let go the paper kite",
@@ -1815,13 +1835,8 @@ def test_meter_folds_into_the_same_finding_set():
     # `unsat`), so lengthen it past its bar's capacity while targeting a
     # real flagged rhyme line, and the EXISTING net-negative diff must catch
     # it -- this is the whole of what "wire meter into the loop" means.
-    after = list(lines)
-    after[0] += " elephant elephant elephant elephant elephant"
-    oversized = R.verify(lines, after, m, targeted={1}, blueprint=SONG_BLUEPRINT,
-                         subdivision=sub)
-    check("the historical full-song edit respects the work-admission bound",
-          not oversized["accepted"] and oversized.get("stop_reason") == "RESOURCE_LIMIT",
-          oversized["reasons"])
+    # (A full-song variant pinned the work-admission limit here until the
+    # owner deleted it 2026-09-28; the two-line blueprint below is the check.)
     small = ["My kettle whistles by the stove", "Your fingers brush my heavy coat"]
     bp = {"sections": [{"name": "V1", "bars": 2, "start_bar": 1,
                          "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],

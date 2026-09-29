@@ -47,7 +47,7 @@ try {
     run_id: idA,
     seed: 91357,
     status: 'suspended',
-    draft: ['Copper cat', 'Azure dog'],
+    draft: ['Cat', 'Dog'],
     state: encodeState({}),
     decl: { seed: 91357, title: 'CLIENT_A_PRIVATE_TITLE' },
   });
@@ -100,8 +100,8 @@ try {
   const noGrid = await b.callTool({
     name: 'lyric_verify',
     arguments: {
-      before: ['Copper cat', 'Azure dog'],
-      after: ['Copper cat', 'Azure log'],
+      before: ['Cat', 'Dog'],
+      after: ['Cat', 'Log'],
       scheme: 'AA',
       blueprint: '{}',
     },
@@ -111,8 +111,8 @@ try {
   const malformedGrid = await b.callTool({
     name: 'lyric_verify',
     arguments: {
-      before: ['Copper cat', 'Azure dog'],
-      after: ['Copper cat', 'Azure log'],
+      before: ['Cat', 'Dog'],
+      after: ['Cat', 'Log'],
       scheme: 'AA',
       blueprint: 'not JSON',
       subdivision: 4,
@@ -123,8 +123,8 @@ try {
   const uncertainId = newRunId();
   const uncertainCheckpoint = encodeState({
     version: 1,
-    input_draft: ['Copper cat', 'Azure dog'],
-    accepted_lines: ['Copper cat', 'Azure dog'],
+    input_draft: ['Cat', 'Dog'],
+    accepted_lines: ['Cat', 'Dog'],
     answered: { propose: [], propose_group: [] },
     uncertain_proposal: true,
   });
@@ -133,7 +133,7 @@ try {
     status: 'uncertain_proposal',
     checkpoint: uncertainCheckpoint,
     decl: { seed: 91357, writer: 'kitchen' },
-    draft: ['Copper cat', 'Azure dog'],
+    draft: ['Cat', 'Dog'],
   });
   const unknownResume = await a.callTool({
     name: 'lyric_revise',
@@ -330,7 +330,7 @@ try {
   // Opt-in staged-data integration: real CLI, worker, proposer adapter and
   // registered MCP tool, with only the external model replaced by localhost.
   if (process.argv.includes('--harness')) {
-    const input = ['Copper cat', 'Azure dog'];
+    const input = ['Cat', 'Dog'];
     const proposals = [
       'I left the basket underneath the oak',
       'The copper kettle cooled beside the door',
@@ -382,26 +382,8 @@ try {
       assert.fail(message(result));
     };
     try {
-      const oversized = verdict(
-        await a.callTool(
-          {
-            name: 'lyric_revise',
-            arguments: {
-              scheme: 'A'.repeat(32),
-              draft: Array(32).fill('I hold your hand'),
-              writer: 'kitchen',
-              attempts: 1,
-              backtrack: 0,
-              max_rounds: 1,
-            },
-          },
-          undefined,
-          { timeout: 120000 }
-        )
-      );
-      assert.equal(oversized.exit_code, 2);
-      assert.match(oversized.refusal, /RESOURCE_LIMIT.*writer execution/);
-      assert.equal(calls, 0, 'oversize pasted writer request refuses before provider dispatch');
+      // (A 32-line pasted draft was refused here at the 31-line writing cap
+      // until the owner deleted that cap 2026-09-28.)
       const first = verdict(
         await a.callTool(
           {

@@ -19,7 +19,7 @@ import { acceptedRepairs } from '../scripts/battery_repairs.mjs';
 import { completedArtifact } from '../scripts/battery_verdict.mjs';
 
 const initial = [
-  'The elephant elephant elephant elephant elephant elephant stove',
+  'The elephant elephant elephant elephant elephant elephant elephant stove',
   'Your fingers brush my heavy coat',
 ];
 const replacement = 'My kettle whistles by the stove';

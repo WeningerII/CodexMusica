@@ -240,7 +240,7 @@ class KitchenVerificationReceipts(unittest.TestCase):
         from quality.schemes import mandate
         cls.r = Reviser(rdecl=ReviseDeclaration(attempts_per_line=1, max_rounds=2))
         cls.m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
-        cls.before = ['The elephant elephant elephant elephant elephant elephant stove',
+        cls.before = ['The elephant elephant elephant elephant elephant elephant elephant stove',
                       'Your fingers brush my heavy coat']
         cls.after = ['My kettle whistles by the stove', cls.before[1]]
 
@@ -419,7 +419,7 @@ class KitchenVerificationReceipts(unittest.TestCase):
         from quality.loop import _try_tier1
         from quality.schemes import mandate
         import hashlib
-        before = ['The elephant elephant elephant elephant elephant elephant ' + word
+        before = ['The elephant elephant elephant elephant elephant elephant elephant ' + word
                   for word in ['stove', 'coat', 'rain', 'stone']]
         answers = ['My kettle whistles by the stove', 'Your fingers brush my heavy coat',
                    'The window shakes beneath the heavy rain',
@@ -563,7 +563,9 @@ class DeferredAuditRegressions(unittest.TestCase):
         from quality.revise import Reviser, ReviseDeclaration
         from quality.loop import _try_tier2
         from quality.schemes import mandate
-        lines = ['Copper cat', 'Copper cat', 'Azure dog']
+        # One-word lines: each carries one stress, so the prominence band
+        # flags every line (the deleted syllable band used to).
+        lines = ['Cat', 'Cat', 'Dog']
         m = mandate([[1, 3], [1, 2]], n_lines=3, returns=[[1, 2]],
                     default_relation='class:ASSONANCE')
         rv = Reviser(rdecl=ReviseDeclaration(max_rounds=2, attempts_per_line=1,
@@ -605,7 +607,7 @@ class DeferredAuditRegressions(unittest.TestCase):
         from quality.revise import Reviser, ReviseDeclaration
         from quality.loop import _try_tier2
         from quality.schemes import mandate
-        lines = ['Copper cat', 'Copper cat', 'Azure dog', 'The empty room is still']
+        lines = ['Cat', 'Cat', 'Dog', 'The empty room is still']
         m = mandate([[1, 3]], n_lines=4, returns=[[1, 2]],
                     default_relation='class:ASSONANCE')
         rv = Reviser(rdecl=ReviseDeclaration(attempts_per_line=1, backtrack_width=1))

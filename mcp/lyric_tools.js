@@ -76,16 +76,11 @@ const MAX_WORD_CHARS = 40;
 // ceiling here is that number and nothing else; a 448-line draft is refused
 // loudly, as a 65-line one was.
 // Exported planner admission, checked against plan.ENVELOPE by test_high_report.
-// Executable creation has its separate registry-derived bound, below.
+// ~~Executable creation has its separate registry-derived bound~~ (the 31-line
+// writable capacity, `EXECUTABLE_MAX_LINES`) — DELETED 2026-09-28 by owner
+// ruling: every plan the planner draws can be written, graded and revised.
 const MAX_LINES = 463;
 const MAX_LINE_CHARS = 200;
-// THE WRITABLE CAPACITY. The planner admits shapes up to MAX_LINES for
-// inspection, but lyric_grade and lyric_revise run only plans inside the
-// registry-derived candidate budget, `quality/plan.py`
-// `execution_limits()["max_lines"]`. The published text states this number,
-// so mcp/test_high_report.mjs checks it against the harness: a moved budget
-// fails a test instead of leaving the text stale.
-export const EXECUTABLE_MAX_LINES = 31;
 // Two closed vocabularies the schemas enumerate, checked the same way:
 // `quality/plan.py` PLAN_FORMS and `quality/rhyme_types.py` POSITION.
 export const PLAN_FORMS = ['verse-chorus'];
@@ -301,7 +296,6 @@ const EXIT_MEANING = {
 // Cache only by unguessable run capability; a seed never identifies an owner.
 export const RUNS = new RunStore();
 
-export const CONNECTOR_MAX_ROUNDS = 8;
 export const CONNECTOR_ATTEMPTS = 1;
 // THE KITCHEN'S OWN ATTEMPTS (M-257, round 24). One attempt per line was
 // M-236's budget for a CHAT model answering one question per hop, where a
@@ -1139,7 +1133,6 @@ function planArgs(a) {
   if (a.melody !== undefined) args.push(`--melody=${a.melody}`);
   if (a.narrative) args.push(`--narrative=${a.narrative}`);
   if (a.wants?.length) args.push(`--want=${a.wants.join(';')}`);
-  if (a.inspection_only === true) args.push('--inspection-only');
   return args;
 }
 
@@ -1207,7 +1200,7 @@ const linesField = z
   .max(MAX_LINES)
   .optional()
   .describe(
-    `Exact total line count to request, at least 12. A WRITABLE plan — one lyric_grade and lyric_revise can run — is at most ${EXECUTABLE_MAX_LINES} lines, the registry-derived candidate budget lyric_plan reports as execution_limits.max_lines; the planner refuses a larger request. Only lyric_plan with inspection_only:true accepts up to ${MAX_LINES} (the planner's envelope), for a do-not-write plan that no creation session admits. Omit to let the planner choose.`
+    `Exact total line count to request, at least 12 and at most ${MAX_LINES} (the planner's envelope). Every plan can be written, graded and revised. Omit to let the planner choose.`
   );
 
 // THE WRITER'S DECLARATION (MISSING.md M-55). Neither field is sampled here
@@ -1538,12 +1531,6 @@ export const LYRIC_TOOL_SCHEMAS = {
       .describe(
         'Declared structural predicates that CONDITION the planner\'s draw — the same NAME<=N / NAME>=N / NAME=VALUE vocabulary as lyric_sweep\'s `want`, in a different role: the planner draws until they hold, so a seed planned with wants can be a different shape from the same seed planned without them. Carry unchanged to grade and revise; the plan discloses selection. In a creation session, pass the accepted sweep\'s `want` list here unchanged. Example: ["lines<=30", "group<=4"].'
       ),
-    inspection_only: z
-      .boolean()
-      .optional()
-      .describe(
-        `Explicitly inspect a shape outside the writable capacity (more than ${EXECUTABLE_MAX_LINES} lines, up to ${MAX_LINES}). Such a plan is marked do-not-write: lyric_grade and lyric_revise cannot run it, and a creation session refuses it.`
-      ),
     seed: seedField,
     form: formField,
     lines: linesField,
@@ -1705,10 +1692,9 @@ export const LYRIC_TOOL_SCHEMAS = {
       .number()
       .int()
       .min(1)
-      .max(8)
       .optional()
       .describe(
-        "The loop's round budget (ReviseDeclaration.max_rounds; this connector's default is 8). Declared once per run: a continuing call that moves it is refused, because the run replays its record under the budget it opened with."
+        'Optional round budget (ReviseDeclaration.max_rounds). Omit it and there is no round limit: the loop keeps going while rounds fix something, and stops when the song is clean or a round fixes nothing. Declared once per run: a continuing call that moves it is refused, because the run replays its record under the budget it opened with.'
       ),
     attempts: z
       .number()
@@ -1966,9 +1952,8 @@ function reviseDescription({ kitchen = false } = {}) {
     '2 or 3 stop as parked or uncertified, never as finished — its note says what to do next. ' +
     'The two-tier ban is enforced by the loop itself: banned pairs hold their lines open and the loop keeps ' +
     'asking for replacements. Budget fields (max_rounds, attempts, backtrack) are declared once per run; a ' +
-    'moved declaration is refused. Writer execution enforces the registry-derived capacity ' +
-    `(${EXECUTABLE_MAX_LINES} lines, lyric_plan's execution_limits.max_lines) and ${MAX_LINE_CHARS} characters ` +
-    'per sung line; a larger pasted draft remains measurable by lyric_check. A journal_capacity stop preserves ' +
+    `moved declaration is refused. Writer execution enforces ${MAX_LINE_CHARS} characters per sung line. ` +
+    'A journal_capacity stop preserves ' +
     'the exact journal and accepted draft and cannot resume; reduce the requested scope before independent ' +
     'new_run work. ';
   const interview =
@@ -2052,7 +2037,7 @@ export function registerLyricTools(server, tool) {
         "refused — and the answer can be NO, which is a FLAG, so write the hook line to contain the title's words as a " +
         "contiguous run. The tool result's first text block is the plan report and writer brief: when showing the shape, " +
         'keep the bracket header rows exactly as written (they carry lines/bars/meter/pickup). The second block is the ' +
-        `verdict; its execution_limits.max_lines is the writable capacity (${EXECUTABLE_MAX_LINES} lines).`,
+        'verdict.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_plan,
     },
     (a) =>
@@ -2072,7 +2057,6 @@ export function registerLyricTools(server, tool) {
           verdict.plan = plan;
           verdict.plan_sha256 = createHash('sha256').update(JSON.stringify(plan)).digest('hex');
           verdict.plan_request = plan.request;
-          verdict.execution_limits = plan.execution_limits;
           // The verdict block carries everything verdictOf stamped — path,
           // ms, plan_lines (M-216) — and not the report, which is block 0.
           // This block used to re-spell the verdict as {exit_code, meaning}
@@ -2179,7 +2163,6 @@ export function registerLyricTools(server, tool) {
         const verdict = verdictOf(p3);
         verdict.plan_sha256 = createHash('sha256').update(JSON.stringify(plan)).digest('hex');
         verdict.plan_request = plan.request;
-        verdict.execution_limits = plan.execution_limits;
         // The SONG leads as its own plain-text block so a client presents
         // it instead of reformatting escaped JSON — the Wide Room
         // screenshot (2026-08-19) showed a Claude client rewriting the
@@ -2583,7 +2566,7 @@ export function registerLyricTools(server, tool) {
               // applied for the run's whole life, so the budget never moves
               // mid-run.
               const budget = {
-                max_rounds: a.max_rounds ?? CONNECTOR_MAX_ROUNDS,
+                max_rounds: a.max_rounds,
                 attempts:
                   a.attempts ?? (writer === 'kitchen' ? KITCHEN_ATTEMPTS : CONNECTOR_ATTEMPTS),
                 backtrack: a.backtrack ?? CONNECTOR_BACKTRACK,
@@ -2604,7 +2587,7 @@ export function registerLyricTools(server, tool) {
                   connector_semantic_identity: continuationSemanticIdentity(),
                   connector_run_ref: runRef(runId),
                 });
-              args.push(`--max-rounds=${budget.max_rounds}`);
+              if (budget.max_rounds !== undefined) args.push(`--max-rounds=${budget.max_rounds}`);
               args.push(`--attempts=${budget.attempts}`);
               args.push(`--backtrack=${budget.backtrack}`);
               const execution = requestContext();

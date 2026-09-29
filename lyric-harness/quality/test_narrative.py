@@ -108,9 +108,10 @@ def test_refusal_and_determinism():
 
 
 def test_measured_seeds():
-    print("\n5. measured seeds, 2026-09-08: executable plans use the current "
-          "12..31 work envelope; the historical envelope sweeps below are "
-          "retained as history. Current seeds 1..40: 39 admit / 1 zero.")
+    print("\n5. measured seeds, 2026-09-28: the 12..31 work envelope is "
+          "deleted (owner ruling) and plans draw the whole 12..463 envelope "
+          "again; the sweeps below are retained as history. Current seeds "
+          "1..40: 36 admit / 4 zero.")
     from quality import plan as P
     #: REPINNED 2026-08-26 (`MISSING.md` M-133) BY THE M-131 SONG-PROFILE
     #: RE-ADOPTION, AND THE PIN THAT MOVED IS NOT THE PIN THAT MATTERS.
@@ -308,28 +309,33 @@ def test_measured_seeds():
         # watching cross back has crossed back, at the deepest rung.
         6: 0, 4: 0,
     }
-    # Complete current 1..100 sweep: zero seeds20,50,74,82,88; the
-    # bounded executable envelope and exact capacity admission re-deal the
-    # rosters. Preserve every historical exemplar and its current count,
-    # plus every measured current zero; do not discard a moved class.
-    pins = {1:319488, 4:24768, 6:14976, 7:320, 9:26624, 15:76096,
-            19:143744, 23:269568, 24:83520, 25:4160, 27:1872, 28:1872,
-            30:4992, 31:34112, 34:6255616, 39:111360, 77:4608, 89:149760,
-            20:0, 50:0, 74:0, 82:0, 88:0}
+    # ~~Complete current 1..100 sweep: zero seeds 20,50,74,82,88~~ under
+    # the bounded executable envelope (2026-09-08). REPINNED 2026-09-28:
+    # the 31-line cap is deleted (owner ruling), so plans draw the whole
+    # 12..463 envelope again and the rosters re-deal — seeds 1, 15 and 31
+    # return exactly to their 2026-09-05 counts above. Measured 1..100:
+    # sixteen zeros. Every historical exemplar keeps its current count and
+    # every measured current zero is pinned; no moved class is discarded.
+    ZEROS = (2, 6, 13, 38, 41, 42, 52, 59, 60, 67, 69, 73, 75, 81, 89, 95)
+    pins = {1:13602816, 4:94679040000, 6:0, 7:26818560, 9:6367248,
+            15:394496, 19:7344, 23:4625856, 24:102336, 25:170560,
+            27:8273920, 28:23762003558400, 30:97202617712640, 31:63232,
+            34:226391040, 39:798031872, 77:24440832, 89:0,
+            **{seed: 0 for seed in ZEROS}}
     got = {}
     for seed, want in sorted(pins.items()):
         fns = [s["function"] for s in P.make_plan(seed)["sections"]]
         got[seed] = N.count_lineups(fns)
-    check("all eighteen historical seeds and all five current zero exemplars "
-          "re-derive exactly under the executable plan envelope",
+    check("all eighteen historical seeds and all sixteen current zero "
+          "exemplars re-derive exactly under the plan envelope",
           got == pins and set(historical_pins_2026_09_05) <= set(pins), got)
     sweep = {seed: N.count_lineups([section["function"] for section in
                                    P.make_plan(seed)["sections"]])
              for seed in range(1, 101)}
-    check("the complete current 100-seed denominator has exactly five "
-          "zero shapes, including exactly one among the first forty",
-          {seed for seed, count in sweep.items() if count == 0} == {20,50,74,82,88}
-          and sum(sweep[seed] > 0 for seed in range(1,41)) == 39)
+    check("the complete current 100-seed denominator has exactly sixteen "
+          "zero shapes, four of them among the first forty",
+          {seed for seed, count in sweep.items() if count == 0} == set(ZEROS)
+          and sum(sweep[seed] > 0 for seed in range(1,41)) == 36)
     #: The claim above is only worth making if the KINDS of zero are
     #: actually distinguishable, so the position is asserted rather than
     #: described: an opening refusal collapses at prefix length 1, and
@@ -350,10 +356,12 @@ def test_measured_seeds():
     #: the position-1 rung deliberately excludes rosters that open on a
     #: wordless section, whose length-1 prefix counts 0 for a reason that
     #: is not a refusal (the premise repair in the header).
-    at = {seed: collapse_at(seed) for seed in (20,50,74,82,88)}
-    check("actual current zeros distinguish opening refusals, a second-section "
-          "refusal, and later RESOLVE refusals at sections six and seven",
-          at == {20:1,50:6,74:7,82:1,88:2}, at)
+    at = {seed: collapse_at(seed) for seed in ZEROS}
+    check("actual current zeros distinguish opening refusals from refusals "
+          "at the second, third and fourth sections",
+          at == {2: 1, 6: 2, 13: 2, 38: 1, 41: 2, 42: 3, 52: 3, 59: 1,
+                 60: 1, 67: 1, 69: 4, 73: 1, 75: 1, 81: 1, 89: 1, 95: 4},
+          at)
     # The old seeded depth 3/4/5 exemplars no longer belong to the zero class.
     # Keep the actual semantic clauses covered at each missing depth with
     # declared shapes and positive controls, rather than claiming dice saw it.
@@ -483,10 +491,13 @@ def test_the_wired_draw():
     #: exists. Two labels whose groups are end-bound drew a relation
     #: inaudible at a line end and now carry the bare default, which is
     #: recorded as no entry at all.
-    check("seed 31 now draws the executable floor 12, with 79 groups and 0 labels; "
-          "the prior 18/147/9 draw remains recorded above",
-          pl["total_lines"] == min(P.fillable_line_counts()) == 12
-          and len(pl["groups"]) == 79 and len(pl["relations"]) == 0,
+    #: REPINNED 2026-09-28: the 31-line cap is deleted (owner ruling), so
+    #: seed 31 draws 18 lines again instead of the capped floor 12; its
+    #: groups spelling is 272 characters and it still carries no label.
+    check("seed 31 draws 18 lines again, with a 272-character groups "
+          "spelling and 0 labels; the capped 12/79/0 draw is recorded above",
+          pl["total_lines"] == 18
+          and len(pl["groups"]) == 272 and len(pl["relations"]) == 0,
           f"lines {pl['total_lines']}, groups {len(pl['groups'])}, labels {len(pl['relations'])}")
     nar = pl["narrative"]
     #: REPINNED 2026-09-05 (M-239) WITH THE LENGTH: seed 31's roster is
@@ -497,7 +508,7 @@ def test_the_wired_draw():
     #: ~~lineups 136448, 8 atoms, 7 junctions~~ -> 63232, 7, 6.
     check("the collapse is RECORDED: mode drawn, the exact line-up "
           "count disclosed, one atom per sung section, one junction "
-          "per seam", nar["mode"] == "drawn" and nar["lineups"] == 34112
+          "per seam", nar["mode"] == "drawn" and nar["lineups"] == 63232
           and len(nar["atoms"]) == 7 and len(nar["junctions"]) == 6)
     check("the drawn line-up VALIDATES under the one shared validator",
           N.validate_lineup([sec["function"] for sec in pl["sections"]],
@@ -525,8 +536,10 @@ def test_the_wired_draw():
     #: opens `[bridge, turnaround, ...]`, collapse depth 1), the SAME
     #: kind seed 9 carried, so the sentence beside the check still
     #: describes what it measures.
-    # Current complete sweep: seed20 is the sung false-ending opening refusal.
-    pzero = P.make_plan(20)
+    # ~~seed 20~~ -> seed 89 (2026-09-28): the current sweep's sung
+    # false-ending opening refusal (roster opens false_ending, prechorus,
+    # chorus; collapse depth 1).
+    pzero = P.make_plan(89)
     check("a zero-shape seed DISCLOSES and still ships: mode none, "
           "lineups 0, the brief says nothing is asked of the meaning "
           "axis, and the sound plan is intact",
@@ -624,12 +637,14 @@ def test_the_wired_draw():
     #: BRIDGE-FIRST opening refusal (seed 27, roster opens
     #: `[bridge, turnaround, ...]`), the same kind seed 9 carried, so the
     #: label below still says what it measures.
-    # The complete current sweep chooses19..21: two positive shapes around20.
-    res = P.sweep(range(19, 22),
+    # ~~19..21 around seed 20~~ -> 1..3 around seed 2 (2026-09-28): the
+    # current sweep's bridge-first opening refusal (roster opens bridge,
+    # interlude, build; collapse depth 1) between two positive shapes.
+    res = P.sweep(range(1, 4),
                   wants=[P.parse_sweep_want("story_lineups>=1")])
-    check("the seed filter actually accepts 19 and 21 and rejects 20, the current "
-          "false-ending opening refusal; both positive and negative arms execute",
-          res["accepted"] == [19,21], res["accepted"])
+    check("the seed filter actually accepts 1 and 3 and rejects 2, the current "
+          "bridge-first opening refusal; both positive and negative arms execute",
+          res["accepted"] == [1, 3], res["accepted"])
 
 
 

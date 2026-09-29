@@ -91,7 +91,7 @@ HISTORICAL_LINES = ["The bank foreclosed and boarded up the store",
                     "the freight train left the siding after four",
                     "we packed the truck with everything we own",
                     "and drove until the radio was gone"]
-LINES = ["The elephant elephant elephant elephant elephant elephant stove",
+LINES = ["The elephant elephant elephant elephant elephant elephant elephant stove",
          "Your fingers brush my heavy coat"]
 MAND = "--groups=1,2"
 ANSWER = "My kettle whistles by the stove"

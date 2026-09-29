@@ -800,7 +800,10 @@ def by_disposition(c=None):
 # LENGTH_GATE_CODES name). A nondefault window without a caller-owned cut
 # leaves lexical diversity unjudged; it is not a newly calibrated threshold.
 # M-304 adds one scope disclosure. No existing gate or disposition changes.
-PINNED = {'codes': 77, 'gated': 25, 'disclosed_only': 52, 'undecidable': 0,
+# REPINNED 2026-09-28: the owner deleted the 5-12 syllables-per-line rule
+# with no replacement, and its flag `DENSITY_OUT_OF_BAND` went with it. One
+# gated code leaves; no other code or disposition moves: 77/25/52 -> 76/24/52.
+PINNED = {'codes': 76, 'gated': 24, 'disclosed_only': 52, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

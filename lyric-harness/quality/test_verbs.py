@@ -5163,18 +5163,32 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
 def test_finish_exits_3_on_a_whole_draft_flag_alone():
     """A certified draft with only a whole-song flag exits3; clearing it exits0.
 
-    Re-cut2026-09-08 for the bounded executable seed176 plan (12 lines).
-    Every declared token/return is preserved. Earlier lines using 'into' and
-    'towels' had disputed pronunciation; the explicit negative below ensures
-    those cannot acquire the certified control's success by sharing its flags.
+    Re-cut 2026-09-28 for seed 176 at a DECLARED 12 lines: the 31-line cap
+    that made 12 its draw is deleted (owner ruling), so the length is stated
+    and the lines are rewritten for the plan it now draws (1.T6/2.head/3,
+    4.T5/5.T4, 6.T5/7.T4 and the three end pairs, 6->8 and 7->9 returned).
+    Lines using 'into' and 'towels' have disputed pronunciation; the explicit
+    negative below ensures those cannot acquire the certified control's
+    success by sharing its flags.
     """
     print("\n53. finish distinguishes certified whole flags, clean success, and uncertainty")
     d = tempfile.mkdtemp()
     draft = os.path.join(d, "whole176.txt")
-    lines = ['Bone buttons gleam beneath a red balloon', "My mother's herbs were never sown in June", 'A kettle ticks against the stove', 'Blue shadows drag the curtains through my doubt', 'Before the drought we kept a jar of salt', 'Each crawl beneath the window wakes the rain', 'Those hands divide the haul and mend the vein', 'Each crawl beneath the window wakes the rain', 'Those hands divide the haul and mend the vein', 'Bright napkins fold around a chipped blue plate', 'She swept the porch while winter filled the lane', 'A quiet lamp still burns beside the gate']
+    lines = ['Buttons gleam where wheat was sown by a balloon',
+             "Bone cold, my mother's herbs came up in June",
+             'The kettle smells of smoke and cheap cologne',
+             'Blue shadows drag the doubt across the floor',
+             'Before the long drought we kept salt in the drawer',
+             'Each night the slow crawl wakes the rain',
+             'Those rough hands haul nets and mend the vein',
+             'Each night the slow crawl wakes the rain',
+             'Those rough hands haul nets and mend the vein',
+             'Bright napkins fold around a chipped blue plate',
+             'She swept the porch while winter filled the lane',
+             'A quiet lamp still burns beside the gate']
     with open(draft, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines) + "\n")
-    common = ["--seed=176", "--relation=RHYME", "--attempts=0",
+    common = ["--seed=176", "--lines=12", "--relation=RHYME", "--attempts=0",
               "--backtrack=0", "--max-rounds=1"]
     rc, out, _ = run("finish", draft, "--title=zebra confetti", *common)
     result = _machine_result(out)
@@ -5204,7 +5218,7 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
           and clean.get("final_draft") == lines,
           str((rc0, clean.get("stop_reason"), clean.get("whole_flags"))))
     uncertain = list(lines)
-    uncertain[3] = uncertain[3].replace("through my doubt", "into doubt")
+    uncertain[3] = uncertain[3].replace("across the floor", "into the floor")
     uncertain[9] = uncertain[9].replace("napkins", "towels")
     with open(draft, "w", encoding="utf-8") as fh:
         fh.write("\n".join(uncertain) + "\n")
@@ -5224,7 +5238,7 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     check("CONTROL: the prior ambiguous readings stay uncertified despite zero flags",
           rcu == 2 and unjudged.get("whole_flags") == []
           and unjudged.get("coverage", {}).get("certified") is False
-          and {"prominence:L4", "density:L10", "prominence:L10"}.issubset(
+          and {"prominence:L4", "prominence:L10"}.issubset(
               unjudged.get("coverage", {}).get("refused_obligations", [])))
     shutil.rmtree(d, ignore_errors=True)
 
@@ -5354,9 +5368,11 @@ def test_the_plan_report_discloses_density_and_audibility():
           # none, and each group is briefed to stand in at least one.
           and "What each named relation asks" not in brief
           and "must stand in at least one relation" in brief
-          and re.search(r"^\s+up to \d+ syllables a line after the pickup; "
-                        r"the calibrated band asks at least \d+$", brief, re.M)
-          is not None)
+          and re.search(r"^\s+up to \d+ syllables a line after the pickup$",
+                        brief, re.M) is not None
+          # The syllable band is deleted (owner ruling 2026-09-28), so the
+          # brief no longer asks for a minimum.
+          and "the calibrated band asks" not in brief)
 
 
 def test_the_batch_door_asks_independent_lines_together():
@@ -5877,14 +5893,18 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # for a question the harness could not answer at all. The three counts
     # ride out separately (doctrine 79): what was fixed, what new FLAG
     # rejected it, and what new NOTE did not.
-    rc, out, _ = run("tryline", draft, "1", "a", "--seed=7", "--lines=12",
+    # "a king" (re-measured 2026-09-28): one stress, so the prominence band
+    # rejects it, and its end word newly collides with the free L11/L12
+    # ('wing', 'thing') — a new NOTE beside the new FLAG. The bare "a" used
+    # here added a note only while the deleted syllable band stood.
+    rc, out, _ = run("tryline", draft, "1", "a king", "--seed=7", "--lines=12",
                      expect_rc=3)
     row = _machine_result(out)
     check("a candidate that trades one defect for another is REJECTED at "
           "exit 3", rc == 3 and row.get("accepted") is False, out[-300:])
     check("...naming the new FLAGS that rejected it",
           {tuple(x) for x in (row.get("new_flags") or ())}
-          >= {(1, "DENSITY_OUT_OF_BAND"), (1, "PROMINENCE_OUT_OF_BAND")},
+          >= {(1, "PROMINENCE_OUT_OF_BAND")},
           str(row.get("new_flags")))
     check("...while still reporting what it DID fix — a rejection is not a "
           "verdict that nothing happened", len(row.get("fixed") or ()) > 0,
@@ -5946,12 +5966,19 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     pend = stj.get("pending") or {}
     members = [int(r["line"]) for r in
                (pend.get("record") or {}).get("records") or ()]
+    # RE-MEASURED 2026-09-28: the 31-line cap and the 12-beat line ceiling
+    # are deleted (owner ruling), so seed 7 at 12 lines draws 99-beat lines
+    # and a denser web. The batch is ~~[3, 5, 7]~~ [3, 5]: L7's groups no
+    # longer leave it independent of the others, so the M-305 member it
+    # carried is not reproduced by this fixture and its parity checks go.
     check("the loop suspends on the fixture with a batch open",
           rc == 4 and pend.get("kind") == "propose_batch"
-          and members == [3, 5, 7],  # ~~[3, 5, 8]~~ since M-305
+          and members == [3, 5],
           f"{rc} {pend.get('kind')} {members}")
-    # while nothing has moved, the state and the file are the same draft
-    rc, out, _ = run("tryline", draft, "5", "Stay by the door and pray",
+    # while nothing has moved, the state and the file are the same draft.
+    # ~~'Stay by the door and pray'~~ — 'pray' is in L5's forbidden modal
+    # head for 'way' on this plan; 'holiday' is in the offered field.
+    rc, out, _ = run("tryline", draft, "5", "Stay by the door until the holiday",
                      "--seed=7", "--lines=12", REL, f"--propose=defer:{st}",
                      expect_rc=0)
     row = _machine_result(out)
@@ -5959,25 +5986,11 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           "that nothing has moved yet",
           rc == 0 and row.get("against") == "state"
           and row.get("moved_since_handed_in") == []
-          and row.get("open_question") == [3, 5, 7]  # ~~[3, 5, 8]~~ M-305
+          and row.get("open_question") == [3, 5]
           and "AGAINST: the loop's CURRENT draft" in out
-          # ~~"...is L3, L5, L8"~~ since M-305
-          and "OPEN   : the loop's open question is L3, L5, L7" in out,
+          and "OPEN   : the loop's open question is L3, L5" in out,
           out[-600:])
     l5_before = bool(row.get("accepted"))
-    # L7 is the member M-305 moved INTO the batch, so its parity is measured
-    # too: the verb's verdict here is what the fold below must record.
-    # Measured 2026-09-21: 'hold the door for drought' ACCEPTED — word 5 is
-    # in the -out field the C mandate offers and NOT on the forbidden modal
-    # list ('doubt', 'out', ... are REJECTED as the slop direction).
-    rc, out, _ = run("tryline", draft, "7", "hold the door for drought",
-                     "--seed=7", "--lines=12", REL, f"--propose=defer:{st}",
-                     expect_rc=0)
-    row = _machine_result(out)
-    l7_before = bool(row.get("accepted"))
-    check("...and the member M-305 moved into the batch is asked the same "
-          "way, and ACCEPTED", rc == 0 and row.get("against") == "state"
-          and row.get("moves") == [7] and l7_before, out[-400:])
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
                      "--seed=7", "--lines=12", REL, "--propose=stub",
                      expect_rc=2)
@@ -6003,8 +6016,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # ~~"L8: A shore as old as the vein"~~ — L8 is no longer in the batch
     # since M-305; the third row answers L7 with the candidate accepted above
     stj["pending"]["answer"] = ("L3: nothing here is very still\n"
-                                "L5: Stay by the door and pray\n"
-                                "L7: hold the door for drought")
+                                "L5: Stay by the door until the holiday")
     with _io.open(st, "w", encoding="utf-8") as fh:
         json.dump(stj, fh)
     rc, out, _ = run("finish", draft, "--seed=7", "--lines=12", REL,
@@ -6016,19 +6028,16 @@ def test_tryline_is_the_loops_own_acceptance_decision():
              if a != b]
     verdicts = {int(o["line"]): bool(o["accepted"])
                 for o in stj.get("outcomes") or ()}
-    # measured: moved=[2, 3, 5, 7] (L2 rides with L3 as its return class),
-    # verdicts {3: True, 5: True, 7: True}
+    # measured: moved=[2, 3, 5] (L2 rides with L3 as its return class),
+    # verdicts {3: True, 5: True}
     check("the loop folded the answers and moved past the file",
-          rc == 4 and 3 in moved and 5 in moved and 7 in moved,
+          rc == 4 and moved == [2, 3, 5],
           f"{rc} moved={moved}")
     check("PARITY: the verb's verdict before the fold is the loop's verdict "
           "at the fold (L5)", verdicts.get(5) is l5_before is True,
           f"{verdicts} vs tryline {l5_before}")
     check("...and for L3, whose fix only the return mirror earns",
           verdicts.get(3) is True, str(verdicts))
-    check("...and for L7, the member M-305 moved into the batch",
-          verdicts.get(7) is l7_before is True,
-          f"{verdicts} vs tryline {l7_before}")
     # NOW the file is a draft the loop no longer holds
     rc, out, _ = run("tryline", draft, "9", "carry the cold light",
                      "--seed=7", "--lines=12", REL, expect_rc=2)
@@ -6052,15 +6061,15 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     bj["accepted_lines"] = list(stj["accepted_lines"])
     # the open question is a GROUP on [6, 7, 10, 11] — a group record names
     # its draft by its members' texts, so the tamper lands on a member.
-    # Re-measured after M-305: with L7 folded the loop still opens group D
-    # [6, 7, 10, 11] (`propose_group`, L7 now reading the accepted
-    # candidate), so the tamper on L6 is pinned here rather than assumed.
+    # Re-measured 2026-09-28: after the fold the loop opens the group on
+    # [6, 7, 10, 11] (`propose_group`), so the tamper on L6 is pinned here
+    # rather than assumed.
     post = stj.get("pending") or {}
     check("after the fold the open question is the GROUP on [6, 7, 10, 11], "
           "which is what the tamper below relies on",
           post.get("kind") == "propose_group"
           and (post.get("record") or {}).get("members") == [6, 7, 10, 11]
-          and "hold the door for drought"
+          and "hold the door for rain"
           in ((post.get("record") or {}).get("texts") or []),
           f"{post.get('kind')} {(post.get('record') or {}).get('members')}")
     bj["accepted_lines"][5] = "a line nobody accepted"
@@ -6164,14 +6173,20 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
               completed.get("final_draft") == pool[:n]
               and coverage.get("certified") is False
               and bool(coverage.get("refused_obligations"))
-              and coverage.get("pairs_mandated") == 9
+              # REPINNED 2026-09-28, MEASURED by this run: ~~9 mandated,
+              # 2/7~~ -> 10 mandated, 3/7. The 12-beat line ceiling and the
+              # syllable band are deleted (owner ruling), so seed 2003 at 12
+              # lines draws longer lines and a different web; the claim —
+              # the declined run is not certified and names its refusals —
+              # is unchanged.
+              and coverage.get("pairs_mandated") == 10
               # REPINNED 2026-09-22 (N-relation model), MEASURED by this
               # run: ~~3/6~~ -> 2/7. The reading-consensus check is
               # membership over the pair's relation SET now, so one more
               # pair whose endpoint readings disagree on a relation is
               # refused rather than judged (the battery moved 28 -> 39 the
               # same way).
-              and coverage.get("pairs_judged") == 2
+              and coverage.get("pairs_judged") == 3
               and coverage.get("pairs_refused") == 7,
               f"final lines={len(completed.get('final_draft', []))}; "
               f"judged/refused={coverage.get('pairs_judged')}/"

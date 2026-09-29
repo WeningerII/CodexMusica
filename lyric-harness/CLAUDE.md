@@ -758,7 +758,8 @@ re-graded at every check, so a ban that moves can turn a committed witness
 dirty. `verify_capacity.verify_all` raises on the FIRST dirty family, so CI
 could only name `AY`; the other two were found by sweeping all 81 by hand.
 The construction attempt cap remains 40,
-and the separate writer workload limit remains 31 lines. The former 40-word
+~~and the separate writer workload limit remains 31 lines~~ (the 31-line
+writer workload limit was deleted by owner ruling 2026-09-28). The former 40-word
 claims failed the declared relation: default rescue and ambiguous readings
 had certified groups the narrower class does not accept. Current evidence:
 `quality/RESULTS_CAPACITY_PRODUCTION_2026-09-08.md` and
@@ -1501,8 +1502,8 @@ a contradiction. Omit `blueprint=` and nothing changes — meter is opt-in.
 `quality/test_revise.py` test 25.
 
 **THE CALIBRATED BANDS ARE NOT OPT-IN (2026-08-18).** `inspect()` also runs
-`_band_findings` on every draft, blueprint or none: DENSITY [5, 12]
-syllables/line and PROMINENCE [2, 7] prominent/line, measured over 139,694
+`_band_findings` on every draft, blueprint or none: ~~DENSITY [5, 12]
+syllables/line and~~ PROMINENCE [2, 7] prominent/line, measured over 139,694
 corpus lines and adopted by three preregistrations
 (`quality/METER_BANDS_PREREGISTRATION*.md` → `RESULTS_METER_BANDS_READER.md`
 — two refusals, then one adoption). Out of band EITHER way is a per-line
@@ -1515,6 +1516,15 @@ ceiling flags; under the floor it is a `BAND_UNJUDGED` note, doctrine 79),
 and the shipped constants (`meter_bands.ADOPTED`) are re-derived against
 the corpus by `python3 quality/meter_bands.py --check` in CI so drift fails
 loud. `quality/test_meter_bands.py` sections 9–10.
+**THE SYLLABLE BAND IS DELETED (owner ruling 2026-09-28), with no
+replacement:** *"there are multiple songs that have 1 syllable in a line and
+... songs can have like 128 syllables in a line or more. so we should remove
+that all 5-12 and not replace it."* `DENSITY_OUT_OF_BAND` no longer exists,
+and the planner no longer reads the band — its beat-per-line ceiling is the
+one line limit kept, `propose.MAX_LINE_CHARS` characters (a syllable is at
+least one character), and a declared melody is not held to it.
+`meter_bands.ADOPTED` still carries the measured `DENSITY` figure as a
+measurement, which nothing enforces.
 
 **THE LOOP IS AUTOMATED: quality/loop.py, tests in test_loop.py.**
 `brief`/`verify` graded one round at a time by hand; `revise_loop(reviser,

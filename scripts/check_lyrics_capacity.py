@@ -290,12 +290,6 @@ def summarize_measurements(measurements):
     return summaries
 
 
-def published_limits():
-    sys.path.insert(0, str(ROOT / 'lyric-harness'))
-    from quality.plan import execution_limits
-    return execution_limits()
-
-
 class MeasurementProgress:
     """Expose captured diagnostics without treating activity as a passing result.
 
@@ -395,12 +389,6 @@ def main():
               "limits": LIMITS, "isolation": isolation(), "measurements": [],
               "memory_trace": [], "failures": [],
               "source_sha256": source_identity()}
-    try:
-        report['published_execution_limits'] = published_limits()
-        if report['published_execution_limits']['max_lines'] != max(SIZES):
-            report['failures'].append('published planner maximum differs from the predeclared capacity matrix')
-    except Exception as error:
-        report['failures'].append(f'cannot verify published planner scope: {error}')
     before_events = memory_events()
     if not args.local and 'oom_kill' not in before_events:
         report['failures'].append('cgroup OOM-kill accounting is unavailable; production isolation cannot be qualified')

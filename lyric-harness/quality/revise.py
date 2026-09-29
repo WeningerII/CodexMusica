@@ -340,13 +340,11 @@ class ReviseDeclaration:
     #: same argument as `modal_exclusion=0`); it is not the default.
     field_band: str = "grader"
 
-    #: How many full write-check-fix ROUNDS `quality/loop.py` runs before it
-    #: stops and hands back whatever is still flagged, regardless of the
-    #: reason. Declared since the first commit of this file and unread by
-    #: anything until `quality/loop.py`: a bound on effort has to exist
-    #: before the loop that spends it does, or the loop's own author decides
-    #: it ad hoc the day it is finally driven end to end.
-    max_rounds: int = 4
+    #: How many full write-check-fix ROUNDS `quality/loop.py` may run. None,
+    #: the default, sets no round limit: the loop keeps going while rounds
+    #: fix something and stops on SUCCESS or when a round fixes nothing
+    #: (NO_PROGRESS). A number is the caller's own declared budget.
+    max_rounds: int | None = None
     #: a revision is rejected if it introduces MORE new findings than it fixes
     allow_net_new: int = 0
 
@@ -2930,8 +2928,12 @@ class Reviser:
         stated as an FPR (doctrine 22), and until that calibration
         exists the runs are disclosed and nothing more.
 
-        DENSITY [5, 12] syllables/line and PROMINENCE [2, 7] prominent/line
-        — measured over 139,694 sung English lines, adopted by the
+        PROMINENCE [2, 7] prominent/line. ~~DENSITY [5, 12] syllables/line~~
+        is NOT enforced: the owner deleted the syllable band 2026-09-28 (a
+        sung line may be one syllable or a hundred), with no replacement;
+        `meter_bands.ADOPTED` still carries the measured figure as a
+        measurement. The prominence band was
+        measured over 139,694 sung English lines, adopted by the
         registered rule (quality/RESULTS_METER_BANDS_READER.md), shipped as
         `meter_bands.ADOPTED`, and re-derived against the corpus by
         `python3 quality/meter_bands.py --check` so drift fails loud. Out of
@@ -2972,7 +2974,10 @@ class Reviser:
                 strip_parens=self.lex.strip_parens, fallback=phon.fallback))
             reader_lex.pronunciations = self.lex.pronunciations
             phon = English(fallback=phon.fallback, lexicon=reader_lex)
-        d_lo, d_hi = MB.ADOPTED["DENSITY"]
+        # THE SYLLABLE BAND IS GONE (owner ruling 2026-09-28): the 5-12
+        # syllables-per-line rule and its DENSITY_OUT_OF_BAND flag are
+        # deleted, not replaced. A sung line may be one syllable or a
+        # hundred. The prominence band below is a separate rule and stays.
         p_lo, p_hi = MB.ADOPTED["PROMINENCE"]
         basis = (f"band adopted at reader {MB.ADOPTED_READER!r} over "
                  f"139,694 corpus lines (RESULTS_METER_BANDS_READER.md; "
@@ -2988,32 +2993,11 @@ class Reviser:
             refused = [r.token for r in lu.refused]
             complete = not refused and bool(lu.units)
             fs = []
-            if complete and not (d_lo <= syl <= d_hi):
-                fs.append(Finding(
-                    "DENSITY_OUT_OF_BAND", "flag",
-                    f"{syl} syllable(s) — outside the calibrated "
-                    f"[{d_lo}, {d_hi}] band for a sung English line",
-                    f"{basis}. Fewer than {d_lo} and more than {d_hi} are "
-                    f"both refused; the fix is a rewrite of THIS line, not "
-                    f"a nudge in a direction.", [ln]))
-            elif not complete and syl > d_hi:
-                fs.append(Finding(
-                    "DENSITY_OUT_OF_BAND", "flag",
-                    f"at least {syl} syllable(s) — already over the "
-                    f"calibrated [{d_lo}, {d_hi}] band on the readable "
-                    f"tokens alone",
-                    f"{basis}. The count is a LOWER BOUND ({len(refused)} "
-                    f"token(s) refused: {', '.join(refused[:4])}"
-                    f"{'…' if len(refused) > 4 else ''}) and a lower bound "
-                    f"over the ceiling is a violation no missing token can "
-                    f"undo.", [ln]))
             prom_certain = complete and not undecided
             if coverage_out is not None:
-                coverage_out.extend([
-                    {"id": f"density:L{ln}", "layer": "density", "line": ln,
-                     "status": "answered" if complete or syl > d_hi else "refused"},
+                coverage_out.append(
                     {"id": f"prominence:L{ln}", "layer": "prominence", "line": ln,
-                     "status": "answered" if prom_certain or prom > p_hi else "refused"}])
+                     "status": "answered" if prom_certain or prom > p_hi else "refused"})
             # M-115: the runs beside the count, on the finding a diluting
             # repair is aimed at — "and the" strung as padding shows up
             # here as the weak run the count cannot see.
@@ -4303,6 +4287,186 @@ class Reviser:
                 break
         return kept, refused
 
+    def _widening_filter(self, lines, m, line, slot, group_indices, endwords,
+                         profile=None):
+        """-> `keep(word)` for the whole-lexicon widening at ONE place, or
+        None when nothing could be derived and the search skips nothing.
+
+        Every declared relation of every group bound here is asked, against
+        each partner whose text stays fixed in every trial draft, what it
+        NEEDS from the word at this place (`quality/relation_index.py`). A
+        word is dropped only where one of those requirements provably fails,
+        so `declared_offer` — which still grades every word kept — would have
+        refused it too: the offer is the one a full scan returns, reached
+        without grading words that cannot stand in the relation.
+
+        `keep.filtered` / `keep.unfiltered` name the relations that did and
+        did not contribute a requirement, so a caller can say which searches
+        are indexed and which still scan everything.
+        """
+        if getattr(self.lex, "pronunciations", ()):
+            # A member's reading may come from the declaration, not the
+            # dictionary; nothing here reads declarations.
+            return None
+        from quality import relation_index as RI
+        from quality import relations as _RL
+        from quality import rhyme_types as _RT
+        phon = self._relation_phonology()
+        # `score()`'s own conjunctive-band switch for this call: a profile
+        # with a zero coda weight turns it off, and RHYME then needs no
+        # channel to agree.
+        from lyric_harness import channel_profile as _CP
+        _prof = _CP(profile)
+        conj = self.decl.conjunctive_band and not (
+            _prof and _prof.get("weights", {}).get("coda", 1.0) == 0.0)
+        _struct = any(getattr(m, "structures", ()) or ())
+        if _struct:
+            from quality import structures as _ST_mod
+        ret = m.return_of(line)
+        targets = (set(ret.lines) if ret is not None and ret.verbatim is True
+                   else {line})
+        slotted = m.slots_declared()
+        box = {}
+
+        def stream():
+            if "s" not in box:
+                box["s"] = _RL.build_stream(lines, phon)
+            return box["s"]
+
+        def token_at(li, sl):
+            """The stream token a slot binds on 0-based line `li`, resolved
+            as `pair_satisfies` resolves it (and the default slot as the
+            `line_final_token` locus does)."""
+            st = stream()
+            if li >= len(st.lines) or not st.lines[li]:
+                return None
+            if sl is None or _SL.is_default(sl):
+                return st.units[st.lines[li][-1]].line_tokens - 1
+            t = _SL.token_of(sl)
+            if t is not None and t < 0:
+                t = ((len(st.lexical_tokens[li]) if st.lexical_tokens
+                      else st.units[st.lines[li][-1]].line_tokens) + t)
+            return t
+
+        def unit_sets(li, t):
+            ids = stream().tokens.get((li, t)) if t is not None else None
+            if not ids:
+                return None
+            return RI.syllable_sets([stream().units[i].syl for i in ids])
+
+        def single(sl):
+            return (sl is None or _SL.is_default(sl)
+                    or (_SL.token_of(sl) is not None
+                        and RI._confined(_SL.as_slot(sl).rule)))
+
+        # THE PLACE ITSELF MUST MAP TO ONE WORD IN EVERY TRIAL: the token the
+        # slot binds in the stream is the word the swap replaces.
+        own_t = token_at(line - 1, slot)
+        own_word = self._incumbent(lines, line, slot) or ""
+        own_ids = (stream().tokens.get((line - 1, own_t))
+                   if own_t is not None else None)
+        own_ok = bool(own_ids) and own_word.isalpha() and (
+            stream().units[own_ids[0]].token_text.lower() == own_word.lower())
+        tests, filtered, unfiltered = [], [], []
+        for k in group_indices:
+            wants = _relations_of(m, k)
+            # A BARE group is judged at the admit door, and only there, when
+            # its schema route is closed and it declares no structure.
+            door = (not wants and not self.schema_route_open(m, k)
+                    and not (_struct
+                             and m.structure_of(k) != _ST_mod.DEFAULT))
+            if not wants and not door:
+                continue
+            sl_c = m.slot_of(k, line) if slotted else None
+            for x in m.groups[k]:
+                if x == line or x in targets:
+                    continue
+                if getattr(m.requirement(line, x), "name", "") != "REQUIRE_RHYME":
+                    continue
+                sl_p = m.slot_of(k, x) if slotted else None
+                both_default = ((sl_c is None or _SL.is_default(sl_c))
+                                and (sl_p is None or _SL.is_default(sl_p)))
+                lo = min(line, x)
+                sl_lo = m.slot_of(k, lo) if slotted else None
+                position = _SL.position_of(sl_lo or lo)
+                pw = self._slot_word(lines, m, k, x, endwords)
+                # WHERE EACH SPAN ENDS: the syllable `channel_agreement`
+                # compares last, and whether its coda is the word's own.
+                coarse_ok = single(sl_c) and single(sl_p)
+                w_c = RI.span_end(None if sl_c is None or _SL.is_default(sl_c)
+                                  else _SL.as_slot(sl_c).rule)
+                w_p = RI.span_end(None if sl_p is None or _SL.is_default(sl_p)
+                                  else _SL.as_slot(sl_p).rule)
+                if door:
+                    alts = (RI.door_requirement(self.decl.admit, conj)
+                            if coarse_ok else None)
+                    lp = RI.last_syllables(self.lex, pw, w_p) if alts else None
+                    if lp is not None:
+                        tests.append(("last", (alts, w_c), lp))
+                        filtered.append("admit door")
+                    else:
+                        unfiltered.append("admit door")
+                    continue
+                for want in wants:
+                    try:
+                        canon, kind = _RT.resolve_relation(want)
+                    except Exception:
+                        unfiltered.append(want)
+                        continue
+                    added = False
+                    if kind == "named" and single(sl_c) and single(sl_p):
+                        req = RI.type_requirement(canon, position)
+                        sp = RI.word_sets(phon, pw) if req else None
+                        if req == ():
+                            tests.append(("sets", (), None))
+                            added = True
+                        elif req is not None and sp is not None:
+                            tests.append(("sets", req, sp))
+                            added = True
+                    elif kind == "schema" and own_ok:
+                        # The two routes `grade()` takes: the default slots
+                        # through `line_pairs_for` over the pair-adapted
+                        # schema, a declared slot through `pair_satisfies`
+                        # over the registry row itself.
+                        route = "default" if both_default else "token"
+                        sch = (_RL.declared_pair_schema(_RL.REGISTRY[canon])
+                               if both_default else _RL.REGISTRY[canon])
+                        cells = RI.schema_requirement(sch, route)
+                        sp = unit_sets(x - 1, token_at(x - 1, sl_p))
+                        if cells is not None and sp is not None:
+                            tests.append(("sets", (cells,), sp))
+                            added = True
+                    elif kind == "class" and coarse_ok:
+                        need = RI.class_requirement(canon, conj)
+                        lp = (RI.last_syllables(self.lex, pw, w_p)
+                              if need else None)
+                        if lp is not None:
+                            tests.append(("last", ((need,), w_c), lp))
+                            added = True
+                    (filtered if added else unfiltered).append(want)
+        if not tests:
+            return None
+
+        def keep(word):
+            sw = None
+            for kind, req, p in tests:
+                if kind == "sets":
+                    if req == ():
+                        return False
+                    if sw is None:
+                        sw = RI.word_sets(phon, word) or ()
+                    if sw and not any(RI.meets(alt, sw, p) for alt in req):
+                        return False
+                else:
+                    alts, where = req
+                    kw = RI.last_syllables(self.lex, word, where)
+                    if kw and not RI.coarse_meets(alts, kw, p, self.decl):
+                        return False
+            return True
+        keep.filtered = tuple(dict.fromkeys(filtered))
+        keep.unfiltered = tuple(dict.fromkeys(unfiltered))
+        return keep
+
     def schema_route_open(self, m, group_index):
         """Does ONE GROUP accept a pair through any registry schema?
 
@@ -5095,8 +5259,7 @@ class Reviser:
             common &= set(pl)
         ranked = [w for w in pools[0] if w in common and w not in drop
                   and (len(w) >= 2 or w in ("a", "i"))]
-        limit = self._SCREEN_SCAN * self.rdecl.offered
-        offered = ranked[:limit]
+        offered = ranked
         for name in schema_names:
             if not offered:
                 break
@@ -5167,14 +5330,12 @@ class Reviser:
                 rhymes.append(w)
             else:
                 nears.append(w)
-        # THE SCREEN, bounded: each screen scores a few dozen pairs, and a
-        # common call's near-typed tier runs to hundreds of words, so at most
-        # `_SCREEN_SCAN` × `offered` candidates of each part are screened.
-        # `dropped` is the RHYME-typed words the screen refused — the count
-        # that says whether this call can be rhymed cleanly at all.
-        limit = self._SCREEN_SCAN * self.rdecl.offered
+        # THE SCREEN looks through every candidate of each part and stops
+        # only when the menu is full. `dropped` is the RHYME-typed words the
+        # screen refused — the count that says whether this call can be
+        # rhymed cleanly at all.
         rest, dropped = [], []
-        for w in rhymes[:limit]:
+        for w in rhymes:
             if len(rest) >= self.rdecl.offered:
                 break
             if self._offer_reopens(w, calls, fields, profile=profile):
@@ -5182,7 +5343,7 @@ class Reviser:
                 continue
             rest.append(w)
         for part in (nears, schema_only):
-            for w in part[:limit]:
+            for w in part:
                 if len(rest) >= self.rdecl.offered:
                     break
                 if part is schema_only and not all(
@@ -5193,23 +5354,6 @@ class Reviser:
                 rest.append(w)
         return rest, forbidden, dropped
 
-    #: How far past the menu's own length the screen scans EACH part, in
-    #: multiples of `ReviseDeclaration.offered` — a bound on cost, not a
-    #: coordinate of any verdict (the head is cut before this runs).
-    #: MEASURED 2026-09-01 on the call `door`: 32 rhyme-typed candidates
-    #: dropped, 24 survivors reached in 3.6 s cold, so 8× the menu covers
-    #: the common case.
-    _SCREEN_SCAN = 8
-
-    #: How many candidates of ONE per-call menu are put through the grade
-    #: (`MISSING.md` M-315). A bound on COST, not a coordinate of any verdict:
-    #: a word past it is UNSEARCHED and is never published, so the menu can
-    #: only be SHORTER than the screen would allow, never wrong. The screen
-    #: itself is what the menu owes — before it, every one of the 24 words the
-    #: live seed-7 brief offered for the call `Your` was rejected by the
-    #: grader. MEASURED on that draft, briefing the lines the loop asks about:
-    #: 25s with no screen, 171s screening all 24 of every menu, 62s here.
-    _MENU_SCREEN_MAX = 8
 
     def _offer_reopens(self, w, calls, fields, profile=None):
         """Would taking `w` file MODAL_RHYME against one of `calls` from
@@ -5632,19 +5776,30 @@ class Reviser:
                             # without that cut, then ask the same grade.
                             _pool = [word for word, _anchor, _rank in
                                      sorted(self.engine.index, key=lambda row: (row[2], row[0]))
-                                     [:self._SCREEN_SCAN * self.rdecl.offered]
                                      if word not in {_cur, *_forb}]
                             for _call in _calls:
                                 if any(str(_w).startswith("schema:") for k in ks
                                        for _w in _relations_of(m, k)):
-                                    _pool.extend(self._widen_pool(_call, profile=profile)
-                                                 [:self._SCREEN_SCAN * self.rdecl.offered])
+                                    _pool.extend(self._widen_pool(_call, profile=profile))
                                 _raw = self.engine.candidates(
-                                    _call, n=self._SCREEN_SCAN * self.rdecl.offered)
+                                    _call, n=len(self.engine.index))
                                 _pool.extend(row["word"] for row in _raw.get("candidates", ())
                                              if row["word"] not in {_cur, *_forb})
+                            _cand = [w for w in dict.fromkeys(_pool)
+                                     if w not in {_cur, *_forb, *_drop}]
+                            # THE WIDENING INDEX (2026-09-28). The pool is the
+                            # whole lexicon; every word in it is still looked
+                            # at, and the ones each declared relation's own
+                            # definition says cannot stand in it are not
+                            # graded (`_widening_filter`). The words kept go
+                            # through the same full grade in the same order.
+                            _keep = self._widening_filter(lines, m, ln, _sl,
+                                                          ks, endwords,
+                                                          profile=profile)
+                            if _keep is not None:
+                                _cand = [w for w in _cand if _keep(w)]
                             _extra, _no = self.declared_offer(
-                                [w for w in _pool if w not in {_cur, *_forb, *_drop}],
+                                _cand,
                                 lines, m, ln, _sl, ks,
                                 profile=profile, sections=_sections,
                                 limit=self.rdecl.offered)
@@ -5697,25 +5852,13 @@ class Reviser:
                                     (min(ln, x), max(ln, x), k)
                                     for k in ks for x in dict(groups)[k]
                                     if self._slot_word(lines, m, k, x, endwords) == _c1}
-                                # BOUNDED, and the bound is on COST alone: one
-                                # trial grade per candidate, `offered` (24)
-                                # candidates, one menu per call, so an 8-call
-                                # pivot pays 192 grades. MEASURED on the
-                                # seed-7 draft, briefing the flagged lines the
-                                # loop actually asks about: 25s unscreened,
-                                # 171s screening all 24 of every menu, 62s at
-                                # this cap. `limit` stops early where words
-                                # PASS, so the cap binds only where they do
-                                # not. UNDER-offering is the safe direction —
-                                # a word past the cap is UNSEARCHED, which is
-                                # what the empty-menu text already says, and
-                                # never a word published that the grader
-                                # rejects.
+                                # Every word on the menu goes through the grade. `limit` stops the
+                                # screen once the menu is full; it never stops it short of that.
                                 _o1, _no = self.declared_offer(
-                                    _o1[:self._MENU_SCREEN_MAX],
+                                    _o1,
                                     lines, m, ln, _sl, ks,
                                     profile=profile, sections=_sections,
-                                    limit=self._MENU_SCREEN_MAX,
+                                    limit=self.rdecl.offered,
                                     requested_obligations=_obligations)
                                 if not _explicit:
                                     _grader_ref = list(
@@ -5854,18 +5997,6 @@ class Reviser:
                     f"lines {sorted(stray)} were changed but not targeted; "
                     f"revise flagged lines only")
                 return out
-        # A writer can increase the actual enumerated workload even inside
-        # the admitted line count. Refuse before any candidate menu or full
-        # assessment; callers retain the exact accepted `before` artifact.
-        from quality.plan import draft_execution_bound
-        work = draft_execution_bound(after, phon=self._relation_phonology())
-        if not work["within_budget"]:
-            out.update(stop_reason="RESOURCE_LIMIT", execution_limits=work)
-            out["reasons"].append(
-                "RESOURCE_LIMIT: proposed draft exceeds the declared candidate-work budget "
-                f"({work['max_candidate_pairs']} > {work['max_pairs']}; "
-                f"{work['limiting_schema']})")
-            return out
         b_before = {b.line_no: b for b in self.brief(before, m,
                                                     profile=profile,
                                                     blueprint=blueprint,

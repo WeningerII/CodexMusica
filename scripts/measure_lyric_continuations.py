@@ -230,7 +230,7 @@ def main():
     lines = [f'we carry the morning to the {BANK[i % len(BANK)]}' for i in range(n)]
     if a.fixture == 'density':
         # test_replay_memo's answered, declared assonance density-repair pair.
-        lines = ['The elephant elephant elephant elephant elephant elephant stove'
+        lines = ['The elephant elephant elephant elephant elephant elephant elephant stove'
                  if i % 2 == 0 else 'Your fingers brush my heavy coat' for i in range(n)]
     draft.write_text('\n'.join(lines) + '\n')
     command = ['finish', str(draft), f'--seed={a.seed}', f'--lines={n}', f'--propose=defer:{state}']
