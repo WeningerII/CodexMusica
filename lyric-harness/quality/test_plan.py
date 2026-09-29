@@ -685,18 +685,27 @@ def test_the_measure():
     _sshare = N / len(vals)
     _smean = sum(slot_n.elements()) / N
     _smid = (vals[0] + vals[-1]) / 2
+    # ~~within 15% of its share, mean within 1.0 of the midpoint~~ — sized
+    # for the 2..12 envelope (11 values, ~2,180 draws each, so 15% was about
+    # seven standard deviations). The 12-beat ceiling is deleted (owner
+    # ruling 2026-09-28) and the envelope is 2..200: ~120 draws a value, one
+    # standard deviation is ~9%, and a fixed 15% fails a uniform draw by
+    # chance. Both tolerances are now FOUR STANDARD ERRORS of the draw
+    # itself, derived from N and the value count, never typed.
+    _stol = 4 * math.sqrt(_sshare * (1 - 1 / len(vals)))
+    _mtol = 4 * math.sqrt((len(vals) ** 2 - 1) / 12) / math.sqrt(N)
     check("BEATS PER LINE — the coordinate the envelope is stated in, and "
           "the length a listener hears — is drawn UNIFORM over what the "
-          "envelope can realise: every value reached, each within 15% of "
-          "its share, and the observed mean within 1.0 of the envelope's "
-          "own midpoint. ~~SLOTS per line~~ (M-81(A)) had the ORDER right "
+          "envelope can realise: every value reached, each within four "
+          "standard errors of its share, and the observed mean within four "
+          "standard errors of the envelope's own midpoint. ~~SLOTS per line~~ (M-81(A)) had the ORDER right "
           "and the UNIT wrong: a slot is a subdivision unit, so drawing "
           "uniformly over slots made a line's LENGTH a function of its grid "
           "resolution — 48 slots is twelve beats at subdivision 4 and "
           "forty-eight at subdivision 1",
           len(slot_n) == len(vals)
-          and all(abs(v - _sshare) <= 0.15 * _sshare for v in slot_n.values())
-          and abs(_smean - _smid) <= 1.0,
+          and all(abs(v - _sshare) <= _stol for v in slot_n.values())
+          and abs(_smean - _smid) <= _mtol,
           f"{len(slot_n)}/{len(vals)} values, mean {_smean:.2f}, midpoint "
           f"{_smid}, max deviation "
           f"{max(abs(v - _sshare) / _sshare for v in slot_n.values()):.1%}")
@@ -831,15 +840,25 @@ def test_the_measure():
     # ONE bar, or a few. `bars_per_line` runs to `hi // 2` as a BOUND, and
     # under the old measure the median plan spent EIGHT bars on a line — the
     # same slots product spelled as many short bars instead of one long one.
+    # ~~median <= 2 bars and one-bar share > 40%~~ — true of the 2..12
+    # envelope, where most beat counts have few factorisations. With the
+    # 12-beat ceiling deleted (owner ruling 2026-09-28) a 150-beat line has
+    # many, so the one-bar share is what THIS sampler predicts — beats
+    # uniform, then one factorisation uniform — and that prediction is what
+    # the pair-uniform measure could not match. Held to four binomial
+    # standard errors over the 200 plans.
     bars_pl = sorted(p["choices"]["bars_per_line"] for p in
                      [make_plan(seed=s) for s in range(200)])
-    check("...and a line occupies ONE bar in most plans, which is what the "
-          "pair-uniform measure got wrong in the other direction: it is the "
-          "same slots product spelled as many short bars, and no song sets "
-          "one lyric line across eight of them",
-          bars_pl[100] <= 2 and sum(b == 1 for b in bars_pl) / 200 > 0.4,
-          f"median {bars_pl[100]} bars/line, "
-          f"one-bar {sum(b == 1 for b in bars_pl) / 200:.1%}")
+    _p1 = sum(sum(1 for (b, _s) in PLN.meter_factorisations(n) if b == 1)
+              / len(PLN.meter_factorisations(n)) for n in vals) / len(vals)
+    _o1 = sum(b == 1 for b in bars_pl) / 200
+    check("...and the ONE-BAR share is the sampler's own prediction from "
+          "`meter_factorisations`, which is what the pair-uniform measure got "
+          "wrong in the other direction: it spelled the same slots product "
+          "as many short bars",
+          abs(_o1 - _p1) <= 4 * math.sqrt(_p1 * (1 - _p1) / 200),
+          f"median {bars_pl[100]} bars/line, one-bar {_o1:.1%} against "
+          f"predicted {_p1:.1%}")
     check("the 4/4 bias is dead: many distinct meters over 200 seeds, both "
           "notation units, and 4/4 under 30% of plans. The COUNT is not "
           "pinned at a literal — it moves with the derived envelope — so "
@@ -922,11 +941,17 @@ def test_the_measure():
     # again. Both ends within 5 of the derived limits, as before.
     import math as _m
     _expect = len(_env) * (1 - (1 - 1 / len(_env)) ** _N_MEASURE)
+    # ~~both ends within 5~~ — with the 31-line cap deleted (owner ruling
+    # 2026-09-28) the draw spans 12..463 again, and a uniform draw of 200
+    # misses an end by more than 5 about one time in fourteen. The end
+    # tolerance is now the distance a uniform draw overshoots with
+    # probability 1/1000: ceil(|env| * ln(1000) / draws).
+    _end_tol = _m.ceil(len(_env) * _m.log(1000) / _N_MEASURE)
     check("totals cover the envelope's order, not one shape: the distinct "
           "totals reached are most of what a UNIFORM draw over the DERIVED "
           "envelope reaches in this many seeds, both ends included",
-          len(totals) >= 0.85 * _expect and min(totals) <= _lo + 5
-          and max(totals) >= _hi - 5,
+          len(totals) >= 0.85 * _expect and min(totals) <= _lo + _end_tol
+          and max(totals) >= _hi - _end_tol,
           f"{len(totals)} distinct of {len(_env)} in the envelope "
           f"({100 * len(totals) / len(_env):.0f}%; a uniform draw expects "
           f"{_expect:.0f}), [{min(totals)}, {max(totals)}] against "
