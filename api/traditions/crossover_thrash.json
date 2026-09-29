@@ -3,14 +3,14 @@
   "name": "Crossover Thrash",
   "family": "rock_punk",
   "lineage": "Formed 1984-1987 where American hardcore punk scenes met Bay Area and New York thrash metal — D.R.I., Suicidal Tendencies, Corrosion of Conformity and S.O.D. fused hardcore's 200-250 BPM d-beat and blast-adjacent skank beats with palm-muted metal downpicking, chromatic riffing and short shredded solos, topped by barked gang-chorus shouts, in songs typically under two minutes tracked loud and dry at metal studios.",
-  "recipe": "classic North American 1984-1987 crossover thrash, distorted Rock, thrash branch, punk distorted rock, death metal queercore deathcore. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 680,
-  "score": 380.149,
+  "recipe": "classic North American 1984-1987 crossover thrash, distorted Rock, thrash branch, punk distorted rock, death metal queercore crack rock steady. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 685,
+  "score": 374.974,
   "config": {
     "traditions": [
       "crossover_thrash",
       "queercore",
-      "deathcore"
+      "crack_rock_steady"
     ],
     "instruments": [
       {
@@ -31,26 +31,26 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 38.724999999999994,
-          "amp_make": 39.337999999999994,
-          "body_wood": 13.964624999999998,
-          "neck_wood": 1.8199999999999998,
-          "fretboard": 1.755,
-          "pickup_magnet": 0.195,
+          "electric_technique": 35.6,
+          "amp_make": 42.663,
+          "body_wood": 10.464999999999998,
+          "neck_wood": 1.2349999999999999,
+          "fretboard": 1.17,
+          "pickup_magnet": 0.6045,
           "pickup_winding": 0.21,
           "string_material": 0.09,
-          "bridge": 1.8199999999999998,
-          "scale_length": 11.694999999999999,
-          "string_gauge": 1.8199999999999998,
+          "bridge": 1.2349999999999999,
+          "scale_length": 9.23,
+          "string_gauge": 1.2349999999999999,
           "finish": 0.195,
-          "string_tuning": 20.605
+          "string_tuning": 16.965
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -58,13 +58,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 8.125000000000002,
-          "body_wood": 1.8199999999999998,
+          "amp_make": 8.775000000000002,
+          "body_wood": 1.2349999999999999,
           "pickup_config": 0.40950000000000003,
-          "string_type": 20.475,
-          "scale_length_b": 1.8199999999999998,
+          "string_type": 19.337500000000002,
+          "scale_length_b": 1.2349999999999999,
           "fretted_or_not": 0.65,
-          "bass_technique": 28.42000000000001
+          "bass_technique": 30.17
         }
       },
       {
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.924999999999995,
+          "drum_technique": 18.492499999999996,
           "drumhead": 2.45,
           "drum_kit_kick_pedal": 0
         }
@@ -89,33 +89,33 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
-          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 18.045624999999994,
-          "voice_quality": 4.8100000000000005,
+          "voice_register": 17.170624999999994,
+          "voice_quality": 4.940000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.755,
-          "voice_articulation": 16.249999999999996,
-          "voice_microtone": 18.049999999999997,
-          "voice_tradition": 4.8100000000000005,
-          "voice_mechanism_compound": 45.01349999999999,
-          "voice_estill_quality": 2.990000000000001,
-          "voice_speech_song": 17.029999999999994,
-          "voice_ensemble_config": 27.299500000000002,
-          "voice_ornament_system": 0.325,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 18.069999999999997,
+          "voice_microtone": 18.069999999999993,
+          "voice_tradition": 4.2250000000000005,
+          "voice_mechanism_compound": 38.7385,
+          "voice_estill_quality": 3.640000000000001,
+          "voice_speech_song": 19.109999999999992,
+          "voice_ensemble_config": 29.4745,
+          "voice_ornament_system": 0.45499999999999996,
           "voice_pitch_organization": 1.3506249999999997,
-          "voice_processing_chain": 3.77,
+          "voice_processing_chain": 4.484999999999999,
           "voice_multitrack_stack": 3.9975
         }
       }

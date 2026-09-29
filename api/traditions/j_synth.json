@@ -5,7 +5,7 @@
   "lineage": "Japanese synthesizer pop formed in Tokyo 1978-1984 around Yellow Magic Orchestra, Hideki Matsutake's programming, and the Roland/Korg/Yamaha instrument industry — 110-130 BPM sequenced 16th-note basslines from the MC-8 microcomposer, gated LinnDrum and TR-808 patterns, brittle FM and analog polysynth leads, vocoded or deadpan-delivered Japanese-and-English vocals, and Orientalist pentatonic hooks played straight over Western four-on-the-floor.",
   "recipe": "classic East Asian mid-1980s j-synth, functional Song, east Asian pop branch, pop rock synthpop, retro aesthetic experimental electric japanese technopop new romanticism. thick, breath veiled tone, straight note core, interlocked note trading. roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly korg lineage canonical ms 20 1978 tokyo lead analog mono yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, roland tr 8s modern aira digital recreation TR-808, sound design field sampler, vocoder. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, sony MXP-3000 series, dbx 160 VCA, SSL surgical EQ. 16-bit digital lexicon 224 / 480L TC electronic 2290 delay chorus.",
   "recipe_chars": 778,
-  "score": 339.074,
+  "score": 339.407,
   "config": {
     "traditions": [
       "j_synth",
@@ -42,7 +42,7 @@
           "mono_oscillator": 1.3,
           "mono_filter": 2.34,
           "mono_archetypes": 2.275,
-          "mono_maker_lineage": 5.2745
+          "mono_maker_lineage": 5.319500000000001
         }
       },
       {
@@ -57,7 +57,7 @@
         "scores": {
           "electronic_technique": 21.285,
           "fm_algorithm": 0.585,
-          "fm_modulator_ratio": 0.135,
+          "fm_modulator_ratio": 0.045,
           "fm_polyphony": 1.2349999999999999,
           "fm_model_lineage": 15.73
         }
@@ -89,7 +89,7 @@
           "sampler_archetypes": 2.2095000000000002,
           "sampler_bit_depth": 2.21,
           "sampler_workflow": 3.2395,
-          "sampler_classic_context": 22.2045
+          "sampler_classic_context": 22.0995
         }
       },
       {
@@ -100,8 +100,8 @@
           "voc_modulator": "voc_drum_mod"
         },
         "scores": {
-          "voc_band_count": 0.435,
-          "voc_carrier": 0.24,
+          "voc_band_count": 0.39,
+          "voc_carrier": 0.195,
           "voc_modulator": 0.65
         }
       },
@@ -133,14 +133,14 @@
           "voice_vibrato": 4.644500000000001,
           "voice_articulation": 21.44999999999999,
           "voice_microtone": 26.779999999999998,
-          "voice_tradition": 25.342,
+          "voice_tradition": 25.869999999999997,
           "voice_mechanism_compound": 3.965,
           "voice_estill_quality": 3.7700000000000005,
           "voice_speech_song": 25.674999999999997,
           "voice_ensemble_config": 22.099999999999994,
           "voice_ornament_system": 3.3850000000000007,
           "voice_pitch_organization": 2.925000000000001,
-          "voice_processing_chain": 11.519999999999998,
+          "voice_processing_chain": 11.564999999999998,
           "voice_multitrack_stack": 5.1025
         }
       }

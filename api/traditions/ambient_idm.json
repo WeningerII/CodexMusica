@@ -1,0 +1,166 @@
+{
+  "id": "ambient_idm",
+  "name": "Ambient IDM",
+  "family": "electronic",
+  "lineage": "The atmospheric, lower-intensity branch of listening-oriented IDM, represented here by Arovane’s Tides (2000): intricate sample-built rhythm, environmental recordings and edited guitar fragments arranged around quiet melodic space. Later Arovane/Porya Hatami collaborations extend the electronics/environmental-sound intersection. This is a selected calm, broken-beat branch rather than all IDM or all Arovane releases.",
+  "recipe": "classic early-2000s ambient idm, experimental Elec, idm glitch branch, ambient experimental electric, musique concrete experimental electric ambient synth ambient psychill. glitched textural sampler, pad like pad analog synth, single coil electric guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 401,
+  "score": 88.897,
+  "config": {
+    "traditions": [
+      "ambient_idm",
+      "ambient_synth",
+      "ambient_psychill"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 28.74,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 28.5,
+          "sampler_classic_context": 1.4949999999999999
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 16.784999999999997,
+          "oscillator": 0.845,
+          "filter_topology": 0.54375,
+          "envelope": 8.839999999999998,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_fender",
+          "finish": "poly",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 0.34875,
+          "amp_make": 1.1049999999999998,
+          "body_wood": 0.045,
+          "neck_wood": 0.39,
+          "fretboard": -0.035,
+          "pickup_magnet": 0.045,
+          "string_material": 0,
+          "string_gauge": 0,
+          "bridge": 0.09,
+          "scale_length": 0,
+          "finish": 0.195,
+          "string_tuning": 0
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay",
+      "plate_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_microsampling_glitch",
+      "sampler_archetypes": "akai_s1000",
+      "oscillator": "triangle_osc",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter",
+      "electric_technique": "electric_arpeggiated_clean",
+      "string_material": "pure_nickel",
+      "string_gauge": "g_10",
+      "sampler_classic_context": "sampler_classic_post",
+      "string_tuning": "standard_tuning",
+      "bridge": "hardtail",
+      "pickup_magnet": "alnico_2",
+      "scale_length": "scale_fender",
+      "body_wood": "alder",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "finish": "poly"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay",
+      "plate_reverb"
+    ]
+  }
+}

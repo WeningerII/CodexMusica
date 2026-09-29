@@ -3,9 +3,9 @@
   "name": "Disco House",
   "family": "electronic",
   "lineage": "Mid-1990s house subgenre built in Chicago, New York and Paris from looped and filtered 1970s disco records, codified by Daft Punk, DJ Sneak, Armand Van Helden and Basement Jaxx circa 1995-2000 — 118-128 BPM four-on-the-floor with 909 kick and open hat on the upbeat, a chopped string or guitar loop swept through a resonant low-pass filter, sidechained pumping on every bar, and clipped diva vocal snippets used as rhythmic hooks rather than sung verses",
-  "recipe": "classic mid-1990s disco house, electronic Dance, house branch, deep house house, chicago house house, garage house u s house ballroom. thick, breath veiled tone, slow rate, interlocked note trading. turntable, chopped sampler, TR-909, orange amp British heavy crunch mahogany electric bass, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
-  "recipe_chars": 513,
-  "score": 314.875,
+  "recipe": "classic mid-1990s disco house, electronic Dance, house branch, deep house house, chicago house house, garage house u s house ballroom. thick, breath veiled tone, slow rate, interlocked note trading. turntable, looped layered sampler, TR-909, orange amp British heavy crunch mahogany electric bass, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
+  "recipe_chars": 520,
+  "score": 313.065,
   "config": {
     "traditions": [
       "disco_house",
@@ -21,7 +21,7 @@
         },
         "scores": {
           "electronic_technique": 2.6650000000000005,
-          "turntable_technique": 0.95
+          "turntable_technique": 0.995
         }
       },
       {
@@ -30,15 +30,15 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "akai_mpc",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 2.6650000000000005,
           "sampler_archetypes": 0.78,
           "sampler_bit_depth": 2.785,
-          "sampler_workflow": 1.65,
-          "sampler_classic_context": 64.59
+          "sampler_workflow": 1.6849999999999998,
+          "sampler_classic_context": 63.510000000000005
         }
       },
       {
@@ -66,11 +66,11 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 4.0600000000000005,
-          "body_wood": 4.05,
-          "pickup_config": 0.585,
+          "amp_make": 4.12,
+          "body_wood": 3.96,
+          "pickup_config": 0.5399999999999999,
           "string_type": 3.675,
-          "scale_length_b": 3.8249999999999997,
+          "scale_length_b": 3.63,
           "fretted_or_not": 0,
           "bass_technique": 2.45
         }
@@ -79,13 +79,13 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_8_voice",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
           "electronic_technique": 1.2999999999999998,
-          "poly_archetypes": 0.39,
+          "poly_archetypes": 0.345,
           "poly_voices": 0.195,
           "poly_maker_lineage": -1.225
         }
@@ -111,7 +111,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 4.430000000000001,
+          "voice_register": 4.340000000000001,
           "voice_quality": 11.504999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -124,9 +124,9 @@
           "voice_speech_song": 21.384999999999998,
           "voice_ensemble_config": 23.66,
           "voice_ornament_system": 0.7749999999999999,
-          "voice_pitch_organization": 2.2099999999999995,
+          "voice_pitch_organization": 1.9999999999999998,
           "voice_processing_chain": 26.075,
-          "voice_multitrack_stack": 10.894999999999998
+          "voice_multitrack_stack": 10.7
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Minneapolis funk-rock-synth hybrid developed 1979-1986 by Prince and his circle (The Time, Jimmy Jam and Terry Lewis, Jesse Johnson, Alexander O'Neal, Sheila E.), defined by a gated LM-1 / Linn drum machine replacing live drums, staccato single-note synth basslines instead of electric bass, choked rhythm guitar on the sixteenth-note offbeats, Oberheim brass stabs, tempos around 108-124 BPM, and falsetto-to-scream lead vocals over minor-pentatonic funk vamps.",
   "recipe": "classic North American mid-1980s minneapolis sound, functional Song, soul R&B branch, pop rock synthpop, funk percussive groove percussion metropopolis boogie. thick, breath veiled tone, straight note core, interlocked note trading. linn lm 1 1980 1982 earliest sample based drum machine 5000 production only linndrum, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, hohner d6 canonical 1971 1981 funk era ostinato clavinet, close pickup gap more bark dirt ostinato rhodes electric, room natural to palm hand clap. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 864,
-  "score": 336.715,
+  "score": 336.325,
   "config": {
     "traditions": [
       "minneapolis_sound",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 22.705,
+          "voice_register": 22.509999999999998,
           "voice_quality": 13.454999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -46,7 +46,7 @@
           "voice_estill_quality": 4.815,
           "voice_speech_song": 23.335,
           "voice_ensemble_config": 19.174999999999997,
-          "voice_ornament_system": 3.920000000000001,
+          "voice_ornament_system": 4.025000000000001,
           "voice_pitch_organization": 1.6899999999999997,
           "voice_processing_chain": 18.735,
           "voice_multitrack_stack": 9.555
@@ -61,7 +61,7 @@
         },
         "scores": {
           "linndrum_voice": 1.125,
-          "linndrum_context": 5.19,
+          "linndrum_context": 5.235,
           "linndrum_production_origin": 10.27
         }
       },
@@ -77,7 +77,7 @@
           "electronic_technique": 12.405,
           "poly_archetypes": 4.485,
           "poly_voices": 0.285,
-          "poly_maker_lineage": 4.16
+          "poly_maker_lineage": 4.115
         }
       },
       {
@@ -125,7 +125,7 @@
           "clavinet_pickup": 0.39,
           "clavinet_context": 1.885,
           "clavinet_model": 6.630000000000001,
-          "clavinet_string_material": 0.195
+          "clavinet_string_material": 0
         }
       },
       {
@@ -155,7 +155,7 @@
         },
         "scores": {
           "clap_technique": 1.3,
-          "clap_capture": 2.295
+          "clap_capture": 2.1900000000000004
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "North American and northern-European bedroom-to-label electronic pop of 2011-2016 — Purity Ring, Grimes, Chvrches and Sylvan Esso — built at 90-125 BPM on pitched vocal samples, reverb-drenched bell and marimba-timbre synth leads, sub-bass and trap-derived hi-hat rolls under a high, breathy, heavily reverbed and layered female lead, arrangements assembled in the box with almost no acoustic sourcing and no live drum performance.",
   "recipe": "classic mid-2010s etherpop, experimental Elec, pop experimental branch, pop rock synthpop, ambient experimental electric, lofi experimental electric shiver pop wonky pop. thick, breath veiled tone, fast rate, interlocked note trading. lead plus third fifth 3 part stack heavy bus compression glue post 2010 multitrack vocal stack, singing lead wavetable glitched textural granular singing lead analog poly synth, sampler drum machine, high-gain-saturation sub bass monosynth acid bass, glockenspiel. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 607,
-  "score": 287.281,
+  "score": 288.136,
   "config": {
     "traditions": [
       "etherpop",
@@ -41,15 +41,15 @@
           "voice_vibrato": 0.65,
           "voice_articulation": 19.11,
           "voice_microtone": 29.799999999999997,
-          "voice_tradition": 26.169999999999998,
+          "voice_tradition": 27.129999999999995,
           "voice_mechanism_compound": 2.145,
           "voice_estill_quality": 2.85875,
           "voice_speech_song": 23.464999999999996,
           "voice_ensemble_config": 19.044999999999998,
           "voice_ornament_system": 3.3999999999999995,
           "voice_pitch_organization": 3.5100000000000016,
-          "voice_processing_chain": 8.414375,
-          "voice_multitrack_stack": 6.548124999999999
+          "voice_processing_chain": 8.459375,
+          "voice_multitrack_stack": 6.638124999999999
         }
       },
       {
@@ -104,7 +104,7 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 6.800000000000001,
+          "electronic_technique": 6.890000000000001,
           "wave_acid": 2.3643750000000003,
           "filter_acid": 2.169375,
           "accent_acid": 0.135
@@ -120,7 +120,7 @@
         "scores": {
           "electronic_technique": 12.065,
           "granular_use": 0.24,
-          "granular_synth_source": 6.1431249999999995
+          "granular_synth_source": 5.813124999999999
         }
       },
       {

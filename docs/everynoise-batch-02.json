@@ -1,0 +1,476 @@
+{
+  "title": "Every Noise second 25-genre batch",
+  "baseline_commit": "64ca07dc6bb7213502f059760002da50f287f735",
+  "baseline_catalog_count": 2613,
+  "batch_size": 25,
+  "parallel_lanes": 5,
+  "genres_per_lane": 5,
+  "selection": "Confirmed missing labels with possible overlaps excluded; all absent from the 2613-record baseline.",
+  "catalog_authority": "Every Noise archived map and alphabetical list agree on 6291 distinct labels; full comparison snapshots are recorded in the accompanying audit.",
+  "model_policy": "Sources support scope, instrumentation, textures and exemplars. Numeric axes and registered gear choices are authored recipe models, not measurements of historic recording sessions. Atlas coordinates anchor selected documented practice, not exclusive birthplace.",
+  "entries": [
+    {
+      "id": "ambient_idm",
+      "source_label": "ambient idm",
+      "source_url": "https://everynoise.com/engenremap-ambientidm.html",
+      "baseline_status": "missing",
+      "lane": "ambient",
+      "ledger": "docs/everynoise-batch-02/ambient.json"
+    },
+    {
+      "id": "ambient_fusion",
+      "source_label": "ambient fusion",
+      "source_url": "https://everynoise.com/engenremap-ambientfusion.html",
+      "baseline_status": "missing",
+      "lane": "ambient",
+      "ledger": "docs/everynoise-batch-02/ambient.json"
+    },
+    {
+      "id": "ambient_psychill",
+      "source_label": "ambient psychill",
+      "source_url": "https://everynoise.com/engenremap-ambientpsychill.html",
+      "baseline_status": "missing",
+      "lane": "ambient",
+      "ledger": "docs/everynoise-batch-02/ambient.json"
+    },
+    {
+      "id": "ambient_synth",
+      "source_label": "ambient synth",
+      "source_url": "https://everynoise.com/engenremap-ambientsynth.html",
+      "baseline_status": "missing",
+      "lane": "ambient",
+      "ledger": "docs/everynoise-batch-02/ambient.json"
+    },
+    {
+      "id": "space_ambient",
+      "source_label": "space ambient",
+      "source_url": "https://everynoise.com/engenremap-spaceambient.html",
+      "baseline_status": "missing",
+      "lane": "ambient",
+      "ledger": "docs/everynoise-batch-02/ambient.json"
+    },
+    {
+      "id": "detroit_house",
+      "source_label": "detroit house",
+      "source_url": "https://everynoise.com/engenremap-detroithouse.html",
+      "baseline_status": "missing",
+      "lane": "club",
+      "ledger": "docs/everynoise-batch-02/club.json"
+    },
+    {
+      "id": "piano_house",
+      "source_label": "piano house",
+      "source_url": "https://everynoise.com/engenremap-pianohouse.html",
+      "baseline_status": "missing",
+      "lane": "club",
+      "ledger": "docs/everynoise-batch-02/club.json"
+    },
+    {
+      "id": "organic_house",
+      "source_label": "organic house",
+      "source_url": "https://everynoise.com/engenremap-organichouse.html",
+      "baseline_status": "missing",
+      "lane": "club",
+      "ledger": "docs/everynoise-batch-02/club.json"
+    },
+    {
+      "id": "speed_house",
+      "source_label": "speed house",
+      "source_url": "https://everynoise.com/engenremap-speedhouse.html",
+      "baseline_status": "missing",
+      "lane": "club",
+      "ledger": "docs/everynoise-batch-02/club.json"
+    },
+    {
+      "id": "deep_disco_house",
+      "source_label": "deep disco house",
+      "source_url": "https://everynoise.com/engenremap-deepdiscohouse.html",
+      "baseline_status": "missing",
+      "lane": "club",
+      "ledger": "docs/everynoise-batch-02/club.json"
+    },
+    {
+      "id": "experimental_hip_hop",
+      "source_label": "experimental hip hop",
+      "source_url": "https://everynoise.com/engenremap-experimentalhiphop.html",
+      "baseline_status": "missing",
+      "lane": "hiphop",
+      "ledger": "docs/everynoise-batch-02/hiphop.json"
+    },
+    {
+      "id": "industrial_hip_hop",
+      "source_label": "industrial hip hop",
+      "source_url": "https://everynoise.com/engenremap-industrialhiphop.html",
+      "baseline_status": "missing",
+      "lane": "hiphop",
+      "ledger": "docs/everynoise-batch-02/hiphop.json"
+    },
+    {
+      "id": "chill_abstract_hip_hop",
+      "source_label": "chill abstract hip hop",
+      "source_url": "https://everynoise.com/engenremap-chillabstracthiphop.html",
+      "baseline_status": "missing",
+      "lane": "hiphop",
+      "ledger": "docs/everynoise-batch-02/hiphop.json"
+    },
+    {
+      "id": "trap_soul",
+      "source_label": "trap soul",
+      "source_url": "https://everynoise.com/engenremap-trapsoul.html",
+      "baseline_status": "missing",
+      "lane": "hiphop",
+      "ledger": "docs/everynoise-batch-02/hiphop.json"
+    },
+    {
+      "id": "uk_alternative_hip_hop",
+      "source_label": "uk alternative hip hop",
+      "source_url": "https://everynoise.com/engenremap-ukalternativehiphop.html",
+      "baseline_status": "missing",
+      "lane": "hiphop",
+      "ledger": "docs/everynoise-batch-02/hiphop.json"
+    },
+    {
+      "id": "avant_garde_black_metal",
+      "source_label": "avant-garde black metal",
+      "source_url": "https://everynoise.com/engenremap-avantgardeblackmetal.html",
+      "baseline_status": "missing",
+      "lane": "metal",
+      "ledger": "docs/everynoise-batch-02/metal.json"
+    },
+    {
+      "id": "dissonant_death_metal",
+      "source_label": "dissonant death metal",
+      "source_url": "https://everynoise.com/engenremap-dissonantdeathmetal.html",
+      "baseline_status": "missing",
+      "lane": "metal",
+      "ledger": "docs/everynoise-batch-02/metal.json"
+    },
+    {
+      "id": "cavernous_death_metal",
+      "source_label": "cavernous death metal",
+      "source_url": "https://everynoise.com/engenremap-cavernousdeathmetal.html",
+      "baseline_status": "missing",
+      "lane": "metal",
+      "ledger": "docs/everynoise-batch-02/metal.json"
+    },
+    {
+      "id": "cosmic_black_metal",
+      "source_label": "cosmic black metal",
+      "source_url": "https://everynoise.com/engenremap-cosmicblackmetal.html",
+      "baseline_status": "missing",
+      "lane": "metal",
+      "ledger": "docs/everynoise-batch-02/metal.json"
+    },
+    {
+      "id": "folk_black_metal",
+      "source_label": "folk black metal",
+      "source_url": "https://everynoise.com/engenremap-folkblackmetal.html",
+      "baseline_status": "missing",
+      "lane": "metal",
+      "ledger": "docs/everynoise-batch-02/metal.json"
+    },
+    {
+      "id": "georgian_pop",
+      "source_label": "georgian pop",
+      "source_url": "https://everynoise.com/engenremap-georgianpop.html",
+      "baseline_status": "missing",
+      "lane": "regional-pop",
+      "ledger": "docs/everynoise-batch-02/regional-pop.json"
+    },
+    {
+      "id": "kazakh_pop",
+      "source_label": "kazakh pop",
+      "source_url": "https://everynoise.com/engenremap-kazakhpop.html",
+      "baseline_status": "missing",
+      "lane": "regional-pop",
+      "ledger": "docs/everynoise-batch-02/regional-pop.json"
+    },
+    {
+      "id": "mongolian_pop",
+      "source_label": "mongolian pop",
+      "source_url": "https://everynoise.com/engenremap-mongolianpop.html",
+      "baseline_status": "missing",
+      "lane": "regional-pop",
+      "ledger": "docs/everynoise-batch-02/regional-pop.json"
+    },
+    {
+      "id": "uzbek_pop",
+      "source_label": "uzbek pop",
+      "source_url": "https://everynoise.com/engenremap-uzbekpop.html",
+      "baseline_status": "missing",
+      "lane": "regional-pop",
+      "ledger": "docs/everynoise-batch-02/regional-pop.json"
+    },
+    {
+      "id": "kyrgyz_pop",
+      "source_label": "kyrgyz pop",
+      "source_url": "https://everynoise.com/engenremap-kyrgyzpop.html",
+      "baseline_status": "missing",
+      "lane": "regional-pop",
+      "ledger": "docs/everynoise-batch-02/regional-pop.json"
+    }
+  ],
+  "catalog_provenance": {
+    "comparison_date": "2026-09-29",
+    "repository": "WeningerII/CodexMusica",
+    "branch": "main",
+    "commit": "fbd2644241757e194b08fe0e8a6d5bf1880a4bc0",
+    "repository_index_url": "https://github.com/WeningerII/CodexMusica/blob/fbd2644241757e194b08fe0e8a6d5bf1880a4bc0/api/traditions/index.json",
+    "repository_source_url": "https://github.com/WeningerII/CodexMusica/blob/fbd2644241757e194b08fe0e8a6d5bf1880a4bc0/references/05_traditions.js",
+    "repository_metadata_url": "https://github.com/WeningerII/CodexMusica/blob/fbd2644241757e194b08fe0e8a6d5bf1880a4bc0/references/06_extras.js",
+    "repository_index_sha256": "cbc23971440bc601562d6567565cbfe9a6a1394b730ca97189eb523ff54c31da",
+    "repository_source_sha256": "b4a5d7e165cbe2e8fa17d4964c02ddacd50f875398faa4479bf94d32133ed65f",
+    "repository_metadata_sha256": "88c16819ffea5d3c36c09ec8f42ca5f111fdb584d604d8ce2fcf090317686510",
+    "every_noise_catalog_data_date": "2023-11-19",
+    "every_noise_original_url": "https://everynoise.com/engenremap.html",
+    "every_noise_preserved_map_url": "https://web.archive.org/web/20240115203303id_/https://everynoise.com/engenremap.html",
+    "every_noise_preserved_map_sha256": "519e134d06c49546790941a46b7725a1a7d8ed564ce2e54fdc133a5cbbf09e6b",
+    "every_noise_preserved_list_url": "https://web.archive.org/web/20240102034848id_/https://everynoise.com/everynoise1d.cgi?scope=all",
+    "every_noise_preserved_list_sha256": "bb7e7a7b2f4d64e10e2ea052032655ab08d323cc8fca07d6fbd4c508569dba82",
+    "recent_snapshot_crosscheck": {
+      "url": "https://github.com/laffan/offline-listen/blob/a74c2027577432d6f12405fafa3f95fbb2e237b9/OfflineListen/EveryNoiseData/genres.json",
+      "sha": "a74c2027577432d6f12405fafa3f95fbb2e237b9",
+      "blob_sha": "a8895bb128da9a35f44db9a863e83468217dd3d4",
+      "snapshot_scraped_date": "2026-08-05",
+      "raw_sha256": "23e1fd4358c8adee4d70f271a33a16283e98f00ff610e1d8b53726c000b1079d",
+      "genre_count": 6291,
+      "unique_names": 6291,
+      "names_in_archive_only": [],
+      "names_in_recent_only": [],
+      "exact_set_match": true
+    },
+    "verification": {
+      "map_count": 6291,
+      "list_count": 6291,
+      "difference_count": 0,
+      "source_indices_contiguous": true
+    }
+  },
+  "process_changes": [
+    "Agents author only append-only source records and lane evidence; root merges data objects rather than conflicted generated artifacts.",
+    "Each lane checks all four rendered formats and uses already classified sonic signature tokens to avoid unrelated cultural prefaces before integration.",
+    "Capture the complete baseline once; review compiled changes against it after one integrated build.",
+    "Keep the existing 25-entry pilot gate active and extend it to cover this second batch.",
+    "Publish small changed files together as inline Git tree entries; upload large generated blobs in bounded chunks and verify every Git SHA and the final tree.",
+    "Bound concurrent heavy work to the measured resource budget: successful full API build and local regression use two workers, rather than their default overlapping eight/nine-worker pools. Local worker caps change no repository engine behavior."
+  ],
+  "measurement": {
+    "setup_started_at": "2026-09-29T21:38:43.247Z",
+    "lanes": [
+      {
+        "lane": "ambient",
+        "source_commit": "0ac03fceff3301e169c98cb3480171293914296e",
+        "genre_count": 5,
+        "files": [
+          "references/05_traditions.js",
+          "references/06_extras.js",
+          "data/geo.json",
+          "docs/everynoise-batch-02/ambient.json"
+        ],
+        "completed_at": "2026-09-29T21:56:13Z",
+        "elapsed_minutes_from_setup": 17.5
+      },
+      {
+        "lane": "club",
+        "source_commit": "fb46177bfa449723ef3b92e9fcb70edf8063bec7",
+        "genre_count": 5,
+        "files": [
+          "references/05_traditions.js",
+          "references/06_extras.js",
+          "data/geo.json",
+          "docs/everynoise-batch-02/club.json"
+        ],
+        "completed_at": "2026-09-29T21:54:02Z",
+        "elapsed_minutes_from_setup": 15.31
+      },
+      {
+        "lane": "hiphop",
+        "source_commit": "6abef33d6b7b5796f35210dc46b298cbcf00453d",
+        "genre_count": 5,
+        "files": [
+          "references/05_traditions.js",
+          "references/06_extras.js",
+          "data/geo.json",
+          "docs/everynoise-batch-02/hiphop.json"
+        ],
+        "completed_at": "2026-09-29T21:54:50Z",
+        "elapsed_minutes_from_setup": 16.11
+      },
+      {
+        "lane": "metal",
+        "source_commit": "a68a6087f16d0e0e5eab20b835c73cd726235b21",
+        "genre_count": 5,
+        "files": [
+          "references/05_traditions.js",
+          "references/06_extras.js",
+          "data/geo.json",
+          "docs/everynoise-batch-02/metal.json"
+        ],
+        "completed_at": "2026-09-29T21:56:43Z",
+        "elapsed_minutes_from_setup": 18
+      },
+      {
+        "lane": "regional-pop",
+        "source_commit": "b946200f5455c569c777fd9e3dc696fa440289c1",
+        "genre_count": 5,
+        "files": [
+          "references/05_traditions.js",
+          "references/06_extras.js",
+          "data/geo.json",
+          "docs/everynoise-batch-02/regional-pop.json"
+        ],
+        "completed_at": "2026-09-29T21:55:13Z",
+        "elapsed_minutes_from_setup": 16.5
+      }
+    ],
+    "integrated_at": "2026-09-29T21:57:28.132Z",
+    "authoring_wall_minutes_from_setup": 18,
+    "local_build_resource_review": "Initial overlapping default pools exceeded memory. The conservative two-worker API build completed successfully before a proposed larger pool started; stopped that redundant run before it wrote artifacts and retained the completed output.",
+    "api_build_completed_at": "2026-09-29T22:17:19.967Z",
+    "local_validation_completed_at": "2026-09-29T22:23:01.887Z"
+  },
+  "integration_review": {
+    "source_preservation": "All 2613 baseline tradition definitions, extras and geographic anchors deep-equal baseline; exactly 25 unique additions.",
+    "signature_policy": "Existing classified sonic/style vocabulary only. No new cultural signature claims, vocabulary classes or instrument/schema changes.",
+    "atlas_correction": "The integrated atlas gate caught Oceania instead of its canonical Oceania & Pacific bucket for cosmic_black_metal; corrected the new entry before build.",
+    "render_review": "Reviewed all 25 rich browser recipes and optimized CLI recipes together. Seeded recipes retain distinct source-led ensembles and part settings. Optimized CLI can select scored stylistic neighbors and archetype environments; these are recipe-model choices, not cultural lineage or session provenance claims.",
+    "integration_base_commit": "835018913121b6f7eb32010d471d107da9a93824",
+    "current_main": "Incorporated already-merged PR #427 before publication: split the unchanged parked-session test into its own file to fit the existing per-file timeout; catalog source records are unchanged by that main update.",
+    "compiled_catalog": {
+      "baseline_count": 2613,
+      "current_count": 2638,
+      "changed_existing_records": 86,
+      "changed_existing_recipes": 47,
+      "changed_existing_source_records": 0,
+      "changed_existing_instrument_rosters": 0,
+      "changed_existing_environments": 0,
+      "changed_record_ids": [
+        "new_wave",
+        "synthwave",
+        "hyperpop",
+        "melodic_death_metal",
+        "microhouse",
+        "technical_death_metal",
+        "mahraganat",
+        "bongo_flava",
+        "genge_kenyan",
+        "algerian_rap",
+        "madchester_baggy",
+        "groove_metal",
+        "brostep",
+        "moombahton",
+        "metropopolis",
+        "europop",
+        "downtempo",
+        "video_game_music",
+        "etherpop",
+        "aussietronica",
+        "disco_house",
+        "anime_lofi",
+        "drumless_hip_hop",
+        "jpop_boy_group",
+        "japanese_teen_pop",
+        "thai_pop",
+        "seattle_hip_hop",
+        "crossover_thrash",
+        "electroswing",
+        "glitch_hop",
+        "diva_house",
+        "french_house",
+        "funky_house",
+        "swing_house",
+        "tropical_house",
+        "us_garage",
+        "vocal_house",
+        "psyprog",
+        "ambient_house",
+        "illbient",
+        "lowercase_music",
+        "balearic_beat",
+        "drumfunk",
+        "electroclash",
+        "synthpunk",
+        "techno_folk",
+        "coldwave",
+        "cybergrind",
+        "j_synth",
+        "dark_jazz",
+        "pagan_metal",
+        "space_house",
+        "onkyokei",
+        "sgija",
+        "freestyle",
+        "minneapolis_sound",
+        "minimal_wave",
+        "wonky_beat_scene",
+        "drain_rap",
+        "mincecore",
+        "glitchcore",
+        "dariacore",
+        "vocaloid_producer_scene",
+        "italo_disco",
+        "gospel_house",
+        "sound_collage",
+        "memphis_rap",
+        "dark_plugg",
+        "new_york_garage_house",
+        "south_african_house",
+        "afro_soul",
+        "kosmische",
+        "nu_jazz",
+        "nu_disco",
+        "korean_city_pop",
+        "ambient_guitar",
+        "ambient_pop",
+        "black_speed_metal",
+        "alternative_hip_hop",
+        "comedy_rap",
+        "g_house",
+        "ambient_dub_techno",
+        "hypnotic_techno",
+        "afghan_pop",
+        "albanian_pop",
+        "azeri_pop"
+      ],
+      "review": "All changed records differ only in optimized traditions, instrument slots and score; authored source stays identical. Reviewed every changed recipe word-for-word. Existing engine, neighbor selection and budget rules are unchanged."
+    },
+    "fixture_refresh": {
+      "count": 12,
+      "ids": [
+        "algerian_rap",
+        "blend_synth_baroque",
+        "bongo_flava",
+        "brostep",
+        "genge_kenyan",
+        "hyperpop",
+        "madchester_baggy",
+        "mahraganat",
+        "microhouse",
+        "moombahton",
+        "new_wave",
+        "synthwave"
+      ],
+      "review": "Reviewed all 12 full before/after recipe strings before refresh. Fixture inputs are unchanged; scored stylistic neighbors and unpinned variants change deterministically with the expanded catalog. Blend detail can be abbreviated by the existing ceiling."
+    }
+  },
+  "validation_receipts": {
+    "source_validation": "PASS: 2638 traditions, all references resolve; 2613 prior records deep-equal baseline.",
+    "every_noise": "PASS: 2 batches, 50 genres, 200 browser/connector renders, CLI authored pins retained.",
+    "signature_attribution": "PASS: 616 signed traditions, all cultural pairs ruled; new 25 signatures use existing sonic/style tokens.",
+    "duplicate_gate": "PASS: no unruled identity collisions; existing known tar label collision remains in its prior ruled state.",
+    "prefaces": "PASS: 79/79.",
+    "slot_picks": "PASS: 4/4.",
+    "browser_recipe_snapshots": "PASS: 56/56.",
+    "static_api": "PASS: all 2638 traditions and 1467 instruments complete; every recipe <=1000 characters; every config id resolves.",
+    "atlas": "PASS: all 2638 geographic anchors valid and placed; freshness/publish guards and 13 atlas tests pass.",
+    "build_closure": "PASS: all 43 actual build inputs classified, all three builders traced; build-cache controls pass.",
+    "docs": "PASS: active counts, 13 documented commands, 291 present paths plus declared exclusions, and 8 documented behaviors.",
+    "main_test_fix": "PASS: revise and parked session suites on the updated main base.",
+    "local_browser_layout_limit": "Pinned Chrome download returned truncated archives, so local mobile/usability/UI/lyrics browser suites could not run; required CI covers them before merge.",
+    "app_connector_catalog_parity": "PASS: all 2638 traditions × rich/prose/tags/compact (10552 renders) byte-identical.",
+    "connector_parity": "PASS: representative seed/config renders retain pinned instruments and fit the ceiling.",
+    "frozen_descriptor_frequency": "PASS: existing frozen table preserved; token coverage 97.62% above its 97% floor.",
+    "canonical_recipes": "PASS: 1149/1149 after the 12 reviewed snapshot updates.",
+    "style": "PASS: lint, full format check and diff whitespace check."
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Lowercase",
   "family": "electronic",
   "lineage": "Formulated around 1998-2004 by Steve Roden in Los Angeles, Bernhard Gunter in Germany and Richard Chartier and the 12k and Line labels in New York — extreme-quiet composition built from close-miked microsound (paper, water, insects, small objects) and digital silence, presented near the noise floor at levels that force the listener to raise playback volume, with long silences, no beat, no harmony and near-total absence of dynamic gesture.",
-  "recipe": "classic mid-2000s lowercase, experimental Elec, ambient branch, idm glitch experimental electric, musique concrete experimental electric laptronica folktronica. glitched textural granular glitched textural modular synth, prepared piano, glass harmonica, rin singing bowl, glitched textural sampler. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 413,
-  "score": 132.065,
+  "recipe": "classic mid-2000s lowercase, experimental Elec, ambient branch, idm glitch experimental electric, musique concrete experimental electric laptronica. glitched textural granular glitched textural modular synth, prepared piano, glass harmonica, rin singing bowl, glitched textural sampler. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 401,
+  "score": 141.882,
   "config": {
     "traditions": [
       "lowercase_music",
       "laptronica",
-      "folktronica"
+      "ambient_idm"
     ],
     "instruments": [
       {
@@ -21,24 +21,24 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 22.742812500000007,
-          "granular_use": 0.845,
-          "granular_synth_source": 8.840000000000002
+          "electronic_technique": 24.742812500000003,
+          "granular_use": 0.585,
+          "granular_synth_source": 9.685000000000002
         }
       },
       {
         "id": "prepared_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "prepared_piano_object": "prepared_piano_felt",
+          "prepared_piano_object": "prepared_piano_bolts",
           "prepared_piano_zone": "prepared_piano_middle",
-          "prepared_piano_instrument": "prepared_piano_upright"
+          "prepared_piano_instrument": "prepared_piano_grand"
         },
         "scores": {
-          "keyboard_technique": 0.8249999999999998,
-          "prepared_piano_object": 0.845,
+          "keyboard_technique": -0.1,
+          "prepared_piano_object": 0.195,
           "prepared_piano_zone": 0,
-          "prepared_piano_instrument": 1.95
+          "prepared_piano_instrument": 1.5521875
         }
       },
       {
@@ -49,34 +49,34 @@
         },
         "scores": {
           "glass_harmonica_type": 0.15,
-          "glass_harmonica_technique": 0.195
+          "glass_harmonica_technique": 0.045
         }
       },
       {
         "id": "modular_synth",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "mod_voltage_source": "mod_sequencer",
+          "mod_voltage_source": "mod_keyboard",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 22.742812500000007,
-          "mod_voltage_source": 0.7200000000000001,
-          "mod_patch_density": 3.349375,
-          "mod_lineage": -0.7
+          "electronic_technique": 24.742812500000003,
+          "mod_voltage_source": 0.65,
+          "mod_patch_density": 3.7993750000000004,
+          "mod_lineage": -0.5950000000000001
         }
       },
       {
         "id": "rin_singing_bowl",
         "slots": {
           "rin_size": "rin_small",
-          "rin_strike": "rin_rubbed",
+          "rin_strike": "rin_struck_rim",
           "rin_cushion": "rin_zabuton"
         },
         "scores": {
           "rin_size": 1.5521875,
-          "rin_strike": 0.49499999999999994,
+          "rin_strike": 0.44999999999999996,
           "rin_cushion": 0
         }
       },
@@ -90,11 +90,11 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 22.742812500000007,
-          "sampler_archetypes": 1.4299999999999997,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": 22.800000000000004,
-          "sampler_classic_context": 21.625000000000007
+          "electronic_technique": 24.742812500000003,
+          "sampler_archetypes": 2.299375,
+          "sampler_bit_depth": 0.585,
+          "sampler_workflow": 24.8,
+          "sampler_classic_context": 20.750000000000004
         }
       }
     ],

@@ -3,31 +3,31 @@
   "name": "Downtempo",
   "family": "electronic",
   "lineage": "Downtempo formed in the chill-out rooms of London, Bristol, Vienna and Washington DC between 1990 and 1997 through Kruder & Dorfmeister, Thievery Corporation, Nightmares on Wax and Zero 7 — 80-105 BPM sampled or programmed breakbeats with heavy swing, dub-derived delay and spring reverb, filtered upright-bass and Rhodes loops, jazz and bossa samples, and either wordless textures or a single languid guest vocal.",
-  "recipe": "classic Asian early-1990s downtempo, electronic Dance, continental branch, ambient experimental electric, deep house house, idm glitch experimental electric float house. thick, breath veiled tone, straight onset, interlocked note trading. glitched textural sampler, turntable, torrington spring steel tine canonical Rhodes 1965 1984 centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, growly gut upright bass, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship pad analog poly synth, TR-909, powell boston canonical American orchestral flute. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 746,
-  "score": 276.044,
+  "recipe": "classic Asian early-1990s downtempo, electronic Dance, continental branch, ambient experimental electric, deep house house, idm glitch experimental electric folktronica ambient house. thick, breath veiled tone, straight onset, interlocked note trading. glitched textural sampler, sampled chopped turntable, centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, growly gut upright bass, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship pad analog poly synth, TR-909, flute. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 664,
+  "score": 245.625,
   "config": {
     "traditions": [
       "downtempo",
-      "float_house",
-      "deep_house_soulful"
+      "folktronica",
+      "ambient_house"
     ],
     "instruments": [
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "emu_emax",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 6.365,
-          "sampler_archetypes": 0.5,
-          "sampler_bit_depth": 0.7149999999999999,
-          "sampler_workflow": 6.125,
-          "sampler_classic_context": 43.943928571428565
+          "electronic_technique": 14.115,
+          "sampler_archetypes": 0.4482142857142857,
+          "sampler_bit_depth": 0.43499999999999994,
+          "sampler_workflow": 13.875,
+          "sampler_classic_context": 31.654999999999998
         }
       },
       {
@@ -37,14 +37,14 @@
           "turntable_technique": "turntable_chirp_baby"
         },
         "scores": {
-          "electronic_technique": 1.56,
+          "electronic_technique": 3.098928571428572,
           "turntable_technique": 0
         }
       },
       {
         "id": "rhodes_electric",
         "slots": {
-          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "keyboard_technique": "keyboard_block_chord_pop",
           "rhodes_model": "rhodes_mark1_stage",
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_torrington_tine",
@@ -52,12 +52,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 4.875,
-          "rhodes_model": 7.084999999999998,
-          "rhodes_use": 3.53,
-          "rhodes_tine_material": 1.0399999999999998,
-          "rhodes_hammer_tip": 0.06500000000000011,
-          "rhodes_pickup_position": 2.34
+          "keyboard_technique": 0.8249999999999998,
+          "rhodes_model": 3.685,
+          "rhodes_use": 1.3,
+          "rhodes_tine_material": 0.1949999999999999,
+          "rhodes_hammer_tip": -0.42000000000000004,
+          "rhodes_pickup_position": 1.3
         }
       },
       {
@@ -67,8 +67,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 6.499999999999999,
-          "upright_play": 6.649999999999999
+          "upright_strings": 3.25,
+          "upright_play": 3.25
         }
       },
       {
@@ -80,10 +80,10 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 4.260000000000001,
-          "poly_archetypes": 0.845,
-          "poly_voices": 0.845,
-          "poly_maker_lineage": 1.4299999999999997
+          "electronic_technique": 6.61,
+          "poly_archetypes": 0.32999999999999996,
+          "poly_voices": 0.32999999999999996,
+          "poly_maker_lineage": 1.2349999999999999
         }
       },
       {
@@ -96,33 +96,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "jazz_scat_tradition",
+          "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 12.808214285714278,
-          "voice_quality": 9.75,
+          "voice_register": 6.683214285714287,
+          "voice_quality": 10.985,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.094999999999999,
-          "voice_articulation": 20.279999999999994,
-          "voice_microtone": 20.47499999999999,
-          "voice_tradition": 7.239999999999999,
-          "voice_mechanism_compound": 3.965,
-          "voice_estill_quality": 4.92,
-          "voice_speech_song": 20.929999999999996,
-          "voice_ensemble_config": 19.304999999999993,
-          "voice_ornament_system": 0.395,
-          "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 17.807142857142857,
-          "voice_multitrack_stack": 3.7700000000000005
+          "voice_vibrato": 3.8449999999999998,
+          "voice_articulation": 20.149999999999995,
+          "voice_microtone": 19.95499999999999,
+          "voice_tradition": 14.1375,
+          "voice_mechanism_compound": 3.7700000000000005,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 19.434999999999995,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 1.0399999999999998,
+          "voice_processing_chain": 17.707142857142856,
+          "voice_multitrack_stack": 2.5350000000000006
         }
       },
       {
@@ -130,29 +130,29 @@
         "slots": {
           "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_roland_osaka_canonical"
+          "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 17.5,
-          "drum_machine_909_context": 1.1,
-          "tr909_production_origin": 0.585
+          "tr909_voice": 9.25,
+          "drum_machine_909_context": 0.3,
+          "tr909_production_origin": 0.15
         }
       },
       {
         "id": "flute",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "flute_size": "alto_flute",
-          "flute_material": "gold_flute",
+          "wind_articulation": "wind_breath_quiet",
+          "flute_size": "piccolo_flute",
+          "flute_material": "silver_flute",
           "flute_technique": "beatboxed_flute",
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": 0.8499999999999999,
-          "flute_size": 1.11,
+          "wind_articulation": 0.26,
+          "flute_size": 0.65,
           "flute_material": 0.65,
           "flute_technique": 0.99,
-          "flute_maker_school": 1.7550000000000001
+          "flute_maker_school": 0.845
         }
       }
     ],

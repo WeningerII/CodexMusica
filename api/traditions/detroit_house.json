@@ -1,0 +1,158 @@
+{
+  "id": "detroit_house",
+  "name": "Detroit house",
+  "family": "electronic",
+  "lineage": "Detroit producer-led house associated with Theo Parrish, Moodymann and Sound Signature: disco and soul sampling, jazz-informed keyboard movement, elastic groove and independent record culture. This selection follows the sample-and-keyboard strand rather than equating all Detroit electronic music with techno.",
+  "recipe": "classic modern detroit house, electronic Dance, deep house branch, chicago house house, techno electronic dance, soul R&B functional song british soul modern r&b. sampler, tremolo chordal mark 7 modern tine post 2007 reissue ostinato rhodes electric, sampler drum machine, low sub bass analog mono synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter.",
+  "recipe_chars": 518,
+  "score": 87.823,
+  "config": {
+    "traditions": [
+      "detroit_house",
+      "british_soul",
+      "modern_rb"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.275,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 1.24,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 46.349999999999994
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_suitcase",
+          "rhodes_use": "rhodes_jazz",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 18.8,
+          "rhodes_model": 1.235,
+          "rhodes_use": 1.235,
+          "rhodes_tine_material": 1.495,
+          "rhodes_hammer_tip": -0.3849999999999999,
+          "rhodes_pickup_position": 0.845
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "heavy_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 2.275,
+          "sample_bitdepth": 1.24,
+          "sample_swing": 1.2,
+          "sample_processing": -0.05
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 5.1674999999999995,
+          "mono_oscillator": 0,
+          "mono_filter": 1.235,
+          "mono_archetypes": 2.4699999999999998,
+          "mono_maker_lineage": -1.435
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "rhodes_electric": [
+        "keyboard_technique",
+        "rhodes_model",
+        "rhodes_use"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "analog_mono_synth": [
+        "electronic_technique",
+        "mono_oscillator",
+        "mono_filter",
+        "mono_archetypes",
+        "mono_maker_lineage"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_vca",
+      "eq": "eq_tilt",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "tape_echo"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_bass_sub",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "keyboard_technique": "keyboard_ostinato_groove",
+      "rhodes_model": "rhodes_suitcase",
+      "rhodes_use": "rhodes_jazz",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "heavy_swing",
+      "sample_processing": "chopped_break",
+      "mono_filter": "moog_ladder",
+      "mono_archetypes": "minimoog",
+      "mono_oscillator": "mono_voltage_controlled",
+      "mono_maker_lineage": "mono_moog_robert"
+    },
+    "pin_parts": true,
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_vca",
+    "chain_eq": "eq_tilt",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "tape_echo"
+    ]
+  }
+}

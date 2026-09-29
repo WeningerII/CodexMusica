@@ -3,14 +3,14 @@
   "name": "Swing House",
   "family": "electronic",
   "lineage": "European club style of roughly 2008-2016 associated with Parov Stelar, Caravan Palace, Wolfgang Lohr and the Freshly Squeezed and Electro Swing Club circuits, in which 1920s-40s shellac jazz with muted trumpet, clarinet, banjo comping and crooned or scatted vocal is sampled, pitch- and time-corrected, and set over a 120-128 BPM house kick with swung sixteenth hats, filtered upright-bass loops and a sidechained sub reinforcing the sampled walk.",
-  "recipe": "classic mid-2010s swing house, electronic Dance, house branch, deep house house, continental electronic dance, retro aesthetic experimental electric electro swing. thick, breath veiled tone, straight onset, interlocked note trading. field chopped sampler, TR-909, ensemble shallow cup lead trumpet trumpet, growly gut upright bass, sub bass digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 565,
-  "score": 325.874,
+  "recipe": "classic mid-2010s swing house, electronic Dance, house branch, deep house house, continental electronic dance, retro aesthetic experimental electric electro swing deep disco house. thick, breath veiled tone, straight onset, interlocked note trading. field chopped sampler, TR-909, ensemble lead trumpet trumpet, growly gut upright bass, sub bass digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 570,
+  "score": 303.45,
   "config": {
     "traditions": [
       "swing_house",
-      "deep_house_soulful",
-      "electroswing"
+      "electroswing",
+      "deep_disco_house"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 4.095,
-          "sampler_archetypes": 2.275,
-          "sampler_bit_depth": 1.56,
-          "sampler_workflow": 1.8349999999999997,
-          "sampler_classic_context": 54.07999999999999
+          "electronic_technique": 3.8412499999999996,
+          "sampler_archetypes": 2.1975,
+          "sampler_bit_depth": 0.7149999999999999,
+          "sampler_workflow": 1.9399999999999997,
+          "sampler_classic_context": 53.36874999999999
         }
       },
       {
@@ -38,8 +38,8 @@
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 26.239999999999995,
-          "drum_machine_909_context": 4.095,
+          "tr909_voice": 27.444999999999997,
+          "drum_machine_909_context": 3.25,
           "tr909_production_origin": 0.195
         }
       },
@@ -48,20 +48,20 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_red_brass",
-          "trumpet_maker_school": "trumpet_schilke"
+          "trumpet_maker_school": "trumpet_monette"
         },
         "scores": {
-          "wind_articulation": 4.02375,
-          "brass_size": 0.585,
-          "trumpet_mouthpiece": 12.837499999999999,
+          "wind_articulation": 3.31875,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 9.287499999999998,
           "brass_mute": 0.285,
-          "trumpet_technique": 4.02375,
+          "trumpet_technique": 3.31875,
           "trumpet_bell_metal": 0.195,
-          "trumpet_maker_school": 0.845
+          "trumpet_maker_school": 0.65
         }
       },
       {
@@ -71,8 +71,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 10.499999999999998,
-          "upright_play": 10.694999999999999
+          "upright_strings": 7.25,
+          "upright_play": 7.295
         }
       },
       {
@@ -96,22 +96,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 15.744999999999997,
-          "voice_quality": 10.464999999999995,
+          "voice_register": 10.069999999999999,
+          "voice_quality": 13.194999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.686249999999998,
+          "voice_vibrato": 8.15125,
           "voice_articulation": 16.834999999999994,
-          "voice_microtone": 17.029999999999994,
-          "voice_tradition": 12.65625,
-          "voice_mechanism_compound": 6.305000000000001,
-          "voice_estill_quality": 5.915000000000001,
+          "voice_microtone": 16.639999999999993,
+          "voice_tradition": 9.191249999999998,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 5.720000000000001,
           "voice_speech_song": 19.174999999999997,
           "voice_ensemble_config": 18.004999999999992,
-          "voice_ornament_system": 1.545,
-          "voice_pitch_organization": 2.375,
-          "voice_processing_chain": 19.883750000000003,
-          "voice_multitrack_stack": 5.1025
+          "voice_ornament_system": 0.9999999999999999,
+          "voice_pitch_organization": 2.03,
+          "voice_processing_chain": 20.708750000000002,
+          "voice_multitrack_stack": 5.0062500000000005
         }
       },
       {
@@ -122,8 +122,8 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 4.485000000000001,
-          "va_archetypes": 0.65,
+          "electronic_technique": 5.070000000000002,
+          "va_archetypes": 0.39,
           "digital_subtractive_context": 17.224999999999998
         }
       }

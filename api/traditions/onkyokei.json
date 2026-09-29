@@ -3,29 +3,29 @@
   "name": "Onkyokei (Japanese onkyo improvisation)",
   "family": "electronic",
   "lineage": "Tokyo improvised-music movement crystallized around the Off Site venue circa 1998-2004 and codified by Otomo Yoshihide, Sachiko M, Toshimaru Nakamura and Taku Sugimoto — extremely quiet, near-static music of sine tones, no-input mixing-board feedback, contact-mic scrapes and long silences, with no pulse, no harmony and structure emerging from the acoustics of the room itself.",
-  "recipe": "classic mid-2000s onkyokei, experimental Elec, ambient branch, musique concrete experimental electric, idm glitch experimental electric, jam free improv on frame laptronica idm and experimental electronic. doepfer eurorack canonical 1995 present small format standardization textural modular glitched textural granular synth, turntable, nickel feedback single coil electric guitar, prepared piano, glitched textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 570,
-  "score": 134.815,
+  "recipe": "classic mid-2000s onkyokei, experimental Elec, ambient branch, musique concrete experimental electric, idm glitch experimental electric, jam free improv on frame laptronica. evolving modular modular evolving modular granular synth, turntable, nickel feedback single coil electric guitar, prepared piano, glitched textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 476,
+  "score": 140.502,
   "config": {
     "traditions": [
       "onkyokei",
       "laptronica",
-      "idm"
+      "ambient_idm"
     ],
     "instruments": [
       {
         "id": "modular_synth",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "mod_voltage_source": "mod_sequencer",
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_keyboard",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 23.445,
-          "mod_voltage_source": 0.39,
-          "mod_patch_density": 4.06,
-          "mod_lineage": 1.235
+          "electronic_technique": 24.697249999999997,
+          "mod_voltage_source": 0.5,
+          "mod_patch_density": 3.91,
+          "mod_lineage": 0.585
         }
       },
       {
@@ -53,11 +53,11 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "drop_d"
+          "string_tuning": "d_standard"
         },
         "scores": {
           "electric_technique": 3.51,
-          "amp_make": 0.06499999999999999,
+          "amp_make": 0.26,
           "body_wood": 0.4725,
           "neck_wood": 0.1575,
           "fretboard": 0.315,
@@ -67,7 +67,7 @@
           "bridge": 0.6825,
           "scale_length": 0.315,
           "finish": 0.09,
-          "string_tuning": 0.35250000000000004
+          "string_tuning": 0.65
         }
       },
       {
@@ -82,20 +82,20 @@
           "keyboard_technique": -0.1,
           "prepared_piano_object": 0.15,
           "prepared_piano_zone": 0.15,
-          "prepared_piano_instrument": 1.645
+          "prepared_piano_instrument": 1.495
         }
       },
       {
         "id": "granular_synth",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
+          "electronic_technique": "electronic_modular_patch",
           "granular_use": "granular_ambient",
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 23.445,
-          "granular_use": 0.6950000000000001,
-          "granular_synth_source": 8.190000000000001
+          "electronic_technique": 24.697249999999997,
+          "granular_use": 0.045,
+          "granular_synth_source": 9.295000000000002
         }
       },
       {
@@ -108,11 +108,11 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 23.445,
-          "sampler_archetypes": 0.9450000000000001,
+          "electronic_technique": 24.545000000000005,
+          "sampler_archetypes": 1.095,
           "sampler_bit_depth": 1.365,
-          "sampler_workflow": 22.75,
-          "sampler_classic_context": 17.875
+          "sampler_workflow": 24.500000000000004,
+          "sampler_classic_context": 17.500000000000004
         }
       }
     ],

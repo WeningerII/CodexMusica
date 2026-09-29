@@ -1,0 +1,737 @@
+{
+  "lane": "club",
+  "baseline_commit": "64ca07dc6bb7213502f059760002da50f287f735",
+  "authorship_note": "Every Noise establishes source-label membership through the supplied missing-label comparison. Separately inspected primary releases and firsthand interviews support musical practice. All numeric axes and catalog equipment/parts/room/dynamics choices are authored recording models; none is a forensic original-session inventory. Source pages accessed 2026-09-29. No broader identity is replaced; intersection entries are scoped explicitly.",
+  "entries": [
+    {
+      "id": "detroit_house",
+      "source_label": "detroit house",
+      "every_noise_url": "https://everynoise.com/engenremap-detroithouse.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.redbullmusicacademy.com/lectures/theo-parrish-3-cheers-for-the-d/",
+          "title": "Theo Parrish — Seattle 2005 lecture",
+          "kind": "institution-hosted firsthand artist lecture",
+          "support_notes": "Detroit residence and Sound Signature; jazz/disco/house relationships; sampling and live-band thought; Insane Asylum demonstration. Genre labels do not exhaust artist identity.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://www.soundsignature.net/shop/p/theo-parrish-parallel-dimensions-cd",
+          "title": "Theo Parrish — Parallel Dimensions",
+          "kind": "artist-label release page",
+          "support_notes": "Concrete label-issued release identity and Marcellus Pittman keyboard credit on Brain; does not establish the authored complete session roster or signal chain.",
+          "accessed": "2026-09-29"
+        }
+      ],
+      "neighbor_distinction": [
+        {
+          "id": "chicago_house",
+          "distinction": "Detroit sample-and-keyboard strand with jazz movement and swung texture; does not substitute the catalog Chicago acid-bass default."
+        },
+        {
+          "id": "detroit_techno",
+          "distinction": "Soul/disco sample and keyboard groove foreground rather than treating geography as a techno synonym."
+        },
+        {
+          "id": "deep_house_soulful",
+          "distinction": "Independent sample-and-instrumental groove strand without compulsory lead singing."
+        }
+      ],
+      "authored_numeric_and_recording_model": {
+        "pin_parts": true,
+        "axes": {
+          "harm": 2,
+          "pitch": 1,
+          "ornament": 1,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 2,
+          "intensity": 0,
+          "voice": -1,
+          "timbre": 1,
+          "percussion": 1,
+          "cyclicity": 2
+        },
+        "ensemble_roles": [
+          "sampler_classic",
+          "rhodes_electric",
+          "sampler_drum_machine",
+          "analog_mono_synth"
+        ],
+        "parts": {
+          "electronic_technique": "electronic_bass_sub",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm",
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_suitcase",
+          "rhodes_use": "rhodes_jazz",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "heavy_swing",
+          "sample_processing": "chopped_break",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "environment": {
+          "room": "studio_auteur_home_pro",
+          "archetype": "arch_modern_pro_daw_studio",
+          "comp": "comp_vca",
+          "eq": "eq_tilt",
+          "fx": ["tape_echo"]
+        },
+        "limits": "Named hardware choices are catalog equivalents; source pages do not verify these exact session inventories. Full 13-axis values model the described strand rather than measured acoustics.",
+        "signature_basis": "Style tokens describe the source-supported groove, melody and texture; control/focus/presence/articulation tokens are explicit authored mix-performance targets: defined sample boundaries, readable melodic layers and uncluttered low end. Organic house additionally keeps soft dynamics and stable pulse. These are operational instructions, not measured claims about recordings.",
+        "refinement": "Coherent authored synth-model/oscillator/maker combinations pinned where present. Detroit sample transfer uses 16-bit clarity rather than asserting unverified low-bit hardware; clean/dry/stable signatures specify controlled low-distortion sample playback and articulated timing, while source grain may remain in sampled material. Detroit texture sampler is a 16-bit linear sample-layer chair rather than a second beat-making chair; the separate drum sampler supplies rhythmic swing. Akai S1000 is a catalog equivalent, not an original-session claim."
+      },
+      "geo_rationale": {
+        "anchor": [42.33, -83.05, "Detroit / Sound Signature practice", "North America"],
+        "basis": "Detroit residence is explicit in the RBMA lecture; anchor denotes the selected Sound Signature producer network, not exclusive origin of house."
+      },
+      "signature_tokens": [
+        "vinyl-sampled",
+        "sample-foundational",
+        "funk-derived",
+        "funky",
+        "swung",
+        "dance-rhythm",
+        "rhythmic",
+        "jazz-influenced",
+        "tonal-groove",
+        "warm-glowing",
+        "warmed",
+        "smoothed",
+        "controlled",
+        "focused",
+        "present",
+        "tight-articulation",
+        "clean-articulation-low-blur",
+        "clean",
+        "dry",
+        "stable"
+      ],
+      "validation": {
+        "checked": true,
+        "reference_integrity": "node scripts/validate.js passes: 2618 traditions; all references resolve",
+        "baseline_deep_equal": true,
+        "app_connector_exact_all_four_formats": true,
+        "authored_pin_applications": 15,
+        "cli_roster_preserved": true,
+        "cli_recipe_chars": 518,
+        "format_chars": {
+          "rich": 977,
+          "tags": 992,
+          "prose": 315,
+          "compact": 408
+        },
+        "prefaces_before": ["bewildering", "futuristic", "micro-stuttering", "street-pulsing"],
+        "prefaces_after": [
+          {
+            "id": "sampler_classic",
+            "preface": "clean"
+          },
+          {
+            "id": "rhodes_electric",
+            "preface": "collected"
+          },
+          {
+            "id": "sampler_drum_machine",
+            "preface": "focused"
+          },
+          {
+            "id": "analog_mono_synth",
+            "preface": "fun"
+          }
+        ],
+        "no_unrelated_named_cultural_prefaces": true,
+        "semantic_review": "Final live rich/tags/prose/compact strings manually inspected. Clean/focused/collected/crisp/groovy/fun/cradling/satisfied/up-tempo/articulate fit the authored texture, groove and mix targets; micro-stuttering is restricted to chopped cuts. Earlier samul-percussive, oro-rolling and breaks-skittering overreach was removed through meaningful performance signatures and coherent role/model settings.",
+        "unique_rich_body_across_lane": true,
+        "limits": "CLI hill-climb may add scored neighboring lineage labels and choose unpinned materials/environment; authored instrument roster and every applicable part override were verified retained. This lane does not modify that existing engine behavior."
+      }
+    },
+    {
+      "id": "piano_house",
+      "source_label": "piano house",
+      "every_noise_url": "https://everynoise.com/engenremap-pianohouse.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://toolroomrecords.com/music/mark-knight-vs-mr-roy-something-about-u/",
+          "title": "Mark Knight vs Mr Roy — Something About U",
+          "kind": "label release description",
+          "support_notes": "Piano-house identity; 1995 source record and modern rework; high-pass filtering, chopped vocals, clap snares, offbeat hats.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://toolroomrecords.com/news/the-spirit-of-house/",
+          "title": "The Spirit Of House — ATFC and Gene Farris",
+          "kind": "label-hosted firsthand artist interview",
+          "support_notes": "Played piano arpeggios and chords rather than samples on this track; piano-heavy house revival; original lead and London/Chicago collaboration context.",
+          "accessed": "2026-09-29"
+        }
+      ],
+      "neighbor_distinction": [
+        {
+          "id": "italo_house_piano",
+          "distinction": "Broad piano-riff arrangement and contemporary transatlantic revival; Italo house remains the specific historical Italian scene."
+        },
+        {
+          "id": "deep_house_soulful",
+          "distinction": "Piano riff is primary hook, without requiring Rhodes accompaniment and a frontmost soul singer."
+        }
+      ],
+      "authored_numeric_and_recording_model": {
+        "pin_parts": true,
+        "axes": {
+          "harm": 1,
+          "pitch": 2,
+          "ornament": 1,
+          "meter": 2,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 1,
+          "voice": -1,
+          "timbre": 1,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "ensemble_roles": [
+          "grand_piano",
+          "sampler_drum_machine",
+          "analog_mono_synth",
+          "sampler_classic"
+        ],
+        "parts": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_pitch_standard": "a_440_modern",
+          "electronic_technique": "electronic_bass_sub",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "environment": {
+          "room": "treated_studio",
+          "archetype": "arch_modern_pro_daw_studio",
+          "comp": "comp_pumping",
+          "eq": "eq_active_parametric",
+          "fx": ["plate_reverb"]
+        },
+        "limits": "Named hardware choices are catalog equivalents; source pages do not verify these exact session inventories. Full 13-axis values model the described strand rather than measured acoustics.",
+        "signature_basis": "Style tokens describe the source-supported groove, melody and texture; control/focus/presence/articulation tokens are explicit authored mix-performance targets: defined sample boundaries, readable melodic layers and uncluttered low end. Organic house additionally keeps soft dynamics and stable pulse. These are operational instructions, not measured claims about recordings.",
+        "refinement": "Coherent authored synth-model/oscillator/maker combinations pinned where present. Detroit sample transfer uses 16-bit clarity rather than asserting unverified low-bit hardware; clean/dry/stable signatures specify controlled low-distortion sample playback and articulated timing, while source grain may remain in sampled material."
+      },
+      "geo_rationale": {
+        "anchor": [51.51, -0.13, "London / transatlantic piano-house practice", "Europe"],
+        "basis": "ATFC/Gene Farris interview identifies London/Chicago collaboration and transatlantic practice; London is a reference-network anchor, not a claim that piano house began there."
+      },
+      "signature_tokens": [
+        "melodic",
+        "percussive-attack",
+        "fast-attack-transient",
+        "dance-driving",
+        "dance-rhythm",
+        "tight-rhythmic-articulation",
+        "bright-modern",
+        "controlled",
+        "focused",
+        "present",
+        "tight-articulation",
+        "clean-articulation-low-blur",
+        "clean",
+        "dry",
+        "stable"
+      ],
+      "validation": {
+        "checked": true,
+        "reference_integrity": "node scripts/validate.js passes: 2618 traditions; all references resolve",
+        "baseline_deep_equal": true,
+        "app_connector_exact_all_four_formats": true,
+        "authored_pin_applications": 15,
+        "cli_roster_preserved": true,
+        "cli_recipe_chars": 398,
+        "format_chars": {
+          "rich": 998,
+          "tags": 994,
+          "prose": 344,
+          "compact": 450
+        },
+        "prefaces_before": ["cold", "futuristic", "street-pulsing", "bewildering"],
+        "prefaces_after": [
+          {
+            "id": "grand_piano",
+            "preface": "clean"
+          },
+          {
+            "id": "sampler_drum_machine",
+            "preface": "focused"
+          },
+          {
+            "id": "analog_mono_synth",
+            "preface": "crisp"
+          },
+          {
+            "id": "sampler_classic",
+            "preface": "micro-stuttering"
+          }
+        ],
+        "no_unrelated_named_cultural_prefaces": true,
+        "semantic_review": "Final live rich/tags/prose/compact strings manually inspected. Clean/focused/collected/crisp/groovy/fun/cradling/satisfied/up-tempo/articulate fit the authored texture, groove and mix targets; micro-stuttering is restricted to chopped cuts. Earlier samul-percussive, oro-rolling and breaks-skittering overreach was removed through meaningful performance signatures and coherent role/model settings.",
+        "unique_rich_body_across_lane": true,
+        "limits": "CLI hill-climb may add scored neighboring lineage labels and choose unpinned materials/environment; authored instrument roster and every applicable part override were verified retained. This lane does not modify that existing engine behavior."
+      }
+    },
+    {
+      "id": "organic_house",
+      "source_label": "organic house",
+      "every_noise_url": "https://everynoise.com/engenremap-organichouse.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://electronicgroove.com/label-insight-all-day-i-dream/",
+          "title": "Label Insight: All Day I Dream",
+          "kind": "firsthand label-founder interview",
+          "support_notes": "Brooklyn rooftop parties in 2011; emotion, detail and limited reliance on sheer energy; organic-house category as a later name for the network.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://alldayidream.bandcamp.com/album/melt",
+          "title": "Melt — Lee Burridge and Lost Desert",
+          "kind": "label release notes and credits",
+          "support_notes": "2019 release; understated grooves, downtempo melody, warmth and contemplative arrangement; named collaborators and backing vocals.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://www.decodedmagazine.com/lee-burridge-and-lost-desert-all-day-i-dream-2020/",
+          "title": "Lee Burridge and Lost Desert discuss their latest EP",
+          "kind": "firsthand artist interview",
+          "support_notes": "Hybrid analog synth/software method, exchanged production ideas and years of album development; whimsical desert story is not literal field-recording evidence.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://magneticmag.com/2020/09/my-toolbox-pippi-ciez/",
+          "title": "My Toolbox: Pippi Ciez",
+          "kind": "firsthand artist production notes",
+          "support_notes": "Riziki synth chords/sequences and hand-played Handsonic percussion; synth-plus-sample chairs are equivalents, not exact named hardware.",
+          "accessed": "2026-09-29"
+        }
+      ],
+      "neighbor_distinction": [
+        {
+          "id": "tropical_house",
+          "distinction": "Extended textured development and instrumental club groove instead of radio-pop song/drop layout."
+        },
+        {
+          "id": "melodic_house",
+          "distinction": "Selected softer, detailed, hand-like pulse rather than broad melodic house umbrella."
+        }
+      ],
+      "authored_numeric_and_recording_model": {
+        "pin_parts": true,
+        "axes": {
+          "harm": 1,
+          "pitch": 1,
+          "ornament": 1,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": -1,
+          "voice": -1,
+          "timbre": 1,
+          "percussion": 1,
+          "cyclicity": 2
+        },
+        "ensemble_roles": ["analog_poly_synth", "sampler_drum_machine", "sampler_classic"],
+        "parts": {
+          "electronic_technique": "electronic_arpeggiated",
+          "poly_archetypes": "jupiter_8",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick",
+          "sampler_archetypes": "maschine_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm",
+          "poly_maker_lineage": "poly_roland_jupiter",
+          "poly_voices": "poly_8_voice"
+        },
+        "environment": {
+          "room": "studio_distributed_production",
+          "archetype": "arch_modern_pro_daw_studio",
+          "comp": "comp_optical",
+          "eq": "eq_tilt",
+          "fx": ["digital_delay", "fx_true_stereo_reverb"]
+        },
+        "limits": "Named hardware choices are catalog equivalents; source pages do not verify these exact session inventories. Full 13-axis values model the described strand rather than measured acoustics.",
+        "signature_basis": "Style tokens describe the source-supported groove, melody and texture; control/focus/presence/articulation tokens are explicit authored mix-performance targets: defined sample boundaries, readable melodic layers and uncluttered low end. Organic house additionally keeps soft dynamics and stable pulse. These are operational instructions, not measured claims about recordings.",
+        "refinement": "Coherent authored synth-model/oscillator/maker combinations pinned where present. Detroit sample transfer uses 16-bit clarity rather than asserting unverified low-bit hardware; clean/dry/stable signatures specify controlled low-distortion sample playback and articulated timing, while source grain may remain in sampled material."
+      },
+      "geo_rationale": {
+        "anchor": [40.7, -73.94, "Brooklyn / All Day I Dream party lineage", "North America"],
+        "basis": "Burridge firsthand interview identifies 2011 Brooklyn rooftop All Day I Dream parties; anchor marks a network event lineage, not exclusive origin."
+      },
+      "signature_tokens": [
+        "melodic",
+        "layered",
+        "breathing-rhythm",
+        "soft-onset",
+        "warm-glowing",
+        "warmed",
+        "smoothed",
+        "mellow",
+        "breathing",
+        "controlled",
+        "focused",
+        "present",
+        "tight-articulation",
+        "clean-articulation-low-blur",
+        "stable",
+        "soft",
+        "clean"
+      ],
+      "validation": {
+        "checked": true,
+        "reference_integrity": "node scripts/validate.js passes: 2618 traditions; all references resolve",
+        "baseline_deep_equal": true,
+        "app_connector_exact_all_four_formats": true,
+        "authored_pin_applications": 11,
+        "cli_roster_preserved": true,
+        "cli_recipe_chars": 395,
+        "format_chars": {
+          "rich": 986,
+          "tags": 1000,
+          "prose": 367,
+          "compact": 474
+        },
+        "prefaces_before": ["street-pulsing", "futuristic", "bewildering"],
+        "prefaces_after": [
+          {
+            "id": "analog_poly_synth",
+            "preface": "cradling"
+          },
+          {
+            "id": "sampler_drum_machine",
+            "preface": "satisfied"
+          },
+          {
+            "id": "sampler_classic",
+            "preface": "clean"
+          }
+        ],
+        "no_unrelated_named_cultural_prefaces": true,
+        "semantic_review": "Final live rich/tags/prose/compact strings manually inspected. Clean/focused/collected/crisp/groovy/fun/cradling/satisfied/up-tempo/articulate fit the authored texture, groove and mix targets; micro-stuttering is restricted to chopped cuts. Earlier samul-percussive, oro-rolling and breaks-skittering overreach was removed through meaningful performance signatures and coherent role/model settings.",
+        "unique_rich_body_across_lane": true,
+        "limits": "CLI hill-climb may add scored neighboring lineage labels and choose unpinned materials/environment; authored instrument roster and every applicable part override were verified retained. This lane does not modify that existing engine behavior."
+      }
+    },
+    {
+      "id": "speed_house",
+      "source_label": "speed house",
+      "every_noise_url": "https://everynoise.com/engenremap-speedhouse.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.monstercat.com/artist/haus-of-panda",
+          "title": "Haus of Panda",
+          "kind": "label artist biography",
+          "support_notes": "Speed-house term and speed-garage/bass-house hybrid; hard-house and bassline influences; 2020 Speed House Movement compilation and international network.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://www.monstercat.com/release/742779547781",
+          "title": "Ignite",
+          "kind": "label release credits",
+          "support_notes": "August 30 2023 release and CHYL, Haus of Panda, MYLK credit; no studio hardware list.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://www.monstercat.com/artist/chyl",
+          "title": "CHYL",
+          "kind": "label artist biography",
+          "support_notes": "Los Angeles production base and high-speed, high-energy bass-heavy sound.",
+          "accessed": "2026-09-29"
+        }
+      ],
+      "neighbor_distinction": [
+        {
+          "id": "bass_house",
+          "distinction": "Rapid rave/garage-derived context; changed synth voicing, sample model and dynamics rather than a duplicate 128-BPM seed."
+        },
+        {
+          "id": "uk_hard_house",
+          "distinction": "Bass-house sound design without requiring historical UK Hoover-led arrangement."
+        },
+        {
+          "id": "speed_garage_1990s",
+          "distinction": "House drop grid rather than making garage swing the defining rhythm."
+        }
+      ],
+      "authored_numeric_and_recording_model": {
+        "pin_parts": true,
+        "axes": {
+          "harm": -1,
+          "pitch": 1,
+          "ornament": 0,
+          "meter": 2,
+          "density": 1,
+          "transmission": 0,
+          "improv": -1,
+          "soundTech": 2,
+          "intensity": 2,
+          "voice": -1,
+          "timbre": 2,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "ensemble_roles": ["wavetable_synth", "sampler_drum_machine", "sampler_classic"],
+        "parts": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_mono",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered",
+          "sampler_archetypes": "maschine_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "environment": {
+          "room": "studio_auteur_home_pro",
+          "archetype": "arch_modern_pro_daw_studio",
+          "comp": "comp_brick_wall_limiter",
+          "eq": "eq_dynamic",
+          "fx": ["distortion_high", "digital_delay"]
+        },
+        "limits": "Named hardware choices are catalog equivalents; source pages do not verify these exact session inventories. Full 13-axis values model the described strand rather than measured acoustics.",
+        "signature_basis": "Style tokens describe the source-supported groove, melody and texture; control/focus/presence/articulation tokens are explicit authored mix-performance targets: defined sample boundaries, readable melodic layers and uncluttered low end. Organic house additionally keeps soft dynamics and stable pulse. These are operational instructions, not measured claims about recordings.",
+        "refinement": "Coherent authored synth-model/oscillator/maker combinations pinned where present. Detroit sample transfer uses 16-bit clarity rather than asserting unverified low-bit hardware; clean/dry/stable signatures specify controlled low-distortion sample playback and articulated timing, while source grain may remain in sampled material."
+      },
+      "geo_rationale": {
+        "anchor": [34.05, -118.24, "Los Angeles / CHYL production practice", "North America"],
+        "basis": "Monstercat identifies CHYL as based in Los Angeles; production-practice anchor, not birthplace claim for speed house."
+      },
+      "signature_tokens": [
+        "dance-driving",
+        "dance-rhythm",
+        "tight-rhythmic-articulation",
+        "fast-attack-transient",
+        "sub-bass",
+        "synthetic",
+        "rhythmic",
+        "controlled",
+        "focused",
+        "present",
+        "tight-articulation",
+        "clean-articulation-low-blur"
+      ],
+      "validation": {
+        "checked": true,
+        "reference_integrity": "node scripts/validate.js passes: 2618 traditions; all references resolve",
+        "baseline_deep_equal": true,
+        "app_connector_exact_all_four_formats": true,
+        "authored_pin_applications": 11,
+        "cli_roster_preserved": true,
+        "cli_recipe_chars": 404,
+        "format_chars": {
+          "rich": 993,
+          "tags": 992,
+          "prose": 372,
+          "compact": 475
+        },
+        "prefaces_before": ["street-pulsing", "futuristic", "micro-stuttering"],
+        "prefaces_after": [
+          {
+            "id": "wavetable_synth",
+            "preface": "up-tempo"
+          },
+          {
+            "id": "sampler_drum_machine",
+            "preface": "articulate"
+          },
+          {
+            "id": "sampler_classic",
+            "preface": "micro-stuttering"
+          }
+        ],
+        "no_unrelated_named_cultural_prefaces": true,
+        "semantic_review": "Final live rich/tags/prose/compact strings manually inspected. Clean/focused/collected/crisp/groovy/fun/cradling/satisfied/up-tempo/articulate fit the authored texture, groove and mix targets; micro-stuttering is restricted to chopped cuts. Earlier samul-percussive, oro-rolling and breaks-skittering overreach was removed through meaningful performance signatures and coherent role/model settings.",
+        "unique_rich_body_across_lane": true,
+        "limits": "CLI hill-climb may add scored neighboring lineage labels and choose unpinned materials/environment; authored instrument roster and every applicable part override were verified retained. This lane does not modify that existing engine behavior."
+      }
+    },
+    {
+      "id": "deep_disco_house",
+      "source_label": "deep disco house",
+      "every_noise_url": "https://everynoise.com/engenremap-deepdiscohouse.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.toytonics.de/2017/09/11/coeo-flesh-world-toyt067/",
+          "title": "COEO — Flesh World [TOYT067]",
+          "kind": "label release description",
+          "support_notes": "2017 release; disco/funk sampling, deep-house chart context, French touch and early Masters at Work influences; percussion-jam remix.",
+          "accessed": "2026-09-29"
+        },
+        {
+          "url": "https://coeo.bandcamp.com/album/back-in-the-days",
+          "title": "Back In The Days — COEO",
+          "kind": "artist release credits",
+          "support_notes": "2016 recording identity, track list, disco/house tags and Munich artist base; fan descriptions excluded.",
+          "accessed": "2026-09-29"
+        }
+      ],
+      "neighbor_distinction": [
+        {
+          "id": "disco_house",
+          "distinction": "Deeper chord-and-bass pocket rather than filter-sweep-and-pumping loop dramaturgy."
+        },
+        {
+          "id": "deep_house_soulful",
+          "distinction": "Disco/funk sample identity with instrumental chord pocket, not compulsory soul/gospel lead."
+        }
+      ],
+      "authored_numeric_and_recording_model": {
+        "pin_parts": true,
+        "axes": {
+          "harm": 2,
+          "pitch": 2,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 0,
+          "voice": -1,
+          "timbre": 1,
+          "percussion": 1,
+          "cyclicity": 2
+        },
+        "ensemble_roles": [
+          "sampler_classic",
+          "electric_bass",
+          "rhodes_electric",
+          "drum_machine_analog"
+        ],
+        "parts": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm",
+          "bass_technique": "fingerstyle_locked",
+          "keyboard_technique": "keyboard_jazz_comping",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_jazz",
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "environment": {
+          "room": "treated_studio",
+          "archetype": "arch_modern_pro_daw_studio",
+          "comp": "comp_parallel_blend",
+          "eq": "eq_passive_program",
+          "fx": ["phaser_pedal"]
+        },
+        "limits": "Named hardware choices are catalog equivalents; source pages do not verify these exact session inventories. Full 13-axis values model the described strand rather than measured acoustics.",
+        "signature_basis": "Style tokens describe the source-supported groove, melody and texture; control/focus/presence/articulation tokens are explicit authored mix-performance targets: defined sample boundaries, readable melodic layers and uncluttered low end. Organic house additionally keeps soft dynamics and stable pulse. These are operational instructions, not measured claims about recordings.",
+        "refinement": "Coherent authored synth-model/oscillator/maker combinations pinned where present. Detroit sample transfer uses 16-bit clarity rather than asserting unverified low-bit hardware; clean/dry/stable signatures specify controlled low-distortion sample playback and articulated timing, while source grain may remain in sampled material."
+      },
+      "geo_rationale": {
+        "anchor": [48.14, 11.58, "Munich / COEO production practice", "Europe"],
+        "basis": "COEO artist Bandcamp identifies Munich; anchor represents exemplar production practice, not exclusive origin of the disco/deep intersection."
+      },
+      "signature_tokens": [
+        "vinyl-sampled",
+        "sample-foundational",
+        "funk-derived",
+        "dance-rhythm",
+        "swung",
+        "dance-driving",
+        "funky",
+        "rhythmic",
+        "tonal-groove",
+        "rhythm-section-pocket",
+        "warm-glowing",
+        "warmed",
+        "smoothed",
+        "controlled",
+        "focused",
+        "present",
+        "tight-articulation",
+        "clean-articulation-low-blur",
+        "clean",
+        "dry",
+        "stable"
+      ],
+      "validation": {
+        "checked": true,
+        "reference_integrity": "node scripts/validate.js passes: 2618 traditions; all references resolve",
+        "baseline_deep_equal": true,
+        "app_connector_exact_all_four_formats": true,
+        "authored_pin_applications": 13,
+        "cli_roster_preserved": true,
+        "cli_recipe_chars": 483,
+        "format_chars": {
+          "rich": 999,
+          "tags": 982,
+          "prose": 316,
+          "compact": 409
+        },
+        "prefaces_before": ["micro-stuttering", "samul-percussive", "futuristic", "street-pulsing"],
+        "prefaces_after": [
+          {
+            "id": "sampler_classic",
+            "preface": "clean"
+          },
+          {
+            "id": "electric_bass",
+            "preface": "focused"
+          },
+          {
+            "id": "rhodes_electric",
+            "preface": "groovy"
+          },
+          {
+            "id": "drum_machine_analog",
+            "preface": "fun"
+          }
+        ],
+        "no_unrelated_named_cultural_prefaces": true,
+        "semantic_review": "Final live rich/tags/prose/compact strings manually inspected. Clean/focused/collected/crisp/groovy/fun/cradling/satisfied/up-tempo/articulate fit the authored texture, groove and mix targets; micro-stuttering is restricted to chopped cuts. Earlier samul-percussive, oro-rolling and breaks-skittering overreach was removed through meaningful performance signatures and coherent role/model settings.",
+        "unique_rich_body_across_lane": true,
+        "limits": "CLI hill-climb may add scored neighboring lineage labels and choose unpinned materials/environment; authored instrument roster and every applicable part override were verified retained. This lane does not modify that existing engine behavior."
+      }
+    }
+  ],
+  "validation": {
+    "reference_integrity": true,
+    "baseline_old_records_deep_equal": 2613,
+    "unique_rich_recipe_bodies": 5,
+    "app_connector_parity_format_cases": 20,
+    "authored_pins_retained_cli_browser_connector": true,
+    "no_unrelated_named_cultural_prefaces": true,
+    "receipt": "/tmp/batch02-club-validation.json"
+  }
+}

@@ -1,0 +1,320 @@
+{
+  "lane": "hiphop",
+  "baseline_commit": "64ca07dc6bb7213502f059760002da50f287f735",
+  "authorship_note": "Every Noise establishes label membership only. Inspected firsthand interviews, official artist releases, label pages and broadcaster performances establish selected practice and exemplars. Exact equipment, numerical axes and recording settings are authored models, not measured session inventories. Geographic points are contextual artist/practice anchors. Direct Every Noise retrieval was unavailable; no performance fact is inferred from it.",
+  "entries": [
+    {
+      "id": "experimental_hip_hop",
+      "source_label": "experimental hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-experimentalhiphop.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.powmag.net/p/ishmael-butler-shabazz-palaces-interview",
+          "title": "A Long Lost Interview With Ishmael Butler of Shabazz Palaces",
+          "kind": "firsthand artist interview",
+          "support_notes": "Butler discusses Black Up, instinct-led studio work, performance with Tendai Maraire and his residence in Seattle; supports artist, process and geographic anchor. Does not establish the authored sampler or synthesizer model."
+        },
+        {
+          "url": "https://www.kexp.org/read/2014/8/26/live-video-shabazz-palaces-2/",
+          "title": "Live Video: Shabazz Palaces \u2014 KEXP (2014)",
+          "kind": "broadcaster studio-performance page",
+          "support_notes": "Identifies the Seattle duo and experimental hip-hop practice, provides a Lese Majesty live studio performance and describes its eighteen tracks in seven suites; supports repertoire and formal scope."
+        },
+        {
+          "url": "https://www.subpop.com/artists/shabazz_palaces",
+          "title": "Shabazz Palaces \u2014 Sub Pop",
+          "kind": "label artist page",
+          "support_notes": "Labels the Seattle artist\u2019s practice experimental avant-hip-hop and describes complex production; current page also supplies explicit credits for a later 2026 project, which are not retroactively assigned to the selected earlier albums."
+        }
+      ],
+      "neighbor_distinction": "Experimental describes sonic/formal inquiry, abstract hip hop describes associative MC writing, and alternative hip hop is a wider non-mainstream category. This MC-led electronic model does not reduce experimental hip hop to glitch-hop bass music or industrial abrasion.",
+      "authored_numeric_and_recording_model": "Fragmented sampler workflow and sustained five-voice polysynth with octave-doubled MC, digital delay and a transparent digital studio path. These and all thirteen axes are authored coordinates, not session measurements or verified album hardware.",
+      "geo_rationale": "Seattle is explicitly documented by Butler\u2019s firsthand interview and KEXP\u2019s studio performance context. It anchors the selected Shabazz Palaces strand, not an exclusive birthplace of experimental hip hop.",
+      "signature_tokens": [
+        "layered",
+        "synthesized",
+        "rhythmic-speech",
+        "sample-foundational",
+        "contrasting-registers"
+      ],
+      "validation": {
+        "checked": true,
+        "reference_validation": "PASS \u2014 scripts/validate.js, 2618 traditions; all references resolve",
+        "baseline_preservation": "PASS \u2014 all 2613 baseline definitions, paired extras and baseline geographic rows deep-equal the snapshot",
+        "connector_browser_parity": "PASS \u2014 exact actual loadApp import/compile and connector seed/render strings across rich, tags, prose and compact, with trial lane signatures installed",
+        "authored_pin_checks_per_surface": 22,
+        "format_lengths": {
+          "rich": 977,
+          "tags": 986,
+          "prose": 301,
+          "compact": 399
+        },
+        "optimized_cli_recipe_chars": 391,
+        "optimized_cli_roster": ["voice", "sampler_classic", "analog_poly_synth"],
+        "optimized_cli_context_traditions": ["experimental_hip_hop", "cloud_rap", "gangsta_rap"],
+        "unique_lane_rich_bodies": 5,
+        "unrelated_named_cultural_prefaces": 0,
+        "artist_name_leaks": 0,
+        "issues": []
+      }
+    },
+    {
+      "id": "industrial_hip_hop",
+      "source_label": "industrial hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-industrialhiphop.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://songexploder.net/transcripts/clipping-transcript.pdf",
+          "title": "Song Exploder \u2014 clipping., Work Work transcript",
+          "kind": "firsthand musician production breakdown",
+          "support_notes": "Hutson, Snipes and Diggs describe the construction of Work Work, including playable metal-thermos samples, reversed/forward cinder blocks, beer-can hats, stutter edits and guest Cocc Pistol Cree. Supports sampled found-sound percussion and MC structure."
+        },
+        {
+          "url": "https://keithmcmillen.com/blog/interview-jonathan-snipes-william-hutson-clipping/",
+          "title": "Interview with Jonathan Snipes and William Hutson from Clipping. (2017)",
+          "kind": "firsthand producer interview",
+          "support_notes": "Documents laptop/Max playback, harsh-noise distortion chains and white noise, sound-design practice and CLPPNG field-recording experiments around Los Angeles. Stage equipment is not claimed as album recording equipment."
+        },
+        {
+          "url": "https://www.subpop.com/artists/clipping",
+          "title": "clipping. \u2014 Sub Pop",
+          "kind": "label artist page",
+          "support_notes": "Confirms the trio\u2019s rapper/producer relationship and collaboration with noise artists; contextualizes noise/rap intersection without assigning current Dead Channel Sky repertoire to CLPPNG."
+        }
+      ],
+      "neighbor_distinction": "Found-sound percussion and abrasive noise distinguish this from the broader experimental designation and lyric-centered abstract hip hop. No mandatory guitar/drum backline is inferred from industrial or from neighboring rap metal.",
+      "authored_numeric_and_recording_model": "Two-chair MC plus found-sound sampler realization; industrial context and field-recording workflow, projected rhythmic speech and ad-lib lane, authored fuzz effect and aggressive digital compression. Numeric axes and registered equipment are creative choices.",
+      "geo_rationale": "Los Angeles is explicitly named in the producer interview\u2019s CLPPNG field-recording discussion and the label\u2019s artist context. Coordinates describe a practice anchor, not a specific room or exclusive genre origin.",
+      "signature_tokens": [
+        "metallic",
+        "distorted",
+        "percussive-attack",
+        "rhythmic-speech",
+        "sharp"
+      ],
+      "validation": {
+        "checked": true,
+        "reference_validation": "PASS \u2014 scripts/validate.js, 2618 traditions; all references resolve",
+        "baseline_preservation": "PASS \u2014 all 2613 baseline definitions, paired extras and baseline geographic rows deep-equal the snapshot",
+        "connector_browser_parity": "PASS \u2014 exact actual loadApp import/compile and connector seed/render strings across rich, tags, prose and compact, with trial lane signatures installed",
+        "authored_pin_checks_per_surface": 20,
+        "format_lengths": {
+          "rich": 977,
+          "tags": 999,
+          "prose": 276,
+          "compact": 695
+        },
+        "optimized_cli_recipe_chars": 388,
+        "optimized_cli_roster": ["voice", "sampler_classic"],
+        "optimized_cli_context_traditions": [
+          "industrial_hip_hop",
+          "industrial",
+          "digital_hardcore"
+        ],
+        "unique_lane_rich_bodies": 5,
+        "unrelated_named_cultural_prefaces": 0,
+        "artist_name_leaks": 0,
+        "issues": [],
+        "semantic_refinement": "Patter articulation carries a comic-precision descriptor, unsuitable here; replaced with rhythmic spoken articulation while retaining projected rap, field-recording sampler, ad-lib lane and abrasive effect model."
+      }
+    },
+    {
+      "id": "chill_abstract_hip_hop",
+      "source_label": "chill abstract hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-chillabstracthiphop.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://chesterwatson.bandcamp.com/album/project-0",
+          "title": "Project 0 \u2014 Chester Watson",
+          "kind": "artist release page",
+          "support_notes": "Dates release October 5, 2018 and confirms the track list including 40 Acres, with artist psychedelic/rap tags. The download bit depth is not treated as the source sample resolution."
+        },
+        {
+          "url": "https://daily.bandcamp.com/features/chester-watson-interview",
+          "title": "Chester Watson is a Meditative Force in Hip-Hop (2018)",
+          "kind": "firsthand artist interview",
+          "support_notes": "Watson discusses reflection and meditation; article describes his relaxed half-sung 40 Acres lead and Tufu\u2019s warm head-nod beat. Supports restrained vocal-led model rather than instrumental chillhop."
+        },
+        {
+          "url": "https://djbooth.net/features/2018-10-04-chester-watson-interview/",
+          "title": "Project 0 & the Wizardry of Chester Watson (2018)",
+          "kind": "firsthand artist interview",
+          "support_notes": "Describes murky stream-of-consciousness writing over boom bap and documents his artist history between St. Louis, Atlanta and Miami, supporting a Miami network anchor without claiming an exclusive sonic birthplace."
+        }
+      ],
+      "neighbor_distinction": "A quieter vocal-led subset of abstract rap, with restrained effort and head-nod sample texture. Unlike the existing instrumental lofi_hiphop default, a reflective MC remains central; unlike glitch_hop there is no compulsory aggressive modulated bass or buffer-edit dance groove.",
+      "authored_numeric_and_recording_model": "Under-sung spoken articulation, single lead with authored narrow-band vocal texture, and one layered sampler chair representing the producer\u2019s warm, murky head-nod accompaniment. Rolled-off sixteen-bit sample color and swing in the performance signature are creative settings rather than measured Project 0 source-resolution or timing facts. All room, chain and axes are authored.",
+      "geo_rationale": "Miami is documented as part of Watson\u2019s recurring artist geography in his interview. This is a translocal artist-network point; Project 0 includes overseas producer collaboration and no exclusive Miami origin or tracking-room claim.",
+      "signature_tokens": [
+        "mellow",
+        "soft",
+        "smoothed",
+        "warm-glowing",
+        "swung",
+        "intimate",
+        "soft-onset",
+        "quiet",
+        "low-projection-volume",
+        "controlled",
+        "meditative-tempo",
+        "warmed"
+      ],
+      "validation": {
+        "checked": true,
+        "reference_validation": "PASS \u2014 scripts/validate.js, 2618 traditions; all references resolve",
+        "baseline_preservation": "PASS \u2014 all 2613 baseline definitions, paired extras and baseline geographic rows deep-equal the snapshot",
+        "connector_browser_parity": "PASS \u2014 exact actual loadApp import/compile and connector seed/render strings across rich, tags, prose and compact, with trial lane signatures installed",
+        "authored_pin_checks_per_surface": 20,
+        "format_lengths": {
+          "rich": 993,
+          "tags": 999,
+          "prose": 261,
+          "compact": 665
+        },
+        "optimized_cli_recipe_chars": 345,
+        "optimized_cli_roster": ["voice", "sampler_classic"],
+        "optimized_cli_context_traditions": ["chill_abstract_hip_hop", "cloud_rap", "dream_plugg"],
+        "unique_lane_rich_bodies": 5,
+        "unrelated_named_cultural_prefaces": 0,
+        "artist_name_leaks": 0,
+        "issues": [],
+        "semantic_refinement": "The first split sampled-drum/sampler model produced micro-stuttering drums and bewildering samples. Registry-only warm, soft, low-projection, meditative and swung descriptors fit the selected relaxed passage. A single layered sampler chair is a faithful compact representation of the source\u2019s producer beat bed; it avoids prescribing an extra independent drum-machine role. Final output is relaxed voice and content sampler, retaining narrow vocal texture and layered rolled-off samples. No engine or vocabulary changes."
+      }
+    },
+    {
+      "id": "trap_soul",
+      "source_label": "trap soul",
+      "every_noise_url": "https://everynoise.com/engenremap-trapsoul.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://cdn-p.smehost.net/sites/8e1f40b762984a27a20f577d99b7ac97/wp-content/uploads/2022/07/Bryson-Tiller_Trapsoul-Deluxe-and-Right-My-Wrongs-Video-PR_September-25-2020.pdf",
+          "title": "Bryson Tiller Drops T R A P S O U L (Deluxe) \u2014 RCA (2020)",
+          "kind": "label release announcement",
+          "support_notes": "Confirms 2015 debut, identifies trapsoul tracks as rooted in hip-hop and R&B and lists Don\u2019t, Exchange and Right My Wrongs in the original repertoire."
+        },
+        {
+          "url": "https://www.gq.com/story/bryson-tiller-the-new-surprise-hero-of-r-b",
+          "title": "Meet Bryson Tiller, the New Surprise Hero of R&B (2016)",
+          "kind": "firsthand artist interview",
+          "support_notes": "Documents Louisville, singing plus his own rhymes, R&B learning history and Tiller\u2019s intent to keep the debut simpler with no guest features. Does not document the authored electronic instrument models."
+        },
+        {
+          "url": "https://www.sonymusic.ca/press_release/bryson-tiller-releases-new-track-its-ok",
+          "title": "Bryson Tiller Releases New Track It\u2019s OK \u2014 Sony Music (2026)",
+          "kind": "label biography and release announcement",
+          "support_notes": "Bio names Louisville and describes T R A P S O U L as helping define modern trap R&B; newer single\u2019s production credits are not assigned to the earlier exemplars."
+        }
+      ],
+      "neighbor_distinction": "Narrows contemporary R&B toward sparse trap-derived rhythm and bass while preserving sung melodic foreground. Distinct from dark_trap\u2019s low spoken lead and from a generic melodic rap hook; selects a sung passage within a hybrid repertoire.",
+      "authored_numeric_and_recording_model": "Soft mix-register breath-admixed singing, legato pitch slides, subtle authored retuning and unison doubling above long 808-style bass and a sine-derived sustained pad. All exact pins, plate ambience, digital chain and axes are authored, not session facts.",
+      "geo_rationale": "Louisville is named by the early firsthand interview and the label biography. It anchors the chosen performer\u2019s formative practice, not an exclusive trap-soul birthplace or actual recording address.",
+      "signature_tokens": ["half-sung", "melodic", "intimate", "sub-bass", "sparse", "soft-onset"],
+      "validation": {
+        "checked": true,
+        "reference_validation": "PASS \u2014 scripts/validate.js, 2618 traditions; all references resolve",
+        "baseline_preservation": "PASS \u2014 all 2613 baseline definitions, paired extras and baseline geographic rows deep-equal the snapshot",
+        "connector_browser_parity": "PASS \u2014 exact actual loadApp import/compile and connector seed/render strings across rich, tags, prose and compact, with trial lane signatures installed",
+        "authored_pin_checks_per_surface": 23,
+        "format_lengths": {
+          "rich": 998,
+          "tags": 992,
+          "prose": 292,
+          "compact": 392
+        },
+        "optimized_cli_recipe_chars": 427,
+        "optimized_cli_roster": ["voice", "drum_machine_808", "analog_synth"],
+        "optimized_cli_context_traditions": ["trap_soul", "dark_trap", "cloud_rap"],
+        "unique_lane_rich_bodies": 5,
+        "unrelated_named_cultural_prefaces": 0,
+        "artist_name_leaks": 0,
+        "issues": [],
+        "semantic_refinement": "The historical crooner variant introduced an unrelated mid-century descriptor. An authored breath-admixed quality preserves intimate restrained contemporary singing without that period claim."
+      }
+    },
+    {
+      "id": "uk_alternative_hip_hop",
+      "source_label": "uk alternative hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-ukalternativehiphop.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.thelineofbestfit.com/features/longread/little-simz-tackling-lifes-grey-areas-interview",
+          "title": "Little Simz is tackling life\u2019s grey areas (2019)",
+          "kind": "firsthand artist interview",
+          "support_notes": "Simz describes wanting to experiment, the collaboration with London producer Inflo, session musicians and her guitar/bass/drum practice; supports the selected live-band reduction and London context."
+        },
+        {
+          "url": "https://www.thelineofbestfit.com/features/longread/little-simz-the-evolution-of-a-boss-in-a-fucking-dress",
+          "title": "The evolution of a boss in a fucking dress (2019)",
+          "kind": "firsthand artist interview",
+          "support_notes": "Simz says she wanted real live music and explains the extensive live-played presence on GREY Area, mentioning The Roots as an influence. Does not claim that every track uses this exact four-chair roster."
+        }
+      ],
+      "neighbor_distinction": "Selects the London live-band strand of UK alternative rap, versus the broad first-batch alternative_hip_hop\u2019s De La Soul sample-collage strand. Does not equate all UK hip-hop with alternative rap or require grime/drill electronic rhythms.",
+      "authored_numeric_and_recording_model": "Projected narrative MC, locked flatwound bass, clipped clean single-coil guitar and coated live-kit backbeat. This ensemble reduces a source-supported live-instrument collaboration; hardware, materials, chain and thirteen axes remain authored.",
+      "geo_rationale": "London producer Inflo and Little Simz\u2019s local collaboration and interview setting support this practice anchor. It is neither an exclusive UK-genre birthplace nor an asserted studio address.",
+      "signature_tokens": [
+        "funk-derived",
+        "dance-rhythm",
+        "swung",
+        "dance-driving",
+        "controlled",
+        "rhythmic-speech",
+        "live-ensemble",
+        "low-mid-rich",
+        "backbeat",
+        "dry",
+        "focused",
+        "present",
+        "clean",
+        "tight-articulation",
+        "clean-articulation-low-blur"
+      ],
+      "validation": {
+        "checked": true,
+        "reference_validation": "PASS \u2014 scripts/validate.js, 2618 traditions; all references resolve",
+        "baseline_preservation": "PASS \u2014 all 2613 baseline definitions, paired extras and baseline geographic rows deep-equal the snapshot",
+        "connector_browser_parity": "PASS \u2014 exact actual loadApp import/compile and connector seed/render strings across rich, tags, prose and compact, with trial lane signatures installed",
+        "authored_pin_checks_per_surface": 27,
+        "format_lengths": {
+          "rich": 994,
+          "tags": 994,
+          "prose": 338,
+          "compact": 428
+        },
+        "optimized_cli_recipe_chars": 562,
+        "optimized_cli_roster": [
+          "voice",
+          "electric_bass",
+          "electric_guitar_single_coil",
+          "drum_kit"
+        ],
+        "optimized_cli_context_traditions": [
+          "uk_alternative_hip_hop",
+          "contemporary_rb_late_90s_2000s",
+          "doo_wop"
+        ],
+        "unique_lane_rich_bodies": 5,
+        "unrelated_named_cultural_prefaces": 0,
+        "artist_name_leaks": 0,
+        "issues": [],
+        "semantic_refinement": "Initial neutral performance signature allowed samul-percussive electric-bass and an unnecessarily dark kit adjective. Source-fitting funk/backbeat, focused articulation and clean recording descriptors yield focused bass, bodacious clipped guitar and clean kit without changing ensemble or bass pins."
+      }
+    }
+  ],
+  "validation_summary": {
+    "reference_integrity": "PASS",
+    "duplicate_gate": "PASS \u2014 0 unruled identity collisions; 1 known unresolved instrument label and 319 pre-existing advisory pairs",
+    "baseline_records_deep_equal": 2613,
+    "four_format_pairs": 20,
+    "applicable_pin_checks_per_surface": 112,
+    "cli_rosters_preserved": 5,
+    "all_recipe_lengths_at_most_1000": true,
+    "five_unique_rich_bodies": true,
+    "temporary_signature_scope": "The five ledger signature arrays were installed only for trial builds and actual surface validation. Signature JSON and src/app.js are restored before this source-only commit; root owns final integrated signature publication."
+  }
+}

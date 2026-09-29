@@ -5,7 +5,7 @@
   "lineage": "Black-metal and speed/thrash-metal intersection represented by the Scottish solo recording project Hellripper, whose own account identifies black/speed metal and documents DIY recording of Coagulating Darkness in 2016-2017. Fast riffs, active lead guitar and harsh vocal attack retain the forward motion and compact song orientation of speed metal. The modern chain below is a reproducible authored model, not the equipment of that session.",
   "recipe": "classic 2016-2017 black speed metal, distorted Rock, thrash branch, black metal, punk distorted rock atmospheric black metal. thick, worn fold, interlocked note trading, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany stainless steel roundwound electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
   "recipe_chars": 650,
-  "score": 136.79,
+  "score": 136.865,
   "config": {
     "traditions": [
       "black_speed_metal",
@@ -35,7 +35,7 @@
           "amp_make": 21.644999999999992,
           "body_wood": 1.04,
           "neck_wood": 1.235,
-          "fretboard": 2.3449999999999998,
+          "fretboard": 2.3,
           "pickup_magnet": 0,
           "pickup_winding": 1,
           "string_material": 1.235,
@@ -43,7 +43,7 @@
           "scale_length": 1.04,
           "string_gauge": 2.73,
           "finish": 0.39,
-          "string_tuning": 0.8025
+          "string_tuning": 0.8475
         }
       },
       {
@@ -64,7 +64,7 @@
           "string_type": 2.535,
           "scale_length_b": 0.5025,
           "fretted_or_not": 0.3,
-          "bass_technique": 17.79
+          "bass_technique": 17.835
         }
       },
       {
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.875,
+          "drum_technique": 13.965,
           "drumhead": 1.04,
           "drum_kit_kick_pedal": 0
         }
@@ -107,16 +107,16 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 11.634999999999996,
-          "voice_microtone": 13.624999999999996,
-          "voice_tradition": 3.665,
+          "voice_microtone": 13.669999999999996,
+          "voice_tradition": 3.62,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.6899999999999997,
+          "voice_speech_song": 1.5399999999999998,
           "voice_ensemble_config": 2.6649999999999996,
-          "voice_ornament_system": 0,
+          "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0.195,
           "voice_processing_chain": 0.12999999999999998,
-          "voice_multitrack_stack": 1.255
+          "voice_multitrack_stack": 1.2999999999999998
         }
       }
     ],

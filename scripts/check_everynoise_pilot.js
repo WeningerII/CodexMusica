@@ -6,7 +6,19 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const C = require('./_loader.js');
-const manifest = require('../docs/everynoise-pilot.json');
+const docs = path.join(__dirname, '..', 'docs');
+const manifestFiles = [
+  'everynoise-pilot.json',
+  ...fs
+    .readdirSync(docs)
+    .filter((name) => /^everynoise-batch-\d+\.json$/.test(name))
+    .sort(),
+];
+const manifests = manifestFiles.map((name) =>
+  JSON.parse(fs.readFileSync(path.join(docs, name), 'utf8'))
+);
+const signatures = require('../references/_tradition_signatures.json');
+const vocabulary = require('../references/_soundword_vocab.json').tokens;
 const geo = require('../data/geo.json');
 const { validateEntry } = require('./_atlas_regions.js');
 const { seedFromTradition, search } = require('./search.js');
@@ -15,23 +27,51 @@ const { loadApp } = require('./_load_app.js');
 const app = loadApp();
 const traditions = new Map(C.TRADITIONS.map((t) => [t.id, t]));
 const instruments = new Map(C.INSTRUMENTS.map((i) => [i.id, i]));
-const rows = manifest.entries;
-assert.equal(rows.length, 25);
-assert.equal(new Set(rows.map((e) => e.id)).size, 25);
-const lanes = new Set(rows.map((e) => e.lane));
-assert.equal(lanes.size, 5);
-for (const lane of lanes) assert.equal(rows.filter((e) => e.lane === lane).length, 5);
+for (const manifest of manifests) {
+  assert.equal(manifest.batch_size, 25);
+  assert.equal(manifest.parallel_lanes, 5);
+  assert.equal(manifest.genres_per_lane, 5);
+  assert.equal(manifest.entries.length, 25);
+  const lanes = new Set(manifest.entries.map((entry) => entry.lane));
+  assert.equal(lanes.size, 5);
+  for (const lane of lanes)
+    assert.equal(manifest.entries.filter((entry) => entry.lane === lane).length, 5);
+}
+const rows = manifests.flatMap((manifest) => manifest.entries);
+assert.equal(new Set(rows.map((entry) => entry.id)).size, rows.length);
+assert.equal(new Set(rows.map((entry) => entry.source_label)).size, rows.length);
+const ledgers = new Map();
 let renders = 0;
 const recipes = new Set();
 for (const entry of rows) {
   const { id } = entry;
   assert.equal(entry.baseline_status, 'missing');
   assert(entry.source_url.startsWith('https://everynoise.com/'));
-  const ledger = JSON.parse(fs.readFileSync(path.join(__dirname, '..', entry.ledger), 'utf8'));
-  assert(
-    ledger.entries.some((e) => e.id === id),
-    `${id}: source ledger entry missing`
-  );
+  if (!ledgers.has(entry.ledger))
+    ledgers.set(
+      entry.ledger,
+      JSON.parse(fs.readFileSync(path.join(__dirname, '..', entry.ledger), 'utf8'))
+    );
+  const ledger = ledgers.get(entry.ledger);
+  const evidence = ledger.entries.find((row) => row.id === id);
+  assert(evidence, `${id}: source ledger entry missing`);
+  assert.equal(evidence.source_label, entry.source_label);
+  if (evidence.comparison_status !== undefined) assert.equal(evidence.comparison_status, 'missing');
+  if (entry.ledger.startsWith('docs/everynoise-batch-')) {
+    assert.equal(evidence.comparison_status, 'missing');
+    assert(evidence.sources.length > 0, `${id}: no supporting sources`);
+    for (const source of evidence.sources) {
+      assert.equal(new URL(source.url).protocol, 'https:');
+      assert(source.title && source.support_notes, `${id}: incomplete source evidence`);
+    }
+    assert(evidence.signature_tokens.length > 0, `${id}: no reviewed signature`);
+    assert.deepEqual(signatures[id], evidence.signature_tokens, `${id}: signature ledger drift`);
+    for (const token of evidence.signature_tokens)
+      assert(
+        ['sonic', 'style'].includes(vocabulary[token]?.class),
+        `${id}: unclassified or unreviewed cultural signature ${token}`
+      );
+  }
   const tradition = traditions.get(id);
   assert(tradition && tradition.pin_parts, `${id}: missing pinned definition`);
   assert(Object.keys(tradition.parts || {}).length, `${id}: missing authored part settings`);
@@ -81,7 +121,7 @@ for (const entry of rows) {
     );
     assert(recipe.length > 0 && recipe.length <= 1000, `${id}/${format}: recipe ceiling`);
     // These automatic matches appeared during authoring but their named
-    // cultural practices are unsupported by every pilot entry's sources.
+    // cultural practices are unsupported by the batch entries' sources.
     assert(
       !/samul-percussive|kora-cascading|\berhuang\b/i.test(recipe),
       `${id}/${format}: unrelated cultural preface`
@@ -103,5 +143,5 @@ for (const entry of rows) {
   }
 }
 console.log(
-  `EVERYNOISE PILOT: PASS — 5 lanes, 25 genres, ${renders} browser/connector renders; CLI pins retained.`
+  `EVERYNOISE BATCHES: PASS — ${manifests.length} batches, ${rows.length} genres, ${renders} browser/connector renders; CLI pins retained.`
 );

@@ -5,7 +5,7 @@
   "lineage": "Gothenburg Swedish melodic death metal canon that emerged in the early 1990s — codified at Studio Fredman (Fredrik Nordström producer-engineer) through In Flames (The Jester Race 1996, Whoracle 1997), Dark Tranquillity (The Gallery 1995), At the Gates (Slaughter of the Soul 1995, the post-Heartwork melodic death recording), Soilwork; characterized by twin-guitar harmony NWOBHM-influenced melodic leads over death metal rhythm-section foundation, growled vocals retained from death metal but with cleaner production aesthetic",
   "recipe": "classic Northern European 1990-1993 melodic death metal, distorted Rock, death branch, power metal neoclassical metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 704,
-  "score": 362.632,
+  "score": 365.565,
   "config": {
     "traditions": [
       "melodic_death_metal",
@@ -31,17 +31,17 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 44.7285,
+          "electric_technique": 45.229499999999994,
           "amp_make": 17.419999999999995,
           "body_wood": 17.03,
-          "neck_wood": 0.7769999999999999,
+          "neck_wood": 0.8714999999999999,
           "fretboard": 0.65,
           "pickup_magnet": 1.4949999999999999,
           "pickup_winding": 0.45499999999999996,
           "string_material": 0.39,
           "bridge": 1.105,
           "scale_length": 17.42,
-          "string_gauge": 0.8009999999999998,
+          "string_gauge": 1.3125,
           "finish": 0.3,
           "string_tuning": 30.68
         }
@@ -53,18 +53,18 @@
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
           "amp_make": 9.75,
-          "body_wood": 1.554,
+          "body_wood": 1.743,
           "pickup_config": 0.65,
-          "string_type": 19.410500000000006,
-          "scale_length_b": 0.7769999999999999,
-          "fretted_or_not": 0.041999999999999996,
-          "bass_technique": 17.679000000000002
+          "string_type": 19.808000000000003,
+          "scale_length_b": 1.0604999999999998,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 17.691
         }
       },
       {
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.644500000000004,
-          "drumhead": 1.0365,
+          "drum_technique": 15.625000000000004,
+          "drumhead": 1.0679999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -102,21 +102,21 @@
         },
         "scores": {
           "voice_register": 18.750999999999998,
-          "voice_quality": 10.479499999999996,
+          "voice_quality": 10.594999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.492499999999998,
+          "voice_vibrato": 9.562999999999997,
           "voice_articulation": 11.439999999999996,
-          "voice_microtone": 15.83,
+          "voice_microtone": 15.892999999999999,
           "voice_tradition": 3.835,
-          "voice_mechanism_compound": 41.112,
-          "voice_estill_quality": 4.242,
+          "voice_mechanism_compound": 41.581500000000005,
+          "voice_estill_quality": 4.203,
           "voice_speech_song": 13.259999999999994,
           "voice_ensemble_config": 12.999999999999993,
           "voice_ornament_system": 1.5250000000000001,
-          "voice_pitch_organization": 6.082500000000001,
+          "voice_pitch_organization": 6.067500000000001,
           "voice_processing_chain": 5.590000000000001,
-          "voice_multitrack_stack": 9.959999999999999
+          "voice_multitrack_stack": 10.237499999999999
         }
       }
     ],

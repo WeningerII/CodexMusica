@@ -3,14 +3,14 @@
   "name": "G-house",
   "family": "electronic",
   "lineage": "Early-2010s G-house associated with Marseille duo Amine Edge & DANCE and their CUFF network; their hip-hop and R&B backgrounds shaped a heavy-bass house groove and fragmentary rap attitude, disseminated through online tracks and international club sets.",
-  "recipe": "classic 2010-2013 g-house, electronic Dance, house branch, us hip hop gangsta, deep house house. sub bass analog mono synth, drum machine analog, sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 374,
-  "score": 75.245,
+  "recipe": "classic 2010-2013 g-house, electronic Dance, house branch, us hip hop gangsta, deep house house deep disco house. sub bass analog mono synth, drum machine analog, sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 391,
+  "score": 74.786,
   "config": {
     "traditions": [
       "g_house",
       "gangsta_rap",
-      "deep_house_soulful"
+      "deep_disco_house"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "electronic_technique": 11.5525,
-          "mono_oscillator": 0.845,
-          "mono_filter": 1.8850000000000002,
+          "electronic_technique": 11.6215,
+          "mono_oscillator": 0.195,
+          "mono_filter": 1.04,
           "mono_archetypes": 0.195,
-          "mono_maker_lineage": -1.12
+          "mono_maker_lineage": -1.225
         }
       },
       {
@@ -41,7 +41,7 @@
         "scores": {
           "kick_voice": 3.7049999999999996,
           "snare_voice": 0,
-          "hat_voice": 0.1365,
+          "hat_voice": 0,
           "shuffle_quantize": 0
         }
       },
@@ -55,11 +55,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 6.550000000000001,
+          "electronic_technique": 6.595000000000001,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.2265,
-          "sampler_workflow": 0.2,
-          "sampler_classic_context": 52.869
+          "sampler_bit_depth": 0.09,
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 52.15949999999999
         }
       }
     ],

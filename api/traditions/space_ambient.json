@@ -1,0 +1,107 @@
+{
+  "id": "space_ambient",
+  "name": "Space ambient",
+  "family": "electronic",
+  "lineage": "Beatless spatial electronic ambient, represented here by Steve Roach’s long-form steady-state Immersion work. Sustained polyphonic tones, slow timbral change and deep artificial space make duration and immersion more prominent than melody or sequence. This entry models the non-pulsed branch; space-oriented music also includes more rhythmic or dramatic forms that are not its default.",
+  "recipe": "classic modern space ambient, experimental Elec, ambient branch, modal electric drone modal, retro aesthetic experimental electric dreampunk. sustained pad analog sustained pad wavetable synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter true-stereo reverb hall reverb.",
+  "recipe_chars": 428,
+  "score": 35.56,
+  "config": {
+    "traditions": [
+      "space_ambient",
+      "dreampunk"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "sustain_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 14.525,
+          "oscillator": 0.7649999999999999,
+          "filter_topology": 0.78,
+          "envelope": 0.045,
+          "modulation": 0.135
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_analog_emul",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": 14.525,
+          "wt_position": 3.6399999999999997,
+          "wt_family": 0.195,
+          "wt_polyphony": 0
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "wavetable_synth": [
+        "electronic_technique",
+        "wt_position",
+        "wt_family",
+        "wt_polyphony"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_true_stereo_reverb",
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "oscillator": "sine_osc",
+      "filter_topology": "transistor_ladder",
+      "envelope": "sustain_env",
+      "modulation": "no_mod",
+      "wt_position": "wt_morphing",
+      "wt_family": "wt_analog_emul",
+      "wt_polyphony": "wt_poly"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "fx_true_stereo_reverb",
+      "hall_reverb"
+    ]
+  }
+}

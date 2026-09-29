@@ -1,0 +1,129 @@
+{
+  "id": "organic_house",
+  "name": "Organic house",
+  "family": "electronic",
+  "lineage": "International emotive house network represented by All Day I Dream, Lee Burridge, Lost Desert and Pippi Ciez. Understated pulse, detailed melodic textures and hand-played or hand-like percussion support gradual development; organic here describes an aesthetic that can use substantial synthesis.",
+  "recipe": "classic modern organic house, electronic Dance, deep house branch, continental electronic dance nu disco latin house. analog poly synth, sampler drum machine, looped layered sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter true-stereo reverb.",
+  "recipe_chars": 395,
+  "score": 65.311,
+  "config": {
+    "traditions": [
+      "organic_house",
+      "nu_disco",
+      "latin_house_percussion"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "poly_archetypes": 0.4215,
+          "poly_voices": 0.4215,
+          "poly_maker_lineage": -1.085
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 0.9099999999999999,
+          "sample_bitdepth": 0.135,
+          "sample_swing": 0.40800000000000003,
+          "sample_processing": 0.845
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "maschine_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.9099999999999999,
+          "sampler_archetypes": 0.195,
+          "sampler_bit_depth": 0.195,
+          "sampler_workflow": 1.4649999999999999,
+          "sampler_classic_context": 61.42499999999999
+        }
+      }
+    ],
+    "pinned": {
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_optical",
+      "eq": "eq_tilt",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay",
+      "fx_true_stereo_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "poly_archetypes": "jupiter_8",
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "pitched_kick",
+      "sampler_archetypes": "maschine_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "poly_maker_lineage": "poly_roland_jupiter",
+      "poly_voices": "poly_8_voice"
+    },
+    "pin_parts": true,
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_optical",
+    "chain_eq": "eq_tilt",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay",
+      "fx_true_stereo_reverb"
+    ]
+  }
+}

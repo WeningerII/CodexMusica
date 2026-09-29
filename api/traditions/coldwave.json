@@ -5,7 +5,7 @@
   "lineage": "French and Belgian post-punk offshoot of 1979-1985 centred on Paris and Lille labels such as Sordide Sentimental and L'Invitation au Suicide, marked by mid-tempo 100-120 BPM programmed or minimal drum-machine beats, chorused flanged treble guitar, high melodic bass lines carrying the tune, monophonic analogue synth pads, and deadpan low-register French vocals recorded in small DIY studios.",
   "recipe": "classic Western European mid-1980s coldwave, distorted Rock, gothic rock branch, pop rock synthpop, punk distorted rock metropopolis shiver pop. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, drum machine analog, singing lead analog mono synth. intimate paris small studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 573,
-  "score": 347.675,
+  "score": 347,
   "config": {
     "traditions": [
       "coldwave",
@@ -60,7 +60,7 @@
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
+          "pickup_magnet": "alnico_2",
           "string_material": "pure_nickel",
           "string_gauge": "g_11",
           "bridge": "two_point_trem",
@@ -74,8 +74,8 @@
           "body_wood": 2.585,
           "neck_wood": 2.585,
           "fretboard": 2.535,
-          "pickup_magnet": 1.09,
-          "string_material": 1.09,
+          "pickup_magnet": 1,
+          "string_material": 1.045,
           "string_gauge": 2.54,
           "bridge": 1.24,
           "scale_length": 2.795,
@@ -98,7 +98,7 @@
           "amp_make": 16.185000000000002,
           "body_wood": 2.795,
           "pickup_config": 1.04,
-          "string_type": 26.150000000000006,
+          "string_type": 25.610000000000003,
           "scale_length_b": 2.39,
           "fretted_or_not": 0.65,
           "bass_technique": 28.390000000000004

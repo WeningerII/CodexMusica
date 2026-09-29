@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 2613,
+  "count": 2638,
   "items": [
     {
       "id": "honky_tonk",
@@ -106565,6 +106565,915 @@
       ],
       "crossRefs": [
         "functionalSong.eastAsianPop"
+      ]
+    },
+    {
+      "id": "ambient_idm",
+      "name": "Ambient IDM",
+      "family": "electronic",
+      "lineage": "The atmospheric, lower-intensity branch of listening-oriented IDM, represented here by Arovane’s Tides (2000): intricate sample-built rhythm, environmental recordings and edited guitar fragments arranged around quiet melodic space. Later Arovane/Porya Hatami collaborations extend the electronics/environmental-sound intersection. This is a selected calm, broken-beat branch rather than all IDM or all Arovane releases.",
+      "parent": "experimentalElec.idmGlitch",
+      "axes": [
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        0,
+        -1,
+        2,
+        -2,
+        -2,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "sampler_classic",
+        "analog_synth",
+        "electric_guitar_single_coil"
+      ],
+      "description": "Ambient IDM retains carefully edited rhythmic events while giving atmospheric harmony and negative space more weight than percussion. Arovane’s Tides supplies a concrete sample-based branch: small jazz-record fragments, field recordings and edited improvised guitar coexist with downbeat grooves. The default uses one sampler for detailed beat/texture editing, a gently moving pad and clean guitar fragments; this is a reusable reduction rather than the album’s complete instrument inventory. Compared with IDM, percussion and intensity recede; compared with ambient techno, broken-beat detail replaces a regular techno machine pulse. Unlike beatless space ambient, discrete rhythmic edits remain audible. Synth construction and recording equipment are authored choices.",
+      "exemplars": [
+        "Arovane — Tides (2000)",
+        "Arovane & Porya Hatami — Organism (2017)"
+      ],
+      "crossRefs": [
+        "experimentalElec.ambient",
+        "experimentalElec.musiqueConcrete"
+      ]
+    },
+    {
+      "id": "ambient_fusion",
+      "name": "Ambient fusion",
+      "family": "jazz",
+      "lineage": "Ambient-oriented electric improvisation and studio montage, represented by Jon Hassell and Maarifa Street’s Last Night the Moon Came Dropping Its Clothes in the Street (2009). Trumpet, bass, violin and live sampling dissolve the boundary between ensemble performance and electronic soundscape. Hassell’s Fourth World practice is a formative branch of this wider jazz/electronic intersection, not a synonym for every ambient-fusion recording.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        2,
+        2,
+        -1,
+        -2,
+        -1,
+        -1,
+        -1
+      ],
+      "instruments": [
+        "trumpet",
+        "electric_bass",
+        "violin_orchestral",
+        "sampler_classic"
+      ],
+      "description": "Ambient fusion places improvised instrumental gestures inside a continuously reworked electronic environment. The selected Hassell/Maarifa Street branch keeps a breath-led trumpet, subdued electric bass, bowed violin and live-sampling layer, with motifs overlapping instead of a solo succession over a driving rock backline. The credited 2009 album combines studio material, live recordings and subsequent montage; this reduced ensemble captures that practice without reproducing every credit. Unlike conventional jazz fusion, percussion and virtuosic attack are secondary; unlike ambient IDM, live melodic improvisation is central. The trumpet articulation, fretless setup and spatial chain are proposed defaults, not documented artist equipment.",
+      "exemplars": [
+        "Jon Hassell — Last Night the Moon Came Dropping Its Clothes in the Street (2009)"
+      ],
+      "crossRefs": [
+        "improvOnFrame.americanJazz.fusion",
+        "experimentalElec.musiqueConcrete"
+      ]
+    },
+    {
+      "id": "ambient_psychill",
+      "name": "Ambient psychill",
+      "family": "electronic",
+      "lineage": "The spacious, predominantly instrumental synthesizer branch of psychedelic chillout represented by Carbon Based Lifeforms’ Hydroponic Garden (2003) and World of Sleepers (2006), on Ultimae. Slow electronic rhythms, resonant bass, environmental samples and layered harmony sustain an ambient listening space. This narrower branch does not stand for the entire psychill festival repertoire or presume its acoustic-instrument and vocal collage.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        1,
+        0,
+        0,
+        -1,
+        2,
+        -2,
+        -2,
+        -1,
+        -1,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "monosynth_acid_bass",
+        "sampler_drum_machine",
+        "sampler_classic"
+      ],
+      "description": "Ambient psychill selects the unhurried, spacious electronic end of psychedelic chillout: slowly developing pads and melodic bass carry the track while programmed percussion stays recessed and environmental samples add depth. Carbon Based Lifeforms’ credited Ultimae albums and firsthand account of melody/bass relationships, added drums and field-recording practice anchor this model. The roster deliberately omits generic flute, didgeridoo and sung-vocal defaults from the broader psychill entry. Compared with ambient IDM, its underlying loop is more stable and its bass/filter motion less chopped; compared with space ambient, it retains a quiet beat and resonant bass sequence. It is a narrower ambient branch of existing psychill, with an authored synth/sampler configuration.",
+      "exemplars": [
+        "Carbon Based Lifeforms — Hydroponic Garden (2003)",
+        "Carbon Based Lifeforms — World of Sleepers (2006)"
+      ],
+      "crossRefs": [
+        "electronicDance.trance",
+        "experimentalElec.idmGlitch"
+      ]
+    },
+    {
+      "id": "ambient_synth",
+      "name": "Ambient synth",
+      "family": "electronic",
+      "lineage": "Synthesizer-led ambient in which articulated patterns and changing electronic timbres remain recognizable, represented by Steve Hauschildt’s solo work around Strands (2016). A harmonic bed can give rise to arpeggios and aleatoric sequences, then be shaped through processing and editing. This selected pattern-oriented branch differs from beatless, steady-state space ambient and from the historically specific Berlin School.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        0,
+        1,
+        2,
+        -1,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "analog_synth",
+        "fm_synth"
+      ],
+      "description": "Ambient synth centers the synthesizer as a played or programmed sound source: slowly changing harmony, gently articulated figures and interacting electronic voices create the space without requiring drums or acoustic instruments. The selected Hauschildt branch combines arpeggiated motion with flexible timing and detailed processing, rather than treating every synth part as an undifferentiated drone. The default pairs a soft short-envelope triangle figure with harmonic FM tones; these are authored ways to achieve the sourced practice, not claims about Strands’ instruments. Unlike space ambient, repeated note attacks remain a compositional foreground; unlike Berlin School, neither a 1970s tape ensemble nor a fixed ostinato defines the scope.",
+      "exemplars": [
+        "Steve Hauschildt — Strands (2016)",
+        "Steve Hauschildt — Where All Is Fled (2015)"
+      ],
+      "crossRefs": [
+        "experimentalElec.idmGlitch",
+        "experimentalElec.retroAesthetic"
+      ]
+    },
+    {
+      "id": "space_ambient",
+      "name": "Space ambient",
+      "family": "electronic",
+      "lineage": "Beatless spatial electronic ambient, represented here by Steve Roach’s long-form steady-state Immersion work. Sustained polyphonic tones, slow timbral change and deep artificial space make duration and immersion more prominent than melody or sequence. This entry models the non-pulsed branch; space-oriented music also includes more rhythmic or dramatic forms that are not its default.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -2,
+        -1,
+        -2,
+        -2,
+        -1,
+        0,
+        0,
+        2,
+        -2,
+        -2,
+        -2,
+        -2,
+        -2
+      ],
+      "instruments": [
+        "analog_synth",
+        "wavetable_synth"
+      ],
+      "description": "Space ambient is represented by a beatless, sustained-tone branch of space music, with slow changes in register and spectral color creating an enveloping field rather than a foreground beat or a repeating note sequence. Projekt’s Immersion: One release describes a continuous, minimal steady-state zone designed for extended low-volume listening; Roach’s firsthand synthesis account supports held chords and electronic sound construction. The default uses a stable sine tone and slowly morphing polyphonic wavetable layer with deep stereo reverberation. Unlike ambient synth’s articulated pattern branch, note attacks recede; unlike new age, a melodic tune or acoustic ensemble is not required. The modern two-synth chain is an authored reusable model.",
+      "exemplars": [
+        "Steve Roach — Immersion: One (2006)"
+      ],
+      "crossRefs": [
+        "droneModal.modalElectric",
+        "experimentalElec.retroAesthetic"
+      ]
+    },
+    {
+      "id": "detroit_house",
+      "name": "Detroit house",
+      "family": "electronic",
+      "lineage": "Detroit producer-led house associated with Theo Parrish, Moodymann and Sound Signature: disco and soul sampling, jazz-informed keyboard movement, elastic groove and independent record culture. This selection follows the sample-and-keyboard strand rather than equating all Detroit electronic music with techno.",
+      "parent": "electronicDance.house.deepHouse",
+      "axes": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        2,
+        0,
+        -1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "sampler_classic",
+        "rhodes_electric",
+        "sampler_drum_machine",
+        "analog_mono_synth"
+      ],
+      "description": "Selected Detroit sample-and-keyboard house: a swung programmed pulse supports soul/disco fragments, rounded synth bass and repeating jazz-informed electric-piano figures. Theo Parrish discusses sampling as musicianship and the relation between jazz, Chicago house and Detroit techno; his label records provide the concrete repertoire anchor. This does not prescribe a single sound for Detroit or classify his entire work as house. Unlike the Chicago-house seed, keyboard movement and elastic sample texture lead rather than an acid-bass template; unlike Detroit techno, soul/disco material and harmonic pocket outweigh mechanical synthesis. The small ensemble, equipment, bit depths and 13 axes are authored operational models, not inventories of Parallel Dimensions sessions.",
+      "exemplars": [
+        "Theo Parrish — Parallel Dimensions",
+        "Theo Parrish — Insane Asylum"
+      ],
+      "crossRefs": [
+        "electronicDance.house.chicagoHouse",
+        "electronicDance.techno",
+        "functionalSong.soulRb"
+      ]
+    },
+    {
+      "id": "piano_house",
+      "name": "Piano house",
+      "family": "electronic",
+      "lineage": "Transatlantic piano-led house vocabulary carried from 1990s club records into contemporary productions by Mark Knight, ATFC and Gene Farris: a recurring piano riff supplies the principal harmonic hook above kick, clap, offbeat hats and bass. This is an arrangement practice rather than the historical Italian Italo-house scene.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        -1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "grand_piano",
+        "sampler_drum_machine",
+        "analog_mono_synth",
+        "sampler_classic"
+      ],
+      "description": "Piano house names a piano-riff-led arrangement practice spanning early house, 1990s anthems and current club production. Toolroom documents Mark Knight’s reworking of a 1995 Mr Roy record with piano, chopped vocals, clap snares and offbeat hats; ATFC describes played piano arpeggios and chords in The Spirit of House. This selected contemporary instrumental-led model foregrounds a ringing piano figure against tightly programmed percussion, bass and sampled hook texture. The catalog’s Italo-house record specifically represents the late-1980s/early-1990s Italian production scene and diva-vocal lineage, whereas this entry covers a broader transatlantic technique and its later revival. The grand piano is an editable timbral equivalent for acoustic, sampled or keyboard piano sounds; its brand, tracking setup and numeric axes are authored choices.",
+      "exemplars": [
+        "Mark Knight vs Mr Roy — Something About U",
+        "ATFC and Gene Farris — The Spirit of House"
+      ],
+      "crossRefs": [
+        "electronicDance.house.garageHouseUS",
+        "electronicDance.house.italoHouse"
+      ]
+    },
+    {
+      "id": "organic_house",
+      "name": "Organic house",
+      "family": "electronic",
+      "lineage": "International emotive house network represented by All Day I Dream, Lee Burridge, Lost Desert and Pippi Ciez. Understated pulse, detailed melodic textures and hand-played or hand-like percussion support gradual development; organic here describes an aesthetic that can use substantial synthesis.",
+      "parent": "electronicDance.house.deepHouse",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        2,
+        -1,
+        -1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "sampler_classic"
+      ],
+      "description": "Selected All Day I Dream organic-house strand: detailed melodic sequences and layered textures develop over an understated groove, with percussion that feels played rather than merely rigid. Burridge identifies emotion as the label’s core and describes the organic-house name as a later category for music initially spread across genres. Lost Desert describes hybrid analog/software production; Pippi Ciez documents synth sequences and hand-played electronic percussion. Organic therefore does not require an acoustic-only ensemble or an invented ethnic-instrument palette. The three chairs model synthesis, hand-like sampled rhythm and looped textures; they are catalog equivalents, not the exact equipment on Melt. Compared with tropical house, extended instrumental development replaces a radio-pop vocal/drop template; compared with melodic house, the selected seed gives softer rhythmic weight and more intimate texture. Gear, room and axes remain authored.",
+      "exemplars": [
+        "Lee Burridge and Lost Desert — Melt (2019)",
+        "Pippi Ciez — Riziki EP"
+      ],
+      "crossRefs": [
+        "electronicDance.house",
+        "electronicDance.continental"
+      ]
+    },
+    {
+      "id": "speed_house",
+      "name": "Speed house",
+      "family": "electronic",
+      "lineage": "Late-2010s and 2020s international rave-house strand developed around Haus of Panda, Speed House Movement and CHYL, joining bass-house sound design with speed-garage and hard-house energy. Rapid club pulse and compact, forceful bass-led sections define this selected recipe.",
+      "parent": "electronicDance.house",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        -1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "wavetable_synth",
+        "sampler_drum_machine",
+        "sampler_classic"
+      ],
+      "description": "Speed house combines rapid house pulse with bass-house timbral movement and speed-garage/hard-house rave energy. Monstercat’s Haus of Panda biography identifies that hybrid explicitly, and CHYL’s biography documents fast, bass-heavy production; Ignite provides a credited collaborative release. This selected instrumental drop model uses a rigid layered drum grid, animated speech-like synthesized bass and short sampled cuts, commonly in the roughly 140–160 BPM zone. Tempo is a descriptive target rather than a parameter encoded by the 13-axis schema. Distinct from bass house through the rapid rave context, and from UK hard house through bass-music sound design rather than making Hoover stabs compulsory; speed garage retains its own swung garage rhythmic identity. Wavetable architecture, limiter and exact sample settings are authored defaults, not documented Ignite gear.",
+      "exemplars": [
+        "CHYL and Haus of Panda feat. MYLK — Ignite (2023)",
+        "CHYL — Fool Me"
+      ],
+      "crossRefs": [
+        "bassSystem",
+        "electronicDance.house.chicagoHouse"
+      ]
+    },
+    {
+      "id": "deep_disco_house",
+      "name": "Deep disco house",
+      "family": "electronic",
+      "lineage": "Disco-informed deep-house intersection represented by COEO and the Toy Tonics network: sample-based funk, soul and disco material joins a rounded bass pocket and chordal accompaniment. This selected strand uses the deeper harmonic groove rather than requiring the heavy filter-sweep arrangement of the broad disco-house record.",
+      "parent": "electronicDance.house.deepHouse",
+      "axes": [
+        2,
+        2,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0,
+        -1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "sampler_classic",
+        "electric_bass",
+        "rhodes_electric",
+        "drum_machine_analog"
+      ],
+      "description": "Selected disco-flavoured deep house within the COEO/Toy Tonics network: disco and funk sampling meets soulful chord movement, rounded bass and an elastic house pocket. The label describes COEO’s sample-based funk and its connection to deep-house charts, French touch and early Masters at Work; the artist’s Back In The Days release supplies repertoire and Munich practice context. This is an overlapping stylistic intersection rather than a separate birthplace claim. The broad disco-house record models filter sweeps, audible disco loops and strong pumping as the arrangement engine; this seed instead foregrounds bass pocket, chordal accompaniment and less forceful parallel dynamics. Unlike soulful deep house it need not put a sung gospel/soul lead at the front. Editable bass and Rhodes chairs reconstruct supported timbral roles without asserting live players on the exemplar; exact drum circuitry, parts and axes are authored.",
+      "exemplars": [
+        "COEO — Back In The Days (2016)",
+        "COEO — Flesh World (2017)"
+      ],
+      "crossRefs": [
+        "electronicDance.house",
+        "functionalSong.soulRb"
+      ]
+    },
+    {
+      "id": "experimental_hip_hop",
+      "name": "Experimental hip hop",
+      "family": "hip_hop",
+      "lineage": "Hip-hop organized around experimentation with sound, form and performance rather than one compulsory lyric style. The Seattle Shabazz Palaces strand, represented by Black Up and Lese Majesty, anchors this selected electronic studio model: fragmented sample layers, changing electronic textures and a foreground MC. It is a broad practice designation, not a synonym for associative lyric writing or a requirement for industrial abrasion.",
+      "parent": "mcRhythm.experimental",
+      "axes": [
+        0,
+        -1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "analog_poly_synth"
+      ],
+      "description": "Experimental hip hop tests the genre’s production and formal assumptions, encompassing many incompatible sounds. Shabazz Palaces supplies this selected Seattle electronic strand: independent MC phrasing within a fragmented, layered production and suite-oriented repertoire. The sampler and sustained polysynth are an authored compact realization, not a complete personnel list for Black Up or Lese Majesty. Unlike abstract_hip_hop, associative lyrics are not the defining requirement; unlike alternative_hip_hop, the emphasis is active sonic and formal experiment rather than the entire alternative category. Unlike glitch_hop this retains a foreground MC and does not prescribe a fixed bass-music groove, while industrial_hip_hop makes abrasive noise a central requirement. Sample workflow, polyphonic hardware, octave doubling and effects are authored choices.",
+      "exemplars": [
+        "Shabazz Palaces — Black Up (2011)",
+        "Shabazz Palaces — Lese Majesty (2014)"
+      ],
+      "crossRefs": [
+        "experimentalElec.idmGlitch",
+        "mcRhythm.usHipHop"
+      ]
+    },
+    {
+      "id": "industrial_hip_hop",
+      "name": "Industrial hip hop",
+      "family": "hip_hop",
+      "lineage": "Hip-hop intersecting industrial and noise practice through abrasive sound construction, processed found sound and beat-centered MC performance. clipping.’s Los Angeles CLPPNG strand anchors this model, particularly Work Work, whose musicians explain using field recordings of metal objects and broken cinder blocks in place of conventional drum samples. Industrial describes the sonic construction rather than a lyrical obligation or one mandatory rock backline.",
+      "parent": "mcRhythm.experimental",
+      "axes": [
+        -2,
+        -1,
+        -1,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Industrial hip hop gives abrasive noise, distorted processing and machine-like or found-sound percussion structural weight within rap. This selected clipping. model uses a foreground rapid MC with a sampler carrying metallic field-recording percussion and textural noise. Song Exploder’s Work Work breakdown documents the conversion of thermos taps, cinder blocks and a beer can into playable rhythmic material; the compact sampler chair represents this constructed accompaniment rather than an ordinary drum kit. It differs from abstract_hip_hop by its production criterion, from the broader experimental_hip_hop by requiring an abrasive industrial/noise emphasis, and from rap metal by not requiring guitar riffs or a rock drummer. Distortion, projection and multitrack response settings are creative approximations, not claims that every exemplar uses those exact effects.",
+      "exemplars": [
+        "clipping. — CLPPNG (2014)",
+        "clipping. / Cocc Pistol Cree — Work Work (2014)"
+      ],
+      "crossRefs": [
+        "experimentalElec.industrialNoise",
+        "mcRhythm.usHipHop.westCoast"
+      ]
+    },
+    {
+      "id": "chill_abstract_hip_hop",
+      "name": "Chill abstract hip hop",
+      "family": "hip_hop",
+      "lineage": "A restrained, hazy strand of abstract rap in which reflective associative MC writing remains foreground while the accompaniment and delivery soften. Chester Watson’s Project 0, particularly 40 Acres with Tufu, anchors this selected late-2010s model. The category is not instrumental study-beat music: its MC and verbal narrative remain essential to the selected practice.",
+      "parent": "mcRhythm.experimental",
+      "axes": [
+        0,
+        -1,
+        -1,
+        1,
+        -1,
+        0,
+        -1,
+        2,
+        -1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Chill abstract hip hop narrows abstract rap toward low-key delivery and a hazy, reflective accompaniment. Chester Watson’s Project 0 supplies a selected vocal-led reference: his interview describes meditation and reflection, while 40 Acres combines relaxed half-sung phrasing with Tufu’s warm head-nod beat. This authored configuration chooses minimally projected rhythmic speech, layered samples and a softly weighted swung sampled beat. It differs from abstract_hip_hop’s more articulated, densely woven MC model by restrained vocal effort and production space; it differs from lofi_hiphop’s mostly instrumental study/sleep default by making verbal imagery and a present MC indispensable. Digital distribution does not establish a cassette source: the narrow vocal texture, sampler settings and delay are creative choices. The model selects a subdued passage, not the emotional or sonic range of every track on Project 0.",
+      "exemplars": [
+        "Chester Watson — Project 0 (2018)",
+        "Chester Watson / Tufu — 40 Acres (2018)"
+      ],
+      "crossRefs": [
+        "experimentalElec.lofi",
+        "mcRhythm.usHipHop.modern"
+      ]
+    },
+    {
+      "id": "trap_soul",
+      "name": "Trap soul",
+      "family": "hip_hop",
+      "lineage": "Mid-2010s intersection of trap-influenced programmed production and R&B song delivery. Bryson Tiller’s Louisville-linked T R A P S O U L (2015) anchors this selected model, alternating melodic singing and speech-derived rhythmic phrasing over spare bass-heavy accompaniment. The genre is a musical intersection rather than every rapper’s use of a melodic hook.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        -1,
+        1,
+        2,
+        -1,
+        0,
+        -1,
+        2,
+        0,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "description": "Trap soul combines R&B lead-song sensibility and hip-hop phrasing with trap-derived bass and programmed rhythm. RCA explicitly frames Bryson Tiller’s T R A P S O U L as hip-hop/R&B, and his early interview emphasizes a stripped-down solo debut. This selected sung passage uses a restrained, close crooning lead above a long 808-derived bass pulse and sustained electronic accompaniment, with the melodic lead carrying more weight than ornamental backing. It differs from dark_trap’s ominous baritone spoken-rap default and from the broader rnb default by the sparse trap-derived bass/rhythm emphasis. Neither soul in the label nor Tiller’s vocal training implies a choir or live soul rhythm section. Subtle correction, unison doubling, sine oscillator and plate reverb are authored options rather than a transcript of the original sessions.",
+      "exemplars": [
+        "Bryson Tiller — T R A P S O U L (2015)",
+        "Bryson Tiller — Don’t (2014/2015)",
+        "Bryson Tiller — Exchange (2015)"
+      ],
+      "crossRefs": [
+        "mcRhythm.usHipHop.modern",
+        "mcRhythm.usHipHop.southern"
+      ]
+    },
+    {
+      "id": "uk_alternative_hip_hop",
+      "name": "UK alternative hip hop",
+      "family": "hip_hop",
+      "lineage": "British alternative rap encompassing individual departures from dominant beat and persona conventions. Little Simz and Inflo’s GREY Area (2019) anchors this selected London strand, emphasizing a live-played rhythm section and a direct personal MC rather than requiring grime or drill programming. Other UK alternative hip-hop recordings can be sample-based or electronic.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        -1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_bass",
+        "electric_guitar_single_coil",
+        "drum_kit"
+      ],
+      "description": "UK alternative hip hop situates broad alternative rap within British artist networks, without treating national identity as an instrument or vocal timbre. This selected London model follows Little Simz’s GREY Area collaboration with Inflo: her firsthand interviews describe experimentation, session musicians and mostly live-played accompaniment, with her own engagement in guitar, bass and drums. A direct narrative MC over locked bass, clipped clean guitar and live kit is an authored small-band reduction of that practice, not a complete track credit list. It differs from the catalog’s alternative_hip_hop sample-collage default and from UK drill or grime by choosing live-band groove rather than making either beat grammar compulsory. It is not synonymous with all British hip-hop. Guitar, wood, strings, microphone and compression settings are authored studio choices.",
+      "exemplars": [
+        "Little Simz — GREY Area (2019)",
+        "Little Simz — Offence (2018/2019)",
+        "Little Simz — Boss (2019)"
+      ],
+      "crossRefs": [
+        "mcRhythm.experimental",
+        "functionalSong.soulRb"
+      ]
+    },
+    {
+      "id": "avant_garde_black_metal",
+      "name": "Avant-garde black metal",
+      "family": "rock_punk",
+      "lineage": "Experimental black-metal practice represented by Norwegian Dødheimsgard, whose turn from raw black metal toward eclectic composition is documented by Peaceville. Black Medium Current (2023) extends the amplified core with reflective piano passages and contrasting atmospheres. This seed selects tremolo guitar and sustained piano against a rough solo vocal, modeling sectional contrast rather than the whole record’s changing ensemble.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        1,
+        0,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        -2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "grand_piano",
+        "voice"
+      ],
+      "description": "Avant-garde black metal retains a black-metal lineage while treating arrangement, texture and form as open compositional problems. Dødheimsgard’s Black Medium Current supplies the selected reference for a heavy guitar-band frame interrupted by reflective piano and contrasting passages. Tremolo guitar, picked bass, sticks, sustained piano and a rough voice form a compact authored reduction. Unlike the broad avant_metal_classic record, this entry starts specifically from black-metal practice; unlike atmospheric_black_metal, discontinuity and sectional contrast take priority over a continuous immersive wash. Piano is supported by the release description; no additional chamber or folk ensemble is inferred. The digital recording model and material selections are authored choices.",
+      "exemplars": [
+        "Dødheimsgard — Black Medium Current (2023)",
+        "Dødheimsgard — A Umbra Omega (2015)"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.avant",
+        "experimentalElec.ambient"
+      ]
+    },
+    {
+      "id": "dissonant_death_metal",
+      "name": "Dissonant death metal",
+      "family": "rock_punk",
+      "lineage": "Death-metal strand prioritizing abrasive harmonic friction and fractured rhythmic composition, represented by Gorguts’ Obscura (1998) and Colored Sands (2013). Season of Mist’s release accounts document dissonant guitar writing and unconventional rhythm/harmony, plus the guitar-vocal, second-guitar, bass and drum roster. The available palm-muted technique pin is an authored riff-attack reduction, not a transcription of the extended guitar vocabulary.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        -2,
+        -1,
+        0,
+        0,
+        2,
+        -1,
+        -2,
+        1,
+        2,
+        0,
+        2,
+        2,
+        -2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Dissonant death metal makes unstable harmonic relationships and fractured riff organization central rather than treating complexity as an instrumental athletic display. Gorguts’ Obscura and Colored Sands anchor this selection. The default reduces the documented guitar, bass, drums and vocal personnel to one editable guitar chair with palm-muted attack, a defined bass pulse and close rough voice. Unlike technical_death_metal, this model gives harmonic friction and through-built structure priority over ornamented fretboard display or jazz-fusion virtuosity. Unlike cavernous_death_metal, close articulation and shifting structures lead rather than reverberant decay. The catalog cannot encode each dissonant chord shape; the technique, tuning and modern chain are authored approximations.",
+      "exemplars": [
+        "Gorguts — Obscura (1998)",
+        "Gorguts — Colored Sands (2013)"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.avant",
+        "distortedRock.metal.prog"
+      ]
+    },
+    {
+      "id": "cavernous_death_metal",
+      "name": "Cavernous death metal",
+      "family": "rock_punk",
+      "lineage": "Spatially dense death-metal production and composition aesthetic represented here by Finnish Krypts’ Cadaver Circulation (2019). Dark Descent describes reverberant atmosphere, unsettling chords and deep harsh vocals, and gives guitar, drums, bass/vocal and in-house recording credits. The selected down-tuned chordal model pairs heavy decay with slow weight while retaining the death-metal band frame.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        -2,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Cavernous death metal foregrounds obscured depth, reverberant guitar mass and low harsh vocal weight within death-metal writing. Krypts’ Cadaver Circulation is the concrete reference: its label account explicitly combines reverb with unsettling chords and deep vocal sound, while Remnants of Expansion places blasting passages beside doom-weighted material. The authored band reduction selects low chordal guitar, saturated picked bass, stick percussion and a reverberant rough vocal. Unlike dissonant_death_metal, the priority is spatial decay and low-register mass rather than fractured attack; unlike generic doom, the source practice retains death-metal intensity and blast-capable passages. Neither throat-chanting technique nor precise studio hardware is inferred for the default.",
+      "exemplars": [
+        "Krypts — Cadaver Circulation (2019)",
+        "Krypts — Remnants of Expansion (2016)"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.doom"
+      ]
+    },
+    {
+      "id": "cosmic_black_metal",
+      "name": "Cosmic black metal",
+      "family": "rock_punk",
+      "lineage": "Cosmos-themed black-metal and electronic practice represented by anonymous Australian duo Mesarthim. Avantgarde explicitly tags the label cosmic black metal and describes their atmospheric-black-metal/trance fusion. Anthropic Bias / Departure supplies a concrete guitar, blast-beat and synthesizer account. The recipe models a synth-melodic black-metal passage rather than claiming astronomy itself specifies a musical technique.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        0,
+        2,
+        2,
+        -1,
+        -2,
+        2,
+        1,
+        -1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "drum_kit",
+        "analog_synth",
+        "voice"
+      ],
+      "description": "Cosmic black metal combines a black-metal frame with expansive electronic space and cosmic conceptual imagery. This selected Mesarthim model follows the label’s documented atmospheric-black-metal and trance intersection: tremolo guitar and a driven kit support arpeggiated synthesis and a distant rough vocal. The synth chair is a reusable equivalent, and the drum chair does not assert live drumming by this studio duo. Unlike atmospheric_black_metal’s stock guitar/bass/drums model, electronically voiced melodic motion is central; unlike ambient_black_metal’s drone-and-sampler passage, this selection retains prominent pulse and moving synth figures. Cosmic imagery alone is not treated as evidence of instruments, tuning or a unique birthplace.",
+      "exemplars": [
+        "Mesarthim — The Degenerate Era (2020)",
+        "Mesarthim — Anthropic Bias / Departure (2024)"
+      ],
+      "crossRefs": [
+        "experimentalElec.ambient",
+        "electronicDance.trance"
+      ]
+    },
+    {
+      "id": "folk_black_metal",
+      "name": "Folk black metal",
+      "family": "rock_punk",
+      "lineage": "Folk-inflected black-metal practice represented by Windir’s Sogn-centered repertoire. Season of Mist describes their black/heavy-metal music with old Norwegian folk elements and documents the four 1997-2003 albums and the shift to a full band on 1184. The compact authored seed carries folk-facing melodic continuity through guitar and voice rather than inferring a compulsory folk-instrument ensemble.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        0,
+        -2,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Folk black metal applies folk-derived melodic and narrative orientation inside a black-metal ensemble. Windir is the selected anchor: the label documents old Norwegian folk elements, regional Sogn identity and the full-band 1184 milestone. The default authors ringing tremolo melody, steady bass, sticks and a rough sung voice. It does not claim a collected traditional tune, ethnic vocal technique or compulsory accordion, pipes or bowed lyres. Unlike pagan_metal’s expansive folk-instrument and chorus roster, this is a compact black-metal band model; unlike atmospheric_black_metal, melodic and regional repertoire identity leads rather than a long diffuse soundfield. The Sogn marker describes this exemplar network, not the location of every folk-black-metal scene.",
+      "exemplars": [
+        "Windir — Arntor (1999)",
+        "Windir — 1184 (2001)"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.folkMetal",
+        "droneModal.modalElectric"
+      ]
+    },
+    {
+      "id": "georgian_pop",
+      "name": "Georgian pop",
+      "family": "pop",
+      "lineage": "Selected late-2000s Georgian television and international disco-pop crossover represented by Stephane & 3G and We Don't Wanna Put In (2009). This English-language commercial branch belongs to Georgia's pop scene alongside Georgian-language singles and ballads; it does not describe the country's polyphonic church, supra or regional folk repertoires.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        1,
+        -1,
+        -1,
+        2,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation"
+      ],
+      "description": "Selected Georgian commercial disco-pop, anchored by the 2009 national-selection recording of Stephane & 3G. The seed authors clipped lead-and-answer singing, dance-stab keyboard, scratch guitar, slapped bass and a four-beat drum-kit pulse as a compact disco arrangement. These chairs and studio settings are reusable design choices rather than original-session credits. Distinct from Georgian polyphony and supra singing through tempered commercial song backing, an amplified rhythm section and studio vocal arrangement. The selected English-language crossover is one pop practice, not a summary of all Georgian-language music.",
+      "exemplars": [
+        "Stephane & 3G — We Don't Wanna Put In (2009)"
+      ],
+      "crossRefs": [
+        "functionalSong.popRock"
+      ]
+    },
+    {
+      "id": "kazakh_pop",
+      "name": "Kazakh pop",
+      "family": "pop",
+      "lineage": "Selected 2015-onward Kazakh-language Q-pop associated with Ninety One and JUZ Entertainment, combining commercial vocal hooks and dance performance with rap and R&B influences. This youth-oriented branch is part of wider Kazakh popular music and is distinct from dombyra-led steppe song, aqyn recitation and other traditional repertoires.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        1,
+        -1,
+        0,
+        2,
+        2,
+        -1,
+        -1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "analog_synth",
+        "sampler_drum_machine",
+        "electric_bass"
+      ],
+      "description": "Selected Kazakh-language Q-pop in the Ninety One/JUZ production lineage, documented as danceable commercial song combining catchy melody with rap, R&B and other popular idioms. The authored seed represents the sung group-hook side: nimble syllables, stacked thirds/fifths, short synth plucks, layered sample hits and sub-supported bass. Rap verses can be configured separately; a single voice card does not encode all members' roles. This is distinct from kazakh_traditional through commercial sectional songwriting and programmed production rather than a dombyra or qobyz ensemble. The studio, synth model and pitch-processing settings are authored designs, not band session credits.",
+      "exemplars": [
+        "Ninety One — Mooz",
+        "Ninety One — Aiyptama (2015)"
+      ],
+      "crossRefs": [
+        "functionalSong.eastAsianPop",
+        "mcRhythm.intlHipHop"
+      ]
+    },
+    {
+      "id": "mongolian_pop",
+      "name": "Mongolian pop",
+      "family": "pop",
+      "lineage": "Selected late-2010s Mongolian producer-led commercial singles associated with Uka and Ocean Grey, anchored by Do It (2018) and the contemporaneous Don't Stop release. This modern digital-pop branch is distinct from socialist-era zohioliin duu, urtyn duu and throat-singing repertoires; Mongolian language alone does not prescribe a vocal technique or instrumental ensemble.",
+      "parent": "functionalSong.eastAsianPop",
+      "axes": [
+        1,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "analog_synth",
+        "sampler_drum_machine"
+      ],
+      "description": "Selected Mongolian digital single practice around Uka's Do It (2018), with Ocean Grey's production association documented through its concert announcement and artist press briefing. The seed is a deliberately compact dance-pop design: emphatic doubled lead, sub-register subtractive synth and rigid sampled kick/hits. These musical settings are authored rather than a transcription or exact credit list. Unlike zohioliin_duu, this record models contemporary producer-led singles instead of notated socialist-era authored song with long-song-derived pentatonic contour and folk/orchestral chairs. No urtyn-duu, epic, khoomei or overtone technique is inferred from nationality.",
+      "exemplars": [
+        "Uka — Do It (2018)",
+        "Uka — Don't Stop (2018)"
+      ],
+      "crossRefs": [
+        "functionalSong.popRock.synthpop"
+      ]
+    },
+    {
+      "id": "uzbek_pop",
+      "name": "Uzbek pop",
+      "family": "pop",
+      "lineage": "Selected 1990s Uzbek folk-and-commercial-pop crossover associated with Yulduz Usmanova's Blue Flame albums Jannona (1995) and Binafscha (1996). The label describes village-song material modernized through Western rock, pop and dance production with traditional instruments and electronics. This branch does not replace shashmaqam, regional oral repertoires or all contemporary Uzbek dance singles.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "doira_frame_drum",
+        "rompler_workstation",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Selected Uzbek crossover pop around Yulduz Usmanova's mid-1990s Blue Flame albums. The label explicitly describes traditional song material combined with Western rock/pop/dance and electronic backing, with doira and a strong emotional lead. The seed keeps a doira layer against keyboard hooks, bass and kit as an authored band reduction; it omits the label's tambur because the registered Persian/Kurdish tanbur does not establish an Uzbek instrument model. Distinct from uzbek_traditional by commercial song sections and electronic/rhythm-section backing, without importing shashmaqam usul, awj or a named maqam vocal system. Contemporary digital tracking models a new production of this practice, not the original 1995 session.",
+      "exemplars": [
+        "Yulduz Usmanova — Jannona (1995)",
+        "Yulduz Usmanova — Binafscha (1996)"
+      ],
+      "crossRefs": [
+        "functionalSong.midEastNAfricanPop"
+      ]
+    },
+    {
+      "id": "kyrgyz_pop",
+      "name": "Kyrgyz pop",
+      "family": "pop",
+      "lineage": "Selected Kyrgyz-language urban commercial song represented by Mirbek Atabekov's Kechki Bishkek (2022), released through Infinity Music, and his contemporary digital-release/concert practice. This melodic popular-song branch is separate from Manas recitation, komuz kuu and mountain-nomad traditional ensembles; it does not summarize every Kyrgyz pop or dance recording.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        2,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "sampler_drum_machine"
+      ],
+      "description": "Selected Kyrgyz urban melodic pop anchored by Mirbek Atabekov's Kechki Bishkek (2022), with the artist's official site and Infinity Music release metadata documenting a contemporary commercial song circuit. The authored default is a restrained pop-ballad reduction: smooth single lead, chordal piano, clean arpeggiated guitar, muted bass and a flexible sampled pulse. Sources establish artist, song and distribution context, not those exact instrumental or vocal settings. Distinct from kyrgyz_traditional through concise studio-song form and tempered chordal backing; no manaschy recitation, komuz gesture or throat technique is inherited. Bishkek anchors the artist/song circuit rather than all Kyrgyz musical life.",
+      "exemplars": [
+        "Mirbek Atabekov — Kechki Bishkek (2022)"
+      ],
+      "crossRefs": [
+        "functionalSong.europop"
       ]
     }
   ]

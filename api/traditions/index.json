@@ -1,5 +1,5 @@
 {
-  "count": 2613,
+  "count": 2638,
   "items": [
     {
       "id": "honky_tonk",
@@ -15678,6 +15678,156 @@
       "name": "Burmese pop",
       "family": "pop_rock",
       "href": "traditions/burmese_pop.json"
+    },
+    {
+      "id": "ambient_idm",
+      "name": "Ambient IDM",
+      "family": "electronic",
+      "href": "traditions/ambient_idm.json"
+    },
+    {
+      "id": "ambient_fusion",
+      "name": "Ambient fusion",
+      "family": "jazz",
+      "href": "traditions/ambient_fusion.json"
+    },
+    {
+      "id": "ambient_psychill",
+      "name": "Ambient psychill",
+      "family": "electronic",
+      "href": "traditions/ambient_psychill.json"
+    },
+    {
+      "id": "ambient_synth",
+      "name": "Ambient synth",
+      "family": "electronic",
+      "href": "traditions/ambient_synth.json"
+    },
+    {
+      "id": "space_ambient",
+      "name": "Space ambient",
+      "family": "electronic",
+      "href": "traditions/space_ambient.json"
+    },
+    {
+      "id": "detroit_house",
+      "name": "Detroit house",
+      "family": "electronic",
+      "href": "traditions/detroit_house.json"
+    },
+    {
+      "id": "piano_house",
+      "name": "Piano house",
+      "family": "electronic",
+      "href": "traditions/piano_house.json"
+    },
+    {
+      "id": "organic_house",
+      "name": "Organic house",
+      "family": "electronic",
+      "href": "traditions/organic_house.json"
+    },
+    {
+      "id": "speed_house",
+      "name": "Speed house",
+      "family": "electronic",
+      "href": "traditions/speed_house.json"
+    },
+    {
+      "id": "deep_disco_house",
+      "name": "Deep disco house",
+      "family": "electronic",
+      "href": "traditions/deep_disco_house.json"
+    },
+    {
+      "id": "experimental_hip_hop",
+      "name": "Experimental hip hop",
+      "family": "hip_hop",
+      "href": "traditions/experimental_hip_hop.json"
+    },
+    {
+      "id": "industrial_hip_hop",
+      "name": "Industrial hip hop",
+      "family": "hip_hop",
+      "href": "traditions/industrial_hip_hop.json"
+    },
+    {
+      "id": "chill_abstract_hip_hop",
+      "name": "Chill abstract hip hop",
+      "family": "hip_hop",
+      "href": "traditions/chill_abstract_hip_hop.json"
+    },
+    {
+      "id": "trap_soul",
+      "name": "Trap soul",
+      "family": "hip_hop",
+      "href": "traditions/trap_soul.json"
+    },
+    {
+      "id": "uk_alternative_hip_hop",
+      "name": "UK alternative hip hop",
+      "family": "hip_hop",
+      "href": "traditions/uk_alternative_hip_hop.json"
+    },
+    {
+      "id": "avant_garde_black_metal",
+      "name": "Avant-garde black metal",
+      "family": "rock_punk",
+      "href": "traditions/avant_garde_black_metal.json"
+    },
+    {
+      "id": "dissonant_death_metal",
+      "name": "Dissonant death metal",
+      "family": "rock_punk",
+      "href": "traditions/dissonant_death_metal.json"
+    },
+    {
+      "id": "cavernous_death_metal",
+      "name": "Cavernous death metal",
+      "family": "rock_punk",
+      "href": "traditions/cavernous_death_metal.json"
+    },
+    {
+      "id": "cosmic_black_metal",
+      "name": "Cosmic black metal",
+      "family": "rock_punk",
+      "href": "traditions/cosmic_black_metal.json"
+    },
+    {
+      "id": "folk_black_metal",
+      "name": "Folk black metal",
+      "family": "rock_punk",
+      "href": "traditions/folk_black_metal.json"
+    },
+    {
+      "id": "georgian_pop",
+      "name": "Georgian pop",
+      "family": "pop",
+      "href": "traditions/georgian_pop.json"
+    },
+    {
+      "id": "kazakh_pop",
+      "name": "Kazakh pop",
+      "family": "pop",
+      "href": "traditions/kazakh_pop.json"
+    },
+    {
+      "id": "mongolian_pop",
+      "name": "Mongolian pop",
+      "family": "pop",
+      "href": "traditions/mongolian_pop.json"
+    },
+    {
+      "id": "uzbek_pop",
+      "name": "Uzbek pop",
+      "family": "pop",
+      "href": "traditions/uzbek_pop.json"
+    },
+    {
+      "id": "kyrgyz_pop",
+      "name": "Kyrgyz pop",
+      "family": "pop",
+      "href": "traditions/kyrgyz_pop.json"
     }
   ]
 }

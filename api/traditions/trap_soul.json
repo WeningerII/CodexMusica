@@ -1,0 +1,174 @@
+{
+  "id": "trap_soul",
+  "name": "Trap soul",
+  "family": "hip_hop",
+  "lineage": "Mid-2010s intersection of trap-influenced programmed production and R&B song delivery. Bryson Tiller’s Louisville-linked T R A P S O U L (2015) anchors this selected model, alternating melodic singing and speech-derived rhythmic phrasing over spare bass-heavy accompaniment. The genre is a musical intersection rather than every rapper’s use of a melodic hook.",
+  "recipe": "classic 2014-2016 trap soul, functional Song, soul R&B branch, us hip hop modern, us hip hop southern dark trap cloud rap. balanced, breath admixed, minimal subglottal pressure, single source phonation. roland tr 8s modern aira digital recreation TR-808, pad like pad analog synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 427,
+  "score": 54.27,
+  "config": {
+    "traditions": [
+      "trap_soul",
+      "dark_trap",
+      "cloud_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "mix_voice",
+          "voice_quality": "breath_admixed_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_minimal_undersung",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "portamento_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 1.145,
+          "voice_quality": 1.9500000000000004,
+          "voice_vocal_tract": 0,
+          "voice_effort": 1.625,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": -0.14,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 1.04,
+          "voice_estill_quality": 1.935,
+          "voice_speech_song": 1.225,
+          "voice_ensemble_config": 5.2,
+          "voice_ornament_system": 0.4545,
+          "voice_pitch_organization": 0.045,
+          "voice_processing_chain": 1.04,
+          "voice_multitrack_stack": 1.04
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 10.95,
+          "drum_machine_808_context": 2.0799999999999996,
+          "tr808_production_origin": 3.055
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 5.58,
+          "oscillator": 3.5100000000000002,
+          "filter_topology": 5.745,
+          "envelope": 2.34,
+          "modulation": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "drum_machine_808": [
+        "tr808_voice",
+        "drum_machine_808_context",
+        "tr808_production_origin"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "plate_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "mix_voice",
+      "voice_quality": "breath_admixed_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vibrato": "straight_tone",
+      "voice_microtone": "portamento_inflected",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_unison_double_take",
+      "voice_articulation": "legato_voice",
+      "voice_effort": "effort_minimal_undersung",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_rb",
+      "tr808_production_origin": "tr808_tr_8s_modern",
+      "electronic_technique": "electronic_pad_drone",
+      "oscillator": "sine_osc",
+      "filter_topology": "transistor_ladder",
+      "envelope": "pad_env",
+      "modulation": "no_mod"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "plate_reverb"
+    ]
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "New York, Berlin and Paris scene of 1998-2004, named by promoter Larry Tee and defined by Fischerspooner, Miss Kittin & The Hacker, Peaches and Ladytron, pairing stiff 808/909 electro beats and cheap analog monosynth basslines at 120-130 BPM with deadpan spoken-sung vocals, heavy new-wave pastiche and vocoder, deliberately cold and campy.",
   "recipe": "classic mid-2000s electroclash, electronic Dance, continental branch, pop rock synthpop, techno electronic dance, punk distorted rock synthpunk dance-punk. thick, breath veiled tone, breath pulsed, interlocked note trading. singing lead analog mono singing lead analog poly synth, behringer rd 8 modern clone analog circuit reproduction TR-808, TR-909, vocoder, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation roasted maple single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 664,
-  "score": 191.81,
+  "score": 191.945,
   "config": {
     "traditions": [
       "electroclash",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.629999999999994,
+          "voice_register": 10.584999999999994,
           "voice_quality": 9.295000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 19.629999999999995,
           "voice_ornament_system": 1.2999999999999998,
           "voice_pitch_organization": 0.39,
-          "voice_processing_chain": 12.265,
+          "voice_processing_chain": 12.31,
           "voice_multitrack_stack": 5.850000000000001
         }
       },
@@ -105,7 +105,7 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 2.545,
+          "tr909_voice": 2.5,
           "drum_machine_909_context": 0.78,
           "tr909_production_origin": 0.51
         }
@@ -141,10 +141,10 @@
         },
         "scores": {
           "electric_technique": 10.745,
-          "amp_make": 16.817999999999998,
+          "amp_make": 17.043,
           "body_wood": 0.39,
           "neck_wood": 1.04,
-          "fretboard": 0.545,
+          "fretboard": 0.5,
           "pickup_magnet": 0.15,
           "string_material": 0.15,
           "string_gauge": 1.3,
