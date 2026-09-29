@@ -87,6 +87,10 @@ pipeline plans and grades songs whose every line you write; no connector call re
   `lyric_grade` → `lyric_revise` (answer each question it asks until it stops). Lyrics the user
   pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
 - **Session controls** (on `/mcp`): `begin_lyrics`, `get_operation`, `resume_operation`.
+  A finished `lyric_grade` or `lyric_revise` read with `get_operation` is the song and a short
+  verdict: status fields, `blocking` (what stands, and each line a requested obligation could not
+  be judged on) and a count of notes. `get_operation` with `detail` (`findings`, `report`,
+  `coverage`, `pronunciations` or `full`, narrowed by `lines`) returns the rest.
 - `render_recipe` takes `format`: `rich` (default), `tags`, `prose`, `compact`. Every one of
   them returns the byte-identical string the app shows for the same workspace.
   <!-- @promise: connector-render-parity -->

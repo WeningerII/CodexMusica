@@ -505,6 +505,52 @@ def test_session_operations_and_saved_results():
               run(direct + shown) == 0)
 
 
+def short_records(text=CORRECT_STATED, *, tail="", overrides=None, digest_of=None):
+    """A session's finished revise: the song once in block 0, a SHORT verdict."""
+    verdict = {"exit_code": 0, "meaning": "finished", "measurement_status": "finished",
+               "certified": True, "status": "finished_clean", "loop_stop_reason": "SUCCESS",
+               "loop_rounds": 2, "loop_unresolved_lines": [], "loop_whole_flag_codes": [],
+               "banned_pairs": 0, "final_draft_sha256": "0" * 64,
+               "presentation_sha256": hashlib.sha256(
+                   (text if digest_of is None else digest_of).encode("utf-8")).hexdigest(),
+               "blocking": [], "notes": 12, "detail": "get_operation detail"}
+    verdict.update(overrides or {})
+    records = receipt_records(text)
+    records[1]["message"]["content"][0]["content"] = [
+        {"type": "text", "text": text + tail}, {"type": "text", "text": json.dumps(verdict)}]
+    return records
+
+
+def test_short_session_verdict():
+    print("\n12. a session's short verdict: the song once, checked against its digest")
+    import contextlib, io
+    with tempfile.TemporaryDirectory() as td:
+        path = os.path.join(td, "short.jsonl")
+        def run(records):
+            write_transcript(path, records)
+            with contextlib.redirect_stderr(io.StringIO()):
+                return C.main(["--transcript", path])
+        shown = [assistant_record(CORRECT_STATED)]
+        check("a short verdict whose digest matches block 0 certifies the finished song",
+              run(short_records() + shown) == 0)
+        check("block 0 may go on past the stamp; the presentation is read through the stamp",
+              run(short_records(tail="\n\nSTANDING AT THE STOP — none") + shown) == 0)
+        check("a song whose bytes differ from the digest is refused",
+              run(short_records(digest_of=CORRECT_STATED.replace("Freight", "Weight")) + shown) == 1)
+        check("exit 0 without the connector's finished_clean status is refused",
+              run(short_records(overrides={"status": "parked_open_lines"}) + shown) == 1)
+        check("exit 0 with an open line is refused",
+              run(short_records(overrides={"loop_unresolved_lines": [2]}) + shown) == 1)
+        check("a stamp that disagrees with the verdict's exit code is refused",
+              run(short_records(overrides={"exit_code": 3, "status": "stopped_with_open_lines"})
+                  + shown) == 1)
+        check("a short verdict with no digest is not a receipt",
+              run(short_records(overrides={"presentation_sha256": None}) + shown) == 1)
+        check("the presented text must still be the digest-checked presentation",
+              run(short_records() + [assistant_record(CORRECT_STATED.replace("Freight", "Weight"))])
+              == 1)
+
+
 def test_markdown_and_complete_stamps():
     print("\n10. visible Markdown headers and complete status grammar")
     for marker in ("**", "__"):
@@ -525,7 +571,7 @@ if __name__ == "__main__":
                test_the_mutation, test_the_hook_is_wired,
                test_the_operator_seam, test_graded_is_not_finished,
                test_finished_requires_a_paired_exact_receipt, test_markdown_and_complete_stamps,
-               test_session_operations_and_saved_results):
+               test_session_operations_and_saved_results, test_short_session_verdict):
         fn()
     print("=" * 70)
     if FAILURES:

@@ -16,6 +16,7 @@ import {
   recoverState,
 } from './state_codec.js';
 import { HTTP_REQUEST_BYTES, jsonBytes } from './payload_limits.js';
+import { sessionView } from './verdict_view.js';
 
 // Persisted namespace from the first release: keep existing capabilities recoverable.
 export const INTEGRATION = 'chatgpt-v1';
@@ -114,21 +115,26 @@ export function continueNote(footnote, task = null) {
         '`new_run: true` — each call with the latest session_id.';
 }
 
-export function publicToolResult(result, task = null) {
+// `view` is how a session publishes a lyric verdict: `tool` names the tool
+// that produced it, so a finished grade or revise gets the short verdict, and
+// `detail`/`lines` select what get_operation returns in its place
+// (verdict_view.js). Without `tool` the blocks are published as stored.
+export function publicToolResult(result, task = null, view = {}) {
+  const content = (result.content || []).map((block) => {
+    if (block.type !== 'text') throw new Error('Unexpected non-text connector result.');
+    try {
+      return { type: 'text', text: JSON.stringify(visible(JSON.parse(block.text))) };
+    } catch {
+      // Keep the song verbatim; replace only the raw connector's continuation
+      // footnote, which otherwise names an internal run capability.
+      const text = block.text.replace(/\n\nCONTINUE: [\s\S]*$/, (footnote) =>
+        continueNote(footnote, task)
+      );
+      return { type: 'text', text: privateRun(text) };
+    }
+  });
   return {
-    content: (result.content || []).map((block) => {
-      if (block.type !== 'text') throw new Error('Unexpected non-text connector result.');
-      try {
-        return { type: 'text', text: JSON.stringify(visible(JSON.parse(block.text))) };
-      } catch {
-        // Keep the song verbatim; replace only the raw connector's continuation
-        // footnote, which otherwise names an internal run capability.
-        const text = block.text.replace(/\n\nCONTINUE: [\s\S]*$/, (footnote) =>
-          continueNote(footnote, task)
-        );
-        return { type: 'text', text: privateRun(text) };
-      }
-    }),
+    content: view.tool ? sessionView(view.tool, content, view) : content,
     ...(result.isError ? { isError: true } : {}),
   };
 }
@@ -610,7 +616,7 @@ export class WorkflowSessions {
     );
   }
 
-  status(id, domain) {
+  status(id, domain, { detail, lines } = {}) {
     const found = this.lookup(id);
     if (found?.state === 'retired')
       return {
@@ -641,7 +647,15 @@ export class WorkflowSessions {
       ...(continues ? { session_id: id } : {}),
       ...(record.successor_id ? { successor_id: record.successor_id } : {}),
       ...(record.intent.action?.tool ? { tool: record.intent.action.tool } : {}),
-      ...(result ? { tool_result: publicToolResult(result, session.task) } : {}),
+      ...(result
+        ? {
+            tool_result: publicToolResult(result, session.task, {
+              tool: record.intent.action?.tool,
+              detail,
+              lines,
+            }),
+          }
+        : {}),
       ...(result?.isError ? { tool_error: true } : {}),
       ...(accepted ? { accepted_draft: accepted } : {}),
       ...(record.interruption ? { interruption: record.interruption } : {}),

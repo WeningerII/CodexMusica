@@ -8227,28 +8227,24 @@ try {
       assert.ok(!res.isError, `lyric_grade answered without isError (title=${title})`);
       return JSON.parse(res.content[1].text);
     };
-    // Read off `findings`, the verdict's structured list: the published
-    // report leaves out notes that list already carries (a note of one code
-    // is ONE grouped entry there), so a note code is asked of `findings`.
-    const hasCode = (verdict, code) => verdict.findings.some((f) => f.code === code);
     const noTitle = await titleReport(null);
     assert.ok(
-      hasCode(noTitle, 'TITLE_UNDECLARED'),
+      noTitle.report.includes('TITLE_UNDECLARED'),
       'with no title the question is REFUSED, not answered'
     );
     const inHook = await titleReport('carry the morning');
     assert.ok(
-      !hasCode(inHook, 'TITLE_UNDECLARED'),
+      !inHook.report.includes('TITLE_UNDECLARED'),
       'declaring a title REMOVES the refusal — the field is read, not dropped'
     );
     assert.ok(
-      !hasCode(inHook, 'TITLE_NOT_IN_HOOK'),
+      !inHook.report.includes('TITLE_NOT_IN_HOOK'),
       'and a title that is a run of words inside the hook answers YES'
     );
     const outOfHook = await titleReport('zzz nowhere');
     assert.ok(
       outOfHook.report.includes('TITLE_NOT_IN_HOOK'),
-      'a title outside the hook answers NO, and a flag stays in the published report'
+      'a title outside the hook answers NO'
     );
     assert.ok(
       outOfHook.findings.some((f) => f.code === 'TITLE_NOT_IN_HOOK' && f.severity === 'flag')
@@ -8425,11 +8421,8 @@ try {
       relation: 'type:pararhyme',
     });
     assert.notEqual(collide.exit_code, 2, 'a song-wide relation beside a structure is JUDGED');
-    // The structure's disclosure is a note, so it is read off the verdict
-    // field that carries it; the published report leaves notes to findings.
     assert.ok(
-      collide.report.includes('pararhyme') &&
-        (collide.structures_uncalibrated || '').includes('kalevala-alliteration'),
+      collide.report.includes('pararhyme') && collide.report.includes('kalevala-alliteration'),
       '...under both the declared relation and the declared structure'
     );
     console.log('  ok  lyric_check live: --structures reaches the mandate, with its disclosure');

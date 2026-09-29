@@ -143,6 +143,8 @@ def _finished_receipt(content):
         return None
     if not isinstance(verdict, dict):
         return None
+    if "presentation_text" not in verdict and "presentation_sha256" in verdict:
+        return _short_receipt(human["text"], verdict)
     draft, presentation = verdict.get("final_draft"), verdict.get("presentation_text")
     if (not isinstance(draft, list) or not draft
             or not all(isinstance(line, str) for line in draft)
@@ -166,15 +168,58 @@ def _finished_receipt(content):
             and not verdict["loop_unresolved_lines"]
             and verdict["loop_whole_flags"] == 0):
         return None
-    # The exact stamp must agree with the typed verdict; lyric-like stamps
-    # earlier in the artifact never become machine status.
+    return verdict if _stamp_agrees(presentation, verdict) else None
+
+
+def _stamp_agrees(presentation, verdict):
+    """The exact stamp must agree with the typed verdict; lyric-like stamps
+    earlier in the artifact never become machine status."""
     last_line = presentation.strip().splitlines()[-1].strip()
     if not STAMP_FINISHED.fullmatch(last_line):
+        return False
+    return bool(re.search(r"—\s*exit\s*%d\s*—\s*%s after " % (
+        verdict["exit_code"], re.escape(verdict["loop_stop_reason"])), last_line))
+
+
+def _short_receipt(human, verdict):
+    """A session's SHORT verdict (mcp/verdict_view.js, 2026-09-29).
+
+    On the session endpoints a finished revise publishes the song once, in
+    block 0, and a verdict without `presentation_text` or `final_draft`: it
+    carries `presentation_sha256`, the digest of the presentation block 0
+    opens with (block 0 may go on past the stamp with the standing findings
+    or a continue note). The presentation is recovered as block 0 through
+    its last finished stamp and must hash to that digest, so the song shown
+    is the song the verdict describes. `status` is the connector's own
+    certification (finished_clean only when coverage is certified and no
+    flag, whole-draft flag, open line or banned pair stands), so it stands
+    in for the coverage and loop fields the full verdict spells out.
+    """
+    if (type(verdict.get("exit_code")) is not int
+            or not isinstance(verdict.get("loop_stop_reason"), str)
+            or not isinstance(verdict.get("status"), str)
+            or not isinstance(verdict.get("presentation_sha256"), str)):
         return None
-    if not re.search(r"—\s*exit\s*%d\s*—\s*%s after " % (
-            verdict["exit_code"], re.escape(verdict["loop_stop_reason"])), last_line):
+    lines = human.splitlines(keepends=True)
+    ends = [i for i, line in enumerate(lines) if STAMP_FINISHED.fullmatch(line.strip())]
+    if not ends:
         return None
-    return verdict
+    prefix = "".join(lines[:ends[-1] + 1])
+    presentation = next((p for p in (prefix, prefix.rstrip("\r\n"))
+                         if hashlib.sha256(p.encode("utf-8")).hexdigest()
+                         == verdict["presentation_sha256"]), None)
+    if presentation is None:
+        return None
+    if verdict["exit_code"] == 0 and not (
+            verdict["status"] == "finished_clean"
+            and verdict.get("certified") is True
+            and verdict["loop_stop_reason"] == "SUCCESS"
+            and not verdict.get("loop_unresolved_lines")
+            and not verdict.get("loop_whole_flag_codes")):
+        return None
+    if not _stamp_agrees(presentation, verdict):
+        return None
+    return {**verdict, "presentation_text": presentation}
 
 
 #: What the client writes in place of a tool result too large to show inline

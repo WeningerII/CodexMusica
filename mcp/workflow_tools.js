@@ -16,6 +16,7 @@ import { TOOL_SCHEMAS } from './schemas.js';
 import { LYRIC_TOOL_SCHEMAS } from './lyric_tools.js';
 import { expectedSurface } from './surface_contract.js';
 import { executeNative, publicToolResult } from './workflow_sessions.js';
+import { DETAIL_PARTS } from './verdict_view.js';
 import { CONNECTOR_VERSION } from './contract_version.js';
 
 // /mcp is the endpoint the discovery card and server.json describe, so it
@@ -118,6 +119,9 @@ function sessionGuide(domains, compatibility) {
       : `Codex Musica ${recipe ? 'recording recipes' : 'lyrics'}, with sessions kept by the server.`,
     `SESSIONS. ${opens} and return a session_id; pass the latest session_id to that workflow's next call. The server carries what the engine guidance below has a caller-managed client thread by hand — ${carried} — so never send those with a session_id.`,
     "Every call that opens a session or takes a session_id, and get_operation, ends its content with a receipt (a JSON object) holding the next session_id. Every block before the receipt is the tool's own output with private state withheld (workspace, run state and ids are removed from its JSON, and a continue footnote is rewritten for the session); the deliverable text — song, plan, recipe string — is exact, and the first block is the deliverable the guidance below says to reproduce exactly.",
+    lyrics
+      ? 'A finished lyric_grade or lyric_revise is published with a SHORT verdict: exit_code, meaning, certified, status and stop fields, `blocking` (what stands, one line each, and each line a requested obligation could not be judged on, with the words there that have more than one reading) and a count of notes. Where the guidance below says to read findings, report, coverage, pronunciation_options or pronunciations, read them with get_operation and `detail` (optionally `lines`).'
+      : null,
     recipe ? 'Recipe calls answer at once.' : null,
     lyrics
       ? 'Lyric calls queue a background operation and return its operation_id (lyric_types, a lookup, answers at once and takes no session): poll get_operation until it is no longer pending, never submit to a session while its operation is pending, and continue from the session_id in the completed receipt.'
@@ -234,12 +238,27 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
     {
       title: 'Read a saved operation',
       description:
-        "Read an operation (or any session) by its id; this never dispatches work. pending: poll again after retry_after_seconds. completed: the content leads with the tool's own result blocks, private state withheld — present the deliverable from them exactly — and ends with the receipt, whose session_id is the next step's; a refused call reads tool_error: true, and its session_id continues the session as it was before that call. interrupted: when resumable is true, call resume_operation; otherwise accepted_draft holds the accepted lyrics, lyric_revise with recover_only: true exports the journal, and session_id (when present) starts new work from before the interruption. retired: the saved state is gone; open a new session. If successor_id is present, read it first: an older id cannot branch the workflow. Ids are private capabilities.",
-      inputSchema: z.object({ operation_id: id }),
+        "Read an operation (or any session) by its id; this never dispatches work. pending: poll again after retry_after_seconds. completed: the content leads with the tool's own result blocks, private state withheld — present the deliverable from them exactly — and ends with the receipt. A finished lyric_grade or lyric_revise publishes the song and a SHORT verdict: its status fields, `blocking` (one line per flag or banned pair standing, and per line a requested obligation could not be judged on), and a count of notes; `detail` returns the rest (findings, report, coverage, pronunciations, or full), whose session_id is the next step's; a refused call reads tool_error: true, and its session_id continues the session as it was before that call. interrupted: when resumable is true, call resume_operation; otherwise accepted_draft holds the accepted lyrics, lyric_revise with recover_only: true exports the journal, and session_id (when present) starts new work from before the interruption. retired: the saved state is gone; open a new session. If successor_id is present, read it first: an older id cannot branch the workflow. Ids are private capabilities.",
+      inputSchema: z.object({
+        operation_id: id,
+        detail: z
+          .enum(DETAIL_PARTS)
+          .optional()
+          .describe(
+            'For a finished lyric_grade or lyric_revise only: return this part of the verdict instead of the short one — findings (every finding in full), report (the engine report), coverage (every requested obligation), pronunciations (the declared readings and the reading options), or full (the whole verdict and the song). Omit it for the short verdict.'
+          ),
+        lines: z
+          .array(z.number().int().min(1))
+          .optional()
+          .describe(
+            'With detail: keep only the findings, obligations and reading options that touch these 1-based lines.'
+          ),
+      }),
       outputSchema: resultShape,
       annotations: readOnly,
     },
-    ({ operation_id }) => response(sessions.status(operation_id, domain))
+    ({ operation_id, detail, lines }) =>
+      response(sessions.status(operation_id, domain, { detail, lines }))
   );
 
   register(
