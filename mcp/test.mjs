@@ -5054,6 +5054,7 @@ await check('validation: actionable errors', () => {
       'mcp/test_job_store.mjs': 'offline durable recovery regressions',
       'mcp/test_chat_production.mjs': 'offline authoritative delivery and task routing regressions',
       'mcp/test_connector_contracts.mjs': 'offline connector and release contract regressions',
+      'mcp/test_verdict_view.mjs': 'offline regressions for the session short verdict',
       'mcp/test_connector_http.mjs': 'offline public HTTP and Origin regressions',
       'mcp/test_chatgpt.mjs': 'offline ChatGPT session adapter regressions',
       'mcp/test_chatgpt_harness.mjs':
