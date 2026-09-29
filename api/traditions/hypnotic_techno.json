@@ -3,14 +3,14 @@
   "name": "Hypnotic techno",
   "family": "electronic",
   "lineage": "Deep and psychedelic techno continuum represented by Donato Dozzy, Luigi Tozzi and Hypnus Records, founded near Stockholm in 2013. The selected model emphasizes rolling percussion, interlocking cyclic figures and gradual atmospheric transformation rather than festival breakdowns.",
-  "recipe": "classic early-2010s hypnotic techno, electronic Dance, techno branch, ambient experimental electric, dub descendants bass system ambient techno illbient. modular synth, drum machine analog, field textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ping-pong delay hall reverb.",
-  "recipe_chars": 387,
-  "score": 26.715,
+  "recipe": "classic early-2010s hypnotic techno, electronic Dance, techno branch, ambient experimental electric, dub descendants bass system ambient psychill ambient techno. modular synth, drum machine analog, field textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ping-pong delay hall reverb.",
+  "recipe_chars": 395,
+  "score": 28.035,
   "config": {
     "traditions": [
       "hypnotic_techno",
-      "ambient_techno",
-      "illbient"
+      "ambient_psychill",
+      "ambient_techno"
     ],
     "instruments": [
       {
@@ -24,7 +24,7 @@
         "scores": {
           "electronic_technique": 0.25,
           "mod_voltage_source": 0.73875,
-          "mod_patch_density": 5.915,
+          "mod_patch_density": 6.954999999999999,
           "mod_lineage": 0.65
         }
       },
@@ -53,10 +53,10 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 8.365,
+          "electronic_technique": 9.615,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.845,
-          "sampler_workflow": 9.5275,
+          "sampler_bit_depth": 0.65,
+          "sampler_workflow": 9.027500000000002,
           "sampler_classic_context": 0.195
         }
       }

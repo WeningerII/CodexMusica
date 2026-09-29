@@ -1,0 +1,157 @@
+{
+  "id": "ambient_psychill",
+  "name": "Ambient psychill",
+  "family": "electronic",
+  "lineage": "The spacious, predominantly instrumental synthesizer branch of psychedelic chillout represented by Carbon Based Lifeforms’ Hydroponic Garden (2003) and World of Sleepers (2006), on Ultimae. Slow electronic rhythms, resonant bass, environmental samples and layered harmony sustain an ambient listening space. This narrower branch does not stand for the entire psychill festival repertoire or presume its acoustic-instrument and vocal collage.",
+  "recipe": "classic early-2000s ambient psychill, experimental Elec, ambient branch, trance electronic dance, idm glitch experimental electric folktronica. pad like pad analog synth, monosynth acid bass, sampler drum machine, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ping-pong delay hall reverb.",
+  "recipe_chars": 469,
+  "score": 78.662,
+  "config": {
+    "traditions": [
+      "ambient_psychill",
+      "ambient_idm",
+      "folktronica"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "saw_super",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 15.688214285714285,
+          "oscillator": 2.0949999999999998,
+          "filter_topology": 2.8600000000000003,
+          "envelope": 6.980357142857142,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "square_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 2.3950000000000005,
+          "wave_acid": 0,
+          "filter_acid": 0,
+          "accent_acid": 0.375
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 0.9999999999999999,
+          "sample_bitdepth": 0,
+          "sample_swing": 10,
+          "sample_processing": 0.195
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 23.5,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": 14.823928571428574,
+          "sampler_classic_context": 0.65
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "monosynth_acid_bass": [
+        "wave_acid",
+        "filter_acid",
+        "accent_acid"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_vca",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_ping_pong_delay",
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "wave_acid": "square_acid",
+      "filter_acid": "closed_acid",
+      "accent_acid": "subtle_accent_acid",
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered",
+      "sampler_workflow": "sampler_field_recordings",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_classic_context": "sampler_classic_post",
+      "oscillator": "saw_super",
+      "filter_topology": "transistor_ladder",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_vca",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "fx_ping_pong_delay",
+      "hall_reverb"
+    ]
+  }
+}

@@ -1,0 +1,491 @@
+{
+  "lane": "metal",
+  "baseline_commit": "64ca07dc6bb7213502f059760002da50f287f735",
+  "authorship_note": "Numeric axes are authored ordinal coordinates for this selected arrangement, not measurements. Registered instrument materials, tuning, room and recording equipment are reproducible production choices, not documented exemplar-session inventories. Voice quality models an audible rough color without asserting a singer’s physiological technique. The finite catalog technique pins reduce complex riff and percussion practices; prose supplies the finer distinction.",
+  "entries": [
+    {
+      "id": "avant_garde_black_metal",
+      "source_label": "avant-garde black metal",
+      "every_noise_url": "https://everynoise.com/engenremap-avantgardeblackmetal.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://peaceville.com/bands/dodheimsgard/",
+          "title": "Dødheimsgard — Peaceville",
+          "kind": "primary_artist_or_label",
+          "support_notes": "Documents black-metal beginnings, avant-garde development, unconventional forms, A Umbra Omega and Oslo mastering."
+        },
+        {
+          "url": "https://peaceville.bandcamp.com/album/black-medium-current",
+          "title": "Black Medium Current — Dødheimsgard / Peaceville",
+          "kind": "primary_artist_or_label",
+          "support_notes": "Label release account supports piano passages, varied soundscapes, album date and recording/production credits. No precise piano or guitar equipment is stated."
+        }
+      ],
+      "neighbor_distinction": "avant_metal_classic covers experimental metal broadly and has a synthesizer-centered stock ensemble; this black-metal-rooted model adds acoustic piano and emphasizes discontinuous form. atmospheric_black_metal prioritizes sustained atmosphere; this model prioritizes sectional contrast.",
+      "authored_numeric_and_recording_model": {
+        "notes": "Numeric axes are authored ordinal coordinates for this selected arrangement, not measurements. Registered instrument materials, tuning, room and recording equipment are reproducible production choices, not documented exemplar-session inventories. Voice quality models an audible rough color without asserting a singer’s physiological technique. The finite catalog technique pins reduce complex riff and percussion practices; prose supplies the finer distinction.",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 1,
+          "meter": 0,
+          "density": 1,
+          "transmission": -1,
+          "improv": -1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 0,
+          "timbre": 1,
+          "percussion": 1,
+          "cyclicity": -2
+        },
+        "recording_choices": {
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_archetype": "arch_modern_pro_daw_studio",
+          "mic": "condenser_ldc",
+          "pre": "ultra_clean",
+          "comp": "comp_none",
+          "eq": "eq_none",
+          "medium": "digital_std",
+          "console": "clean",
+          "fx": ["digital_delay", "plate_reverb"]
+        },
+        "source_uncertainty": "The model does not infer throat physiology, exact vocal training or syllabic technique: source-unspecified variants are pinned for register, quality, tradition, speech/song, Estill mechanism, vibrato and compound mechanism. No exact studio inventory or acoustic measurements are claimed."
+      },
+      "geo_rationale": "Peaceville documents A Umbra Omega mastering at Strype Audio in Oslo. This is a concrete production-practice anchor, not an exclusive birthplace.",
+      "signature_tokens": [
+        "dark",
+        "distorted",
+        "rough",
+        "gritty",
+        "low-register",
+        "low-mid-thick",
+        "low-mid-rich",
+        "reverberant",
+        "sustained-tone",
+        "metal-context",
+        "contemplative",
+        "contrasting-registers"
+      ],
+      "validation": {
+        "checked": true,
+        "catalog": "node scripts/validate.js passed; all registered references resolve",
+        "baseline_preservation": "All 2613 baseline definitions/extras and old geo entries deep-equal baseline snapshot",
+        "cli": {
+          "length": 653,
+          "authored_valid_pairs_retained": 31,
+          "traditions": ["avant_garde_black_metal", "mathcore", "cybergrind"]
+        },
+        "browser_connector": {
+          "exact_parity": true,
+          "pins_retained": 31,
+          "formats": {
+            "rich": 990,
+            "tags": 992,
+            "prose": 347,
+            "compact": 473
+          }
+        },
+        "unique_rich_bodies": true,
+        "signature_token_classes": "All selected tokens resolve as sonic or style; none cultural",
+        "preface_review": "No unrelated named cultural prefaces or technically wrong stride/two-step voice descriptors remain in final strings. Dark/rough or melancholy affective labels express authored model color, not artist statements or measured instrument grain.",
+        "issues": [
+          "CLI optimizer adds the listed scored neighbors and derives its environment from the archetype; browser/connector seed the selected flat environment. Configured source part pins remain retained on both paths.",
+          "Rich budget retains only a subset of part descriptors; all valid authored pins remain in the configuration, including instrument technique and oscillator choices.",
+          "Shared tradition signatures color all chairs: the avant-garde model’s clean piano can inherit a grimy affective preface. Softer signature alternatives yielded the technically incorrect stride-trotting piano; the selected dark affective version avoids that error. Final cosmic model uses quiet/clean/ambient tokens matching the documented aggression-and-contemplation contrast."
+        ]
+      }
+    },
+    {
+      "id": "dissonant_death_metal",
+      "source_label": "dissonant death metal",
+      "every_noise_url": "https://everynoise.com/engenremap-dissonantdeathmetal.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://shop.season-of-mist.com/products/gorguts-obscura-double-lp-gatefold-coloured",
+          "title": "Gorguts — Obscura / Season of Mist",
+          "kind": "primary_artist_or_label",
+          "support_notes": "Release account supports Canadian practice, 1998 album, dissonant guitar work and fractured rhythm/harmony. The page distributes an Osmose reissue; no claim of original label ownership."
+        },
+        {
+          "url": "https://www.season-of-mist.com/news/gorguts-2013-08-28/",
+          "title": "Gorguts — Colored Sands announcement",
+          "kind": "primary_artist_or_label",
+          "support_notes": "Documents guitar/vocal, guitar, bass and drums personnel for the 2013 release."
+        }
+      ],
+      "neighbor_distinction": "technical_death_metal is a virtuosity-centered record with ornament and meter coordinates at +1/+2. This model emphasizes fractured form, harmonic instability, reduced ornament and close dry articulation; it is also distinct from cavernous death metal’s spatial blur.",
+      "authored_numeric_and_recording_model": {
+        "notes": "Numeric axes are authored ordinal coordinates for this selected arrangement, not measurements. Registered instrument materials, tuning, room and recording equipment are reproducible production choices, not documented exemplar-session inventories. Voice quality models an audible rough color without asserting a singer’s physiological technique. The finite catalog technique pins reduce complex riff and percussion practices; prose supplies the finer distinction.",
+        "axes": {
+          "harm": -2,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 0,
+          "density": 2,
+          "transmission": -1,
+          "improv": -2,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 0,
+          "timbre": 2,
+          "percussion": 2,
+          "cyclicity": -2
+        },
+        "recording_choices": {
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_archetype": "arch_modern_pro_daw_studio",
+          "mic": "condenser_ldc",
+          "pre": "ultra_clean",
+          "comp": "comp_none",
+          "eq": "eq_none",
+          "medium": "digital_std",
+          "console": "clean",
+          "fx": ["distortion_high"]
+        },
+        "source_uncertainty": "The model does not infer throat physiology, exact vocal training or syllabic technique: source-unspecified variants are pinned for register, quality, tradition, speech/song, Estill mechanism, vibrato and compound mechanism. No exact studio inventory or acoustic measurements are claimed."
+      },
+      "geo_rationale": "Season of Mist identifies Gorguts as Canadian. A country-level marker deliberately avoids claiming an unsupported city or sole genre birthplace.",
+      "signature_tokens": [
+        "dark",
+        "distorted",
+        "rough",
+        "gritty",
+        "high-gain-saturation",
+        "cutting",
+        "growly",
+        "low-mid-thick",
+        "metal-context",
+        "tight-articulation",
+        "percussive-attack",
+        "sharp"
+      ],
+      "validation": {
+        "checked": true,
+        "catalog": "node scripts/validate.js passed; all registered references resolve",
+        "baseline_preservation": "All 2613 baseline definitions/extras and old geo entries deep-equal baseline snapshot",
+        "cli": {
+          "length": 622,
+          "authored_valid_pairs_retained": 28,
+          "traditions": ["dissonant_death_metal", "math_metal", "progressive_metal_classic"]
+        },
+        "browser_connector": {
+          "exact_parity": true,
+          "pins_retained": 28,
+          "formats": {
+            "rich": 1000,
+            "tags": 995,
+            "prose": 320,
+            "compact": 436
+          }
+        },
+        "unique_rich_bodies": true,
+        "signature_token_classes": "All selected tokens resolve as sonic or style; none cultural",
+        "preface_review": "No unrelated named cultural prefaces or technically wrong stride/two-step voice descriptors remain in final strings. Dark/rough or melancholy affective labels express authored model color, not artist statements or measured instrument grain.",
+        "issues": [
+          "CLI optimizer adds the listed scored neighbors and derives its environment from the archetype; browser/connector seed the selected flat environment. Configured source part pins remain retained on both paths.",
+          "Rich budget retains only a subset of part descriptors; all valid authored pins remain in the configuration, including instrument technique and oscillator choices.",
+          "Shared tradition signatures color all chairs: the avant-garde model’s clean piano can inherit a grimy affective preface. Softer signature alternatives yielded the technically incorrect stride-trotting piano; the selected dark affective version avoids that error. Final cosmic model uses quiet/clean/ambient tokens matching the documented aggression-and-contemplation contrast."
+        ]
+      }
+    },
+    {
+      "id": "cavernous_death_metal",
+      "source_label": "cavernous death metal",
+      "every_noise_url": "https://everynoise.com/engenremap-cavernousdeathmetal.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://darkdescentrecords.bandcamp.com/album/cadaver-circulation",
+          "title": "Cadaver Circulation — Krypts / Dark Descent",
+          "kind": "primary_artist_or_label",
+          "support_notes": "Supports reverberant atmosphere, eerie chords, deep vocals, Finnish practice, guitar/drums/bass-vocal credits and Krypta recording credit."
+        },
+        {
+          "url": "https://www.darkdescentrecords.com/shop/product/krypts-remnants-of-expansion-cd/",
+          "title": "Krypts — Remnants of Expansion / Dark Descent",
+          "kind": "primary_artist_or_label",
+          "support_notes": "Supports down-tuned Finnish death-metal lineage, doom-weighted passages and blastbeats. A track-specific throat-chanting reference is not generalized to the default voice."
+        }
+      ],
+      "neighbor_distinction": "death_metal’s existing dry chug-oriented model emphasizes attack. This record explicitly models spatial decay, low chord weight and a long-reverberation vocal; it differs from dissonant_death_metal’s tight muted guitar and fractured-form emphasis.",
+      "authored_numeric_and_recording_model": {
+        "notes": "Numeric axes are authored ordinal coordinates for this selected arrangement, not measurements. Registered instrument materials, tuning, room and recording equipment are reproducible production choices, not documented exemplar-session inventories. Voice quality models an audible rough color without asserting a singer’s physiological technique. The finite catalog technique pins reduce complex riff and percussion practices; prose supplies the finer distinction.",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": -1,
+          "meter": 1,
+          "density": 1,
+          "transmission": -1,
+          "improv": -2,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 0,
+          "timbre": 2,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "recording_choices": {
+          "room": "live_room",
+          "tuning": "twelve_tet",
+          "chain_archetype": "arch_modern_pro_daw_studio",
+          "mic": "condenser_ldc",
+          "pre": "ultra_clean",
+          "comp": "comp_none",
+          "eq": "eq_none",
+          "medium": "digital_std",
+          "console": "clean",
+          "fx": ["hall_reverb"]
+        },
+        "source_uncertainty": "The model does not infer throat physiology, exact vocal training or syllabic technique: source-unspecified variants are pinned for register, quality, tradition, speech/song, Estill mechanism, vibrato and compound mechanism. No exact studio inventory or acoustic measurements are claimed."
+      },
+      "geo_rationale": "The label album page tags Finland and the release description identifies the musicians as Finnish. Marker is country-level practice context, not an exclusive origin or invented recording-city credit.",
+      "signature_tokens": [
+        "dark",
+        "distorted",
+        "rough",
+        "gritty",
+        "growly",
+        "low-mid-thick",
+        "low-register",
+        "low-end-heavy",
+        "reverberant",
+        "sustained-tone",
+        "metal-context",
+        "hollow"
+      ],
+      "validation": {
+        "checked": true,
+        "catalog": "node scripts/validate.js passed; all registered references resolve",
+        "baseline_preservation": "All 2613 baseline definitions/extras and old geo entries deep-equal baseline snapshot",
+        "cli": {
+          "length": 531,
+          "authored_valid_pairs_retained": 28,
+          "traditions": ["cavernous_death_metal", "doom", "doom_blues"]
+        },
+        "browser_connector": {
+          "exact_parity": true,
+          "pins_retained": 28,
+          "formats": {
+            "rich": 992,
+            "tags": 994,
+            "prose": 318,
+            "compact": 434
+          }
+        },
+        "unique_rich_bodies": true,
+        "signature_token_classes": "All selected tokens resolve as sonic or style; none cultural",
+        "preface_review": "No unrelated named cultural prefaces or technically wrong stride/two-step voice descriptors remain in final strings. Dark/rough or melancholy affective labels express authored model color, not artist statements or measured instrument grain.",
+        "issues": [
+          "CLI optimizer adds the listed scored neighbors and derives its environment from the archetype; browser/connector seed the selected flat environment. Configured source part pins remain retained on both paths.",
+          "Rich budget retains only a subset of part descriptors; all valid authored pins remain in the configuration, including instrument technique and oscillator choices.",
+          "Shared tradition signatures color all chairs: the avant-garde model’s clean piano can inherit a grimy affective preface. Softer signature alternatives yielded the technically incorrect stride-trotting piano; the selected dark affective version avoids that error. Final cosmic model uses quiet/clean/ambient tokens matching the documented aggression-and-contemplation contrast."
+        ]
+      }
+    },
+    {
+      "id": "cosmic_black_metal",
+      "source_label": "cosmic black metal",
+      "every_noise_url": "https://everynoise.com/engenremap-cosmicblackmetal.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://avantgardemusic.com/releases/mesarthim-the-degenerate-era-planet-nine/",
+          "title": "Mesarthim — The Degenerate Era & Planet Nine / Avantgarde",
+          "kind": "primary_artist_or_label",
+          "support_notes": "Explicit cosmic-black-metal membership, anonymous Australian duo and atmospheric-black-metal/trance fusion."
+        },
+        {
+          "url": "https://avantgardemusic.bandcamp.com/album/anthropic-bias-departure",
+          "title": "Anthropic Bias / Departure — Mesarthim / Avantgarde",
+          "kind": "primary_artist_or_label",
+          "support_notes": "Supports tremolo guitar, blastbeats, synthesizer layers, ambient transitions and dynamic phases."
+        },
+        {
+          "url": "https://mesarthim.bandcamp.com/album/departure-single",
+          "title": "Departure — Mesarthim artist release",
+          "kind": "primary_artist_or_label",
+          "support_notes": "Confirms release, Australia, cosmic/space-metal artist tags; no city or drum personnel claimed."
+        }
+      ],
+      "neighbor_distinction": "atmospheric_black_metal already covers cosmic themes generally; this distinct selected model foregrounds trance-linked moving synthesis. ambient_black_metal selects a beatless drone/sample passage, whereas this seed keeps metric propulsion and arpeggiated electronics.",
+      "authored_numeric_and_recording_model": {
+        "notes": "Numeric axes are authored ordinal coordinates for this selected arrangement, not measurements. Registered instrument materials, tuning, room and recording equipment are reproducible production choices, not documented exemplar-session inventories. Voice quality models an audible rough color without asserting a singer’s physiological technique. The finite catalog technique pins reduce complex riff and percussion practices; prose supplies the finer distinction.",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 2,
+          "density": 2,
+          "transmission": -1,
+          "improv": -2,
+          "soundTech": 2,
+          "intensity": 1,
+          "voice": -1,
+          "timbre": 2,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "recording_choices": {
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_archetype": "arch_modern_pro_daw_studio",
+          "mic": "condenser_ldc",
+          "pre": "ultra_clean",
+          "comp": "comp_none",
+          "eq": "eq_none",
+          "medium": "digital_std",
+          "console": "clean",
+          "fx": ["digital_delay", "hall_reverb"]
+        },
+        "source_uncertainty": "The model does not infer throat physiology, exact vocal training or syllabic technique: source-unspecified variants are pinned for register, quality, tradition, speech/song, Estill mechanism, vibrato and compound mechanism. No exact studio inventory or acoustic measurements are claimed."
+      },
+      "geo_rationale": "Artist release and label account identify Australia, while the duo remain anonymous. A broad country marker avoids inventing a city or exclusive birthplace.",
+      "signature_tokens": [
+        "dark",
+        "distorted",
+        "metal-context",
+        "contemplative",
+        "soft",
+        "quiet",
+        "controlled",
+        "clean",
+        "reverberant",
+        "sustained-tone",
+        "swelling",
+        "low-mid-rich",
+        "synthesized",
+        "layered-ambient",
+        "tremolo"
+      ],
+      "validation": {
+        "checked": true,
+        "catalog": "node scripts/validate.js passed; all registered references resolve",
+        "baseline_preservation": "All 2613 baseline definitions/extras and old geo entries deep-equal baseline snapshot",
+        "cli": {
+          "length": 572,
+          "authored_valid_pairs_retained": 26,
+          "traditions": ["cosmic_black_metal", "dark_psytrance", "zenonesque"]
+        },
+        "browser_connector": {
+          "exact_parity": true,
+          "pins_retained": 26,
+          "formats": {
+            "rich": 986,
+            "tags": 974,
+            "prose": 331,
+            "compact": 457
+          }
+        },
+        "unique_rich_bodies": true,
+        "signature_token_classes": "All selected tokens resolve as sonic or style; none cultural",
+        "preface_review": "No unrelated named cultural prefaces or technically wrong stride/two-step voice descriptors remain in final strings. Dark/rough or melancholy affective labels express authored model color, not artist statements or measured instrument grain.",
+        "issues": [
+          "CLI optimizer adds the listed scored neighbors and derives its environment from the archetype; browser/connector seed the selected flat environment. Configured source part pins remain retained on both paths.",
+          "Rich budget retains only a subset of part descriptors; all valid authored pins remain in the configuration, including instrument technique and oscillator choices.",
+          "Shared tradition signatures color all chairs: the avant-garde model’s clean piano can inherit a grimy affective preface. Softer signature alternatives yielded the technically incorrect stride-trotting piano; the selected dark affective version avoids that error. Final cosmic model uses quiet/clean/ambient tokens matching the documented aggression-and-contemplation contrast."
+        ]
+      }
+    },
+    {
+      "id": "folk_black_metal",
+      "source_label": "folk black metal",
+      "every_noise_url": "https://everynoise.com/engenremap-folkblackmetal.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.season-of-mist.com/news/windir-discography-to-be-released-on-vinyl-for-the-first-time-2020-11-12/",
+          "title": "Windir discography — Season of Mist",
+          "kind": "primary_artist_or_label",
+          "support_notes": "Documents black/heavy metal plus old Norwegian folk elements, Sogn identity, 1997-2003 albums and full-band 1184 authorship; firsthand bassist statement."
+        },
+        {
+          "url": "https://www.season-of-mist.com/bands/vreid/",
+          "title": "Vreid — Season of Mist",
+          "kind": "primary_artist_or_label",
+          "support_notes": "Documents Windir-to-Vreid continuity, Valfar’s surviving 2002 keyboard demos and Sogn network. Used for continuity only: Vreid’s black-and-roll material is not recast as a Windir album or folk-black-metal exemplar."
+        }
+      ],
+      "neighbor_distinction": "pagan_metal centers myth, massed chorus and several folk-instrument chairs. This selected folk-black-metal seed carries folk-derived melody through a compact black-metal band without invented ethnic instruments or techniques; atmospheric_black_metal centers diffuse atmosphere.",
+      "authored_numeric_and_recording_model": {
+        "notes": "Numeric axes are authored ordinal coordinates for this selected arrangement, not measurements. Registered instrument materials, tuning, room and recording equipment are reproducible production choices, not documented exemplar-session inventories. Voice quality models an audible rough color without asserting a singer’s physiological technique. The finite catalog technique pins reduce complex riff and percussion practices; prose supplies the finer distinction.",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 1,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": -2,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 0,
+          "timbre": 1,
+          "percussion": 1,
+          "cyclicity": 1
+        },
+        "recording_choices": {
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_archetype": "arch_modern_pro_daw_studio",
+          "mic": "condenser_ldc",
+          "pre": "ultra_clean",
+          "comp": "comp_none",
+          "eq": "eq_none",
+          "medium": "digital_std",
+          "console": "clean",
+          "fx": ["plate_reverb"]
+        },
+        "source_uncertainty": "The model does not infer throat physiology, exact vocal training or syllabic technique: source-unspecified variants are pinned for register, quality, tradition, speech/song, Estill mechanism, vibrato and compound mechanism. No exact studio inventory or acoustic measurements are claimed."
+      },
+      "geo_rationale": "Season of Mist explicitly connects Windir’s records and identity to Sogn. Marker represents this documented regional repertoire network rather than exclusive genre birthplace.",
+      "signature_tokens": [
+        "dark",
+        "distorted",
+        "rough",
+        "gritty",
+        "high-gain-saturation",
+        "cutting",
+        "growly",
+        "low-mid-thick",
+        "metal-context",
+        "melodic",
+        "tremolo",
+        "ringing"
+      ],
+      "validation": {
+        "checked": true,
+        "catalog": "node scripts/validate.js passed; all registered references resolve",
+        "baseline_preservation": "All 2613 baseline definitions/extras and old geo entries deep-equal baseline snapshot",
+        "cli": {
+          "length": 598,
+          "authored_valid_pairs_retained": 28,
+          "traditions": ["folk_black_metal", "medieval_rock", "pagan_metal"]
+        },
+        "browser_connector": {
+          "exact_parity": true,
+          "pins_retained": 28,
+          "formats": {
+            "rich": 997,
+            "tags": 998,
+            "prose": 310,
+            "compact": 426
+          }
+        },
+        "unique_rich_bodies": true,
+        "signature_token_classes": "All selected tokens resolve as sonic or style; none cultural",
+        "preface_review": "No unrelated named cultural prefaces or technically wrong stride/two-step voice descriptors remain in final strings. Dark/rough or melancholy affective labels express authored model color, not artist statements or measured instrument grain.",
+        "issues": [
+          "CLI optimizer adds the listed scored neighbors and derives its environment from the archetype; browser/connector seed the selected flat environment. Configured source part pins remain retained on both paths.",
+          "Rich budget retains only a subset of part descriptors; all valid authored pins remain in the configuration, including instrument technique and oscillator choices.",
+          "Shared tradition signatures color all chairs: the avant-garde model’s clean piano can inherit a grimy affective preface. Softer signature alternatives yielded the technically incorrect stride-trotting piano; the selected dark affective version avoids that error. Final cosmic model uses quiet/clean/ambient tokens matching the documented aggression-and-contemplation contrast."
+        ]
+      }
+    }
+  ]
+}

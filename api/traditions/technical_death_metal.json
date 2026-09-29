@@ -5,7 +5,7 @@
   "lineage": "Virtuosic death-metal sub-style codified through Atheist (Piece of Time 1990, Unquestionable Presence 1991), Cynic (Focus 1993), Death’s later records (Human 1991, Individual Thought Patterns 1993), and the Suffocation 1990s lineage — characterized by complex multi-meter compositions, fretboard-acrobatic guitar work, and jazz-fusion influences",
   "recipe": "classic North American early-1990s technical death metal, distorted Rock, death branch, prog metal progressive metal math metal. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 615,
-  "score": 314.39,
+  "score": 316.341,
   "config": {
     "traditions": [
       "technical_death_metal",
@@ -38,16 +38,16 @@
           "voice_quality": 5.525000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.99025,
+          "voice_vibrato": 5.99925,
           "voice_articulation": 12.089999999999996,
-          "voice_microtone": 21.925,
-          "voice_tradition": 5.670125,
-          "voice_mechanism_compound": 31.67225,
+          "voice_microtone": 21.988,
+          "voice_tradition": 5.674625,
+          "voice_mechanism_compound": 32.170249999999996,
           "voice_estill_quality": 0.7799999999999998,
           "voice_speech_song": 10.984999999999996,
           "voice_ensemble_config": 11.569999999999997,
           "voice_ornament_system": 1.9499999999999997,
-          "voice_pitch_organization": 1.788625,
+          "voice_pitch_organization": 1.773625,
           "voice_processing_chain": 5.46,
           "voice_multitrack_stack": 3.4450000000000016
         }
@@ -60,7 +60,7 @@
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -70,13 +70,13 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 31.022250000000003,
+          "electric_technique": 31.551750000000002,
           "amp_make": 15.014999999999999,
           "body_wood": 12.415000000000001,
           "neck_wood": 1.4300000000000002,
           "fretboard": 1.4300000000000002,
-          "pickup_magnet": 0.195,
-          "pickup_winding": 0.2415,
+          "pickup_magnet": 0.33599999999999997,
+          "pickup_winding": 0.273,
           "string_material": 1.4300000000000002,
           "bridge": 0.39,
           "scale_length": 13.845,
@@ -92,18 +92,18 @@
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
           "amp_make": 9.685000000000002,
-          "body_wood": 0.5534999999999999,
+          "body_wood": 0.7139999999999999,
           "pickup_config": 0.195,
-          "string_type": 20.156875,
+          "string_type": 20.647375,
           "scale_length_b": 0.195,
           "fretted_or_not": 0.195,
-          "bass_technique": 17.456125000000004
+          "bass_technique": 17.483125
         }
       },
       {
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 19.0775,
-          "drumhead": 5.717624999999999,
+          "drumhead": 5.7296249999999995,
           "drum_kit_kick_pedal": 0
         }
       }

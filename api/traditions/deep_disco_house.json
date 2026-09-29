@@ -1,0 +1,158 @@
+{
+  "id": "deep_disco_house",
+  "name": "Deep disco house",
+  "family": "electronic",
+  "lineage": "Disco-informed deep-house intersection represented by COEO and the Toy Tonics network: sample-based funk, soul and disco material joins a rounded bass pocket and chordal accompaniment. This selected strand uses the deeper harmonic groove rather than requiring the heavy filter-sweep arrangement of the broad disco-house record.",
+  "recipe": "classic modern deep disco house, electronic Dance, deep house branch, soul R&B functional song british soul detroit house. sampler, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, chordal centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, drum machine analog. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter phaser.",
+  "recipe_chars": 483,
+  "score": 150.752,
+  "config": {
+    "traditions": [
+      "deep_disco_house",
+      "british_soul",
+      "detroit_house"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.4225,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.195,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 55.63999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 23.658874999999995,
+          "body_wood": 1.04,
+          "pickup_config": 0.3765,
+          "string_type": 26.680374999999994,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0.15,
+          "bass_technique": 23.327125
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_jazz",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "rhodes_model": 3.7824999999999998,
+          "rhodes_use": 2.7075000000000005,
+          "rhodes_tine_material": 0.2025,
+          "rhodes_hammer_tip": -0.2799999999999999,
+          "rhodes_pickup_position": 1.2349999999999999
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 6.694999999999999,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 0.0495
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "rhodes_electric": [
+        "keyboard_technique",
+        "rhodes_model",
+        "rhodes_use"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_parallel_blend",
+      "eq": "eq_passive_program",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "phaser_pedal"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_sample_chopped",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "bass_technique": "fingerstyle_locked",
+      "keyboard_technique": "keyboard_jazz_comping",
+      "rhodes_model": "rhodes_mark1_stage",
+      "rhodes_use": "rhodes_jazz",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "shuffle_low"
+    },
+    "pin_parts": true,
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_parallel_blend",
+    "chain_eq": "eq_passive_program",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "phaser_pedal"
+    ]
+  }
+}

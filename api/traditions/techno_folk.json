@@ -5,7 +5,7 @@
   "lineage": "European fusion consolidated in Scotland and London in the early-to-mid 1990s through Martyn Bennett, Shooglenifty and Afro Celt Sound System, laying live fiddle, Highland pipes and whistle over programmed 125-140 BPM breakbeat and four-on-floor sequencer grooves, with modal jigs and reels looped as riffs, sampled Gaelic waulking and puirt-a-beul vocals, and sub-bass replacing the traditional drone.",
   "recipe": "classic 1994-1996 techno-folk, electronic Dance, continental branch, Celtic traditional improv on frame, deep house house céilí / ceilidh band music celtic folk. thick, breath veiled tone, slow rate, interlocked note trading. fiddle, cane drone reeds traditional arundo donax sheepskin cowhide traditional pre modern melodic highland bagpipes, melodic tin whistle, sound design field sampler, sub bass analog poly synth, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 706,
-  "score": 305.77,
+  "score": 305.939,
   "config": {
     "traditions": [
       "techno_folk",
@@ -41,7 +41,7 @@
           "highland_bag": "highland_hide_bag"
         },
         "scores": {
-          "wind_articulation": 15.950000000000001,
+          "wind_articulation": 16.214000000000002,
           "highland_drones": 0,
           "highland_chanter": 0.78,
           "highland_drone_reeds": 5.915000000000001,
@@ -58,7 +58,7 @@
           "whistle_body_material": "whistle_wood_premium"
         },
         "scores": {
-          "wind_articulation": 15.950000000000001,
+          "wind_articulation": 16.214000000000002,
           "whistle_key": 0.975,
           "whistle_ornament": 4.16,
           "whistle_body_material": 0.12999999999999998
@@ -74,9 +74,9 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.8999999999999999,
+          "electronic_technique": 0.9494999999999999,
           "sampler_archetypes": 0.585,
-          "sampler_bit_depth": 1.9399999999999997,
+          "sampler_bit_depth": 1.9444999999999997,
           "sampler_workflow": 1.2,
           "sampler_classic_context": 27.3
         }
@@ -92,7 +92,7 @@
         "scores": {
           "electronic_technique": 3.3850000000000007,
           "poly_archetypes": 0.99,
-          "poly_voices": 0.3,
+          "poly_voices": 0.15,
           "poly_maker_lineage": -1.7649999999999997
         }
       },
@@ -111,8 +111,8 @@
           "amp_make": 3.1300000000000003,
           "body_wood": 1.95,
           "pickup_config": 0.195,
-          "string_type": 4.085000000000001,
-          "scale_length_b": 1.935,
+          "string_type": 4.040000000000001,
+          "scale_length_b": 1.8900000000000001,
           "fretted_or_not": 0.65,
           "bass_technique": 2.245
         }
@@ -158,14 +158,14 @@
           "voice_vibrato": 1.885,
           "voice_articulation": 23.074999999999996,
           "voice_microtone": 24.439999999999998,
-          "voice_tradition": 31.285000000000004,
+          "voice_tradition": 31.153000000000002,
           "voice_mechanism_compound": 5.9799999999999995,
           "voice_estill_quality": 3.835000000000001,
           "voice_speech_song": 23.725,
           "voice_ensemble_config": 23.009999999999998,
-          "voice_ornament_system": 17.634999999999998,
+          "voice_ornament_system": 17.639499999999998,
           "voice_pitch_organization": 2.0149999999999997,
-          "voice_processing_chain": 11.409999999999998,
+          "voice_processing_chain": 11.364999999999998,
           "voice_multitrack_stack": 2.9250000000000007
         }
       }

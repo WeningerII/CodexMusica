@@ -1,0 +1,129 @@
+{
+  "id": "speed_house",
+  "name": "Speed house",
+  "family": "electronic",
+  "lineage": "Late-2010s and 2020s international rave-house strand developed around Haus of Panda, Speed House Movement and CHYL, joining bass-house sound design with speed-garage and hard-house energy. Rapid club pulse and compact, forceful bass-led sections define this selected recipe.",
+  "recipe": "classic 2017-2019 speed house, electronic Dance, house branch, bass system, chicago house house jump-up bass trap. sub bass wavetable synth, sampler drum machine, chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+  "recipe_chars": 404,
+  "score": 96.45,
+  "config": {
+    "traditions": [
+      "speed_house",
+      "jump_up",
+      "bass_trap"
+    ],
+    "instruments": [
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 19.304999999999996,
+          "wt_position": 1.1,
+          "wt_family": 0.645,
+          "wt_polyphony": 0.74
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 2.23,
+          "sample_bitdepth": 0.785,
+          "sample_swing": 11.674999999999999,
+          "sample_processing": 0.8
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "maschine_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.23,
+          "sampler_archetypes": 0,
+          "sampler_bit_depth": 0.22499999999999998,
+          "sampler_workflow": 2.3049999999999997,
+          "sampler_classic_context": 53.63500000000001
+        }
+      }
+    ],
+    "pinned": {
+      "wavetable_synth": [
+        "electronic_technique",
+        "wt_position",
+        "wt_family",
+        "wt_polyphony"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_brick_wall_limiter",
+      "eq": "eq_dynamic",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "distortion_high",
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_bass_sub",
+      "wt_position": "wt_chaotic",
+      "wt_family": "wt_vocal",
+      "wt_polyphony": "wt_mono",
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered",
+      "sampler_archetypes": "maschine_modern",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_edm"
+    },
+    "pin_parts": true,
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_brick_wall_limiter",
+    "chain_eq": "eq_dynamic",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "distortion_high",
+      "digital_delay"
+    ]
+  }
+}

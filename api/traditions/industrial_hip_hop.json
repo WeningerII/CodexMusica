@@ -1,0 +1,153 @@
+{
+  "id": "industrial_hip_hop",
+  "name": "Industrial hip hop",
+  "family": "hip_hop",
+  "lineage": "Hip-hop intersecting industrial and noise practice through abrasive sound construction, processed found sound and beat-centered MC performance. clipping.’s Los Angeles CLPPNG strand anchors this model, particularly Work Work, whose musicians explain using field recordings of metal objects and broken cinder blocks in place of conventional drum samples. Industrial describes the sonic construction rather than a lyrical obligation or one mandatory rock backline.",
+  "recipe": "classic modern industrial hip hop, mc Rhythm, experimental branch, industrial noise experimental electric, us hip hop west coast digital hardcore. thick, rap, equal tempered, rhythmic spoken flow no pitch. field textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter silicon fuzz.",
+  "recipe_chars": 388,
+  "score": 112.23,
+  "config": {
+    "traditions": [
+      "industrial_hip_hop",
+      "industrial",
+      "digital_hardcore"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_adlib_response_lane"
+        },
+        "scores": {
+          "voice_register": 5.268214285714287,
+          "voice_quality": 9.889999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0.3,
+          "voice_vibrato": 0.37499999999999994,
+          "voice_articulation": 0.39,
+          "voice_microtone": 5.125,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.195,
+          "voice_estill_quality": 0.195,
+          "voice_speech_song": 9.875,
+          "voice_ensemble_config": 1.625,
+          "voice_ornament_system": 0.5399999999999999,
+          "voice_pitch_organization": 0.32999999999999996,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 4.7
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "maschine_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 11.625000000000002,
+          "sampler_archetypes": 0,
+          "sampler_bit_depth": 1.2349999999999999,
+          "sampler_workflow": 16.462142857142858,
+          "sampler_classic_context": 42.875
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fuzz_silicon"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "rap_voice",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vibrato": "straight_tone",
+      "voice_microtone": "tempered_voice",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+      "voice_articulation": "spoken_voice",
+      "voice_effort": "effort_projected",
+      "electronic_technique": "electronic_glitch_textural",
+      "sampler_archetypes": "maschine_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_field_recordings",
+      "sampler_classic_context": "sampler_classic_industrial"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "fuzz_silicon"
+    ]
+  }
+}

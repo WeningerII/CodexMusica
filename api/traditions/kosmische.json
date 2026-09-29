@@ -3,9 +3,9 @@
   "name": "Kosmische Musik",
   "family": "rock",
   "lineage": "West German electronic-psychedelic practice of roughly 1969-1978, centred on Berlin and Cologne around Tangerine Dream, Klaus Schulze, Ash Ra Tempel, Popol Vuh and producer Conny Plank — long-form sequencer and modular-synthesiser pieces over static or slowly shifting drones, minimal or absent vocals, tape-delay guitar washes, and either free-floating pulseless expanses or steady motorik eighth-note drumming.",
-  "recipe": "classic Central European mid-1970s kosmische musik, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal protovapor bristol trip hop. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key block chord mellotron, pre muffled edge muffled brushes-and-sticks drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, block chord tape replay keyboard. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 915,
-  "score": 135.529,
+  "recipe": "classic Central European mid-1970s kosmische musik, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal protovapor bristol trip hop. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key arpeggiated sustain rich overtones mellotron, pre muffled edge muffled brushes-and-sticks drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, arpeggiated sustain rich overtones tape replay keyboard. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 961,
+  "score": 134.934,
   "config": {
     "traditions": [
       "kosmische",
@@ -46,14 +46,14 @@
       {
         "id": "mellotron",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
           "mellotron_voice": "mellotron_strings",
           "mellotron_context": "mellotron_prog",
           "mellotron_model": "mellotron_m400_canonical",
           "mellotron_tape_material": "mellotron_polyester_tape_canonical"
         },
         "scores": {
-          "keyboard_technique": 3.4499999999999997,
+          "keyboard_technique": 3.5428124999999997,
           "mellotron_voice": 3.8145,
           "mellotron_context": 0.195,
           "mellotron_model": 5.46,
@@ -100,10 +100,10 @@
           "pickup_winding": 0.65,
           "string_material": 0.78,
           "bridge": 1.37,
-          "scale_length": 5.178,
+          "scale_length": 4.788,
           "string_gauge": 1.37,
           "finish": 0.15,
-          "string_tuning": 5.384249999999999
+          "string_tuning": 4.994249999999999
         }
       },
       {
@@ -130,12 +130,12 @@
       {
         "id": "tape_replay_keyboard",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
           "tape_voice": "brass_tape",
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": 3.4499999999999997,
+          "keyboard_technique": 3.5428124999999997,
           "tape_voice": 0.6599999999999999,
           "tape_state": 0.195
         }

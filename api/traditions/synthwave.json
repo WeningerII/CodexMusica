@@ -3,14 +3,14 @@
   "name": "Synthwave",
   "family": "electronic",
   "lineage": "Late-2000s onward electronic genre evocative of 1980s film-soundtrack and synth-pop production aesthetics — characterized by gated-reverb drums, analog-poly-synth pads and leads, FM-electric-piano harmonic foundation, and explicit 1980s-cinema reference — codified through Kavinsky (Nightcall 2010, soundtrack to Drive), College, Mitch Murder, Power Glove, FM-84, Carpenter Brut, and the broader online retrowave-aesthetic scene",
-  "recipe": "classic North American 2007-2009 synthwave, experimental Elec, retro aesthetic branch, pop rock functional song new wave synthpop. singing lead analog yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, drum machine analog. tape echo chamber. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 436,
-  "score": 103.205,
+  "recipe": "classic North American 2007-2009 synthwave, experimental Elec, retro aesthetic branch, pop rock functional song new wave burmese pop. singing lead analog yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, drum machine analog. tape echo chamber. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 439,
+  "score": 91.86,
   "config": {
     "traditions": [
       "synthwave",
       "new_wave",
-      "synthpop"
+      "burmese_pop"
     ],
     "instruments": [
       {
@@ -23,9 +23,9 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 28.685,
-          "oscillator": 1.39,
-          "filter_topology": 4.29,
+          "electronic_technique": 25.935,
+          "oscillator": 1.24,
+          "filter_topology": 3.9000000000000004,
           "envelope": 0.39,
           "modulation": 0
         }
@@ -39,10 +39,10 @@
           "shuffle_quantize": "shuffle_high"
         },
         "scores": {
-          "kick_voice": 2.395,
+          "kick_voice": 2.245,
           "snare_voice": 0.7,
           "hat_voice": 0,
-          "shuffle_quantize": 0.845
+          "shuffle_quantize": 1.515
         }
       },
       {
@@ -55,11 +55,11 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 28.685,
-          "fm_algorithm": 1.0799999999999998,
+          "electronic_technique": 25.935,
+          "fm_algorithm": 1.4549999999999998,
           "fm_modulator_ratio": 0.39,
-          "fm_polyphony": 0.845,
-          "fm_model_lineage": 24.31
+          "fm_polyphony": 0.195,
+          "fm_model_lineage": 21.71
         }
       }
     ],

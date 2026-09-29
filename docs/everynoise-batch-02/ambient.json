@@ -1,0 +1,344 @@
+{
+  "lane": "ambient",
+  "baseline_commit": "64ca07dc6bb7213502f059760002da50f287f735",
+  "authorship_note": "Every Noise establishes supplied label membership only; all five direct map requests failed. Sources support the selected practices, credits, and geographic communities. Numeric axes and exact registered instrument construction, rooms, tuning and recording equipment are authored models, not measured audio or session inventories. Ambient psychill is a narrower subset of the existing broad psychill tradition; ambient synth and space ambient select articulated and sustained branches respectively.",
+  "entries": [
+    {
+      "id": "ambient_idm",
+      "source_label": "ambient idm",
+      "every_noise_url": "https://everynoise.com/engenremap-ambientidm.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://arovane.bandcamp.com/album/tides-2022-remaster",
+          "title": "Arovane — Tides [2022 Remaster]",
+          "kind": "artist_release_with_firsthand_statements",
+          "support_notes": "Inspected full release notes: sample-built downbeat grooves, environmental recordings, edited Christian Kleine guitar improvisations and spacious arrangement; original 2000 release and composer/recordist credits."
+        },
+        {
+          "url": "https://karlrecords.bandcamp.com/album/organism",
+          "title": "Arovane & Porya Hatami — Organism",
+          "kind": "label_release",
+          "support_notes": "Inspected label release: Arovane is Berlin-based; warm melodies/refined beat programming meet Hatami’s processed sources and field recordings. Label explicitly tags ambient IDM."
+        }
+      ],
+      "neighbor_distinction": "Reduced percussion/intensity and sample-built broken beats distinguish this selected ambient-IDM branch from the generic IDM ensemble and regular machine-pulse ambient techno; guitar fragments distinguish it from the two synth-only additions.",
+      "authored_numeric_and_recording_model": "Sparse, instrumental, low-intensity axes with modest rhythmic cyclicity. Sixteen-bit microsampling, swelling triangle/SVF pad and clean nickel-string guitar are models of the documented sampling/guitar practice. Akai S1000 identity, clean digital capture and delay/plate are authored substitutions, not claimed session gear.",
+      "geo_rationale": "Berlin is the label-documented artist practice community, not the French field-recording locations or an exclusive genre birthplace.",
+      "signature_tokens": [
+        "ambient",
+        "layered-ambient",
+        "melodic",
+        "sparse",
+        "quiet",
+        "soft-onset",
+        "smoothed",
+        "mellow",
+        "sample-foundational"
+      ],
+      "validation": {
+        "checked": true,
+        "pins_checked": 20,
+        "lengths": {
+          "rich": 995,
+          "tags": 975,
+          "prose": 346,
+          "compact": 456
+        },
+        "cli_length": 401,
+        "browser_parity": true,
+        "cli_and_browser_authored_pins_retained": true,
+        "signature_tokens_classified": true,
+        "issues": []
+      }
+    },
+    {
+      "id": "ambient_fusion",
+      "source_label": "ambient fusion",
+      "every_noise_url": "https://everynoise.com/engenremap-ambientfusion.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://jonhassell.com/last-night-the-moon-came-dropping-its-clothes-in-the-street/",
+          "title": "Jon Hassell — Last Night the Moon Came Dropping Its Clothes in the Street",
+          "kind": "artist_release",
+          "support_notes": "Inspected artist discography page: trumpet/keyboards, Peter Freeman bass/laptop, Jan Bang live sampling, violin, guitars and drums; overlapping sound-painting production."
+        },
+        {
+          "url": "https://ecmrecords.com/product/last-night-the-moon-came-dropping-its-clothes-in-the-street-jon-hassell/",
+          "title": "ECM — Last night the moon came dropping its clothes in the street",
+          "kind": "label_release",
+          "support_notes": "Inspected full indexed label text after direct retrieval failed: spacious Fourth World dub-montage, continuous cinematic motifs, core Avignon session and later Los Angeles details; full credited roster."
+        }
+      ],
+      "neighbor_distinction": "Live breath-led trumpet and violin improvisation plus sampling replace fusion’s forceful rock/funk backline; no stock saxophone/piano virtuosic ensemble. Its instrumental foreground differs from sample-edited ambient IDM and synth-only space ambient.",
+      "authored_numeric_and_recording_model": "Improvisation +2, free meter and absent foreground percussion emphasize the source’s continuous montage. Legato trumpet, muted fretless bass, sul-tasto violin and loop sampler model overlapping motifs; ribbon capture, optical compression and pitch-shift/delay/hall are authored choices.",
+      "geo_rationale": "Los Angeles anchors explicitly documented late-2008 album detail/assembly, while the ledger preserves the core session near Avignon and integrated European concert recordings; it is not an origin claim.",
+      "signature_tokens": [
+        "ambient",
+        "layered-ambient",
+        "lush-ambient",
+        "sustained-tone",
+        "reverberant",
+        "soft-onset",
+        "smoothed",
+        "warm-glowing",
+        "mellow",
+        "jazz-improvisation",
+        "overlapping",
+        "soft",
+        "controlled",
+        "present",
+        "focused",
+        "quiet",
+        "intimate",
+        "minimal",
+        "stable",
+        "clean-articulation-low-blur",
+        "clean",
+        "tight-articulation",
+        "contemplative",
+        "meditative-tempo"
+      ],
+      "validation": {
+        "checked": true,
+        "pins_checked": 18,
+        "lengths": {
+          "rich": 998,
+          "tags": 968,
+          "prose": 377,
+          "compact": 499
+        },
+        "cli_length": 626,
+        "browser_parity": true,
+        "cli_and_browser_authored_pins_retained": true,
+        "signature_tokens_classified": true,
+        "issues": []
+      }
+    },
+    {
+      "id": "ambient_psychill",
+      "source_label": "ambient psychill",
+      "every_noise_url": "https://everynoise.com/engenremap-ambientpsychill.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://carbonbasedlifeforms.bandcamp.com/album/world-of-sleepers?action=embed",
+          "title": "Carbon Based Lifeforms — World Of Sleepers",
+          "kind": "artist_release",
+          "support_notes": "Inspected full artist page: original Ultimae release in 2006, written/produced by CBL, mastering by Vincent Villuis, and artist-authored ambient/chillout/downtempo/psybient tags."
+        },
+        {
+          "url": "https://www.releasemagazine.net/carbon-based-lifeforms-the-ambient-electronic-duo-interviewed/",
+          "title": "Carbon Based Lifeforms — the ambient electronic duo interviewed (Mike Whyte, 2017)",
+          "kind": "firsthand_interview",
+          "support_notes": "Inspected interview: found environmental sounds; evolving drone-to-beat decisions; melody/bass relationship; effects tweaking and detailed revision."
+        },
+        {
+          "url": "https://ra.co/dj/carbonbasedlifeforms/biography",
+          "title": "Carbon Based Lifeforms — hosted biography",
+          "kind": "artist_profile_context",
+          "support_notes": "Inspected hosted biography, credited Jim & Joanne Sharman: Gothenburg location, division of harmonic/rhythmic labor, resonant TB-303 practice; contextual support rather than an exact album inventory."
+        }
+      ],
+      "neighbor_distinction": "This is explicitly the reduced, instrumental synth/ambient subset of the broad psychill record, which foregrounds acoustic/vocal collage and greater grain. Recessed drums, pad harmony, closed-resonance bass and nature sampling are the defining selection; no claim that psychill and ambient psychill are independent historical origins.",
+      "authored_numeric_and_recording_model": "Meditative intensity, smooth grain, instrumental focus and stable cyclicity. Slow swelling supersaw pad, square-wave closed-filter acid bass, softly layered one-shot percussion and environmental sampler model the supported branch. Registered synth/MPC identities and digital processing are authored choices.",
+      "geo_rationale": "Gothenburg is the documented duo’s practice community. Lyon mastering and an internationally distributed festival/label network do not make it a sole birthplace.",
+      "signature_tokens": [
+        "ambient",
+        "layered-ambient",
+        "lush-ambient",
+        "melodic",
+        "sub-bass",
+        "cyclic",
+        "meditative-tempo",
+        "smoothed",
+        "soft-onset",
+        "mellow",
+        "soft",
+        "controlled",
+        "present",
+        "focused",
+        "minimal",
+        "stable",
+        "quiet",
+        "clean-articulation-low-blur",
+        "clean",
+        "tight-articulation"
+      ],
+      "validation": {
+        "checked": true,
+        "pins_checked": 15,
+        "lengths": {
+          "rich": 998,
+          "tags": 1000,
+          "prose": 370,
+          "compact": 485
+        },
+        "cli_length": 469,
+        "browser_parity": true,
+        "cli_and_browser_authored_pins_retained": true,
+        "signature_tokens_classified": true,
+        "issues": []
+      }
+    },
+    {
+      "id": "ambient_synth",
+      "source_label": "ambient synth",
+      "every_noise_url": "https://everynoise.com/engenremap-ambientsynth.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.anost.net/release/4B2C/steve-hauschildt%2Fstrands",
+          "title": "Steve Hauschildt — Strands: label text and artist statement",
+          "kind": "label_text_and_firsthand_artist_statement",
+          "support_notes": "Inspected release page reproducing Kranky notes and Hauschildt’s statement: calm-to-pulsing compositions, malleable timing, morphing sound and hometown Cleveland where most was recorded."
+        },
+        {
+          "url": "https://www.musicradar.com/artists/i-learned-synthesis-using-the-micromoog-so-ive-always-had-an-appreciation-for-those-kinds-of-synths-ambient-maestro-steve-hauschildt-on-the-obscure-plugins-generative-tools-and-00s-digital-synths-behind-aeropsia",
+          "title": "Steve Hauschildt on synthesis and generative tools (Danny Turner, MusicRadar, 2025)",
+          "kind": "firsthand_interview",
+          "support_notes": "Inspected interview: solo work primarily synth-based; chords precede arpeggios/randomization, analog/digital hybrid tools, long improvisations edited into pieces. Later collaborations are not retroactively assigned to Strands."
+        }
+      ],
+      "neighbor_distinction": "The selected synth-ambient branch foregrounds note articulation, soft plucks and changing patterns. Space ambient is modeled as sustained held tones without recurring attacks; Berlin School remains the historical long-form sequencer/tape ensemble.",
+      "authored_numeric_and_recording_model": "Instrumental, drumless axes with modest cyclicity and real-time variability. Short triangle envelopes/sample-and-hold movement and harmonic polyphonic FM keep patterns audible. These two registered synth categories and digital delay/chorus/plate are authored representations, not a Strands gear inventory.",
+      "geo_rationale": "Cleveland follows the firsthand Strands statement that the hometown was its subject and principal recording location, not Hauschildt’s later Chicago/Tbilisi residences.",
+      "signature_tokens": [
+        "ambient",
+        "layered-ambient",
+        "melodic",
+        "glassy",
+        "articulated",
+        "cyclic",
+        "smoothed",
+        "mellow",
+        "controlled",
+        "focused",
+        "present",
+        "clean",
+        "tight-articulation",
+        "clean-articulation-low-blur"
+      ],
+      "validation": {
+        "checked": true,
+        "pins_checked": 10,
+        "lengths": {
+          "rich": 1000,
+          "tags": 996,
+          "prose": 294,
+          "compact": 790
+        },
+        "cli_length": 310,
+        "browser_parity": true,
+        "cli_and_browser_authored_pins_retained": true,
+        "signature_tokens_classified": true,
+        "issues": []
+      }
+    },
+    {
+      "id": "space_ambient",
+      "source_label": "space ambient",
+      "every_noise_url": "https://everynoise.com/engenremap-spaceambient.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://projektrecords.bandcamp.com/album/immersion-one",
+          "title": "Steve Roach — immersion : one (Projekt)",
+          "kind": "label_release",
+          "support_notes": "Inspected full release notes and space-music tag: uninterrupted long-form minimal steady-state tone zone for low-volume listening; 2006 release."
+        },
+        {
+          "url": "https://tapeop.com/interviews/161/steve-roach",
+          "title": "Steve Roach: Time Becomes Nothing (Larry Crane, Tape Op 161, May 2024)",
+          "kind": "firsthand_interview",
+          "support_notes": "Inspected available interview text: Timeroom/home near Tucson, analog/polyphonic synthesis and holding tones/chords. Only public text before subscription boundary used."
+        }
+      ],
+      "neighbor_distinction": "Held, smoothly blended tones and no recurring attacks define this selected space-ambient branch; ambient synth retains arpeggiated figures. Generic ambient’s mixed acoustic/electronic roster, Berlin School’s sequencer ostinato and new-age melodic/acoustic arrangements are not imported.",
+      "authored_numeric_and_recording_model": "Free meter, absent percussion, low cyclicity and smooth grain model continuous non-pulsed sound. Sustained unmodulated sine plus morphing polyphonic wavetable and stereo/hall space are deliberate authored defaults; no claim that Immersion used these exact synthesizers or effects.",
+      "geo_rationale": "Tucson represents Roach’s documented Timeroom practice and desert home/studio community; it is not the origin of all space music, nor Projekt’s Portland business address.",
+      "signature_tokens": [
+        "ambient",
+        "layered-ambient",
+        "lush-ambient",
+        "sustained",
+        "sustained-tone",
+        "soft-onset",
+        "drone-foundation",
+        "drone-like",
+        "reverberant",
+        "quiet",
+        "smoothed"
+      ],
+      "validation": {
+        "checked": true,
+        "pins_checked": 9,
+        "lengths": {
+          "rich": 993,
+          "tags": 999,
+          "prose": 334,
+          "compact": 832
+        },
+        "cli_length": 428,
+        "browser_parity": true,
+        "cli_and_browser_authored_pins_retained": true,
+        "signature_tokens_classified": true,
+        "issues": []
+      }
+    }
+  ],
+  "validation_scope": "All 2613 baseline definitions/extras/geographic anchors deep-equal the supplied snapshot; node scripts/validate.js passes. Five actual optimized CLI recipes and JSON configs retain every applicable authored pin. All 20 connector/browser format pairs are byte-identical, nonempty and <=1000 characters; five rich bodies are distinct. Exemplar names and named unrelated cultural prefaces are absent.",
+  "semantic_render_review": {
+    "before": [
+      "ambient_fusion: erhuang violin and bewildering sampler",
+      "ambient_psychill: street-pulsing drum sampler and bewildering field sampler",
+      "ambient_idm: energizing pad",
+      "ambient_synth: cold/bewildering FM"
+    ],
+    "after": [
+      {
+        "id": "ambient_idm",
+        "prefaces": [
+          ["sampler_classic", "micro-stuttering"],
+          ["analog_synth", "gleaming"],
+          ["electric_guitar_single_coil", "clean"]
+        ]
+      },
+      {
+        "id": "ambient_fusion",
+        "prefaces": [
+          ["trumpet", "calm"],
+          ["electric_bass", "nocturnal"],
+          ["violin_orchestral", "collected"],
+          ["sampler_classic", "clean"]
+        ]
+      },
+      {
+        "id": "ambient_psychill",
+        "prefaces": [
+          ["analog_synth", "restrained"],
+          ["monosynth_acid_bass", "collected"],
+          ["sampler_drum_machine", "calm"],
+          ["sampler_classic", "clean"]
+        ]
+      },
+      {
+        "id": "ambient_synth",
+        "prefaces": [
+          ["analog_synth", "clean"],
+          ["fm_synth", "collected"]
+        ]
+      },
+      {
+        "id": "space_ambient",
+        "prefaces": [
+          ["analog_synth", "cloud-floating"],
+          ["wavetable_synth", "depaysement"]
+        ]
+      }
+    ],
+    "correction_rationale": "Source-led classified signatures describe quiet/controlled instrumental delivery, precise loop construction, low-intensity cyclic bass and layered electronic space. Sampler context is pinned to contemporary sound design instead of incidental hip-hop breaks/orchestra-hit defaults. Modern violin setup/bow and neutral modern guitar construction are authored pins preventing inappropriate optimizer-era/material drift.",
+    "rendering_limit": "Rich compression pools descriptors under the shared synth suffix. Space ambient therefore can print static (the authored no-modulation sine layer) beside organic-electronic (the morphing wavetable layer); both source parts remain correct in CLI and browser configs. CLI performs its established neighboring-tradition stapling and chain optimization, so its header/environment descriptors differ from the deterministic browser seed."
+  }
+}

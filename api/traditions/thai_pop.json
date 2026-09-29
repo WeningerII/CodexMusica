@@ -5,7 +5,7 @@
   "lineage": "Bangkok mainstream pop consolidated in the mid-1980s around the Grammy Entertainment and RS Promotion label system — Thongchai 'Bird' McIntyre and Asanee-Wasan set the template of string (สตริง) band-pop sung in central Thai over 100-125 BPM programmed backbeats — and re-formed after 2015 as idol-group T-pop (BNK48, 4EVE, PROXIE) built on K-pop-style synth-and-808 arrangements, tight unison choreography vocals, and occasional luk thung phrasing or khaen and ranat timbres dropped into otherwise Western-harmonised choruses.",
   "recipe": "classic Asian 1984-1986 t-pop, functional Song, east Asian pop branch, pop rock synthpop wonky pop new romanticism. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, TR-808, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, khaen, ranat ek, sampler. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, avalon VT-737sp, empirical labs distressor, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 633,
-  "score": 442.409,
+  "score": 442.335,
   "config": {
     "traditions": [
       "thai_pop",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 44.10700000000002,
+          "voice_register": 44.068000000000026,
           "voice_quality": 8.97,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.8199999999999998,
           "voice_articulation": 21.059999999999995,
-          "voice_microtone": 44.77425000000001,
-          "voice_tradition": 43.13525,
+          "voice_microtone": 44.735250000000015,
+          "voice_tradition": 43.65325,
           "voice_mechanism_compound": 2.73,
           "voice_estill_quality": 2.5350000000000006,
           "voice_speech_song": 27.169999999999998,
           "voice_ensemble_config": 22.489999999999995,
           "voice_ornament_system": 2.3877500000000005,
-          "voice_pitch_organization": 12.328749999999996,
-          "voice_processing_chain": 6.890000000000001,
+          "voice_pitch_organization": 12.418749999999996,
+          "voice_processing_chain": 6.9350000000000005,
           "voice_multitrack_stack": 4.680000000000001
         }
       },
@@ -76,7 +76,7 @@
         },
         "scores": {
           "tr808_voice": 2.0149999999999997,
-          "drum_machine_808_context": 4.868,
+          "drum_machine_808_context": 4.79,
           "tr808_production_origin": 0.5175
         }
       },
@@ -93,10 +93,10 @@
         },
         "scores": {
           "amp_make": 5.850000000000001,
-          "body_wood": 1.885,
+          "body_wood": 1.8849999999999998,
           "pickup_config": 0.47024999999999995,
           "string_type": 10.562500000000002,
-          "scale_length_b": 1.814,
+          "scale_length_b": 1.645,
           "fretted_or_not": 0.33525,
           "bass_technique": 8.737750000000002
         }
@@ -120,14 +120,14 @@
         "scores": {
           "electric_technique": 36.345,
           "amp_make": 6.857500000000002,
-          "body_wood": 1.859,
-          "neck_wood": 1.859,
-          "fretboard": 1.809,
+          "body_wood": 1.69,
+          "neck_wood": 1.69,
+          "fretboard": 1.64,
           "pickup_magnet": 0.15,
           "string_material": 0,
-          "string_gauge": 1.885,
+          "string_gauge": 1.795,
           "bridge": 0.39,
-          "scale_length": 1.885,
+          "scale_length": 1.8849999999999998,
           "finish": 0.15,
           "string_tuning": 4.2250000000000005
         }
@@ -136,12 +136,12 @@
         "id": "khaen",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "khaen_size": "khaen_paet",
+          "khaen_size": "khaen_jet",
           "khaen_context": "khaen_mor_lam"
         },
         "scores": {
           "free_reed_technique": 0.39,
-          "khaen_size": 0,
+          "khaen_size": 0.15,
           "khaen_context": 6.11
         }
       },
@@ -168,7 +168,7 @@
           "sampler_archetypes": 1.125,
           "sampler_bit_depth": 1.2999999999999998,
           "sampler_workflow": 0.975,
-          "sampler_classic_context": 36.2025
+          "sampler_classic_context": 36.2475
         }
       }
     ],

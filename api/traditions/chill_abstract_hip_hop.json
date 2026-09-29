@@ -1,0 +1,153 @@
+{
+  "id": "chill_abstract_hip_hop",
+  "name": "Chill abstract hip hop",
+  "family": "hip_hop",
+  "lineage": "A restrained, hazy strand of abstract rap in which reflective associative MC writing remains foreground while the accompaniment and delivery soften. Chester Watson’s Project 0, particularly 40 Acres with Tufu, anchors this selected late-2010s model. The category is not instrumental study-beat music: its MC and verbal narrative remain essential to the selected practice.",
+  "recipe": "classic 2017-2019 chill abstract hip hop, mc Rhythm, experimental branch, lofi experimental electric, us hip hop modern cloud rap dream plugg. thick, rap, minimal subglottal pressure, pure. sampled chopped sampler. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital digital delay.",
+  "recipe_chars": 345,
+  "score": 102.072,
+  "config": {
+    "traditions": [
+      "chill_abstract_hip_hop",
+      "cloud_rap",
+      "dream_plugg"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_minimal_undersung",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 2.3199999999999994,
+          "voice_quality": 21.099999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 1.8200000000000003,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.5399999999999999,
+          "voice_microtone": 2.5249999999999995,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 19.351071428571426,
+          "voice_ensemble_config": 7.799999999999999,
+          "voice_ornament_system": 0.37499999999999994,
+          "voice_pitch_organization": 0.195,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.585
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 7.779999999999999,
+          "sampler_archetypes": 5.846071428571428,
+          "sampler_bit_depth": -0.42000000000000004,
+          "sampler_workflow": 0.245,
+          "sampler_classic_context": 20.539999999999996
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "carpeted_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "carpeted_bedroom",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "rap_voice",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vibrato": "straight_tone",
+      "voice_microtone": "tempered_voice",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_articulation": "spoken_voice",
+      "voice_effort": "effort_minimal_undersung",
+      "electronic_technique": "electronic_sample_chopped",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

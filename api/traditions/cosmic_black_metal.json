@@ -1,0 +1,218 @@
+{
+  "id": "cosmic_black_metal",
+  "name": "Cosmic black metal",
+  "family": "rock_punk",
+  "lineage": "Cosmos-themed black-metal and electronic practice represented by anonymous Australian duo Mesarthim. Avantgarde explicitly tags the label cosmic black metal and describes their atmospheric-black-metal/trance fusion. Anthropic Bias / Departure supplies a concrete guitar, blast-beat and synthesizer account. The recipe models a synth-melodic black-metal passage rather than claiming astronomy itself specifies a musical technique.",
+  "recipe": "classic modern cosmic black metal, distorted Rock, black branch, ambient experimental electric, trance electronic dance dark psytrance zenonesque. interlocked note trading, equal tempered, solo with instrumental accompaniment, no specific ornament system. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany humbucker electric guitar, drum kit, analog synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 572,
+  "score": 68.168,
+  "config": {
+    "traditions": [
+      "cosmic_black_metal",
+      "dark_psytrance",
+      "zenonesque"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_tremolo_picking",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "mahogany_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 0.26,
+          "amp_make": 9.174999999999999,
+          "body_wood": 1.04,
+          "neck_wood": 1.04,
+          "fretboard": 0.975,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.845,
+          "string_material": 0.39,
+          "bridge": 1.04,
+          "scale_length": 1.04,
+          "string_gauge": 0.845,
+          "finish": 0,
+          "string_tuning": 0.6975
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "machine_drum_program",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 13.825000000000001,
+          "drumhead": 0.845,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "oscillator": "saw_super",
+          "filter_topology": "svf",
+          "envelope": "sustain_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 0.25,
+          "oscillator": 11.229999999999999,
+          "filter_topology": 0.195,
+          "envelope": 0,
+          "modulation": 0.045
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_hall_reverb_long",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 16.119999999999994,
+          "voice_microtone": 3.650000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 2.275,
+          "voice_ornament_system": 0.845,
+          "voice_pitch_organization": 0.195,
+          "voice_processing_chain": 0.65,
+          "voice_multitrack_stack": 0.845
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "body_wood",
+        "pickup_magnet",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_tuning"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drumhead"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": "amp_modeling",
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay",
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "body_wood": "mahogany_h",
+      "pickup_magnet": "ceramic_h",
+      "string_material": "nickel_plated_h",
+      "bridge": "stoptail",
+      "scale_length": "scale_gibson_h",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_hall_reverb_long",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "drumhead": "double_coated",
+      "drum_technique": "machine_drum_program",
+      "electric_technique": "electric_tremolo_picking",
+      "string_tuning": "standard_tuning",
+      "electronic_technique": "electronic_arpeggiated",
+      "oscillator": "saw_super",
+      "filter_topology": "svf",
+      "envelope": "sustain_env"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_std",
+    "chain_console": "clean",
+    "chain_fx": [
+      "digital_delay",
+      "hall_reverb"
+    ],
+    "chain_amp": "amp_modeling"
+  }
+}

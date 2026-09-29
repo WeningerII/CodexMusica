@@ -1,0 +1,233 @@
+{
+  "id": "georgian_pop",
+  "name": "Georgian pop",
+  "family": "pop",
+  "lineage": "Selected late-2000s Georgian television and international disco-pop crossover represented by Stephane & 3G and We Don't Wanna Put In (2009). This English-language commercial branch belongs to Georgia's pop scene alongside Georgian-language singles and ballads; it does not describe the country's polyphonic church, supra or regional folk repertoires.",
+  "recipe": "classic 2007-2009 georgian pop, functional Song, europop branch, pop rock functional song new wave yacht rock. thick, equal tempered, modern pop training, one note per syllable. mahogany rosewood single coil electric guitar, mahogany ernie ball slinky electric bass, pre muffled edge muffled four-on-floor drum kit, singing lead rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 495,
+  "score": 292.781,
+  "config": {
+    "traditions": [
+      "georgian_pop",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "speech_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_adlib_response_lane"
+        },
+        "scores": {
+          "voice_register": 57.68000000000001,
+          "voice_quality": 0.09,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.195,
+          "voice_microtone": 51.175000000000004,
+          "voice_tradition": 38.404999999999994,
+          "voice_mechanism_compound": 0.195,
+          "voice_estill_quality": 0.195,
+          "voice_speech_song": 1.3649999999999998,
+          "voice_ensemble_config": -9.714451465470119e-18,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 4.094999999999999,
+          "voice_multitrack_stack": 0.9749999999999996
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 1.1374999999999997,
+          "amp_make": 0,
+          "body_wood": 2.275,
+          "neck_wood": 2.275,
+          "fretboard": 2.21,
+          "pickup_magnet": 0.585,
+          "string_material": 0.585,
+          "string_gauge": 2.925,
+          "bridge": 0.65,
+          "scale_length": 2.275,
+          "finish": 0.09,
+          "string_tuning": 0.09562499999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 2.275,
+          "pickup_config": 0.195,
+          "string_type": 27.4625,
+          "scale_length_b": 2.275,
+          "fretted_or_not": 0.645,
+          "bass_technique": 0.25
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_disco_four",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 5.415000000000001,
+          "drumhead": 27.339999999999993,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "rompler_preset_bank": "rompler_preset_dance_stabs",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_roland_jv_xp"
+        },
+        "scores": {
+          "electronic_technique": 28.684999999999995,
+          "rompler_preset_bank": -0.1,
+          "rompler_context": 27.744999999999997,
+          "rompler_lineage": -0.6300000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ],
+      "rompler_workstation": [
+        "electronic_technique",
+        "rompler_preset_bank",
+        "rompler_context",
+        "rompler_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_tube",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_brick_wall_limiter",
+      "eq": "eq_dynamic",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "plate_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_microtone": "tempered_voice",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_vibrato": "straight_tone",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_articulation": "staccato_voice",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+      "voice_processing_chain": "voice_processing_plate_reverb_medium",
+      "electric_technique": "electric_chicken_scratch",
+      "bass_technique": "slap_pop",
+      "drum_technique": "sticks_disco_four",
+      "electronic_technique": "electronic_lead_line",
+      "rompler_preset_bank": "rompler_preset_dance_stabs",
+      "rompler_context": "rompler_context_pop_workstation",
+      "rompler_lineage": "rompler_roland_jv_xp",
+      "amp_make": "amp_unspecified",
+      "string_tuning": "standard_tuning"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_tube",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_brick_wall_limiter",
+    "chain_eq": "eq_dynamic",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "plate_reverb"
+    ]
+  }
+}

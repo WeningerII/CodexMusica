@@ -5,7 +5,7 @@
   "lineage": "Term applied by UK critics around 2008 to a transatlantic beat current — Flying Lotus, Hudson Mohawke, Rustie, Zomby, Joker and Dorian Concept — defined by unquantised, deliberately lurching drum programming, heavy pitch-bend and LFO detune on mid-range synth leads, 808 sub-bass, and 70-160 BPM tracks that shift metric feel mid-phrase rather than holding a grid.",
   "recipe": "classic late-2000s wonky, experimental Elec, idm glitch branch, experimental MC rhythm, uk soundsystem bass system asian underground darkcore. sampler drum machine, TR-808, sub bass analog poly yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm synth, sub bass monosynth acid bass, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 494,
-  "score": 72.75,
+  "score": 70.815,
   "config": {
     "traditions": [
       "wonky_beat_scene",
@@ -36,8 +36,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 9.654999999999998,
-          "drum_machine_808_context": 9.354999999999999,
+          "tr808_voice": 9.339999999999998,
+          "drum_machine_808_context": 8.995,
           "tr808_production_origin": 0.195
         }
       },
@@ -50,10 +50,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 10.549999999999997,
+          "electronic_technique": 10.234999999999998,
           "poly_archetypes": 0.3,
-          "poly_voices": 0.045,
-          "poly_maker_lineage": -1.105
+          "poly_voices": 0.09,
+          "poly_maker_lineage": -1.15
         }
       },
       {
@@ -65,7 +65,7 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 10.549999999999997,
+          "electronic_technique": 10.234999999999998,
           "wave_acid": 0.195,
           "filter_acid": 2.795,
           "accent_acid": 0
@@ -81,11 +81,11 @@
           "fm_model_lineage": "fm_yamaha_tx81z"
         },
         "scores": {
-          "electronic_technique": 10.549999999999997,
+          "electronic_technique": 10.234999999999998,
           "fm_algorithm": 0.195,
           "fm_modulator_ratio": 0.975,
           "fm_polyphony": 0.48,
-          "fm_model_lineage": 4.84
+          "fm_model_lineage": 4.5249999999999995
         }
       },
       {

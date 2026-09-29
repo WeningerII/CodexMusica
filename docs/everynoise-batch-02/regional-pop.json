@@ -1,0 +1,362 @@
+{
+  "lane": "regional-pop",
+  "baseline_commit": "64ca07dc6bb7213502f059760002da50f287f735",
+  "authorship_note": "Every Noise establishes label membership only. National/language labels are broad discovery umbrellas; each entry selects one commercial recording practice. Every numeric axis, exact gear/room/processing choice and detailed reduction is authored, not measured audio or a verified original-session inventory. Existing neutral vocabulary only; no traditional vocal technique is inherited from geographic neighbors.",
+  "entries": [
+    {
+      "id": "georgian_pop",
+      "source_label": "georgian pop",
+      "every_noise_url": "https://everynoise.com/engenremap-georgianpop.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://1tv.ge/lang/en/eurovision/georgia-at-esc/",
+          "title": "Georgian Public Broadcaster — Georgia at ESC",
+          "kind": "official broadcaster archive",
+          "support_notes": "Confirms Stephane & 3G and the 2009 Georgian national-selection song; provides the national television practice context."
+        },
+        {
+          "url": "https://www.theguardian.com/music/2009/may/10/georgia-vladimir-putin-song-eurovision",
+          "title": "Alexandra Topping — Georgian Eurovision performers, firsthand interview",
+          "kind": "firsthand performance report and artist interview",
+          "support_notes": "Observed disco pulse and lead with three answering singers; no instrument/session inventory."
+        }
+      ],
+      "neighbor_distinction": "Separate from georgian_polyphony, georgian_three_voice_polyphony and georgian_supra_drinking: a selected commercial disco song with electronic keys and amplified rhythm section, not non-tempered regional three-voice or ceremonial table singing.",
+      "authored_numeric_and_recording_model": "All axes are authored relative coordinates. Clipped lead/answers, dance-stab workstation, scratch guitar, slapped bass and four-beat kit form a disco reduction. Specific gear, vocal mechanics and room are authored contemporary re-recording choices, not measured features or original credits.",
+      "geo_rationale": "Tbilisi anchors the Georgian broadcaster/national-selection circuit, not an exclusive birthplace; the exemplar also circulated internationally.",
+      "signature_tokens": [
+        "pop",
+        "dance-driving",
+        "dance-rhythm",
+        "backbeat",
+        "group-vocals",
+        "rhythmic",
+        "controlled",
+        "focused",
+        "stable",
+        "clean-articulation-low-blur",
+        "clean",
+        "present",
+        "tight-articulation"
+      ],
+      "validation": {
+        "checked": true,
+        "issues": [],
+        "source_validation": "node scripts/validate.js passed: 2618 traditions, all refs resolve",
+        "baseline_preserved": {
+          "traditions": 2613,
+          "extras": 2613,
+          "geo": 2613,
+          "deep_equal": true
+        },
+        "valid_registered_chain_choices": true,
+        "all_authored_overrides_apply": true,
+        "authored_instrument_part_pins_retained": {
+          "cli": true,
+          "browser": true,
+          "connector": true,
+          "applicable_pairs": 26
+        },
+        "cli_optimized_recipe_chars": 495,
+        "cli_automatic_neighbors": ["new_wave", "yacht_rock"],
+        "browser_connector_exact_parity": ["rich", "tags", "prose", "compact"],
+        "browser_connector_recipe_chars": {
+          "rich": 996,
+          "tags": 998,
+          "prose": 385,
+          "compact": 487
+        },
+        "unrelated_named_cultural_prefaces": false,
+        "rich_body_unique_within_lane": true
+      }
+    },
+    {
+      "id": "kazakh_pop",
+      "source_label": "kazakh pop",
+      "every_noise_url": "https://everynoise.com/engenremap-kazakhpop.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.zois-berlin.de/en/publications/q-pop-a-cultural-phenomenon-in-kazakhstan",
+          "title": "Merey Otan — Q-pop: a cultural phenomenon in Kazakhstan",
+          "kind": "institutional music-culture analysis with producer interview",
+          "support_notes": "Supports the 2015 Ninety One/JUZ lineage, Kazakh-language adaptation, dance rhythms and melodic hooks, and rap/R&B/hip-hop mixture; quotes the producer's practice account."
+        },
+        {
+          "url": "https://www.ntk.kz/ru/q-pop/ninety-one/about",
+          "title": "NTK — Ninety One: about the group",
+          "kind": "broadcaster artist profile",
+          "support_notes": "Confirms September 2015 debut, JUZ producer, vocalist/rapper/dancer roles and Almaty links; supports separating a sung hook model from rap roles."
+        },
+        {
+          "url": "https://www.unicef.org/kazakhstan/en/ninety-one",
+          "title": "UNICEF Kazakhstan — Ninety One",
+          "kind": "institutional artist profile",
+          "support_notes": "Confirms the group's vocal/dance and self-writing practice; current member account is not projected backward onto 2015."
+        }
+      ],
+      "neighbor_distinction": "Separate from kazakh_traditional: the selected Q-pop studio/dance-song and group-hook practice does not inherit dombyra/qobyz chairs, aqyn recitation, steppe tuning or overtone techniques. The umbrella remains broader than Q-pop.",
+      "authored_numeric_and_recording_model": "All numeric axes, short-envelope subtractive-synth choices, sampler swing/processing, bass blend, harmony voicing, retuning and studio gear are authored contemporary song-design settings. Sources support the dance-song/rap/R&B group practice, not these precise machine or session choices.",
+      "geo_rationale": "Almaty anchors the broadcaster and artist circuit. NTK documents members' Almaty musical links; it does not establish a sole Q-pop birthplace.",
+      "signature_tokens": [
+        "pop",
+        "dance-friendly",
+        "layered",
+        "group-vocals",
+        "close-harmony",
+        "tight-rhythmic-articulation",
+        "controlled",
+        "focused",
+        "stable",
+        "clean-articulation-low-blur",
+        "clean",
+        "present",
+        "tight-articulation"
+      ],
+      "validation": {
+        "checked": true,
+        "issues": [
+          "Default optimized CLI adds mongolian_pop and enka as automatic neighboring genre labels. The authored parts and browser/connector seed remain the selected sung Q-pop model; reproducer: node scripts/recipe.js --tradition kazakh_pop."
+        ],
+        "source_validation": "node scripts/validate.js passed: 2618 traditions, all refs resolve",
+        "baseline_preserved": {
+          "traditions": 2613,
+          "extras": 2613,
+          "geo": 2613,
+          "deep_equal": true
+        },
+        "valid_registered_chain_choices": true,
+        "all_authored_overrides_apply": true,
+        "authored_instrument_part_pins_retained": {
+          "cli": true,
+          "browser": true,
+          "connector": true,
+          "applicable_pairs": 26
+        },
+        "cli_optimized_recipe_chars": 482,
+        "cli_automatic_neighbors": ["mongolian_pop", "enka"],
+        "browser_connector_exact_parity": ["rich", "tags", "prose", "compact"],
+        "browser_connector_recipe_chars": {
+          "rich": 989,
+          "tags": 995,
+          "prose": 384,
+          "compact": 500
+        },
+        "unrelated_named_cultural_prefaces": false,
+        "rich_body_unique_within_lane": true
+      }
+    },
+    {
+      "id": "mongolian_pop",
+      "source_label": "mongolian pop",
+      "every_noise_url": "https://everynoise.com/engenremap-mongolianpop.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://music.apple.com/us/album/do-it-single/1424235025",
+          "title": "Uka — Do It, artist-supplied release metadata",
+          "kind": "artist release metadata",
+          "support_notes": "Inspected album and linked song pages establish the Pop category, 6 August 2018 single and Uka copyright attribution, plus the 2018 Don't Stop release; they provide no instrument credits."
+        },
+        {
+          "url": "https://ikon.mn/n/38uc",
+          "title": "Ocean Grey production artists announce the eleventh-anniversary concert",
+          "kind": "firsthand artist/producer press briefing report",
+          "support_notes": "Reports Ocean Grey's work on Uka's Do It/Don't Stop and the AIC Steppe Arena concert circuit; the announced live arrangements belong to that concert, not proof of original single instrumentation."
+        }
+      ],
+      "neighbor_distinction": "Separate from zohioliin_duu, urtyn_duu and traditional Mongolian throat-singing records: selected late-2010s digital commercial singles, with no inherited long-song pentatonic tuning, morin-khuur roster, overtone isolation or epic delivery.",
+      "authored_numeric_and_recording_model": "All 13 axes, emphatic doubled lead, low sine-oscillator synth register, sampled kick, synth topology, room and digital chain are authored modern dance-pop reductions. No listening-based measurement, vocal-anatomy claim or original production inventory is asserted.",
+      "geo_rationale": "Ulaanbaatar anchors the Ocean Grey/Uka concert circuit around AIC Steppe Arena; it is a practice anchor, not a claimed birthplace for all Mongolian pop.",
+      "signature_tokens": [
+        "pop",
+        "dance-pulse",
+        "bright-modern",
+        "layered-rhythm",
+        "sub-bass",
+        "synchronized",
+        "controlled",
+        "focused",
+        "stable",
+        "clean-articulation-low-blur",
+        "clean",
+        "present",
+        "tight-articulation"
+      ],
+      "validation": {
+        "checked": true,
+        "issues": [],
+        "source_validation": "node scripts/validate.js passed: 2618 traditions, all refs resolve",
+        "baseline_preserved": {
+          "traditions": 2613,
+          "extras": 2613,
+          "geo": 2613,
+          "deep_equal": true
+        },
+        "valid_registered_chain_choices": true,
+        "all_authored_overrides_apply": true,
+        "authored_instrument_part_pins_retained": {
+          "cli": true,
+          "browser": true,
+          "connector": true,
+          "applicable_pairs": 24
+        },
+        "cli_optimized_recipe_chars": 397,
+        "cli_automatic_neighbors": ["kazakh_pop", "synthpop"],
+        "browser_connector_exact_parity": ["rich", "tags", "prose", "compact"],
+        "browser_connector_recipe_chars": {
+          "rich": 983,
+          "tags": 997,
+          "prose": 365,
+          "compact": 481
+        },
+        "unrelated_named_cultural_prefaces": false,
+        "rich_body_unique_within_lane": true
+      }
+    },
+    {
+      "id": "uzbek_pop",
+      "source_label": "uzbek pop",
+      "every_noise_url": "https://everynoise.com/engenremap-uzbekpop.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://www.blueflame.com/artist/yulduz/",
+          "title": "Blue Flame Records — Yulduz",
+          "kind": "record label biography and artist interview",
+          "support_notes": "Supports folk-material modernization, Western rock/pop/dance mixture, doira and electronic backing, lead-vocal character, Tashkent training and original album years. Promotional superlatives are not adopted."
+        },
+        {
+          "url": "https://music.apple.com/us/album/jannona/81784545",
+          "title": "Yulduz Usmanova — Jannona, Blue Flame release metadata",
+          "kind": "record label release metadata",
+          "support_notes": "Inspected label-linked album confirms the 23 October 1995 ten-track Blue Flame release and neighboring Binafscha album; not a session-instrument inventory."
+        }
+      ],
+      "neighbor_distinction": "Separate from uzbek_traditional and katta_ashula: commercial folk-pop crossover with electronics and a rhythm section, rather than a classical/regional heterophonic or unaccompanied high-climax practice. Doira is directly supported by the selected artist's label, not inferred from a traditional neighbor.",
+      "authored_numeric_and_recording_model": "All axes are relative authored coordinates. The doira roll/rings/head, workstation preset, bass/kit roles, vocal phrasing and 2000-present studio/gear are a contemporary reduction of the sourced 1990s crossover. No exact historic hardware or named traditional vocal technique is asserted.",
+      "geo_rationale": "Tashkent is the documented conservatory and Uzbek pop-circuit anchor for Yulduz; the Blue Flame release pathway is international, so this point is not an original-session address or exclusive birthplace.",
+      "signature_tokens": [
+        "pop",
+        "melodic",
+        "lead-melody",
+        "rhythm-section-pocket",
+        "singing-sustain",
+        "controlled",
+        "focused",
+        "stable",
+        "clean-articulation-low-blur",
+        "clean",
+        "present",
+        "tight-articulation"
+      ],
+      "validation": {
+        "checked": true,
+        "issues": [
+          "Default optimized CLI adds arabesk and mizrahi as automatic neighboring genre labels. These are engine-selected adjacency, not sourced Uzbek identity claims or authored parts; reproducer: node scripts/recipe.js --tradition uzbek_pop."
+        ],
+        "source_validation": "node scripts/validate.js passed: 2618 traditions, all refs resolve",
+        "baseline_preserved": {
+          "traditions": 2613,
+          "extras": 2613,
+          "geo": 2613,
+          "deep_equal": true
+        },
+        "valid_registered_chain_choices": true,
+        "all_authored_overrides_apply": true,
+        "authored_instrument_part_pins_retained": {
+          "cli": true,
+          "browser": true,
+          "connector": true,
+          "applicable_pairs": 26
+        },
+        "cli_optimized_recipe_chars": 450,
+        "cli_automatic_neighbors": ["arabesk", "mizrahi"],
+        "browser_connector_exact_parity": ["rich", "tags", "prose", "compact"],
+        "browser_connector_recipe_chars": {
+          "rich": 987,
+          "tags": 991,
+          "prose": 368,
+          "compact": 480
+        },
+        "unrelated_named_cultural_prefaces": false,
+        "rich_body_unique_within_lane": true
+      }
+    },
+    {
+      "id": "kyrgyz_pop",
+      "source_label": "kyrgyz pop",
+      "every_noise_url": "https://everynoise.com/engenremap-kyrgyzpop.html",
+      "comparison_status": "missing",
+      "sources": [
+        {
+          "url": "https://mirbekatabekov.com/kg",
+          "title": "Mirbek Atabekov — official artist website",
+          "kind": "official artist discography and concert site",
+          "support_notes": "Inspected artist page supplies Kyrgyzstan concert context, contemporary singles and videos; no instrument/session credits."
+        },
+        {
+          "url": "https://music.apple.com/us/album/кечки-бишкек-single/1835891621",
+          "title": "Mirbek Atabekov — Kechki Bishkek, Infinity Music release",
+          "kind": "record label release metadata",
+          "support_notes": "Confirms Pop category, 7 July 2022 release and Infinity Music attribution for the selected four-minute single."
+        },
+        {
+          "url": "https://www.reverbnation.com/mirbekatabekov",
+          "title": "Mirbek Atabekov — artist profile",
+          "kind": "artist platform profile (indexed metadata)",
+          "support_notes": "Indexed profile identifies Pop, Bishkek KG and Atabekov as vocalist. Direct page retrieval returned 403; this supports geography only, not listening or arrangement claims."
+        }
+      ],
+      "neighbor_distinction": "Separate from kyrgyz_traditional: a recorded commercial pop song with an authored harmonic studio band, not unaccompanied Manas epic recitation, theatrical komuz kuu or traditional fiddle/jaw-harp ensemble.",
+      "authored_numeric_and_recording_model": "Every axis, smooth single vocal, piano/guitar/muted-bass/sample arrangement, reverb and studio component is an authored contemporary pop-ballad model. Official sources establish the selected song and artist circuit; the arrangement is not claimed as a transcription or credit-bearing original inventory.",
+      "geo_rationale": "Bishkek is the artist-platform location and the named song's urban anchor, within the official Kyrgyzstan concert circuit. The coordinate is not a claimed exclusive origin or session location.",
+      "signature_tokens": [
+        "pop",
+        "melodic",
+        "singing-sustain",
+        "intimate",
+        "soft-onset",
+        "smoothed",
+        "controlled",
+        "focused",
+        "stable",
+        "clean-articulation-low-blur",
+        "clean",
+        "present",
+        "tight-articulation"
+      ],
+      "validation": {
+        "checked": true,
+        "issues": [],
+        "source_validation": "node scripts/validate.js passed: 2618 traditions, all refs resolve",
+        "baseline_preserved": {
+          "traditions": 2613,
+          "extras": 2613,
+          "geo": 2613,
+          "deep_equal": true
+        },
+        "valid_registered_chain_choices": true,
+        "all_authored_overrides_apply": true,
+        "authored_instrument_part_pins_retained": {
+          "cli": true,
+          "browser": true,
+          "connector": true,
+          "applicable_pairs": 25
+        },
+        "cli_optimized_recipe_chars": 494,
+        "cli_automatic_neighbors": ["azeri_pop", "albanian_pop"],
+        "browser_connector_exact_parity": ["rich", "tags", "prose", "compact"],
+        "browser_connector_recipe_chars": {
+          "rich": 991,
+          "tags": 992,
+          "prose": 412,
+          "compact": 524
+        },
+        "unrelated_named_cultural_prefaces": false,
+        "rich_body_unique_within_lane": true
+      }
+    }
+  ]
+}

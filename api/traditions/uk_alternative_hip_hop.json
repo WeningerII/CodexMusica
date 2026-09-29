@@ -1,0 +1,219 @@
+{
+  "id": "uk_alternative_hip_hop",
+  "name": "UK alternative hip hop",
+  "family": "hip_hop",
+  "lineage": "British alternative rap encompassing individual departures from dominant beat and persona conventions. Little Simz and Inflo’s GREY Area (2019) anchors this selected London strand, emphasizing a live-played rhythm section and a direct personal MC rather than requiring grime or drill programming. Other UK alternative hip-hop recordings can be sample-based or electronic.",
+  "recipe": "classic late-2010s uk alternative hip hop, mc Rhythm, intl hip hop branch, experimental MC rhythm, soul R&B functional song contemporary r&b doo-wop. thick, rap, pure, narrative. ampeg b15 amp American 60s bass amp flip top character flatwound fingerstyle electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, bronze bell bronze sticks pocket drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 562,
+  "score": 163.065,
+  "config": {
+    "traditions": [
+      "uk_alternative_hip_hop",
+      "contemporary_rb_late_90s_2000s",
+      "doo_wop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 18.414999999999996,
+          "voice_quality": 18.395,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0.15,
+          "voice_vibrato": 1.735,
+          "voice_articulation": 18.044999999999998,
+          "voice_microtone": 5.9,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.24,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 18.39,
+          "voice_ensemble_config": 5.199999999999999,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 0.135,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.975
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder",
+          "pickup_config": "split_coil",
+          "string_type": "flatwound",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 16.04,
+          "body_wood": 0.195,
+          "pickup_config": 0,
+          "string_type": 1.2449999999999999,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.32999999999999996,
+          "bass_technique": 10.95
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 11.384999999999998,
+          "amp_make": 12.514999999999999,
+          "body_wood": 0.195,
+          "neck_wood": 0.545,
+          "fretboard": 0.545,
+          "pickup_magnet": 0.545,
+          "string_material": 0.545,
+          "string_gauge": 1.0499999999999998,
+          "bridge": 0.65,
+          "scale_length": 0.39,
+          "finish": 0,
+          "string_tuning": 0.135
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_motown",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20"
+        },
+        "scores": {
+          "drum_technique": 12.75,
+          "drumhead": 0.195,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.39,
+          "snare_wires": 0.15,
+          "cymbal_alloy": 1.845
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "bass_technique"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "body_wood",
+        "string_tuning"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "drumhead",
+        "snare_wires",
+        "cymbal_alloy"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "rap_voice",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vibrato": "straight_tone",
+      "voice_microtone": "tempered_voice",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_articulation": "narrative_voice",
+      "voice_effort": "effort_projected",
+      "body_wood": "alder",
+      "bass_technique": "fingerstyle_locked",
+      "pickup_config": "split_coil",
+      "string_type": "flatwound",
+      "electric_technique": "electric_chicken_scratch",
+      "string_tuning": "standard_tuning",
+      "drum_technique": "sticks_motown",
+      "shell_wood": "maple_shell",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "cymbal_alloy": "b20"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

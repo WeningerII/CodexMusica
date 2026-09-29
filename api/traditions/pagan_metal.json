@@ -5,7 +5,7 @@
   "lineage": "European metal branch formed in the mid-1990s across Finland, the Baltic and Central Europe — Moonsorrow, Skyforger, Kroda and early Ensiferum — that carried black and death metal's tremolo riffing and blast-capable drumming into long, mid-tempo, folk-modal arrangements built on pre-Christian myth, adding kantele, jouhikko, bagpipe and frame-drum lines, hymn-like clean male chorus against a harsh rasped lead, and often eight- to twelve-minute through-built structures rather than verse-chorus form.",
   "recipe": "classic Northern European 1994-1996 pagan metal, distorted Rock, folk metal branch, black metal, doom metal, modal electric drone modal viking metal. thick, larynx lowered, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit, gut pre modern five string fingerpicked kantele, Swedish archaic dalarna jouhikko, estonian Swedish four string drone under melody drone like tagelharpa, donkey skin bass thin treble tapan, analog poly synth. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 887,
-  "score": 574.591,
+  "score": 573.227,
   "config": {
     "traditions": [
       "pagan_metal",
@@ -31,18 +31,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 50.71937500000001,
+          "electric_technique": 50.479375000000005,
           "amp_make": 24.634999999999998,
           "body_wood": 25.415,
-          "neck_wood": 4.88,
-          "fretboard": 4.83,
+          "neck_wood": 4.835,
+          "fretboard": 4.785,
           "pickup_magnet": 0.045,
           "pickup_winding": 0.585,
           "string_material": 0.845,
-          "bridge": 4.925,
+          "bridge": 4.835,
           "scale_length": 21.775,
-          "string_gauge": 6.305,
-          "finish": 0.09,
+          "string_gauge": 6.05,
+          "finish": 0.24,
           "string_tuning": 33.995000000000005
         }
       },
@@ -58,13 +58,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 23.897499999999997,
+          "amp_make": 23.372499999999995,
           "body_wood": 5.265,
           "pickup_config": 0.39,
-          "string_type": 25.73625,
-          "scale_length_b": 4.925,
+          "string_type": 24.56625,
+          "scale_length_b": 4.835,
           "fretted_or_not": 0.195,
-          "bass_technique": 20.904375
+          "bass_technique": 20.949375
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 20.605,
-          "drumhead": 4.925,
+          "drumhead": 4.835,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -101,16 +101,16 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 29.424999999999997,
+          "voice_register": 29.139999999999997,
           "voice_quality": 17.539999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.24,
           "voice_articulation": 20.929999999999996,
           "voice_microtone": 24.309999999999995,
-          "voice_tradition": 15.069374999999997,
+          "voice_tradition": 16.379999999999995,
           "voice_mechanism_compound": 51.45375,
-          "voice_estill_quality": 3.290625,
+          "voice_estill_quality": 3.4556249999999995,
           "voice_speech_song": 22.425,
           "voice_ensemble_config": 23.59499999999999,
           "voice_ornament_system": 0.6499999999999999,
@@ -129,11 +129,11 @@
           "kantele_string_material": "kantele_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 8.595,
+          "plucked_traditional_technique": 8.445,
           "kantele_strings": 0,
           "kantele_context": 0.845,
           "kantele_body_wood": 0,
-          "kantele_string_material": 1.65875
+          "kantele_string_material": 1.61375
         }
       },
       {
@@ -146,8 +146,8 @@
         },
         "scores": {
           "bowed_technique": 1.17,
-          "jouhikko_form": 1.56,
-          "jouhikko_context": 3.1906250000000003,
+          "jouhikko_form": 1.525,
+          "jouhikko_context": 3.355625,
           "jouhikko_strings": 0.975
         }
       },
@@ -161,7 +161,7 @@
           "tagelharpa_body_wood": "tagelharpa_birch_carved"
         },
         "scores": {
-          "bowed_technique": 11.493125,
+          "bowed_technique": 11.358125,
           "tagelharpa_form": 1.56,
           "tagelharpa_context": 5.654999999999999,
           "tagelharpa_string_material": 0,
@@ -171,7 +171,7 @@
       {
         "id": "tapan",
         "slots": {
-          "tapan_form": "tapan_davul_anatolian",
+          "tapan_form": "tapan_daouli_greek",
           "tapan_role": "tapan_brass_fanfara",
           "tapan_build": "tapan_asymmetric_skins"
         },

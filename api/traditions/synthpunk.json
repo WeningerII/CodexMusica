@@ -5,7 +5,7 @@
   "lineage": "Late-1970s American punk offshoot (Los Angeles, Akron, New York, 1977-1981) in which cheap monophonic synthesizers, combo organs and primitive drum machines replaced guitars entirely — codified by The Screamers, Suicide, Nervous Gender and The Units, running 140-170 BPM with buzzing sawtooth ostinati, no cymbals, hammering eighth-note machine pulses and shouted, hectoring, close-miked vocals delivered flat and unmelodic.",
   "recipe": "classic European 1977-1981 synthpunk, distorted Rock, punk branch, pop rock synthpop, industrial noise experimental electric minimal synth new romanticism. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog mono oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, psychedelic foregrounded organ driven rock block chord combo organ, drum machine analog, ampeg svt amp rock bass amp ernie ball slinky electric bass. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 597,
-  "score": 253.215,
+  "score": 253.23,
   "config": {
     "traditions": [
       "synthpunk",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 17.224999999999994,
           "voice_ornament_system": 2.1,
           "voice_pitch_organization": 1.0399999999999998,
-          "voice_processing_chain": 8.265,
+          "voice_processing_chain": 8.31,
           "voice_multitrack_stack": 6.597500000000001
         }
       },
@@ -80,7 +80,7 @@
         },
         "scores": {
           "keyboard_technique": 9.2,
-          "combo_organ_model": 9.985,
+          "combo_organ_model": 10.030000000000001,
           "combo_organ_voicing": 9.445,
           "combo_organ_context": 6.760000000000002,
           "amp_make": 0.8449999999999999
@@ -98,7 +98,7 @@
           "kick_voice": 0.24,
           "snare_voice": 0.09,
           "hat_voice": 0,
-          "shuffle_quantize": 1.9100000000000001
+          "shuffle_quantize": 1.715
         }
       },
       {
@@ -116,7 +116,7 @@
           "amp_make": 7.540000000000001,
           "body_wood": 0.43499999999999994,
           "pickup_config": 0.285,
-          "string_type": 13.005000000000003,
+          "string_type": 13.125000000000002,
           "scale_length_b": 0.195,
           "fretted_or_not": 0.15,
           "bass_technique": 18.445

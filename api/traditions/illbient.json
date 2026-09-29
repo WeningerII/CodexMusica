@@ -3,14 +3,14 @@
   "name": "Illbient",
   "family": "electronic",
   "lineage": "Named in mid-1990s Brooklyn around DJ Spooky, DJ Olive, We, Byzar and the Soundlab loft parties — hip-hop turntablism and sampler collage fused with dub bass and ambient drone, running slow broken breakbeats at 70-95 BPM under multiple simultaneous vinyl layers, tape hiss, city field recording, spoken-word fragments and heavy delay, mixed live on multiple decks in an installation setting.",
-  "recipe": "classic North American 1994-1996 illbient, experimental Elec, ambient branch, experimental MC rhythm, dub descendants bass system liquid dub dub techno. vocal fry, breath veiled tone, slow rate, interlocked note trading. turntable, field textural sampler, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, pad like pad analog synth, TR-808, hohner melodica canonical 1959 dub roots tradition melodica. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-  "recipe_chars": 637,
-  "score": 269.582,
+  "recipe": "classic North American 1994-1996 illbient, experimental Elec, ambient branch, experimental MC rhythm, dub descendants bass system liquid dub. vocal fry, rap, slow rate, interlocked note trading. sampled chopped turntable, field textural sampler, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, pad like sub bass analog synth, TR-808, hohner melodica canonical 1959 dub roots tradition melodica. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 632,
+  "score": 270.515,
   "config": {
     "traditions": [
       "illbient",
       "liquid_dub",
-      "dub_techno"
+      "experimental_hip_hop"
     ],
     "instruments": [
       {
@@ -20,8 +20,8 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 2.7400000000000007,
-          "turntable_technique": 2.34
+          "electronic_technique": 4.239999999999999,
+          "turntable_technique": 3.6449999999999996
         }
       },
       {
@@ -34,11 +34,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.370000000000001,
-          "sampler_archetypes": 3.7700000000000005,
+          "electronic_technique": 10.42,
+          "sampler_archetypes": 6.37,
           "sampler_bit_depth": 1.56,
-          "sampler_workflow": 9.085,
-          "sampler_classic_context": 20.345
+          "sampler_workflow": 12.47,
+          "sampler_classic_context": 22.1
         }
       },
       {
@@ -53,29 +53,29 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 6.495,
+          "amp_make": 5.715,
           "body_wood": 2.08,
-          "pickup_config": 0.195,
-          "string_type": 7.64,
+          "pickup_config": 0.32999999999999996,
+          "string_type": 6.86,
           "scale_length_b": 2.685,
           "fretted_or_not": 0.32999999999999996,
-          "bass_technique": 17.124999999999996
+          "bass_technique": 10.825
         }
       },
       {
         "id": "analog_synth",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
+          "electronic_technique": "electronic_bass_sub",
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "pad_env",
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 9.854999999999999,
-          "oscillator": 7.164999999999999,
-          "filter_topology": 8.43,
-          "envelope": 3.885,
+          "electronic_technique": 9.884999999999998,
+          "oscillator": 6.385,
+          "filter_topology": 7.649999999999999,
+          "envelope": 3.4949999999999997,
           "modulation": 0.15
         }
       },
@@ -87,16 +87,16 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 8.77,
-          "drum_machine_808_context": 7.574999999999999,
-          "tr808_production_origin": 0.195
+          "tr808_voice": 9.489999999999998,
+          "drum_machine_808_context": 6.145,
+          "tr808_production_origin": 0.405
         }
       },
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -107,28 +107,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 1.04,
-          "voice_quality": 5.265000000000002,
+          "voice_quality": 7.8,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.5100000000000002,
-          "voice_articulation": 16.119999999999997,
-          "voice_microtone": 16.574999999999992,
-          "voice_tradition": 8.2875,
-          "voice_mechanism_compound": 3.575,
-          "voice_estill_quality": 3.380000000000001,
-          "voice_speech_song": 16.899999999999995,
-          "voice_ensemble_config": 16.444999999999993,
-          "voice_ornament_system": 2.82,
-          "voice_pitch_organization": 1.5399999999999998,
-          "voice_processing_chain": 7.430000000000001,
-          "voice_multitrack_stack": 2.0149999999999997
+          "voice_vibrato": 3.3150000000000004,
+          "voice_articulation": 16.379999999999995,
+          "voice_microtone": 17.029999999999994,
+          "voice_tradition": 12.35,
+          "voice_mechanism_compound": 2.6,
+          "voice_estill_quality": 2.405,
+          "voice_speech_song": 18.004999999999995,
+          "voice_ensemble_config": 16.899999999999995,
+          "voice_ornament_system": 2.600000000000001,
+          "voice_pitch_organization": 1.9949999999999999,
+          "voice_processing_chain": 9.104999999999999,
+          "voice_multitrack_stack": 2.4699999999999998
         }
       },
       {
@@ -140,10 +140,10 @@
           "melodica_maker_school": "melodica_hohner_canonical"
         },
         "scores": {
-          "keyboard_technique": 0.8299999999999998,
-          "melodica_use": 16.249999999999996,
+          "keyboard_technique": 0.04999999999999999,
+          "melodica_use": 10.375,
           "melodica_pitch": 0.15,
-          "melodica_maker_school": 15.589999999999996
+          "melodica_maker_school": 9.01
         }
       }
     ],

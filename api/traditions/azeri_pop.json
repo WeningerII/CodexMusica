@@ -3,9 +3,9 @@
   "name": "Azeri pop",
   "family": "pop",
   "lineage": "Selected 2010 international studio pop-ballad branch of Azerbaijani popular music, represented by Safura and Drip Drop through the Ictimai/Eurovision platform and Swedish songwriting partnership. The English-language crossover is one documented branch rather than a definition of all Azerbaijani-language pop, regional dance music, mugham or ashig practice.",
-  "recipe": "classic early-2010s azeri pop, functional Song, europop branch, pop rock functional song, mid east n African pop functional song new wave yacht rock. light, straight onset, equal tempered, modern pop training. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, rompler workstation, sampler drum machine, ampeg svt amp rock bass amp alder ernie ball slinky electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 568,
-  "score": 355.54,
+  "recipe": "classic early-2010s azeri pop, functional Song, europop branch, pop rock functional song, mid east n African pop functional song new wave yacht rock. light, straight onset, equal tempered, modern pop training. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, rompler workstation, sampler drum machine, ampeg svt amp rock bass amp alder ernie ball slinky thumb muted electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 580,
+  "score": 356.172,
   "config": {
     "traditions": [
       "azeri_pop",
@@ -40,13 +40,13 @@
           "voice_effort": 0,
           "voice_vibrato": 7.865000000000001,
           "voice_articulation": 0,
-          "voice_microtone": 53.225,
-          "voice_tradition": 39.405,
+          "voice_microtone": 53.33,
+          "voice_tradition": 39.699999999999996,
           "voice_mechanism_compound": 0.195,
           "voice_estill_quality": 1.7549999999999994,
           "voice_speech_song": 1.4949999999999999,
           "voice_ensemble_config": 2.5349999999999997,
-          "voice_ornament_system": 0.045,
+          "voice_ornament_system": 0.0975,
           "voice_pitch_organization": 0.39,
           "voice_processing_chain": 5.005,
           "voice_multitrack_stack": 0.195
@@ -66,7 +66,7 @@
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 28.769999999999996,
+          "keyboard_technique": 28.672499999999996,
           "grand_piano_size": 3.185,
           "grand_piano_brand": 3.185,
           "piano_hammer": 29.329999999999995,
@@ -74,7 +74,7 @@
           "piano_soundboard": 29.044999999999998,
           "piano_pinblock": 1.755,
           "piano_plate": 1.0074999999999998,
-          "piano_pitch_standard": 4.86
+          "piano_pitch_standard": 4.875
         }
       },
       {
@@ -87,7 +87,7 @@
         },
         "scores": {
           "electronic_technique": 0.635,
-          "rompler_preset_bank": 30.329999999999995,
+          "rompler_preset_bank": 30.434999999999995,
           "rompler_context": 29.494999999999997,
           "rompler_lineage": -1.6300000000000001
         }
@@ -101,9 +101,9 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.2,
+          "electronic_technique": 0.2525,
           "sample_bitdepth": 0,
-          "sample_swing": 0.195,
+          "sample_swing": 0.2475,
           "sample_processing": 3.185
         }
       },
@@ -125,7 +125,7 @@
           "string_type": 27.4625,
           "scale_length_b": 3.185,
           "fretted_or_not": 0.045,
-          "bass_technique": 0.9999999999999998
+          "bass_technique": 1.0524999999999998
         }
       }
     ],
