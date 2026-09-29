@@ -5,7 +5,7 @@
   "lineage": "German fusion of industrial dance and metal codified by Rammstein's Herzeleid (1995) after Oomph!'s early-1990s template, built on mid-tempo 90-120 BPM four-on-the-floor kick patterns, downtuned palm-muted single-note guitar riffs doubled by synth stabs, orchestral or choir samples, and declaimed rolled-R German vocals in a low baritone, produced with heavy compression and grid-tight editing.",
   "recipe": "classic British 1990-1993 neue deutsche härte, distorted Rock, metal branch, thrash metal, industrial noise experimental electric, late analog major distorted rock crossover thrash djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit, analog poly synth, sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 732,
-  "score": 387.469,
+  "score": 388.189,
   "config": {
     "traditions": [
       "neue_deutsche_haerte",
@@ -42,8 +42,8 @@
           "voice_articulation": 14.299999999999995,
           "voice_microtone": 16.029999999999998,
           "voice_tradition": 2.7950000000000004,
-          "voice_mechanism_compound": 37.486875,
-          "voice_estill_quality": 4.115,
+          "voice_mechanism_compound": 37.201875,
+          "voice_estill_quality": 4.16,
           "voice_speech_song": 12.999999999999995,
           "voice_ensemble_config": 17.289999999999992,
           "voice_ornament_system": 0.9099999999999997,
@@ -70,7 +70,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 30.764375,
+          "electric_technique": 30.899375000000003,
           "amp_make": 18.752499999999998,
           "body_wood": 17.29,
           "neck_wood": 4.180000000000001,
@@ -80,7 +80,7 @@
           "string_material": 1,
           "bridge": 4.180000000000001,
           "scale_length": 15.015,
-          "string_gauge": 5.025000000000001,
+          "string_gauge": 5.220000000000001,
           "finish": 0.045,
           "string_tuning": 21.19
         }
@@ -100,7 +100,7 @@
           "amp_make": 7.865000000000001,
           "body_wood": 4.42,
           "pickup_config": 0.845,
-          "string_type": 17.515,
+          "string_type": 17.845,
           "scale_length_b": 4.180000000000001,
           "fretted_or_not": 0.845,
           "bass_technique": 17.75
@@ -145,9 +145,9 @@
         },
         "scores": {
           "electronic_technique": 1.6999999999999997,
-          "sampler_archetypes": 0.9799999999999999,
+          "sampler_archetypes": 1.13,
           "sampler_bit_depth": 4.48,
-          "sampler_workflow": 2.955,
+          "sampler_workflow": 3.105,
           "sampler_classic_context": 13.324999999999998
         }
       }

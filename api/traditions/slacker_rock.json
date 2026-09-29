@@ -5,7 +5,7 @@
   "lineage": "Early-1990s American indie rock substyle characterized by deliberately-loose performance aesthetic, lo-fi production, deadpan vocal delivery, and oblique-fragmentary lyrical content. Pavement (Stockton, 1989-1999) is the canonical type-specimen; parallel acts include Sebadoh, Guided by Voices, Silver Jews, and Built to Spill. Distinguished from broader indie rock by slacker rock's explicit casual-attitudinal aesthetic and emphasis on rough-edged production.",
   "recipe": "classic North American slacker rock, distorted Rock, alternative branch, experimental distorted rock post-rock rock in opposition. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp basswood arpeggiated clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb proco RAT.",
   "recipe_chars": 612,
-  "score": 327.349,
+  "score": 327.314,
   "config": {
     "traditions": [
       "slacker_rock",
@@ -40,7 +40,7 @@
           "voice_effort": 0,
           "voice_vibrato": 2.5025000000000004,
           "voice_articulation": 14.559999999999997,
-          "voice_microtone": 30.785,
+          "voice_microtone": 30.83,
           "voice_tradition": 7.995,
           "voice_mechanism_compound": 5.070000000000002,
           "voice_estill_quality": 5.5575,
@@ -65,12 +65,12 @@
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 10.738,
+          "electric_technique": 10.7065,
           "amp_make": 14.429999999999996,
           "body_wood": 2.34,
           "neck_wood": 0.845,
@@ -78,9 +78,9 @@
           "pickup_magnet": 0.15,
           "pickup_winding": 0.845,
           "string_material": 0.845,
-          "bridge": 0.258,
+          "bridge": 0.2265,
           "scale_length": 3.1849999999999996,
-          "string_gauge": 0.273,
+          "string_gauge": 0.2265,
           "finish": 0.195,
           "string_tuning": 18.785
         }
@@ -98,10 +98,10 @@
         },
         "scores": {
           "amp_make": 14.494999999999997,
-          "body_wood": 0.516,
-          "pickup_config": 1.8915,
-          "string_type": 34.3045,
-          "scale_length_b": 0.258,
+          "body_wood": 0.453,
+          "pickup_config": 1.95,
+          "string_type": 34.1635,
+          "scale_length_b": 0.2265,
           "fretted_or_not": 0,
           "bass_technique": 27.949999999999996
         }
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 27.999999999999996,
-          "drumhead": 2.0679999999999996,
+          "drumhead": 2.2749999999999995,
           "drum_kit_kick_pedal": 0
         }
       }

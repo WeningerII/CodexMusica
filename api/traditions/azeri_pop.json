@@ -1,0 +1,224 @@
+{
+  "id": "azeri_pop",
+  "name": "Azeri pop",
+  "family": "pop",
+  "lineage": "Selected 2010 international studio pop-ballad branch of Azerbaijani popular music, represented by Safura and Drip Drop through the Ictimai/Eurovision platform and Swedish songwriting partnership. The English-language crossover is one documented branch rather than a definition of all Azerbaijani-language pop, regional dance music, mugham or ashig practice.",
+  "recipe": "classic early-2010s azeri pop, functional Song, europop branch, pop rock functional song, mid east n African pop functional song new wave yacht rock. light, straight onset, equal tempered, modern pop training. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, rompler workstation, sampler drum machine, ampeg svt amp rock bass amp alder ernie ball slinky electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 568,
+  "score": 355.54,
+  "config": {
+    "traditions": [
+      "azeri_pop",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "head_voice",
+          "voice_quality": "breath_admixed_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
+        },
+        "scores": {
+          "voice_register": 1.04,
+          "voice_quality": -0.35,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.865000000000001,
+          "voice_articulation": 0,
+          "voice_microtone": 53.225,
+          "voice_tradition": 39.405,
+          "voice_mechanism_compound": 0.195,
+          "voice_estill_quality": 1.7549999999999994,
+          "voice_speech_song": 1.4949999999999999,
+          "voice_ensemble_config": 2.5349999999999997,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 5.005,
+          "voice_multitrack_stack": 0.195
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 28.769999999999996,
+          "grand_piano_size": 3.185,
+          "grand_piano_brand": 3.185,
+          "piano_hammer": 29.329999999999995,
+          "piano_rim": 29.735,
+          "piano_soundboard": 29.044999999999998,
+          "piano_pinblock": 1.755,
+          "piano_plate": 1.0074999999999998,
+          "piano_pitch_standard": 4.86
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "rompler_preset_bank": "rompler_preset_piano_orchestral",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_roland_jv_xp"
+        },
+        "scores": {
+          "electronic_technique": 0.635,
+          "rompler_preset_bank": 30.329999999999995,
+          "rompler_context": 29.494999999999997,
+          "rompler_lineage": -1.6300000000000001
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 0.2,
+          "sample_bitdepth": 0,
+          "sample_swing": 0.195,
+          "sample_processing": 3.185
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 11.309999999999999,
+          "body_wood": 3.185,
+          "pickup_config": 0.195,
+          "string_type": 27.4625,
+          "scale_length_b": 3.185,
+          "fretted_or_not": 0.045,
+          "bass_technique": 0.9999999999999998
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ],
+      "rompler_workstation": [
+        "electronic_technique",
+        "rompler_preset_bank",
+        "rompler_context",
+        "rompler_lineage"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_tube",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_brick_wall_limiter",
+      "eq": "eq_dynamic",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "hall_reverb",
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_processing_chain": "voice_processing_plate_reverb_medium",
+      "voice_register": "head_voice",
+      "voice_quality": "breath_admixed_voice",
+      "voice_microtone": "tempered_voice",
+      "voice_vibrato": "delayed_vibrato",
+      "voice_multitrack_stack": "voice_multitrack_octave_double_self",
+      "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+      "electronic_technique": "electronic_pad_drone",
+      "rompler_preset_bank": "rompler_preset_piano_orchestral",
+      "rompler_context": "rompler_context_pop_workstation",
+      "rompler_lineage": "rompler_roland_jv_xp",
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "pitched_kick",
+      "bass_technique": "thumb_muted",
+      "voice_articulation": "legato_voice"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_tube",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_brick_wall_limiter",
+    "chain_eq": "eq_dynamic",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "hall_reverb",
+      "digital_delay"
+    ]
+  }
+}

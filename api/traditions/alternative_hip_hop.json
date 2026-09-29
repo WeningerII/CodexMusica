@@ -1,0 +1,186 @@
+{
+  "id": "alternative_hip_hop",
+  "name": "Alternative hip hop",
+  "family": "hip_hop",
+  "lineage": "A broad alternative hip-hop designation encompassing departures from dominant rap conventions in subject matter, sample selection and song form. This recipe selects the late-1980s Long Island / New York sample-collage strand of De La Soul and Prince Paul’s 3 Feet High and Rising (1989), with playful MC exchanges, layered breaks and interludes. The selected configuration is not a sonic definition of every alternative hip-hop artist.",
+  "recipe": "classic North American 1987-1989 alternative hip hop, mc Rhythm, us hip hop branch, experimental MC rhythm, us hip hop east coast boom bap mafioso rap. thick, rap, leader call answered, equal tempered. sampled chopped sampler drum machine, layered chopped sampler, sampled chopped turntable. treated studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 421,
+  "score": 206.688,
+  "config": {
+    "traditions": [
+      "alternative_hip_hop",
+      "boom_bap",
+      "mafioso_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "call_response_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_adlib_response_lane"
+        },
+        "scores": {
+          "voice_register": 11.264999999999997,
+          "voice_quality": 31.46,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.14250000000000002,
+          "voice_articulation": 0.78,
+          "voice_microtone": 2.6750000000000007,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.265,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 28.015,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 0.09,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 13.772499999999997
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "heavy_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 14.262499999999996,
+          "sample_bitdepth": 2.4000000000000004,
+          "sample_swing": 3.0500000000000003,
+          "sample_processing": -0.05
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 14.262499999999996,
+          "sampler_archetypes": 23.074999999999996,
+          "sampler_bit_depth": 2.4000000000000004,
+          "sampler_workflow": 1.29,
+          "sampler_classic_context": 36.92
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_chirp_baby"
+        },
+        "scores": {
+          "electronic_technique": 14.262499999999996,
+          "turntable_technique": 0.135
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "turntable": [
+        "electronic_technique",
+        "turntable_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_console_inline_strip",
+      "console": "console_british_class_a_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "rap_voice",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vibrato": "straight_tone",
+      "voice_microtone": "tempered_voice",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "twelve_bit",
+      "sample_swing": "heavy_swing",
+      "sample_processing": "chopped_break",
+      "sampler_classic_context": "sampler_classic_hiphop",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_archetypes": "emu_sp1200",
+      "sampler_workflow": "sampler_loop_layered",
+      "voice_articulation": "call_response_voice",
+      "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+      "turntable_technique": "turntable_chirp_baby"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_class_a_70s"
+  }
+}

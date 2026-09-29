@@ -1,0 +1,229 @@
+{
+  "id": "ambient_pop",
+  "name": "Ambient pop",
+  "family": "pop_rock",
+  "lineage": "2010s vocal pop branch in which sustained ambience surrounds recurring songs and intimate sung melody, represented here by Cigarettes After Sex and the Brooklyn-recorded Apocalypse. This slow band model combines restrained drums and bass with clean guitar, keyboard pads, and an undersung vocal; microphones, processing, instrument construction, and room are authored choices, not claims about the actual session.",
+  "recipe": "classic mid-2010s ambient pop, functional Song, pop rock branch, ambient experimental electric, anglo singer song bedroom singer song time lord rock bedroom singer-songwriter. balanced, minimal subglottal pressure, interlocked note trading, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation wenge single coil electric guitar, ampeg svt amp rock bass amp electric bass, drum kit, sustained pad analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre, American clean tube combo, optical compressor, tilt EQ. 24-bit digital plate reverb digital delay.",
+  "recipe_chars": 681,
+  "score": 101.755,
+  "config": {
+    "traditions": [
+      "ambient_pop",
+      "time_lord_rock",
+      "bedroom_singer_song"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "mix_voice",
+          "voice_quality": "breath_admixed_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_minimal_undersung",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_hall_reverb_long",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 1.585,
+          "voice_quality": -0.35,
+          "voice_vocal_tract": 0,
+          "voice_effort": 2.535,
+          "voice_vibrato": 0.3,
+          "voice_articulation": 17.874999999999993,
+          "voice_microtone": 22.54999999999999,
+          "voice_tradition": 17.87,
+          "voice_mechanism_compound": 0.585,
+          "voice_estill_quality": 6.785,
+          "voice_speech_song": 0.44999999999999996,
+          "voice_ensemble_config": 4.16,
+          "voice_ornament_system": 0.65,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.0650000000000002,
+          "voice_multitrack_stack": 1.55
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "alder",
+          "neck_wood": "wenge_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 4.85,
+          "amp_make": 5.055000000000001,
+          "body_wood": 0.345,
+          "neck_wood": 1.11,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 2.08,
+          "bridge": 0.39,
+          "scale_length": 0.39,
+          "finish": 0,
+          "string_tuning": 0.15
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder",
+          "pickup_config": "split_coil",
+          "string_type": "flatwound",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 3.6550000000000002,
+          "body_wood": 0.345,
+          "pickup_config": 0,
+          "string_type": -0.07,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "rim_clicks_dub",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 0.49999999999999994,
+          "drumhead": 0.345,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 7.435,
+          "poly_archetypes": 2.51,
+          "poly_voices": 1.7799999999999998,
+          "poly_maker_lineage": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_microtone",
+        "voice_mechanism_compound",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "body_wood",
+        "string_material",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drumhead"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_optical",
+      "eq": "eq_tilt",
+      "amp": "amp_american_clean",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "plate_reverb",
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electric_technique": "electric_arpeggiated_clean",
+      "body_wood": "alder",
+      "string_material": "nickel_plated",
+      "string_tuning": "standard_tuning",
+      "bass_technique": "fingerstyle_locked",
+      "pickup_config": "split_coil",
+      "string_type": "flatwound",
+      "drum_technique": "rim_clicks_dub",
+      "drumhead": "single_coated",
+      "voice_register": "mix_voice",
+      "voice_quality": "breath_admixed_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_vibrato": "straight_tone",
+      "voice_effort": "effort_minimal_undersung",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_processing_chain": "voice_processing_hall_reverb_long",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "electronic_technique": "electronic_pad_drone"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_fet",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_optical",
+    "chain_eq": "eq_tilt",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "plate_reverb",
+      "digital_delay"
+    ],
+    "chain_amp": "amp_american_clean"
+  }
+}

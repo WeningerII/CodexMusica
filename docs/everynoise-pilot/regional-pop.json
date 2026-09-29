@@ -1,0 +1,608 @@
+{
+  "lane": "regional-pop",
+  "reviewed_at": "2026-09-29",
+  "baseline_commit": "fbd2644241757e194b08fe0e8a6d5bf1880a4bc0",
+  "authoring_policy": "EveryNoise is used only for label membership. Nation/language labels are discovery umbrellas; each record documents one selected practice and period. All 13-axis integers, signal-chain components, exact instrument makes/materials, processing and tuning choices are authored relative catalog coordinates and reusable recording designs, not measured audio features or verified historical studio facts. chain_status is authored_contemporary_studio_model for every row.",
+  "membership_provenance": "All five labels have status missing in the user-provided CodexMusica-genre-comparison.json. Their EveryNoise URLs are copied from that artifact. Direct EveryNoise map retrieval failed during this research; this dossier does not claim fresh artist-level membership verification.",
+  "sources": [
+    {
+      "id": "afghan_fieldwork",
+      "url": "https://mm.publia.org/mm/article/download/5/33?inline=1",
+      "title": "Marko Kölbl — Ethnomusicology, Fieldwork, and the Refugee Experience: Notes on Afghan Music in Austria",
+      "type": "primary fieldwork article",
+      "supports": "European Afghan pop practice, diaspora circulation and the combined vocabulary of tabla/keyboard and Anglo-American pop-rock beats, harmony, electric guitar and drum kit. This is practice-level evidence, not Aryana session credits."
+    },
+    {
+      "id": "aryana_artist",
+      "url": "https://aryanasayeed.com/",
+      "title": "Aryana Sayeed — official artist website",
+      "type": "artist biography",
+      "supports": "Kabul birthplace, multilingual repertoire, Afghan television appearances and international concert circulation. Promotional superlatives are not adopted."
+    },
+    {
+      "id": "anar_release",
+      "url": "https://music.apple.com/us/album/anar-single/1605408054",
+      "title": "Aryana Sayeed — Anar, label-supplied release",
+      "type": "record label release metadata",
+      "supports": "Anar release on 24 October 2014, Sherzaad Entertainment attribution and recording exemplar identity; no instrument or recording-chain credits."
+    },
+    {
+      "id": "unik_me_tana",
+      "url": "https://www.unikmusic.com/",
+      "title": "UNIK — Elvana Gjata, Me tana: writing / production / mix",
+      "type": "producer portfolio",
+      "supports": "The producer’s own Me tana credit and professional production/mixing pathway; not proof of a particular synth, room or signal chain."
+    },
+    {
+      "id": "me_tana_recording",
+      "url": "https://www.youtube.com/watch?v=Mt6SrtUPOqc",
+      "title": "Elvana Gjata — Me tana, official artist-channel recording",
+      "type": "artist recording metadata",
+      "supports": "Artist release and UNIK producer credit, available in indexed official-channel metadata. Direct video fetch failed; no listening or exact instrumentation claim is made."
+    },
+    {
+      "id": "me_tana_release",
+      "url": "https://music.apple.com/us/album/me-tana-single/1491005592",
+      "title": "Elvana Gjata — Me Tana, East Music Matters release",
+      "type": "record label release metadata",
+      "supports": "10 December 2019 release and label attribution; anchors the selected late-2010s single rather than a whole national repertoire."
+    },
+    {
+      "id": "rtsh_festival",
+      "url": "https://rtsh.al/festivali/kenget/elvana-gjata-karnaval/",
+      "title": "RTSH Festivali i Këngës — Elvana Gjata, Karnaval",
+      "type": "public broadcaster artist/contest entry",
+      "supports": "The continuing broadcaster/festival context and Tirana institution address. This later entry is used only for a cultural-platform anchor, not as a 2019 production credit."
+    },
+    {
+      "id": "sirusho_ebu",
+      "url": "https://www.eurovision.com/eurovision-song-contest/belgrade-2008/participants/sirusho/",
+      "title": "EBU — Sirusho, Armenia, Belgrade 2008",
+      "type": "broadcast organizer artist profile",
+      "supports": "Yerevan origin, pop and folk album trajectory, Armenian/English original writing, diaspora touring and Qele, Qele credits."
+    },
+    {
+      "id": "sirusho_production",
+      "url": "https://www.linkedin.com/company/sirusho-production",
+      "title": "Sirusho Production — company self-description",
+      "type": "artist production company",
+      "supports": "The company describes Armenian traditional instruments within modern compositions and PreGomesh’s older-music inspiration. Does not establish the full authored roster on a specific single."
+    },
+    {
+      "id": "pregomesh_release",
+      "url": "https://music.apple.com/us/album/pregomesh-single/586418018",
+      "title": "Sirusho — PreGomesh, Sirusho Production release",
+      "type": "artist label release metadata",
+      "supports": "10 December 2012 release and artist production ownership. The platform’s Traditional Folk shelf is a release category; it does not by itself establish the EveryNoise pop label."
+    },
+    {
+      "id": "safura_ebu",
+      "url": "https://www.eurovision.com/eurovision-song-contest/oslo-2010/participants/safura/",
+      "title": "EBU — Safura, Azerbaijan, Oslo 2010",
+      "type": "broadcast organizer artist/recording profile",
+      "supports": "Drip Drop’s 2010 platform, Swedish songwriters, Azerbaijani talent-show pathway and official video link. The page does not supply recording equipment or full personnel."
+    },
+    {
+      "id": "safura_artist",
+      "url": "https://www.safura.com/biography",
+      "title": "Safura — official biography",
+      "type": "artist biography",
+      "supports": "Baku music-school connection, early instrumental education, Drip Drop and It’s My War chronology, Swedish label relationship and international release path."
+    },
+    {
+      "id": "phyu_interview",
+      "url": "https://www.irrawaddy.com/in-person/a-different-kind-of-lady.html",
+      "title": "Kyaw Phyo Tha — A Different Kind of Lady: interview with Phyu Phyu Kyaw Thein",
+      "type": "firsthand artist interview, December 2012 / January 2013",
+      "supports": "Artist’s account of her 2003-onward performances, commercial vocal career and A Girl is Broken-hearted album. The interview does not provide track-specific equipment or instrumental personnel."
+    },
+    {
+      "id": "phyu_recording",
+      "url": "https://www.youtube.com/watch?v=lbSHaWYsKbI",
+      "title": "FG Entertainment — Phyu Phyu Kyaw Thein, A Shone Htet Po Thaw (Official Music Video)",
+      "type": "label recording metadata",
+      "supports": "2019 label-channel official release exemplar. Direct video fetch failed; the indexed verified-label metadata was available, and no listening claim is made."
+    },
+    {
+      "id": "yangon_fieldwork",
+      "url": "https://ecommons.cornell.edu/entities/publication/0915a4fa-a796-4701-a438-cd0bd37a64d4",
+      "title": "Heather MacLachlan — Revealing the Heart: The Popular Music Industry in Yangon, Burma (2009)",
+      "type": "primary fieldwork dissertation, university repository metadata",
+      "supports": "Original ethnography with concert, rehearsal and recording-session observation and 77 industry interviews; explicitly identifies Yangon as the selected pop industry’s center. PDF direct fetch failed; metadata and abstract support this geographic claim."
+    },
+    {
+      "id": "phyu_artist_band",
+      "url": "https://www.phyuphyukyawthein.com/",
+      "title": "Phyu Phyu Kyaw Thein — artist/community performance website",
+      "type": "artist/community performance page",
+      "supports": "Current artist performance surface advertises live band performances. Used only to corroborate a band-facing presentation; the modern page does not prove a 2012 or 2019 session roster."
+    },
+    {
+      "id": "kipp_qele_analysis",
+      "url": "https://core.ac.uk/download/pdf/10200938.pdf",
+      "title": "Natasha R. Kipp — Organological geopolitics and the Balaban of Azerbaijan: comparative musical dialogues concerning a double-reed aerophone of the post-Soviet Caucasus (2012), p. 170",
+      "type": "primary musicological analysis, doctoral dissertation",
+      "supports": "The indexed text analyzes Qele, Qele’s opening duduk, melismatic singing, other melodic instruments, language and music-video d’hol. The author distinguishes visual drums from stage performance. Direct full-PDF fetch failed; the indexed passage was retrieved. This supports the duduk/melisma connection but not the exact authored roster or gear."
+    }
+  ],
+  "entries": [
+    {
+      "id": "afghan_pop",
+      "source_label": "afghan pop",
+      "every_noise_url": "https://everynoise.com/engenremap-afghanpop.html",
+      "comparison_status": "missing",
+      "scope": "2010s Dari-language commercial vocal pop with tabla and keyboard within Kabul/diaspora circulation",
+      "sources": ["afghan_fieldwork", "aryana_artist", "anar_release"],
+      "neighbor_distinctions": [
+        "afghan_traditional is Kabuli/Hindustani-facing art music with rubab/harmonium and raga-derived forms; this is a concise commercial song with an electric backline.",
+        "persian_pop_los_angeles is a separate Tehrangeles lineage; the selected repertoire and tabla role keep this row distinct."
+      ],
+      "configuration_rationale": "Tabla and keyboard are supported at practice level by primary Afghan diaspora fieldwork. A small rhythm section plus foreground mixed-register vocal is an authored production reduction. Keyboard style-bank, fresh tabla setup, clean guitar and locked bass are sonic choices, not Aryana’s session inventory.",
+      "geo_rationale": "Kabul is a cultural/broadcast anchor and Aryana’s documented birthplace, not a claim that diaspora recordings are made there. South Asia follows the repository’s explicitly ruled Afghanistan bucket.",
+      "anchor": {
+        "latitude": 34.56,
+        "longitude": 69.21,
+        "label": "Kabul",
+        "region": "South Asia"
+      },
+      "configuration": {
+        "instruments": [
+          "voice",
+          "rompler_workstation",
+          "tabla",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_contemporary_studio_model",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_fx": ["plate_reverb", "digital_delay"],
+        "pin_parts": true,
+        "parts": {
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_register": "mix_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_microtone": "portamento_inflected",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take",
+          "electronic_technique": "electronic_lead_line",
+          "rompler_preset_bank": "rompler_preset_oriental_arranger",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_korg_pa_arranger",
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "fresh_syahi",
+          "electric_technique": "electric_clean_strummed",
+          "bass_technique": "fingerstyle_locked",
+          "drum_technique": "sticks_motown",
+          "voice_articulation": "melisma_voice"
+        }
+      },
+      "axes": {
+        "harm": 1,
+        "pitch": 0,
+        "ornament": 1,
+        "meter": 1,
+        "density": 1,
+        "transmission": -1,
+        "improv": 0,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 1,
+        "percussion": 1,
+        "cyclicity": 2
+      },
+      "limitations": [
+        "Instrument roster and processing are bounded authored reductions, not full session transcriptions.",
+        "Modern hardware/make, sample bit depth, retuning/reverb choices and numerical axes are not measured or historically attested claims.",
+        "Default preface scoring can select culturally remote vocabulary; rendered settings/pins are verified and the root integration owns signature review."
+      ]
+    },
+    {
+      "id": "albanian_pop",
+      "source_label": "albanian pop",
+      "every_noise_url": "https://everynoise.com/engenremap-albanianpop.html",
+      "comparison_status": "missing",
+      "scope": "late-2010s Albanian-language producer-led electronic commercial single practice",
+      "sources": ["unik_me_tana", "me_tana_recording", "me_tana_release", "rtsh_festival"],
+      "neighbor_distinctions": [
+        "albanian_iso_polyphony is multipart drone-based vocal practice; this row uses a foreground lead and programmed harmonic backing.",
+        "albanian_dasma and balkan_pop carry wedding/accordion/clarinet ensemble defaults which cannot be assumed for every Albanian-language commercial single."
+      ],
+      "configuration_rationale": "UNIK’s portfolio establishes professional writing/production/mixing for the exemplar. Short-envelope synth hook, clean sampled one-shots, sub-layer bass and adlib lead represent an authored electronic dance-pop reduction. The distributed room is chosen for reusable modern production, not claimed as a verified session history.",
+      "geo_rationale": "Tirana anchors the broadcaster/festival cultural platform documented by RTSH; this does not locate all Albanian-language, Kosovo or diaspora recording work. Europe is the appropriate city bucket.",
+      "anchor": {
+        "latitude": 41.33,
+        "longitude": 19.82,
+        "label": "Tirana",
+        "region": "Europe"
+      },
+      "configuration": {
+        "instruments": ["voice", "analog_poly_synth", "sampler_drum_machine", "electric_bass"],
+        "room": "studio_distributed_production",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_contemporary_studio_model",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_fx": ["digital_delay", "fx_stereo_widener"],
+        "pin_parts": true,
+        "parts": {
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_register": "mix_voice",
+          "voice_quality": "speech_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+          "electronic_technique": "electronic_pluck_short",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered",
+          "bass_technique": "sub_bass_synth_blend",
+          "voice_articulation": "legato_voice"
+        }
+      },
+      "axes": {
+        "harm": 1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 2,
+        "density": 1,
+        "transmission": -1,
+        "improv": -1,
+        "soundTech": 2,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 1,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "limitations": [
+        "Instrument roster and processing are bounded authored reductions, not full session transcriptions.",
+        "Modern hardware/make, sample bit depth, retuning/reverb choices and numerical axes are not measured or historically attested claims.",
+        "Default preface scoring can select culturally remote vocabulary; rendered settings/pins are verified and the root integration owns signature review."
+      ]
+    },
+    {
+      "id": "armenian_pop",
+      "source_label": "armenian pop",
+      "every_noise_url": "https://everynoise.com/engenremap-armenianpop.html",
+      "comparison_status": "missing",
+      "scope": "2008-2012 Yerevan-associated folk-inflected contemporary dance-pop crossover",
+      "sources": ["sirusho_ebu", "sirusho_production", "pregomesh_release", "kipp_qele_analysis"],
+      "neighbor_distinctions": [
+        "armenian_folk and armenian_traditional are acoustic/folk or art-music/liturgical lineages; this configuration foregrounds a studio lead over an electronic dance-song backing.",
+        "The row does not substitute for rabiz or all diaspora Armenian pop. Registered dhol is Punjabi, so it is intentionally not used as an Armenian drum."
+      ],
+      "configuration_rationale": "EBU and artist-company sources support the pop/folk crossover. Kipp’s primary analysis identifies duduk and melismatic voice in Qele, Qele; these justify the melodic answer and articulated vocal choices. Harmonized belt, arpeggiator and tight sampled percussion are an authored small-ensemble production reduction, not a complete transcription or original gear claim.",
+      "geo_rationale": "Yerevan is directly supported by the EBU artist profile. Caucasus & Central Asia follows the atlas’s Caucasus bucket; the international singles and diaspora audience are not forced into one physical recording location.",
+      "anchor": {
+        "latitude": 40.18,
+        "longitude": 44.51,
+        "label": "Yerevan",
+        "region": "Caucasus & Central Asia"
+      },
+      "configuration": {
+        "instruments": [
+          "voice",
+          "duduk",
+          "analog_poly_synth",
+          "sampler_drum_machine",
+          "electric_bass"
+        ],
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_contemporary_studio_model",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_fx": ["plate_reverb", "digital_delay"],
+        "pin_parts": true,
+        "parts": {
+          "voice_speech_song": "voice_melismatic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_register": "mix_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_vibrato": "fast_vibrato",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth",
+          "wind_articulation": "wind_ornament_heavy",
+          "duduk_use": "duduk_solo",
+          "duduk_pitch": "duduk_a",
+          "duduk_body_wood": "duduk_apricot_canonical",
+          "duduk_reed": "duduk_arundo_canonical",
+          "electronic_technique": "electronic_arpeggiated",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered",
+          "bass_technique": "fingerstyle_locked",
+          "voice_articulation": "melisma_voice"
+        }
+      },
+      "axes": {
+        "harm": 1,
+        "pitch": 0,
+        "ornament": 1,
+        "meter": 2,
+        "density": 1,
+        "transmission": -1,
+        "improv": 0,
+        "soundTech": 2,
+        "intensity": 2,
+        "voice": 2,
+        "timbre": 1,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "limitations": [
+        "Instrument roster and processing are bounded authored reductions, not full session transcriptions.",
+        "Modern hardware/make, sample bit depth, retuning/reverb choices and numerical axes are not measured or historically attested claims.",
+        "Default preface scoring can select culturally remote vocabulary; rendered settings/pins are verified and the root integration owns signature review."
+      ]
+    },
+    {
+      "id": "azeri_pop",
+      "source_label": "azeri pop",
+      "every_noise_url": "https://everynoise.com/engenremap-azeripop.html",
+      "comparison_status": "missing",
+      "scope": "2010 English-language international Azerbaijani pop-ballad crossover, one selected branch",
+      "sources": ["safura_ebu", "safura_artist"],
+      "neighbor_distinctions": [
+        "azeri_traditional models tar, kamancha, balaban and other regional acoustic practice; a national label alone cannot impose that roster on a crossover pop song.",
+        "The Armenian crossover default features a traditional reed and dance backing; this selected pop-ballad model uses piano/orchestral keyboard and gentler sampled rhythm."
+      ],
+      "configuration_rationale": "The EBU documents Swedish songwriting and the Azerbaijani broadcast pathway. Piano arpeggio, orchestral workstation pad, sampled kick, muted bass and an airy lead are an authored ballad reduction; neither the exact roster nor original studio equipment is established by the source pages.",
+      "geo_rationale": "Baku is Safura’s documented music-school/cultural pathway, not a claim that Swedish songwriting or international recording took place there. Caucasus & Central Asia is the atlas bucket.",
+      "anchor": {
+        "latitude": 40.41,
+        "longitude": 49.87,
+        "label": "Baku",
+        "region": "Caucasus & Central Asia"
+      },
+      "configuration": {
+        "instruments": [
+          "voice",
+          "grand_piano",
+          "rompler_workstation",
+          "sampler_drum_machine",
+          "electric_bass"
+        ],
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_contemporary_studio_model",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_fx": ["hall_reverb", "digital_delay"],
+        "pin_parts": true,
+        "parts": {
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_register": "head_voice",
+          "voice_quality": "breath_admixed_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_multitrack_stack": "voice_multitrack_octave_double_self",
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "electronic_technique": "electronic_pad_drone",
+          "rompler_preset_bank": "rompler_preset_piano_orchestral",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_roland_jv_xp",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick",
+          "bass_technique": "thumb_muted",
+          "voice_articulation": "legato_voice"
+        }
+      },
+      "axes": {
+        "harm": 2,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 1,
+        "transmission": -1,
+        "improv": -1,
+        "soundTech": 2,
+        "intensity": 0,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 1,
+        "cyclicity": 2
+      },
+      "limitations": [
+        "Instrument roster and processing are bounded authored reductions, not full session transcriptions.",
+        "Modern hardware/make, sample bit depth, retuning/reverb choices and numerical axes are not measured or historically attested claims.",
+        "Default preface scoring can select culturally remote vocabulary; rendered settings/pins are verified and the root integration owns signature review."
+      ]
+    },
+    {
+      "id": "burmese_pop",
+      "source_label": "burmese pop",
+      "every_noise_url": "https://everynoise.com/engenremap-burmesepop.html",
+      "comparison_status": "missing",
+      "scope": "2000s-2010s Burmese-language dramatic melodic vocal pop/pop-rock branch",
+      "sources": ["phyu_interview", "phyu_recording", "yangon_fieldwork", "phyu_artist_band"],
+      "neighbor_distinctions": [
+        "burmese_mahagita and burmese_hsaing_waing are canon/ensemble traditions with different instrumentation and performance form; this row models commercial melodic pop with Western backline.",
+        "Sung melodic foreground and stick-played band backbeat distinguish this selection from rap-led and electronic Myanmar scenes; no national uniformity is claimed."
+      ],
+      "configuration_rationale": "Firsthand interview anchors the artist/period and commercial album; official label recording anchors the later single. Piano, clean electric guitar, locked electric bass and drum kit are a compact authored band arrangement, with a forceful single vocal and terminal vibrato. They are not a claimed session personnel list.",
+      "geo_rationale": "Yangon is explicitly identified as the pop-industry center in MacLachlan’s primary ethnography metadata. Southeast Asia is the atlas bucket; it is not a claim that all ethnic-language music or later exile work originates there.",
+      "anchor": {
+        "latitude": 16.84,
+        "longitude": 96.17,
+        "label": "Yangon",
+        "region": "Southeast Asia"
+      },
+      "configuration": {
+        "instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "grand_piano",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_contemporary_studio_model",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_fx": ["plate_reverb", "chorus_pedal"],
+        "pin_parts": true,
+        "parts": {
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_register": "heavy_m1_belt_register",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_microtone": "portamento_inflected",
+          "voice_vibrato": "slow_wide_terminal_vibrato",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "electric_technique": "electric_arpeggiated_clean",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "bass_technique": "fingerstyle_locked",
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "voice_articulation": "legato_voice"
+        }
+      },
+      "axes": {
+        "harm": 1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 1,
+        "transmission": -1,
+        "improv": 0,
+        "soundTech": 1,
+        "intensity": 2,
+        "voice": 2,
+        "timbre": 1,
+        "percussion": 1,
+        "cyclicity": 2
+      },
+      "limitations": [
+        "Instrument roster and processing are bounded authored reductions, not full session transcriptions.",
+        "Modern hardware/make, sample bit depth, retuning/reverb choices and numerical axes are not measured or historically attested claims.",
+        "Default preface scoring can select culturally remote vocabulary; rendered settings/pins are verified and the root integration owns signature review."
+      ]
+    }
+  ],
+  "validation": {
+    "checked": true,
+    "reference_integrity": "node scripts/validate.js: pass (2593 traditions)",
+    "duplicates": "node scripts/check_duplicates.js: pass, zero unruled identity collisions; catalog has one pre-existing ruled/unresolved instrument label and advisory pairs",
+    "record_preservation": "2588 original traditions/extras retained field-for-field; all original geo arrays retained",
+    "checks": [
+      {
+        "id": "afghan_pop",
+        "pins": 23,
+        "formats": {
+          "rich": 999,
+          "prose": 435,
+          "tags": 1000,
+          "compact": 547
+        },
+        "cli_chars": 809,
+        "roster_retained": true,
+        "pins_retained_cli_seed_browser": true,
+        "browser_node_parity": true,
+        "no_artist_leaks": true,
+        "geo_valid": true,
+        "optimized_traditions": ["afghan_pop", "new_wave", "yacht_rock"]
+      },
+      {
+        "id": "albanian_pop",
+        "pins": 18,
+        "formats": {
+          "rich": 999,
+          "prose": 429,
+          "tags": 998,
+          "compact": 545
+        },
+        "cli_chars": 577,
+        "roster_retained": true,
+        "pins_retained_cli_seed_browser": true,
+        "browser_node_parity": true,
+        "no_artist_leaks": true,
+        "geo_valid": true,
+        "optimized_traditions": ["albanian_pop", "synthpop", "new_romantic"]
+      },
+      {
+        "id": "armenian_pop",
+        "pins": 23,
+        "formats": {
+          "rich": 997,
+          "prose": 419,
+          "tags": 959,
+          "compact": 531
+        },
+        "cli_chars": 617,
+        "roster_retained": true,
+        "pins_retained_cli_seed_browser": true,
+        "browser_node_parity": true,
+        "no_artist_leaks": true,
+        "geo_valid": true,
+        "optimized_traditions": ["armenian_pop", "new_wave", "yacht_rock"]
+      },
+      {
+        "id": "azeri_pop",
+        "pins": 22,
+        "formats": {
+          "rich": 998,
+          "prose": 413,
+          "tags": 995,
+          "compact": 525
+        },
+        "cli_chars": 568,
+        "roster_retained": true,
+        "pins_retained_cli_seed_browser": true,
+        "browser_node_parity": true,
+        "no_artist_leaks": true,
+        "geo_valid": true,
+        "optimized_traditions": ["azeri_pop", "new_wave", "yacht_rock"]
+      },
+      {
+        "id": "burmese_pop",
+        "pins": 18,
+        "formats": {
+          "rich": 994,
+          "prose": 412,
+          "tags": 999,
+          "compact": 524
+        },
+        "cli_chars": 651,
+        "roster_retained": true,
+        "pins_retained_cli_seed_browser": true,
+        "browser_node_parity": true,
+        "no_artist_leaks": true,
+        "geo_valid": true,
+        "optimized_traditions": ["burmese_pop", "enka", "lagu_jawa"]
+      }
+    ],
+    "note": "Checks precede root signature generation/integration; root re-runs the shared gate. CLI optimization auto-staples neighboring traditions but retains every authored instrument and applicable part pin."
+  }
+}

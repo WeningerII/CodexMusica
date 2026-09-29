@@ -1,0 +1,131 @@
+{
+  "id": "hypnotic_techno",
+  "name": "Hypnotic techno",
+  "family": "electronic",
+  "lineage": "Deep and psychedelic techno continuum represented by Donato Dozzy, Luigi Tozzi and Hypnus Records, founded near Stockholm in 2013. The selected model emphasizes rolling percussion, interlocking cyclic figures and gradual atmospheric transformation rather than festival breakdowns.",
+  "recipe": "classic early-2010s hypnotic techno, electronic Dance, techno branch, ambient experimental electric, dub descendants bass system ambient techno illbient. modular synth, drum machine analog, field textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ping-pong delay hall reverb.",
+  "recipe_chars": 387,
+  "score": 26.715,
+  "config": {
+    "traditions": [
+      "hypnotic_techno",
+      "ambient_techno",
+      "illbient"
+    ],
+    "instruments": [
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 0.25,
+          "mod_voltage_source": 0.73875,
+          "mod_patch_density": 5.915,
+          "mod_lineage": 0.65
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "noise_only_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 1.93875,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 0.375
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 8.365,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.845,
+          "sampler_workflow": 9.5275,
+          "sampler_classic_context": 0.195
+        }
+      }
+    ],
+    "pinned": {
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_parallel_blend",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_ping_pong_delay",
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "mod_voltage_source": "mod_sequencer",
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_doepfer_eurorack",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "noise_only_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_field_recordings",
+      "sampler_classic_context": "sampler_classic_post"
+    },
+    "pin_parts": true,
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_parallel_blend",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "fx_ping_pong_delay",
+      "hall_reverb"
+    ]
+  }
+}

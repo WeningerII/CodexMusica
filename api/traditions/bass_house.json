@@ -1,0 +1,129 @@
+{
+  "id": "bass_house",
+  "name": "Bass house",
+  "family": "electronic",
+  "lineage": "Mid-2010s international house-and-bass-music convergence represented by Jauz, Habstrakt and Dustycloud: club kick patterns meet mobile, distorted bass sound design and short vocal cuts. This seed selects the bass-led club-single strand rather than the full catalog of any artist.",
+  "recipe": "classic 2014-2016 bass house, electronic Dance, house branch, bass system, tech house house tech-house jungle and drum-and-bass. sub bass wavetable synth, sampler drum machine, chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion mono maker / bass-mono.",
+  "recipe_chars": 383,
+  "score": 90.437,
+  "config": {
+    "traditions": [
+      "bass_house",
+      "tech_house_classic",
+      "jungle"
+    ],
+    "instruments": [
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 16.119999999999997,
+          "wt_position": 0.3,
+          "wt_family": 0.15,
+          "wt_polyphony": 0.09
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 1.3468749999999998,
+          "sample_bitdepth": 0.195,
+          "sample_swing": 11.125000000000004,
+          "sample_processing": 0.65
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.3468749999999998,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.135,
+          "sampler_workflow": 1.7968749999999998,
+          "sampler_classic_context": 55.256874999999994
+        }
+      }
+    ],
+    "pinned": {
+      "wavetable_synth": [
+        "electronic_technique",
+        "wt_position",
+        "wt_family",
+        "wt_polyphony"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_dynamic",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "distortion_high",
+      "fx_mono_maker_bass"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_bass_sub",
+      "wt_position": "wt_chaotic",
+      "wt_family": "wt_industrial",
+      "wt_polyphony": "wt_mono",
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_edm"
+    },
+    "pin_parts": true,
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_dynamic",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "distortion_high",
+      "fx_mono_maker_bass"
+    ]
+  }
+}

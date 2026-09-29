@@ -3,21 +3,21 @@
   "name": "Death metal",
   "family": "rock_punk",
   "lineage": "Mid-1980s onward extreme metal subgenre characterized by down-tuned humbucker guitar, palm-muted chug riffs, blast-beat drumming, growl-vocal delivery, and morbid thematic content — codified through Florida-tampa-bay (Death — Scream Bloody Gore 1987, Morbid Angel — Altars of Madness 1989, Obituary, Deicide), and Stockholm (Entombed — Left Hand Path 1990, Dismember, Grave) with the genre splitting into technical, brutal, and melodic substreams by the mid-1990s",
-  "recipe": "classic North American 1984-1986 death metal, distorted Rock, death branch, thrash metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. concrete basement. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
-  "recipe_chars": 605,
-  "score": 347.519,
+  "recipe": "classic North American 1984-1986 death metal, distorted Rock, death branch, thrash metal black speed metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. concrete basement. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 601,
+  "score": 372.062,
   "config": {
     "traditions": [
       "death_metal",
-      "thrash_metal",
-      "djent"
+      "black_speed_metal",
+      "thrash_metal"
     ],
     "instruments": [
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_palm_muted_chug",
-          "amp_make": "amp_mesa_dual_rectifier",
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
@@ -31,25 +31,25 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 31.2475,
-          "amp_make": 21.612499999999997,
-          "body_wood": 19.044999999999998,
-          "neck_wood": 5.596,
-          "fretboard": 5.546,
-          "pickup_magnet": 2.3400000000000003,
-          "pickup_winding": 0.768,
+          "electric_technique": 35.663,
+          "amp_make": 19.904,
+          "body_wood": 20.345,
+          "neck_wood": 4.81,
+          "fretboard": 4.745,
+          "pickup_magnet": 3.185,
+          "pickup_winding": 0.663,
           "string_material": 1.2349999999999999,
-          "bridge": 5.596,
-          "scale_length": 14.364999999999998,
-          "string_gauge": 6.441,
+          "bridge": 4.81,
+          "scale_length": 16.509999999999998,
+          "string_gauge": 5.654999999999999,
           "finish": 0.0315,
-          "string_tuning": 19.174999999999997
+          "string_tuning": 22.035
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_orange",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
@@ -58,13 +58,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 6.4350000000000005,
-          "body_wood": 6.752999999999999,
-          "pickup_config": 1.8850000000000002,
-          "string_type": 13.65,
-          "scale_length_b": 5.596,
-          "fretted_or_not": 1.145,
-          "bass_technique": 13.7695
+          "amp_make": 6.890000000000001,
+          "body_wood": 6.5649999999999995,
+          "pickup_config": 2.535,
+          "string_type": 15.859,
+          "scale_length_b": 4.81,
+          "fretted_or_not": 0.585,
+          "bass_technique": 16.3945
         }
       },
       {
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.844999999999994,
-          "drumhead": 5.654999999999999,
+          "drum_technique": 14.689999999999996,
+          "drumhead": 4.81,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -90,33 +90,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_sob",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 11.845999999999995,
-          "voice_quality": 8.84,
+          "voice_register": 12.370999999999993,
+          "voice_quality": 8.645,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.59,
-          "voice_articulation": 13.97499999999999,
-          "voice_microtone": 14.36499999999999,
-          "voice_tradition": 3.250000000000001,
-          "voice_mechanism_compound": 32.80499999999999,
-          "voice_estill_quality": 3.7520000000000002,
-          "voice_speech_song": 15.729999999999993,
-          "voice_ensemble_config": 14.364999999999991,
+          "voice_vibrato": 4.745,
+          "voice_articulation": 14.819999999999993,
+          "voice_microtone": 15.209999999999992,
+          "voice_tradition": 5.590000000000001,
+          "voice_mechanism_compound": 38.506499999999996,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 17.874999999999996,
+          "voice_ensemble_config": 15.209999999999994,
           "voice_ornament_system": 0.6499999999999999,
-          "voice_pitch_organization": 2.0799999999999996,
-          "voice_processing_chain": 5.59,
-          "voice_multitrack_stack": 5.9365000000000006
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 6.695,
+          "voice_multitrack_stack": 6.107500000000001
         }
       }
     ],

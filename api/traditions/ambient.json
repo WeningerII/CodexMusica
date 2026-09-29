@@ -5,7 +5,7 @@
   "lineage": "Long-form atmospheric electronic-music genre codified by Brian Eno from 1975 onward — Discreet Music 1975, then the Ambient series Ambient 1: Music for Airports 1978 establishing both the genre name and the founding aesthetic of music as functional environment-shaping; extended through Apollo: Atmospheres and Soundtracks 1983 with Daniel Lanois and Roger Eno, Harold Budd collaborations, the modern continuation through Stars of the Lid, William Basinski (The Disintegration Loops 2002), Tim Hecker, Grouper",
   "recipe": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal tuareg guitar african blues. pad like pad analog synth, tape replay keyboard, handpan, structures sonores original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
   "recipe_chars": 558,
-  "score": 44.232,
+  "score": 44.294,
   "config": {
     "traditions": [
       "ambient",
@@ -23,9 +23,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 14.797642857142854,
-          "oscillator": 1.9047727272727273,
-          "filter_topology": 0.7329058441558443,
+          "electronic_technique": 14.944976190476186,
+          "oscillator": 2.0067500000000003,
+          "filter_topology": 0.7346785714285713,
           "envelope": 7.409999999999999,
           "modulation": 0.49499999999999994
         }
@@ -40,7 +40,7 @@
         "scores": {
           "keyboard_technique": 1.3649999999999998,
           "tape_voice": 0.78,
-          "tape_state": 0.37827272727272726
+          "tape_state": 0.3
         }
       },
       {
@@ -51,7 +51,7 @@
         },
         "scores": {
           "handpan_scale": 7.799999999999999,
-          "handpan_maker": 2.0687499999999996
+          "handpan_maker": 1.9575
         }
       },
       {

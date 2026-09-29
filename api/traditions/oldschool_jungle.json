@@ -5,7 +5,7 @@
   "lineage": "Formed in London and Bristol 1992-94 out of hardcore rave's acceleration, codified by Rebel MC, Shy FX, Congo Natty and DJ Hype on white-label 12-inches — 155-170 BPM chopped Amen and Apache breakbeats time-stretched over halftime 80 BPM sub-bass and Jamaican dancehall samples, with ragga toasting and pitched-up diva vocals cut to dubplate for pirate-radio play.",
   "recipe": "classic Western European early-1990s oldschool jungle, bass System, uk soundsystem branch, dub descendants bass system, techno electronic dance, Afro-diasporic MC rhythm techno bass german techno. vocal fry, breath veiled tone, straight note core, interlocked note trading. chopped sampler, sampler drum machine, turntable, low sub bass analog poly synth, monosynth acid bass. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
   "recipe_chars": 516,
-  "score": 190.588,
+  "score": 190.265,
   "config": {
     "traditions": [
       "oldschool_jungle",
@@ -42,13 +42,13 @@
           "voice_articulation": 19.174999999999997,
           "voice_microtone": 18.589999999999993,
           "voice_tradition": 2.6650000000000005,
-          "voice_mechanism_compound": 3.6900000000000004,
+          "voice_mechanism_compound": 3.3900000000000006,
           "voice_estill_quality": 2.990000000000001,
           "voice_speech_song": 18.979999999999997,
           "voice_ensemble_config": 20.279999999999994,
           "voice_ornament_system": 2.8600000000000003,
           "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 15.34,
+          "voice_processing_chain": 15.49,
           "voice_multitrack_stack": 2.9899999999999998
         }
       },
@@ -63,7 +63,7 @@
         },
         "scores": {
           "electronic_technique": 1.91,
-          "sampler_archetypes": 1.3324999999999998,
+          "sampler_archetypes": 1.265,
           "sampler_bit_depth": 0.49499999999999994,
           "sampler_workflow": 4.725,
           "sampler_classic_context": 19.955
@@ -80,7 +80,7 @@
         "scores": {
           "electronic_technique": 1.91,
           "sample_bitdepth": 0.65,
-          "sample_swing": 13.41,
+          "sample_swing": 13.215,
           "sample_processing": 3.4
         }
       },
@@ -105,8 +105,8 @@
         },
         "scores": {
           "electronic_technique": 8.6775,
-          "poly_archetypes": 0.915,
-          "poly_voices": 0.915,
+          "poly_archetypes": 0.9600000000000001,
+          "poly_voices": 0.9600000000000001,
           "poly_maker_lineage": -0.7350000000000001
         }
       },

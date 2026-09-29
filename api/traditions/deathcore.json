@@ -3,21 +3,21 @@
   "name": "Deathcore",
   "family": "rock",
   "lineage": "Mid-2000s onward American extreme metal subgenre fusing death-metal's growl-vocal-and-blast-beat vocabulary with metalcore's breakdown-section conventions and pig-squeal / inhale-scream vocal techniques — codified through Suicide Silence (The Cleansing 2007), Whitechapel (This Is Exile 2008), Job for a Cowboy (Doom EP 2005), Carnifex, Despised Icon (The Healing Process 2005), Thy Art Is Murder",
-  "recipe": "classic 2004-2006 deathcore, distorted Rock, death branch, thrash metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 519,
-  "score": 345.603,
+  "recipe": "classic 2004-2006 deathcore, distorted Rock, death branch, thrash metal black speed metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 515,
+  "score": 371.998,
   "config": {
     "traditions": [
       "deathcore",
-      "thrash_metal",
-      "djent"
+      "black_speed_metal",
+      "thrash_metal"
     ],
     "instruments": [
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_mesa_dual_rectifier",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
@@ -31,40 +31,40 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 33.9315,
-          "amp_make": 22.262499999999996,
-          "body_wood": 18.915,
-          "neck_wood": 3.965,
-          "fretboard": 3.9,
-          "pickup_magnet": 2.73,
-          "pickup_winding": 0.8449999999999999,
+          "electric_technique": 38.53549999999999,
+          "amp_make": 21.539,
+          "body_wood": 20.214999999999996,
+          "neck_wood": 3.12,
+          "fretboard": 3.055,
+          "pickup_magnet": 3.575,
+          "pickup_winding": 1.04,
           "string_material": 0.845,
-          "bridge": 3.965,
-          "scale_length": 15.534999999999998,
-          "string_gauge": 4.81,
+          "bridge": 3.12,
+          "scale_length": 17.679999999999996,
+          "string_gauge": 3.965,
           "finish": 0.0315,
-          "string_tuning": 21.644999999999996
+          "string_tuning": 24.504999999999995
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_orange",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 7.41,
-          "body_wood": 5.46,
-          "pickup_config": 1.8850000000000002,
-          "string_type": 16.165,
-          "scale_length_b": 3.965,
-          "fretted_or_not": 0.845,
-          "bass_technique": 16.001
+          "amp_make": 7.800000000000001,
+          "body_wood": 5.265000000000001,
+          "pickup_config": 2.535,
+          "string_type": 18.119,
+          "scale_length_b": 3.12,
+          "fretted_or_not": 0.3,
+          "bass_technique": 18.626
         }
       },
       {
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13,
-          "drumhead": 4.875,
+          "drum_technique": 14.750000000000002,
+          "drumhead": 4.03,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -96,27 +96,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 14.077499999999995,
-          "voice_quality": 8.060000000000002,
+          "voice_register": 14.602499999999996,
+          "voice_quality": 7.865000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9,
-          "voice_articulation": 13.064999999999994,
-          "voice_microtone": 13.78,
-          "voice_tradition": 5.654999999999999,
-          "voice_mechanism_compound": 37.25,
-          "voice_estill_quality": 3.315000000000001,
-          "voice_speech_song": 14.039999999999994,
-          "voice_ensemble_config": 13.064999999999994,
+          "voice_vibrato": 3.055,
+          "voice_articulation": 13.909999999999995,
+          "voice_microtone": 14.605,
+          "voice_tradition": 8.58,
+          "voice_mechanism_compound": 42.879,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 16.184999999999995,
+          "voice_ensemble_config": 13.909999999999995,
           "voice_ornament_system": 0.6499999999999999,
-          "voice_pitch_organization": 1.2999999999999998,
-          "voice_processing_chain": 5.200000000000001,
-          "voice_multitrack_stack": 7.559500000000001
+          "voice_pitch_organization": 0.9099999999999997,
+          "voice_processing_chain": 6.305000000000001,
+          "voice_multitrack_stack": 6.434999999999999
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Jamaican style that appeared in Kingston studios around 1968 as rocksteady accelerated, driven by producers Lee Perry, Bunny Lee and Joe Gibbs and the Upsetters and Hippy Boys bands, marked by a bubbling organ shuffle, scratchy quaver guitar chops on the offbeat, a busy melodic bass, a snapping one-drop or four-beat kit at roughly 85-100 BPM, and vocal-group or DJ toasting over cheaply cut mono mixes for the sound systems.",
   "recipe": "classic Caribbean early reggae, bass System, Jamaican branch, dub descendants bass system, soul R&B functional song souldies doo-wop. thick, breath veiled tone, slow rate, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, pre muffled edge muffled brushes-and-sticks drum kit, Leslie rotary block chord combo organ, hohner melodica canonical 1959 dub roots tradition block chord melodica, bach 42 canonical American orchestral tenor ensemble bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 849,
-  "score": 334.912,
+  "score": 335.227,
   "config": {
     "traditions": [
       "early_reggae",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 16.464999999999996,
+          "voice_register": 16.509999999999994,
           "voice_quality": 20.930000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -64,7 +64,7 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 21.154999999999998,
+          "amp_make": 21.38,
           "body_wood": 0.585,
           "pickup_config": 0.39,
           "string_type": 20.085,
@@ -91,7 +91,7 @@
         },
         "scores": {
           "electric_technique": 10.389999999999999,
-          "amp_make": 14.484999999999998,
+          "amp_make": 14.529999999999998,
           "body_wood": 0.195,
           "neck_wood": 0.195,
           "fretboard": 0.3,
@@ -127,8 +127,8 @@
           "amp_make": "amp_leslie_rotary"
         },
         "scores": {
-          "keyboard_technique": 4.374999999999999,
-          "combo_organ_model": 5.06,
+          "keyboard_technique": 4.5249999999999995,
+          "combo_organ_model": 5.194999999999999,
           "combo_organ_voicing": 4.09,
           "combo_organ_context": 6.305000000000001,
           "amp_make": 11.399999999999999
@@ -143,7 +143,7 @@
           "melodica_maker_school": "melodica_hohner_canonical"
         },
         "scores": {
-          "keyboard_technique": 4.374999999999999,
+          "keyboard_technique": 4.5249999999999995,
           "melodica_use": 1.8999999999999997,
           "melodica_pitch": 0.195,
           "melodica_maker_school": 4.9399999999999995
@@ -161,13 +161,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 12.49,
+          "wind_articulation": 12.25,
           "trombone_type": 0.585,
           "trombone_mouthpiece": 5.46,
           "trombone_mute": 0.15,
           "trombone_technique": 0.78,
           "trombone_bell_metal": 0.63,
-          "trombone_maker_school": 3.1849999999999996
+          "trombone_maker_school": 2.9899999999999998
         }
       }
     ],

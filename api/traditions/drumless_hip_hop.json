@@ -3,9 +3,9 @@
   "name": "Drumless Hip Hop",
   "family": "hip_hop",
   "lineage": "New York underground rap approach consolidated in the 2010s by Roc Marciano, Ka, The Alchemist and Griselda-adjacent producers, stripping the boom-bap kit entirely so that a looped soul, library or soundtrack sample carries the beat alone at an implied 80-90 BPM, leaving the rapper's conversational, unhurried, largely unpunched-in delivery to supply the rhythmic grid.",
-  "recipe": "classic mid-2010s drumless hip hop, mc Rhythm, east coast branch, experimental MC rhythm, us hip hop conscious rap jazz rap conscious hip-hop. thick, rap, straight onset, narrative. chopped sampler, sampled chopped turntable, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, modern setup heavier bass bar nyman jazz bass canon double bass. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 514,
-  "score": 359.732,
+  "recipe": "classic mid-2010s drumless hip hop, mc Rhythm, east coast branch, experimental MC rhythm, us hip hop conscious rap jazz rap conscious hip-hop. thick, rap, straight onset, narrative. chopped sampler, sampled chopped turntable, pocket ostinato rhodes electric, modern setup heavier bass bar nyman jazz bass canon double bass. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 462,
+  "score": 359.328,
   "config": {
     "traditions": [
       "drumless_hip_hop",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 14.639999999999997,
-          "voice_quality": 38.51,
+          "voice_quality": 38.54,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.744999999999998,
+          "voice_vibrato": 7.894999999999999,
           "voice_articulation": 20.43,
           "voice_microtone": 15.079999999999997,
-          "voice_tradition": 14.36,
+          "voice_tradition": 14.165,
           "voice_mechanism_compound": 2.275,
           "voice_estill_quality": 9.019999999999998,
-          "voice_speech_song": 35.61,
+          "voice_speech_song": 35.76,
           "voice_ensemble_config": 14.364999999999998,
           "voice_ornament_system": 7.3450000000000015,
           "voice_pitch_organization": 0.51,
-          "voice_processing_chain": 24.919999999999998,
+          "voice_processing_chain": 24.77,
           "voice_multitrack_stack": 10.627499999999996
         }
       },
@@ -62,10 +62,10 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 12.194999999999999,
+          "electronic_technique": 12.239999999999998,
           "sampler_archetypes": 20.0525,
           "sampler_bit_depth": 2.9250000000000003,
-          "sampler_workflow": 14.895,
+          "sampler_workflow": 15.09,
           "sampler_classic_context": 29.444999999999997
         }
       },
@@ -76,7 +76,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 12.194999999999999,
+          "electronic_technique": 12.239999999999998,
           "turntable_technique": 16.389999999999997
         }
       },
@@ -92,11 +92,11 @@
         },
         "scores": {
           "keyboard_technique": 8.875,
-          "rhodes_model": 6.599999999999999,
+          "rhodes_model": 6.554999999999999,
           "rhodes_use": 0.78,
           "rhodes_tine_material": 0.45499999999999996,
           "rhodes_hammer_tip": -0.84,
-          "rhodes_pickup_position": 1.04
+          "rhodes_pickup_position": 0.8450000000000001
         }
       },
       {
@@ -115,14 +115,14 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "bass_size": 0.195,
+          "bass_size": 0.15,
           "bass_strings": 0.975,
           "bass_top_wood": 0.8749999999999999,
           "bass_back_wood": 0.8749999999999999,
           "bass_varnish": 0.8749999999999999,
           "bass_setup_period": 2.1125,
           "bass_play": 7.314999999999999,
-          "bass_rosin": 7.474999999999998,
+          "bass_rosin": 7.084999999999998,
           "bass_bow_stick": 0.8749999999999999
         }
       }

@@ -3,9 +3,9 @@
   "name": "Trap queen (woman-led Southern trap)",
   "family": "hip_hop",
   "lineage": "Woman-led Southern trap consolidated in Atlanta, Houston and Miami between 2016 and 2020 through Cardi B, Megan Thee Stallion, City Girls, Latto and producers Metro Boomin, Juicy J and LilJuMadeDaBeat — 130-145 BPM half-time grids, long-decay 808 slides, 32nd-note hi-hat rolls and a hard-consonant, largely unsung declamatory flow foregrounding sexual authorship and money, cut in commercial Atlanta rooms with heavy vocal doubling.",
-  "recipe": "classic Southern American mid-2010s trap queen, mc Rhythm, southern branch, us hip hop modern, drill MC rhythm detroit trap german drill. vocal fry, rap, straight onset, interlocked note trading. 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack, roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass wavetable native instruments fm8 modern software 8 operator sub bass fm synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 660,
-  "score": 247.91,
+  "recipe": "classic Southern American mid-2010s trap queen, mc Rhythm, southern branch, us hip hop modern, drill MC rhythm detroit trap german drill. vocal fry, rap, straight onset, interlocked note trading. octave double single performer stack 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack, roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass wavetable native instruments fm8 modern software 8 operator sub bass fm synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 697,
+  "score": 249.612,
   "config": {
     "traditions": [
       "trap_queen",
@@ -60,8 +60,8 @@
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 0.9950000000000001,
-          "multitrack_stack_era_aesthetic": 1.7425,
+          "multitrack_stack_density": 1.04,
+          "multitrack_stack_era_aesthetic": 1.885,
           "multitrack_stack_processing": 5.009999999999999
         }
       },
@@ -73,7 +73,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 8.445,
+          "tr808_voice": 8.55,
           "drum_machine_808_context": 3.8349999999999995,
           "tr808_production_origin": 2.34
         }
@@ -102,10 +102,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 19.465,
+          "electronic_technique": 19.81,
           "wt_position": 2.34,
           "wt_family": 2.34,
-          "wt_polyphony": 0
+          "wt_polyphony": 0.24
         }
       },
       {
@@ -118,10 +118,10 @@
           "fm_model_lineage": "fm_native_instruments_fm8"
         },
         "scores": {
-          "electronic_technique": 19.465,
+          "electronic_technique": 19.81,
           "fm_algorithm": 0.585,
-          "fm_modulator_ratio": 0.195,
-          "fm_polyphony": 0,
+          "fm_modulator_ratio": 0.435,
+          "fm_polyphony": 0.24,
           "fm_model_lineage": 2.34
         }
       }

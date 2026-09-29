@@ -3,14 +3,14 @@
   "name": "Post-metal",
   "family": "rock",
   "lineage": "US and European long-form instrumental-foregrounded metal-and-post-rock fusion that emerged from late-1990s onward — codified through Isis (the Boston-area post-metal band, Oceanic 2002, Panopticon 2004), Pelican (the Chicago instrumental-only canon, The Fire in Our Throats Will Beckon the Thaw 2005), Cult of Luna (Swedish), Russian Circles (Chicago instrumental-only), Neurosis (the founding pre-post-metal Oakland band, Through Silver in Blood 1996); built on extended-composition song structures (10-20 minute pieces), ambient-textural sections alternating with heavy crescendo peaks",
-  "recipe": "classic Midwestern American 1997-1999 post-metal, distorted Rock, post metal branch, experimental distorted rock krautrock post-rock. thick, breath veiled tone, pure, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 592,
-  "score": 403.988,
+  "recipe": "classic Midwestern American 1997-1999 post-metal, distorted Rock, post metal branch, experimental distorted rock krautrock ambient post-rock. thick, breath veiled tone, pure, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 600,
+  "score": 402.672,
   "config": {
     "traditions": [
       "post_metal",
       "krautrock",
-      "post_rock_extended"
+      "ambient_post_rock"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 28.19874999999999,
-          "voice_quality": 13.055749999999996,
+          "voice_register": 28.069999999999993,
+          "voice_quality": 11.179999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.22875,
-          "voice_articulation": 13.064999999999994,
-          "voice_microtone": 27.954499999999992,
-          "voice_tradition": 13.553749999999999,
-          "voice_mechanism_compound": 29.277500000000003,
-          "voice_estill_quality": 5.05275,
-          "voice_speech_song": 15.372499999999995,
-          "voice_ensemble_config": 11.894999999999992,
-          "voice_ornament_system": 5.23125,
-          "voice_pitch_organization": 2.275,
-          "voice_processing_chain": 13.150249999999996,
-          "voice_multitrack_stack": 7.052500000000001
+          "voice_vibrato": 4.42,
+          "voice_articulation": 15.144999999999992,
+          "voice_microtone": 27.674499999999995,
+          "voice_tradition": 14.2605,
+          "voice_mechanism_compound": 29.8865,
+          "voice_estill_quality": 2.665000000000001,
+          "voice_speech_song": 17.354999999999993,
+          "voice_ensemble_config": 13.519999999999992,
+          "voice_ornament_system": 2.9400000000000004,
+          "voice_pitch_organization": 1.13,
+          "voice_processing_chain": 14.643499999999996,
+          "voice_multitrack_stack": 6.955000000000001
         }
       },
       {
@@ -65,24 +65,24 @@
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 31.177500000000006,
-          "amp_make": 13.162499999999994,
-          "body_wood": 11.911000000000001,
-          "neck_wood": 2.95625,
-          "fretboard": 2.95625,
-          "pickup_magnet": 0.45499999999999996,
-          "pickup_winding": 2.0044999999999997,
-          "string_material": 2.95625,
-          "bridge": 0.13449999999999998,
-          "scale_length": 14.969250000000002,
+          "electric_technique": 29.786500000000004,
+          "amp_make": 13.552499999999995,
+          "body_wood": 11.694000000000003,
+          "neck_wood": 2.275,
+          "fretboard": 2.275,
+          "pickup_magnet": 0.65,
+          "pickup_winding": 1.3649999999999998,
+          "string_material": 2.275,
+          "bridge": 0.21849999999999997,
+          "scale_length": 13.891000000000002,
           "string_gauge": 0.39,
           "finish": 0.195,
-          "string_tuning": 28.3885
+          "string_tuning": 27.95
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 12.804999999999996,
+          "amp_make": 14.039999999999996,
           "body_wood": 0.3,
-          "pickup_config": 1.0399999999999998,
-          "string_type": 29.743749999999995,
-          "scale_length_b": 0.45499999999999996,
+          "pickup_config": 1.2349999999999999,
+          "string_type": 31.223999999999993,
+          "scale_length_b": 0.65,
           "fretted_or_not": 0,
-          "bass_technique": 25.124999999999996
+          "bass_technique": 25.910999999999994
         }
       },
       {
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24.749999999999996,
-          "drumhead": 3.125,
+          "drum_technique": 25.499999999999993,
+          "drumhead": 3.5,
           "drum_kit_kick_pedal": 0
         }
       }

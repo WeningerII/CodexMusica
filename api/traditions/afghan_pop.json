@@ -1,0 +1,245 @@
+{
+  "id": "afghan_pop",
+  "name": "Afghan pop",
+  "family": "pop",
+  "lineage": "Selected 2010s Dari-language commercial pop shared between Kabul television and Afghan diaspora circuits, represented by Aryana Sayeed and the keyboard-and-tabla pop practice documented in European Afghan communities. This is a vocal song-and-dance branch, not a national summary or a replacement for Kabuli klasik, regional folk repertoires, Pashto pop or every diaspora production.",
+  "recipe": "classic mid-2010s afghan pop, functional Song, south Asian pop branch, mid east n African pop functional song, pop rock functional song new wave yacht rock. straight note core, multi note runs per syllable, note connecting slide, modern pop training. regional style kit party arranger korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, sustaining copper tabla, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 809,
+  "score": 295.751,
+  "config": {
+    "traditions": [
+      "afghan_pop",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "mix_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "portamento_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": -0.45999999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.9749999999999996,
+          "voice_articulation": 1.375,
+          "voice_microtone": 2.9450000000000003,
+          "voice_tradition": 44.691250000000004,
+          "voice_mechanism_compound": 0.500625,
+          "voice_estill_quality": 1.3649999999999998,
+          "voice_speech_song": 0.10124999999999999,
+          "voice_ensemble_config": 2.145,
+          "voice_ornament_system": 0.09,
+          "voice_pitch_organization": 0.3,
+          "voice_processing_chain": 3.59875,
+          "voice_multitrack_stack": 0.195
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "rompler_preset_bank": "rompler_preset_oriental_arranger",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_korg_pa_arranger"
+        },
+        "scores": {
+          "electronic_technique": 36.675625000000004,
+          "rompler_preset_bank": 2.08,
+          "rompler_context": 36.870000000000005,
+          "rompler_lineage": 2.795
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "fresh_syahi"
+        },
+        "scores": {
+          "tabla_dayan": -0.035,
+          "tabla_bayan": 1.23,
+          "tabla_syahi": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 38.575625,
+          "amp_make": 13.222499999999997,
+          "body_wood": 3.185,
+          "neck_wood": 3.185,
+          "fretboard": 3.1200000000000006,
+          "pickup_magnet": 0.44999999999999996,
+          "string_material": 0.44999999999999996,
+          "string_gauge": 3.835,
+          "bridge": 0.550625,
+          "scale_length": 3.185,
+          "finish": 0,
+          "string_tuning": 10.773124999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 9.118125,
+          "body_wood": 3.185,
+          "pickup_config": 0.195,
+          "string_type": 21.7475,
+          "scale_length_b": 3.185,
+          "fretted_or_not": 0,
+          "bass_technique": 0.32562499999999994
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_motown",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": -0.1,
+          "drumhead": 36.75,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "rompler_workstation": [
+        "electronic_technique",
+        "rompler_preset_bank",
+        "rompler_context",
+        "rompler_lineage"
+      ],
+      "tabla": [
+        "tabla_dayan",
+        "tabla_bayan",
+        "tabla_syahi"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_tube",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_brick_wall_limiter",
+      "eq": "eq_dynamic",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "plate_reverb",
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_processing_chain": "voice_processing_plate_reverb_medium",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_microtone": "portamento_inflected",
+      "voice_vibrato": "terminal_vibrato",
+      "voice_multitrack_stack": "voice_multitrack_unison_double_take",
+      "electronic_technique": "electronic_lead_line",
+      "rompler_preset_bank": "rompler_preset_oriental_arranger",
+      "rompler_context": "rompler_context_pop_workstation",
+      "rompler_lineage": "rompler_korg_pa_arranger",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "copper_bayan",
+      "tabla_syahi": "fresh_syahi",
+      "electric_technique": "electric_clean_strummed",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_motown",
+      "voice_articulation": "melisma_voice"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_tube",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_brick_wall_limiter",
+    "chain_eq": "eq_dynamic",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "plate_reverb",
+      "digital_delay"
+    ]
+  }
+}

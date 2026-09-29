@@ -5,7 +5,7 @@
   "lineage": "Codified in Houston's Fifth Ward and South Park between 1986 and 2000 by James Prince's Rap-A-Lot Records, the Geto Boys, Scarface, UGK and the Screwed Up Click — mid-tempo 80-95 BPM tracks built on live-feel funk and soul interpolations, heavy TR-808 sub kicks, thick Rhodes and organ pads, and a slow, low-register conversational flow that leaves space for the beat.",
   "recipe": "classic North American mid-1980s houston rap, mc Rhythm, southern branch, us hip hop gangsta, experimental MC rhythm nerdcore. thick, rap, slow rate, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, chopped sampler, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, sampled chopped turntable, lead plus third fifth 3 part stack late 1980s reverb saturated bus stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 831,
-  "score": 365.082,
+  "score": 365.613,
   "config": {
     "traditions": [
       "houston_rap",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 6.765000000000001,
-          "voice_quality": 33.59375,
+          "voice_quality": 33.815,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.850000000000001,
@@ -44,7 +44,7 @@
           "voice_tradition": 11.729999999999999,
           "voice_mechanism_compound": 2.275,
           "voice_estill_quality": 5.780000000000001,
-          "voice_speech_song": 31.023249999999997,
+          "voice_speech_song": 31.09,
           "voice_ensemble_config": 19.49999999999999,
           "voice_ornament_system": 7.540000000000003,
           "voice_pitch_organization": 2.0799999999999996,
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 12.495249999999999,
+          "tr808_voice": 12.309999999999999,
           "drum_machine_808_context": 3.77,
-          "tr808_production_origin": 1.6447500000000002
+          "tr808_production_origin": 1.5450000000000002
         }
       },
       {
@@ -75,10 +75,10 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 10.12,
+          "electronic_technique": 10.315,
           "sampler_archetypes": 16.769999999999996,
           "sampler_bit_depth": 2.2099999999999995,
-          "sampler_workflow": 11.319999999999999,
+          "sampler_workflow": 11.514999999999999,
           "sampler_classic_context": 31.752499999999998
         }
       },
@@ -116,7 +116,7 @@
           "amp_make": 7.950000000000001,
           "body_wood": 4.745,
           "pickup_config": 0.45499999999999996,
-          "string_type": 6.14775,
+          "string_type": 6.105,
           "scale_length_b": 5.430000000000001,
           "fretted_or_not": 0.195,
           "bass_technique": 7.575000000000001
@@ -129,7 +129,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 10.12,
+          "electronic_technique": 10.315,
           "turntable_technique": 11.07
         }
       },
@@ -141,9 +141,9 @@
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 1.195,
+          "multitrack_stack_density": 1.24,
           "multitrack_stack_era_aesthetic": 4.615,
-          "multitrack_stack_processing": 1.4299999999999997
+          "multitrack_stack_processing": 1.3699999999999999
         }
       }
     ],

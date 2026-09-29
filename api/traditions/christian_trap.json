@@ -1,0 +1,172 @@
+{
+  "id": "christian_trap",
+  "name": "Christian trap",
+  "family": "hip_hop",
+  "lineage": "A trap-production strand within Christian hip-hop, joining 808-derived beats and melodic rap delivery to faith and hope testimony. The selected East Atlanta model is anchored to 1K Phew’s Never Too Late (2017), What’s Understood 2 (2019) and Church House Trap House (2022) on Reach Records. The label describes his music as trap rooted in East Atlanta and his message as faith and hope; this is a production-specific subset of Christian hip-hop, not a template for every Christian rap recording.",
+  "recipe": "classic Southern American late-2010s christian trap, mc Rhythm, southern branch, christian gospel ritual devotional, us hip hop modern dark trap southern gospel piano-bass. thick, rap, leader call answered, equal tempered. roland tr 8s modern aira digital recreation TR-808, analog synth. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 429,
+  "score": 134.935,
+  "config": {
+    "traditions": [
+      "christian_trap",
+      "dark_trap",
+      "southern_gospel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "call_response_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+          "voice_multitrack_stack": "voice_multitrack_adlib_response_lane"
+        },
+        "scores": {
+          "voice_register": 18.239999999999995,
+          "voice_quality": 21.835,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.135,
+          "voice_articulation": 11.394999999999998,
+          "voice_microtone": 2.3,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.65,
+          "voice_estill_quality": 0.845,
+          "voice_speech_song": 22.72,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 1.69,
+          "voice_pitch_organization": 0.045,
+          "voice_processing_chain": 1.28,
+          "voice_multitrack_stack": 26.07
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 11.890000000000002,
+          "drum_machine_808_context": 4.744999999999999,
+          "tr808_production_origin": 2.2749999999999995
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "oscillator": "square_pulse",
+          "filter_topology": "svf",
+          "envelope": "pluck_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 0.2,
+          "oscillator": 0.045,
+          "filter_topology": 0.9500000000000001,
+          "envelope": 0.9500000000000001,
+          "modulation": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "drum_machine_808": [
+        "tr808_voice",
+        "drum_machine_808_context",
+        "tr808_production_origin"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_atlanta_trap_2010s",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_dynamic",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "rap_voice",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vibrato": "straight_tone",
+      "voice_microtone": "tempered_voice",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_tr_8s_modern",
+      "voice_articulation": "call_response_voice",
+      "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+      "electronic_technique": "electronic_pluck_short",
+      "oscillator": "square_pulse",
+      "filter_topology": "svf",
+      "envelope": "pluck_env",
+      "modulation": "lfo_filter"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_dynamic",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

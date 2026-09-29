@@ -3,9 +3,9 @@
   "name": "Old School Dancehall (early-1980s Kingston)",
   "family": "global",
   "lineage": "Jamaican style that emerged in Kingston dancehalls around 1979-1984 as roots reggae receded, built by producers Henry Junjo Lawes and Linval Thompson with the Roots Radics at Channel One and Volcano, slowing the tempo to a stark 'rockers-to-rub-a-dub' 70-90 BPM with a dry gated kit, an enormous minimal bass line, sparse skank guitar and deejays like Yellowman toasting and singers chanting over recycled Studio One riddims.",
-  "recipe": "classic Caribbean old school dancehall, bass System, Jamaican branch, dub descendants bass system, Afro-diasporic MC rhythm trip hop dubtronica. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit, roasted maple maple clean strummed single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica, turntable. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb.",
-  "recipe_chars": 783,
-  "score": 256.725,
+  "recipe": "classic Caribbean old school dancehall, bass System, Jamaican branch, dub descendants bass system, Afro-diasporic MC rhythm trip hop dubtronica. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit, dry roasted maple maple single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica, turntable. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 772,
+  "score": 256.357,
   "config": {
     "traditions": [
       "old_school_dancehall",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 6.565000000000001,
           "voice_pitch_organization": 2.5350000000000006,
           "voice_processing_chain": 8.875,
-          "voice_multitrack_stack": 8.945
+          "voice_multitrack_stack": 9.035
         }
       },
       {
@@ -95,21 +95,21 @@
           "neck_wood": "roasted_maple",
           "fretboard": "maple_fb",
           "pickup_magnet": "alnico_2",
-          "string_material": "nickel_plated",
+          "string_material": "pure_nickel",
           "string_gauge": "g_12",
-          "bridge": "hardtail",
+          "bridge": "vintage_trem",
           "scale_length": "scale_baritone",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 3.144999999999999,
-          "amp_make": 1.2399999999999998,
+          "electric_technique": 2.994999999999999,
+          "amp_make": 1.1949999999999998,
           "body_wood": 0.65,
           "neck_wood": 1.345,
           "fretboard": 0.845,
-          "pickup_magnet": 0.045,
-          "string_material": 0.3,
+          "pickup_magnet": 0,
+          "string_material": 0.045,
           "string_gauge": 2.08,
           "bridge": 0.045,
           "scale_length": 0.845,
@@ -148,7 +148,7 @@
           "keyboard_technique": 0.52,
           "melodica_use": 13.275,
           "melodica_pitch": 0.195,
-          "melodica_maker_school": 18.994999999999997
+          "melodica_maker_school": 19.0775
         }
       },
       {
@@ -159,7 +159,7 @@
         },
         "scores": {
           "electronic_technique": 2.535,
-          "turntable_technique": 1.68
+          "turntable_technique": 1.635
         }
       }
     ],

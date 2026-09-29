@@ -3,14 +3,14 @@
   "name": "Javanese Dangdut",
   "family": "global",
   "lineage": "Central and East Javanese regional variant of Indonesian dangdut consolidated in Surabaya, Semarang and Kediri from the 1980s and codified as dangdut koplo through the 1990s-2000s live-orkes circuit and the electric organ-tunggal wedding trade — kendang played in double-time koplo strokes with a lurching pickup fill against 4/4 at 100-130 BPM, suling and mandolin doubling the vocal line in cengkok melisma, synth brass and electric bass replacing the Melayu string section, and a nasal, heavily ornamented female lead delivery over VCD-and-cassette distribution.",
-  "recipe": "classic Southeast Asian mid-1980s javanese dangdut, functional Song, east Asian pop branch, south Asian pop functional song, southeast Asian art music, Afro-diasporic electric groove percussion saraiki pop baila. extended whistle, breath veiled tone, fast rate, interlocked note trading. paired gamelan javanese jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, bamboo rattan band fipple canonical javanese balinese suling, bowl back Italian x brace modern mandolin thomastik flatwound mandolin, clean strummed single coil electric guitar, pyramid pure nickel bass British mid 60s era electric bass, singing lead analog poly synth, pre muffled edge muffled brushes-and-sticks drum kit. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 970,
-  "score": 331.928,
+  "recipe": "classic Southeast Asian mid-1980s javanese dangdut, functional Song, east Asian pop branch, south Asian pop functional song, southeast Asian art music, Afro-diasporic electric groove percussion saraiki pop afghan pop. extended whistle, breath veiled tone, slow rate, interlocked note trading. gamelan javanese jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, bamboo rattan band fipple canonical javanese balinese suling, bowl back Italian x brace modern mandolin thomastik flatwound mandolin, clean strummed single coil electric guitar, pyramid pure nickel bass British mid 60s era electric bass, singing lead analog poly synth, pre muffled edge muffled brushes-and-sticks drum kit. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 968,
+  "score": 367.67,
   "config": {
     "traditions": [
       "javanese_dangdut",
       "saraiki_pop",
-      "baila"
+      "afghan_pop"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 14.925,
-          "voice_quality": 13.129999999999992,
+          "voice_register": 22.299999999999997,
+          "voice_quality": 12.479999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.65,
-          "voice_articulation": 25.805000000000007,
-          "voice_microtone": 25.415000000000006,
-          "voice_tradition": 14.6575,
-          "voice_mechanism_compound": 3.575,
-          "voice_estill_quality": 5.07,
-          "voice_speech_song": 32.56500000000001,
-          "voice_ensemble_config": 26.13000000000001,
-          "voice_ornament_system": 5.2749999999999995,
+          "voice_vibrato": 0.78,
+          "voice_articulation": 24.115000000000006,
+          "voice_microtone": 23.725000000000005,
+          "voice_tradition": 23.88,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 4.225000000000001,
+          "voice_speech_song": 31.915000000000006,
+          "voice_ensemble_config": 23.790000000000006,
+          "voice_ornament_system": 5.449999999999999,
           "voice_pitch_organization": 11.065,
-          "voice_processing_chain": 8.215,
+          "voice_processing_chain": 7.64,
           "voice_multitrack_stack": 6.235
         }
       },
@@ -61,7 +61,7 @@
           "kendang_head": "kendang_buffalo_hide_canonical"
         },
         "scores": {
-          "kendang_size": 1.04,
+          "kendang_size": 0.845,
           "kendang_context": 3.0799999999999996,
           "kendang_shell_wood": 3.3799999999999994,
           "kendang_head": 3.3799999999999994
@@ -76,10 +76,10 @@
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": -0.07,
-          "suling_use": 1.885,
+          "wind_articulation": 1.755,
+          "suling_use": 3.12,
           "suling_tuning": 1.4549999999999998,
-          "suling_body_material": 3.3799999999999994
+          "suling_body_material": 3.5749999999999993
         }
       },
       {
@@ -87,22 +87,22 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "mandolin_shape": "flat_back",
-          "mandolin_top": "adirondack_m",
-          "mandolin_back": "big_leaf_maple",
+          "mandolin_top": "german_spruce_m",
+          "mandolin_back": "european_maple_loar",
           "mandolin_bracing": "mandolin_x_brace",
           "mandolin_strings": "thomastik_jazz_mandolin_flat",
-          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 10.825000000000001,
-          "mandolin_shape": 2.37,
-          "mandolin_top": 0.45,
-          "mandolin_back": 0.345,
+          "acoustic_technique": 18.2,
+          "mandolin_shape": 1.4949999999999999,
+          "mandolin_top": 0.78,
+          "mandolin_back": 0.78,
           "mandolin_bracing": 1.645,
           "mandolin_strings": 1.25,
-          "mandolin_fingerboard": 0.8,
-          "mandolin_pickup": 26.455000000000013
+          "mandolin_fingerboard": 1.0399999999999998,
+          "mandolin_pickup": 23.660000000000007
         }
       },
       {
@@ -111,50 +111,50 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_hiwatt",
           "body_wood": "mahogany",
-          "neck_wood": "wenge_neck",
-          "fretboard": "ebony_fb",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
-          "bridge": "hardtail",
+          "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "c_standard"
         },
         "scores": {
-          "electric_technique": 11.75,
-          "amp_make": 1.1049999999999998,
-          "body_wood": 0.195,
-          "neck_wood": 0.3,
-          "fretboard": 0.8,
+          "electric_technique": 19,
+          "amp_make": 0.45500000000000007,
+          "body_wood": 0.65,
+          "neck_wood": 0.65,
+          "fretboard": 0.585,
           "pickup_magnet": 0.045,
           "string_material": 0.195,
-          "string_gauge": 0.39,
-          "bridge": 0.5,
-          "scale_length": 0.195,
+          "string_gauge": 0.845,
+          "bridge": 0.345,
+          "scale_length": 0.65,
           "finish": 0,
-          "string_tuning": 1.515
+          "string_tuning": 1.365
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_walking"
+          "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 2.295,
-          "body_wood": 0.845,
-          "pickup_config": 0.5,
-          "string_type": 2.4049999999999994,
-          "scale_length_b": 0.39,
+          "amp_make": 1.995,
+          "body_wood": 0.65,
+          "pickup_config": 0.345,
+          "string_type": 2.0149999999999997,
+          "scale_length_b": 0.65,
           "fretted_or_not": 0.78,
-          "bass_technique": 0.45
+          "bass_technique": 1.325
         }
       },
       {
@@ -163,13 +163,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 11.760000000000002,
-          "poly_archetypes": 0.24,
+          "electronic_technique": 19.485,
+          "poly_archetypes": 0.45499999999999996,
           "poly_voices": 0.15,
-          "poly_maker_lineage": -0.9800000000000001
+          "poly_maker_lineage": -1.435
         }
       },
       {
@@ -180,8 +180,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.675000000000008,
-          "drumhead": 10.370000000000001,
+          "drum_technique": 23.53000000000001,
+          "drumhead": 18.245,
           "drum_kit_kick_pedal": 0
         }
       }

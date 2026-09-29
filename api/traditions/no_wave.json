@@ -5,7 +5,7 @@
   "lineage": "New York downtown movement of 1978-82 crystallized by Brian Eno's No New York compilation — DNA, Mars, Teenage Jesus and the Jerks, James Chance and the Contortions, Glenn Branca — using detuned or slide-played guitars struck for noise rather than chords, atonal or single-note riffs, abrupt stop-start rhythms and skronking alto saxophone over rigid tribal drumming, shrieked or deadpan declaimed vocals, and short abrasive pieces cut cheaply in Manhattan studios.",
   "recipe": "classic North American late-1970s no wave, distorted Rock, noise rock branch, experimental distorted rock, American jazz avant free funk free jazz. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation feedback single coil electric guitar, ampeg svt amp rock bass amp thomastik infeld low tension jazz warm electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 868,
-  "score": 441.055,
+  "score": 437.695,
   "config": {
     "traditions": [
       "no_wave",
@@ -38,10 +38,10 @@
           "voice_quality": 6.110000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.37,
+          "voice_vibrato": 16.564999999999998,
           "voice_articulation": 16.89999999999999,
-          "voice_microtone": 27.43,
-          "voice_tradition": 20.42,
+          "voice_microtone": 27.475,
+          "voice_tradition": 19.655,
           "voice_mechanism_compound": 6.76,
           "voice_estill_quality": 0.8449999999999999,
           "voice_speech_song": 16.834999999999994,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 5.525000000000001,
           "voice_pitch_organization": 2.990000000000001,
           "voice_processing_chain": 5.915,
-          "voice_multitrack_stack": 4.58
+          "voice_multitrack_stack": 4.385
         }
       },
       {
@@ -98,7 +98,7 @@
           "amp_make": 6.305000000000001,
           "body_wood": 0.3,
           "pickup_config": 0.39,
-          "string_type": 19.445,
+          "string_type": 18.68,
           "scale_length_b": 0.585,
           "fretted_or_not": 1.1449999999999998,
           "bass_technique": 16.25
@@ -113,7 +113,7 @@
         },
         "scores": {
           "drum_technique": 26.292499999999997,
-          "drumhead": 19.305,
+          "drumhead": 18.54,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -135,7 +135,7 @@
           "sax_body_alloy": 16.75,
           "sax_mouthpiece": 0.845,
           "sax_technique": 16.25,
-          "sax_maker_school": 18.235
+          "sax_maker_school": 17.275
         }
       },
       {
@@ -151,10 +151,10 @@
         "scores": {
           "keyboard_technique": 2.9149999999999996,
           "drawbar_setting": 16.34,
-          "rotary_speed": 11.075,
+          "rotary_speed": 11.12,
           "percussion_setting": 16.55,
           "tonewheel_model": 25.61,
-          "leslie_cabinet_model": 0.345
+          "leslie_cabinet_model": 0.15
         }
       }
     ],

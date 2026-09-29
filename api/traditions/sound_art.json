@@ -3,14 +3,14 @@
   "name": "Sound Art",
   "family": "electronic",
   "lineage": "Gallery-and-installation practice consolidated in New York and Europe from the late 1970s through Max Neuhaus, Bill Fontana, Alvin Lucier and Christina Kubisch, using site-specific field recording, resonating architecture, feedback, long-duration drones and electromagnetic induction rather than metered composition, presented as spatial installation without stage, beat or vocal line.",
-  "recipe": "classic 1977-1979 sound art, experimental Elec, musique concrete branch, ambient experimental electric, industrial noise experimental electric, western modern art music dark ambient isolationism. ritual bronze rods canonical aquasonic waterphone, gong tamtam, glitched textural granular glitched textural modular synth, moog music etherwave canonical modern reissue 1996 present theremin, prepared piano. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 484,
-  "score": 72.999,
+  "recipe": "classic 1977-1979 sound art, experimental Elec, musique concrete branch, ambient experimental electric, industrial noise experimental electric, western modern art music death industrial ambient guitar. ritual waterphone, gong tamtam, glitched textural granular doepfer eurorack canonical 1995 present small format standardization textural modular synth, moog music etherwave canonical modern reissue 1996 present theremin, prepared piano. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 518,
+  "score": 58.567,
   "config": {
     "traditions": [
       "sound_art",
-      "dark_ambient",
-      "isolationism"
+      "death_industrial",
+      "ambient_guitar"
     ],
     "instruments": [
       {
@@ -22,10 +22,10 @@
           "waterphone_construction": "waterphone_bronze_stainless"
         },
         "scores": {
-          "waterphone_model": 3.5244999999999997,
+          "waterphone_model": 2.3994999999999997,
           "waterphone_excitation": 0.195,
-          "waterphone_context": 4.339499999999999,
-          "waterphone_construction": 1.1700000000000002
+          "waterphone_context": 2.7144999999999997,
+          "waterphone_construction": 0.9750000000000001
         }
       },
       {
@@ -35,7 +35,7 @@
           "gong_striker": "gong_hard_beater"
         },
         "scores": {
-          "gong_type": 0.65,
+          "gong_type": 0.165,
           "gong_striker": 0.7
         }
       },
@@ -43,13 +43,13 @@
         "id": "granular_synth",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "granular_use": "granular_idm",
+          "granular_use": "granular_ambient",
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 13.815000000000001,
-          "granular_use": 0.39,
-          "granular_synth_source": 9.1
+          "electronic_technique": 12.940000000000001,
+          "granular_use": 0.24,
+          "granular_synth_source": 7.605
         }
       },
       {
@@ -61,10 +61,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 13.815000000000001,
+          "electronic_technique": 12.940000000000001,
           "mod_voltage_source": 0.09,
-          "mod_patch_density": 5.915,
-          "mod_lineage": 0.39
+          "mod_patch_density": 4.549999999999999,
+          "mod_lineage": 1.04
         }
       },
       {
@@ -78,8 +78,8 @@
         "scores": {
           "electronic_technique": -0.1,
           "theremin_model": 2.2749999999999995,
-          "theremin_technique": 6.76,
-          "theremin_lineage": 3.6399999999999997
+          "theremin_technique": 4.3549999999999995,
+          "theremin_lineage": 2.6
         }
       },
       {
@@ -87,14 +87,14 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "prepared_piano_object": "prepared_piano_bolts",
-          "prepared_piano_zone": "prepared_piano_bass",
+          "prepared_piano_zone": "prepared_piano_middle",
           "prepared_piano_instrument": "prepared_piano_grand"
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "prepared_piano_object": 0.585,
-          "prepared_piano_zone": 0.65,
-          "prepared_piano_instrument": 3.77
+          "prepared_piano_object": 1.2985,
+          "prepared_piano_zone": 0.5,
+          "prepared_piano_instrument": 1.885
         }
       }
     ],

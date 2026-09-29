@@ -5,7 +5,7 @@
   "lineage": "1980s-onward fey indie-pop subgenre codified through C86 cassette (NME 1986) and the Sarah Records (Bristol 1987-1995) lineage — characterized by jangly minor-key guitar, soft male and female vocals, lo-fi production aesthetic, and twee-romantic lyrical subject matter; Belle and Sebastian, Tullycraft, Stars, and Camera Obscura extending the canon into the 2000s",
   "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk chamber folk. thick, breath veiled tone, slow rate, interlocked note trading. narrative fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, ukulele, original omnichord. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 585,
-  "score": 327.263,
+  "score": 326.141,
   "config": {
     "traditions": [
       "twee_pop",
@@ -40,8 +40,8 @@
           "voice_effort": 0,
           "voice_vibrato": 3.4125,
           "voice_articulation": 18.394999999999992,
-          "voice_microtone": 25.07999999999999,
-          "voice_tradition": 20.423499999999997,
+          "voice_microtone": 25.12499999999999,
+          "voice_tradition": 19.751499999999997,
           "voice_mechanism_compound": 3.055,
           "voice_estill_quality": 8.092500000000001,
           "voice_speech_song": 25.154999999999998,
@@ -114,8 +114,8 @@
         "scores": {
           "amp_make": 4.355,
           "body_wood": 0.65,
-          "pickup_config": 1.3,
-          "string_type": 12.0155,
+          "pickup_config": 1.2771249999999998,
+          "string_type": 11.5745,
           "scale_length_b": 1.04,
           "fretted_or_not": 0.03712499999999999,
           "bass_technique": 8.495
@@ -144,7 +144,7 @@
         "scores": {
           "ukulele_size": 3.575,
           "ukulele_style": 0.975,
-          "ukulele_wood": 0.368625
+          "ukulele_wood": 0.337125
         }
       },
       {

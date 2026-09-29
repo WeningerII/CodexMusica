@@ -3,14 +3,14 @@
   "name": "Drill Français",
   "family": "hip_hop",
   "lineage": "French adaptation of UK drill emerging in Paris's 93 and 95 departments from 2019 (Gazo, Freeze corleone's circle, Ashe 22, Zola), built on 138-145 BPM half-time beats with sliding 808 glides, triplet and stuttered hi-hat patterns, sparse minor-key piano or flute leads from UK producers such as Ghosty and Chuki, and a flat, low-register conversational flow in verlan-heavy argot.",
-  "recipe": "classic Western European late-2010s drill français, mc Rhythm, drill branch, intl hip hop MC rhythm, us hip hop modern, uk soundsystem bass system dream plugg. thick, rap, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sampled chopped sampler drum machine, low sub bass digital subtractive, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, low sub bass monosynth acid bass. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 686,
-  "score": 266.86,
+  "recipe": "classic Western European late-2010s drill français, mc Rhythm, drill branch, intl hip hop MC rhythm, us hip hop modern, uk soundsystem bass system dark trap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, low sub bass digital subtractive, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, low sub bass monosynth acid bass. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 672,
+  "score": 281.745,
   "config": {
     "traditions": [
       "drill_francais",
       "emo_rap",
-      "dream_plugg"
+      "dark_trap"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.122500000000001,
-          "voice_quality": 16.6075,
+          "voice_register": 5.272500000000001,
+          "voice_quality": 18.46,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.3550000000000004,
-          "voice_articulation": 15.794999999999995,
-          "voice_microtone": 21.18999999999999,
-          "voice_tradition": 9.2625,
-          "voice_mechanism_compound": 3.12,
-          "voice_estill_quality": 3.7700000000000005,
-          "voice_speech_song": 16.17,
-          "voice_ensemble_config": 15.079999999999995,
-          "voice_ornament_system": 6.890000000000002,
-          "voice_pitch_organization": 1.7825,
-          "voice_processing_chain": 7.545,
-          "voice_multitrack_stack": 5.590000000000001
+          "voice_articulation": 16.184999999999995,
+          "voice_microtone": 20.929999999999993,
+          "voice_tradition": 10.1075,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 3.4350000000000005,
+          "voice_speech_song": 17.945,
+          "voice_ensemble_config": 15.664999999999994,
+          "voice_ornament_system": 6.630000000000002,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 8.67,
+          "voice_multitrack_stack": 5.460000000000001
         }
       },
       {
@@ -57,12 +57,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.0125,
-          "drum_machine_808_context": 5.052500000000001,
-          "tr808_production_origin": 2.5
+          "tr808_voice": 6.8125,
+          "drum_machine_808_context": 4.8525,
+          "tr808_production_origin": 2.605
         }
       },
       {
@@ -75,9 +75,9 @@
         },
         "scores": {
           "electronic_technique": 4.825,
-          "sample_bitdepth": 4.105,
+          "sample_bitdepth": 4.755,
           "sample_swing": 8.45,
-          "sample_processing": 3.275
+          "sample_processing": 2.9250000000000003
         }
       },
       {
@@ -88,9 +88,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 11.987499999999997,
+          "electronic_technique": 14.0625,
           "va_archetypes": 0.195,
-          "digital_subtractive_context": 15.794999999999998
+          "digital_subtractive_context": 16.769999999999996
         }
       },
       {
@@ -107,15 +107,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 2.5749999999999993,
-          "grand_piano_size": 1.2999999999999998,
-          "grand_piano_brand": 1.4949999999999999,
+          "keyboard_technique": 1.6999999999999997,
+          "grand_piano_size": 1.95,
+          "grand_piano_brand": 3.0225,
           "piano_hammer": 8.01,
-          "piano_rim": 8.82,
+          "piano_rim": 8.97,
           "piano_soundboard": 7.23,
           "piano_pinblock": 5.950000000000001,
-          "piano_plate": 6.65,
-          "piano_pitch_standard": 11.9
+          "piano_plate": 7.300000000000001,
+          "piano_pitch_standard": 13.7
         }
       },
       {
@@ -127,10 +127,10 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 11.987499999999997,
-          "wave_acid": 0.39,
-          "filter_acid": 0.65,
-          "accent_acid": 1.15
+          "electronic_technique": 14.0625,
+          "wave_acid": 0.195,
+          "filter_acid": 0.37750000000000006,
+          "accent_acid": 1
         }
       }
     ],

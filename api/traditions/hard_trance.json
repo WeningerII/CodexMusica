@@ -3,14 +3,14 @@
   "name": "Hard Trance",
   "family": "electronic",
   "lineage": "German and Dutch trance hardened circa 1994-1999 in Frankfurt, Cologne and Rotterdam through labels like Overdose, Tracid Traxxx and Blutonium and producers Kai Tracid, DJ Scot Project and Yoji Biomehanika, running 140-155 BPM over a hard offbeat-bass 4/4 kick, heavily distorted and hoovered supersaw stabs, gated 16th-note arpeggios, long filtered white-noise risers into breakdowns, and rolling acid-303 or reverse-bass sections with no vocal beyond short chopped shouts.",
-  "recipe": "classic Central European mid-1990s hard trance, electronic Dance, trance branch, hardstyle electronic dance, techno electronic dance dubstyle schranz. vocal fry, breath veiled tone, straight note core, interlocked note trading. sub bass analog poly sub bass wavetable synth, classic acid sub bass monosynth acid bass, TR-909, sound design field sampler. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 584,
-  "score": 222.507,
+  "recipe": "classic Central European mid-1990s hard trance, electronic Dance, trance branch, hardstyle electronic dance, techno electronic dance dubstyle. extended whistle, breath veiled tone, straight note core, interlocked note trading. sub bass analog poly sub bass wavetable synth, classic acid sub bass monosynth acid bass, TR-909, chopped sampler. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 572,
+  "score": 225.135,
   "config": {
     "traditions": [
       "hard_trance",
       "dubstyle",
-      "schranz"
+      "hard_nrg"
     ],
     "instruments": [
       {
@@ -22,7 +22,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 11.405000000000001,
+          "electronic_technique": 12.055,
           "poly_archetypes": 0.255,
           "poly_voices": 0.24,
           "poly_maker_lineage": -0.875
@@ -37,7 +37,7 @@
           "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 11.405000000000001,
+          "electronic_technique": 12.055,
           "wave_acid": 0.39,
           "filter_acid": 1.345,
           "accent_acid": 3.25
@@ -46,13 +46,13 @@
       {
         "id": "drum_machine_909",
         "slots": {
-          "tr909_voice": "tr909_hat",
-          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 0,
-          "drum_machine_909_context": 0.87,
+          "tr909_voice": 2,
+          "drum_machine_909_context": 0.845,
           "tr909_production_origin": 0.135
         }
       },
@@ -65,8 +65,8 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 11.405000000000001,
-          "wt_position": 9.685000000000002,
+          "electronic_technique": 12.055,
+          "wt_position": 10.14,
           "wt_family": 1.195,
           "wt_polyphony": 0.195
         }
@@ -77,21 +77,21 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "akai_mpc",
           "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.17,
+          "electronic_technique": 1.7449999999999999,
           "sampler_archetypes": 0.78,
           "sampler_bit_depth": 0.39,
-          "sampler_workflow": 1.6199999999999999,
-          "sampler_classic_context": 21.84
+          "sampler_workflow": 1.545,
+          "sampler_classic_context": 23.4
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -104,27 +104,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.95,
-          "voice_quality": 8.71,
+          "voice_register": 1.56,
+          "voice_quality": 9.555,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.885,
-          "voice_articulation": 22.425,
-          "voice_microtone": 22.099999999999994,
-          "voice_tradition": 6.4350000000000005,
-          "voice_mechanism_compound": 5.4275,
-          "voice_estill_quality": 2.7300000000000004,
-          "voice_speech_song": 21.319999999999997,
-          "voice_ensemble_config": 20.735,
+          "voice_vibrato": 1.8849999999999996,
+          "voice_articulation": 21.125,
+          "voice_microtone": 21.449999999999996,
+          "voice_tradition": 4.485,
+          "voice_mechanism_compound": 4.875000000000001,
+          "voice_estill_quality": 2.9250000000000007,
+          "voice_speech_song": 20.215,
+          "voice_ensemble_config": 20.15,
           "voice_ornament_system": 1.5,
-          "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 19.505000000000003,
-          "voice_multitrack_stack": 4.745000000000001
+          "voice_pitch_organization": 1.8199999999999996,
+          "voice_processing_chain": 20.380000000000003,
+          "voice_multitrack_stack": 3.445
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Xinyao",
   "family": "pop",
   "lineage": "Singaporean Mandarin campus-folk movement formed 1979-1985 among junior-college and university students (Liang Wern Fook, Eric Moo, Billy Koh, and the Hocktone/Ocean Butterflies circle), built on strummed steel-string guitar at unhurried 70-100 BPM ballad tempos, diatonic verse-chorus songwriting with light piano and fretless-toned bass, and a conversational untrained-sounding Mandarin vocal delivery singing local Singaporean subject matter rather than Taiwanese or Hong Kong romantic convention.",
-  "recipe": "classic Southeast Asian mid-1980s xinyao, functional Song, east Asian pop branch, anglo singer song indie folk chinese minyao stomp and flutter. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, rock canon ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel hard rock maple synthetic varnish Baroque setup pirastro cellisto cello. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 763,
-  "score": 281.185,
+  "recipe": "classic Southeast Asian mid-1980s xinyao, functional Song, east Asian pop branch, anglo singer song indie folk chinese minyao stomp and flutter. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, rock canon ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, venice catlin high twist renaissance bass hard rock maple synthetic varnish cello. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 767,
+  "score": 280.65,
   "config": {
     "traditions": [
       "xinyao",
@@ -47,7 +47,7 @@
           "voice_speech_song": 21.709999999999994,
           "voice_ensemble_config": 14.819999999999997,
           "voice_ornament_system": 6.987500000000001,
-          "voice_pitch_organization": 7.322749999999999,
+          "voice_pitch_organization": 7.2597499999999995,
           "voice_processing_chain": 2.145,
           "voice_multitrack_stack": 2.5349999999999997
         }
@@ -57,15 +57,15 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "drop_d",
-          "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "top_wood": "engelmann",
+          "back_sides": "maple_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
           "acoustic_technique": 21.741,
           "string_tuning": 0.775,
-          "top_wood": 0.195,
-          "back_sides": 0.483,
+          "top_wood": 0.3,
+          "back_sides": 0.45499999999999996,
           "string_acoustic": 1.95
         }
       },
@@ -83,12 +83,12 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 9.881499999999999,
-          "grand_piano_size": 0.3,
+          "keyboard_technique": 9.85,
+          "grand_piano_size": 0.44999999999999996,
           "grand_piano_brand": 2.1365,
-          "piano_hammer": 10.7915,
-          "piano_rim": 10.98425,
-          "piano_soundboard": 12.710250000000002,
+          "piano_hammer": 10.592,
+          "piano_rim": 10.64825,
+          "piano_soundboard": 12.552750000000001,
           "piano_pinblock": 0.4875,
           "piano_plate": 1.0074999999999998,
           "piano_pitch_standard": 2.5675
@@ -101,7 +101,7 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
@@ -110,9 +110,9 @@
           "body_wood": 0.195,
           "pickup_config": 0.195,
           "string_type": 2.7625,
-          "scale_length_b": 0.195,
+          "scale_length_b": 0.3,
           "fretted_or_not": 1.1365,
-          "bass_technique": 2.1515
+          "bass_technique": 2.12
         }
       },
       {
@@ -124,7 +124,7 @@
         },
         "scores": {
           "drum_technique": 13.909999999999997,
-          "drumhead": 10.604500000000002,
+          "drumhead": 10.573,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -132,7 +132,7 @@
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_sul_tasto",
-          "cello_strings": "cello_steel",
+          "cello_strings": "venice_catlin_cello",
           "cello_top_wood": "engelmann_spruce_cello",
           "cello_back_wood": "hard_rock_maple_cello_back",
           "cello_varnish": "modern_synthetic_varnish_cello",
@@ -143,7 +143,7 @@
         },
         "scores": {
           "bowed_technique": 0.585,
-          "cello_strings": 1.90175,
+          "cello_strings": 1.885,
           "cello_top_wood": 0.57,
           "cello_back_wood": 1.5925,
           "cello_varnish": 1.0725,

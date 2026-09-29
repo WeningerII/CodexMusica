@@ -1,5 +1,5 @@
 {
-  "count": 2588,
+  "count": 2613,
   "items": [
     {
       "id": "honky_tonk",
@@ -15528,6 +15528,156 @@
       "name": "Al-Ayyala (Oman and UAE)",
       "family": "global",
       "href": "traditions/al_ayyala.json"
+    },
+    {
+      "id": "ambient_country",
+      "name": "Ambient country",
+      "family": "vernacular",
+      "href": "traditions/ambient_country.json"
+    },
+    {
+      "id": "ambient_folk",
+      "name": "Ambient folk",
+      "family": "vernacular",
+      "href": "traditions/ambient_folk.json"
+    },
+    {
+      "id": "ambient_guitar",
+      "name": "Ambient guitar",
+      "family": "electronic",
+      "href": "traditions/ambient_guitar.json"
+    },
+    {
+      "id": "ambient_pop",
+      "name": "Ambient pop",
+      "family": "pop_rock",
+      "href": "traditions/ambient_pop.json"
+    },
+    {
+      "id": "ambient_post_rock",
+      "name": "Ambient post-rock",
+      "family": "rock_punk",
+      "href": "traditions/ambient_post_rock.json"
+    },
+    {
+      "id": "action_rock",
+      "name": "Action rock",
+      "family": "rock_punk",
+      "href": "traditions/action_rock.json"
+    },
+    {
+      "id": "alternative_metal",
+      "name": "Alternative metal",
+      "family": "rock_punk",
+      "href": "traditions/alternative_metal.json"
+    },
+    {
+      "id": "black_speed_metal",
+      "name": "Black speed metal",
+      "family": "rock_punk",
+      "href": "traditions/black_speed_metal.json"
+    },
+    {
+      "id": "atmospheric_post_metal",
+      "name": "Atmospheric post-metal",
+      "family": "rock_punk",
+      "href": "traditions/atmospheric_post_metal.json"
+    },
+    {
+      "id": "ambient_black_metal",
+      "name": "Ambient black metal",
+      "family": "rock_punk",
+      "href": "traditions/ambient_black_metal.json"
+    },
+    {
+      "id": "abstract_hip_hop",
+      "name": "Abstract hip hop",
+      "family": "hip_hop",
+      "href": "traditions/abstract_hip_hop.json"
+    },
+    {
+      "id": "alternative_hip_hop",
+      "name": "Alternative hip hop",
+      "family": "hip_hop",
+      "href": "traditions/alternative_hip_hop.json"
+    },
+    {
+      "id": "comedy_rap",
+      "name": "Comedy rap",
+      "family": "hip_hop",
+      "href": "traditions/comedy_rap.json"
+    },
+    {
+      "id": "dark_trap",
+      "name": "Dark trap",
+      "family": "hip_hop",
+      "href": "traditions/dark_trap.json"
+    },
+    {
+      "id": "christian_trap",
+      "name": "Christian trap",
+      "family": "hip_hop",
+      "href": "traditions/christian_trap.json"
+    },
+    {
+      "id": "bass_house",
+      "name": "Bass house",
+      "family": "electronic",
+      "href": "traditions/bass_house.json"
+    },
+    {
+      "id": "g_house",
+      "name": "G-house",
+      "family": "electronic",
+      "href": "traditions/g_house.json"
+    },
+    {
+      "id": "ambient_dub_techno",
+      "name": "Ambient dub techno",
+      "family": "electronic",
+      "href": "traditions/ambient_dub_techno.json"
+    },
+    {
+      "id": "hypnotic_techno",
+      "name": "Hypnotic techno",
+      "family": "electronic",
+      "href": "traditions/hypnotic_techno.json"
+    },
+    {
+      "id": "modular_techno",
+      "name": "Modular techno",
+      "family": "electronic",
+      "href": "traditions/modular_techno.json"
+    },
+    {
+      "id": "afghan_pop",
+      "name": "Afghan pop",
+      "family": "pop",
+      "href": "traditions/afghan_pop.json"
+    },
+    {
+      "id": "albanian_pop",
+      "name": "Albanian pop",
+      "family": "pop",
+      "href": "traditions/albanian_pop.json"
+    },
+    {
+      "id": "armenian_pop",
+      "name": "Armenian pop",
+      "family": "pop",
+      "href": "traditions/armenian_pop.json"
+    },
+    {
+      "id": "azeri_pop",
+      "name": "Azeri pop",
+      "family": "pop",
+      "href": "traditions/azeri_pop.json"
+    },
+    {
+      "id": "burmese_pop",
+      "name": "Burmese pop",
+      "family": "pop_rock",
+      "href": "traditions/burmese_pop.json"
     }
   ]
 }

@@ -5235,5 +5235,224 @@
     "chanted-poetry",
     "drums",
     "brass-cymbals"
+  ],
+  "ambient_country": [
+    "ambient",
+    "sustained-tone",
+    "reverberant",
+    "meditative-tempo",
+    "pedal-steel-twang",
+    "twangy-foundational",
+    "drone-foundation"
+  ],
+  "ambient_folk": [
+    "ambient",
+    "sustained-tone",
+    "reverberant",
+    "meditative-tempo",
+    "intimate",
+    "breath-heavy",
+    "whispered",
+    "surface-noise-bedded"
+  ],
+  "ambient_guitar": [
+    "ambient",
+    "sustained-tone",
+    "reverberant",
+    "meditative-tempo",
+    "drone-foundation",
+    "layered-ambient"
+  ],
+  "ambient_pop": [
+    "ambient",
+    "reverberant",
+    "smoothed",
+    "intimate",
+    "whispered",
+    "breath-heavy",
+    "soft",
+    "quiet",
+    "intimate-aspirated"
+  ],
+  "ambient_post_rock": [
+    "ambient",
+    "sustained-tone",
+    "reverberant",
+    "rock-context",
+    "dynamic-arc-foundational",
+    "layered-ambient"
+  ],
+  "action_rock": [
+    "rock-context",
+    "distorted",
+    "cutting",
+    "transient-grab-aggressive"
+  ],
+  "alternative_metal": [
+    "metal-context",
+    "distorted",
+    "sub-bass",
+    "synthesized",
+    "melodic"
+  ],
+  "black_speed_metal": [
+    "metal-context",
+    "distorted",
+    "growly",
+    "rapid-tremolo",
+    "cutting"
+  ],
+  "atmospheric_post_metal": [
+    "metal-context",
+    "ambient",
+    "reverberant",
+    "sustained-tone",
+    "dynamic-arc-foundational",
+    "dark",
+    "dark-romantic",
+    "sub-bass-foundational",
+    "low-end-heavy",
+    "layered-ambient",
+    "naturally-reverberant"
+  ],
+  "ambient_black_metal": [
+    "metal-context",
+    "ambient",
+    "dark",
+    "drone-foundation",
+    "sustained-tone",
+    "layered-ambient"
+  ],
+  "bass_house": [
+    "dance-driving",
+    "sub-bass",
+    "synthetic",
+    "distorted"
+  ],
+  "g_house": [
+    "dance-driving",
+    "sub-bass",
+    "rhythmic-speech",
+    "funky"
+  ],
+  "ambient_dub_techno": [
+    "ambient",
+    "sustained-tone",
+    "reverberant",
+    "layered-ambient",
+    "synthetic"
+  ],
+  "hypnotic_techno": [
+    "dance-driving",
+    "synthetic",
+    "sub-bass",
+    "dark"
+  ],
+  "modular_techno": [
+    "dance-driving",
+    "synthesized",
+    "synthetic",
+    "rapid-tremolo"
+  ],
+  "abstract_hip_hop": [
+    "rhythmic-speech",
+    "speech-mimicking",
+    "intimate",
+    "funk-derived"
+  ],
+  "alternative_hip_hop": [
+    "rhythmic-speech",
+    "speech-mimicking",
+    "funky",
+    "melodic"
+  ],
+  "comedy_rap": [
+    "rhythmic-speech",
+    "speech-mimicking",
+    "articulated"
+  ],
+  "dark_trap": [
+    "rhythmic-speech",
+    "dark",
+    "sub-bass",
+    "sustained-tone",
+    "ambient",
+    "reverberant",
+    "intimate",
+    "meditative-tempo",
+    "smoothed",
+    "dark-romantic",
+    "low-end-heavy",
+    "sub-bass-foundational"
+  ],
+  "christian_trap": [
+    "rhythmic-speech",
+    "sub-bass",
+    "synthesized",
+    "devotional"
+  ],
+  "afghan_pop": [
+    "pop",
+    "melodic",
+    "ornamented",
+    "dance-friendly",
+    "controlled",
+    "focused",
+    "stable",
+    "clean-articulation-low-blur",
+    "clean",
+    "present",
+    "tight-articulation"
+  ],
+  "albanian_pop": [
+    "pop",
+    "smoothed",
+    "synthetic",
+    "dance-driving",
+    "rhythmic",
+    "dance-rhythm",
+    "tight-rhythmic-articulation",
+    "backbeat"
+  ],
+  "armenian_pop": [
+    "pop",
+    "melodic",
+    "sustained-tone",
+    "dance-friendly",
+    "controlled",
+    "focused",
+    "stable",
+    "clean-articulation-low-blur",
+    "clean",
+    "present",
+    "tight-articulation",
+    "melismatic",
+    "ornamental-melismatic",
+    "vibrato-rich"
+  ],
+  "azeri_pop": [
+    "pop",
+    "smoothed",
+    "melodic",
+    "singing-sustain",
+    "controlled",
+    "focused",
+    "stable",
+    "clean-articulation-low-blur",
+    "soft-onset",
+    "intimate-aspirated"
+  ],
+  "burmese_pop": [
+    "pop",
+    "melodic",
+    "rock-context",
+    "singing-sustain",
+    "controlled",
+    "focused",
+    "stable",
+    "clean-articulation-low-blur",
+    "clean",
+    "present",
+    "tight-articulation"
   ]
 }

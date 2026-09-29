@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s heavy-metal subgenre emphasizing extreme tempo and virtuoso guitar-playing while retaining melodic-vocal lines and traditional heavy-metal song-structure (vs the simultaneously-emerging thrash metal's harsher vocal-and-rhythmic-aggression). Motörhead's 1979-onward catalog inaugurated the style; Helloween (Hamburg, 1984-onward), Iced Earth, and (especially in 1990s extension) the Italian power-metal scene continued the lineage. Distinguished from thrash metal by speed metal's retention of melodic-vocal lines and traditional metal harmonic-vocabulary.",
   "recipe": "classic North American modern speed metal, distorted Rock, thrash branch, power metal neoclassical metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 676,
-  "score": 404.654,
+  "score": 409.301,
   "config": {
     "traditions": [
       "speed_metal",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
@@ -38,18 +38,18 @@
           "voice_quality": 8.385,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.282,
+          "voice_vibrato": 4.3135,
           "voice_articulation": 15.989999999999995,
           "voice_microtone": 17.679999999999993,
-          "voice_tradition": 7.34375,
-          "voice_mechanism_compound": 48.00300000000002,
+          "voice_tradition": 7.51175,
+          "voice_mechanism_compound": 48.30750000000002,
           "voice_estill_quality": 5.035000000000001,
           "voice_speech_song": 18.71999999999999,
           "voice_ensemble_config": 20.539999999999992,
           "voice_ornament_system": 4.775,
           "voice_pitch_organization": 2.9250000000000007,
-          "voice_processing_chain": 4.7265,
-          "voice_multitrack_stack": 8.614749999999999
+          "voice_processing_chain": 4.7372499999999995,
+          "voice_multitrack_stack": 8.81425
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 54.07325000000001,
-          "amp_make": 21.84925,
-          "body_wood": 22.400250000000003,
+          "electric_technique": 54.37775000000001,
+          "amp_make": 22.804750000000002,
+          "body_wood": 23.140000000000004,
           "neck_wood": 1.69,
           "fretboard": 1.625,
           "pickup_magnet": 1.4949999999999999,
           "pickup_winding": 0.45499999999999996,
           "string_material": 0.1365,
           "bridge": 1.69,
-          "scale_length": 20.673500000000004,
+          "scale_length": 21.450000000000003,
           "string_gauge": 1.69,
           "finish": 0.04875,
-          "string_tuning": 33.889250000000004
+          "string_tuning": 34.71
         }
       },
       {
@@ -100,9 +100,9 @@
           "amp_make": 8.450000000000001,
           "body_wood": 2.34,
           "pickup_config": 0.65,
-          "string_type": 15.2005,
+          "string_type": 15.505,
           "scale_length_b": 1.69,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.168,
           "bass_technique": 14.765
         }
       },

@@ -3,14 +3,14 @@
   "name": "Footwork",
   "family": "electronic",
   "lineage": "Chicago footwork dance-music genre evolved from juke and ghetto-house through the late-2000s — characterized by 160 bpm syncopated triplet-based programming, chopped-and-pitched sampled vocals, sparse arrangement designed for the underground dance-battle-circuit footwork dance — codified through DJ Rashad (Double Cup 2013, the genre's breakthrough album), DJ Spinn, Traxman, RP Boo, and the Teklife crew",
-  "recipe": "classic 2007-2009 footwork, electronic Dance, footwork branch, us hip hop modern dark plugg detroit trap. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, low sub bass digital subtractive. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 365,
-  "score": 95.316,
+  "recipe": "classic 2007-2009 footwork, electronic Dance, footwork branch, us hip hop modern dark trap dark plugg. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, low sub bass digital subtractive. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 362,
+  "score": 102.141,
   "config": {
     "traditions": [
       "footwork",
-      "dark_plugg",
-      "detroit_trap"
+      "dark_trap",
+      "dark_plugg"
     ],
     "instruments": [
       {
@@ -21,8 +21,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 5.254125000000001,
-          "drum_machine_808_context": 3.835,
+          "tr808_voice": 5.896624999999999,
+          "drum_machine_808_context": 4.68,
           "tr808_production_origin": 4.16
         }
       },
@@ -36,11 +36,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 7.321625000000001,
-          "sampler_archetypes": 7.075,
-          "sampler_bit_depth": 3.5100000000000002,
-          "sampler_workflow": 6.271625000000001,
-          "sampler_classic_context": 29.119999999999994
+          "electronic_technique": 6.596625,
+          "sampler_archetypes": 7.15,
+          "sampler_bit_depth": 4.55,
+          "sampler_workflow": 5.546625,
+          "sampler_classic_context": 29.639999999999993
         }
       },
       {
@@ -51,9 +51,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 7.024125000000001,
-          "va_archetypes": 0.04462499999999999,
-          "digital_subtractive_context": 16.249999999999996
+          "electronic_technique": 9.956624999999999,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 16.769999999999996
         }
       }
     ],

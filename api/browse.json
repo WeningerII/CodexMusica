@@ -1,6 +1,6 @@
 {
   "name": "Codex Musica — browse index (Tier-1 data for the lazy-loaded app)",
-  "generated": "2026-09-14",
+  "generated": "2026-09-29",
   "axisKeys": [
     "harm",
     "pitch",
@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 2588,
+  "count": 2613,
   "items": [
     {
       "id": "honky_tonk",
@@ -105652,6 +105652,919 @@
       "exemplars": [
         "UNESCO — Al-Ayyala, a traditional performing art of Oman and the UAE",
         "Sharjah Institute for Heritage — About Al-Ayyala"
+      ]
+    },
+    {
+      "id": "ambient_country",
+      "name": "Ambient country",
+      "family": "vernacular",
+      "lineage": "Late-2010s onward instrumental country-ambient convergence represented by New York group SUSS: sustained pedal steel and resonator-guitar traces against synthesizer beds, with country timbre retained while dance pulse and verse-chorus singing recede. The selected three-instrument arrangement and clean digital recording chain are authored models, not a reconstruction of a documented studio session.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        1,
+        -1,
+        -2,
+        -1,
+        0,
+        1,
+        1,
+        -2,
+        -2,
+        -1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "pedal_steel",
+        "resonator_guitar",
+        "analog_synth"
+      ],
+      "description": "Ambient country retains the sliding steel and resonator colors of Americana while organizing them as sustained instrumental space. SUSS combines those strings with loops and synthesizers, with harmonica or fiddle on some recordings. Country harmony and Western imagery remain points of reference, but a dance backbeat and lead singer are optional. Distinct from alt-country by its foregrounded drone and from ambient guitar by steel-led pitch glides. The default is a deliberately compact steel, resonator, and synth ensemble; it is not a universal roster.",
+      "exemplars": [
+        "SUSS — Night Suite",
+        "SUSS — Heat Haze"
+      ],
+      "crossRefs": [
+        "functionalSong.country.americana",
+        "droneModal.modalElectric"
+      ]
+    },
+    {
+      "id": "ambient_folk",
+      "name": "Ambient folk",
+      "family": "vernacular",
+      "lineage": "2000s onward intersection of intimate acoustic songwriting and ambient/noise recording practice, represented by Grouper: quiet guitar-and-voice songs blurred by repeat recording, softened attacks, and low-fidelity space. This recipe selects the acoustic-song branch rather than piano-only or pure-drone work; domestic four-track texture is an authored model informed by firsthand accounts.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        0,
+        -1,
+        -1,
+        -1,
+        -2,
+        0,
+        0,
+        0,
+        -2,
+        1,
+        1,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "Ambient folk carries quiet acoustic song through the recording practices of ambient and experimental music. In the Grouper branch selected here, voice and strummed guitar remain recognizable while doubling, tape wear, and reverberant overlap soften their boundaries. It differs from conventional singer-songwriter folk by the compositional importance of recorded atmosphere, and from beatless ambient guitar by sung song fragments. A two-card acoustic and vocal default represents that branch, not every acoustic ambient artist.",
+      "exemplars": [
+        "Grouper — Dragging a Dead Deer Up a Hill",
+        "Grouper — The Man Who Died in His Boat"
+      ],
+      "crossRefs": [
+        "experimentalElec.ambient",
+        "balladPoetry.angloSingerSong.bedroomSingerSong"
+      ]
+    },
+    {
+      "id": "ambient_guitar",
+      "name": "Ambient guitar",
+      "family": "electronic",
+      "lineage": "1990s onward guitar-centered ambient practice represented by Windy & Carl: extended electric-string tones, bass foundation, and occasional keyboard sustain shape pieces without a conventional drum rhythm section. Their firsthand account emphasizes played textures through pedals and rack delays rather than computer transformation; this beatless guitar-bass-keyboard recipe uses an authored domestic tape model.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -2,
+        -1,
+        -2,
+        -2,
+        -1,
+        0,
+        1,
+        1,
+        -2,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "analog_synth"
+      ],
+      "description": "Ambient guitar makes extended electric-string sound the principal material. Windy & Carl describe performances shaped by pedals and rack delays, a largely drummerless approach, and spontaneous layers of guitar, bass, and keyboard. The chosen model sustains feedback guitar over muted bass and a held keyboard tone. It differs from ambient country by lacking steel-led Americana vocabulary, from ambient folk by instrumental foreground, and from ambient post-rock by avoiding a drum-driven dynamic arc. Occasional vocals in the wider practice are outside this default.",
+      "exemplars": [
+        "Windy & Carl — Antarctica",
+        "Windy & Carl — Depths"
+      ],
+      "crossRefs": [
+        "droneModal.modalElectric"
+      ]
+    },
+    {
+      "id": "ambient_pop",
+      "name": "Ambient pop",
+      "family": "pop_rock",
+      "lineage": "2010s vocal pop branch in which sustained ambience surrounds recurring songs and intimate sung melody, represented here by Cigarettes After Sex and the Brooklyn-recorded Apocalypse. This slow band model combines restrained drums and bass with clean guitar, keyboard pads, and an undersung vocal; microphones, processing, instrument construction, and room are authored choices, not claims about the actual session.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        0,
+        -1,
+        1,
+        -2,
+        2,
+        -2,
+        0,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Ambient pop preserves recurring melodic songs while making surrounding space and subdued delivery central to the sound. The Cigarettes After Sex branch places a low-effort lead vocal over guitar, keyboard, bass, and drums; Apocalypse credits that roster and a December 2015 Brooklyn recording. The default models a sparse slow pulse with clean arpeggios and sustained keyboard color. Compared with the existing dream-pop default it has fewer electronic colors, a single undersung lead, and restrained rim clicks; compared with ambient folk it retains a pop-band rhythm foundation.",
+      "exemplars": [
+        "Cigarettes After Sex — Apocalypse",
+        "Cigarettes After Sex — Cigarettes After Sex"
+      ],
+      "crossRefs": [
+        "experimentalElec.ambient",
+        "balladPoetry.angloSingerSong.bedroomSingerSong"
+      ]
+    },
+    {
+      "id": "ambient_post_rock",
+      "name": "Ambient post-rock",
+      "family": "rock_punk",
+      "lineage": "2000s onward meeting of post-rock ensemble dynamics and ambient sustain, represented by Nashville duo Hammock. Their guitar-rooted work moves between atmospheric passages and fuller rhythmic arrivals; Everything and Nothing documents a guitar-based return, beats, vocals, and cello. This instrumental guitar-bass-drum-cello branch and modern multitrack chain are authored models rather than a session-equipment inventory.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "cello"
+      ],
+      "description": "Ambient post-rock joins long guitar sustain to the evolving ensemble form of post-rock. Hammock provides a Nashville anchor: its official account calls Everything and Nothing a return to guitar roots, and its release notes identify intricate melodies, beats, and cello. This default selects the instrumental band-and-cello branch, with tremolo guitar and soft bowed sustain expanding around rock drums and bass. It differs from ambient guitar through an active rhythm section and fuller dynamic arrivals; sung tracks and more orchestral releases remain adjacent possibilities.",
+      "exemplars": [
+        "Hammock — Everything and Nothing",
+        "Hammock — Raising Your Voice... Trying to Stop an Echo"
+      ],
+      "crossRefs": [
+        "experimentalElec.ambient",
+        "droneModal.modalElectric"
+      ]
+    },
+    {
+      "id": "action_rock",
+      "name": "Action rock",
+      "family": "rock_punk",
+      "lineage": "Scandinavian high-energy rock-and-roll and garage-punk continuum, represented by the Swedish Hellacopters. The action-rock label foregrounds immediate riff attack, melodic guitar leads and a driving band backbeat. This contemporary studio model selects the guitar-bass-drums core rather than prescribing every keyboard or percussion overdub heard across the repertoire.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        1,
+        -1,
+        1,
+        2,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "High-energy rock-and-roll built on compact riffs, overdriven lead guitar, assertive sung vocals and a hard backbeat. The Scandinavian action-rock repertoire links garage-punk urgency to classic hard-rock lead playing. Unlike the catalog’s 1960s garage-rock model, this selected arrangement has no organ and uses a contemporary overdub chain; unlike broader hard rock, it emphasizes punk drumming and immediate melodic attack. Material and processing pins are production choices rather than measured historical attributes.",
+      "exemplars": [
+        "The Hellacopters — Stay With You",
+        "The Hellacopters — Grande Rock"
+      ],
+      "crossRefs": [
+        "distortedRock.punk"
+      ]
+    },
+    {
+      "id": "alternative_metal",
+      "name": "Alternative metal",
+      "family": "rock_punk",
+      "lineage": "Late-1980s onward metal and alternative-rock crossover, represented here by Faith No More and the 1989 album The Real Thing. Heavy guitar riffing shares the arrangement with a rhythmically active bass, keyboards and an elastic sung vocal. The selected model emphasizes contrasts of riff, keyboard color and vocal register; funk bass and rap delivery are possible influences, not requirements of the entire genre.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "Broad crossover of metal weight with alternative-rock experimentation in vocal delivery, rhythm and timbral contrast. This Faith No More-oriented model adds a keyboard pad and register-shifting sung vocal to muted guitar and a fingerstyle bass pulse. It differs from the catalog’s funk-metal model by not mandating slap bass, and from speed metal by prioritizing contrasting textures over continuous fast attack. Drop-D, octave doubling and the modern chain are authored choices for this arrangement, not session claims.",
+      "exemplars": [
+        "Faith No More — The Real Thing",
+        "Faith No More — From Out of Nowhere"
+      ],
+      "crossRefs": [
+        "distortedRock.metal",
+        "groovePercussion.funkPercussive"
+      ]
+    },
+    {
+      "id": "black_speed_metal",
+      "name": "Black speed metal",
+      "family": "rock_punk",
+      "lineage": "Black-metal and speed/thrash-metal intersection represented by the Scottish solo recording project Hellripper, whose own account identifies black/speed metal and documents DIY recording of Coagulating Darkness in 2016-2017. Fast riffs, active lead guitar and harsh vocal attack retain the forward motion and compact song orientation of speed metal. The modern chain below is a reproducible authored model, not the equipment of that session.",
+      "parent": "distortedRock.metal.thrash",
+      "axes": [
+        0,
+        -1,
+        1,
+        2,
+        2,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Speed/thrash riff propulsion and solo guitar combined with a rough black-metal vocal and tonal attack. Hellripper’s DIY releases anchor this selected contemporary solo-production model. Unlike the catalog’s speed-metal configuration it selects a rough saturated vocal rather than a melodic belt; unlike atmospheric black metal it keeps the ensemble compact and effect space dry. Tremolo picking, standard tuning and the chain are selected modeling controls rather than an equipment transcription.",
+      "exemplars": [
+        "Hellripper — Coagulating Darkness",
+        "Hellripper — Black Arts & Alchemy"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.black",
+        "distortedRock.punk"
+      ]
+    },
+    {
+      "id": "atmospheric_post_metal",
+      "name": "Atmospheric post-metal",
+      "family": "rock_punk",
+      "lineage": "Atmosphere-centered strand of post-metal represented by Cult of Luna, extending heavy guitar-bass-drums writing with keyboards, long dynamic arcs and passages of reduced density. The Long Road North documents an Umeå-centered recording and writing practice. This selected arrangement places clean arpeggiation and sustained electronic texture beside distorted peaks and a textural harsh vocal, rather than treating the label as a separate universal origin story.",
+      "parent": "distortedRock.metal.postMetal",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        2,
+        1,
+        -1,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_synth",
+        "voice"
+      ],
+      "description": "Post-metal composition that foregrounds spacious texture, long ebbs and flows, and contrast between heavy guitar sections and reduced-density passages. Cult of Luna’s guitar-bass-drums-keyboard ensemble and The Long Road North provide the anchor. Unlike the catalog’s generic post-metal recipe, this model explicitly adds a sustained synth and pins clean arpeggiation with delay and hall space; unlike atmospheric black metal it does not center tremolo-picked blast-beat continuity. Drop-C and synth settings are authored controls, not documentary measurements.",
+      "exemplars": [
+        "Cult of Luna — The Long Road North",
+        "Cult of Luna — Vertikal"
+      ],
+      "crossRefs": [
+        "distortedRock.experimental",
+        "experimentalElec.ambient"
+      ]
+    },
+    {
+      "id": "ambient_black_metal",
+      "name": "Ambient black metal",
+      "family": "rock_punk",
+      "lineage": "Ambient and black-metal intersection represented by the Swiss trio Darkspace, founded in Berne in 1999; its 2003 debut Dark Space I combines heavy guitar with electronic samples and extended immersive pieces. This configuration models a drone-and-sample-dominant passage with guitar, bass and distant harsh voice. It omits a percussion card for that passage without claiming the wider recordings are beatless.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        0,
+        2,
+        1,
+        -1,
+        2,
+        -2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "sampler_classic",
+        "voice"
+      ],
+      "description": "Ambient-black-metal intersection in which sustained electronic space and guitar mass can dominate perception more than a foreground riff or lyric. Darkspace’s cosmic, sample-enriched recordings anchor this selected drone passage. Unlike the catalog’s atmospheric-black-metal model it explicitly includes a layered sampler and omits a percussion card for the passage; unlike dark ambient it retains amplified guitar, electric bass and harsh voice. The omission does not describe the complete albums, and the digital processing choices are an authored contemporary realization.",
+      "exemplars": [
+        "Darkspace — Dark Space I",
+        "Darkspace — Dark Space III I"
+      ],
+      "crossRefs": [
+        "experimentalElec.ambient",
+        "distortedRock.metal.drone"
+      ]
+    },
+    {
+      "id": "abstract_hip_hop",
+      "name": "Abstract hip hop",
+      "family": "hip_hop",
+      "lineage": "Late-1990s and 2000s independent hip-hop emphasizing associative imagery and densely constructed MC writing. Aesop Rock and Blockhead’s Labor Days (2001), issued through Definitive Jux, anchors the selected New York sample-based strand. Abstract describes the writing and approach, rather than a single production technology; this authored studio recipe selects an articulate solo flow and chopped sample bed.",
+      "parent": "mcRhythm.experimental",
+      "axes": [
+        0,
+        -1,
+        0,
+        2,
+        1,
+        0,
+        -1,
+        2,
+        0,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "sampler_classic"
+      ],
+      "description": "Abstract hip hop foregrounds associative language, unusual images and densely woven rhyme rather than a compulsory lyric topic. The selected sample-based solo-MC model follows the Aesop Rock / Blockhead collaboration on Labor Days. It differs from conscious hip-hop, which is organized around social or political content, and from instrumental hip-hop, which need not have an MC. It overlaps alternative hip-hop, but the latter is a wider category covering many departures from dominant conventions. Chopped samples and a clear solo lead are selected here, without claiming that abstraction requires those sounds.",
+      "exemplars": [
+        "Aesop Rock — Labor Days (2001)",
+        "Aesop Rock / Blockhead — Daylight (2001)"
+      ],
+      "crossRefs": [
+        "mcRhythm.usHipHop.eastCoast"
+      ]
+    },
+    {
+      "id": "alternative_hip_hop",
+      "name": "Alternative hip hop",
+      "family": "hip_hop",
+      "lineage": "A broad alternative hip-hop designation encompassing departures from dominant rap conventions in subject matter, sample selection and song form. This recipe selects the late-1980s Long Island / New York sample-collage strand of De La Soul and Prince Paul’s 3 Feet High and Rising (1989), with playful MC exchanges, layered breaks and interludes. The selected configuration is not a sonic definition of every alternative hip-hop artist.",
+      "parent": "mcRhythm.usHipHop",
+      "axes": [
+        0,
+        -1,
+        0,
+        2,
+        1,
+        0,
+        -1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "Alternative hip hop is a broad category for rap that departs from dominant musical and persona conventions. This recipe deliberately chooses one historical strand: De La Soul and Prince Paul’s layered sample construction, playful vocal exchanges and skits on 3 Feet High and Rising. It is broader than abstract hip-hop’s emphasis on associative MC writing, and need not be socially didactic like conscious hip-hop. The selected collage configuration also differs from the narrower boom-bap production designation; later alternative recordings may use live bands or electronic production instead. Its sample resolution, swing and studio chain are authored choices, not a reconstruction of the original session.",
+      "exemplars": [
+        "De La Soul — 3 Feet High and Rising (1989)",
+        "De La Soul / Prince Paul — The Magic Number (1989)"
+      ],
+      "crossRefs": [
+        "mcRhythm.experimental",
+        "mcRhythm.usHipHop.eastCoast"
+      ]
+    },
+    {
+      "id": "comedy_rap",
+      "name": "Comedy rap",
+      "family": "hip_hop",
+      "lineage": "Rap in which comic narrative, character, incongruity or parody is the organizing purpose. The selected 2000s studio model takes The Lonely Island’s Lazy Sunday (2005) and the rap tracks on Incredibad (2009) as recording anchors: emphatic rhythmic speech, sharply timed exchanges and a programmed beat. The wider category includes other eras and production styles; humorous interludes alone do not make a rap album comedy rap.",
+      "parent": "mcRhythm.usHipHop",
+      "axes": [
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        0,
+        -2,
+        2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "sampler_classic"
+      ],
+      "description": "Comedy rap makes jokes, character performance and comic incongruity central to the song. This selected studio model uses the tightly timed rhythmic speech and exchanged lines of The Lonely Island’s Lazy Sunday and Incredibad rap repertoire. It retains a programmed hip-hop beat and forward vocal clarity; the wider category has no unique drum sound. It differs from stand-up comedy by the rhythmic song form and from alternative hip-hop by comic purpose rather than musical nonconformity. A comic skit between otherwise serious rap songs does not define the whole recording as comedy rap.",
+      "exemplars": [
+        "The Lonely Island / Chris Parnell — Lazy Sunday (2005)",
+        "The Lonely Island — Incredibad (2009)"
+      ],
+      "crossRefs": [
+        "mcRhythm.experimental"
+      ]
+    },
+    {
+      "id": "dark_trap",
+      "name": "Dark trap",
+      "family": "hip_hop",
+      "lineage": "2010s internet-circulated trap with an ominous atmosphere, weighty bass and dark vocal presentation. This selected model is anchored to Ottawa rapper-producer Night Lovell’s self-released Concept Vague (2014) and his baritone delivery, documented in a 2016 studio performance and interview. It selects a low speech-derived lead, sustained synth texture and 808-derived rhythm; it does not prescribe horror narratives, shouted metal vocals or a single birthplace for the wider label.",
+      "parent": "mcRhythm.usHipHop.modern",
+      "axes": [
+        -1,
+        -2,
+        -1,
+        2,
+        -1,
+        0,
+        -1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "description": "Dark trap is an atmospheric trap designation, selected here through Night Lovell’s Concept Vague and documented baritone studio performance. The authored model combines a low speech-derived MC lead, a restrained sustained synth bed and foreground 808-derived bass rhythm. It overlaps cloud rap and Memphis-influenced internet rap, but this model foregrounds an ominous low vocal and bass pulse rather than cloud rap’s weightless wash. It differs from the historical Memphis cassette tradition by its selected 2010s digital production, and from rage rap by its restrained vocal and pad texture rather than a screaming lead-synth and high-energy delivery. Dark atmosphere does not imply that every lyric is horrorcore.",
+      "exemplars": [
+        "Night Lovell — Concept Vague (2014)",
+        "Night Lovell — Dark Light (2014)",
+        "Night Lovell — Contraband, Kinda Neat studio performance (2016)"
+      ],
+      "crossRefs": [
+        "mcRhythm.usHipHop.southern",
+        "experimentalElec.ambient"
+      ]
+    },
+    {
+      "id": "christian_trap",
+      "name": "Christian trap",
+      "family": "hip_hop",
+      "lineage": "A trap-production strand within Christian hip-hop, joining 808-derived beats and melodic rap delivery to faith and hope testimony. The selected East Atlanta model is anchored to 1K Phew’s Never Too Late (2017), What’s Understood 2 (2019) and Church House Trap House (2022) on Reach Records. The label describes his music as trap rooted in East Atlanta and his message as faith and hope; this is a production-specific subset of Christian hip-hop, not a template for every Christian rap recording.",
+      "parent": "mcRhythm.usHipHop.southern",
+      "axes": [
+        1,
+        -2,
+        0,
+        2,
+        0,
+        0,
+        -1,
+        2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "description": "Christian trap selects trap production and rap delivery within faith-centered hip-hop. 1K Phew’s Reach Records work anchors the East Atlanta strand: his label describes a trap sound and a message of faith and hope, while Church House Trap House makes the church/street relationship explicit. This authored recipe selects an 808-derived rhythm, short synth notes and a punctuated melodic-rap vocal lane. It differs from Christian hip-hop’s broad thematic category by choosing a specific trap production vocabulary; it differs from congregational gospel by using a studio rap arrangement rather than prescribing choir, organ or worship-service performance. The selected retuning speed, room and chain are authoring choices, not documented session settings.",
+      "exemplars": [
+        "1K Phew — Never Too Late (2017)",
+        "1K Phew — What’s Understood 2 (2019)",
+        "1K Phew / 1K Pson — Church House Trap House (2022)"
+      ],
+      "crossRefs": [
+        "ritualDevotional.christianGospel",
+        "mcRhythm.usHipHop.modern"
+      ]
+    },
+    {
+      "id": "bass_house",
+      "name": "Bass house",
+      "family": "electronic",
+      "lineage": "Mid-2010s international house-and-bass-music convergence represented by Jauz, Habstrakt and Dustycloud: club kick patterns meet mobile, distorted bass sound design and short vocal cuts. This seed selects the bass-led club-single strand rather than the full catalog of any artist.",
+      "parent": "electronicDance.house",
+      "axes": [
+        -1,
+        -1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2,
+        -1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "wavetable_synth",
+        "sampler_drum_machine",
+        "sampler_classic"
+      ],
+      "description": "Bass house brings house pulse into the bass-music sound-design world of the mid-2010s. Habstrakt describes his transition from dubstep through a 128-BPM remix and a renewed connection to house and techno; Jauz explicitly resists reducing his whole identity to this label. This selected club recipe uses a forceful kick-and-clap grid, layered sampled drums, animated saturated bass and cut-up vocal material, leaving harmonic accompaniment sparse. Its emphasis on a moving bass timbre separates it from the broad electro-house record and from future house's more chordal bounce. Compared with fidget house, bass sound design carries more weight than restless sample rearrangement; G-house instead puts hip-hop attitude and a more restrained rolling groove at the center. The synth architecture, effects and numerical axes are authored models, not transcriptions of a named session.",
+      "exemplars": [
+        "Dustycloud — Jumpin",
+        "Habstrakt — MUST DIE! Hellcat remix",
+        "Jauz and Ephwurd — Rock the Party"
+      ],
+      "crossRefs": [
+        "bassSystem",
+        "electronicDance.house.techHouse"
+      ]
+    },
+    {
+      "id": "g_house",
+      "name": "G-house",
+      "family": "electronic",
+      "lineage": "Early-2010s G-house associated with Marseille duo Amine Edge & DANCE and their CUFF network; their hip-hop and R&B backgrounds shaped a heavy-bass house groove and fragmentary rap attitude, disseminated through online tracks and international club sets.",
+      "parent": "electronicDance.house",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_mono_synth",
+        "drum_machine_analog",
+        "sampler_classic"
+      ],
+      "description": "G-house took shape around Amine Edge & DANCE in the early 2010s, bringing gangsta-rap attitude and hip-hop/R&B listening histories to house grooves. Their own account places the collaboration in 2011 and identifies Going To Heaven With The Goodie-Goodies as an early breakthrough. The recipe foregrounds a rounded monophonic bass figure, a subtly swung synthesized kit and looped rap fragments; a sampler represents those recorded voices rather than prescribing a fresh sung lead. Compared with late-1980s hip house, this is a producer-and-DJ groove built around brief vocal hooks instead of a full MC verse. Compared with bass house, the bass is more stable and the arrangement less dependent on aggressively changing digital timbres. Marseille is a lineage anchor for the duo, while CUFF and their club circulation make the practice international. Exact instruments and chain settings are an authored contemporary arrangement.",
+      "exemplars": [
+        "Amine Edge & DANCE — Going To Heaven With The Goodie-Goodies",
+        "Amine Edge & DANCE — Our G-House Sauce EP"
+      ],
+      "crossRefs": [
+        "mcRhythm.usHipHop.gangsta",
+        "electronicDance.house.deepHouse"
+      ]
+    },
+    {
+      "id": "ambient_dub_techno",
+      "name": "Ambient dub techno",
+      "family": "electronic",
+      "lineage": "Ambient-facing extension of dub techno represented by Detroit producer Deepchord and Soma releases such as Sommer (2012) and Campfire EP (2017). Field-recording atmospheres, submerged pulses and echo space carry the arrangement beyond the compact chord-and-kick dub-techno tool.",
+      "parent": "bassSystem.dubDescendants",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        1,
+        0,
+        0,
+        0,
+        2,
+        -1,
+        -2,
+        0,
+        0,
+        2
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_classic",
+        "drum_machine_analog"
+      ],
+      "description": "Ambient dub techno emphasizes the atmospheric edge of techno's dub-processing lineage. Deepchord's Sommer is a reference for field-recording layers and gently shifting rhythm inside a warm, immersive soundfield; Campfire EP supplies a later recorded reference from the same producer. This seed gives sustained polyphonic synthesis and environmental samples priority over a soft synthesized pulse, with spreading reverb and recirculating echoes. It differs from the existing dub-techno record by making electroacoustic atmosphere a principal voice, and from the existing ambient-dub record by retaining a techno-derived pulse rather than a reggae riddim, melodica and live bass ensemble. It is narrower than ambient techno, selecting dub space and field recordings rather than the whole listening-techno continuum. Detroit is a Deepchord recording-lineage anchor, not a claim that the international genre has a single birthplace. The microphone, synth models, room and chain are authored equivalents, not verified Sommer session equipment.",
+      "exemplars": [
+        "Deepchord — Sommer",
+        "Deepchord — Campfire EP"
+      ],
+      "crossRefs": [
+        "experimentalElec.ambient",
+        "electronicDance.techno"
+      ]
+    },
+    {
+      "id": "hypnotic_techno",
+      "name": "Hypnotic techno",
+      "family": "electronic",
+      "lineage": "Deep and psychedelic techno continuum represented by Donato Dozzy, Luigi Tozzi and Hypnus Records, founded near Stockholm in 2013. The selected model emphasizes rolling percussion, interlocking cyclic figures and gradual atmospheric transformation rather than festival breakdowns.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "modular_synth",
+        "drum_machine_analog",
+        "sampler_classic"
+      ],
+      "description": "Hypnotic techno organizes a dancefloor journey around cyclic percussion, interlocking figures and slowly changing depth. Hypnus founder Michel Iseneld describes a meeting of cinematic atmosphere, Prologue-style deep techno and psychedelia; Donato Dozzy's Parola rework offers a concrete example of repeating vocal material over supple rolling drums. This seed uses a sequenced, densely modulated synthesizer, a steady synthesized kit and environmental sampling, with offset echoes creating movement without a large drop. It differs from minimal techno by allowing a layered atmospheric field rather than pursuing maximum subtraction. Ambient dub techno places the soundfield above the beat; this record keeps percussion prominent. Modular techno is defined here by patch-performance method, while hypnotic techno is a listening and arrangement aesthetic that can be made with hardware or software. Stockholm marks the documented Hypnus label network, alongside important Italian producers; neither anchor is exclusive. The chosen modular architecture and chain are authored, not claims about every producer's studio.",
+      "exemplars": [
+        "Luigi Tozzi — Deep Blue",
+        "Donato Dozzy and Anna Caragnano — Parola (Rework)"
+      ],
+      "crossRefs": [
+        "experimentalElec.ambient",
+        "bassSystem.dubDescendants"
+      ]
+    },
+    {
+      "id": "modular_techno",
+      "name": "Modular techno",
+      "family": "electronic",
+      "lineage": "Patch-centered techno practice developed across contemporary hardware scenes, represented here by Surgeon's live modular work and From Farthest Known Objects (2016). Voltage sequencing, synthesized percussion and hands-on timbral intervention distinguish the selected performance workflow.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -2,
+        -1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        -2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "modular_synth",
+        "drum_machine_analog"
+      ],
+      "description": "Modular techno describes techno made through patchable synthesis, voltage sequencing and direct manipulation of a live signal path. Surgeon's modular performances and From Farthest Known Objects anchor this selected model; its spontaneous composition is documented by the Superbooth performance program. The recipe separates the patch voice from synthesized drum voices as editable catalog chairs, although a real system can generate both inside one rack. Sequenced gates, timbral percussion, resonant plucks and ring modulation supply change; preserving dynamics replaces the strongly pumped bass-house chain. Compared with industrial techno, distorted timbre is optional rather than the defining requirement. Compared with hypnotic techno, the distinction is the hands-on patch workflow and high improvisational scope, not a requirement for one particular mood. Birmingham anchors the documented artist and recording example, while modular techno remains an international method. The Eurorack variant, percussion partition and digital capture path are authored modeling choices, not a module-by-module reconstruction of the album.",
+      "exemplars": [
+        "Surgeon — From Farthest Known Objects",
+        "Surgeon — Superbooth 2025 live performance"
+      ],
+      "crossRefs": [
+        "experimentalElec.industrialNoise",
+        "experimentalElec.ambient"
+      ]
+    },
+    {
+      "id": "afghan_pop",
+      "name": "Afghan pop",
+      "family": "pop",
+      "lineage": "Selected 2010s Dari-language commercial pop shared between Kabul television and Afghan diaspora circuits, represented by Aryana Sayeed and the keyboard-and-tabla pop practice documented in European Afghan communities. This is a vocal song-and-dance branch, not a national summary or a replacement for Kabuli klasik, regional folk repertoires, Pashto pop or every diaspora production.",
+      "parent": "functionalSong.southAsianPop",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "rompler_workstation",
+        "tabla",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Selected 2010s Dari-language pop: a foreground melodic singer, keyboard hooks, tabla articulation and a Western rhythm-section vocabulary. European fieldwork documents keyboard, electric guitar and drum kit alongside tabla in Afghan pop practice, while Aryana Sayeed supplies a commercial vocal and transnational-media anchor. The default is an authored compact band reduction with tempered backing and vocal slides; it is not a transcription of Anar or an assertion that every Afghan pop record uses this roster. Distinct from afghan_traditional by concise commercial song form and electric backing, and from Tehrangeles Persian pop by the selected Afghan repertoire and tabla layer. Contemporary tracking choices model the practice; source pages do not establish microphone or console models.",
+      "exemplars": [
+        "Aryana Sayeed — Anar (2014)"
+      ],
+      "crossRefs": [
+        "functionalSong.midEastNAfricanPop",
+        "functionalSong.popRock"
+      ]
+    },
+    {
+      "id": "albanian_pop",
+      "name": "Albanian pop",
+      "family": "pop",
+      "lineage": "Selected late-2010s Albanian-language electronic commercial pop represented by Elvana Gjata and the producer-led Me tana release of 2019, circulating through Festivali i Kenges and digital singles. This compact dance-song branch coexists with Kosovo and diaspora pop scenes, ballads and acoustic repertoire; Albanian language or nationality alone does not define one sound.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        1,
+        -1,
+        0,
+        2,
+        1,
+        -1,
+        -1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "electric_bass"
+      ],
+      "description": "Selected late-2010s Albanian-language producer-led dance pop, anchored by Elvana Gjata’s Me tana and UNIK’s own writing, production and mixing credits. A direct lead, short electronic hook, sampled percussion, sub-layered bass and answering vocal lane form the authored reduction. This record covers a commercial single practice rather than all Albanian or Kosovo music. Distinct from Albanian iso-polyphony by harmonic electronic song backing and individual studio lead; distinct from dasma and the catalog’s Balkan pop by avoiding an assumed wedding clarinet-and-accordion ensemble. The distributed-production room and contemporary digital chain are reusable recording choices, not verified session locations or hardware.",
+      "exemplars": [
+        "Elvana Gjata — Me tana (2019)"
+      ],
+      "crossRefs": [
+        "functionalSong.popRock.synthpop"
+      ]
+    },
+    {
+      "id": "armenian_pop",
+      "name": "Armenian pop",
+      "family": "pop",
+      "lineage": "Selected Yerevan-centered 2008-2012 folk-inflected dance pop associated with Sirusho, connecting her pop-and-folk recordings and international Qele Qele and PreGomesh singles with contemporary electronic song production. This is one crossover branch among Armenian-language and diaspora pop practices, distinct from liturgical chant, acoustic folk ensembles and the wider rabiz scene.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        1,
+        -1,
+        0,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "duduk",
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "electric_bass"
+      ],
+      "description": "Selected 2008-2012 Armenian folk-and-pop crossover centered on Sirusho’s Yerevan practice and international singles. EBU documents her Armenian folk and original Armenian/English recordings; her production company describes traditional instruments in modern compositions. The default authors an ornamented duduk answer against an arpeggiated synth, layered sample beat, bass and a strong harmonized lead. It does not claim that all of these instruments appear on every exemplar or that the registered Punjabi dhol represents an Armenian drum. Distinct from Armenian folk and liturgical traditions through dance-song production and electronically constructed backing; wider rabiz, acoustic pop and diaspora styles require their own selections. Gear and vocal-processing settings are a contemporary model rather than documented session facts.",
+      "exemplars": [
+        "Sirusho — Qele, Qele (2008)",
+        "Sirusho — PreGomesh (2012)"
+      ],
+      "crossRefs": [
+        "functionalSong.popRock",
+        "artMusic.middleEasternClassical"
+      ]
+    },
+    {
+      "id": "azeri_pop",
+      "name": "Azeri pop",
+      "family": "pop",
+      "lineage": "Selected 2010 international studio pop-ballad branch of Azerbaijani popular music, represented by Safura and Drip Drop through the Ictimai/Eurovision platform and Swedish songwriting partnership. The English-language crossover is one documented branch rather than a definition of all Azerbaijani-language pop, regional dance music, mugham or ashig practice.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        2,
+        -1,
+        0,
+        1,
+        1,
+        -1,
+        -1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "rompler_workstation",
+        "sampler_drum_machine",
+        "electric_bass"
+      ],
+      "description": "Selected Azerbaijani international pop-ballad practice around Safura’s Drip Drop (2010), documented by the EBU with Swedish songwriting credits and the Azerbaijani talent-show pathway. The default is an authored piano-arpeggio and orchestral-keyboard arrangement over a sampled beat and muted bass, with a light lead opening into sustained phrasing. This English-language crossover does not stand for all Azerbaijani-language pop. It is distinct from azeri_traditional through fixed commercial song sections and contemporary harmonic backing rather than a mugham ensemble or ashig performance; unlike the Armenian crossover default it does not require a folk instrument. Exact keyboard, microphone, compression and reverberation selections are design choices, not claims about the original session.",
+      "exemplars": [
+        "Safura — Drip Drop (2010)"
+      ],
+      "crossRefs": [
+        "functionalSong.popRock",
+        "functionalSong.midEastNAfricanPop"
+      ]
+    },
+    {
+      "id": "burmese_pop",
+      "name": "Burmese pop",
+      "family": "pop_rock",
+      "lineage": "Selected 2000s-2010s Burmese-language dramatic vocal pop and pop-rock represented by Phyu Phyu Kyaw Thein, with her 2003-onward stage career, A Girl is Broken-hearted album and later official singles as anchors. The authored band configuration represents this melodic branch and does not collapse Myanmar's ethnic-language scenes, hip-hop, mahagita, hsaing waing or all copy-song practices into one tradition.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        -1,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "grand_piano",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Selected 2000s-2010s Burmese-language dramatic melodic pop, anchored by Phyu Phyu Kyaw Thein’s 2003-onward career and 2012 album A Girl is Broken-hearted, discussed in her firsthand interview. The default authors a single forceful lead with clean arpeggiated electric guitar, block-chord piano, locked bass and stick-played backbeat. Her official releases provide song anchors; this small band is a reusable pop-rock reduction, not a claim to a particular recorded personnel list. Distinct from mahagita and hsaing waing by commercial song sections and Western backline, and from Burmese hip-hop by sung melodic foreground. Myanmar contains many languages and regional practices; this selection does not define their common sound. The generic treated studio and digital chain are authored recording choices.",
+      "exemplars": [
+        "Phyu Phyu Kyaw Thein — A Girl is Broken-hearted (2012)",
+        "Phyu Phyu Kyaw Thein — A Shone Htet Po Thaw (2019)"
+      ],
+      "crossRefs": [
+        "functionalSong.eastAsianPop"
       ]
     }
   ]
