@@ -5061,6 +5061,8 @@ await check('validation: actionable errors', () => {
         'session adapter regressions that drive the real lyric harness, executed by CI',
       'mcp/test_chatgpt_revise.mjs':
         'session adapter revise-loop regressions on the real lyric harness, executed by CI',
+      'mcp/test_chatgpt_parked.mjs':
+        'session adapter parked-song continuation on the real lyric harness, executed by CI',
       'mcp/test_release_gates.mjs': 'offline verified CI and battery acceptance regressions',
       'mcp/test_run_continuation.mjs': 'offline real run continuation regressions',
       'mcp/test_deferred_continuation.mjs': 'real deferred provider recovery regression',
