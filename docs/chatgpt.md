@@ -48,9 +48,15 @@ background lyric operations and the shared recovery controls. The older task vie
 
 Stateful tools return a typed `structuredContent` envelope. `tool_result` contains
 the underlying output with private workspace/state fields removed. The MCP content
-carries that same output first, block for block and unchanged, so a text-only host
-reads the recipe or song exactly as the tool wrote it; the last block is the
-envelope as JSON (without `tool_result`), including the recovery IDs. A read of an
+carries that same output first, block for block, so a text-only host reads the
+recipe or song exactly as the tool wrote it; the last block is the envelope as JSON
+(without `tool_result`), including the recovery IDs. One block is shortened: a
+finished `lyric_grade` or `lyric_revise` publishes the song unchanged and a short
+verdict — exit code, meaning, certification and stop fields, `blocking` (one line per
+flag or banned pair standing, and per line a requested obligation could not be judged
+on) and a count of notes. `get_operation` with `detail` (`findings`, `report`,
+`coverage`, `pronunciations` or `full`, optionally narrowed by `lines`) returns the
+rest of that verdict from the stored result. A read of an
 operation whose tool refused is not itself an error: it reports `tool_error: true`.
 `lyric_types` is a lookup and answers directly, without a session. The actual
 recipe and song text and grader qualifications remain the output authority. `completed` means the call

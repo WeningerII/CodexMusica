@@ -770,6 +770,12 @@ function publishedReport(text) {
   );
 }
 
+// WHAT STANDS: a flag, or a mandated pair on the two-tier ban. One
+// definition, read by the verdict's own `standing`/`banned` fields and by
+// the session's short verdict (verdict_view.js), so the two cannot differ.
+export const BAN_CODES = ['HOMEOTELEUTON', 'MODAL_RHYME'];
+export const isStanding = (f) => f.severity === 'flag' || BAN_CODES.includes(f.code);
+
 function verdictOf(r) {
   // Only the per-process authenticated record carries machine truth. The report
   // can quote arbitrary lyrics, including text that looks exactly like a stamp.
@@ -858,7 +864,7 @@ function verdictOf(r) {
     v.flags = findings.filter((f) => f.severity === 'flag' && f.locations?.length).length;
     v.whole_flags = findings.filter((f) => f.severity === 'flag' && !f.locations?.length).length;
     v.notes = findings.filter((f) => f.severity === 'note').length;
-    const banned = findings.filter((f) => ['HOMEOTELEUTON', 'MODAL_RHYME'].includes(f.code));
+    const banned = findings.filter((f) => BAN_CODES.includes(f.code));
     v.banned_pairs = banned.length;
     // `binding` is the grade's own record of WHERE each ban sits: the bound
     // word and the mandate's place for it on each line. A placed group bans
@@ -887,7 +893,7 @@ function verdictOf(r) {
     if (uncalibrated.length)
       v.structures_uncalibrated = uncalibrated.map((f) => f.message).join('; ');
     v.standing = findings
-      .filter((f) => f.severity === 'flag' || ['HOMEOTELEUTON', 'MODAL_RHYME'].includes(f.code))
+      .filter(isStanding)
       .map(
         (f) =>
           `${f.locations?.length ? f.locations.map((n) => 'L' + n).join('/') : 'WHOLE-DRAFT'}: ` +
@@ -3295,7 +3301,8 @@ export function lyricInstructions({ kitchen = false } = {}) {
     '"fixed". A verdict carrying structures_uncalibrated is the third thing to read: correctness IS graded for ' +
     'that declared structure and laziness is NOT; the two-tier ban is not asked of pairs judged under a declared ' +
     'structure — ban_not_asked lists them, and banned_pairs is null when no pair was asked. For unresolved ' +
-    'pronunciation, read pronunciation_options from grade/check, select the intended dictionary reading or ' +
+    'pronunciation, read pronunciation_options from grade/check (it lists the lines a refused obligation names; ' +
+    'total counts every ambiguous word), select the intended dictionary reading or ' +
     'supply ARPABET with an honest source in pronunciations, then regrade. Choices bind exact line text and ' +
     'token position, including every verbatim chorus return. Never choose phones just to pass a check. A ' +
     'revision can remove an original occurrence; its reading is retained as retired and never applied to ' +

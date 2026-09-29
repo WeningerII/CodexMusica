@@ -418,6 +418,139 @@ def test_finished_requires_a_paired_exact_receipt():
               run([assistant_record(raw_counterfeit)]) == 1)
 
 
+def session_records(text=CORRECT_STATED, *, queue_as="mcp__musica__lyric_revise",
+                    envelope_tool="lyric_revise", status="completed", op="op-1", read=None,
+                    saved=None):
+    """A connector session: lyric_revise queues an operation, get_operation reads it.
+
+    `saved` is (transcript_path, file_path, stated_length_or_None): the finished
+    envelope is written to file_path and the tool result is the client's notice.
+    """
+    finished = receipt_records(text)[1]["message"]["content"][0]["content"]
+    queued = {"operation_id": op, "status": "pending", "tool": "lyric_revise",
+              "retry_after_seconds": 5, "resumable": False}
+    envelope = {"operation_id": read or op, "status": status, "session_id": read or op,
+                "tool": envelope_tool, "resumable": False}
+    if status == "completed":
+        envelope["tool_result"] = {"content": finished}
+    body = json.dumps(envelope)
+    if saved:
+        _, file_path, stated = saved
+        with open(file_path, "w", encoding="utf-8") as fh:
+            fh.write(body)
+        body = (f"Error: result ({stated or len(body):,} characters) exceeds maximum "
+                f"allowed tokens. Output has been saved to {file_path}.\n"
+                "Format: JSON with schema: {operation_id: string}\n")
+    return [
+        {"type": "assistant", "message": {"role": "assistant", "content": [
+            {"type": "tool_use", "id": "queue", "name": queue_as, "input": {"session_id": "s"}}]}},
+        {"type": "user", "message": {"role": "user", "content": [
+            {"type": "tool_result", "tool_use_id": "queue", "content": json.dumps(queued)}]}},
+        {"type": "assistant", "message": {"role": "assistant", "content": [
+            {"type": "tool_use", "id": "read", "name": "mcp__musica__get_operation",
+             "input": {"operation_id": read or op}}]}},
+        {"type": "user", "message": {"role": "user", "content": [
+            {"type": "tool_result", "tool_use_id": "read", "content": body}]}}]
+
+
+def test_session_operations_and_saved_results():
+    print("\n11. a session's finished run arrives by get_operation, often saved to a file")
+    import contextlib, io
+    with tempfile.TemporaryDirectory() as td:
+        path = os.path.join(td, "session.jsonl")
+        spill = os.path.join(td, "session", "tool-results")
+        os.makedirs(spill)
+        elsewhere = os.path.join(td, "elsewhere.txt")
+        def run(records):
+            write_transcript(path, records)
+            with contextlib.redirect_stderr(io.StringIO()):
+                return C.main(["--transcript", path])
+        shown = [assistant_record(CORRECT_STATED)]
+        check("a completed operation that this transcript's lyric_revise queued passes",
+              run(session_records() + shown) == 0)
+        check("the same envelope saved to this session's tool-results file passes",
+              run(session_records(saved=(path, os.path.join(spill, "r.txt"), None)) + shown) == 0)
+        check("a saved file whose length is not the notice's count is refused",
+              run(session_records(saved=(path, os.path.join(spill, "r.txt"), 12)) + shown) == 1)
+        check("a notice naming a file outside this session's tool-results is refused",
+              run(session_records(saved=(path, elsewhere, None)) + shown) == 1)
+        check("an operation no lyric_revise call in this transcript queued is refused",
+              run(session_records(read="op-other") + shown) == 1)
+        check("an operation queued by another tool is not a revision",
+              run(session_records(queue_as="mcp__musica__lyric_grade") + shown) == 1)
+        check("an envelope naming another tool is not a revision receipt",
+              run(session_records(envelope_tool="lyric_grade") + shown) == 1)
+        check("a pending operation carries no receipt",
+              run(session_records(status="pending") + shown) == 1)
+        resumed = session_records()
+        resumed[2]["message"]["content"][0].update(
+            name="mcp__musica__resume_operation", input={"operation_id": "op-1"})
+        resumed[3]["message"]["content"][0]["content"] = json.dumps(
+            {"operation_id": "op-2", "status": "pending", "tool": "lyric_revise"})
+        later = session_records(op="op-2")[2:]
+        check("a run resumed from a queued operation continues under its new id",
+              run(resumed + later + shown) == 0)
+        stray = json.loads(json.dumps(resumed))
+        stray[2]["message"]["content"][0]["input"] = {"operation_id": "op-other"}
+        check("resuming an operation this transcript never queued adopts nothing",
+              run(stray + later + shown) == 1)
+        direct = receipt_records()
+        body = json.dumps(direct[1]["message"]["content"][0]["content"], indent=2)
+        with open(os.path.join(spill, "d.txt"), "w", encoding="utf-8") as fh:
+            fh.write(body)
+        direct[1]["message"]["content"][0]["content"] = (
+            f"Error: result ({len(body):,} characters) exceeds maximum allowed tokens. "
+            f"Output has been saved to {os.path.join(spill, 'd.txt')}.\nFormat: JSON\n")
+        check("a direct lyric_revise result saved to a file passes",
+              run(direct + shown) == 0)
+
+
+def short_records(text=CORRECT_STATED, *, tail="", overrides=None, digest_of=None):
+    """A session's finished revise: the song once in block 0, a SHORT verdict."""
+    verdict = {"exit_code": 0, "meaning": "finished", "measurement_status": "finished",
+               "certified": True, "status": "finished_clean", "loop_stop_reason": "SUCCESS",
+               "loop_rounds": 2, "loop_unresolved_lines": [], "loop_whole_flag_codes": [],
+               "banned_pairs": 0, "final_draft_sha256": "0" * 64,
+               "presentation_sha256": hashlib.sha256(
+                   (text if digest_of is None else digest_of).encode("utf-8")).hexdigest(),
+               "blocking": [], "notes": 12, "detail": "get_operation detail"}
+    verdict.update(overrides or {})
+    records = receipt_records(text)
+    records[1]["message"]["content"][0]["content"] = [
+        {"type": "text", "text": text + tail}, {"type": "text", "text": json.dumps(verdict)}]
+    return records
+
+
+def test_short_session_verdict():
+    print("\n12. a session's short verdict: the song once, checked against its digest")
+    import contextlib, io
+    with tempfile.TemporaryDirectory() as td:
+        path = os.path.join(td, "short.jsonl")
+        def run(records):
+            write_transcript(path, records)
+            with contextlib.redirect_stderr(io.StringIO()):
+                return C.main(["--transcript", path])
+        shown = [assistant_record(CORRECT_STATED)]
+        check("a short verdict whose digest matches block 0 certifies the finished song",
+              run(short_records() + shown) == 0)
+        check("block 0 may go on past the stamp; the presentation is read through the stamp",
+              run(short_records(tail="\n\nSTANDING AT THE STOP — none") + shown) == 0)
+        check("a song whose bytes differ from the digest is refused",
+              run(short_records(digest_of=CORRECT_STATED.replace("Freight", "Weight")) + shown) == 1)
+        check("exit 0 without the connector's finished_clean status is refused",
+              run(short_records(overrides={"status": "parked_open_lines"}) + shown) == 1)
+        check("exit 0 with an open line is refused",
+              run(short_records(overrides={"loop_unresolved_lines": [2]}) + shown) == 1)
+        check("a stamp that disagrees with the verdict's exit code is refused",
+              run(short_records(overrides={"exit_code": 3, "status": "stopped_with_open_lines"})
+                  + shown) == 1)
+        check("a short verdict with no digest is not a receipt",
+              run(short_records(overrides={"presentation_sha256": None}) + shown) == 1)
+        check("the presented text must still be the digest-checked presentation",
+              run(short_records() + [assistant_record(CORRECT_STATED.replace("Freight", "Weight"))])
+              == 1)
+
+
 def test_markdown_and_complete_stamps():
     print("\n10. visible Markdown headers and complete status grammar")
     for marker in ("**", "__"):
@@ -437,7 +570,8 @@ if __name__ == "__main__":
                test_the_escapes_and_the_floor, test_the_transcript_reader,
                test_the_mutation, test_the_hook_is_wired,
                test_the_operator_seam, test_graded_is_not_finished,
-               test_finished_requires_a_paired_exact_receipt, test_markdown_and_complete_stamps):
+               test_finished_requires_a_paired_exact_receipt, test_markdown_and_complete_stamps,
+               test_session_operations_and_saved_results, test_short_session_verdict):
         fn()
     print("=" * 70)
     if FAILURES:

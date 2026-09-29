@@ -143,6 +143,8 @@ def _finished_receipt(content):
         return None
     if not isinstance(verdict, dict):
         return None
+    if "presentation_text" not in verdict and "presentation_sha256" in verdict:
+        return _short_receipt(human["text"], verdict)
     draft, presentation = verdict.get("final_draft"), verdict.get("presentation_text")
     if (not isinstance(draft, list) or not draft
             or not all(isinstance(line, str) for line in draft)
@@ -166,20 +168,140 @@ def _finished_receipt(content):
             and not verdict["loop_unresolved_lines"]
             and verdict["loop_whole_flags"] == 0):
         return None
-    # The exact stamp must agree with the typed verdict; lyric-like stamps
-    # earlier in the artifact never become machine status.
+    return verdict if _stamp_agrees(presentation, verdict) else None
+
+
+def _stamp_agrees(presentation, verdict):
+    """The exact stamp must agree with the typed verdict; lyric-like stamps
+    earlier in the artifact never become machine status."""
     last_line = presentation.strip().splitlines()[-1].strip()
     if not STAMP_FINISHED.fullmatch(last_line):
+        return False
+    return bool(re.search(r"—\s*exit\s*%d\s*—\s*%s after " % (
+        verdict["exit_code"], re.escape(verdict["loop_stop_reason"])), last_line))
+
+
+def _short_receipt(human, verdict):
+    """A session's SHORT verdict (mcp/verdict_view.js, 2026-09-29).
+
+    On the session endpoints a finished revise publishes the song once, in
+    block 0, and a verdict without `presentation_text` or `final_draft`: it
+    carries `presentation_sha256`, the digest of the presentation block 0
+    opens with (block 0 may go on past the stamp with the standing findings
+    or a continue note). The presentation is recovered as block 0 through
+    its last finished stamp and must hash to that digest, so the song shown
+    is the song the verdict describes. `status` is the connector's own
+    certification (finished_clean only when coverage is certified and no
+    flag, whole-draft flag, open line or banned pair stands), so it stands
+    in for the coverage and loop fields the full verdict spells out.
+    """
+    if (type(verdict.get("exit_code")) is not int
+            or not isinstance(verdict.get("loop_stop_reason"), str)
+            or not isinstance(verdict.get("status"), str)
+            or not isinstance(verdict.get("presentation_sha256"), str)):
         return None
-    if not re.search(r"—\s*exit\s*%d\s*—\s*%s after " % (
-            verdict["exit_code"], re.escape(verdict["loop_stop_reason"])), last_line):
+    lines = human.splitlines(keepends=True)
+    ends = [i for i, line in enumerate(lines) if STAMP_FINISHED.fullmatch(line.strip())]
+    if not ends:
         return None
-    return verdict
+    prefix = "".join(lines[:ends[-1] + 1])
+    presentation = next((p for p in (prefix, prefix.rstrip("\r\n"))
+                         if hashlib.sha256(p.encode("utf-8")).hexdigest()
+                         == verdict["presentation_sha256"]), None)
+    if presentation is None:
+        return None
+    if verdict["exit_code"] == 0 and not (
+            verdict["status"] == "finished_clean"
+            and verdict.get("certified") is True
+            and verdict["loop_stop_reason"] == "SUCCESS"
+            and not verdict.get("loop_unresolved_lines")
+            and not verdict.get("loop_whole_flag_codes")):
+        return None
+    if not _stamp_agrees(presentation, verdict):
+        return None
+    return {**verdict, "presentation_text": presentation}
+
+
+#: What the client writes in place of a tool result too large to show inline
+#: (Claude Code: "Error: result (253,254 characters) exceeds maximum allowed
+#: tokens. Output has been saved to <path>."). The result itself is in the file.
+SAVED_RESULT = re.compile(
+    r"^Error: result \(([\d,]+) characters\) exceeds maximum allowed tokens\. "
+    r"Output has been saved to (\S+?)\.\n")
+
+
+def _saved_result(content, transcript):
+    """The result the client spilled to a file, or `content` unchanged.
+
+    ONLY THE CLIENT'S OWN SPILL, AND ONLY WHOLE (2026-09-29). A 56-line
+    revise was 253,254 characters; Claude Code saved it beside the transcript
+    and put this notice in the tool result, so no receipt was ever visible
+    here and a real finished song was refused. The file is read only when it
+    sits in THIS transcript's own `tool-results` directory and holds exactly
+    the character count the notice states, so a notice cannot point at an
+    arbitrary file and a file cannot be swapped for a different result.
+    """
+    text = content if isinstance(content, str) else None
+    if isinstance(content, list) and len(content) == 1 and isinstance(content[0], dict) \
+            and content[0].get("type") == "text":
+        text = content[0].get("text")
+    match = SAVED_RESULT.match(text) if isinstance(text, str) else None
+    if not match:
+        return content
+    saved = os.path.realpath(match.group(2))
+    spill = os.path.realpath(os.path.join(os.path.splitext(transcript)[0], "tool-results"))
+    if os.path.dirname(saved) != spill:
+        return None
+    try:
+        with open(saved, encoding="utf-8") as fh:
+            data = fh.read()
+    except OSError:
+        return None
+    return data if len(data) == int(match.group(1).replace(",", "")) else None
+
+
+def _json_of(content):
+    if isinstance(content, list) and len(content) == 1 and isinstance(content[0], dict) \
+            and content[0].get("type") == "text":
+        content = content[0].get("text")
+    if isinstance(content, str):
+        try:
+            return json.loads(content)
+        except (ValueError, TypeError):
+            return None
+    return content
+
+
+def _operation_id(content):
+    """The operation a session-mode lyric_revise call queued, if it queued one."""
+    env = _json_of(content)
+    if isinstance(env, dict) and env.get("tool") == "lyric_revise" \
+            and isinstance(env.get("operation_id"), str):
+        return env["operation_id"]
+    return None
+
+
+def _operation_result(content, queued):
+    """A completed lyric_revise operation, as get_operation returns it.
+
+    IN A CONNECTOR SESSION THE SONG NEVER COMES BACK FROM lyric_revise
+    (2026-09-29): that call returns an operation id at once, and the finished
+    result is read later with get_operation. The envelope names its tool, but
+    its word alone is not provenance: the operation must be one a lyric_revise
+    call in this transcript queued, and it must be completed.
+    """
+    env = _json_of(content)
+    if not isinstance(env, dict) or env.get("status") != "completed" \
+            or env.get("tool") != "lyric_revise" or env.get("operation_id") not in queued:
+        return None
+    result = env.get("tool_result")
+    return result if isinstance(result, dict) else None
 
 
 def transcript_presentation(path):
     """Latest nonempty assistant text and preceding, paired revision receipts."""
     out, pending, receipts, before_text = [], {}, [], []
+    queued = set()
     with open(path, encoding="utf-8", errors="replace") as fh:
         for raw in fh:
             try:
@@ -202,17 +324,39 @@ def transcript_presentation(path):
                         continue
                     name, identifier = block.get("name", ""), block.get("id")
                     if isinstance(name, str) and isinstance(identifier, str):
-                        pending[identifier] = name.split("__")[-1] == "lyric_revise"
+                        tool = name.split("__")[-1]
+                        kind = {"lyric_revise": "revise", "get_operation": "get",
+                                "resume_operation": "resume"}.get(tool)
+                        args = block.get("input")
+                        pending[identifier] = (kind, args if isinstance(args, dict) else {})
             elif rec.get("type") == "user" or msg.get("role") in ("user", "tool"):
                 for block in content if isinstance(content, list) else []:
                     if not isinstance(block, dict) or block.get("type") != "tool_result":
                         continue
                     identifier = block.get("tool_use_id")
-                    valid_call = pending.pop(identifier, False) if isinstance(identifier, str) else False
-                    if valid_call and not block.get("is_error"):
-                        receipt = _finished_receipt(block.get("content"))
-                        if receipt is not None:
-                            receipts.append(receipt)
+                    kind, args = pending.pop(identifier, (None, {})) \
+                        if isinstance(identifier, str) else (None, {})
+                    if not kind or block.get("is_error"):
+                        continue
+                    result = _saved_result(block.get("content"), path)
+                    env = _json_of(result)
+                    if kind == "revise":
+                        receipt = _finished_receipt(result)
+                        if receipt is None and _operation_id(result):
+                            queued.add(_operation_id(result))
+                    elif kind == "resume":
+                        # A resumed run continues under a NEW id; it is ours only
+                        # when the id resumed was one a lyric_revise queued.
+                        if args.get("operation_id") in queued and _operation_id(result):
+                            queued.add(_operation_id(result))
+                        receipt = _finished_receipt(_operation_result(result, queued))
+                    else:
+                        if isinstance(env, dict) and env.get("operation_id") in queued \
+                                and isinstance(env.get("successor_id"), str):
+                            queued.add(env["successor_id"])
+                        receipt = _finished_receipt(_operation_result(result, queued))
+                    if receipt is not None:
+                        receipts.append(receipt)
     return "\n".join(out), before_text
 
 
