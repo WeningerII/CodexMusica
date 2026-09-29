@@ -95,29 +95,81 @@ def declaration_coverage(rows, lines, *, original_lines=None):
             for i, row in enumerate(rows)]
 
 
-def reading_options(lex, lines):
-    """Bounded choices from the actual lexicon, not guessed POS labels."""
+def refused_lines(coverage):
+    """-> (lines, scoped): the 1-based lines a refused obligation names.
+
+    `scoped` is False when some refused obligation names no line (a
+    `function:` refusal, or an id this reader does not know), because then
+    no line can be ruled out. Formats, as the grader writes them:
+    `rhyme:I:J:K` and `return:I:J` name lines I and J; `prominence:LN` and
+    `meter:CODE:LN` name line N.
+    """
+    lines, scoped = set(), True
+    for oid in (coverage or {}).get('refused_obligations') or []:
+        parts = str(oid).split(':')
+        if parts[0] in ('rhyme', 'return') and len(parts) >= 3 \
+                and parts[1].isdigit() and parts[2].isdigit():
+            lines.update((int(parts[1]), int(parts[2])))
+        elif parts[0] in ('prominence', 'meter') and parts[-1][:1] == 'L' \
+                and parts[-1][1:].isdigit():
+            lines.add(int(parts[-1][1:]))
+        else:
+            scoped = False
+    return lines, scoped
+
+
+def reading_options(lex, lines, coverage=None):
+    """Bounded choices from the actual lexicon, not guessed POS labels.
+
+    With `coverage` (the grade's own), only occurrences on a line that a
+    REFUSED obligation names are listed. A reading choice can only matter
+    where the grader could not decide between readings, and that is exactly
+    what refuses an obligation: on a fully judged draft every reading gave
+    the same verdict. Listing every ambiguous token instead filled the list
+    with 'the', 'and' and 'a' (64 of 128 on a 56-line song) and let the cap
+    cut off the words that were actually refused. `total` still counts every
+    ambiguous occurrence; `scope` says which rule chose the listed ones.
+    Without `coverage` every ambiguous occurrence is eligible, as before.
+    """
     from lyric_harness import line_tokens, fold_apostrophes, syllabify
-    items, total = [], 0
+    if coverage is None:
+        wanted, scope = None, 'all'
+    else:
+        named, scoped = refused_lines(coverage)
+        if not (coverage.get('refused_obligations') or []):
+            wanted, scope = set(), 'no_refused_obligation'
+        elif scoped:
+            wanted, scope = named, 'refused_lines'
+        else:
+            wanted, scope = None, 'all'
+    items, total, eligible = [], 0, 0
     seen = set()
     for line in lines:
         if line in seen:
             continue
         seen.add(line)
+        matching = [i+1 for i, text in enumerate(lines) if text == line]
         for index, word in enumerate(line_tokens(line, strip_parens=lex.strip_parens)):
             prons = lex.entries.get(fold_apostrophes(word).lower(), [])
             distinct = sorted({tuple(p) for p in prons})
             if len(distinct) == 1:
                 continue
             total += 1
+            if wanted is not None and not wanted.intersection(matching):
+                continue
+            eligible += 1
             if len(items) < MAX_CHOICES:
                 items.append({'line': line, 'token': index+1, 'word': word,
-                    'matching_lines': [i+1 for i, text in enumerate(lines) if text == line],
+                    'matching_lines': matching,
                     'dictionary_readings': [{'phones': list(p),
                         'stress': [s['stress'] for s in syllabify(p)],
                         'syllables': len(syllabify(p))} for p in distinct],
                     'supplied_reading_requires_source': not bool(distinct)})
-    return {'items': items, 'total': total, 'truncated': total > len(items)}
+    out = {'items': items, 'total': total, 'truncated': eligible > len(items)}
+    if coverage is not None:
+        out['scope'] = scope
+        out['eligible'] = eligible
+    return out
 
 
 def for_member(lex, line, member, endpoint=-1):

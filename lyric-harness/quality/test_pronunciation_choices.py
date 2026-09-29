@@ -95,6 +95,40 @@ class PronunciationChoices(unittest.TestCase):
         self.assertEqual(record['matching_lines'], [1, 2])
         self.assertIn(NOUN, [r['phones'] for r in record['dictionary_readings']])
 
+    def test_options_are_scoped_to_lines_a_refused_obligation_names(self):
+        other = 'The wind was in the trees'
+        lines = [LINE, other, LINE]
+        full = P.reading_options(self.base, lines)
+        self.assertEqual(full['total'], len(full['items']))
+        self.assertIn('the', {row['word'].lower() for row in full['items']
+                              if row['line'] == other})
+        # Nothing refused: every reading gave the same verdict, so no choice
+        # can move one. Nothing is listed; the count of ambiguous words stays.
+        clean = P.reading_options(self.base, lines, {'refused_obligations': []})
+        self.assertEqual((clean['items'], clean['scope'], clean['eligible']),
+                         ([], 'no_refused_obligation', 0))
+        self.assertEqual(clean['total'], full['total'])
+        self.assertFalse(clean['truncated'])
+        # A refused rhyme names both its lines; a verbatim return of a named
+        # line is the same text and so the same choice.
+        rhyme = P.reading_options(self.base, lines, {'refused_obligations': ['rhyme:2:9:0']})
+        self.assertEqual(rhyme['scope'], 'refused_lines')
+        self.assertEqual({row['line'] for row in rhyme['items']}, {other})
+        self.assertEqual(rhyme['eligible'], len(rhyme['items']))
+        prom = P.reading_options(self.base, lines, {'refused_obligations': ['prominence:L3']})
+        self.assertEqual({row['line'] for row in prom['items']}, {LINE})
+        record = next(row for row in prom['items'] if row['word'] == 'record')
+        self.assertEqual(record['matching_lines'], [1, 3])
+        meter = P.reading_options(self.base, lines, {'refused_obligations': ['meter:SLOTS_EXCEEDED:L2']})
+        self.assertEqual({row['line'] for row in meter['items']}, {other})
+        # A refusal that names no line cannot rule any line out.
+        unscoped = P.reading_options(self.base, lines,
+                                     {'refused_obligations': ['rhyme:2:9:0', 'function:X:0']})
+        self.assertEqual((unscoped['scope'], unscoped['items']), ('all', full['items']))
+        self.assertEqual(P.refused_lines({'refused_obligations': ['return:4:36', 'prominence:L7']}),
+                         ({4, 36, 7}, True))
+        self.assertEqual(P.refused_lines(None), (set(), True))
+
     def test_invalid_declarations_refuse(self):
         bad = [dict(choice(), token=True), dict(choice(), token=2), dict(choice(), source=' '),
                dict(choice(), phones=['R', 'EH', 'K']), dict(choice(), phones=['R', 'K']),

@@ -770,6 +770,220 @@ function publishedReport(text) {
   );
 }
 
+// NOTES OF ONE CODE ARE PUBLISHED AS ONE ENTRY (2026-09-29). A 56-line grade
+// published 296,166 characters and its revise 253,254 — past what a client
+// shows inline, so Claude Code wrote both to a file and the model saw neither.
+// 163,000 of it was `findings`: 258 notes, 163 of them three per-line meter
+// notes (PROMINENCE_CANNOT_ALIGN, PROMINENCE_EXCEEDS_HEADS, CROWDED) that end
+// in the same paragraph, and 27 SCHEME_COLLISION notes with one identical
+// explanation. The report already rolls those up; the JSON did not.
+//
+// NOTHING IS DROPPED. Every note of a code that occurs more than once becomes
+// ONE entry: `count`, the union of `locations`, the code's most common
+// `message`, the text every one of its notes ENDS with as `evidence`, and one
+// `occurrences` row per note holding what is its own — its `locations`, its
+// `message` only where it differs, the `evidence` ahead of the shared end, and
+// any other field that is not an empty list. So each note is exactly
+//   { code, severity, message: row.message ?? entry.message,
+//     evidence: (row.evidence ?? '') + entry.evidence,
+//     locations: row.locations, <row's other fields; an absent list is []> }.
+// Flags, the two-tier bans and the unreadable/refused codes are never grouped:
+// they are what a caller acts on, and each must read whole where it stands.
+// The counts above (`flags`, `notes`, `banned`, `standing`) are taken from the
+// ungrouped list.
+const WHOLE_TEXT_CODE = /UNREADABLE|UNJUDGED|REFUSED/;
+const BAN_CODES = ['HOMEOTELEUTON', 'MODAL_RHYME'];
+const OCCURRENCE_OWN = new Set(['code', 'severity', 'message', 'evidence', 'locations']);
+
+function sharedTail(texts) {
+  let tail = texts[0];
+  for (const t of texts.slice(1)) {
+    let n = 0;
+    while (n < tail.length && n < t.length && tail[tail.length - 1 - n] === t[t.length - 1 - n])
+      n++;
+    tail = tail.slice(tail.length - n);
+    if (!tail) return '';
+  }
+  // Cut on a word boundary: no note may keep half a word ahead of the tail.
+  // A tail that starts with whitespace is already on one; otherwise every
+  // note must end its own text at whitespace (or have none). Each step moves
+  // the cut to the tail's first whitespace, which is past its first letter,
+  // so the loop always shortens the tail.
+  const onBoundary = (s) =>
+    /^\s/.test(s) ||
+    texts.every((t) => t.length === s.length || /\s/.test(t[t.length - s.length - 1]));
+  while (tail && !onBoundary(tail)) {
+    const at = tail.search(/\s/);
+    tail = at < 0 ? '' : tail.slice(at);
+  }
+  return tail;
+}
+
+function groupNotes(findings) {
+  const groups = new Map();
+  const order = [];
+  for (const f of findings) {
+    const whole =
+      f.severity !== 'note' || BAN_CODES.includes(f.code) || WHOLE_TEXT_CODE.test(f.code);
+    if (whole) {
+      order.push(f);
+      continue;
+    }
+    if (!groups.has(f.code)) {
+      groups.set(f.code, []);
+      order.push({ group: f.code });
+    }
+    groups.get(f.code).push(f);
+  }
+  return order.map((x) => {
+    if (!x.group) return x;
+    const notes = groups.get(x.group);
+    if (notes.length === 1) return notes[0];
+    const tally = new Map();
+    for (const n of notes) tally.set(n.message, (tally.get(n.message) || 0) + 1);
+    const message = [...tally].sort((a, b) => b[1] - a[1])[0][0];
+    const texts = notes.map((n) => n.evidence);
+    const evidence = texts.every((t) => typeof t === 'string' && t) ? sharedTail(texts) : '';
+    const locations = [...new Set(notes.flatMap((n) => n.locations || []))].sort((a, b) => a - b);
+    const occurrences = notes.map((n) => {
+      const row = { locations: n.locations || [] };
+      if (n.message !== message) row.message = n.message;
+      const own =
+        typeof n.evidence === 'string'
+          ? n.evidence.slice(0, n.evidence.length - evidence.length)
+          : n.evidence;
+      if (own !== '' && own !== undefined) row.evidence = own;
+      for (const [k, val] of Object.entries(n))
+        if (!OCCURRENCE_OWN.has(k) && !(Array.isArray(val) && val.length === 0)) row[k] = val;
+      return row;
+    });
+    return {
+      code: x.group,
+      severity: 'note',
+      count: notes.length,
+      message,
+      evidence,
+      locations,
+      occurrences,
+    };
+  });
+}
+
+// The inverse, stated as code so the rule above is testable rather than prose:
+// every grouped entry expands back to the engine's notes, in their order
+// within the code. Fields a note did not carry stay absent; the engine's
+// empty lists come back as [].
+const NOTE_LIST_FIELDS = ['groups', 'obligations', 'subject'];
+function expandNotes(findings) {
+  return findings.flatMap((f) =>
+    !Array.isArray(f.occurrences)
+      ? [f]
+      : f.occurrences.map((row) => {
+          const note = { code: f.code, severity: f.severity };
+          note.message = row.message ?? f.message;
+          note.evidence = (row.evidence ?? '') + f.evidence;
+          note.locations = row.locations;
+          for (const k of NOTE_LIST_FIELDS) note[k] = row[k] ?? [];
+          for (const [k, val] of Object.entries(row))
+            if (!['message', 'evidence', 'locations'].includes(k)) note[k] = val;
+          return note;
+        })
+  );
+}
+
+// The report is the engine's own text and it repeats long explanation lines
+// verbatim (one collision explanation, 27 times, on the song above). A line of
+// at least 120 characters that exactly repeats an earlier one keeps its
+// indentation and says so instead; the first occurrence is untouched.
+const REPEAT_LINE_MIN = 120;
+function collapseRepeatedLines(text) {
+  if (typeof text !== 'string') return text;
+  const seen = new Set();
+  return text
+    .split('\n')
+    .map((line) => {
+      const body = line.trim();
+      if (body.length < REPEAT_LINE_MIN) return line;
+      if (!seen.has(body)) {
+        seen.add(body);
+        return line;
+      }
+      return (
+        line.slice(0, line.length - line.trimStart().length) + '(the same explanation as above)'
+      );
+    })
+    .join('\n');
+}
+
+// THE REPORT, WHEN THE SAME FINDINGS ARE PUBLISHED AS DATA (2026-09-29). The
+// engine's report is written for a terminal and prints every finding in full
+// under THE EVIDENCE — on the 56-line grade, 48,495 characters of per-line
+// blocks and 12,339 of whole-draft notes, all of them also in `findings`. When
+// `findings` is published, a line block that holds only notes is left out and
+// so is a whole-draft note, each counted in one line that says where they are.
+// A block carrying a FLAG, a two-tier ban or an unreadable/refused code is
+// kept whole, so the text a caller acts on stays beside the song. The
+// COVERAGE line is the engine's JSON of the `coverage` field and is replaced
+// by a pointer to it. Everything else in the report is untouched.
+const ACTIONABLE_LINE =
+  /FINDING \[(?!NOTE\])|FINDING \[NOTE\] (?:HOMEOTELEUTON|MODAL_RHYME|[A-Z_]*(?:UNREADABLE|UNJUDGED|REFUSED)[A-Z_]*)\b/;
+function slimReport(text) {
+  if (typeof text !== 'string') return text;
+  const lines = text.split('\n');
+  const out = [];
+  let droppedBlocks = 0;
+  let pointerAt = -1;
+  for (let i = 0; i < lines.length; ) {
+    const line = lines[i];
+    if (/^ {2}COVERAGE: \{/.test(line)) {
+      out.push("  COVERAGE: the verdict's coverage field (the same object; not repeated here)");
+      i++;
+      continue;
+    }
+    if (/^ {2}L\d+: /.test(line)) {
+      let j = i + 1;
+      while (j < lines.length && /^ {4,}\S/.test(lines[j])) j++;
+      const block = lines.slice(i, j);
+      if (block.slice(1).some((l) => ACTIONABLE_LINE.test(l))) out.push(...block);
+      else {
+        if (pointerAt < 0) pointerAt = out.length;
+        droppedBlocks++;
+      }
+      i = j;
+      continue;
+    }
+    if (/^ {2}WHOLE DRAFT — /.test(line)) {
+      out.push(line);
+      let j = i + 1;
+      let droppedNotes = 0;
+      while (j < lines.length && /^ {4,}\S/.test(lines[j])) {
+        if (/^ {6}FINDING \[/.test(lines[j])) {
+          let k = j + 1;
+          while (k < lines.length && /^ {7,}\S/.test(lines[k])) k++;
+          if (ACTIONABLE_LINE.test(lines[j])) out.push(...lines.slice(j, k));
+          else droppedNotes++;
+          j = k;
+        } else out.push(lines[j++]);
+      }
+      if (droppedNotes)
+        out.push(
+          `      (${droppedNotes} whole-draft note(s) are in findings and are not repeated here)`
+        );
+      i = j;
+      continue;
+    }
+    out.push(line);
+    i++;
+  }
+  if (droppedBlocks)
+    out.splice(
+      pointerAt,
+      0,
+      `  (${droppedBlocks} line block(s) holding only notes are in findings and are not repeated here)`
+    );
+  return out.join('\n');
+}
+
 function verdictOf(r) {
   // Only the per-process authenticated record carries machine truth. The report
   // can quote arbitrary lyrics, including text that looks exactly like a stamp.
@@ -778,7 +992,7 @@ function verdictOf(r) {
     exit_code: r.code,
     meaning:
       EXIT_MEANING[r.code] || `subprocess failure (${r.code}): ${(r.stderr || '').slice(0, 400)}`,
-    report: publishedReport(r.stdout),
+    report: collapseRepeatedLines(publishedReport(r.stdout)),
     ...verificationEvidenceOf(r),
     ...resumeEvidenceOf(r),
   };
@@ -854,7 +1068,8 @@ function verdictOf(r) {
   v.findings_measured = measuredFindings;
   if (!measuredFindings) v.certified = false;
   if (measuredFindings) {
-    v.findings = findings;
+    v.findings = groupNotes(findings);
+    v.report = slimReport(v.report);
     v.flags = findings.filter((f) => f.severity === 'flag' && f.locations?.length).length;
     v.whole_flags = findings.filter((f) => f.severity === 'flag' && !f.locations?.length).length;
     v.notes = findings.filter((f) => f.severity === 'note').length;
@@ -1478,6 +1693,10 @@ export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
   publishedReport,
+  groupNotes,
+  expandNotes,
+  collapseRepeatedLines,
+  slimReport,
   verificationEvidenceOf,
   resumeEvidenceOf,
   extractProposerRecord,
@@ -2100,7 +2319,10 @@ export function registerLyricTools(server, tool) {
         'measured with coverage incomplete (flags may stand too) or refused with nothing measured (refusal names why). ' +
         'The stamp says which. banned_pairs above zero means the song is NOT finished: rewrite the banned word at the ' +
         'place binding names (screen replacements with lyric_screen) and grade again; other NOTES are measurements, not ' +
-        'defects. Revise the flagged and banned lines only and call again. ' +
+        'defects. Notes of one code that occur more than once are ONE findings entry: count, every location, the ' +
+        "shared message and the shared END of the evidence, and occurrences[] holding each note's own locations, " +
+        'its message where it differs and the evidence ahead of that shared end. ' +
+        'Revise the flagged and banned lines only and call again. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
     },
@@ -3295,7 +3517,8 @@ export function lyricInstructions({ kitchen = false } = {}) {
     '"fixed". A verdict carrying structures_uncalibrated is the third thing to read: correctness IS graded for ' +
     'that declared structure and laziness is NOT; the two-tier ban is not asked of pairs judged under a declared ' +
     'structure — ban_not_asked lists them, and banned_pairs is null when no pair was asked. For unresolved ' +
-    'pronunciation, read pronunciation_options from grade/check, select the intended dictionary reading or ' +
+    'pronunciation, read pronunciation_options from grade/check (it lists the lines a refused obligation names; ' +
+    'total counts every ambiguous word), select the intended dictionary reading or ' +
     'supply ARPABET with an honest source in pronunciations, then regrade. Choices bind exact line text and ' +
     'token position, including every verbatim chorus return. Never choose phones just to pass a check. A ' +
     'revision can remove an original occurrence; its reading is retained as retired and never applied to ' +

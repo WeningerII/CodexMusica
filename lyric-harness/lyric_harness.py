@@ -6297,8 +6297,10 @@ line is exact complete text; token is the 1-based sung word. Each choice applies
 to every verbatim repeat of the line, never to a changed line. basis=dictionary
 verifies the selected ARPABET phones against CMUdict; basis=declared accepts a
 supplied pronunciation with its caller-stated source. Grade/check results expose
-pronunciation_options. Choose the intended reading, regrade, then revise under
-the same choices. A changed declaration requires a new revision run.
+pronunciation_options for the lines a refused obligation names (every reading
+agreed everywhere else, so no other choice moves a verdict; `total` still
+counts every ambiguous word). Choose the intended reading, regrade, then revise
+under the same choices. A changed declaration requires a new revision run.
 
 --fallback=high|low, BEFORE any verb, on any command: opts every
 verb's Lexicon into quality/g2p.py's morphology/elision/compound layer for
@@ -11956,7 +11958,7 @@ def main():
                         "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
                         "final_draft": list(lines), "coverage": found["coverage"],
                         "pronunciations": lex.pronunciations,
-                        "pronunciation_options": reading_options(lex, lines),
+                        "pronunciation_options": reading_options(lex, lines, found["coverage"]),
                         "findings": _machine_findings,
                         "ban_scope": _ban_scope}
             print("  lyric result: " + json.dumps(_machine, ensure_ascii=False,
@@ -13242,7 +13244,7 @@ def main():
                     "accepted_lines": list(result.lines),
                     "final_draft": list(result.lines), "coverage": _coverage,
                     "pronunciations": lex.pronunciations,
-                    "pronunciation_options": reading_options(lex, result.lines),
+                    "pronunciation_options": reading_options(lex, result.lines, _coverage),
                     "stop": result.stop_reason, "stop_reason": result.stop_reason.upper(),
                     "rounds": len(result.rounds), "unresolved_lines": _open,
                     "whole_flags": _whole_codes,

@@ -177,9 +177,86 @@ def _finished_receipt(content):
     return verdict
 
 
+#: What the client writes in place of a tool result too large to show inline
+#: (Claude Code: "Error: result (253,254 characters) exceeds maximum allowed
+#: tokens. Output has been saved to <path>."). The result itself is in the file.
+SAVED_RESULT = re.compile(
+    r"^Error: result \(([\d,]+) characters\) exceeds maximum allowed tokens\. "
+    r"Output has been saved to (\S+?)\.\n")
+
+
+def _saved_result(content, transcript):
+    """The result the client spilled to a file, or `content` unchanged.
+
+    ONLY THE CLIENT'S OWN SPILL, AND ONLY WHOLE (2026-09-29). A 56-line
+    revise was 253,254 characters; Claude Code saved it beside the transcript
+    and put this notice in the tool result, so no receipt was ever visible
+    here and a real finished song was refused. The file is read only when it
+    sits in THIS transcript's own `tool-results` directory and holds exactly
+    the character count the notice states, so a notice cannot point at an
+    arbitrary file and a file cannot be swapped for a different result.
+    """
+    text = content if isinstance(content, str) else None
+    if isinstance(content, list) and len(content) == 1 and isinstance(content[0], dict) \
+            and content[0].get("type") == "text":
+        text = content[0].get("text")
+    match = SAVED_RESULT.match(text) if isinstance(text, str) else None
+    if not match:
+        return content
+    saved = os.path.realpath(match.group(2))
+    spill = os.path.realpath(os.path.join(os.path.splitext(transcript)[0], "tool-results"))
+    if os.path.dirname(saved) != spill:
+        return None
+    try:
+        with open(saved, encoding="utf-8") as fh:
+            data = fh.read()
+    except OSError:
+        return None
+    return data if len(data) == int(match.group(1).replace(",", "")) else None
+
+
+def _json_of(content):
+    if isinstance(content, list) and len(content) == 1 and isinstance(content[0], dict) \
+            and content[0].get("type") == "text":
+        content = content[0].get("text")
+    if isinstance(content, str):
+        try:
+            return json.loads(content)
+        except (ValueError, TypeError):
+            return None
+    return content
+
+
+def _operation_id(content):
+    """The operation a session-mode lyric_revise call queued, if it queued one."""
+    env = _json_of(content)
+    if isinstance(env, dict) and env.get("tool") == "lyric_revise" \
+            and isinstance(env.get("operation_id"), str):
+        return env["operation_id"]
+    return None
+
+
+def _operation_result(content, queued):
+    """A completed lyric_revise operation, as get_operation returns it.
+
+    IN A CONNECTOR SESSION THE SONG NEVER COMES BACK FROM lyric_revise
+    (2026-09-29): that call returns an operation id at once, and the finished
+    result is read later with get_operation. The envelope names its tool, but
+    its word alone is not provenance: the operation must be one a lyric_revise
+    call in this transcript queued, and it must be completed.
+    """
+    env = _json_of(content)
+    if not isinstance(env, dict) or env.get("status") != "completed" \
+            or env.get("tool") != "lyric_revise" or env.get("operation_id") not in queued:
+        return None
+    result = env.get("tool_result")
+    return result if isinstance(result, dict) else None
+
+
 def transcript_presentation(path):
     """Latest nonempty assistant text and preceding, paired revision receipts."""
     out, pending, receipts, before_text = [], {}, [], []
+    queued = set()
     with open(path, encoding="utf-8", errors="replace") as fh:
         for raw in fh:
             try:
@@ -202,17 +279,39 @@ def transcript_presentation(path):
                         continue
                     name, identifier = block.get("name", ""), block.get("id")
                     if isinstance(name, str) and isinstance(identifier, str):
-                        pending[identifier] = name.split("__")[-1] == "lyric_revise"
+                        tool = name.split("__")[-1]
+                        kind = {"lyric_revise": "revise", "get_operation": "get",
+                                "resume_operation": "resume"}.get(tool)
+                        args = block.get("input")
+                        pending[identifier] = (kind, args if isinstance(args, dict) else {})
             elif rec.get("type") == "user" or msg.get("role") in ("user", "tool"):
                 for block in content if isinstance(content, list) else []:
                     if not isinstance(block, dict) or block.get("type") != "tool_result":
                         continue
                     identifier = block.get("tool_use_id")
-                    valid_call = pending.pop(identifier, False) if isinstance(identifier, str) else False
-                    if valid_call and not block.get("is_error"):
-                        receipt = _finished_receipt(block.get("content"))
-                        if receipt is not None:
-                            receipts.append(receipt)
+                    kind, args = pending.pop(identifier, (None, {})) \
+                        if isinstance(identifier, str) else (None, {})
+                    if not kind or block.get("is_error"):
+                        continue
+                    result = _saved_result(block.get("content"), path)
+                    env = _json_of(result)
+                    if kind == "revise":
+                        receipt = _finished_receipt(result)
+                        if receipt is None and _operation_id(result):
+                            queued.add(_operation_id(result))
+                    elif kind == "resume":
+                        # A resumed run continues under a NEW id; it is ours only
+                        # when the id resumed was one a lyric_revise queued.
+                        if args.get("operation_id") in queued and _operation_id(result):
+                            queued.add(_operation_id(result))
+                        receipt = _finished_receipt(_operation_result(result, queued))
+                    else:
+                        if isinstance(env, dict) and env.get("operation_id") in queued \
+                                and isinstance(env.get("successor_id"), str):
+                            queued.add(env["successor_id"])
+                        receipt = _finished_receipt(_operation_result(result, queued))
+                    if receipt is not None:
+                        receipts.append(receipt)
     return "\n".join(out), before_text
 
 
