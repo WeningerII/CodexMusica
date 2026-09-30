@@ -111,7 +111,8 @@
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_walking"
+          "bass_technique": "fingerstyle_walking",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 16.867499999999996,
@@ -120,7 +121,8 @@
           "string_type": 32.0125,
           "scale_length_b": 0.78,
           "fretted_or_not": 0.09,
-          "bass_technique": 24.910000000000004
+          "bass_technique": 24.910000000000004,
+          "electric_bass_string_configuration": 0
         }
       },
       {

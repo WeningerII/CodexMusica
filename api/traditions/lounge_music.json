@@ -18,12 +18,14 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "vibe_motor": "vibe_slow",
-          "vibe_mallets": "vibe_soft_mallets"
+          "vibe_mallets": "vibe_soft_mallets",
+          "vibe_bar_material": "vibe_bar_material_unspecified"
         },
         "scores": {
           "percussion_technique": 0.75,
           "vibe_motor": 11.10875,
-          "vibe_mallets": 10.5
+          "vibe_mallets": 10.5,
+          "vibe_bar_material": 0
         }
       },
       {

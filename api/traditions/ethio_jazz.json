@@ -57,12 +57,14 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "vibe_motor": "vibe_slow",
-          "vibe_mallets": "vibe_soft_mallets"
+          "vibe_mallets": "vibe_soft_mallets",
+          "vibe_bar_material": "vibe_bar_material_unspecified"
         },
         "scores": {
           "percussion_technique": -0.05,
           "vibe_motor": 15.769999999999998,
-          "vibe_mallets": 13.249999999999996
+          "vibe_mallets": 13.249999999999996,
+          "vibe_bar_material": 0
         }
       },
       {
@@ -185,7 +187,8 @@
           "string_type": "flatwound",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_walking"
+          "bass_technique": "fingerstyle_walking",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 7.170000000000001,
@@ -194,7 +197,8 @@
           "string_type": 14.299999999999997,
           "scale_length_b": 1.04,
           "fretted_or_not": 0.585,
-          "bass_technique": 13.249999999999996
+          "bass_technique": 13.249999999999996,
+          "electric_bass_string_configuration": 0
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Swedish country includes local country-song performers and crossover ensembles. First Aid Kit’s country-oriented harmony singing and band records supply one contemporary branch.",
   "recipe": "classic modern swedish country, functional Song, country branch. thick, wide pitch sway, neutral third half flat, nasal twang velar port open. singing indian rosewood rosewood acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup electric bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 497,
-  "score": 154.773,
+  "score": 159.173,
   "config": {
     "traditions": [
       "swedish_country"
@@ -15,7 +15,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "opera_voice",
+          "voice_quality": "speech_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
@@ -32,22 +32,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 13.249999999999995,
-          "voice_quality": 0.0315,
+          "voice_register": 13.312999999999995,
+          "voice_quality": 0.22049999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 13.7,
           "voice_articulation": -0.14,
           "voice_microtone": 3.380000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.183,
-          "voice_estill_quality": 13.80675,
+          "voice_mechanism_compound": 0.44099999999999995,
+          "voice_estill_quality": 14.017499999999998,
           "voice_speech_song": 6.825,
-          "voice_ensemble_config": 0.05025,
-          "voice_ornament_system": 0.02625,
-          "voice_pitch_organization": 0.17250000000000001,
+          "voice_ensemble_config": 0.063,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.19500000000000003,
           "voice_processing_chain": 1.885,
-          "voice_multitrack_stack": 1.45975
+          "voice_multitrack_stack": 1.6465
         }
       },
       {
@@ -60,10 +60,10 @@
           "acoustic_om_technique": "om_strummed_open"
         },
         "scores": {
-          "string_tuning": 0.2225,
+          "string_tuning": 0.26,
           "top_wood": 0,
-          "back_sides": 1.453625,
-          "string_acoustic": 0.645,
+          "back_sides": 1.586,
+          "string_acoustic": 0.7575,
           "acoustic_om_technique": -0.035
         }
       },
@@ -80,14 +80,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 14.844999999999999,
-          "amp_make": 13.730874999999997,
+          "electric_technique": 14.9575,
+          "amp_make": 13.686499999999997,
           "pickup_steel": 0.0315,
           "string_setup": 7.15,
-          "bar_material": 1.503625,
-          "pedal_steel_brand": 13.855,
-          "pedal_steel_neck_config": 15.934000000000001,
-          "pedal_steel_strings": 14.1775
+          "bar_material": 1.6360000000000001,
+          "pedal_steel_brand": 14.128,
+          "pedal_steel_neck_config": 18.029500000000002,
+          "pedal_steel_strings": 14.365
         }
       },
       {
@@ -99,16 +99,18 @@
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.749374999999999,
-          "body_wood": 0,
-          "pickup_config": 0.105,
-          "string_type": 0.645,
-          "scale_length_b": 0.0315,
-          "fretted_or_not": 1.503625,
-          "bass_technique": -0.15000000000000002
+          "amp_make": 13.705,
+          "body_wood": 0.0315,
+          "pickup_config": 0.1995,
+          "string_type": 0.78,
+          "scale_length_b": 0.126,
+          "fretted_or_not": 1.6675,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -119,7 +121,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.28,
+          "drum_technique": 0.25,
           "drumhead": 0.39,
           "drum_kit_kick_pedal": 0
         }

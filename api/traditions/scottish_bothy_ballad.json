@@ -76,14 +76,16 @@
           "fiddle_strings": "gut_wound",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "practice_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 8.92,
           "fiddle_strings": 0.050624999999999996,
           "fiddle_bow": 2.2750000000000004,
           "fiddle_mute": 0.8225,
-          "fiddle_articulation": 0.585
+          "fiddle_articulation": 0.585,
+          "fiddle_string_configuration": 0
         }
       }
     ],

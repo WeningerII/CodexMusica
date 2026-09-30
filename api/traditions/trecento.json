@@ -3,14 +3,14 @@
   "name": "Italian Trecento Polyphony",
   "family": "classical",
   "lineage": "Fourteenth-century Italian secular polyphony centred on Florence, Bologna and Padua and codified by Jacopo da Bologna, Francesco Landini, Gherardello and Niccolò da Perugia in the Squarcialupi Codex — two- and three-voice madrigals, cacce and ballate in Italian mensural notation with divisiones, long florid melismatic upper-voice openings and closes, cantabile stepwise motion, canonic hunting cacce, and the under-third Landini cadence.",
-  "recipe": "classic European early-1950s italian trecento polyphony, art Music, western early branch, western common practice art music, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony salon music. thick, breath veiled tone, slow rate, interlocked note trading. gut bourdon drone legato vielle medieval, high treble single line block chord portative organ, ayre and lieder yew ribs Italian brescian alpine spruce Italian pistoy bass gut lute renaissance, medieval psaltery, boxwood canonical renaissance Baroque continuous-airflow legato recorder, harpa. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 658,
-  "score": 314.897,
+  "recipe": "classic European early-1950s italian trecento polyphony, art Music, western early branch, western common practice art music, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony italian bass. thick, breath veiled tone, slow rate, interlocked note trading. gut bourdon drone legato vielle medieval, high treble single line portative organ, ayre and lieder yew ribs Italian brescian alpine spruce Italian pistoy bass gut lute renaissance, medieval psaltery, boxwood canonical renaissance Baroque continuous-airflow legato recorder, harpa. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 647,
+  "score": 334.883,
   "config": {
     "traditions": [
       "trecento",
       "croatian_klapa_dalmatian",
-      "salon_music"
+      "italian_bass"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "operatic_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 2.92375,
-          "voice_quality": 18.069999999999993,
+          "voice_register": 3.7487499999999994,
+          "voice_quality": 18.784999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.182499999999999,
-          "voice_articulation": 29.119999999999997,
-          "voice_microtone": 29.512499999999996,
-          "voice_tradition": 16.686249999999998,
-          "voice_mechanism_compound": 7.433750000000001,
-          "voice_estill_quality": 14.084999999999999,
-          "voice_speech_song": 26.455000000000002,
-          "voice_ensemble_config": 35.364999999999995,
-          "voice_ornament_system": 13.575,
-          "voice_pitch_organization": 5.2749999999999995,
-          "voice_processing_chain": 5.654999999999999,
-          "voice_multitrack_stack": 3.7700000000000005
+          "voice_vibrato": 9.489999999999998,
+          "voice_articulation": 25.935000000000002,
+          "voice_microtone": 27.364999999999995,
+          "voice_tradition": 21.9515,
+          "voice_mechanism_compound": 6.899999999999999,
+          "voice_estill_quality": 21.41675,
+          "voice_speech_song": 22.620000000000005,
+          "voice_ensemble_config": 33.531000000000006,
+          "voice_ornament_system": 19.25,
+          "voice_pitch_organization": 6.8999999999999995,
+          "voice_processing_chain": 4.662,
+          "voice_multitrack_stack": 3.4949999999999997
         }
       },
       {
@@ -61,10 +61,10 @@
           "vielle_medieval_stringing": "vielle_medieval_bourdon_gut"
         },
         "scores": {
-          "bowed_technique": 5.375,
-          "vielle_medieval_form": 0.99875,
-          "vielle_medieval_repertoire": 1.3900000000000001,
-          "vielle_medieval_stringing": 3.3400000000000003
+          "bowed_technique": 7.199499999999999,
+          "vielle_medieval_form": 0.845,
+          "vielle_medieval_repertoire": 1.5895,
+          "vielle_medieval_stringing": 3.145
         }
       },
       {
@@ -76,7 +76,7 @@
           "portative_organ_pipework": "portative_organ_pipework_metal"
         },
         "scores": {
-          "keyboard_technique": 3.4075,
+          "keyboard_technique": 2.7125000000000004,
           "portative_organ_form": 7.145,
           "portative_organ_repertoire": 5.745,
           "portative_organ_pipework": 0.4
@@ -93,12 +93,12 @@
           "lute_renaissance_strings": "lute_pistoy_bass_gut"
         },
         "scores": {
-          "plucked_traditional_technique": 5.375,
-          "lute_courses": 2.085,
-          "lute_renaissance_context": 24.960000000000004,
-          "lute_renaissance_ribs": 5.339999999999999,
-          "lute_renaissance_soundboard": 5.339999999999999,
-          "lute_renaissance_strings": 3.985
+          "plucked_traditional_technique": 7.199499999999999,
+          "lute_courses": 4.43025,
+          "lute_renaissance_context": 22.620000000000008,
+          "lute_renaissance_ribs": 6.4085,
+          "lute_renaissance_soundboard": 6.4085,
+          "lute_renaissance_strings": 6.33025
         }
       },
       {
@@ -123,10 +123,10 @@
           "recorder_body_wood": "recorder_boxwood_canonical"
         },
         "scores": {
-          "wind_articulation": 5.5649999999999995,
-          "recorder_size": 4.095,
-          "recorder_context": 11.05,
-          "recorder_body_wood": 2.145
+          "wind_articulation": 7.1899999999999995,
+          "recorder_size": 4.484999999999999,
+          "recorder_context": 9.555,
+          "recorder_body_wood": 2.04
         }
       },
       {

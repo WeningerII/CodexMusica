@@ -5,7 +5,7 @@
   "lineage": "Brazilian metal practice documented by Angra’s own musicians, with this entry selecting the heavy metal branch rather than treating all national metal as one sound.",
   "recipe": "classic modern brazilian heavy metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment. modern metal basswood humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 425,
-  "score": 29.836,
+  "score": 29.933,
   "config": {
     "traditions": [
       "brazilian_heavy_metal"
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 0.7875,
           "finish": 0.105,
-          "string_tuning": 0.3045
+          "string_tuning": 0.34725
         }
       },
       {
@@ -53,16 +53,18 @@
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
           "body_wood": 1.155,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
-          "bass_technique": 3.7
+          "scale_length_b": 0.34725,
+          "fretted_or_not": 0.17925000000000002,
+          "bass_technique": 3.7,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -104,7 +106,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.063,
+          "voice_articulation": 0.0315,
           "voice_microtone": 3.8315000000000006,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,

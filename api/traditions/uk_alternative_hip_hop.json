@@ -61,7 +61,8 @@
           "string_type": "flatwound",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 16.04,
@@ -70,7 +71,8 @@
           "string_type": 1.2449999999999999,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.32999999999999996,
-          "bass_technique": 10.95
+          "bass_technique": 10.95,
+          "electric_bass_string_configuration": 0
         }
       },
       {

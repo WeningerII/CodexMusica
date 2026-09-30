@@ -3,14 +3,14 @@
   "name": "Turkish Pop",
   "family": "pop",
   "lineage": "Türk pop müziği, running from the 1960s aranjman craze of foreign melodies with Turkish lyrics through Sezen Aksu's songwriting school and the 1990s Tarkan-era boom — 95-130 BPM verse-chorus songs with darbuka and programmed kit under Western pop harmony, bağlama or kanun countermelodies, synth pads and horn stabs, and a melismatic, makam-inflected but tempered lead vocal.",
-  "recipe": "classic Middle Eastern mid-1960s turkish pop, functional Song, mid east n African pop branch, europop functional song, regional distorted rock rock en español balkan pop. thick, breath veiled tone, slow rate, interlocked note trading. makam correct steel canonical modern strummed saz baglama, brass warmer alternative goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, kanun tortoiseshell traditional kanun, lead plus dense cluster 5 part stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 956,
-  "score": 386.205,
+  "recipe": "classic Middle Eastern mid-1960s turkish pop, functional Song, mid east n African pop branch, europop functional song, regional distorted rock balkan pop chasidic pop. thick, breath veiled tone, slow rate, interlocked note trading. makam correct steel canonical modern strummed saz baglama, brass warmer alternative goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, alder pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, kanun tortoiseshell traditional kanun, lead plus dense cluster 5 part stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 952,
+  "score": 346.78,
   "config": {
     "traditions": [
       "turkish_pop",
-      "rock_en_espanol",
-      "balkan_pop"
+      "balkan_pop",
+      "chasidic_pop"
     ],
     "instruments": [
       {
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 36.79500000000003,
-          "voice_quality": 9.879999999999999,
+          "voice_register": 27.794999999999995,
+          "voice_quality": 11.374999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.275,
-          "voice_articulation": 20.929999999999996,
-          "voice_microtone": 37.500000000000014,
-          "voice_tradition": 24.555000000000003,
-          "voice_mechanism_compound": 5.069999999999999,
-          "voice_estill_quality": 4.65,
-          "voice_speech_song": 26.649999999999995,
+          "voice_articulation": 20.279999999999998,
+          "voice_microtone": 29.44499999999999,
+          "voice_tradition": 27.23,
+          "voice_mechanism_compound": 5.720000000000001,
+          "voice_estill_quality": 5.15,
+          "voice_speech_song": 26.714999999999996,
           "voice_ensemble_config": 22.099999999999994,
           "voice_ornament_system": 1.7549999999999994,
           "voice_pitch_organization": 7.749999999999999,
-          "voice_processing_chain": 5.005000000000001,
-          "voice_multitrack_stack": 7.442500000000001
+          "voice_processing_chain": 6.240000000000001,
+          "voice_multitrack_stack": 10.205
         }
       },
       {
@@ -63,10 +63,10 @@
           "saz_tradition": "saz_modern_concert"
         },
         "scores": {
-          "plucked_traditional_technique": 4.615,
+          "plucked_traditional_technique": 4.42,
           "saz_size": 1.04,
           "saz_frets": 1.3,
-          "saz_body_wood": 0.65,
+          "saz_body_wood": 0.585,
           "saz_strings": 1.1250000000000002,
           "saz_tradition": 0.54
         }
@@ -80,9 +80,9 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 2.945,
+          "percussion_technique": 0.895,
           "darbuka_material": 1.04,
-          "darbuka_skin": 5.935,
+          "darbuka_skin": 5.185,
           "darbuka_regional_style": 3.9
         }
       },
@@ -95,8 +95,8 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 22.77,
-          "poly_archetypes": 6.855000000000002,
+          "electronic_technique": 24.645,
+          "poly_archetypes": 1.3,
           "poly_voices": 0.135,
           "poly_maker_lineage": 1.2349999999999999
         }
@@ -104,22 +104,24 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.730000000000002,
-          "body_wood": 2.04,
-          "pickup_config": 0.345,
-          "string_type": 14.715000000000003,
+          "amp_make": 1.6899999999999997,
+          "body_wood": 2.54,
+          "pickup_config": 0.65,
+          "string_type": 3.9650000000000003,
           "scale_length_b": 1.935,
           "fretted_or_not": 0.195,
-          "bass_technique": 15.500000000000004
+          "bass_technique": 2.45,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -130,8 +132,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.994999999999997,
-          "drumhead": 20.724999999999998,
+          "drum_technique": 20.54,
+          "drumhead": 23.099999999999994,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -156,9 +158,9 @@
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 2.885,
-          "multitrack_stack_era_aesthetic": 11.3425,
-          "multitrack_stack_processing": 1.59
+          "multitrack_stack_density": 2.34,
+          "multitrack_stack_era_aesthetic": 14.214999999999998,
+          "multitrack_stack_processing": 1.24
         }
       }
     ],

@@ -113,7 +113,8 @@
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerpicked_country_b"
+          "bass_technique": "fingerpicked_country_b",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 12.134999999999998,
@@ -122,7 +123,8 @@
           "string_type": 0.39,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.0315,
-          "bass_technique": 11.374249999999998
+          "bass_technique": 11.374249999999998,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -145,14 +147,16 @@
           "fiddle_strings": "steel_core",
           "fiddle_bow": "dark_rosin",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 11.599999999999998,
           "fiddle_strings": 0.39,
           "fiddle_bow": 0.30550000000000005,
           "fiddle_mute": 0.32612500000000005,
-          "fiddle_articulation": 0.343625
+          "fiddle_articulation": 0.343625,
+          "fiddle_string_configuration": 0
         }
       }
     ],

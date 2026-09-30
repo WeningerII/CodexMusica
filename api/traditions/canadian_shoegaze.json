@@ -1,0 +1,243 @@
+{
+  "id": "canadian_shoegaze",
+  "name": "Canadian shoegaze",
+  "family": "rock_punk",
+  "lineage": "A Canadian atmospheric-guitar discovery label, represented here by the Montreal-based Besnard Lakes’ studio-built shoegaze/psychedelic branch around The Besnard Lakes Are the Roaring Night. Sustained electric guitar, bass, drums, lead singing and a guest Omnichord texture supply a documented palette.",
+  "recipe": "classic modern canadian shoegaze, distorted Rock, alternative branch. one note per syllable, single lead single track no stacking. single coil electric guitar, atmospheric production texture omnichord, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, American blackface tube, parametric EQ. 24-bit digital tape echo spring reverb.",
+  "recipe_chars": 470,
+  "score": 23.36,
+  "config": {
+    "traditions": [
+      "canadian_shoegaze"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_electromagnetic_bow",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 0.6555,
+          "amp_make": 1.8199999999999998,
+          "body_wood": 0.446625,
+          "neck_wood": 0.341625,
+          "fretboard": 0.173625,
+          "pickup_magnet": 0,
+          "string_material": 0.141,
+          "string_gauge": 0.341625,
+          "bridge": 0.173625,
+          "scale_length": 0.6832500000000001,
+          "finish": 0,
+          "string_tuning": 1.95
+        }
+      },
+      {
+        "id": "omnichord",
+        "slots": {
+          "omnichord_model": "omnichord_om27",
+          "omnichord_context": "omnichord_ambient_pad",
+          "omnichord_sound_setting": "omnichord_sonic_strings"
+        },
+        "scores": {
+          "omnichord_model": -0.1,
+          "omnichord_context": 2.9517499999999997,
+          "omnichord_sound_setting": 0.2415
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 3.185,
+          "body_wood": 0.446625,
+          "pickup_config": 0.1365,
+          "string_type": 0,
+          "scale_length_b": 0.34725,
+          "fretted_or_not": 1.036,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "cymbal_alloy": "b20"
+        },
+        "scores": {
+          "drum_technique": 3.75,
+          "drumhead": 0.415125,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.278625,
+          "cymbal_alloy": -0.2
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "falsetto",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.168,
+          "voice_multitrack_stack": 2.046625
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "body_wood",
+        "pickup_magnet",
+        "string_material"
+      ],
+      "omnichord": [
+        "omnichord_model",
+        "omnichord_context",
+        "omnichord_sound_setting"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "string_type",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "shell_wood",
+        "drumhead",
+        "cymbal_alloy"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "tape_echo",
+      "spring_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "voice_register": "falsetto",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "electric_technique": "electric_electromagnetic_bow",
+      "body_wood": "alder",
+      "string_material": "nickel_plated",
+      "pickup_magnet": "alnico_5",
+      "omnichord_model": "omnichord_om27",
+      "omnichord_context": "omnichord_ambient_pad",
+      "omnichord_sound_setting": "omnichord_sonic_strings",
+      "bass_technique": "fingerstyle_locked",
+      "string_type": "roundwound_n",
+      "shell_wood": "maple_shell",
+      "drumhead": "double_coated",
+      "cymbal_alloy": "b20"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "tape_echo",
+      "spring_reverb"
+    ],
+    "chain_amp": "amp_american_blackface"
+  }
+}

@@ -3,9 +3,9 @@
   "name": "Neoclassical Metal",
   "family": "rock",
   "lineage": "Shred-guitar idiom codified by Yngwie Malmsteen's Rising Force (1984) after Ritchie Blackmore and Uli Jon Roth, and carried on by Tony MacAlpine, Jason Becker and Symphony X — harmonic-minor and Phrygian-dominant scalar runs, diminished-seventh sequences and pedal-point arpeggio sweeps modeled on Paganini and Bach, fast 4/4 or 6/8 double-kick backing, prominent Hammond or string-synth continuo, and a high operatic clean tenor over baroque chord cycles.",
-  "recipe": "classic North American mid-1980s neoclassical metal, distorted Rock, power branch, prog metal, classic distorted rock, western common practice art music ostrock atlanta metal. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp basswood ebony alnico humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ, norway spruce European alpine hard rock maple acer saccharum cremonese post 1740 violin orchestral, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ.",
-  "recipe_chars": 976,
-  "score": 455.383,
+  "recipe": "classic North American mid-1980s neoclassical metal, distorted Rock, power branch, prog metal, classic distorted rock, western common practice art music ostrock atlanta metal. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp basswood ebony alnico humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ, norway spruce European alpine hard rock maple acer saccharum cremonese post 1740 violin orchestral, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ.",
+  "recipe_chars": 973,
+  "score": 454.588,
   "config": {
     "traditions": [
       "neoclassical_metal",
@@ -34,14 +34,14 @@
           "electric_technique": 26.544999999999998,
           "amp_make": 10.335,
           "body_wood": 7.93,
-          "neck_wood": 0.7350000000000001,
+          "neck_wood": 0.54,
           "fretboard": 1.045,
           "pickup_magnet": 1.18,
           "pickup_winding": 1.885,
-          "string_material": 0.37499999999999994,
+          "string_material": 0.42,
           "bridge": 1.5450000000000002,
           "scale_length": 7.93,
-          "string_gauge": 0.7350000000000001,
+          "string_gauge": 0.54,
           "finish": 0.435,
           "string_tuning": 22.035000000000004
         }
@@ -50,21 +50,23 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 11.895,
-          "body_wood": 1.4700000000000002,
+          "body_wood": 1.3,
           "pickup_config": 1,
           "string_type": 26.1625,
-          "scale_length_b": 0.7350000000000001,
+          "scale_length_b": 0.54,
           "fretted_or_not": 0.65,
-          "bass_technique": 21.555000000000003
+          "bass_technique": 21.555000000000003,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -107,7 +109,7 @@
           "voice_effort": 0,
           "voice_vibrato": 1.3,
           "voice_articulation": 16.119999999999997,
-          "voice_microtone": 20.770000000000003,
+          "voice_microtone": 20.815,
           "voice_tradition": 4.875,
           "voice_mechanism_compound": 24.074999999999996,
           "voice_estill_quality": 1.8199999999999996,
@@ -172,8 +174,8 @@
           "orch_strings": 0.75,
           "orch_top_wood": 3.895,
           "orch_back_wood": 12.675,
-          "orch_varnish": 1.5350000000000001,
-          "orch_setup_period": 3.9800000000000004,
+          "orch_varnish": 1.4900000000000002,
+          "orch_setup_period": 4.265000000000001,
           "orch_bow": 0.345,
           "orch_bow_stick": 1.5600000000000003,
           "orch_articulation": 1.2349999999999999,
@@ -185,7 +187,7 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
@@ -195,8 +197,8 @@
         },
         "scores": {
           "keyboard_technique": 1.295,
-          "grand_piano_size": 0.78,
-          "grand_piano_brand": 0.825,
+          "grand_piano_size": 0.585,
+          "grand_piano_brand": 0.65,
           "piano_hammer": 11.18,
           "piano_rim": 11.18,
           "piano_soundboard": 2.665,

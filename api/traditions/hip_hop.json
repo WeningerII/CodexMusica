@@ -74,7 +74,8 @@
           "string_type": "half_round",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "sub_bass_synth_blend"
+          "bass_technique": "sub_bass_synth_blend",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 1.8199999999999998,
@@ -83,7 +84,8 @@
           "string_type": 0.39,
           "scale_length_b": 0.78,
           "fretted_or_not": 0.273,
-          "bass_technique": 0.29275
+          "bass_technique": 0.29275,
+          "electric_bass_string_configuration": 0
         }
       },
       {

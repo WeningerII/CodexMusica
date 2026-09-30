@@ -93,7 +93,8 @@
           "string_type": "flatwound",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "thumb_muted"
+          "bass_technique": "thumb_muted",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
@@ -102,7 +103,8 @@
           "string_type": -0.1,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 0.2
+          "bass_technique": 0.2,
+          "electric_bass_string_configuration": 0
         }
       }
     ],

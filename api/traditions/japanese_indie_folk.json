@@ -1,0 +1,144 @@
+{
+  "id": "japanese_indie_folk",
+  "name": "Japanese indie folk",
+  "family": "vernacular",
+  "lineage": "The exact roster includes Shugo Tokumaru and other contemporary Japanese acoustic/independent acts. Tokumaru’s richly layered songcraft provides a documented branch that does not reduce indie folk to voice and guitar alone.",
+  "recipe": "classic modern japanese indie folk, ballad Poetry. thick, breath veiled tone, neutral third half flat, opera quality low larynx anchored. fingerpicked acoustic guitar, toy piano, xylophone. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 327,
+  "score": 35.011,
+  "config": {
+    "traditions": [
+      "japanese_indie_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
+        },
+        "scores": {
+          "voice_register": 4.5,
+          "voice_quality": 2.0799999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.273,
+          "voice_articulation": 0,
+          "voice_microtone": 3.380000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.40950000000000003,
+          "voice_estill_quality": 1.15,
+          "voice_speech_song": 5.655000000000001,
+          "voice_ensemble_config": 5.819,
+          "voice_ornament_system": 1.2,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0.6
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "eighty_twenty_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0.273,
+          "acoustic_om_technique": 7.373
+        }
+      },
+      {
+        "id": "toy_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "toy_piano_type": "toy_piano_generic_metal_rods",
+          "toy_piano_aesthetic": "toy_piano_naive_celeste"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "toy_piano_type": 0,
+          "toy_piano_aesthetic": 0
+        }
+      },
+      {
+        "id": "xylophone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "xylophone_size": "xylophone_orch_35",
+          "xylophone_bar": "xylophone_padauk"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "xylophone_size": 0,
+          "xylophone_bar": 0.273
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition"
+      ],
+      "acoustic_guitar_om": [
+        "acoustic_om_technique"
+      ],
+      "toy_piano": [
+        "toy_piano_type",
+        "toy_piano_aesthetic"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "legato_voice",
+      "acoustic_om_technique": "om_fingerpicked",
+      "toy_piano_type": "toy_piano_generic_metal_rods",
+      "toy_piano_aesthetic": "toy_piano_naive_celeste",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

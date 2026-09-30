@@ -287,6 +287,24 @@
             "electronic",
             "synthesized"
           ]
+        },
+        {
+          "id": "rompler_context_rock_band",
+          "name": "Rock-band keyboard layers",
+          "descriptors": [
+            "band-keyboard",
+            "textural",
+            "melodic"
+          ],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "rompler_context_band_keyboard",
+          "name": "Keyboard voice within an ensemble",
+          "descriptors": [],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -345,6 +363,46 @@
             "electronic",
             "synthesized"
           ]
+        },
+        {
+          "id": "rompler_korg_m3_eds",
+          "name": "Korg M3 EDS sample-based workstation",
+          "descriptors": [
+            "pcm-multisample",
+            "velocity-layered",
+            "EDS-workstation"
+          ],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "rompler_lineage_unspecified",
+          "name": "Sample-based workstation; make unspecified",
+          "descriptors": [],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "rompler_kronos_hd1",
+          "name": "Korg Kronos HD-1 sample-playback layer",
+          "descriptors": [
+            "pcm-multisample",
+            "velocity-layered",
+            "HD-1-sample-playback"
+          ],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "rompler_korg_triton_extreme",
+          "name": "Korg Triton Extreme (2004 PCM workstation / sampler)",
+          "descriptors": [
+            "pcm-workstation",
+            "sample-playback",
+            "multitimbral"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }
@@ -475,6 +533,24 @@
             "electronic",
             "synthesized"
           ]
+        },
+        {
+          "id": "rompler_context_rock_band",
+          "name": "Rock-band keyboard layers",
+          "descriptors": [
+            "band-keyboard",
+            "textural",
+            "melodic"
+          ],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "rompler_context_band_keyboard",
+          "name": "Keyboard voice within an ensemble",
+          "descriptors": [],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -533,6 +609,46 @@
             "electronic",
             "synthesized"
           ]
+        },
+        {
+          "id": "rompler_korg_m3_eds",
+          "name": "Korg M3 EDS sample-based workstation",
+          "descriptors": [
+            "pcm-multisample",
+            "velocity-layered",
+            "EDS-workstation"
+          ],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "rompler_lineage_unspecified",
+          "name": "Sample-based workstation; make unspecified",
+          "descriptors": [],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "rompler_kronos_hd1",
+          "name": "Korg Kronos HD-1 sample-playback layer",
+          "descriptors": [
+            "pcm-multisample",
+            "velocity-layered",
+            "HD-1-sample-playback"
+          ],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "rompler_korg_triton_extreme",
+          "name": "Korg Triton Extreme (2004 PCM workstation / sampler)",
+          "descriptors": [
+            "pcm-workstation",
+            "sample-playback",
+            "multitimbral"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }

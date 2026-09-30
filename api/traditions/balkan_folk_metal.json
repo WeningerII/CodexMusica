@@ -5,7 +5,7 @@
   "lineage": "Balkan regional folk/metal fusion scope represented by Novi Sad’s Pero Defformero. The musicians explicitly describe heavy-metal instrumentation with a singer parodying narodna or popular folk delivery; the model preserves that satirical distinction.",
   "recipe": "classic modern balkan folk metal, distorted Rock, metal branch. solo with instrumental accompaniment, aurally tuned. power chord humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 395,
-  "score": 43.35,
+  "score": 42.356,
   "config": {
     "traditions": [
       "balkan_folk_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 17.042125,
+          "electric_technique": 17.048125,
           "amp_make": 0,
           "body_wood": 0.5775,
           "neck_wood": 0.105,
@@ -39,9 +39,9 @@
           "string_material": 0.105,
           "bridge": 0.5775,
           "scale_length": 0,
-          "string_gauge": 0.1785,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.3045
+          "string_tuning": 0.063
         }
       },
       {
@@ -53,16 +53,18 @@
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
           "body_wood": 0.5775,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
-          "bass_technique": 3.7
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
+          "bass_technique": 3.7,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -82,15 +84,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.651,
+          "drumhead": 0.5775,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.42,
-          "shell_thickness": 0.1365,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": 2.35,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 4.102250000000001,
+          "cymbal_lathing": 3.9907500000000002,
           "cymbal_finish": 0
         }
       },
@@ -130,7 +132,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.5145,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.273
+          "voice_multitrack_stack": 0.288
         }
       }
     ],

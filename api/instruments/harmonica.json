@@ -443,6 +443,13 @@
             "wind-driven",
             "reed-driven"
           ]
+        },
+        {
+          "id": "harmonica_maker_unspecified",
+          "name": "Maker not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -917,6 +924,13 @@
             "wind-driven",
             "reed-driven"
           ]
+        },
+        {
+          "id": "harmonica_maker_unspecified",
+          "name": "Maker not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },

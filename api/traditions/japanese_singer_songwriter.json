@@ -1,0 +1,122 @@
+{
+  "id": "japanese_singer_songwriter",
+  "name": "Japanese singer-songwriter",
+  "family": "vernacular",
+  "lineage": "Japanese performer-songwriters span several generations of popular song. Yumi Matsutoya’s documented composition, lyric writing, singing and piano practice supplies the selected piano-led branch.",
+  "recipe": "classic modern japanese singer-songwriter, functional Song, pop rock branch. thick, straight note core, equal tempered, m1 with m0 pulse borrowing. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 376,
+  "score": 56.03,
+  "config": {
+    "traditions": [
+      "japanese_singer_songwriter"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "speech_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
+        },
+        "scores": {
+          "voice_register": 7.291500000000002,
+          "voice_quality": 0.1365,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.9749999999999996,
+          "voice_articulation": 0,
+          "voice_microtone": 7.300000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 1.1340000000000001,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 6.305000000000001,
+          "voice_ensemble_config": 2.600000000000001,
+          "voice_ornament_system": 0.9234999999999999,
+          "voice_pitch_organization": 0.231,
+          "voice_processing_chain": 1.1049999999999998,
+          "voice_multitrack_stack": 1.363
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 5.691,
+          "grand_piano_size": 0.16799999999999998,
+          "grand_piano_brand": 1.2625,
+          "piano_hammer": 5.931,
+          "piano_rim": 5.763,
+          "piano_soundboard": 3.7735000000000003,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 2.481
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_quality",
+        "voice_articulation",
+        "voice_tradition"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "legato_voice",
+      "voice_quality": "speech_voice",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

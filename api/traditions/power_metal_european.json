@@ -5,7 +5,7 @@
   "lineage": "European-rooted melodic metal subgenre codified through Helloween (Keeper of the Seven Keys 1987-88), Blind Guardian, Stratovarius, Sonata Arctica, Rhapsody (Italian symphonic-power) — characterized by major-key triumphant choruses, twin-guitar harmony lead lines, high-register clean vocals, and fantasy/Tolkien-derived lyrical subject matter",
   "recipe": "classic North American late-1980s power metal, distorted Rock, power branch, symphonic metal gothic metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth, polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 747,
-  "score": 321.201,
+  "score": 324.686,
   "config": {
     "traditions": [
       "power_metal_european",
@@ -38,18 +38,18 @@
           "voice_quality": 7.020000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1773750000000005,
+          "voice_vibrato": 3.345375,
           "voice_articulation": 9.424999999999999,
           "voice_microtone": 12.948124999999997,
           "voice_tradition": 6.033625,
-          "voice_mechanism_compound": 32.84225,
+          "voice_mechanism_compound": 32.99975,
           "voice_estill_quality": 4.107125,
           "voice_speech_song": 10.399999999999997,
-          "voice_ensemble_config": 11.689874999999995,
+          "voice_ensemble_config": 11.699999999999996,
           "voice_ornament_system": 3.1500000000000004,
           "voice_pitch_organization": 5.275500000000001,
-          "voice_processing_chain": 4.1515,
-          "voice_multitrack_stack": 5.65175
+          "voice_processing_chain": 4.288,
+          "voice_multitrack_stack": 5.851249999999999
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 38.542125,
-          "amp_make": 14.940999999999995,
-          "body_wood": 14.790999999999999,
+          "electric_technique": 39.025125,
+          "amp_make": 15.266499999999995,
+          "body_wood": 15.08,
           "neck_wood": 0.080625,
           "fretboard": 0.45499999999999996,
-          "pickup_magnet": 1.41625,
+          "pickup_magnet": 1.44775,
           "pickup_winding": 0.45499999999999996,
           "string_material": 0.45499999999999996,
           "bridge": 0.818125,
-          "scale_length": 14.710374999999999,
-          "string_gauge": 2.51875,
+          "scale_length": 15.035874999999999,
+          "string_gauge": 2.62375,
           "finish": 0,
-          "string_tuning": 26.364749999999997
+          "string_tuning": 27.169999999999998
         }
       },
       {
@@ -94,16 +94,18 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.6835,
+          "amp_make": 8.775000000000002,
           "body_wood": 0.45499999999999996,
           "pickup_config": 1.3,
-          "string_type": 14.847625,
+          "string_type": 15.005125000000001,
           "scale_length_b": 0.091875,
           "fretted_or_not": 0.037125,
-          "bass_technique": 14.02275
+          "bass_technique": 14.05425,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -128,7 +130,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 1.80775,
+          "electronic_technique": 1.97575,
           "poly_archetypes": 6.565000000000001,
           "poly_voices": 0.0315,
           "poly_maker_lineage": 1.17

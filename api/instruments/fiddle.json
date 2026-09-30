@@ -476,6 +476,27 @@
           ]
         }
       ]
+    },
+    {
+      "id": "fiddle_string_configuration",
+      "name": "String configuration / low-range extension",
+      "variants": [
+        {
+          "id": "fiddle_string_configuration_unspecified",
+          "name": "Source-unspecified string configuration",
+          "descriptors": [],
+          "default": true
+        },
+        {
+          "id": "fiddle_five_string_low_c",
+          "name": "Five strings CGDAE, added low C",
+          "descriptors": [
+            "five-string-low-C-extension"
+          ],
+          "auto": false,
+          "default": false
+        }
+      ]
     }
   ],
   "_ownParts": [
@@ -787,6 +808,27 @@
             "bowed",
             "folk-tradition"
           ]
+        }
+      ]
+    },
+    {
+      "id": "fiddle_string_configuration",
+      "name": "String configuration / low-range extension",
+      "variants": [
+        {
+          "id": "fiddle_string_configuration_unspecified",
+          "name": "Source-unspecified string configuration",
+          "descriptors": [],
+          "default": true
+        },
+        {
+          "id": "fiddle_five_string_low_c",
+          "name": "Five strings CGDAE, added low C",
+          "descriptors": [
+            "five-string-low-C-extension"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }

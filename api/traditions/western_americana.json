@@ -5,7 +5,7 @@
   "lineage": "Western Americana draws on ranching, road-song and roots-performance traditions across the North American West. Corb Lund’s documented Alberta acoustic recording practice offers a Canadian western branch without making the category exclusively American-national.",
   "recipe": "classic modern western americana, functional Song, contemp main branch. thick, breath veiled tone, wide pitch sway, equal tempered. dreadnought acoustic guitar, big leaf maple modern American thomastik flatwound jazz mandolin mandolin, upright bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 397,
-  "score": 41.417,
+  "score": 41.462,
   "config": {
     "traditions": [
       "western_americana"
@@ -27,12 +27,12 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
           "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 4.404750000000001,
+          "voice_register": 4.386000000000001,
           "voice_quality": 3.380000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -41,13 +41,13 @@
           "voice_microtone": 3.500000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 4.4673750000000005,
+          "voice_estill_quality": 4.4030000000000005,
           "voice_speech_song": 5.135,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.3,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.6840000000000002,
-          "voice_multitrack_stack": 0.44849999999999995
+          "voice_pitch_organization": 0.01125,
+          "voice_processing_chain": 1.8115,
+          "voice_multitrack_stack": 0.4634999999999999
         }
       },
       {
@@ -63,8 +63,8 @@
           "acoustic_technique": -0.1,
           "string_tuning": 0,
           "top_wood": 0.105,
-          "back_sides": 0.29800000000000004,
-          "string_acoustic": 0.508
+          "back_sides": 0.273,
+          "string_acoustic": 0.5205
         }
       },
       {
@@ -82,8 +82,8 @@
         "scores": {
           "acoustic_technique": -0.1,
           "mandolin_shape": 0.105,
-          "mandolin_top": 0.105,
-          "mandolin_back": 2.34675,
+          "mandolin_top": 0.1425,
+          "mandolin_back": 2.3105,
           "mandolin_bracing": 0.39,
           "mandolin_strings": 1.0499999999999998,
           "mandolin_fingerboard": 0,
@@ -109,7 +109,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.265,
+          "drum_technique": 0.25,
           "drumhead": 0.7,
           "drum_kit_kick_pedal": 0
         }

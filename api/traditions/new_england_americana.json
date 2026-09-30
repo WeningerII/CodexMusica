@@ -1,0 +1,158 @@
+{
+  "id": "new_england_americana",
+  "name": "New England Americana",
+  "family": "vernacular",
+  "lineage": "New England Americana connects roots-song performers, venues and recording networks. David Wax Museum’s rural Maine sessions and Newport appearances offer one documented, Mexican-rooted branch of that regional network.",
+  "recipe": "classic modern new england americana, functional Song, americana branch. thick, straight note core, neutral third half flat, m1 with m0 pulse borrowing. jarana jarocha, melodic bowed song accompaniment fiddle, quijada. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 356,
+  "score": 31.571,
+  "config": {
+    "traditions": [
+      "new_england_americana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 3.3130000000000015,
+          "voice_quality": 0.4549999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.0175,
+          "voice_articulation": -0.14,
+          "voice_microtone": 2.990000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 1.05,
+          "voice_estill_quality": 4.745,
+          "voice_speech_song": 6.4350000000000005,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 0.1365,
+          "voice_processing_chain": 1.885,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "jarana_jarocha",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "jarana_size": "jarana_tercera",
+          "jarana_jarocha_context": "jarana_jarocha_fusion",
+          "jarana_jarocha_body_wood": "jarana_palo_escrito",
+          "jarana_jarocha_strings": "jarana_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.313,
+          "jarana_size": 0.1995,
+          "jarana_jarocha_context": 0.21,
+          "jarana_jarocha_body_wood": 0.95,
+          "jarana_jarocha_strings": 0
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "fiddle_strings": 0.49349999999999994,
+          "fiddle_bow": 0.0315,
+          "fiddle_mute": 0.0735,
+          "fiddle_articulation": 0.0945,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "quijada",
+        "slots": {
+          "quijada_form": "quijada_donkey_unlocalized",
+          "quijada_context": "quijada_mexican_rooted_americana",
+          "quijada_preparation": "quijada_boiled_sundried"
+        },
+        "scores": {
+          "quijada_form": 0.3,
+          "quijada_context": 0.063,
+          "quijada_preparation": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition",
+        "voice_ensemble_config"
+      ],
+      "jarana_jarocha": [
+        "plucked_traditional_technique",
+        "jarana_jarocha_context"
+      ],
+      "fiddle": [
+        "bowed_technique"
+      ],
+      "quijada": [
+        "quijada_form",
+        "quijada_context"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+      "voice_articulation": "narrative_voice",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "jarana_jarocha_context": "jarana_jarocha_fusion",
+      "bowed_technique": "bowed_local_song_melody",
+      "quijada_form": "quijada_donkey_unlocalized",
+      "quijada_context": "quijada_mexican_rooted_americana",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

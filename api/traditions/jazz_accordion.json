@@ -5,7 +5,7 @@
   "lineage": "Accordion-centered jazz practice, represented by Richard Galliano’s drummerless Mare Nostrum collaboration with Paolo Fresu and Jan Lundgren. Accordion, trumpet and piano share melodic and harmonic roles.",
   "recipe": "classic modern jazz accordion, improv On Frame, bop branch. accordion, bach stradivarius 180 canonical American orchestral trumpet, grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 289,
-  "score": 4.45,
+  "score": 4.532,
   "config": {
     "traditions": [
       "jazz_accordion"
@@ -23,11 +23,11 @@
           "accordion_maker_school": "accordion_maker_unspecified"
         },
         "scores": {
-          "free_reed_technique": 0.5814999999999999,
-          "accordion_reed_material": 0.168,
-          "musette_offset": 0.36749999999999994,
+          "free_reed_technique": 0.7149999999999999,
+          "accordion_reed_material": 0.1365,
+          "musette_offset": 0.33599999999999997,
           "reed_config": 0.03899999999999999,
-          "bellows": 0.168,
+          "bellows": 0.17925,
           "voicing_chamber": 0,
           "accordion_maker_school": 0
         }

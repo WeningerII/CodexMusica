@@ -5,7 +5,7 @@
   "lineage": "Protest folk links vernacular singing to collective dissent and social argument across many movements. Pete Seeger’s Folkways Songs of Struggle and Protest supplies one documented American revival branch.",
   "recipe": "classic modern protest folk, nursery Rhyme. thick, incomplete closure resting, neutral third half flat, opera quality low larynx anchored. scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 394,
-  "score": 22.439,
+  "score": 23.959,
   "config": {
     "traditions": [
       "protest_folk"
@@ -27,27 +27,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 4.5,
+          "voice_register": 4.5225,
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.38749999999999996,
+          "voice_vibrato": 0.39,
           "voice_articulation": -0.2,
-          "voice_microtone": 2.5687500000000005,
+          "voice_microtone": 2.990000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.04375,
-          "voice_estill_quality": 0.9324999999999999,
+          "voice_mechanism_compound": 0.25875,
+          "voice_estill_quality": 0.8874999999999998,
           "voice_speech_song": 3.185,
-          "voice_ensemble_config": 0.15000000000000002,
+          "voice_ensemble_config": 0.17250000000000001,
           "voice_ornament_system": 0.024999999999999998,
-          "voice_pitch_organization": 0.007499999999999999,
-          "voice_processing_chain": 1.2449999999999999,
-          "voice_multitrack_stack": 0.32625
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.19875,
+          "voice_multitrack_stack": 0.37875
         }
       },
       {
@@ -66,15 +66,15 @@
         },
         "scores": {
           "banjo_back": 0,
-          "tone_ring": 0.024999999999999998,
-          "banjo_head": 2.8687499999999995,
-          "banjo_pot": 0.095,
+          "tone_ring": 0,
+          "banjo_head": 3.3287499999999994,
+          "banjo_pot": 0.07,
           "banjo_play": 0,
-          "banjo_rim_wood": 0.09499999999999999,
+          "banjo_rim_wood": 0.0625,
           "banjo_neck_wood": 0,
           "banjo_strings": 0,
           "banjo_bridge": 0,
-          "banjo_setup_period": 2.82625
+          "banjo_setup_period": 3.29
         }
       },
       {
@@ -84,14 +84,14 @@
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
-          "acoustic_technique": 1.4575,
+          "acoustic_technique": 1.46125,
           "string_tuning": 0,
           "top_wood": 0.3,
           "back_sides": 0.0375,
-          "string_acoustic": 0.0375
+          "string_acoustic": 0.075
         }
       }
     ],

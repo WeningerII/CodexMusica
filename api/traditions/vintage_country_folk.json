@@ -5,7 +5,7 @@
   "lineage": "Vintage country folk overlaps older recorded country singing, vernacular ballads and folk repertoires. Tex Morton’s collection and performance of Australasian bush songs, alongside John Grenell’s early country career, provide a documented regional branch.",
   "recipe": "classic modern vintage country folk, functional Song, country branch. thick, wide pitch sway, neutral third half flat, nasal twang velar port open. low density tonewood vintage spruce dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 350,
-  "score": 70.512,
+  "score": 70.999,
   "config": {
     "traditions": [
       "vintage_country_folk"
@@ -29,10 +29,10 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_tube_saturation",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 20.799999999999997,
+          "voice_register": 20.862999999999996,
           "voice_quality": 0.39,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -40,14 +40,14 @@
           "voice_articulation": -0.14,
           "voice_microtone": 2.600000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.3105,
-          "voice_estill_quality": 13.960499999999998,
+          "voice_mechanism_compound": 0.44099999999999995,
+          "voice_estill_quality": 14.017499999999998,
           "voice_speech_song": 5.525000000000001,
-          "voice_ensemble_config": 0.6194999999999999,
-          "voice_ornament_system": 0.075,
-          "voice_pitch_organization": 0.9549999999999998,
-          "voice_processing_chain": 5.1425,
-          "voice_multitrack_stack": 2.9050000000000007
+          "voice_ensemble_config": 0.6405,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.9864999999999999,
+          "voice_processing_chain": 5.063,
+          "voice_multitrack_stack": 2.9865000000000004
         }
       },
       {
@@ -56,15 +56,15 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "engelmann",
-          "back_sides": "koa_bs",
+          "back_sides": "maple_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 0.2315,
+          "acoustic_technique": 0.26,
           "string_tuning": 0,
           "top_wood": 2,
-          "back_sides": 0.105,
-          "string_acoustic": 0.10799999999999998
+          "back_sides": 0.22049999999999997,
+          "string_acoustic": 0.2205
         }
       }
     ],

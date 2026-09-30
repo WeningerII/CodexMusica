@@ -5,7 +5,7 @@
   "lineage": "Traditional country encompasses several established country-song and instrumental lineages. Dolly Parton’s documented songwriter-guitarist work provides an intimate Appalachian-to-Nashville song branch rather than the full band palette of all her records.",
   "recipe": "classic modern traditional country, functional Song, country branch. thick, wide pitch sway, neutral third half flat, nasal twang velar port open. koa phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 347,
-  "score": 47.967,
+  "score": 48.705,
   "config": {
     "traditions": [
       "traditional_country"
@@ -32,7 +32,7 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 10.749999999999995,
+          "voice_register": 10.812999999999995,
           "voice_quality": -0.3,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -40,12 +40,12 @@
           "voice_articulation": 0.13000000000000003,
           "voice_microtone": 1.2999999999999998,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.38025,
-          "voice_estill_quality": 11.530249999999999,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 11.786,
           "voice_speech_song": 6.4350000000000005,
-          "voice_ensemble_config": 1.7665000000000002,
-          "voice_ornament_system": 0.0375,
-          "voice_pitch_organization": 0.05000000000000002,
+          "voice_ensemble_config": 2.0725,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.06500000000000002,
           "voice_processing_chain": 1.3,
           "voice_multitrack_stack": 0.39
         }
@@ -63,8 +63,8 @@
           "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood": 0.1425,
-          "back_sides": 1,
-          "string_acoustic": 1
+          "back_sides": 1.0315,
+          "string_acoustic": 1.0945
         }
       }
     ],

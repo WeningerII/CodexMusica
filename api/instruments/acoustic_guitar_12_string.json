@@ -17,6 +17,25 @@
   "short": "12-string acoustic",
   "parts": [
     {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_twelve_string_fingerpicked",
+          "name": "Fingerpicked twelve-string",
+          "descriptors": [
+            "fingerpicked"
+          ],
+          "auto": false,
+          "default": false,
+          "applies_to": [
+            "acoustic_guitar_12_string"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
       "id": "twelve_string_body",
       "name": "Body",
       "variants": [

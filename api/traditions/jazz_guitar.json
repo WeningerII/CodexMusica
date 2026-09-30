@@ -5,7 +5,7 @@
   "lineage": "Guitar-centered jazz improvisation; selected solo nylon-string branch",
   "recipe": "classic modern jazz guitar, improv On Frame, American jazz branch. low mid rich spectrum nylon classical nylon-string guitar. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 270,
-  "score": 4.779,
+  "score": 4.885,
   "config": {
     "traditions": [
       "jazz_guitar"
@@ -26,7 +26,7 @@
           "string_tuning": 0,
           "top_wood_classical": 0.39,
           "bracing_classical": 0.2835,
-          "string_classical": 2.26,
+          "string_classical": 2.3649999999999998,
           "attack_technique_cl": 0.39
         }
       }

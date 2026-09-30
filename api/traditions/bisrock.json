@@ -3,14 +3,14 @@
   "name": "Bisrock",
   "family": "rock",
   "lineage": "Cebuano-language rock movement launched in Cebu City in the late 1990s and named around 2002 by Missing Filemon and the Bisrock compilations, applying alternative-rock and ska-punk arrangements — distorted humbucker guitar, driving 4/4 kit and electric bass at 130-170 BPM, shouted-to-sung Visayan vocals — to lyrics of local humour, protest and provincial identity, produced cheaply in Cebu and Davao project studios.",
-  "recipe": "classic Southeast Asian 1997-1999 bisrock, distorted Rock, regional branch, punk distorted rock, pop rock functional song yacht rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 776,
-  "score": 468.51,
+  "recipe": "classic Southeast Asian 1997-1999 bisrock, distorted Rock, regional branch, punk distorted rock, pop rock functional song yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric cedar flatwound thomastik strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 761,
+  "score": 457.93,
   "config": {
     "traditions": [
       "bisrock",
       "yacht_rock",
-      "folk_rock"
+      "skiffle"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 61.490000000000016,
-          "voice_quality": 10.529999999999992,
+          "voice_register": 61.615000000000016,
+          "voice_quality": 11.569999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.530000000000001,
-          "voice_articulation": 17.744999999999994,
-          "voice_microtone": 49.60000000000001,
-          "voice_tradition": 13.579999999999997,
+          "voice_vibrato": 11.78,
+          "voice_articulation": 18.784999999999997,
+          "voice_microtone": 52.47500000000001,
+          "voice_tradition": 11.579999999999997,
           "voice_mechanism_compound": 4.420000000000001,
-          "voice_estill_quality": 4.54,
-          "voice_speech_song": 20.86499999999999,
-          "voice_ensemble_config": 17.679999999999993,
-          "voice_ornament_system": 0.19500000000000003,
+          "voice_estill_quality": 3.125,
+          "voice_speech_song": 21.904999999999998,
+          "voice_ensemble_config": 18.719999999999995,
+          "voice_ornament_system": 0.195,
           "voice_pitch_organization": 1.755,
-          "voice_processing_chain": 8.375,
-          "voice_multitrack_stack": 7.41
+          "voice_processing_chain": 6.33,
+          "voice_multitrack_stack": 4.875
         }
       },
       {
@@ -57,10 +57,10 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "alnico_4_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
@@ -70,40 +70,42 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 10.125,
-          "amp_make": 25.359999999999996,
-          "body_wood": 2.4699999999999998,
-          "neck_wood": 2.275,
-          "fretboard": 2.21,
-          "pickup_magnet": 0.585,
+          "electric_technique": 10.625,
+          "amp_make": 25.159999999999997,
+          "body_wood": 1.625,
+          "neck_wood": 1.625,
+          "fretboard": 1.17,
+          "pickup_magnet": 0.3,
           "pickup_winding": 0.21,
-          "string_material": 0.5399999999999999,
-          "bridge": 2.275,
-          "scale_length": 2.275,
-          "string_gauge": 2.275,
-          "finish": 0.195,
-          "string_tuning": 20.345
+          "string_material": 0.39,
+          "bridge": 1.625,
+          "scale_length": 1.235,
+          "string_gauge": 1.235,
+          "finish": 0.39,
+          "string_tuning": 19.11
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 20.994999999999994,
-          "body_wood": 2.275,
-          "pickup_config": 0.39,
-          "string_type": 42.275,
-          "scale_length_b": 2.275,
-          "fretted_or_not": 0.44999999999999996,
-          "bass_technique": 42.445
+          "amp_make": 20.41,
+          "body_wood": 1.4300000000000002,
+          "pickup_config": 0.195,
+          "string_type": 39.9,
+          "scale_length_b": 1.235,
+          "fretted_or_not": 0.3,
+          "bass_technique": 39.92,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -114,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 37.25,
-          "drumhead": 9.7,
+          "drum_technique": 34.875,
+          "drumhead": 10.349999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -123,17 +125,17 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "open_d",
+          "string_tuning": "eb_standard",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
-          "acoustic_technique": 11.85,
-          "string_tuning": 0.06499999999999999,
-          "top_wood": 2.4699999999999998,
+          "acoustic_technique": 12.124999999999998,
+          "string_tuning": 1.165,
+          "top_wood": 1.4300000000000002,
           "back_sides": 0.39,
-          "string_acoustic": 2.275
+          "string_acoustic": 2.9999999999999996
         }
       }
     ],

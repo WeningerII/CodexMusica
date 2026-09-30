@@ -1,0 +1,253 @@
+{
+  "id": "danish_rock",
+  "name": "Danish rock",
+  "family": "rock_punk",
+  "lineage": "A broad Danish rock discovery label, represented by D-A-D’s Copenhagen-rooted guitar-band branch. This default retains the group’s genuine two-string E–A electric bass beside contrasting single-coil and semi-hollow guitar voices, drums and singing.",
+  "recipe": "classic danish rock, distorted Rock, regional branch. one note per syllable, single lead single track no stacking. ampeg svt amp rock bass amp two string electric bass low e a pair electric bass, marshall plexi amp British rock amp single coil electric guitar, marshall plexi amp British rock amp semi hollow, sticks backbeat drum kit. live tracking. shure SM57, console-strip pre, marshall JCM800 2203, parametric EQ. 24-bit digital spring reverb.",
+  "recipe_chars": 448,
+  "score": 64.492,
+  "config": {
+    "traditions": [
+      "danish_rock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_two_string_ea"
+        },
+        "scores": {
+          "amp_make": 6.955000000000001,
+          "body_wood": 0.3,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.663,
+          "fretted_or_not": 1.1792500000000001,
+          "bass_technique": 9.481499999999999,
+          "electric_bass_string_configuration": 12.461
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 1.8199999999999998,
+          "amp_make": 4.8100000000000005,
+          "body_wood": 0.3,
+          "neck_wood": 0.3,
+          "fretboard": 0.3,
+          "pickup_magnet": 0,
+          "string_material": 0.273,
+          "string_gauge": 0.7735,
+          "bridge": 0.3,
+          "scale_length": 0.3,
+          "finish": 0,
+          "string_tuning": 5.719999999999999
+        }
+      },
+      {
+        "id": "semi_hollow",
+        "slots": {
+          "electric_technique": "semi_overdriven_strum",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "semi_archetypes": "semi_es335",
+          "semi_hollow_pickup": "semi_dual_humbucker",
+          "semi_hollow_strings": "semi_nickel_plated",
+          "semi_hollow_context": "semi_hollow_indie"
+        },
+        "scores": {
+          "electric_technique": 0.231,
+          "amp_make": 4.8100000000000005,
+          "semi_archetypes": -0.05,
+          "semi_hollow_pickup": 0,
+          "semi_hollow_strings": 0,
+          "semi_hollow_context": 0.77925
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "cymbal_alloy": "b20"
+        },
+        "scores": {
+          "drum_technique": 9.5,
+          "drumhead": 0.3,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.3,
+          "cymbal_alloy": -0.2
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.1792500000000001,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 1.2842500000000001
+        }
+      }
+    ],
+    "pinned": {
+      "electric_bass": [
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "electric_guitar_single_coil": [
+        "body_wood",
+        "pickup_magnet",
+        "string_material"
+      ],
+      "semi_hollow": [
+        "electric_technique",
+        "semi_archetypes",
+        "semi_hollow_pickup",
+        "semi_hollow_strings",
+        "semi_hollow_context"
+      ],
+      "drum_kit": [
+        "shell_wood",
+        "drumhead",
+        "cymbal_alloy"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_console_inline_strip",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": "amp_marshall_jcm800",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "spring_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "electric_bass_string_configuration": "electric_bass_two_string_ea",
+      "bass_technique": "pick_aggressive",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "electric_technique": "semi_overdriven_strum",
+      "body_wood": "alder",
+      "string_material": "nickel_plated",
+      "pickup_magnet": "alnico_5",
+      "semi_archetypes": "semi_es335",
+      "semi_hollow_pickup": "semi_dual_humbucker",
+      "semi_hollow_strings": "semi_nickel_plated",
+      "semi_hollow_context": "semi_hollow_indie",
+      "shell_wood": "maple_shell",
+      "drumhead": "single_coated",
+      "cymbal_alloy": "b20"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "spring_reverb"
+    ],
+    "chain_amp": "amp_marshall_jcm800"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Australian garage-punk and DIY guitar-band scenes, represented by The Chats’ Sunshine Coast trio. Their direct studio account describes brief loud arrangements, limited takes, bass and drums, and lightly driven rather than maximally saturated guitar.",
   "recipe": "classic modern australian garage punk, functional Song, pop rock branch. pure, equal tempered, one note per syllable, solo with instrumental accompaniment. single coil electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 398,
-  "score": 35.102,
+  "score": 34.107,
   "config": {
     "traditions": [
       "australian_garage_punk"
@@ -36,18 +36,18 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.5635,
+          "voice_vibrato": 1.4335,
           "voice_articulation": 0,
           "voice_microtone": 7.339,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.0315,
           "voice_estill_quality": 0,
-          "voice_speech_song": 2.08,
-          "voice_ensemble_config": 1.391,
-          "voice_ornament_system": 0.0705,
+          "voice_speech_song": 1.871,
+          "voice_ensemble_config": 1.3585,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0.231,
           "voice_processing_chain": 0.3705,
-          "voice_multitrack_stack": 0.19649999999999998
+          "voice_multitrack_stack": 0.1575
         }
       },
       {
@@ -69,8 +69,8 @@
         "scores": {
           "electric_technique": 0.6499999999999999,
           "amp_make": -0.175,
-          "body_wood": 0.19299999999999998,
-          "neck_wood": 0.39649999999999996,
+          "body_wood": 0.063,
+          "neck_wood": 0.37149999999999994,
           "fretboard": -0.035,
           "pickup_magnet": 0.0315,
           "string_material": 0,
@@ -90,16 +90,18 @@
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 3.575,
-          "body_wood": 0.19299999999999998,
+          "body_wood": 0.063,
           "pickup_config": 0,
           "string_type": 0.168,
-          "scale_length_b": 0.12999999999999998,
+          "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 10.655
+          "bass_technique": 10.655,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -111,7 +113,7 @@
         },
         "scores": {
           "drum_technique": 4.0815,
-          "drumhead": 0.12999999999999998,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0
         }
       }

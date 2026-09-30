@@ -5,7 +5,7 @@
   "lineage": "Scottish contemporary jazz; selected Fergus McCreadie folk-influenced piano trio",
   "recipe": "classic modern scottish jazz, improv On Frame, American jazz branch. grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 309,
-  "score": 43.639,
+  "score": 43.593,
   "config": {
     "traditions": [
       "scottish_jazz"
@@ -25,8 +25,8 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.18412499999999998,
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 0.147,
           "grand_piano_brand": 0.1365,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
@@ -43,7 +43,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.236625,
+          "upright_strings": 0.19949999999999998,
           "upright_play": 11.25
         }
       },
@@ -70,7 +70,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.15525,
           "snare_wires": 0.147,
-          "cymbal_alloy": 11.246999999999998,
+          "cymbal_alloy": 11.289749999999998,
           "cymbal_hammering": 11.641,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0

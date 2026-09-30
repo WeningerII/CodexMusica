@@ -118,7 +118,8 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerpicked_country_b"
+          "bass_technique": "fingerpicked_country_b",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 18.71,
@@ -127,7 +128,8 @@
           "string_type": 6.005,
           "scale_length_b": 0.195,
           "fretted_or_not": 0,
-          "bass_technique": 16.820000000000004
+          "bass_technique": 16.820000000000004,
+          "electric_bass_string_configuration": 0
         }
       },
       {
