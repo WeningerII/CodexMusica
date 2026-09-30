@@ -1,0 +1,31 @@
+{
+  "status": "source_checkpoint_only_NOT_merged_NOT_complete",
+  "expected_additions": 100,
+  "base_commit": "62c48cf1f453b7d75572126507d74429791cf2e4",
+  "archive_bytes": 252267,
+  "archive_sha256": "e3d6c4257a2d4e2662f45a7ee8cf1208baccd9388962f3f4cf1cfb16c9c70fbe",
+  "base64_parts": [
+    "part-000.txt",
+    "part-001.txt",
+    "part-002.txt",
+    "part-003.txt",
+    "part-004.txt",
+    "part-005.txt",
+    "part-006.txt",
+    "part-007.txt",
+    "part-008.txt",
+    "part-009.txt",
+    "part-010.txt",
+    "part-011.txt",
+    "part-012.txt",
+    "part-013.txt",
+    "part-014.txt"
+  ],
+  "patch_sha256": "fb32396569f788977405f1f2308b2d99c1d57ef96aa4311d5ad1e7e6e6b3da4b",
+  "file_sha256": {
+    "genre-data.patch": "fb32396569f788977405f1f2308b2d99c1d57ef96aa4311d5ad1e7e6e6b3da4b",
+    "manifest.json": "ff2194bec9630c219f2f20e28310d7f14714d00582f982d0e93967ac3aea164c",
+    "README.txt": "4548f0c8544b63351a79230b2018a679387ce72a0d51fbdc752ed08dde6e076a",
+    "release-evidence.json": "984f62b2314ab5bf069832eb67bc62d1285448b24b9faec5474e8bd3fb28d5a4"
+  }
+}
