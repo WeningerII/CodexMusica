@@ -101,7 +101,35 @@ const lyUnquote = (s) => {
 };
 
 // [NAME — n lines — m bars of X/Y, pickup] → its declared parts. Anything the
-// page does not recognise is kept verbatim in `extra`, never dropped.
+// page does not recognise is kept verbatim in `extra`, never dropped, and
+// `order` remembers where each part stood so a rewrite puts it back there.
+//
+// THE RHYTHM PART, EVERY SHAPE THE PAGE WRITES (2026-09-30). The rhythm form
+// saves a meter with no bar count, so the serializer writes
+// [CHORUS — 4 lines — 6/8]; this parser used to read that as an unknown
+// extra (meter null), so a saved 6/8 stopped being the declared meter the
+// moment it was saved. Every combination the form accepts reads back:
+//   6/8 · 6/8, pickup 1 beat · 4 bars · 4 bars of 6/8 · 4 bars of 6/8, pickup
+// A pickup is kept verbatim. A zero count, meter or unit is not a declaration
+// (nothing is 0 bars or 0/8) and stays an extra, as written.
+const LY_METER = /^([1-9]\d?)\/([1-9]\d?)$/;
+function lyParseRhythm(p) {
+  let m;
+  const bars = (n) => Number(n) >= 1 && Number(n) <= 999;
+  if ((m = /^(\d{1,3}) bars? of (\d+\/\d+)(?:,\s*(.+))?$/i.exec(p)))
+    return bars(m[1]) && LY_METER.test(m[2])
+      ? { bars: Number(m[1]), meter: m[2], pickup: m[3] ? m[3].trim() : null }
+      : null;
+  if ((m = /^(\d+\/\d+)(?:,\s*(.+))?$/.exec(p)))
+    return LY_METER.test(m[1])
+      ? { bars: null, meter: m[1], pickup: m[2] ? m[2].trim() : null }
+      : null;
+  if ((m = /^(\d{1,3}) bars?(?:,\s*(.+))?$/i.exec(p)))
+    return bars(m[1])
+      ? { bars: Number(m[1]), meter: null, pickup: m[2] ? m[2].trim() : null }
+      : null;
+  return null;
+}
 function lyParseHeader(raw) {
   const parts = raw.slice(1, -1).split(/\s+—\s+/);
   const head = {
@@ -111,30 +139,46 @@ function lyParseHeader(raw) {
     meter: null,
     pickup: null,
     extra: [],
+    order: [],
   };
   for (const part of parts.slice(1)) {
     const p = part.trim();
-    let m;
-    if ((m = /^(\d+) lines?$/i.exec(p))) head.lines = Number(m[1]);
-    else if ((m = /^(\d+) bars? of (\d+\/\d+)(?:,\s*(.+))?$/i.exec(p))) {
-      head.bars = Number(m[1]);
-      head.meter = m[2];
-      head.pickup = m[3] ? m[3].trim() : null;
-    } else if ((m = /^(\d+) bars?$/i.exec(p))) head.bars = Number(m[1]);
-    else head.extra.push(p);
+    let m, r;
+    if (!head.order.includes('lines') && (m = /^(\d{1,3}) lines?$/i.exec(p))) {
+      head.lines = Number(m[1]);
+      head.order.push('lines');
+    } else if (!head.order.includes('rhythm') && (r = lyParseRhythm(p))) {
+      Object.assign(head, r);
+      head.order.push('rhythm');
+    } else {
+      head.order.push(head.extra.length);
+      head.extra.push(p);
+    }
   }
   return head;
 }
+function lyRhythmText(h) {
+  if (h.bars == null && !h.meter) return '';
+  return (
+    (h.bars != null ? uiCount(h.bars, 'bar') : '') +
+    (h.meter ? `${h.bars != null ? ' of ' : ''}${h.meter}` : '') +
+    (h.pickup ? `, ${h.pickup}` : '')
+  );
+}
 function lyHeaderText(h) {
+  // Parts in the order the header had them; a part it did not have goes where
+  // the harness writes it (size after the name, rhythm after the size).
+  const order = (h.order || []).filter((k) => typeof k !== 'number' || k < (h.extra || []).length);
+  if (h.lines != null && !order.includes('lines')) order.unshift('lines');
+  if ((h.bars != null || h.meter) && !order.includes('rhythm'))
+    order.splice(order.includes('lines') ? order.indexOf('lines') + 1 : 0, 0, 'rhythm');
+  (h.extra || []).forEach((_, k) => order.includes(k) || order.push(k));
   const parts = [h.name || 'SECTION'];
-  if (h.lines != null) parts.push(uiCount(h.lines, 'line'));
-  if (h.bars != null || h.meter)
-    parts.push(
-      (h.bars != null ? uiCount(h.bars, 'bar') : '') +
-        (h.meter ? `${h.bars != null ? ' of ' : ''}${h.meter}` : '') +
-        (h.pickup ? `, ${h.pickup}` : '')
-    );
-  parts.push(...h.extra);
+  for (const k of order) {
+    if (k === 'lines') h.lines != null && parts.push(uiCount(h.lines, 'line'));
+    else if (k === 'rhythm') lyRhythmText(h) && parts.push(lyRhythmText(h));
+    else parts.push(h.extra[k]);
+  }
   return `[${parts.join(LY_DASH)}]`;
 }
 function lyParseSetup(raw) {
@@ -488,7 +532,7 @@ function lyBarSpans(model) {
 function lyWriterDeclarations(model) {
   const one = (key) => lySetupOf(model, key)[0]?.value;
   const d = {};
-  if (one('title')) d.title = one('title');
+  if (one('title')) d.title = lyTitleOf(model);
   const hook = lySetupOf(model, 'hook')[0];
   if (hook?.line) d.hook_line = hook.line;
   if (one('narrative')) d.narrative = one('narrative');
@@ -846,10 +890,143 @@ function lyLocalChecks(model) {
   return items;
 }
 
+// ── The document's identity ────────────────────────────────────────────────
+// WHAT A REVIEW IS OF (2026-09-30). A review, a certification or a suggestion
+// answers for one version of the song, and that version is more than its sung
+// lines and [SETUP] rows: a header carries the section's name, declared size,
+// bars, meter and pickup, and which lines a section holds is itself declared.
+// Comparing sung lines and setup rows only kept "Finished · certified" on a
+// song whose header went from 2 bars of 4/4 to 8 bars of 7/8. The identity
+// below is every declared fact the writer is given: the ordered sung text,
+// each section with its header parts and its members, every setup row
+// (duplicates kept, order-free) and voices. Run stamps and display
+// preferences are not the song. Canonical JSON, version 1, hashed SHA-256.
+function lyCanonical(model) {
+  return {
+    v: 1,
+    sung: model.sung.map((r) => r.text),
+    sections: model.sections.map((s) => ({
+      name: s.header ? s.header.name : null,
+      lines: s.header?.lines ?? null,
+      bars: s.header?.bars ?? null,
+      meter: s.header?.meter ?? null,
+      pickup: s.header?.pickup ?? null,
+      extra: s.header ? s.header.extra : [],
+      members: s.sung.map((r) => r.n),
+    })),
+    setup: model.setup.map((s) => s.raw.trim()).sort(),
+    voices: !!model.voices,
+  };
+}
+// SHA-256 of a string's UTF-8 bytes, synchronously: the page compares
+// identities while it renders, and crypto.subtle only answers in a promise.
+const LY_K = [
+  0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+  0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+  0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+  0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+  0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+  0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+  0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+  0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2,
+];
+function lySha256(text) {
+  const bytes = [];
+  for (const ch of String(text)) {
+    let c = ch.codePointAt(0);
+    if (c < 0x80) bytes.push(c);
+    else if (c < 0x800) bytes.push(0xc0 | (c >> 6), 0x80 | (c & 63));
+    else if (c < 0x10000) bytes.push(0xe0 | (c >> 12), 0x80 | ((c >> 6) & 63), 0x80 | (c & 63));
+    else
+      bytes.push(
+        0xf0 | (c >> 18),
+        0x80 | ((c >> 12) & 63),
+        0x80 | ((c >> 6) & 63),
+        0x80 | (c & 63)
+      );
+  }
+  const bitLen = bytes.length * 8;
+  bytes.push(0x80);
+  while (bytes.length % 64 !== 56) bytes.push(0);
+  for (let i = 7; i >= 0; i--) bytes.push(i > 3 ? 0 : (bitLen >>> (i * 8)) & 255);
+  const h = [
+    0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19,
+  ];
+  const w = new Array(64);
+  const rot = (x, n) => (x >>> n) | (x << (32 - n));
+  for (let off = 0; off < bytes.length; off += 64) {
+    for (let i = 0; i < 16; i++)
+      w[i] =
+        (bytes[off + 4 * i] << 24) |
+        (bytes[off + 4 * i + 1] << 16) |
+        (bytes[off + 4 * i + 2] << 8) |
+        bytes[off + 4 * i + 3];
+    for (let i = 16; i < 64; i++) {
+      const s0 = rot(w[i - 15], 7) ^ rot(w[i - 15], 18) ^ (w[i - 15] >>> 3);
+      const s1 = rot(w[i - 2], 17) ^ rot(w[i - 2], 19) ^ (w[i - 2] >>> 10);
+      w[i] = (w[i - 16] + s0 + w[i - 7] + s1) | 0;
+    }
+    let [a, b, c, d, e, f, g, k] = h;
+    for (let i = 0; i < 64; i++) {
+      const t1 =
+        (k + (rot(e, 6) ^ rot(e, 11) ^ rot(e, 25)) + ((e & f) ^ (~e & g)) + LY_K[i] + w[i]) | 0;
+      const t2 = ((rot(a, 2) ^ rot(a, 13) ^ rot(a, 22)) + ((a & b) ^ (a & c) ^ (b & c))) | 0;
+      k = g;
+      g = f;
+      f = e;
+      e = (d + t1) | 0;
+      d = c;
+      c = b;
+      b = a;
+      a = (t1 + t2) | 0;
+    }
+    h[0] = (h[0] + a) | 0;
+    h[1] = (h[1] + b) | 0;
+    h[2] = (h[2] + c) | 0;
+    h[3] = (h[3] + d) | 0;
+    h[4] = (h[4] + e) | 0;
+    h[5] = (h[5] + f) | 0;
+    h[6] = (h[6] + g) | 0;
+    h[7] = (h[7] + k) | 0;
+  }
+  return h.map((x) => (x >>> 0).toString(16).padStart(8, '0')).join('');
+}
+const lyIdentity = (model) => lySha256(JSON.stringify(lyCanonical(model)));
+// What differs between two versions, in words, for a refusal that names it.
+function lyIdentityDiff(before, after) {
+  const a = lyCanonical(before),
+    b = lyCanonical(after);
+  const out = [];
+  if (!lySame(a.sung, b.sung)) out.push('sung lines');
+  const heads = (c) => JSON.stringify(c.sections.map(({ members: _members, ...h }) => h));
+  const members = (c) => JSON.stringify(c.sections.map((s) => s.members));
+  if (heads(a) !== heads(b)) out.push('section headers');
+  else if (members(a) !== members(b)) out.push('section boundaries');
+  if (a.setup.join('\n') !== b.setup.join('\n')) out.push('[SETUP] declarations');
+  if (a.voices !== b.voices) out.push('voices');
+  return out;
+}
+
 // ── What the writer's last reply reported ──────────────────────────────────
 // Read from the reply the shell hands to uiReceiveReply (see lyReceive) and
 // from chatState. `base` is the draft when the request was sent: only a
 // suggestion made against a known base can be checked line by line.
+// A declared title as the song reads it: a setup row may hold it quoted.
+function lyTitleOf(model) {
+  const v = lySetupOf(model, 'title')[0]?.value;
+  if (!v) return '';
+  return lyUnquote(v) ?? v;
+}
+// The title a writer's artifact declares, as a setup value: no bracket, no
+// newline (either would end or split the setup row), at most 160 characters.
+function lyArtifactTitle(artifact) {
+  const t = typeof artifact?.title === 'string' ? artifact.title : '';
+  const v = t
+    .replace(/[\]\n\r]/g, ' ')
+    .trim()
+    .slice(0, 160);
+  return v || null;
+}
 function lyRunLines(artifact) {
   if (!artifact) return null;
   if (Array.isArray(artifact.final_draft)) return artifact.final_draft.map((l) => String(l).trim());
@@ -881,12 +1058,40 @@ function lyRunLive(run) {
 }
 // Waiting, parked and uncertain are read only from the live conversation.
 const lyLiveWaiting = (lyric = chatState.lyric) => !!lyric?.state && lyric.resumable !== false;
-// Certified means the run certified THIS text: its accepted draft is the
-// current sung text and the current [SETUP] rows are the ones it was given.
+// Certified means the run certified THIS version: the whole document now in
+// the editor has the identity of the version the run accepted — its sung
+// lines inside the request's own sections, headers and declarations. With no
+// request on record (a recovered reply), that version is unknown here.
 function lyRunCurrent(run, model = LY.model) {
   const sung = !!run?.final && !!model && lySame(lySungTexts(model), run.final);
-  const known = run?.baseSetup != null;
-  return { sung, known, setup: known && !!model && lySetupKey(model) === run.baseSetup };
+  const known = run?.resultId != null;
+  const now = model ? lyIdentity(model) : null;
+  return { sung, known, setup: known && now === run.resultId, now };
+}
+// The version a run's accepted draft becomes on this page: the request's own
+// document with the accepted sung lines in place when the counts agree (the
+// page keeps the headers and setup; see lyRefresh), otherwise the writer's
+// text with the request's setup rows kept.
+function lyResultText(asked, final, wholeText, title = null) {
+  if (!asked || !final) return null;
+  const kept = asked.setup.length || asked.sections.some((s) => s.header);
+  let text = !kept
+    ? wholeText
+    : asked.sung.length === final.length
+      ? lyReplaceSung(asked, final, '')
+      : typeof wholeText === 'string'
+        ? lyKeepSetup(asked, wholeText)
+        : null;
+  if (typeof text !== 'string') return null;
+  // A title the run declared is the song's title here too (the rendered song
+  // carries headers and lines only), unless this draft already declares one.
+  if (title && !lyParse(text).setup.some((s) => s.key === 'title'))
+    text = lySetSetup('title', [title], text);
+  return text;
+}
+function lyResultModel(asked, final, wholeText, title = null) {
+  const text = lyResultText(asked, final, wholeText, title);
+  return text === null ? null : lyParse(text);
 }
 // What the reply itself reported, with no reference to the current draft.
 function lyRunOutcome(run) {
@@ -921,9 +1126,8 @@ function lyRunStatus(run, model = LY.model) {
   const out = lyRunOutcome(run);
   if (!out?.certified) return out;
   const cur = lyRunCurrent(run, model);
-  if (cur.sung && cur.setup) return out;
-  if (cur.sung && !cur.known)
-    return { tone: 'warning', word: 'Certified · its declarations are unknown here' };
+  if (cur.setup) return out;
+  if (!cur.known) return { tone: 'warning', word: 'Earlier result · declarations unknown' };
   return { tone: 'warning', word: 'Last run certified an earlier draft' };
 }
 function lyRunChecks(model) {
@@ -931,8 +1135,14 @@ function lyRunChecks(model) {
   const items = [];
   if (!run) return items;
   const current = lySungTexts(model);
+  // Stale: the document is neither the version the run accepted nor the one
+  // it was asked about. Without a request on record only the sung lines can
+  // be compared.
+  const now = lyIdentity(model);
   const stale =
-    !!run.final && !lySame(current, run.final) && !(run.base && lySame(current, run.base));
+    run.resultId != null || run.baseId != null
+      ? now !== run.resultId && now !== run.baseId
+      : !!run.final && !lySame(current, run.final);
   const add = (item) => items.push({ source: 'run', stale, ...item });
   // Findings the reply reported stay; what is live (open lines, a waiting
   // question) is read only while its conversation is still the live one.
@@ -1176,7 +1386,7 @@ function lyRunChecks(model) {
       actions: [['ly-open-writer', 'Open the writer', 'message-circle', '']],
     });
   const cur = lyRunCurrent(run, model);
-  if (lyRunOutcome(run)?.certified && cur.sung && cur.setup)
+  if (lyRunOutcome(run)?.certified && cur.setup)
     add({
       id: 'certified',
       tone: 'note',
@@ -1184,24 +1394,26 @@ function lyRunChecks(model) {
       title: 'The writer’s run finished with its requested checks passed',
       where: 'Writer run',
       lines: [],
-      text: 'It passed the checks it was asked, under its declared readings, for exactly this draft: the same sung lines and the same [SETUP] declarations. It is not a quality score or a performed-rhythm guarantee.',
+      text: 'It passed the checks it was asked, under its declared readings, for exactly this version: the same sung lines, section headers and [SETUP] declarations. It is not a quality score or a performed-rhythm guarantee.',
       actions: [],
     });
-  else if (lyRunOutcome(run)?.certified)
+  else if (lyRunOutcome(run)?.certified) {
+    const changed = run.resultModel ? lyIdentityDiff(run.resultModel, model) : [];
     add({
       id: 'certified-earlier',
       tone: 'note',
       category: 'Writer',
-      title: 'The last run certified an earlier draft',
+      title: cur.known
+        ? 'The last run certified an earlier draft'
+        : 'An earlier result · its declarations are unknown',
       where: 'Writer run',
       lines: [],
-      text: !cur.sung
-        ? 'Its sung lines differ from your draft now, so its certification does not cover this text. Ask the writer to review the current draft.'
-        : cur.known
-          ? 'Your [SETUP] declarations changed after you asked, so its certification does not cover them. Ask the writer to review the current draft.'
-          : 'This reply came without the request it answered, so the declarations it was given are unknown here.',
+      text: !cur.known
+        ? 'This reply came without the request it answered, so the version it certified is unknown here and it does not cover this draft.'
+        : `Your ${changed.length ? changed.join(', ') : 'draft'} changed since that run, so its certification does not cover this version. Ask the writer to review the current draft.`,
       actions: [['ly-ask-review', 'Ask the writer to review', 'sparkles', '']],
     });
+  }
   return items;
 }
 
@@ -1231,11 +1443,17 @@ function lyNewIssues(model, text) {
     (i) => i.tone === 'issue' && !before.has(lyIssueKey(i))
   );
 }
+// A suggestion answers for the version it was made against: the whole
+// document the writer was asked about, headers and declarations included.
 function lyDeclarationRefusal(run, model) {
-  if (run.baseSetup == null)
+  if (run.baseId == null)
     return 'The request this reply answered is not known here, so the declarations it was checked against are unknown. Nothing was changed. Ask the writer to review the current draft.';
+  if (lyIdentity(model) === run.baseId) return '';
   const now = lySetupKey(model);
-  if (now === run.baseSetup) return '';
+  if (now === run.baseSetup) {
+    const what = lyIdentityDiff(run.baseModel, model).filter((w) => w !== 'sung lines');
+    return `Your ${what.length ? what.join(' and ') : 'draft'} changed after you asked the writer, so this suggestion was never checked against this version. Nothing was changed. Recheck it against the current draft.`;
+  }
   const { added, removed } = lySetupDiff(run.baseSetup, now);
   const list = (rows) =>
     rows
@@ -1457,8 +1675,8 @@ function lyEditSections(mutate, message) {
 }
 // Replace every [SETUP — key — …] row with `values` (in order), placed with
 // the other setup rows (or at the top, before the song).
-function lySetSetup(key, values) {
-  const model = lyParse(lyDraft().value);
+function lySetSetup(key, values, text = lyDraft().value) {
+  const model = lyParse(text);
   const rows = model.text ? model.text.split('\n') : [];
   const own = model.setup.filter((s) => s.key === key).map((s) => s.i);
   const anchor = own.length
@@ -1491,8 +1709,16 @@ function lyRewriteHeader(sectionIndex, change, message) {
   if (!s) return;
   const rows = model.text.split('\n');
   const header = s.header
-    ? { ...s.header, extra: [...s.header.extra] }
-    : { name: 'SECTION', lines: null, bars: null, meter: null, pickup: null, extra: [] };
+    ? { ...s.header, extra: [...s.header.extra], order: [...s.header.order] }
+    : {
+        name: 'SECTION',
+        lines: null,
+        bars: null,
+        meter: null,
+        pickup: null,
+        extra: [],
+        order: [],
+      };
   change(header, s);
   const text = lyHeaderText(header);
   if (s.headerRow) rows[s.headerRow.i] = text;
@@ -1601,7 +1827,7 @@ function lyMountMarkup() {
 // ── Header, outline and setup ─────────────────────────────────────────────
 function lyRenderHead() {
   const model = LY.model;
-  const title = lySetupOf(model, 'title')[0]?.value;
+  const title = lyTitleOf(model);
   $ui('ly-title').textContent = title || 'Untitled song';
   const status = lyRunStatus(LY.run);
   const bits = [
@@ -2518,7 +2744,7 @@ function lyRefresh(now = false) {
     // as its own step so Undo can step past it.
     const run = LY.run;
     if (
-      (prev?.setup.length || prev?.sections.some((sec) => sec.header)) &&
+      prev &&
       run?.final &&
       !run.restored &&
       draft.value === run.wholeText &&
@@ -2526,15 +2752,18 @@ function lyRefresh(now = false) {
       lySame(lySungTexts(next), run.final)
     ) {
       run.restored = true;
-      const restored = lyReplaceSung(prev, run.final, lyKeepSetup(prev, draft.value));
+      const kept = prev.setup.length || prev.sections.some((sec) => sec.header);
+      const restored = lyResultText(prev, run.final, draft.value, run.title) ?? draft.value;
       LY.text = draft.value;
       LY.model = next;
       if (restored !== draft.value) {
         lyCommit(
           restored,
-          prev.sung.length === run.final.length
-            ? 'The writer’s lines are in; your headers and setup lines were kept.'
-            : 'The writer’s lyrics are in; your setup lines were kept.'
+          !kept
+            ? 'The writer’s lyrics are in, with the title it declared.'
+            : prev.sung.length === run.final.length
+              ? 'The writer’s lines are in; your headers and setup lines were kept.'
+              : 'The writer’s lyrics are in; your setup lines were kept.'
         );
         return;
       }
@@ -2634,6 +2863,14 @@ function lyReceive(payload, request) {
   const coverageTool = [...tools]
     .reverse()
     .find((t) => t?.coverage && typeof t.coverage === 'object');
+  const wholeText =
+    typeof payload.artifact?.text === 'string'
+      ? payload.artifact.text
+      : final
+        ? final.join('\n')
+        : null;
+  const title = lyArtifactTitle(payload.artifact);
+  const resultModel = lyResultModel(asked, final, wholeText, title);
   LY.run = {
     id: ++lyRunSeq,
     at: Date.now(),
@@ -2650,14 +2887,15 @@ function lyReceive(payload, request) {
     error: payload.error || null,
     recoveryExport: payload.stopped === 'RECOVERY_EXPORTED',
     final,
-    wholeText:
-      typeof payload.artifact?.text === 'string'
-        ? payload.artifact.text
-        : final
-          ? final.join('\n')
-          : null,
+    wholeText,
     base: asked ? lySungTexts(asked) : null,
     baseSetup: asked ? lySetupKey(asked) : null,
+    // The version asked about and the version the reply accepted, by identity.
+    baseModel: asked,
+    baseId: asked ? lyIdentity(asked) : null,
+    resultModel,
+    resultId: resultModel ? lyIdentity(resultModel) : null,
+    title,
   };
   LY.reviewTab = 'issue';
   LY.reviewAt = 0;
@@ -2832,9 +3070,8 @@ const LY_ACTIONS = {
   'ly-download'() {
     lyCloseMenus();
     const name =
-      (lySetupOf(LY.model, 'title')[0]?.value || app.workspaceName || 'lyrics')
-        .replace(/[^\w\- ]+/g, '')
-        .trim() || 'lyrics';
+      (lyTitleOf(LY.model) || app.workspaceName || 'lyrics').replace(/[^\w\- ]+/g, '').trim() ||
+      'lyrics';
     uiDownload(name + '.txt', lyDraft().value, 'text/plain;charset=utf-8');
   },
   'ly-import'() {
@@ -3238,9 +3475,10 @@ const LY_ACTIONS = {
     const meter = tr.querySelector('[data-rhythm="meter"]').value.trim();
     const bars = tr.querySelector('[data-rhythm="bars"]').value.trim();
     const pickup = tr.querySelector('[data-rhythm="pickup"]').value;
-    if (meter && !/^\d{1,2}\/\d{1,2}$/.test(meter))
-      return showToast('Write the meter as beats/unit, e.g. 4/4 or 7/8', 'error');
-    if (bars && !/^\d{1,3}$/.test(bars)) return showToast('Bars must be a whole number', 'error');
+    if (meter && !LY_METER.test(meter))
+      return showToast('Write the meter as beats/unit from 1 to 99, e.g. 4/4 or 7/8', 'error');
+    if (bars && (!/^\d{1,3}$/.test(bars) || Number(bars) < 1))
+      return showToast('Bars must be a whole number from 1 to 999', 'error');
     if (pickup && !meter) return showToast('Declare a meter with the pickup', 'error');
     LY.picks.rhythmSec = k;
     lyRewriteHeader(

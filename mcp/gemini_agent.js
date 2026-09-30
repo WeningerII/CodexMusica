@@ -1085,6 +1085,21 @@ function stateKey(args) {
   );
 }
 
+// The rendered song a grade or revise leads with: block 0 up to and including
+// its server-written [GRADED …] or [FINISHED …] stamp. What follows a stamp
+// (a stopped run's STANDING list and CONTINUE note) is guidance, not song, and
+// a one-block result or a block with no stamp is not a rendered song at all.
+export function renderedSong(result) {
+  const text = result?.content?.[0]?.text;
+  if (typeof text !== 'string' || (result.content?.length ?? 0) < 2) return null;
+  const lines = text.split('\n');
+  let end = -1;
+  lines.forEach((l, i) => {
+    if (/^\[(FINISHED|GRADED)\b[^\]]*\]$/.test(l.trim())) end = i;
+  });
+  return end < 0 ? null : lines.slice(0, end + 1).join('\n');
+}
+
 function carryState(prev, toolName, args, verdict, surface) {
   if (!surface.stateTools?.has(toolName)) return prev;
   const key = stateKey(args);
@@ -2201,8 +2216,24 @@ export async function runTurn({
               typeof lyricVerdict?.presentation_text === 'string'
                 ? lyricVerdict.presentation_text
                 : null;
+            const title =
+              (typeof args?.title === 'string' && args.title) ||
+              (typeof task?.plan?.args?.title === 'string' && task.plan.args.title) ||
+              artifact?.title ||
+              null;
+            const accepted = artifact;
             artifact = {
-              text: presentation,
+              // THE SONG AS RENDERED, finished or not (2026-09-30). Only a
+              // finished record carries presentation_text, so an unfinished
+              // grade reached the page as bare verdict lines and the page
+              // joined them into a headerless song: sections, sizes, bars and
+              // meter gone. The rendered block the tool leads with is the song
+              // under its headers; certification below still needs the
+              // finished presentation, so this changes what is shown, never
+              // what is certified.
+              text: presentation ?? renderedSong(result),
+              interim: !presentation,
+              title,
               final_draft: lyricVerdict?.final_draft ?? null,
               status: lyricVerdict?.status ?? 'unfinished',
               draft_fp: lyricVerdict?.draft_fp ?? null,
@@ -2221,6 +2252,25 @@ export async function runTurn({
                     .update(JSON.stringify(lyricVerdict.final_draft))
                     .digest('hex'),
             };
+            // A LATER ATTEMPT THAT BROUGHT BACK NO SONG DOES NOT ERASE THE LAST
+            // ONE (2026-09-30). An error, or a revise that stopped to ask a
+            // question, carries no draft; replacing the artifact with it left
+            // the page "no draft" while the accepted lines were still in the
+            // carried state. The accepted song stays, uncertified, and the
+            // attempt that failed is named beside it.
+            if (!Array.isArray(artifact.final_draft) && Array.isArray(accepted?.final_draft))
+              artifact = {
+                ...accepted,
+                interim: true,
+                certified: false,
+                last_attempt: {
+                  tool: fc.name,
+                  status: lyricVerdict?.status ?? (isError ? 'error' : 'no_draft'),
+                  exit_code:
+                    typeof lyricVerdict?.exit_code === 'number' ? lyricVerdict.exit_code : null,
+                  error: isError ? String(result?.content?.[0]?.text ?? '').slice(0, 300) : null,
+                },
+              };
             task.artifact = artifact;
           }
           if (recoveredExport) {
@@ -2423,7 +2473,11 @@ export async function runTurn({
   if (recoveredDelivery !== null) {
     reply = recoveredDelivery;
   } else if (task?.domain === 'lyrics') {
-    reply = artifact?.text || 'This song has no certified final deliverable yet.';
+    // An interim render (a grade, an unfinished stop) is shown with its own
+    // [GRADED]/[FINISHED] stamp on the page; it is never the reply's
+    // deliverable.
+    reply =
+      (!artifact?.interim && artifact?.text) || 'This song has no certified final deliverable yet.';
     if (artifact?.certified && creationQualified(task) && !stopped && artifact.draft_fp) {
       completion = {
         certified: true,

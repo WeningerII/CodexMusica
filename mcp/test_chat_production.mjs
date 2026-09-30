@@ -432,6 +432,65 @@ test('parked verdict defeats a later model finished claim and a later request ca
   }
 });
 
+test('an unfinished grade reaches the page as its rendered song and title; a later attempt with no draft keeps it', async () => {
+  const draft = ['I leave the porch light on', 'For you to find your way'];
+  const render = '[VERSE — 2 lines — 2 bars of 6/8]\n' + draft.join('\n');
+  const stamp = '[GRADED — seed 16 — exit 3, coverage complete — 0 banned pair(s)]';
+  const graded = {
+    content: [
+      { type: 'text', text: `${render}\n\n${stamp}` },
+      {
+        type: 'text',
+        text: JSON.stringify({
+          exit_code: 3,
+          certified: false,
+          measurement_status: 'graded',
+          status: 'graded',
+          final_draft: draft,
+          final_draft_sha256: sha(JSON.stringify(draft)),
+        }),
+      },
+    ],
+  };
+  const calls = [
+    fc('lyric_grade', { seed: 16, title: 'Porch Light', draft }),
+    fc('lyric_revise', { seed: 16, draft }),
+    { text: 'The revision failed.' },
+  ];
+  let count = 0;
+  globalThis.fetch = async () => response([calls[Math.min(count++, calls.length - 1)]]);
+  try {
+    const out = await runTurn({
+      ...opts,
+      surface: {
+        ...surface,
+        declarations: [...surface.declarations, { name: 'lyric_grade', parameters: {} }],
+      },
+      limits: { ...opts.limits, maxSteps: 4 },
+      task: task('lyrics'),
+      callTool: async (name) =>
+        name === 'lyric_grade'
+          ? graded
+          : { isError: true, content: [{ type: 'text', text: 'KITCHEN: the proposer failed' }] },
+    });
+    assert.equal(out.artifact.text, `${render}\n\n${stamp}`, 'the song under its headers, stamped');
+    assert.equal(out.artifact.title, 'Porch Light', 'the title the run declared travels with it');
+    assert.deepEqual(out.artifact.final_draft, draft, 'the accepted draft survives the failure');
+    assert.equal(out.artifact.certified, false);
+    assert.equal(out.artifact.interim, true);
+    assert.equal(out.artifact.last_attempt.tool, 'lyric_revise');
+    assert.match(out.artifact.last_attempt.error, /proposer failed/);
+    assert.equal(out.completion, null);
+    assert.equal(
+      out.reply,
+      'This song has no certified final deliverable yet.',
+      'an interim render is never the delivered song'
+    );
+  } finally {
+    globalThis.fetch = nativeFetch;
+  }
+});
+
 test('missing, blocked, empty and malformed candidates never persist an empty model turn', async () => {
   try {
     for (const json of [
