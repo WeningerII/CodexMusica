@@ -5,7 +5,7 @@
   "lineage": "Brazilian metal practice documented by Angra’s own musicians, with this entry selecting the progressive metal branch rather than treating all national metal as one sound.",
   "recipe": "classic modern brazilian progressive metal, distorted Rock, prog branch. equal tempered, one note per syllable, solo with instrumental accompaniment. modern metal basswood humbucker electric guitar, electric bass, sticks backbeat drum kit, loaded metal salt loaded hard rock maple cello. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 433,
-  "score": 35.936,
+  "score": 37.113,
   "config": {
     "traditions": [
       "brazilian_progressive_metal"
@@ -20,7 +20,7 @@
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "mid_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_fender_h",
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 7.598392857142857,
-          "neck_wood": 0.19585714285714287,
-          "fretboard": 0.19585714285714287,
+          "body_wood": 7.93,
+          "neck_wood": 0.1995,
+          "fretboard": 0.1995,
           "pickup_magnet": 0.0315,
-          "pickup_winding": 0.0315,
-          "string_material": 0.19585714285714287,
-          "bridge": 0.0315,
+          "pickup_winding": 0.06675,
+          "string_material": 0.1995,
+          "bridge": 0.03525,
           "scale_length": 0,
           "string_gauge": 0.14962499999999998,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.037125
         }
       },
       {
@@ -53,16 +53,18 @@
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.063,
+          "body_wood": 0.07050000000000001,
           "pickup_config": 0,
-          "string_type": 0.1990714285714286,
-          "scale_length_b": 0.0315,
+          "string_type": 0.20646428571428574,
+          "scale_length_b": 0.039,
           "fretted_or_not": 0,
-          "bass_technique": 3.7315
+          "bass_technique": 3.7371250000000003,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -74,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.855,
-          "drumhead": 0.11812499999999998,
+          "drumhead": 0.12187499999999998,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -104,17 +106,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.0315,
-          "voice_microtone": 3.537125000000001,
+          "voice_articulation": 0.063,
+          "voice_microtone": 3.568625000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.69,
-          "voice_ensemble_config": 2.134428571428572,
-          "voice_ornament_system": 0.31607142857142856,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.337125,
-          "voice_multitrack_stack": 0.105
+          "voice_ensemble_config": 2.2345535714285716,
+          "voice_ornament_system": 0.3315,
+          "voice_pitch_organization": 0.063,
+          "voice_processing_chain": 0.378,
+          "voice_multitrack_stack": 0.21575
         }
       },
       {
@@ -132,7 +134,7 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "cello_strings": 7.53125,
+          "cello_strings": 7.865,
           "cello_top_wood": -0.035,
           "cello_back_wood": 1.885,
           "cello_varnish": -0.035,

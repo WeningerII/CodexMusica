@@ -48,6 +48,16 @@
             "classical-trained",
             "percussive-attack"
           ]
+        },
+        {
+          "id": "dholak_folk_song",
+          "name": "Folk-song ensemble",
+          "descriptors": [
+            "supporting",
+            "rhythmic"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -200,6 +210,16 @@
             "classical-trained",
             "percussive-attack"
           ]
+        },
+        {
+          "id": "dholak_folk_song",
+          "name": "Folk-song ensemble",
+          "descriptors": [
+            "supporting",
+            "rhythmic"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },

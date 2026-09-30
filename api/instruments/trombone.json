@@ -525,6 +525,24 @@
             "punchy",
             "wind-driven"
           ]
+        },
+        {
+          "id": "trombone_jazz_single_line",
+          "name": "Modern jazz single-line phrasing",
+          "auto": false,
+          "descriptors": [
+            "single-line",
+            "agile",
+            "legato"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "bebop-derived",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
         }
       ]
     },
@@ -879,6 +897,24 @@
           "match_tokens": [
             "punchy",
             "wind-driven"
+          ]
+        },
+        {
+          "id": "trombone_jazz_single_line",
+          "name": "Modern jazz single-line phrasing",
+          "auto": false,
+          "descriptors": [
+            "single-line",
+            "agile",
+            "legato"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "bebop-derived",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
           ]
         }
       ]

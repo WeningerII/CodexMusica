@@ -1,0 +1,114 @@
+{
+  "id": "indian_singer_songwriter",
+  "name": "Indian singer-songwriter",
+  "family": "vernacular",
+  "lineage": "India’s independent performer-songwriters work in multiple languages and modern acoustic/electronic formats. Prateek Kuhad, present in the exact roster, supplies the selected Hindi-and-English guitar-based song branch.",
+  "recipe": "classic modern indian singer-songwriter, ballad Poetry. straight onset, neutral third half flat, tahrir tekye chain mechanism, opera quality low larynx anchored. indian rosewood rosewood fingerpicked acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 354,
+  "score": 33.044,
+  "config": {
+    "traditions": [
+      "indian_singer_songwriter"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "breath_admixed_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_vocoder_16_band",
+          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
+        },
+        "scores": {
+          "voice_register": 0.354,
+          "voice_quality": -0.35,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.8999999999999999,
+          "voice_articulation": 0,
+          "voice_microtone": 2.990000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.6499999999999999,
+          "voice_estill_quality": 1.8299999999999998,
+          "voice_speech_song": 5.525,
+          "voice_ensemble_config": 4.8100000000000005,
+          "voice_ornament_system": 1.0299999999999998,
+          "voice_pitch_organization": 0.6499999999999999,
+          "voice_processing_chain": 3.5500000000000003,
+          "voice_multitrack_stack": 1
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "eighty_twenty_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0.054,
+          "back_sides": 1.2349999999999999,
+          "string_acoustic": 0.1365,
+          "acoustic_om_technique": 3.9539999999999997
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_quality",
+        "voice_articulation",
+        "voice_tradition"
+      ],
+      "acoustic_guitar_om": [
+        "acoustic_om_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "legato_voice",
+      "voice_quality": "breath_admixed_voice",
+      "acoustic_om_technique": "om_fingerpicked",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

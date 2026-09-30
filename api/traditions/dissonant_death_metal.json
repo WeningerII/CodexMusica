@@ -5,7 +5,7 @@
   "lineage": "Death-metal strand prioritizing abrasive harmonic friction and fractured rhythmic composition, represented by Gorguts’ Obscura (1998) and Colored Sands (2013). Season of Mist’s release accounts document dissonant guitar writing and unconventional rhythm/harmony, plus the guitar-vocal, second-guitar, bass and drum roster. The available palm-muted technique pin is an authored riff-attack reduction, not a transcription of the extended guitar vocabulary.",
   "recipe": "classic late-1990s dissonant death metal, distorted Rock, death branch, avant metal, prog metal cybergrind mathcore. interlocked note trading, equal tempered, solo with instrumental accompaniment, no specific ornament system. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier maple humbucker electric guitar, ampeg svt amp rock bass amp stainless steel roundwound electric bass, sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
   "recipe_chars": 611,
-  "score": 99.897,
+  "score": 99.887,
   "config": {
     "traditions": [
       "dissonant_death_metal",
@@ -43,7 +43,7 @@
           "scale_length": 0.18,
           "string_gauge": 1.6900000000000002,
           "finish": 0.195,
-          "string_tuning": 1.1997499999999999
+          "string_tuning": 1.19
         }
       },
       {
@@ -55,7 +55,8 @@
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 10.79,
@@ -64,7 +65,8 @@
           "string_type": 2.34,
           "scale_length_b": 0.585,
           "fretted_or_not": 0.195,
-          "bass_technique": -0.15000000000000002
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {

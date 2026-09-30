@@ -5,7 +5,7 @@
   "lineage": "West Texas songwriter school formed in Lubbock in the early 1970s around the Flatlanders (Joe Ely, Butch Hancock, Jimmie Dale Gilmore) and visual-artist-songwriter Terry Allen, extending Buddy Holly's local legacy — flatpicked acoustic guitar, musical saw or dobro drones, honky-tonk piano and fiddle under conversational nasal high-plains vocals at moderate 2/4 and waltz tempos, with literary, place-fixed lyrics.",
   "recipe": "classic North American 1970-1973 lubbock sound, functional Song, outlaw branch, americana country, anglo singer song country folk story, nashville country nashville sound instrumental country. thick, breath veiled tone, wide pitch sway, interlocked note trading. steel silk travis picked dreadnought acoustic brass body warmer than steel national style heavy gauge dobro canon resonator guitar, steel double stops fiddle, upright piano, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 775,
-  "score": 374.757,
+  "score": 372.477,
   "config": {
     "traditions": [
       "lubbock_sound",
@@ -38,18 +38,18 @@
           "voice_quality": 10.659999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 26.425000000000004,
+          "voice_vibrato": 26.275000000000002,
           "voice_articulation": 16.119999999999994,
           "voice_microtone": 14.624999999999991,
           "voice_tradition": 7.8,
           "voice_mechanism_compound": 2.9899999999999998,
-          "voice_estill_quality": 30.360000000000003,
+          "voice_estill_quality": 30.18,
           "voice_speech_song": 24.11499999999999,
           "voice_ensemble_config": 14.754999999999992,
-          "voice_ornament_system": 1.04,
-          "voice_pitch_organization": 1.9849999999999997,
-          "voice_processing_chain": 4.515,
-          "voice_multitrack_stack": 4.330000000000001
+          "voice_ornament_system": 0.9950000000000001,
+          "voice_pitch_organization": 1.7449999999999997,
+          "voice_processing_chain": 4.08,
+          "voice_multitrack_stack": 4.180000000000001
         }
       },
       {
@@ -62,7 +62,7 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 28.615,
+          "acoustic_technique": 28.375,
           "string_tuning": 0.06499999999999999,
           "top_wood": 0.195,
           "back_sides": 0.045,
@@ -76,14 +76,16 @@
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "sul_pont"
+          "fiddle_articulation": "sul_pont",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 31.700000000000003,
           "fiddle_strings": 1.4300000000000002,
-          "fiddle_bow": 0.195,
+          "fiddle_bow": 0.15,
           "fiddle_mute": 0.195,
-          "fiddle_articulation": 0.3
+          "fiddle_articulation": 0.3,
+          "fiddle_string_configuration": 0
         }
       },
       {
@@ -96,7 +98,7 @@
         "scores": {
           "keyboard_technique": 28.75,
           "upright_use": 0.195,
-          "upright_piano_size": 1.4949999999999999
+          "upright_piano_size": 1.15
         }
       },
       {
@@ -108,8 +110,8 @@
         },
         "scores": {
           "resonator_body": 1.8200000000000003,
-          "resonator_strings": 1.4949999999999999,
-          "resonator_technique": 2.34
+          "resonator_strings": 1.45,
+          "resonator_technique": 2.175
         }
       },
       {
@@ -121,16 +123,18 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerpicked_country_b"
+          "bass_technique": "fingerpicked_country_b",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 26.805000000000003,
+          "amp_make": 26.955000000000002,
           "body_wood": 0.195,
           "pickup_config": 0.045,
           "string_type": 2.6,
           "scale_length_b": 0.195,
-          "fretted_or_not": 0.045,
-          "bass_technique": 26.425000000000004
+          "fretted_or_not": 0.09,
+          "bass_technique": 26.140000000000004,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -142,7 +146,7 @@
         },
         "scores": {
           "drum_technique": 15.274999999999995,
-          "drumhead": 5.864999999999999,
+          "drumhead": 5.714999999999999,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -163,7 +163,8 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 3.39,
@@ -172,7 +173,8 @@
           "string_type": 5.308750000000001,
           "scale_length_b": 0.585,
           "fretted_or_not": 0.3,
-          "bass_technique": 3.745
+          "bass_technique": 3.745,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -180,12 +182,14 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "vibe_motor": "vibe_off",
-          "vibe_mallets": "vibe_hard_mallets"
+          "vibe_mallets": "vibe_hard_mallets",
+          "vibe_bar_material": "vibe_bar_material_unspecified"
         },
         "scores": {
           "percussion_technique": 4.375,
           "vibe_motor": 0.845,
-          "vibe_mallets": 1.4949999999999999
+          "vibe_mallets": 1.4949999999999999,
+          "vibe_bar_material": 0
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Sunshine Pop",
   "family": "pop_rock",
   "lineage": "Los Angeles studio-pop of roughly 1965-1970 made by session-band productions around Curt Boettcher, Gary Usher and Roger Nichols and by vocal groups such as The Association and The Mamas & the Papas — bright major-key songs at 90-130 BPM with jazz-derived major-seventh and added-sixth harmony, four- and five-part close vocal blocks stacked on multitrack, orchestral colour from harpsichord, flutes, French horn and vibraphone, brushed or lightly played drums, and lyrics of pastoral optimism cut with wistfulness.",
-  "recipe": "classic Los Angeles mid-1960s sunshine pop, functional Song, pop rock branch, pop rock folk rock, surf rock distorted rock, pop rock girl group 1960s girl group. thick, breath veiled tone, straight onset, interlocked note trading. lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack, acoustic guitar 12 string, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament block chord harpsichord, powell boston canonical American orchestral flute, french horn, mallets vibraphone, traditional mellow brass tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ.",
-  "recipe_chars": 970,
-  "score": 463.19,
+  "recipe": "classic Los Angeles mid-1960s sunshine pop, functional Song, pop rock branch, pop rock folk rock, surf rock distorted rock, pop rock girl group 1960s girl group. thick, breath veiled tone, straight onset, interlocked note trading. lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack, acoustic guitar 12 string, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament block chord harpsichord, powell boston canonical American orchestral flute, french horn, mallets vibraphone, traditional mellow brass tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ.",
+  "recipe_chars": 973,
+  "score": 462.647,
   "config": {
     "traditions": [
       "sunshine_pop",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 65.64500000000001,
+          "voice_register": 65.54,
           "voice_quality": 19.695,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9975,
+          "voice_vibrato": 3.96,
           "voice_articulation": 22.48999999999999,
-          "voice_microtone": 49.25000000000001,
-          "voice_tradition": 26.875,
+          "voice_microtone": 49.29500000000001,
+          "voice_tradition": 26.197,
           "voice_mechanism_compound": 4.355,
           "voice_estill_quality": 7.3125,
           "voice_speech_song": 29.31499999999999,
           "voice_ensemble_config": 24.309999999999995,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 5.425,
+          "voice_pitch_organization": 5.32,
           "voice_processing_chain": 13.389999999999999,
           "voice_multitrack_stack": 7.280000000000002
         }
@@ -82,21 +82,23 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 13.129999999999999,
           "body_wood": 1.04,
           "pickup_config": 0.39,
-          "string_type": 30.5005,
+          "string_type": 31.021,
           "scale_length_b": 1.04,
           "fretted_or_not": 0.195,
-          "bass_technique": 24.679999999999996
+          "bass_technique": 24.679999999999996,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -108,7 +110,7 @@
         },
         "scores": {
           "drum_technique": 26.129999999999995,
-          "drumhead": 21.821499999999997,
+          "drumhead": 21.789999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -123,12 +125,12 @@
           "harpsichord_temperament": "harpsichord_vallotti"
         },
         "scores": {
-          "keyboard_technique": 22.8015,
+          "keyboard_technique": 22.665,
           "harpsichord_register": 0.39,
           "harpsichord_context": 0.585,
           "harpsichord_maker_school": 2.73,
           "harpsichord_plectrum": 1.3,
-          "harpsichord_temperament": 1.8200000000000003
+          "harpsichord_temperament": 1.685
         }
       },
       {
@@ -143,7 +145,7 @@
         "scores": {
           "wind_articulation": -0.05,
           "flute_size": 0.195,
-          "flute_material": 0.25,
+          "flute_material": 0.325,
           "flute_technique": 0.0765,
           "flute_maker_school": 2.3649999999999998
         }
@@ -166,12 +168,14 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "vibe_motor": "vibe_fast",
-          "vibe_mallets": "vibe_soft_mallets"
+          "vibe_mallets": "vibe_soft_mallets",
+          "vibe_bar_material": "vibe_bar_material_unspecified"
         },
         "scores": {
           "percussion_technique": 4.375,
           "vibe_motor": 3.25,
-          "vibe_mallets": 3.25
+          "vibe_mallets": 3.25,
+          "vibe_bar_material": 0
         }
       },
       {
@@ -181,7 +185,7 @@
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 4.42,
+          "tambourine_orch_jingle": 4.465,
           "tambourine_orch_context": 0.12999999999999998
         }
       }

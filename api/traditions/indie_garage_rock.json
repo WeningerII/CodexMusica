@@ -90,7 +90,8 @@
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": -0.14,
@@ -99,7 +100,8 @@
           "string_type": 0.39,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.3735,
-          "bass_technique": 10.2
+          "bass_technique": 10.2,
+          "electric_bass_string_configuration": 0
         }
       },
       {

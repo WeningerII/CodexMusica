@@ -59,6 +59,18 @@
           "match_tokens": [
             "metal-context"
           ]
+        },
+        {
+          "id": "bass_vi_melodic_counterpoint",
+          "name": "Melodic bass and chordal counterpoint",
+          "descriptors": [
+            "melodic",
+            "plucked",
+            "articulated",
+            "chordal"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -127,6 +139,18 @@
           "match_tokens": [
             "metal-context"
           ]
+        },
+        {
+          "id": "bass_vi_melodic_counterpoint",
+          "name": "Melodic bass and chordal counterpoint",
+          "descriptors": [
+            "melodic",
+            "plucked",
+            "articulated",
+            "chordal"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },

@@ -5,7 +5,7 @@
   "lineage": "Greek jazz scenes; selected Vassilis Tsabropoulos international trio",
   "recipe": "classic modern greek jazz, improv On Frame, American jazz branch. grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 306,
-  "score": 47.188,
+  "score": 47.152,
   "config": {
     "traditions": [
       "greek_jazz"
@@ -30,7 +30,7 @@
           "grand_piano_brand": 0.705,
           "piano_hammer": 0.9099999999999999,
           "piano_rim": 0.9099999999999999,
-          "piano_soundboard": 0.7749999999999999,
+          "piano_soundboard": 0.739,
           "piano_pinblock": 0.7,
           "piano_plate": 0.7,
           "piano_pitch_standard": -0.035

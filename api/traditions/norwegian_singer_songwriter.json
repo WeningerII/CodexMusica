@@ -1,0 +1,116 @@
+{
+  "id": "norwegian_singer_songwriter",
+  "name": "Norwegian singer-songwriter",
+  "family": "vernacular",
+  "lineage": "Norwegian performer-songwriters work across jazz-inflected pop, acoustic song and studio arrangements. Sondre Lerche’s explicit solo nylon-string-guitar programme supplies the selected intimate branch.",
+  "recipe": "classic modern norwegian singer-songwriter, ballad Poetry. thick, breath veiled tone, straight onset, equal tempered. nylon classical nylon-string guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 292,
+  "score": 32.749,
+  "config": {
+    "traditions": [
+      "norwegian_singer_songwriter"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
+        },
+        "scores": {
+          "voice_register": 4.550000000000002,
+          "voice_quality": 2.600000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.45,
+          "voice_articulation": 0,
+          "voice_microtone": 4.9365000000000006,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.6499999999999999,
+          "voice_estill_quality": 1.7799999999999998,
+          "voice_speech_song": 3.575000000000001,
+          "voice_ensemble_config": 2.990000000000001,
+          "voice_ornament_system": 0.9799999999999999,
+          "voice_pitch_organization": 0.6499999999999999,
+          "voice_processing_chain": 2.4890000000000003,
+          "voice_multitrack_stack": 1
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_high_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.589,
+          "string_tuning": 0,
+          "top_wood_classical": 0.273,
+          "bracing_classical": 0.611,
+          "string_classical": 1.6,
+          "attack_technique_cl": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition"
+      ],
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "legato_voice",
+      "acoustic_technique": "acoustic_chord_melody",
+      "attack_technique_cl": "tirando_cl",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

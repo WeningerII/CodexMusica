@@ -5,7 +5,7 @@
   "lineage": "Contemporary Norwegian jazz; selected Gustavsen composition-led piano trio",
   "recipe": "classic modern norwegian contemporary jazz, improv On Frame, American jazz branch. grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 323,
-  "score": 42.762,
+  "score": 42.651,
   "config": {
     "traditions": [
       "norwegian_contemporary_jazz"
@@ -66,12 +66,12 @@
           "drum_technique": 6.890000000000001,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.14962499999999998,
+          "shell_wood": 0.11249999999999999,
           "shell_thickness": 0.3,
           "bearing_edges": 0.1365,
           "snare_wires": 0.0735,
-          "cymbal_alloy": 11.249624999999998,
-          "cymbal_hammering": 11.678125,
+          "cymbal_alloy": 11.212499999999999,
+          "cymbal_hammering": 11.641,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }

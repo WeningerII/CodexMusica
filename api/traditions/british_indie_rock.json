@@ -3,9 +3,9 @@
   "name": "British indie rock",
   "family": "rock_punk",
   "lineage": "A British-centered indie-rock discovery network including Bombay Bicycle Club, The Vaccines, Blossoms, Editors and The Cribs. This default selects Bombay Bicycle Club’s song-based combination of played guitars, bass and drums with chopped sample textures.",
-  "recipe": "classic modern british indie rock, distorted Rock, alternative branch. solo with instrumental accompaniment. arpeggiated clean single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 473,
-  "score": 40.085,
+  "recipe": "classic modern british indie rock, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment. arpeggiated clean single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 496,
+  "score": 40.209,
   "config": {
     "traditions": [
       "british_indie_rock"
@@ -51,7 +51,8 @@
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
@@ -59,8 +60,9 @@
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.0735,
-          "bass_technique": -0.15000000000000002
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -140,7 +142,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.457875,
+          "voice_speech_song": 0.655875,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

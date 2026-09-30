@@ -5,7 +5,7 @@
   "lineage": "A British post-rock network spanning Mogwai, Maybeshewill, Bark Psychosis and related groups. The selected Mogwai branch layers mostly instrumental guitar, bass, drums and synthesizer parts in arrangements developed from individual sketches.",
   "recipe": "classic modern british post-rock, distorted Rock, experimental branch. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb proco RAT.",
   "recipe_chars": 434,
-  "score": 33.476,
+  "score": 33.745,
   "config": {
     "traditions": [
       "british_post_rock"
@@ -30,13 +30,13 @@
         "scores": {
           "electric_technique": 0.26,
           "amp_make": 0,
-          "body_wood": 0.102,
+          "body_wood": 0.13799999999999998,
           "neck_wood": 0.39,
           "fretboard": -0.035,
           "pickup_magnet": 0.105,
           "string_material": 0.39,
-          "string_gauge": 0.03899999999999999,
-          "bridge": 0.063,
+          "string_gauge": 0.12299999999999997,
+          "bridge": 0.09899999999999999,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0
@@ -51,16 +51,18 @@
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.102,
+          "body_wood": 0.13799999999999998,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.183,
+          "scale_length_b": 0.21899999999999997,
           "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -80,9 +82,9 @@
         },
         "scores": {
           "drum_technique": 9.5,
-          "drumhead": 0.063,
+          "drumhead": 0.09899999999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.063,
+          "shell_wood": 0.09899999999999999,
           "shell_thickness": 0,
           "bearing_edges": 0.39,
           "snare_wires": 0,
@@ -102,7 +104,7 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 0.3205,
+          "electronic_technique": 0.289,
           "oscillator": 0.273,
           "filter_topology": 0.39,
           "envelope": 0.588,

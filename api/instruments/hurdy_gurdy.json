@@ -236,6 +236,17 @@
             "bowed",
             "drone-foundation"
           ]
+        },
+        {
+          "id": "hurdy_modern_medieval_folk",
+          "name": "Modern medieval-folk performance",
+          "descriptors": [
+            "song-accompaniment",
+            "drone-foundation",
+            "melodic"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }
@@ -421,6 +432,17 @@
             "bowed",
             "drone-foundation"
           ]
+        },
+        {
+          "id": "hurdy_modern_medieval_folk",
+          "name": "Modern medieval-folk performance",
+          "descriptors": [
+            "song-accompaniment",
+            "drone-foundation",
+            "melodic"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }

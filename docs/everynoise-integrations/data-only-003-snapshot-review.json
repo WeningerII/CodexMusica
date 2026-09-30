@@ -1,0 +1,363 @@
+{
+  "reviewed_ids": [
+    "post_punk",
+    "breton_folk",
+    "dream_pop",
+    "british_invasion_rb",
+    "singer_songwriter",
+    "early_rock_and_roll_50s",
+    "mathcore",
+    "ebm_european_body",
+    "big_room_house",
+    "alt_country_americana",
+    "deathcore",
+    "post_metal",
+    "melodic_death_metal",
+    "technical_death_metal",
+    "latin_alternative",
+    "lutheran_chorale",
+    "methodist_hymnody",
+    "speed_metal",
+    "groove_metal",
+    "gothic_metal",
+    "schranz_hard_techno",
+    "darksynth",
+    "dark_electro_aggrotech"
+  ],
+  "scope": "23 individually reviewed expected-output changes under the original optimizer; no test logic or old genre source changes.",
+  "reviews": {
+    "post_punk": [
+      {
+        "id": "post_punk",
+        "decision": "accept",
+        "reason": "Unchanged old source/extras, no pin_parts. Christian alternative rock replaces dance rock only as an optimizer-selected member of the existing distortedRock.alternative cross-reference. New Switchfoot model is correctly scoped and parented; this is not a historical/religious reclassification of1970s post-punk. Drum/synth detail shortening is ordinary unpinned choice/compression."
+      }
+    ],
+    "breton_folk": [
+      {
+        "id": "breton_folk",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["breton_folk", "indie_folk_2000s", "freak_folk_2000s"],
+        "new_neighbors": ["breton_folk", "freak_folk_2000s", "texas_country_folk_storyteller"],
+        "changed_slots": [
+          [
+            "voice",
+            "voice_mechanism_compound",
+            "voice_mechanism_M0_pulse_borrowed",
+            "voice_mechanism_ingressive_paired"
+          ],
+          ["voice", "voice_estill_quality", "voice_estill_opera", "voice_estill_nasal_twang"],
+          [
+            "voice",
+            "voice_pitch_organization",
+            "voice_pitch_meantone_quarter_comma",
+            "voice_pitch_pythagorean"
+          ],
+          [
+            "voice",
+            "voice_multitrack_stack",
+            "voice_multitrack_2000s_elastic_pitch_edited",
+            "voice_multitrack_2010s_melodyne_microtuned"
+          ]
+        ],
+        "unresolved": []
+      }
+    ],
+    "dream_pop": [
+      {
+        "id": "dream_pop",
+        "decision": "accept",
+        "reason": "Unchanged source/extras and existing voice-isolated alternative cross-reference. New Canadian shoegaze is a correctly parented Besnard Lakes atmospheric-guitar/Omnichord model. The new neighbor is musically closer than the previous Boston-rock neighbor. Existing Omnichord remains; production-texture wording is a permitted new data variant/compression detail, not a replacement instrument."
+      }
+    ],
+    "british_invasion_rb": [
+      {
+        "id": "british_invasion_rb",
+        "decision": "accept",
+        "reason": "Existing functionalSong.bluesElectric cross-reference is unchanged and only isolates shell_wood. New blues-rock-guitar model is validly parented there and grounds an electric blues band. Pressed-spruce archtop, sticks/backbeat and altered voice wording are existing unpinned menu choices; no old variant/default was changed."
+      }
+    ],
+    "singer_songwriter": [
+      {
+        "id": "singer_songwriter",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["singer_songwriter", "scottish_americana", "gothic_country"],
+        "new_neighbors": ["singer_songwriter", "memphis_americana", "midwest_americana"],
+        "changed_slots": [
+          ["voice", "voice_vibrato", "terminal_vibrato", "oscillating_vibrato"],
+          [
+            "voice",
+            "voice_pitch_organization",
+            "voice_pitch_pelog_7",
+            "voice_pitch_sub_semitone_third_glide"
+          ],
+          ["acoustic_guitar_om", "string_tuning", "dadgad", "open_d"],
+          ["acoustic_guitar_om", "back_sides", "walnut_bs_om", "rosewood_bs_om"],
+          ["acoustic_guitar_om", "string_acoustic", "martin_lifespan_om", "silk_steel_om"],
+          [
+            "harmonica",
+            "harmonica_maker_school",
+            "harmonica_hering_brazilian",
+            "harmonica_hohner_marine_band"
+          ],
+          ["grand_piano", "grand_piano_brand", "bosendorfer", "steinway_d"],
+          [
+            "grand_piano",
+            "piano_plate",
+            "gray_iron_full_perimeter_plate",
+            "v_pro_vacuum_cast_plate"
+          ]
+        ],
+        "unresolved": []
+      }
+    ],
+    "early_rock_and_roll_50s": [
+      {
+        "id": "early_rock_and_roll_50s",
+        "decision": "accept_with_legacy_output_caveat",
+        "reason": "Source/extras remain identical and unpinned; new blues-rock-guitar is validly in the old bluesElectric neighbor pool. Archtop, upright bass, piano, sax and drums remain. Fender blackface/1960s wording is not historically appropriate evidence for an exact1950s session, but it is an existing amplifier option selected by the unchanged broad optimizer rather than an incorrect new source claim or changed default. Accept data intake under the permitted unpinned-neighbor policy; do not silently certify that phrase as1950s equipment or fix old rows/engine in this review."
+      }
+    ],
+    "mathcore": [
+      {
+        "id": "mathcore",
+        "decision": "accept",
+        "reason": "Accept: source/extras unchanged and unpinned. British math rock is eligible under the pre-existing experimental-rock cross-reference; electric-bass Marshall Plexi is an existing valid unpinned amp alternative. Original four sound roles and environment remain.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": false,
+        "api_problems": [],
+        "source_roles_preserved": true
+      }
+    ],
+    "ebm_european_body": [
+      {
+        "id": "ebm_european_body",
+        "decision": "accept",
+        "reason": "Accept: Australian/Brazilian thrash replace other neighbors selected through the unchanged thrash cross-reference. No metal guitars or drums are inserted: voice, synth and TR-808 remain. No new cross-reference was authored for this row.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": false,
+        "api_problems": [],
+        "source_roles_preserved": true
+      }
+    ],
+    "big_room_house": [
+      {
+        "id": "big_room_house",
+        "decision": "accept",
+        "reason": "Accept: one fewer thrash neighbor plus a valid unpinned synth envelope selection. Source still has only TR-808 and synth; environment remains. The surprising thrash cross-reference is pre-existing, not introduced by this tranche.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": false,
+        "api_problems": [],
+        "source_roles_preserved": true
+      }
+    ],
+    "alt_country_americana": [
+      {
+        "id": "alt_country_americana",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": [
+          "alt_country_americana",
+          "texas_country_folk_storyteller",
+          "indie_folk_2000s"
+        ],
+        "new_neighbors": ["alt_country_americana", "texas_country_folk_storyteller", "neofolk"],
+        "changed_slots": [
+          ["electric_guitar_single_coil", "body_wood", "pine", "mahogany"],
+          ["electric_guitar_single_coil", "string_gauge", "g_10", "g_12"],
+          ["electric_bass", "scale_length_b", "long_scale_b", "short_scale_b"],
+          ["voice", "voice_microtone", "tempered_voice", "maqam_inflected"],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_melodyne_microtuned",
+            "voice_processing_vocoder_8_band"
+          ],
+          ["mandolin", "mandolin_top", "italian_alpine_spruce_m", "german_spruce_m"],
+          ["mandolin", "mandolin_fingerboard", "mandolin_ebony_fb", "mandolin_indian_rosewood_fb"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "deathcore": [
+      {
+        "id": "deathcore",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["distortedRock.metal.thrash"],
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "reason": "The pre-existing thrash cross-reference replaces black speed metal with Australian and Brazilian thrash neighbors. Existing eligible bass body choice changes alder to mahogany. Unpinned source roster, parts and environment are unchanged.",
+        "real_new_data_error": null
+      }
+    ],
+    "post_metal": [
+      {
+        "id": "post_metal",
+        "decision": "accept",
+        "reason": "Only Canadian post-rock is replaced by Brazilian post-rock in the unchanged distortedRock.experimental cross-reference. New Hurtmold instrumental model is correctly scoped/parented; this is a sonic neighbor, not a claim that Brazilian post-rock originated US post-metal. Remaining descriptor stack is unchanged."
+      }
+    ],
+    "melodic_death_metal": [
+      {
+        "id": "melodic_death_metal",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["distortedRock.metal.power"],
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "reason": "The existing power-metal cross-reference adds British power metal beside Brazilian power metal; unpinned bass amplification selects existing Marshall Plexi instead of Ampeg SVT and drum material words shorten. Neither existing amp menu defaults nor source parts changed.",
+        "real_new_data_error": null
+      }
+    ],
+    "technical_death_metal": [
+      {
+        "id": "technical_death_metal",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["distortedRock.metal.prog"],
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "reason": "Only the prog-metal neighbor changes from Brazilian progressive metal to Arab metal beside progressive metal. Arab metal is the documented Myrath progressive branch in this tranche, not an inserted ethnicity-specific instrument rule. Source cross-reference and recipe equipment remain unchanged.",
+        "real_new_data_error": null
+      }
+    ],
+    "latin_alternative": [
+      {
+        "id": "latin_alternative",
+        "decision": "accept",
+        "reason": "Source/extras remain identical and unpinned. Christian alternative rock replaces grunge as a selected member of existing alternative cross-reference, with valid Switchfoot parent/model. No faith affiliation is assigned to the Latin repertoire. Existing amplifier, power-chord and drum/voice choices vary normally; core guitar/bass/kit and separate conga material/hand-playing role remain."
+      }
+    ],
+    "lutheran_chorale": [
+      {
+        "id": "lutheran_chorale",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["lutheran_chorale", "classical_period_18c", "anglican_choral_cathedral"],
+        "new_neighbors": ["lutheran_chorale", "classical_bass", "classical_period_18c"],
+        "changed_slots": [
+          [
+            "voice",
+            "voice_speech_song",
+            "voice_sprechgesang_notated",
+            "voice_recitative_free_rhythm"
+          ],
+          [
+            "voice",
+            "voice_multitrack_stack",
+            "voice_multitrack_late_1970s_thirds_fifths_octaves",
+            "voice_multitrack_octave_double_self"
+          ]
+        ],
+        "unresolved": []
+      }
+    ],
+    "methodist_hymnody": [
+      {
+        "id": "methodist_hymnody",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["methodist_hymnody", "anglican_choral_cathedral", "classical_period_18c"],
+        "new_neighbors": ["methodist_hymnody", "anglican_choral_cathedral", "classical_bass"],
+        "changed_slots": [
+          [
+            "choir_ensemble",
+            "choir_regional_canonical_configuration",
+            "choir_regional_kakhetian_three_voice",
+            "choir_regional_sardinian_cantu_a_tenore"
+          ],
+          [
+            "choir_ensemble",
+            "choir_ensemble_repertoire",
+            "choir_ensemble_global_traditional",
+            "choir_ensemble_sacred_global"
+          ],
+          ["pipe_organ", "pipe_organ_class", "pipe_organ_baroque", "pipe_organ_neo_baroque"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "speed_metal": [
+      {
+        "id": "speed_metal",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["distortedRock.metal.power"],
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "reason": "British power metal becomes another neighbor through the existing power-metal cross-reference. The unpinned bass amp selects existing Marshall Plexi instead of Ampeg SVT. The brushes-and-sticks phrase is inherited and is not a new data choice or defect introduced here.",
+        "real_new_data_error": null
+      }
+    ],
+    "groove_metal": [
+      {
+        "id": "groove_metal",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["distortedRock.metal.death"],
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "reason": "The existing death-metal cross-reference selects Belgian death metal in place of brutal death metal, while blackgaze is inherited. The unpinned legacy vocal vibrato and bass material alternatives change to straight-note-core and alder. No source control, mandatory pin or menu default is overwritten.",
+        "real_new_data_error": null
+      }
+    ],
+    "gothic_metal": [
+      {
+        "id": "gothic_metal",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["distortedRock.gothicRock"],
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "reason": "The existing gothic-rock cross-reference substitutes dark rock for neoclassical darkwave beside darkwave. The bass body adjective disappears through ordinary selection/compression. Source roster, parts, environment and amplifier text are unchanged.",
+        "real_new_data_error": null
+      }
+    ],
+    "schranz_hard_techno": [
+      {
+        "id": "schranz_hard_techno",
+        "decision": "accept",
+        "reason": "Accept: the optimizer selects no secondary neighbor; the unchanged source still supplies the same TR-808 and environment. The retained broad thrash branch label comes from the old cross-reference, not a new genre or instrument claim.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": false,
+        "api_problems": [],
+        "source_roles_preserved": true
+      }
+    ],
+    "darksynth": [
+      {
+        "id": "darksynth",
+        "decision": "accept",
+        "reason": "Accept: Australian thrash is eligible under the old thrash cross-reference. The original synth/TR-808/humbucker-guitar ensemble and environment remain. TR-808 production origin selects the existing unpinned Behringer RD-8 clone alternative; its short rendered text is permitted detail/compression, not a missing instrument.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": false,
+        "api_problems": [],
+        "source_roles_preserved": true
+      }
+    ],
+    "dark_electro_aggrotech": [
+      {
+        "id": "dark_electro_aggrotech",
+        "decision": "accept",
+        "reason": "Accept: Australian/Brazilian thrash are eligible neighbors under the old cross-reference; the voice straight-tone choice is a valid unpinned alternative. Voice/synth/TR-808 and environment remain.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": false,
+        "api_problems": [],
+        "source_roles_preserved": true
+      }
+    ]
+  }
+}

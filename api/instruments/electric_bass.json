@@ -381,6 +381,17 @@
             "low-register",
             "foundational-bass"
           ]
+        },
+        {
+          "id": "split_plus_single",
+          "name": "Split-coil plus bridge single-coil (P/J)",
+          "descriptors": [
+            "split-plus-single-coil",
+            "passive",
+            "P-J-blend"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -779,6 +790,37 @@
           "canonical_tags": [
             "modern"
           ]
+        }
+      ]
+    },
+    {
+      "id": "electric_bass_string_configuration",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "electric_bass_string_configuration_unspecified",
+          "name": "Source-unspecified string count",
+          "descriptors": [],
+          "default": true
+        },
+        {
+          "id": "electric_bass_five_string",
+          "name": "Five-string electric bass",
+          "descriptors": [
+            "five-string-electric-bass"
+          ],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "electric_bass_two_string_ea",
+          "name": "Two-string electric bass, low E–A pair",
+          "descriptors": [
+            "two-string-electric-bass",
+            "low-E-A-pair"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }
@@ -898,6 +940,17 @@
             "low-register",
             "foundational-bass"
           ]
+        },
+        {
+          "id": "split_plus_single",
+          "name": "Split-coil plus bridge single-coil (P/J)",
+          "descriptors": [
+            "split-plus-single-coil",
+            "passive",
+            "P-J-blend"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -1296,6 +1349,37 @@
           "canonical_tags": [
             "modern"
           ]
+        }
+      ]
+    },
+    {
+      "id": "electric_bass_string_configuration",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "electric_bass_string_configuration_unspecified",
+          "name": "Source-unspecified string count",
+          "descriptors": [],
+          "default": true
+        },
+        {
+          "id": "electric_bass_five_string",
+          "name": "Five-string electric bass",
+          "descriptors": [
+            "five-string-electric-bass"
+          ],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "electric_bass_two_string_ea",
+          "name": "Two-string electric bass, low E–A pair",
+          "descriptors": [
+            "two-string-electric-bass",
+            "low-E-A-pair"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }

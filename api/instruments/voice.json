@@ -5324,6 +5324,13 @@
           "match_tokens": [
             "aurally-tuned"
           ]
+        },
+        {
+          "id": "voice_pitch_source_unspecified",
+          "name": "Pitch organization not specified by source",
+          "descriptors": [],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -6114,6 +6121,39 @@
             "live-take",
             "ensemble"
           ]
+        }
+      ]
+    },
+    {
+      "id": "voice_tessitura",
+      "name": "Voice tessitura / repertoire range",
+      "variants": [
+        {
+          "id": "voice_tessitura_source_unspecified",
+          "name": "Source unspecified",
+          "descriptors": [],
+          "default": true,
+          "auto": false
+        },
+        {
+          "id": "voice_tessitura_bass",
+          "name": "Bass singing tessitura",
+          "descriptors": [
+            "bass-vocal-tessitura",
+            "low-singing-range"
+          ],
+          "default": false,
+          "auto": false
+        },
+        {
+          "id": "voice_tessitura_bass_baritone",
+          "name": "Bass-baritone singing tessitura",
+          "descriptors": [
+            "bass-baritone-vocal-tessitura",
+            "low-to-middle-singing-range"
+          ],
+          "default": false,
+          "auto": false
         }
       ]
     }
@@ -11427,6 +11467,13 @@
           "match_tokens": [
             "aurally-tuned"
           ]
+        },
+        {
+          "id": "voice_pitch_source_unspecified",
+          "name": "Pitch organization not specified by source",
+          "descriptors": [],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -12217,6 +12264,39 @@
             "live-take",
             "ensemble"
           ]
+        }
+      ]
+    },
+    {
+      "id": "voice_tessitura",
+      "name": "Voice tessitura / repertoire range",
+      "variants": [
+        {
+          "id": "voice_tessitura_source_unspecified",
+          "name": "Source unspecified",
+          "descriptors": [],
+          "default": true,
+          "auto": false
+        },
+        {
+          "id": "voice_tessitura_bass",
+          "name": "Bass singing tessitura",
+          "descriptors": [
+            "bass-vocal-tessitura",
+            "low-singing-range"
+          ],
+          "default": false,
+          "auto": false
+        },
+        {
+          "id": "voice_tessitura_bass_baritone",
+          "name": "Bass-baritone singing tessitura",
+          "descriptors": [
+            "bass-baritone-vocal-tessitura",
+            "low-to-middle-singing-range"
+          ],
+          "default": false,
+          "auto": false
         }
       ]
     }

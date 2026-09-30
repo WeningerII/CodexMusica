@@ -5,7 +5,7 @@
   "lineage": "British working-class punk of 1979-84 — the Exploited, GBH, Discharge and Blitz — stripping first-wave punk to a 180-220 BPM d-beat or straight-eighths pulse, buzzsaw distorted downstroked guitars in root-fifth power chords, gang-shouted terrace-chant choruses, barked hoarse lead vocal and cheap fast recordings for Secret, Clay and No Future.",
   "recipe": "classic British late-1970s street punk, distorted Rock, punk branch, thrash metal, pop punk distorted rock crossover thrash skate punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 625,
-  "score": 373.31,
+  "score": 370.465,
   "config": {
     "traditions": [
       "street_punk",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 19.814999999999994,
+          "voice_register": 19.619999999999994,
           "voice_quality": 4.745000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2900000000000005,
+          "voice_vibrato": 3.4250000000000003,
           "voice_articulation": 13.974999999999994,
-          "voice_microtone": 19.279999999999998,
+          "voice_microtone": 19.324999999999996,
           "voice_tradition": 5.330000000000001,
-          "voice_mechanism_compound": 27.849999999999994,
+          "voice_mechanism_compound": 27.279999999999994,
           "voice_estill_quality": 1.5599999999999996,
           "voice_speech_song": 13.974999999999994,
-          "voice_ensemble_config": 34.38999999999999,
+          "voice_ensemble_config": 33.55,
           "voice_ornament_system": 1.105,
-          "voice_pitch_organization": 1.9399999999999995,
+          "voice_pitch_organization": 1.69,
           "voice_processing_chain": 3.640000000000001,
-          "voice_multitrack_stack": 4.615
+          "voice_multitrack_stack": 4.404999999999999
         }
       },
       {
@@ -70,13 +70,13 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 35.98,
-          "amp_make": 41.12,
+          "electric_technique": 35.68,
+          "amp_make": 40.7,
           "body_wood": 6.5,
           "neck_wood": 1.17,
           "fretboard": 2.0799999999999996,
           "pickup_magnet": 1.885,
-          "pickup_winding": 1.1949999999999998,
+          "pickup_winding": 1.15,
           "string_material": 0.195,
           "bridge": 2.0799999999999996,
           "scale_length": 5.525,
@@ -94,16 +94,18 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 9.555,
           "body_wood": 2.8600000000000003,
           "pickup_config": 1.885,
-          "string_type": 19.125000000000004,
+          "string_type": 18.705000000000002,
           "scale_length_b": 1.17,
-          "fretted_or_not": 0.285,
-          "bass_technique": 37.125
+          "fretted_or_not": 0.32999999999999996,
+          "bass_technique": 37.17,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -114,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.75,
-          "drumhead": 4.95,
+          "drum_technique": 21.84,
+          "drumhead": 4.995,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -50,7 +50,8 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "thumb_muted"
+          "bass_technique": "thumb_muted",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 9.61375,
@@ -59,7 +60,8 @@
           "string_type": 10.322500000000002,
           "scale_length_b": 1.50625,
           "fretted_or_not": 0,
-          "bass_technique": 7.699999999999999
+          "bass_technique": 7.699999999999999,
+          "electric_bass_string_configuration": 0
         }
       },
       {

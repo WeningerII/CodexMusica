@@ -59,14 +59,16 @@
           "fiddle_strings": "silver_wound_lamb_gut_fiddle",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "pizz"
+          "fiddle_articulation": "pizz",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 0.26,
           "fiddle_strings": 1.04,
           "fiddle_bow": 0.15,
           "fiddle_mute": 0.345,
-          "fiddle_articulation": 0.35
+          "fiddle_articulation": 0.35,
+          "fiddle_string_configuration": 0
         }
       },
       {

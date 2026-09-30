@@ -5,7 +5,7 @@
   "lineage": "The exact Every Noise discovery cluster, represented by its roster member Myrkur. This record does not infer a political doctrine or a universal one-person production rule from the cluster name. The selected branch is an artist-led composition with documented collaborators.",
   "recipe": "classic modern autonomous black metal, distorted Rock, black branch. equal tempered, one note per syllable, solo with instrumental accompaniment, hall reverb long decay cinematic. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano, choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 552,
-  "score": 39.944,
+  "score": 39.9,
   "config": {
     "traditions": [
       "autonomous_black_metal"
@@ -31,13 +31,13 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.507375,
+          "body_wood": 0.483,
           "neck_wood": 0.4095,
           "fretboard": 0.0315,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.4095,
-          "bridge": 0.507375,
+          "bridge": 0.483,
           "scale_length": 0,
           "string_gauge": 0.2415,
           "finish": 0,
@@ -53,16 +53,18 @@
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.507375,
+          "body_wood": 0.483,
           "pickup_config": 0,
           "string_type": 0.4095,
           "scale_length_b": 0.0315,
           "fretted_or_not": 0,
-          "bass_technique": 4.1725
+          "bass_technique": 4.204000000000001,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -82,7 +84,7 @@
         },
         "scores": {
           "drum_technique": 3.813,
-          "drumhead": 0.507375,
+          "drumhead": 0.483,
           "drum_kit_kick_pedal": 0.39,
           "shell_wood": 0.4095,
           "shell_thickness": 0,
@@ -125,7 +127,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.4575,
+          "voice_speech_song": 1.5205,
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0.0315,
@@ -168,7 +170,7 @@
         },
         "scores": {
           "choir_size": 0.0315,
-          "choir_polyphonic_configuration": 0.04125,
+          "choir_polyphonic_configuration": 0,
           "choir_regional_canonical_configuration": 0,
           "choir_ensemble_repertoire": 0.462
         }

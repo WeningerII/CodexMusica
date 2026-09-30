@@ -1,0 +1,212 @@
+{
+  "id": "uk_americana",
+  "name": "UK Americana",
+  "family": "vernacular",
+  "lineage": "UK Americana connects UK-rooted artists with transatlantic country, soul and roots-song practice. Yola’s Bristol-to-Nashville Walk Through Fire sessions supply one documented country-soul branch.",
+  "recipe": "classic modern uk americana, functional Song, americana branch. thick, blues-shouter, straight note core, neutral third half flat. song accompaniment steel reed lead solder tip canonical Wurlitzer ep voicing wurlitzer ep, melodic bowed song accompaniment fiddle, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 608,
+  "score": 142.952,
+  "config": {
+    "traditions": [
+      "uk_americana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 13.362999999999996,
+          "voice_quality": 5.988000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 9.017499999999998,
+          "voice_articulation": 0.1425,
+          "voice_microtone": 2.0799999999999996,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 1.3,
+          "voice_estill_quality": 10.6955,
+          "voice_speech_song": 5.525000000000001,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0.26,
+          "voice_pitch_organization": 0.19275000000000003,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.5199999999999999
+        }
+      },
+      {
+        "id": "wurlitzer_ep",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "wurlitzer_use": "wurlitzer_recorded_song",
+          "wurlitzer_ep_voice": "wurlitzer_ep_overdrive",
+          "wurlitzer_model": "wurlitzer_200a_canonical",
+          "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "wurlitzer_use": 3.25,
+          "wurlitzer_ep_voice": 0.7874999999999999,
+          "wurlitzer_model": -1.225,
+          "wurlitzer_reed_material": 1.56
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "fiddle_strings": 0.78,
+          "fiddle_bow": 0.0315,
+          "fiddle_mute": 0.0735,
+          "fiddle_articulation": 0.0945,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 10.2845,
+          "amp_make": 14.424999999999997,
+          "pickup_steel": 0.1365,
+          "string_setup": 4.55,
+          "bar_material": 0.78,
+          "pedal_steel_brand": 10.0045,
+          "pedal_steel_neck_config": 11.765,
+          "pedal_steel_strings": 10.355250000000002
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 9.3935,
+          "body_wood": 0.273,
+          "pickup_config": 0.0315,
+          "string_type": 6.002250000000001,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 0.10575,
+          "bass_technique": 4.9,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": -0.035,
+          "drumhead": 0.34275,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition",
+        "voice_ensemble_config"
+      ],
+      "wurlitzer_ep": [
+        "keyboard_technique",
+        "wurlitzer_use"
+      ],
+      "fiddle": [
+        "bowed_technique"
+      ],
+      "pedal_steel": [
+        "electric_technique",
+        "string_setup"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "legato_voice",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "wurlitzer_use": "wurlitzer_recorded_song",
+      "bowed_technique": "bowed_local_song_melody",
+      "electric_technique": "electric_steel_pedal_swells",
+      "string_setup": "standard_e9",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_rock",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

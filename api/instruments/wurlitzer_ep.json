@@ -140,6 +140,26 @@
             "electric",
             "warmed"
           ]
+        },
+        {
+          "id": "wurlitzer_rock_band_layer",
+          "name": "Electric-piano layer in an amplified rock band",
+          "descriptors": [
+            "reedy-electric-piano",
+            "band-layer",
+            "blended"
+          ],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "wurlitzer_recorded_song",
+          "name": "Contemporary recorded song",
+          "descriptors": [
+            "song-accompaniment"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -305,6 +325,26 @@
             "electric",
             "warmed"
           ]
+        },
+        {
+          "id": "wurlitzer_rock_band_layer",
+          "name": "Electric-piano layer in an amplified rock band",
+          "descriptors": [
+            "reedy-electric-piano",
+            "band-layer",
+            "blended"
+          ],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "wurlitzer_recorded_song",
+          "name": "Contemporary recorded song",
+          "descriptors": [
+            "song-accompaniment"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },

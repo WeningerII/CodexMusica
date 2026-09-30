@@ -109,7 +109,8 @@
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "sub_bass_synth_blend"
+          "bass_technique": "sub_bass_synth_blend",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 3.3649999999999998,
@@ -118,7 +119,8 @@
           "string_type": 4.159999999999999,
           "scale_length_b": 3.7649999999999997,
           "fretted_or_not": 1.4949999999999999,
-          "bass_technique": 7.549999999999999
+          "bass_technique": 7.549999999999999,
+          "electric_bass_string_configuration": 0
         }
       },
       {

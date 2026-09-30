@@ -7242,5 +7242,661 @@
     "sung-narration",
     "intimate",
     "melodic"
+  ],
+  "british_math_rock": [
+    "clean",
+    "articulated",
+    "melodic",
+    "tight-rhythmic-articulation",
+    "polyphonic",
+    "intimate",
+    "mellow",
+    "soft-onset"
+  ],
+  "chinese_indie_rock": [
+    "rock-context",
+    "melodic",
+    "distorted",
+    "rhythmic",
+    "projecting"
+  ],
+  "czech_folk_rock": [
+    "melodic",
+    "articulated",
+    "rhythmic",
+    "bowed"
+  ],
+  "christian_alternative_rock": [
+    "melodic",
+    "articulated",
+    "layered",
+    "rhythmic",
+    "reverberant"
+  ],
+  "christian_hard_rock": [
+    "melodic",
+    "distorted",
+    "high-gain-saturation",
+    "bowed",
+    "layered",
+    "rhythmic"
+  ],
+  "blues_rock_guitar": [
+    "blues-derived",
+    "melodic",
+    "sustained-tone",
+    "articulated",
+    "rhythmic"
+  ],
+  "czech_rock": [
+    "melodic",
+    "rhythmic",
+    "distorted",
+    "layered",
+    "articulated"
+  ],
+  "canadian_shoegaze": [
+    "sustained-tone",
+    "reverberant",
+    "layered-ambient",
+    "high-falsetto",
+    "melodic",
+    "soft-onset"
+  ],
+  "dark_rock": [
+    "dark",
+    "melodic",
+    "low-mid-thick",
+    "distorted",
+    "sustained-tone",
+    "layered"
+  ],
+  "canadian_rockabilly": [
+    "percussive-attack",
+    "rhythmic",
+    "melodic",
+    "articulated",
+    "driving"
+  ],
+  "brazilian_post_rock": [
+    "rhythmic",
+    "articulated",
+    "melodic",
+    "percussive-attack",
+    "polyphonic",
+    "metallic"
+  ],
+  "danish_rock": [
+    "melodic",
+    "rhythmic",
+    "articulated",
+    "treble-extended",
+    "low-mid-thick"
+  ],
+  "classical_bass": [
+    "classical",
+    "low-register",
+    "solo",
+    "melodic",
+    "sustained"
+  ],
+  "italian_bass": [
+    "classical",
+    "low-register",
+    "solo",
+    "melodic",
+    "sustained"
+  ],
+  "brazilian_thrash_metal": [
+    "distorted",
+    "rhythmic",
+    "percussive-attack",
+    "fast-attack-transient",
+    "metal-context",
+    "high-gain-cascading-saturation",
+    "driving"
+  ],
+  "brazilian_groove_metal": [
+    "distorted",
+    "rhythmic",
+    "low-register",
+    "percussive-attack",
+    "backbeat",
+    "metal-context",
+    "high-gain-cascading-saturation",
+    "driving"
+  ],
+  "brazilian_metal": [
+    "distorted",
+    "rhythmic",
+    "melodic",
+    "sustained",
+    "percussive-attack",
+    "metal-context",
+    "high-gain-cascading-saturation",
+    "driving"
+  ],
+  "australian_death_metal": [
+    "metal-context",
+    "high-gain-cascading-saturation",
+    "distorted",
+    "driving",
+    "rhythmic",
+    "percussive-attack",
+    "fast-attack-transient"
+  ],
+  "australian_metalcore": [
+    "metal-context",
+    "high-gain-cascading-saturation",
+    "distorted",
+    "rhythmic",
+    "driving",
+    "percussive-attack"
+  ],
+  "australian_metal": [
+    "metal-context",
+    "high-gain-cascading-saturation",
+    "distorted",
+    "rhythmic",
+    "driving",
+    "percussive-attack"
+  ],
+  "australian_black_metal": [
+    "metal-context",
+    "distorted",
+    "high-gain-cascading-saturation",
+    "driving",
+    "rhythmic",
+    "percussive-attack",
+    "sustained"
+  ],
+  "australian_thrash_metal": [
+    "metal-context",
+    "distorted",
+    "high-gain-cascading-saturation",
+    "driving",
+    "rhythmic",
+    "percussive-attack",
+    "fast-attack-transient"
+  ],
+  "canadian_death_metal": [
+    "metal-context",
+    "distorted",
+    "high-gain-cascading-saturation",
+    "percussive-attack",
+    "driving",
+    "rhythmic",
+    "melodic"
+  ],
+  "canadian_metal": [
+    "metal-context",
+    "distorted",
+    "high-gain-cascading-saturation",
+    "percussive-attack",
+    "driving",
+    "rhythmic",
+    "cyclic"
+  ],
+  "austrian_black_metal": [
+    "metal-context",
+    "distorted",
+    "high-gain-cascading-saturation",
+    "dark",
+    "rhythmic",
+    "driving",
+    "percussive-attack"
+  ],
+  "austrian_metal": [
+    "metal-context",
+    "distorted",
+    "high-gain-cascading-saturation",
+    "dark",
+    "rhythmic",
+    "sustained",
+    "cyclic"
+  ],
+  "british_power_metal": [
+    "metal-context",
+    "distorted",
+    "melodic",
+    "synthetic",
+    "layered",
+    "high-gain-cascading-saturation",
+    "percussive-attack"
+  ],
+  "argentine_heavy_metal": [
+    "metal-context",
+    "melodic",
+    "layered",
+    "sustained",
+    "backbeat",
+    "distorted",
+    "high-gain-cascading-saturation"
+  ],
+  "argentine_metal": [
+    "metal-context",
+    "melodic",
+    "layered",
+    "sustained",
+    "backbeat",
+    "clean"
+  ],
+  "boston_metal": [
+    "metal-context",
+    "distorted",
+    "high-gain-cascading-saturation",
+    "percussive-attack",
+    "rhythmic",
+    "driving"
+  ],
+  "american_melodeath": [
+    "metal-context",
+    "distorted",
+    "melodic",
+    "high-gain-cascading-saturation",
+    "percussive-attack",
+    "driving"
+  ],
+  "canadian_metalcore": [
+    "metal-context",
+    "distorted",
+    "high-gain-cascading-saturation",
+    "percussive-attack",
+    "backbeat",
+    "rhythmic",
+    "cyclic"
+  ],
+  "belgian_death_metal": [
+    "metal-context",
+    "distorted",
+    "high-gain-cascading-saturation",
+    "percussive-attack",
+    "rhythmic",
+    "driving"
+  ],
+  "belgian_metal": [
+    "metal-context",
+    "distorted",
+    "high-gain-cascading-saturation",
+    "percussive-attack",
+    "rhythmic",
+    "cyclic",
+    "backbeat"
+  ],
+  "british_death_metal": [
+    "metal-context",
+    "distorted",
+    "melodic",
+    "low-register",
+    "high-gain-cascading-saturation",
+    "percussive-attack"
+  ],
+  "british_grindcore": [
+    "metal-context",
+    "distorted",
+    "percussive-attack",
+    "driving",
+    "rhythmic",
+    "high-gain-cascading-saturation"
+  ],
+  "american_grindcore": [
+    "metal-context",
+    "distorted",
+    "percussive-attack",
+    "driving",
+    "high-gain-cascading-saturation"
+  ],
+  "buffalo_ny_metal": [
+    "metal-context",
+    "distorted",
+    "rhythmic",
+    "backbeat",
+    "high-gain-cascading-saturation",
+    "percussive-attack"
+  ],
+  "brutal_deathcore": [
+    "metal-context",
+    "distorted",
+    "low-register",
+    "percussive-attack",
+    "rhythmic",
+    "high-gain-cascading-saturation"
+  ],
+  "british_black_metal": [
+    "metal-context",
+    "distorted",
+    "high-gain-cascading-saturation",
+    "rhythmic",
+    "backbeat",
+    "percussive-attack"
+  ],
+  "brazilian_death_metal": [
+    "metal-context",
+    "distorted",
+    "high-gain-cascading-saturation",
+    "percussive-attack",
+    "rhythmic",
+    "backbeat"
+  ],
+  "arab_metal": [
+    "metal-context",
+    "melodic",
+    "melismatic",
+    "layered",
+    "distorted",
+    "sustained",
+    "high-gain-cascading-saturation"
+  ],
+  "blackened_deathcore": [
+    "metal-context",
+    "distorted",
+    "layered",
+    "sustained",
+    "melodic",
+    "high-gain-cascading-saturation",
+    "percussive-attack"
+  ],
+  "baltic_black_metal": [
+    "metal-context",
+    "distorted",
+    "rhythmic",
+    "driving",
+    "high-gain-cascading-saturation",
+    "percussive-attack"
+  ],
+  "canadian_black_metal": [
+    "metal-context",
+    "distorted",
+    "dry",
+    "driving",
+    "percussive-attack",
+    "high-gain-cascading-saturation"
+  ],
+  "brazilian_black_metal": [
+    "metal-context",
+    "distorted",
+    "layered",
+    "sustained",
+    "dark",
+    "high-gain-cascading-saturation"
+  ],
+  "brazilian_metalcore": [
+    "metal-context",
+    "distorted",
+    "rhythmic",
+    "backbeat",
+    "cyclic",
+    "high-gain-cascading-saturation"
+  ],
+  "bolivian_metal": [
+    "metal-context",
+    "distorted",
+    "backbeat",
+    "cyclic",
+    "rhythmic",
+    "percussive-attack"
+  ],
+  "belgian_black_metal": [
+    "metal-context",
+    "distorted",
+    "dark",
+    "cyclic",
+    "rhythmic",
+    "high-gain-cascading-saturation"
+  ],
+  "belgian_jazz": [
+    "jazz-improvisation",
+    "melodic",
+    "breath-driven",
+    "layered"
+  ],
+  "harmonica_jazz": [
+    "jazz-improvisation",
+    "melodic",
+    "breath-driven"
+  ],
+  "jazz_vibraphone": [
+    "jazz-improvisation",
+    "melodic",
+    "percussive-attack"
+  ],
+  "jazz_trombone": [
+    "jazz-improvisation",
+    "breath-driven",
+    "melodic"
+  ],
+  "jazz_tuba": [
+    "jazz-improvisation",
+    "percussive-attack",
+    "breath-driven"
+  ],
+  "roots_americana": [
+    "sung-narration",
+    "fingerpicked",
+    "ringing"
+  ],
+  "southern_americana": [
+    "sung-narration",
+    "slide",
+    "strummed"
+  ],
+  "uk_americana": [
+    "sung-narration",
+    "bowed",
+    "melodic"
+  ],
+  "yorkshire_folk": [
+    "sung-narration",
+    "bowed",
+    "melodic"
+  ],
+  "medieval_folk": [
+    "group-vocals",
+    "bowed",
+    "plucked"
+  ],
+  "italian_folk": [
+    "sung-narration",
+    "hand-struck",
+    "rhythmic"
+  ],
+  "new_england_americana": [
+    "strummed",
+    "bowed",
+    "rhythmic"
+  ],
+  "macedonian_folk": [
+    "ornamented",
+    "drone-foundation"
+  ],
+  "indie_folk_argentino": [
+    "melodic",
+    "fingerpicked",
+    "bowed"
+  ],
+  "midwest_americana": [
+    "sung-narration",
+    "fingerpicked",
+    "ringing"
+  ],
+  "bhojpuri_folk": [
+    "sung-narration",
+    "group-vocals",
+    "rhythmic"
+  ],
+  "folk_siciliana": [
+    "sung-narration",
+    "hand-struck",
+    "rhythmic"
+  ],
+  "indian_singer_songwriter": [
+    "fingerpicked",
+    "melodic",
+    "intimate"
+  ],
+  "greek_folk": [
+    "bowed",
+    "plucked",
+    "sung-narration"
+  ],
+  "irish_singer_songwriter": [
+    "sung-narration",
+    "strummed",
+    "bowed"
+  ],
+  "nl_folk": [
+    "group-vocals",
+    "bowed",
+    "strummed"
+  ],
+  "kurdish_folk": [
+    "sung-narration",
+    "plucked",
+    "ornamented"
+  ],
+  "malagasy_folk": [
+    "plucked",
+    "melodic",
+    "sung-narration"
+  ],
+  "malawian_folk": [
+    "fingerpicked",
+    "sung-narration",
+    "acoustic-only"
+  ],
+  "indonesian_folk": [
+    "fingerpicked",
+    "melodic",
+    "group-vocals"
+  ],
+  "indonesian_singer_songwriter": [
+    "fingerpicked",
+    "melodic",
+    "group-vocals"
+  ],
+  "korean_indie_folk": [
+    "group-vocals",
+    "strummed",
+    "intimate"
+  ],
+  "korean_singer_songwriter": [
+    "group-vocals",
+    "strummed",
+    "intimate"
+  ],
+  "nz_folk": [
+    "fingerpicked",
+    "sung-narration",
+    "melodic"
+  ],
+  "nz_singer_songwriter": [
+    "fingerpicked",
+    "sung-narration",
+    "melodic"
+  ],
+  "japanese_indie_folk": [
+    "plucked",
+    "melodic",
+    "layered"
+  ],
+  "japanese_singer_songwriter": [
+    "melodic",
+    "sung-narration",
+    "intimate"
+  ],
+  "norwegian_americana": [
+    "sung-narration",
+    "slide",
+    "melodic"
+  ],
+  "norwegian_country": [
+    "strummed",
+    "rhythmic",
+    "sung-narration"
+  ],
+  "norwegian_singer_songwriter": [
+    "plucked",
+    "melodic",
+    "intimate"
+  ],
+  "nashville_americana": [
+    "sung-narration",
+    "slide",
+    "strummed"
+  ],
+  "new_americana": [
+    "sung-narration",
+    "slide",
+    "strummed"
+  ],
+  "michigan_folk": [
+    "sung-narration",
+    "melodic",
+    "fingerpicked"
+  ],
+  "new_orleans_americana": [
+    "bowed",
+    "sung-narration",
+    "melodic"
+  ],
+  "indie_anthem_folk": [
+    "fingerpicked",
+    "group-vocals",
+    "intimate"
+  ],
+  "modern_indie_folk": [
+    "melodic",
+    "intimate",
+    "sung-narration"
+  ],
+  "nashville_singer_songwriter": [
+    "sung-narration",
+    "fingerpicked",
+    "bowed"
+  ],
+  "neo_singer_songwriter": [
+    "fingerpicked",
+    "melodic",
+    "sung-narration"
+  ],
+  "irish_country": [
+    "sung-narration",
+    "rhythmic",
+    "melodic"
+  ],
+  "israeli_singer_songwriter": [
+    "sung-narration",
+    "strummed",
+    "intimate"
+  ],
+  "memphis_americana": [
+    "sung-narration",
+    "plucked",
+    "intimate"
+  ],
+  "modern_psychedelic_folk": [
+    "fingerpicked",
+    "melodic",
+    "sustained"
+  ],
+  "israeli_folk": [
+    "ornamented",
+    "plucked",
+    "melodic"
+  ],
+  "musica_folk_asturiana": [
+    "ornamented",
+    "bowed",
+    "strummed"
+  ],
+  "manitoba_country": [
+    "sung-narration",
+    "strummed",
+    "melodic"
+  ],
+  "okinawan_folk": [
+    "sung-narration",
+    "plucked",
+    "melodic"
   ]
 }

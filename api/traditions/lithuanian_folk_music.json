@@ -81,14 +81,16 @@
           "fiddle_strings": "gut_strings",
           "fiddle_bow": "dark_rosin",
           "fiddle_mute": "practice_mute",
-          "fiddle_articulation": "sul_tasto"
+          "fiddle_articulation": "sul_tasto",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 7.995,
           "fiddle_strings": 0.6499999999999999,
           "fiddle_bow": 0.51,
           "fiddle_mute": 0.845,
-          "fiddle_articulation": 1.5450000000000002
+          "fiddle_articulation": 1.5450000000000002,
+          "fiddle_string_configuration": 0
         }
       },
       {

@@ -3,14 +3,14 @@
   "name": "Progressive Folk",
   "family": "pop_rock",
   "lineage": "British and American folk of roughly 1965-1975 that extended revival repertoire into long-form, harmonically ambitious arrangement — Pentangle, the Incredible String Band, Roy Harper, Bert Jansch and Tim Buckley — using open and altered guitar tunings, jazz-derived double bass and brushed kit, modal and chromatic harmony, extended instrumental sections, and free-metred introductions before settling into a sung strophic body.",
-  "recipe": "classic British mid-1970s progressive folk, ballad Poetry, britfolk branch, pop rock folk rock, progressive rock distorted rock classic canadian rock. thick, incomplete closure resting, straight onset, interlocked note trading. dadgad tuning cedar walnut fingerpicked acoustic guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, pre muffled edge muffled sticks backbeat drum kit, maple mid tier Baroque alternative melodic recorder, bowl back Italian redwood hard rock maple thomastik flatwound mandolin. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 760,
-  "score": 356.785,
+  "recipe": "classic British mid-1970s progressive folk, ballad Poetry, britfolk branch, pop rock folk rock, progressive rock distorted rock czech folk rock. thick, incomplete closure resting, straight onset, interlocked note trading. dadgad tuning cedar walnut fingerpicked acoustic guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, pre muffled edge muffled sticks backbeat drum kit, maple mid tier Baroque alternative melodic recorder, bowl back Italian redwood hard rock maple thomastik flatwound mandolin. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 754,
+  "score": 386.78,
   "config": {
     "traditions": [
       "progressive_folk",
-      "folk_rock",
-      "classic_canadian_rock"
+      "czech_folk_rock",
+      "folk_rock"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 50.47500000000001,
-          "voice_quality": 7.9879999999999995,
+          "voice_register": 55.47500000000001,
+          "voice_quality": 7.883,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.6400000000000006,
-          "voice_articulation": 16.834999999999994,
-          "voice_microtone": 29.454999999999995,
-          "voice_tradition": 24.661999999999995,
-          "voice_mechanism_compound": 2.4699999999999998,
-          "voice_estill_quality": 5.531000000000001,
-          "voice_speech_song": 22.099999999999994,
-          "voice_ensemble_config": 16.964999999999993,
+          "voice_articulation": 18.069999999999993,
+          "voice_microtone": 31.524999999999995,
+          "voice_tradition": 28.467499999999994,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 5.698,
+          "voice_speech_song": 24.764999999999993,
+          "voice_ensemble_config": 18.199999999999992,
           "voice_ornament_system": 2.7950000000000004,
           "voice_pitch_organization": 1.5999999999999999,
-          "voice_processing_chain": 6.035,
-          "voice_multitrack_stack": 5.6225000000000005
+          "voice_processing_chain": 5.0200000000000005,
+          "voice_multitrack_stack": 6.2725
         }
       },
       {
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 4.141500000000001,
-          "top_wood": 1.04,
-          "back_sides": 1.04,
+          "top_wood": 1.235,
+          "back_sides": 1.235,
           "string_acoustic": 3.1849999999999996,
-          "acoustic_om_technique": 23.972999999999992
+          "acoustic_om_technique": 27.097999999999992
         }
       },
       {
@@ -86,13 +86,13 @@
         "scores": {
           "bowed_technique": -0.05,
           "bass_size": 0.195,
-          "bass_strings": 2.5300000000000002,
-          "bass_top_wood": 0.75,
+          "bass_strings": 2.2099999999999995,
+          "bass_top_wood": 0.795,
           "bass_back_wood": 0.8949999999999999,
           "bass_varnish": 0.75,
-          "bass_setup_period": 2.285,
-          "bass_play": 3.49,
-          "bass_rosin": 6.58,
+          "bass_setup_period": 1.9499999999999997,
+          "bass_play": 3.34,
+          "bass_rosin": 6.305,
           "bass_bow_stick": 0.8449999999999999
         }
       },
@@ -105,7 +105,7 @@
         },
         "scores": {
           "drum_technique": 22.549999999999997,
-          "drumhead": 5.185,
+          "drumhead": 7.06,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -118,8 +118,8 @@
           "recorder_body_wood": "recorder_maple"
         },
         "scores": {
-          "wind_articulation": 17.807999999999993,
-          "recorder_size": 0.3165,
+          "wind_articulation": 21.58299999999999,
+          "recorder_size": 0.195,
           "recorder_context": 1.17,
           "recorder_body_wood": 1.04
         }
@@ -137,14 +137,14 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 8.287999999999998,
-          "mandolin_shape": 9.279499999999997,
-          "mandolin_top": 1.04,
+          "acoustic_technique": 10.026499999999999,
+          "mandolin_shape": 10.8205,
+          "mandolin_top": 1.235,
           "mandolin_back": 11.569999999999999,
           "mandolin_bracing": 0.12999999999999998,
           "mandolin_strings": 4.135,
-          "mandolin_fingerboard": 0.975,
-          "mandolin_pickup": 18.199999999999996
+          "mandolin_fingerboard": 1.17,
+          "mandolin_pickup": 19.629999999999995
         }
       }
     ],

@@ -64,6 +64,15 @@
             "percussive-attack",
             "rattle-buzz"
           ]
+        },
+        {
+          "id": "quijada_donkey_unlocalized",
+          "name": "Donkey jawbone (unlocalized form)",
+          "descriptors": [
+            "jawbone-rattle"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -123,6 +132,16 @@
             "percussive-attack",
             "rattle-buzz"
           ]
+        },
+        {
+          "id": "quijada_mexican_rooted_americana",
+          "name": "Mexican-rooted Americana accompaniment",
+          "descriptors": [
+            "rhythmic",
+            "rattle"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -210,6 +229,15 @@
             "percussive-attack",
             "rattle-buzz"
           ]
+        },
+        {
+          "id": "quijada_donkey_unlocalized",
+          "name": "Donkey jawbone (unlocalized form)",
+          "descriptors": [
+            "jawbone-rattle"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -269,6 +297,16 @@
             "percussive-attack",
             "rattle-buzz"
           ]
+        },
+        {
+          "id": "quijada_mexican_rooted_americana",
+          "name": "Mexican-rooted Americana accompaniment",
+          "descriptors": [
+            "rhythmic",
+            "rattle"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },

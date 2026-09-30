@@ -5,7 +5,7 @@
   "lineage": "Traditional bluegrass includes the acoustic string-band practice associated with Bill Monroe and his collaborators. Kenny Baker’s Bill Monroe repertoire supplies this specific instrumental branch, within a tradition also known for vocal performance.",
   "recipe": "classic modern traditional bluegrass, improv On Frame, bluegrass branch. double stops fiddle, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, articulated flatpicked dreadnought acoustic guitar, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 450,
-  "score": 158.542,
+  "score": 158.53,
   "config": {
     "traditions": [
       "traditional_bluegrass"
@@ -18,14 +18,16 @@
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 10.309999999999999,
+          "bowed_technique": 10.314499999999997,
           "fiddle_strings": 0.5497500000000001,
           "fiddle_bow": 0.5182500000000001,
-          "fiddle_mute": 0.18546428571428572,
-          "fiddle_articulation": 0.010714285714285713
+          "fiddle_mute": 0.18225,
+          "fiddle_articulation": 0,
+          "fiddle_string_configuration": 0
         }
       },
       {
@@ -44,7 +46,7 @@
           "acoustic_technique": 10.360124999999996,
           "mandolin_shape": 9.5315,
           "mandolin_top": 9.9725,
-          "mandolin_back": 9.517142857142858,
+          "mandolin_back": 9.5,
           "mandolin_bracing": 9.5315,
           "mandolin_strings": 0.5182500000000001,
           "mandolin_fingerboard": 0.063,
@@ -92,7 +94,7 @@
           "string_tuning": 0,
           "top_wood": 0.5182500000000001,
           "back_sides": 0.6652500000000001,
-          "string_acoustic": 0.3465
+          "string_acoustic": 0.3615
         }
       },
       {

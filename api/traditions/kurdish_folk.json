@@ -1,0 +1,120 @@
+{
+  "id": "kurdish_folk",
+  "name": "Kurdish folk",
+  "family": "vernacular",
+  "lineage": "Kurdish folk encompasses regional and linguistic traditions across borders and diaspora. Aynur’s documented folk-song and bağlama practice supplies the selected contemporary sung-lute branch.",
+  "recipe": "classic modern kurdish folk, ballad Poetry. thick, breath veiled tone, neutral third half flat, notated speech melody. saz baglama. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 269,
+  "score": 27.735,
+  "config": {
+    "traditions": [
+      "kurdish_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 7.75,
+          "voice_quality": 1.2999999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.39,
+          "voice_articulation": -0.07,
+          "voice_microtone": 3.9000000000000012,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 5.785,
+          "voice_ensemble_config": 4.42,
+          "voice_ornament_system": 0.26,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.351
+        }
+      },
+      {
+        "id": "saz_baglama",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "saz_size": "baglama_med",
+          "saz_frets": "saz_microtonal_frets",
+          "saz_body_wood": "saz_mulberry_body",
+          "saz_strings": "saz_steel_modern",
+          "saz_tradition": "saz_modern_concert"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.15000000000000002,
+          "saz_size": 0,
+          "saz_frets": 0.29899999999999993,
+          "saz_body_wood": 0,
+          "saz_strings": 0.3,
+          "saz_tradition": 0.6
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition"
+      ],
+      "saz_baglama": [
+        "plucked_traditional_technique",
+        "saz_size",
+        "saz_frets",
+        "saz_tradition"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "melisma_voice",
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "saz_size": "baglama_med",
+      "saz_frets": "saz_microtonal_frets",
+      "saz_tradition": "saz_modern_concert",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "id": "southern_americana",
+  "name": "Southern Americana",
+  "family": "vernacular",
+  "lineage": "Southern Americana encompasses roots-oriented recording and performance networks across the southern United States. Margo Price’s Nashville sessions provide one documented contemporary country-soul branch.",
+  "recipe": "classic modern southern americana, functional Song, country branch. thick, blues-shouter, wide pitch sway, narrative. dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright single coil electric guitar, slide sustained song accompaniment lap steel, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 529,
+  "score": 77.779,
+  "config": {
+    "traditions": [
+      "southern_americana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 8.631499999999997,
+          "voice_quality": 2.080000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.2,
+          "voice_articulation": 2.521,
+          "voice_microtone": 2.470000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.5235,
+          "voice_estill_quality": 6.8685,
+          "voice_speech_song": 6.175000000000001,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0.2315,
+          "voice_pitch_organization": 0.7314999999999997,
+          "voice_processing_chain": 1.0485,
+          "voice_multitrack_stack": 0.5199999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "open_g",
+          "top_wood": "engelmann",
+          "back_sides": "maple_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 0.26,
+          "string_tuning": 1.0815,
+          "top_wood": 0.105,
+          "back_sides": 0.9099999999999999,
+          "string_acoustic": 0.78
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "pine",
+          "neck_wood": "maple",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 6.421,
+          "amp_make": 8.736499999999998,
+          "body_wood": 0.9099999999999999,
+          "neck_wood": 0,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.105,
+          "string_material": 0.78,
+          "string_gauge": 0.9099999999999999,
+          "bridge": 0.108,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 0.9314999999999999
+        }
+      },
+      {
+        "id": "lap_steel",
+        "slots": {
+          "lap_steel_tuning": "lap_steel_open_g_dobro",
+          "lap_steel_style": "lap_steel_song_accompaniment"
+        },
+        "scores": {
+          "lap_steel_tuning": 0.3,
+          "lap_steel_style": 3.12
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 6.205000000000001,
+          "body_wood": 0.0315,
+          "pickup_config": 0.25575,
+          "string_type": 2.69525,
+          "scale_length_b": 0.171,
+          "fretted_or_not": 0.39,
+          "bass_technique": 2.4,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": -0.035,
+          "drumhead": 0.9099999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition",
+        "voice_ensemble_config"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique"
+      ],
+      "lap_steel": [
+        "lap_steel_tuning",
+        "lap_steel_style"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_rock",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "lap_steel_style": "lap_steel_song_accompaniment",
+      "lap_steel_tuning": "lap_steel_open_g_dobro"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

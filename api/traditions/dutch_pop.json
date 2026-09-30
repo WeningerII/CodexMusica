@@ -3,14 +3,14 @@
   "name": "Nederpop (Dutch pop)",
   "family": "pop_rock",
   "lineage": "Dutch pop and pop-rock built in Amsterdam, The Hague and Hilversum studios from the mid-1960s — Nederbeat groups like Shocking Blue and Golden Earring working English-language beat and hard rock, Focus adding progressive organ-and-flute instrumentals, and the late-1970s Doe Maar generation switching to Dutch lyrics over ska and reggae-inflected upstrokes at 100-140 BPM, with bright close-miked drum kits, chorused guitars and tight two- and three-part vocal harmony.",
-  "recipe": "classic British 1964-1966 nederpop, functional Song, europop branch, pop rock functional song, classic distorted rock, pop rock new wave yacht rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, yamaha modern Japanese mid to premium flute. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 882,
-  "score": 661.513,
+  "recipe": "classic British 1964-1966 nederpop, functional Song, europop branch, pop rock functional song, classic distorted rock, pop rock new wave yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, yamaha modern Japanese mid to premium flute. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 888,
+  "score": 653.514,
   "config": {
     "traditions": [
       "dutch_pop",
       "yacht_rock",
-      "folk_rock"
+      "skiffle"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 65.37000000000002,
-          "voice_quality": 13.389999999999992,
+          "voice_register": 65.49500000000002,
+          "voice_quality": 14.42999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.4350000000000005,
-          "voice_articulation": 22.815,
-          "voice_microtone": 52.85000000000001,
-          "voice_tradition": 23.464999999999996,
-          "voice_mechanism_compound": 3.055,
-          "voice_estill_quality": 6.012500000000001,
-          "voice_speech_song": 28.795,
-          "voice_ensemble_config": 22.75,
+          "voice_vibrato": 10.879999999999999,
+          "voice_articulation": 23.854999999999997,
+          "voice_microtone": 55.72500000000001,
+          "voice_tradition": 24.114999999999995,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 29.835,
+          "voice_ensemble_config": 23.79,
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 1.755,
-          "voice_processing_chain": 10.653749999999999,
-          "voice_multitrack_stack": 14.834374999999998
+          "voice_processing_chain": 9.80375,
+          "voice_multitrack_stack": 11.504999999999997
         }
       },
       {
@@ -63,45 +63,47 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "locking_trem",
+          "bridge": "vintage_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 19.992499999999996,
-          "amp_make": 16.509999999999998,
-          "body_wood": 3.575,
-          "neck_wood": 3.575,
-          "fretboard": 3.5100000000000002,
+          "electric_technique": 20.492499999999996,
+          "amp_make": 17.582499999999996,
+          "body_wood": 2.925,
+          "neck_wood": 2.925,
+          "fretboard": 2.47,
           "pickup_magnet": 0.39,
-          "string_material": 0.585,
-          "string_gauge": 3.575,
-          "bridge": 0.3,
-          "scale_length": 3.575,
-          "finish": 0.18,
-          "string_tuning": 17.354999999999997
+          "string_material": 0.39,
+          "string_gauge": 2.535,
+          "bridge": 0.39,
+          "scale_length": 2.535,
+          "finish": 0.39,
+          "string_tuning": 16.119999999999997
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 16.574999999999996,
-          "body_wood": 3.575,
-          "pickup_config": 0.045,
-          "string_type": 40.42687499999999,
-          "scale_length_b": 3.965,
+          "amp_make": 17.582499999999996,
+          "body_wood": 2.73,
+          "pickup_config": 0.195,
+          "string_type": 37.5375,
+          "scale_length_b": 2.925,
           "fretted_or_not": 0.345,
-          "bass_technique": 31.439999999999994
+          "bass_technique": 28.915,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -112,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 31.300624999999993,
-          "drumhead": 19.384999999999998,
+          "drum_technique": 28.925625,
+          "drumhead": 20.034999999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -129,11 +131,11 @@
         },
         "scores": {
           "keyboard_technique": 20.124999999999996,
-          "drawbar_setting": 31.489999999999995,
-          "rotary_speed": 31.244999999999994,
-          "percussion_setting": 16.249999999999996,
-          "tonewheel_model": 17.289999999999996,
-          "leslie_cabinet_model": 3.575
+          "drawbar_setting": 28.965,
+          "rotary_speed": 29.02,
+          "percussion_setting": 15.014999999999999,
+          "tonewheel_model": 22.229999999999997,
+          "leslie_cabinet_model": 2.535
         }
       },
       {
@@ -145,10 +147,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 20.164999999999996,
-          "poly_archetypes": 16.249999999999996,
+          "electronic_technique": 20.964999999999996,
+          "poly_archetypes": 15.014999999999999,
           "poly_voices": 0.45499999999999996,
-          "poly_maker_lineage": 1.69
+          "poly_maker_lineage": 1.4949999999999999
         }
       },
       {
@@ -156,16 +158,16 @@
         "slots": {
           "wind_articulation": "wind_classical_legato",
           "flute_size": "piccolo_flute",
-          "flute_material": "gold_flute",
+          "flute_material": "wooden_flute",
           "flute_technique": "classical_flute",
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
           "wind_articulation": 0.6499999999999999,
           "flute_size": 0.39,
-          "flute_material": 0,
+          "flute_material": 0.325,
           "flute_technique": 0.7899999999999999,
-          "flute_maker_school": 3.5100000000000002
+          "flute_maker_school": 2.4700000000000006
         }
       }
     ],

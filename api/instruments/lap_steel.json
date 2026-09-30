@@ -105,6 +105,17 @@
           "match_tokens": [
             "gospel-rooted"
           ]
+        },
+        {
+          "id": "lap_steel_song_accompaniment",
+          "name": "Sliding song accompaniment",
+          "descriptors": [
+            "slide",
+            "sustained",
+            "song-accompaniment"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }
@@ -199,6 +210,17 @@
           "match_tokens": [
             "gospel-rooted"
           ]
+        },
+        {
+          "id": "lap_steel_song_accompaniment",
+          "name": "Sliding song accompaniment",
+          "descriptors": [
+            "slide",
+            "sustained",
+            "song-accompaniment"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }

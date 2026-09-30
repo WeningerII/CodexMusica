@@ -107,7 +107,8 @@
           "string_type": "half_round",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerpicked_country_b"
+          "bass_technique": "fingerpicked_country_b",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 9.444999999999999,
@@ -116,7 +117,8 @@
           "string_type": 4.9799999999999995,
           "scale_length_b": 3.2899999999999996,
           "fretted_or_not": 1.4949999999999999,
-          "bass_technique": 8.295
+          "bass_technique": 8.295,
+          "electric_bass_string_configuration": 0
         }
       },
       {

@@ -99,7 +99,8 @@
           "string_type": "half_round",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_walking"
+          "bass_technique": "fingerstyle_walking",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.527142857142858,
@@ -108,7 +109,8 @@
           "string_type": 4.027142857142858,
           "scale_length_b": 2.8171428571428576,
           "fretted_or_not": 0.24,
-          "bass_technique": -0.035
+          "bass_technique": -0.035,
+          "electric_bass_string_configuration": 0
         }
       },
       {
