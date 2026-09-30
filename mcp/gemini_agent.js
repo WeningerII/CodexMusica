@@ -11,7 +11,7 @@
 
 import { performance } from 'node:perf_hooks';
 import { createHash } from 'node:crypto';
-import { instructionsForTask, completionTaskIdentity } from './task_contract.js';
+import { instructionsForTask, completionTaskIdentity, lyricContextText } from './task_contract.js';
 import {
   workflowFor,
   creationRefusal,
@@ -482,6 +482,49 @@ function loopFields(v) {
     standing: Array.isArray(v?.standing) ? v.standing.slice(0, 24) : null,
     flags: typeof v?.flags === 'number' ? v.flags : null,
     whole_flags: typeof v?.whole_flags === 'number' ? v.whole_flags : null,
+    // THE CHOICES THE PAGE OFFERS (lyrics redesign, 2026-09-30): a screen's
+    // pair verdicts and a grade's dictionary readings are what the lyrics
+    // page's Rhymes and Pronunciation tools show as options. Both are bounded
+    // upstream (12 words make 66 pairs; MAX_CHOICES is 128 readings).
+    pairs: Array.isArray(v?.pairs) ? v.pairs.slice(0, 66).map(pairRow) : null,
+    pronunciation_options: readingOptions(v?.pronunciation_options),
+  };
+}
+
+function pairRow(p) {
+  return {
+    a: typeof p?.a === 'string' ? p.a : null,
+    b: typeof p?.b === 'string' ? p.b : null,
+    codes: Array.isArray(p?.codes) ? p.codes : [],
+    refused: p?.refused === true,
+    reason: typeof p?.reason === 'string' ? p.reason : null,
+    relations: Array.isArray(p?.relations) ? p.relations : [],
+    named: typeof p?.named === 'boolean' ? p.named : null,
+    named_reason: typeof p?.named_reason === 'string' ? p.named_reason : null,
+    score: typeof p?.score === 'number' ? p.score : null,
+  };
+}
+
+function readingOptions(o) {
+  if (!o || !Array.isArray(o.items)) return null;
+  return {
+    items: o.items.slice(0, 128).map((it) => ({
+      line: typeof it?.line === 'string' ? it.line : null,
+      token: Number.isInteger(it?.token) ? it.token : null,
+      word: typeof it?.word === 'string' ? it.word : null,
+      matching_lines: Array.isArray(it?.matching_lines) ? it.matching_lines : [],
+      dictionary_readings: Array.isArray(it?.dictionary_readings)
+        ? it.dictionary_readings.map((r) => ({
+            phones: Array.isArray(r?.phones) ? r.phones : [],
+            stress: Array.isArray(r?.stress) ? r.stress : [],
+            syllables: typeof r?.syllables === 'number' ? r.syllables : null,
+          }))
+        : [],
+      supplied_reading_requires_source: it?.supplied_reading_requires_source === true,
+    })),
+    total: typeof o.total === 'number' ? o.total : null,
+    truncated: o.truncated === true,
+    scope: typeof o.scope === 'string' ? o.scope : null,
   };
 }
 
@@ -1279,8 +1322,9 @@ function buildSystemInstruction(surface, lyr, record = null, task = null) {
   const text = [
     task ? instructionsForTask(surface.instructions || '', task.domain) : surface.instructions,
     task
-      ? `ACTIVE TASK (chosen by the user and held by the host): ${JSON.stringify({ ...task, artifact: undefined })}. Stay in this domain. The brief and current plan remain authoritative even when observations have been pruned.`
+      ? `ACTIVE TASK (chosen by the user and held by the host): ${JSON.stringify({ ...task, artifact: undefined, lyric_context: undefined })}. Stay in this domain. The brief and current plan remain authoritative even when observations have been pruned.`
       : null,
+    task?.domain === 'lyrics' && task.lyric_context ? lyricContextText(task.lyric_context) : null,
     task?.domain === 'recipe'
       ? task.phase === 'browse'
         ? 'Return the requested stock Rich recipe verbatim, at most 1000 characters. Only recording recipe tools are available for this task.'

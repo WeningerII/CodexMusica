@@ -3151,6 +3151,9 @@ await check('validation: actionable errors', () => {
         'standing',
         'flags',
         'whole_flags',
+        // The lyrics page's Rhymes and Pronunciation option cards.
+        'pairs',
+        'pronunciation_options',
       ]) {
         assert.ok(
           new RegExp(`^\\s+${f}: c\\.${f} \\?\\? null,`, 'm').test(chat),

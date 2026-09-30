@@ -315,6 +315,129 @@ test('maximum recovery exports complete through actual HTTP and durable receipts
   }
 });
 
+test('a lyrics task carries the page context: validated, signed into the task, shown to the writer apart from the rules, refused beside an envelope; the receipt has a progress view', async () => {
+  const { lyricContext, lyricContextText } = await import('./task_contract.js');
+  const { progressView } = await import('./job_store.js');
+  const document =
+    '[SETUP — title — Porch Light]\n\n[VERSE — 2 lines — 6/8]\nI leave the porch light on\nFor you to find your way';
+  const context = {
+    version: 1,
+    document,
+    declarations: { title: 'Porch Light' },
+    brief: 'A love ballad to a city that let me go.',
+    notes: [{ section: 'Verse 1', note: 'Arrival and kindness' }],
+    binding: { document_sha256: 'a'.repeat(64), context_sha256: 'b'.repeat(64) },
+  };
+  // The validator refuses what it cannot hold exactly.
+  assert.deepEqual(lyricContext(context).notes, context.notes);
+  for (const bad of [
+    { ...context, version: 2 },
+    { ...context, document: 7 },
+    { ...context, brief: 'x'.repeat(4001) },
+    { ...context, notes: [{ section: '', note: 'n' }] },
+    { ...context, notes: [{ section: 'Verse 1', note: 'x'.repeat(401) }] },
+    { ...context, binding: { document_sha256: 'short' } },
+    { ...context, extra: true },
+  ])
+    assert.throws(() => lyricContext(bad), /lyric_context/);
+  const text = lyricContextText(lyricContext(context));
+  assert.ok(text.indexOf('CREATIVE GUIDANCE') < text.indexOf('THE COMMITTED DOCUMENT'));
+  assert.ok(text.includes(document), 'the document reaches the writer exactly');
+
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'chat-lyric-context-'));
+  const store = new JobStore(dir);
+  const router = await createChatRouter({
+    buildServer: buildRealServer,
+    Client,
+    InMemoryTransport,
+    apiKey: 'offline',
+    limits: { ...CHAT_LIMITS, perIpPerMinute: 1000, perIpPerHour: 1000 },
+    turnLimits: { ...LIMITS, maxSteps: 2 },
+  });
+  const app = express();
+  app.use(express.json({ limit: '2mb' }));
+  app.use(createJobRouter({ store, recoverCheckpoint: (r) => router.recoverCheckpoint(r) }));
+  app.use(router);
+  const server = app.listen(0, '127.0.0.1');
+  await once(server, 'listening');
+  const base = `http://127.0.0.1:${server.address().port}`;
+  const systems = [];
+  globalThis.fetch = async (_url, init) => {
+    const sent = JSON.parse(init.body);
+    systems.push(sent.systemInstruction?.parts?.map((p) => p.text).join('\n') || '');
+    return response([{ text: 'Reviewed.' }]);
+  };
+  const post = (body) =>
+    nativeFetch(base + '/chat', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+  try {
+    const status = await (await nativeFetch(base + '/chat/status')).json();
+    assert.equal(status.lyricContextVersion, 1);
+    assert.equal(status.progressView, true);
+    const id = crypto.randomBytes(32).toString('hex');
+    const res = await post({
+      message: 'Review the draft in the page context.',
+      request_id: id,
+      task: { domain: 'lyrics', phase: 'edit' },
+      lyric_context: context,
+    });
+    const body = await res.json();
+    assert.equal(res.status, 200, JSON.stringify(body).slice(0, 300));
+    assert.deepEqual(body.task.lyric_context, lyricContext(context), 'held in the signed task');
+    assert.ok(systems[0].includes('PAGE CONTEXT'), 'the writer is shown the page context');
+    assert.ok(systems[0].includes(document));
+    assert.ok(
+      !/ACTIVE TASK[^\n]*lyric_context/.test(systems[0]),
+      'the context is its own block, not repeated inside the task JSON'
+    );
+    const refused = await post({
+      message: 'Swap the context.',
+      request_id: crypto.randomBytes(32).toString('hex'),
+      history: body.history,
+      workspace: body.workspace,
+      task: body.task,
+      sig: body.sig,
+      lyric_context: { ...context, brief: 'Something else.' },
+    });
+    assert.equal(refused.status, 400);
+    assert.equal((await refused.json()).code, 'LYRIC_CONTEXT');
+    const view = await (await nativeFetch(`${base}/chat/jobs/${id}?view=progress`)).json();
+    assert.equal(view.view, 'progress');
+    assert.equal(view.state, 'completed');
+    assert.equal(view.stage, 'finished');
+    assert.equal(view.response, undefined, 'the progress view is never the result');
+  } finally {
+    globalThis.fetch = nativeFetch;
+    server.close();
+    server.closeAllConnections();
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+  // Stages read off a receipt that is still running.
+  const running = (history, progress = null) =>
+    progressView({
+      request_id: 'c'.repeat(64),
+      state: 'pending',
+      created_at: 1,
+      updated_at: 2,
+      checkpoint: { history },
+      progress,
+    });
+  const call = (name) => ({ role: 'model', parts: [{ functionCall: { name, args: {} } }] });
+  assert.equal(running([]).stage, null);
+  assert.equal(running([call('lyric_sweep'), call('lyric_screen')]).stage, 'planning');
+  assert.equal(running([call('lyric_plan')]).stage, 'drafting');
+  assert.equal(running([call('lyric_plan'), call('lyric_grade')]).stage, 'checking');
+  const kitchen = running([call('lyric_revise')], {
+    status: 'proposing',
+    round: 2,
+    accepted_lines: ['a', 'b'],
+  });
+  assert.deepEqual([kitchen.stage, kitchen.round, kitchen.accepted_lines], ['revising', 2, 2]);
+});
+
 test('recipe task excludes lyric instructions and declarations and rejects wrong-family dispatch', async () => {
   const bodies = [];
   let executed = 0;
@@ -1430,4 +1553,57 @@ test('durable continuation bypasses wire-size limits and admits exactly one succ
     server.closeAllConnections();
     fs.rmSync(dir, { recursive: true, force: true });
   }
+});
+
+test('a screen and a grade hand the lyrics page their options: pair verdicts and dictionary readings, bounded and by shape', async () => {
+  const { _agentInternals: AI } = await import('./gemini_agent.js');
+  const pairs = Array.from({ length: 70 }, (_, i) => ({
+    a: 'rain',
+    b: `w${i}`,
+    codes: i === 0 ? ['HOMEOTELEUTON'] : [],
+    refused: i === 1,
+    reason: i === 1 ? 'no reading' : null,
+    relations: ['RHYME'],
+    coarse_relations: ['RHYME'],
+    score: 0.5,
+    extra: 'dropped',
+  }));
+  const row = AI.loopFields({
+    exit_code: 0,
+    pairs,
+    pronunciation_options: {
+      items: [
+        {
+          line: 'I read the letter',
+          token: 2,
+          word: 'read',
+          matching_lines: [3],
+          dictionary_readings: [
+            { phones: ['R', 'IY1', 'D'], stress: [1], syllables: 1 },
+            { phones: ['R', 'EH1', 'D'], stress: [1], syllables: 1 },
+          ],
+          supplied_reading_requires_source: false,
+        },
+      ],
+      total: 9,
+      truncated: false,
+      scope: 'refused_lines',
+    },
+  });
+  assert.equal(row.pairs.length, 66);
+  assert.deepEqual(row.pairs[0].codes, ['HOMEOTELEUTON']);
+  assert.equal(row.pairs[1].refused, true);
+  assert.equal(row.pairs[1].reason, 'no reading');
+  assert.ok(!('extra' in row.pairs[0]) && !('coarse_relations' in row.pairs[0]));
+  assert.equal(row.pronunciation_options.items[0].word, 'read');
+  assert.deepEqual(row.pronunciation_options.items[0].dictionary_readings[1].phones, [
+    'R',
+    'EH1',
+    'D',
+  ]);
+  assert.equal(row.pronunciation_options.total, 9);
+  assert.equal(row.pronunciation_options.scope, 'refused_lines');
+  const bare = AI.loopFields(null);
+  assert.equal(bare.pairs, null);
+  assert.equal(bare.pronunciation_options, null);
 });

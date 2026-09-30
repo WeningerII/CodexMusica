@@ -1,5 +1,5 @@
 /* global UI, UI_ICONS, UILayout, uiAddGenre, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
-/* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition */
+/* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend */
 
 
 // ============================================================
@@ -14652,7 +14652,7 @@ async function saveWS(name) {
   if(!window.storage||window.storage.backend==='memory'){showToast('Permanent storage unavailable. Export your session.','error');return;}
   try {await withSavedWrite(async()=>{
     const list=await readListStrict();if(window.storage.backend==='memory')throw Error('Permanent storage unavailable');const key='codex:ws:'+newId('ws');
-    const data={schema:WS_SCHEMA,key,name,saved_at:new Date().toISOString(),cards:snapshot.cards,lyrics:snapshot.lyrics};
+    const data={schema:WS_SCHEMA,key,name,saved_at:new Date().toISOString(),cards:snapshot.cards,lyrics:snapshot.lyrics,lyricMeta:lyricMetaOf(app.lyricMeta)};
     await window.storage.set(key,JSON.stringify(data));list.push({key,name,saved_at:data.saved_at,count:data.cards.length});
     await window.storage.set('codex:list',JSON.stringify(list));
   });showToast(`Saved "${name}"`,'success');
@@ -14663,7 +14663,7 @@ async function restoreSavedWorkspace(key,fork){
   const d=JSON.parse(r.value);if(d.schema>WS_SCHEMA)throw Error('Saved by a newer version — update to open it');
   const cards=normalizeWorkspaceCards(d.cards||[],fork);
   app.cards=cards;app.workspaceName=d.name||'Untitled session';
-  if(typeof d.lyrics==='string')app.lyrics=d.lyrics;
+  if(typeof d.lyrics==='string'){app.lyrics=d.lyrics;app.lyricMeta=lyricMetaOf(d.lyricMeta);}
   if(typeof UI!=='undefined')UI.lyricRevision++;
   const draft=document.getElementById('lyrics-draft');if(draft)draft.value=app.lyrics||'';
   closeModal('modal-saved');pushHistory();renderAll();
@@ -16360,12 +16360,32 @@ function musicalWorkspaceKey(cards) {
     parts:c.parts,room:c.room,tuning:c.tuning,chain:c.chain,preface:c.preface,
     prefaceAuto:c.prefaceAuto,pinned:c.pinned,pinnedParts:c.pinnedParts})));
 }
+// The Lyrics page's own context, version 1: the creative brief, a note per
+// section, the pending tool entries and the page's layout choices. Engine
+// declarations and sung text stay in the document; this never holds them.
+// Anything unreadable (or a session saved before it existed) becomes empty
+// context, never a guessed value.
+const LYRIC_META_LIMITS={brief:4000,notes:120,noteKey:80,note:400,drafts:60000,ui:4000};
+function lyricMetaOf(v){
+  const L=LYRIC_META_LIMITS,out={version:1,brief:'',notes:{},drafts:{},ui:{}};
+  if(!v||typeof v!=='object'||v.version!==1)return out;
+  if(typeof v.brief==='string')out.brief=v.brief.slice(0,L.brief);
+  if(v.notes&&typeof v.notes==='object'&&!Array.isArray(v.notes))
+    for(const [k,n] of Object.entries(v.notes).slice(0,L.notes))
+      if(typeof n==='string'&&n.trim())out.notes[String(k).slice(0,L.noteKey)]=n.slice(0,L.note);
+  const plain=(x,max)=>{if(!x||typeof x!=='object'||Array.isArray(x))return {};try{const t=JSON.stringify(x);return t.length<=max?JSON.parse(t):{};}catch{return {};}};
+  out.drafts=plain(v.drafts,L.drafts);out.ui=plain(v.ui,L.ui);
+  return out;
+}
+// What Undo restores of it: the creative context the person edited.
+const lyricMetaHistory=(m)=>({version:1,brief:m.brief,notes:m.notes});
 function sessionSnapshot() {
-  return {cards:app.cards.map(c=>({...c,..._CARD_TRANSIENTS})),name:app.workspaceName||'Untitled session',lyrics:app.lyrics||''};
+  const meta=lyricMetaOf(app.lyricMeta);
+  return {cards:app.cards.map(c=>({...c,..._CARD_TRANSIENTS})),name:app.workspaceName||'Untitled session',lyrics:app.lyrics||'',lyricMeta:lyricMetaHistory(meta)};
 }
 function sessionKey(value) {
   const s=Array.isArray(value)?{cards:value,name:'Untitled session',lyrics:''}:value;
-  return JSON.stringify([musicalWorkspaceKey(s.cards),s.name,s.lyrics]);
+  return JSON.stringify([musicalWorkspaceKey(s.cards),s.name,s.lyrics,s.lyricMeta?[s.lyricMeta.brief,s.lyricMeta.notes]:null]);
 }
 function pushHistory() {
   if(typeof _applyRecipeDedup==='function')_applyRecipeDedup();
@@ -16383,7 +16403,10 @@ function _restoreSnapshot(idx) {
     const tabs=new Map(app.cards.map(c=>[c.id,c._uiTab]));
     const snapshot=JSON.parse(app.history[idx]);
     if(Array.isArray(snapshot))app.cards=snapshot;
-    else {app.cards=snapshot.cards;app.workspaceName=snapshot.name;app.lyrics=snapshot.lyrics||'';}
+    else {
+      app.cards=snapshot.cards;app.workspaceName=snapshot.name;app.lyrics=snapshot.lyrics||'';
+      if(snapshot.lyricMeta){const m=lyricMetaOf(app.lyricMeta),h=lyricMetaOf({...snapshot.lyricMeta,version:1});app.lyricMeta={...m,brief:h.brief,notes:h.notes};}
+    }
     for(const c of app.cards)if(tabs.has(c.id))c._uiTab=tabs.get(c.id);
     if(typeof UI!=='undefined')UI.lyricRevision++;
     const draft=document.getElementById('lyrics-draft');if(draft)draft.value=app.lyrics||'';
@@ -18760,7 +18783,10 @@ const CHAT_BACKEND =
 
 const CHAT_STORAGE_KEY = `codex-musica-chat-v2:${CHAT_BACKEND}`;
 const chatState = { history: null, workspace: null, lyric: null, task: null, sig: null, continuationId: null,
-  busy: false, generation: 0, pending: null, archives: [], retryAt: 0, controller: null };
+  busy: false, generation: 0, pending: null, archives: [], retryAt: 0, controller: null,
+  // Transient, never saved: what the running request's receipt last said, and
+  // the request whose connection is known to have ended before its answer.
+  progress: null, disconnected: null };
 function _chatPersistedState(state=chatState) {
   const {history,workspace,lyric,task,sig,continuationId,generation,pending,archives,retryAt} = state;
   return continuationId ? {continuationId,generation,pending,archives,retryAt,domain:task?.domain,phase:task?.phase} : {history,workspace,lyric,task,sig,generation,pending,archives,retryAt};
@@ -19133,7 +19159,8 @@ function _chatReset() {
   if (previous) chatState.archives = [...chatState.archives, previous].slice(-8);
   chatState.generation++;
   chatState.controller?.abort();
-  Object.assign(chatState,{history:null,workspace:null,lyric:null,task:null,sig:null,continuationId:null,pending:null,controller:null,retryAt:0});
+  _chatPollStop();
+  Object.assign(chatState,{history:null,workspace:null,lyric:null,task:null,sig:null,continuationId:null,pending:null,controller:null,retryAt:0,progress:null,disconnected:null});
   _chatSave();
   _chatSetBusy(false);
   const log = _chatEl('chat-log');
@@ -19143,21 +19170,117 @@ function _chatReset() {
   _chatEl('chat-input')?.focus();
 }
 
-async function _chatSubmit(e) {
-  e.preventDefault();
-  if (chatState.busy) return;
-  if (chatState.pending) return _chatRecover();
+// ── progress while a request runs ────────────────────────────────────────────
+// READ-ONLY, AND NEVER THE DELIVERY (2026-09-30). A lyric request can run for
+// minutes, and the page had nothing to show but "Working on your request…".
+// The request's receipt is persisted before the provider is called, so while
+// the POST is in flight its progress is read from GET /chat/jobs/:id: every
+// 2 s while the tab is visible, 5 s while hidden, never more than one GET
+// outstanding, Retry-After honoured and network failures backed off to at
+// most 30 s. A poll never aborts the POST, never re-sends it, never calls a
+// provider and never hands a result to _chatReceive: the POST (or recovery)
+// delivers the result exactly once. Only what the receipt says is shown.
+const CHAT_POLL_VISIBLE_MS = 2000;
+const CHAT_POLL_HIDDEN_MS = 5000;
+const CHAT_POLL_MAX_MS = 30000;
+const _chatPoll = { timer: 0, inflight: false, request_id: null, failures: 0 };
+// The stage a receipt shows, named for what the writer is doing now.
+function _chatStageOf(tool) {
+  if (!tool) return null;
+  const verb = String(tool).replace(/^lyric_/, '');
+  if (['sweep', 'screen'].includes(verb)) return 'planning';
+  if (verb === 'plan') return 'drafting';
+  if (['grade', 'check', 'verify', 'recover', 'types'].includes(verb)) return 'checking';
+  if (verb === 'revise') return 'revising';
+  return 'working';
+}
+// A compact progress view of a job receipt: the server's own view when it
+// sends one, otherwise read off the full receipt (an earlier server).
+function _chatProgressOf(record) {
+  if (!record || typeof record !== 'object') return null;
+  if (record.view === 'progress') return { ...record, stage: record.state === 'completed' ? 'finished' : record.stage };
+  let tool = null;
+  for (const turn of record.checkpoint?.history || [])
+    for (const part of turn?.parts || []) if (part?.functionCall?.name) tool = part.functionCall.name;
+  const worker = record.progress && typeof record.progress === 'object' ? record.progress : null;
+  const stage = record.state === 'completed' ? 'finished' : worker ? 'revising' : _chatStageOf(tool);
+  return {
+    request_id: record.request_id, state: record.state, created_at: record.created_at ?? null,
+    updated_at: record.updated_at ?? null, stage, tool,
+    round: Number.isInteger(worker?.round) ? worker.round : null,
+    accepted_lines: Array.isArray(worker?.accepted_lines) ? worker.accepted_lines.length : null,
+    uncertain_proposal: !!(record.uncertain_proposal || worker?.uncertain_proposal),
+  };
+}
+function _chatPollStop() {
+  clearTimeout(_chatPoll.timer);
+  _chatPoll.timer = 0;
+  _chatPoll.request_id = null;
+}
+function _chatPollStart(request_id) {
+  _chatPollStop();
+  _chatPoll.request_id = request_id;
+  _chatPoll.failures = 0;
+  chatState.progress = { request_id, state: 'pending', created_at: Date.now(), updated_at: null, stage: null };
+  const schedule = (ms) => {
+    clearTimeout(_chatPoll.timer);
+    _chatPoll.timer = setTimeout(tick, ms ?? (document.hidden ? CHAT_POLL_HIDDEN_MS : CHAT_POLL_VISIBLE_MS));
+  };
+  const tick = async () => {
+    if (_chatPoll.request_id !== request_id || chatState.pending?.request_id !== request_id) return;
+    if (_chatPoll.inflight) return schedule();
+    _chatPoll.inflight = true;
+    let wait = null;
+    try {
+      const res = await fetch(`${CHAT_BACKEND}/chat/jobs/${request_id}?view=progress`, { cache: 'no-store' });
+      const retry = res.headers?.get?.('retry-after');
+      if (retry && /^\d+$/.test(retry.trim())) wait = Math.min(CHAT_POLL_MAX_MS, Number(retry) * 1000);
+      if (res.ok) {
+        const view = _chatProgressOf(await res.json());
+        if (_chatPoll.request_id !== request_id) return;
+        if (view) {
+          chatState.progress = { ...chatState.progress, ...view, created_at: view.created_at ?? chatState.progress?.created_at };
+          document.dispatchEvent(new CustomEvent('chat-progress', { detail: chatState.progress }));
+          // The receipt reports the end; the POST or recovery delivers it.
+          if (view.state && view.state !== 'pending') return _chatPollStop();
+        }
+        _chatPoll.failures = 0;
+      } else _chatPoll.failures++;
+    } catch {
+      _chatPoll.failures++;
+    } finally {
+      _chatPoll.inflight = false;
+    }
+    if (_chatPoll.request_id !== request_id) return;
+    schedule(wait ?? (_chatPoll.failures ? Math.min(CHAT_POLL_MAX_MS, 2000 * 2 ** _chatPoll.failures) : undefined));
+  };
+  schedule();
+}
+
+// ONE WAY TO ASK THE WRITER (2026-09-30). The dock's form and a page's named
+// actions (Run review, rhyme or pronunciation options) go through this one
+// function: the same request_id, the same receipt saved before dispatch, the
+// same recovery, pacing and signature handling. A named action is never a
+// synthetic click on the form. `context` is an optional structured lyric
+// context, sent only when this request starts a new task. Resolves to
+// { ok, reason }; a refusal names why nothing was sent.
+async function _chatSend(message, { choice, context = null, clearInput = false } = {}) {
+  if (chatState.busy) return { ok: false, reason: 'busy' };
+  if (chatState.pending) {
+    _chatRecover();
+    return { ok: false, reason: 'pending' };
+  }
   if (chatState.retryAt > Date.now()) {
     _chatOpenPanel();
     _chatAppend(`<div class="chat-msg chat-msg-note">The service asked us to wait until ${new Date(chatState.retryAt).toLocaleTimeString()}.</div>`);
-    return;
+    return { ok: false, reason: 'retry' };
   }
+  message = String(message || '').trim();
+  if (!message) return { ok: false, reason: 'empty' };
   const input = _chatEl('chat-input');
-  const message = input?.value.trim() || '';
-  if (!message) return;
   const generation = chatState.generation;
   const request_id = _chatRequestId();
-  const choice = _chatEl('chat-domain')?.value || 'recipe';
+  choice = choice || _chatEl('chat-domain')?.value || 'recipe';
   const domain = chatState.task?.domain || (choice === 'recipe-browse' ? 'recipe' : choice === 'lyrics-edit' ? 'lyrics' : choice);
   const body = {message,request_id,task:{domain,phase:choice === 'recipe-browse' ? 'browse' : choice === 'lyrics-edit' ? 'edit' : 'create'}};
   if (chatState.continuationId) { body.continuation_id = chatState.continuationId; delete body.task; }
@@ -19166,48 +19289,66 @@ async function _chatSubmit(e) {
     if (chatState.lyric != null) body.lyric = chatState.lyric;
     if (chatState.task != null) body.task = chatState.task;
     else delete body.task; // Preserve signatures from before task contracts.
-  }
+  } else if (context && domain === 'lyrics') body.lyric_context = context;
   chatState.pending = {request_id,message,domain,created_at:Date.now()};
   try { _chatSave(); }
   catch {
     chatState.pending = null;
     _chatOpenPanel();
     _chatAppend('<div class="chat-msg chat-msg-error">This browser could not save the request for recovery. Free local storage before starting it.</div>');
-    return;
+    return { ok: false, reason: 'storage' };
   }
   if(typeof UI!=='undefined'&&UI.ready&&domain==='lyrics')UI.lyricRequest={id:request_id,revision:UI.lyricRevision,text:app.lyrics||''};
   _chatOpenPanel();
   _chatAppend(`<div class="chat-msg chat-msg-you">${esc(message)}</div>`);
-  if (input) input.value = '';
-  // Clearing the field programmatically fires no `input` event, so the counter
-  // would otherwise stay stuck on the length of the message just sent.
-  _chatSyncCount();
+  if (clearInput && input) {
+    input.value = '';
+    // Clearing the field programmatically fires no `input` event, so the counter
+    // would otherwise stay stuck on the length of the message just sent.
+    _chatSyncCount();
+  }
   _chatSetBusy(true);
   const note = _chatAppend('<div class="chat-msg chat-msg-note">Working on your request…</div>');
   const controller = new AbortController();
   chatState.controller = controller;
+  _chatPollStart(request_id);
   try {
     const res = await fetch(`${CHAT_BACKEND}/chat`, {method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body),signal:controller.signal});
     const payload = await res.json().catch(() => null);
-    if (generation !== chatState.generation) return;
+    if (generation !== chatState.generation) return { ok: true };
     if (payload?.code === 'STALE_CONTINUATION' && /^[a-f0-9]{64}$/.test(payload.successor_id || '')) {
       chatState.pending = {...chatState.pending,request_id:payload.successor_id}; _chatSave();
-      return await _chatRecover(generation);
+      await _chatRecover(generation);
+      return { ok: true };
     }
-    if (!payload || ['pending','interrupted','retired'].includes(payload.state)) return await _chatRecover(generation);
+    if (!payload || ['pending','interrupted','retired'].includes(payload.state)) {
+      await _chatRecover(generation);
+      return { ok: true };
+    }
     _chatReceive(payload,res.headers);
   } catch {
-    if (generation !== chatState.generation) return;
+    if (generation !== chatState.generation) return { ok: true };
+    chatState.disconnected = request_id;
     _chatAppend('<div class="chat-msg chat-msg-note">The response was interrupted. Checking the saved request before continuing…</div>');
     await _chatRecover(generation);
   } finally {
+    _chatPollStop();
     note?.remove();
     if (generation === chatState.generation) {
       chatState.controller = null;
       _chatSetBusy(false);
-      if (input && !input.disabled) input.focus();
+      if (clearInput && input && !input.disabled) input.focus();
     }
   }
+  return { ok: true };
+}
+async function _chatSubmit(e) {
+  e.preventDefault();
+  if (chatState.busy) return;
+  if (chatState.pending) return _chatRecover();
+  const input = _chatEl('chat-input');
+  if (!(input?.value.trim()) && chatState.retryAt <= Date.now()) return;
+  await _chatSend(input?.value || '', { choice: _chatEl('chat-domain')?.value || 'recipe', clearInput: true });
 }
 
 // Wire the ask bar. Revealing it and checking the backend's status is the
