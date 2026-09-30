@@ -5,7 +5,7 @@
   "lineage": "Los Angeles guitar-pop movement of 1982-87 named by Michael Quercio of The Three O'Clock and defined by The Dream Syndicate, Rain Parade, Green on Red and The Bangles — mid-tempo 4/4 backbeats, twelve-string Rickenbacker jangle and Byrds-derived vocal harmony fused with Velvet Underground feedback drones and extended one-chord codas, Vox organ, and reverb-heavy but analogue, band-in-a-room production on independent labels.",
   "recipe": "classic Los Angeles early-1980s paisley underground, distorted Rock, alternative branch, pop rock folk rock, noise rock distorted rock czech folk rock. thick, breath veiled tone, fast rate, interlocked note trading. hi gain Rickenbacker modern clean strummed twelve string electric, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 826,
-  "score": 446.852,
+  "score": 446.618,
   "config": {
     "traditions": [
       "paisley_underground",
@@ -29,26 +29,26 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 42.02100000000002,
+          "voice_register": 41.929500000000026,
           "voice_quality": 9.555,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 16.639999999999993,
           "voice_microtone": 35.24500000000002,
-          "voice_tradition": 12.935500000000001,
+          "voice_tradition": 12.9475,
           "voice_mechanism_compound": 9.782499999999999,
           "voice_estill_quality": 3.1200000000000006,
           "voice_speech_song": 20.14999999999999,
           "voice_ensemble_config": 18.849999999999994,
           "voice_ornament_system": 1.345,
-          "voice_pitch_organization": 1.17,
-          "voice_processing_chain": 4.935,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 5.0249999999999995,
           "voice_multitrack_stack": 4.680000000000001
         }
       },
@@ -65,7 +65,7 @@
         "scores": {
           "electric_technique": 7.5115,
           "amp_make": 2.7864999999999998,
-          "twelve_string_electric_model": 6.283000000000001,
+          "twelve_string_electric_model": 6.146500000000001,
           "twelve_string_electric_context": 20.149999999999995,
           "twelve_string_electric_strings": 0.195,
           "twelve_string_electric_pickup": 1.195
@@ -118,7 +118,7 @@
           "amp_make": 15.47,
           "body_wood": 1.6899999999999997,
           "pickup_config": 0.2865,
-          "string_type": 36.4435,
+          "string_type": 36.4,
           "scale_length_b": 1.6899999999999997,
           "fretted_or_not": 0.28500000000000003,
           "bass_technique": 30.115000000000002,

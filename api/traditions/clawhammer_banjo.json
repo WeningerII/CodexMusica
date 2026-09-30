@@ -5,7 +5,7 @@
   "lineage": "Downstroking five-string banjo technique carried from West African plucked-lute practice into the antebellum American South and through blackface minstrelsy's stroke style into Appalachian home and dance music, documented from the 1920s Round Peak players onward — the striking nail of the index or middle finger brushes down onto the melody string while the thumb catches the fifth-string drone on the off-beat, producing a bum-ditty ostinato in open gDGCD, gCGCD or gDGBD tunings on a fretless or open-back gut- or nylon-strung banjo at dance tempo with almost no dynamic variation.",
   "recipe": "classic mid-1920s clawhammer banjo, drone Modal, appalachian branch, bluegrass improv on frame, pre commercial country neo-traditional bluegrass reactionary bluegrass. thick, breath veiled tone, wide pitch sway, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, foot tap. wooden barn. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 397,
-  "score": 239.76,
+  "score": 239.28,
   "config": {
     "traditions": [
       "clawhammer_banjo",
@@ -68,13 +68,13 @@
           "voice_vibrato": 7.6049999999999995,
           "voice_articulation": 13.844999999999995,
           "voice_microtone": 14.494999999999994,
-          "voice_tradition": 9.36,
+          "voice_tradition": 9.225,
           "voice_mechanism_compound": 5.525,
-          "voice_estill_quality": 12.644999999999998,
+          "voice_estill_quality": 12.599999999999998,
           "voice_speech_song": 18.069999999999993,
           "voice_ensemble_config": 12.089999999999995,
           "voice_ornament_system": 2.925,
-          "voice_pitch_organization": 5.170000000000002,
+          "voice_pitch_organization": 4.870000000000002,
           "voice_processing_chain": 6.305000000000001,
           "voice_multitrack_stack": 5.654999999999999
         }

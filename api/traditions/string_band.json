@@ -5,7 +5,7 @@
   "lineage": "Commercially recorded southern American ensemble format of the 1920s-30s in which fiddle carries melody, banjo and guitar supply the bum-ditty and bass-run rhythm, and mandolin or string bass fill out the middle — codified by the 1923-31 Okeh, Victor and Columbia field trips including Ralph Peer's 1927 Bristol sessions, with Gid Tanner's Skillet Lickers, Charlie Poole's North Carolina Ramblers and the Carter Family setting the templates of dance breakdowns, ballads and comic skits at steady 2/4 and 4/4 with heavy bass-string runs on guitar.",
   "recipe": "classic Southern American mid-1920s string band, functional Song, pre commercial branch, bluegrass improv on frame, blues narrative jug band neo-traditional bluegrass reactionary bluegrass. plain gut sheep gut double stops fiddle, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar martin lifespan sealed flatpicked dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, venice catlin high twist renaissance bass plywood laminate double bass, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. bristol sessions appalachian pre commercial. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 753,
-  "score": 304.038,
+  "score": 304.135,
   "config": {
     "traditions": [
       "string_band",
@@ -24,7 +24,7 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 26.414999999999996,
+          "bowed_technique": 26.369999999999994,
           "fiddle_strings": 3.355,
           "fiddle_bow": 0.735,
           "fiddle_mute": 0.8449999999999999,
@@ -102,7 +102,7 @@
       {
         "id": "double_bass",
         "slots": {
-          "bowed_technique": "bowed_spiccato_articulated",
+          "bowed_technique": "bowed_legato_classical",
           "bass_size": "bass_three_quarter",
           "bass_strings": "venice_catlin_bass",
           "bass_top_wood": "plywood_bass_top",
@@ -115,13 +115,13 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "bass_size": 0,
+          "bass_size": 0.045,
           "bass_strings": 8.190000000000001,
           "bass_top_wood": 1.25,
           "bass_back_wood": 1.895,
           "bass_varnish": 1.25,
           "bass_setup_period": 10.725,
-          "bass_play": 0.42,
+          "bass_play": 0.46499999999999997,
           "bass_rosin": 9.815000000000001,
           "bass_bow_stick": 1.25
         }
@@ -140,9 +140,9 @@
           "harmonica_type": 0.195,
           "harmonica_comb": 4.615,
           "harmonica_reed": 3.2649999999999997,
-          "harmonica_technique": 9.069999999999999,
+          "harmonica_technique": 9.114999999999998,
           "harmonica_maker_school": 1.8199999999999996,
-          "harmonica_tuning": 1.26
+          "harmonica_tuning": 1.2675
         }
       }
     ],

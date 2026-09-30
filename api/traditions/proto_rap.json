@@ -3,14 +3,14 @@
   "name": "Proto-Rap",
   "family": "hip_hop",
   "lineage": "Pre-1979 spoken-rhythmic Black American forms that fed directly into hip hop — the Jamaican-derived toasting of Kool Herc's Bronx block parties from 1973, the jazz-poetry declamation of the Last Poets and Gil Scott-Heron from 1968-1971, and the rhymed radio patter of DJs like Jocko Henderson — delivered over funk breakbeats, congas or bare percussion in loose 4/4 with a chanted call-and-response hook rather than a written verse-chorus form.",
-  "recipe": "classic North American 1968-1971 proto-rap, mc Rhythm, us hip hop branch, us hip hop east coast, Jamaican bass system new jersey rap boom bap. thick, rap, straight onset, narrative. sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, hand clap. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 560,
-  "score": 227.532,
+  "recipe": "classic North American 1968-1971 proto-rap, mc Rhythm, us hip hop branch, us hip hop east coast, Jamaican bass system bronx hip hop new jersey rap. thick, rap, straight onset, narrative. sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, hand clap. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 552,
+  "score": 192.777,
   "config": {
     "traditions": [
       "proto_rap",
-      "new_jersey_rap",
-      "boom_bap"
+      "bronx_hip_hop",
+      "new_jersey_rap"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 11.965,
-          "voice_quality": 25.69,
+          "voice_register": 6.69,
+          "voice_quality": 26.915,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.515000000000001,
-          "voice_articulation": 14.659999999999998,
-          "voice_microtone": 12.804999999999993,
-          "voice_tradition": 12.459999999999999,
-          "voice_mechanism_compound": 3.965,
-          "voice_estill_quality": 4.555,
-          "voice_speech_song": 25.125,
-          "voice_ensemble_config": 12.739999999999995,
+          "voice_vibrato": 2.89,
+          "voice_articulation": 11.485,
+          "voice_microtone": 10.529999999999994,
+          "voice_tradition": 11.834999999999999,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 2.6000000000000005,
+          "voice_speech_song": 25.85,
+          "voice_ensemble_config": 10.27,
           "voice_ornament_system": 5.525000000000002,
           "voice_pitch_organization": 0.585,
-          "voice_processing_chain": 15.899999999999999,
-          "voice_multitrack_stack": 5.004999999999999
+          "voice_processing_chain": 15.974999999999998,
+          "voice_multitrack_stack": 2.73
         }
       },
       {
@@ -59,30 +59,30 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 11.035,
-          "turntable_technique": 17.92
+          "electronic_technique": 10.059999999999999,
+          "turntable_technique": 15.294999999999998
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "la_bella_flats_motown",
-          "scale_length_b": "long_scale_b",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.640000000000001,
-          "body_wood": 0.48,
+          "amp_make": 4.127500000000001,
+          "body_wood": 1.0499999999999998,
           "pickup_config": 0.15,
-          "string_type": 6.597499999999999,
-          "scale_length_b": 0.585,
+          "string_type": 4.03,
+          "scale_length_b": 0.525,
           "fretted_or_not": 0.845,
-          "bass_technique": 8.165,
+          "bass_technique": 4.915,
           "electric_bass_string_configuration": 0
         }
       },
@@ -94,8 +94,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 16.054999999999996,
-          "drumhead": 6.125,
+          "drum_technique": 12.934999999999999,
+          "drumhead": 4.5,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -107,7 +107,7 @@
         },
         "scores": {
           "clap_technique": 0.845,
-          "clap_capture": 0.195
+          "clap_capture": 0.7799999999999999
         }
       }
     ],

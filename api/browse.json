@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 2938,
+  "count": 3038,
   "items": [
     {
       "id": "honky_tonk",
@@ -117245,6 +117245,3248 @@
       "description": "An expressive sung line is answered and supported by plucked three-string sanshin. Shima-uta repertoire and a modern plastic plectrum are explicitly selected; body pattern, recording room and exact balance are authored options, not claims that every performer uses the same setup.",
       "exemplars": [
         "Okinawan shima-uta — sanshin-accompanied song"
+      ]
+    },
+    {
+      "id": "oklahoma_country",
+      "name": "Oklahoma country",
+      "family": "vernacular",
+      "lineage": "Oklahoma country includes the Red Dirt songwriting and live-band networks associated with Tahlequah and other state communities. Turnpike Troubadours provide a documented fiddle-and-guitar branch of this wider regional category.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        -1,
+        1,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "fiddle",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Narrative lead vocals and strummed acoustic guitar ride a bass-and-drums foundation, with fiddle responses and a clear electric-guitar edge. The band’s first-person interviews document these roles; exact guitar bodies and production balance remain authored choices.",
+      "exemplars": [
+        "Turnpike Troubadours"
+      ]
+    },
+    {
+      "id": "indie_singer_songwriter",
+      "name": "Indie singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Indie singer-songwriter is a cross-regional discovery category around performer-authored recorded songs. Glen Hansard’s independently released acoustic songwriting offers a documented representative branch without limiting the category to Ireland.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "violin_orchestral"
+      ],
+      "description": "An authored acoustic-song setting puts lead voice and strummed guitar in front of restrained bowed-string responses. Hansard’s label credits establish the selected roles; the single violin is a deliberate reduction of the credited string texture, not an exact studio transcription.",
+      "exemplars": [
+        "Glen Hansard — Song of Good Hope"
+      ]
+    },
+    {
+      "id": "indie_folk_italiano",
+      "name": "Indie folk italiano",
+      "family": "vernacular",
+      "lineage": "Indie folk italiano is a contemporary discovery network encompassing several Italian songwriter and ensemble approaches. Eugenio in Via Di Gioia’s Turin street-performance roots and subsequent band records supply a documented folk-pop branch.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "grand_piano",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Lead and supporting voices are carried by acoustic-guitar strumming, piano, bass and a drum-kit pulse. A first-person band interview establishes those roles, as well as other instruments; this authored subset preserves the group’s ensemble identity without pretending every song uses the same setup.",
+      "exemplars": [
+        "Eugenio in Via Di Gioia — Natura viva"
+      ]
+    },
+    {
+      "id": "bluegrass_fiddle",
+      "name": "Bluegrass fiddle",
+      "family": "vernacular",
+      "lineage": "Fiddle-centered bluegrass repertoire and lead playing, represented by Kenny Baker’s work with Bill Monroe and by his own instrumental albums. Kentucky roots and Tennessee professional networks connect this practice to the wider bluegrass ensemble.",
+      "parent": "improvOnFrame.bluegrass",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "fiddle",
+        "mandolin",
+        "acoustic_guitar_dread",
+        "upright_bass"
+      ],
+      "description": "This instrument-focused branch brings the fiddle tune, melodic variation and sustained bowed phrasing to the front. Baker’s documented long-bow playing supplies the example; the authored acoustic backing uses mandolin, rhythm guitar and plucked bass. It can participate in vocal bluegrass too, but the default is an instrumental feature rather than a mandatory full-band solo rotation.",
+      "exemplars": [
+        "Kenny Baker",
+        "Kenny Baker plays Bill Monroe"
+      ]
+    },
+    {
+      "id": "classic_australian_country",
+      "name": "Classic Australian country",
+      "family": "vernacular",
+      "lineage": "Australia’s established country-recording repertoire represented by Slim Dusty, whose 1957 A Pub with No Beer joined rural storytelling to a nationally recognizable singing style. This model selects its compact guitar-and-bass branch.",
+      "parent": "functionalSong.country.preCommercial",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_bass"
+      ],
+      "description": "A retrospective recording category encompassing Australian country’s older commercial repertoire. The selected arrangement keeps narrative singing prominent over ringing guitar and economical bass support, without treating this one branch as the full national tradition. The modern clean recording chain is an authored presentation, not a claim about the equipment used at EMI in 1957.",
+      "exemplars": [
+        "Slim Dusty — A Pub with No Beer"
+      ]
+    },
+    {
+      "id": "canadian_folk",
+      "name": "Canadian folk",
+      "family": "vernacular",
+      "lineage": "Canadian folk performance and recording traditions include regional traditional repertoires and an influential songwriter branch. The selected model follows Gordon Lightfoot’s documented narrative-song contribution and Toronto concert practice.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "upright_bass"
+      ],
+      "description": "A broad geographic discovery category. This representative arrangement selects a sung-story branch with one acoustic guitar and a restrained plucked bass, keeping the lyric and melody clear. It does not reduce Canada’s distinct Indigenous, Francophone, maritime or instrumental traditions to the selected English-language songwriter example.",
+      "exemplars": [
+        "Gordon Lightfoot — Canadian Railroad Trilogy",
+        "Gordon Lightfoot — The Wreck of the Edmund Fitzgerald"
+      ]
+    },
+    {
+      "id": "canadian_singer_songwriter",
+      "name": "Canadian singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Canadian performer-songwriters span folk, pop and country recordings. Gordon Lightfoot’s body of authored songs provides the selected narrative, acoustic example rather than a compulsory sound for every Canadian writer.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "This authorship-centered discovery category foregrounds the writer’s own sung interpretation. The default is an intimate voice-and-guitar performance, with no compulsory backing band; literary storytelling and melodic phrasing carry the arrangement. Piano-led and band-led branches remain part of the wider category.",
+      "exemplars": [
+        "Gordon Lightfoot — If You Could Read My Mind"
+      ]
+    },
+    {
+      "id": "british_folk",
+      "name": "British folk",
+      "family": "vernacular",
+      "lineage": "British traditional-song and folk-revival practices include solo singing, instrumental accompaniment and ensemble performance. The default selects the English ballad-and-guitar branch represented by Martin Carthy, rather than treating Britain as one undifferentiated musical tradition.",
+      "parent": "balladPoetry.celticBalladic",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "A broad geographic umbrella with acoustic, vocal-harmony and electric revival branches. Here one singer narrates a traditional song over a responsive fingerpicked guitar, leaving room for irregular lyric phrasing. This is a representative small arrangement, not a prescription for Scottish, Welsh or every English repertoire.",
+      "exemplars": [
+        "Martin Carthy"
+      ]
+    },
+    {
+      "id": "black_americana",
+      "name": "Black Americana",
+      "family": "vernacular",
+      "lineage": "Black musicians’ roots-music practice encompasses historical string-band lineages and contemporary authored work. Our Native Daughters supplies this representative collaborative branch, joining banjo-centered music and new songs about Black women’s histories.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        1,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "banjo_5_string",
+        "fiddle",
+        "acoustic_guitar_dread"
+      ],
+      "description": "A community and historical-perspective discovery category spanning more than one roots style. This authored arrangement selects sung lead and answering voices, open-back banjo, fiddle and acoustic guitar; it preserves the central string-band resources without prescribing a single sound to Black artists. Modern clean capture leaves ensemble interaction audible.",
+      "exemplars": [
+        "Our Native Daughters",
+        "Rhiannon Giddens",
+        "Amythyst Kiah",
+        "Leyla McCalla",
+        "Allison Russell"
+      ],
+      "crossRefs": [
+        "balladPoetry.bluesNarrative"
+      ]
+    },
+    {
+      "id": "danish_folk",
+      "name": "Danish folk",
+      "family": "vernacular",
+      "lineage": "Danish folk includes inherited dance tunes and contemporary roots ensembles. Trio Mio’s documented Scandinavian practice supplies this selected modern branch: fiddle, piano and guitar working between composed tunes and improvisation.",
+      "parent": "improvOnFrame",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "fiddle",
+        "grand_piano",
+        "acoustic_guitar_dread"
+      ],
+      "description": "The default is an instrumental trio with a clear fiddle line, responsive piano chords and plucked-guitar rhythm. It follows one contemporary Danish ensemble practice while allowing melody, accompaniment and improvisation to exchange roles. It does not impose accordion or a particular dance meter on every Danish folk recording.",
+      "exemplars": [
+        "Trio Mio",
+        "Kristine Heebøll",
+        "Peter Rosendal",
+        "Jens Ulvsand"
+      ]
+    },
+    {
+      "id": "croatian_folk",
+      "name": "Croatian folk",
+      "family": "vernacular",
+      "lineage": "Croatian folk spans regionally distinct song, dance and instrumental practices. LADO documents a northeastern tamburica branch alongside northwestern string-and-dulcimer ensembles and Adriatic practices; this default selects the tamburica branch.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "tamburica_prim",
+        "tamburica_brac",
+        "bugarija",
+        "berda"
+      ],
+      "description": "A regional umbrella represented here by interlocking tamburica voices: treble melody, middle-register response, chordal rhythm and plucked bass beneath group singing. The arrangement uses dedicated prim, brač, bugarija and berda catalog instruments. It does not replace the distinct Istrian, Dalmatian or other traditions with generic guitar.",
+      "exemplars": [
+        "LADO Orchestra",
+        "Linđo Folklore Ensemble"
+      ]
+    },
+    {
+      "id": "finnish_folk",
+      "name": "Finnish folk",
+      "family": "vernacular",
+      "lineage": "Finnish folk encompasses multiple vocal and instrumental practices. This default selects Kaustinen fiddle playing, an orally learned dance-music practice documented by UNESCO and its community, rather than substituting a generic guitar-songwriter setting.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        -2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "fiddle",
+        "pump_organ_harmonium",
+        "upright_bass"
+      ],
+      "description": "The selected Kaustinen branch centers a fiddle section with harmonium and plucked bass, a documented configuration used by JPP. Articulated accents and danceable syncopation shape repeated tunes, with melody harmonization and authored additions possible. One fiddle card represents the section timbre. Other Finnish folk branches, including runosong and kantele practice, are not asserted to share this arrangement.",
+      "exemplars": [
+        "Kaustinen fiddle-playing community",
+        "Purppuripelimannit",
+        "JPP"
+      ]
+    },
+    {
+      "id": "australian_americana",
+      "name": "Australian Americana",
+      "family": "vernacular",
+      "lineage": "Australian roots musicians participate in Americana through country, folk and transnational collaboration. Kasey Chambers, an Americana Music Awards nominee with Shane Nicholson, represents the selected song-centered acoustic branch.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "banjo_5_string"
+      ],
+      "description": "The default uses close singing, acoustic guitar and open-back banjo to support a compact roots song, grounded in Chambers’s own account of writing with guitar and banjo. It is an Australian contribution to an international roots network, with no invented national rhythm or compulsory American accent.",
+      "exemplars": [
+        "Kasey Chambers",
+        "Kasey Chambers and Shane Nicholson"
+      ]
+    },
+    {
+      "id": "australian_country",
+      "name": "Australian country",
+      "family": "vernacular",
+      "lineage": "Australian country spans rural narrative traditions and contemporary crossover recording. The chosen modern branch follows Kasey Chambers’s documented country career and guitar-and-drums studio practice.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The authored default foregrounds a distinct lead voice over acoustic rhythm guitar, electric-guitar responses, bass and a restrained drum kit. This compact contemporary band is one national country branch; it does not pretend the older bush ballad, Aboriginal country, or every crossover production uses the same lineup.",
+      "exemplars": [
+        "Kasey Chambers — The Captain",
+        "Kasey Chambers — Bittersweet"
+      ]
+    },
+    {
+      "id": "australian_indie_folk",
+      "name": "Australian indie folk",
+      "family": "vernacular",
+      "lineage": "Australian indie folk includes Melbourne’s The Paper Kites and their documented blend of acoustic songwriting, harmonized voices and an evolving band sound. The selected arrangement uses a small acoustic-plus-rhythm ensemble.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "banjo_5_string",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Warm acoustic-guitar figures support layered voices, with banjo color and restrained bass-and-drums accompaniment. These roles come from The Paper Kites’ documented instrumental lineup, while the exact intimate balance is authored. The category allows studio textures and electric expansion rather than prescribing an entirely unplugged sound.",
+      "exemplars": [
+        "The Paper Kites — Woodland",
+        "The Paper Kites — Roses"
+      ]
+    },
+    {
+      "id": "australian_singer_songwriter",
+      "name": "Australian singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Australian performer-songwriters range widely across folk, pop and roots recordings. Paul Kelly’s Australian-set stories and documented guitar-and-piano writing practice provide this representative branch.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "acoustic_guitar_om"
+      ],
+      "description": "The selected arrangement is voice with responsive piano and softly picked guitar, giving narrative phrasing and chord movement room to carry the song. Kelly’s collaborations include both guitar-led and piano-led settings; combining those resources here is an authored small arrangement, not an assertion about one session.",
+      "exemplars": [
+        "Paul Kelly",
+        "Paul Kelly and Paul Grabowsky — Please Leave Your Light On"
+      ]
+    },
+    {
+      "id": "belgian_singer_songwriter",
+      "name": "Belgian singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Belgian performer-songwriters include both local-language and internationally circulating English-language work. Milow explicitly describes his own practice as acoustic songwriting between pop and narrative folk, supplying this selected branch.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "A lyric-and-melody-forward solo voice sits over acoustic guitar, with little masking texture. The arrangement follows Milow’s stated preference for sparseness while remaining one example within a multilingual Belgian category. Authorship rather than acoustic instrumentation alone distinguishes the label.",
+      "exemplars": [
+        "Milow — You Don’t Know"
+      ]
+    },
+    {
+      "id": "danish_singer_songwriter",
+      "name": "Danish singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Danish singer-songwriters work across acoustic, pop and chamber-oriented production. Agnes Obel represents this piano-and-voice-centered branch, developed through her self-written and self-produced recordings.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "cello"
+      ],
+      "description": "Voice, piano and sustained cello form the authored chamber-song core, with space for vocal layering and restrained electronic expansion. This is a compositional songwriter setting rather than a Danish folk-dance ensemble; nationality does not determine one sound.",
+      "exemplars": [
+        "Agnes Obel — Myopia",
+        "Agnes Obel — The Meaning of Flowers"
+      ]
+    },
+    {
+      "id": "canadian_indie_folk",
+      "name": "Canadian indie folk",
+      "family": "vernacular",
+      "lineage": "Canadian indie folk includes Southern Ontario’s Great Lake Swimmers, whose songs and acoustic-led recordings connect songwriting to resonant rural spaces. Their documented instrumentation supplies this selected ensemble model.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "fiddle",
+        "upright_bass"
+      ],
+      "description": "A hushed lead voice and acoustic-guitar figure are colored by melodic fiddle and a restrained plucked bass. The default preserves the group’s documented folk-centered intimacy and spatial character while using a small selection of their broader acoustic/electric palette. These are production decisions, not claims that every Canadian indie-folk record uses historic rural rooms.",
+      "exemplars": [
+        "Great Lake Swimmers",
+        "Tony Dekker"
+      ]
+    },
+    {
+      "id": "canadian_americana",
+      "name": "Canadian Americana",
+      "family": "vernacular",
+      "lineage": "Canadian musicians contribute to Americana’s interconnected folk, country and roots-rock practices. Great Lake Swimmers explicitly describe their live sound as intimate Americana; this default selects the country-colored part of their acoustic and electric palette.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "pedal_steel",
+        "upright_bass"
+      ],
+      "description": "Lead singing and ringing rhythm guitar are answered by pedal-steel swells and a simple plucked bass pulse. The authored setting draws on the band’s documented steel-and-guitar resources, selecting a country-rooted texture within a wider Canadian Americana field. It is not a claim that the entire category originated in one province.",
+      "exemplars": [
+        "Great Lake Swimmers — Caught Light"
+      ]
+    },
+    {
+      "id": "children_s_folk",
+      "name": "Children’s folk",
+      "family": "vernacular",
+      "lineage": "Folk songs performed and transmitted for children include games, work-song adaptations, animals, stories and participatory refrains. Pete Seeger’s documented 1959 Folk Songs for Young People supplies this North American folk-revival example.",
+      "parent": "nurseryRhyme",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "banjo_5_string",
+        "acoustic_guitar_dread"
+      ],
+      "description": "The default pairs an inviting lead-and-response voice arrangement with open-back banjo and strummed acoustic guitar. Clear recurring melodies and shared refrains make participation central. This is one recorded branch of children’s folk, not a universal claim about children’s repertoires across cultures or a label for all commercial children’s pop.",
+      "exemplars": [
+        "Pete Seeger — Folk Songs for Young People"
+      ]
+    },
+    {
+      "id": "cape_verdean_folk",
+      "name": "Cape Verdean folk",
+      "family": "vernacular",
+      "lineage": "Cape Verdean folk encompasses the archipelago’s distinct song and dance practices. This default selects morna’s sung poetic branch, represented internationally by Cesária Évora, while recognizing that coladeira and other traditions are not identical to morna.",
+      "parent": "balladPoetry.chansonFado.morna",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar",
+        "cape_verdean_cavaquinho",
+        "upright_bass"
+      ],
+      "description": "Expressive lead singing unfolds over plucked guitar harmony, rhythmically articulated Cape Verdean cavaquinho and soft bass support. The cavaquinho uses its dedicated catalog instrument and playing technique. The measured, spacious default is one morna-oriented arrangement inside a broader geographic category, not a rule imposed on all Cape Verdean music.",
+      "exemplars": [
+        "Cesária Évora",
+        "Lucibela"
+      ]
+    },
+    {
+      "id": "contemporary_folk",
+      "name": "Contemporary folk",
+      "family": "vernacular",
+      "lineage": "A modern folk-song discovery cluster represented in the exact classifier by Bruce Cockburn, John Gorka, Kate Wolf and others. It connects authored songs, acoustic technique and folk-club performance without meaning only the newest release year.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The selected guitar-centered branch follows Cockburn’s documented acoustic and electric songwriting practice. Lead singing and fingerpicked guitar retain rhythmic detail, with restrained bass and drums providing an authored small-band setting. The category includes varied lyric subjects and production scales rather than one mandatory intimate solo sound.",
+      "exemplars": [
+        "Bruce Cockburn",
+        "John Gorka",
+        "Kate Wolf"
+      ]
+    },
+    {
+      "id": "canadian_country",
+      "name": "Canadian country",
+      "family": "vernacular",
+      "lineage": "Canadian country ranges from regional traditions to international commercial recording. Shania Twain’s documented country-pop work supplies a selected studio branch, while the national category is not confined to her production style.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_single_coil",
+        "fiddle",
+        "pedal_steel",
+        "sampler_drum_machine",
+        "electric_bass"
+      ],
+      "description": "Lead singing, acoustic and electric guitars, fiddle and pedal steel sit over a programmed rhythm foundation. This authored arrangement takes its instrumental resources from the documented country version of Up!, without claiming to recreate its exact session or to define all Canadian country by pop crossover.",
+      "exemplars": [
+        "Shania Twain — Up!"
+      ]
+    },
+    {
+      "id": "canadian_contemporary_country",
+      "name": "Canadian contemporary country",
+      "family": "vernacular",
+      "lineage": "A Canadian country discovery cluster whose verified roster includes Corb Lund, Colter Wall, Terri Clark, Dean Brody and others. The selected branch follows Lund’s acoustic western-song practice rather than interpreting contemporary as compulsory pop electronics.",
+      "parent": "functionalSong.country.contempMain",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "mandolin",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "Voice, acoustic guitar, mandolin, plucked upright bass and restrained drums support a concise character-driven country song. This is an authored small-band realization of the acoustic resources documented for El Viejo; modern recording keeps rhythmic interaction clear. The wider roster contains contrasting contemporary approaches.",
+      "exemplars": [
+        "Corb Lund — El Viejo",
+        "Colter Wall",
+        "Terri Clark"
+      ]
+    },
+    {
+      "id": "deep_contemporary_country",
+      "name": "Deep contemporary country",
+      "family": "vernacular",
+      "lineage": "An archival country discovery cluster including Kathy Mattea, Linda Davis, Rick Trevino and Mark Collie. Deep is treated as the classifier’s catalogue label, not as a historical claim of one hidden or acoustically deep subgenre.",
+      "parent": "functionalSong.country.contempMain",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "grand_piano",
+        "pedal_steel",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The selected Kathy Mattea studio branch places lead and harmony voices above acoustic rhythm guitar, piano, pedal steel, bass and drums. Her official album credits document these roles; the authored model is a compact country band rather than a reproduction of any exact recording.",
+      "exemplars": [
+        "Kathy Mattea",
+        "Linda Davis",
+        "Rick Trevino"
+      ]
+    },
+    {
+      "id": "country_road",
+      "name": "Country road",
+      "family": "vernacular",
+      "lineage": "A broad Every Noise country discovery cluster whose roster runs from established country performers to contemporary country-rock and pop-country. Lady A, listed in that roster, supplies the selected Nashville studio-band branch.",
+      "parent": "functionalSong.country.contempMain",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "grand_piano",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Harmony-capable lead voices, piano and acoustic guitar sit above electric bass and a full drum groove. The authored default follows documented Lady A production centered on real ensemble playing and guitar/piano parts, keeping a direct song form and audible rhythmic support. The label does not require road-trip lyrics or designate a geographic birthplace.",
+      "exemplars": [
+        "Lady A",
+        "Luke Bryan",
+        "George Strait"
+      ]
+    },
+    {
+      "id": "baltic_folk",
+      "name": "Baltic folk",
+      "family": "vernacular",
+      "lineage": "A regional umbrella for distinct Estonian, Latvian and Lithuanian folk practices and their contemporary continuations. The chosen branch follows Latvian kokle playing represented by Laima Jansone, rather than claiming one pan-Baltic instrumentation.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "kokle"
+      ],
+      "description": "Plucked kokle strings carry melody, ringing resonance and rhythmic damping in an intimate solo setting. The traditional diatonic instrument is kept distinct from the larger chromatic concert kokle. Jansone’s wider collaborations include electronics and orchestras, but this authored default selects an unamplified solo branch.",
+      "exemplars": [
+        "Laima Jansone"
+      ]
+    },
+    {
+      "id": "czech_country",
+      "name": "Czech country",
+      "family": "vernacular",
+      "lineage": "Czech country adapts country and bluegrass-derived instrumental resources within Czech-language song and local performance networks. Greenhorns’ documented history and repertoire provide this representative band branch.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "banjo_5_string",
+        "resonator_guitar",
+        "upright_bass"
+      ],
+      "description": "Narrative singing is carried by acoustic rhythm guitar, five-string banjo and a resonator-guitar answering line over a plucked bass pulse. The chosen arrangement follows instruments documented among Greenhorns players; it keeps song accompaniment central rather than forcing every piece into a fast instrumental bluegrass break.",
+      "exemplars": [
+        "Greenhorns",
+        "Michal Tučný",
+        "Tomáš Linka"
+      ]
+    },
+    {
+      "id": "czech_singer_songwriter",
+      "name": "Czech singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Czech performer-songwriters foreground authored texts and personal vocal delivery across varied accompaniment. Jaromír Nohavica supplies a documented guitar-and-accordion example associated with the Czech folk-song scene.",
+      "parent": "balladPoetry.slavicBard",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "accordion"
+      ],
+      "description": "A clear narrative voice sits over acoustic guitar, with spare accordion chords and answering phrases. The combined small arrangement is authored; it does not claim both instruments are present on every Nohavica performance or that one accordion construction defines Czech songwriting.",
+      "exemplars": [
+        "Jaromír Nohavica"
+      ]
+    },
+    {
+      "id": "boston_folk",
+      "name": "Boston folk",
+      "family": "vernacular",
+      "lineage": "Boston-area folk is a performance network of coffeehouses, open stages and songwriter communities. Ellis Paul’s official biography documents that setting alongside Patty Griffin, Patty Larkin, Vance Gilbert and other peers.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "The default is a lyric-forward acoustic-guitar performance with a single clear voice and responsive fingerpicked movement. It reflects one songwriter branch cultivated by the Boston-area circuit, without turning a city affiliation into a unique tuning or compulsory timbre.",
+      "exemplars": [
+        "Ellis Paul",
+        "Patty Larkin",
+        "Vance Gilbert"
+      ]
+    },
+    {
+      "id": "folk_cantabria",
+      "name": "Cantabrian folk",
+      "family": "vernacular",
+      "lineage": "Cantabrian traditional music includes distinct rabel, wind-and-drum, song and dance practices. This default selects the rabel-accompanied song branch recognized in Spain’s intangible-heritage documentation.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        1,
+        -1,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "rabel_castellano"
+      ],
+      "description": "A narrative voice and the local bowed rabel maintain a close melodic conversation. The dedicated Castilian-Cantabrian rabel card is pinned to its Cantabrian form and sung use, with a small-room capture that keeps bow friction and vocal detail audible. Other Cantabrian ensembles remain separate branches rather than being reduced to this duo.",
+      "exemplars": [
+        "Cantabrian rabel-playing and singing communities"
+      ]
+    },
+    {
+      "id": "french_folk",
+      "name": "French folk",
+      "family": "vernacular",
+      "lineage": "French folk includes regional traditional repertoires and revival ensembles. Malicorne’s documented arrangements of traditional song, unaccompanied singing and dance music represent the chosen revival-band branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        -1,
+        -1,
+        1,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "hurdy_gurdy",
+        "fiddle",
+        "acoustic_guitar_dread",
+        "electric_bass"
+      ],
+      "description": "Group-capable singing, hurdy-gurdy drone and articulated wheel rhythm, fiddle melody, acoustic guitar and bass form this authored small ensemble. These instruments are explicitly credited in Malicorne’s recorded work; the recipe selects a coherent subset without reconstructing a particular track or claiming all French regional traditions sound alike.",
+      "exemplars": [
+        "Malicorne — En Public",
+        "Gabriel Yacoub",
+        "Marie Yacoub"
+      ]
+    },
+    {
+      "id": "french_indie_folk",
+      "name": "French indie folk",
+      "family": "vernacular",
+      "lineage": "An independent folk-song discovery cluster whose exact roster includes Piers Faccini, Moriarty and Yodelice. France-based Faccini’s documented voice, guitar and cello collaboration supplies this intimate, cross-cultural branch.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "cello"
+      ],
+      "description": "Voice and acoustic guitar interweave with plucked and sustained cello lines in a sparse duo-oriented arrangement. The model follows Faccini and Vincent Ségal’s documented practice while leaving space for lyric phrasing and timbral dialogue. It is neither restricted to French-language lyrics nor a blanket claim that all members share the same folk sources.",
+      "exemplars": [
+        "Piers Faccini and Vincent Ségal — Songs of Time Lost",
+        "Moriarty",
+        "Yodelice"
+      ]
+    },
+    {
+      "id": "british_singer_songwriter",
+      "name": "British singer-songwriter",
+      "family": "vernacular",
+      "lineage": "An authorship-centered British discovery cluster including Laura Marling, Ben Howard, Nick Mulvey and the England-born, France-based Piers Faccini. Faccini supplies the selected stripped voice-and-guitar branch.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "A single lead voice and fingerpicked acoustic guitar carry an authored intimate song. Faccini’s own interview explicitly discusses selecting intimate folk repertoire for solo presentation. The category is not limited to residency in Britain, traditional anonymous songs or acoustic-only production.",
+      "exemplars": [
+        "Piers Faccini",
+        "Laura Marling",
+        "Ben Howard"
+      ]
+    },
+    {
+      "id": "german_country",
+      "name": "German country",
+      "family": "vernacular",
+      "lineage": "German country connects local-language songwriting and performance to transatlantic country practice. Tom Astor’s documented German career and country-band recording provide this representative branch.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "fiddle",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Lead and backing voices are answered by electric-guitar solo lines and fiddle, with an authored bass-and-drum foundation. The arrangement preserves the explicitly documented guitar/fiddle/vocal resources without treating German country as schlager by default or requiring a particular American accent.",
+      "exemplars": [
+        "Tom Astor — Wir sind wieder da"
+      ]
+    },
+    {
+      "id": "dutch_americana",
+      "name": "Dutch Americana",
+      "family": "vernacular",
+      "lineage": "Dutch roots musicians adapt American country, blues and rock-and-roll resources within local recording and touring networks. Danny Vera’s label explicitly identifies Americana and country/blues roots, supplying the selected band branch.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "A clear lead voice and acoustic rhythm guitar sit beside clean electric-guitar responses, bass and drums. The model follows the documented guitar-band personnel of The New Now, with a restrained vintage-oriented balance chosen for the recipe. Dutch affiliation is a scene connection, not a mandatory language or distinctive national rhythm.",
+      "exemplars": [
+        "Danny Vera — The New Now"
+      ]
+    },
+    {
+      "id": "dutch_singer_songwriter",
+      "name": "Dutch singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Dutch performer-songwriters span several languages and styles. Danny Vera’s documented solo acoustic recording provides one compact self-performance branch within that wider national authorship category.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "The authored default is one voice and acoustic guitar, leaving space for line endings and chord movement. Vera’s label describes recording alone before a microphone with his guitar; this informs the sparse presentation without prescribing one microphone model or making the entire Dutch category an acoustic subgenre.",
+      "exemplars": [
+        "Danny Vera — Hold On To Let Go"
+      ]
+    },
+    {
+      "id": "geek_folk",
+      "name": "Geek folk",
+      "family": "vernacular",
+      "lineage": "A discovery cluster joining fantasy, fandom, humor and folk-derived songwriter networks. Its exact roster includes The Doubleclicks, whose official press material documents original comic songs with guitar/ukulele and cello.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "ukulele",
+        "cello"
+      ],
+      "description": "Lead and supporting voices sit over strummed ukulele with plucked cello providing bass motion and counterlines. The small acoustic ensemble serves clearly articulated storytelling and humorous or fandom-related subjects. This representative branch does not imply the whole category is parody, medieval music or one online community.",
+      "exemplars": [
+        "The Doubleclicks",
+        "Heather Dale",
+        "The Mechanisms"
+      ]
+    },
+    {
+      "id": "gen_z_singer_songwriter",
+      "name": "Gen Z singer-songwriter",
+      "family": "vernacular",
+      "lineage": "An archived modern songwriter discovery cluster whose exact roster includes Laufey, David Kushner, Stephen Sanchez and Em Beihold. Laufey’s guitar-accompanied, jazz-inflected songwriting supplies one selected branch; the label is not applied by guessing artists’ birth years.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "A warm single vocal and chordal acoustic guitar carry melody and conversational phrasing in a sparse arrangement. Berklee’s account documents Laufey’s minimalist jazz-guitar accompaniment and songwriter emergence. This default captures one branch of a sonically varied cluster, without asserting that all roster members use jazz harmony.",
+      "exemplars": [
+        "Laufey — Street by Street",
+        "David Kushner",
+        "Stephen Sanchez"
+      ]
+    },
+    {
+      "id": "early_american_folk",
+      "name": "Early American folk",
+      "family": "vernacular",
+      "lineage": "Historical American song repertoires circulate through later revival performance and reconstruction. The selected branch uses nineteenth-century Civil War-era songs as documented in Folkways’ historical-song anthology, not a claim that its modern recording is an early sound recording.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "banjo_5_string"
+      ],
+      "description": "One clear voice and open-back banjo present the melodic line with a light recurring pulse. The source anthology documents later interpreters of period ballads, marching songs and topical texts; this authored modern recording model separates repertoire date from recording date and does not reproduce historical racial caricature or dialect.",
+      "exemplars": [
+        "Pete Seeger",
+        "Pete Seeger and Bill MacAdoo",
+        "Folkways — Songs of the Civil War"
+      ]
+    },
+    {
+      "id": "british_country",
+      "name": "British country",
+      "family": "vernacular",
+      "lineage": "British country includes local songwriting and transatlantic studio collaboration. The Shires’ documented UK country career provides a selected contemporary vocal-duo branch.",
+      "parent": "functionalSong.country.contempMain",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "grand_piano"
+      ],
+      "description": "Two complementary voices share lead and harmony roles above acoustic guitar and piano. The compact authored arrangement follows Ben Earle’s documented guitar/piano songwriting and the duo’s acoustic releases, leaving room for narrative verses and broad choruses without requiring American vocal imitation.",
+      "exemplars": [
+        "The Shires — Brave",
+        "The Shires — Accidentally on Purpose"
+      ]
+    },
+    {
+      "id": "chinese_singer_songwriter",
+      "name": "Chinese singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Chinese performer-songwriters work across acoustic song, folk-pop and studio pop. Mao Buyi’s original songs and guitar-based presentation supply a documented mainland Chinese example without treating a national label as traditional-instrument music.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "A narrative lead voice and acoustic guitar form this sparse authored setting. The direct, text-centered arrangement draws from Mao’s documented self-written songs and guitar performance; it does not presume that Chinese identity requires erhu, guzheng, pentatonic tuning or one vocal school.",
+      "exemplars": [
+        "Mao Buyi"
+      ]
+    },
+    {
+      "id": "classic_nz_country",
+      "name": "Classic NZ country",
+      "family": "vernacular",
+      "lineage": "New Zealand country developed through local touring, recordings and radio/television alongside Australian and American connections. Nelson-born Tex Morton supplies a documented early guitar-and-song branch, with later New Zealand broadcast country providing a broader ensemble lineage.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Lead voice and steady acoustic-guitar accompaniment keep the text and tune prominent. This compact authored setting follows Morton’s documented singing and guitar practice rather than reproducing one session or equating all classic New Zealand country with an American studio band.",
+      "exemplars": [
+        "Tex Morton",
+        "The Country Touch"
+      ]
+    },
+    {
+      "id": "folk_brasileiro",
+      "name": "Folk brasileiro",
+      "family": "vernacular",
+      "lineage": "This discovery label includes modern Brazilian acoustic folk-pop artists such as ANAVITÓRIA, Rubel and Tiago Iorc. Its roster is not a synonym for the entire body of traditional Brazilian regional music.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "Two voices share lead and close harmony over acoustic-guitar accompaniment. The selected ANAVITÓRIA branch follows the duo’s explicitly voice-and-guitar tour format; guitar construction, studio room and recording chain are authored choices rather than national requirements.",
+      "exemplars": [
+        "ANAVITÓRIA",
+        "Rubel",
+        "Tiago Iorc"
+      ]
+    },
+    {
+      "id": "deep_indie_singer_songwriter",
+      "name": "Deep indie singer-songwriter",
+      "family": "vernacular",
+      "lineage": "The label collects a discovery-oriented songwriter network rather than a literal low-frequency or necessarily hushed style. Elizaveta, present in its exact roster, supplies a documented piano-led authored-song branch.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "An expressive lead voice sits over piano arpeggios and chordal support, with space for changes in vocal range and phrase length. The acoustic reduction is an authored option within an artist practice that also includes orchestral and electronic production; it does not make those textures mandatory.",
+      "exemplars": [
+        "Elizaveta",
+        "Shelly Fraley",
+        "Kathryn Ostenberg"
+      ]
+    },
+    {
+      "id": "country_dawn",
+      "name": "Country dawn",
+      "family": "vernacular",
+      "lineage": "Country dawn is an archival discovery category spanning country performers across recording generations. A published study records the tag in Dolly Parton’s Spotify genre metadata; the name is not evidence of a sunrise theme, a new historical movement or one fixed instrumentation.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "A clear storytelling lead voice and rhythmic acoustic guitar provide a compact authored Dolly Parton songwriting branch. Country vocal phrasing and text-centered verses matter more than a required band size; this playable reduction does not claim that all of Parton’s records use the same arrangement.",
+      "exemplars": [
+        "Dolly Parton",
+        "Kacey Musgraves",
+        "LeAnn Rimes"
+      ]
+    },
+    {
+      "id": "country_quebecois",
+      "name": "Country québécois",
+      "family": "vernacular",
+      "lineage": "Québec country includes French-language local repertory and multigenerational recording and touring circuits. Renée Martel’s documented career and country recordings supply the selected vocal-band branch.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "grand_piano",
+        "pedal_steel",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Narrative French-language lead vocal sits over guitar and piano, with pedal-steel responses and a steady bass/drum foundation. This authored arrangement follows documented instruments on Martel’s À mon père; exact guitar type, drum playing, steel tuning and studio chain remain selected defaults rather than a session reconstruction.",
+      "exemplars": [
+        "Renée Martel — À mon père",
+        "Marcel Martel"
+      ]
+    },
+    {
+      "id": "experimental_folk",
+      "name": "Experimental folk",
+      "family": "vernacular",
+      "lineage": "Experimental folk brings song, acoustic-instrument gesture and vernacular storytelling into exploratory form and timbre. Richard Dawson’s documented amplified acoustic guitar and voice supply one specific branch without equating his authored songs with traditional Northumbrian repertoire.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "Text-led singing moves between quiet phrases and forceful attacks over irregular guitar figures. Dawson describes re-amplifying guitar and voice for a rough, room-sensitive edge; this authored modern recipe models that contrast with an acoustic guitar and mild overdrive, without claiming to duplicate his repaired custom guitar, exact amplifier routing or album overdubs.",
+      "exemplars": [
+        "Richard Dawson — Nothing Important",
+        "Richard Dawson — Peasant"
+      ]
+    },
+    {
+      "id": "deep_new_americana",
+      "name": "Deep new americana",
+      "family": "vernacular",
+      "lineage": "This discovery-oriented Americana cluster links roots songwriting with contemporary indie and psychedelic band practice. Artist metadata includes Liz Cooper and SUSTO; Liz Cooper’s documented guitar-bass-drums trio supplies the selected arrangement branch.",
+      "parent": "functionalSong.popRock.folkRock",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Lead vocal and electric guitar alternate chordal passages and melodic figures above a responsive electric-bass and drum-kit foundation. The authored model emphasizes band interplay and roots-derived song form, with mild overdrive available for dynamic contrast; deep does not prescribe low frequencies, darkness or a universal ambient texture.",
+      "exemplars": [
+        "Liz Cooper and the Stampede — Window Flowers",
+        "SUSTO"
+      ]
+    },
+    {
+      "id": "electro_pop_francais",
+      "name": "Electro-pop francais",
+      "family": "pop",
+      "lineage": "French-language electronic pop represented by Yelle’s sung/spoken lyrical hooks, synthesizer-led harmony and designed rhythmic production. The model follows the documented vocal, keyboard and percussion roles while its synthesizer and sample-machine choices are contemporary authorial realizations.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        2,
+        -2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "analog_poly_synth",
+        "sampler_drum_machine"
+      ],
+      "description": "French-language electronic pop represented by Yelle’s sung/spoken lyrical hooks, synthesizer-led harmony and designed rhythmic production. The model follows the documented vocal, keyboard and percussion roles while its synthesizer and sample-machine choices are contemporary authorial realizations. This model is a contemporary realization of the documented practice, not a historical studio reconstruction.",
+      "exemplars": [
+        "Yelle — Safari Disco Club"
+      ]
+    },
+    {
+      "id": "danish_indie_pop",
+      "name": "Danish indie pop",
+      "family": "pop",
+      "lineage": "Danish independent pop represented by Efterklang’s collaboration-based song arrangements: piano patterns, sung melodies, guitar, drums and cello, with acoustic detail alongside studio experimentation. The chosen ensemble is grounded in their account of Things We Have In Common, not a template for all Danish music.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        2,
+        -1,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "electric_guitar_single_coil",
+        "cello",
+        "drum_kit"
+      ],
+      "description": "Danish independent pop represented by Efterklang’s collaboration-based song arrangements: piano patterns, sung melodies, guitar, drums and cello, with acoustic detail alongside studio experimentation. The chosen ensemble is grounded in their account of Things We Have In Common, not a template for all Danish music. This model is a contemporary realization of the documented practice, not a historical studio reconstruction.",
+      "exemplars": [
+        "Efterklang — Shelf Break",
+        "Efterklang — Things We Have In Common"
+      ]
+    },
+    {
+      "id": "canadian_pop",
+      "name": "Canadian pop",
+      "family": "pop",
+      "lineage": "Canadian commercial pop includes carefully arranged studio songs such as Carly Rae Jepsen’s Call Me Maybe. This model retains its documented sampled orchestral-string hook, doubled by electric and acoustic guitars, with bass, drums and singing. It is a representative production branch, not a uniform national sound.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "electric_guitar_single_coil",
+        "acoustic_guitar_dread",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Sampled strings provide a short, recognizable hook while electric and acoustic guitar attacks reinforce it. Bass and a strong drum pulse support the lead vocal. The sampler represents prerecorded orchestral sounds rather than an invented live string section or an analog-synth substitute. This is an authored arrangement built from the documented roles, not an exact recreation of the single’s session.",
+      "exemplars": [
+        "Carly Rae Jepsen — Call Me Maybe"
+      ]
+    },
+    {
+      "id": "czech_pop",
+      "name": "Czech pop",
+      "family": "pop",
+      "lineage": "Czech popular recording and performance scene represented by Toxique’s electronic-pop band format: lead voice with guitar, keyboard, bass and drums. This authored model uses documented band roles and Czech chart/festival practice; language and ethnic ancestry are not assumed from nationality.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "analog_poly_synth",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Czech popular recording and performance scene represented by Toxique’s electronic-pop band format: lead voice with guitar, keyboard, bass and drums. This authored model uses documented band roles and Czech chart/festival practice; language and ethnic ancestry are not assumed from nationality. This model is a contemporary realization of the documented practice, not a historical studio reconstruction.",
+      "exemplars": [
+        "Toxique — Two Sides",
+        "Toxique — Outlet People"
+      ]
+    },
+    {
+      "id": "classic_swedish_pop",
+      "name": "Classic swedish pop",
+      "family": "pop",
+      "lineage": "Historic Swedish pop represented by ABBA’s layered1970s studio arrangements. This model keeps piano, paired lead voices, guitar/bass/drums, the distinct marimba hook documented for Mamma Mia, and a bowed-string overdub color. It does not prescribe one ensemble for every Swedish-language or English-language classic.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "marimba_orchestral",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "violin_orchestral"
+      ],
+      "description": "Wood-bar mallet attacks create a contrasting hook beside piano and amplified rhythm instruments. Paired singing and added bowed strings thicken selected passages. The source documents studio overdubbing, so these are arranged instrument categories rather than a fixed live lineup. The violin card provides an authored reduced string layer; it does not claim to reproduce the original string section’s exact score or personnel.",
+      "exemplars": [
+        "ABBA — Mamma Mia",
+        "ABBA — Dancing Queen"
+      ]
+    },
+    {
+      "id": "classic_belgian_pop",
+      "name": "Classic belgian pop",
+      "family": "pop",
+      "lineage": "Historical Belgian commercial pop spans several languages and styles. This arrangement selects Vaya Con Dios’s late-1980s acoustic trio roots: Dani Klein’s lead voice against guitar and double bass, with jazz, blues and Latin-pop inflections. It is one grounded model within the national retrospective tag, not a national folk ensemble.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        -1,
+        0,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "double_bass"
+      ],
+      "description": "Historical Belgian commercial pop spans several languages and styles. This arrangement selects Vaya Con Dios’s late-1980s acoustic trio roots: Dani Klein’s lead voice against guitar and double bass, with jazz, blues and Latin-pop inflections. It is one grounded model within the national retrospective tag, not a national folk ensemble.",
+      "exemplars": [
+        "Vaya Con Dios — Just a Friend of Mine"
+      ]
+    },
+    {
+      "id": "classic_israeli_pop",
+      "name": "Classic israeli pop",
+      "family": "pop",
+      "lineage": "Israeli popular-song repertoire of the 1970s and 1980s includes the pianist-composer and arranger network around Yoni Rechter, Arik Einstein, Yehudit Ravitz and Gidi Gov. This quiet piano-and-voice model selects Rechter’s songwriter-ballad practice, with composed harmonic movement rather than an assumed Mizrahi dance-band arrangement.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        2,
+        1,
+        0,
+        1,
+        -2,
+        0,
+        0,
+        -1,
+        -1,
+        2,
+        -1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Israeli popular-song repertoire of the 1970s and 1980s includes the pianist-composer and arranger network around Yoni Rechter, Arik Einstein, Yehudit Ravitz and Gidi Gov. This quiet piano-and-voice model selects Rechter’s songwriter-ballad practice, with composed harmonic movement rather than an assumed Mizrahi dance-band arrangement.",
+      "exemplars": [
+        "Yoni Rechter — Intending (Hitkavnut)",
+        "Arik Einstein / Yoni Rechter — Atur Mitz’chech"
+      ]
+    },
+    {
+      "id": "classic_danish_pop",
+      "name": "Classic danish pop",
+      "family": "pop",
+      "lineage": "Historical Danish pop includes Shu-bi-dua’s accessible rock-band songs and humorous Danish adaptations of international hits. This arrangement selects the documented voice, guitar, bass, keyboard and drum-kit lineup in a compact pop-rock setting, keeping the singing and wordplay central.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "electric_piano_tine",
+        "drum_kit"
+      ],
+      "description": "Historical Danish pop includes Shu-bi-dua’s accessible rock-band songs and humorous Danish adaptations of international hits. This arrangement selects the documented voice, guitar, bass, keyboard and drum-kit lineup in a compact pop-rock setting, keeping the singing and wordplay central.",
+      "exemplars": [
+        "Shu-bi-dua — Fed Rock",
+        "Shu-bi-dua — Vuffeli-vov"
+      ]
+    },
+    {
+      "id": "classic_hungarian_pop",
+      "name": "Classic hungarian pop",
+      "family": "pop",
+      "lineage": "Historical Hungarian commercial pop represented by Neoton Família’s dance-oriented band and combined vocal sound. The selected Napraforgó/Santa Maria branch retains a three-part recorded vocal arrangement, keyboards, guitar, bass and drums, with no folk instrument inferred from nationality.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "multitrack_vocal_stack",
+        "analog_poly_synth",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "A close recorded vocal arrangement sits over keyboard harmony and a dance-oriented rhythm section, with a separate amplified guitar voice. The primary guitarist interview distinguishes who played on different language editions and also identifies a guitar solo on Santa Maria; absence of one later member does not mean absence of guitar. Exact hardware, chord voicing and materials remain authored.",
+      "exemplars": [
+        "Neoton Família — Napraforgó",
+        "Neoton Família — Santa Maria"
+      ]
+    },
+    {
+      "id": "classic_norwegian_pop",
+      "name": "Classic norwegian pop",
+      "family": "pop",
+      "lineage": "Historical Norwegian popular song and schlager represented by Wenche Myhre’s hit repertoire. The selected voice-and-piano arrangement follows a documented later concert presentation of her well-known songs; it does not reconstruct a 1960s single.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        0,
+        1,
+        0,
+        0,
+        -1,
+        1,
+        -1,
+        0,
+        -1,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Historical Norwegian popular song and schlager represented by Wenche Myhre’s hit repertoire. The selected voice-and-piano arrangement follows a documented later concert presentation of her well-known songs; it does not reconstruct a 1960s single.",
+      "exemplars": [
+        "Wenche Myhre — La meg være ung",
+        "Wenche Myhre with Anders Eljas — 2023 Landsmøte performance"
+      ]
+    },
+    {
+      "id": "classic_latvian_pop",
+      "name": "Classic latvian pop",
+      "family": "pop",
+      "lineage": "Latvian retrospective popular song includes the composed melody and piano-centered arranging of Raimonds Pauls, performed by singers such as Nora Bumbiere and Viktors Lapčenoks. This reduced piano-and-voice arrangement represents that estrada/songwriter lineage without claiming the full instrumentation of any original orchestral recording.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -2,
+        0,
+        0,
+        -1,
+        -1,
+        2,
+        -1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Latvian retrospective popular song includes the composed melody and piano-centered arranging of Raimonds Pauls, performed by singers such as Nora Bumbiere and Viktors Lapčenoks. This reduced piano-and-voice arrangement represents that estrada/songwriter lineage without claiming the full instrumentation of any original orchestral recording.",
+      "exemplars": [
+        "Nora Bumbiere and Viktors Lapčenoks — Mēmā dziesma / Tava balss (1976; Raimonds Pauls, Jānis Peters)"
+      ]
+    },
+    {
+      "id": "classic_french_pop",
+      "name": "Classic french pop",
+      "family": "pop",
+      "lineage": "Retrospective French pop represented by Thierry Pastor’s early-1980s keyboard-led, danceable songwriting. His account describes composing and demoing with synthesizer and Fender piano, then singing at the keyboard. The model uses voice, electric piano and synth in a concise new arrangement, without claiming to recreate the original 16-track mix.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_piano_tine",
+        "analog_poly_synth"
+      ],
+      "description": "Retrospective French pop represented by Thierry Pastor’s early-1980s keyboard-led, danceable songwriting. His account describes composing and demoing with synthesizer and Fender piano, then singing at the keyboard. The model uses voice, electric piano and synth in a concise new arrangement, without claiming to recreate the original 16-track mix.",
+      "exemplars": [
+        "Thierry Pastor — Le Coup de folie",
+        "Thierry Pastor — Sur des musiques noires"
+      ]
+    },
+    {
+      "id": "estonian_pop",
+      "name": "Estonian pop",
+      "family": "pop",
+      "lineage": "Estonian popular recording/performance culture represented by Kerli’s internationally produced, locally recognized alternative-pop work. The selected authored ensemble combines sung lead and backing, acoustic guitar, synthesizer, electric bass, drums and cello from the documented Love Is Dead album role inventory. It is an album-informed arrangement, not an asserted transcription of one track.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        -1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "analog_poly_synth",
+        "electric_bass",
+        "drum_kit",
+        "cello"
+      ],
+      "description": "Estonian popular recording/performance culture represented by Kerli’s internationally produced, locally recognized alternative-pop work. The selected authored ensemble combines sung lead and backing, acoustic guitar, synthesizer, electric bass, drums and cello from the documented Love Is Dead album role inventory. It is an album-informed arrangement, not an asserted transcription of one track. This model is a contemporary realization of the documented practice, not a historical studio reconstruction.",
+      "exemplars": [
+        "Kerli — Love Is Dead (album)"
+      ]
+    },
+    {
+      "id": "dark_pop",
+      "name": "Dark pop",
+      "family": "pop",
+      "lineage": "A flexible dark-pop label overlapping electronic pop and alternative R&B. This default selects BANKS’s documented piano-and-voice rendition of If We Were Made of Water on Live and Stripped, retaining the intimate songwriting side of the artist’s broader electronically produced repertoire.",
+      "parent": "experimentalElec.popExperimental",
+      "axes": [
+        0,
+        1,
+        0,
+        0,
+        -2,
+        2,
+        -1,
+        0,
+        -1,
+        2,
+        -1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "A natural single lead voice and exposed piano accompaniment leave space around the song. This is a documented sparse performance branch, not a claim that dark pop always lacks drums, sub-bass or synthesizers. The2020 one-take rendition is deliberately distinguished from the fuller2019 studio version rather than silently dropping its unverified string layer.",
+      "exemplars": [
+        "BANKS — If We Were Made of Water (Live and Stripped,2020)",
+        "BANKS — III"
+      ]
+    },
+    {
+      "id": "blues_band",
+      "name": "Blues band",
+      "family": "blues_gospel",
+      "lineage": "Blues band is an ensemble-oriented catalogue category for blues performed by an interacting band rather than a distinct national origin or one mandatory rhythmic subgenre. Chicago’s Old Town School documents the continuing practice of preparing band repertoire for Rosa’s Lounge with voice, guitar, bass, drums, harmonica, piano and saxophone. The authored recording model selects that club ensemble, with electric-guitar fills and alternating harmonica or saxophone leads.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "harmonica",
+        "upright_piano",
+        "saxophone"
+      ],
+      "description": "Blues band is an ensemble-oriented catalogue category for blues performed by an interacting band rather than a distinct national origin or one mandatory rhythmic subgenre. Chicago’s Old Town School documents the continuing practice of preparing band repertoire for Rosa’s Lounge with voice, guitar, bass, drums, harmonica, piano and saxophone. The authored recording model selects that club ensemble, with electric-guitar fills and alternating harmonica or saxophone leads.",
+      "exemplars": [
+        "Old Town School Blues Band Live — Rosa’s Lounge performance practice",
+        "The Blues Band — The Official Blues Band Bootleg Album"
+      ]
+    },
+    {
+      "id": "traditional_blues",
+      "name": "Traditional blues",
+      "family": "blues_gospel",
+      "lineage": "The exact Every Noise traditional-blues discovery grouping spans acoustic and electric heritage repertoire. Its verified roster member Brownie McGhee anchors this authored voice-and-acoustic-guitar branch; the label is not collapsed into country blues or defined as exclusively acoustic.",
+      "parent": "functionalSong.bluesAcoustic",
+      "axes": [
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        1,
+        -1,
+        0,
+        2,
+        -1,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "The exact Every Noise traditional-blues discovery grouping spans acoustic and electric heritage repertoire. Its verified roster member Brownie McGhee anchors this authored voice-and-acoustic-guitar branch; the label is not collapsed into country blues or defined as exclusively acoustic. Overlap with neighboring blues categories is explicit; this is not a reconstruction of a1951 session.",
+      "exemplars": [
+        "Brownie McGhee — Traditional Blues, Vol. 1 (1951)"
+      ]
+    },
+    {
+      "id": "japanese_soul",
+      "name": "Japanese soul",
+      "family": "blues_gospel",
+      "lineage": "Japanese soul includes singers and recording networks interpreting soul repertoire across Japan and international scenes. Nao Yoshioka’s Flow (Acoustic) presents a documented intimate branch: expressive soul singing in dialogue with Kazuki Isogai’s nylon and electric guitar textures.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar"
+      ],
+      "description": "Japanese soul includes singers and recording networks interpreting soul repertoire across Japan and international scenes. Nao Yoshioka’s Flow (Acoustic) presents a documented intimate branch: expressive soul singing in dialogue with Kazuki Isogai’s nylon and electric guitar textures. Exact capture chain and selected variants are a newly authored recording model.",
+      "exemplars": [
+        "Nao Yoshioka with Kazuki Isogai — Flow (Acoustic), 2025"
+      ]
+    },
+    {
+      "id": "korean_r_and_b",
+      "name": "Korean r&b",
+      "family": "blues_gospel",
+      "lineage": "Korean R&B includes Korean artists’ locally released soul-inflected songs and studio production. Crush’s NAPPA anchors a documented voice-and-guitar branch, with song and arrangement authorship rather than any claimed traditional Korean instrumentation.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        -1,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker"
+      ],
+      "description": "Korean R&B includes Korean artists’ locally released soul-inflected songs and studio production. Crush’s NAPPA anchors a documented voice-and-guitar branch, with song and arrangement authorship rather than any claimed traditional Korean instrumentation. Newly authored recording arrangement; exact physical variants and chain are not historical session claims.",
+      "exemplars": [
+        "Crush — NAPPA (2019), authored vocal/guitar reduction"
+      ]
+    },
+    {
+      "id": "smooth_soul",
+      "name": "Smooth soul",
+      "family": "blues_gospel",
+      "lineage": "Smooth soul emphasizes melodic hooks, romantic ballad delivery and polished arrangements with funk-derived rhythm. Al Green’s early-1970s recordings provide a representative branch.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "tonewheel_organ"
+      ],
+      "description": "Smooth soul emphasizes melodic hooks, romantic ballad delivery and polished arrangements with funk-derived rhythm. Al Green’s early-1970s recordings provide a representative branch. This is a newly authored studio arrangement, not a reconstruction of the exemplar session.",
+      "exemplars": [
+        "Al Green — Let’s Stay Together (1972)"
+      ]
+    },
+    {
+      "id": "instrumental_funk",
+      "name": "Instrumental funk",
+      "family": "blues_gospel",
+      "lineage": "Instrumental funk places interlocking bass, drums and recurring horn or guitar figures at the center without a lead singer. The selected Budos Band branch combines syncopated percussion, horn riffs and organ with Afro-soul and psychedelic influences.",
+      "parent": "groovePercussion.funkPercussive",
+      "axes": [
+        -1,
+        -1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        -2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "saxophone",
+        "trumpet",
+        "combo_organ"
+      ],
+      "description": "Instrumental funk places interlocking bass, drums and recurring horn or guitar figures at the center without a lead singer. The selected Budos Band branch combines syncopated percussion, horn riffs and organ with Afro-soul and psychedelic influences. This is a newly authored studio arrangement, not a reconstruction of the exemplar session.",
+      "exemplars": [
+        "The Budos Band — Long in the Tooth (2020)"
+      ]
+    },
+    {
+      "id": "african_reggae",
+      "name": "African reggae",
+      "family": "blues_gospel",
+      "lineage": "African reggae comprises locally rooted reggae practices across the continent. The selected Ivorian Tiken Jah Fakoly branch emphasizes politically engaged singing and reggae song architecture, with ties to Côte d’Ivoire, Bamako and Jamaican recording.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        -1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "tonewheel_organ"
+      ],
+      "description": "African reggae comprises locally rooted reggae practices across the continent. The selected Ivorian Tiken Jah Fakoly branch emphasizes politically engaged singing and reggae song architecture, with ties to Côte d’Ivoire, Bamako and Jamaican recording. This is a newly authored studio arrangement, not a reconstruction of the exemplar session.",
+      "exemplars": [
+        "Tiken Jah Fakoly — Françafrique (2002)"
+      ]
+    },
+    {
+      "id": "german_r_and_b",
+      "name": "German r&b",
+      "family": "blues_gospel",
+      "lineage": "German R&B is a Germany-based song and production scene represented here by Joy Denalane’s German/English soul and R&B practice. A reduced Mamani-derived ensemble places the lead singer over Wurlitzer, guitar, electric bass and drums. The record credits support those instrumental roles; language and Berlin performance history locate this branch without prescribing ancestry or a special national tuning.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "wurlitzer_ep",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "German R&B is a Germany-based song and production scene represented here by Joy Denalane’s German/English soul and R&B practice. A reduced Mamani-derived ensemble places the lead singer over Wurlitzer, guitar, electric bass and drums. The record credits support those instrumental roles; language and Berlin performance history locate this branch without prescribing ancestry or a special national tuning.",
+      "exemplars": [
+        "Joy Denalane — Mamani",
+        "Joy Denalane — Mamani Live"
+      ]
+    },
+    {
+      "id": "cuban_funk",
+      "name": "Cuban funk",
+      "family": "blues_gospel",
+      "lineage": "Cuban funk joins funk-centered grooves with Cuban performance practices. This selected Cimafunk and La Tribu model draws on the Havana-based touring ensemble documented in 2022–2023: vocal lead, guitar, bass, drums, piano, saxophone, trombone, congas and handheld cowbell. Jazz in Marciac explicitly credits Machete on congas; Tom Ehrlich’s firsthand 2023 San Jose Jazz Festival photographs identify Miguel Piquero playing a handheld cowbell. These dated examples establish percussion roles without implying one fixed lineup or identical instrumentation on every recording.",
+      "parent": "groovePercussion.funkPercussive",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "grand_piano",
+        "saxophone",
+        "trombone",
+        "congas",
+        "cencerro"
+      ],
+      "description": "Cuban funk joins funk-centered grooves with Cuban performance practices. This selected Cimafunk and La Tribu model draws on the Havana-based touring ensemble documented in 2022–2023: vocal lead, guitar, bass, drums, piano, saxophone, trombone, congas and handheld cowbell. Jazz in Marciac explicitly credits Machete on congas; Tom Ehrlich’s firsthand 2023 San Jose Jazz Festival photographs identify Miguel Piquero playing a handheld cowbell. These dated examples establish percussion roles without implying one fixed lineup or identical instrumentation on every recording.",
+      "exemplars": [
+        "Cimafunk — Terapia",
+        "Cimafunk — El Alimento"
+      ]
+    },
+    {
+      "id": "chinese_r_and_b",
+      "name": "Chinese r&b",
+      "family": "pop",
+      "lineage": "Chinese R&B is used here as a Chinese-language music category, not a nationality test. David Tao’s Taiwan/Los Angeles practice demonstrates R&B songcraft and self-production. This default deliberately selects the documented all-vocal Spring Wind arrangement: layered self-sung harmony with a foreground melody. It is one clearly evidenced branch rather than a claim that Chinese R&B is usually a cappella or exclusively Mandarin.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Chinese R&B is used here as a Chinese-language music category, not a nationality test. David Tao’s Taiwan/Los Angeles practice demonstrates R&B songcraft and self-production. This default deliberately selects the documented all-vocal Spring Wind arrangement: layered self-sung harmony with a foreground melody. It is one clearly evidenced branch rather than a claim that Chinese R&B is usually a cappella or exclusively Mandarin.",
+      "exemplars": [
+        "David Tao — Spring Wind (1997)"
+      ]
+    },
+    {
+      "id": "gospel_r_and_b",
+      "name": "Gospel r&b",
+      "family": "blues_gospel",
+      "lineage": "Gospel R&B combines Christian lyric and devotional purpose with R&B songcraft and production. The selected Kirk Franklin Love Theory branch is directly described by his label as an uptempo R&B melody carrying gospel lyrics. Documented vocals, guitar, bass, Hammond organ and programming support this reduced authored arrangement, pairing collective singing with a syncopated rhythm foundation. Exact synth, sampler and signal-chain decisions remain modern editorial choices, not reconstructed session gear.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "tonewheel_organ",
+        "sampler_drum_machine"
+      ],
+      "description": "Gospel R&B combines Christian lyric and devotional purpose with R&B songcraft and production. The selected Kirk Franklin Love Theory branch is directly described by his label as an uptempo R&B melody carrying gospel lyrics. Documented vocals, guitar, bass, Hammond organ and programming support this reduced authored arrangement, pairing collective singing with a syncopated rhythm foundation. Exact synth, sampler and signal-chain decisions remain modern editorial choices, not reconstructed session gear.",
+      "exemplars": [
+        "Kirk Franklin — Love Theory (2019 original)"
+      ]
+    },
+    {
+      "id": "finnish_soul",
+      "name": "Finnish soul",
+      "family": "blues_gospel",
+      "lineage": "Finnish soul names Finland-based soul singing and recording practice. The selected Tuomo Prättälä branch foregrounds a soul singer who also plays piano and keyboards. This intentionally reduced voice-and-piano recording model reflects his documented capabilities without assuming that every Tuomo recording or Finnish soul performance uses only two parts.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Finnish soul names Finland-based soul singing and recording practice. The selected Tuomo Prättälä branch foregrounds a soul singer who also plays piano and keyboards. This intentionally reduced voice-and-piano recording model reflects his documented capabilities without assuming that every Tuomo recording or Finnish soul performance uses only two parts.",
+      "exemplars": [
+        "Tuomo — My Thing",
+        "Tuomo — Reaches Out for You"
+      ]
+    },
+    {
+      "id": "uk_contemporary_r_and_b",
+      "name": "Uk contemporary r&b",
+      "family": "blues_gospel",
+      "lineage": "UK contemporary R&B brings expressive current soul-derived singing into dialogue with contemporary rhythmic production, including garage and rap influences. Jorja Smith’s 2018 Tiny Desk performance supplies a documented live branch with nimble guitar, double-time drums and measured vocal phrasing.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "drum_kit"
+      ],
+      "description": "UK contemporary R&B brings expressive current soul-derived singing into dialogue with contemporary rhythmic production, including garage and rap influences. Jorja Smith’s 2018 Tiny Desk performance supplies a documented live branch with nimble guitar, double-time drums and measured vocal phrasing. Newly authored recording arrangement; exact physical variants and chain are not historical session claims.",
+      "exemplars": [
+        "Jorja Smith — Tiny Desk Concert (2018)"
+      ]
+    },
+    {
+      "id": "canadian_contemporary_r_and_b",
+      "name": "Canadian contemporary r&b",
+      "family": "blues_gospel",
+      "lineage": "Canadian contemporary R&B is a Canadian recording and performance scene, represented here by Daniel Caesar’s Toronto-linked song practice. The selected 2018 Tiny Desk set is directly documented by NPR: foreground singing and rich supporting vocal harmony over piano, bass and drums, including the H.E.R. duet Best Part. The authored recording model follows those live roles while making no claim that all Canadian R&B uses acoustic piano or a live rhythm section.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "upright_piano",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Canadian contemporary R&B is a Canadian recording and performance scene, represented here by Daniel Caesar’s Toronto-linked song practice. The selected 2018 Tiny Desk set is directly documented by NPR: foreground singing and rich supporting vocal harmony over piano, bass and drums, including the H.E.R. duet Best Part. The authored recording model follows those live roles while making no claim that all Canadian R&B uses acoustic piano or a live rhythm section.",
+      "exemplars": [
+        "Daniel Caesar — NPR Tiny Desk Concert, recorded30April2018",
+        "Daniel Caesar with H.E.R. — Best Part, Tiny Desk"
+      ]
+    },
+    {
+      "id": "italian_blues",
+      "name": "Italian blues",
+      "family": "blues_gospel",
+      "lineage": "Italian blues is the performance and local transmission of blues in Italy. Fabio Treves represents its Milan harmonica-led network, linking local bands with visiting and resident American musicians.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        -1,
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        0,
+        -2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "harmonica",
+        "electric_guitar_single_coil"
+      ],
+      "description": "Italian blues is the performance and local transmission of blues in Italy. Fabio Treves represents its Milan harmonica-led network, linking local bands with visiting and resident American musicians. This is a newly authored studio arrangement, not a reconstruction of the exemplar session.",
+      "exemplars": [
+        "Fabio Treves and Cooper Terry — documented collaborative blues practice"
+      ]
+    },
+    {
+      "id": "polish_blues",
+      "name": "Polish blues",
+      "family": "blues_gospel",
+      "lineage": "Polish blues includes locally established blues bands and their vernacular song repertories. Dżem exemplifies the Tychy blues-rock branch through sung songs, guitars and an electric rhythm section.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Polish blues includes locally established blues bands and their vernacular song repertories. Dżem exemplifies the Tychy blues-rock branch through sung songs, guitars and an electric rhythm section. This is a newly authored studio arrangement, not a reconstruction of the exemplar session.",
+      "exemplars": [
+        "Dżem — Cegła (1985)"
+      ]
+    },
+    {
+      "id": "bulgarian_r_and_b",
+      "name": "Bulgarian r&b",
+      "family": "blues_gospel",
+      "lineage": "Bulgarian R&B is represented here by Ruth Koleva’s soul/R&B recording and Sofia performance practice. The selected Future Sweet branch combines foreground singing with keyboard harmony, guitar, bass, drums and trombone; independent album coverage names the players in these roles. The authored model selects electric piano for the nonspecific keyboard role and omits unspecified auxiliary percussion, rather than inventing folk instruments or historical studio hardware.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_piano_tine",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "trombone"
+      ],
+      "description": "Bulgarian R&B is represented here by Ruth Koleva’s soul/R&B recording and Sofia performance practice. The selected Future Sweet branch combines foreground singing with keyboard harmony, guitar, bass, drums and trombone; independent album coverage names the players in these roles. The authored model selects electric piano for the nonspecific keyboard role and omits unspecified auxiliary percussion, rather than inventing folk instruments or historical studio hardware.",
+      "exemplars": [
+        "Ruth Koleva — Future Sweet EP"
+      ]
+    },
+    {
+      "id": "dutch_r_and_b",
+      "name": "Dutch r&b",
+      "family": "blues_gospel",
+      "lineage": "Dutch R&B describes Netherlands-based R&B recording and performance networks, including artists whose repertoire crosses soul, jazz and hip-hop. The selected Rotterdam singer Sabrina Starke branch is represented by her band documented for Paradox’s2022 Better Get Hit programme: sung lead, guitar, bass and drums in this authored reduction. The venue also lists keyboard, omitted here because the source does not specify its realization. This example does not make R&B dependent on Dutch-language lyrics or any national instrument.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Dutch R&B describes Netherlands-based R&B recording and performance networks, including artists whose repertoire crosses soul, jazz and hip-hop. The selected Rotterdam singer Sabrina Starke branch is represented by her band documented for Paradox’s2022 Better Get Hit programme: sung lead, guitar, bass and drums in this authored reduction. The venue also lists keyboard, omitted here because the source does not specify its realization. This example does not make R&B dependent on Dutch-language lyrics or any national instrument.",
+      "exemplars": [
+        "Sabrina Starke & Band — Better Get Hit, Paradox,21May2022"
+      ]
+    },
+    {
+      "id": "alberta_hip_hop",
+      "name": "Alberta hip hop",
+      "family": "hip_hop",
+      "lineage": "Alberta hip-hop scenes; selected Cadence Weapon electronic-rap branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "digital_subtractive",
+        "turntable"
+      ],
+      "description": "The selected Afterparty Babies branch combines tightly articulated rap, sequenced drum sounds, synthesizer parts and DJ cuts. Cadence Weapon describes a computer-first workflow, and his album credits identify DJ Weez-L’s cuts. The Nord-style digital synth and 16-bit sampler defaults are authored implementations, not a claim that those machines made the record. No live band from the later Hope in Dirt City sessions is retroactively inserted into this earlier project.",
+      "exemplars": [
+        "Cadence Weapon — Afterparty Babies (2008)"
+      ]
+    },
+    {
+      "id": "brazilian_hip_hop",
+      "name": "Brazilian hip hop",
+      "family": "hip_hop",
+      "lineage": "Brazilian hip-hop scenes; selected Racionais MC’s / KL Jay sample-based branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "The selected Racionais branch puts narrative rap over layered sampled phrases and DJ cuts. KL Jay’s first-person account traces the sample-derived bass/drum relationship in Jesus Chorou and the shift toward composing on an Akai MPC before studio vocals and mixing. Sampled bass is represented inside the sampler, not credited as a new live bassist. Exact MPC-family model, bit depth, vocal stack and room are representative settings rather than universal Brazilian defaults.",
+      "exemplars": [
+        "Racionais MC’s — Jesus Chorou (2002); KL Jay’s sample-based DJ production practice"
+      ]
+    },
+    {
+      "id": "atlantic_canada_hip_hop",
+      "name": "Atlantic Canada hip hop",
+      "family": "hip_hop",
+      "lineage": "Atlantic Canadian hip-hop; selected Buck 65 Halifax sample-and-turntable branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "The selected early Buck 65 branch uses rap voice, an SP-1200 sampler and turntable manipulation. His own accounts distinguish these bedroom-built sample experiments from later records with live instrumentation. The preset does not retroactively reduce Square or Talkin’ Honky Blues to this early setup. Chopped-break workflow, vocal delivery and capture chain are authored representative defaults around the documented mechanisms.",
+      "exemplars": [
+        "Buck 65 — early Language Arts / Vertex-era sample-based practice"
+      ]
+    },
+    {
+      "id": "austrian_hip_hop",
+      "name": "Austrian hip hop",
+      "family": "hip_hop",
+      "lineage": "Austrian hip-hop scenes; selected Linz producer Flip / Texta branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "The selected Linz production branch combines sampled boom-bap beats, a featured MC and scratches. Flip’s Reflections is a transatlantic producer album, so this Austrian scene entry does not claim that its guest rappers are Austrian or that the lyrics are all German. The ASR-10 is one of the producer’s documented studio tools; the chosen 16-bit chopped-sample setup and solo-verse vocal configuration are representative rather than a claim about every track.",
+      "exemplars": [
+        "Flip — Reflections (2015); Texta’s Linz production context"
+      ]
+    },
+    {
+      "id": "japanese_garage_rock",
+      "name": "Japanese garage rock",
+      "family": "rock_punk",
+      "lineage": "Japanese garage rock; selected Guitar Wolf electric trio",
+      "parent": "distortedRock.classic",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The selected Guitar Wolf branch pairs projected vocals with overdriven electric guitar, electric bass and a drum kit. The band’s own history establishes the three players; voice is Seiji’s additional sound-producing role. The 2013 interview identifies Epiphone SG guitars and a Marshall JCM800, while the authored part defaults keep amplifier unspecified and choose representative strings, wood and drum construction. No traditional Japanese instrument is added from geography.",
+      "exemplars": [
+        "Guitar Wolf — Beast Vibrator-era trio (2013); Jet Generation (1999) as a historical reference"
+      ]
+    },
+    {
+      "id": "swedish_garage_rock",
+      "name": "Swedish garage rock",
+      "family": "rock_punk",
+      "lineage": "Swedish garage-rock scene; selected Hives two-guitar band",
+      "parent": "distortedRock.classic",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "This Hives-based model retains the real five-player roles: vocalist, two electric guitars, bass and drums. The selected pickup pairing represents Arson’s Telecaster and Carlstroem’s documented Flying-V alternative, rather than falsely calling his main Coronet a humbucker guitar. Complementary short guitar figures and a tight backbeat drive the model. Exact wood, string gauge, amplification and room are authored defaults, not an exhaustive reconstruction of Lex Hives.",
+      "exemplars": [
+        "The Hives — Lex Hives (2012) and documented 2013 touring-guitar alternatives"
+      ]
+    },
+    {
+      "id": "boston_hip_hop",
+      "name": "Boston hip hop",
+      "family": "hip_hop",
+      "lineage": "Boston hip-hop scene; selected Statik Selektah sample-based production branch",
+      "parent": "mcRhythm.usHipHop.eastCoast",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "The selected producer-centered branch places a featured rap verse over chopped sample-based beats. Statik Selektah’s first-person account establishes sample digging and beat construction, rather than requiring an acoustic jazz ensemble because some source records are jazz. The MPC-family sampler and 16-bit setting are authored realizations of this workflow, not claims that the interview names his hardware. The single-voice preset models one featured verse; it does not collapse every guest on an album into one performer.",
+      "exemplars": [
+        "Statik Selektah — What Goes Around-era production practice (2014)"
+      ]
+    },
+    {
+      "id": "australian_indigenous_hip_hop",
+      "name": "Australian Indigenous hip hop",
+      "family": "hip_hop",
+      "lineage": "Australian Indigenous hip-hop; selected Baker Boy Yolŋu rap-production branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "analog_synth",
+        "didgeridoo"
+      ],
+      "description": "The opening-verse branch of Marryuna combines English/Yolŋu Matha rap, sampled drum sounds with pitched low kick, synth bass and filtered yiḏaki. The selected passage precedes the later offbeat guitar and bass-guitar entries. It is not an exhaustive model of the whole song or every Indigenous rapper. Sampler resolution, analog-synth realization and eucalyptus build are authored choices. The source explicitly warns that an 808-like kick does not prove a physical TR-808.",
+      "exemplars": [
+        "Baker Boy featuring Yirrmal — Marryuna (2017), opening-verse texture"
+      ]
+    },
+    {
+      "id": "jazz_double_bass",
+      "name": "Jazz double bass",
+      "family": "jazz",
+      "lineage": "Double-bass-led jazz practice; selected Avishai Cohen acoustic trio",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        2,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        -1,
+        1,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "upright_bass",
+        "grand_piano",
+        "drum_kit"
+      ],
+      "description": "The selected Gently Disturbed trio foregrounds an acoustic double bass as melodic lead and rhythmic partner to piano and drums. It preserves Cohen’s credited bass role and the real three-player ensemble. Pizzicato and steel strings are authored representative settings, not a claim that every jazz bassist or every moment of the record uses them. The bowed alternative remains an existing bass part, not a separate jazz instrument.",
+      "exemplars": [
+        "Avishai Cohen, Shai Maestro and Mark Guiliana — Gently Disturbed (2008)"
+      ]
+    },
+    {
+      "id": "bronx_hip_hop",
+      "name": "Bronx hip hop",
+      "family": "hip_hop",
+      "lineage": "Bronx hip hop encompasses multiple generations of rap. This selected foundational DJ-and-MC branch centers the extended percussion breaks of Kool Herc and the turntable culture documented by the Smithsonian.",
+      "parent": "mcRhythm.usHipHop.eastCoast",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "turntable"
+      ],
+      "description": "A present-day recording model of MC speech over manually repeated record breaks. Backspin/break juggling is selected rather than claiming that Herc pioneered every scratch technique; the catalog turntable represents a paired-deck DJ setup. Later Bronx trap and drill remain other branches.",
+      "exemplars": [
+        "DJ Kool Herc",
+        "Grand Wizzard Theodore"
+      ]
+    },
+    {
+      "id": "canadian_old_school_hip_hop",
+      "name": "Canadian old school hip hop",
+      "family": "hip_hop",
+      "lineage": "Late-1980s and early-1990s Canadian rap developed through local crews, radio and recorded singles. Maestro Fresh Wes’s Toronto/Scarborough breakthrough supplies the selected sample-collage branch.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "Rhythmic lead verses sit over loop-layered funk breaks and short record-derived accents. The sampler and turntable provide a practical authored realization of the documented collage; MPC60-style twelve-bit sampling is a selected period-compatible setting, not a claim about the Davis brothers’ exact original equipment.",
+      "exemplars": [
+        "Maestro Fresh Wes — Let Your Backbone Slide",
+        "Dream Warriors",
+        "Michie Mee"
+      ]
+    },
+    {
+      "id": "canadian_hip_hop",
+      "name": "Canadian hip hop",
+      "family": "hip_hop",
+      "lineage": "Canadian hip hop is a cross-era, multilingual national scene, not a single production style. The selected Shad collaboration branch combines reflective rhythmic verses with producer-built beats and keyboard contributions.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "grand_piano"
+      ],
+      "description": "Lead rap, a sampler rhythm bed and acoustic piano form a compact model of the documented collaborative practice. The piano is retained as an actual played role; sampler make, piano construction and contemporary digital chain are authored choices, not album-session identification.",
+      "exemplars": [
+        "Shad — Flying Colours",
+        "Maestro Fresh Wes",
+        "Michie Mee"
+      ]
+    },
+    {
+      "id": "canadian_underground_hip_hop",
+      "name": "Canadian underground hip hop",
+      "family": "hip_hop",
+      "lineage": "A Canadian independent and alternative rap network with varied local styles. Shad’s self-released beginnings and The Old Prince-era performance practice provide the selected guitar-and-DJ branch.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "Rhythmic lead verses, steel-string acoustic guitar and a DJ/sampler rhythm bed offer an authored small-stage realization. Open-chord strumming and a spruce/mahogany guitar are selectable implementation choices; they are not universal Canadian traits. This configuration keeps the documented guitar rather than replacing all accompaniment with synthesizers.",
+      "exemplars": [
+        "Shad — The Old Prince"
+      ]
+    },
+    {
+      "id": "canadian_indigenous_hip_hop",
+      "name": "Canadian Indigenous hip hop",
+      "family": "hip_hop",
+      "lineage": "A diverse field of Indigenous artists working with hip-hop in Canada. Haisla duo Snotty Nose Rez Kids supplies a documented trap-oriented branch rooted in Kitamaat Village and developed in the Vancouver scene.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "description": "Two MC voices and answering ad-libs drive an808-style beat with a sparse sustained synth bed. This contemporary electronic arrangement models the selected duo; it does not assume powwow drums, throat singing or a shared sound across First Nations, Inuit and Métis artists. The TR-8S catalog selection is an authored modern808 realization, not a claim to their studio inventory.",
+      "exemplars": [
+        "Snotty Nose Rez Kids — Trapline"
+      ]
+    },
+    {
+      "id": "canadian_trap",
+      "name": "Canadian trap",
+      "family": "hip_hop",
+      "lineage": "Trap production within Canadian rap includes multiple regional scenes. This selected Vancouver-connected Snotty Nose Rez Kids branch pairs the duo’s Haisla storytelling and verbal interplay with an Atlanta-influenced low-end beat vocabulary.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "description": "An authored trap setup of sustained808-style kick/sub, spare synth atmosphere and two MC voices. It represents one documented Canadian recording branch; modern digital recreation and neutral synth construction are practical choices, not historical session facts.",
+      "exemplars": [
+        "Snotty Nose Rez Kids — Trapline"
+      ]
+    },
+    {
+      "id": "czech_hip_hop",
+      "name": "Czech hip hop",
+      "family": "hip_hop",
+      "lineage": "Czech hip hop includes rap crews, DJ production and many later offshoots. The Prague PSH/Vladimír518 branch models Czech-language MC performance with producer and DJ Mike Trafik.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "Rhythmic verses and DJ-supported programmed beats define this compact representative setup. Sample chopping and turntable cuts are authored production choices within the documented DJ/MC format, not a claim that every Czech record uses one sampler or technique. The core voice role can include backing vocal responses.",
+      "exemplars": [
+        "PSH",
+        "Vladimír518",
+        "DJ Mike Trafik"
+      ]
+    },
+    {
+      "id": "czsk_hip_hop",
+      "name": "CZ/SK hip hop",
+      "family": "hip_hop",
+      "lineage": "A linked Czech and Slovak rap field sustained by shared compilations, producers and audiences. The Nejbr Hip Hop Mix series documents a network spanning Czech PSH and DJ Wich alongside Slovak Kontrafakt and Moja Reč.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "A DJ/producer beat bed and rhythmic MC lead provide a representative cross-border recording model. It is anchored in documented collaboration infrastructure, not an invented pan-national instrument or an assertion that all Czech and Slovak rappers share one accent or beat style.",
+      "exemplars": [
+        "PSH",
+        "DJ Wich",
+        "Kontrafakt",
+        "Moja Reč"
+      ]
+    },
+    {
+      "id": "chinese_hip_hop",
+      "name": "Chinese hip hop",
+      "family": "hip_hop",
+      "lineage": "Chinese hip hop spans many regions, languages and production practices. The Higher Brothers branch is rooted in Chengdu and uses Mandarin, Chengdu/Sichuan speech and global trap production in a four-MC format.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "description": "A multi-MC rap arrangement with808-style low-end drums and a short-envelope synth figure models the group’s trap-influenced Black Cab branch. Modern drum recreation and synth architecture are authored choices; no traditional Chinese instrument is inferred merely from nationality.",
+      "exemplars": [
+        "Higher Brothers — Black Cab"
       ]
     }
   ]

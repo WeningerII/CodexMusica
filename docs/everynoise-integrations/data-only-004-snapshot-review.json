@@ -1,0 +1,1010 @@
+{
+  "reviewed_ids": [
+    "art_pop",
+    "basque_kantautor",
+    "blend_ethnographic_studio_morna",
+    "blend_g_funk_west_coast",
+    "blend_uk_drill_brooklyn",
+    "boom_bap",
+    "british_invasion_rb",
+    "cape_verdean_funana_maritime",
+    "catalan_nova_canco",
+    "chanson_classique",
+    "conscious_hip_hop",
+    "corsican_voceru",
+    "czech_pisnicka",
+    "dc_go_go",
+    "delta_blues",
+    "drinking_german_trinklied",
+    "dub_poetry",
+    "early_rock_and_roll_50s",
+    "freak_folk_2000s",
+    "french_berceuse",
+    "french_chansons_a_boire",
+    "french_comptines",
+    "funk_metal",
+    "g_funk",
+    "gangsta_rap",
+    "german_kinderlieder",
+    "german_trinklied",
+    "german_wiegenlied",
+    "gothic_country",
+    "italian_canti_partigiani",
+    "jackin_house",
+    "laiko",
+    "polish_poezja_spiewana",
+    "polish_sung_poetry_protest",
+    "portuguese_acalanto",
+    "portuguese_musica_de_intervencao",
+    "portuguese_pop_modern",
+    "russian_bard_song",
+    "russian_kolybelnaya",
+    "russian_rock",
+    "south_slavic_kantautor",
+    "spanish_cancion_pop",
+    "uk_drill",
+    "yiddish_vigndlid",
+    "zydeco"
+  ],
+  "final_comparison": {
+    "reviewed_prior_count": 45,
+    "final_count": 45,
+    "same": [
+      "laiko",
+      "delta_blues",
+      "basque_kantautor",
+      "polish_poezja_spiewana",
+      "russian_bard_song",
+      "south_slavic_kantautor",
+      "czech_pisnicka",
+      "chanson_classique",
+      "blend_uk_drill_brooklyn",
+      "blend_ethnographic_studio_morna",
+      "drinking_german_trinklied",
+      "british_invasion_rb",
+      "dub_poetry",
+      "gangsta_rap",
+      "conscious_hip_hop",
+      "boom_bap",
+      "uk_drill",
+      "early_rock_and_roll_50s",
+      "gothic_country",
+      "zydeco",
+      "art_pop",
+      "freak_folk_2000s",
+      "portuguese_musica_de_intervencao",
+      "german_wiegenlied",
+      "yiddish_vigndlid",
+      "portuguese_pop_modern",
+      "spanish_cancion_pop",
+      "russian_rock",
+      "russian_kolybelnaya",
+      "french_berceuse",
+      "portuguese_acalanto",
+      "corsican_voceru",
+      "italian_canti_partigiani",
+      "catalan_nova_canco",
+      "polish_sung_poetry_protest",
+      "french_comptines",
+      "german_kinderlieder",
+      "german_trinklied",
+      "french_chansons_a_boire",
+      "cape_verdean_funana_maritime"
+    ],
+    "new": [],
+    "changed": ["blend_g_funk_west_coast", "g_funk", "funk_metal", "dc_go_go", "jackin_house"],
+    "resolved": [],
+    "needs_review": {
+      "blend_g_funk_west_coast": {
+        "expected": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion west coast hip-hop. thick, rap, slow rate, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, mahogany la bella flats Detroit soul bass canon electric bass, talkbox, pitched chopped sampler, TR-808. west la 1968-present major-flagship the village recorder west la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+        "actual": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion west coast hip-hop cuban funk. thick, rap, straight onset, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, mahogany thomastik infeld low tension jazz warm electric bass, talkbox, pitched chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. west la 1968-present major-flagship the village recorder west la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape."
+      },
+      "g_funk": {
+        "expected": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion minneapolis synth-funk-pop. thick, breath veiled tone, slow rate, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, talkbox. west la 1968-present major-flagship the village recorder west la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+        "actual": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion cuban funk. thick, rap, straight onset, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, talkbox. west la 1968-present major-flagship the village recorder west la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape."
+      },
+      "funk_metal": {
+        "expected": "classic Los Angeles funk metal, distorted Rock, alternative branch, funk percussive groove percussion future funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+        "actual": "classic Los Angeles funk metal, distorted Rock, alternative branch, funk percussive groove percussion future funk cuban funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape."
+      },
+      "dc_go_go": {
+        "expected": "classic North American dc go-go, functional Song, soul R&B branch, funk percussive groove percussion future funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, brushes-and-sticks drum kit, cowhide mid tier siam oak mid tier modern open slap hand drum congas, bronze open slap hand drum timbales, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, tenor ensemble honking attack saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+        "actual": "classic North American dc go-go, functional Song, soul R&B branch, funk percussive groove percussion cuban funk future funk. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+      },
+      "jackin_house": {
+        "expected": "classic 2007-2009 jackin' house, electronic Dance, house branch, funk percussive groove percussion future funk. thick, breath veiled tone, slow rate, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, fast decay focused low lead analog synth. no single room 2015-present distributed distributed production. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+        "actual": "classic 2007-2009 jackin' house, electronic Dance, house branch, funk percussive groove percussion future funk cuban funk. thick, breath veiled tone, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, fast decay focused low sub bass analog synth. no single room 2015-present distributed distributed production. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette."
+      }
+    }
+  },
+  "scope": "45 individually reviewed differences under the unchanged optimizer. No test logic or old genre source changes. The final Cuban funk source correction is recorded in the release evidence.",
+  "reviews": {
+    "art_pop": [
+      {
+        "id": "art_pop",
+        "decision": "accept_fixture_data_change",
+        "reason": "Only soft-down-tuning wording appears. Actual candidate config selects existing eb_standard guitar tuning; source remains unpinned and exact-equal. A permissible authored optimizer choice, not a new tuning object or altered menu default."
+      }
+    ],
+    "basque_kantautor": [
+      {
+        "id": "basque_kantautor",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["basque_kantautor", "cape_verdean_batuko", "french_musette"],
+        "new_neighbors": ["basque_kantautor", "french_musette", "greek_entechno"],
+        "changed_slots": [
+          [
+            "voice",
+            "voice_tradition",
+            "scottish_gaelic_taladh_tradition",
+            "mediterranean_demotic_tradition"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_harmonizer_ai_trained_stack",
+            "voice_processing_melodyne_microtuned"
+          ],
+          ["acoustic_guitar_om", "string_tuning", "open_d", "standard_tuning"],
+          ["acoustic_guitar_om", "back_sides", "rosewood_bs_om", "walnut_bs_om"],
+          ["acoustic_guitar_om", "string_acoustic", "martin_lifespan_om", "phosphor_om"],
+          ["electric_bass", "amp_make", "amp_british_60s_selmer", "amp_modern_modeling"],
+          ["electric_bass", "bass_technique", "slap_pop", "sub_bass_synth_blend"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "blend_ethnographic_studio_morna": [
+      {
+        "id": "blend_ethnographic_studio_morna",
+        "decision": "accept_tranche_delta",
+        "reason": "Both explicit funaná/morna components remain. Neighbor set changes through old chanson/fado cross-references; voice/string and violin-top selections are existing unpinned options. Environment remains the same outdoor/ORTF field-recording setup.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "cape_verdean_funana_maritime",
+            "pin_parts": false
+          },
+          {
+            "id": "morna",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "blend_g_funk_west_coast": [
+      {
+        "id": "blend_g_funk_west_coast",
+        "decision": "accept_tranche_delta",
+        "reason": "Cuban funk is eligible under G-funk’s old funk-percussive cross-reference; explicit G-funk/West Coast blend and sound roles remain. The sygyt register is an existing unpinned engine choice, not authored in Cuban funk (which has neutral source-unspecified register). This is tranche attribution, not historical endorsement of throat singing as G-funk.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "g_funk",
+            "pin_parts": false
+          },
+          {
+            "id": "west_coast_hip_hop_classic",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      },
+      {
+        "id": "blend_g_funk_west_coast",
+        "decision": "accept_tranche_delta",
+        "reason": "Accept. Both explicit blend components and their full role union remain. Cuban funk is eligible under the unchanged funk-percussive cross-reference. Rap now replaces the prior sygyt selection; bass-string and 808 detail are existing unpinned options.",
+        "source_and_extras_unchanged": true,
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "blend_uk_drill_brooklyn": [
+      {
+        "id": "blend_uk_drill_brooklyn",
+        "decision": "accept_tranche_delta",
+        "reason": "Brazilian hip hop is eligible under UK drill’s old international-hip-hop cross-reference; both explicit blend components remain. TR-808 origin detail reappears through existing unpinned selection/compression.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "uk_drill",
+            "pin_parts": false
+          },
+          {
+            "id": "brooklyn_drill",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "boom_bap": [
+      {
+        "id": "boom_bap",
+        "decision": "accept_tranche_delta",
+        "reason": "Doo-wop/souldies are eligible under the pre-existing soul/R&B cross-reference. Existing unpinned voice alternatives move; sample drums, bass and turntable roles and room/chain stay unchanged.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "boom_bap",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "british_invasion_rb": [
+      {
+        "id": "british_invasion_rb",
+        "decision": "accept_fixture_data_change",
+        "reason": "New blues_band is correctly parented in the existing bluesElectric pool, grounded in an actual ensemble. Semi-hollow context, bass wood and shortened kit detail are existing unpinned choices; no source/pin/default was rewritten."
+      }
+    ],
+    "cape_verdean_funana_maritime": [
+      {
+        "id": "cape_verdean_funana_maritime",
+        "decision": "accept_tranche_delta",
+        "reason": "Chanson/nouvelle chanson française are eligible under the original chanson/fado branch. Existing unpinned voice/string/reed detail and compression change; original ensemble and field-recording environment remain. No fresh historical certification of the pre-existing funaná source is implied.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "cape_verdean_funana_maritime",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "catalan_nova_canco": [
+      {
+        "id": "catalan_nova_canco",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["catalan_nova_canco", "catalan_folk", "morna"],
+        "new_neighbors": ["catalan_nova_canco", "catalan_folk", "chanson"],
+        "changed_slots": [
+          ["voice", "voice_vibrato", "slow_vibrato", "terminal_vibrato"],
+          [
+            "voice",
+            "voice_tradition",
+            "chinese_classical_vocal_tradition",
+            "scottish_gaelic_taladh_tradition"
+          ],
+          [
+            "voice",
+            "voice_multitrack_stack",
+            "voice_multitrack_2010s_melodyne_microtuned",
+            "voice_multitrack_mid_1960s_double_tracking_era"
+          ]
+        ],
+        "unresolved": []
+      }
+    ],
+    "chanson_classique": [
+      {
+        "id": "chanson_classique",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["chanson_classique", "singaporean_xinyao", "indie_folk_2000s"],
+        "new_neighbors": ["chanson_classique", "indie_folk_2000s", "freak_folk_2000s"],
+        "changed_slots": [
+          ["voice", "voice_vibrato", "terminal_vibrato", "slow_vibrato"],
+          [
+            "voice",
+            "voice_pitch_organization",
+            "voice_pitch_tonal_language_constrained",
+            "voice_pitch_meantone_quarter_comma"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_vocoder_8_band",
+            "voice_processing_melodyne_microtuned"
+          ]
+        ],
+        "unresolved": []
+      }
+    ],
+    "conscious_hip_hop": [
+      {
+        "id": "conscious_hip_hop",
+        "decision": "accept_tranche_delta",
+        "reason": "Detroit trap is eligible under the pre-existing modern US hip-hop cross-reference; boom-bap remains. Rhodes wording changes with existing unpinned voicing/use and compression, not an added or missing keyboard role.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "conscious_hip_hop",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "corsican_voceru": [
+      {
+        "id": "corsican_voceru",
+        "resolved_source_id": "corsican_voceru",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": [
+          "droneModal.vocal",
+          "balladPoetry.mediterraneanBallad",
+          "balladPoetry.chansonFado"
+        ],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "Existing chanson/Mediterranean context now selects Greek éntechno instead of morna/batuko. Unpinned register changes fry to chest/thick. The pre-existing Sardinian room and inherited other vocal language are unchanged and are not re-certified.",
+        "real_new_data_error": null
+      }
+    ],
+    "czech_pisnicka": [
+      {
+        "id": "czech_pisnicka",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["czech_pisnicka", "morna", "cape_verdean_batuko"],
+        "new_neighbors": ["czech_pisnicka", "kundiman", "french_musette"],
+        "changed_slots": [
+          ["voice", "voice_estill_quality", "voice_estill_nasal_twang", "voice_estill_opera"],
+          [
+            "voice",
+            "voice_ornament_system",
+            "voice_ornament_andean_huayno",
+            "voice_ornament_bel_canto"
+          ],
+          [
+            "voice",
+            "voice_pitch_organization",
+            "voice_pitch_tonal_language_constrained",
+            "voice_pitch_meantone_quarter_comma"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_plate_reverb_medium",
+            "voice_processing_melodyne_microtuned"
+          ],
+          ["acoustic_guitar_om", "string_tuning", "open_d", "standard_tuning"],
+          ["acoustic_guitar_om", "back_sides", "rosewood_bs_om", "walnut_bs_om"],
+          ["acoustic_guitar_om", "string_acoustic", "martin_lifespan_om", "phosphor_om"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "dc_go_go": [
+      {
+        "id": "dc_go_go",
+        "decision": "accept_tranche_delta",
+        "reason": "Cuban funk joins the eligible funk-percussive neighbor set. Conga hide/wood choices are existing unpinned options; voice/guitar/bass/kit/congas/timbales/trumpet/saxophone and environment remain.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "dc_go_go",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      },
+      {
+        "id": "dc_go_go",
+        "decision": "accept_tranche_delta",
+        "reason": "Accept. Voice, guitar, bass, kit, congas, timbales, trumpet and saxophone remain. Changed hide/wood, articulation, kit and brass/wind selections are existing unpinned options. Cuban funk is eligible and the original environment is retained.",
+        "source_and_extras_unchanged": true,
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "delta_blues": [
+      {
+        "id": "delta_blues",
+        "decision": "accept_fixture_data_change",
+        "reason": "Traditional blues is newly selected through unchanged functionalSong.bluesAcoustic. New Brownie McGhee voice/acoustic-guitar branch is correctly scoped/parented. Only the valid neighbor label is appended."
+      }
+    ],
+    "drinking_german_trinklied": [
+      {
+        "id": "drinking_german_trinklied",
+        "resolved_source_id": "german_trinklied",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": [
+          "drinkingSong.americas",
+          "functionalSong.country.americana",
+          "balladPoetry.chansonFado"
+        ],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "Fixture alias resolves to german_trinklied. Only one automatically selected neighbor (Cape Verdean batuko) disappears, with American drinking song retained. Equipment, voice and environment text are unchanged.",
+        "real_new_data_error": null
+      }
+    ],
+    "dub_poetry": [
+      {
+        "id": "dub_poetry",
+        "decision": "accept_tranche_delta",
+        "reason": "Dark/progressive folk are eligible under the old Anglo singer-songwriter cross-reference. Existing unpinned voice, guitar amp/material and kit-head alternatives move; voice/guitar/bass/kit and original dub environment remain. No new cross-reference is introduced.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "dub_poetry",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "early_rock_and_roll_50s": [
+      {
+        "id": "early_rock_and_roll_50s",
+        "decision": "accept_fixture_data_change",
+        "reason": "New blues_band replaces one existing blues neighbor through unchanged bluesElectric cross-reference; brushes/sticks is an existing plausible technique. The pre-existing blackface/1960s amplifier caveat from batch003 persists and was not introduced or worsened here; this is not a certification of exact1950s hardware."
+      }
+    ],
+    "freak_folk_2000s": [
+      {
+        "id": "freak_folk_2000s",
+        "resolved_source_id": "freak_folk_2000s",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": ["experimentalElec.popExperimental"],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "The existing experimental-pop cross-reference selects dark pop instead of etherpop alongside glitch pop. Violin emphasis shifts from wood descriptors to already existing Baroque-setup descriptors. The old source is unpinned and unchanged; no new recorder or violin option was added.",
+        "real_new_data_error": null
+      }
+    ],
+    "french_berceuse": [
+      {
+        "id": "french_berceuse",
+        "resolved_source_id": "french_berceuse",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": [
+          "balladPoetry.chansonFado",
+          "artMusic.westernCommonPractice",
+          "functionalSong.europop"
+        ],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "Existing chanson cross-reference selects nouvelle chanson française instead of morna. Unpinned register/vibrato change extended-whistle/slow-rate to chest/thick/straight-core; pre-existing lament-wail color remains. No source or default edit.",
+        "real_new_data_error": null
+      }
+    ],
+    "french_chansons_a_boire": [
+      {
+        "id": "french_chansons_a_boire",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["french_chansons_a_boire", "cape_verdean_batuko", "catalan_folk"],
+        "new_neighbors": ["french_chansons_a_boire", "catalan_folk", "chanson"],
+        "changed_slots": [
+          [
+            "voice",
+            "voice_tradition",
+            "scottish_gaelic_taladh_tradition",
+            "modern_pop_vocal_training"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_harmonizer_ai_trained_stack",
+            "voice_processing_melodyne_microtuned"
+          ],
+          [
+            "voice",
+            "voice_multitrack_stack",
+            "voice_multitrack_stab_percussive_trigger",
+            "voice_multitrack_2010s_melodyne_microtuned"
+          ],
+          ["accordion", "musette_offset", "german_tuning", "french_musette"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "french_comptines": [
+      {
+        "id": "french_comptines",
+        "resolved_source_id": "french_comptines",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": ["nurseryRhyme.americas", "lullaby.european", "balladPoetry.chansonFado"],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "Old chanson cross-reference selects nouvelle chanson française instead of morna; unpinned voice color changes keening to aspirated. Nursery source controls, parlor and chain unchanged.",
+        "real_new_data_error": null
+      }
+    ],
+    "funk_metal": [
+      {
+        "id": "funk_metal",
+        "decision": "accept_fixture_data_change",
+        "reason": "Cuban funk is correctly parented in the existing funkPercussive pool and is added as a sonic neighbor only; rest of descriptor stack is unchanged. Separate new-row percussion completeness concern recorded below, not a wrong cross-reference."
+      },
+      {
+        "id": "funk_metal",
+        "decision": "accept_tranche_delta",
+        "reason": "Accept. Voice, humbucker guitar, electric bass and drum kit remain. Cuban funk joins future funk through the original funk-percussive reference; the added kit-head/texture wording uses existing variants.",
+        "source_and_extras_unchanged": true,
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "g_funk": [
+      {
+        "id": "g_funk",
+        "decision": "accept_tranche_delta",
+        "reason": "Cuban funk is eligible under the old funk-percussive cross-reference. Existing unpinned bass body/detail changes; sample drums, synth, bass, talkbox, voice and recording environment remain.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "g_funk",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      },
+      {
+        "id": "g_funk",
+        "decision": "accept_tranche_delta",
+        "reason": "Accept. Voice, sampled drums, synth, bass and talkbox remain with the same environment. Cuban funk is an eligible old-cross-reference neighbor; rap onset and bass material/string detail are existing unpinned choices.",
+        "source_and_extras_unchanged": true,
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "gangsta_rap": [
+      {
+        "id": "gangsta_rap",
+        "decision": "accept_tranche_delta",
+        "reason": "Hyphy/G-funk replace other candidates under old West/East-Coast cross-references. Existing voice and sampler-workflow alternatives move; the source ensemble/environment stay.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "gangsta_rap",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "german_kinderlieder": [
+      {
+        "id": "german_kinderlieder",
+        "resolved_source_id": "german_kinderlieder",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": ["lullaby.european", "nurseryRhyme.americas", "balladPoetry.chansonFado"],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "Only the neighbor selection changes from morna/batuko to nouvelle chanson française through the existing chanson cross-reference. Printed voice/room/chain are unchanged.",
+        "real_new_data_error": null
+      }
+    ],
+    "german_trinklied": [
+      {
+        "id": "german_trinklied",
+        "resolved_source_id": "german_trinklied",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": [
+          "drinkingSong.americas",
+          "functionalSong.country.americana",
+          "balladPoetry.chansonFado"
+        ],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "Same underlying source as the drinking_german_trinklied fixture alias. Batuko neighbor is omitted while American drinking song remains; all displayed instrument, voice and chain material remains identical.",
+        "real_new_data_error": null
+      }
+    ],
+    "german_wiegenlied": [
+      {
+        "id": "german_wiegenlied",
+        "resolved_source_id": "german_wiegenlied",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": [
+          "artMusic.westernCommonPractice",
+          "balladPoetry.chansonFado",
+          "functionalSong.europop"
+        ],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "Old chanson/French-pop cross-references now select nouvelle chanson française instead of morna/batuko. Unpinned legacy voice register changes from fry to chest/thick; no head-voice source setting or instrument default was overwritten.",
+        "real_new_data_error": null
+      }
+    ],
+    "gothic_country": [
+      {
+        "id": "gothic_country",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["gothic_country", "neofolk", "folk_noir"],
+        "new_neighbors": ["gothic_country", "neofolk", "texas_country_folk_storyteller"],
+        "changed_slots": [
+          [
+            "voice",
+            "voice_tradition",
+            "japanese_min_yo_tradition",
+            "scottish_gaelic_taladh_tradition"
+          ],
+          ["acoustic_guitar_parlor", "string_tuning", "open_d", "standard_tuning"],
+          ["autoharp", "autoharp_strings", "autoharp_steel_modern", "autoharp_phosphor_bronze"],
+          ["baritone_electric", "amp_make", "amp_british_marshall_jcm800", "amp_british_orange"],
+          ["baritone_electric", "baritone_use", "baritone_metal", "baritone_surf"],
+          ["banjo_5_string", "banjo_bridge", "banjo_maple_ebony_bridge", "banjo_compensated_bridge"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "italian_canti_partigiani": [
+      {
+        "id": "italian_canti_partigiani",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["italian_canti_partigiani", "morna", "cape_verdean_batuko"],
+        "new_neighbors": ["italian_canti_partigiani", "chanson", "greek_ode"],
+        "changed_slots": [
+          ["voice", "voice_register", "vocal_fry", "chest_voice"],
+          [
+            "voice",
+            "voice_pitch_organization",
+            "voice_pitch_tonal_language_constrained",
+            "voice_pitch_microtonal_glide_continuous"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_harmonizer_ai_trained_stack",
+            "voice_processing_melodyne_microtuned"
+          ],
+          ["acoustic_guitar_om", "string_tuning", "open_d", "standard_tuning"],
+          ["acoustic_guitar_om", "back_sides", "rosewood_bs_om", "walnut_bs_om"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "jackin_house": [
+      {
+        "id": "jackin_house",
+        "decision": "accept_fixture_data_change",
+        "reason": "Cuban-funk neighbor follows the unchanged funkPercussive cross-reference. Analog synth changes from lead to existing sub-bass realization, musically coherent for house. No new synth variant/default; separate Cuban-funk completeness concern is not a fixture-label defect."
+      },
+      {
+        "id": "jackin_house",
+        "decision": "accept_tranche_delta",
+        "reason": "Accept. Voice, TR-808 and analog synth remain with the same environment. The existing unpinned synth role changes from lead to sub-bass, and voice onset changes; Cuban funk is an eligible funk-percussive neighbor.",
+        "source_and_extras_unchanged": true,
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "laiko": [
+      {
+        "id": "laiko",
+        "decision": "accept_fixture_data_change",
+        "reason": "Existing éntekhno replaces morna within unchanged chansonFado cross-reference; both Greek éntechno rows already existed in batch003. Bouzouki tremolo and piano/kit materials are existing unpinned choices; no new instrument menu/default changed."
+      }
+    ],
+    "polish_poezja_spiewana": [
+      {
+        "id": "polish_poezja_spiewana",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["polish_poezja_spiewana", "morna", "cape_verdean_batuko"],
+        "new_neighbors": ["polish_poezja_spiewana", "kundiman", "french_musette"],
+        "changed_slots": [
+          ["voice", "voice_register", "vocal_fry", "chest_voice"],
+          ["voice", "voice_vibrato", "slow_vibrato", "terminal_vibrato"],
+          [
+            "voice",
+            "voice_tradition",
+            "yoruba_tonal_vocal_tradition",
+            "scottish_gaelic_taladh_tradition"
+          ],
+          ["voice", "voice_ornament_system", "voice_ornament_none", "voice_ornament_bel_canto"],
+          [
+            "voice",
+            "voice_pitch_organization",
+            "voice_pitch_tonal_language_constrained",
+            "voice_pitch_meantone_quarter_comma"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_plate_reverb_medium",
+            "voice_processing_melodyne_microtuned"
+          ],
+          ["acoustic_guitar_om", "string_tuning", "open_d", "standard_tuning"],
+          ["acoustic_guitar_om", "back_sides", "rosewood_bs_om", "walnut_bs_om"],
+          ["acoustic_guitar_om", "string_acoustic", "martin_lifespan_om", "phosphor_om"],
+          ["grand_piano", "grand_piano_brand", "bosendorfer", "fazioli"],
+          [
+            "grand_piano",
+            "piano_pinblock",
+            "hexagrip_7_ply_quartersawn_maple",
+            "asian_multi_laminate_pinblock"
+          ],
+          ["grand_piano", "piano_pitch_standard", "a_432_alternative", "a_415_baroque"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "polish_sung_poetry_protest": [
+      {
+        "id": "polish_sung_poetry_protest",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["polish_sung_poetry_protest", "morna", "cape_verdean_batuko"],
+        "new_neighbors": ["polish_sung_poetry_protest", "chanson", "nouvelle_chanson_francaise"],
+        "changed_slots": [
+          ["voice", "voice_register", "vocal_fry", "chest_voice"],
+          ["voice", "voice_vibrato", "slow_vibrato", "terminal_vibrato"],
+          [
+            "voice",
+            "voice_tradition",
+            "yoruba_tonal_vocal_tradition",
+            "scottish_gaelic_taladh_tradition"
+          ],
+          ["voice", "voice_ornament_system", "voice_ornament_none", "voice_ornament_jingju_role"],
+          [
+            "voice",
+            "voice_pitch_organization",
+            "voice_pitch_tonal_language_constrained",
+            "voice_pitch_microtonal_glide_continuous"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_harmonizer_ai_trained_stack",
+            "voice_processing_vocoder_8_band"
+          ],
+          ["acoustic_guitar_om", "string_tuning", "open_d", "standard_tuning"],
+          ["acoustic_guitar_om", "back_sides", "rosewood_bs_om", "mahogany_bs_om"],
+          ["acoustic_guitar_om", "string_acoustic", "martin_lifespan_om", "phosphor_om"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "portuguese_acalanto": [
+      {
+        "id": "portuguese_acalanto",
+        "resolved_source_id": "portuguese_acalanto",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": [
+          "balladPoetry.mediterraneanBallad",
+          "functionalSong.iberian",
+          "balladPoetry.chansonFado"
+        ],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "Existing Iberian cross-reference selects Portuguese folk instead of the previous morna/batuko neighbors. Existing unpinned voice alternatives change fry/aspirated to chest/keening. No new option or replacement of authored source controls.",
+        "real_new_data_error": null
+      }
+    ],
+    "portuguese_musica_de_intervencao": [
+      {
+        "id": "portuguese_musica_de_intervencao",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["portuguese_musica_de_intervencao", "morna", "cape_verdean_batuko"],
+        "new_neighbors": ["portuguese_musica_de_intervencao", "catalan_folk", "chanson"],
+        "changed_slots": [
+          ["voice", "voice_vibrato", "slow_vibrato", "terminal_vibrato"],
+          ["voice", "voice_estill_quality", "voice_estill_opera", "voice_estill_nasal_twang"],
+          [
+            "voice",
+            "voice_pitch_organization",
+            "voice_pitch_tonal_language_constrained",
+            "voice_pitch_microtonal_glide_continuous"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_plate_reverb_medium",
+            "voice_processing_melodyne_microtuned"
+          ],
+          ["acoustic_guitar_om", "back_sides", "rosewood_bs_om", "walnut_bs_om"],
+          ["acoustic_guitar_om", "string_acoustic", "martin_lifespan_om", "phosphor_om"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "portuguese_pop_modern": [
+      {
+        "id": "portuguese_pop_modern",
+        "decision": "accept_fixture_data_change",
+        "reason": "Greek éntechno was already in the broad existing chansonFado pool, as were the displaced Cape Verdean neighbors. The source/geographic identity is unchanged; this is not a genealogy claim. Voice, guitar strings/tuning and bass detail vary under the unchanged unpinned optimizer."
+      }
+    ],
+    "russian_bard_song": [
+      {
+        "id": "russian_bard_song",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["russian_bard_song", "morna", "cape_verdean_batuko"],
+        "new_neighbors": ["russian_bard_song", "morna", "italian_canti_partigiani"],
+        "changed_slots": [
+          ["voice", "voice_vibrato", "terminal_vibrato", "slow_vibrato"],
+          ["voice", "voice_tradition", "yoruba_tonal_vocal_tradition", "operatic_tradition"],
+          [
+            "voice",
+            "voice_ornament_system",
+            "voice_ornament_andean_huayno",
+            "voice_ornament_bel_canto"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_harmonizer_ai_trained_stack",
+            "voice_processing_melodyne_microtuned"
+          ],
+          ["acoustic_guitar_om", "back_sides", "rosewood_bs_om", "walnut_bs_om"],
+          ["balalaika", "balalaika_strings", "fluorocarbon_balalaika", "steel_balalaika"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "russian_kolybelnaya": [
+      {
+        "id": "russian_kolybelnaya",
+        "resolved_source_id": "russian_kolybelnaya",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": [
+          "balladPoetry.slavicBard",
+          "artMusic.westernCommonPractice",
+          "functionalSong.europop"
+        ],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "The old Western-common-practice cross-reference supplies the Anglican choral neighbor alongside Lemko folk, instead of Tatar folk. Unpinned register shifts extended whistle to chest/thick. No Anglican origin, choir roster or church room is inserted into the source lullaby.",
+        "real_new_data_error": null
+      }
+    ],
+    "russian_rock": [
+      {
+        "id": "russian_rock",
+        "decision": "accept_fixture_data_change",
+        "reason": "New Czech singer-songwriter is correctly parented to the existing voice-isolated slavicBard cross-reference. Candidate balalaika config actually selects sekunda_balalaika, so sekunda wording is consistent with the chosen existing size rather than a new mismatched tuning. Drum change is ordinary unpinned choice."
+      }
+    ],
+    "south_slavic_kantautor": [
+      {
+        "id": "south_slavic_kantautor",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["south_slavic_kantautor", "morna", "cape_verdean_batuko"],
+        "new_neighbors": ["south_slavic_kantautor", "greek_entechno", "chanson_classique"],
+        "changed_slots": [
+          [
+            "voice",
+            "voice_tradition",
+            "yoruba_tonal_vocal_tradition",
+            "mediterranean_demotic_tradition"
+          ],
+          [
+            "voice",
+            "voice_pitch_organization",
+            "voice_pitch_tonal_language_constrained",
+            "voice_pitch_arab_24_quartertone"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_plate_reverb_medium",
+            "voice_processing_melodyne_microtuned"
+          ],
+          [
+            "voice",
+            "voice_multitrack_stack",
+            "voice_multitrack_stab_percussive_trigger",
+            "voice_multitrack_2010s_melodyne_microtuned"
+          ],
+          ["acoustic_guitar_om", "back_sides", "rosewood_bs_om", "walnut_bs_om"],
+          ["acoustic_guitar_om", "string_acoustic", "martin_lifespan_om", "phosphor_om"],
+          [
+            "grand_piano",
+            "keyboard_technique",
+            "keyboard_jazz_comping",
+            "keyboard_block_chord_pop"
+          ],
+          ["grand_piano", "grand_piano_brand", "fazioli", "bosendorfer"],
+          ["grand_piano", "piano_hammer", "ronsen_wurzen_hammer", "steinway_original_hammer"],
+          [
+            "grand_piano",
+            "piano_rim",
+            "asian_laminated_rim_birch_maple",
+            "european_laminated_rim_beech_maple"
+          ],
+          ["grand_piano", "piano_pitch_standard", "a_432_alternative", "a_442_european"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "spanish_cancion_pop": [
+      {
+        "id": "spanish_cancion_pop",
+        "decision": "accept_fixture_data_change",
+        "reason": "Same unchanged broad chansonFado cross-reference now selects an existing Greek éntechno neighbor instead of morna. Narrative guitar/bass descriptor changes are ordinary unpinned realization/compression; no new source classification or instrument change."
+      }
+    ],
+    "uk_drill": [
+      {
+        "id": "uk_drill",
+        "decision": "accept_tranche_delta",
+        "reason": "Brazilian hip hop replaces French rap as a candidate of the existing international-hip-hop cross-reference. The rendered instrument/environment portion remains unchanged.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "uk_drill",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "yiddish_vigndlid": [
+      {
+        "id": "yiddish_vigndlid",
+        "resolved_source_id": "yiddish_vigndlid",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": [
+          "lullaby.middleEastern",
+          "ritualDevotional.jewish",
+          "balladPoetry.chansonFado"
+        ],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "The existing Middle Eastern lullaby cross-reference selects Persian lālā’ī instead of the previous chanson neighbors; the unpinned voice register shifts fry to chest/thick. Klezmer ensemble, room and chain persist. Historical correctness of inherited maqam/source physiology is not newly certified.",
+        "real_new_data_error": null
+      }
+    ],
+    "zydeco": [
+      {
+        "id": "zydeco",
+        "decision": "accept_fixture_data_change",
+        "reason": "Blues-band neighbor enters the unchanged bluesElectric cross-reference. Castagnari replaces Petosa through the same accordion menu; this is a manufacturer/realization option, not a claim that Zydeco originated in Italy. Accordion/frottoir core persists."
+      }
+    ]
+  }
+}

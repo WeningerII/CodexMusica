@@ -5,7 +5,7 @@
   "lineage": "Sicilian folk encompasses sung narratives and diverse local instrumental practices. Alfio Antico’s documented dialect singing, shepherd-memory narratives and hand-built frame drums provide the selected drum-and-voice branch.",
   "recipe": "classic modern folk siciliana, ballad Poetry. thick, pure, neutral third half flat, false fold distorted phonation. hand struck frame drum sung narration tammorra. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 301,
-  "score": 33.878,
+  "score": 33.943,
   "config": {
     "traditions": [
       "folk_siciliana"
@@ -44,10 +44,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 5.654999999999999,
           "voice_ensemble_config": 6.89,
-          "voice_ornament_system": 1.452,
+          "voice_ornament_system": 1.416,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.552,
-          "voice_multitrack_stack": 0.309
+          "voice_processing_chain": 1.516,
+          "voice_multitrack_stack": 0.4455
         }
       },
       {

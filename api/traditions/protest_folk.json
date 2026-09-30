@@ -5,7 +5,7 @@
   "lineage": "Protest folk links vernacular singing to collective dissent and social argument across many movements. Pete Seeger’s Folkways Songs of Struggle and Protest supplies one documented American revival branch.",
   "recipe": "classic modern protest folk, nursery Rhyme. thick, incomplete closure resting, neutral third half flat, opera quality low larynx anchored. scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 394,
-  "score": 23.959,
+  "score": 24.733,
   "config": {
     "traditions": [
       "protest_folk"
@@ -40,14 +40,14 @@
           "voice_articulation": -0.2,
           "voice_microtone": 2.990000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.25875,
+          "voice_mechanism_compound": 0.35774999999999996,
           "voice_estill_quality": 0.8874999999999998,
           "voice_speech_song": 3.185,
-          "voice_ensemble_config": 0.17250000000000001,
-          "voice_ornament_system": 0.024999999999999998,
+          "voice_ensemble_config": 0.19500000000000003,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.19875,
-          "voice_multitrack_stack": 0.37875
+          "voice_processing_chain": 1.2639999999999998,
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -60,21 +60,21 @@
           "banjo_play": "clawhammer",
           "banjo_rim_wood": "banjo_walnut_rim",
           "banjo_neck_wood": "banjo_mahogany_neck",
-          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_strings": "banjo_fluorocarbon",
           "banjo_bridge": "banjo_compensated_bridge",
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
           "banjo_back": 0,
           "tone_ring": 0,
-          "banjo_head": 3.3287499999999994,
-          "banjo_pot": 0.07,
+          "banjo_head": 3.3799999999999994,
+          "banjo_pot": 0.0375,
           "banjo_play": 0,
-          "banjo_rim_wood": 0.0625,
-          "banjo_neck_wood": 0,
-          "banjo_strings": 0,
+          "banjo_rim_wood": 0.0375,
+          "banjo_neck_wood": 0.153,
+          "banjo_strings": 0.2505,
           "banjo_bridge": 0,
-          "banjo_setup_period": 3.29
+          "banjo_setup_period": 3.3149999999999995
         }
       },
       {
@@ -84,14 +84,14 @@
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
-          "string_acoustic": "coated_nano_acoustic"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 1.46125,
+          "acoustic_technique": 1.5805,
           "string_tuning": 0,
           "top_wood": 0.3,
           "back_sides": 0.0375,
-          "string_acoustic": 0.075
+          "string_acoustic": 0.135
         }
       }
     ],

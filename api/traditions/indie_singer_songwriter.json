@@ -1,0 +1,143 @@
+{
+  "id": "indie_singer_songwriter",
+  "name": "Indie singer-songwriter",
+  "family": "vernacular",
+  "lineage": "Indie singer-songwriter is a cross-regional discovery category around performer-authored recorded songs. Glen Hansard’s independently released acoustic songwriting offers a documented representative branch without limiting the category to Ireland.",
+  "recipe": "classic modern indie singer-songwriter, ballad Poetry. breath veiled tone, opera quality low larynx anchored, many notes per syllable, three independent lines. dreadnought acoustic guitar, violin orchestral. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 345,
+  "score": 18.427,
+  "config": {
+    "traditions": [
+      "indie_singer_songwriter"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_melismatic_singing",
+          "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 0.054,
+          "voice_quality": 3.3800000000000017,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.36,
+          "voice_articulation": -0.14600000000000002,
+          "voice_microtone": 1.8041124150158794e-17,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.453,
+          "voice_estill_quality": 3.0300000000000007,
+          "voice_speech_song": 1.0140000000000002,
+          "voice_ensemble_config": 1.6899999999999997,
+          "voice_ornament_system": 2.03,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.534,
+          "voice_multitrack_stack": 2.3
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka",
+          "back_sides": "maple_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 0.2,
+          "string_tuning": 0,
+          "top_wood": 0.1365,
+          "back_sides": 0.1365,
+          "string_acoustic": 0.1365
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "spirit_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "orch_strings": 0.1365,
+          "orch_top_wood": 0.95,
+          "orch_back_wood": -0.035,
+          "orch_varnish": -0.05,
+          "orch_setup_period": -0.1,
+          "orch_bow": 0,
+          "orch_bow_stick": -0.05,
+          "orch_articulation": 0.327,
+          "orch_rosin": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique"
+      ],
+      "violin_orchestral": [
+        "bowed_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "bowed_technique": "bowed_legato_classical",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

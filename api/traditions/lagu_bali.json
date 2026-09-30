@@ -3,14 +3,14 @@
   "name": "Lagu Bali (Pop Bali)",
   "family": "global",
   "lineage": "Balinese-language popular song that emerged from Denpasar radio and the 1980s-90s cassette trade through Yan Bero, Widi Widiana, Ayu Laksmi and later Nanoe Biroe, pairing colloquial Balinese lyrics with pop and light rock backing at mid-tempo 4/4 while quoting gamelan colour — gender or suling lines, kendang fills and kebyar-derived melodic turns — over guitar, bass, kit and synth.",
-  "recipe": "classic Southeast Asian mid-1980s lagu bali, functional Song, east Asian pop branch, southeast Asian art music, pop rock functional song new wave folk rock. thick, breath veiled tone, straight note core, interlocked note trading. gender, bamboo rattan band fipple canonical javanese balinese melodic suling, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, gamelan balinese paired male female jackwood barrel canonical javanese balinese cowhide modern alternative kendang indonesian. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
-  "recipe_chars": 980,
-  "score": 522.25,
+  "recipe": "classic Southeast Asian mid-1980s lagu bali, functional Song, east Asian pop branch, southeast Asian art music, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. gender, bamboo rattan band fipple canonical javanese balinese suling, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, gamelan balinese paired male female jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
+  "recipe_chars": 988,
+  "score": 528.238,
   "config": {
     "traditions": [
       "lagu_bali",
       "new_wave",
-      "folk_rock"
+      "yacht_rock"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_pelog_7",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 59.600000000000016,
-          "voice_quality": 9.554999999999998,
+          "voice_register": 55.15000000000001,
+          "voice_quality": 9.782499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.0375,
-          "voice_articulation": 18.264999999999993,
-          "voice_microtone": 47.69500000000001,
-          "voice_tradition": 24.24,
-          "voice_mechanism_compound": 2.8599999999999994,
-          "voice_estill_quality": 5.6225000000000005,
-          "voice_speech_song": 27.36499999999999,
-          "voice_ensemble_config": 20.084999999999994,
-          "voice_ornament_system": 3.14,
+          "voice_vibrato": 6.2749999999999995,
+          "voice_articulation": 16.834999999999994,
+          "voice_microtone": 53.745,
+          "voice_tradition": 26.839999999999996,
+          "voice_mechanism_compound": 3.0549999999999997,
+          "voice_estill_quality": 2.2749999999999995,
+          "voice_speech_song": 25.284999999999993,
+          "voice_ensemble_config": 18.264999999999993,
+          "voice_ornament_system": 2.7950000000000004,
           "voice_pitch_organization": 13.519999999999998,
-          "voice_processing_chain": 9.920000000000002,
-          "voice_multitrack_stack": 8.055
+          "voice_processing_chain": 11.74,
+          "voice_multitrack_stack": 10.554999999999998
         }
       },
       {
@@ -72,10 +72,10 @@
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": 11.484999999999996,
+          "wind_articulation": 1.9174999999999998,
           "suling_use": 2.8949999999999996,
           "suling_tuning": 6.45,
-          "suling_body_material": 3.3799999999999994
+          "suling_body_material": 3.769999999999999
         }
       },
       {
@@ -86,27 +86,27 @@
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "alnico_2",
+          "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "d_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 25.4,
-          "amp_make": 13.249999999999995,
-          "body_wood": 2.9450000000000003,
-          "neck_wood": 2.9450000000000003,
-          "fretboard": 2.8950000000000005,
-          "pickup_magnet": 0.195,
-          "string_material": 0.39,
-          "string_gauge": 3.4450000000000003,
+          "electric_technique": 27.024999999999995,
+          "amp_make": 13.749999999999998,
+          "body_wood": 3.0949999999999998,
+          "neck_wood": 3.0949999999999998,
+          "fretboard": 3.045,
+          "pickup_magnet": 0.44999999999999996,
+          "string_material": 0.5549999999999999,
+          "string_gauge": 3.5949999999999998,
           "bridge": 0.5,
-          "scale_length": 3.29,
+          "scale_length": 3.44,
           "finish": 0.105,
-          "string_tuning": 11.469999999999999
+          "string_tuning": 12.525
         }
       },
       {
@@ -117,18 +117,18 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.189999999999998,
-          "body_wood": 3.29,
+          "amp_make": 11.389999999999999,
+          "body_wood": 3.44,
           "pickup_config": 0.195,
-          "string_type": 23.229999999999993,
-          "scale_length_b": 2.9450000000000003,
-          "fretted_or_not": 0.15,
-          "bass_technique": 27.61999999999999,
+          "string_type": 24.48,
+          "scale_length_b": 3.0949999999999998,
+          "fretted_or_not": 0.045,
+          "bass_technique": 28.72,
           "electric_bass_string_configuration": 0
         }
       },
@@ -140,8 +140,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23.124999999999993,
-          "drumhead": 24.24,
+          "drum_technique": 24.375,
+          "drumhead": 26.23999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -150,14 +150,14 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 24.099999999999998,
-          "poly_archetypes": 9.744999999999997,
-          "poly_voices": 0.195,
-          "poly_maker_lineage": 3.1849999999999996
+          "electronic_technique": 26.399999999999995,
+          "poly_archetypes": 10.245,
+          "poly_voices": 0.545,
+          "poly_maker_lineage": 2.795
         }
       },
       {
@@ -166,13 +166,13 @@
           "kendang_size": "kendang_gendhing",
           "kendang_context": "kendang_balinese",
           "kendang_shell_wood": "kendang_jackwood_canonical",
-          "kendang_head": "kendang_cowhide_alternative"
+          "kendang_head": "kendang_buffalo_hide_canonical"
         },
         "scores": {
           "kendang_size": 1.69,
-          "kendang_context": 5.069999999999999,
+          "kendang_context": 5.265,
           "kendang_shell_wood": 3.3799999999999994,
-          "kendang_head": 1.04
+          "kendang_head": 1.935
         }
       }
     ],

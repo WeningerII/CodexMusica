@@ -5,7 +5,7 @@
   "lineage": "Greek folk encompasses locally distinct song, dance and instrumental traditions. The documented Cretan performance of Psarantonis and the Xylouris family supplies a lyra-and-laouto branch rather than a pan-Greek fixed ensemble.",
   "recipe": "classic modern greek folk, ballad Poetry. thick, pure, neutral third half flat, notated speech melody. mulberry canonical cretan gut pre modern cretan cretan lyra, cretan rhythmic laouto. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 325,
-  "score": 51.845,
+  "score": 49.681,
   "config": {
     "traditions": [
       "greek_folk"
@@ -36,18 +36,18 @@
           "voice_quality": -0.44999999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2475,
-          "voice_articulation": -0.16287500000000002,
-          "voice_microtone": 4.680000000000001,
+          "voice_vibrato": 1,
+          "voice_articulation": -0.14,
+          "voice_microtone": 4.4190000000000005,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
           "voice_estill_quality": 0.19500000000000003,
           "voice_speech_song": 6.5649999999999995,
-          "voice_ensemble_config": 5.2,
-          "voice_ornament_system": 0.26,
+          "voice_ensemble_config": 4.819,
+          "voice_ornament_system": 0.2,
           "voice_pitch_organization": 1,
-          "voice_processing_chain": 1.27375,
-          "voice_multitrack_stack": 0.446625
+          "voice_processing_chain": 1.15,
+          "voice_multitrack_stack": 0.40950000000000003
         }
       },
       {
@@ -61,8 +61,8 @@
         },
         "scores": {
           "bowed_technique": 2.08,
-          "lyra_strings": 2.37125,
-          "lyra_use": 2.37125,
+          "lyra_strings": 2,
+          "lyra_use": 2,
           "lyra_body_wood": 1.3,
           "lyra_string_material": 1.25
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "laouto_form": 10.05,
-          "laouto_role": 5.002375,
+          "laouto_role": 4.669,
           "laouto_strings": 0.75
         }
       }

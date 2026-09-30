@@ -5,7 +5,7 @@
   "lineage": "Malawian folk encompasses local song traditions and contemporary vernacular guitar practice. Giddes Chalamanda’s field-documented guitar songs provide the selected branch, with a long performance history distinct from later viral remixes.",
   "recipe": "classic modern malawian folk, ballad Poetry. thick, neutral third half flat, m1 with m0 pulse borrowing, nasal twang velar port open. coated nanoweb fingerpicked dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 328,
-  "score": 27.536,
+  "score": 27.526,
   "config": {
     "traditions": [
       "malawian_folk"
@@ -33,21 +33,21 @@
         },
         "scores": {
           "voice_register": 4.5,
-          "voice_quality": 0,
+          "voice_quality": 0.054,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
+          "voice_vibrato": 0.3,
           "voice_articulation": -0.14,
           "voice_microtone": 2.0799999999999996,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 1.573,
-          "voice_estill_quality": 1.423,
+          "voice_mechanism_compound": 1.681,
+          "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 3.9650000000000007,
           "voice_ensemble_config": 2.4699999999999998,
-          "voice_ornament_system": 0.12999999999999998,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1,
-          "voice_multitrack_stack": 0.4485
+          "voice_multitrack_stack": 0.4635
         }
       },
       {
@@ -60,7 +60,7 @@
           "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
-          "acoustic_technique": 7.275500000000001,
+          "acoustic_technique": 7.2365,
           "string_tuning": 0,
           "top_wood": 0.273,
           "back_sides": 0.273,

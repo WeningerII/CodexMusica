@@ -3,14 +3,14 @@
   "name": "Czech písnička",
   "family": "global",
   "lineage": "Czech songwriter folk-poetic song tradition codified through Karel Kryl (the émigré protest voice of the 1968 Prague Spring), Jaromír Nohavica (the working-class storyteller), Vladimír Mišík (the rock-adjacent variant), Hutka, the Plastic People of the Universe (samizdat psychedelic-rock variant), and the broader Czech literary-poetic song tradition under and after Communist rule",
-  "recipe": "classic Central European late-1960s czech písnička, ballad Poetry, Slavic bard branch, chanson fado ballad poetry morna cape verdean batuko of santiago island. thick, breath veiled tone, straight note core, interlocked note trading. martin lifespan fingerpicked acoustic guitar. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 474,
-  "score": 200.246,
+  "recipe": "classic Central European late-1960s czech písnička, ballad Poetry, Slavic bard branch, chanson fado ballad poetry kundiman french musette. thick, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 437,
+  "score": 122.104,
   "config": {
     "traditions": [
       "czech_pisnicka",
-      "morna",
-      "cape_verdean_batuko"
+      "kundiman",
+      "french_musette"
     ],
     "instruments": [
       {
@@ -25,48 +25,48 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 9.895,
-          "voice_quality": 34.45,
+          "voice_register": 11.52,
+          "voice_quality": 17.354999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7950000000000004,
-          "voice_articulation": 22.23,
-          "voice_microtone": 22.555,
-          "voice_tradition": 21.839999999999996,
-          "voice_mechanism_compound": 4.875,
-          "voice_estill_quality": 4.8100000000000005,
-          "voice_speech_song": 27.235,
-          "voice_ensemble_config": 22.425,
-          "voice_ornament_system": 1.44,
-          "voice_pitch_organization": 2.795000000000001,
-          "voice_processing_chain": 6.0125,
-          "voice_multitrack_stack": 5.135
+          "voice_vibrato": 3.8495,
+          "voice_articulation": 10.789999999999996,
+          "voice_microtone": 12.284999999999995,
+          "voice_tradition": 14.5925,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 4.7775,
+          "voice_speech_song": 15.534999999999997,
+          "voice_ensemble_config": 12.024999999999995,
+          "voice_ornament_system": 1.825,
+          "voice_pitch_organization": 2.5350000000000006,
+          "voice_processing_chain": 2.34,
+          "voice_multitrack_stack": 1.9545000000000001
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "string_tuning": "open_d",
+          "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
-          "back_sides": "rosewood_bs_om",
-          "string_acoustic": "martin_lifespan_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 1.2999999999999998,
+          "string_tuning": 0,
           "top_wood": 0.8595000000000002,
-          "back_sides": 0.78,
-          "string_acoustic": 1.04,
-          "acoustic_om_technique": 12.574500000000002
+          "back_sides": 0.759,
+          "string_acoustic": 0.7095000000000001,
+          "acoustic_om_technique": 11.574500000000002
         }
       }
     ],

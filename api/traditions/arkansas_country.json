@@ -3,14 +3,14 @@
   "name": "Arkansas Country",
   "family": "country",
   "lineage": "Arkansas country formed along the Delta cotton belt and the Ozark foothills and reached record in the 1950s through the Memphis studios two hours east, codified by Johnny Cash, Sonny Burgess, Charlie Rich and Conway Twitty — 120–180 BPM slapped-upright-bass boom-chicka rhythm, single-coil tremolo-and-slapback electric lead, no drums or minimal brushed snare, and a low, flat, hymn-inflected vocal delivering Delta hardship and Pentecostal imagery in plain first-person narrative.",
-  "recipe": "classic Southern American mid-1950s arkansas country, functional Song, honky tonk era branch, pre commercial country, blues acoustic functional song australian bush ballad malian blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning cedar steel silk travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, upright bass, plain gut lamb gut whole lamb method double stops fiddle, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, pre muffled edge muffled brushes-and-sticks drum kit. sun studios memphis 1950-1968 indie-commercial sun studios memphis 706 union. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 828,
-  "score": 431.662,
+  "recipe": "classic Southern American mid-1950s arkansas country, functional Song, honky tonk era branch, pre commercial country, blues acoustic functional song malian blues st. louis blues. thick, worn fold, wide pitch sway, interlocked note trading. open d tuning cedar flatwound thomastik slide dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, growly gut upright bass, plain gut lamb gut whole lamb method double stops fiddle, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, pre muffled edge muffled brushes-and-sticks drum kit. sun studios memphis 1950-1968 indie-commercial sun studios memphis 706 union. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 833,
+  "score": 433.077,
   "config": {
     "traditions": [
       "arkansas_country",
-      "bush_ballad",
-      "malian_blues"
+      "malian_blues",
+      "st_louis_blues"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -31,42 +31,42 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 28.884999999999994,
-          "voice_quality": 12.875000000000002,
+          "voice_register": 28.384999999999994,
+          "voice_quality": 17.599999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 27.07,
-          "voice_articulation": 20.409999999999993,
-          "voice_microtone": 23.919999999999995,
-          "voice_tradition": 11.277499999999998,
-          "voice_mechanism_compound": 2.795,
-          "voice_estill_quality": 23.604999999999993,
-          "voice_speech_song": 28.924999999999997,
-          "voice_ensemble_config": 21.12499999999999,
+          "voice_vibrato": 27.819999999999993,
+          "voice_articulation": 21.384999999999994,
+          "voice_microtone": 24.244999999999994,
+          "voice_tradition": 10.53,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 18.705,
+          "voice_speech_song": 28.404999999999994,
+          "voice_ensemble_config": 23.20499999999999,
           "voice_ornament_system": 1.4949999999999999,
           "voice_pitch_organization": 1.3324999999999998,
-          "voice_processing_chain": 5.720000000000001,
-          "voice_multitrack_stack": 5.165
+          "voice_processing_chain": 4.875,
+          "voice_multitrack_stack": 5.135
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
-          "acoustic_technique": "acoustic_travis_picking",
-          "string_tuning": "open_g",
+          "acoustic_technique": "acoustic_bottleneck_slide",
+          "string_tuning": "open_d",
           "top_wood": "cedar",
           "back_sides": "rosewood_bs",
-          "string_acoustic": "silk_steel"
+          "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
-          "acoustic_technique": 23.705,
-          "string_tuning": 6.495,
-          "top_wood": 3.18,
+          "acoustic_technique": 16.139999999999997,
+          "string_tuning": 9.02,
+          "top_wood": 3.135,
           "back_sides": 0.95,
-          "string_acoustic": 2.04
+          "string_acoustic": 2
         }
       },
       {
@@ -86,29 +86,29 @@
           "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": 24.494999999999997,
-          "amp_make": 24.014999999999997,
-          "body_wood": 3.59,
-          "neck_wood": 3.59,
-          "fretboard": 3.085,
+          "electric_technique": 18.919999999999998,
+          "amp_make": 19.009999999999998,
+          "body_wood": 3.195,
+          "neck_wood": 3.195,
+          "fretboard": 3.04,
           "pickup_magnet": 1.5,
-          "string_material": 0.845,
-          "string_gauge": 2.285,
+          "string_material": 0.65,
+          "string_gauge": 2.24,
           "bridge": 1.5,
-          "scale_length": 3.27,
-          "finish": 0.45499999999999996,
-          "string_tuning": 4.81
+          "scale_length": 3.18,
+          "finish": 0.195,
+          "string_tuning": 9.23
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "steel_upright",
-          "upright_play": "arco_upright"
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.845,
-          "upright_play": 0.39
+          "upright_strings": 1.025,
+          "upright_play": 0.8749999999999999
         }
       },
       {
@@ -122,31 +122,31 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 24.399999999999995,
-          "fiddle_strings": 1.885,
-          "fiddle_bow": 1.24,
+          "bowed_technique": 17.525,
+          "fiddle_strings": 1.2349999999999999,
+          "fiddle_bow": 1.09,
           "fiddle_mute": 1.5,
-          "fiddle_articulation": 1.955,
+          "fiddle_articulation": 1.605,
           "fiddle_string_configuration": 0
         }
       },
       {
         "id": "harmonica",
         "slots": {
-          "harmonica_type": "octave_harm",
+          "harmonica_type": "chromatic_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
-          "harmonica_technique": "harm_folk_first_position",
+          "harmonica_technique": "harm_blues_cross",
           "harmonica_maker_school": "harmonica_hohner_marine_band",
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.845,
-          "harmonica_comb": 9.694999999999999,
-          "harmonica_reed": 9.459999999999999,
-          "harmonica_technique": 22.709999999999997,
-          "harmonica_maker_school": 5.6225000000000005,
-          "harmonica_tuning": 3.3149999999999995
+          "harmonica_type": 0.45499999999999996,
+          "harmonica_comb": 15.694999999999999,
+          "harmonica_reed": 15.414999999999997,
+          "harmonica_technique": 19.899999999999995,
+          "harmonica_maker_school": 12.454999999999998,
+          "harmonica_tuning": 6.434999999999999
         }
       },
       {
@@ -157,8 +157,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.824999999999996,
-          "drumhead": 3.6400000000000006,
+          "drum_technique": 21.709999999999994,
+          "drumhead": 3.3150000000000004,
           "drum_kit_kick_pedal": 0
         }
       }

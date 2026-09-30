@@ -1,0 +1,172 @@
+{
+  "id": "canadian_contemporary_country",
+  "name": "Canadian contemporary country",
+  "family": "vernacular",
+  "lineage": "A Canadian country discovery cluster whose verified roster includes Corb Lund, Colter Wall, Terri Clark, Dean Brody and others. The selected branch follows Lund’s acoustic western-song practice rather than interpreting contemporary as compulsory pop electronics.",
+  "recipe": "classic modern canadian contemporary country, functional Song, contemp main branch. thick, breath veiled tone, wide pitch sway, equal tempered. dreadnought acoustic guitar, k and k twin internal mounted acoustic faithful mandolin, upright bass, pre muffled edge muffled brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 436,
+  "score": 67.907,
+  "config": {
+    "traditions": [
+      "canadian_contemporary_country"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
+        },
+        "scores": {
+          "voice_register": 11.960999999999993,
+          "voice_quality": 1.6899999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 9.45,
+          "voice_articulation": -0.14,
+          "voice_microtone": 3.6415000000000006,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.6149999999999999,
+          "voice_estill_quality": 9.8845,
+          "voice_speech_song": 5.135,
+          "voice_ensemble_config": 1.8199999999999998,
+          "voice_ornament_system": 0.9099999999999997,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 2.068,
+          "voice_multitrack_stack": 1.3
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 2.45,
+          "string_tuning": 0,
+          "top_wood": 0.105,
+          "back_sides": 0.3045,
+          "string_acoustic": 0.47250000000000003
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "a_style",
+          "mandolin_top": "sitka_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_x_brace",
+          "mandolin_strings": "ghs_mandolin_silk_steel",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 2.45,
+          "mandolin_shape": 0.105,
+          "mandolin_top": 0.39,
+          "mandolin_back": 0.6194999999999999,
+          "mandolin_bracing": 0.759,
+          "mandolin_strings": 0.47250000000000003,
+          "mandolin_fingerboard": 0.0225,
+          "mandolin_pickup": 3.7700000000000005
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0.47250000000000003,
+          "upright_play": -0.05
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 1.95,
+          "drumhead": 3.304,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique"
+      ],
+      "mandolin": [
+        "acoustic_technique",
+        "mandolin_shape"
+      ],
+      "upright_bass": [
+        "upright_play"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "mandolin_shape": "a_style",
+      "upright_play": "pizz_upright",
+      "drum_technique": "brushes_and_sticks",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

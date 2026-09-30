@@ -5,7 +5,7 @@
   "lineage": "Short-lived Athenian movement of 1960-67 centred on the Plaka boîtes, combining French chanson phrasing with éntekhno lyricism — soft mid-range voices, nylon-string guitar as the primary accompaniment with double bass and occasional string quartet, tempered Western harmony rather than dromoi, slow to moderate 4/4 and 3/4, and intimate close-miked delivery to small seated audiences",
   "recipe": "classic Southern European early-1960s néo kýma, ballad Poetry, Greek entechno branch, chanson fado classic chanson, anglo singer song confessional60s chanson classique. extended whistle, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, lyon twisted plain Baroque setup lighter bass bar no endpin double bass, cold pressed weikert felt birch laminated maple laminated Asian spruce grand piano, sitka spruce bigleaf maple western maple French Polish shellac pad violin orchestral. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 714,
-  "score": 197.493,
+  "score": 197.248,
   "config": {
     "traditions": [
       "neo_kyma",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 4.629375,
+          "voice_register": 4.571875,
           "voice_quality": 14.429999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.1449999999999996,
           "voice_pitch_organization": 1.6900000000000002,
           "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 6.452750000000001
+          "voice_multitrack_stack": 6.452250000000001
         }
       },
       {
@@ -65,10 +65,10 @@
         "scores": {
           "acoustic_technique": 9.024375000000001,
           "string_tuning": 0,
-          "top_wood_classical": 7.0415,
+          "top_wood_classical": 7.00525,
           "bracing_classical": 0.2265,
-          "string_classical": 3.9675000000000002,
-          "attack_technique_cl": 3.0837499999999998
+          "string_classical": 3.9512500000000004,
+          "attack_technique_cl": 3.05125
         }
       },
       {
@@ -92,9 +92,9 @@
           "bass_top_wood": 0.375,
           "bass_back_wood": 0.42249999999999993,
           "bass_varnish": 0.375,
-          "bass_setup_period": 3.0631250000000003,
+          "bass_setup_period": 3.050625,
           "bass_play": 0.195,
-          "bass_rosin": 2.8843750000000004,
+          "bass_rosin": 2.8556250000000003,
           "bass_bow_stick": 1.2025
         }
       },
@@ -113,9 +113,9 @@
         },
         "scores": {
           "keyboard_technique": 2.87,
-          "grand_piano_size": 2.0675,
-          "grand_piano_brand": 2.0675,
-          "piano_hammer": 2.01375,
+          "grand_piano_size": 2.05125,
+          "grand_piano_brand": 2.05125,
+          "piano_hammer": 2.0012499999999998,
           "piano_rim": 4.368,
           "piano_soundboard": 2.79125,
           "piano_pinblock": 0.375,
@@ -139,11 +139,11 @@
         },
         "scores": {
           "bowed_technique": 1.3999999999999997,
-          "orch_strings": 0.959375,
+          "orch_strings": 0.955625,
           "orch_top_wood": 3.8436250000000003,
           "orch_back_wood": 1.7799999999999998,
           "orch_varnish": 3.95,
-          "orch_setup_period": 3.0631250000000003,
+          "orch_setup_period": 3.050625,
           "orch_bow": 0.49499999999999994,
           "orch_bow_stick": 1.2025,
           "orch_articulation": 1.4949999999999999,

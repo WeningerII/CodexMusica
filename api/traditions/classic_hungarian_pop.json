@@ -1,0 +1,163 @@
+{
+  "id": "classic_hungarian_pop",
+  "name": "Classic hungarian pop",
+  "family": "pop",
+  "lineage": "Historical Hungarian commercial pop represented by Neoton Família’s dance-oriented band and combined vocal sound. The selected Napraforgó/Santa Maria branch retains a three-part recorded vocal arrangement, keyboards, guitar, bass and drums, with no folk instrument inferred from nationality.",
+  "recipe": "classic modern classic hungarian pop, functional Song, pop rock branch. lead plus third fifth 3 part stack multitrack vocal stack, singing lead analog poly synth, classic rock soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 463,
+  "score": 45.924,
+  "config": {
+    "traditions": [
+      "classic_hungarian_pop"
+    ],
+    "instruments": [
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_natural"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.29475,
+          "multitrack_stack_era_aesthetic": -0.07,
+          "multitrack_stack_processing": 0.0315
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 11.64875,
+          "poly_archetypes": 1.95,
+          "poly_voices": 0.231,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_overdriven_lead",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "alnico_3",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": -0.07,
+          "amp_make": 1.8199999999999998,
+          "body_wood": 0.063,
+          "neck_wood": 0.1365,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.0315,
+          "string_material": 0.0315,
+          "string_gauge": 0.1995,
+          "bridge": 0.1365,
+          "scale_length": 0.168,
+          "finish": 0,
+          "string_tuning": 3.25
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 3.185,
+          "body_wood": 0.063,
+          "pickup_config": 0.3045,
+          "string_type": 4.875,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0.34299999999999997,
+          "bass_technique": 3.805,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_disco_four",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 0.7149999999999999,
+          "drumhead": 12.4415,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "multitrack_vocal_stack": [
+        "multitrack_stack_density",
+        "multitrack_stack_processing"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "body_wood",
+        "string_material"
+      ],
+      "electric_bass": [
+        "body_wood"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+      "multitrack_stack_processing": "multitrack_processing_natural",
+      "drum_technique": "sticks_disco_four",
+      "electric_technique": "electric_overdriven_lead",
+      "body_wood": "alder",
+      "string_material": "nickel_plated"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": []
+  }
+}
