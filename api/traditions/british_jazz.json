@@ -5,7 +5,7 @@
   "lineage": "Contemporary British jazz; selected London tenor-and-electric-piano quartet",
   "recipe": "classic modern british jazz, improv On Frame, American jazz branch. round tenor saxophone, steel reed lead solder tip canonical Wurlitzer ep voicing wurlitzer ep, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 390,
-  "score": 47.189,
+  "score": 46.988,
   "config": {
     "traditions": [
       "british_jazz"
@@ -27,7 +27,7 @@
           "sax_size": 1.3915,
           "sax_reed": 0.1785,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0.0315,
+          "sax_mouthpiece": 0,
           "sax_technique": -0.035,
           "sax_maker_school": 0.357
         }
@@ -44,7 +44,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "wurlitzer_use": 0.063,
-          "wurlitzer_ep_voice": 0.78,
+          "wurlitzer_ep_voice": 0.7364999999999999,
           "wurlitzer_model": -0.9085000000000001,
           "wurlitzer_reed_material": 1.56
         }
@@ -77,11 +77,11 @@
         },
         "scores": {
           "drum_technique": 7.8,
-          "drumhead": 0.0945,
+          "drumhead": 0.063,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.2835,
+          "shell_wood": 0.252,
           "shell_thickness": 0,
-          "bearing_edges": 0.1995,
+          "bearing_edges": 0.1365,
           "snare_wires": 0.147,
           "cymbal_alloy": 11.246999999999998,
           "cymbal_hammering": 11.641,

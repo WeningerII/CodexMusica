@@ -5,7 +5,7 @@
   "lineage": "Dutch drum-and-bass production networks represented by Noisia, Black Sun Empire, Icicle and IMANU. The selected branch follows Noisia’s documented combination of one-hit/sample-library or synthesized drums, software bass design and separately treated sounds; the broader Dutch scene is stylistically varied.",
   "recipe": "classic modern dutch drum and bass, bass System, bass descendants branch. sampler drum machine, native instruments fm8 modern software 8 operator sub bass fm synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 377,
-  "score": 16.58,
+  "score": 16.404,
   "config": {
     "traditions": [
       "dutch_dnb"
@@ -22,7 +22,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 0,
-          "sample_swing": 2.7925,
+          "sample_swing": 2.6365,
           "sample_processing": 0
         }
       },
@@ -39,7 +39,7 @@
           "electronic_technique": 8.775,
           "fm_algorithm": -0.035,
           "fm_modulator_ratio": 0,
-          "fm_polyphony": 0.15599999999999997,
+          "fm_polyphony": 0.1365,
           "fm_model_lineage": 1.1365
         }
       },

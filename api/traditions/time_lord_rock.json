@@ -5,7 +5,7 @@
   "lineage": "Doctor Who fan-music genre (Trock) begun in 2008 when Charlie McDonnell and Alex Day formed Chameleon Circuit and released through YouTube and DFTBA Records — bedroom-recorded pop-punk and acoustic power-pop at 120-160 BPM, close-miked doubled lead vocals over strummed acoustic and clean electric guitar, programmed or lightly played drums, and lyrics narrating specific episodes and characters.",
   "recipe": "classic late-2000s time lord rock, ballad Poetry, bedroom singer song branch, anglo singer song indie folk, pop punk distorted rock oshare kei skate punk. thick, breath veiled tone, straight note core, interlocked note trading. strummed open chord ringing overtones dreadnought acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 672,
-  "score": 392.708,
+  "score": 382.913,
   "config": {
     "traditions": [
       "time_lord_rock",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_octave_double_self"
         },
         "scores": {
-          "voice_register": 33.86500000000001,
+          "voice_register": 33.71500000000001,
           "voice_quality": 5.915000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.5924999999999998,
           "voice_articulation": 20.539999999999996,
           "voice_microtone": 31.724999999999998,
-          "voice_tradition": 19.76,
-          "voice_mechanism_compound": 8.365,
+          "voice_tradition": 18.02,
+          "voice_mechanism_compound": 7.075,
           "voice_estill_quality": 5.005000000000001,
           "voice_speech_song": 25.544999999999995,
-          "voice_ensemble_config": 20.725,
+          "voice_ensemble_config": 20.23,
           "voice_ornament_system": 4.615000000000001,
-          "voice_pitch_organization": 3.770000000000001,
+          "voice_pitch_organization": 3.545000000000001,
           "voice_processing_chain": 3.9000000000000004,
-          "voice_multitrack_stack": 4.095
+          "voice_multitrack_stack": 3.795
         }
       },
       {
@@ -58,14 +58,14 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "open_d",
           "top_wood": "cedar",
-          "back_sides": "maple_bs",
+          "back_sides": "koa_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 17.625000000000004,
+          "acoustic_technique": 17.490000000000002,
           "string_tuning": 0.52,
           "top_wood": 0.585,
-          "back_sides": 0.21,
+          "back_sides": 0.345,
           "string_acoustic": 0.585
         }
       },
@@ -87,17 +87,17 @@
         },
         "scores": {
           "electric_technique": 18.945,
-          "amp_make": 25.184999999999995,
+          "amp_make": 23.549999999999997,
           "body_wood": 0.585,
           "neck_wood": 0.585,
           "fretboard": 0.585,
           "pickup_magnet": 0,
-          "string_material": 0.3,
+          "string_material": 0.38999999999999996,
           "string_gauge": 0.585,
           "bridge": 0.585,
           "scale_length": 0.585,
           "finish": 0.15,
-          "string_tuning": 10.855
+          "string_tuning": 9.729999999999999
         }
       },
       {
@@ -105,19 +105,19 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 9.555,
-          "body_wood": 0.78,
+          "amp_make": 8.67,
+          "body_wood": 0.645,
           "pickup_config": 0.39,
-          "string_type": 17.95,
+          "string_type": 16.66,
           "scale_length_b": 0.585,
-          "fretted_or_not": 0.045,
+          "fretted_or_not": 0.135,
           "bass_technique": 29.945
         }
       },
@@ -143,10 +143,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 17.945000000000004,
-          "poly_archetypes": 8.125,
+          "electronic_technique": 18.17,
+          "poly_archetypes": 7.4799999999999995,
           "poly_voices": 0.4,
-          "poly_maker_lineage": -1.31
+          "poly_maker_lineage": -1.55
         }
       },
       {
@@ -159,7 +159,7 @@
         "scores": {
           "ukulele_size": 1.95,
           "ukulele_style": 1.4299999999999997,
-          "ukulele_wood": 0.8450000000000001
+          "ukulele_wood": 0.8
         }
       }
     ],

@@ -1,0 +1,114 @@
+{
+  "id": "swiss_singer_songwriter",
+  "name": "Swiss singer-songwriter",
+  "family": "vernacular",
+  "lineage": "Swiss singer-songwriters encompass multiple languages and acoustic-pop approaches. Bastian Baker’s documented guitar-based writing and pop-folk performance provides the selected branch.",
+  "recipe": "classic modern swiss singer-songwriter, ballad Poetry. thick, breath veiled tone, equal tempered, opera quality low larynx anchored. acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 287,
+  "score": 27.084,
+  "config": {
+    "traditions": [
+      "swiss_singer_songwriter"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 7.050000000000002,
+          "voice_quality": 2.0799999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.36,
+          "voice_articulation": 0,
+          "voice_microtone": 4.886500000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.453,
+          "voice_estill_quality": 2.03,
+          "voice_speech_song": 3.9650000000000003,
+          "voice_ensemble_config": 1.2765,
+          "voice_ornament_system": 2.03,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.234,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "silk_steel_om",
+          "acoustic_om_technique": "om_strummed_open"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0.054,
+          "back_sides": 0,
+          "string_acoustic": 0.3,
+          "acoustic_om_technique": 0.25
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition",
+        "voice_ensemble_config"
+      ],
+      "acoustic_guitar_om": [
+        "acoustic_om_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "legato_voice",
+      "acoustic_om_technique": "om_strummed_open",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Liquid Dub",
   "family": "electronic",
   "lineage": "Late-1990s onward UK and northern-European studio strand joining liquid drum-and-bass to dub techno production practice, associated with Calibre, Fanu, Rhythm & Sound-influenced producers and the Basic Channel lineage, marked by long tape and spring delay throws on single sustained chords, filtered sub bass under 170 BPM rolling breaks that feel half-time, mixing-desk performance in which parts are muted and reintroduced live, melodica and organ stabs, and wordless or heavily echoed vocal fragments.",
-  "recipe": "classic 1997-1999 liquid dub, bass System, dub descendants branch, uk soundsystem bass system, ambient experimental electric ambient house dubstep. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. hohner melodica canonical 1959 dub roots tradition melodica, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, sub bass analog poly synth, TR-909, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
-  "recipe_chars": 673,
-  "score": 253.234,
+  "recipe": "classic 1997-1999 liquid dub, bass System, dub descendants branch, uk soundsystem bass system, ambient experimental electric ambient house berlin school. balanced, breath veiled tone, breath pulsed, interlocked note trading. hohner melodica canonical 1959 dub roots tradition melodica, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass, sub bass analog poly synth, TR-909, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
+  "recipe_chars": 671,
+  "score": 241.718,
   "config": {
     "traditions": [
       "liquid_dub",
       "ambient_house",
-      "dubstep_140"
+      "berlin_school"
     ],
     "instruments": [
       {
@@ -18,20 +18,20 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "melodica_use": "melodica_dub",
-          "melodica_pitch": "melodica_alto",
+          "melodica_pitch": "melodica_bass",
           "melodica_maker_school": "melodica_hohner_canonical"
         },
         "scores": {
           "keyboard_technique": 0.245,
           "melodica_use": 14.249999999999998,
-          "melodica_pitch": 0.195,
+          "melodica_pitch": 0.35,
           "melodica_maker_school": 14.459999999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
@@ -40,13 +40,13 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 9.75,
-          "body_wood": 0.845,
-          "pickup_config": 0.195,
-          "string_type": 10.724999999999998,
-          "scale_length_b": 2.885,
+          "amp_make": 7.8,
+          "body_wood": 0.78,
+          "pickup_config": 0.39499999999999996,
+          "string_type": 7.930000000000001,
+          "scale_length_b": 1.3,
           "fretted_or_not": 0,
-          "bass_technique": 15.624999999999998
+          "bass_technique": 15.2
         }
       },
       {
@@ -58,7 +58,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 14.04,
+          "electronic_technique": 8.775,
           "poly_archetypes": 1.3,
           "poly_voices": 1.3,
           "poly_maker_lineage": -0.7350000000000001
@@ -68,26 +68,26 @@
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_techno",
+          "drum_machine_909_context": "drum_machine_909_house",
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
           "tr909_voice": 5.75,
-          "drum_machine_909_context": 1.2349999999999999,
-          "tr909_production_origin": 0
+          "drum_machine_909_context": 0.675,
+          "tr909_production_origin": 0.35
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "mix_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -95,25 +95,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 8.255,
+          "voice_register": 1.3,
+          "voice_quality": 5.655000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.93375,
-          "voice_articulation": 18.72,
-          "voice_microtone": 21.904999999999998,
-          "voice_tradition": 5.330000000000001,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 2.34,
-          "voice_speech_song": 18.915,
-          "voice_ensemble_config": 19.499999999999996,
-          "voice_ornament_system": 4.29,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 8.030000000000001,
-          "voice_multitrack_stack": 4.907500000000001
+          "voice_articulation": 18.785,
+          "voice_microtone": 21.124999999999996,
+          "voice_tradition": 6.70625,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 18.98,
+          "voice_ensemble_config": 19.564999999999998,
+          "voice_ornament_system": 3.5100000000000002,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 8.780000000000001,
+          "voice_multitrack_stack": 4.615000000000001
         }
       },
       {
@@ -121,16 +121,16 @@
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "akai_s1000",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 3.5749999999999997,
+          "electronic_technique": 5.450000000000001,
           "sampler_archetypes": 2.5,
-          "sampler_bit_depth": 0.7149999999999999,
-          "sampler_workflow": 5.6725,
-          "sampler_classic_context": 32.370000000000005
+          "sampler_bit_depth": 0.39499999999999996,
+          "sampler_workflow": 7.5475,
+          "sampler_classic_context": 30.485
         }
       }
     ],

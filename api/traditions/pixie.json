@@ -5,7 +5,7 @@
   "lineage": "Anglo-American female-fronted twee-adjacent indie pop cluster of roughly 2004-2012, centred on London, New York and Los Angeles and defined by Regina Spektor, Kate Nash, Lily Allen and Ingrid Michaelson — mid-tempo 90-120 BPM piano or ukulele-led songs, brushed or programmed light kit, glockenspiel and handclap sweeteners, close-miked conversational girlish soprano with spoken asides, hiccup phrasing and diaristic first-person lyrics, arranged in tight verse-chorus pop forms with chamber-pop string or brass cameos.",
   "recipe": "classic mid-2000s pixie, functional Song, pop rock branch, anglo singer song indie folk, alternative distorted rock college rock hamburger schule. thick, breath veiled tone, slow rate, interlocked note trading. block chord upright piano, ukulele, cedar phosphor bronze bronze strummed open chord ringing overtones parlor acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, mid attack plastic glockenspiel, plain gut sheep gut unsplit sitka spruce hard rock maple violin orchestral. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 715,
-  "score": 366.653,
+  "score": 358.581,
   "config": {
     "traditions": [
       "pixie",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
         },
         "scores": {
-          "voice_register": 40.29500000000002,
+          "voice_register": 39.51500000000002,
           "voice_quality": 8.515,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.16,
           "voice_articulation": 17.484999999999992,
           "voice_microtone": 35.32500000000001,
-          "voice_tradition": 22.42375,
+          "voice_tradition": 21.61375,
           "voice_mechanism_compound": 5.329999999999999,
           "voice_estill_quality": 5.3950000000000005,
           "voice_speech_song": 22.294999999999995,
           "voice_ensemble_config": 18.199999999999996,
-          "voice_ornament_system": 1.9399999999999997,
-          "voice_pitch_organization": 2.1449999999999996,
+          "voice_ornament_system": 2.09,
+          "voice_pitch_organization": 1.9499999999999997,
           "voice_processing_chain": 7.605,
-          "voice_multitrack_stack": 2.54
+          "voice_multitrack_stack": 2.33
         }
       },
       {
@@ -60,8 +60,8 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 19.075,
-          "upright_use": 3.79,
+          "keyboard_technique": 19.165,
+          "upright_use": 3.5949999999999998,
           "upright_piano_size": 0.345
         }
       },
@@ -88,11 +88,11 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 19.08875,
-          "string_tuning": 1.3649999999999998,
-          "top_wood_parlor": 4.135,
+          "acoustic_technique": 19.13375,
+          "string_tuning": 1.2187499999999998,
+          "top_wood_parlor": 3.895,
           "back_sides_parlor": 0.585,
-          "string_acoustic_parlor": 4.18
+          "string_acoustic_parlor": 3.94
         }
       },
       {
@@ -103,16 +103,16 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 9.685000000000002,
-          "body_wood": 4.225,
-          "pickup_config": 0.435,
-          "string_type": 20.445625,
-          "scale_length_b": 3.79,
-          "fretted_or_not": 0,
+          "amp_make": 8.794375,
+          "body_wood": 3.94,
+          "pickup_config": 0.39,
+          "string_type": 17.790625,
+          "scale_length_b": 3.5949999999999998,
+          "fretted_or_not": 0.135,
           "bass_technique": 20.17
         }
       },
@@ -138,14 +138,14 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "glockenspiel_size": 0.24,
-          "glockenspiel_mallet": 2.99
+          "glockenspiel_size": 0.09,
+          "glockenspiel_mallet": 2.795
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_sul_tasto",
+          "bowed_technique": "bowed_spiccato_articulated",
           "orch_strings": "plain_sheep_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
@@ -160,11 +160,11 @@
           "bowed_technique": -0.035,
           "orch_strings": 1.4299999999999997,
           "orch_top_wood": 1.8199999999999998,
-          "orch_back_wood": 10.595,
+          "orch_back_wood": 9.98,
           "orch_varnish": 0.12999999999999998,
           "orch_setup_period": 0.9099999999999999,
           "orch_bow": 0.195,
-          "orch_bow_stick": 2.99,
+          "orch_bow_stick": 2.345,
           "orch_articulation": 0.845,
           "orch_rosin": -0.035
         }

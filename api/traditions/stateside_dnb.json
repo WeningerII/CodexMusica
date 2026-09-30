@@ -1,0 +1,130 @@
+{
+  "id": "stateside_dnb",
+  "name": "Stateside drum and bass",
+  "family": "electronic",
+  "lineage": "United States drum-and-bass DJ, label and production networks represented by Dieselboy and the Planet of the Drums touring circuit. The selected dark dancefloor branch uses nervous breakbeat motion, a forceful synthesized bass riff and textural sampled layers; this is one authored production model within a geographically broad scene.",
+  "recipe": "classic modern stateside drum and bass, bass System, bass descendants branch. sampler drum machine, sub bass analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 335,
+  "score": 24.158,
+  "config": {
+    "traditions": [
+      "stateside_dnb"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 1.17,
+          "sample_bitdepth": 0.03712499999999999,
+          "sample_swing": 2.6365,
+          "sample_processing": -0.05
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "saw_single",
+          "filter_topology": "diode_cascade",
+          "envelope": "gated_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 8.775,
+          "oscillator": 0.273,
+          "filter_topology": 0,
+          "envelope": 0.3045,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.17,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.03712499999999999,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 7.93
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_parallel_blend",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "chopped_break",
+      "electronic_technique": "electronic_bass_sub",
+      "oscillator": "saw_single",
+      "filter_topology": "diode_cascade",
+      "envelope": "gated_env",
+      "modulation": "lfo_filter",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_parallel_blend",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

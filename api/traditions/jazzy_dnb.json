@@ -1,0 +1,163 @@
+{
+  "id": "jazzy_dnb",
+  "name": "Jazzy drum and bass",
+  "family": "electronic",
+  "lineage": "Jazz- and soul-inflected drum-and-bass production represented by LTJ Bukem and the Good Looking network. His first-person production account documents chopped original breaks, synthesizer/sample-CD atmospheres, Rhodes keyboards and extended sectional composition.",
+  "recipe": "classic British mid-1990s jazzy drum and bass, bass System, bass descendants branch. sampler drum machine, rhodes electric, low sub bass analog synth, sampler. treated studio. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 278,
+  "score": 31.428,
+  "config": {
+    "traditions": [
+      "jazzy_dnb"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 1.431,
+          "sample_bitdepth": 0.3,
+          "sample_swing": 0,
+          "sample_processing": 0.25
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_jazz",
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_far_bell"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "rhodes_model": 4.7410000000000005,
+          "rhodes_use": 0.39,
+          "rhodes_tine_material": -0.7,
+          "rhodes_hammer_tip": -0.7,
+          "rhodes_pickup_position": 0.3
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "svf",
+          "envelope": "sustain_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 7.475,
+          "oscillator": 7.279999999999999,
+          "filter_topology": 0.6,
+          "envelope": 0.3,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.431,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.3,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 7.93
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "rhodes_electric": [
+        "keyboard_technique",
+        "rhodes_model",
+        "rhodes_use",
+        "rhodes_hammer_tip",
+        "rhodes_pickup_position"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_uk_jungle_dubplate",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_mackie_8bus_90s",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay",
+      "fx_lexicon_224"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "chopped_break",
+      "keyboard_technique": "keyboard_jazz_comping",
+      "rhodes_model": "rhodes_mark1_stage",
+      "rhodes_use": "rhodes_jazz",
+      "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+      "rhodes_pickup_position": "rhodes_pickup_far_bell",
+      "electronic_technique": "electronic_bass_sub",
+      "oscillator": "sine_osc",
+      "filter_topology": "svf",
+      "envelope": "sustain_env",
+      "modulation": "no_mod",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_mackie_8bus_90s",
+    "chain_fx": [
+      "digital_delay",
+      "fx_lexicon_224"
+    ]
+  }
+}

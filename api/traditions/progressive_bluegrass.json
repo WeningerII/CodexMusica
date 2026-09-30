@@ -3,9 +3,9 @@
   "name": "Progressive Bluegrass",
   "family": "country",
   "lineage": "American acoustic string-band style that opened bluegrass instrumentation to jazz and rock materials from the late 1960s onward, driven by the Country Gentlemen, New Grass Revival with Sam Bush and Bela Fleck, David Grisman's 'Dawg' quintet and Tony Rice, retaining banjo, mandolin, fiddle, dreadnought guitar and upright bass while adding extended and modal harmony, long improvised solos over non-tonic vamps, rock and reggae backbeats, electric bass and amplification, odd-metre passages, and repertoire drawn from Beatles, Dylan and bebop sources.",
-  "recipe": "classic North American 1967-1969 progressive bluegrass, improv On Frame, bluegrass branch, americana country, jam free improv on frame jamgrass hellbilly music. thick, register break ornamental, straight note core, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, steel double stops fiddle, sitka spruce spruce maple bronze flatpicked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, treble-extended sustaining steel upright Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 879,
-  "score": 638.57,
+  "recipe": "classic North American 1967-1969 progressive bluegrass, improv On Frame, bluegrass branch, americana country, jam free improv on frame jamgrass hellbilly music. thick, register break ornamental, straight note core, interlocked note trading. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, steel double stops fiddle, sitka spruce spruce maple bronze flatpicked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, treble-extended sustaining steel upright Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 886,
+  "score": 625.43,
   "config": {
     "traditions": [
       "progressive_bluegrass",
@@ -21,23 +21,23 @@
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
           "banjo_play": "three_finger",
-          "banjo_rim_wood": "banjo_block_rim_maple",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
           "banjo_neck_wood": "banjo_maple_neck",
           "banjo_strings": "banjo_medium_bluegrass",
           "banjo_bridge": "banjo_maple_ebony_bridge",
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 2.34,
+          "banjo_back": 2.19,
           "tone_ring": 16.375,
-          "banjo_head": 23.92,
-          "banjo_pot": 2.88,
-          "banjo_play": 7.434999999999999,
-          "banjo_rim_wood": 17.26,
-          "banjo_neck_wood": 17.41,
-          "banjo_strings": 18.04,
-          "banjo_bridge": 17.455,
-          "banjo_setup_period": 41.519999999999996
+          "banjo_head": 23.68,
+          "banjo_pot": 2.64,
+          "banjo_play": 6.549999999999999,
+          "banjo_rim_wood": 16.72,
+          "banjo_neck_wood": 16.525,
+          "banjo_strings": 17.29,
+          "banjo_bridge": 16.57,
+          "banjo_setup_period": 39.36
         }
       },
       {
@@ -55,12 +55,12 @@
         "scores": {
           "acoustic_technique": 16.325,
           "mandolin_shape": 16.375,
-          "mandolin_top": 16.57,
+          "mandolin_top": 16.525,
           "mandolin_back": 16.57,
           "mandolin_bracing": 16.824999999999996,
-          "mandolin_strings": 4.4350000000000005,
+          "mandolin_strings": 4.195,
           "mandolin_fingerboard": 0.15,
-          "mandolin_pickup": 26.000000000000004
+          "mandolin_pickup": 25.565
         }
       },
       {
@@ -75,8 +75,8 @@
         "scores": {
           "bowed_technique": 34.4,
           "fiddle_strings": 2.535,
-          "fiddle_bow": 2.34,
-          "fiddle_mute": 0.495,
+          "fiddle_bow": 2.19,
+          "fiddle_mute": 0.3,
           "fiddle_articulation": 1
         }
       },
@@ -91,10 +91,10 @@
         },
         "scores": {
           "acoustic_technique": 16.325,
-          "string_tuning": 0.52,
-          "top_wood": 2.34,
-          "back_sides": 2.34,
-          "string_acoustic": 2.34
+          "string_tuning": 0.445,
+          "top_wood": 2.19,
+          "back_sides": 2.19,
+          "string_acoustic": 2.19
         }
       },
       {
@@ -105,7 +105,7 @@
         },
         "scores": {
           "upright_strings": 2.535,
-          "upright_play": 3.15
+          "upright_play": 3
         }
       },
       {
@@ -116,9 +116,9 @@
           "resonator_technique": "resonator_lap_steel_position"
         },
         "scores": {
-          "resonator_body": 9.59,
-          "resonator_strings": 8.235,
-          "resonator_technique": 8.395
+          "resonator_body": 8.704999999999998,
+          "resonator_strings": 7.349999999999999,
+          "resonator_technique": 7.509999999999999
         }
       },
       {
@@ -142,21 +142,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 29.284999999999993,
+          "voice_register": 29.23999999999999,
           "voice_quality": 16.22,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 15.524999999999997,
           "voice_articulation": 23.725,
-          "voice_microtone": 26.455,
+          "voice_microtone": 26.094999999999995,
           "voice_tradition": 6.76,
           "voice_mechanism_compound": 5.654999999999999,
-          "voice_estill_quality": 19.744999999999997,
+          "voice_estill_quality": 19.354999999999997,
           "voice_speech_song": 26.715,
           "voice_ensemble_config": 23.009999999999998,
-          "voice_ornament_system": 2.145,
-          "voice_pitch_organization": 0.895,
-          "voice_processing_chain": 6.275,
+          "voice_ornament_system": 2.04,
+          "voice_pitch_organization": 0.745,
+          "voice_processing_chain": 5.825,
           "voice_multitrack_stack": 4.7125
         }
       },
@@ -168,17 +168,17 @@
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 20.095,
+          "amp_make": 20.049999999999997,
           "body_wood": 0.6900000000000001,
           "pickup_config": 0.195,
-          "string_type": 12.674999999999997,
+          "string_type": 12.074999999999998,
           "scale_length_b": 0.345,
-          "fretted_or_not": 0,
-          "bass_technique": 15.384999999999998
+          "fretted_or_not": 0.045,
+          "bass_technique": 15.474999999999998
         }
       }
     ],

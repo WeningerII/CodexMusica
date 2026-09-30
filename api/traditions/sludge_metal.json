@@ -3,9 +3,9 @@
   "name": "Sludge metal",
   "family": "rock",
   "lineage": "Southern US doom-and-hardcore fusion genre that emerged in late-1980s New Orleans — codified through Eyehategod (the NOLA sludge band, In the Name of Suffering 1990, Take As Needed for Pain 1993), Crowbar (Kirk Windsteins band, Crowbar 1993), Acid Bath (When the Kite String Pops 1994), Down (Phil Anselmos NOLA supergroup); fuses doom metal slow-tempo and Sabbath chord vocabulary with hardcore punk vocal aggression and Southern blues-rock harmonic foundations",
-  "recipe": "classic Midwestern American 1987-1989 sludge metal, distorted Rock, sludge branch, doom metal stoner metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 524,
-  "score": 497.763,
+  "recipe": "classic Midwestern American 1987-1989 sludge metal, distorted Rock, sludge branch, doom metal stoner metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple ebony humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 520,
+  "score": 498.971,
   "config": {
     "traditions": [
       "sludge_metal",
@@ -20,29 +20,29 @@
           "amp_make": "amp_british_orange",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 34.453,
-          "amp_make": 44.64399999999999,
+          "electric_technique": 34.692625,
+          "amp_make": 44.78649999999999,
           "body_wood": 11.83,
           "neck_wood": 1.17,
           "fretboard": 1.17,
-          "pickup_magnet": 0.195,
+          "pickup_magnet": 0.21937500000000001,
           "pickup_winding": 1.17,
           "string_material": 1.17,
-          "bridge": 1.2704999999999997,
+          "bridge": 1.3649999999999998,
           "scale_length": 13.78,
           "string_gauge": 4.225,
-          "finish": 0,
+          "finish": 0.005625,
           "string_tuning": 30.355
         }
       },
@@ -58,11 +58,11 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 44.64399999999999,
+          "amp_make": 44.78649999999999,
           "body_wood": 1.3649999999999998,
           "pickup_config": 0,
-          "string_type": 30.6175,
-          "scale_length_b": 1.947,
+          "string_type": 30.839875,
+          "scale_length_b": 2.133,
           "fretted_or_not": 0.195,
           "bass_technique": 27.07
         }
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24,
+          "drum_technique": 24.005625,
           "drumhead": 1.3649999999999998,
           "drum_kit_kick_pedal": 0
         }
@@ -90,7 +90,7 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -101,21 +101,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 33.937500000000014,
-          "voice_quality": 38.529500000000006,
+          "voice_register": 33.90000000000001,
+          "voice_quality": 38.525000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.4445,
+          "voice_vibrato": 7.4399999999999995,
           "voice_articulation": 14.754999999999995,
-          "voice_microtone": 24.183999999999997,
-          "voice_tradition": 4.483500000000001,
-          "voice_mechanism_compound": 41.993,
+          "voice_microtone": 24.225624999999997,
+          "voice_tradition": 4.42,
+          "voice_mechanism_compound": 42.171125,
           "voice_estill_quality": 3.250000000000001,
           "voice_speech_song": 15.729999999999995,
           "voice_ensemble_config": 15.794999999999993,
           "voice_ornament_system": 0.9749999999999999,
           "voice_pitch_organization": 2.73,
-          "voice_processing_chain": 6.405,
+          "voice_processing_chain": 6.440625000000001,
           "voice_multitrack_stack": 5.1025
         }
       }

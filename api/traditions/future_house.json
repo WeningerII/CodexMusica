@@ -3,14 +3,14 @@
   "name": "Future house",
   "family": "electronic",
   "lineage": "Mid-2010s house subgenre developed by Tchami (French producer), characterized by metallic-and-rubbery synth-bass leads (the \"future bass\" 2017-onward overlap), filtered-clean groove production, and emphasis on rolling-bass-pattern over four-on-the-floor structural foundation. Oliver Heldens' \"Gecko\" (2014) and Tchami's 2014-2015 productions inaugurated the canonical sound; Don Diablo, Curbi, and the broader Spinnin' Records-Mixmash Records rosters extended the genre.",
-  "recipe": "classic 2014-2015 future house, electronic Dance, house branch, uk soundsystem bass system speed garage bassline. TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 343,
-  "score": 76.41,
+  "recipe": "classic 2014-2015 future house, electronic Dance, house branch, uk soundsystem bass system instrumental grime speed garage. TR-808, low sub bass analog synth. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 357,
+  "score": 73.925,
   "config": {
     "traditions": [
       "future_house",
-      "speed_garage_1990s",
-      "bassline_uk"
+      "instrumental_grime",
+      "speed_garage_1990s"
     ],
     "instruments": [
       {
@@ -18,12 +18,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_roland_osaka_canonical"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 11.602500000000001,
-          "drum_machine_808_context": 10.92,
-          "tr808_production_origin": 0.7150000000000001
+          "tr808_voice": 11.049999999999997,
+          "drum_machine_808_context": 11.114999999999998,
+          "tr808_production_origin": 0
         }
       },
       {
@@ -36,10 +36,10 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 13.65,
-          "oscillator": 12.610000000000001,
-          "filter_topology": 12.805000000000001,
-          "envelope": 0.845,
+          "electronic_technique": 13.292499999999997,
+          "oscillator": 12.805,
+          "filter_topology": 12.349999999999998,
+          "envelope": 0.65,
           "modulation": 0
         }
       }

@@ -1,0 +1,358 @@
+{
+  "changed_ids": [
+    "american_clipper_shanty",
+    "american_drinking_song",
+    "art_rock",
+    "bluegrass_gospel",
+    "cool_jazz_vocal",
+    "drinking_celtic_pair",
+    "drinking_german_trinklied",
+    "folk_punk",
+    "future_house",
+    "german_trinklied",
+    "gothic_americana",
+    "hard_bop",
+    "honky_tonk",
+    "industrial",
+    "irish_pub_song",
+    "mathcore",
+    "melodic_death_metal",
+    "newfoundland_outport_shanty",
+    "noise_rock",
+    "psychedelic_rock",
+    "red_dirt",
+    "singer_songwriter",
+    "sludge_metal",
+    "speed_metal",
+    "technical_death_metal",
+    "tropicalia"
+  ],
+  "verification": "Original REGRESSION_SERIAL=1 node scripts/regression_recipes.js passed 1149/1149 after per-fixture --update, no test logic changed.",
+  "scope": "26 individually reviewed expected-output changes under the unchanged original optimizer. Acceptance concerns these differences, not certification of every historical descriptor in the pre-existing catalog.",
+  "reviews": {
+    "american_clipper_shanty": [
+      {
+        "id": "american_clipper_shanty",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["american_clipper_shanty", "british_folk_revival", "chinese_minyao"],
+        "new_neighbors": ["american_clipper_shanty", "british_folk_revival", "antifolk_nyc"],
+        "changed_slots": [
+          ["voice", "voice_vibrato", "delayed_vibrato", "diaphragm_vibrato"],
+          [
+            "voice",
+            "voice_ornament_system",
+            "voice_ornament_jingju_role",
+            "voice_ornament_connemara_unaccompanied"
+          ]
+        ],
+        "unresolved": []
+      }
+    ],
+    "american_drinking_song": [
+      {
+        "id": "american_drinking_song",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["american_drinking_song", "gothic_americana", "gothic_country"],
+        "new_neighbors": [
+          "american_drinking_song",
+          "newfoundland_outport_shanty",
+          "german_trinklied"
+        ],
+        "changed_slots": [
+          ["voice", "voice_quality", "aspirated_voice", "crooner_voice"],
+          [
+            "voice",
+            "voice_tradition",
+            "mediterranean_demotic_tradition",
+            "scottish_gaelic_taladh_tradition"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_harmonizer_ai_trained_stack",
+            "voice_processing_retune_10_50ms_natural"
+          ],
+          ["acoustic_guitar_dread", "string_acoustic", "martin_lifespan", "phosphor_bronze"],
+          ["banjo_5_string", "tone_ring", "wood_ring", "tubaphone"],
+          ["banjo_5_string", "banjo_rim_wood", "banjo_3_ply_maple_gibson", "banjo_walnut_rim"],
+          [
+            "banjo_5_string",
+            "banjo_bridge",
+            "banjo_maple_ebony_bridge",
+            "banjo_compensated_bridge"
+          ],
+          ["harmonica", "harmonica_comb", "pearwood_comb", "bamboo_comb"],
+          ["harmonica", "harmonica_reed", "double_brass_harm", "stainless_harm"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "art_rock": [
+      {
+        "id": "art_rock",
+        "decision": "accept",
+        "reason": "Classic garage rock replaces psychedelic rock within the unchanged distortedRock.classic cross-reference. New garage entry is correctly source-scoped to the1960s Sonics guitar/sax/piano ensemble. The material wording rubber refers to existing hard_rubber_mp mouthpiece, not a rubber saxophone body: actual config retains rose_brass_sax. Multiphonics and expanded keyboard/guitar ensemble remain. Voice and descriptor-budget changes are ordinary unpinned optimizer output."
+      }
+    ],
+    "bluegrass_gospel": [
+      {
+        "id": "bluegrass_gospel",
+        "decision": "accept",
+        "reason": "Only the banjo rim realization changes from three-ply maple to existing block-rim maple. Inspection confirms this is a real pre-existing banjo_rim_wood choice; resonator, flathead, three-finger playing and bluegrass setup remain. No source pins freeze the rim, and the source includes continuing modern gospel-bluegrass performers."
+      }
+    ],
+    "cool_jazz_vocal": [
+      {
+        "id": "cool_jazz_vocal",
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["improvOnFrame.latinJazz"],
+        "reason": "Existing Latin-jazz cross-reference now finds jazz venezolano and jazz cubano instead of descarga and ethio-jazz. Saxophone descriptor emphasis changes from tenor to legato while the roster and original cool-vocal source remain intact. This is permitted neighbor/optimizer variation; existing A415 piano and legacy vocal/anatomical language predate this tranche and are not certified anew.",
+        "real_new_data_error": null
+      }
+    ],
+    "drinking_celtic_pair": [
+      {
+        "id": "drinking_celtic_pair",
+        "source_ids": ["irish_pub_song", "scottish_bothy_ballad"],
+        "decision": "accept",
+        "reason": "Anti-folk replaces indie folk as an existing broad songwriter neighbor. Both fixture sources/extras are unchanged and unpinned; acoustic guitar, fiddle, whistle and bodhran realization remains unchanged. Neighbor is not asserted to be Irish/Scottish historical lineage."
+      }
+    ],
+    "drinking_german_trinklied": [
+      {
+        "id": "drinking_german_trinklied",
+        "source_ids": ["german_trinklied"],
+        "decision": "accept",
+        "reason": "Neighbor changes from gothic Americana to existing American drinking song through the unchanged drinkingSong.americas cross-reference. Accordion, room and chain remain. The questionable Cape Verdean label already exists in expected output and was not introduced by this increment; no broader repair undertaken."
+      }
+    ],
+    "folk_punk": [
+      {
+        "id": "folk_punk",
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["balladPoetry.angloSingerSong.indieFolk"],
+        "reason": "The printed bass-body mahogany word disappears, while the same folk/punk instrument roster, neighbor labels, room, chain and underlying unpinned source parts remain. Normal material selection/compression does not require this adjective to survive; no new-data reference/default problem is demonstrated.",
+        "real_new_data_error": null
+      }
+    ],
+    "future_house": [
+      {
+        "id": "future_house",
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["bassSystem.ukSoundsystem"],
+        "reason": "The pre-existing UK-soundsystem cross-reference now selects instrumental grime alongside speed garage instead of bassline. The analog-synth phrase adds low to sub bass; the two-instrument roster and chain remain intact. This is a permitted bass-scene neighbor and existing synth alternative, not a new physical instrument or a forced grime-origin claim.",
+        "real_new_data_error": null
+      }
+    ],
+    "german_trinklied": [
+      {
+        "id": "german_trinklied",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["german_trinklied", "cape_verdean_batuko", "gothic_americana"],
+        "new_neighbors": ["german_trinklied", "cape_verdean_batuko", "american_drinking_song"],
+        "changed_slots": [
+          [
+            "voice",
+            "voice_ornament_system",
+            "voice_ornament_none",
+            "voice_ornament_connemara_unaccompanied"
+          ]
+        ],
+        "unresolved": []
+      }
+    ],
+    "gothic_americana": [
+      {
+        "id": "gothic_americana",
+        "decision": "accept",
+        "reason": "Texas country-folk/neofolk are eligible Anglo singer-songwriter neighbors. Unpinned fiddle approach and baritone scale vary; all eight source sound roles, Denver basement room and signal chain remain.",
+        "selected_traditions": ["gothic_americana", "texas_country_folk_storyteller", "neofolk"],
+        "problems": []
+      }
+    ],
+    "hard_bop": [
+      {
+        "id": "hard_bop",
+        "decision": "accept",
+        "reason": "Jazz organ is an eligible soul-jazz neighbor; tenor replaces alto as an unpinned saxophone-size option. All six original acoustic sound roles and the Van Gelder environment remain; no organ is inserted into the ensemble.",
+        "selected_traditions": ["hard_bop", "soul_jazz", "jazz_organ"],
+        "problems": []
+      }
+    ],
+    "honky_tonk": [
+      {
+        "id": "honky_tonk",
+        "decision": "accept",
+        "reason": "Laurel Canyon is eligible under the existing Anglo singer-songwriter cross-reference. Fender tweed replaces the unpinned guitar amplifier; upright-bass/kit descriptors vary while steel, guitar, bass, drums, fiddle and tack/upright piano roles remain.",
+        "selected_traditions": [
+          "honky_tonk",
+          "texas_country_folk_storyteller",
+          "laurel_canyon_70s"
+        ],
+        "problems": []
+      }
+    ],
+    "industrial": [
+      {
+        "id": "industrial",
+        "decision": "accept",
+        "reason": "Existing voice-isolated experimental-rock cross-reference admits garage psych/drone rock. Unpinned onset changes are valid; analog drums, synth, vocoder, concrete-basement room and distortion/tape chain remain.",
+        "selected_traditions": ["industrial", "garage_psych", "drone_rock"],
+        "problems": []
+      }
+    ],
+    "irish_pub_song": [
+      {
+        "id": "irish_pub_song",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["irish_pub_song", "indie_folk_2000s", "chinese_minyao"],
+        "new_neighbors": ["irish_pub_song", "antifolk_nyc", "new_weird_america"],
+        "changed_slots": [["acoustic_guitar_om", "string_tuning", "drop_d", "open_d"]],
+        "unresolved": []
+      }
+    ],
+    "mathcore": [
+      {
+        "id": "mathcore",
+        "decision": "accept",
+        "reason": "Garage psych replaces British post-rock as an eligible experimental-rock neighbor. Actual guitar, bass, kit and voice settings/environment are otherwise unchanged; no new invalid source reference.",
+        "selected_traditions": ["mathcore", "garage_psych", "nintendocore"],
+        "problems": []
+      }
+    ],
+    "melodic_death_metal": [
+      {
+        "id": "melodic_death_metal",
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["distortedRock.metal.power"],
+        "reason": "The pre-existing power-metal cross-reference selects brazilian power metal instead of neoclassical metal. The guitar/bass/drum/voice recipe and Gothenburg environment are unchanged; this is regional neighbor availability within the already selected branch, not an inserted source cross-reference or mandatory Brazilian origin.",
+        "real_new_data_error": null
+      }
+    ],
+    "newfoundland_outport_shanty": [
+      {
+        "id": "newfoundland_outport_shanty",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["newfoundland_outport_shanty", "antifolk_nyc", "chinese_minyao"],
+        "new_neighbors": [
+          "newfoundland_outport_shanty",
+          "antifolk_nyc",
+          "texas_country_folk_storyteller"
+        ],
+        "changed_slots": [
+          ["voice", "voice_vibrato", "delayed_vibrato", "terminal_vibrato"],
+          [
+            "voice",
+            "voice_tradition",
+            "japanese_min_yo_tradition",
+            "mediterranean_demotic_tradition"
+          ],
+          ["voice", "voice_estill_quality", "voice_estill_opera", "voice_estill_nasal_twang"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "noise_rock": [
+      {
+        "id": "noise_rock",
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["distortedRock.experimental", "distortedRock.alternative"],
+        "reason": "Only the automatically selected experimental/alternative-rock neighbor changes from canadian psychedelic rock to boston rock. The pre-existing experimental and alternative cross-references permit that adjacency; source roster, actual parts, room and chain are unchanged. No new historical origin is imposed on the noise-rock source record.",
+        "real_new_data_error": null
+      }
+    ],
+    "psychedelic_rock": [
+      {
+        "id": "psychedelic_rock",
+        "decision": "accept",
+        "reason": "Experimental neighbor ordering changes to garage psych / Canadian psychedelic rock. Garage psych is source-backed within the same experimental-rock node; instrument/chain text is unchanged. No new incorrect parent or cross-reference."
+      }
+    ],
+    "red_dirt": [
+      {
+        "id": "red_dirt",
+        "decision": "accept",
+        "reason": "Existing neofolk replaces indie folk in the broad singer-songwriter neighbor slot, with valid existing silk-and-steel parlor and nickel electric-string selections. Neofolk is a loose sonic neighbor, not a genealogy assertion or a new classification of Red Dirt. Main country/neo-traditional parent and source/extras are unchanged; no malformed new-source reference found."
+      }
+    ],
+    "singer_songwriter": [
+      {
+        "id": "singer_songwriter",
+        "decision": "accept",
+        "reason": "Scottish americana is eligible under the existing Americana cross-reference with isolated voice_quality. Valid unpinned guitar/harmonica alternatives and compressed wording change; piano and Hollywood recording context remain.",
+        "selected_traditions": ["singer_songwriter", "scottish_americana", "gothic_country"],
+        "problems": []
+      }
+    ],
+    "sludge_metal": [
+      {
+        "id": "sludge_metal",
+        "decision": "accept",
+        "reason": "Only the unpinned humbucker-guitar fretboard changes from pau ferro to ebony. Both are valid existing choices; neighbors, rhythm-section roles and Orange-amplifier/room/chain context remain.",
+        "selected_traditions": ["sludge_metal", "stoner_metal", "doom"],
+        "problems": []
+      }
+    ],
+    "speed_metal": [
+      {
+        "id": "speed_metal",
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["distortedRock.metal.power"],
+        "reason": "The existing power-metal cross-reference substitutes brazilian power metal for neoclassical metal. All other displayed equipment/voice/recording text is unchanged. The pre-existing brushes-and-sticks wording is not introduced by the new data; no old row or shared default changed.",
+        "real_new_data_error": null
+      }
+    ],
+    "technical_death_metal": [
+      {
+        "id": "technical_death_metal",
+        "classification": "permitted_neighbor_optimizer_alternative",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "source_crossRefs": ["distortedRock.metal.prog"],
+        "reason": "The existing prog-metal cross-reference substitutes brazilian progressive metal for math metal while progressive metal remains. The newly shown mahogany bass-body word is an eligible existing material choice under the unpinned optimizer. It is not a new material/default, a new instrument, or an edited technical-death source recipe.",
+        "real_new_data_error": null
+      }
+    ],
+    "tropicalia": [
+      {
+        "id": "tropicalia",
+        "decision": "accept",
+        "reason": "Experimental-rock neighbor changes from post-rock to garage psych; newer garage psych is correctly parented to distortedRock.experimental and source-scoped to fuzzed guitar-band practice. Tropicalia source/extras remain exact-equal. Electric-guitar/voice/cavaquinho optimizer choices vary, but Brazilian acoustic/berimbau/cavaquinho and electric-band core remain; no wrong new data reference identified."
+      }
+    ]
+  }
+}

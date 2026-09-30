@@ -1,0 +1,130 @@
+{
+  "id": "breakbeat",
+  "name": "Breakbeat",
+  "family": "electronic",
+  "lineage": "A broad break-led electronic dance discovery field. The selected early Prodigy branch is grounded in Liam Howlett’s direct account of reconstructing snippets of live drum breaks, reinforcing them with drum-machine hits and building sampled and synthesized hooks.",
+  "recipe": "classic modern breakbeat, bass System, bass descendants branch. sampler drum machine, analog synth, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 254,
+  "score": 11.816,
+  "config": {
+    "traditions": [
+      "breakbeat"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 1.431,
+          "sample_bitdepth": 0,
+          "sample_swing": 0,
+          "sample_processing": -0.05
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "oscillator": 0.40950000000000003,
+          "filter_topology": 3.9,
+          "envelope": 0.1995,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.431,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 3.6399999999999997
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_mackie_8bus_90s",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "chopped_break",
+      "electronic_technique": "electronic_lead_line",
+      "oscillator": "saw_single",
+      "filter_topology": "transistor_ladder",
+      "envelope": "pluck_env",
+      "modulation": "no_mod",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_mackie_8bus_90s",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

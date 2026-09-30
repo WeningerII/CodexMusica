@@ -1,0 +1,96 @@
+{
+  "id": "scottish_folk",
+  "name": "Scottish folk",
+  "family": "vernacular",
+  "lineage": "Scottish folk includes distinct local song and instrumental traditions. Aly Bain and Phil Cunningham’s documented fiddle-and-accordion duo supplies one contemporary instrumental branch, with Bain’s Shetland lineage and Cunningham’s Edinburgh background.",
+  "recipe": "classic modern scottish folk, improv On Frame, Celtic traditional branch. fiddle, responsive traditional leather accordion. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 261,
+  "score": 8.445,
+  "config": {
+    "traditions": [
+      "scottish_folk"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "pizz"
+        },
+        "scores": {
+          "bowed_technique": 3.7315,
+          "fiddle_strings": 0.063,
+          "fiddle_bow": 0.105,
+          "fiddle_mute": 0.1365,
+          "fiddle_articulation": 0.39
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_maker_unspecified"
+        },
+        "scores": {
+          "free_reed_technique": 0.5315,
+          "accordion_reed_material": 0.3045,
+          "musette_offset": 0.105,
+          "reed_config": 0.7559999999999999,
+          "bellows": 1.95,
+          "voicing_chamber": 0.147,
+          "accordion_maker_school": 0
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique"
+      ],
+      "accordion": [
+        "free_reed_technique",
+        "musette_offset",
+        "accordion_maker_school"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "bowed_technique": "bowed_celtic_session",
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "accordion_maker_school": "accordion_maker_unspecified",
+      "musette_offset": "dry_tuning"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

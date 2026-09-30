@@ -5,7 +5,7 @@
   "lineage": "Japanese jazz-rock fusion; selected Hiromi Sonicbloom piano/electric quartet",
   "recipe": "classic modern japanese jazz fusion, improv On Frame, fusion branch. soft felt lacquer voiced 17 ply hard rock maple grand piano, humbucker electric guitar, electric bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 385,
-  "score": 43.534,
+  "score": 43.625,
   "config": {
     "traditions": [
       "japanese_jazz_fusion"
@@ -64,7 +64,7 @@
           "string_material": 0.4095,
           "bridge": 0.1365,
           "scale_length": 0.273,
-          "string_gauge": 0.7909999999999999,
+          "string_gauge": 0.8819999999999999,
           "finish": 0,
           "string_tuning": 0
         }

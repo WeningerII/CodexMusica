@@ -3,14 +3,14 @@
   "name": "Atmospheric post-metal",
   "family": "rock_punk",
   "lineage": "Atmosphere-centered strand of post-metal represented by Cult of Luna, extending heavy guitar-bass-drums writing with keyboards, long dynamic arcs and passages of reduced density. The Long Road North documents an Umeå-centered recording and writing practice. This selected arrangement places clean arpeggiation and sustained electronic texture beside distorted peaks and a textural harsh vocal, rather than treating the label as a separate universal origin story.",
-  "recipe": "classic modern atmospheric post-metal, distorted Rock, post metal branch, experimental distorted rock, ambient experimental electric illbient british post-rock. thick, interlocked note trading, equal tempered, modern pop training. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier low output no compression humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, pad like pad analog synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 635,
-  "score": 99.4,
+  "recipe": "classic modern atmospheric post-metal, distorted Rock, post metal branch, experimental distorted rock, ambient experimental electric illbient hauntology. thick, interlocked note trading, equal tempered, modern pop training. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany stainless steel roundwound electric bass, sticks backbeat drum kit, pad like pad analog synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 647,
+  "score": 98.37,
   "config": {
     "traditions": [
       "atmospheric_post_metal",
       "illbient",
-      "british_post_rock"
+      "hauntology_aesthetic"
     ],
     "instruments": [
       {
@@ -32,18 +32,18 @@
         },
         "scores": {
           "electric_technique": 1.3449999999999998,
-          "amp_make": 7.825,
-          "body_wood": 0.89,
-          "neck_wood": 0.89,
-          "fretboard": 0.84,
+          "amp_make": 7.975,
+          "body_wood": 1.04,
+          "neck_wood": 1.04,
+          "fretboard": 0.99,
           "pickup_magnet": 0.15,
           "pickup_winding": 1.4949999999999999,
-          "string_material": 0.195,
-          "bridge": 0.89,
-          "scale_length": 0.98,
-          "string_gauge": 1.3900000000000001,
+          "string_material": 0.7800000000000001,
+          "bridge": 1.04,
+          "scale_length": 1.1300000000000001,
+          "string_gauge": 1.5400000000000003,
           "finish": 0.195,
-          "string_tuning": 8.059999999999999
+          "string_tuning": 7.865
         }
       },
       {
@@ -58,10 +58,10 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 8.255,
-          "body_wood": 0.89,
+          "amp_make": 5.785,
+          "body_wood": 1.04,
           "pickup_config": 0,
-          "string_type": 0.195,
+          "string_type": 1.2899999999999998,
           "scale_length_b": 0.195,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 9,
-          "drumhead": 1.59,
+          "drum_technique": 5.5,
+          "drumhead": 1.74,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -90,10 +90,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 7.415,
-          "oscillator": 0.39,
-          "filter_topology": 0.39,
-          "envelope": 2.925,
+          "electronic_technique": 9.515,
+          "oscillator": 0.195,
+          "filter_topology": 0.195,
+          "envelope": 3.9899999999999998,
           "modulation": 0.85
         }
       },
@@ -118,18 +118,18 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 8.694999999999995,
-          "voice_quality": 0.12999999999999998,
+          "voice_register": 6.995000000000003,
+          "voice_quality": 0.325,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 13.389999999999997,
-          "voice_microtone": 9.245,
+          "voice_articulation": 18.265,
+          "voice_microtone": 5.5950000000000015,
           "voice_tradition": 0.52,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.0799999999999998,
-          "voice_ensemble_config": 3.38,
+          "voice_ensemble_config": 2.34,
           "voice_ornament_system": 0.43999999999999995,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 3.5299999999999994,

@@ -3,14 +3,14 @@
   "name": "Speed house",
   "family": "electronic",
   "lineage": "Late-2010s and 2020s international rave-house strand developed around Haus of Panda, Speed House Movement and CHYL, joining bass-house sound design with speed-garage and hard-house energy. Rapid club pulse and compact, forceful bass-led sections define this selected recipe.",
-  "recipe": "classic 2017-2019 speed house, electronic Dance, house branch, bass system, chicago house house jump-up bass trap. sub bass wavetable synth, sampler drum machine, chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
-  "recipe_chars": 404,
-  "score": 96.45,
+  "recipe": "classic 2017-2019 speed house, electronic Dance, house branch, bass system, chicago house house jump-up breakbeat hardcore. sub bass wavetable synth, sampler drum machine, chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+  "recipe_chars": 413,
+  "score": 89.273,
   "config": {
     "traditions": [
       "speed_house",
       "jump_up",
-      "bass_trap"
+      "breakbeat_hardcore"
     ],
     "instruments": [
       {
@@ -22,10 +22,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 19.304999999999996,
-          "wt_position": 1.1,
+          "electronic_technique": 15.177499999999998,
+          "wt_position": 0.3,
           "wt_family": 0.645,
-          "wt_polyphony": 0.74
+          "wt_polyphony": 0.09
         }
       },
       {
@@ -37,10 +37,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 2.23,
-          "sample_bitdepth": 0.785,
+          "electronic_technique": 1.6049999999999998,
+          "sample_bitdepth": 0.135,
           "sample_swing": 11.674999999999999,
-          "sample_processing": 0.8
+          "sample_processing": 0.3
         }
       },
       {
@@ -53,11 +53,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.23,
+          "electronic_technique": 1.6049999999999998,
           "sampler_archetypes": 0,
           "sampler_bit_depth": 0.22499999999999998,
-          "sampler_workflow": 2.3049999999999997,
-          "sampler_classic_context": 53.63500000000001
+          "sampler_workflow": 2.43,
+          "sampler_classic_context": 54.43500000000002
         }
       }
     ],
