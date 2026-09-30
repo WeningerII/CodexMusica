@@ -2831,6 +2831,7 @@ function lyRenderTabs() {
     const panel = $ui(`ly-panel-${id}`);
     panel.hidden = id !== LY.tab;
     if (panel.hidden) {
+      if (id === 'writer') lyClock(false);
       const box = id === 'writer' ? $ui('ly-writer-status') : panel;
       box.innerHTML = '';
       box.dataset.view = '';
@@ -3508,19 +3509,30 @@ function lyRenderWriter() {
   }
   html += `<p class="ly-sr" id="ly-stage-live" aria-live="polite">${esc(LY.stageSaid || '')}</p>`;
   lySetHtml(box, html, 'writer');
+  lyClock(w.busy);
 }
-// The clock ticks without re-rendering or announcing.
-if (typeof setInterval === 'function')
-  setInterval(() => {
-    const el = document.getElementById('ly-elapsed');
-    if (!el || !chatState.busy) return;
-    const p = LY.progress;
-    const started = p?.created_at ? Date.parse(p.created_at) : chatState.pending?.created_at;
-    if (started) el.textContent = lyElapsed(Date.now() - started);
-    const up = document.getElementById('ly-updated');
-    const updated = p?.updated_at ? Date.parse(p.updated_at) : null;
-    if (up && updated) up.textContent = `${lyElapsed(Date.now() - updated)} ago`;
-  }, 1000);
+// The clock ticks without re-rendering or announcing, and only while a
+// request runs with the Writer showing it: an idle page holds no timer.
+let lyClockTimer = 0;
+function lyClock(on) {
+  if (on && !lyClockTimer) lyClockTimer = setInterval(lyClockTick, 1000);
+  if (!on && lyClockTimer) {
+    clearInterval(lyClockTimer);
+    lyClockTimer = 0;
+  }
+}
+function lyClockTick() {
+  const el = document.getElementById('ly-elapsed');
+  if (!el || !chatState.busy) return lyClock(false);
+  const p = LY.progress;
+  const started = p?.created_at
+    ? Date.parse(p.created_at) || p.created_at
+    : chatState.pending?.created_at;
+  if (started) el.textContent = lyElapsed(Date.now() - started);
+  const up = document.getElementById('ly-updated');
+  const updated = p?.updated_at ? Date.parse(p.updated_at) : null;
+  if (up && updated) up.textContent = `${lyElapsed(Date.now() - updated)} ago`;
+}
 
 // ── History ───────────────────────────────────────────────────────────────
 function lyRenderHistory() {
