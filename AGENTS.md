@@ -90,7 +90,8 @@ pipeline plans and grades songs whose every line you write; no connector call re
   A finished `lyric_grade` or `lyric_revise` read with `get_operation` is the song and a short
   verdict: status fields, `blocking` (what stands, and each line a requested obligation could not
   be judged on) and a count of notes. `get_operation` with `detail` (`findings`, `report`,
-  `coverage`, `pronunciations` or `full`, narrowed by `lines`) returns the rest.
+  `coverage`, `pronunciations` or `full`, narrowed by `lines`) returns the rest. A finished
+  `lyric_screen` is one line per pair and the report's counts; `detail` `pairs` returns every pair.
 - `render_recipe` takes `format`: `rich` (default), `tags`, `prose`, `compact`. Every one of
   them returns the byte-identical string the app shows for the same workspace.
   <!-- @promise: connector-render-parity -->

@@ -184,6 +184,14 @@ RULINGS = {
         "The conservative outranker count behind M-185's screen: does an "
         "offered word reopen a modal head from the other side, at the "
         "declared coarse set — one word each, a COUNT bounding a scan."),
+    ("quality/revise.py", "Reviser.modal_head_evidenced.standing"): (
+        PER_WORD,
+        "The MODAL_RHYME pair ban's evidenced head (2026-09-30): asks, for "
+        "one call word and one corpus-evidenced partner at a time, the same "
+        "field membership `_field_split` and `_offerable` apply, so the ban "
+        "no longer builds the whole candidate field; one word against one "
+        "word, and `test_homeoteleuton.py` §7 pins it equal to `modal_head` "
+        "minus tier 1."),
     ("quality/revise.py", "Reviser._offerable"): (
         PER_WORD,
         "The field's own predicate on a word pair: an admitted coarse "
@@ -336,7 +344,10 @@ _BY_DOOR = {
 # (membership now), so incomplete is 0. `Reviser._field_one` stopped
 # calling the predicate directly (slice B, same day): per_word 9 -> 8.
 # Measured by `python3 quality/door_census.py --check`.
-PINNED = {"sites": 35, "full": 7, "incomplete": 0, "per_word": 8,
+# 2026-09-30: the pair ban's evidenced head asks field membership one partner
+# at a time (PER_WORD, one site): sites 35 -> 36, per_word 8 -> 9. No door
+# moved; `full` and `incomplete` are unchanged.
+PINNED = {"sites": 36, "full": 7, "incomplete": 0, "per_word": 9,
           "rendering": 3, "validation": 1, "definition": 2, "form": 6,
           "argued": 8}
 

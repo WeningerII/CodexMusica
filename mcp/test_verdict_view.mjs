@@ -7,6 +7,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import {
   sessionView,
+  pairLine,
   detailOf,
   blockingOf,
   obligationLines,
@@ -159,7 +160,14 @@ test('obligation ids name lines the way the harness reads them', () => {
 });
 
 test('detail returns the part asked for, narrowed to lines when given', () => {
-  assert.deepEqual(DETAIL_PARTS, ['full', 'findings', 'report', 'coverage', 'pronunciations']);
+  assert.deepEqual(DETAIL_PARTS, [
+    'full',
+    'findings',
+    'report',
+    'coverage',
+    'pronunciations',
+    'pairs',
+  ]);
   const content = blocks();
   assert.deepEqual(sessionView('lyric_grade', content, { detail: 'full' }), content);
   const one = (detail, lines) => {
@@ -218,4 +226,126 @@ test('the session publishes the short view only when it names the tool', () => {
     undefined,
     'detail never reveals private state'
   );
+});
+
+// THE SCREEN. A finished lyric_screen is one block, and on ten words it was
+// 66,251 characters: every pair with every schema and the same fifteen
+// undecided schema names, then the report table restating the pairs.
+const UNDECIDED = Array.from({ length: 15 }, (_, i) => `undecided schema number ${i + 1}`);
+const UNRESOLVED =
+  'the default relation remains unresolved in schema(s): chain rhyme (rap), holorhyme, internal rhyme';
+const pair = (a, b, extra = {}) => ({
+  a,
+  b,
+  relations: [],
+  coarse_relations: [],
+  schema_relations: [],
+  undecided: UNDECIDED,
+  score: 0.5,
+  codes: [],
+  refused: false,
+  reason: UNRESOLVED,
+  why: null,
+  ...extra,
+});
+const screenPairs = [
+  pair('tape', 'drape', {
+    relations: ['ASSONANCE', 'RHYME', 'perfect rhyme'],
+    coarse_relations: ['ASSONANCE', 'RHYME'],
+    schema_relations: ['perfect rhyme'],
+    score: 1,
+    codes: ['HOMEOTELEUTON'],
+    reason: null,
+  }),
+  pair('tape', 'mic', { score: 0.818 }),
+  pair('tape', 'zzyzx', {
+    refused: true,
+    reason: "'zzyzx' is not in the dictionary",
+    undecided: [],
+  }),
+];
+const screenReport =
+  '  SCREEN: 3 pair(s) from 4 word(s)\n  tape ~ drape  1.000  BANNED: HOMEOTELEUTON  | ' +
+  'x'.repeat(4000) +
+  '\n  1 banned, 1 refused, 0 standing in at least one relation, 1 standing in none\n' +
+  '  ANCHOR : every word anchors as a declared token';
+const screened = (extra = {}) => ({
+  exit_code: 0,
+  meaning: 'answered — screened response; whole-draft findings were not measured',
+  report: screenReport,
+  measurement_status: 'screened',
+  findings_measured: false,
+  certified: false,
+  pairs: screenPairs,
+  ...extra,
+});
+const screenBlocks = (v = screened()) => [{ type: 'text', text: JSON.stringify(v) }];
+
+test('a finished screen publishes one line per pair and the report’s own counts', () => {
+  const content = screenBlocks();
+  const out = sessionView('lyric_screen', content);
+  assert.equal(out.length, 1, 'still one block');
+  const short = JSON.parse(out[0].text);
+  assert.equal(short.report, undefined, 'the table stays with the operation');
+  assert.equal(short.exit_code, 0);
+  assert.equal(short.measurement_status, 'screened');
+  assert.deepEqual(short.pairs, [
+    'tape ~ drape 1.000 — BANNED: HOMEOTELEUTON — ASSONANCE, RHYME — schemas: perfect rhyme — 15 schema(s) undecided',
+    'tape ~ mic 0.818 — no coarse relation — grade: the default relation remains unresolved in 3 schema(s) — 15 schema(s) undecided',
+    "tape ~ zzyzx 0.500 — REFUSED: 'zzyzx' is not in the dictionary — no coarse relation",
+  ]);
+  assert.deepEqual(
+    short.counts,
+    ['1 banned, 1 refused, 0 standing in at least one relation, 1 standing in none'],
+    'the counts are the harness’s own partition, read off its report'
+  );
+  assert.match(short.detail, /detail "pairs"/);
+  assert.ok(
+    out[0].text.length * 3 < content[0].text.length,
+    `short screen is short (${out[0].text.length} of ${content[0].text.length})`
+  );
+});
+
+test('a declared relation’s answer rides each pair line', () => {
+  assert.equal(
+    pairLine(pair('line', 'I', { named: true, named_reason: null, reason: null })),
+    'line ~ I 0.500 — no coarse relation — SATISFIES the declared relation — 15 schema(s) undecided'
+  );
+  assert.match(pairLine(pair('mic', 'line', { named: false })), /VIOLATES the declared relation/);
+  assert.match(
+    pairLine(pair('I', 'sign', { named: null, named_reason: "'I' has two readings" })),
+    /declared relation not judged: 'I' has two readings/
+  );
+  assert.match(
+    pairLine(pair('sun', 'much', { why: 'NO_RELATION: no admitted relation' })),
+    /grade: NO_RELATION: no admitted relation — 15/,
+    'the grader’s own charge is named whole'
+  );
+});
+
+test('screen detail returns the pairs, the report or the whole result', () => {
+  const content = screenBlocks();
+  assert.deepEqual(sessionView('lyric_screen', content, { detail: 'full' }), content);
+  const part = (detail) => JSON.parse(sessionView('lyric_screen', content, { detail })[0].text);
+  assert.deepEqual(part('pairs').pairs, screenPairs);
+  assert.deepEqual(part('findings').pairs, screenPairs, 'a screen’s findings are its pairs');
+  assert.equal(part('report').report, screenReport);
+  assert.equal(part('coverage').coverage, null, 'a screen has no coverage');
+});
+
+test('only a screened result is shortened, and only for lyric_screen', () => {
+  const refused = screenBlocks({
+    exit_code: 2,
+    meaning: 'refused',
+    measurement_status: 'refused',
+    pairs: undefined,
+  });
+  assert.deepEqual(sessionView('lyric_screen', refused), refused, 'a refusal keeps its shape');
+  assert.deepEqual(sessionView('lyric_types', screenBlocks()), screenBlocks());
+  const stored = { content: screenBlocks(screened({ state: 'private-run-state' })) };
+  const raw = publicToolResult(stored);
+  assert.equal(JSON.parse(raw.content[0].text).report, screenReport, 'no tool: as stored');
+  const short = publicToolResult(stored, null, { tool: 'lyric_screen' });
+  assert.equal(JSON.parse(short.content[0].text).report, undefined);
+  assert.equal(JSON.parse(short.content[0].text).pairs.length, 3);
 });

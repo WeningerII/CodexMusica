@@ -21,8 +21,8 @@
 import { createHash } from 'node:crypto';
 import { isStanding } from './lyric_tools.js';
 
-export const SHORT_VIEW_TOOLS = new Set(['lyric_grade', 'lyric_revise']);
-export const DETAIL_PARTS = ['full', 'findings', 'report', 'coverage', 'pronunciations'];
+export const SHORT_VIEW_TOOLS = new Set(['lyric_grade', 'lyric_revise', 'lyric_screen']);
+export const DETAIL_PARTS = ['full', 'findings', 'report', 'coverage', 'pronunciations', 'pairs'];
 
 // A requested obligation is unjudged because a reading was undecided or a
 // word could not be read: these are the findings that say which, per line.
@@ -158,8 +158,88 @@ function verdictAt(content) {
   }
 }
 
+// THE SCREEN (2026-09-30). A finished screen is ONE block: its verdict, the
+// report table and every pair it screened, each with every relation, every
+// schema and every schema that could not decide at the pair. Ten words are 45
+// pairs and about 64,000 characters, most of it the same fifteen undecided
+// schema names on every pair and the table restating the pairs. What a writer
+// does with a screen is decide which pairs to write, so the session view is
+// one line per pair (the ban, the relations it stands in, the declared
+// relation's answer) and the report's own counts; `detail` returns the rest.
+function screenAt(content) {
+  if (content.length !== 1) return -1;
+  try {
+    const v = JSON.parse(content[0].text);
+    return Number.isInteger(v?.exit_code) &&
+      v.measurement_status === 'screened' &&
+      Array.isArray(v.pairs)
+      ? 0
+      : -1;
+  } catch {
+    return -1;
+  }
+}
+
+const SCREEN_KEPT = ['exit_code', 'meaning', 'measurement_status', 'refusal'];
+const SCREEN_DETAIL_NOTE =
+  'The rest of this screen is kept with the operation: get_operation with this operation_id and ' +
+  'detail "pairs" (every pair in full: its schemas, the schemas undecided at the pair and the ' +
+  'grader\'s sentences), "report" (the engine table) or "full" returns it.';
+
+// The schema list a grader sentence names is counted, not repeated: it is the
+// same list on every pair that cannot be resolved.
+const countSchemas = (text) =>
+  String(text).replace(
+    /(schema\(s\)): (.+)$/,
+    (_m, label, list) => `${list.split(', ').length} ${label}`
+  );
+
+export function pairLine(p) {
+  const out = [`${p.a} ~ ${p.b}` + (typeof p.score === 'number' ? ` ${p.score.toFixed(3)}` : '')];
+  if (p.codes?.length) out.push(`BANNED: ${p.codes.join(', ')}`);
+  if (p.refused) out.push(`REFUSED${p.reason ? `: ${p.reason}` : ''}`);
+  out.push(p.coarse_relations?.length ? p.coarse_relations.join(', ') : 'no coarse relation');
+  if (p.schema_relations?.length) out.push(`schemas: ${p.schema_relations.join(', ')}`);
+  if ('named' in p)
+    out.push(
+      p.named === true
+        ? 'SATISFIES the declared relation'
+        : p.named === false
+          ? 'VIOLATES the declared relation'
+          : `declared relation not judged${p.named_reason ? `: ${p.named_reason}` : ''}`
+    );
+  if (p.why) out.push(`grade: ${p.why}`);
+  else if (p.reason && !p.refused) out.push(`grade: ${countSchemas(p.reason)}`);
+  if (p.undecided?.length) out.push(`${p.undecided.length} schema(s) undecided`);
+  return out.join(' — ');
+}
+
+function screenView(content, detail) {
+  const v = JSON.parse(content[0].text);
+  if (detail === 'full') return content;
+  if (detail) {
+    const out = { exit_code: v.exit_code, detail };
+    if (detail === 'pairs' || detail === 'findings') out.pairs = v.pairs;
+    else if (detail === 'report') out.report = v.report ?? null;
+    else out[detail] = null;
+    return [{ type: 'text', text: JSON.stringify(out) }];
+  }
+  const short = {};
+  for (const key of SCREEN_KEPT) if (v[key] !== undefined) short[key] = v[key];
+  short.pairs = v.pairs.map(pairLine);
+  // The report's own counts, never recomputed here: the harness partitions
+  // banned / refused / standing / none, and a second partition could differ.
+  short.counts = String(v.report || '')
+    .split('\n')
+    .map((l) => l.trim())
+    .filter((l) => /^\d+ banned, \d+ refused, /.test(l) || l.startsWith('NAMED COUNTS:'));
+  short.detail = SCREEN_DETAIL_NOTE;
+  return [{ type: 'text', text: JSON.stringify(short) }];
+}
+
 export function sessionView(tool, content, { detail, lines } = {}) {
   if (!SHORT_VIEW_TOOLS.has(tool)) return content;
+  if (tool === 'lyric_screen') return screenAt(content) < 0 ? content : screenView(content, detail);
   const at = verdictAt(content);
   if (at < 0 || detail === 'full') return content;
   const verdict = JSON.parse(content[at].text);
@@ -193,7 +273,8 @@ export function detailOf(verdict, part, lines) {
             ),
           }
         : (cov ?? null);
-  } else if (part === 'pronunciations') {
+  } else if (part === 'pairs') out.pairs = verdict.pairs ?? null;
+  else if (part === 'pronunciations') {
     out.pronunciations = verdict.pronunciations ?? [];
     const opts = verdict.pronunciation_options;
     out.pronunciation_options =

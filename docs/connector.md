@@ -98,7 +98,7 @@ operations: poll `get_operation`, and continue from the `session_id` in each com
 | Session control | What it does |
 |---|---|
 | `begin_lyrics` | Open a lyrics session: `create` for a new song (the server enforces sweep → screen → plan → exact-draft grade → revise), `edit` for lyrics the user supplied. |
-| `get_operation` | Read an operation by id: pending, the completed result (the tool's own blocks first, then the receipt with the next `session_id`), or an interruption. A finished `lyric_grade` or `lyric_revise` comes back as the song and a short verdict (what stands, what could not be judged, a count of notes); `detail` returns its findings, report, coverage, pronunciations or the whole verdict, narrowed by `lines` when given. |
+| `get_operation` | Read an operation by id: pending, the completed result (the tool's own blocks first, then the receipt with the next `session_id`), or an interruption. A finished `lyric_grade` or `lyric_revise` comes back as the song and a short verdict (what stands, what could not be judged, a count of notes); `detail` returns its findings, report, coverage, pronunciations or the whole verdict, narrowed by `lines` when given. A finished `lyric_screen` comes back as one line per pair and the report's counts; `detail` `pairs` returns every pair in full. |
 | `resume_operation` | Continue an interrupted operation when it reports `resumable: true`. |
 
 You answer every question `lyric_revise` asks; no connector call reaches a model provider. `/chat` uses durable receipts to recover accepted work. See
