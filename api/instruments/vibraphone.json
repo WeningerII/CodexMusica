@@ -41,6 +41,27 @@
           "canonical_tags": [
             "orchestral"
           ]
+        },
+        {
+          "id": "vibraphone_four_mallet_chordal",
+          "name": "Four-mallet chordal jazz playing",
+          "auto": false,
+          "applies_to": [
+            "vibraphone"
+          ],
+          "descriptors": [
+            "four-mallet",
+            "chordal",
+            "melodic"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "jazz-improvisation",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
         }
       ],
       "_fromFamily": true
@@ -142,6 +163,28 @@
           ]
         }
       ]
+    },
+    {
+      "id": "vibe_bar_material",
+      "name": "Tone-bar material",
+      "variants": [
+        {
+          "id": "vibe_bar_material_unspecified",
+          "name": "Source-unspecified bar material",
+          "descriptors": [],
+          "default": true
+        },
+        {
+          "id": "vibe_aluminum_alloy_bars",
+          "name": "Aluminum-alloy tone bars",
+          "descriptors": [
+            "aluminum-alloy-bars",
+            "metal-bar-sustain"
+          ],
+          "auto": false,
+          "default": false
+        }
+      ]
     }
   ],
   "_ownParts": [
@@ -240,6 +283,28 @@
             "mallets",
             "sustained-tone"
           ]
+        }
+      ]
+    },
+    {
+      "id": "vibe_bar_material",
+      "name": "Tone-bar material",
+      "variants": [
+        {
+          "id": "vibe_bar_material_unspecified",
+          "name": "Source-unspecified bar material",
+          "descriptors": [],
+          "default": true
+        },
+        {
+          "id": "vibe_aluminum_alloy_bars",
+          "name": "Aluminum-alloy tone bars",
+          "descriptors": [
+            "aluminum-alloy-bars",
+            "metal-bar-sustain"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }

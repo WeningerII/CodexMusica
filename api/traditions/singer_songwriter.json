@@ -3,14 +3,14 @@
   "name": "Singer-songwriter folk",
   "family": "vernacular",
   "lineage": "Post-folk-revival American songwriter tradition combining Greenwich Village 60s confessional vocabulary with Laurel Canyon 70s intimate production aesthetic — voice and acoustic guitar at minimum, often expanded with piano and modest band",
-  "recipe": "classic North American mid-1950s singer-songwriter folk, ballad Poetry, anglo singer song branch, americana country scottish americana gothic country. thick, incomplete closure resting, straight note core, interlocked note trading. narrative fingerpicked acoustic guitar, low overtone rich traditional pearwood marine band tradition harmonica, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 619,
-  "score": 177.989,
+  "recipe": "classic North American mid-1950s singer-songwriter folk, ballad Poetry, anglo singer song branch, americana country memphis americana midwest americana. thick, incomplete closure resting, wide pitch sway, interlocked note trading. narrative fingerpicked acoustic guitar, pearwood marine band tradition brass traditional harmonica, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 606,
+  "score": 164.22,
   "config": {
     "traditions": [
       "singer_songwriter",
-      "scottish_americana",
-      "gothic_country"
+      "memphis_americana",
+      "midwest_americana"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "incomplete_closure_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -29,44 +29,44 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 17.890499999999996,
+          "voice_register": 15.689999999999998,
           "voice_quality": 9.750000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.981499999999997,
-          "voice_articulation": 6.4350000000000005,
-          "voice_microtone": 7.020000000000001,
-          "voice_tradition": 14.540499999999998,
-          "voice_mechanism_compound": 4.484999999999999,
-          "voice_estill_quality": 13.556499999999998,
-          "voice_speech_song": 13.324999999999996,
-          "voice_ensemble_config": 9.035000000000002,
-          "voice_ornament_system": 4.1955,
-          "voice_pitch_organization": 0.9749999999999999,
-          "voice_processing_chain": 2.47,
-          "voice_multitrack_stack": 0.975
+          "voice_vibrato": 6.9,
+          "voice_articulation": 7.02,
+          "voice_microtone": 7.215,
+          "voice_tradition": 13.499999999999998,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 9.305000000000001,
+          "voice_speech_song": 13.454999999999997,
+          "voice_ensemble_config": 9.424999999999999,
+          "voice_ornament_system": 3.355,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 1.9300000000000002,
+          "voice_multitrack_stack": 1.17
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "string_tuning": "dadgad",
+          "string_tuning": "open_d",
           "top_wood": "cedar_om",
-          "back_sides": "walnut_bs_om",
-          "string_acoustic": "martin_lifespan_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "silk_steel_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 1.1765,
-          "top_wood": 0.39449999999999996,
-          "back_sides": 0.39,
-          "string_acoustic": 0.4575,
-          "acoustic_om_technique": 23.386499999999998
+          "string_tuning": 0.94,
+          "top_wood": 0.195,
+          "back_sides": 0.69,
+          "string_acoustic": 0.7049999999999998,
+          "acoustic_om_technique": 22.415000000000003
         }
       },
       {
@@ -76,16 +76,16 @@
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
           "harmonica_technique": "harm_folk_first_position",
-          "harmonica_maker_school": "harmonica_hering_brazilian",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
           "harmonica_type": 0.39,
-          "harmonica_comb": 3.2500000000000004,
-          "harmonica_reed": 0.26,
-          "harmonica_technique": 21.384999999999998,
-          "harmonica_maker_school": 0.2445,
-          "harmonica_tuning": 0.6345000000000001
+          "harmonica_comb": 4.325,
+          "harmonica_reed": 1.695,
+          "harmonica_technique": 18.335,
+          "harmonica_maker_school": 0.26,
+          "harmonica_tuning": 0.65
         }
       },
       {
@@ -93,24 +93,24 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
-          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 3.8249999999999997,
-          "grand_piano_size": 0.39449999999999996,
-          "grand_piano_brand": 1.235,
-          "piano_hammer": 4.351000000000001,
-          "piano_rim": 4.225,
-          "piano_soundboard": 1.625,
+          "keyboard_technique": 3.4,
+          "grand_piano_size": 0.195,
+          "grand_piano_brand": 0.74,
+          "piano_hammer": 3.965,
+          "piano_rim": 3.575,
+          "piano_soundboard": 1.58,
           "piano_pinblock": -0.05,
-          "piano_plate": 0.06499999999999999,
-          "piano_pitch_standard": 0.7149999999999999
+          "piano_plate": -0.05,
+          "piano_pitch_standard": 1.17
         }
       }
     ],

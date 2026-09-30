@@ -340,6 +340,51 @@
             "layered"
           ],
           "auto": false
+        },
+        {
+          "id": "electric_two_hand_tapping",
+          "name": "Two-hand fretboard tapping",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker"
+          ],
+          "descriptors": [
+            "two-hand-tapped",
+            "articulated",
+            "clean"
+          ],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "electric_bent_note_blues_lead",
+          "name": "Bent-note blues lead phrasing",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker"
+          ],
+          "descriptors": [
+            "bent-note-blues-lead",
+            "overdriven",
+            "singing"
+          ],
+          "auto": false,
+          "default": false
+        },
+        {
+          "id": "electric_electromagnetic_bow",
+          "name": "Handheld electromagnetic-bow sustain",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker"
+          ],
+          "descriptors": [
+            "electromagnetically-bowed",
+            "continuous-string-sustain",
+            "soft-onset"
+          ],
+          "auto": false,
+          "default": false
         }
       ],
       "_fromFamily": true

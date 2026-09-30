@@ -115,7 +115,8 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 20.991249999999994,
@@ -124,7 +125,8 @@
           "string_type": 29.925624999999993,
           "scale_length_b": 2.08,
           "fretted_or_not": 0.195,
-          "bass_technique": 27.53374999999999
+          "bass_technique": 27.53374999999999,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -147,14 +149,16 @@
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 20.724999999999998,
           "fiddle_strings": 1.585,
           "fiddle_bow": 3.115,
           "fiddle_mute": 0.585,
-          "fiddle_articulation": 0.195
+          "fiddle_articulation": 0.195,
+          "fiddle_string_configuration": 0
         }
       }
     ],

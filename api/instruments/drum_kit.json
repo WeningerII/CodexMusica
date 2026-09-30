@@ -202,6 +202,17 @@
             "electronic",
             "hip-hop"
           ]
+        },
+        {
+          "id": "blast_beat_single_strokes",
+          "name": "Single-stroke blast beat",
+          "descriptors": [
+            "blast-beat",
+            "rapid-alternating-kick-snare",
+            "cymbal-pulsed"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -1395,6 +1406,17 @@
             "electronic",
             "hip-hop"
           ]
+        },
+        {
+          "id": "blast_beat_single_strokes",
+          "name": "Single-stroke blast beat",
+          "descriptors": [
+            "blast-beat",
+            "rapid-alternating-kick-snare",
+            "cymbal-pulsed"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },

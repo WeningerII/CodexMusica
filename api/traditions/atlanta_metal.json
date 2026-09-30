@@ -5,7 +5,7 @@
   "lineage": "An Atlanta metal discovery scene represented by Mastodon’s progressive guitar-band work. Their direct accounts document complementary guitar roles, variable riff structures, melodic singing and expanded electric-guitar textures alongside the heavy rhythm section.",
   "recipe": "classic modern atlanta metal, distorted Rock, prog branch. equal tempered, one note per syllable, solo with instrumental accompaniment. modern metal basswood humbucker electric guitar, twelve string electric, electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 394,
-  "score": 28.978,
+  "score": 29.483,
   "config": {
     "traditions": [
       "atlanta_metal"
@@ -20,7 +20,7 @@
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "mid_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_fender_h",
@@ -32,16 +32,16 @@
           "electric_technique": 0.585,
           "amp_make": 0,
           "body_wood": 5.719999999999999,
-          "neck_wood": 0.168,
-          "fretboard": 0.168,
+          "neck_wood": 0.1995,
+          "fretboard": 0.1995,
           "pickup_magnet": 0.0315,
-          "pickup_winding": 0.0315,
-          "string_material": 0.168,
+          "pickup_winding": 0.063,
+          "string_material": 0.1995,
           "bridge": 0.0315,
           "scale_length": 0,
           "string_gauge": 0.7629999999999999,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.009
         }
       },
       {
@@ -57,7 +57,7 @@
         "scores": {
           "electric_technique": 0.585,
           "amp_make": 0,
-          "twelve_string_electric_model": 0,
+          "twelve_string_electric_model": 0.0045,
           "twelve_string_electric_context": 2.47,
           "twelve_string_electric_strings": 0,
           "twelve_string_electric_pickup": 0
@@ -72,16 +72,18 @@
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
           "body_wood": 0.063,
           "pickup_config": 0,
-          "string_type": 0.168,
+          "string_type": 0.1995,
           "scale_length_b": 0.0315,
           "fretted_or_not": 0,
-          "bass_technique": 3.7315
+          "bass_technique": 3.736,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -123,17 +125,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.0315,
-          "voice_microtone": 3.814625000000001,
+          "voice_articulation": 0.063,
+          "voice_microtone": 3.8461250000000007,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 2.9899999999999998,
-          "voice_ensemble_config": 0.5432499999999999,
-          "voice_ornament_system": 0.056624999999999995,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.34162499999999996,
-          "voice_multitrack_stack": 0.13374999999999998
+          "voice_ensemble_config": 0.6134999999999999,
+          "voice_ornament_system": 0.088125,
+          "voice_pitch_organization": 0.063,
+          "voice_processing_chain": 0.377625,
+          "voice_multitrack_stack": 0.19949999999999998
         }
       }
     ],

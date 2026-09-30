@@ -99,14 +99,16 @@
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "pizz"
+          "fiddle_articulation": "pizz",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 30.925,
           "fiddle_strings": 2.5415,
           "fiddle_bow": 0,
           "fiddle_mute": 0.39,
-          "fiddle_articulation": 0.21
+          "fiddle_articulation": 0.21,
+          "fiddle_string_configuration": 0
         }
       },
       {

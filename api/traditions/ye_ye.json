@@ -3,14 +3,14 @@
   "name": "Yé-yé",
   "family": "pop",
   "lineage": "French and francophone teen-pop of roughly 1962-1968 named from the English 'yeah yeah', promoted by Salut les copains radio and centred on Françoise Hardy, France Gall, Sylvie Vartan and Jacques Dutronc with Serge Gainsbourg supplying material, combining Brill Building and beat-group templates — 120-160 BPM shuffle or straight backbeat, tambourine and hand claps, twangy reverbed guitar, walking or eighth-note bass — with light untrained girlish French vocals and small string or horn overdubs cut at Pathé-Marconi and Barclay.",
-  "recipe": "classic Western European mid-1960s yé-yé, functional Song, girl group branch, europop functional song, pop rock functional song yacht rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, tambourine orch, hard rock maple acer saccharum French Polish shellac pad Baroque setup violin orchestral, psychedelic foregrounded organ driven rock block chord combo organ. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 741,
-  "score": 508.369,
+  "recipe": "classic Western European mid-1960s yé-yé, functional Song, girl group branch, europop functional song, pop rock functional song yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch, hard rock maple acer saccharum French Polish shellac pad Baroque setup violin orchestral, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 770,
+  "score": 501.955,
   "config": {
     "traditions": [
       "ye_ye",
       "yacht_rock",
-      "folk_rock"
+      "skiffle"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 57.795000000000016,
-          "voice_quality": 9.62,
+          "voice_register": 57.920000000000016,
+          "voice_quality": 10.659999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.343,
-          "voice_articulation": 22.685,
-          "voice_microtone": 46.29500000000001,
-          "voice_tradition": 22.524,
-          "voice_mechanism_compound": 4.355,
-          "voice_estill_quality": 7.272,
-          "voice_speech_song": 27.365000000000002,
-          "voice_ensemble_config": 21.319999999999997,
+          "voice_vibrato": 9.592999999999998,
+          "voice_articulation": 23.725,
+          "voice_microtone": 49.17000000000001,
+          "voice_tradition": 23.023999999999997,
+          "voice_mechanism_compound": 4.81,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 28.405,
+          "voice_ensemble_config": 22.360000000000003,
           "voice_ornament_system": 1.3704999999999996,
           "voice_pitch_organization": 1.045,
-          "voice_processing_chain": 8.2555,
-          "voice_multitrack_stack": 7.2010000000000005
+          "voice_processing_chain": 7.4055,
+          "voice_multitrack_stack": 4.551
         }
       },
       {
@@ -63,76 +63,78 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
-          "bridge": "locking_trem",
+          "bridge": "vintage_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 19.625,
-          "amp_make": 11.641499999999997,
-          "body_wood": 2.14,
-          "neck_wood": 2.14,
-          "fretboard": 2.09,
+          "electric_technique": 20.125,
+          "amp_make": 12.466499999999998,
+          "body_wood": 1.625,
+          "neck_wood": 1.625,
+          "fretboard": 1.17,
           "pickup_magnet": 0.3,
-          "string_material": 0.44999999999999996,
-          "string_gauge": 2.185,
-          "bridge": 0.195,
-          "scale_length": 2.275,
-          "finish": 0,
-          "string_tuning": 12.740499999999999
+          "string_material": 0.3,
+          "string_gauge": 1.235,
+          "bridge": 0.3,
+          "scale_length": 1.235,
+          "finish": 0.3,
+          "string_tuning": 11.7905
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.186499999999999,
-          "body_wood": 2.275,
-          "pickup_config": 0,
-          "string_type": 26.450499999999995,
-          "scale_length_b": 2.185,
+          "amp_make": 12.7365,
+          "body_wood": 1.4300000000000002,
+          "pickup_config": 0.15,
+          "string_type": 24.0755,
+          "scale_length_b": 1.235,
           "fretted_or_not": 0.195,
-          "bass_technique": 25.176499999999994
+          "bass_technique": 22.6515,
+          "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 26.514499999999998,
-          "drumhead": 18.6,
+          "drum_technique": 25.610000000000003,
+          "drumhead": 19.249999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "tambourine_orch",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_jingle": "tambourine_orch_mixed",
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.325,
-          "tambourine_orch_context": 0.4875
+          "tambourine_orch_jingle": 0.8,
+          "tambourine_orch_context": 0.6824999999999999
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_bluegrass_double_stops",
-          "orch_strings": "steel_orch",
+          "orch_strings": "plain_sheep_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "french_polish_violin",
@@ -143,12 +145,12 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.8200000000000003,
-          "orch_strings": 0.44999999999999996,
-          "orch_top_wood": 0.325,
-          "orch_back_wood": 12.271999999999998,
-          "orch_varnish": 3.3149999999999995,
-          "orch_setup_period": 1.755,
+          "bowed_technique": 0.06500000000000002,
+          "orch_strings": 0.44949999999999996,
+          "orch_top_wood": 0.12999999999999998,
+          "orch_back_wood": 11.322,
+          "orch_varnish": 3.12,
+          "orch_setup_period": 2.9120000000000004,
           "orch_bow": 1.6095,
           "orch_bow_stick": -0.035,
           "orch_articulation": 0.3615,
@@ -165,11 +167,11 @@
           "amp_make": "amp_british_60s_vox_ac"
         },
         "scores": {
-          "keyboard_technique": 19.400000000000002,
-          "combo_organ_model": 18.9515,
-          "combo_organ_voicing": 21.38,
-          "combo_organ_context": 12.443499999999997,
-          "amp_make": 0.585
+          "keyboard_technique": 19.399999999999995,
+          "combo_organ_model": 19.4515,
+          "combo_organ_voicing": 20.579999999999995,
+          "combo_organ_context": 11.793499999999998,
+          "amp_make": 3.1109999999999998
         }
       }
     ],

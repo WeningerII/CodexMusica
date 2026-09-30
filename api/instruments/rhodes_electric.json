@@ -235,6 +235,16 @@
             "electric",
             "warmed"
           ]
+        },
+        {
+          "id": "rhodes_rock_texture",
+          "name": "Song-supporting rock keyboard texture",
+          "descriptors": [
+            "song-supporting",
+            "rock-context"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -447,6 +457,16 @@
             "electric",
             "warmed"
           ]
+        },
+        {
+          "id": "rhodes_rock_texture",
+          "name": "Song-supporting rock keyboard texture",
+          "descriptors": [
+            "song-supporting",
+            "rock-context"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },

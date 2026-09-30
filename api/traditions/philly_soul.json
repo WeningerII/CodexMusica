@@ -74,7 +74,8 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 20.124999999999993,
@@ -83,7 +84,8 @@
           "string_type": 19.58,
           "scale_length_b": 0.65,
           "fretted_or_not": 2.8600000000000003,
-          "bass_technique": 27.044999999999995
+          "bass_technique": 27.044999999999995,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -149,12 +151,14 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "vibe_motor": "vibe_slow",
-          "vibe_mallets": "vibe_soft_mallets"
+          "vibe_mallets": "vibe_soft_mallets",
+          "vibe_bar_material": "vibe_bar_material_unspecified"
         },
         "scores": {
           "percussion_technique": 2.5,
           "vibe_motor": 5,
-          "vibe_mallets": 5
+          "vibe_mallets": 5,
+          "vibe_bar_material": 0
         }
       },
       {

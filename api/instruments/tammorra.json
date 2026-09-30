@@ -76,6 +76,16 @@
             "lazio",
             "abruzzo"
           ]
+        },
+        {
+          "id": "tammorra_tamburo_siciliano",
+          "name": "Sicilian hand-built frame drum",
+          "descriptors": [
+            "hand-struck",
+            "frame-drum"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -137,6 +147,16 @@
             "religious",
             "outdoor"
           ]
+        },
+        {
+          "id": "tammorra_sicilian_sung_story",
+          "name": "Sicilian sung storytelling",
+          "descriptors": [
+            "sung-narration",
+            "rhythmic"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -242,6 +262,16 @@
             "lazio",
             "abruzzo"
           ]
+        },
+        {
+          "id": "tammorra_tamburo_siciliano",
+          "name": "Sicilian hand-built frame drum",
+          "descriptors": [
+            "hand-struck",
+            "frame-drum"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -303,6 +333,16 @@
             "religious",
             "outdoor"
           ]
+        },
+        {
+          "id": "tammorra_sicilian_sung_story",
+          "name": "Sicilian sung storytelling",
+          "descriptors": [
+            "sung-narration",
+            "rhythmic"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },

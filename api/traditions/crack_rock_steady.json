@@ -3,14 +3,14 @@
   "name": "Crack Rock Steady",
   "family": "rock_punk",
   "lineage": "New York Lower East Side hybrid coined by Choking Victim and carried forward by Leftover Crack and INDK in the mid-1990s to 2000s — offbeat ska upstrokes and horn lines abruptly cut against thrash-tempo hardcore blasts and metal tremolo, with a nasal snarled lead vocal delivering squatter, anarchist and anti-police lyrics over organ stabs and a walking-to-galloping bass.",
-  "recipe": "classic North American 1994-1996 crack rock steady, distorted Rock, punk branch, reggae diaspora bass system, thrash metal crossover thrash black speed metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit, bass leaning trombone, schilke chicago lead bright heavy one piece matched to monette horn trumpet, lead instrument elevated psychedelic foregrounded organ driven rock combo organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 826,
-  "score": 392.62,
+  "recipe": "classic North American 1994-1996 crack rock steady, distorted Rock, punk branch, reggae diaspora bass system, thrash metal crossover thrash ska mexicano. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit, bach 42 canonical American orchestral tenor bass trombone trombone, schilke chicago lead bright heavy one piece matched to monette horn trumpet, lead instrument elevated psychedelic foregrounded organ driven rock combo organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 836,
+  "score": 371.305,
   "config": {
     "traditions": [
       "crack_rock_steady",
       "crossover_thrash",
-      "black_speed_metal"
+      "ska_mexicano"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 15.784999999999997,
-          "voice_quality": 6.630000000000001,
+          "voice_register": 14.659999999999995,
+          "voice_quality": 4.615000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.4299999999999997,
-          "voice_articulation": 18.134999999999998,
-          "voice_microtone": 18.32999999999999,
-          "voice_tradition": 7.67,
-          "voice_mechanism_compound": 33.3825,
-          "voice_estill_quality": 4.030000000000001,
-          "voice_speech_song": 20.734999999999992,
-          "voice_ensemble_config": 20.344999999999995,
-          "voice_ornament_system": 0.9099999999999999,
-          "voice_pitch_organization": 0.49999999999999994,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 2.6950000000000003
+          "voice_articulation": 20.214999999999996,
+          "voice_microtone": 20.604999999999993,
+          "voice_tradition": 7.735,
+          "voice_mechanism_compound": 23.4075,
+          "voice_estill_quality": 4.2250000000000005,
+          "voice_speech_song": 21.96999999999999,
+          "voice_ensemble_config": 22.424999999999997,
+          "voice_ornament_system": 1.885,
+          "voice_pitch_organization": 0.585,
+          "voice_processing_chain": 4.9399999999999995,
+          "voice_multitrack_stack": 2.7300000000000004
         }
       },
       {
@@ -59,30 +59,30 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
+          "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 32.175,
-          "amp_make": 29.4025,
-          "body_wood": 11.589999999999998,
+          "electric_technique": 22.424999999999997,
+          "amp_make": 26.1275,
+          "body_wood": 6.89,
           "neck_wood": 1.4949999999999999,
-          "fretboard": 2.195,
-          "pickup_magnet": 2.04,
-          "pickup_winding": 0.65,
+          "fretboard": 1.4299999999999997,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 0.195,
           "string_material": 0.28500000000000003,
           "bridge": 1.4949999999999999,
-          "scale_length": 9.145,
-          "string_gauge": 2.295,
+          "scale_length": 5.095,
+          "string_gauge": 1.4949999999999999,
           "finish": 0,
-          "string_tuning": 15.86
+          "string_tuning": 11.86
         }
       },
       {
@@ -90,32 +90,34 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 10.464999999999998,
-          "body_wood": 2.9899999999999998,
-          "pickup_config": 1.345,
-          "string_type": 16.86,
+          "amp_make": 11.504999999999999,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0.39,
+          "string_type": 15.735,
           "scale_length_b": 1.4949999999999999,
-          "fretted_or_not": 0.15,
-          "bass_technique": 25.375
+          "fretted_or_not": 0,
+          "bass_technique": 23.375,
+          "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.849999999999998,
-          "drumhead": 1.9,
+          "drum_technique": 20.279999999999998,
+          "drumhead": 1.95,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -124,20 +126,20 @@
         "slots": {
           "wind_articulation": "wind_ska_skank_stab",
           "trombone_type": "bass_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_3g",
+          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
           "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_red_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 5.25,
+          "wind_articulation": 7.625,
           "trombone_type": 0.345,
-          "trombone_mouthpiece": 2.145,
+          "trombone_mouthpiece": 4.42,
           "trombone_mute": 0.345,
-          "trombone_technique": 0.39,
+          "trombone_technique": 1.2349999999999999,
           "trombone_bell_metal": 0.39,
-          "trombone_maker_school": 0.65
+          "trombone_maker_school": 1.175
         }
       },
       {
@@ -152,13 +154,13 @@
           "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 5.25,
+          "wind_articulation": 7.625,
           "brass_size": 0,
-          "trumpet_mouthpiece": 4.225,
+          "trumpet_mouthpiece": 6.37,
           "brass_mute": 1.3,
-          "trumpet_technique": 4.75,
+          "trumpet_technique": 7.125,
           "trumpet_bell_metal": 0.44999999999999996,
-          "trumpet_maker_school": 1.65
+          "trumpet_maker_school": 1.15
         }
       },
       {
@@ -168,14 +170,14 @@
           "combo_organ_model": "vox_jaguar_combo",
           "combo_organ_voicing": "combo_organ_all_stops_reedy",
           "combo_organ_context": "combo_organ_doors_psych",
-          "amp_make": "amp_unspecified"
+          "amp_make": "amp_british_60s_selmer"
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "combo_organ_model": 1.69,
-          "combo_organ_voicing": 4.075,
-          "combo_organ_context": 10.840000000000002,
-          "amp_make": 0
+          "combo_organ_model": 1.885,
+          "combo_organ_voicing": 2.825,
+          "combo_organ_context": 9.89,
+          "amp_make": 0.39
         }
       }
     ],

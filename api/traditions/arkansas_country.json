@@ -118,14 +118,16 @@
           "fiddle_strings": "plain_lamb_gut_fiddle",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "practice_mute",
-          "fiddle_articulation": "sul_tasto"
+          "fiddle_articulation": "sul_tasto",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 24.399999999999995,
           "fiddle_strings": 1.885,
           "fiddle_bow": 1.24,
           "fiddle_mute": 1.5,
-          "fiddle_articulation": 1.955
+          "fiddle_articulation": 1.955,
+          "fiddle_string_configuration": 0
         }
       },
       {

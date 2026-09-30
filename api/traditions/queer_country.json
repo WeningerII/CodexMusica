@@ -5,7 +5,7 @@
   "lineage": "Queer country names explicitly queer country-song and performance communities rather than a timbre inferred from identity. Lavender Country’s public artistic project and documented Seattle history provide a concrete early branch.",
   "recipe": "classic modern queer country, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. a 440 modern pitch us standard grand piano, melodic bowed song accompaniment fiddle. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 354,
-  "score": 67.608,
+  "score": 68.57,
   "config": {
     "traditions": [
       "queer_country"
@@ -32,7 +32,7 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 13.999999999999993,
+          "voice_register": 14.062999999999994,
           "voice_quality": 0.7799999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -40,12 +40,12 @@
           "voice_articulation": -0.14,
           "voice_microtone": 3.7700000000000005,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.2355,
-          "voice_estill_quality": 14.635499999999999,
+          "voice_mechanism_compound": 0.44099999999999995,
+          "voice_estill_quality": 14.767499999999998,
           "voice_speech_song": 7.994999999999999,
           "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.075,
-          "voice_pitch_organization": 1.0299999999999998,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 1.0614999999999999,
           "voice_processing_chain": 1.885,
           "voice_multitrack_stack": 0.39
         }
@@ -65,8 +65,8 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.105,
-          "grand_piano_brand": 0.447,
+          "grand_piano_size": 0.1365,
+          "grand_piano_brand": 0.57,
           "piano_hammer": -0.035,
           "piano_rim": -0.035,
           "piano_soundboard": -0.05,
@@ -82,14 +82,16 @@
           "fiddle_strings": "steel_core",
           "fiddle_bow": "dark_rosin",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 3.6399999999999997,
-          "fiddle_strings": 0.063,
-          "fiddle_bow": 0.105,
-          "fiddle_mute": 0.105,
-          "fiddle_articulation": 0.1275
+          "fiddle_strings": 0.2205,
+          "fiddle_bow": 0.1365,
+          "fiddle_mute": 0.357,
+          "fiddle_articulation": 0.1365,
+          "fiddle_string_configuration": 0
         }
       }
     ],

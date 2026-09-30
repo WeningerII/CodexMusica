@@ -5,7 +5,7 @@
   "lineage": "A broad Colombian rock network containing Aterciopelados, Don Tetto, Diamante Eléctrico and many other projects. This default selects Aterciopelados’ Oye-era return to an arranged live-band approach, with singing, electric guitar, bass, acoustic drums and a separate rattle-percussion layer.",
   "recipe": "classic colombian rock, distorted Rock, regional branch. one note per syllable, duet, unprocessed natural acoustic, live take. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, maracas. live tracking. large-diaphragm condenser, console-strip pre, American tweed-style tube, parametric EQ. 24-bit digital spring reverb.",
   "recipe_chars": 418,
-  "score": 49.534,
+  "score": 50.171,
   "config": {
     "traditions": [
       "colombian_rock"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1,
+          "voice_speech_song": 1.62175,
+          "voice_ensemble_config": 1.1425,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.0315,
-          "voice_multitrack_stack": 1
+          "voice_processing_chain": 1.174,
+          "voice_multitrack_stack": 1.1425
         }
       },
       {
@@ -64,11 +64,11 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 1.0365,
+          "electric_technique": 1.17,
           "amp_make": 4.8100000000000005,
           "body_wood": 0,
           "neck_wood": 0,
@@ -76,10 +76,10 @@
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.273,
-          "bridge": 0.8785,
-          "scale_length": 0.8190000000000001,
-          "string_gauge": 0.9099999999999999,
-          "finish": 0,
+          "bridge": 0.87325,
+          "scale_length": 0.7875000000000001,
+          "string_gauge": 0.87325,
+          "finish": 0.042749999999999996,
           "string_tuning": 4.9399999999999995
         }
       },
@@ -92,16 +92,18 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 6.5649999999999995,
           "body_wood": 0,
-          "pickup_config": 0.3315,
+          "pickup_config": 0.34275,
           "string_type": 12.35,
           "scale_length_b": 0.063,
-          "fretted_or_not": 1.1365,
-          "bass_technique": -0.15000000000000002
+          "fretted_or_not": 1.3,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {

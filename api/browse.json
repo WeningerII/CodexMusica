@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 2838,
+  "count": 2938,
   "items": [
     {
       "id": "honky_tonk",
@@ -113991,6 +113991,3260 @@
       "exemplars": [
         "Svavar Knútur — Amma",
         "Svavar Knútur — Ahoy!"
+      ]
+    },
+    {
+      "id": "british_math_rock",
+      "name": "British math rock",
+      "family": "rock_punk",
+      "lineage": "A British math-rock network including TTNG, Delta Sleep, Orchards and Three Trapped Tigers. The selected TTNG trio branch combines clean two-handed guitar figures, an independent low six-string part, drums with shifting accents, and melodic lead singing.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        1,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        -1
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "bass_vi",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "This is a song-facing math-rock model, not an automatically instrumental national style. The arrangement lets intricate tapped guitar and bass-baritone lines remain distinct beneath a sung melody. Uneven groupings and changes of accent provide motion without requiring one fixed unusual time signature. It differs from the selected British post-rock model by favoring compact, articulated counterpoint over sustained guitar/synth washes.",
+      "exemplars": [
+        "TTNG — Disappointment Island",
+        "TTNG — 13.0.0.0.0",
+        "Delta Sleep",
+        "Orchards"
+      ]
+    },
+    {
+      "id": "chinese_indie_rock",
+      "name": "Chinese indie rock",
+      "family": "rock_punk",
+      "lineage": "A broad Chinese indie/alternative discovery roster that includes contemporary bands and established experimental rock figures. This default selects Cui Jian’s documented electric-rock and suona combination, rather than treating the label as a strict independent-label business category.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "suona",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A sung rock arrangement gives the suona an independent melodic role alongside electric guitar, bass and drums. This instrument is included because of documented practice in the selected branch, not because the performers are Chinese. The roster also contains guitar-only, electronic and other ensembles; a local folk instrument or opera vocal style is not mandatory for all Chinese indie rock.",
+      "exemplars": [
+        "Cui Jian — Nothing to My Name",
+        "Cui Jian — Rock n Roll on the New Long March",
+        "Second Hand Rose",
+        "Hedgehog"
+      ]
+    },
+    {
+      "id": "czech_folk_rock",
+      "name": "Czech folk rock",
+      "family": "rock_punk",
+      "lineage": "A Czech folk-rock scene with a selected Čechomor branch: Czech, Moravian and Slovak song material arranged for an active band. Violin and accordion retain the melodic center while guitar and a rhythm section provide support.",
+      "parent": "functionalSong.popRock.folkRock",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "fiddle",
+        "accordion",
+        "acoustic_guitar_dread",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "The default brings an added-low-C five-string fiddle and accordion forward rather than hiding them beneath a generic rock guitar. It selects the returning-accordion, acoustic-leaning band approach discussed in2020. A steel-string guitar, electric bass and kit are authored realizations of the documented roles. Guest shakuhachi, taiko, bagpipes, cello and orchestra belong to other projects and are not made compulsory here.",
+      "exemplars": [
+        "Čechomor — Radosti života",
+        "Čechomor — Mezi horami"
+      ]
+    },
+    {
+      "id": "christian_alternative_rock",
+      "name": "Christian alternative rock",
+      "family": "rock_punk",
+      "lineage": "An overlapping Christian-associated alternative-rock discovery cluster, including Switchfoot, Relient K, Skillet and Jars of Clay. This default chooses Switchfoot’s2010–11 song-focused guitar-and-keyboard branch without imposing a liturgical voice or church ensemble.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "rhodes_electric",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation",
+        "voice"
+      ],
+      "description": "The selected model lets a solid bass/drum foundation carry ornamental guitar figures and distinct electric-piano/workstation colors beneath lead singing. Delay and light overdrive are studio-production choices grounded in the documented palette. Christian association is a repertoire/audience relationship rather than a special instrument construction; the broader cluster also includes heavier and worship-oriented artists.",
+      "exemplars": [
+        "Switchfoot — Vice Verses",
+        "Switchfoot — Hello Hurricane",
+        "Relient K",
+        "Jars of Clay"
+      ]
+    },
+    {
+      "id": "christian_hard_rock",
+      "name": "Christian hard rock",
+      "family": "rock_punk",
+      "lineage": "A Christian-associated hard-rock network whose artists also participate in mainstream rock. The selected Skillet branch combines amplified band playing with independent bowed-string voices and keyboards, as documented on Comatose Comes Alive.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "violin_orchestral",
+        "cello",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation",
+        "voice"
+      ],
+      "description": "A violin and cello add upper melodic projection and lower bowed weight around guitar riffs, bass, drums and lead/backing singing. The default’s sample-based keyboard is an authored implementation of the credited keyboard role, not a claim about a named device. This branch is more orchestral and high-gain than the selected Christian alternative-rock model; a church choir or liturgical singing technique is not implied.",
+      "exemplars": [
+        "Skillet — Comatose Comes Alive",
+        "Skillet — Comatose"
+      ]
+    },
+    {
+      "id": "blues_rock_guitar",
+      "name": "Blues-rock guitar",
+      "family": "rock_punk",
+      "lineage": "A guitar-centered blues-rock repertoire label. The selected Joe Bonamassa branch emphasizes electric lead phrasing in a sung band setting, so the word guitar does not incorrectly erase vocals or imply a solo-guitar recording.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "tonewheel_organ",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Controlled bent notes and paced melodic solo arcs sit over a rhythm section and organ support. This is an authored small-band model drawn from the documented early2010s electric repertoire, rather than an exact recreation of every album track. It retains a tonewheel keyboard color; auxiliary acoustic instruments, horns and guests heard elsewhere remain arrangement options.",
+      "exemplars": [
+        "Joe Bonamassa — Driving Towards the Daylight",
+        "Joe Bonamassa — Lonely Town Lonely Street"
+      ]
+    },
+    {
+      "id": "czech_rock",
+      "name": "Czech rock",
+      "family": "rock_punk",
+      "lineage": "A broad Czech rock network spanning generations. The selected Olympic branch links the longstanding bigbeat band with its2025 guitar, five-string bass, drum and keyboard-led recording practice.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation",
+        "voice"
+      ],
+      "description": "The authored model centers a clear amplified riff, a real five-string bass configuration and a sample-workstation layer beneath band singing. It chooses the fretted bass and sample-based keyboard side of the documented palette, rather than claiming to reproduce every instrument on every track. This differs from the horn-led Czech pop-rock and fiddle/accordion-centered Czech folk-rock defaults.",
+      "exemplars": [
+        "Olympic — Bombarďák",
+        "Olympic — Kaťata"
+      ]
+    },
+    {
+      "id": "canadian_shoegaze",
+      "name": "Canadian shoegaze",
+      "family": "rock_punk",
+      "lineage": "A Canadian atmospheric-guitar discovery label, represented here by the Montreal-based Besnard Lakes’ studio-built shoegaze/psychedelic branch around The Besnard Lakes Are the Roaring Night. Sustained electric guitar, bass, drums, lead singing and a guest Omnichord texture supply a documented palette.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "omnichord",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "The selected production model places magnetically sustained guitar notes through unstable tape-style echo around a sung band arrangement, with an electronic autoharp color retained as its own instrument. Parts are assembled and refined in the studio rather than assumed to be one uninterrupted live take. Omnichord appears on a specific album track, not every song. The default is a representative combination of documented album-era practices; other Canadian shoegaze branches need not share its guest instrument or falsetto lead.",
+      "exemplars": [
+        "The Besnard Lakes — The Besnard Lakes Are the Roaring Night",
+        "The Besnard Lakes — The Lonely Moan",
+        "The Besnard Lakes — And This Is What We Call Progress"
+      ]
+    },
+    {
+      "id": "dark_rock",
+      "name": "Dark rock",
+      "family": "rock_punk",
+      "lineage": "A dark-rock discovery cluster including HIM, Lord of the Lost, The69 Eyes, Mono Inc. and London After Midnight. The selected HIM Venus Doom branch combines heavy electric-guitar layers, a separate baritone-guitar voice, bass, drums, electric piano and melodic lead singing.",
+      "parent": "distortedRock.gothicRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "baritone_electric",
+        "wurlitzer_ep",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A low baritone guitar reinforces the main electric-guitar band without being confused with a bass guitar. Reed electric-piano color remains distinct from the string instruments. This authored selection draws on a documented studio palette, while extended arrangements, sampled interludes and alternative keyboards remain options. Dark describes a musical/repertoire grouping, not a required lyrical subject, nationality, religion or uniform vocal technique.",
+      "exemplars": [
+        "HIM — Venus Doom",
+        "HIM — Bleed Well",
+        "HIM — Sleepwalking Past Hope",
+        "The69 Eyes",
+        "Lord of the Lost"
+      ]
+    },
+    {
+      "id": "canadian_rockabilly",
+      "name": "Canadian rockabilly",
+      "family": "rock_punk",
+      "lineage": "A Canadian rockabilly-related discovery label, represented here by The Creepshow’s contemporary psychobilly/punk-facing branch. Slapped upright bass, amplified guitar, organ, acoustic drums and singing form a distinct ensemble rather than an electric-bass-only rock template.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "upright_bass",
+        "semi_hollow",
+        "tonewheel_organ",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "The default highlights the percussive double-bass attack alongside semi-hollow guitar resonance and an organ layer. Its selected2010s branch draws on country, punk and rock-and-roll practice, not a claim that Canadian rockabilly is uniformly horror-themed or reproduces1950s instrumentation. Band singing and organ remain audible roles; church ritual is not inferred from the player’s stage name or the word gospel in a timbral description.",
+      "exemplars": [
+        "The Creepshow — Life After Death",
+        "The Creepshow — Death at My Door",
+        "The Creepshow — Run for Your Life"
+      ]
+    },
+    {
+      "id": "brazilian_post_rock",
+      "name": "Brazilian post-rock",
+      "family": "rock_punk",
+      "lineage": "A Brazilian post-rock network including Hurtmold, ruído/mm, Labirinto and E A Terra Nunca Me Pareceu Tão Distante. This default selects Hurtmold’s rhythm-centered instrumental branch, with vibraphone and bass clarinet placed beside guitar, bass, drums and trumpet.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        -2,
+        1,
+        2,
+        0
+      ],
+      "instruments": [
+        "vibraphone",
+        "bass_clarinet",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "trumpet"
+      ],
+      "description": "The arrangement treats rhythm as a property of the whole ensemble, not only the drum kit. Metal-bar mallet attacks contrast with the low reed, brass and amplified strings, with parts developed collectively from small ideas. Players can alternate instruments or layer them in recording; six instrument categories do not assert that every voice sounds continuously in a single live pass. National origin is not used to invent samba percussion or a compulsory regional rhythm.",
+      "exemplars": [
+        "Hurtmold — Mils Crianças",
+        "Hurtmold — Mestro",
+        "Hurtmold — Hurtmold",
+        "ruído/mm",
+        "Labirinto"
+      ]
+    },
+    {
+      "id": "danish_rock",
+      "name": "Danish rock",
+      "family": "rock_punk",
+      "lineage": "A broad Danish rock discovery label, represented by D-A-D’s Copenhagen-rooted guitar-band branch. This default retains the group’s genuine two-string E–A electric bass beside contrasting single-coil and semi-hollow guitar voices, drums and singing.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_bass",
+        "electric_guitar_single_coil",
+        "semi_hollow",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "The selected arrangement sets a bright, country-inflected guitar voice against a more driven rhythm-guitar layer, with low-end support from a two-string bass. The unusual bass construction is a documented performer choice, not a requirement for Danish rock. The model draws on the band’s continuing repertoire and first-person guitar accounts rather than reproducing every1989 or later tour setup.",
+      "exemplars": [
+        "D-A-D — Sleeping My Day Away",
+        "D-A-D — No Fuel Left for the Pilgrims",
+        "D-A-D — A Prayer for the Loud"
+      ]
+    },
+    {
+      "id": "classical_bass",
+      "name": "Classical bass",
+      "family": "classical",
+      "lineage": "A classical singer discovery category. Its exact artist roster includes Ruggero Raimondi, Samuel Ramey and Cesare Siepi. Official performance archives confirm low singing voice types; the selected art-song recital branch is supported by Ferruccio Furlanetto’s direct account.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        1,
+        1,
+        0,
+        -1,
+        2,
+        -1,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "A voice-type discovery entry for classical bass and bass-baritone singers. The authored model selects the intimate art-song side of a documented bass recital: one low singing voice and a concert grand, with natural hall acoustics and restrained processing. The wider scope also includes operatic and oratorio ensembles; it is not a contrabass-instrument category.",
+      "exemplars": [
+        "Ruggero Raimondi",
+        "Ferruccio Furlanetto"
+      ]
+    },
+    {
+      "id": "italian_bass",
+      "name": "Italian bass",
+      "family": "classical",
+      "lineage": "An Italian classical bass-singer discovery category represented by Ferruccio Furlanetto and Ruggero Raimondi. Their official opera-company biographies document bass and bass-baritone roles in an international repertory. The selected branch is the operatic-aria side of a piano recital.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        1,
+        2,
+        0,
+        -1,
+        2,
+        -1,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "An Italian-origin low classical singer discovery field. This authored recital branch selects bass-voice opera excerpts with piano, sustained projected phrasing and expressive dynamic space. Italian identity does not confine repertoire to Italian-language works, and the category includes bass-baritone practitioners as well as basses.",
+      "exemplars": [
+        "Ruggero Raimondi",
+        "Ferruccio Furlanetto"
+      ]
+    },
+    {
+      "id": "brazilian_thrash_metal",
+      "name": "Brazilian thrash metal",
+      "family": "rock_punk",
+      "lineage": "Brazilian thrash scenes represented by Sepultura’s early amplified guitar-band phase. Direct musician accounts distinguish this faster riff-led history from their subsequent groove-focused work.",
+      "parent": "distortedRock.metal.thrash",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Brazilian geographic thrash-metal field. This authored early-Sepultura branch favors clipped distorted guitar figures, picked bass and driving double-kick kit underneath voice. It retains E-standard guitar tuning from the documented earlier period; later downtuning and percussion experiments remain optional rather than retroactively imposed.",
+      "exemplars": [
+        "Sepultura"
+      ]
+    },
+    {
+      "id": "brazilian_groove_metal",
+      "name": "Brazilian groove metal",
+      "family": "rock_punk",
+      "lineage": "Brazilian groove-oriented metal, modeled through Sepultura’s documented move toward more percussive guitar writing around Chaos AD. This is an arrangement/rhythmic emphasis within amplified metal, not a new instrument family.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Brazilian groove-metal discovery field. The authored Chaos AD-informed branch uses whole-step-down guitar, short palm-muted attacks and a weighty kit/bass foundation, leaving more space for rhythmic punctuation than the selected thrash model. The choice does not make all Brazilian metal groove metal or require additional folk percussion in every track.",
+      "exemplars": [
+        "Sepultura"
+      ]
+    },
+    {
+      "id": "brazilian_metal",
+      "name": "Brazilian metal",
+      "family": "rock_punk",
+      "lineage": "A broad Brazilian metal discovery umbrella spanning multiple substyles. The selected guitar-band branch uses Sepultura as one documented practitioner rather than treating its sound as the entire country’s metal practice.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A national metal discovery scope. This authored modern guitar-band branch combines sustained distorted chords, electric bass, an acoustic kit and voice. It provides a flexible representative ensemble while preserving the wider scene’s thrash, groove, power, progressive and other branches. Extra classical guitar, Hammond and violin in Sepultura’s later arrangements are documented options, not compulsory Brazilian markers.",
+      "exemplars": [
+        "Sepultura"
+      ]
+    },
+    {
+      "id": "australian_death_metal",
+      "name": "Australian death metal",
+      "family": "rock_punk",
+      "lineage": "Australian death-metal scenes represented by Tasmanian quartet Psycroptic. Joe and Dave Haley’s direct accounts document sectional riff-and-drum co-writing, efficient guitar articulation and a hybrid studio/home-computer recording process.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        -1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Australian death-metal discovery scope, with a technical Psycroptic-informed branch. The authored model combines tightly articulated electric guitar, picked bass, rapid acoustic-kit playing and voice. Riff sections develop through guitar/drum interaction, while the recording model allows home overdubs after studio drums. Half-step-down tuning is an authored choice, not attributed to the documented session.",
+      "exemplars": [
+        "Psycroptic"
+      ]
+    },
+    {
+      "id": "australian_metalcore",
+      "name": "Australian metalcore",
+      "family": "rock_punk",
+      "lineage": "Australian metal practice documented by Parkway Drive’s own guitarist, represented here by a specifically selected low-tuned metalcore branch.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Australian metalcore scenes, with a Parkway Drive-informed low-tuned guitar-band branch. The authored default emphasizes short muted attacks, locked bass and a driving double-kick kit under voice. Its drop-B guitar selection is directly documented, while the precise passive pickup and recording front end remain representative choices, not an exact clone of the active-EMG stage rig.",
+      "exemplars": [
+        "Parkway Drive"
+      ]
+    },
+    {
+      "id": "australian_metal",
+      "name": "Australian metal",
+      "family": "rock_punk",
+      "lineage": "Australian metal practice documented by Parkway Drive’s own guitarist, represented here by a specifically selected later wider-ranging metal branch.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A broad Australian metal discovery field. The selected later Parkway Drive branch uses standard-E guitar and wider chordal/song-based writing alongside bass, kit and voice. It preserves their move beyond earlier metalcore arrangements without claiming that all Australian metal shares this sound. Ballads, talk-box guitar and other experimental colors are optional documented branches.",
+      "exemplars": [
+        "Parkway Drive"
+      ]
+    },
+    {
+      "id": "australian_black_metal",
+      "name": "Australian black metal",
+      "family": "rock_punk",
+      "lineage": "Australian scene-origin scope, represented by the documented Melbourne beginnings of Deströyer 666 and their black/thrash crossover. Later membership and residence are multinational.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "An Australian-origin black-metal discovery field. This authored branch follows Deströyer 666’s raw black/thrash overlap, with rapid repeated electric-guitar lines, picked bass, acoustic drums and voice in a modest studio setting. It represents a guitar-led crossover within the field; it does not impose one production style on all Australian black metal.",
+      "exemplars": [
+        "Deströyer 666"
+      ]
+    },
+    {
+      "id": "australian_thrash_metal",
+      "name": "Australian thrash metal",
+      "family": "rock_punk",
+      "lineage": "Australian scene-origin scope, represented by the documented Melbourne beginnings of Deströyer 666 and their black/thrash crossover. Later membership and residence are multinational.",
+      "parent": "distortedRock.metal.thrash",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "An Australian-origin thrash discovery field. The authored Deströyer 666-informed crossover branch favors clipped guitar riff articulation and a driving bass-and-kit pulse in a controlled studio capture. Its blackened lineage is acknowledged while the default foregrounds rhythmic riff attack rather than the sustained rapid-picking branch used for Australian black metal.",
+      "exemplars": [
+        "Deströyer 666"
+      ]
+    },
+    {
+      "id": "canadian_death_metal",
+      "name": "Canadian death metal",
+      "family": "rock_punk",
+      "lineage": "Canadian metal scope represented by Montreal’s Cryptopsy, whose official artist profiles document a technical death-metal quartet and purposeful alternation of intensity, melodic material and groove.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        -1,
+        0,
+        2,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Canadian death-metal discovery field, with a Montreal technical branch informed by Cryptopsy. Rapid guitar articulation, bass/kit coordination and abrasive voice sit in a controlled modern studio setting. This authored configuration emphasizes sectional intensity and shifting accents; it does not equate all Canadian death metal with one band or one maximum-speed pattern.",
+      "exemplars": [
+        "Cryptopsy"
+      ]
+    },
+    {
+      "id": "canadian_metal",
+      "name": "Canadian metal",
+      "family": "rock_punk",
+      "lineage": "Canadian metal scope represented by Montreal’s Cryptopsy, whose official artist profiles document a technical death-metal quartet and purposeful alternation of intensity, melodic material and groove.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A broad Canadian metal discovery field. The selected Cryptopsy-informed branch emphasizes clipped, recurring guitar riffs and a coordinated low-end groove, drawing on the band’s documented contrast between intense and more spacious passages. It is one extreme-metal option within a wider national field, distinct from the more densely sectional Canadian death-metal default.",
+      "exemplars": [
+        "Cryptopsy"
+      ]
+    },
+    {
+      "id": "austrian_black_metal",
+      "name": "Austrian black metal",
+      "family": "rock_punk",
+      "lineage": "Austrian geographic metal scope represented by Salzburg’s Belphegor, who explicitly combine black- and death-metal practice. The selected low-tuned configurations are representative authored branches, not a universal national formula.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "An Austrian black-metal discovery field. The authored Belphegor-informed crossover branch uses rapid electric-guitar lines over a low-tuned guitar/bass foundation, acoustic-kit drive and harsh voice. Black/death overlap is explicit; the model does not claim a pure stylistic boundary or make theatrical imagery a required musical instrument.",
+      "exemplars": [
+        "Belphegor"
+      ]
+    },
+    {
+      "id": "austrian_metal",
+      "name": "Austrian metal",
+      "family": "rock_punk",
+      "lineage": "Austrian geographic metal scope represented by Salzburg’s Belphegor, who explicitly combine black- and death-metal practice. The selected low-tuned configurations are representative authored branches, not a universal national formula.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A broad Austrian metal discovery field. Its authored Salzburg-based extreme-metal branch foregrounds spacious, low guitar chord weight and recurring drum/bass accents, informed by Belphegor’s documented low-tuned writing. This deliberately chooses a slower chordal branch rather than repeating the rapid-line Austrian black-metal configuration.",
+      "exemplars": [
+        "Belphegor"
+      ]
+    },
+    {
+      "id": "british_power_metal",
+      "name": "British power metal",
+      "family": "rock_punk",
+      "lineage": "British scene-origin power metal represented by London-founded DragonForce. The authored historical keyboard-and-guitar branch combines rapid lead exchange, melodic choruses and a full rhythm section.",
+      "parent": "distortedRock.metal.power",
+      "axes": [
+        1,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "A British power-metal discovery field, represented by DragonForce’s London-origin melodic high-speed branch. The authored model combines virtuosic electric-guitar lead work, melodic vocal display, bass and acoustic drums with a PCM workstation lead. It selects the documented historical keyboard era; it does not claim that every current touring lineup contains that keyboardist or that every British power-metal band shares this setup.",
+      "exemplars": [
+        "DragonForce"
+      ]
+    },
+    {
+      "id": "argentine_heavy_metal",
+      "name": "Argentine heavy metal",
+      "family": "rock_punk",
+      "lineage": "Argentine scene scope represented by Rata Blanca’s melodic guitar/keyboard-led heavy rock and metal. The primary guitarist interview explicitly recognizes both forceful riff songs and a successful ballad branch.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        1,
+        2,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "An Argentine heavy-metal discovery field, with a melodic guitar-led Rata Blanca branch. Overdriven single-coil guitar leads and amplified keyboard support sit above bass, acoustic drums and melodic singing. The authored model preserves a virtuosic heavy-rock strand while acknowledging Giardino’s account that the band extends beyond neoclassical speed.",
+      "exemplars": [
+        "Rata Blanca"
+      ]
+    },
+    {
+      "id": "argentine_metal",
+      "name": "Argentine metal",
+      "family": "rock_punk",
+      "lineage": "Argentine scene scope represented by Rata Blanca’s melodic guitar/keyboard-led heavy rock and metal. The primary guitarist interview explicitly recognizes both forceful riff songs and a successful ballad branch.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "A broad Argentine metal discovery field. The selected Rata Blanca-informed power-ballad branch uses cleanly articulated guitar figures, a piano/orchestral keyboard palette, bass, an acoustic backbeat and connected melodic singing. The broader field also includes heavier traditions; this softer branch is anchored in the band’s documented ballad repertoire rather than imposed on every Argentine metal act.",
+      "exemplars": [
+        "Rata Blanca"
+      ]
+    },
+    {
+      "id": "boston_metal",
+      "name": "Boston metal",
+      "family": "rock_punk",
+      "lineage": "Boston-area geographic metal scope represented by Andover-founded Converge and their metallic-hardcore practice, collaborative rhythmic writing and self-produced recordings.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        -1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Boston-area metal discovery field. The authored Converge-informed branch combines clipped distorted guitar figures, forceful bass, irregularly accented acoustic-kit patterns and abrasive voice. Rhythms develop through guitar/drummer collaboration rather than a universal grid; a modern studio recording model reflects the band’s self-produced practice without claiming every local act is metallic hardcore.",
+      "exemplars": [
+        "Converge"
+      ],
+      "crossRefs": [
+        "distortedRock.punk"
+      ]
+    },
+    {
+      "id": "american_melodeath",
+      "name": "American melodeath",
+      "family": "rock_punk",
+      "lineage": "American melodic-death-metal discovery scope represented by Michigan’s The Black Dahlia Murder. Direct guitarist accounts distinguish melodic lead phrasing, rhythmic riff construction and a separated guitar/bass mix.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "An American melodic-death-metal discovery field. This authored Black Dahlia Murder-informed branch emphasizes shaped guitar melodies and lead phrasing over a distinct electric-bass foundation, acoustic-kit drive and harsh voice. The documented home-studio workflow supports an intimate modern capture model; melodic guitar detail is not replaced by an indiscriminate wall of low-end distortion.",
+      "exemplars": [
+        "The Black Dahlia Murder"
+      ]
+    },
+    {
+      "id": "canadian_metalcore",
+      "name": "Canadian metalcore",
+      "family": "rock_punk",
+      "lineage": "Canadian metal/hardcore crossover scene, represented by Montreal’s Despised Icon. The selected branch follows Eric Jarrin’s account of The Aftermath as straightforward hardcore with grind elements; the band also documents death-metal/slam material.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        -1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Canadian metal/hardcore discovery field. The selected Despised Icon branch favors clipped guitar chugs, a direct hardcore pulse, bass and two harsh vocal performers, grounded in the guitarist’s description of The Aftermath. It acknowledges the band’s deathcore identity and broader death-metal influences while choosing the hardcore-facing branch rather than treating every Canadian metalcore act as deathcore.",
+      "exemplars": [
+        "Despised Icon"
+      ],
+      "crossRefs": [
+        "distortedRock.punk"
+      ]
+    },
+    {
+      "id": "belgian_death_metal",
+      "name": "Belgian death metal",
+      "family": "rock_punk",
+      "lineage": "Belgian-origin scene scope represented by Aborted’s multinational death/grind lineage and its documented contrast of speed with groove. Historic instrumental practice is not a current-personnel claim.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Belgian death-metal discovery field, with an Aborted-informed high-intensity branch. Rapid repeated guitar lines and explicit alternating blast-pattern drumming drive a bass-and-harsh-voice core. The selected single-stroke blast is a documented general technique implemented as an authored pattern; it is not confused with the physical presence of a double pedal.",
+      "exemplars": [
+        "Aborted"
+      ]
+    },
+    {
+      "id": "belgian_metal",
+      "name": "Belgian metal",
+      "family": "rock_punk",
+      "lineage": "Belgian-origin scene scope represented by Aborted’s multinational death/grind lineage and its documented contrast of speed with groove. Historic instrumental practice is not a current-personnel claim.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A broad Belgian metal discovery field. Its authored Aborted-informed branch foregrounds clipped guitar chugs and a recurring heavy groove, choosing the band’s documented breakdown side rather than its maximum-speed blast passages. The quartet-family model represents one extreme-metal branch within a much wider national scene.",
+      "exemplars": [
+        "Aborted"
+      ]
+    },
+    {
+      "id": "british_death_metal",
+      "name": "British death metal",
+      "family": "rock_punk",
+      "lineage": "British death-metal discovery scope represented by Liverpool’s Carcass, with low six-string tuning, rapid rhythmic picking and guitar-carried melody above percussive harsh vocals.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A British death-metal discovery field. The authored Carcass-informed branch uses six-string B-standard tuning, sharply picked riffs, melodic guitar movement, bass, acoustic drums and harsh percussive voice. Harmonic interplay between real guitar parts is documented; one configurable rhythm-guitar chair anchors the default rather than inventing a separate instrument type for each player.",
+      "exemplars": [
+        "Carcass"
+      ]
+    },
+    {
+      "id": "british_grindcore",
+      "name": "British grindcore",
+      "family": "rock_punk",
+      "lineage": "British grindcore represented by Napalm Death’s Birmingham scene and a primary retrospective of its early BBC Peel session. Short high-intensity songs, live basic tracking and blast drumming provide the branch.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        -1,
+        -1,
+        1,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        -1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A British grindcore discovery field. The authored Napalm Death-informed branch uses fast, short-form guitar/bass/kit interplay, explicit blast-pattern drumming and harsh voice, with live-room energy and a restrained analog recording aesthetic. The primary Peel-session account supports live instrumental tracking, while recollections differ on vocal overdubs; this model does not turn either memory into a universal recording rule.",
+      "exemplars": [
+        "Napalm Death"
+      ],
+      "crossRefs": [
+        "distortedRock.punk"
+      ]
+    },
+    {
+      "id": "american_grindcore",
+      "name": "American grindcore",
+      "family": "rock_punk",
+      "lineage": "American grindcore represented by Virginia’s Pig Destroyer and its documented earlier guitar/drums/voice core. The selected model is a contemporary authored recreation of that bassless branch, not a claim about the later expanded lineup.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        -1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "An American grindcore discovery field. The authored early-Pig-Destroyer branch uses a deliberately bassless guitar, acoustic-kit and harsh-voice core, combining clipped song forms with explicit blast-pattern drumming. Modern modeling amplification is a documented later practice chosen for this contemporary recording recipe. Later bass and noise/sample roles are acknowledged rather than silently erased from the band’s full history.",
+      "exemplars": [
+        "Pig Destroyer"
+      ],
+      "crossRefs": [
+        "distortedRock.punk"
+      ]
+    },
+    {
+      "id": "buffalo_ny_metal",
+      "name": "Buffalo NY metal",
+      "family": "rock_punk",
+      "lineage": "Buffalo, New York geographic metal scope represented by Every Time I Die’s documented metal/hardcore crossover and collaborative two-guitar riff construction.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Buffalo, New York metal discovery field. The authored Every Time I Die branch combines broad distorted guitar chords, disruptive hardcore accents, active electric bass, acoustic drums and harsh voice. Its riff-first model acknowledges the band’s clean and more melodic excursions without making them mandatory for every Buffalo metal act.",
+      "exemplars": [
+        "Every Time I Die"
+      ],
+      "crossRefs": [
+        "distortedRock.punk"
+      ]
+    },
+    {
+      "id": "brutal_deathcore",
+      "name": "Brutal deathcore",
+      "family": "rock_punk",
+      "lineage": "Exact EveryNoise brutal-deathcore roster includes Fit For An Autopsy. Primary practitioner and label accounts support a seven-string, rhythmically precise modern deathcore branch; the label is a discovery cluster rather than a claim of uniform technique.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "seven_string_electric",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A source-defined brutal-deathcore discovery cluster. The authored Fit For An Autopsy branch uses a seven-string guitar with tightly damped low-register rhythmic figures, electric bass, acoustic drums and harsh voice. Primary sources support the extended-range instrument and mathematically precise riff influence; the exact drop-A setup and direct high-gain processing are authored choices, not a full tour-rig copy.",
+      "exemplars": [
+        "Fit For An Autopsy"
+      ],
+      "crossRefs": [
+        "distortedRock.punk"
+      ]
+    },
+    {
+      "id": "british_black_metal",
+      "name": "British black metal",
+      "family": "rock_punk",
+      "lineage": "British black-metal discovery scope, with a first-wave Venom branch anchored in Newcastle. Primary Cronos interviews document the guitar/bass/drum core and deliberately distorted bass approach, distinct from later second-wave conventions.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A British black-metal discovery field. The authored first-wave Venom branch favors forceful guitar chords, an overdriven electric-bass foundation, acoustic drums and harsh voice, with a live-room/tape recording color. Its speed/heavy-metal roots are explicit; this does not make every later British black-metal act sound like the Newcastle originators.",
+      "exemplars": [
+        "Venom"
+      ]
+    },
+    {
+      "id": "brazilian_death_metal",
+      "name": "Brazilian death metal",
+      "family": "rock_punk",
+      "lineage": "Brazilian death-metal discovery scope represented by the Krisiun trio from Ijuí. Direct drummer/guitarist accounts document high-energy death metal, live instrumental feel and contrasting groove/skank patterns.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        -1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Brazilian death-metal discovery field. The authored Krisiun branch uses a guitar, singing-bassist and acoustic-drum trio with sharply articulated riffs, aggressive bass and a forceful skank/groove pulse. The primary musicians emphasize live-sounding interplay and dynamics; the model selects that branch rather than treating programmed precision or constant blasts as mandatory.",
+      "exemplars": [
+        "Krisiun"
+      ]
+    },
+    {
+      "id": "arab_metal",
+      "name": "Arab metal",
+      "family": "rock_punk",
+      "lineage": "Arab-world metal discovery scope represented by Myrath’s specifically Tunisian melodic/progressive branch. Primary musicians distinguish their Tunisian tunes, quarter-step vocal inflection and guitar/bass/drum/keyboard core from generic exotic-instrument accumulation.",
+      "parent": "distortedRock.metal.prog",
+      "axes": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "seven_string_electric",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "An Arab-world metal discovery field, with an explicitly Tunisian Myrath branch rather than a uniform regional formula. The authored setup combines extended-range guitar leads, bass, acoustic drums and orchestral-color keyboards with connected, melismatic voice and quarter-step inflection. It keeps the tempered instrumental framework separate from aurally adjusted vocal pitch; no single maqam or exact quarter-tone scale is attributed to every song.",
+      "exemplars": [
+        "Myrath"
+      ]
+    },
+    {
+      "id": "blackened_deathcore",
+      "name": "Blackened deathcore",
+      "family": "rock_punk",
+      "lineage": "Blackened/symphonic deathcore represented by Lorna Shore’s documented orchestral arrangements, distorted riff writing and extreme-metal rhythm section. The model is an authored extended-range studio branch rather than a replica of one current live rig.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "seven_string_electric",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "A blackened-deathcore discovery field. The authored Lorna Shore-informed branch combines low percussive guitar figures, electric bass, acoustic-kit drive and harsh voice with a sustained orchestral-sample layer. The primary songwriter describes orchestration as part of the composition process; the sampler is an authored realization of that layer, not a claim that a photographed keyboardist or live orchestra was present.",
+      "exemplars": [
+        "Lorna Shore"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.black",
+        "distortedRock.metal.symphonic"
+      ]
+    },
+    {
+      "id": "baltic_black_metal",
+      "name": "Baltic black metal",
+      "family": "rock_punk",
+      "lineage": "Baltic geographic black-metal scope represented by Latvia’s Skyforger and its documented early black-metal phase. Later work broadens into folk/pagan/heavy metal; the model chooses guitar-centered practice rather than treating all Baltic music as one instrument set.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Baltic black-metal discovery field, with a Latvian Skyforger-informed guitar branch. Rapid repeated guitar lines, bass, acoustic drums and harsh voice reflect the band’s documented early black-metal influence. Folk instruments and acoustic repertoire are real parts of its wider history, but the guitarist also explicitly describes replacing some live folk passages with guitar sections and band chanting.",
+      "exemplars": [
+        "Skyforger"
+      ]
+    },
+    {
+      "id": "canadian_black_metal",
+      "name": "Canadian black metal",
+      "family": "rock_punk",
+      "lineage": "Canadian black-metal discovery scope represented by Vancouver’s Blasphemy, with primary founders’ accounts of guitar, bass/voice, kit, rehearsal work and the Fiasco Brothers studio recordings.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Canadian black-metal discovery field. The authored early-Blasphemy branch uses rapidly articulated distorted guitar, bass, acoustic kit and a dry harsh voice in a studio/tape setting. The founders’ direct account grounds the band’s Vancouver scene and early instrument roles; its wider public history is not converted into mandatory lyrical, political or identity attributes for the genre.",
+      "exemplars": [
+        "Blasphemy"
+      ]
+    },
+    {
+      "id": "brazilian_black_metal",
+      "name": "Brazilian black metal",
+      "family": "rock_punk",
+      "lineage": "Brazilian black-metal discovery scope represented by Salvador’s Mystifier. Primary artist and label accounts document a guitar/bass/drum/voice foundation, later keyboard involvement and deliberate variety rather than one fixed black-metal formula.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "A Brazilian black-metal discovery field. The authored Mystifier branch combines rapid distorted guitar lines and a heavy bass/kit/voice core with a sustained keyboard color. Label credits and the founder’s account support an evolving ensemble with keyboard involvement; the particular analog-polyphonic pad is an authored realization, not a claim about an exact historic synth or a uniform Brazilian black-metal texture.",
+      "exemplars": [
+        "Mystifier"
+      ]
+    },
+    {
+      "id": "brazilian_metalcore",
+      "name": "Brazilian metalcore",
+      "family": "rock_punk",
+      "lineage": "Brazilian metalcore discovery scope represented by São Paulo’s Project46. Primary accounts document band-level riff development, Portuguese-language performance and a later shift toward more melody and groove.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Brazilian metalcore discovery field, with a Project46-informed riff/groove branch. Tight low guitar figures, active bass, a hardcore-rooted acoustic-kit pulse and harsh voice form the authored model. Primary musicians describe extended group work on riffs and shifts toward melody and groove; Portuguese-language identity is part of the scene context rather than an invented instrument requirement.",
+      "exemplars": [
+        "Project46"
+      ],
+      "crossRefs": [
+        "distortedRock.punk"
+      ]
+    },
+    {
+      "id": "bolivian_metal",
+      "name": "Bolivian metal",
+      "family": "rock_punk",
+      "lineage": "Bolivian geographic metal field represented by La Paz band Alcoholika La Christo. The selected heavy-guitar branch sits within a documented history that later incorporates industrial production and Altiplano melodic material.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Bolivian metal discovery field with an Alcoholika La Christo heavy-guitar branch. Repeated distorted chords, bass, acoustic drums and harsh voice form the authored core. The band’s direct account describes later industrial and Altiplano-melody developments; those are documented alternatives rather than a claim that every Bolivian metal arrangement contains a particular indigenous instrument.",
+      "exemplars": [
+        "Alcoholika La Christo"
+      ]
+    },
+    {
+      "id": "belgian_black_metal",
+      "name": "Belgian black metal",
+      "family": "rock_punk",
+      "lineage": "Belgian geographic black-metal field represented by Enthroned. A heavy mid-tempo branch is selected from a repertoire whose primary label also documents ferocious blast passages and progressive structures.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A Belgian black-metal discovery field, with an Enthroned-informed mid-tempo branch. Weighty distorted guitar chords, bass, a deliberate acoustic-kit pulse and harsh voice form the authored model. Direct interview and label evidence also document faster blast-beat work, guitar-led composition and changing arrangements; the selected slower branch is not presented as the whole catalogue.",
+      "exemplars": [
+        "Enthroned"
+      ]
+    },
+    {
+      "id": "belgian_jazz",
+      "name": "Belgian jazz",
+      "family": "jazz",
+      "lineage": "Belgium-connected jazz lineages, represented by Brussels-born Toots Thielemans’s international European Quartet. A chromatic harmonica lead joins piano, acoustic bass and drums in this selected late-career instrumental branch.",
+      "parent": "improvOnFrame.americanJazz.bop",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        -1,
+        0,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "harmonica",
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "An authored lyrical quartet keeps the harmonica in front of spacious piano voicings, plucked bass and light brush/stick percussion. It follows a documented performance group without making harmonica compulsory for Belgian jazz. Guitar, whistling and occasional keyboard colors belong to the artist’s wider practice and are not silently added to this ensemble.",
+      "exemplars": [
+        "Toots Thielemans — European Quartet Live"
+      ]
+    },
+    {
+      "id": "harmonica_jazz",
+      "name": "Harmonica jazz",
+      "family": "jazz",
+      "lineage": "Jazz improvisation foregrounding harmonica, here the slide-button chromatic tradition of Toots Thielemans. His documented duo with pianist Kenny Werner supplies a sparse representative arrangement.",
+      "parent": "improvOnFrame.americanJazz.bop",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        2,
+        -1,
+        -1,
+        -2,
+        1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "harmonica",
+        "grand_piano"
+      ],
+      "description": "The authored duet alternates a sustained, chromatic harmonica line with responsive piano harmony and flexible phrasing. There is no mandatory drum pulse or blues cross-harp tuning. Werner’s additional keyboards on parts of the source album are optional; this selection retains only the two principal acoustic roles, with room and materials explicitly modeled.",
+      "exemplars": [
+        "Toots Thielemans & Kenny Werner"
+      ]
+    },
+    {
+      "id": "jazz_vibraphone",
+      "name": "Jazz vibraphone",
+      "family": "jazz",
+      "lineage": "Vibraphone-centered jazz; selected Burton/Corea chamber duet",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        2,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        0,
+        0
+      ],
+      "instruments": [
+        "vibraphone",
+        "grand_piano"
+      ],
+      "description": "The authored duet uses chord-capable four-mallet vibraphone playing in dialogue with piano, without a mandatory bass or drum kit. The existing vibraphone mechanism remains appropriate; four-mallet jazz articulation is a playing-technique variant, not a new instrument. Motor-off and medium mallet hardness are representative selections, not certified settings from the historic sessions. The body of the source duet recordings supplies the arrangement context.",
+      "exemplars": [
+        "Gary Burton & Chick Corea — Crystal Silence / ECM duo recordings, 1972–1979"
+      ]
+    },
+    {
+      "id": "jazz_trombone",
+      "name": "Jazz trombone",
+      "family": "jazz",
+      "lineage": "Trombone-led modern jazz; selected Steve Turre small group",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        -1,
+        1,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "trombone",
+        "saxophone",
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The authored quintet foregrounds open tenor trombone with agile jazz lines, joined by alto saxophone, piano, double bass and drums. Turre’s Spiritman credits establish the core group; soprano saxophone is an alternative doubling rather than another player. Conch shells from the leader’s wider practice are not automatically added. Mouthpiece, bell metal, maker and exact articulations are authored representative choices.",
+      "exemplars": [
+        "Steve Turre — Spiritman, artist-listed trombone/alto/piano/bass/drums group"
+      ]
+    },
+    {
+      "id": "jazz_tuba",
+      "name": "Jazz tuba",
+      "family": "jazz",
+      "lineage": "Tuba-led jazz; selected Theon Cross saxophone/drums/tuba trio",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        -2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "tuba",
+        "saxophone",
+        "drum_kit"
+      ],
+      "description": "The authored trio gives tuba both low-register pulse and melodic room, with tenor saxophone and forceful drums. It follows Cross’s documented Fyah trio rather than adding bass guitar to duplicate the tuba’s function. Extra guitar/trombone/percussion guests elsewhere on the album remain optional. BB-flat pitch, piston-valve construction and a British-style Besson build are representative options, not identification of Cross’s actual horn.",
+      "exemplars": [
+        "Theon Cross — Fyah (2019), trio branch with Nubya Garcia and Moses Boyd"
+      ]
+    },
+    {
+      "id": "roots_americana",
+      "name": "Roots Americana",
+      "family": "vernacular",
+      "lineage": "Roots Americana connects contemporary performers working with multiple older American song and instrumental traditions. Charlie Parr’s documented blues/folk twelve-string work provides one branch of this broad recording network.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_12_string"
+      ],
+      "description": "Narrative singing and fingerpicked twelve-string guitar emphasize paired-string resonance and a clear rhythmic contour. This selected compact model follows Parr’s documented roles while leaving his resonator and other collaborators outside this particular configuration.",
+      "exemplars": [
+        "Charlie Parr — Rooming House"
+      ]
+    },
+    {
+      "id": "southern_americana",
+      "name": "Southern Americana",
+      "family": "vernacular",
+      "lineage": "Southern Americana encompasses roots-oriented recording and performance networks across the southern United States. Margo Price’s Nashville sessions provide one documented contemporary country-soul branch.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_single_coil",
+        "lap_steel",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Lead voice, acoustic guitar, steel-guitar color and a rhythm section form a recorded-song arrangement grounded in the credited Price session. Exact equipment and room remain authored production choices, and the selected branch is not a complete definition of Southern roots music. Open-G steel tuning and sliding song accompaniment are authored choices, not a claim about Price’s exact tuning.",
+      "exemplars": [
+        "Margo Price"
+      ]
+    },
+    {
+      "id": "uk_americana",
+      "name": "UK Americana",
+      "family": "vernacular",
+      "lineage": "UK Americana connects UK-rooted artists with transatlantic country, soul and roots-song practice. Yola’s Bristol-to-Nashville Walk Through Fire sessions supply one documented country-soul branch.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "wurlitzer_ep",
+        "fiddle",
+        "pedal_steel",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Lead voice, Wurlitzer piano and fiddle are supported by steel guitar, bass and drums. The label’s personnel establish these roles; pedal-steel E9 tuning, electric-bass construction and the reduced ensemble are authored choices within a much larger album palette.",
+      "exemplars": [
+        "Yola — Walk Through Fire"
+      ]
+    },
+    {
+      "id": "yorkshire_folk",
+      "name": "Yorkshire folk",
+      "family": "vernacular",
+      "lineage": "Yorkshire folk encompasses local inherited songs and contemporary folk performers. Kate Rusby’s South Yorkshire recording practice supplies a documented voice, fiddle and diatonic-accordion branch.",
+      "parent": "balladPoetry.celticBalladic",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "fiddle",
+        "melodeon_diatonic",
+        "upright_bass"
+      ],
+      "description": "Lead and supporting voices are answered by fiddle and diatonic accordion over plucked double bass. Blooming Heather credits establish these roles; the compact configuration leaves out the record’s electric guitar and orchestral strings, and D/G melodeon rows are an authored choice.",
+      "exemplars": [
+        "Kate Rusby — Blooming Heather"
+      ]
+    },
+    {
+      "id": "medieval_folk",
+      "name": "Medieval folk",
+      "family": "vernacular",
+      "lineage": "The discovery roster centers modern medieval-inspired ensembles such as FAUN, OMNIA and Blackmore’s Night. It denotes contemporary revival/fusion practice, not proof that these recordings reconstruct medieval performance unchanged.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "hurdy_gurdy",
+        "celtic_harp",
+        "irish_bouzouki"
+      ],
+      "description": "Layered voices and hurdy-gurdy melody/drone interlock with harp and Irish bouzouki. This selected acoustic branch follows FAUN’s documented quieter concert format and musicians’ actual instruments; it leaves electronic festival production optional rather than pretending it did not exist or making it compulsory.",
+      "exemplars": [
+        "FAUN — acoustic concert programme"
+      ]
+    },
+    {
+      "id": "italian_folk",
+      "name": "Italian folk",
+      "family": "vernacular",
+      "lineage": "Italian folk spans many local song, dance and instrumental traditions. Alfio Antico’s explicitly documented Sicilian voice-and-frame-drum work provides one regional branch without assigning its instrument or dialect to all of Italy.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        2,
+        0,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "tammorra"
+      ],
+      "description": "Text-led singing and a hand-played jingled frame drum exchange pulse, flourishes and silence. This source-backed Sicilian branch uses the existing frame-drum family with selected regional form/context variants; exact wood, membrane and modern recording setup remain authored choices.",
+      "exemplars": [
+        "Alfio Antico"
+      ]
+    },
+    {
+      "id": "new_england_americana",
+      "name": "New England Americana",
+      "family": "vernacular",
+      "lineage": "New England Americana connects roots-song performers, venues and recording networks. David Wax Museum’s rural Maine sessions and Newport appearances offer one documented, Mexican-rooted branch of that regional network.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "jarana_jarocha",
+        "fiddle",
+        "quijada"
+      ],
+      "description": "Harmony voices, strummed jarana, twin fiddle lines and jawbone percussion form a compact arrangement drawn from the documented Unfruitful session. This authored subset leaves out the record’s additional horsehead fiddle, organs and other colors rather than pretending those instruments were absent.",
+      "exemplars": [
+        "David Wax Museum — Unfruitful"
+      ]
+    },
+    {
+      "id": "macedonian_folk",
+      "name": "Macedonian folk",
+      "family": "vernacular",
+      "lineage": "Macedonian folk spans multiple vocal and instrumental traditions. The gajda dance practice associated with the Prilep and Skopje performance lineage provides this selected instrumental branch.",
+      "parent": "improvOnFrame",
+      "axes": [
+        0,
+        0,
+        2,
+        1,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        -2,
+        0,
+        -2,
+        2
+      ],
+      "instruments": [
+        "gajda"
+      ],
+      "description": "An ornamented bagpipe melody sounds over its sustained drone. This solo option follows documented practice; drum accompaniment is possible but not mandatory. Performer-relative tuning avoids imposing an unsupported temperament.",
+      "exemplars": [
+        "Pece Atanasovski — gajda lineage"
+      ]
+    },
+    {
+      "id": "indie_folk_argentino",
+      "name": "Indie folk argentino",
+      "family": "vernacular",
+      "lineage": "Indie folk argentino is a discovery network including Mía Maestro and other Argentine-connected performers. Maestro’s Si Agua combines bilingual songwriting with acoustic, keyboard and arranged string parts in an international recording context.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "wurlitzer_ep",
+        "cello"
+      ],
+      "description": "Lead voice, acoustic guitar, Wurlitzer electric piano and cello create a compact chamber-song texture. Si Agua credits establish these roles; using one cello is an authored reduction of a larger string section, with programming and brass left outside this selected configuration.",
+      "exemplars": [
+        "Mía Maestro — Si Agua"
+      ]
+    },
+    {
+      "id": "midwest_americana",
+      "name": "Midwest Americana",
+      "family": "vernacular",
+      "lineage": "Midwest Americana connects roots song and performance communities across the American Midwest. Charlie Parr’s Minnesota-based blues and folk songwriting supplies one documented twelve-string-guitar branch, without making it the region’s only sound.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_12_string"
+      ],
+      "description": "A lead singing voice sits above fingerpicked twelve-string guitar, with paired-string resonance and spare production. Parr’s label documents both standard and open-C setups; standard pairs are selected here, while guitar body, microphones and room are authored choices.",
+      "exemplars": [
+        "Charlie Parr — Rooming House"
+      ]
+    },
+    {
+      "id": "bhojpuri_folk",
+      "name": "Bhojpuri folk",
+      "family": "vernacular",
+      "lineage": "Bhojpuri-language folk practice in eastern Uttar Pradesh and Bihar includes migration songs, birha, seasonal and life-cycle repertories. Field biographies and documented ensembles establish voice, harmonium, dholak and small cymbals for the selected contemporary sung branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "harmonium_indian",
+        "dholak",
+        "manjira"
+      ],
+      "description": "A lead singer exchanges short phrases with supporting voices over harmonium chords, dholak patterns and manjira timekeeping. The selected recording model reflects documented ensemble roles without treating every Bhojpuri song as a wedding or devotional performance; tuning, drum wood and string-free studio setup are authored defaults.",
+      "exemplars": [
+        "Manoranjan Ojha and ensemble",
+        "Urmila Srivastava and ensemble",
+        "Sharda Sinha"
+      ]
+    },
+    {
+      "id": "folk_siciliana",
+      "name": "Folk siciliana",
+      "family": "vernacular",
+      "lineage": "Sicilian folk encompasses sung narratives and diverse local instrumental practices. Alfio Antico’s documented dialect singing, shepherd-memory narratives and hand-built frame drums provide the selected drum-and-voice branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        2,
+        0,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "tammorra"
+      ],
+      "description": "Voice and a hand-played jingled frame drum alternate pulse, flourishes and text-led pauses. Antico describes making drum frames, membranes and metal jingles himself; the recipe preserves that instrument family while treating exact wood, skin and studio settings as authored choices, not documented specifications of his instruments.",
+      "exemplars": [
+        "Alfio Antico"
+      ]
+    },
+    {
+      "id": "indian_singer_songwriter",
+      "name": "Indian singer-songwriter",
+      "family": "vernacular",
+      "lineage": "India’s independent performer-songwriters work in multiple languages and modern acoustic/electronic formats. Prateek Kuhad, present in the exact roster, supplies the selected Hindi-and-English guitar-based song branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "A close lead voice and fingerpicked acoustic guitar create a sparse melodic setting. The model follows Kuhad’s documented acoustic songwriting roots while recognizing his later electronic and band releases; it does not import tabla, sitar or classical vocal training merely from the national label.",
+      "exemplars": [
+        "Prateek Kuhad"
+      ]
+    },
+    {
+      "id": "greek_folk",
+      "name": "Greek folk",
+      "family": "vernacular",
+      "lineage": "Greek folk encompasses locally distinct song, dance and instrumental traditions. The documented Cretan performance of Psarantonis and the Xylouris family supplies a lyra-and-laouto branch rather than a pan-Greek fixed ensemble.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "cretan_lyra",
+        "laouto"
+      ],
+      "description": "A strongly inflected voice alternates with bowed lyra melody and plucked laouto support. The arrangement preserves the distinct Cretan bowed fiddle and long-neck lute, while bowing detail, room, materials and digital recording chain are authored defaults rather than a transcription of a historical wedding.",
+      "exemplars": [
+        "Psarantonis",
+        "Giorgos Xylouris"
+      ]
+    },
+    {
+      "id": "irish_singer_songwriter",
+      "name": "Irish singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Irish performer-songwriters span acoustic storytelling, rock and studio experimentation. Glen Hansard’s documented Dublin-to-international career supplies the selected acoustic-song branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "violin_orchestral"
+      ],
+      "description": "Lead voice and acoustic guitar carry the main narrative, with restrained bowed-string responses. ANTI’s specific track credits document Hansard’s voice/guitar and Rob Moose’s strings; choosing a single violin here is an authored reduction of that credited string role, not a claim about its entire overdubbed arrangement.",
+      "exemplars": [
+        "Glen Hansard — Song of Good Hope"
+      ]
+    },
+    {
+      "id": "nl_folk",
+      "name": "NL folk",
+      "family": "vernacular",
+      "lineage": "The exact discovery roster resolves NL to Newfoundland and Labrador, with Great Big Sea, Alan Doyle and the Irish Descendants; it is not an abbreviation for the Netherlands. The selected branch follows Doyle’s modern Newfoundland kitchen-party folk-rock practice.",
+      "parent": "functionalSong.popRock.folkRock",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "fiddle",
+        "accordion",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Group-friendly lead singing is driven by acoustic guitar, fiddle and accordion over bass and drums. Doyle’s own band descriptions document these roles and mixtures of new songs, Great Big Sea repertoire and traditional Newfoundland material; the recording setup is an authored contemporary band model.",
+      "exemplars": [
+        "Alan Doyle",
+        "Great Big Sea",
+        "The Irish Descendants"
+      ]
+    },
+    {
+      "id": "kurdish_folk",
+      "name": "Kurdish folk",
+      "family": "vernacular",
+      "lineage": "Kurdish folk encompasses regional and linguistic traditions across borders and diaspora. Aynur’s documented folk-song and bağlama practice supplies the selected contemporary sung-lute branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        1,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "saz_baglama"
+      ],
+      "description": "A lead voice carries ornamented phrases over a long-neck bağlama accompaniment, with space for instrumental responses. The source documents Aynur’s vocals and bağlama; this small modern-concert reduction is not a claim that all Kurdish folk uses one lute or one religious performance context.",
+      "exemplars": [
+        "Aynur"
+      ]
+    },
+    {
+      "id": "malagasy_folk",
+      "name": "Malagasy folk",
+      "family": "vernacular",
+      "lineage": "Madagascar’s folk traditions encompass multiple regions and instrument families. Rajery’s documented singing and bamboo-tube valiha practice supplies a distinctive highland-connected branch that also participates in contemporary musical exchange.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "valiha"
+      ],
+      "description": "Soft lead singing answers bright plucked valiha figures, with clear articulation and ringing overlapping strings. The authored small-ensemble reduction places the tube zither at the center; it does not replace it with guitar or claim that every Malagasy style shares one instrument, tuning or rhythm.",
+      "exemplars": [
+        "Rajery — Tantsaha",
+        "Rajery — Fanamby"
+      ]
+    },
+    {
+      "id": "malawian_folk",
+      "name": "Malawian folk",
+      "family": "vernacular",
+      "lineage": "Malawian folk encompasses local song traditions and contemporary vernacular guitar practice. Giddes Chalamanda’s field-documented guitar songs provide the selected branch, with a long performance history distinct from later viral remixes.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Lead singing and rhythmic acoustic-guitar patterns interlock in a compact, direct performance. Field research documents both solo guitar and larger arrangements; this authored solo-oriented model follows the acoustic branch and does not confuse a later programmed-drum remix with the entire tradition.",
+      "exemplars": [
+        "Giddes Chalamanda"
+      ]
+    },
+    {
+      "id": "indonesian_folk",
+      "name": "Indonesian folk",
+      "family": "vernacular",
+      "lineage": "This label’s actual discovery roster includes contemporary Indonesian acoustic folk acts. Endah N Rhesa’s documented guitar-bass-vocal duo is the selected branch, not a proxy for Indonesia’s many regional traditional ensembles.",
+      "parent": "balladPoetry",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "electric_bass"
+      ],
+      "description": "Acoustic-guitar figures and vocal phrasing interlock with a distinct electric-bass part rather than simply doubling the guitar root. The compact arrangement follows the duo’s stated instrumentation; exact bass strings, guitar body and studio are authored production choices.",
+      "exemplars": [
+        "Endah N Rhesa"
+      ]
+    },
+    {
+      "id": "indonesian_singer_songwriter",
+      "name": "Indonesian singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Indonesian performer-songwriters work in solo and collaborative formats. Endah Widiastuti’s documented own-song work with bassist Rhesa Aditya supplies the selected independent acoustic branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "electric_bass"
+      ],
+      "description": "Acoustic-guitar figures and vocal phrasing interlock with a distinct electric-bass part rather than simply doubling the guitar root. The compact arrangement follows the duo’s stated instrumentation; exact bass strings, guitar body and studio are authored production choices.",
+      "exemplars": [
+        "Endah N Rhesa"
+      ]
+    },
+    {
+      "id": "korean_indie_folk",
+      "name": "Korean indie folk",
+      "family": "vernacular",
+      "lineage": "Korean independent folk includes small song-led ensembles and solo performers in the Hongdae scene. Kim Sawol and Kim Haewon supply a documented guitar-and-vocal branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "Lead and answering vocals unfold over rhythmically articulated acoustic guitar. The authored setting retains the documented relationship between two independent songwriters’ voices and guitar; it does not impose gayageum, pansori technique or a single traditional Korean scale on contemporary authored songs.",
+      "exemplars": [
+        "Kim Sawol",
+        "Kim Sawol X Kim Haewon — Secret"
+      ]
+    },
+    {
+      "id": "korean_singer_songwriter",
+      "name": "Korean singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Korean performer-songwriters span folk, pop and band formats. Kim Sawol’s first-person account of writing and performing songs supplies the selected intimate acoustic branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "Lead and answering vocals unfold over rhythmically articulated acoustic guitar. The authored setting retains the documented relationship between two independent songwriters’ voices and guitar; it does not impose gayageum, pansori technique or a single traditional Korean scale on contemporary authored songs.",
+      "exemplars": [
+        "Kim Sawol",
+        "Kim Sawol X Kim Haewon — Secret"
+      ]
+    },
+    {
+      "id": "nz_folk",
+      "name": "NZ folk",
+      "family": "vernacular",
+      "lineage": "New Zealand folk includes contemporary acoustic songwriting alongside inherited repertories. Tiny Ruins’ Hollie Fullbrook is documented by an artist interview and local label as part of the folk resurgence.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Lightly picked acoustic guitar and a lead voice are supported by spare bass and brushed percussion. The model follows Tiny Ruins’ documented band and acoustic core; it is an authored reduction of recordings that can also include organ, brass and additional electric guitar.",
+      "exemplars": [
+        "Tiny Ruins — Brightly Painted One",
+        "Hollie Fullbrook"
+      ]
+    },
+    {
+      "id": "nz_singer_songwriter",
+      "name": "NZ singer-songwriter",
+      "family": "vernacular",
+      "lineage": "New Zealand performer-songwriters work across solo and band recordings. Hollie Fullbrook’s Tiny Ruins began as solo authored songs and developed into an Auckland-based ensemble.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Lightly picked acoustic guitar and a lead voice are supported by spare bass and brushed percussion. The model follows Tiny Ruins’ documented band and acoustic core; it is an authored reduction of recordings that can also include organ, brass and additional electric guitar.",
+      "exemplars": [
+        "Tiny Ruins — Brightly Painted One",
+        "Hollie Fullbrook"
+      ]
+    },
+    {
+      "id": "japanese_indie_folk",
+      "name": "Japanese indie folk",
+      "family": "vernacular",
+      "lineage": "The exact roster includes Shugo Tokumaru and other contemporary Japanese acoustic/independent acts. Tokumaru’s richly layered songcraft provides a documented branch that does not reduce indie folk to voice and guitar alone.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        -1,
+        2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "toy_piano",
+        "xylophone"
+      ],
+      "description": "Acoustic-guitar picking and lead voice are surrounded by short toy-piano and wooden-xylophone figures. The selected palette follows instruments identified around In Focus? and its song Decorate; it is an authored playable reduction of dense home-studio layering, not a claim to reproduce every one of the many recorded parts.",
+      "exemplars": [
+        "Shugo Tokumaru — In Focus?",
+        "Shugo Tokumaru — Decorate"
+      ]
+    },
+    {
+      "id": "japanese_singer_songwriter",
+      "name": "Japanese singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Japanese performer-songwriters span several generations of popular song. Yumi Matsutoya’s documented composition, lyric writing, singing and piano practice supplies the selected piano-led branch.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "A single lead voice is supported by piano chords and connecting melodic fills. This authored small-ensemble setting presents the song-writing core and does not claim that Matsutoya’s expansive album and concert productions are piano-only.",
+      "exemplars": [
+        "Yumi Matsutoya",
+        "Yumi Arai"
+      ]
+    },
+    {
+      "id": "norwegian_americana",
+      "name": "Norwegian americana",
+      "family": "vernacular",
+      "lineage": "Norwegian Americana connects local songwriting and roots ensembles with transatlantic recording practice. Malin Pettersen, named in the exact roster, supplies a documented country-leaning band branch.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "grand_piano",
+        "pedal_steel",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Lead and harmony vocals sit over acoustic guitar, piano, pedal-steel responses and a bass/drum foundation. Pettersen’s own Hometown credits identify all these roles; this authored subset of the full session leaves its extra electric/baritone guitar and banjo layers optional rather than inventing a national instrument formula.",
+      "exemplars": [
+        "Malin Pettersen — Hometown",
+        "Malin Pettersen — References Pt.1"
+      ]
+    },
+    {
+      "id": "norwegian_country",
+      "name": "Norwegian country",
+      "family": "vernacular",
+      "lineage": "Norwegian country spans local-language country-rock bands and transatlantic country influences. Hellbillies’ documented blend of Norwegian and American musical traditions provides the selected electric-band branch.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_single_coil",
+        "grand_piano",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Lead and supporting voices ride acoustic/electric guitars, keyboard chords, bass and drums. The source identifies the band’s real performance roles; exact guitar pickup, piano substitution for general keyboards and drum attack are authored choices rather than equipment claims.",
+      "exemplars": [
+        "Hellbillies"
+      ]
+    },
+    {
+      "id": "norwegian_singer_songwriter",
+      "name": "Norwegian singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Norwegian performer-songwriters work across jazz-inflected pop, acoustic song and studio arrangements. Sondre Lerche’s explicit solo nylon-string-guitar programme supplies the selected intimate branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar"
+      ],
+      "description": "A direct lead voice moves over articulated nylon-string guitar chords and short connecting lines. Lerche describes touring solo with this instrument; the authored recipe preserves nylon-string construction and a chord-melody role without claiming a classical recital or duplicating his full band records.",
+      "exemplars": [
+        "Sondre Lerche"
+      ]
+    },
+    {
+      "id": "nashville_americana",
+      "name": "Nashville americana",
+      "family": "vernacular",
+      "lineage": "Nashville Americana links contemporary roots songwriters and bands through local stages and studios. Margo Price, in the exact roster, supplies the selected country-rooted band branch.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_single_coil",
+        "lap_steel",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Narrative lead singing and acoustic guitar are supported by electric guitar, lap steel, bass and drums. A documented Price concert identifies these actual roles; the authored modern recording model keeps the slide instrument distinct and does not replace it with a generic guitar texture.",
+      "exemplars": [
+        "Margo Price"
+      ]
+    },
+    {
+      "id": "new_americana",
+      "name": "New americana",
+      "family": "vernacular",
+      "lineage": "New Americana groups contemporary roots-based songwriters and ensembles across country, folk and related band practices. Margo Price provides an independently documented current Americana/country example rather than a claimed single birthplace or era boundary.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_single_coil",
+        "lap_steel",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Narrative lead singing and acoustic guitar are supported by electric guitar, lap steel, bass and drums. A documented Price concert identifies these actual roles; the authored modern recording model keeps the slide instrument distinct and does not replace it with a generic guitar texture.",
+      "exemplars": [
+        "Margo Price"
+      ]
+    },
+    {
+      "id": "michigan_folk",
+      "name": "Michigan folk",
+      "family": "vernacular",
+      "lineage": "Michigan folk includes local acoustic-song communities and contemporary songwriter bands. May Erlewine’s documented Michigan roots and Traverse City recording identity supply the selected authored-song branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "acoustic_guitar_om",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Lead voice and piano share the melody, supported by acoustic-guitar accents, bass and understated drums. Erlewine’s own release credits establish these roles; the piano-led emphasis and compact texture are authored selections within a broader band record.",
+      "exemplars": [
+        "May Erlewine — What It Takes"
+      ]
+    },
+    {
+      "id": "new_orleans_americana",
+      "name": "New Orleans americana",
+      "family": "vernacular",
+      "lineage": "New Orleans Americana connects roots songwriting with the city’s multilingual and Afro-diasporic musical exchanges. Leyla McCalla, present in the exact roster, provides a documented cello-and-voice branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "cello"
+      ],
+      "description": "Lead singing is supported by bowed cello lines and low-register rhythmic figures. The source documents McCalla’s cello work and songwriting; this authored small-format reduction does not claim that all of her records omit tenor banjo, guitar or percussion.",
+      "exemplars": [
+        "Leyla McCalla"
+      ]
+    },
+    {
+      "id": "indie_anthem_folk",
+      "name": "Indie anthem-folk",
+      "family": "vernacular",
+      "lineage": "Indie anthem-folk is a discovery cluster that includes the Paper Kites, linking acoustic ensemble songcraft with shared refrains and indie-band arrangements. The tag does not require maximum volume or stadium-sized percussion.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "banjo_5_string",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Lead and supporting voices build a singable melodic line above picked acoustic guitar, banjo and a restrained bass/drum foundation. The Paper Kites provide the documented branch; the authored arrangement preserves acoustic detail rather than reading anthem as an instruction to erase the quieter textures.",
+      "exemplars": [
+        "The Paper Kites — Woodland",
+        "The Paper Kites — Roses"
+      ]
+    },
+    {
+      "id": "modern_indie_folk",
+      "name": "Modern indie folk",
+      "family": "vernacular",
+      "lineage": "Modern indie folk is a contemporary discovery cluster containing piano-led and guitar-led songwriter work. Leif Vollebekk’s documented voice/piano-centered recording practice supplies the selected branch rather than assuming every entry is an acoustic-guitar solo.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "A close lead vocal floats over piano phrases with bass and understated drums underneath. Vollebekk’s official Revelation personnel establish these roles; this is a focused authored subset of an album that also includes strings, horns, synthesizers and other instruments.",
+      "exemplars": [
+        "Leif Vollebekk — Revelation"
+      ]
+    },
+    {
+      "id": "nashville_singer_songwriter",
+      "name": "Nashville singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Nashville’s contemporary performer-songwriter network includes Joy Williams, listed in the genre’s artist metadata. Her Front Porch sessions provide a documented acoustic-song branch within a wider writing and production community.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "fiddle",
+        "upright_bass"
+      ],
+      "description": "Lead voice and acoustic guitar are supported by a small fiddle and bass texture, with room for close harmony responses. Front Porch credits identify these actual roles; the arrangement is an authored subset of sessions that also include mandolin, dobro, nylon-string guitar and pedal steel.",
+      "exemplars": [
+        "Joy Williams — Front Porch"
+      ]
+    },
+    {
+      "id": "neo_singer_songwriter",
+      "name": "Neo-singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Neo-singer-songwriter is an archival discovery category that includes Gabrielle Aplin, George Ezra and related contemporary performers. Aplin’s first-person accounts of guitar- and piano-based writing supply the selected acoustic-pop branch.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "grand_piano"
+      ],
+      "description": "A lead voice and acoustic guitar carry the words, with piano reinforcing selected harmonic turns. The model follows Aplin’s documented writing instruments without making later synth-pop production compulsory; exact room, construction and balance are authored recording choices.",
+      "exemplars": [
+        "Gabrielle Aplin — English Rain"
+      ]
+    },
+    {
+      "id": "irish_country",
+      "name": "Irish country",
+      "family": "vernacular",
+      "lineage": "Irish country and country-and-Irish performance mix country-song repertoires with local entertainment circuits and instrumental traditions. Nathan Carter’s documented singing and accordion performance supplies the selected compact branch.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "accordion"
+      ],
+      "description": "A clear lead voice is accompanied by bellows-articulated accordion chords and melody. The configuration is grounded in Carter’s actual instrument and live performance; it is a small authored option within a career that also uses fuller country bands, not a claim that every Irish country song is an accordion solo.",
+      "exemplars": [
+        "Nathan Carter"
+      ]
+    },
+    {
+      "id": "israeli_singer_songwriter",
+      "name": "Israeli singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Israeli performer-songwriters span acoustic, folk-pop and other recorded formats, including multiple languages. Chava Alberstein’s documented writing and guitar/voice work supplies the selected branch without claiming a single language or religious vocal school for the whole category.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar"
+      ],
+      "description": "Narrative lead singing is supported by lightly articulated nylon-string guitar. Published credits identify Alberstein as composer, vocalist and classical/acoustic guitarist; the selected nylon setup and intimate recording are authored choices rather than a transcription of every release.",
+      "exemplars": [
+        "Chava Alberstein — End of the Holiday"
+      ]
+    },
+    {
+      "id": "memphis_americana",
+      "name": "Memphis Americana",
+      "family": "vernacular",
+      "lineage": "Memphis Americana encompasses locally connected roots songwriters and bands. Amy LaVere’s singing, songwriting and upright-bass practice supply a documented branch within the city’s performance and recording community.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "upright_bass"
+      ],
+      "description": "Lead voice and plucked upright bass provide words, pulse and harmonic grounding. This intimate authored reduction centers LaVere’s documented constant live roles; it does not claim her recordings or concerts always omit guitar, drums or collaborators.",
+      "exemplars": [
+        "Amy LaVere"
+      ]
+    },
+    {
+      "id": "modern_psychedelic_folk",
+      "name": "Modern psychedelic folk",
+      "family": "vernacular",
+      "lineage": "Modern psychedelic folk is a contemporary discovery cluster including Shana Cleveland. Her solo Manzanita work combines song and fingerpicked guitar with layered keyboard colors, distinguished in the label account from her band La Luz.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "mellotron"
+      ],
+      "description": "A sung melodic line and fingerpicked acoustic guitar are surrounded by sustained Mellotron texture. These documented roles form an authored reduction of a larger palette; the chosen tape model and string voice are production choices, not claims about the actual Manzanita equipment.",
+      "exemplars": [
+        "Shana Cleveland — Manzanita"
+      ]
+    },
+    {
+      "id": "israeli_folk",
+      "name": "Israeli folk",
+      "family": "vernacular",
+      "lineage": "This archival discovery label includes Bustan Abraham alongside modern instrumental and spiritual-folk performers. Bustan Abraham’s oud-led ensemble work offers a specific collaborative branch rather than a universal ethnic or religious formula.",
+      "parent": "improvOnFrame",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "oud",
+        "flute",
+        "upright_bass",
+        "bendir"
+      ],
+      "description": "Ornamented oud phrases and flute melody interact above plucked double bass and hand-played frame drum. The quartet roles are documented; bendir is selected from percussionist Zohar Fresco’s separately documented instruments, not asserted as the only drum played in the cited concert.",
+      "exemplars": [
+        "Bustan Abraham Quartet"
+      ]
+    },
+    {
+      "id": "musica_folk_asturiana",
+      "name": "Música folk asturiana",
+      "family": "vernacular",
+      "lineage": "Asturian folk includes contemporary ensembles reshaping local dance and song repertoires. Llan de Cubel’s credited IV album supplies a documented band branch built around gaita asturiana, flute, fiddle and string accompaniment.",
+      "parent": "balladPoetry.celticBalladic",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "gaita_asturiana",
+        "fiddle",
+        "flute",
+        "acoustic_guitar_om"
+      ],
+      "description": "Asturian bagpipe and fiddle carry decorated dance melodies while flute and strummed guitar alternate support and response around a sung line. Muñeira is one documented repertoire choice; C chanter and single drone are authored setup selections, not a transcription of every album instrument.",
+      "exemplars": [
+        "Llan de Cubel — IV"
+      ]
+    },
+    {
+      "id": "manitoba_country",
+      "name": "Manitoba country",
+      "family": "vernacular",
+      "lineage": "Manitoba country connects performers and country-music institutions in the Canadian province. Don Amero’s Winnipeg-linked singing, songwriting and guitar performance supply one compact acoustic branch.",
+      "parent": "functionalSong.country",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "A narrative lead voice is supported by steady steel-string guitar strumming. This authored intimate setting centers Amero’s documented performance roles without claiming that his full country productions contain only these instruments.",
+      "exemplars": [
+        "Don Amero"
+      ]
+    },
+    {
+      "id": "okinawan_folk",
+      "name": "Okinawan folk",
+      "family": "vernacular",
+      "lineage": "Okinawan folk song includes narrative and emotional singing accompanied by sanshin, alongside distinct island repertoires and performance settings. This selected song branch is grounded in the official Okinawan cultural account rather than generalized mainland-Japanese instrumentation.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "sanshin"
+      ],
+      "description": "An expressive sung line is answered and supported by plucked three-string sanshin. Shima-uta repertoire and a modern plastic plectrum are explicitly selected; body pattern, recording room and exact balance are authored options, not claims that every performer uses the same setup.",
+      "exemplars": [
+        "Okinawan shima-uta — sanshin-accompanied song"
       ]
     }
   ]

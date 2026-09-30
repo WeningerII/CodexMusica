@@ -3,14 +3,14 @@
   "name": "Skate Punk",
   "family": "rock_punk",
   "lineage": "Southern-Californian punk offshoot codified 1985-1998 around Epitaph and Fat Wreck Chords (Bad Religion, NOFX, Pennywise, Lagwagon), built on 180-230 BPM d-beat-derived skank and blast-adjacent single-stroke snare, downpicked palm-muted power chords over major-key diatonic riffs, octave-doubled bass following root motion, and stacked 'oozin' aah' three-part gang harmonies replacing the shouted unison of hardcore.",
-  "recipe": "classic Los Angeles mid-1990s skate punk, distorted Rock, pop punk branch, thrash metal, alternative distorted rock crossover thrash black speed metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, a cappella small 3 to 8 one per part kakhetian three voice two soloists choral drone choir ensemble. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 875,
-  "score": 496.203,
+  "recipe": "classic Los Angeles mid-1990s skate punk, distorted Rock, pop punk branch, thrash metal, alternative distorted rock crossover thrash. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit, a cappella small 3 to 8 one per part hocket interlocked single note distribution kakhetian three voice two soloists choral drone choir ensemble. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 887,
+  "score": 486.187,
   "config": {
     "traditions": [
       "skate_punk",
       "crossover_thrash",
-      "black_speed_metal"
+      "oi_punk"
     ],
     "instruments": [
       {
@@ -20,30 +20,30 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 37.363749999999996,
-          "amp_make": 38.466375,
-          "body_wood": 12.35,
-          "neck_wood": 1.365,
-          "fretboard": 1.3445,
-          "pickup_magnet": 2.3895,
-          "pickup_winding": 0.65,
+          "electric_technique": 33.23875,
+          "amp_make": 41.491375000000005,
+          "body_wood": 6.89,
+          "neck_wood": 2.015,
+          "fretboard": 1.95,
+          "pickup_magnet": 0.585,
+          "pickup_winding": 0.9650000000000001,
           "string_material": 0.09,
-          "bridge": 1.365,
-          "scale_length": 10.53,
-          "string_gauge": 2.21,
+          "bridge": 2.015,
+          "scale_length": 5.265,
+          "string_gauge": 2.015,
           "finish": 0.2445,
-          "string_tuning": 19.630000000000003
+          "string_tuning": 15.405
         }
       },
       {
@@ -53,28 +53,28 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
+          "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_11",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 37.363749999999996,
-          "amp_make": 38.466375,
-          "body_wood": 1.365,
-          "neck_wood": 1.365,
-          "fretboard": 1.3445,
+          "electric_technique": 33.23875,
+          "amp_make": 41.491375000000005,
+          "body_wood": 2.015,
+          "neck_wood": 2.015,
+          "fretboard": 1.95,
           "pickup_magnet": 0.3,
           "string_material": 0.09,
-          "string_gauge": 2.21,
-          "bridge": 1.3445,
-          "scale_length": 1.365,
+          "string_gauge": 2.015,
+          "bridge": 0.975,
+          "scale_length": 2.015,
           "finish": 0.2445,
-          "string_tuning": 10.14
+          "string_tuning": 10.53
         }
       },
       {
@@ -86,28 +86,30 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.685000000000002,
-          "body_wood": 2.8600000000000003,
-          "pickup_config": 1.6945000000000001,
-          "string_type": 21.125000000000004,
-          "scale_length_b": 1.365,
-          "fretted_or_not": 0.195,
-          "bass_technique": 31.67
+          "amp_make": 9.88,
+          "body_wood": 2.21,
+          "pickup_config": 0.585,
+          "string_type": 19.987500000000004,
+          "scale_length_b": 2.015,
+          "fretted_or_not": 0.165,
+          "bass_technique": 35.54500000000001,
+          "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "sticks_punk",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 16.299500000000002,
-          "drumhead": 5.915,
+          "drum_technique": 20.79,
+          "drumhead": 5.989999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -118,49 +120,49 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_sob",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
           "voice_register": 21.394499999999994,
-          "voice_quality": 6.760000000000002,
+          "voice_quality": 6.305000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4624999999999997,
-          "voice_articulation": 15.014999999999993,
+          "voice_vibrato": 1.95,
+          "voice_articulation": 15.599999999999993,
           "voice_microtone": 20.549999999999997,
-          "voice_tradition": 7.515499999999999,
-          "voice_mechanism_compound": 37.101375000000004,
-          "voice_estill_quality": 2.2193750000000003,
-          "voice_speech_song": 16.314999999999994,
-          "voice_ensemble_config": 29.053874999999994,
-          "voice_ornament_system": 0.165,
+          "voice_tradition": 6.7905,
+          "voice_mechanism_compound": 28.251375,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 15.404999999999992,
+          "voice_ensemble_config": 34.528875,
+          "voice_ornament_system": 0.65,
           "voice_pitch_organization": 3.380000000000001,
-          "voice_processing_chain": 6.825,
-          "voice_multitrack_stack": 3
+          "voice_processing_chain": 4.680000000000001,
+          "voice_multitrack_stack": 3.6096249999999994
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_polyphonic_configuration": "choir_polyphony_hocket_distribution",
           "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
           "choir_size": 3.705,
-          "choir_polyphonic_configuration": 1.5450000000000002,
+          "choir_polyphonic_configuration": 1.95,
           "choir_regional_canonical_configuration": 2.34,
           "choir_ensemble_repertoire": 0.9750000000000001
         }

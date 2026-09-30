@@ -5,7 +5,7 @@
   "lineage": "Texas country includes a regional touring and recording network whose participants are not all Texas-born. Turnpike Troubadours explicitly describe their longstanding place in the Texas country scene, supplying this fiddle-and-guitar band branch.",
   "recipe": "classic modern texas country, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. dreadnought acoustic Fender tweed amp American 50s amp tweed breakup single coil electric guitar, fiddle, Fender tweed amp American 50s amp tweed breakup electric bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 448,
-  "score": 77.133,
+  "score": 79.356,
   "config": {
     "traditions": [
       "texas_country"
@@ -27,12 +27,12 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
           "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 10.749999999999995,
+          "voice_register": 10.812999999999995,
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -41,12 +41,12 @@
           "voice_microtone": 3.7700000000000005,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 11.56625,
+          "voice_estill_quality": 11.786,
           "voice_speech_song": 7.215,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.03899999999999999,
-          "voice_processing_chain": 1.631125,
+          "voice_pitch_organization": 0.0315,
+          "voice_processing_chain": 1.69,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -56,15 +56,15 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "engelmann",
-          "back_sides": "koa_bs",
-          "string_acoustic": "phosphor_bronze"
+          "back_sides": "maple_bs",
+          "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 0.237125,
+          "acoustic_technique": 0.26,
           "string_tuning": 0,
           "top_wood": 0.105,
-          "back_sides": 0.105,
-          "string_acoustic": 0.130125
+          "back_sides": 0.22049999999999997,
+          "string_acoustic": 0.23174999999999998
         }
       },
       {
@@ -74,14 +74,16 @@
           "fiddle_strings": "steel_core",
           "fiddle_bow": "dark_rosin",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 1.95,
-          "fiddle_strings": 0.08549999999999998,
-          "fiddle_bow": 0.105,
-          "fiddle_mute": 0.105,
-          "fiddle_articulation": 0.105
+          "fiddle_strings": 0.23174999999999998,
+          "fiddle_bow": 0.1365,
+          "fiddle_mute": 0.357,
+          "fiddle_articulation": 0.1365,
+          "fiddle_string_configuration": 0
         }
       },
       {
@@ -89,51 +91,53 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_tweed",
-          "body_wood": "alder",
-          "neck_wood": "mahogany_neck",
+          "body_wood": "pine",
+          "neck_wood": "maple",
           "fretboard": "maple_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
-          "scale_length": "scale_gibson",
+          "scale_length": "scale_fender",
           "finish": "nitro",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 0.205625,
-          "amp_make": 11.16225,
-          "body_wood": 0.105,
-          "neck_wood": 0.016125,
-          "fretboard": 0,
+          "electric_technique": 0.2,
+          "amp_make": 11.205,
+          "body_wood": 0.22049999999999997,
+          "neck_wood": 0,
+          "fretboard": 0.0315,
           "pickup_magnet": 0.105,
-          "string_material": 0.17099999999999999,
-          "string_gauge": 0.105,
-          "bridge": 0.0195,
-          "scale_length": 0.01125,
-          "finish": 0.010499999999999999,
-          "string_tuning": 0.17024999999999996
+          "string_material": 0.4634999999999998,
+          "string_gauge": 0.357,
+          "bridge": 0.063,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 0.205125
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_fender_tweed",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.16225,
-          "body_wood": 0.01125,
-          "pickup_config": 0.1245,
-          "string_type": 0.26,
-          "scale_length_b": 0.3195,
-          "fretted_or_not": 0.35325,
-          "bass_technique": -0.15000000000000002
+          "amp_make": 11.205,
+          "body_wood": 0.0315,
+          "pickup_config": 0.1995,
+          "string_type": 0.29474999999999996,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.5283749999999999,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {

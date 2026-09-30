@@ -3,14 +3,14 @@
   "name": "Xinyao",
   "family": "pop",
   "lineage": "Singaporean Mandarin campus-folk movement formed 1979-1985 among junior-college and university students (Liang Wern Fook, Eric Moo, Billy Koh, and the Hocktone/Ocean Butterflies circle), built on strummed steel-string guitar at unhurried 70-100 BPM ballad tempos, diatonic verse-chorus songwriting with light piano and fretless-toned bass, and a conversational untrained-sounding Mandarin vocal delivery singing local Singaporean subject matter rather than Taiwanese or Hong Kong romantic convention.",
-  "recipe": "classic Southeast Asian mid-1980s xinyao, functional Song, east Asian pop branch, anglo singer song indie folk chinese minyao stomp and flutter. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, rock canon ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, venice catlin high twist renaissance bass hard rock maple synthetic varnish cello. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 767,
-  "score": 277.96,
+  "recipe": "classic Southeast Asian mid-1980s xinyao, functional Song, east Asian pop branch, anglo singer song indie folk chinese minyao indie anthem-folk. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, pyramid pure nickel bass British mid 60s era fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, venice catlin high twist renaissance bass Baroque setup cello. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 776,
+  "score": 223.037,
   "config": {
     "traditions": [
       "xinyao",
       "chinese_minyao",
-      "stomp_and_flutter"
+      "indie_anthem_folk"
     ],
     "instruments": [
       {
@@ -31,41 +31,41 @@
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 27.33999999999999,
-          "voice_quality": 6.370000000000002,
+          "voice_register": 20.964999999999996,
+          "voice_quality": 7.605,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6575000000000002,
-          "voice_articulation": 14.494999999999996,
-          "voice_microtone": 14.299999999999994,
-          "voice_tradition": 29.0875,
-          "voice_mechanism_compound": 2.34,
-          "voice_estill_quality": 4.8100000000000005,
-          "voice_speech_song": 21.709999999999994,
-          "voice_ensemble_config": 14.819999999999997,
-          "voice_ornament_system": 6.987500000000001,
+          "voice_vibrato": 1.0725,
+          "voice_articulation": 10.854999999999997,
+          "voice_microtone": 10.464999999999995,
+          "voice_tradition": 25.479999999999997,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 4.355,
+          "voice_speech_song": 18.264999999999997,
+          "voice_ensemble_config": 10.789999999999996,
+          "voice_ornament_system": 6.5325000000000015,
           "voice_pitch_organization": 6.8,
           "voice_processing_chain": 2.145,
-          "voice_multitrack_stack": 2.5349999999999997
+          "voice_multitrack_stack": 2.0799999999999996
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "drop_d",
-          "top_wood": "engelmann",
-          "back_sides": "maple_bs",
+          "string_tuning": "open_d",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 21.63,
-          "string_tuning": 0.775,
-          "top_wood": 0.3,
-          "back_sides": 0.45499999999999996,
+          "acoustic_technique": 18.979999999999997,
+          "string_tuning": 0.52,
+          "top_wood": 0.495,
+          "back_sides": 0.345,
           "string_acoustic": 1.95
         }
       },
@@ -83,15 +83,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 9.94,
+          "keyboard_technique": 7.4399999999999995,
           "grand_piano_size": 0.44999999999999996,
           "grand_piano_brand": 2.135,
-          "piano_hammer": 10.045,
-          "piano_rim": 10,
-          "piano_soundboard": 11.955000000000002,
-          "piano_pinblock": 0.4875,
-          "piano_plate": 1.0074999999999998,
-          "piano_pitch_standard": 2.5675
+          "piano_hammer": 7.120000000000001,
+          "piano_rim": 7.075000000000001,
+          "piano_soundboard": 9.030000000000001,
+          "piano_pinblock": -0.035,
+          "piano_plate": 0.45499999999999996,
+          "piano_pitch_standard": 2.275
         }
       },
       {
@@ -100,19 +100,21 @@
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "fingerpicked_country_b",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.99,
-          "body_wood": 0.195,
-          "pickup_config": 0.195,
-          "string_type": 2.7625,
-          "scale_length_b": 0.3,
+          "amp_make": 2.2749999999999995,
+          "body_wood": 0.6900000000000001,
+          "pickup_config": 0.39,
+          "string_type": 1.9849999999999999,
+          "scale_length_b": 0.645,
           "fretted_or_not": 1.135,
-          "bass_technique": 2.12
+          "bass_technique": 1.4299999999999997,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -123,15 +125,15 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.909999999999997,
-          "drumhead": 10.3,
+          "drum_technique": 10.724999999999998,
+          "drumhead": 7.375,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "cello",
         "slots": {
-          "bowed_technique": "bowed_sul_tasto",
+          "bowed_technique": "bowed_spiccato_articulated",
           "cello_strings": "venice_catlin_cello",
           "cello_top_wood": "engelmann_spruce_cello",
           "cello_back_wood": "hard_rock_maple_cello_back",
@@ -142,15 +144,15 @@
           "cello_bow_stick": "brazilwood_stick_cello"
         },
         "scores": {
-          "bowed_technique": 0.585,
-          "cello_strings": 1.885,
-          "cello_top_wood": 0.57,
-          "cello_back_wood": 1.5925,
-          "cello_varnish": 1.0725,
-          "cello_setup_period": 3.1350000000000002,
+          "bowed_technique": -0.035,
+          "cello_strings": 2.0799999999999996,
+          "cello_top_wood": -0.035,
+          "cello_back_wood": 0.12999999999999998,
+          "cello_varnish": 0.5199999999999999,
+          "cello_setup_period": 2.785,
           "cello_bow_grip": 1.3,
-          "cello_rosin": 1.2675,
-          "cello_bow_stick": 0.375
+          "cello_rosin": 0.7149999999999999,
+          "cello_bow_stick": -0.05
         }
       }
     ],

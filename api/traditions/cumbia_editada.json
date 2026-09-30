@@ -78,7 +78,8 @@
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "sub_bass_synth_blend"
+          "bass_technique": "sub_bass_synth_blend",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 1.8199999999999998,
@@ -87,7 +88,8 @@
           "string_type": 1.7550000000000001,
           "scale_length_b": 0.845,
           "fretted_or_not": 0,
-          "bass_technique": 2.14
+          "bass_technique": 2.14,
+          "electric_bass_string_configuration": 0
         }
       },
       {

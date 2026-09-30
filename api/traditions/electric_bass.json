@@ -20,7 +20,8 @@
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "slap_pop"
+          "bass_technique": "slap_pop",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
@@ -29,7 +30,8 @@
           "string_type": 0.8294999999999999,
           "scale_length_b": 1,
           "fretted_or_not": 0.39,
-          "bass_technique": 2.9469999999999996
+          "bass_technique": 2.9469999999999996,
+          "electric_bass_string_configuration": 0
         }
       }
     ],

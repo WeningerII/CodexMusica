@@ -5,7 +5,7 @@
   "lineage": "Arkansas geographic metal scope represented by Little Rock’s Pallbearer and its doom-based melodic/progressive interplay. The authored branch follows documented baritone-guitar practice rather than treating low tuning as a new instrument.",
   "recipe": "classic modern arkansas metal, distorted Rock, doom branch. equal tempered, one note per syllable. 27 inch short baritone nickel plated steel baritone gauge dual humbucker baritone electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 504,
-  "score": 54.378,
+  "score": 54.408,
   "config": {
     "traditions": [
       "arkansas_metal"
@@ -41,7 +41,8 @@
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
@@ -50,7 +51,8 @@
           "string_type": 0.3225,
           "scale_length_b": 1.4575,
           "fretted_or_not": 0.0315,
-          "bass_technique": -0.15000000000000002
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -69,8 +71,8 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.25,
-          "drumhead": 2.244125,
+          "drum_technique": 6.2575,
+          "drumhead": 2.231,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.268125,
           "shell_thickness": 0.0315,
@@ -78,7 +80,7 @@
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 6.15,
-          "cymbal_lathing": 6.513,
+          "cymbal_lathing": 6.538,
           "cymbal_finish": 0.1365
         }
       },
@@ -108,16 +110,16 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.0315,
+          "voice_articulation": 0.039,
           "voice_microtone": 6.300000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.67425,
+          "voice_speech_song": 0.6705,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.01125,
           "voice_pitch_organization": 0.0315,
-          "voice_processing_chain": 0.016875,
+          "voice_processing_chain": 0.024375,
           "voice_multitrack_stack": 0.378
         }
       }

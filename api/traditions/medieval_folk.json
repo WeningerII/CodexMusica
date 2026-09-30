@@ -1,0 +1,146 @@
+{
+  "id": "medieval_folk",
+  "name": "Medieval folk",
+  "family": "vernacular",
+  "lineage": "The discovery roster centers modern medieval-inspired ensembles such as FAUN, OMNIA and Blackmore’s Night. It denotes contemporary revival/fusion practice, not proof that these recordings reconstruct medieval performance unchanged.",
+  "recipe": "classic modern medieval folk, ballad Poetry. thick, incomplete closure resting, straight onset, neutral third half flat. steel modern bal folk hurdy gurdy, celtic harp, irish bouzouki. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 322,
+  "score": 40.408,
+  "config": {
+    "traditions": [
+      "medieval_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.0000000000000004,
+          "voice_quality": 1.2999999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.8999999999999999,
+          "voice_articulation": 0,
+          "voice_microtone": 2.0799999999999996,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 4.355,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0.6499999999999998,
+          "voice_pitch_organization": 7.300000000000001,
+          "voice_processing_chain": 1.8365,
+          "voice_multitrack_stack": 0.312
+        }
+      },
+      {
+        "id": "hurdy_gurdy",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "hurdy_strings": "hurdy_4_string",
+          "hurdy_buzz": "chien_active",
+          "hurdy_wheel_rosin": "hurdy_traditional_pine_rosin",
+          "hurdy_string_material": "hurdy_steel_modern",
+          "hurdy_tradition": "hurdy_modern_medieval_folk"
+        },
+        "scores": {
+          "bowed_technique": 1.7025000000000001,
+          "hurdy_strings": 4.6899999999999995,
+          "hurdy_buzz": 0,
+          "hurdy_wheel_rosin": 0.29899999999999993,
+          "hurdy_string_material": 2.43275,
+          "hurdy_tradition": 0.39
+        }
+      },
+      {
+        "id": "celtic_harp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "celtic_harp_levers": "lever_camac",
+          "celtic_harp_strings": "celtic_wire_strung"
+        },
+        "scores": {
+          "acoustic_technique": 1.45,
+          "celtic_harp_levers": 2.3899999999999997,
+          "celtic_harp_strings": 3
+        }
+      },
+      {
+        "id": "irish_bouzouki",
+        "slots": {
+          "irish_bouzouki_form": "irish_bouzouki_standard",
+          "irish_bouzouki_playing": "irish_bouzouki_countermelody",
+          "irish_bouzouki_top_wood": "irish_bouzouki_spruce_top"
+        },
+        "scores": {
+          "irish_bouzouki_form": -0.05,
+          "irish_bouzouki_playing": -0.035,
+          "irish_bouzouki_top_wood": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition",
+        "voice_ensemble_config"
+      ],
+      "hurdy_gurdy": [
+        "bowed_technique",
+        "hurdy_buzz",
+        "hurdy_tradition"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+      "voice_articulation": "legato_voice",
+      "bowed_technique": "bowed_local_song_melody",
+      "hurdy_tradition": "hurdy_modern_medieval_folk",
+      "hurdy_buzz": "chien_active",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

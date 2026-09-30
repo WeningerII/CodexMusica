@@ -5,7 +5,7 @@
   "lineage": "A British-centered alternative-rock network including Enter Shikari, Don Broco, Skunk Anansie and Deaf Havana. The selected Enter Shikari branch joins processed guitar riffs to synthesizer layers, a live rhythm section and vocals.",
   "recipe": "classic modern british alternative rock, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. single coil electric guitar, analog synth, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter wah / envelope filter.",
   "recipe_chars": 538,
-  "score": 39.973,
+  "score": 40.159,
   "config": {
     "traditions": [
       "british_alternative_rock"
@@ -53,9 +53,9 @@
         },
         "scores": {
           "electronic_technique": -0.035,
-          "oscillator": 0.24712499999999998,
-          "filter_topology": 0.168,
-          "envelope": 0.273,
+          "oscillator": 0.44512499999999994,
+          "filter_topology": 0.24225,
+          "envelope": 0.1365,
           "modulation": 0
         }
       },
@@ -68,7 +68,8 @@
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": -0.07,
@@ -76,8 +77,9 @@
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
-          "fretted_or_not": 0.0735,
-          "bass_technique": -0.15000000000000002
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -141,11 +143,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.78,
-          "voice_ensemble_config": 1.609875,
+          "voice_ensemble_config": 1.6342499999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.546
+          "voice_multitrack_stack": 0.644625
         }
       }
     ],

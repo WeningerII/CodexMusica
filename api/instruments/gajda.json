@@ -32,6 +32,16 @@
             "macedonian-tradition",
             "bulgarian-tradition"
           ]
+        },
+        {
+          "id": "gajda_single_reed_chanter_drone",
+          "name": "Single-reed chanter and drone",
+          "descriptors": [
+            "single-reed",
+            "drone-foundation"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -62,6 +72,16 @@
             "wind",
             "bulgarian-tradition"
           ]
+        },
+        {
+          "id": "gajda_macedonian_dance",
+          "name": "Macedonian instrumental dance",
+          "descriptors": [
+            "ornamented",
+            "dance-accompaniment"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }
@@ -83,6 +103,16 @@
             "macedonian-tradition",
             "bulgarian-tradition"
           ]
+        },
+        {
+          "id": "gajda_single_reed_chanter_drone",
+          "name": "Single-reed chanter and drone",
+          "descriptors": [
+            "single-reed",
+            "drone-foundation"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -113,6 +143,16 @@
             "wind",
             "bulgarian-tradition"
           ]
+        },
+        {
+          "id": "gajda_macedonian_dance",
+          "name": "Macedonian instrumental dance",
+          "descriptors": [
+            "ornamented",
+            "dance-accompaniment"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }

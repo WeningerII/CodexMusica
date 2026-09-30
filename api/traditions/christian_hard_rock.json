@@ -1,0 +1,389 @@
+{
+  "id": "christian_hard_rock",
+  "name": "Christian hard rock",
+  "family": "rock_punk",
+  "lineage": "A Christian-associated hard-rock network whose artists also participate in mainstream rock. The selected Skillet branch combines amplified band playing with independent bowed-string voices and keyboards, as documented on Comatose Comes Alive.",
+  "recipe": "classic christian hard rock, distorted Rock, alternative branch. one note per syllable. humbucker electric guitar, carbon fiber composite modern alternative violin orchestral, cello, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, melodic band keyboard rompler workstation. treated studio. large-diaphragm condenser, console-strip pre, california modern high-gain, parallel compression, parametric EQ. 24-bit digital hall reverb.",
+  "recipe_chars": 486,
+  "score": 48.674,
+  "config": {
+    "traditions": [
+      "christian_hard_rock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 1.8199999999999998,
+          "amp_make": 0,
+          "body_wood": 0.441,
+          "neck_wood": 0.441,
+          "fretboard": -0.035,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.1365,
+          "string_material": 0.144,
+          "bridge": 0.441,
+          "scale_length": 0.8820000000000001,
+          "string_gauge": 0.273,
+          "finish": 0,
+          "string_tuning": 0
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "orch_strings": 0,
+          "orch_top_wood": -0.07,
+          "orch_back_wood": -0.1,
+          "orch_varnish": -0.035,
+          "orch_setup_period": 0.26,
+          "orch_bow": 0,
+          "orch_bow_stick": 2.275,
+          "orch_articulation": 0.39,
+          "orch_rosin": -0.05
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_steel",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "carbon_fiber_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "cello_strings": 0.144,
+          "cello_top_wood": -0.07,
+          "cello_back_wood": -0.1,
+          "cello_varnish": -0.035,
+          "cello_setup_period": 0.26,
+          "cello_bow_grip": 0.639,
+          "cello_rosin": 0.26,
+          "cello_bow_stick": -0.05
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.441,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 0.0735,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": 12,
+          "drumhead": 0.5145,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.2415,
+          "shell_thickness": 0,
+          "bearing_edges": 0.144,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 11.931499999999998,
+          "cymbal_lathing": 12.036499999999998,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "rompler_preset_bank": "rompler_preset_piano_orchestral",
+          "rompler_context": "rompler_context_rock_band",
+          "rompler_lineage": "rompler_lineage_unspecified"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "rompler_preset_bank": -0.035,
+          "rompler_context": 2.47,
+          "rompler_lineage": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 0,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.168,
+          "voice_multitrack_stack": 0
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings",
+        "orch_top_wood",
+        "orch_back_wood",
+        "orch_varnish",
+        "orch_setup_period",
+        "orch_bow",
+        "orch_articulation"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "rompler_workstation": [
+        "electronic_technique",
+        "rompler_preset_bank",
+        "rompler_context",
+        "rompler_lineage"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_in_the_box",
+      "comp": "comp_parallel_blend",
+      "eq": "eq_active_parametric",
+      "amp": "amp_california_modern",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "body_wood": "mahogany_h",
+      "neck_wood": "mahogany_neck_h",
+      "fretboard": "rosewood_fb_h",
+      "pickup_magnet": "ceramic_h",
+      "string_material": "nickel_plated_h",
+      "string_gauge": "g_10_hum",
+      "bridge": "stoptail",
+      "scale_length": "scale_gibson_h",
+      "finish": "nitro_hum",
+      "string_tuning": "standard_tuning",
+      "amp_make": "amp_unspecified",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "medium_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "double_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "drum_technique": "sticks_rock",
+      "pickup_winding": "high_wind",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "electric_technique": "electric_power_chord",
+      "bowed_technique": "bowed_legato_classical",
+      "orch_strings": "synthetic_orch",
+      "orch_top_wood": "norway_spruce_alpine_violin",
+      "orch_back_wood": "bosnian_flamed_maple_violin",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_articulation": "arco_orch",
+      "orch_bow": "modern_bow",
+      "orch_varnish": "modern_synthetic_varnish_violin",
+      "cello_strings": "cello_steel",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "european_maple_cello_back",
+      "cello_varnish": "modern_synthetic_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "carbon_fiber_stick_cello",
+      "electronic_technique": "electronic_pad_drone",
+      "rompler_preset_bank": "rompler_preset_piano_orchestral",
+      "rompler_context": "rompler_context_rock_band",
+      "rompler_lineage": "rompler_lineage_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_parallel_blend",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "hall_reverb"
+    ],
+    "chain_amp": "amp_california_modern"
+  }
+}
