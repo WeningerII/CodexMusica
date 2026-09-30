@@ -5,7 +5,7 @@
   "lineage": "Danish independent pop represented by Efterklang’s collaboration-based song arrangements: piano patterns, sung melodies, guitar, drums and cello, with acoustic detail alongside studio experimentation. The chosen ensemble is grounded in their account of Things We Have In Common, not a template for all Danish music.",
   "recipe": "classic modern danish indie pop, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, single coil electric guitar, hard rock maple pirastro cellisto cello specific cello, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 510,
-  "score": 69.012,
+  "score": 69.114,
   "config": {
     "traditions": [
       "danish_indie_pop"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.231,
           "voice_processing_chain": 1.3315000000000001,
-          "voice_multitrack_stack": 0.0315
+          "voice_multitrack_stack": 0.18749999999999997
         }
       },
       {
@@ -65,14 +65,14 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.17175,
-          "grand_piano_brand": 0.4065,
+          "grand_piano_size": 0.16799999999999998,
+          "grand_piano_brand": 0.399,
           "piano_hammer": 12.181,
           "piano_rim": 12.013,
-          "piano_soundboard": 12.023499999999999,
+          "piano_soundboard": 11.95,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
-          "piano_pitch_standard": 2.3435
+          "piano_pitch_standard": 2.4050000000000002
         }
       },
       {
@@ -83,7 +83,7 @@
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "pau_ferro_fb",
-          "pickup_magnet": "ceramic",
+          "pickup_magnet": "alnico_3",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
@@ -94,14 +94,14 @@
         "scores": {
           "electric_technique": 2.5575,
           "amp_make": 1.885,
-          "body_wood": 0.25775,
-          "neck_wood": 0.25775,
-          "fretboard": 0.03525,
-          "pickup_magnet": 0.03525,
-          "string_material": 0.03525,
+          "body_wood": 0.2415,
+          "neck_wood": 0.2415,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.0315,
+          "string_material": 0.0315,
           "string_gauge": 0.1995,
           "bridge": 0.1365,
-          "scale_length": 0.39799999999999996,
+          "scale_length": 0.378,
           "finish": 0,
           "string_tuning": 1.95
         }
@@ -115,7 +115,7 @@
           "cello_back_wood": "hard_rock_maple_cello_back",
           "cello_varnish": "spirit_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
-          "cello_bow_grip": "german_bow_grip",
+          "cello_bow_grip": "french_bow_grip",
           "cello_rosin": "pirastro_cellisto_rosin",
           "cello_bow_stick": "brazilwood_stick_cello"
         },
@@ -126,7 +126,7 @@
           "cello_back_wood": 1.885,
           "cello_varnish": -0.035,
           "cello_setup_period": -0.07,
-          "cello_bow_grip": 0.03525,
+          "cello_bow_grip": 0.0315,
           "cello_rosin": 1.2315,
           "cello_bow_stick": -0.05
         }
@@ -140,7 +140,7 @@
         },
         "scores": {
           "drum_technique": 1.56,
-          "drumhead": 12.1915,
+          "drumhead": 12.2275,
           "drum_kit_kick_pedal": 0
         }
       }

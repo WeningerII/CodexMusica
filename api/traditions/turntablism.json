@@ -3,14 +3,14 @@
   "name": "Turntablism",
   "family": "hip_hop",
   "lineage": "Codified in the Bronx from Grand Wizzard Theodore's mid-1970s scratch discovery and formalized as a solo discipline by the Invisibl Skratch Piklz and X-Ecutioners through DMC and ITF championships (1990s), it treats two turntables and a crossfader as an instrument — baby, transformer, flare, and crab scratches over cut breakbeats at 90-100 BPM, with beat-juggling of doubled records and battle-record sample vocabulary.",
-  "recipe": "classic North American 1974-1976 turntablism, mc Rhythm, experimental branch, us hip hop east coast, musique concrete experimental electric, us hip hop west coast boom bap g-funk. thick, rap, slow rate, interlocked note trading. sampled chopped turntable, chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
-  "recipe_chars": 722,
-  "score": 243.622,
+  "recipe": "classic North American 1974-1976 turntablism, mc Rhythm, experimental branch, us hip hop east coast, musique concrete experimental electric, us hip hop west coast harlem hip hop boom bap. thick, rap, slow rate, interlocked note trading. sampled chopped turntable, chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 727,
+  "score": 221.635,
   "config": {
     "traditions": [
       "turntablism",
-      "boom_bap",
-      "g_funk"
+      "harlem_hip_hop",
+      "boom_bap"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 8.935,
+          "electronic_technique": 8.41,
           "turntable_technique": 12.645
         }
       },
@@ -29,16 +29,16 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 8.935,
-          "sampler_archetypes": 14.04,
-          "sampler_bit_depth": 1.2000000000000002,
-          "sampler_workflow": 9.594999999999999,
-          "sampler_classic_context": 28.535
+          "electronic_technique": 8.41,
+          "sampler_archetypes": 12.869999999999997,
+          "sampler_bit_depth": 1.17,
+          "sampler_workflow": 8.694999999999999,
+          "sampler_classic_context": 25.6425
         }
       },
       {
@@ -49,9 +49,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 9.18,
-          "drum_machine_808_context": 1.4949999999999999,
-          "tr808_production_origin": 1.7550000000000001
+          "tr808_voice": 8.655,
+          "drum_machine_808_context": 1.6899999999999997,
+          "tr808_production_origin": 1.95
         }
       },
       {
@@ -70,34 +70,34 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 5.515000000000001,
-          "voice_quality": 16.77,
+          "voice_register": 5.365,
+          "voice_quality": 16.444999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6650000000000005,
-          "voice_articulation": 16.574999999999996,
-          "voice_microtone": 16.379999999999992,
-          "voice_tradition": 9.71,
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 14.559999999999995,
+          "voice_microtone": 14.364999999999991,
+          "voice_tradition": 8.985,
           "voice_mechanism_compound": 2.8599999999999994,
-          "voice_estill_quality": 3.5800000000000005,
-          "voice_speech_song": 18.004999999999995,
-          "voice_ensemble_config": 17.549999999999997,
+          "voice_estill_quality": 2.93,
+          "voice_speech_song": 16.184999999999995,
+          "voice_ensemble_config": 15.079999999999995,
           "voice_ornament_system": 5.330000000000002,
-          "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 9.249999999999998,
-          "voice_multitrack_stack": 5.395
+          "voice_pitch_organization": 0.345,
+          "voice_processing_chain": 8.999999999999998,
+          "voice_multitrack_stack": 5.2
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
@@ -107,12 +107,12 @@
         },
         "scores": {
           "amp_make": 4.42,
-          "body_wood": 1.69,
-          "pickup_config": 0.15,
-          "string_type": 3.575,
-          "scale_length_b": 1.885,
-          "fretted_or_not": 0.7999999999999999,
-          "bass_technique": 6.54,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0.195,
+          "string_type": 3.77,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 0.39,
+          "bass_technique": 3.29,
           "electric_bass_string_configuration": 0
         }
       }

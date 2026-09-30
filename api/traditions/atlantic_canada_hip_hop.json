@@ -5,7 +5,7 @@
   "lineage": "Atlantic Canadian hip-hop; selected Buck 65 Halifax sample-and-turntable branch",
   "recipe": "classic modern atlantic canada hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. chopped sampler, sampled chopped turntable. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 290,
-  "score": 60.087,
+  "score": 60.059,
   "config": {
     "traditions": [
       "atlantic_canada_hip_hop"
@@ -37,15 +37,15 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0,
+          "voice_articulation": 0.03712499999999999,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 9.672625,
+          "voice_speech_song": 9.632875,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.1365,
+          "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.03712499999999999
         }
@@ -60,7 +60,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.57425,
+          "electronic_technique": 5.611375,
           "sampler_archetypes": 9.035,
           "sampler_bit_depth": -0.05,
           "sampler_workflow": 5.487125,
@@ -74,8 +74,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 5.57425,
-          "turntable_technique": 5.2
+          "electronic_technique": 5.611375,
+          "turntable_technique": 5.237125
         }
       }
     ],

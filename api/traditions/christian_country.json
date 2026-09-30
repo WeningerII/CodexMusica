@@ -5,7 +5,7 @@
   "lineage": "US commercial format consolidated in the late 1980s and 1990s around Nashville's inspirational-country labels and the Christian Country Music Association, applying full contemporary country production — pedal steel, Telecaster, drum kit, 70-100 BPM ballad and mid-tempo shuffle feels — to explicitly evangelical first-person testimony lyrics sung in a clean, unornamented mainstream country baritone or soprano.",
   "recipe": "classic Southern American 1987-1989 christian country, functional Song, contemp main branch, christian gospel southern gospel, nashville country urban cowboy nashville sound. thick, breath veiled tone, straight note core, interlocked note trading. cedar koa steel silk travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu.",
   "recipe_chars": 989,
-  "score": 739.15,
+  "score": 738.232,
   "config": {
     "traditions": [
       "christian_country",
@@ -41,15 +41,15 @@
           "voice_vibrato": 36.95000000000001,
           "voice_articulation": 13.844999999999995,
           "voice_microtone": 13.844999999999992,
-          "voice_tradition": 11.602499999999996,
+          "voice_tradition": 11.174999999999997,
           "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 37.8265,
+          "voice_estill_quality": 37.721500000000006,
           "voice_speech_song": 20.474999999999994,
           "voice_ensemble_config": 15.079999999999995,
           "voice_ornament_system": 2.4,
           "voice_pitch_organization": 1.1699999999999995,
           "voice_processing_chain": 3.6649999999999996,
-          "voice_multitrack_stack": 4.638
+          "voice_multitrack_stack": 4.801500000000001
         }
       },
       {
@@ -65,7 +65,7 @@
           "acoustic_technique": 35.65,
           "string_tuning": 0,
           "top_wood": 2.885,
-          "back_sides": 1.2265,
+          "back_sides": 1.09,
           "string_acoustic": 3.3149999999999995
         }
       },
@@ -82,13 +82,13 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 40.588,
+          "electric_technique": 40.4515,
           "amp_make": 35.94000000000001,
           "pickup_steel": 2.04,
-          "string_setup": 18.07,
+          "string_setup": 17.971,
           "bar_material": 2.925,
           "pedal_steel_brand": 44.803000000000004,
-          "pedal_steel_neck_config": 39.2965,
+          "pedal_steel_neck_config": 38.866,
           "pedal_steel_strings": 42.663000000000004
         }
       },
@@ -139,9 +139,9 @@
           "amp_make": 35.07000000000001,
           "body_wood": 2.28,
           "pickup_config": 0,
-          "string_type": 6.051499999999999,
+          "string_type": 5.946499999999999,
           "scale_length_b": 2.04,
-          "fretted_or_not": 0.045,
+          "fretted_or_not": 0.24,
           "bass_technique": 34.94500000000001,
           "electric_bass_string_configuration": 0
         }
@@ -175,13 +175,13 @@
         "scores": {
           "keyboard_technique": 7.325,
           "grand_piano_size": 2.1165,
-          "grand_piano_brand": 2.3745,
+          "grand_piano_brand": 2.343,
           "piano_hammer": 6.124999999999999,
-          "piano_rim": 8.299999999999999,
+          "piano_rim": 8.194999999999999,
           "piano_soundboard": 7.324999999999999,
           "piano_pinblock": -0.05,
           "piano_plate": 1.8849999999999996,
-          "piano_pitch_standard": 4.51
+          "piano_pitch_standard": 4.615
         }
       },
       {
@@ -193,7 +193,7 @@
         },
         "scores": {
           "multitrack_stack_density": 0.585,
-          "multitrack_stack_era_aesthetic": 9.364999999999998,
+          "multitrack_stack_era_aesthetic": 9.559999999999999,
           "multitrack_stack_processing": 1.0265
         }
       }

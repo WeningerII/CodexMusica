@@ -1,0 +1,166 @@
+{
+  "id": "c_pop_girl_group",
+  "name": "C-pop girl group",
+  "family": "pop",
+  "lineage": "Mandopop girl-group performance foregrounding complementary singers and close vocal harmonies. The selected S.H.E model uses a three-part recorded vocal stack over piano, synthesizer and a simple programmed beat, reflecting the documented pop side of the Taiwanese group rather than every C-pop female ensemble.",
+  "recipe": "classic modern c-pop girl group, functional Song, pop rock branch. lead plus third fifth 3 part stack 2000s elastic pitch edited stack multitrack vocal stack, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, analog poly synth, sampler drum machine, dreadnought acoustic guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 465,
+  "score": 76.525,
+  "config": {
+    "traditions": [
+      "c_pop_girl_group"
+    ],
+    "instruments": [
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_natural"
+        },
+        "scores": {
+          "multitrack_stack_density": 3.37625,
+          "multitrack_stack_era_aesthetic": 1.4625,
+          "multitrack_stack_processing": 0.0315
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 15.640999999999998,
+          "grand_piano_size": 0.063,
+          "grand_piano_brand": 0.5777499999999999,
+          "piano_hammer": 15.431,
+          "piano_rim": 15.231499999999999,
+          "piano_soundboard": 15.2,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 4.361749999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 0.2315,
+          "poly_archetypes": 1.95,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0.42000000000000004,
+          "sample_swing": 0,
+          "sample_processing": 0.063
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_e",
+          "top_wood": "sitka",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": -0.25,
+          "string_tuning": 1.2865,
+          "top_wood": 0.1365,
+          "back_sides": 0,
+          "string_acoustic": 0.33599999999999997
+        }
+      }
+    ],
+    "pinned": {
+      "multitrack_vocal_stack": [
+        "multitrack_stack_density",
+        "multitrack_stack_era_aesthetic",
+        "multitrack_stack_processing"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_processing"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+      "multitrack_stack_processing": "multitrack_processing_natural",
+      "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_7_foot",
+      "electronic_technique": "electronic_pad_drone",
+      "sample_processing": "one_shots_layered",
+      "sample_bitdepth": "sixteen_bit",
+      "acoustic_technique": "acoustic_fingerpicked",
+      "top_wood": "sitka",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "phosphor_bronze"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": []
+  }
+}

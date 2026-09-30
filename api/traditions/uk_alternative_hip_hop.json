@@ -3,14 +3,14 @@
   "name": "UK alternative hip hop",
   "family": "hip_hop",
   "lineage": "British alternative rap encompassing individual departures from dominant beat and persona conventions. Little Simz and Inflo’s GREY Area (2019) anchors this selected London strand, emphasizing a live-played rhythm section and a direct personal MC rather than requiring grime or drill programming. Other UK alternative hip-hop recordings can be sample-based or electronic.",
-  "recipe": "classic late-2010s uk alternative hip hop, mc Rhythm, intl hip hop branch, experimental MC rhythm, soul R&B functional song contemporary r&b doo-wop. thick, rap, pure, narrative. ampeg b15 amp American 60s bass amp flip top character flatwound fingerstyle electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, bronze bell bronze sticks pocket drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 562,
-  "score": 163.065,
+  "recipe": "classic late-2010s uk alternative hip hop, mc Rhythm, intl hip hop branch, experimental MC rhythm, soul R&B functional song contemporary r&b gospel soul. thick, rap, pure, narrative. ampeg b15 amp American 60s bass amp flip top character flatwound fingerstyle electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, bronze bell bronze sticks pocket drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 566,
+  "score": 179.005,
   "config": {
     "traditions": [
       "uk_alternative_hip_hop",
       "contemporary_rb_late_90s_2000s",
-      "doo_wop"
+      "gospel_soul"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 18.414999999999996,
-          "voice_quality": 18.395,
+          "voice_register": 18.764999999999997,
+          "voice_quality": 19.045,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.15,
-          "voice_vibrato": 1.735,
-          "voice_articulation": 18.044999999999998,
-          "voice_microtone": 5.9,
+          "voice_effort": 0,
+          "voice_vibrato": 1.435,
+          "voice_articulation": 21.270000000000003,
+          "voice_microtone": 1.2999999999999998,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.24,
           "voice_estill_quality": 0,
-          "voice_speech_song": 18.39,
-          "voice_ensemble_config": 5.199999999999999,
+          "voice_speech_song": 18.439999999999998,
+          "voice_ensemble_config": 4.9399999999999995,
           "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0.135,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.975
+          "voice_multitrack_stack": 1.4300000000000002
         }
       },
       {
@@ -65,13 +65,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 16.04,
+          "amp_make": 17.44,
           "body_wood": 0.195,
           "pickup_config": 0,
           "string_type": 1.2449999999999999,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.32999999999999996,
-          "bass_technique": 10.95,
+          "bass_technique": 16,
           "electric_bass_string_configuration": 0
         }
       },
@@ -81,27 +81,27 @@
           "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "alder",
-          "neck_wood": "maple",
+          "neck_wood": "mahogany_neck",
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
-          "scale_length": "scale_short",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 11.384999999999998,
-          "amp_make": 12.514999999999999,
+          "electric_technique": 16.285,
+          "amp_make": 15.990000000000002,
           "body_wood": 0.195,
-          "neck_wood": 0.545,
+          "neck_wood": 0.585,
           "fretboard": 0.545,
           "pickup_magnet": 0.545,
           "string_material": 0.545,
           "string_gauge": 1.0499999999999998,
           "bridge": 0.65,
-          "scale_length": 0.39,
+          "scale_length": 1.17,
           "finish": 0,
           "string_tuning": 0.135
         }
@@ -117,12 +117,12 @@
           "cymbal_alloy": "b20"
         },
         "scores": {
-          "drum_technique": 12.75,
+          "drum_technique": 15.375000000000002,
           "drumhead": 0.195,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.39,
           "snare_wires": 0.15,
-          "cymbal_alloy": 1.845
+          "cymbal_alloy": 1.1449999999999998
         }
       }
     ],

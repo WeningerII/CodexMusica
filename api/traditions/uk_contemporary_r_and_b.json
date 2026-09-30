@@ -5,7 +5,7 @@
   "lineage": "UK contemporary R&B brings expressive current soul-derived singing into dialogue with contemporary rhythmic production, including garage and rap influences. Jorja Smith’s 2018 Tiny Desk performance supplies a documented live branch with nimble guitar, double-time drums and measured vocal phrasing.",
   "recipe": "classic late-2010s uk contemporary r&b, functional Song, soul R&B branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. single coil electric guitar, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 415,
-  "score": 6.129,
+  "score": 5.655,
   "config": {
     "traditions": [
       "uk_contemporary_r_and_b"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.681375,
+          "voice_speech_song": 1.69,
           "voice_ensemble_config": 3.3799999999999994,
-          "voice_ornament_system": 0.160875,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0.0315,
-          "voice_processing_chain": 0.160875,
-          "voice_multitrack_stack": 0.703125
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.5422499999999999
         }
       },
       {

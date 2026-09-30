@@ -1,0 +1,357 @@
+{
+  "id": "dominican_pop",
+  "name": "Dominican pop",
+  "family": "pop",
+  "lineage": "Dominican contemporary popular songwriting represented by Vicente García’s bachata/reggae crossover Bachata en Kingston. The authored arrangement preserves the credited singing, acoustic guitar, bass, keyboards, drums, separate percussion and trumpet/trombone/saxophone section, with the separately documented Mártires de León guitar role. It does not prescribe the same ensemble for all Dominican popular music.",
+  "recipe": "classic modern dominican pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. dreadnought acoustic single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, electric piano tine, pre muffled edge muffled sticks backbeat drum kit, bongos, shallow cup lead trumpet ensemble trumpet, student commercial trombone, saxophone. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 574,
+  "score": 59.822,
+  "config": {
+    "traditions": [
+      "dominican_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.063,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.231,
+          "voice_processing_chain": 1.3315000000000001,
+          "voice_multitrack_stack": 0.1575
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": -0.25,
+          "string_tuning": 0,
+          "top_wood": 0.1365,
+          "back_sides": 0,
+          "string_acoustic": 0.0315
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "alnico_3",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 0.19500000000000003,
+          "amp_make": 1.8199999999999998,
+          "body_wood": 0.063,
+          "neck_wood": 0.2415,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.3315,
+          "string_material": 0.0315,
+          "string_gauge": 0.1995,
+          "bridge": 0.1365,
+          "scale_length": 0.378,
+          "finish": 0,
+          "string_tuning": 1.95
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 3.575,
+          "body_wood": 0.063,
+          "pickup_config": 0.3045,
+          "string_type": 4.875,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 1.0315,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "electric_piano_tine",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "tine_voicing": "mellow_tine",
+          "tine_effect": "dry_tine"
+        },
+        "scores": {
+          "keyboard_technique": 0.2,
+          "tine_voicing": 0,
+          "tine_effect": 0.0315
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 3.7815,
+          "drumhead": 8.9415,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "bongos_skin": "bongos_synth",
+          "bongos_context": "bongos_descarga",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "bongos_skin": 0.39,
+          "bongos_context": 0.063,
+          "bongos_shell_wood": 0.2415
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.3915,
+          "brass_size": 0.0315,
+          "trumpet_mouthpiece": 1.2349999999999999,
+          "brass_mute": 0.063,
+          "trumpet_technique": 2.3915,
+          "trumpet_bell_metal": 0.273,
+          "trumpet_maker_school": 0.504
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 2.3915,
+          "trombone_type": 0.9814999999999999,
+          "trombone_mouthpiece": 9.340499999999999,
+          "trombone_mute": 0.063,
+          "trombone_technique": 1.2415,
+          "trombone_bell_metal": 0.273,
+          "trombone_maker_school": 0.504
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_cool_lyrical",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 2.3915,
+          "sax_size": -0.15000000000000002,
+          "sax_reed": 0,
+          "sax_body_alloy": -0.05,
+          "sax_mouthpiece": 0.105,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "body_wood",
+        "string_material"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "bass_technique"
+      ],
+      "electric_piano_tine": [
+        "keyboard_technique",
+        "tine_voicing",
+        "tine_effect"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ],
+      "bongos": [
+        "percussion_technique",
+        "bongos_skin"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "brass_mute"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_mute"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_mouthpiece"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "electric_technique": "electric_arpeggiated_clean",
+      "acoustic_technique": "acoustic_fingerpicked",
+      "top_wood": "sitka",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "eighty_twenty",
+      "body_wood": "alder",
+      "string_material": "nickel_plated",
+      "bass_technique": "fingerstyle_locked",
+      "keyboard_technique": "keyboard_ostinato_groove",
+      "tine_voicing": "mellow_tine",
+      "tine_effect": "dry_tine",
+      "drum_technique": "sticks_rock",
+      "percussion_technique": "percussion_hands_layered",
+      "bongos_skin": "bongos_synth",
+      "brass_size": "trumpet_b_flat",
+      "brass_mute": "no_mute_brass",
+      "trombone_mute": "no_mute_trb",
+      "wind_articulation": "wind_punchy_ensemble",
+      "sax_size": "tenor_sax",
+      "sax_reed": "medium_reed",
+      "sax_mouthpiece": "hard_rubber_mp"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

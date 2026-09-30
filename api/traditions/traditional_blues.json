@@ -5,7 +5,7 @@
   "lineage": "The exact Every Noise traditional-blues discovery grouping spans acoustic and electric heritage repertoire. Its verified roster member Brownie McGhee anchors this authored voice-and-acoustic-guitar branch; the label is not collapsed into country blues or defined as exclusively acoustic.",
   "recipe": "classic modern traditional blues, functional Song, blues acoustic branch. blues inflected, one note per syllable, unprocessed natural acoustic, single lead single track no stacking. acoustic guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 402,
-  "score": 16.821,
+  "score": 17.145,
   "config": {
     "traditions": [
       "traditional_blues"
@@ -44,9 +44,9 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0.6554999999999999,
           "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.23399999999999999,
+          "voice_ornament_system": 0.21899999999999997,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 6.6705,
+          "voice_processing_chain": 7.02,
           "voice_multitrack_stack": 0.693
         }
       },
@@ -63,7 +63,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,
-          "string_acoustic": 0.28350000000000003,
+          "string_acoustic": 0.273,
           "acoustic_om_technique": -0.175
         }
       }
