@@ -3,14 +3,14 @@
   "name": "Live Coding",
   "family": "electronic",
   "lineage": "Formalised in Sheffield and London from 2003 by the TOPLAP collective — Alex McLean, Nick Collins and Adrian Ward — and spread through algorave events after 2012, with SuperCollider, TidalCycles and Sonic Pi as the primary tools: performers write and rewrite executing code onstage with the screen projected, generating pattern-based dance music at 120-170 BPM from sample banks and synthesis, with structure emerging from edits made in real time.",
-  "recipe": "classic early-2000s live coding, experimental Elec, idm glitch branch, techno electronic dance, western modern art music algorave industrial techno. modular granular glitched textural wavetable fm modular modular synth, sampler drum machine, monosynth acid bass. festival stage. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 413,
-  "score": 82.889,
+  "recipe": "classic early-2000s live coding, experimental Elec, idm glitch branch, techno electronic dance, western modern art music algorave french techno. modular granular glitched textural wavetable fm modular synth, sampler drum machine, monosynth acid bass. festival stage. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 401,
+  "score": 76.567,
   "config": {
     "traditions": [
       "live_coding",
       "algorave",
-      "industrial_techno"
+      "french_techno"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "granular_synth_source": "granular_synth_synthesized"
         },
         "scores": {
-          "electronic_technique": 11,
+          "electronic_technique": 10.125,
           "granular_use": 0,
-          "granular_synth_source": 7.15
+          "granular_synth_source": 6.305
         }
       },
       {
@@ -35,8 +35,8 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 11,
-          "wt_position": 7.15,
+          "electronic_technique": 10.125,
+          "wt_position": 6.305,
           "wt_family": 0.9099999999999999,
           "wt_polyphony": 0.24
         }
@@ -50,9 +50,9 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": 0.4,
           "sample_bitdepth": 0.7,
-          "sample_swing": 14.893928571428571,
+          "sample_swing": 12.61892857142857,
           "sample_processing": 0.38999999999999996
         }
       },
@@ -60,14 +60,14 @@
         "id": "fm_synth",
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
-          "fm_algorithm": "fm_complex",
+          "fm_algorithm": "fm_classic",
           "fm_modulator_ratio": "fm_inharmonic",
           "fm_polyphony": "fm_mono",
           "fm_model_lineage": "fm_native_instruments_fm8"
         },
         "scores": {
           "electronic_technique": -0.035,
-          "fm_algorithm": 1.2349999999999999,
+          "fm_algorithm": 0.585,
           "fm_modulator_ratio": 0.345,
           "fm_polyphony": 0.24,
           "fm_model_lineage": 0.7
@@ -76,16 +76,16 @@
       {
         "id": "modular_synth",
         "slots": {
-          "electronic_technique": "electronic_modular_patch",
+          "electronic_technique": "electronic_acid_squelch",
           "mod_voltage_source": "mod_keyboard",
           "mod_patch_density": "mod_dense_patch",
-          "mod_lineage": "mod_doepfer_eurorack"
+          "mod_lineage": "mod_moog_east_coast"
         },
         "scores": {
-          "electronic_technique": 11,
-          "mod_voltage_source": 0.845,
+          "electronic_technique": 10.325000000000001,
+          "mod_voltage_source": 0.8389285714285716,
           "mod_patch_density": 0.39,
-          "mod_lineage": -0.9450000000000001
+          "mod_lineage": -1.33
         }
       },
       {
@@ -97,10 +97,10 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 10.7,
+          "electronic_technique": 10.325000000000001,
           "wave_acid": 0,
           "filter_acid": 0.28500000000000003,
-          "accent_acid": 0.845
+          "accent_acid": 0.9289285714285714
         }
       }
     ],

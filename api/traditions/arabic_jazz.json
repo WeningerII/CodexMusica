@@ -1,0 +1,122 @@
+{
+  "id": "arabic_jazz",
+  "name": "Arabic jazz",
+  "family": "jazz",
+  "lineage": "Arab-music and jazz encounters, represented by Anouar Brahem’s drummerless Thimar trio. Oud, bass clarinet and plucked double bass keep their separate voices while sharing composed melodies and improvisation. This is one branch of a much wider transnational category.",
+  "recipe": "classic European early-1970s arabic jazz, improv On Frame, American jazz branch. pyramid nylon arab school oud, expressive clarinet jazz bass clarinet, upright bass. live tracking. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 288,
+  "score": 23.77,
+  "config": {
+    "traditions": [
+      "arabic_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_plastic",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.15000000000000002,
+          "oud_school": 0.39,
+          "oud_strings": 0.1995,
+          "oud_pick": 0,
+          "oud_body_wood": 0.42,
+          "oud_soundboard_wood": 0.105,
+          "oud_string_material": 1.21
+        }
+      },
+      {
+        "id": "bass_clarinet",
+        "slots": {
+          "bass_clarinet_range": "bass_clarinet_to_low_c",
+          "bass_clarinet_style": "bass_clarinet_jazz"
+        },
+        "scores": {
+          "bass_clarinet_range": 0.39,
+          "bass_clarinet_style": 7.15
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0.23099999999999998,
+          "upright_play": 11.25
+        }
+      }
+    ],
+    "pinned": {
+      "oud": [
+        "plucked_traditional_technique",
+        "oud_school",
+        "oud_strings",
+        "oud_pick",
+        "oud_body_wood",
+        "oud_soundboard_wood",
+        "oud_string_material"
+      ],
+      "bass_clarinet": [
+        "bass_clarinet_range",
+        "bass_clarinet_style"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_ecm_kongshaug",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "plate_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "live_room",
+    "parts": {
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven",
+      "oud_pick": "risha_plastic",
+      "oud_body_wood": "oud_walnut_body",
+      "oud_soundboard_wood": "oud_spruce_face",
+      "oud_string_material": "oud_pyramid_nylon",
+      "bass_clarinet_range": "bass_clarinet_to_low_c",
+      "bass_clarinet_style": "bass_clarinet_jazz",
+      "upright_strings": "steel_upright",
+      "upright_play": "pizz_upright"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "tape_30ips",
+    "chain_console": "clean",
+    "chain_fx": [
+      "plate_reverb"
+    ]
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Motorpop",
   "family": "rock",
   "lineage": "Pop songcraft built on the krautrock motorik pulse, emerging from Düsseldorf and Cologne in the mid-1970s around Neu!, Michael Rother and La Düsseldorf and carried forward by Stereolab, Broadcast and their descendants — a strict 4/4 eighth-note hi-hat and equal-stress kick-snare pattern at 130-150 BPM held without variation, single-chord or two-chord harmonic fields, chorused arpeggiated guitar, analogue synth and organ drones, and detached, often wordless or repeated-phrase vocal melodies floating above the pulse.",
-  "recipe": "classic Central European 1974-1976 motorpop, distorted Rock, art rock branch, pop experimental experimental electric, modal electric drone modal krautrock ambient post-rock. thick, breath veiled tone, slow rate, interlocked note trading. pre muffled edge muffled sticks backbeat drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, singing lead analog poly synth, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, drum machine analog. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 856,
-  "score": 422.845,
+  "recipe": "classic Central European 1974-1976 motorpop, distorted Rock, art rock branch, pop experimental experimental electric, modal electric drone modal krautrock indietronica. thick, breath veiled tone, slow rate, interlocked note trading. pre muffled edge muffled sticks backbeat drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, singing lead analog poly synth, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, drum machine analog. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 851,
+  "score": 410.152,
   "config": {
     "traditions": [
       "motorpop",
       "krautrock",
-      "ambient_post_rock"
+      "indietronica"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 30.509999999999994,
-          "voice_quality": 10.789999999999994,
+          "voice_register": 29.484999999999992,
+          "voice_quality": 13.129999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.93,
-          "voice_articulation": 21.644999999999996,
-          "voice_microtone": 30.9,
-          "voice_tradition": 17.744999999999997,
-          "voice_mechanism_compound": 6.109999999999999,
-          "voice_estill_quality": 2.8600000000000003,
-          "voice_speech_song": 23.074999999999996,
-          "voice_ensemble_config": 19.629999999999995,
-          "voice_ornament_system": 3.640000000000001,
-          "voice_pitch_organization": 2.9350000000000005,
-          "voice_processing_chain": 6.045,
-          "voice_multitrack_stack": 4.875000000000001
+          "voice_articulation": 21.254999999999995,
+          "voice_microtone": 29.724999999999998,
+          "voice_tradition": 20.182499999999997,
+          "voice_mechanism_compound": 6.694999999999999,
+          "voice_estill_quality": 2.6650000000000005,
+          "voice_speech_song": 22.424999999999997,
+          "voice_ensemble_config": 19.239999999999995,
+          "voice_ornament_system": 3.8350000000000013,
+          "voice_pitch_organization": 2.585,
+          "voice_processing_chain": 7.9399999999999995,
+          "voice_multitrack_stack": 4.570000000000001
         }
       },
       {
@@ -60,8 +60,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23,
-          "drumhead": 8.04,
+          "drum_technique": 19.625,
+          "drumhead": 9.364999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -82,18 +82,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 9.875,
-          "amp_make": 10.684999999999997,
+          "electric_technique": 12.5,
+          "amp_make": 9.334999999999999,
           "body_wood": 1.045,
           "neck_wood": 1.045,
           "fretboard": 1.54,
           "pickup_magnet": 0.195,
           "string_material": 0.195,
           "string_gauge": 1.195,
-          "bridge": 0.605,
+          "bridge": 0.105,
           "scale_length": 1.09,
           "finish": 0.045,
-          "string_tuning": 12.91
+          "string_tuning": 11.559999999999999
         }
       },
       {
@@ -108,13 +108,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 12.59,
+          "amp_make": 11.09,
           "body_wood": 1.24,
-          "pickup_config": 2.04,
-          "string_type": 24.17,
+          "pickup_config": 1.4949999999999999,
+          "string_type": 20.795,
           "scale_length_b": 1.045,
           "fretted_or_not": 0.15,
-          "bass_technique": 23.914999999999996
+          "bass_technique": 20.539999999999996
         }
       },
       {
@@ -126,9 +126,9 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 6.695,
-          "poly_archetypes": 10.504999999999999,
-          "poly_voices": 0.15,
+          "electronic_technique": 9.819999999999999,
+          "poly_archetypes": 9.155,
+          "poly_voices": 0.65,
           "poly_maker_lineage": 0.585
         }
       },
@@ -143,27 +143,27 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 8.545,
-          "drawbar_setting": 23.539999999999996,
-          "rotary_speed": 23.145,
-          "percussion_setting": 10.459999999999999,
-          "tonewheel_model": 9.75,
-          "leslie_cabinet_model": 1.405
+          "keyboard_technique": 11.169999999999998,
+          "drawbar_setting": 20.164999999999996,
+          "rotary_speed": 19.62,
+          "percussion_setting": 9.11,
+          "tonewheel_model": 9.294999999999998,
+          "leslie_cabinet_model": 1.755
         }
       },
       {
         "id": "drum_machine_analog",
         "slots": {
-          "kick_voice": "fm_pair_kick",
+          "kick_voice": "sine_burst_kick",
           "snare_voice": "two_oscillator_snare",
           "hat_voice": "noise_hat",
-          "shuffle_quantize": "shuffle_low"
+          "shuffle_quantize": "shuffle_high"
         },
         "scores": {
-          "kick_voice": 0.605,
-          "snare_voice": 0.605,
+          "kick_voice": 0.65,
+          "snare_voice": 0.105,
           "hat_voice": 0.045,
-          "shuffle_quantize": 0.605
+          "shuffle_quantize": 0.195
         }
       }
     ],

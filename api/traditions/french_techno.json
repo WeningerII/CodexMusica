@@ -1,0 +1,131 @@
+{
+  "id": "french_techno",
+  "name": "French techno",
+  "family": "electronic",
+  "lineage": "France-centered techno producers and club networks, including Laurent Garnier, Vitalic, The Hacker and contemporary harder branches. The default follows Garnier’s tactile synth sequencing and edited sampled drums, rather than treating French techno as synonymous with disco-filtered French house.",
+  "recipe": "classic modern french techno, electronic Dance, techno branch. analog fm synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 305,
+  "score": 2.331,
+  "config": {
+    "traditions": [
+      "french_techno"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "oscillator": "square_pulse",
+          "filter_topology": "svf",
+          "envelope": "pluck_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "oscillator": 0,
+          "filter_topology": 1.6675,
+          "envelope": 0.06749999999999999,
+          "modulation": 0.1365
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_dx21_dx100"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "fm_algorithm": -0.05,
+          "fm_modulator_ratio": 0.192375,
+          "fm_polyphony": 0,
+          "fm_model_lineage": -1.894
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 1.17,
+          "sample_bitdepth": 0.03599999999999999,
+          "sample_swing": 0,
+          "sample_processing": 0
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "fm_synth": [
+        "electronic_technique",
+        "fm_algorithm",
+        "fm_modulator_ratio",
+        "fm_polyphony",
+        "fm_model_lineage"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_mackie_8bus_90s",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "oscillator": "square_pulse",
+      "filter_topology": "svf",
+      "envelope": "pluck_env",
+      "modulation": "lfo_filter",
+      "fm_algorithm": "fm_classic",
+      "fm_modulator_ratio": "fm_harmonic",
+      "fm_polyphony": "fm_poly",
+      "fm_model_lineage": "fm_yamaha_dx21_dx100",
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "one_shots_layered"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_mackie_8bus_90s",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

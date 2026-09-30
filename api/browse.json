@@ -1,6 +1,6 @@
 {
   "name": "Codex Musica — browse index (Tier-1 data for the lazy-loaded app)",
-  "generated": "2026-09-29",
+  "generated": "2026-09-30",
   "axisKeys": [
     "harm",
     "pitch",
@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 2638,
+  "count": 2738,
   "items": [
     {
       "id": "honky_tonk",
@@ -107474,6 +107474,3389 @@
       ],
       "crossRefs": [
         "functionalSong.europop"
+      ]
+    },
+    {
+      "id": "belgian_techno",
+      "name": "Belgian techno",
+      "family": "electronic",
+      "lineage": "Belgium-based techno production and club networks represented by Charlotte de Witte, Amelie Lens, Joyhauser and Marco Bailey. The selected branch follows de Witte’s documented stripped, slowly evolving construction from kick, bass, background texture and treated samples.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        2,
+        -1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_synth",
+        "sampler_classic"
+      ],
+      "description": "A regional techno discovery cluster spanning several generations of Belgian producers. The default emphasizes repetitive electronic percussion, a restrained low-frequency figure and slowly changing sampled textures rather than a melodic house chorus. Ghent and Brussels club activity documents one local network; this is broader than one producer or label and is not a claim that all Belgian techno uses the same tempo or gear.",
+      "exemplars": [
+        "Charlotte de Witte",
+        "Amelie Lens",
+        "Joyhauser",
+        "Marco Bailey"
+      ],
+      "crossRefs": [
+        "electronicDance.house"
+      ]
+    },
+    {
+      "id": "greek_house",
+      "name": "Greek house",
+      "family": "electronic",
+      "lineage": "A Greek house-production and DJ network represented in the classifier by CJ Jeff, Echonomist, Valeron, Mihalis Safras and others. The chosen model follows the Athens club-oriented branch documented by CJ Jeff, combining programmed grooves and bass with edited or newly recorded vocal hooks.",
+      "parent": "electronicDance.house",
+      "axes": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_synth",
+        "sampler_classic"
+      ],
+      "description": "A regional discovery cluster with deep, tech and vocal house branches, rather than one mandatory Greek folk-instrument formula. This recipe chooses CJ Jeff’s groove-centered club approach: a repeating drum-and-bass foundation, a short sampled hook and spacious electronic texture. The wider roster also contains other approaches; acoustic regional instruments and asymmetrical folk meters are not inferred from nationality.",
+      "exemplars": [
+        "CJ Jeff — Upside Down",
+        "CJ Jeff featuring Georges Perin — Around",
+        "Echonomist",
+        "Mihalis Safras"
+      ],
+      "crossRefs": [
+        "electronicDance.house.techHouse",
+        "electronicDance.house.deepHouse"
+      ]
+    },
+    {
+      "id": "classic_house",
+      "name": "Classic house",
+      "family": "electronic",
+      "lineage": "A retrospective house discovery cluster spanning foundational and later established producers, including Marshall Jefferson, Todd Terry, Kenny Dope and Louie Vega. This recipe selects the early Masters at Work sample-and-keyboard branch documented in their own account of working together from late 1989–1990.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "sampler_classic",
+        "analog_synth",
+        "rhodes_electric"
+      ],
+      "description": "A heritage-oriented catalog label rather than a single tightly dated subgenre. In the selected early Masters at Work branch, drum-machine patterns and sampled breaks support keyboard bass and chords, with short vocal fragments entering the groove. It is broader in historical roster than Chicago house alone. This authored default preserves a compact sampled rhythm section and keyboard hook instead of imposing a later festival build-and-drop structure.",
+      "exemplars": [
+        "Kenny Dope",
+        "Louie Vega / Masters at Work",
+        "Todd Terry",
+        "Marshall Jefferson"
+      ],
+      "crossRefs": [
+        "electronicDance.house.chicagoHouse",
+        "electronicDance.house.garageHouseUS"
+      ]
+    },
+    {
+      "id": "ambient_lo_fi",
+      "name": "Ambient lo-fi",
+      "family": "electronic",
+      "lineage": "An internet-circulated ambient discovery cluster whose indexed Every Noise roster includes Borrtex, Gibran Alcocer, reidenshi and SymphoCat. Documented members span quiet piano, electronic synthesis and field-recorded work. The selected piano-and-synth arrangement follows Borrtex’s mixed keyboard/electronic branch, without treating all ambient music with low fidelity as this category.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        -1,
+        -2,
+        -1,
+        -2,
+        0,
+        0,
+        2,
+        -2,
+        -2,
+        -1,
+        -1,
+        1
+      ],
+      "instruments": [
+        "analog_synth",
+        "grand_piano"
+      ],
+      "description": "A slow ambient listening cluster with quiet recurring figures and spatially dispersed textures. Borrtex documents electronic synthesizers with piano and other keyboards on FLUX; Alcocer’s Idea 10 documents the solo-piano branch, while SymphoCat credits field recordings. This default selects softly sustained synthesis and restrained repeating piano. Lo-fi surface treatment and environmental recordings remain optional; a cassette edition does not establish four-track recording, and no foreground beat is required by this authored arrangement.",
+      "exemplars": [
+        "Borrtex — FLUX",
+        "Gibran Alcocer — Idea 10",
+        "SymphoCat — Hear Waterfalls / Inner Waterfalls"
+      ],
+      "crossRefs": [
+        "experimentalElec.lofi"
+      ]
+    },
+    {
+      "id": "ambient_trance",
+      "name": "Ambient trance",
+      "family": "electronic",
+      "lineage": "The atmospheric listening side of trance and related electronic music, represented by Carbon Based Lifeforms, Solar Fields and the Ultimae orbit. Long melodic layers and repeated sequencer/bass figures may carry soft beats or become beatless. The selected model retains a measured machine pulse rather than prescribing a peak-time trance build.",
+      "parent": "electronicDance.trance",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        0,
+        -1,
+        2,
+        -1,
+        -2,
+        -1,
+        0,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "monosynth_acid_bass",
+        "sampler_drum_machine"
+      ],
+      "description": "Ambient trance is an atmospheric trance-adjacent listening category, spanning hypnotic electronic sequences, resonant bass and lingering melodic layers rather than only festival-speed four-on-the-floor anthems. The source-linked Sounds of Spotify list includes Carbon Based Lifeforms, Solar Fields, AES Dana and Union Jack. The default models a gently persistent synth/bass/drum pulse. Compared with classic or uplifting trance it recesses intensity and climactic song architecture; compared with beatless ambient it retains sequenced rhythmic recurrence. There is substantial overlap with existing ambient_psychill: this allocation is a broader discovery category, not an assertion of an unrelated lineage or a uniquely measured sonic boundary.",
+      "exemplars": [
+        "Carbon Based Lifeforms — Interloper",
+        "Solar Fields — Until We Meet the Sky",
+        "Union Jack — Water Drums"
+      ],
+      "crossRefs": [
+        "experimentalElec.ambient"
+      ]
+    },
+    {
+      "id": "ambient_worship",
+      "name": "Ambient worship",
+      "family": "electronic",
+      "lineage": "Contemporary Christian music for prayer and reflection that uses ambient soundscapes, intimate sung phrases and melodic acoustic or electronic layers. Salt of the Sound explicitly uses this name for a listening-oriented form alongside, rather than exclusively inside, congregational worship services.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        2,
+        -2,
+        0,
+        -1,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "analog_synth"
+      ],
+      "description": "Ambient worship places Christian prayer, hymns and reflective sung phrases within expansive soundscapes. Salt of the Sound’s firsthand definition includes both large textures and soft intimate songs, with vocals in varying amounts, and distinguishes the style from a typical Sunday congregational set. Their release notes document muted piano and ethereal phrases as well as instrumental meditations. The default is the quiet vocal/piano/pad branch, not a claim that all releases use this exact trio. Compared with contemporary_worship, drums, massed congregation and the auditorium crescendo cease to be default chairs; compared with secular ambient, the reflective Christian song function is explicit.",
+      "exemplars": [
+        "Salt of the Sound — Beyond Here",
+        "Salt of the Sound — Lent, Vol. 3",
+        "Salt of the Sound & Khamir Music — words unspoken",
+        "Dave Griffiths — Softenhush"
+      ],
+      "crossRefs": [
+        "experimentalElec.ambient"
+      ]
+    },
+    {
+      "id": "argentine_ambient",
+      "name": "Argentine ambient",
+      "family": "electronic",
+      "lineage": "A geographically grouped ambient scene with multiple practices, including Leandro Fresco’s layered synthesizer compositions and Federico Durand’s intimate recorded loops and small sounds. This representative model combines quiet synth colour, a clean guitar fragment and looping recorded material; it does not assert a national timbre or compulsory tango instrumentation.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        0,
+        1,
+        2,
+        -2,
+        -2,
+        -1,
+        -2,
+        1
+      ],
+      "instruments": [
+        "analog_synth",
+        "electric_guitar_single_coil",
+        "sampler_classic"
+      ],
+      "description": "Argentine ambient is a regional discovery category, not one inherited rhythmic form. Leandro Fresco’s El Reino Invisible documents slow synth textures and guitar details recorded between Buenos Aires and San Martín de los Andes; Federico Durand describes cassette collage, asymmetrical repetition, field recordings and modest sonic materials. The reduced default selects the synth/guitar/loop intersection while leaving their other methods editable. Unlike ambient_synth’s foregrounded arpeggio model, this branch gives diffuse melody and recorded fragments more space. Geography supports the catalogue grouping; it does not warrant adding folklore instruments, an Indigenous lineage or tango rhythm without entry-specific evidence.",
+      "exemplars": [
+        "Leandro Fresco — El Reino Invisible (2015)",
+        "Federico Durand — Herbario (2021)"
+      ],
+      "crossRefs": [
+        "experimentalElec.musiqueConcrete"
+      ]
+    },
+    {
+      "id": "australian_ambient",
+      "name": "Australian ambient",
+      "family": "electronic",
+      "lineage": "Australian atmospheric electronic and electroacoustic practices, represented here by Lawrence English and the Brisbane ROOM40 network: environmental listening, recorded sound and slowly transformed electronic material. A representative field-recording/synthesis arrangement is selected rather than a national instrument inventory.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -2,
+        -2,
+        -2,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        -2,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "sampler_classic",
+        "analog_synth"
+      ],
+      "description": "Australian ambient groups a diverse scene by documented practice in Australia. The selected Lawrence English branch emphasizes field-recorded environments and their transformation: Ghost Towns is built largely from recorded sound treated with EQ and pitch shifting, and later collaborations credit electronics and environmental recordings. The sampler is a registered representation of recorded-material manipulation and the synth a quiet sustaining layer; neither is asserted as the hardware used on Ghost Towns. Compared with the melodic synth-and-guitar selection for Argentine ambient, this default gives listening texture and irregular environmental events greater weight. No pan-Australian timbre, automatic didgeridoo chair or Indigenous provenance is inferred.",
+      "exemplars": [
+        "Lawrence English — Ghost Towns (2003)",
+        "David Toop & Lawrence English — The Shell That Speaks the Sea (2023)"
+      ],
+      "crossRefs": [
+        "experimentalElec.musiqueConcrete"
+      ]
+    },
+    {
+      "id": "deep_ambient",
+      "name": "Deep ambient",
+      "family": "electronic",
+      "lineage": "An overlapping ambient discovery category represented on the author map by Max Corbacho, Rudy Adrian, Dirk Serries and others. Documented examples range from electronic drones to looped electroacoustic layers. This default selects the credited synthesizer and guitar-loop sources on Steve Roach and Dirk Serries’ Low Volume Music; it is one branch of the wider listening category.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -2,
+        -1,
+        -2,
+        -2,
+        0,
+        0,
+        0,
+        2,
+        -2,
+        -2,
+        -2,
+        -2,
+        1
+      ],
+      "instruments": [
+        "analog_synth",
+        "electric_guitar_single_coil"
+      ],
+      "description": "Gradually changing sustained material forms an immersive ambient field. Low Volume Music explicitly credits Roach’s synthesizers and Serries’ guitars and looping; the default retains both sound sources. Corbacho’s Deep Time supplies a separately documented electronic-drone branch. Exact guitar construction, synthesis settings, looping realization and recording chain are authored choices. Deep ambient and space ambient have substantially overlapping artist sets and musical practices; neither is an exclusive instrumental system.",
+      "exemplars": [
+        "Max Corbacho — Deep Time",
+        "Steve Roach & Dirk Serries — Low Volume Music",
+        "Steve Roach — Nostalgia for the Future"
+      ],
+      "crossRefs": [
+        "droneModal.modalElectric"
+      ]
+    },
+    {
+      "id": "drone",
+      "name": "Drone",
+      "family": "global",
+      "lineage": "Sustained-tone music treats duration, closely controlled pitch and the interaction of held tones as form. Tony Conrad’s amplified violin work supplies the selected bowed-string practice model. Drone also includes electronic and other instrumental practices; this default is neither dark ambient nor a comprehensive instrument roster for all drone music.",
+      "parent": "droneModal.string",
+      "axes": [
+        -2,
+        2,
+        -2,
+        -2,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -2,
+        1,
+        -2,
+        -2
+      ],
+      "instruments": [
+        "violin_orchestral"
+      ],
+      "description": "Long held pitches and subtle interactions among layered tones foreground sustained sound rather than harmonic progression or a beat. This bowed-string default represents Conrad’s amplified, overdubbed violin practice and uses just intonation. Other drone practices use different tunings and sources; neither darkness nor metallic distortion is a defining requirement. Continuous bowing is modeled without a sourced claim of bridge position or classical melodic ornament.",
+      "exemplars": [
+        "Tony Conrad — Four Violins (recorded 1964; issued 1996)"
+      ],
+      "crossRefs": [
+        "droneModal.modalElectric",
+        "experimentalElec.ambient"
+      ]
+    },
+    {
+      "id": "drone_psych",
+      "name": "Drone psych",
+      "family": "rock",
+      "lineage": "Psychedelic rock extends guitar sustain and noisy texture into long ensemble improvisation. Bardo Pond’s Philadelphia recordings support a twin-guitar, bass, drums, voice and flute practice; electronics are also documented. The catalog represents the guitar role with one guitar chair, not a claim that the documented band has only one guitarist.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        -2,
+        0,
+        -1,
+        -1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        -1,
+        2,
+        0,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "flute",
+        "voice"
+      ],
+      "description": "A psychedelic ensemble practice in which sustained amplified guitar and dense noise coexist with open-ended collective playing. The chosen Bardo Pond model adds flute and voice to bass and drums, letting instrumental texture lead the vocal song. Specific pickup, drumhead, flute construction and effects settings are author choices, not documented band equipment.",
+      "exemplars": [
+        "Bardo Pond — Bardo Pond (2010)"
+      ],
+      "crossRefs": [
+        "distortedRock.noiseRock",
+        "droneModal.modalElectric"
+      ]
+    },
+    {
+      "id": "drone_rock",
+      "name": "Drone rock",
+      "family": "rock",
+      "lineage": "A rock practice that builds extended passages from repetitive accompaniment and sustained guitar feedback. Spacemen 3’s live Geneva album is explicitly described as drone rock by its label; Sonic Boom’s firsthand notes describe sustained keys and feedback guitars. The modern recording chain and instrument build choices are representative, not a reconstruction of the 1989 stage rig.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        -2,
+        -1,
+        -2,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        2,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Repeated bass/drum accompaniment and long amplified guitar tones support extended rock passages. The selected Spacemen 3 model foregrounds feedback and repetition while retaining a vocal chair. The default describes one reusable studio arrangement, not every track or the exact historical live equipment.",
+      "exemplars": [
+        "Spacemen 3 — Live at the New Morning, Geneva, Switzerland, 18.05.1989"
+      ],
+      "crossRefs": [
+        "droneModal.modalElectric",
+        "distortedRock.noiseRock"
+      ]
+    },
+    {
+      "id": "experimental_ambient",
+      "name": "Experimental ambient",
+      "family": "electronic",
+      "lineage": "Ambient composition treats recorded sound, acoustic resonance, noise and electronic montage as mutable material. Tim Hecker’s Ravedeath, 1972 was built from improvised pipe-organ recordings in Reykjavik and extended studio transformation in Montreal. The default models the transformed-recording stage with sampling and granular synthesis, not an assertion that Hecker used a particular sampler or granular algorithm.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        1,
+        -1,
+        -2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "sampler_classic",
+        "granular_synth"
+      ],
+      "description": "Recorded acoustic tone, noise and electronic processing form a shifting ambient composition rather than a regular beat or a prescribed mellow pad. The sample/granular roster models Hecker’s studio montage of improvised organ recordings. The acoustic pipe organ is the documented source; these catalog chairs represent its transformed recorded material and do not replace that fact with a hardware claim.",
+      "exemplars": [
+        "Tim Hecker — Ravedeath, 1972 (2011)",
+        "Tim Hecker — Harmony in Ultraviolet (2006)"
+      ],
+      "crossRefs": [
+        "experimentalElec.musiqueConcrete",
+        "experimentalElec.industrialNoise"
+      ]
+    },
+    {
+      "id": "indian_ambient",
+      "name": "Indian ambient",
+      "family": "electronic",
+      "lineage": "Ambient work combining Indian classical melodic instruments and contemporary electronic production also operates across the diaspora. The selected sitar-led branch follows Al Gromer Khan’s documented Vilayat Khani training and sitar/synth recordings. This grouping does not imply a single religion, an exclusively Indian production location or one compulsory raga. Performer-relative tuning avoids asserting measured interval ratios; construction and recording settings remain authored choices.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        1,
+        1,
+        -1,
+        -2,
+        1,
+        -2,
+        1
+      ],
+      "instruments": [
+        "sitar",
+        "analog_synth"
+      ],
+      "description": "The selected palette places ornamented sitar melody against sustained synthesizer accompaniment. Sitar Secrets documents both straight raga pieces and electronic combinations, with tabla appearing on some tracks. This default represents a spacious, percussion-free branch, rather than prescribing the complete alap–jod–jhala–gat sequence or treating all Indian ambient music as traditional concert performance.",
+      "exemplars": [
+        "Al Gromer Khan — Sitar Secrets",
+        "Al Gromer Khan — Space Hotel",
+        "Prem Joshua & Manish Vyas — Water Down the Ganges (2002)"
+      ],
+      "crossRefs": [
+        "droneModal.overtone"
+      ]
+    },
+    {
+      "id": "j_ambient",
+      "name": "J-ambient",
+      "family": "electronic",
+      "lineage": "A broad Japanese ambient discovery grouping spanning electronic environmental composition and later studio electroacoustic work. Hiroshi Yoshimura’s GREEN documents a Tokyo home-studio FM approach; Eiko Ishibashi’s For McCoy documents a later collage practice with synthesizers, field recordings and acoustic collaborators. The default is an authored electronic subset, not a reconstruction of either album.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        0,
+        0,
+        -1,
+        -2,
+        -1,
+        1,
+        0,
+        2,
+        -1,
+        -2,
+        1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "fm_synth",
+        "sampler_classic"
+      ],
+      "description": "The selected electronic subset uses harmonic FM layers and edited recorded sound. Its historical reference is Yoshimura’s unhurried GREEN; the original Japanese mix omitted nature effects later added for a US edition. Ishibashi’s later studio work brings together musique concrète, synthetic layers and recurring acoustic fragments. Neither traditional Japanese instruments nor environmental recordings are compulsory across these examples.",
+      "exemplars": [
+        "Hiroshi Yoshimura — GREEN (1986)",
+        "Eiko Ishibashi — For McCoy (2022)"
+      ],
+      "crossRefs": [
+        "experimentalElec.musiqueConcrete"
+      ]
+    },
+    {
+      "id": "nordic_ambient",
+      "name": "Nordic ambient",
+      "family": "electronic",
+      "lineage": "A regional discovery grouping of ambient practice from Nordic countries. The selected Biosphere branch uses electronic layers and sampled environments rather than an inherited folk ensemble. The documented Tromsø artist profile provides a practice anchor; regional affiliation does not establish a universal icy timbre, national tuning or compulsory ritual setting.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        0,
+        -2,
+        -2,
+        -1,
+        1,
+        0,
+        2,
+        -1,
+        -2,
+        2,
+        -2,
+        1
+      ],
+      "instruments": [
+        "analog_synth",
+        "sampler_classic"
+      ],
+      "description": "Biosphere’s Wireless documents an immersive live electronic set, integrating natural and science-fiction samples with synthetic material; its credits include field samples and a trumpet contribution. The default selects the synthesizer/sample core and leaves the optional trumpet out. It represents one evidenced production branch rather than making landscape, weather or traditional Nordic instruments mandatory musical features.",
+      "exemplars": [
+        "Biosphere — Wireless (2009)",
+        "Biosphere — Substrata (1997)"
+      ],
+      "crossRefs": [
+        "experimentalElec.musiqueConcrete"
+      ]
+    },
+    {
+      "id": "organic_ambient",
+      "name": "Organic ambient",
+      "family": "electronic",
+      "lineage": "An ambient production approach that develops slowly changing, interwoven sound through recording, synthesis and processing. Projekt explicitly classifies Jeff Greinke’s Oceanic as organic ambient, while contemporary label accounts also include acoustic instruments and environmental recordings. The term does not require an acoustic ensemble: Greinke describes Oceanic as entirely sample- and synth-based. The default selects that electronic branch.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        0,
+        -1,
+        -2,
+        0,
+        1,
+        0,
+        2,
+        -1,
+        -2,
+        2,
+        -2,
+        0
+      ],
+      "instruments": [
+        "analog_synth",
+        "sampler_classic"
+      ],
+      "description": "Layered sources are transformed into evolving timbres and spatial motion. Greinke’s Oceanic uses manipulated samples and synthesizers without additional players; other contemporary label examples integrate field recordings and acoustic textures. The default therefore uses the documented electronic core rather than assuming handpan, strings or flute are mandatory. Nature-oriented ambience is represented by Steve Roach’s processed Australian outdoor recordings in Atmosphere for Dreaming.",
+      "exemplars": [
+        "Jeff Greinke — Oceanic (2024)",
+        "Steve Roach — Atmosphere for Dreaming (2018)",
+        "Mulvey — Signal Alchemy artist profile"
+      ],
+      "crossRefs": [
+        "experimentalElec.musiqueConcrete"
+      ]
+    },
+    {
+      "id": "polish_ambient",
+      "name": "Polish ambient",
+      "family": "electronic",
+      "lineage": "Contemporary ambient practice in Poland includes Jacaszek’s processed acoustic instrumentation and the string/electronic collaboration with Stefan Wesołowski. This is a regional scene grouping, not a uniform national sound. The default models the acoustic-electronic palette documented around Treny and Glimmer; exact construction and recording settings are authored.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        0,
+        1,
+        -1,
+        -2,
+        -1,
+        1,
+        0,
+        1,
+        -1,
+        -2,
+        2,
+        -2,
+        0
+      ],
+      "instruments": [
+        "sampler_classic",
+        "violin_orchestral",
+        "harpsichord",
+        "clarinet"
+      ],
+      "description": "A regional grouping of ambient musicians working in Poland, with acoustic/electronic and field-recording approaches rather than one mandatory style. Jacaszek’s Treny combines arranged strings with quiet electronic texture; Glimmer adds harpsichord and clarinet, while Pentral uses recordings from Gothic church interiors. The selected ensemble combines these documented acoustic/electronic practices; it does not prescribe a shared Polish tuning, inherited folk ensemble or exclusive origin.",
+      "exemplars": [
+        "Jacaszek — Treny",
+        "Jacaszek — Glimmer",
+        "Jacaszek — Pentral",
+        "Stefan Wesołowski — Liebestod"
+      ],
+      "crossRefs": [
+        "experimentalElec.musiqueConcrete"
+      ]
+    },
+    {
+      "id": "pop_ambient",
+      "name": "Pop ambient (Kompakt beat-free electronics)",
+      "family": "electronic",
+      "lineage": "Wolfgang Voigt’s Kompakt Pop Ambient compilations began in 2001 and foreground instrumental beat-free electronic atmosphere. This reverses neither the existing vocal ambient-pop category nor its song form. Piano and sample-based harmonic abstraction are documented in the 2013 edition; synthesis, build settings and recording chain are representative authored choices.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        1,
+        1,
+        -1,
+        -2,
+        -1,
+        1,
+        0,
+        2,
+        -1,
+        -2,
+        2,
+        -2,
+        1
+      ],
+      "instruments": [
+        "sampler_classic",
+        "analog_synth",
+        "grand_piano"
+      ],
+      "description": "Kompakt’s Pop Ambient compilation idiom, curated by Wolfgang Voigt from 2001: gentle, largely beat-free electronic textures and enlarged harmonic material. The 2013 edition documents sample sculpting, piano, synthetic/natural timbre boundaries and resolving drones. Rare vocal tracks exist, but the default is instrumental. This differs from ambient_pop, whose current catalog record models intimate vocal band songs, and from ambient house or ambient techno by omitting the beat-centered ensemble.",
+      "exemplars": [
+        "Kompakt — Pop Ambient 2001",
+        "Wolfgang Voigt — Rückverzauberung 7",
+        "Anton Kubikov — Ambianopolis",
+        "Leandro Fresco — El Cruce Imposible"
+      ]
+    },
+    {
+      "id": "ritual_ambient",
+      "name": "Ritual ambient",
+      "family": "electronic",
+      "lineage": "Ceremonial ambient practice encompasses electronic production and vocal-centered ritual performance. Lustmord’s The Word as Power documents guest voices and long studio pieces; Phurpa’s performances foreground overtone chanting and ritual instruments. The selected model processes an ametrical vocal source through a sampler, without asserting one shared religion or an authentic monastic instrumentation.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        0,
+        -1,
+        -2,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Ambient practice foregrounding ceremony, incantation and sustained vocal or electronic space. The documented Lustmord, Phurpa and Soriah examples have substantially different approaches. Lustmord’s The Word as Power credits distinct guest voices; Phurpa performs overtone chanting with ritual instruments. The default supplies voice and sampled transformation as a contemporary studio model. It does not equate the entire genre with Bön, Tibetan monastic chant, one sacred language, or one religious institution.",
+      "exemplars": [
+        "Lustmord — The Word as Power",
+        "Phurpa — Tro-Wo Phur Nag",
+        "Soriah — Grigori"
+      ],
+      "crossRefs": [
+        "experimentalElec.industrialNoise"
+      ]
+    },
+    {
+      "id": "warm_drone",
+      "name": "Warm drone",
+      "family": "electronic",
+      "lineage": "Soft, slowly changing sustained-tone ambience is represented here by Windy & Carl’s guitar, bass and keyboard recordings. The duo’s artist account establishes this instrumental practice; numeric and timbral defaults model a gentle guitar-led drone subset. Warm drone is a listening/texture label, not a geographically exclusive tradition or synonym for drone metal.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        1,
+        -2,
+        -2,
+        -1,
+        0,
+        1,
+        1,
+        -2,
+        -2,
+        2,
+        -2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "analog_synth"
+      ],
+      "description": "A texture-oriented drone grouping favoring soft, enveloping sustained harmony and gradual timbral change. This representative default follows the guitar/bass/keyboard practice documented by Windy & Carl and their album Consciousness. It keeps continuous resonance ahead of riff-based structure, metal distortion, dance rhythm or a lead pop vocal. The label does not establish a shared historical school; artist membership in the exact Every Noise page remains unverified in this run.",
+      "exemplars": [
+        "Windy & Carl — Consciousness",
+        "Windy & Carl — Elevation",
+        "Leandro Fresco & Rafael Anton Irisarri — Una Presencia En La Brisa"
+      ]
+    },
+    {
+      "id": "world_meditation",
+      "name": "World meditation",
+      "family": "global",
+      "lineage": "Cross-cultural instrumental meditation recordings combine selected acoustic timbres and studio atmosphere. Deuter’s Koyasan explicitly credits erhu, shakuhachi, tamboura and Tibetan bowls with keyboards; Nawang Khechog’s Tibetan Meditation Music combines flute with chant and sparse accents. The default models the former palette without presenting it as the traditional ensemble of any single culture.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        1,
+        -1,
+        -2,
+        -1,
+        0,
+        0,
+        0,
+        -2,
+        -2,
+        1,
+        -2,
+        1
+      ],
+      "instruments": [
+        "analog_synth",
+        "shakuhachi",
+        "erhu",
+        "tanpura",
+        "himalayan_singing_bowl"
+      ],
+      "description": "A functional, cross-cultural meditation-recording grouping, represented by Deuter’s Koyasan and Nawang Khechog’s Tibetan Meditation Music. Sustained electronic atmosphere surrounds slowly paced acoustic instruments; the former album documents erhu, shakuhachi, tamboura and bowls, while the latter emphasizes flute, chant and subdued rhythm. This differs from guided_meditation by providing music rather than spoken instruction, and from ritual ambient by its contemplative listening function. No clinical efficacy or shared inherited world tradition is claimed.",
+      "exemplars": [
+        "Deuter — Koyasan: Reiki Sound Healing",
+        "Nawang Khechog — Tibetan Meditation Music"
+      ]
+    },
+    {
+      "id": "afro_house_angolano",
+      "name": "Afro house angolano",
+      "family": "electronic",
+      "lineage": "Angolan house practice centered in Luanda, connecting programmed house tracks with the local semba/kuduro listening and production environment. Firsthand reporting documents software beatmaking and an Angolan rhythmic identity; the selected model leaves particular traditional acoustic instruments optional.",
+      "parent": "electronicDance.house",
+      "axes": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_synth",
+        "sampler_classic"
+      ],
+      "description": "Luanda-centered Angolan Afro house practice. Electronic percussion, repeating bass figures and sampled or recorded hooks support dance tracks shaped by local listening to semba and kuduro. This regional network is distinguished from the catalog’s broader Afro house row; it does not prescribe an amapiano log drum or Lagos studio.",
+      "exemplars": [
+        "DJ Hélio Baiano & AfroZone — Afrologia",
+        "DJ Delany Duvall",
+        "Djeff"
+      ],
+      "crossRefs": [
+        "electronicDance.africanDance",
+        "groovePercussion.afroDiasporicElec"
+      ]
+    },
+    {
+      "id": "australian_house",
+      "name": "Australian house",
+      "family": "electronic",
+      "lineage": "Australian house-production network with a selected bass-driven Melbourne club strand represented by Dom Dolla and Torren Foot, and wider Australian production represented by Sonny Fodera. Contemporary laptop work, programmed drums and repitched vocal hooks are documented artist practices, not a unique national meter.",
+      "parent": "electronicDance.house",
+      "axes": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "wavetable_synth",
+        "sampler_drum_machine",
+        "sampler_classic"
+      ],
+      "description": "Australian house network, with this recipe selecting the chugging bass, programmed percussion and manipulated hooks documented in Dom Dolla’s productions. Its regional provenance separates the discovery record from umbrella house and tech-house; Australian house encompasses multiple approaches and is not synonymous with Melbourne bounce or lo-fi house.",
+      "exemplars": [
+        "Dom Dolla — Take It",
+        "Dom Dolla & Sonny Fodera — Moving Blind",
+        "Torren Foot"
+      ],
+      "crossRefs": [
+        "electronicDance.house.techHouse"
+      ]
+    },
+    {
+      "id": "brazilian_house",
+      "name": "Brazilian house",
+      "family": "electronic",
+      "lineage": "Brazilian house-production network, with the selected melodic and hybrid studio strand documented through Gui Boratto. His practice combines hardware/soft synthesis, sequenced electronics and guitar/piano musicianship; this is a regional umbrella and does not require samba instrumentation in every track.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "drum_machine_909",
+        "electric_guitar_single_coil"
+      ],
+      "description": "Brazilian house network with a selected melodic studio approach. Synthesizers and programmed house percussion meet keyboard and guitar parts in the documented Gui Boratto strand. This regional discovery scope is broader than Brazilian tech house and differs from Brazilian bass; a samba/forró acoustic ensemble is not automatically appropriate.",
+      "exemplars": [
+        "Gui Boratto — Beautiful Life",
+        "Gui Boratto — Azzurra",
+        "D.O.C. Records"
+      ],
+      "crossRefs": [
+        "electronicDance.house.techHouse"
+      ]
+    },
+    {
+      "id": "brazilian_tech_house",
+      "name": "Brazilian tech house",
+      "family": "electronic",
+      "lineage": "Brazilian tech-house production and DJ network. Vivi Seixas is verified on the exact author map; her Keskem collaboration is independently documented as club-oriented tech house. Mochakk supplies a separately documented Brazilian production example rather than a verified member of the inspected map. Programmed rhythm, bass hooks and vocal sampling are selected studio practices, not mandatory traditional Brazilian instrumentation.",
+      "parent": "electronicDance.house.techHouse",
+      "axes": [
+        0,
+        1,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "sampler_drum_machine",
+        "sampler_classic"
+      ],
+      "description": "Brazilian tech-house network represented by bass-and-groove-led productions and DJ sets. Short programmed drums, repeating bass hooks and selected vocal samples support lean club arrangements. It is a regional discovery subset of tech house, not another term for Brazilian bass and not a promise of samba instruments.",
+      "exemplars": [
+        "Vivi Seixas & Keskem — Smoke and Sweat",
+        "Rodrigo Ardilha — Dirty",
+        "Mochakk — False Need (independent regional example)"
+      ],
+      "crossRefs": [
+        "electronicDance.house"
+      ]
+    },
+    {
+      "id": "deep_groove_house",
+      "name": "Deep groove house",
+      "family": "electronic",
+      "lineage": "An international bass-and-hook house discovery cluster including Dom Dolla, James Hype, Tchami, Endor and Ferreck Dawn. The selected contemporary branch is grounded in Dom Dolla’s documented in-the-box production, tightly programmed drums and repitched self-recorded vocal hooks.",
+      "parent": "electronicDance.house",
+      "axes": [
+        -1,
+        1,
+        1,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "wavetable_synth",
+        "sampler_drum_machine",
+        "sampler_classic"
+      ],
+      "description": "The label’s verified roster is oriented toward contemporary groove-driven club producers, so it is not interpreted literally as an extra-deep soul-jazz house category. This default centers a chugging synthetic bass motif and crisp drum programming, with a short manipulated vocal hook leaving room for rhythmic repetition. Longer instrumental passages can open into hook returns. It overlaps tech and bass-house practice without being equated with either whole umbrella.",
+      "exemplars": [
+        "Dom Dolla — Take It",
+        "Dom Dolla & Sonny Fodera — Moving Blind",
+        "James Hype",
+        "Tchami"
+      ],
+      "crossRefs": [
+        "electronicDance.house.techHouse"
+      ]
+    },
+    {
+      "id": "uk_tech_house",
+      "name": "UK tech house",
+      "family": "electronic",
+      "lineage": "A UK producer-and-label network joining programmed house grooves with techno-leaning sound design. The classifier roster includes Jamie Jones, Carl Cox, Biscits and Leftwing : Kody; this model selects the bass-and-synth looping practice described by Jones in his East London studio.",
+      "parent": "electronicDance.house.techHouse",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        -1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_synth",
+        "sampler_classic"
+      ],
+      "description": "The UK-scoped discovery label is broader than the earliest London tech-house generation. Its roster joins established and contemporary club producers. The chosen Jones-informed model develops a playable bass or synth phrase against a repeating drum loop, edits longer performances into a tight groove and uses changing timbre for motion. It avoids making disco piano, aggressive festival drops or a particular vintage machine compulsory for the entire network.",
+      "exemplars": [
+        "Jamie Jones — Summertime",
+        "Jamie Jones — Don’t You Remember the Future",
+        "Carl Cox",
+        "Biscits"
+      ],
+      "crossRefs": [
+        "electronicDance.house"
+      ]
+    },
+    {
+      "id": "progressive_electro_house",
+      "name": "Progressive electro house",
+      "family": "electronic",
+      "lineage": "A broad melodic-and-electro club discovery cluster whose roster includes Alesso, Swedish House Mafia, Hardwell, Eric Prydz and Don Diablo. This authored model selects a concise synth-hook and chopped-vocal branch documented by Don Diablo rather than assuming the label denotes only the early British progressive-house tradition.",
+      "parent": "electronicDance.house",
+      "axes": [
+        0,
+        2,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        2,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_synth",
+        "sampler_classic"
+      ],
+      "description": "The compound discovery label crosses melodic festival house and electro-oriented producers. A clear repeating lead phrase, compact drum pattern and edited vocal fragments make the chosen model hook-centered; filtering and arrangement breaks vary the energy before the hook returns. This is one practicable electronic arrangement within a diverse roster, not a claim that every artist uses an identical supersaw patch, drop structure or tempo.",
+      "exemplars": [
+        "Don Diablo — On My Mind",
+        "Don Diablo — Cutting Shapes",
+        "Alesso",
+        "Swedish House Mafia",
+        "Eric Prydz"
+      ],
+      "crossRefs": [
+        "electronicDance.continental"
+      ]
+    },
+    {
+      "id": "austrian_dnb",
+      "name": "Austrian drum and bass",
+      "family": "electronic",
+      "lineage": "Austrian drum-and-bass networks represented by Camo & Krooked, Mefjus, Fourward and Wingz. Camo & Krooked’s first-person account describes a diverse Vienna-centered club scene and painstaking digitally synthesized percussion with modulated bass sound design. The selected recording model follows that sound-design-led branch.",
+      "parent": "bassSystem.bassDescendants",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        0,
+        2,
+        2,
+        -1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "wavetable_synth",
+        "sampler_classic"
+      ],
+      "description": "A regional discovery cluster covering Austria’s drum-and-bass producers and club networks, from liquid and deep styles to dancefloor and neurofunk. The authored default selects intricately designed digital drum hits, an evolving monophonic bass voice and layered phrase textures, with sectional development rather than one endlessly repeated loop. It is not a national rhythm formula: Camo & Krooked explicitly describe different Austrian producers pursuing different sounds.",
+      "exemplars": [
+        "Camo & Krooked",
+        "Mefjus",
+        "Fourward",
+        "Wingz"
+      ]
+    },
+    {
+      "id": "dutch_dnb",
+      "name": "Dutch drum and bass",
+      "family": "electronic",
+      "lineage": "Dutch drum-and-bass production networks represented by Noisia, Black Sun Empire, Icicle and IMANU. The selected branch follows Noisia’s documented combination of one-hit/sample-library or synthesized drums, software bass design and separately treated sounds; the broader Dutch scene is stylistically varied.",
+      "parent": "bassSystem.bassDescendants",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        0,
+        2,
+        2,
+        -2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "fm_synth",
+        "sampler_classic"
+      ],
+      "description": "A geographic discovery cluster for Dutch drum-and-bass artists and production networks. This authored default selects the sound-design-heavy branch: crisp constructed drums, harmonically complex bass and closely edited sound fragments with individual distortion, compression and EQ. It does not equate all Dutch drum and bass with neurofunk or attribute the recipe’s exact FM algorithm to every named producer.",
+      "exemplars": [
+        "Noisia",
+        "Black Sun Empire",
+        "Icicle",
+        "IMANU"
+      ]
+    },
+    {
+      "id": "japanese_techno",
+      "name": "Japanese techno",
+      "family": "electronic",
+      "lineage": "Japan-centered techno networks encompassing Ken Ishii, Takkyu Ishino, Wata Igarashi and DJ Nobu. This default selects the early-1990s Ishii branch, where compact FM and PCM keyboards and sampled percussion support melodic machine music influenced by Detroit techno.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        0,
+        -1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "fm_synth",
+        "rompler_workstation",
+        "sampler_drum_machine"
+      ],
+      "description": "Regional techno cluster spanning melodic, minimal, industrial and experimental artists. The selected arrangement uses articulate FM lead, piano-like PCM keyboard and layered sampled drum hits. It is a reduced reconstruction informed by Ishii’s account of Fading Sky; no acoustic Japanese folk instrument or compulsory 303/909 setup is inferred from nationality.",
+      "exemplars": [
+        "Ken Ishii — Fading Sky",
+        "Takkyu Ishino",
+        "Wata Igarashi",
+        "DJ Nobu"
+      ]
+    },
+    {
+      "id": "french_techno",
+      "name": "French techno",
+      "family": "electronic",
+      "lineage": "France-centered techno producers and club networks, including Laurent Garnier, Vitalic, The Hacker and contemporary harder branches. The default follows Garnier’s tactile synth sequencing and edited sampled drums, rather than treating French techno as synonymous with disco-filtered French house.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        0,
+        -1,
+        1,
+        2,
+        1,
+        0,
+        1,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "fm_synth",
+        "sampler_drum_machine"
+      ],
+      "description": "A geographically organized techno cluster, not one fixed French timbre. This recording model combines changing subtractive sequences, bright FM figures and individually treated drum samples. Garnier describes recording improvised synth manipulation into Cubase and editing it extensively; the default represents that studio branch and does not require a singer or live saxophone.",
+      "exemplars": [
+        "Laurent Garnier",
+        "Vitalic",
+        "The Hacker"
+      ]
+    },
+    {
+      "id": "swedish_techno",
+      "name": "Swedish techno",
+      "family": "electronic",
+      "lineage": "Sweden-centered techno networks including Adam Beyer, Cari Lekebusch, Joel Mull and more experimental contemporary producers. This default selects a repetitive groove-and-synthesis branch associated with Beyer’s Stockholm production network, while allowing his later hybrid hardware/software workflow.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -1,
+        -1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "sampler_drum_machine"
+      ],
+      "description": "Regional scene label covering both forceful club grooves and more exploratory electronic work. The authored default pairs a repeating filtered synth hook with layered sampled percussion and a steady dance pulse. It selects a compact instrumental branch; current vocal collaborations and ambient or breakbeat album excursions remain options rather than mandatory ingredients.",
+      "exemplars": [
+        "Adam Beyer",
+        "Cari Lekebusch",
+        "Joel Mull",
+        "Dorisburg"
+      ]
+    },
+    {
+      "id": "pop_house",
+      "name": "Pop house",
+      "family": "electronic",
+      "lineage": "A song-facing house discovery cluster represented by MEDUZA, Becky Hill, Mike Candys and DJ Antoine. MEDUZA’s account of writing Piece of Your Heart with Goodboys documents the meeting of a club-production team with pop verse-and-chorus songwriting.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "analog_synth"
+      ],
+      "description": "Pop house joins a repeating electronic dance backing to a foreground vocal hook and compact song development. The selected model gives the singer a clear verse-and-chorus role over programmed percussion, synthetic bass and a recurring electronic figure. The verified roster includes several production approaches, so one hardware model, loudness target or festival-drop formula is not treated as essential.",
+      "exemplars": [
+        "MEDUZA featuring Goodboys — Piece of Your Heart",
+        "Becky Hill",
+        "Mike Candys",
+        "DJ Antoine"
+      ]
+    },
+    {
+      "id": "german_tech_house",
+      "name": "German tech house",
+      "family": "electronic",
+      "lineage": "A Germany-based tech-house production network represented in the discovery roster by Format:B, Marek Hemmann, Kaiserdisco, Daniel Steinberg and Monika Kruse. Format:B’s first-person description grounds the selected model in a house/techno mixture with funky percussion and rolling sub-bass.",
+      "parent": "electronicDance.house.techHouse",
+      "axes": [
+        -1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "drum_machine_analog",
+        "analog_synth"
+      ],
+      "description": "The regional roster links multiple German club-production scenes rather than one national sound. This default favors a rolling low-frequency pattern, interlocking electronic percussion and short synthesizer punctuation, making rhythmic movement more prominent than an extended sung chorus. It represents the Format:B branch while leaving the roster’s more melodic or minimal approaches available as deliberate alternatives.",
+      "exemplars": [
+        "Format:B",
+        "Marek Hemmann",
+        "Kaiserdisco",
+        "Monika Kruse"
+      ]
+    },
+    {
+      "id": "turkish_deep_house",
+      "name": "Turkish deep house",
+      "family": "electronic",
+      "lineage": "A Turkish pop-facing deep-house discovery cluster represented by Mahmut Orhan, Deeperise, Ilkay Sencan and Ilkan Gunuc. Orhan’s own Feel release identifies deep-house production with Sena Şener’s vocals, while his interview traces a production career from Bursa to Istanbul.",
+      "parent": "electronicDance.house.deepHouse",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "analog_synth",
+        "sampler_classic"
+      ],
+      "description": "The verified roster spans producers and singers, so this label is not reduced to a mandatory folk scale or acoustic national instrument. The chosen vocal-centered model combines a restrained electronic drum pulse, rounded synthetic bass and an edited melodic texture under a clear lead singer. The accompaniment is an authored electronic palette rather than a claim to reconstruct every instrumental layer of Feel or to prescribe one makam for the scene.",
+      "exemplars": [
+        "Mahmut Orhan featuring Sena Şener — Feel",
+        "Deeperise",
+        "Ilkay Sencan",
+        "Ilkan Gunuc"
+      ]
+    },
+    {
+      "id": "swedish_tropical_house",
+      "name": "Swedish tropical house",
+      "family": "electronic",
+      "lineage": "A Swedish song-centered tropical-house discovery cluster represented by Mike Perry, Lucas Estrada, John De Sohn and Hogland. Perry’s interviews describe his computer-and-synth production and a deliberate tropical-house strand, with The Ocean built around an accessible melody and Shy Martin’s sung hook.",
+      "parent": "electronicDance.house.deepHouse",
+      "axes": [
+        1,
+        2,
+        0,
+        2,
+        -1,
+        1,
+        0,
+        2,
+        -1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "analog_synth"
+      ],
+      "description": "A pop-length, vocal-led electronic house model with a light pulse, rounded low end and a short bright synth phrase returning between sung passages. It is scoped to the Swedish producer network in the source classifier, not to all Swedish house or a requirement for steelpan and marimba. The default keeps the electronic arrangement spacious enough for the song; particular synth timbres and drum programming are disclosed production choices.",
+      "exemplars": [
+        "Mike Perry featuring Shy Martin — The Ocean",
+        "Lucas Estrada",
+        "John De Sohn",
+        "Hogland"
+      ]
+    },
+    {
+      "id": "swiss_house",
+      "name": "Swiss house",
+      "family": "electronic",
+      "lineage": "Swiss house-production networks with a selected melodic club branch represented by Mike Candys and Jack Holiday. The officially released Swiss House Hits compilations also connect this branch with EDX, Chris Reece, DJ Antoine and other Swiss producers. Candys’s first-person studio accounts document drum-machine and synthesizer work.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        -1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "fm_synth"
+      ],
+      "description": "This regional house entry represents a producer network, not a unique national rhythm. The selected model is a melodic electronic club arrangement with programmed drums, a short keyboard hook and repeating percussive accents. The Swiss House Hits releases demonstrate multiple club approaches; the recipe does not equate all Swiss house with chart pop, minimal techno or one studio’s equipment.",
+      "exemplars": [
+        "Mike Candys — La Serenada",
+        "Mike Candys — La Disco Loca",
+        "EDX — Casa Grande",
+        "Jack Holiday"
+      ]
+    },
+    {
+      "id": "japanese_house",
+      "name": "Japanese house",
+      "family": "electronic",
+      "lineage": "Japanese house production with a selected Far East Recording branch represented by Soichi Terada and Shinichiro Yokota. First-person interviews document their Tokyo partnership, house/hip-hop sample reworking, hardware samplers and digital keyboard/workstation production.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        -1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_classic",
+        "rompler_workstation"
+      ],
+      "description": "The regional label includes multiple generations and approaches. This default selects Terada’s sample-and-keyboard branch: recut rhythmic material and looping melodic fragments alongside digital workstation chords and pads. It does not impose a traditional Japanese instrument, pentatonic tuning or an anime-derived aesthetic merely because the producers are Japanese. The sampler and ROM-keyboard choices are grounded in Terada’s own account, with settings authored for a usable recording model.",
+      "exemplars": [
+        "Soichi Terada — Sounds From The Far East",
+        "Shinichiro Yokota — Do It Again",
+        "Far East Recording"
+      ]
+    },
+    {
+      "id": "russian_witch_house",
+      "name": "Russian witch house",
+      "family": "electronic",
+      "lineage": "A Russian witch-house discovery cluster whose roster includes IC3PEAK, CHVRN, Summer Of Haze and Fraunhofer Diffraction. The selected 2010s–2020 electronic branch is represented by IC3PEAK’s contrast between floating synthesizers, heavy 808-type beats and a lead voice moving between high singing and harsher delivery.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        -1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "description": "A dark electronic song-and-texture model centered on processed lead voice, sustained synthetic atmosphere and heavy drum-machine low end. The recipe selects the abrasive electronic branch documented around IC3PEAK’s TRRST era. It does not treat every later IC3PEAK recording as witch house: the duo’s later Coming Home explicitly moved toward guitar and live instruments. National scope does not imply one folk melody, religion or language requirement for all members.",
+      "exemplars": [
+        "IC3PEAK — TRRST",
+        "CHVRN",
+        "Summer Of Haze",
+        "Fraunhofer Diffraction"
+      ]
+    },
+    {
+      "id": "canadian_house",
+      "name": "Canadian house",
+      "family": "electronic",
+      "lineage": "Canadian house production with a selected Montréal deep-house branch represented by Fred Everything. His first-person accounts connect Québec City beginnings and Montréal record-shop/club networks to a hardware-rich workflow using sampled drums, analog synthesizers and keyboard harmony.",
+      "parent": "electronicDance.house.deepHouse",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_poly_synth",
+        "sampler_classic"
+      ],
+      "description": "A geographically scoped house entry, with this default selecting Fred Everything’s warm, melodic studio branch. Sample-programmed percussion supports polyphonic synthesizer chords and short sampled figures; repetition and arrangement changes develop the groove. This does not prescribe a single Canadian national style or equate all Canadian house with festival electro-house. The selected instruments represent documented practices, while individual patch settings and material variants remain authored.",
+      "exemplars": [
+        "Fred Everything — Light of Day",
+        "Fred Everything — Believe",
+        "Lazy Days Recordings"
+      ]
+    },
+    {
+      "id": "house_argentino",
+      "name": "House argentino",
+      "family": "electronic",
+      "lineage": "Argentine house-production and DJ networks with a selected progressive strand represented by Hernán Cattáneo’s Sudbeat label and Mariano Mellino. Mellino’s own account connects work in Berlin and Buenos Aires to a hybrid of Roland drum/keyboard hardware, Maschine and software synthesizers.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_synth",
+        "sampler_classic"
+      ],
+      "description": "The regional discovery cluster spans progressive, deep and other club-house approaches. This default selects Mellino’s layered electronic branch, balancing a repeating bass-and-percussion foundation with a slowly introduced keyboard texture. Harmonic space and gradual arrangement changes take precedence over a constantly changing lead vocal. The model does not impose tango instrumentation, an Argentine folk rhythm or one universally shared synth rig.",
+      "exemplars": [
+        "Mariano Mellino — Mockenbrucke EP",
+        "Hernán Cattáneo / Sudbeat",
+        "Guti",
+        "Facundo Mohrr"
+      ]
+    },
+    {
+      "id": "german_house",
+      "name": "German house",
+      "family": "electronic",
+      "lineage": "A broad German house-production discovery network including Fritz Kalkbrenner, Claptone, Tensnake, andhim and Henrik Schwarz. The selected model follows Kalkbrenner’s documented meeting of club drum programming, recorded lead voice and soul-influenced live bass/keyboard work.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "rhodes_electric",
+        "electric_bass"
+      ],
+      "description": "German house is a regional network rather than a synonym for Berlin minimal techno. This default selects a warm, song-facing branch: a steady programmed kick and percussion frame a recorded vocal, supportive muted electric bass and Rhodes chord pattern. Kalkbrenner’s own accounts document both sample-based production and live musicians; this compact model selects his vocal/bass/keyboard core, with additional guitar or other colors optional rather than falsely prescribing them for every recording.",
+      "exemplars": [
+        "Fritz Kalkbrenner — Sick Travellin’",
+        "Fritz Kalkbrenner — Get A Life",
+        "Claptone",
+        "Tensnake"
+      ]
+    },
+    {
+      "id": "latin_tech_house",
+      "name": "Latin tech house",
+      "family": "electronic",
+      "lineage": "A tech-house discovery network connecting artists working across Spain, Latin America and related international scenes, including Maceo Plex, Dennis Cruz, Dosem, Chus & Ceballos, Luciano and Guti. The selected Maceo Plex branch is grounded in his own account of synthesized or sampled kicks, bass continuity, synthesizer production and vocal use.",
+      "parent": "electronicDance.house.techHouse",
+      "axes": [
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_synth",
+        "sampler_classic"
+      ],
+      "description": "This classifier’s roster is not a requirement to add a salsa clave or conga section to every track. The chosen model keeps a close kick-and-bass connection, short drum accents, a flexible synthetic hook and edited vocal texture. The broader network includes more overtly percussion-led branches; this entry’s default selects the documented synth-and-low-end approach rather than assigning a single Latin rhythm or nationality to all members.",
+      "exemplars": [
+        "Maceo Plex — Vibe Your Love",
+        "Dennis Cruz",
+        "Dosem",
+        "Chus & Ceballos",
+        "Guti"
+      ]
+    },
+    {
+      "id": "nordic_house",
+      "name": "Nordic house",
+      "family": "electronic",
+      "lineage": "A Nordic-centered melodic dance-pop/house discovery cluster connecting Tungevaag, Raaban, K-391, Broiler and collaborators. Tungevaag’s primary accounts document software-first production and collaborative sessions that join instrumental chords with recorded vocal toplines.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        2,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "analog_synth"
+      ],
+      "description": "This verified cluster is oriented toward melodic electronic songs and cross-border producer collaborations; it is not a synonym for Norwegian space disco or every house record from northern Europe. The chosen model combines a clear synth-chord figure and programmed dance rhythm with a recorded verse-and-hook vocal. The source roster also includes international collaborators, so Nordic is not treated as an exclusive nationality test.",
+      "exemplars": [
+        "Tungevaag — Peru",
+        "Tungevaag & Raaban — Samsara",
+        "K-391",
+        "Broiler"
+      ]
+    },
+    {
+      "id": "uk_house",
+      "name": "UK house",
+      "family": "electronic",
+      "lineage": "A British house-production network with a selected early 2010s song-facing branch represented by Disclosure. A contemporary first-person interview documents their house/garage crossover, synthesis, drum-machine/MPC performance and work with newly recorded lead vocalists.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "analog_synth"
+      ],
+      "description": "The regional entry spans more than one beat pattern. This default selects a swung electronic song groove with synth chords and a foreground singer, drawing on Disclosure’s documented balance between club repetition and full vocal songwriting. Their catalogue also includes 2-step and 6/8 material; the recipe does not falsely prescribe straight 4/4 for every track or equate the entire UK house scene with UK garage.",
+      "exemplars": [
+        "Disclosure — Boiling",
+        "Disclosure — Control",
+        "Disclosure — The Face EP"
+      ]
+    },
+    {
+      "id": "romanian_house",
+      "name": "Romanian house",
+      "family": "electronic",
+      "lineage": "A Romanian vocal dance/house discovery network represented by INNA, Edward Maya, Akcent, DJ Project and Play & Win. The selected Edward Maya branch places a recognizable accordion lead alongside a sung hook and programmed club backing.",
+      "parent": "electronicDance.house",
+      "axes": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "accordion",
+        "sampler_drum_machine",
+        "analog_synth"
+      ],
+      "description": "This entry selects a melodic, radio-facing house branch rather than Romanian minimal techno. A warm-toned accordion phrase answers a recorded lead vocal while electronic bass and drum programming maintain a repeating dance pulse. The source roster also contains synth-led productions without accordion; no folk instrument, national tuning or orchestral accompaniment is imposed on the whole network. Material and bellows settings describe the authored accordion model rather than claiming the construction of the original recording’s instrument.",
+      "exemplars": [
+        "Edward Maya featuring Vika Jigulina — Stereo Love",
+        "INNA",
+        "Akcent",
+        "Play & Win"
+      ]
+    },
+    {
+      "id": "dutch_tech_house",
+      "name": "Dutch tech house",
+      "family": "electronic",
+      "lineage": "A Dutch groove-led house/tech-house discovery network including Chris Stussy, ANOTR, Joris Voorn and Franky Rizardo. Stussy’s first-person production account grounds the selected model in software drum-machine voices, pitched drum samples, analog-style synth emulations, filtered pads and bass sketches.",
+      "parent": "electronicDance.house.techHouse",
+      "axes": [
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        -1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_synth",
+        "analog_poly_synth"
+      ],
+      "description": "The regional entry joins minimal and classic-house influences with contemporary club production. Its chosen Stussy-informed model uses a compact kick-and-percussion loop, a short repeating bass pattern and a gently modulated synth layer. Filter/LFO movement and drum-sample treatment provide variation. Hardware names in his interview describe software sounds and emulations: he explicitly identifies his workflow as in-the-box, so no physical vintage-synth ownership is inferred.",
+      "exemplars": [
+        "Chris Stussy — All Night Long",
+        "ANOTR",
+        "Joris Voorn",
+        "Franky Rizardo"
+      ]
+    },
+    {
+      "id": "british_post_rock",
+      "name": "British post-rock",
+      "family": "rock_punk",
+      "lineage": "A British post-rock network spanning Mogwai, Maybeshewill, Bark Psychosis and related groups. The selected Mogwai branch layers mostly instrumental guitar, bass, drums and synthesizer parts in arrangements developed from individual sketches.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        -2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "analog_synth"
+      ],
+      "description": "This regional entry selects an electronic-textural guitar-band branch. Sustained guitar phrases open into reverberant washes while a live rhythm section and synthesizer retain melodic shape. The default is instrumental; vocals occur elsewhere in the roster. Compared with the global extended post-rock entry, it foregrounds the documented guitar/synth interaction rather than making bowed strings mandatory.",
+      "exemplars": [
+        "Mogwai — Rave Tapes",
+        "Mogwai — As the Love Continues",
+        "Maybeshewill",
+        "Bark Psychosis"
+      ]
+    },
+    {
+      "id": "canadian_post_rock",
+      "name": "Canadian post-rock",
+      "family": "rock_punk",
+      "lineage": "A Canadian experimental-rock network represented by Godspeed You! Black Emperor, Do Make Say Think, Silver Mt. Zion and Esmerine. This default selects Godspeed’s Montreal-based instrumental guitar-and-violin branch, with arranged ensemble passages and manipulated recorded sound.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "violin_orchestral",
+        "electric_bass",
+        "drum_kit",
+        "sampler_classic"
+      ],
+      "description": "The chosen model alternates sustained string and guitar layers with emphatic full-band passages. Violin remains an independent melodic/drone voice over bass and drums, while recorded environmental fragments provide transitions. It is not a singer-led rock template or a claim that every Canadian group uses an orchestra. The source roster also contains smaller ensembles and vocal projects.",
+      "exemplars": [
+        "Godspeed You! Black Emperor — Asunder, Sweet and Other Distress",
+        "Godspeed You! Black Emperor — Lift Your Skinny Fists Like Antennas to Heaven",
+        "Do Make Say Think",
+        "Esmerine"
+      ]
+    },
+    {
+      "id": "belgian_stoner_rock",
+      "name": "Belgian stoner rock",
+      "family": "rock_punk",
+      "lineage": "A Belgian heavy-riff network including Gnome, Black Mirrors, Cowboys & Aliens and Fire Down Below. This default selects Black Mirrors’ blues/grunge-facing vocal quartet branch, developed through guitar-riff sketches and full-band rearrangement.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A compact amplified band model pairs rough guitar riffs with bass, live drums and a lead singer. Black Mirrors’ early EP documents live tracking and an energetic song-oriented branch; the wider Belgian roster also contains more extended and experimental approaches. Stoner is not treated as proof of a particular drug practice, mandatory extreme down-tuning or a slow doom-metal pulse.",
+      "exemplars": [
+        "Black Mirrors — Funky Queen",
+        "Gnome",
+        "Cowboys & Aliens",
+        "Fire Down Below"
+      ]
+    },
+    {
+      "id": "canadian_psychedelic_rock",
+      "name": "Canadian psychedelic rock",
+      "family": "rock_punk",
+      "lineage": "A Canadian psychedelic-rock network including Black Mountain, Elephant Stone, Pink Mountaintops and Tess Parks. The selected Black Mountain IV-era branch combines amplified riffs and live rhythm-section interaction with keyboard orchestration and vocal interplay.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "mellotron",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "The default keeps guitar and Mellotron as separate voices instead of treating psychedelic as a synonym for fuzz alone. A sustained keyboard layer changes the weight of the arrangement around bass/drums, guitar phrases and paired singing. This is a contemporary Canadian branch drawing on older sounds, not a claim that the whole national scene reproduces one 1960s studio or requires sitar.",
+      "exemplars": [
+        "Black Mountain — IV",
+        "Black Mountain — Space to Bakersfield",
+        "Elephant Stone",
+        "Pink Mountaintops"
+      ]
+    },
+    {
+      "id": "boston_rock",
+      "name": "Boston rock",
+      "family": "rock_punk",
+      "lineage": "A regional rock discovery label for which this default selects Pixies’ Boston-rooted alternative guitar-band practice. Their contrasting single-coil and humbucker guitar setups supply a practical model alongside electric bass, drums and singing.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "The geographic label is not mistaken for the band named Boston. This selected Pixies branch combines compact vocal songs with contrasting rhythm/lead guitar colors and a firm rhythm section. The authored model preserves two electric-guitar types rather than making every Boston recording a polished arena-rock production; it does not define the whole city by one group.",
+      "exemplars": [
+        "Pixies — Doolittle",
+        "Pixies — Surfer Rosa",
+        "Pixies — Indie Cindy"
+      ]
+    },
+    {
+      "id": "british_indie_rock",
+      "name": "British indie rock",
+      "family": "rock_punk",
+      "lineage": "A British-centered indie-rock discovery network including Bombay Bicycle Club, The Vaccines, Blossoms, Editors and The Cribs. This default selects Bombay Bicycle Club’s song-based combination of played guitars, bass and drums with chopped sample textures.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "sampler_classic",
+        "voice"
+      ],
+      "description": "A hybrid guitar-band model puts a lead vocal above a live rhythm section and edited loops. It follows documented sampling and slice-editing practice rather than assuming indie means exclusively analog or low fidelity. The broader roster includes more stripped-back guitar bands and international associates. A sampled film-song texture does not justify adding unsourced Indian instruments to every arrangement.",
+      "exemplars": [
+        "Bombay Bicycle Club — So Long, See You Tomorrow",
+        "Bombay Bicycle Club — My Big Day",
+        "The Vaccines",
+        "Blossoms"
+      ]
+    },
+    {
+      "id": "british_alternative_rock",
+      "name": "British alternative rock",
+      "family": "rock_punk",
+      "lineage": "A British-centered alternative-rock network including Enter Shikari, Don Broco, Skunk Anansie and Deaf Havana. The selected Enter Shikari branch joins processed guitar riffs to synthesizer layers, a live rhythm section and vocals.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "analog_synth",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "This model follows a documented electronic-rock branch rather than treating alternative rock as one uniform guitar tone. A processed power-chord figure and synthesizer can double one another, then separate to make room in the arrangement. DI/modeling workflow and expressive filter treatment are deliberate production choices. Other roster branches do not necessarily use electronics or the same vocal approach.",
+      "exemplars": [
+        "Enter Shikari — A Kiss for the Whole World",
+        "Enter Shikari — (Pls) Set Me on Fire",
+        "Skunk Anansie",
+        "Don Broco"
+      ]
+    },
+    {
+      "id": "classic_canadian_rock",
+      "name": "Classic Canadian rock",
+      "family": "rock_punk",
+      "lineage": "A retrospective Canadian rock discovery label, represented here by Rush’s early-1980s guitar/bass/drums and synthesizer integration. The selected model draws on the band’s account of developing Tom Sawyer and the producer’s description of Moving Pictures sessions.",
+      "parent": "distortedRock.progressiveRock",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_bass",
+        "electric_guitar_humbucker",
+        "drum_kit",
+        "analog_synth",
+        "voice"
+      ],
+      "description": "This heritage branch combines a compact amplified trio texture with a distinct synthesizer figure and lead singing. Instrumental sections can change rhythmic emphasis while retaining a recognizable song framework. It is a representative progressive-leaning branch of Canadian rock history, not a claim that all classic Canadian records use complex meters or keyboards.",
+      "exemplars": [
+        "Rush — Tom Sawyer",
+        "Rush — Moving Pictures"
+      ]
+    },
+    {
+      "id": "classic_rock",
+      "name": "Classic rock",
+      "family": "rock_punk",
+      "lineage": "A retrospective rock-repertoire label with a selected mid-1970s Boston studio-rock branch. Tom Scholz’s own recording account documents layered electric guitar, acoustic twelve-string contrast, bass, drums and Brad Delp’s vocal overdubs.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_12_string",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "The default emphasizes the contrast between chiming octave-paired acoustic strings and sustained amplified guitar, with a full rhythm section and layered singing. This is one documented album-rock branch within the broader classic-rock umbrella; neither this instrumentation nor a particular decade is imposed on every record associated with the label.",
+      "exemplars": [
+        "Boston — More Than a Feeling",
+        "Boston — Boston"
+      ]
+    },
+    {
+      "id": "dance_rock",
+      "name": "Dance rock",
+      "family": "rock_punk",
+      "lineage": "An international dance/rock crossover label joining band playing with dancefloor-oriented rhythm. The selected early Franz Ferdinand branch uses interlocking guitar/bass figures, an emphatic acoustic kick and lead/backing singing.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "This guitar-band model takes sequencer-like arrangement ideas into human performance. Short single-note guitar figures interlock with bass while a dance-oriented drum part carries the pulse. Tempo changes and live timing remain possible; dance rock is not automatically a quantized electronic backing. The wider classifier also includes synth-led bands and pop-facing artists.",
+      "exemplars": [
+        "Franz Ferdinand — Take Me Out",
+        "Talking Heads",
+        "INXS",
+        "The Killers"
+      ]
+    },
+    {
+      "id": "comedy_rock",
+      "name": "Comedy rock",
+      "family": "rock_punk",
+      "lineage": "A comedy-oriented rock discovery cluster including Tenacious D, Weird Al Yankovic and other performers. This default selects Tenacious D’s original acoustic-duo branch: guitar-driven songs, paired voices and deliberately theatrical rock presentation.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "The acoustic model lets strummed and picked guitar patterns support sung exchanges and comic timing. Humor comes from performance and writing rather than an invented funny instrument or a prescribed harmony. The source artists also make full-band records; this intentionally smaller arrangement reflects their documented duo practice and is not a universal comedy-rock ensemble.",
+      "exemplars": [
+        "Tenacious D — Tribute",
+        "Tenacious D — Wonderboy",
+        "Weird Al Yankovic"
+      ]
+    },
+    {
+      "id": "brazilian_indie_rock",
+      "name": "Brazilian indie rock",
+      "family": "rock_punk",
+      "lineage": "A Brazilian independent-rock scene spanning several cities and aesthetics. This model selects the Goiânia band Boogarins and its guitar-centered psychedelic songwriting within that wider scene.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "analog_synth",
+        "voice"
+      ],
+      "description": "Intertwined guitar parts, bass, drums, singing and occasional synthesizer form the selected branch. Repeating figures develop through collective improvisation, then studio editing. Delay motion and fuzz-colored guitar give this authored default a distinct texture; neither traditional percussion nor a single national rhythm is inferred. Other Brazilian indie bands need different ensembles.",
+      "exemplars": [
+        "Boogarins — Sombrou Dúvida",
+        "Boogarins — Lá Vem a Morte"
+      ]
+    },
+    {
+      "id": "canadian_rock",
+      "name": "Canadian rock",
+      "family": "rock_punk",
+      "lineage": "A broad Canadian rock scene with a selected contemporary Nickelback branch: concise vocal songs and forceful guitar-led band arrangements. The entry does not reduce the whole national scene to one band or imply a fixed national instrument set.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "This authored modern studio model balances a low-tuned six-string riff voice with a prominent sung melody and electric bass/drum support. It draws on documented hard-rock stage equipment and guitar-first writing, while retaining room for more melodic passages. The selected branch differs from the synth-balanced classic Canadian model and from the extended instrumental Canadian post-rock model.",
+      "exemplars": [
+        "Nickelback — Get Rollin’",
+        "Nickelback — Here and Now"
+      ]
+    },
+    {
+      "id": "czech_pop_rock",
+      "name": "Czech pop rock",
+      "family": "rock_punk",
+      "lineage": "A Czech pop-rock discovery network including Chinaski, Mirai, Kryštof, Jelen and other song-oriented bands. This default selects Kryštof’s documented guitar-and-three-horn band configuration from the2000s and early2010s.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "saxophone",
+        "trumpet",
+        "trombone",
+        "acoustic_guitar_dread",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Saxophone, trumpet and trombone keep separate voices around acoustic/electric guitars, bass, drums and lead singing. The ensemble offers a distinct horn-led option within the broad national label. Later keyboard-heavy arrangements and one-off guest instruments are not conflated with this chosen branch. Alto sax register, brass construction and punchy ensemble articulation are authored production choices, not claims of an immutable national sound.",
+      "exemplars": [
+        "Kryštof — Inzerát",
+        "Kryštof — V siločárách",
+        "Chinaski",
+        "Mirai"
+      ]
+    },
+    {
+      "id": "danish_alternative_rock",
+      "name": "Danish alternative rock",
+      "family": "rock_punk",
+      "lineage": "A Danish alternative-rock network including Mew, The Raveonettes, D-A-D, Kashmir and Dizzy Mizz Lizzy. The selected Dizzy Mizz Lizzy Alter Echo-era branch expands the guitar/bass/drum trio with Mellotron textures and more pronounced fuzz, phasing and reverberation.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "mellotron",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "This song-facing model retains the trio rhythm section while giving sustained keyboard color an independent role. Instrumental passages and extended forms occur beside vocals; the label does not imply that every song has singing or that every Danish alternative band follows the same progressive direction. The authored string-tape voice is one plausible Mellotron color, not an asserted patch sheet for the album.",
+      "exemplars": [
+        "Dizzy Mizz Lizzy — Alter Echo",
+        "Dizzy Mizz Lizzy — Amelia",
+        "Dizzy Mizz Lizzy — Forward in Reverse",
+        "Mew",
+        "Kashmir"
+      ]
+    },
+    {
+      "id": "classic_finnish_rock",
+      "name": "Classic Finnish rock",
+      "family": "rock_punk",
+      "lineage": "A heritage Finnish rock-repertoire label, represented here by Hurriganes’ mid1970s guitar/bass/drum trio with drummer and bassist also supplying vocals. The selected Hot Wheels-era branch favors compact rock-and-roll songs and a rougher recorded band sound.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "The default keeps a small amplified ensemble and direct singing, with an authored analog-tape production setting. Kallio’s account places the players in separate basement rooms communicating by video monitors during the1976 sessions; basement does not mean an undocumented one-microphone live take. English-language singing occurs in this branch, so the national label does not justify forcing Finnish lyrics or folk instruments.",
+      "exemplars": [
+        "Hurriganes — Hot Wheels",
+        "Hurriganes — Crazy Days",
+        "Hurriganes — Roadrunner"
+      ]
+    },
+    {
+      "id": "cinematic_post_rock",
+      "name": "Cinematic post-rock",
+      "family": "rock_punk",
+      "lineage": "A cinematic post-rock discovery cluster including Explosions in the Sky, Lights & Motion, We Lost the Sea and Nordic Giants. This default selects Explosions in the Sky’s piano-expanded instrumental branch around End, with guitar, bass, drums and supporting synthesizer textures.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "grand_piano",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "analog_synth"
+      ],
+      "description": "Piano attacks and articulated guitar figures share the foreground while bass, acoustic drums and synthesizer layers shape the arrangement. Dynamics can move through small passages and larger peaks without making every piece a fixed crescendo. Cinematic describes this discovery neighborhood; it does not require a film commission, an orchestra or background-only music. The selected group distinguishes its self-contained albums from work written to picture.",
+      "exemplars": [
+        "Explosions in the Sky — End",
+        "Explosions in the Sky — The Earth Is Not a Cold Dead Place",
+        "Lights & Motion",
+        "We Lost the Sea"
+      ]
+    },
+    {
+      "id": "colombian_rock",
+      "name": "Colombian rock",
+      "family": "rock_punk",
+      "lineage": "A broad Colombian rock network containing Aterciopelados, Don Tetto, Diamante Eléctrico and many other projects. This default selects Aterciopelados’ Oye-era return to an arranged live-band approach, with singing, electric guitar, bass, acoustic drums and a separate rattle-percussion layer.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "maracas"
+      ],
+      "description": "A melodic vocal line sits over guitar and bass figures while played drums and maracas give the rhythm two distinct attack textures. The selected percussion color comes from the album’s credited instrumental practice, not an assumption that Colombian rock always carries a folk instrument. Other tracks and eras use wind instruments, electronics or additional percussion; this is a compact arrangement model rather than an exhaustive album inventory.",
+      "exemplars": [
+        "Aterciopelados — Oye",
+        "Aterciopelados — Complemento",
+        "Aterciopelados — Canción Protesta",
+        "Diamante Eléctrico"
+      ]
+    },
+    {
+      "id": "brazilian_techno",
+      "name": "Brazilian techno",
+      "family": "electronic",
+      "lineage": "Brazilian techno production network, represented here by the darker machine-driven strand of São Paulo producer Gui Boratto. His wider catalog also crosses house and song forms; this selected arrangement emphasizes repeating synthesizer figures and programmed percussion.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "drum_machine_909"
+      ],
+      "description": "A regional techno category, broader than any one producer. The default foregrounds a repeating saturated synth figure, short gated articulation and straight programmed kick. These are authored choices for a darker instrumental branch, without prescribing Brazilian acoustic percussion or the clean-guitar house arrangement used by the neighboring Brazilian-house record.",
+      "exemplars": [
+        "Gui Boratto — The Drill",
+        "Gui Boratto — Stems From Hell"
+      ]
+    },
+    {
+      "id": "bubble_trance",
+      "name": "Bubble trance",
+      "family": "electronic",
+      "lineage": "A classifier-defined cluster of melodic European rave and trance-adjacent records. The selected Da Hool branch is grounded in his account of making Meet Her at the Loveparade: a detuned synth hook, simple offbeat bass and sampled electronic percussion. The label is retained as discovery scope rather than given an invented single origin story.",
+      "parent": "electronicDance.trance",
+      "axes": [
+        1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "sampler_classic"
+      ],
+      "description": "An authored instrumental arrangement of a buoyant detuned hook, straightforward offbeat low notes and electronic drum hits with an additional filtered percussion loop. The selected record’s production is documented directly by Da Hool. Waveform, synthesis implementation and Akai model are catalog choices, not an exact reconstruction: the artist deliberately leaves the hook’s synthesizer unnamed.",
+      "exemplars": [
+        "Da Hool — Meet Her at the Loveparade"
+      ]
+    },
+    {
+      "id": "italian_techno",
+      "name": "Italian techno",
+      "family": "electronic",
+      "lineage": "Italy-centered techno networks spanning several club generations. Enrico Sangiuliano’s Milan production practice supplies this compact synth-and-drum default; Marco Carola, another documented member of the scene, illustrates the photographic record.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -1,
+        -1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "drum_machine_analog"
+      ],
+      "description": "The authored model sets a focused repeating lead against firm synthesized percussion. Timbre changes and short articulations supply movement while the arrangement leaves room around its hook. This selected contemporary studio branch is not a universal Italian gear list; melodic duos, harder acid acts and older club styles occupy the same geographic network.",
+      "exemplars": [
+        "Enrico Sangiuliano",
+        "Marco Carola",
+        "Sam Paganini"
+      ]
+    },
+    {
+      "id": "polish_techno",
+      "name": "Polish techno",
+      "family": "electronic",
+      "lineage": "Poland-centered techno production, represented by Jacek Sienkiewicz’s club and experimental practice through Recognition Records. The selected model combines synthesized figures and manipulated sample percussion; it is one documented branch of a broader national network.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        -2,
+        2,
+        1,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "sampler_classic"
+      ],
+      "description": "An authored club-oriented arrangement of short, changing synth figures and pitched sample hits. Subtle variation within a repeating pulse is favored over a fixed pop chorus. Sienkiewicz’s related ambient and electroacoustic work informs the sound palette without making beatless abstraction compulsory for Polish techno.",
+      "exemplars": [
+        "Jacek Sienkiewicz",
+        "Recognition Records"
+      ]
+    },
+    {
+      "id": "swiss_techno",
+      "name": "Swiss techno",
+      "family": "electronic",
+      "lineage": "Swiss-origin techno production, including transnational careers. This default selects Zurich-born Thomas Fehlmann’s synth, electric-keyboard and sample-processing branch, developed largely in Berlin; Swiss identity is not mistaken for an exclusively Swiss studio location.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "sampler_classic",
+        "rhodes_electric"
+      ],
+      "description": "The representative arrangement uses shifting sustained synthesis, repeated electric-piano figures and rearranged sample layers. Dub-like space and gentle groove are authored choices for this branch; the regional label also permits harder club music. No alphorn, folk ensemble or fixed national rhythmic trait is inferred.",
+      "exemplars": [
+        "Thomas Fehlmann"
+      ]
+    },
+    {
+      "id": "norwegian_techno",
+      "name": "Norwegian techno",
+      "family": "electronic",
+      "lineage": "Norway-centered techno production networks, with a documented early Tromsø branch connecting Mental Overdrive, Ismistik and Geir Jenssen/Bleep. The default selects the spacious synthetic-rhythm and sampled-texture side of this history; it is not a claim that all Norwegian techno is ambient.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        0,
+        0,
+        -1,
+        1,
+        -1,
+        0,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "drum_machine_analog",
+        "sampler_classic"
+      ],
+      "description": "The authored arrangement combines gently sustained synthesis, restrained machine percussion and repeating sample layers. It represents one early Norwegian electronic-dance branch while the geographic category also includes harder, less ambient producers. Synthetic space is a production choice, not an asserted sonic effect of climate or landscape.",
+      "exemplars": [
+        "Mental Overdrive",
+        "Ismistik",
+        "Bleep / Biosphere — Microgravity"
+      ]
+    },
+    {
+      "id": "dutch_trance",
+      "name": "Dutch trance",
+      "family": "electronic",
+      "lineage": "Netherlands-centered trance production network. Armin van Buuren’s theme-led work provides the representative studio branch: a recurring keyboard melody, synthesized bass and carefully arranged programmed drums, with vocal collaborations optional.",
+      "parent": "electronicDance.trance",
+      "axes": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "digital_subtractive",
+        "sampler_drum_machine"
+      ],
+      "description": "The authored default uses an unfolding arpeggiated synthesizer theme, clear harmonic motion and steady programmed percussion. Phrase variations and a long dynamic build are central to the selected approach. It is a regional category, not a requirement that every Dutch trance recording be vocal, uplifting, or made on one hardware brand.",
+      "exemplars": [
+        "Armin van Buuren"
+      ]
+    },
+    {
+      "id": "german_trance",
+      "name": "German trance",
+      "family": "electronic",
+      "lineage": "German trance production network, represented by Paul van Dyk’s melodic club recordings and his documented Roland-machine lineage. This default selects a classic hardware-inspired arpeggio, acid-bass and programmed-kick arrangement.",
+      "parent": "electronicDance.trance",
+      "axes": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "monosynth_acid_bass",
+        "drum_machine_909"
+      ],
+      "description": "A regional trance category rather than an alternative name for all classic trance. This authored model combines broad sustained synth harmonics with repeated acidic figures and a firm machine kick. It chooses an instrumental, hardware-inspired branch; software emulations, vocals and less acid-oriented arrangements are equally possible within the broader scene.",
+      "exemplars": [
+        "Paul van Dyk"
+      ]
+    },
+    {
+      "id": "deep_techno",
+      "name": "Deep techno",
+      "family": "electronic",
+      "lineage": "An Every Noise discovery cluster spanning melodic, atmospheric club techno. This representative branch follows Stephan Bodzin’s live interplay of an expressive monophonic synthesizer and prepared electronic percussion. The classifier label does not imply a universally agreed historical genre boundary.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_mono_synth",
+        "sampler_drum_machine"
+      ],
+      "description": "The authored arrangement foregrounds a sustained, manually inflected synth melody over a steady programmed beat. Filter movement and gradual phrase development supply motion without filling every frequency band. Bodzin’s documented Moog-centered performance is the reference, while Minimoog lineage and sample settings are catalog approximations rather than an exact Sub37 patch or a specification for the whole cluster.",
+      "exemplars": [
+        "Stephan Bodzin",
+        "Recondite",
+        "Patrice Bäumel"
+      ]
+    },
+    {
+      "id": "destroy_techno",
+      "name": "Destroy techno",
+      "family": "electronic",
+      "lineage": "An Every Noise discovery label joining electro-, techno- and fidget-adjacent club artists rather than a literal instruction to maximize distortion. Siriusmo supplies the selected keyboard-and-sampler branch, supported by his own descriptions of synthesis, electric piano and sampled beat making.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "analog_synth",
+        "sampler_classic",
+        "wurlitzer_ep"
+      ],
+      "description": "Short synthetic figures, rhythmically edited samples and a lightly driven electric-piano ostinato form this authored arrangement. It emphasizes the playful keyboard and beat-making side of the roster, allowing irregular fills within a danceable structure. The source label is preserved without inventing a single industrial lineage or asserting that every included artist plays electric piano.",
+      "exemplars": [
+        "Siriusmo",
+        "The Hacker",
+        "Surkin",
+        "Para One"
+      ],
+      "crossRefs": [
+        "electronicDance.house"
+      ]
+    },
+    {
+      "id": "spanish_techno",
+      "name": "Spanish techno",
+      "family": "electronic",
+      "lineage": "Spain-centered techno producers and club networks, represented here by Paco Osuna’s Barcelona-associated, groove-oriented branch. His documented studio combines Ableton and plug-ins with a Waldorf Pulse; a Roland909 is available but, by his own account, used only occasionally.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -1,
+        -1,
+        0,
+        2,
+        -1,
+        0,
+        0,
+        2,
+        1,
+        -2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "drum_machine_909"
+      ],
+      "description": "This authored compact hardware option uses a short low synth figure, dry kick-led percussion and small changes in phrasing. It selects the occasional909 side of Osuna’s documented setup for a transparent two-instrument model; it does not imply that his primarily computer-based production always uses that machine. The geographical category also includes harsher and more atmospheric branches beyond this lean, house-adjacent groove.",
+      "exemplars": [
+        "Paco Osuna"
+      ]
+    },
+    {
+      "id": "danish_techno",
+      "name": "Danish techno",
+      "family": "electronic",
+      "lineage": "Denmark-centered techno networks range from Kölsch’s melodic club work to the harder Copenhagen underground. This default selects the former’s documented combination of modular synthesis and drum-machine rhythm, rather than treating the national category as one tempo or mood.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "eurorack_modular",
+        "drum_machine_909"
+      ],
+      "description": "An authored melodic studio branch: arpeggiated modular tones evolve over articulated machine percussion, with spacious reverb and clear repeating phrases. The model leaves room for live adjustment rather than specifying a fixed modular patch. Rawer and faster Danish productions are part of the broader label but are not forced into this particular setup.",
+      "exemplars": [
+        "Kölsch",
+        "Schacke",
+        "Niki Istrefi"
+      ]
+    },
+    {
+      "id": "chilean_techno",
+      "name": "Chilean techno",
+      "family": "electronic",
+      "lineage": "Chile-connected techno networks include artists working locally and in diaspora. Ricardo Villalobos provides a documented minimal, rhythm-oriented branch, with synthesis, drum machines and sampling shaped by his transnational musical background.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "drum_machine_606",
+        "sampler_classic"
+      ],
+      "description": "The authored model pairs an understated synth bass figure with small sample fragments and finely articulated electronic percussion. Repetition, spacing and evolving microdetail are favored over a large melodic refrain. This is a representative minimal branch, not a claim that Chilean techno must use folk instruments, Latin-percussion loops or one European studio location.",
+      "exemplars": [
+        "Ricardo Villalobos",
+        "Dandy Jack",
+        "Luciano"
+      ]
+    },
+    {
+      "id": "russian_techno",
+      "name": "Russian techno",
+      "family": "electronic",
+      "lineage": "Russia-connected techno production and label networks, represented here by Nina Kraviz’s compact synthesizer-centered practice. The selected branch crosses the house/techno boundary; neither a single city nor one artist defines the full national category.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -1,
+        -1,
+        0,
+        2,
+        -1,
+        0,
+        0,
+        2,
+        1,
+        -2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_synth",
+        "sampler_drum_machine"
+      ],
+      "description": "A restrained authored arrangement of low repeated synth figures and dry programmed drum hits, leaving space for a hypnotic groove. These settings model one lean production branch. Vocals, noisier sound design and much faster styles remain optional, while a geographical label does not justify stereotyped national timbres.",
+      "exemplars": [
+        "Nina Kraviz",
+        "трип / Trip"
+      ]
+    },
+    {
+      "id": "finnish_techno",
+      "name": "Finnish techno",
+      "family": "electronic",
+      "lineage": "Finland-centered techno practice. This default selects Mika Vainio’s sparse hardware rhythm-and-tone branch, associated with the Turku/Sähkö network, rather than proposing one national sound.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -2,
+        -1,
+        -2,
+        1,
+        -2,
+        0,
+        0,
+        2,
+        1,
+        -2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_synth"
+      ],
+      "description": "The authored arrangement places short electronic tones against a sharply delimited sampled rhythm, leaving substantial silence between gestures. It is a beat-oriented representative branch; melodic dance tracks and beatless pieces also occur in Finnish electronic practice, and no national folk instrumentation is prescribed.",
+      "exemplars": [
+        "Mika Vainio — Kilo",
+        "Ø"
+      ]
+    },
+    {
+      "id": "experimental_techno",
+      "name": "Experimental techno",
+      "family": "electronic",
+      "lineage": "Techno experimentation that reworks machine rhythm, sound-source behavior and formal expectations. Pan Sonic and Mika Vainio supply one documented hardware-focused branch; the label is broader than this Finnish lineage.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -2,
+        -2,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        -2,
+        2,
+        1,
+        1
+      ],
+      "instruments": [
+        "sampler_classic",
+        "analog_synth"
+      ],
+      "description": "A deliberately exploratory recording model: fragmented sample loops, noisy synthetic transients, irregularly changing articulation and contrasting gaps. These choices explore the techno/noise boundary rather than fixing a universal beat or chord recipe. The representative setup remains playable with familiar sampler and synthesis categories.",
+      "exemplars": [
+        "Pan Sonic",
+        "Mika Vainio — Kilo"
+      ]
+    },
+    {
+      "id": "arabic_jazz",
+      "name": "Arabic jazz",
+      "family": "jazz",
+      "lineage": "Arab-music and jazz encounters, represented by Anouar Brahem’s drummerless Thimar trio. Oud, bass clarinet and plucked double bass keep their separate voices while sharing composed melodies and improvisation. This is one branch of a much wider transnational category.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        0,
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        -1,
+        -1,
+        -2,
+        1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "oud",
+        "bass_clarinet",
+        "upright_bass"
+      ],
+      "description": "The authored trio gives ornamented oud melody room to converse with low reed lines and a flexible bass pulse. No drum kit or compulsory piano is added. The maqam24EDO setting is only a catalog approximation to flexible modal intonation, not a claim that these musicians uniformly played equal quarter-tones. Exact woods, string brand and reed range are representative choices.",
+      "exemplars": [
+        "Anouar Brahem — Thimar"
+      ]
+    },
+    {
+      "id": "austrian_jazz",
+      "name": "Austrian jazz",
+      "family": "jazz",
+      "lineage": "Austria-connected jazz musicians working in international ensembles. Wolfgang Muthspiel’s Rising Grace quintet supplies this selected branch: electric guitar, trumpet and piano converse above acoustic bass and drums.",
+      "parent": "improvOnFrame.americanJazz.bop",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        -1,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "archtop_jazz",
+        "trumpet",
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "An authored lightly amplified quintet balances sustained guitar phrases, lyrical unmuted trumpet and responsive piano voicings. Bass and brushed/stick percussion support overlapping exchanges rather than a rigid sequence of solos. The acoustic-guitar side of the reference album remains optional; exact guitar construction, piano model and drum materials are authored choices.",
+      "exemplars": [
+        "Wolfgang Muthspiel — Rising Grace"
+      ]
+    },
+    {
+      "id": "danish_modern_jazz",
+      "name": "Danish modern jazz",
+      "family": "jazz",
+      "lineage": "Contemporary Denmark-connected improvised music, represented by Jakob Bro’s open-form electric-guitar trio on Gefion. Guitar, acoustic bass and drums develop parallel, responsive lines with spacious dynamics.",
+      "parent": "improvOnFrame.americanJazz.bop",
+      "axes": [
+        1,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        2,
+        0,
+        -1,
+        -2,
+        1,
+        -1,
+        -1
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The authored trio places clean, lingering guitar fragments over loosely articulated bass and delicate mixed brush/stick percussion. The focus is on space, timbral decay and interaction rather than a fixed walking-bass swing pattern. Single-coil construction and gentle delay are selected implementation choices; the source credits electric guitar without requiring one pickup design.",
+      "exemplars": [
+        "Jakob Bro — Gefion"
+      ]
+    },
+    {
+      "id": "indie_jazz",
+      "name": "Indie jazz",
+      "family": "jazz",
+      "lineage": "Indie/electronic-informed jazz; selected GoGo Penguin acoustic trio",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        1,
+        1,
+        0,
+        -1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The authored trio translates repetitive electronic-style sketches into piano, double bass and drums. Short piano cells, plucked bass and tightly articulated stick rhythms create a propulsive ensemble rather than a conventional walking-bass standard. Software used to compose sketches is not silently added as an audible sampler or synthesizer. Exact room, materials and rock-backbeat kit setting are authored ways to realize the acoustic/electronic tension described by the musicians.",
+      "exemplars": [
+        "GoGo Penguin — A Humdrum Star (2018), acoustic core"
+      ]
+    },
+    {
+      "id": "italian_contemporary_jazz",
+      "name": "Italian contemporary jazz",
+      "family": "jazz",
+      "lineage": "Contemporary Italian improvisation; selected Stefano Bollani solo-piano branch",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        2,
+        1,
+        1,
+        -2,
+        -1,
+        1,
+        2,
+        -1,
+        0,
+        -2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "The authored solo performance treats short melodic ideas as material for spontaneous transformation, with changes of texture and register rather than a fixed accompaniment pattern. It follows the freely improvised miniatures on Piano Solo; ragtime, tango and standard-song pieces on the same recital are contextual alternatives, not simultaneous genre requirements. Piano brand/build and clean capture are representative defaults, not an exact studio reconstruction.",
+      "exemplars": [
+        "Stefano Bollani — Piano Solo (2006), selected Impro miniatures"
+      ]
+    },
+    {
+      "id": "classic_japanese_jazz",
+      "name": "Classic Japanese jazz",
+      "family": "jazz",
+      "lineage": "Historical Japanese jazz recording; selected Akiyoshi 1953 quartet",
+      "parent": "improvOnFrame.americanJazz.bop",
+      "axes": [
+        2,
+        0,
+        1,
+        1,
+        1,
+        0,
+        2,
+        -1,
+        1,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "grand_piano",
+        "archtop_jazz",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The authored quartet places bebop-oriented piano ahead of lightly amplified jazz guitar, plucked bass and acoustic drums. It follows the Tokyo debut-session personnel rather than importing Akiyoshi’s later big-band sections or Japanese traditional instruments. The guitar’s archtop construction, steel bass strings and piano make are representative choices. A modern clean playback/capture model is used deliberately, so the source recording date does not falsely imply a verified vintage studio chain.",
+      "exemplars": [
+        "Toshiko Akiyoshi — Toshiko’s Piano / Amazing Toshiko Akiyoshi, Tokyo 1953 sessions"
+      ]
+    },
+    {
+      "id": "italian_jazz_fusion",
+      "name": "Italian jazz fusion",
+      "family": "jazz",
+      "lineage": "Italian jazz-rock fusion; selected Trio Bobo electric trio",
+      "parent": "improvOnFrame.americanJazz.fusion",
+      "axes": [
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        -2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The authored trio uses electric-guitar lines, a fingerstyle electric-bass groove and strong stick-driven drums. It follows the core performing group rather than automatically adding piano or voice from guest appearances on Sensurround. The source describes jazz/progressive-rock interaction and rhythmic influences; no extra African or Latin percussion instrument is inferred from those influences. Pickup type, materials and clean guitar branch are authored representative choices.",
+      "exemplars": [
+        "Trio Bobo — core concert trio: Alessio Menconi, Faso and Christian Meyer"
+      ]
+    },
+    {
+      "id": "german_jazz",
+      "name": "German jazz",
+      "family": "jazz",
+      "lineage": "German jazz scenes; selected Berlin composition-led acoustic quartet",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2,
+        -1,
+        0,
+        -2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "saxophone",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The authored quartet allows piano and tenor saxophone to exchange melody and accompaniment while bass and drums respond flexibly. It draws on the leader’s first-person description of shifting roles and collective listening. The source’s post-bop/modal context supports open solo space without assuming fully free playing. The wood, brass, reed, piano model and clean recording choices are authored representatives, not session equipment claims.",
+      "exemplars": [
+        "Julia Hülsmann Quartet — The Next Door (2022)"
+      ]
+    },
+    {
+      "id": "greek_jazz",
+      "name": "Greek jazz",
+      "family": "jazz",
+      "lineage": "Greek jazz scenes; selected Vassilis Tsabropoulos international trio",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        2,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        -1,
+        -1,
+        -2,
+        1,
+        0,
+        -1
+      ],
+      "instruments": [
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The authored Achirana trio uses spacious piano phrases, singing plucked bass and restrained drums. The documented post-Bill-Evans improvising context permits fluid pacing and open dynamic space. Tsabropoulos’s classical training does not turn this ensemble into an orchestra, and Greek geography does not require bouzouki or folk percussion. Exact sustain, materials and room are representative implementation choices.",
+      "exemplars": [
+        "Arild Andersen, Vassilis Tsabropoulos and John Marshall — Achirana (2000)"
+      ]
+    },
+    {
+      "id": "danish_jazz",
+      "name": "Danish jazz",
+      "family": "jazz",
+      "lineage": "Danish jazz scenes; selected Copenhagen Kenny Drew/NHØP ballad trio",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        -1,
+        -1,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The authored title-piece branch of Dark Beauty alternates composed piano melody with freer improvised sections, supported by plucked bass and light drums. Sustained arpeggiated piano gestures provide an opening and closing frame. It is deliberately a ballad branch rather than assuming all Copenhagen jazz swings at a fast tempo. The American-born leader’s long Copenhagen career and Danish bassist ground the local connection.",
+      "exemplars": [
+        "Kenny Drew — Dark Beauty, 1974 trio recording with Niels-Henning Ørsted Pedersen and Albert Heath"
+      ]
+    },
+    {
+      "id": "japanese_jazz",
+      "name": "Japanese jazz",
+      "family": "jazz",
+      "lineage": "Japanese jazz scenes; selected Hiromi solo-piano composition and improvisation branch",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        2,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        2,
+        -1,
+        1,
+        -2,
+        1,
+        -2,
+        1
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "The authored Kaleidoscope branch of Spectrum uses repeated piano cells that expand into melodic and harmonic variation, with wide dynamic contrast. It selects a genuinely documented solo format: no bass, drum kit, synth or string quartet is imported from Hiromi’s other bands. Exact concert-grand construction and the clean room model are authored choices. A keyboard visible in the illustrative photo does not change the source album’s selected acoustic-piano role.",
+      "exemplars": [
+        "Hiromi — Spectrum (2019), selected Kaleidoscope solo-piano branch"
+      ]
+    },
+    {
+      "id": "japanese_jazz_fusion",
+      "name": "Japanese jazz fusion",
+      "family": "jazz",
+      "lineage": "Japanese jazz-rock fusion; selected Hiromi Sonicbloom piano/electric quartet",
+      "parent": "improvOnFrame.americanJazz.fusion",
+      "axes": [
+        2,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        -2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "grand_piano",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The authored quartet contrasts acoustic-piano attack with overdriven electric-guitar lead, fingerstyle electric bass and emphatic kit playing. The leader explicitly describes how electric guitar pushed this band toward rhythmic, groove-oriented music. Additional electronic keyboards remain an optional doubling instead of a mandatory fifth player. Humbuckers, neck construction, alder bodies and generic long-scale bass are author-selected implementations, not reconstructions of Fiuczynski’s specialist guitars or Grey’s Fodera instruments.",
+      "exemplars": [
+        "Hiromi’s Sonicbloom — Time Control (2007), piano-centered quartet branch"
+      ]
+    },
+    {
+      "id": "brazilian_modern_jazz",
+      "name": "Brazilian modern jazz",
+      "family": "jazz",
+      "lineage": "Contemporary Brazilian jazz; selected Recife piano-trio branch",
+      "parent": "improvOnFrame.latinJazz",
+      "axes": [
+        2,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        2,
+        -1,
+        1,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The authored trio uses interlocking piano figures, mobile double-bass lines and sharply articulated kit responses. It leaves room for asymmetric phrases, changing meters and contrasting quieter passages. Freitas’s discussion of Black Brazilian history and regional rhythmic inheritance contextualizes this recording; it does not license automatically adding a samba percussion battery. Piano construction, room, kit materials and the balance of brushes and sticks are representative choices.",
+      "exemplars": [
+        "Amaro Freitas — Sankofa (2021), with Jean Elton and Hugo Medeiros"
+      ]
+    },
+    {
+      "id": "british_jazz",
+      "name": "British jazz",
+      "family": "jazz",
+      "lineage": "Contemporary British jazz; selected London tenor-and-electric-piano quartet",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "saxophone",
+        "wurlitzer_ep",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The authored Inner Game branch pairs a tenor saxophone line with reed-electric-piano harmony, plucked double bass and responsive drums. It selects the credited Wurlitzer color rather than substituting a Rhodes; acoustic piano remains an optional alternative on the source recording. The 200A, medium cane reed and clean signal path are authored realizations, not verified equipment used at the session. The catalog’s Ray Charles Wurlitzer-use selector represents a modeled soulful keyboard role, not a claim of direct stylistic influence on Garcia.",
+      "exemplars": [
+        "Nubya Garcia — Source (2020), selected Inner Game instrumentation"
+      ]
+    },
+    {
+      "id": "dutch_jazz",
+      "name": "Dutch jazz",
+      "family": "jazz",
+      "lineage": "Contemporary Dutch jazz; selected Tineke Postma composition-led quintet",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        2,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        2,
+        -1,
+        0,
+        -2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "saxophone",
+        "trumpet",
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The authored Freya branch combines alto saxophone and trumpet with piano, double bass and drums. Lyrical themes and layered group responses can open into less prescribed improvisation. Soprano saxophone and electric bass are credited alternatives, not additional simultaneous players. The saxophone model, mouthpiece, piano build and trumpet construction are representative catalog choices; this does not assert a uniform Dutch national timbre.",
+      "exemplars": [
+        "Tineke Postma — Freya (2020), with Ralph Alessi, Kris Davis, Matthew Brewer and Dan Weiss"
+      ]
+    },
+    {
+      "id": "estonian_jazz",
+      "name": "Estonian jazz",
+      "family": "jazz",
+      "lineage": "Estonia-connected jazz, represented by Kristjan Randalu’s Absence trio with electric guitarist Ben Monder and drummer Markku Ounaskari. This bassless ensemble opens carefully structured piano compositions to improvised color and interplay.",
+      "parent": "improvOnFrame.americanJazz.bop",
+      "axes": [
+        2,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        -2,
+        1,
+        0,
+        -1
+      ],
+      "instruments": [
+        "grand_piano",
+        "semi_hollow",
+        "drum_kit"
+      ],
+      "description": "The authored arrangement gives piano the harmonic and low-register foundation while clean guitar arpeggios add sustained color and drums articulate changing density. It does not automatically add a double bass to a documented bassless trio. Semi-hollow construction and subtle delay are chosen ways to realize the electric-guitar role; no exact Monder guitar model is asserted.",
+      "exemplars": [
+        "Kristjan Randalu — Absence"
+      ]
+    },
+    {
+      "id": "finnish_modern_jazz",
+      "name": "Finnish modern jazz",
+      "family": "jazz",
+      "lineage": "Contemporary Finland-connected improvised music, represented by Verneri Pohjola’s Bullhorn quartet. Trumpet, piano, acoustic bass and drums balance memorable compositions, lyrical lines and bursts of rougher energy.",
+      "parent": "improvOnFrame.americanJazz.bop",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        -1,
+        1,
+        -2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "trumpet",
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "An authored quartet gives a clear trumpet theme room to expand into more urgent passages. Piano voicings, mobile bass and responsive kit playing support changing intensity rather than a fixed atmospheric wash. The album’s guest saxophone, trombone and cello are optional colors and are not stacked into the four-player default. Exact instrument makes and materials are author-selected.",
+      "exemplars": [
+        "Verneri Pohjola — Bullhorn"
       ]
     }
   ]

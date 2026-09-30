@@ -1,0 +1,132 @@
+{
+  "id": "norwegian_techno",
+  "name": "Norwegian techno",
+  "family": "electronic",
+  "lineage": "Norway-centered techno production networks, with a documented early Tromsø branch connecting Mental Overdrive, Ismistik and Geir Jenssen/Bleep. The default selects the spacious synthetic-rhythm and sampled-texture side of this history; it is not a claim that all Norwegian techno is ambient.",
+  "recipe": "classic mid-1980s norwegian techno, electronic Dance, techno branch. pad like pad analog synth, drum machine analog, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette digital delay.",
+  "recipe_chars": 309,
+  "score": 12.351,
+  "config": {
+    "traditions": [
+      "norwegian_techno"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 3.7040000000000006,
+          "oscillator": 0.0315,
+          "filter_topology": 1.1199999999999999,
+          "envelope": 1.504,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0.03599999999999999,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.035
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s900",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.8999999999999999,
+          "sampler_archetypes": 0,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 4.16
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_mackie_8bus_90s",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "oscillator": "triangle_osc",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "no_mod",
+      "sampler_archetypes": "akai_s900",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "noise_hat",
+      "shuffle_quantize": "straight_quantize"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_mackie_8bus_90s",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

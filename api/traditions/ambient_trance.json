@@ -1,0 +1,130 @@
+{
+  "id": "ambient_trance",
+  "name": "Ambient trance",
+  "family": "electronic",
+  "lineage": "The atmospheric listening side of trance and related electronic music, represented by Carbon Based Lifeforms, Solar Fields and the Ultimae orbit. Long melodic layers and repeated sequencer/bass figures may carry soft beats or become beatless. The selected model retains a measured machine pulse rather than prescribing a peak-time trance build.",
+  "recipe": "classic modern ambient trance, electronic Dance, trance branch, ambient experimental electric ambient psychill ambient lo-fi. pad like pad analog synth, low sub bass monosynth acid bass, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 424,
+  "score": 61.151,
+  "config": {
+    "traditions": [
+      "ambient_trance",
+      "ambient_psychill",
+      "ambient_lo_fi"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "saw_super",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 15.509999999999998,
+          "oscillator": 14.854999999999999,
+          "filter_topology": 0.995,
+          "envelope": 7.864999999999998,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "square_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 3.556250000000001,
+          "wave_acid": 0,
+          "filter_acid": 0.045,
+          "accent_acid": 0.24
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 0.06499999999999999,
+          "sample_bitdepth": 0.65,
+          "sample_swing": 17.375,
+          "sample_processing": 0.045
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "monosynth_acid_bass": [
+        "wave_acid",
+        "filter_acid",
+        "accent_acid"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay",
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "oscillator": "saw_super",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter",
+      "wave_acid": "square_acid",
+      "filter_acid": "closed_acid",
+      "accent_acid": "no_accent_acid",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay",
+      "hall_reverb"
+    ]
+  }
+}

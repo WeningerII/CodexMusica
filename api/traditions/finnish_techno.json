@@ -1,0 +1,103 @@
+{
+  "id": "finnish_techno",
+  "name": "Finnish techno",
+  "family": "electronic",
+  "lineage": "Finland-centered techno practice. This default selects Mika Vainio’s sparse hardware rhythm-and-tone branch, associated with the Turku/Sähkö network, rather than proposing one national sound.",
+  "recipe": "classic mid-1980s finnish techno, electronic Dance, techno branch. sampler drum machine, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette digital delay.",
+  "recipe_chars": 286,
+  "score": 12.781,
+  "config": {
+    "traditions": [
+      "finnish_techno"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 0.2343125,
+          "sample_bitdepth": 0.546625,
+          "sample_swing": 8.085999999999999,
+          "sample_processing": 0
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "svf",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": -0.10500000000000001,
+          "oscillator": 1.6353124999999997,
+          "filter_topology": 1.221375,
+          "envelope": 0.2415,
+          "modulation": 0.221375
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_mackie_8bus_90s",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered",
+      "electronic_technique": "electronic_bass_sub",
+      "oscillator": "sine_osc",
+      "filter_topology": "svf",
+      "envelope": "gated_env",
+      "modulation": "no_mod"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_mackie_8bus_90s",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

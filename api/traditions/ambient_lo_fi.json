@@ -1,0 +1,116 @@
+{
+  "id": "ambient_lo_fi",
+  "name": "Ambient lo-fi",
+  "family": "electronic",
+  "lineage": "An internet-circulated ambient discovery cluster whose indexed Every Noise roster includes Borrtex, Gibran Alcocer, reidenshi and SymphoCat. Documented members span quiet piano, electronic synthesis and field-recorded work. The selected piano-and-synth arrangement follows Borrtex’s mixed keyboard/electronic branch, without treating all ambient music with low fidelity as this category.",
+  "recipe": "classic modern ambient lo-fi, experimental Elec, ambient branch, lofi experimental electric lo-fi beats. pad like pad analog synth, 7 ply quartersawn maple a 440 modern pitch us standard grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 415,
+  "score": 27.332,
+  "config": {
+    "traditions": [
+      "ambient_lo_fi",
+      "lofi_beats"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 14.884999999999998,
+          "oscillator": 0.65,
+          "filter_topology": 1.4260000000000002,
+          "envelope": 6.856,
+          "modulation": 0.045
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_minimalist_repeated",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "felt_piano_practice_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 1.045,
+          "grand_piano_brand": 1.4349999999999998,
+          "piano_hammer": -0.035,
+          "piano_rim": -0.035,
+          "piano_soundboard": -0.05,
+          "piano_pinblock": 1.17,
+          "piano_plate": 0.995,
+          "piano_pitch_standard": 1.17
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "piano_hammer",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "oscillator": "triangle_osc",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "no_mod",
+      "keyboard_technique": "keyboard_minimalist_repeated",
+      "grand_piano_size": "grand_5_foot",
+      "piano_hammer": "felt_piano_practice_hammer",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "hall_reverb"
+    ]
+  }
+}

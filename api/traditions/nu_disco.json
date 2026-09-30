@@ -3,26 +3,26 @@
   "name": "Nu Disco",
   "family": "electronic",
   "lineage": "European and American dance-production style consolidating in the mid-2000s from the Norwegian space-disco scene (Lindstrøm, Prins Thomas, Todd Terje) and French filter-house lineage, codified through labels Permanent Vacation, Eskimo and Feedelity — 100-120 BPM four-on-the-floor with live-feel or sampled disco drums, chorused electric-bass or synth-bass octave lines, Rhodes and string-machine chord pads, long linear arrangements with slow filter and delay builds, and mostly instrumental or lightly-sung vocal treatment.",
-  "recipe": "classic 2004-2006 nu disco, electronic Dance, house branch, deep house house, italo house house, pop rock yacht rock deep disco house. thick, breath veiled tone, straight onset, interlocked note trading. TR-909, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mark 7 modern tine post 2007 reissue neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, string machine, singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
-  "recipe_chars": 855,
-  "score": 400.868,
+  "recipe": "classic 2004-2006 nu disco, electronic Dance, house branch, deep house house, italo house house, pop rock yacht rock. thick, chest mix belt, straight onset, interlocked note trading. TR-909, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mark 7 modern tine post 2007 reissue neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, string machine, singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
+  "recipe_chars": 834,
+  "score": 375.777,
   "config": {
     "traditions": [
       "nu_disco",
       "yacht_rock",
-      "deep_disco_house"
+      "italo_house_piano"
     ],
     "instruments": [
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_house",
+          "drum_machine_909_context": "drum_machine_909_techno",
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 23.945,
-          "drum_machine_909_context": 0.8220000000000001,
+          "tr909_voice": 21.82,
+          "drum_machine_909_context": 0.325,
           "tr909_production_origin": 0.3
         }
       },
@@ -38,11 +38,11 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 10.450999999999999,
-          "body_wood": 2.925,
-          "pickup_config": 0.39,
-          "string_type": 15.119999999999997,
-          "scale_length_b": 4.0809999999999995,
+          "amp_make": 8.415,
+          "body_wood": 2.67,
+          "pickup_config": 0.49499999999999994,
+          "string_type": 13.874999999999998,
+          "scale_length_b": 3.88,
           "fretted_or_not": 0,
           "bass_technique": 13.824999999999998
         }
@@ -58,12 +58,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 8.095999999999998,
-          "rhodes_model": 5.456,
-          "rhodes_use": 5.07,
-          "rhodes_tine_material": 1.2349999999999999,
-          "rhodes_hammer_tip": 4.029999999999999,
-          "rhodes_pickup_position": 2.05
+          "keyboard_technique": 7.924999999999998,
+          "rhodes_model": 5.33,
+          "rhodes_use": 5.734999999999999,
+          "rhodes_tine_material": 1.04,
+          "rhodes_hammer_tip": 3.2800000000000002,
+          "rhodes_pickup_position": 1.885
         }
       },
       {
@@ -76,9 +76,9 @@
         },
         "scores": {
           "electronic_technique": 0.06499999999999999,
-          "sm_voice_count": 7.15,
-          "sm_chorus": 3.29,
-          "sm_voicing": 0.801
+          "sm_voice_count": 6.5,
+          "sm_chorus": 3.1999999999999997,
+          "sm_voicing": 0.645
         }
       },
       {
@@ -87,13 +87,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 6.789999999999999,
-          "poly_archetypes": 7.289999999999999,
+          "electronic_technique": 6.624999999999999,
+          "poly_archetypes": 5.894999999999999,
           "poly_voices": 0.45499999999999996,
-          "poly_maker_lineage": -0.42000000000000026
+          "poly_maker_lineage": -0.3150000000000001
         }
       },
       {
@@ -108,30 +108,30 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
           "bridge": "two_point_trem",
-          "scale_length": "scale_baritone",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 5.949999999999998,
-          "amp_make": 6.9399999999999995,
-          "body_wood": 2.661,
-          "neck_wood": 2.661,
-          "fretboard": 2.611,
+          "electric_technique": 6.374999999999998,
+          "amp_make": 5.845,
+          "body_wood": 2.535,
+          "neck_wood": 2.535,
+          "fretboard": 2.4850000000000003,
           "pickup_magnet": 0.39,
           "string_material": 0.39,
-          "string_gauge": 3.9610000000000003,
-          "bridge": 0.345,
-          "scale_length": 3.119999999999999,
+          "string_gauge": 3.685,
+          "bridge": 0.39,
+          "scale_length": 2.67,
           "finish": 0.045,
-          "string_tuning": 9.511
+          "string_tuning": 8.094999999999999
         }
       },
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "chest_mix_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
@@ -142,28 +142,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 26.554999999999993,
-          "voice_quality": 11.114999999999991,
+          "voice_register": 23.63999999999999,
+          "voice_quality": 9.434999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.6160000000000005,
-          "voice_articulation": 16.834999999999994,
-          "voice_microtone": 22.474999999999994,
-          "voice_tradition": 8.466,
-          "voice_mechanism_compound": 4.159999999999999,
-          "voice_estill_quality": 3.7700000000000005,
-          "voice_speech_song": 19.174999999999994,
-          "voice_ensemble_config": 19.369999999999994,
-          "voice_ornament_system": 0.19500000000000003,
-          "voice_pitch_organization": 0.8449999999999998,
-          "voice_processing_chain": 19.535,
-          "voice_multitrack_stack": 19.427999999999997
+          "voice_vibrato": 5.795,
+          "voice_articulation": 15.794999999999993,
+          "voice_microtone": 22.564999999999994,
+          "voice_tradition": 7.979999999999999,
+          "voice_mechanism_compound": 4.745,
+          "voice_estill_quality": 4.355,
+          "voice_speech_song": 17.874999999999993,
+          "voice_ensemble_config": 18.32999999999999,
+          "voice_ornament_system": 2.6500000000000004,
+          "voice_pitch_organization": 3.4000000000000004,
+          "voice_processing_chain": 19.325,
+          "voice_multitrack_stack": 16.044999999999998
         }
       },
       {
@@ -172,15 +172,15 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.065,
+          "electronic_technique": 1.14,
           "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 3.2500000000000004,
-          "sampler_workflow": 0.26,
-          "sampler_classic_context": 48.02599999999999
+          "sampler_bit_depth": 3.0400000000000005,
+          "sampler_workflow": 0.325,
+          "sampler_classic_context": 44.44
         }
       }
     ],

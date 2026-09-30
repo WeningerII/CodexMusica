@@ -3,14 +3,14 @@
   "name": "New Orleans jazz",
   "family": "jazz",
   "lineage": "New Orleans turn-of-the-20th-century African-American Creole funeral / parade / Storyville-district ensemble tradition that fused brass-band, blues, and ragtime into the foundational jazz vocabulary",
-  "recipe": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop bebop cool jazz / west coast. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone, yellow brass canonical brass band conn vintage early jazz canon front line cornet, tenor guitar. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 961,
-  "score": 429.618,
+  "recipe": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop bebop classic japanese jazz. red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, yellow brass canonical brass band conn vintage early jazz canon front line cornet, chord friendly guitar topped tenor guitar. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 952,
+  "score": 403.415,
   "config": {
     "traditions": [
       "new_orleans",
       "bebop",
-      "cool_jazz_west_coast"
+      "classic_japanese_jazz"
     ],
     "instruments": [
       {
@@ -19,40 +19,40 @@
           "wind_articulation": "wind_dixieland_lead",
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
-          "brass_mute": "harmon_out",
+          "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_dixieland_lead",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_bell_metal": "trumpet_red_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 7.373999999999999,
+          "wind_articulation": 7.184999999999999,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 33.511,
-          "brass_mute": 2.7299999999999995,
-          "trumpet_technique": 7.373999999999999,
-          "trumpet_bell_metal": 2.145,
-          "trumpet_maker_school": 8.254999999999999
+          "trumpet_mouthpiece": 32.824999999999996,
+          "brass_mute": 0.285,
+          "trumpet_technique": 7.184999999999999,
+          "trumpet_bell_metal": 1.3,
+          "trumpet_maker_school": 6.954999999999999
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_cool_lyrical",
+          "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 5.924999999999999,
-          "sax_size": 4.195,
+          "wind_articulation": 3.4450000000000003,
+          "sax_size": 1.4625,
           "sax_reed": 0.195,
-          "sax_body_alloy": 27.82,
+          "sax_body_alloy": 27.124999999999996,
           "sax_mouthpiece": 0.195,
-          "sax_technique": 27.625,
-          "sax_maker_school": 32.8655
+          "sax_technique": 26.749999999999996,
+          "sax_maker_school": 31.394999999999996
         }
       },
       {
@@ -64,22 +64,22 @@
           "banjo_pot": "pot_11",
           "banjo_play": "clawhammer",
           "banjo_rim_wood": "banjo_walnut_rim",
-          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_neck_wood": "banjo_mahogany_neck",
           "banjo_strings": "banjo_light_clawhammer",
           "banjo_bridge": "banjo_compensated_bridge",
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 0.845,
-          "tone_ring": 0.345,
-          "banjo_head": 9.294999999999998,
+          "banjo_back": 0.32999999999999996,
+          "tone_ring": 0.39,
+          "banjo_head": 7.149999999999999,
           "banjo_pot": 0.195,
-          "banjo_play": 0.3,
-          "banjo_rim_wood": 0.606,
-          "banjo_neck_wood": 0.294,
-          "banjo_strings": 0.39,
+          "banjo_play": 0.195,
+          "banjo_rim_wood": 0.195,
+          "banjo_neck_wood": 0.24,
+          "banjo_strings": 0.5399999999999999,
           "banjo_bridge": 0,
-          "banjo_setup_period": 9.229999999999999
+          "banjo_setup_period": 7.084999999999999
         }
       },
       {
@@ -89,8 +89,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 27.625,
-          "upright_play": 27.625
+          "upright_strings": 26.749999999999996,
+          "upright_play": 26.749999999999996
         }
       },
       {
@@ -101,8 +101,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 27.625,
-          "drumhead": 33.65599999999999,
+          "drum_technique": 26.749999999999996,
+          "drumhead": 33.29,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,8 +113,8 @@
           "era": "nola_traditional"
         },
         "scores": {
-          "sections": 2.21,
-          "era": 1.1815
+          "sections": 2.12,
+          "era": 1.15
         }
       },
       {
@@ -124,14 +124,14 @@
           "clarinet_body": "ebonite_clarinet",
           "clarinet_size": "contra_clarinet",
           "clarinet_reed": "soft_clarinet_reed",
-          "clarinet_articulation": "doina_clarinet"
+          "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 7.373999999999999,
-          "clarinet_body": 1.755,
+          "wind_articulation": 7.184999999999999,
+          "clarinet_body": 2.3074999999999997,
           "clarinet_size": 1,
           "clarinet_reed": 0.195,
-          "clarinet_articulation": 0.13499999999999998
+          "clarinet_articulation": 0.45499999999999996
         }
       },
       {
@@ -140,19 +140,19 @@
           "wind_articulation": "wind_dixieland_lead",
           "trombone_type": "tenor_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_12c",
-          "trombone_mute": "no_mute_trb",
+          "trombone_mute": "cup_mute_trb",
           "trombone_technique": "big_band_punch",
-          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_bell_metal": "trombone_red_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 7.373999999999999,
-          "trombone_type": 27.625,
-          "trombone_mouthpiece": 27.6065,
-          "trombone_mute": 0.0315,
-          "trombone_technique": 1.8199999999999998,
-          "trombone_bell_metal": 2.145,
-          "trombone_maker_school": 8.254999999999999
+          "wind_articulation": 7.184999999999999,
+          "trombone_type": 26.749999999999996,
+          "trombone_mouthpiece": 26.699999999999996,
+          "trombone_mute": 0,
+          "trombone_technique": 1.73,
+          "trombone_bell_metal": 1.3,
+          "trombone_maker_school": 6.954999999999999
         }
       },
       {
@@ -165,11 +165,11 @@
           "cornet_maker_school": "cornet_conn_vintage"
         },
         "scores": {
-          "wind_articulation": 7.373999999999999,
-          "cornet_pitch": 10.7055,
-          "cornet_context": 5.2755,
-          "cornet_bell_metal": 4.615,
-          "cornet_maker_school": 16.769999999999996
+          "wind_articulation": 7.184999999999999,
+          "cornet_pitch": 10.305,
+          "cornet_context": 5.885,
+          "cornet_bell_metal": 3.3800000000000003,
+          "cornet_maker_school": 16.509999999999998
         }
       },
       {
@@ -177,11 +177,11 @@
         "slots": {
           "tenor_guitar_form": "tenor_guitar_form_chicago",
           "tenor_guitar_style": "tenor_guitar_style_celtic_lead",
-          "tenor_guitar_build": "tenor_guitar_build_flattop"
+          "tenor_guitar_build": "tenor_guitar_build_archtop"
         },
         "scores": {
-          "tenor_guitar_form": 0.9099999999999999,
-          "tenor_guitar_style": 0.8449999999999999,
+          "tenor_guitar_form": 1.3,
+          "tenor_guitar_style": 0.8299999999999998,
           "tenor_guitar_build": -0.07
         }
       }

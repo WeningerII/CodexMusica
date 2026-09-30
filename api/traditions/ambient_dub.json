@@ -5,7 +5,7 @@
   "lineage": "Named by Birmingham's Beyond label with the Ambient Dub compilations of 1992-93 and developed across the UK and New York by The Orb, Bill Laswell, Rockers Hi-Fi and Dreadzone — Jamaican dub's bass-and-drum skeleton at 70-95 BPM stripped of vocals and stretched into long ambient washes, with tape and digital delay feedback, spring reverb blooms, melodica and dubwise mixing-desk drop-outs replacing conventional arrangement.",
   "recipe": "classic early-1990s ambient dub, bass System, dub descendants branch, uk soundsystem bass system, ambient experimental electric ambient house ambient techno. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, roland tr 8s modern aira digital recreation TR-909, hohner melodica canonical 1959 dub roots tradition melodica, sustained pad analog poly synth, field textural sampler, mellotron m4000d modern digital reissue post 2007 mellotron, congas. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
   "recipe_chars": 743,
-  "score": 147.12,
+  "score": 147.144,
   "config": {
     "traditions": [
       "ambient_dub",
@@ -27,7 +27,7 @@
         "scores": {
           "amp_make": 5.98,
           "body_wood": 0.65,
-          "pickup_config": 2.1574999999999998,
+          "pickup_config": 2.045,
           "string_type": 7.15,
           "scale_length_b": 0.65,
           "fretted_or_not": 0,
@@ -44,7 +44,7 @@
         "scores": {
           "tr909_voice": 6.874999999999998,
           "drum_machine_909_context": 3.9399999999999995,
-          "tr909_production_origin": 1.1125
+          "tr909_production_origin": 1
         }
       },
       {
@@ -58,8 +58,8 @@
         "scores": {
           "keyboard_technique": 0.7149999999999999,
           "melodica_use": 17.125,
-          "melodica_pitch": 1.4419642857142856,
-          "melodica_maker_school": 17.08875
+          "melodica_pitch": 1.4387499999999998,
+          "melodica_maker_school": 17.19375
         }
       },
       {
@@ -82,7 +82,7 @@
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
@@ -90,7 +90,7 @@
           "electronic_technique": 7.25,
           "sampler_archetypes": 0.42,
           "sampler_bit_depth": 0.65,
-          "sampler_workflow": 7.42875,
+          "sampler_workflow": 7.623749999999999,
           "sampler_classic_context": 26.7475
         }
       },
@@ -105,7 +105,7 @@
         },
         "scores": {
           "keyboard_technique": 0.7149999999999999,
-          "mellotron_voice": 0.04821428571428571,
+          "mellotron_voice": 0,
           "mellotron_context": 0.975,
           "mellotron_model": 2.145,
           "mellotron_tape_material": 0.845

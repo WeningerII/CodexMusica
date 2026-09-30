@@ -1,0 +1,160 @@
+{
+  "id": "brazilian_house",
+  "name": "Brazilian house",
+  "family": "electronic",
+  "lineage": "Brazilian house-production network, with the selected melodic and hybrid studio strand documented through Gui Boratto. His practice combines hardware/soft synthesis, sequenced electronics and guitar/piano musicianship; this is a regional umbrella and does not require samba instrumentation in every track.",
+  "recipe": "classic modern brazilian house, electronic Dance, house branch, tech house house tech-house brazilian tech house. analog synth, TR-909, single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 368,
+  "score": 37.571,
+  "config": {
+    "traditions": [
+      "brazilian_house",
+      "tech_house_classic",
+      "brazilian_tech_house"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "sustain_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 0.95,
+          "oscillator": 0.195,
+          "filter_topology": 2.0865,
+          "envelope": 0,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 32.75,
+          "drum_machine_909_context": 0.845,
+          "tr909_production_origin": -0.28
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": -0.15000000000000002,
+          "amp_make": 0,
+          "body_wood": 0.127125,
+          "neck_wood": 0.195,
+          "fretboard": 0.12999999999999998,
+          "pickup_magnet": 0.18,
+          "string_material": 0.09,
+          "string_gauge": 0.03712499999999999,
+          "bridge": 0.09,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 0
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "drum_machine_909": [
+        "tr909_voice",
+        "drum_machine_909_context",
+        "tr909_production_origin"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_parallel_blend",
+      "eq": "eq_active_parametric",
+      "amp": "amp_modeling",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "oscillator": "triangle_osc",
+      "filter_topology": "svf",
+      "envelope": "sustain_env",
+      "modulation": "lfo_filter",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_house",
+      "tr909_production_origin": "tr909_roland_osaka_canonical",
+      "electric_technique": "electric_arpeggiated_clean",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "pickup_magnet": "alnico_2",
+      "string_material": "pure_nickel",
+      "string_gauge": "g_10",
+      "bridge": "two_point_trem",
+      "scale_length": "scale_fender",
+      "finish": "nitro",
+      "string_tuning": "standard_tuning"
+    },
+    "pin_parts": true,
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_parallel_blend",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ],
+    "chain_amp": "amp_modeling"
+  }
+}

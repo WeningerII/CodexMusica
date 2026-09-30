@@ -1,0 +1,168 @@
+{
+  "id": "argentine_ambient",
+  "name": "Argentine ambient",
+  "family": "electronic",
+  "lineage": "A geographically grouped ambient scene with multiple practices, including Leandro Fresco’s layered synthesizer compositions and Federico Durand’s intimate recorded loops and small sounds. This representative model combines quiet synth colour, a clean guitar fragment and looping recorded material; it does not assert a national timbre or compulsory tango instrumentation.",
+  "recipe": "classic modern argentine ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art. pad like sustained analog synth, single coil electric guitar, layered sustained sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 433,
+  "score": 35.865,
+  "config": {
+    "traditions": [
+      "argentine_ambient",
+      "sound_art"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 11.75,
+          "oscillator": 0.15599999999999997,
+          "filter_topology": 0.5309999999999999,
+          "envelope": 5.452,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_fender",
+          "finish": "poly",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 0.8859999999999999,
+          "amp_make": 0,
+          "body_wood": 0.315,
+          "neck_wood": 0,
+          "fretboard": -0.05,
+          "pickup_magnet": 0,
+          "string_material": 0,
+          "string_gauge": 0.63,
+          "bridge": 0,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 0.195
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 11.75,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 1.7550000000000001,
+          "sampler_workflow": 0.8999999999999999,
+          "sampler_classic_context": 0.8449999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "tape_echo",
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_sustained_layering",
+      "oscillator": "triangle_osc",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_post",
+      "electric_technique": "electric_arpeggiated_clean",
+      "string_material": "pure_nickel",
+      "string_gauge": "g_10",
+      "string_tuning": "standard_tuning",
+      "bridge": "hardtail",
+      "pickup_magnet": "alnico_2",
+      "scale_length": "scale_fender",
+      "body_wood": "alder",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "finish": "poly",
+      "amp_make": "amp_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "tape_echo",
+      "hall_reverb"
+    ]
+  }
+}

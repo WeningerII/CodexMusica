@@ -3,14 +3,14 @@
   "name": "Future funk (Japanese city-pop edit scene)",
   "family": "electronic",
   "lineage": "Bandcamp and SoundCloud edit culture running from roughly 2013 through the 2020s in which producers such as Night Tempo, Macross 82-99, Yung Bae and Sailorwave-era Saint Pepsi filter-chopped 1970s-80s Japanese city pop and disco records into 110-125 BPM four-on-the-floor edits with sidechained bass, French-house band-pass sweeps, and looped Japanese vocal hooks left largely intact.",
-  "recipe": "classic mid-2020s future funk, groove Percussion, funk percussive branch, house electronic dance, retro aesthetic experimental electric south african house new york garage house. thick, breath veiled tone, slow rate, interlocked note trading. sound design field sampler, turntable, roland tr 8s modern aira digital recreation TR-909, singing lead analog poly synth, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass. no single room 2015-present distributed distributed production. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
-  "recipe_chars": 650,
-  "score": 285.95,
+  "recipe": "classic mid-2020s future funk, groove Percussion, funk percussive branch, house electronic dance, retro aesthetic experimental electric new york garage house us garage. thick, breath veiled tone, slow rate, interlocked note trading. sampler, turntable, roland tr 8s modern aira digital recreation TR-909, singing lead analog poly synth, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass. no single room 2015-present distributed distributed production. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
+  "recipe_chars": 614,
+  "score": 275.1,
   "config": {
     "traditions": [
       "future_funk_edit_scene",
-      "south_african_house",
-      "new_york_garage_house"
+      "new_york_garage_house",
+      "us_garage"
     ],
     "instruments": [
       {
@@ -19,15 +19,15 @@
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 1.8949999999999998,
           "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 1.3649999999999998,
-          "sampler_workflow": 2.335,
-          "sampler_classic_context": 47.7425
+          "sampler_bit_depth": 0.52,
+          "sampler_workflow": 1.9399999999999997,
+          "sampler_classic_context": 48.1325
         }
       },
       {
@@ -49,8 +49,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 20.425000000000004,
-          "drum_machine_909_context": 2.08,
+          "tr909_voice": 21.675000000000004,
+          "drum_machine_909_context": 1.69,
           "tr909_production_origin": 1.675
         }
       },
@@ -58,14 +58,14 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "jupiter_8",
-          "poly_voices": "poly_8_voice",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 8.359999999999998,
-          "poly_archetypes": 1.1749999999999998,
-          "poly_voices": 1.1749999999999998,
+          "electronic_technique": 7.484999999999999,
+          "poly_archetypes": 1,
+          "poly_voices": 0.3,
           "poly_maker_lineage": -1.085
         }
       },
@@ -75,19 +75,19 @@
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "slap_pop"
         },
         "scores": {
-          "amp_make": 4.46,
-          "body_wood": 2.08,
-          "pickup_config": 1.37,
-          "string_type": 5.07,
-          "scale_length_b": 2.13,
+          "amp_make": 4.5600000000000005,
+          "body_wood": 1.235,
+          "pickup_config": 2.07,
+          "string_type": 4.945,
+          "scale_length_b": 1.83,
           "fretted_or_not": 1.635,
-          "bass_technique": 10.245
+          "bass_technique": 9.295
         }
       },
       {
@@ -105,28 +105,28 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 13.184999999999999,
-          "voice_quality": 10.075,
+          "voice_register": 10.359999999999998,
+          "voice_quality": 9.814999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8199999999999998,
-          "voice_articulation": 19.369999999999997,
-          "voice_microtone": 19.174999999999997,
-          "voice_tradition": 17.869999999999997,
-          "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 5.6000000000000005,
-          "voice_speech_song": 20.474999999999998,
-          "voice_ensemble_config": 24.894999999999996,
-          "voice_ornament_system": 0.6499999999999999,
-          "voice_pitch_organization": 0.8949999999999999,
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 18.524999999999995,
+          "voice_microtone": 18.32999999999999,
+          "voice_tradition": 16.919999999999998,
+          "voice_mechanism_compound": 3.445,
+          "voice_estill_quality": 4.3500000000000005,
+          "voice_speech_song": 19.369999999999997,
+          "voice_ensemble_config": 23.269999999999992,
+          "voice_ornament_system": 0.39499999999999996,
+          "voice_pitch_organization": 1.3949999999999998,
           "voice_processing_chain": 19.32,
-          "voice_multitrack_stack": 4.844999999999999
+          "voice_multitrack_stack": 6.47
         }
       }
     ],

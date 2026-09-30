@@ -1,0 +1,108 @@
+{
+  "id": "nordic_ambient",
+  "name": "Nordic ambient",
+  "family": "electronic",
+  "lineage": "A regional discovery grouping of ambient practice from Nordic countries. The selected Biosphere branch uses electronic layers and sampled environments rather than an inherited folk ensemble. The documented Tromsø artist profile provides a practice anchor; regional affiliation does not establish a universal icy timbre, national tuning or compulsory ritual setting.",
+  "recipe": "classic nordic ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art. pad like sustained analog synth, field sustained sampler. treated studio. large-diaphragm condenser, ultra-clean solid-state pre. 24-bit digital true-stereo reverb.",
+  "recipe_chars": 273,
+  "score": 36.738,
+  "config": {
+    "traditions": [
+      "nordic_ambient",
+      "sound_art"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 10.037125,
+          "oscillator": 0,
+          "filter_topology": 0.585,
+          "envelope": 5.093125,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 10.037125,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.45499999999999996,
+          "sampler_workflow": 11.235875,
+          "sampler_classic_context": 0.8449999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_true_stereo_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "oscillator": "triangle_osc",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_field_recordings",
+      "sampler_classic_context": "sampler_classic_post",
+      "electronic_technique": "electronic_sustained_layering"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "fx_true_stereo_reverb"
+    ]
+  }
+}

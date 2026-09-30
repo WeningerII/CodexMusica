@@ -3,14 +3,14 @@
   "name": "Hard bop",
   "family": "jazz",
   "lineage": "1953-1965 Blue Note / Prestige-canon African-American jazz movement extending bebop with extended blues, gospel-quoting melody, and elongated solo space — the defining post-bop vocabulary, with Lee Morgan, Wayne Shorter, Horace Silver, Art Blakey Jazz Messengers, Hank Mobley, Kenny Drew, Cannonball Adderley among the era practitioners",
-  "recipe": "classic North American mid-1950s hard bop, improv On Frame, hard bop branch, American jazz bop, American jazz soul jazz bebop. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, sterling silver bell premium projecting bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, sterling silver rare premium bach 42 canonical American orchestral tenor ensemble student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 810,
-  "score": 557.111,
+  "recipe": "classic North American mid-1950s hard bop, improv On Frame, hard bop branch, American jazz bop, American jazz soul jazz classic japanese jazz. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, sterling silver bell premium projecting bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, sterling silver rare premium bach 42 canonical American orchestral tenor ensemble student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 826,
+  "score": 541.298,
   "config": {
     "traditions": [
       "hard_bop",
       "soul_jazz",
-      "bebop"
+      "classic_japanese_jazz"
     ],
     "instruments": [
       {
@@ -25,13 +25,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 8.330375,
-          "sax_size": 9.45125,
-          "sax_reed": 1.43275,
-          "sax_body_alloy": 42.90500000000001,
-          "sax_mouthpiece": 1.4949999999999999,
-          "sax_technique": 41.281500000000015,
-          "sax_maker_school": 49.18525000000001
+          "wind_articulation": 7.789250000000001,
+          "sax_size": 9.12125,
+          "sax_reed": 1.4012499999999999,
+          "sax_body_alloy": 41.97500000000001,
+          "sax_mouthpiece": 1.4012499999999999,
+          "sax_technique": 40.000000000000014,
+          "sax_maker_school": 48.61200000000001
         }
       },
       {
@@ -46,13 +46,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 8.330375,
-          "brass_size": 1.4949999999999999,
-          "trumpet_mouthpiece": 48.60525000000001,
-          "brass_mute": 1.17,
-          "trumpet_technique": 8.330375,
+          "wind_articulation": 7.789250000000001,
+          "brass_size": 1.4012499999999999,
+          "trumpet_mouthpiece": 47.292000000000016,
+          "brass_mute": 0.975,
+          "trumpet_technique": 7.789250000000001,
           "trumpet_bell_metal": 1.6,
-          "trumpet_maker_school": 8.515
+          "trumpet_maker_school": 8.06
         }
       },
       {
@@ -67,13 +67,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 8.330375,
-          "trombone_type": 41.250000000000014,
-          "trombone_mouthpiece": 41.625000000000014,
+          "wind_articulation": 7.789250000000001,
+          "trombone_type": 40.000000000000014,
+          "trombone_mouthpiece": 40.375000000000014,
           "trombone_mute": 0.3,
-          "trombone_technique": 2.129,
+          "trombone_technique": 1.17,
           "trombone_bell_metal": 1.6,
-          "trombone_maker_school": 8.905000000000001
+          "trombone_maker_school": 8.45
         }
       },
       {
@@ -87,18 +87,18 @@
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 15.69225,
+          "keyboard_technique": 15.075750000000001,
           "grand_piano_size": 0.78,
-          "grand_piano_brand": 1.4012499999999999,
-          "piano_hammer": 9.685000000000002,
-          "piano_rim": 10.855,
-          "piano_soundboard": 1.9743749999999998,
-          "piano_pinblock": 0.85,
-          "piano_plate": 0.8049999999999999,
-          "piano_pitch_standard": 1.56
+          "grand_piano_brand": 1.4462499999999998,
+          "piano_hammer": 9.23,
+          "piano_rim": 10.4,
+          "piano_soundboard": 1.9687499999999998,
+          "piano_pinblock": 1.275,
+          "piano_plate": 1.125,
+          "piano_pitch_standard": 2.0474999999999994
         }
       },
       {
@@ -108,8 +108,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 41.250000000000014,
-          "upright_play": 41.250000000000014
+          "upright_strings": 40.000000000000014,
+          "upright_play": 40.000000000000014
         }
       },
       {
@@ -120,8 +120,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 41.250000000000014,
-          "drumhead": 50.666500000000006,
+          "drum_technique": 40.000000000000014,
+          "drumhead": 50.10825000000002,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "International emotive house network represented by All Day I Dream, Lee Burridge, Lost Desert and Pippi Ciez. Understated pulse, detailed melodic textures and hand-played or hand-like percussion support gradual development; organic here describes an aesthetic that can use substantial synthesis.",
   "recipe": "classic modern organic house, electronic Dance, deep house branch, continental electronic dance nu disco latin house. analog poly synth, sampler drum machine, looped layered sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter true-stereo reverb.",
   "recipe_chars": 395,
-  "score": 65.311,
+  "score": 65.241,
   "config": {
     "traditions": [
       "organic_house",
@@ -23,8 +23,8 @@
         },
         "scores": {
           "electronic_technique": -0.035,
-          "poly_archetypes": 0.4215,
-          "poly_voices": 0.4215,
+          "poly_archetypes": 0.5865,
+          "poly_voices": 0.5865,
           "poly_maker_lineage": -1.085
         }
       },
@@ -38,8 +38,8 @@
         },
         "scores": {
           "electronic_technique": 0.9099999999999999,
-          "sample_bitdepth": 0.135,
-          "sample_swing": 0.40800000000000003,
+          "sample_bitdepth": 0,
+          "sample_swing": 0.48450000000000004,
           "sample_processing": 0.845
         }
       },
@@ -56,8 +56,8 @@
           "electronic_technique": 0.9099999999999999,
           "sampler_archetypes": 0.195,
           "sampler_bit_depth": 0.195,
-          "sampler_workflow": 1.4649999999999999,
-          "sampler_classic_context": 61.42499999999999
+          "sampler_workflow": 1.315,
+          "sampler_classic_context": 61.233374999999995
         }
       }
     ],

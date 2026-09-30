@@ -1,0 +1,108 @@
+{
+  "id": "j_ambient",
+  "name": "J-ambient",
+  "family": "electronic",
+  "lineage": "A broad Japanese ambient discovery grouping spanning electronic environmental composition and later studio electroacoustic work. Hiroshi Yoshimura’s GREEN documents a Tokyo home-studio FM approach; Eiko Ishibashi’s For McCoy documents a later collage practice with synthesizers, field recordings and acoustic collaborators. The default is an authored electronic subset, not a reconstruction of either album.",
+  "recipe": "classic j-ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity sustained fm synth, sustained sampler. treated studio. large-diaphragm condenser, ultra-clean solid-state pre. 24-bit digital true-stereo reverb.",
+  "recipe_chars": 333,
+  "score": 27.284,
+  "config": {
+    "traditions": [
+      "j_ambient",
+      "sound_art"
+    ],
+    "instruments": [
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "fm_algorithm": "fm_simple",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 10.037125,
+          "fm_algorithm": 0,
+          "fm_modulator_ratio": 0,
+          "fm_polyphony": 0.315,
+          "fm_model_lineage": 1.625
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 10.037125,
+          "sampler_archetypes": 5.75,
+          "sampler_bit_depth": 0.45499999999999996,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 1.2349999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "fm_synth": [
+        "electronic_technique",
+        "fm_algorithm",
+        "fm_modulator_ratio",
+        "fm_polyphony",
+        "fm_model_lineage"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_true_stereo_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_post",
+      "electronic_technique": "electronic_sustained_layering",
+      "fm_algorithm": "fm_simple",
+      "fm_modulator_ratio": "fm_harmonic",
+      "fm_polyphony": "fm_poly",
+      "fm_model_lineage": "fm_yamaha_dx7"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "fx_true_stereo_reverb"
+    ]
+  }
+}

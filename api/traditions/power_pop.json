@@ -3,14 +3,14 @@
   "name": "Power pop",
   "family": "global",
   "lineage": "Late-1960s through 1970s British Invasion-derived guitar-pop subgenre codified through the Who (the term power pop was coined by Pete Townshend to describe the Whos sound), Big Star (the Memphis power-pop band, #1 Record 1972, Radio City 1974), Badfinger (the Apple Records 1970-72 power-pop voice), Cheap Trick (the mainstream-commercial post-Big-Star extension), the Raspberries, the Knack (My Sharona 1979 the commercial breakthrough); foundational sound: melodic-hook-centric three-minute songs with chord-driven electric guitars, harmony vocals, and tight rhythm-section foundation",
-  "recipe": "classic North American 1967-1969 power pop, functional Song, pop rock branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 801,
-  "score": 459.235,
+  "recipe": "classic North American 1967-1969 power pop, functional Song, pop rock branch, alternative distorted rock danish alternative rock boston rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 815,
+  "score": 365.528,
   "config": {
     "traditions": [
       "power_pop",
-      "modern_indie_rock_2010s",
-      "slacker_rock"
+      "danish_alternative_rock",
+      "boston_rock"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 45.95500000000003,
-          "voice_quality": 17.875,
+          "voice_register": 35.70500000000003,
+          "voice_quality": 17.355,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7300000000000004,
-          "voice_articulation": 11.374999999999995,
-          "voice_microtone": 44.42500000000001,
-          "voice_tradition": 26.07,
-          "voice_mechanism_compound": 3.575000000000001,
+          "voice_vibrato": 1.885,
+          "voice_articulation": 8.254999999999999,
+          "voice_microtone": 34.67500000000001,
+          "voice_tradition": 23.794999999999998,
+          "voice_mechanism_compound": 3.3150000000000004,
           "voice_estill_quality": 3.120000000000001,
-          "voice_speech_song": 13.259999999999996,
-          "voice_ensemble_config": 12.154999999999994,
-          "voice_ornament_system": 0.8999999999999999,
-          "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 11.185,
-          "voice_multitrack_stack": 9.035
+          "voice_speech_song": 12.154999999999998,
+          "voice_ensemble_config": 10.919999999999996,
+          "voice_ornament_system": 1.1499999999999997,
+          "voice_pitch_organization": 1.56,
+          "voice_processing_chain": 9.135,
+          "voice_multitrack_stack": 6.130000000000001
         }
       },
       {
@@ -59,7 +59,7 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 26.465,
-          "amp_make": 14.429999999999996,
-          "body_wood": 0.845,
-          "neck_wood": 0.845,
-          "fretboard": 0.78,
+          "electric_technique": 25.964999999999996,
+          "amp_make": 9.945,
+          "body_wood": 0.825,
+          "neck_wood": 0.825,
+          "fretboard": 0.3,
           "pickup_magnet": 0.195,
-          "string_material": 0.15,
+          "string_material": 0.195,
           "string_gauge": 1.17,
           "bridge": 0.195,
-          "scale_length": 0.845,
+          "scale_length": 1.6500000000000004,
           "finish": 0,
-          "string_tuning": 20.54
+          "string_tuning": 14.559999999999999
         }
       },
       {
@@ -90,30 +90,30 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_gibson_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 26.465,
-          "amp_make": 14.429999999999996,
+          "electric_technique": 25.964999999999996,
+          "amp_make": 9.945,
           "body_wood": 0.845,
-          "neck_wood": 0.845,
-          "fretboard": 0.78,
+          "neck_wood": 0.825,
+          "fretboard": 0.3,
           "pickup_magnet": 0,
           "pickup_winding": 1.02,
-          "string_material": 0.15,
-          "bridge": 0.845,
-          "scale_length": 1.8200000000000005,
+          "string_material": 0.195,
+          "bridge": 0.825,
+          "scale_length": 1.6500000000000004,
           "string_gauge": 1.17,
           "finish": 0,
-          "string_tuning": 20.54
+          "string_tuning": 14.559999999999999
         }
       },
       {
@@ -121,20 +121,20 @@
         "slots": {
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 13.129999999999997,
-          "body_wood": 0.845,
-          "pickup_config": 0.5199999999999999,
-          "string_type": 27.95,
-          "scale_length_b": 0.845,
-          "fretted_or_not": 0.105,
-          "bass_technique": 22.25
+          "amp_make": 9.0025,
+          "body_wood": 1.6500000000000004,
+          "pickup_config": 0,
+          "string_type": 16.7375,
+          "scale_length_b": 0.825,
+          "fretted_or_not": 0.65,
+          "bass_technique": 13.625
         }
       },
       {
@@ -145,8 +145,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.799999999999997,
-          "drumhead": 23.57,
+          "drum_technique": 13.175,
+          "drumhead": 21.945,
           "drum_kit_kick_pedal": 0
         }
       }

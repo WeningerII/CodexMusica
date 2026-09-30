@@ -3,14 +3,14 @@
   "name": "Gabber",
   "family": "electronic",
   "lineage": "Mid-1990s Rotterdam hard-electronic-dance subgenre characterized by 180-200 bpm distorted-kick-drum dominance, aggressive sub-bass, and explicit working-class-Rotterdam subcultural identity — codified through DJ Paul Elstak, Rob Gee, Neophyte, the Rotterdam Records label, and the genre's explicit anti-Amsterdam-house cultural posture",
-  "recipe": "classic Asian 1994-1996 gabber, electronic Dance, hardstyle branch, techno electronic dance peak-time techno detroit techno. sub bass digital subtractive, roland tr 8s modern aira digital recreation TR-909, sound design field sampler. live tracking. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 383,
-  "score": 67.385,
+  "recipe": "classic Asian 1994-1996 gabber, electronic Dance, hardstyle branch, techno electronic dance belgian techno brazilian techno. low sub bass digital subtractive, TR-909, sampler. live tracking. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 324,
+  "score": 49.685,
   "config": {
     "traditions": [
       "gabber",
-      "peak_techno",
-      "detroit_techno"
+      "belgian_techno",
+      "brazilian_techno"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 4.680000000000001,
+          "electronic_technique": 3.6400000000000006,
           "va_archetypes": 0,
-          "digital_subtractive_context": 13.454999999999997
+          "digital_subtractive_context": 10.139999999999999
         }
       },
       {
@@ -34,26 +34,26 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 6.515000000000001,
-          "drum_machine_909_context": 6.245,
-          "tr909_production_origin": 1.185
+          "tr909_voice": 6.74,
+          "drum_machine_909_context": 1.625,
+          "tr909_production_origin": 0.735
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
+          "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "akai_mpc",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_workflow": "sampler_orchestral_library",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.7499999999999998,
+          "electronic_technique": 0.06499999999999999,
           "sampler_archetypes": 0.325,
-          "sampler_bit_depth": 1.7899999999999998,
-          "sampler_workflow": 1.8524999999999998,
-          "sampler_classic_context": 25.512499999999996
+          "sampler_bit_depth": 1.17,
+          "sampler_workflow": 0.75,
+          "sampler_classic_context": 20.994999999999997
         }
       }
     ],

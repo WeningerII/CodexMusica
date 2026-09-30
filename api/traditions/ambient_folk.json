@@ -3,14 +3,14 @@
   "name": "Ambient folk",
   "family": "vernacular",
   "lineage": "2000s onward intersection of intimate acoustic songwriting and ambient/noise recording practice, represented by Grouper: quiet guitar-and-voice songs blurred by repeat recording, softened attacks, and low-fidelity space. This recipe selects the acoustic-song branch rather than piano-only or pure-drone work; domestic four-track texture is an authored model informed by firsthand accounts.",
-  "recipe": "classic mid-2000s ambient folk, ballad Poetry, indie folk branch, ambient experimental electric, anglo singer song bedroom singer song environmental bedroom singer-songwriter. minimal subglottal pressure, pure, interlocked note trading, equal tempered. low tension strings mellow steel silk acoustic guitar. carpeted bedroom. dynamic moving-coil, console-strip pre, cassette portastudio, tilt EQ. tascam portastudio 4-track cassette tape echo plate reverb.",
-  "recipe_chars": 456,
-  "score": 45.252,
+  "recipe": "classic mid-2000s ambient folk, ballad Poetry, indie folk branch, ambient experimental electric, anglo singer song bedroom singer song bedroom singer-songwriter time lord rock. minimal subglottal pressure, pure, interlocked note trading, equal tempered. low tension strings mellow steel silk acoustic guitar. carpeted bedroom. dynamic moving-coil, console-strip pre, cassette portastudio, tilt EQ. tascam portastudio 4-track cassette tape echo plate reverb.",
+  "recipe_chars": 457,
+  "score": 43.11,
   "config": {
     "traditions": [
       "ambient_folk",
-      "environmental_music",
-      "bedroom_singer_song"
+      "bedroom_singer_song",
+      "time_lord_rock"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_single_source",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_syllabic_singing",
@@ -37,19 +37,19 @@
           "voice_register": 0,
           "voice_quality": -0.35,
           "voice_vocal_tract": 0,
-          "voice_effort": 4.225,
-          "voice_vibrato": 1.2999999999999998,
-          "voice_articulation": 16.444999999999997,
-          "voice_microtone": 1.3722499999999995,
-          "voice_tradition": 12.587250000000001,
-          "voice_mechanism_compound": 0.135,
-          "voice_estill_quality": 8.975999999999999,
-          "voice_speech_song": 0.34725,
-          "voice_ensemble_config": 2.535,
+          "voice_effort": 2.7625,
+          "voice_vibrato": 1.458333333333333,
+          "voice_articulation": 13.974999999999994,
+          "voice_microtone": 7.508333333333335,
+          "voice_tradition": 12.57,
+          "voice_mechanism_compound": 0.195,
+          "voice_estill_quality": 8.984999999999998,
+          "voice_speech_song": 0.44999999999999996,
+          "voice_ensemble_config": 1.6899999999999997,
           "voice_ornament_system": 0.65,
-          "voice_pitch_organization": 0.195,
-          "voice_processing_chain": 1.4949999999999999,
-          "voice_multitrack_stack": 0.6
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.6499999999999999,
+          "voice_multitrack_stack": 1.2583333333333333
         }
       },
       {
@@ -64,9 +64,9 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 0.39,
-          "string_acoustic": 1.89975,
-          "acoustic_om_technique": 0.25
+          "back_sides": -0.035,
+          "string_acoustic": 1.045,
+          "acoustic_om_technique": 0.7975
         }
       }
     ],

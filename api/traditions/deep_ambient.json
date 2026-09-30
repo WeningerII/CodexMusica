@@ -1,0 +1,139 @@
+{
+  "id": "deep_ambient",
+  "name": "Deep ambient",
+  "family": "electronic",
+  "lineage": "An overlapping ambient discovery category represented on the author map by Max Corbacho, Rudy Adrian, Dirk Serries and others. Documented examples range from electronic drones to looped electroacoustic layers. This default selects the credited synthesizer and guitar-loop sources on Steve Roach and Dirk Serries’ Low Volume Music; it is one branch of the wider listening category.",
+  "recipe": "classic modern deep ambient, experimental Elec, ambient branch, modal electric drone modal. pad like pad analog synth, alder rosewood alnico single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 385,
+  "score": 31.627,
+  "config": {
+    "traditions": [
+      "deep_ambient"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 11.640214285714285,
+          "oscillator": 0.045,
+          "filter_topology": 3.1230714285714285,
+          "envelope": 5.719999999999999,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_sustained_loop",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_fender",
+          "finish": "poly",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 1.69,
+          "amp_make": 0,
+          "body_wood": 1.5282142857142857,
+          "neck_wood": 0.3229285714285714,
+          "fretboard": 1.4782142857142857,
+          "pickup_magnet": 1.5282142857142857,
+          "string_material": 0,
+          "string_gauge": 0,
+          "bridge": 1.5944285714285713,
+          "scale_length": 0,
+          "finish": 0.03599999999999999,
+          "string_tuning": 0.1954285714285714
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay",
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "oscillator": "triangle_osc",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter",
+      "electric_technique": "electric_sustained_loop",
+      "amp_make": "amp_unspecified",
+      "string_material": "pure_nickel",
+      "string_gauge": "g_10",
+      "string_tuning": "standard_tuning",
+      "bridge": "hardtail",
+      "pickup_magnet": "alnico_2",
+      "scale_length": "scale_fender",
+      "body_wood": "alder",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "finish": "poly"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay",
+      "hall_reverb"
+    ]
+  }
+}

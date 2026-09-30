@@ -5,7 +5,7 @@
   "lineage": "Ambient-facing extension of dub techno represented by Detroit producer Deepchord and Soma releases such as Sommer (2012) and Campfire EP (2017). Field-recording atmospheres, submerged pulses and echo space carry the arrangement beyond the compact chord-and-kick dub-techno tool.",
   "recipe": "classic early-2010s ambient dub techno, bass System, dub descendants branch, ambient experimental electric, techno electronic dance ambient psychill ambient house. sustained pad analog poly synth, field textural sampler, drum machine analog. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter true-stereo reverb auto-panner.",
   "recipe_chars": 486,
-  "score": 37.029,
+  "score": 36.868,
   "config": {
     "traditions": [
       "ambient_dub_techno",
@@ -41,7 +41,7 @@
           "electronic_technique": 7.865,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.28500000000000003,
-          "sampler_workflow": 9.703964285714285,
+          "sampler_workflow": 9.543249999999999,
           "sampler_classic_context": 0.65
         }
       },
