@@ -5,7 +5,7 @@
   "lineage": "The pre-amplification blues idiom documented commercially across the US South from 1926 to the early 1940s by Paramount, Okeh and Victor field units — solo singer-guitarists such as Blind Lemon Jefferson, Charley Patton, Blind Blake and Mississippi John Hurt playing self-accompanied twelve- and eight-bar forms with thumb-driven alternating bass, bottleneck slide, blue thirds and sevenths sung in a strained field-holler-derived voice, cut direct to wax in makeshift hotel-room and office studios.",
   "recipe": "classic 1940-1943 acoustic blues, functional Song, blues acoustic branch, blues narrative delta narrative, blues narrative piedmont narrative ragtime blues piedmont fingerpicking blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning parlor classic steel silk fingerpicked parlor acoustic wood body spider bridge aluminum resonator national canon medium heavy resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, syncopated and hand spoons. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 770,
-  "score": 486.468,
+  "score": 487.285,
   "config": {
     "traditions": [
       "acoustic_blues",
@@ -60,10 +60,10 @@
           "voice_microtone": 31.554874999999996,
           "voice_tradition": 14.884999999999996,
           "voice_mechanism_compound": 3.3149999999999995,
-          "voice_estill_quality": 5.6905,
+          "voice_estill_quality": 5.6605,
           "voice_speech_song": 19.109999999999992,
           "voice_ensemble_config": 18.134999999999998,
-          "voice_ornament_system": 3.4108750000000003,
+          "voice_ornament_system": 3.5417500000000004,
           "voice_pitch_organization": 2.95,
           "voice_processing_chain": 4.095,
           "voice_multitrack_stack": 1.8199999999999998
@@ -81,10 +81,10 @@
         },
         "scores": {
           "harmonica_type": 0.9099999999999999,
-          "harmonica_comb": 32.051874999999995,
-          "harmonica_reed": 29.372124999999997,
+          "harmonica_comb": 32.169624999999996,
+          "harmonica_reed": 29.508624999999995,
           "harmonica_technique": 33.037125,
-          "harmonica_maker_school": 32.912124999999996,
+          "harmonica_maker_school": 33.374125,
           "harmonica_tuning": 15.014999999999999
         }
       },

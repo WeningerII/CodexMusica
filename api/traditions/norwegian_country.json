@@ -5,7 +5,7 @@
   "lineage": "Norwegian country spans local-language country-rock bands and transatlantic country influences. Hellbillies’ documented blend of Norwegian and American musical traditions provides the selected electric-band branch.",
   "recipe": "classic modern norwegian country, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. nickel bronze modern blend dreadnought acoustic Fender tweed amp American 50s amp tweed breakup lower tension down tuning single coil electric guitar, cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, sticks backbeat drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 611,
-  "score": 104.405,
+  "score": 104.346,
   "config": {
     "traditions": [
       "norwegian_country"
@@ -40,8 +40,8 @@
           "voice_articulation": -0.14,
           "voice_microtone": 3.380000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.47474999999999995,
-          "voice_estill_quality": 14.058749999999998,
+          "voice_mechanism_compound": 0.45599999999999996,
+          "voice_estill_quality": 14.04,
           "voice_speech_song": 5.525,
           "voice_ensemble_config": 3.5100000000000002,
           "voice_ornament_system": 0,
@@ -90,8 +90,8 @@
           "neck_wood": 0,
           "fretboard": 0.3,
           "pickup_magnet": 0.105,
-          "string_material": 0.5122499999999999,
-          "string_gauge": 0.41512499999999997,
+          "string_material": 0.5009999999999999,
+          "string_gauge": 0.4095,
           "bridge": 0.07799999999999999,
           "scale_length": 0,
           "finish": 0,
@@ -113,7 +113,7 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.142125,
+          "grand_piano_size": 0.1365,
           "grand_piano_brand": 0.5264999999999999,
           "piano_hammer": 1.0205,
           "piano_rim": 1.17,

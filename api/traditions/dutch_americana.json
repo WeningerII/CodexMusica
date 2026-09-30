@@ -1,0 +1,191 @@
+{
+  "id": "dutch_americana",
+  "name": "Dutch Americana",
+  "family": "vernacular",
+  "lineage": "Dutch roots musicians adapt American country, blues and rock-and-roll resources within local recording and touring networks. Danny Vera’s label explicitly identifies Americana and country/blues roots, supplying the selected band branch.",
+  "recipe": "classic modern dutch americana, functional Song, americana branch. thick, worn fold, wide pitch sway, neutral third half flat. open d tuning dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 523,
+  "score": 109.379,
+  "config": {
+    "traditions": [
+      "dutch_americana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_16_band",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 15.912999999999995,
+          "voice_quality": 2.600000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 14.855,
+          "voice_articulation": -0.14,
+          "voice_microtone": 5.590000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 9.968499999999999,
+          "voice_speech_song": 8.125,
+          "voice_ensemble_config": 6.11,
+          "voice_ornament_system": 0.3315,
+          "voice_pitch_organization": 0.1365,
+          "voice_processing_chain": 1.4495,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "open_d",
+          "top_wood": "engelmann",
+          "back_sides": "koa_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "string_tuning": 3.0130000000000003,
+          "top_wood": 0.3,
+          "back_sides": 0.0315,
+          "string_acoustic": 0.49349999999999994
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 0.15000000000000002,
+          "amp_make": 11.482499999999998,
+          "body_wood": 0.1365,
+          "neck_wood": 0.231,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.3,
+          "string_material": 0.9869999999999997,
+          "string_gauge": 0.168,
+          "bridge": 0,
+          "scale_length": 0.273,
+          "finish": 0.0315,
+          "string_tuning": 3.9
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 10.251,
+          "body_wood": 0.273,
+          "pickup_config": 0.0315,
+          "string_type": 3.25,
+          "scale_length_b": 0.3315,
+          "fretted_or_not": 0.063,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "calfskin_drum",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 5.85,
+          "drumhead": 0.826,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "electric_technique": "electric_arpeggiated_clean",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "brushes_and_sticks",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

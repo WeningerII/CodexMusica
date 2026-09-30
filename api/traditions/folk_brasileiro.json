@@ -1,0 +1,112 @@
+{
+  "id": "folk_brasileiro",
+  "name": "Folk brasileiro",
+  "family": "vernacular",
+  "lineage": "This discovery label includes modern Brazilian acoustic folk-pop artists such as ANAVITÓRIA, Rubel and Tiago Iorc. Its roster is not a synonym for the entire body of traditional Brazilian regional music.",
+  "recipe": "classic modern folk brasileiro, ballad Poetry. thick, breath veiled tone, straight onset, interlocked note trading. fingerpicked acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 283,
+  "score": 39.379,
+  "config": {
+    "traditions": [
+      "folk_brasileiro"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 8.600000000000001,
+          "voice_quality": 2.0799999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.8999999999999999,
+          "voice_articulation": 2.665000000000001,
+          "voice_microtone": 3.9365000000000006,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.453,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 3.575000000000001,
+          "voice_ensemble_config": 0.585,
+          "voice_ornament_system": 0.26,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 3.4140000000000006,
+          "voice_multitrack_stack": 1.8405
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "eighty_twenty_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0.054,
+          "back_sides": 0,
+          "string_acoustic": 0.1365,
+          "acoustic_om_technique": 7.154000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_tradition",
+        "voice_ensemble_config"
+      ],
+      "acoustic_guitar_om": [
+        "acoustic_om_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+      "acoustic_om_technique": "om_fingerpicked",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

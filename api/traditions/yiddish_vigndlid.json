@@ -3,53 +3,53 @@
   "name": "Yiddish vigndlid (cradle song)",
   "family": "global",
   "lineage": "Yiddish-Ashkenazi cradle-song tradition continuous from medieval-and-early-modern shtetl domestic practice through 19th-and-20th-century Yiddish-theater and Klezmer-vocal-music intersection",
-  "recipe": "classic modern yiddish vigndlid, lullaby, European branch, middle eastern lullaby, Jewish ritual devotional, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. klezmer ensemble. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 357,
-  "score": 188.088,
+  "recipe": "classic modern yiddish vigndlid, lullaby, European branch, middle eastern lullaby, Jewish ritual devotional, chanson fado ballad poetry persian lālā'ī. thick, breath veiled tone, straight note core, interlocked note trading. klezmer ensemble. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 323,
+  "score": 140.077,
   "config": {
     "traditions": [
       "yiddish_vigndlid",
-      "morna",
-      "cape_verdean_batuko"
+      "chanson",
+      "persian_lalai"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.329999999999999,
-          "voice_quality": 27.69,
+          "voice_register": 4.805000000000001,
+          "voice_quality": 8.71,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.915000000000001,
-          "voice_articulation": 25.09,
-          "voice_microtone": 27.235,
-          "voice_tradition": 17.225,
-          "voice_mechanism_compound": 5.265,
-          "voice_estill_quality": 4.5825,
-          "voice_speech_song": 30.8425,
-          "voice_ensemble_config": 23.985,
-          "voice_ornament_system": 2.7499999999999996,
-          "voice_pitch_organization": 6.4350000000000005,
-          "voice_processing_chain": 7.605000000000003,
-          "voice_multitrack_stack": 6.285
+          "voice_vibrato": 3.115,
+          "voice_articulation": 15.274999999999999,
+          "voice_microtone": 20.344999999999995,
+          "voice_tradition": 12.919999999999998,
+          "voice_mechanism_compound": 9.269999999999998,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 21.384999999999998,
+          "voice_ensemble_config": 15.664999999999996,
+          "voice_ornament_system": 9.974999999999998,
+          "voice_pitch_organization": 10.905,
+          "voice_processing_chain": 5.4350000000000005,
+          "voice_multitrack_stack": 4.03
         }
       },
       {
@@ -59,7 +59,7 @@
           "rhythm_section": "klez_accordion"
         },
         "scores": {
-          "sections": 1.4949999999999999,
+          "sections": 0.195,
           "rhythm_section": 0.195
         }
       }

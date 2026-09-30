@@ -1,0 +1,116 @@
+{
+  "id": "chinese_singer_songwriter",
+  "name": "Chinese singer-songwriter",
+  "family": "vernacular",
+  "lineage": "Chinese performer-songwriters work across acoustic song, folk-pop and studio pop. Mao Buyi’s original songs and guitar-based presentation supply a documented mainland Chinese example without treating a national label as traditional-instrument music.",
+  "recipe": "classic modern chinese singer-songwriter, ballad Poetry. thick, equal tempered, opera quality low larynx anchored, notated speech melody. narrative fingerpicked acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 315,
+  "score": 33.632,
+  "config": {
+    "traditions": [
+      "chinese_singer_songwriter"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "speech_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 7.050000000000002,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.13000000000000003,
+          "voice_microtone": 4.886500000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.453,
+          "voice_estill_quality": 1.0299999999999998,
+          "voice_speech_song": 4.875,
+          "voice_ensemble_config": 3.5100000000000002,
+          "voice_ornament_system": 1.0299999999999998,
+          "voice_pitch_organization": 0.15000000000000002,
+          "voice_processing_chain": 2.804,
+          "voice_multitrack_stack": 0.354
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "open_d",
+          "top_wood": "cedar_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "eighty_twenty_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0.2,
+          "top_wood": 0.054,
+          "back_sides": 0,
+          "string_acoustic": 0.1365,
+          "acoustic_om_technique": 6.5040000000000004
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_quality",
+        "voice_articulation",
+        "voice_tradition",
+        "voice_multitrack_stack"
+      ],
+      "acoustic_guitar_om": [
+        "acoustic_om_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_quality": "speech_voice",
+      "voice_articulation": "narrative_voice",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "acoustic_om_technique": "om_fingerpicked",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

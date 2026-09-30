@@ -3,14 +3,14 @@
   "name": "Iskelmä",
   "family": "pop",
   "lineage": "Finnish mainstream popular song descending from German schlager and Finnish humppa/tango, professionalized from the late 1940s at Fazer and Scandia by composer Toivo Kärki and lyricist Reino Helismaa — moderate-tempo 4/4 or waltz strophic songs with accordion or piano lead, orchestral strings and later a small rhythm section, plain diatonic harmony, and a clear front-of-mix Finnish-language vocal delivered with wide vibrato and full sentiment.",
-  "recipe": "classic British 1947-1949 iskelmä, functional Song, europop branch, crooners functional song, pop rock functional song, European drinking song folk rock skiffle. thick, breath veiled tone, wide pitch sway, interlocked note trading. castagnari Italian premium folk music straight accordion, soft felt lacquer voiced birch laminated maple laminated Asian spruce grand piano, plain gut sheep gut unsplit hard rock maple acer saccharum violin orchestral, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe": "classic British 1947-1949 iskelmä, functional Song, europop branch, crooners functional song, pop rock functional song, European drinking song skiffle yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. castagnari Italian premium folk music straight accordion, soft felt lacquer voiced birch laminated maple laminated Asian spruce grand piano, plain gut sheep gut unsplit hard rock maple acer saccharum violin orchestral, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 771,
-  "score": 411.619,
+  "score": 398.438,
   "config": {
     "traditions": [
       "iskelma",
-      "folk_rock",
-      "skiffle"
+      "skiffle",
+      "yacht_rock"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 52.595,
-          "voice_quality": 9.879999999999999,
+          "voice_register": 48.095000000000006,
+          "voice_quality": 9.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.42,
-          "voice_articulation": 20.994999999999994,
-          "voice_microtone": 32.435,
-          "voice_tradition": 26.646874999999998,
-          "voice_mechanism_compound": 5.915,
-          "voice_estill_quality": 7.640625,
-          "voice_speech_song": 30.224999999999994,
-          "voice_ensemble_config": 22.619999999999994,
-          "voice_ornament_system": 1.2999999999999994,
+          "voice_vibrato": 9.854375,
+          "voice_articulation": 19.564999999999998,
+          "voice_microtone": 38.43500000000001,
+          "voice_tradition": 16.802499999999995,
+          "voice_mechanism_compound": 6.109999999999999,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 28.144999999999996,
+          "voice_ensemble_config": 20.799999999999997,
+          "voice_ornament_system": 1.1049999999999995,
           "voice_pitch_organization": 1.2974999999999999,
-          "voice_processing_chain": 4.94,
-          "voice_multitrack_stack": 4.9399999999999995
+          "voice_processing_chain": 6.12,
+          "voice_multitrack_stack": 5.749375000000001
         }
       },
       {
@@ -60,17 +60,17 @@
           "musette_offset": "german_tuning",
           "reed_config": "lm_only",
           "bellows": "all_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 18.324999999999996,
-          "accordion_reed_material": 1.04,
+          "free_reed_technique": 7.3249999999999975,
+          "accordion_reed_material": 1.235,
           "musette_offset": 1,
-          "reed_config": 2.4699999999999993,
+          "reed_config": 3.8999999999999995,
           "bellows": 0.15,
-          "voicing_chamber": 0.3,
-          "accordion_maker_school": 7.467499999999998
+          "voicing_chamber": 0.39,
+          "accordion_maker_school": 4.094999999999999
         }
       },
       {
@@ -82,20 +82,20 @@
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 9.94,
+          "keyboard_technique": 11.889999999999999,
           "grand_piano_size": 2.33,
           "grand_piano_brand": 1.625,
-          "piano_hammer": 9.424999999999997,
-          "piano_rim": 10.79,
-          "piano_soundboard": 9.350000000000001,
-          "piano_pinblock": -0.05,
+          "piano_hammer": 10.27,
+          "piano_rim": 11.89,
+          "piano_soundboard": 11.35,
+          "piano_pinblock": 1.01875,
           "piano_plate": 0.945,
-          "piano_pitch_standard": 5.655000000000001
+          "piano_pitch_standard": 6.045
         }
       },
       {
@@ -105,7 +105,7 @@
           "orch_strings": "plain_sheep_gut_violin",
           "orch_top_wood": "carpathian_spruce_violin",
           "orch_back_wood": "hard_rock_maple_violin_back",
-          "orch_varnish": "french_polish_violin",
+          "orch_varnish": "modern_synthetic_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
@@ -116,10 +116,10 @@
           "bowed_technique": 2.45,
           "orch_strings": 1.1449999999999998,
           "orch_top_wood": 0.7999999999999999,
-          "orch_back_wood": 11.179999999999994,
-          "orch_varnish": 0.12999999999999998,
-          "orch_setup_period": 2.2749999999999995,
-          "orch_bow": 0.195,
+          "orch_back_wood": 11.771249999999997,
+          "orch_varnish": 0.5199999999999999,
+          "orch_setup_period": 2.0799999999999996,
+          "orch_bow": 0.2475,
           "orch_bow_stick": 0.325,
           "orch_articulation": 1.045,
           "orch_rosin": -0.035
@@ -138,13 +138,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.608124999999998,
-          "body_wood": 1.625,
+          "amp_make": 12.108124999999998,
+          "body_wood": 1.8199999999999998,
           "pickup_config": 0.44999999999999996,
-          "string_type": 20.913124999999994,
-          "scale_length_b": 1.04,
+          "string_type": 22.163125,
+          "scale_length_b": 1.235,
           "fretted_or_not": 0.3,
-          "bass_technique": 18.519999999999996,
+          "bass_technique": 19.62,
           "electric_bass_string_configuration": 0
         }
       },
@@ -156,8 +156,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24.82999999999999,
-          "drumhead": 9.935000000000002,
+          "drum_technique": 22.749999999999996,
+          "drumhead": 11.935,
           "drum_kit_kick_pedal": 0
         }
       }

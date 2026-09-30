@@ -5,7 +5,7 @@
   "lineage": "Eastern-seaboard fingerpicked country blues tradition that flourished in the Piedmont region (Virginia, the Carolinas, Georgia) from the early 20th century — distinguished from the Mississippi Delta blues tradition (which is harder-edged and rhythmically heavier) by its lighter ragtime-derived right-hand fingerpicking, brighter harmonic vocabulary, and parlor-music influence; codified through Blind Boy Fuller (the Piedmont voice, recorded 1935-40), Blind Blake, the Reverend Gary Davis, Brownie McGhee, Sonny Terry, Etta Baker, Elizabeth Cotten (Freight Train, Shake Sugaree)",
   "recipe": "classic Midwestern American mid-1930s piedmont fingerpicking blues, ballad Poetry, piedmont narrative branch, blues acoustic functional song piedmont blues st. louis blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, narrative fingerpicked mountain dulcimer. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 531,
-  "score": 442.373,
+  "score": 443.449,
   "config": {
     "traditions": [
       "piedmont_fingerpicking",
@@ -43,10 +43,10 @@
           "voice_microtone": 31.123,
           "voice_tradition": 15.7625,
           "voice_mechanism_compound": 4.095000000000001,
-          "voice_estill_quality": 8.270625,
+          "voice_estill_quality": 8.31,
           "voice_speech_song": 18.004999999999995,
           "voice_ensemble_config": 16.574999999999996,
-          "voice_ornament_system": 2.465,
+          "voice_ornament_system": 2.5024999999999995,
           "voice_pitch_organization": 2.6265000000000005,
           "voice_processing_chain": 4.355,
           "voice_multitrack_stack": 2.475
@@ -81,10 +81,10 @@
         },
         "scores": {
           "harmonica_type": 0.45499999999999996,
-          "harmonica_comb": 33.456,
-          "harmonica_reed": 29.465,
+          "harmonica_comb": 33.621,
+          "harmonica_reed": 29.66,
           "harmonica_technique": 36.045,
-          "harmonica_maker_school": 32.4675,
+          "harmonica_maker_school": 33.1275,
           "harmonica_tuning": 15.145
         }
       },
@@ -98,9 +98,9 @@
           "dulcimer_string_material": "dulcimer_phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 14.208875,
-          "dulcimer_strings": 1.0125,
-          "dulcimer_tuning": 1.011875,
+          "acoustic_technique": 14.1845,
+          "dulcimer_strings": 1.04,
+          "dulcimer_tuning": 0.9875,
           "dulcimer_body_wood": 0.6,
           "dulcimer_string_material": 0.045
         }

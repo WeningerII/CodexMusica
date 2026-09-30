@@ -3,14 +3,14 @@
   "name": "J-Acoustic",
   "family": "pop_rock",
   "lineage": "Japanese acoustic-guitar-led pop lineage descending from 1970s fōku and consolidated in the late 1990s and 2000s by Yuzu, Kobukuro, Ikimonogakari and Miyuki Nakajima's successors, using strummed steel-string guitar and close male duo harmony over unobtrusive drum and bass at 80-130 BPM, with harmonica breaks, diatonic modulating choruses and plainly enunciated Japanese lyrics about hometowns, graduation and perseverance.",
-  "recipe": "classic Asian 1997-1999 j-acoustic, functional Song, east Asian pop branch, anglo singer song indie folk, pop rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. cedar steel silk fingerpicked dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, pearwood marine band tradition stainless steel steel suzuki Japanese modern precision harmonica, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel sitka spruce hard rock maple acer saccharum synthetic varnish violin orchestral. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
-  "recipe_chars": 834,
-  "score": 459.743,
+  "recipe": "classic Asian 1997-1999 j-acoustic, functional Song, east Asian pop branch, anglo singer song indie folk, pop rock folk rock chinese minyao stomp and flutter. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, stainless steel steel suzuki Japanese modern precision richter canonical 10 hole diatonic blues harmonica, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel sitka spruce hard rock maple acer saccharum synthetic varnish violin orchestral. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 862,
+  "score": 374.565,
   "config": {
     "traditions": [
       "j_acoustic",
-      "nl_folk",
-      "folk_rock"
+      "chinese_minyao",
+      "stomp_and_flutter"
     ],
     "instruments": [
       {
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 50.39000000000001,
-          "voice_quality": 10.919999999999993,
+          "voice_register": 34.089999999999996,
+          "voice_quality": 9.620000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.045,
-          "voice_articulation": 18.719999999999995,
-          "voice_microtone": 31.499999999999996,
-          "voice_tradition": 35.58749999999999,
-          "voice_mechanism_compound": 3.3149999999999995,
-          "voice_estill_quality": 5.830000000000001,
-          "voice_speech_song": 25.544999999999995,
-          "voice_ensemble_config": 18.849999999999994,
-          "voice_ornament_system": 4.095000000000001,
-          "voice_pitch_organization": 1.15,
-          "voice_processing_chain": 6.275,
-          "voice_multitrack_stack": 5.525000000000001
+          "voice_vibrato": 3.1450000000000005,
+          "voice_articulation": 19.174999999999997,
+          "voice_microtone": 18.979999999999997,
+          "voice_tradition": 35.32749999999999,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 5.590000000000001,
+          "voice_speech_song": 27.3,
+          "voice_ensemble_config": 19.499999999999996,
+          "voice_ornament_system": 6.987500000000001,
+          "voice_pitch_organization": 1.3499999999999999,
+          "voice_processing_chain": 3.975,
+          "voice_multitrack_stack": 4.745000000000002
         }
       },
       {
@@ -57,60 +57,60 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "drop_d",
-          "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "top_wood": "engelmann",
+          "back_sides": "maple_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 20.379999999999995,
-          "string_tuning": 0.9500000000000001,
-          "top_wood": 1.04,
-          "back_sides": 0.345,
-          "string_acoustic": 2.275
+          "acoustic_technique": 21.63,
+          "string_tuning": 0.775,
+          "top_wood": 0.3,
+          "back_sides": 0.45499999999999996,
+          "string_acoustic": 2.73
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 14.165,
-          "grand_piano_size": 1.04,
-          "grand_piano_brand": 1.235,
-          "piano_hammer": 17.520000000000003,
-          "piano_rim": 18.075,
-          "piano_soundboard": 16.48,
-          "piano_pinblock": 1.545,
-          "piano_plate": 1.95,
-          "piano_pitch_standard": 5.3950000000000005
+          "keyboard_technique": 13.19,
+          "grand_piano_size": 0.44999999999999996,
+          "grand_piano_brand": 1.04,
+          "piano_hammer": 15.895,
+          "piano_rim": 15.549999999999999,
+          "piano_soundboard": 15.205,
+          "piano_pinblock": 0.4875,
+          "piano_plate": 1.0074999999999998,
+          "piano_pitch_standard": 5.0375
         }
       },
       {
         "id": "harmonica",
         "slots": {
           "harmonica_type": "octave_harm",
-          "harmonica_comb": "pearwood_comb",
+          "harmonica_comb": "bamboo_comb",
           "harmonica_reed": "stainless_harm",
           "harmonica_technique": "harm_folk_first_position",
           "harmonica_maker_school": "harmonica_suzuki_japanese",
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.195,
-          "harmonica_comb": 2.0149999999999997,
-          "harmonica_reed": 3.0900000000000003,
-          "harmonica_technique": 19.744999999999994,
-          "harmonica_maker_school": 2.8449999999999998,
-          "harmonica_tuning": 1.15
+          "harmonica_type": 0.845,
+          "harmonica_comb": 0.46499999999999997,
+          "harmonica_reed": 2.565,
+          "harmonica_technique": 15.969999999999997,
+          "harmonica_maker_school": 2.4949999999999997,
+          "harmonica_tuning": 1.65
         }
       },
       {
@@ -126,13 +126,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.769999999999998,
-          "body_wood": 1.04,
-          "pickup_config": 0.65,
-          "string_type": 18.66,
-          "scale_length_b": 1.04,
-          "fretted_or_not": 0.195,
-          "bass_technique": 17.77,
+          "amp_make": 4.8100000000000005,
+          "body_wood": 0.195,
+          "pickup_config": 0.195,
+          "string_type": 6.66,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0.135,
+          "bass_technique": 5.62,
           "electric_bass_string_configuration": 0
         }
       },
@@ -144,36 +144,36 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.864999999999995,
-          "drumhead": 14.875,
+          "drum_technique": 18.589999999999996,
+          "drumhead": 13.25,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_bluegrass_double_stops",
+          "bowed_technique": "bowed_sul_tasto",
           "orch_strings": "steel_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "modern_synthetic_varnish_violin",
-          "orch_setup_period": "modern_setup_violin",
+          "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
-          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_bow_stick": "brazilwood_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.6000000000000005,
-          "orch_strings": 1.645,
-          "orch_top_wood": 3.25,
-          "orch_back_wood": 10.099999999999998,
-          "orch_varnish": 2.015,
-          "orch_setup_period": 3.1299999999999994,
+          "bowed_technique": 0.585,
+          "orch_strings": 1.995,
+          "orch_top_wood": 2.7625,
+          "orch_back_wood": 4.6475,
+          "orch_varnish": 1.0725,
+          "orch_setup_period": 3.1350000000000002,
           "orch_bow": 0.195,
-          "orch_bow_stick": 1.495,
+          "orch_bow_stick": 0.42,
           "orch_articulation": 0.39,
-          "orch_rosin": 1.625
+          "orch_rosin": 0.4875
         }
       }
     ],

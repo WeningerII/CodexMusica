@@ -3,9 +3,9 @@
   "name": "Cajun Fiddle Tunes",
   "family": "vernacular",
   "lineage": "South Louisiana Acadian instrumental dance repertoire — two-steps, waltzes and one-steps documented from the 1920s Vocalion/Bluebird sides through Alan Lomax's 1934 field cylinders — built on twin fiddles in cross tuning or unison-with-drone, diatonic Cajun accordion in C, triangle and later frottoir keeping the shuffle, at brisk 120-140 BPM two-step tempos with strongly bowed downbeats and no vocal in the instrumental strains.",
-  "recipe": "classic Southern American mid-1920s cajun fiddle tunes, improv On Frame, string improv branch, American south field work, pre commercial country string band old west frontier music. thick, breath veiled tone, straight note core, interlocked note trading. plain gut sheep gut double stops fiddle, single row diatonic Cajun tradition bellows chop drone foot cajun accordion, dadgad tuning martin lifespan sealed travis picked dreadnought acoustic guitar, frottoir, upright bass. cajun dance hall acadia louisiana. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 586,
-  "score": 206.401,
+  "recipe": "classic Southern American mid-1920s cajun fiddle tunes, improv On Frame, string improv branch, American south field work, pre commercial country string band old west frontier music. thick, breath veiled tone, wide pitch sway, interlocked note trading. plain gut sheep gut double stops fiddle, single row diatonic Cajun tradition bellows chop drone foot cajun accordion, dadgad tuning martin lifespan sealed travis picked dreadnought acoustic guitar, frottoir, upright bass. cajun dance hall acadia louisiana. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 583,
+  "score": 205.982,
   "config": {
     "traditions": [
       "cajun_fiddle_tunes",
@@ -24,9 +24,9 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 18.7815,
+          "bowed_technique": 18.75,
           "fiddle_strings": 1.04,
-          "fiddle_bow": 0,
+          "fiddle_bow": 0.045,
           "fiddle_mute": 0.195,
           "fiddle_articulation": 0.45499999999999996,
           "fiddle_string_configuration": 0
@@ -39,8 +39,8 @@
           "cajun_accordion_style": "cajun_bellows_chop_drone"
         },
         "scores": {
-          "cajun_accordion_make": 10.205,
-          "cajun_accordion_style": 4.458
+          "cajun_accordion_make": 10.174999999999999,
+          "cajun_accordion_style": 4.2299999999999995
         }
       },
       {
@@ -68,7 +68,7 @@
         },
         "scores": {
           "frottoir_construction": 5.75,
-          "frottoir_striker": 0.0315
+          "frottoir_striker": 0
         }
       },
       {
@@ -79,7 +79,7 @@
         },
         "scores": {
           "upright_strings": 0.65,
-          "upright_play": 0.48
+          "upright_play": 0.675
         }
       },
       {
@@ -89,7 +89,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -107,18 +107,18 @@
           "voice_quality": 11.829999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.264,
+          "voice_vibrato": 9.07,
           "voice_articulation": 17.484999999999996,
           "voice_microtone": 17.93999999999999,
           "voice_tradition": 8.709999999999999,
           "voice_mechanism_compound": 5.329999999999999,
-          "voice_estill_quality": 14.2395,
+          "voice_estill_quality": 14.19,
           "voice_speech_song": 22.685,
           "voice_ensemble_config": 17.029999999999994,
           "voice_ornament_system": 3.672500000000001,
           "voice_pitch_organization": 5.065,
           "voice_processing_chain": 6.5249999999999995,
-          "voice_multitrack_stack": 4.6195
+          "voice_multitrack_stack": 4.525
         }
       }
     ],

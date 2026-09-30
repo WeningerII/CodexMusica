@@ -1,0 +1,153 @@
+{
+  "id": "danish_singer_songwriter",
+  "name": "Danish singer-songwriter",
+  "family": "vernacular",
+  "lineage": "Danish singer-songwriters work across acoustic, pop and chamber-oriented production. Agnes Obel represents this piano-and-voice-centered branch, developed through her self-written and self-produced recordings.",
+  "recipe": "classic modern danish singer-songwriter, ballad Poetry, anglo singer song branch. extended whistle, interlocked note trading, neutral third half flat, opera quality low larynx anchored. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, mass production synthetic varnish cello. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 455,
+  "score": 53.646,
+  "config": {
+    "traditions": [
+      "danish_singer_songwriter"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "breath_admixed_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 3.185,
+          "voice_quality": -0.35,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 4.485,
+          "voice_microtone": 4.290000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 4.355,
+          "voice_speech_song": 7.215,
+          "voice_ensemble_config": 6.11,
+          "voice_ornament_system": 4.355,
+          "voice_pitch_organization": 0.3045,
+          "voice_processing_chain": 2.405,
+          "voice_multitrack_stack": 0.333
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.45,
+          "grand_piano_size": 0.3045,
+          "grand_piano_brand": 0.5775,
+          "piano_hammer": 2.6115000000000004,
+          "piano_rim": 3.185,
+          "piano_soundboard": 2.5235000000000003,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.17,
+          "piano_pitch_standard": 0.7149999999999999
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "silver_wound_lamb_gut_cello",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
+          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "brazilwood_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 0.313,
+          "cello_strings": 0.6519999999999999,
+          "cello_top_wood": -0.035,
+          "cello_back_wood": -0.035,
+          "cello_varnish": 1.2349999999999999,
+          "cello_setup_period": -0.07,
+          "cello_bow_grip": 0.3465,
+          "cello_rosin": 0.26,
+          "cello_bow_stick": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_quality",
+        "voice_tradition",
+        "voice_multitrack_stack"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_setup_period"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_quality": "breath_admixed_voice",
+      "voice_multitrack_stack": "voice_multitrack_unison_double_take",
+      "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+      "bowed_technique": "bowed_legato_classical",
+      "cello_setup_period": "modern_setup_cello",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

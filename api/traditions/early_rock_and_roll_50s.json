@@ -3,14 +3,14 @@
   "name": "Early rock-and-roll (1954–1958)",
   "family": "vernacular",
   "lineage": "Mid-1950s rhythm-and-blues into rock-and-roll transitional zone — codified through Bill Haley and His Comets (\"Rock Around the Clock\" 1954), Chuck Berry (\"Maybellene\" 1955), Elvis Presley’s Sun Records sessions (1954-55) and RCA crossover (1956), Little Richard (\"Tutti Frutti\" 1955), Fats Domino, and Jerry Lee Lewis — characterized by 12-bar-blues form adapted to teen-pop subject matter, electric-guitar-led instrumentation, and the Sun / Chess / Specialty / Atlantic indie-label distribution ecosystem",
-  "recipe": "classic North American early rock-and-roll, distorted Rock, classic branch, blues electric functional song chicago blues blues-rock guitar. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright acoustic leaning laminated maple archtop, upright bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, selmer mark vi canonical 1954 1974 jazz paris saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 658,
-  "score": 220.46,
+  "recipe": "classic North American early rock-and-roll, distorted Rock, classic branch, blues electric functional song blues band chicago blues. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright acoustic leaning laminated maple archtop, upright bass, pre muffled edge muffled brushes-and-sticks drum kit, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, selmer mark vi canonical 1954 1974 jazz paris saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 654,
+  "score": 231.757,
   "config": {
     "traditions": [
       "early_rock_and_roll_50s",
-      "chicago_blues",
-      "blues_rock_guitar"
+      "blues_band",
+      "chicago_blues"
     ],
     "instruments": [
       {
@@ -24,8 +24,8 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "bend_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -34,19 +34,19 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 37.09500000000001,
-          "voice_quality": 10.529999999999987,
+          "voice_register": 37.845000000000006,
+          "voice_quality": 11.569999999999986,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.905,
-          "voice_articulation": 12.674999999999997,
-          "voice_microtone": 20.544999999999998,
-          "voice_tradition": 10.205,
-          "voice_mechanism_compound": 1.755,
-          "voice_estill_quality": 2.145,
-          "voice_speech_song": 16.184999999999995,
-          "voice_ensemble_config": 12.869999999999996,
-          "voice_ornament_system": 1.8849999999999996,
+          "voice_vibrato": 24.904999999999994,
+          "voice_articulation": 14.625,
+          "voice_microtone": 22.544999999999995,
+          "voice_tradition": 11.244999999999996,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 16.639999999999997,
+          "voice_ensemble_config": 14.819999999999999,
+          "voice_ornament_system": 1.6899999999999997,
           "voice_pitch_organization": 1.4949999999999999,
           "voice_processing_chain": 6.044999999999999,
           "voice_multitrack_stack": 2.0149999999999997
@@ -63,12 +63,12 @@
           "archtop_technique": "archtop_comp_swing"
         },
         "scores": {
-          "amp_make": 3.8024999999999998,
+          "amp_make": 3.5100000000000002,
           "archtop_body": 2.46,
-          "archtop_pickup": 2.145,
+          "archtop_pickup": 1.95,
           "archtop_top_wood": 1.765,
           "archtop_strings": 1.1374999999999997,
-          "archtop_technique": 2.36
+          "archtop_technique": 2.015
         }
       },
       {
@@ -85,13 +85,13 @@
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.494999999999997,
-          "drumhead": 2.6,
+          "drum_technique": 13.909999999999998,
+          "drumhead": 2.45,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,18 +112,18 @@
           "keyboard_technique": 3.035,
           "grand_piano_size": 1.885,
           "grand_piano_brand": 1.885,
-          "piano_hammer": 6.34,
+          "piano_hammer": 5.84,
           "piano_rim": 6.880000000000001,
           "piano_soundboard": 2.495,
           "piano_pinblock": 0.06499999999999999,
           "piano_plate": -0.035,
-          "piano_pitch_standard": 2.2749999999999995
+          "piano_pitch_standard": 0.78
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_breath_quiet",
           "sax_size": "baritone_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
@@ -132,7 +132,7 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.19500000000000003,
+          "wind_articulation": 1.71,
           "sax_size": 1.4949999999999999,
           "sax_reed": 0.195,
           "sax_body_alloy": 0.9199999999999999,

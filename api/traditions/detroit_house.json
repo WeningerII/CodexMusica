@@ -3,14 +3,14 @@
   "name": "Detroit house",
   "family": "electronic",
   "lineage": "Detroit producer-led house associated with Theo Parrish, Moodymann and Sound Signature: disco and soul sampling, jazz-informed keyboard movement, elastic groove and independent record culture. This selection follows the sample-and-keyboard strand rather than equating all Detroit electronic music with techno.",
-  "recipe": "classic modern detroit house, electronic Dance, deep house branch, chicago house house, techno electronic dance, soul R&B functional song british soul modern r&b. sampler, tremolo chordal mark 7 modern tine post 2007 reissue ostinato rhodes electric, sampler drum machine, low sub bass analog mono synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter.",
-  "recipe_chars": 518,
-  "score": 87.823,
+  "recipe": "classic modern detroit house, electronic Dance, deep house branch, chicago house house, techno electronic dance, soul R&B functional song british soul doo-wop. sampler, tremolo chordal centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, sampler drum machine, analog mono synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter.",
+  "recipe_chars": 524,
+  "score": 81.888,
   "config": {
     "traditions": [
       "detroit_house",
       "british_soul",
-      "modern_rb"
+      "doo_wop"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.275,
+          "electronic_technique": 0.4225,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 1.24,
+          "sampler_bit_depth": 0.195,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 46.349999999999994
+          "sampler_classic_context": 48.64999999999999
         }
       },
       {
@@ -41,12 +41,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 18.8,
+          "keyboard_technique": 19.049999999999997,
           "rhodes_model": 1.235,
           "rhodes_use": 1.235,
-          "rhodes_tine_material": 1.495,
-          "rhodes_hammer_tip": -0.3849999999999999,
-          "rhodes_pickup_position": 0.845
+          "rhodes_tine_material": 0.195,
+          "rhodes_hammer_tip": -0.2799999999999999,
+          "rhodes_pickup_position": 1.04
         }
       },
       {
@@ -58,8 +58,8 @@
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 2.275,
-          "sample_bitdepth": 1.24,
+          "electronic_technique": 0.4225,
+          "sample_bitdepth": 0.195,
           "sample_swing": 1.2,
           "sample_processing": -0.05
         }
@@ -74,11 +74,11 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 5.1674999999999995,
+          "electronic_technique": 2.7625,
           "mono_oscillator": 0,
           "mono_filter": 1.235,
-          "mono_archetypes": 2.4699999999999998,
-          "mono_maker_lineage": -1.435
+          "mono_archetypes": 2.8600000000000003,
+          "mono_maker_lineage": -0.91
         }
       }
     ],

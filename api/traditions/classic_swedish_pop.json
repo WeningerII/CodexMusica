@@ -1,0 +1,282 @@
+{
+  "id": "classic_swedish_pop",
+  "name": "Classic swedish pop",
+  "family": "pop",
+  "lineage": "Historic Swedish pop represented by ABBA’s layered1970s studio arrangements. This model keeps piano, paired lead voices, guitar/bass/drums, the distinct marimba hook documented for Mamma Mia, and a bowed-string overdub color. It does not prescribe one ensemble for every Swedish-language or English-language classic.",
+  "recipe": "classic classic swedish pop, functional Song, europop branch. one note per syllable, duet, thirds fifths octaves voicing. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marimba cremonese pre 1750 four layer system modern setup longer neck longer fingerboard violin orchestral, soft down tuning clean strummed single coil electric guitar, la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled drum kit. treated studio. large-diaphragm condenser, ultra-clean solid-state pre, colored vintage console, clean digital mastering EQ. Studer 30ips tape.",
+  "recipe_chars": 614,
+  "score": 69.552,
+  "config": {
+    "traditions": [
+      "classic_swedish_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.5625,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.9749999999999996
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 7.45,
+          "grand_piano_size": 0.3295,
+          "grand_piano_brand": 0.39249999999999996,
+          "piano_hammer": 7.6915000000000004,
+          "piano_rim": 8.9095,
+          "piano_soundboard": 7.75,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 2.015
+        }
+      },
+      {
+        "id": "marimba_orchestral",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "marimba_size": "marimba_4_octave",
+          "marimba_orchestral_bar": "marimba_orchestral_honduran"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "marimba_size": 0.0315,
+          "marimba_orchestral_bar": -0.05
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_champ",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 8.25,
+          "amp_make": 1.255,
+          "body_wood": 0.298,
+          "neck_wood": 0.298,
+          "fretboard": 0.1365,
+          "pickup_magnet": 0,
+          "string_material": 0,
+          "string_gauge": 0.3295,
+          "bridge": 0.2415,
+          "scale_length": 0.596,
+          "finish": 0,
+          "string_tuning": 2.6
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 1.2349999999999999,
+          "body_wood": 0.596,
+          "pickup_config": 0.2415,
+          "string_type": 1.17,
+          "scale_length_b": 0.3295,
+          "fretted_or_not": 0.3315,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_disco_four",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": -0.035,
+          "drumhead": 7.555000000000001,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "orch_strings": 0,
+          "orch_top_wood": 0.325,
+          "orch_back_wood": 0.325,
+          "orch_varnish": 1.2,
+          "orch_setup_period": 1.56,
+          "orch_bow": 1.6379999999999997,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.20700000000000002,
+          "orch_rosin": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ],
+      "marimba_orchestral": [
+        "percussion_technique",
+        "marimba_size",
+        "marimba_orchestral_bar"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ],
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings",
+        "orch_articulation"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "colored",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "electric_technique": "electric_clean_strummed",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_disco_four",
+      "percussion_technique": "percussion_mallets_orchestral",
+      "marimba_size": "marimba_4_octave",
+      "marimba_orchestral_bar": "marimba_orchestral_honduran",
+      "bowed_technique": "bowed_legato_classical",
+      "orch_strings": "synthetic_orch",
+      "orch_articulation": "arco_orch"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "tape_30ips",
+    "chain_console": "colored"
+  }
+}

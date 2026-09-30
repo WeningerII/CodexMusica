@@ -5,7 +5,7 @@
   "lineage": "Nineteenth-century Anglo-American frontier repertoire of the trans-Mississippi West (roughly 1840s-1890s), carried by soldiers, freighters, miners and trail crews and later salvaged by collectors John A. Lomax (Cowboy Songs, 1910) and N. Howard 'Jack' Thorp — solo or duo performance of parlor sentimental songs, broadside ballads and Anglo-Celtic fiddle tunes on fiddle in cross-tuning, gut-strung parlor guitar and harmonica, sung in an unforced declamatory chest voice with free rubato in ballads and a hard-driving 2/4 or 6/8 in the dance tunes.",
   "recipe": "classic mid-1840s old west frontier music, functional Song, pre commercial branch, anglo singer song country folk story, anglo American protest song texas country-folk storyteller american folk-revival protest song. thick, breath veiled tone, straight note core, interlocked note trading. plain gut sheep gut double stops fiddle, dadgad tuning mahogany plain gut sheep gut pre 1900 parlor parlor acoustic guitar, pearwood marine band tradition stainless steel steel solo canonical chromatic harmonica, wood plain gut minstrel pre 1860s fretless canon scruggs stelling banjo 5 string, american reed organ. adobe room. acoustic horn. wax cylinder.",
   "recipe_chars": 645,
-  "score": 296.423,
+  "score": 296.943,
   "config": {
     "traditions": [
       "old_west",
@@ -46,7 +46,7 @@
           "string_tuning": 4.1000000000000005,
           "top_wood_parlor": 1.042,
           "back_sides_parlor": 0.7735,
-          "string_acoustic_parlor": 6.776875
+          "string_acoustic_parlor": 6.91
         }
       },
       {
@@ -60,7 +60,7 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "harmonica_type": 0.2415,
+          "harmonica_type": 0.273,
           "harmonica_comb": 2.145,
           "harmonica_reed": 1.898,
           "harmonica_technique": 24.889999999999997,
@@ -123,9 +123,9 @@
           "voice_vibrato": 15.339999999999998,
           "voice_articulation": 15.404999999999994,
           "voice_microtone": 15.209999999999992,
-          "voice_tradition": 18.008125,
+          "voice_tradition": 18.25825,
           "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 15.971999999999998,
+          "voice_estill_quality": 16.076999999999998,
           "voice_speech_song": 25.934999999999995,
           "voice_ensemble_config": 17.224999999999994,
           "voice_ornament_system": 4.9311250000000015,

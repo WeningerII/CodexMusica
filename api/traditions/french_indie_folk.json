@@ -1,0 +1,145 @@
+{
+  "id": "french_indie_folk",
+  "name": "French indie folk",
+  "family": "vernacular",
+  "lineage": "An independent folk-song discovery cluster whose exact roster includes Piers Faccini, Moriarty and Yodelice. France-based Faccini’s documented voice, guitar and cello collaboration supplies this intimate, cross-cultural branch.",
+  "recipe": "classic modern french indie folk, ballad Poetry, indie folk branch. thick, neutral third half flat, opera quality low larynx anchored, notated speech melody. fingerpicked acoustic guitar, pirastro cellisto cello specific cello. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 365,
+  "score": 52.141,
+  "config": {
+    "traditions": [
+      "french_indie_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "breath_admixed_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_tube_saturation",
+          "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
+        },
+        "scores": {
+          "voice_register": 9.167999999999997,
+          "voice_quality": -0.35,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.105,
+          "voice_microtone": 3.7700000000000005,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 3.4450000000000003,
+          "voice_speech_song": 7.215,
+          "voice_ensemble_config": 7.279999999999999,
+          "voice_ornament_system": 1.755,
+          "voice_pitch_organization": 0.505,
+          "voice_processing_chain": 1.5545,
+          "voice_multitrack_stack": 1.24225
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "silk_steel_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0.45149999999999996,
+          "back_sides": 0.2415,
+          "string_acoustic": 0.5257499999999999,
+          "acoustic_om_technique": 12.145999999999997
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "engelmann_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
+          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "brazilwood_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 0.2,
+          "cello_strings": 0.273,
+          "cello_top_wood": -0.035,
+          "cello_back_wood": -0.035,
+          "cello_varnish": -0.035,
+          "cello_setup_period": -0.07,
+          "cello_bow_grip": 0.24225000000000002,
+          "cello_rosin": 1.4415,
+          "cello_bow_stick": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_quality",
+        "voice_articulation",
+        "voice_tradition"
+      ],
+      "acoustic_guitar_om": [
+        "acoustic_om_technique"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_setup_period"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_quality": "breath_admixed_voice",
+      "voice_articulation": "legato_voice",
+      "acoustic_om_technique": "om_fingerpicked",
+      "bowed_technique": "bowed_pizzicato",
+      "cello_setup_period": "modern_setup_cello",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

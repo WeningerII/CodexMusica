@@ -3,9 +3,9 @@
   "name": "Art pop",
   "family": "global",
   "lineage": "High-concept songwriter pop with avant-garde production sensibility — Kate Bush, Peter Gabriel, Brian Eno, Talk Talk Spirit of Eden, Bjork, Sufjan Stevens, Joanna Newsom, FKA twigs, Bon Iver",
-  "recipe": "classic North American modern art pop, functional Song, pop rock branch, pop experimental experimental electric glitch pop bubblegum bass. thick, chest mix belt, wide pitch sway, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, plucked short envelope analog poly synth, string quartet inst, alnico clean strummed humbucker electric guitar, 2000s elastic pitch edited stack formant shifted left right stereo width multitrack vocal stack. greenwich village 1970-present major-flagship electric lady studios nyc. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 707,
-  "score": 270.58,
+  "recipe": "classic North American modern art pop, functional Song, pop rock branch, pop experimental experimental electric glitch pop bubblegum bass. thick, chest mix belt, wide pitch sway, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, plucked short envelope analog poly synth, string quartet inst, alnico soft down tuning clean strummed humbucker electric guitar, 2000s elastic pitch edited stack formant shifted left right stereo width multitrack vocal stack. greenwich village 1970-present major-flagship electric lady studios nyc. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 724,
+  "score": 270.382,
   "config": {
     "traditions": [
       "art_pop",
@@ -40,8 +40,8 @@
           "voice_effort": 0,
           "voice_vibrato": 0.52,
           "voice_articulation": 9.035,
-          "voice_microtone": 23.424999999999997,
-          "voice_tradition": 23.842,
+          "voice_microtone": 23.574999999999996,
+          "voice_tradition": 23.934999999999995,
           "voice_mechanism_compound": 3.445,
           "voice_estill_quality": 2.6000000000000005,
           "voice_speech_song": 14.039999999999996,
@@ -67,9 +67,9 @@
         },
         "scores": {
           "keyboard_technique": 19.95,
-          "grand_piano_size": 0.2265,
+          "grand_piano_size": 0.195,
           "grand_piano_brand": 0.195,
-          "piano_hammer": 18.441499999999998,
+          "piano_hammer": 18.305,
           "piano_rim": 18.2,
           "piano_soundboard": 18.245,
           "piano_pinblock": -0.05,
@@ -87,9 +87,9 @@
         },
         "scores": {
           "electronic_technique": 18.865,
-          "poly_archetypes": 2.795,
+          "poly_archetypes": 2.705,
           "poly_voices": 0.15,
-          "poly_maker_lineage": -2.0185
+          "poly_maker_lineage": -2.05
         }
       },
       {
@@ -117,22 +117,22 @@
           "pickup_winding": "low_wind",
           "string_material": "pure_nickel_h",
           "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_gibson_h",
           "string_gauge": "g_12_hum",
           "finish": "poly_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "eb_standard"
         },
         "scores": {
           "electric_technique": 18.625,
-          "amp_make": 2.6650000000000005,
+          "amp_make": 2.515,
           "body_wood": 0.845,
           "neck_wood": 0.195,
           "fretboard": 0.39,
           "pickup_magnet": 1.2850000000000001,
-          "pickup_winding": 0.6615,
+          "pickup_winding": 0.63,
           "string_material": 0.195,
           "bridge": 0.195,
-          "scale_length": 0.21,
+          "scale_length": 0.195,
           "string_gauge": 0.195,
           "finish": 0.65,
           "string_tuning": 3.445
@@ -146,7 +146,7 @@
           "multitrack_stack_processing": "multitrack_processing_formant_split_stereo"
         },
         "scores": {
-          "multitrack_stack_density": 0.435,
+          "multitrack_stack_density": 0.48,
           "multitrack_stack_era_aesthetic": 2.8600000000000003,
           "multitrack_stack_processing": 1.69
         }

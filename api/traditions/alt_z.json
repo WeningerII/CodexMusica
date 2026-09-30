@@ -5,7 +5,7 @@
   "lineage": "Streaming-era alternative pop category consolidated around 2018-2022 out of American and Anglo bedroom-production scenes (Billie Eilish and Finneas in Highland Park, Clairo, girl in red) — 80-110 BPM halftime or trap-derived programmed beats, sub-heavy 808 or synth bass, deliberately dry close-miked whisper-register lead vocals with audible breath and lip noise, sparse harmonic beds of detuned pads or muted guitar, and confessional first-person lyrics",
   "recipe": "classic 2018-2022 alt-z, functional Song, pop rock branch, pop experimental experimental electric, anglo singer song bedroom singer song, lofi experimental electric time lord rock indietronica. thick, breath veiled tone, breath pulsed, interlocked note trading. lead plus dense cluster 5 part stack chorus detuned thickener across stack multitrack vocal stack, singing lead analog poly synth, TR-808, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation roasted maple single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, glitched textural sampler, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 817,
-  "score": 397.847,
+  "score": 398.072,
   "config": {
     "traditions": [
       "alt_z",
@@ -40,15 +40,15 @@
           "voice_effort": 0,
           "voice_vibrato": 1.345,
           "voice_articulation": 17.354999999999997,
-          "voice_microtone": 25.174999999999997,
-          "voice_tradition": 24.479999999999997,
+          "voice_microtone": 25.324999999999996,
+          "voice_tradition": 24.959999999999994,
           "voice_mechanism_compound": 3.965,
-          "voice_estill_quality": 4.615,
+          "voice_estill_quality": 4.585000000000001,
           "voice_speech_song": 24.114999999999995,
           "voice_ensemble_config": 17.614999999999995,
-          "voice_ornament_system": 4.030000000000001,
+          "voice_ornament_system": 3.7000000000000006,
           "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 5.824999999999999,
+          "voice_processing_chain": 5.779999999999999,
           "voice_multitrack_stack": 3.575
         }
       },
@@ -60,7 +60,7 @@
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 3.185,
+          "multitrack_stack_density": 3.23,
           "multitrack_stack_era_aesthetic": 0.4225,
           "multitrack_stack_processing": 1.4949999999999999
         }
@@ -74,9 +74,9 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 22.02,
-          "poly_archetypes": 3.1,
-          "poly_voices": 0.195,
+          "electronic_technique": 22.064999999999998,
+          "poly_archetypes": 3.055,
+          "poly_voices": 0.045,
           "poly_maker_lineage": -1.05
         }
       },
@@ -102,7 +102,7 @@
           "neck_wood": "roasted_maple",
           "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_5",
-          "string_material": "nickel_plated",
+          "string_material": "flatwound_elec",
           "string_gauge": "g_12",
           "bridge": "two_point_trem",
           "scale_length": "scale_short",
@@ -116,7 +116,7 @@
           "neck_wood": 1.345,
           "fretboard": 0.39,
           "pickup_magnet": 0.045,
-          "string_material": 0,
+          "string_material": 0.195,
           "string_gauge": 0.39,
           "bridge": 0.39,
           "scale_length": 0.39,
@@ -139,7 +139,7 @@
         "scores": {
           "amp_make": 5.525,
           "body_wood": 0.39,
-          "pickup_config": 0.38999999999999996,
+          "pickup_config": 0.345,
           "string_type": 6.67,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.15,
@@ -157,7 +157,7 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 11.364999999999998,
+          "electronic_technique": 11.319999999999999,
           "sampler_archetypes": 0.975,
           "sampler_bit_depth": 0.9500000000000001,
           "sampler_workflow": 12.12,
@@ -169,7 +169,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_5_foot",
-          "grand_piano_brand": "fazioli",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",

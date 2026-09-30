@@ -1,0 +1,139 @@
+{
+  "id": "bluegrass_fiddle",
+  "name": "Bluegrass fiddle",
+  "family": "vernacular",
+  "lineage": "Fiddle-centered bluegrass repertoire and lead playing, represented by Kenny Baker’s work with Bill Monroe and by his own instrumental albums. Kentucky roots and Tennessee professional networks connect this practice to the wider bluegrass ensemble.",
+  "recipe": "classic modern bluegrass fiddle, improv On Frame, bluegrass branch. double stops fiddle, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, flatpicked dreadnought acoustic guitar, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 359,
+  "score": 102.317,
+  "config": {
+    "traditions": [
+      "bluegrass_fiddle"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 17.81,
+          "fiddle_strings": 0.546,
+          "fiddle_bow": 0.5145000000000001,
+          "fiddle_mute": 0.39,
+          "fiddle_articulation": 0.6,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "mandolin_shape": "f_style",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "eighty_twenty_m",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 12.368125,
+          "mandolin_shape": 12.0315,
+          "mandolin_top": 12.4725,
+          "mandolin_back": 12,
+          "mandolin_bracing": 12.0315,
+          "mandolin_strings": 0.5145000000000001,
+          "mandolin_fingerboard": 0.063,
+          "mandolin_pickup": 5.069999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 12.368125,
+          "string_tuning": 0,
+          "top_wood": 0.5145000000000001,
+          "back_sides": 0.6615000000000001,
+          "string_acoustic": 0.39
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0.546,
+          "upright_play": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_mute",
+        "fiddle_articulation"
+      ],
+      "mandolin": [
+        "acoustic_technique"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_acoustic"
+      ],
+      "upright_bass": [
+        "upright_play"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "bowed_technique": "bowed_bluegrass_double_stops",
+      "fiddle_articulation": "arco",
+      "fiddle_mute": "no_mute",
+      "fiddle_strings": "steel_core",
+      "acoustic_technique": "acoustic_flatpicked",
+      "string_acoustic": "phosphor_bronze",
+      "upright_play": "pizz_upright"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

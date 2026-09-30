@@ -1,0 +1,128 @@
+{
+  "id": "early_american_folk",
+  "name": "Early American folk",
+  "family": "vernacular",
+  "lineage": "Historical American song repertoires circulate through later revival performance and reconstruction. The selected branch uses nineteenth-century Civil War-era songs as documented in Folkways’ historical-song anthology, not a claim that its modern recording is an early sound recording.",
+  "recipe": "classic modern early american folk, ballad Poetry. thick, straight note core, neutral third half flat, m1 with m0 pulse borrowing. scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 357,
+  "score": 30.355,
+  "config": {
+    "traditions": [
+      "early_american_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "speech_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.0000000000000004,
+          "voice_quality": 0.3,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": -0.14,
+          "voice_microtone": 2.0799999999999996,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 6.565000000000001,
+          "voice_ensemble_config": 2.600000000000001,
+          "voice_ornament_system": 0.2,
+          "voice_pitch_organization": 2.3499999999999996,
+          "voice_processing_chain": 1.0365,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "open_back",
+          "tone_ring": "tubaphone",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "two_finger",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_mahogany_neck",
+          "banjo_strings": "banjo_nylgut",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0,
+          "tone_ring": 0,
+          "banjo_head": 2.47,
+          "banjo_pot": 0.273,
+          "banjo_play": 0,
+          "banjo_rim_wood": 0,
+          "banjo_neck_wood": 0.6,
+          "banjo_strings": 0,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 2.4050000000000002
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_quality",
+        "voice_articulation",
+        "voice_tradition"
+      ],
+      "banjo_5_string": [
+        "banjo_back",
+        "banjo_play",
+        "banjo_strings"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "voice_quality": "speech_voice",
+      "banjo_back": "open_back",
+      "banjo_play": "two_finger",
+      "banjo_strings": "banjo_nylgut",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

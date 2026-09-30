@@ -3,24 +3,24 @@
   "name": "French berceuse (cradle song)",
   "family": "global",
   "lineage": "French cradle-song tradition continuous from medieval and Renaissance courtly-and-rural berceuse through 19th-century Romantic art-song setting (Fauré, Berlioz, Saint-Saëns) and 20th-century chanson appropriation",
-  "recipe": "classic modern french berceuse, lullaby, European branch, chanson fado ballad poetry, western common practice art music, europop functional song morna. extended whistle, lament wail, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 290,
-  "score": 127.985,
+  "recipe": "classic modern french berceuse, lullaby, European branch, chanson fado ballad poetry, western common practice art music, europop functional song nouvelle chanson française. thick, lament wail, straight note core, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 309,
+  "score": 115.502,
   "config": {
     "traditions": [
       "french_berceuse",
       "chanson",
-      "morna"
+      "nouvelle_chanson_francaise"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "fado_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.755,
-          "voice_quality": 12.910000000000004,
+          "voice_register": 2.995000000000002,
+          "voice_quality": 9.96,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9575000000000005,
-          "voice_articulation": 19.695,
-          "voice_microtone": 19.499999999999996,
-          "voice_tradition": 6.955000000000001,
-          "voice_mechanism_compound": 3.51,
-          "voice_estill_quality": 3.1200000000000006,
+          "voice_vibrato": 1.885,
+          "voice_articulation": 18.33,
+          "voice_microtone": 18.264999999999993,
+          "voice_tradition": 4.875,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 3.575000000000001,
           "voice_speech_song": 27.364999999999995,
-          "voice_ensemble_config": 19.89,
-          "voice_ornament_system": 1.6899999999999997,
-          "voice_pitch_organization": 4.680000000000001,
-          "voice_processing_chain": 5.817499999999999,
-          "voice_multitrack_stack": 4.9399999999999995
+          "voice_ensemble_config": 18.719999999999995,
+          "voice_ornament_system": 1.2999999999999998,
+          "voice_pitch_organization": 5.030000000000001,
+          "voice_processing_chain": 3.5100000000000002,
+          "voice_multitrack_stack": 3.120000000000001
         }
       }
     ],

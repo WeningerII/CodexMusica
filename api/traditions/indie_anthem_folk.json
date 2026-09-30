@@ -5,7 +5,7 @@
   "lineage": "Indie anthem-folk is a discovery cluster that includes the Paper Kites, linking acoustic ensemble songcraft with shared refrains and indie-band arrangements. The tag does not require maximum volume or stadium-sized percussion.",
   "recipe": "classic modern indie anthem-folk, ballad Poetry, indie folk branch. thick, interlocked note trading, neutral third half flat, m1 with m0 pulse borrowing. fingerpicked acoustic guitar, wood scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, electric bass, brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 459,
-  "score": 54.272,
+  "score": 54.241,
   "config": {
     "traditions": [
       "indie_anthem_folk"
@@ -112,7 +112,7 @@
           "pickup_config": 0.273,
           "string_type": 0.47250000000000003,
           "scale_length_b": 0.45149999999999996,
-          "fretted_or_not": 0.0945,
+          "fretted_or_not": 0.063,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
