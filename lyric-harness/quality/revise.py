@@ -2610,7 +2610,13 @@ class Reviser:
         _, endwords, _, matrix = self._matrix(lines, profile=profile)
         edges = {tuple(c["lines"]) for c in rep["collisions"]}
         th = self.decl.theta_rhyme
-        out = []
+        # TWO PASSES (2026-09-30). The first finds every group pair that
+        # clears (a) and the cross pairs (b) leaves unresolved; the second
+        # asks the schema judge ONCE, for exactly those pairs. Asked per
+        # candidate with no pair list, the judge measured every line pair of
+        # the draft -- 5,356 of them on a 104-line song, the largest cost
+        # left in a grade once the pair ban stopped building fields.
+        candidates = []
         for a in range(len(m.groups)):
             for b in range(a + 1, len(m.groups)):
                 ga, gb = m.groups[a], m.groups[b]
@@ -2656,25 +2662,29 @@ class Reviser:
                         unresolved.append((i, j))
                 if not ok:
                     continue
-                if unresolved and not self._schema_satisfies(
-                        lines, m, unresolved, sections=sections):
-                    continue
-                declared, how = self._declared_return(m, a, b)
-                out.append({
-                    "groups": (a, b),
-                    "labels": (m.labels[a], m.labels[b]),
-                    "members": (list(ga), list(gb)),
-                    "lines": sorted(set(ga) | set(gb)),
-                    "edges": [(i, j, matrix[i - 1][j - 1]["total"],
-                               tuple(sorted(matrix[i - 1][j - 1]["relations"])),
-                               endwords[i - 1], endwords[j - 1])
-                              for i, j in cross],
-                    "declared": declared,
-                    "how": how or ("derived from the rhyme graph; the mandate "
-                                   "cannot state a return")})
+                candidates.append((a, b, ga, gb, cross, unresolved))
+        among = {p for *_x, unresolved in candidates for p in unresolved}
+        out = []
+        for a, b, ga, gb, cross, unresolved in candidates:
+            if unresolved and not self._schema_satisfies(
+                    lines, m, unresolved, sections=sections, among=among):
+                continue
+            declared, how = self._declared_return(m, a, b)
+            out.append({
+                "groups": (a, b),
+                "labels": (m.labels[a], m.labels[b]),
+                "members": (list(ga), list(gb)),
+                "lines": sorted(set(ga) | set(gb)),
+                "edges": [(i, j, matrix[i - 1][j - 1]["total"],
+                           tuple(sorted(matrix[i - 1][j - 1]["relations"])),
+                           endwords[i - 1], endwords[j - 1])
+                          for i, j in cross],
+                "declared": declared,
+                "how": how or ("derived from the rhyme graph; the mandate "
+                               "cannot state a return")})
         return out
 
-    def _schema_satisfies(self, lines, m, pairs, sections=None):
+    def _schema_satisfies(self, lines, m, pairs, sections=None, among=None):
         """Do ALL these mandated line pairs stand in some registered schema?
 
         THE 77-SCHEMA HALF OF THE DEFAULT (owner ruling 2026-08-25, M-116),
@@ -2695,13 +2705,25 @@ class Reviser:
         caller who NARROWED `Declaration.admit` has declared what satisfies
         them, and the rescue does not override a declaration.
         `lyric_harness.admit_is_default` is the one definition.
+
+        ONLY THE PAIRS ASKED ABOUT ARE MEASURED (2026-09-30). `among` is
+        every pair the caller will ask about in this pass (`group_merges`
+        collects them first), so one call answers them all; without it the
+        judge is asked for `pairs` alone. An unrequested pair is absent from
+        the answer, never measured false, and a requested pair's answer is
+        the one the full registry gives in full context
+        (`test_production_relations.py`
+        `test_requested_pairs_match_full_registry_in_full_context`).
         """
         from lyric_harness import admit_is_default as _AID
         if not _AID(self.decl):
             return False
+        asked = frozenset(tuple(sorted(p)) for p in (among or pairs))
+        asked |= frozenset(tuple(sorted(p)) for p in pairs)
         key = (tuple(lines),
                tuple(tuple(g) for g in getattr(m, "groups", ())),
-               tuple(sections) if sections else None)
+               tuple(sections) if sections else None,
+               asked)
         hit = getattr(self, "_wvp_cache", None)
         if hit is None:
             hit = self._wvp_cache = {}
@@ -2712,7 +2734,8 @@ class Reviser:
             hit[key] = _RF.whole_vocabulary_pairs(
                 lines, self._relation_phonology(), sections=sections,
                 bearing={ln - 1 for g in getattr(m, "groups", ())
-                         for ln in g if 1 <= ln <= len(lines)})
+                         for ln in g if 1 <= ln <= len(lines)},
+                requested_pairs=asked)
         wvp = hit[key]
         return all(tuple(sorted(p)) in wvp for p in pairs)
 
@@ -3383,8 +3406,11 @@ class Reviser:
         # tiers for the OFFERS, so menu and verdict agree).
         # THE HEAD ONLY (M-185): `modal_field` also builds the offer,
         # and the offer now screens its words by their own heads.
-        forbidden_i = self.modal_head(wi, profile=profile)
-        forbidden_j = self.modal_head(wj, profile=profile)
+        # The head from the table's own partners (`modal_head_evidenced`):
+        # the same words `modal_head` would name past tier 1, without
+        # building either word's whole field.
+        forbidden_i = self.modal_head_evidenced(wi, profile=profile)
+        forbidden_j = self.modal_head_evidenced(wj, profile=profile)
 
         # ~~"is one of the {modal_exclusion} most-predictable answers"~~ —
         # 2026-09-24, EVIDENCE-GATED HEAD (`_rank_field_compute`). The head
@@ -4950,6 +4976,135 @@ class Reviser:
         """
         _, forbidden, _ = self._rank_field([call_word], profile=profile)
         return forbidden
+
+    def modal_head_evidenced(self, call_word, profile=None):
+        """-> tier 2 of `modal_head` alone: the evidence-gated head, without
+        the same-spelled class, computed from the song table's own partners
+        instead of from the whole field.
+
+        WHY IT EXISTS (2026-09-30). `earned_pair_ban` asks every mandated
+        pair for both words' heads, and `modal_head` builds each word's
+        COMPLETE field to answer — a scan of the whole candidate pool, then a
+        sort of every member. MEASURED on a 104-line draft with 141 mandated
+        pairs: 69% of a 14-minute grade, and the connector kills a grade at
+        600 s, so no song that long could be graded at all. The head never
+        needs the pool: since M-310 a word enters it only when the song
+        table has seen it answer the call (`cond > 0`), and the ranking's
+        primary key is that count. So the candidates are the table's own
+        partners — tens, not tens of thousands — and each is asked the
+        field's own membership question directly.
+
+        THE SAME ANSWER, NOT AN APPROXIMATION. Membership is the predicate
+        `_field_split` and `_member` apply, asked of one word: in the engine
+        pool (scored at `theta_rhyme - 0.15`, the cut `candidates` keeps),
+        coarse when an admitted relation holds on `best_score`, otherwise
+        pending when the schema half is open, or pending as a channel-sharing
+        extra; a pending word is a member when `_offerable` says so. The
+        order is the ranking's: count, then frequency rank (unique per word,
+        so the pool-order tiebreak never decides). The same-spelled class is
+        left out because the one caller answers it first, by spelling
+        (tier 1), and a partner sharing the call's spelled rime never
+        reaches this question. A declared `field_depth` cuts the pool by
+        rank, which only the full scan can apply, so that case asks
+        `modal_head` itself. `test_homeoteleuton.py` pins the identity
+        against `modal_head` word for word.
+        """
+        rd = self.rdecl
+        call_rime = self._spelled_rime(call_word)
+        if rd.field_depth is not None:
+            return [w for w in self.modal_head(call_word, profile=profile)
+                    if self._spelled_rime(w) != call_rime]
+        cache = getattr(self, "_evidenced_head_cache", None)
+        if cache is None:
+            cache = self._evidenced_head_cache = {}
+        key = (call_word, profile, self._promote(), rd.field_band,
+               rd.modal_exclusion, self.decl.theta_rhyme,
+               frozenset(self.decl.admit))
+        hit = cache.get(key)
+        if hit is not None:
+            return list(hit)
+        from lyric_harness import (admit_is_default as _AID, anchor as _anc,
+                                   score as _score, syllabify as _syl)
+        cond = collections.Counter()
+        cond.update(FREQ.LAYER.conditional(
+            "eng-song", call_word.lower(), scoring=FREQ.UNSEEN))
+        index = getattr(self, "_engine_word_index", None)
+        if index is None:
+            index = self._engine_word_index = {}
+            for word, anc, rank in self.engine.index:
+                index.setdefault(word, anc)
+        theta = self.decl.theta_rhyme
+        # The engine's own reading of the query (`CandidateEngine.candidates`)
+        phones, words, _oov = self.lex.transcribe(call_word)
+        anc_e = _anc(_syl(phones))
+        query_word = words[-1].lower() if words else ""
+        anc_q, w_q = self._word_anchors(call_word)
+        band = rd.field_band
+        if band not in ("grader", "scalar"):
+            raise ValueError(
+                f"ReviseDeclaration.field_band must be 'grader' or 'scalar', "
+                f"got {band!r}")
+        schemas_open = band == "grader" and _AID(self.decl)
+        keys = set()
+        if schemas_open and anc_q:
+            for a in anc_q:
+                if a:
+                    keys.add(("n", a[0]["nucleus"]))
+                    keys.add(("c", tuple(a[-1]["coda"])))
+                    keys.add(("o", tuple(a[0]["onset"])))
+        tail = (w_q or call_word).lower()[-3:]
+        call_low = call_word.lower()
+
+        def standing(w):
+            """-> 'coarse', 'pending', or None (not in the field's pool)."""
+            anc_c = index.get(w)
+            if anc_c is None or w == call_low:
+                return None
+            if anc_e and w != query_word:
+                total = _score(anc_e, anc_c, self.decl, query_word, w)["total"]
+                if total >= theta - 0.15:
+                    if band == "scalar":
+                        return "coarse" if total >= theta else None
+                    if total >= theta:
+                        anc_w, w_w = self._word_anchors(w)
+                        sc = best_score(anc_q, anc_w, self.decl, w_q, w_w,
+                                        profile=profile)
+                        if admits_decl(sc, self.decl):
+                            return "coarse"
+                    return "pending" if schemas_open else None
+            if schemas_open and anc_q and (
+                    ("n", anc_c[0]["nucleus"]) in keys
+                    or (("c", tuple(anc_c[-1]["coda"])) in keys
+                        and anc_c[-1]["coda"])
+                    or (("o", tuple(anc_c[0]["onset"])) in keys
+                        and anc_c[0]["onset"])
+                    or (len(tail) == 3 and w.endswith(tail))):
+                return "pending"
+            return None
+
+        def member(w, where):
+            if where == "coarse":
+                return True
+            anc_w, w_w = self._word_anchors(w)
+            s = (best_score(anc_q, anc_w, self.decl, w_q, w_w,
+                            profile=profile)
+                 if anc_q and anc_w else None)
+            return self._offerable(call_word, w, s)
+
+        where = {w: standing(w) for w, n in cond.items() if n > 0}
+        ranked = sorted((w for w, at in where.items() if at),
+                        key=lambda w: (-cond[w],
+                                       self.lex.freq_rank.get(w, 10 ** 9), w))
+        head = []
+        for w in ranked:
+            if len(head) >= rd.modal_exclusion:
+                break
+            if self._spelled_rime(w) == call_rime:
+                continue
+            if member(w, where[w]):
+                head.append(w)
+        cache[key] = tuple(head)
+        return head
 
     def _rank_field(self, calls, profile=None):
         """-> (rest_ranked, forbidden, fields): the two-tier ranking over the
