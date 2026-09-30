@@ -5685,6 +5685,16 @@ def test_types_can_declare_its_position_and_names_the_missing_axis():
           rc3 == 0 and "NAMES: UNNAMED at this coordinate" in still
           and "INCOMPLETE" not in still,
           [l for l in still.splitlines() if "NAMES" in l][:1])
+    rc5, mono, _ = run("types", "cat", "--", "hat", "--position=end")
+    names = next((l for l in mono.splitlines() if "NAMES:" in l), "")
+    check("two single words name no type whose span crosses a word "
+          "boundary — mosaic, compound, broken, split and phrasal rhyme need "
+          "one, and the boundary was DECLARED onto the pair, not measured "
+          "(song run A, 2026-09-30)",
+          rc5 == 0 and "masculine rhyme" in names
+          and not any(n in names for n in ("mosaic rhyme", "compound rhyme",
+                                             "broken rhyme", "split rhyme",
+                                             "phrasal rhyme")), names)
     rc4, help_, _ = run("--help")
     check("`--help` spells the flag beside the verb (the map, the usage and "
           "the dispatch are one set — `wiring`'s rule)",
