@@ -1,0 +1,30 @@
+{
+  "status": "data_only_incremental_source_checkpoint_not_merged",
+  "required_predecessor": "batch002;verify manifest baseline hashes",
+  "expected_additions": 100,
+  "archive_bytes": 223191,
+  "archive_sha256": "88173ae57421f631b3b1740ae0350dbba51b646c1c121906fe0d4d12b92494a0",
+  "base64_parts": [
+    "part-000.txt",
+    "part-001.txt",
+    "part-002.txt",
+    "part-003.txt",
+    "part-004.txt",
+    "part-005.txt",
+    "part-006.txt",
+    "part-007.txt",
+    "part-008.txt",
+    "part-009.txt",
+    "part-010.txt",
+    "part-011.txt",
+    "part-012.txt"
+  ],
+  "patch_sha256": "b711a1c1c398849a8b54997f1f0af03b6f27935bf8b134c64bb9398085003fe5",
+  "file_sha256": {
+    "genre-data.patch": "b711a1c1c398849a8b54997f1f0af03b6f27935bf8b134c64bb9398085003fe5",
+    "manifest.json": "b7f604a39868dcbf5f8fe768b3e5f93c10895d00e83a2ad3ff31a8f9021c970a",
+    "release-evidence.json": "e0710d4e868007cde722b72e06a5bf388ba9670f64f1e720dd4c9e0e900dc0a5",
+    "snapshot-review.json": "46d1da4d58f9ea7d93b09c841c0d06e73ab2552290c3f8dff5d7adeabeeaf34a",
+    "README.txt": "2d58b761b5f0b9b8549e881f2f8899df1239839b470bd22c18340056f80d2bbd"
+  }
+}
