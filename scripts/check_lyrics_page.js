@@ -42,7 +42,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global document, localStorage, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, pushHistory, uiNewTask, uiSaveLyrics */
+/* global document, localStorage, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, pushHistory, uiNewTask, uiSaveLyrics */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -1115,12 +1115,29 @@ async function browserChecks(chromium) {
       const sent = page.evaluate(() => LY_ACTIONS['ly-run-review']());
       await page.waitForFunction(() => chatState.busy);
       await page.evaluate(() => LY_ACTIONS['ly-tab']('writer'));
-      await page.waitForFunction(() => /Checking/.test($ui('ly-writer-status').innerText), null, {
-        timeout: 8000,
-      });
+      await page.waitForFunction(
+        () => /^Checking/.test(document.getElementById('ly-prog-h')?.innerText || ''),
+        null,
+        { timeout: 8000 }
+      );
       const w = await page.evaluate(() => $ui('ly-writer-status').innerText);
       check(/Elapsed/.test(w) && /Last update/.test(w), `the progress card lacks times: ${w}`);
       check(!/%/.test(w), 'the progress card shows a percentage');
+      check(
+        /1:0\d/.test(w) && /ago/.test(w),
+        `elapsed and last update are not read from the receipt's times: ${w}`
+      );
+      check(
+        await page.evaluate(() => {
+          const b = document.querySelector('[data-ui="ly-run-review"]');
+          return (
+            b.disabled &&
+            getComputedStyle(b).opacity !== '0' &&
+            getComputedStyle(b).visibility !== 'hidden'
+          );
+        }),
+        'Run review is not shown disabled while the writer works'
+      );
       check(
         /Reviewing this version/.test(await page.evaluate(() => $ui('ly-badge').innerText)),
         'the badge does not say the review is running'
@@ -1154,6 +1171,121 @@ async function browserChecks(chromium) {
       }));
       check(tools.rows === 6 && tools.doc === 'none', `phone Tools view: ${JSON.stringify(tools)}`);
       await shot(page, 'b7-phone-tools');
+      await ctx.close();
+    });
+
+    // ── 8. placement in bars, rhyme options, copy fallback ──────────────
+    await step('8. placement, rhyme options, copy', async () => {
+      const { ctx, page, q } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT.replace('[BRIDGE — 4 lines]', '[BRIDGE — 4 lines — 6/8]'));
+      // Two bars in 6/8 is twelve beats: the stored duration is the beats.
+      await page.evaluate(() => {
+        LY.picks.rhythmSec = 3;
+        LY.picks.durUnit = 'bars';
+        LY_ACTIONS['ly-tool']('rhythm');
+      });
+      await page.fill('[data-field="bar.13"]', '1');
+      await page.fill('[data-field="beat.13"]', '1');
+      await page.fill('[data-field="duration.13"]', '2');
+      await page.evaluate(() => LY_ACTIONS['ly-draft-apply']('rhythm'));
+      const placed = await page.evaluate(() =>
+        $ui('lyrics-draft')
+          .value.split('\n')
+          .find((r) => /^\[SETUP — placement/.test(r))
+      );
+      check(placed === '[SETUP — placement — 13:1:1:12]', `2 bars of 6/8 stored as ${placed}`);
+      // A partial row is refused and nothing is written.
+      await page.fill('[data-field="bar.14"]', '2');
+      await page.evaluate(() => LY_ACTIONS['ly-draft-apply']('rhythm'));
+      check(
+        (await page.evaluate(() => $ui('lyrics-draft').value.match(/placement — [^\]]*/)?.[0])) ===
+          'placement — 13:1:1:12',
+        'a partial placement row was written'
+      );
+      await page.evaluate(() => LY_ACTIONS['ly-draft-discard']('rhythm'));
+      // Ask writer for rhyme options: one request, a result card, nothing declared.
+      await page.evaluate(() => {
+        LY_ACTIONS['ly-tool']('');
+        lyScrollToLine(1);
+        LY_ACTIONS['ly-line-tool']('rhymes:1');
+      });
+      const before = await page.evaluate(() => $ui('lyrics-draft').value);
+      q.delay = 1200;
+      q.replies.push({
+        reply: 'Screened.',
+        history: [],
+        sig: 'fixture',
+        task: { domain: 'lyrics', phase: 'edit' },
+        lyric: null,
+        artifact: null,
+        tools: [
+          {
+            name: 'lyric_screen',
+            exit_code: 0,
+            pairs: [
+              { a: 'you', b: 'blue', codes: [], refused: false, relations: ['RHYME'] },
+              {
+                a: 'you',
+                b: 'too',
+                codes: ['HOMEOTELEUTON'],
+                refused: false,
+                relations: ['RHYME'],
+              },
+              {
+                a: 'you',
+                b: 'xyzzy',
+                codes: [],
+                refused: true,
+                reason: 'no reading',
+                relations: [],
+              },
+            ],
+          },
+        ],
+      });
+      const sent = page.evaluate(() => LY_ACTIONS['ly-rhyme-options']());
+      await page.waitForFunction(() => chatState.busy);
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('tools'));
+      check(
+        await page.evaluate(() => document.querySelector('[data-ui="ly-rhyme-options"]')?.disabled),
+        'Ask writer for rhyme options is not disabled while the writer works'
+      );
+      await sent;
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('tools'));
+      const card = await page.evaluate(
+        () => document.querySelector('#ly-panel-tools .ly-result')?.innerText || ''
+      );
+      check(
+        /Matched/.test(card) && /Partial/.test(card) && /Refused/.test(card),
+        `the rhyme options card reads: ${card}`
+      );
+      check(
+        q.calls.length === 1 && /lyric_screen/.test(q.calls[0].message),
+        'the rhyme request was not sent once'
+      );
+      check(
+        (await page.evaluate(() => $ui('lyrics-draft').value)) === before,
+        'rhyme options changed the document'
+      );
+      // A rejected clipboard write leaves the text selectable on the page.
+      await page.evaluate(() => {
+        Object.defineProperty(navigator, 'clipboard', {
+          configurable: true,
+          value: { writeText: () => Promise.reject(new Error('denied')) },
+        });
+        document.execCommand = () => false;
+        LY_ACTIONS['ly-copy-sung']();
+      });
+      await page.waitForFunction(() => !!document.querySelector('.ly-copy-text'), null, {
+        timeout: 5000,
+      });
+      const fb = await page.evaluate(() => document.querySelector('.ly-copy-text').value);
+      check(
+        fb.split('\n')[0] === 'I leave the porch light on for you' && !/\[/.test(fb),
+        'the copy fallback does not hold the sung lines'
+      );
+      await shot(page, 'b8-rhyme-options');
       await ctx.close();
     });
 

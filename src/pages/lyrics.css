@@ -44,6 +44,14 @@
 #surface-lyrics .cm-btn {
   min-height: var(--cm-control);
 }
+/* A disabled primary keeps its fill, dimmed, so Run review stays visible
+   (and readable) while the writer works. */
+#surface-lyrics .cm-btn-primary:disabled,
+#surface-lyrics .cm-btn-primary[aria-disabled='true'] {
+  background: var(--cm-accent);
+  color: var(--cm-on-accent);
+  opacity: 0.45;
+}
 #surface-lyrics :focus-visible {
   outline: 3px solid var(--cm-focus);
   outline-offset: 2px;
@@ -188,6 +196,10 @@
 }
 #surface-lyrics .ly-inline > span {
   flex: 1 1 200px;
+}
+#surface-lyrics .ly-copy-text {
+  flex: 1 1 100%;
+  width: 100%;
 }
 #surface-lyrics .ly-inline .ly-actions {
   flex: 1 1 100%;

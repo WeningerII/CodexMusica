@@ -1,5 +1,5 @@
 /* exported uiLyricsWaiting, lyDraftForWriter */
-/* global $ui, UI, UILayout, CHAT_BACKEND, _chatRecover, _chatReset, _chatSend, _chatSyncCount, app, chatState, compileRecipeStack, copyToClipboard, esc, icon, lyricMetaOf, pushHistory, showToast, uiAutosave, uiButton, uiChatOpen, uiCount, uiDownload, uiEmptyState, uiExport, uiFocus, uiNavigate, uiRegisterPage, uiSaveLyrics, uiSwitchChat, uiUpdatePrompt */
+/* global $ui, UI, UILayout, CHAT_BACKEND, _chatRecover, _chatReset, _chatSend, _chatSyncCount, app, chatState, compileRecipeStack, esc, execCopyFallback, icon, lyricMetaOf, pushHistory, showToast, uiAutosave, uiButton, uiChatOpen, uiCount, uiDownload, uiEmptyState, uiExport, uiFocus, uiNavigate, uiRegisterPage, uiSaveLyrics, uiSwitchChat, uiUpdatePrompt */
 /* Lyrics page. Owned by the Lyrics page worker; see docs/ui-foundation.md.
 
    THE DRAFT IS THE ONE SOURCE OF TRUTH. Everything this page shows is read
@@ -4024,11 +4024,15 @@ const LY_ACTIONS = {
   },
   'copy-lyrics'() {
     lyCloseMenus();
-    copyToClipboard(lyDraft().value, 'Copied with headers', 'Copy failed');
+    lyCopy(lyDraft().value, 'Copied with headers');
   },
   'ly-copy-sung'() {
     lyCloseMenus();
-    copyToClipboard(lySungTexts(LY.model).join('\n'), 'Sung lines copied', 'Copy failed');
+    lyCopy(lySungTexts(LY.model).join('\n'), 'Sung lines copied');
+  },
+  'ly-copy-close'() {
+    $ui('ly-doc-note').hidden = true;
+    $ui('ly-doc-note').innerHTML = '';
   },
   'ly-download'() {
     lyCloseMenus();
@@ -4609,6 +4613,24 @@ const LY_ACTIONS = {
     lyRefresh(true);
   },
 };
+
+// Copy: a fulfilled browser write confirms; a failure leaves the exact text
+// selected on the page so it can still be copied by hand.
+function lyCopy(text, ok) {
+  const done = () => showToast(ok, 'success');
+  const fail = () => {
+    const box = $ui('ly-doc-note');
+    box.innerHTML = `<div class="ly-inline" data-tone="danger" role="alert">${icon('circle-alert', 16)}<span><strong>Copy failed</strong> Select the text below and copy it.</span><textarea class="cm-input ly-copy-text" readonly rows="6" aria-label="Text to copy">${esc(text)}</textarea><span class="ly-actions">${lyBtn('ly-copy-close', 'Close', 'x', { cls: 'cm-btn cm-btn-outline' })}</span></div>`;
+    box.hidden = false;
+    const ta = box.querySelector('textarea');
+    ta.focus();
+    ta.select();
+    showToast('Copy failed', 'error');
+  };
+  if (navigator.clipboard && window.isSecureContext)
+    navigator.clipboard.writeText(text).then(done, () => execCopyFallback(text, done, fail));
+  else execCopyFallback(text, done, fail);
+}
 
 // ── Find ──────────────────────────────────────────────────────────────────
 function lyFindMatches() {

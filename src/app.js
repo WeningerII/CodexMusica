@@ -14647,15 +14647,17 @@ function withSavedWrite(fn){
   const run=()=>typeof navigator!=='undefined'&&navigator.locks?navigator.locks.request('codex-saved-workspaces',fn):fn();
   const next=_savedWriteQueue.then(run,run);_savedWriteQueue=next.catch(()=>{});return next;
 }
+// A saved copy: the open workspace stays open and keeps its name; the copy
+// is listed under Saved sessions and can be opened from the confirmation.
 async function saveWS(name) {
-  const snapshot=JSON.parse(JSON.stringify(sessionSnapshot()));
+  const snapshot=JSON.parse(JSON.stringify(sessionSnapshot()));let savedKey=null;
   if(!window.storage||window.storage.backend==='memory'){showToast('Permanent storage unavailable. Export your session.','error');return;}
   try {await withSavedWrite(async()=>{
-    const list=await readListStrict();if(window.storage.backend==='memory')throw Error('Permanent storage unavailable');const key='codex:ws:'+newId('ws');
+    const list=await readListStrict();if(window.storage.backend==='memory')throw Error('Permanent storage unavailable');const key=savedKey='codex:ws:'+newId('ws');
     const data={schema:WS_SCHEMA,key,name,saved_at:new Date().toISOString(),cards:snapshot.cards,lyrics:snapshot.lyrics,lyricMeta:lyricMetaOf(app.lyricMeta)};
     await window.storage.set(key,JSON.stringify(data));list.push({key,name,saved_at:data.saved_at,count:data.cards.length});
     await window.storage.set('codex:list',JSON.stringify(list));
-  });showToast(`Saved "${name}"`,'success');
+  });showToast(`Workspace copy saved: ${name}`,'success',{label:'Open copy',run:()=>loadWS(savedKey)});
   }catch(e){console.error(e);showToast('Save did not finish. Your session remains open; retry or export.','error');}
 }
 async function restoreSavedWorkspace(key,fork){
