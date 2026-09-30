@@ -1,0 +1,219 @@
+{
+  "status": "reviewed_expectations_verified_against_publisher_full_regression_actuals",
+  "source_correction_commit": "8e8b26caac1c1467e4bb52cc41dacc60c20190e8",
+  "source_manifest": "substitution-01.json",
+  "fixture_count": 1149,
+  "updated_count": 40,
+  "updated_ids": [
+    "post_punk",
+    "tropicalia",
+    "new_orleans",
+    "dream_pop",
+    "psychedelic_rock",
+    "fusion",
+    "jangle_pop",
+    "power_pop",
+    "noise_music",
+    "tech_house_classic",
+    "progressive_trance",
+    "salsa_nuyorican",
+    "gabber",
+    "blend_postpunk_dub",
+    "blend_afro_cuban_bebop",
+    "blend_post_rock_minimalist",
+    "art_rock",
+    "gothic_rock",
+    "dub_techno",
+    "industrial",
+    "hard_bop",
+    "latin_jazz",
+    "fusion_70s_electric",
+    "soul_jazz",
+    "mathcore",
+    "brostep",
+    "moombahton",
+    "anadolu_rock",
+    "indie_pop_modern",
+    "noise_rock",
+    "nwobhm",
+    "post_metal",
+    "math_rock_post_rock",
+    "latin_alternative",
+    "madchester_baggy",
+    "slacker_rock",
+    "space_rock",
+    "snap_music",
+    "festival_trap",
+    "modern_indie_rock_2010s"
+  ],
+  "test_logic_changed": false,
+  "old_source_rows_changed": false,
+  "update_command": "node scripts/regression_recipes.js --update --fixture=<reviewed id>",
+  "snapshot_sha256": "2ff6f54f558b3e78d61153c7ab6157ac001ea738de2309f77e7b8524551a74c5",
+  "baseline_snapshot_sha256": "c9e50f21e8e821c8807d11afe4746bd1222e337d6544e1a2036e85d7a2929512",
+  "patch_sha256": "83170f3e4d8219a1bba1fa5bdfc362afdc3965473c91f7c44fa07e10e9dd616e",
+  "uplifting_trance": "Unchanged snapshot now reproduced exactly after one new-genre substitution; no old-entry or engine repair.",
+  "reviews": {
+    "post_punk": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept. Boston rock (Pixies branch) and dance rock are eligible members of the existing alternative-rock cross-reference node. Palm-muted guitar and sub-bass realization remain within the original unpinned electric-band search space; ensemble, primary punk branch and recording context are retained."
+    },
+    "tropicalia": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept. Canadian psychedelic rock is sourced as Black Mountain’s amplified/keyboard experimental-rock branch, within the already authored experimental-rock cross-reference. Power-chord/synth/voice variation does not remove nylon guitar, berimbau, cavaquinho or the Brazilian primary branch. No new false national instrumentation introduced."
+    },
+    "new_orleans": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept. The new classic Japanese jazz row is explicitly an Akiyoshi1953 quartet and correctly belongs to the existing bop reference node. It replaces a bop-neighborhood suggestion, not the main New Orleans identity. Red-brass/nickel-silver and tenor-guitar descriptors are valid optimizer options; core brass/reed/banjo/rhythm instrumentation stays. Do not interpret cross-reference names as claimed1930s historical influences."
+    },
+    "dream_pop": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept. Boston rock supplies an alternative-guitar neighbor through the unchanged alternative cross-reference. Existing guitar/bass/drums/poly/FM/Omnichord palette and4AD recording context remain. Material/patch and voice wording shifts are ordinary unpinned choices. No new source data says dream pop originated in Boston."
+    },
+    "psychedelic_rock": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept. Canadian psychedelic rock and British post-rock are legitimate experimental-rock neighbors in the existing authored node. Guitar amplifier/material and descriptor changes remain physically valid. Organ, sitar, bass, drums and Mellotron survive. Earlier timestamp/model anachronisms are already in the baseline, not introduced by these new source rows."
+    },
+    "fusion": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept. Classic Japanese jazz is a valid bop-node candidate for the already configured jazz-bop reference. Guitar wood, sax material and electric-violin body/range wording vary in the original unpinned search; no family or ensemble is lost. Five-string phrasing is not required to remain on an unpinned legacy row."
+    },
+    "jangle_pop": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept. British indie rock and modern indie rock are appropriate alternatives inside the authored alternative-rock reference. Defining twelve-string/toaster/chime layer remains; clean-strummed guitar/amp differences are ordinary compatible choices."
+    },
+    "power_pop": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept. Danish alternative rock and Boston rock are source-grounded guitar-band rows in the existing alternative-rock node. Core dual-guitar, bass, kit and vocal structure remains. Added bass mahogany descriptor is a valid option, not evidence of a wrong new genre or instrument."
+    },
+    "noise_music": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept. Drone psych is explicitly sourced to Bardo Pond’s sustained/noisy experimental-rock practice and belongs to the existing experimental-rock reference, making it a reasonable replacement for nintendocore. The main industrial-noise branch and modular/analog palette are unchanged."
+    },
+    "tech_house_classic": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept. Norwegian techno’s documented spacious electronic rhythm/sample branch is valid under the existing techno cross-reference. TR909 and sampler wording vary without an invalid instrument or a new cross-reference assignment; core tech-house context remains."
+    },
+    "progressive_trance": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept. Russian witch house follows the same ambient/drone parent already used by existing witch_house_2010s in this taxonomy. It is selected through the legacy ambient cross-reference, as hauntology/dungeon synth were before. Pads/909 remain and glitch-texture sampler is an existing eligible option. This is not a newly invented assertion of historical trance derivation from Russian witch house."
+    },
+    "salsa_nuyorican": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept. Classic Japanese jazz is a valid bop candidate under the original jazz-bop cross-reference. Salsa’s congas/timbales/bongos/brass/claves/cencerro and Fania room persist. A441, sax material and shorter console text are permitted unpinned/word-budget changes, not a new incorrect source edit."
+    },
+    "gabber": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept: existing techno cross-reference admits the new Belgian/Brazilian candidates. Bass-synth/909/sampler roles remain; TR-8S and sub-bass remain in structured config even where wording is shortened. The old Asian header is unchanged baseline behavior, not a new source edit."
+    },
+    "blend_postpunk_dub": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept: fixture explicitly seeds post_punk + dub and retains both; Boston rock is an eligible third neighbor. Unpinned guitar, bass and organ alternatives are valid. Dub-derived organ/melodica remain; longer environment wording fits the existing compression behavior."
+    },
+    "blend_afro_cuban_bebop": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept: fixture explicitly seeds latin_jazz + bebop; classic_japanese_jazz is an eligible bop-branch neighbor. Brass/reeds, piano/bass/drums and Afro-Cuban percussion remain. The soundboard alternative is valid; dropped final EQ words are compression, not a missing config stage."
+    },
+    "blend_post_rock_minimalist": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept: fixture retains math_rock_post_rock + minimalist. British post-rock replaces ambient post-rock within the allowed experimental branch. Drumhead/bass-flute descriptors vary legitimately; structured synth pad/drone role remains despite shortened text."
+    },
+    "art_rock": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept: existing classic/experimental cross-references select classic_rock and psychedelic_rock. Valid unpinned vibrato, Mellotron articulation and reed-material wording vary; band/keyboard/reed roles and room/chain remain intact."
+    },
+    "gothic_rock": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept: Boston rock replaces noise pop as an eligible alternative-rock neighbor. Existing analog synth chooses a valid sub-bass role rather than lead; voice/guitar/bass/drums/string-machine roster and environment remain. No pinned default is overwritten."
+    },
+    "dub_techno": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept: Italian techno replaces peak-time techno within the existing techno cross-reference. Analog drums/synth and dub delay/reverb chain remain; the sub-bass slot still exists in config although its adjective disappears from text."
+    },
+    "industrial": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept: drone_rock is an allowed experimental-rock neighbor and voice articulation chooses a valid alternative. Analog drums/synth/vocoder and concrete-basement distortion/tape context remain unchanged."
+    },
+    "hard_bop": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept: classic_japanese_jazz replaces bebop as the selected eligible bop-branch neighbor. The instrument/body/room/chain output is otherwise unchanged; no historical source row or default was edited."
+    },
+    "latin_jazz": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Accept: eligible bop-neighbor substitution to classic_japanese_jazz and valid unpinned piano soundboard change. All eleven source sound-producing roles remain, including congas/bongos/timbales/claves/shekere; shortened EQ tail is ordinary compression."
+    },
+    "fusion_70s_electric": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Permitted unpinned bass-string/technique alternative: Ernie Ball roundwound/walking-fingerstyle replaces low-tension jazz-warm strings. Electric bass roster, jazz-rock/prog references, room and chain remain intact; walking fingerstyle is already in the source parts."
+    },
+    "soul_jazz": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Permitted R&B neighbor selection through the pre-existing soulRb cross-reference: classic_rb replaces neo-bop. Organ/guitar/drum/horn roles and Van Gelder chain are unchanged. Guitar material wording replacing chicken-scratch is ordinary unpinned optimization, not a new mandatory technique."
+    },
+    "mathcore": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Permitted experimental-rock neighbor alternative: British post-rock replaces ambient post-rock through the existing experimental cross-reference. Sticks/backbeat replacing brushes-and-sticks remains an acoustic-kit choice and is more consistent with the source’s metal/hardcore branch; no source/default edit was found."
+    },
+    "brostep": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Permitted house-neighbor reselection under the old electronicDance.house cross-reference: acid house and Dutch tech house replace Detroit/deep-disco house. The instrument and production body is unchanged. The new Dutch row is genuinely house/tech-house; no forced brostep cross-reference was added to it."
+    },
+    "moombahton": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Permitted house-neighbor reselection (latin_house_percussion for Detroit house) and an unpinned vocal-register choice. Vocal fry is a substantive alternative, but not a new default or a source claim that all moombahton uses fry: the unchanged old row remains unpinned. No new dependency or invalid reference causes it; do not retrofit a pin solely to freeze the snapshot."
+    },
+    "anadolu_rock": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Permitted classic-rock references and amp/material/vibrato alternatives within the existing classic cross-reference. Saz/baglama, Istanbul context, tuning and guitar/bass/drum roster remain intact. Existing voice_isolated applies to voice_quality, not a blanket freeze of every voice dimension; wide vibrato does not show a new ignored isolation rule."
+    },
+    "indie_pop_modern": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Permitted alternative-rock neighbor reselection to British indie and Danish alternative rock. Clean electric guitar and small material-word changes fit the source’s song-based guitar/pop branch. No instruments, source settings or cross-reference were changed."
+    },
+    "noise_rock": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Permitted experimental/alternative neighbors replacing krautrock, with feedback guitar now surfaced. Feedback is coherent with the source’s noise-rock guitar practice; the dual-guitar/bass/kit and fuzz/RAT recording setup stays present."
+    },
+    "nwobhm": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Permitted unpinned bass-wood and vibrato alternatives. Slow vibrato is already the old source part value; mahogany versus alder does not create a new instrument or anachronistic required construction. Core metal ensemble and amp/room family remain intact."
+    },
+    "post_metal": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Permitted post-rock-neighbor alternatives through the existing experimental cross-reference. British/Canadian post-rock correspond to the source’s long-form crescendo/texture branch; Plexi versus JCM800 and material/head wording are legacy optimizer choices, not changes to the source roster."
+    },
+    "math_rock_post_rock": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Permitted post-rock neighbors and heavy-section guitar alternative. Power chords/Plexi replace clean/JCM800 while the instrumental trio and room remain. The source explicitly includes distorted crescendo peaks as well as clean passages, so the new recipe selects another supported branch rather than requiring a new genre definition."
+    },
+    "latin_alternative": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Unchanged old source row with no part pinning; original neighbor/staple movement reproduced both before and after outputs. Changed stacks: latin_alternative, grunge, math_rock_post_rock -> latin_alternative, boston_rock, grunge. All selected references resolve."
+    },
+    "madchester_baggy": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Unchanged old source row with no part pinning; original neighbor/staple movement reproduced both before and after outputs. Changed stacks: madchester_baggy, detroit_house, deep_house_soulful -> madchester_baggy, slap_house, afro_house. All selected references resolve."
+    },
+    "slacker_rock": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Unchanged old source row with no part pinning; original neighbor/staple movement reproduced both before and after outputs. Changed stacks: slacker_rock, post_rock_extended, rock_in_opposition -> slacker_rock, canadian_psychedelic_rock, post_rock_extended. All selected references resolve."
+    },
+    "space_rock": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Unchanged old source row with no part pinning; original neighbor/staple movement reproduced both before and after outputs. Changed stacks: space_rock, post_rock_extended, krautrock -> space_rock, canadian_psychedelic_rock, post_rock_extended. All selected references resolve."
+    },
+    "snap_music": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Unchanged old source row with no part pinning; original neighbor/staple movement reproduced both before and after outputs. Changed stacks: snap_music, deep_house_soulful, tech_house_classic -> snap_music, latin_house_percussion, freestyle_house. All selected references resolve."
+    },
+    "festival_trap": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Unchanged old source row with no part pinning; original neighbor/staple movement reproduced both before and after outputs. Changed stacks: festival_trap, tech_house_classic, electro_house_2000s -> festival_trap, electro_house_2000s, latin_house_percussion. All selected references resolve."
+    },
+    "modern_indie_rock_2010s": {
+      "decision": "accept_existing_optimizer_alternative",
+      "reason": "Unchanged old source row with no part pinning; original neighbor/staple movement reproduced both before and after outputs. Changed stacks: modern_indie_rock_2010s, post_rock_extended, krautrock -> modern_indie_rock_2010s, canadian_psychedelic_rock, post_rock_extended. All selected references resolve."
+    }
+  },
+  "instructions": "After applying base source patch and substitute-01.patch, apply reviewed-snapshots.patch. Verify snapshot_sha256 and run the unchanged regression test/fullCI on the final head before merge."
+}

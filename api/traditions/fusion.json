@@ -3,14 +3,14 @@
   "name": "Fusion",
   "family": "jazz",
   "lineage": "Late-1960s through 1970s jazz-rock hybrid genre electrifying jazz instrumentation and incorporating rock rhythms, funk grooves, modal harmonic language, and extended improvised form — codified through Miles Davis (In a Silent Way 1969, Bitches Brew 1970), Weather Report (Heavy Weather 1977), Mahavishnu Orchestra (Inner Mounting Flame 1971), Return to Forever, Herbie Hancock (Head Hunters 1973)",
-  "recipe": "classic Los Angeles 1967-1969 fusion, improv On Frame, fusion branch, American jazz bop bebop modal jazz. pocket ostinato electric piano tine, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, raymac steel tine premium 1970s vintage replacement harder neoprene late 1970s bark grit ostinato rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon ostinato wurlitzer ep, five string extended low range warm low c fusion lead electric violin. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ.",
-  "recipe_chars": 991,
-  "score": 428.218,
+  "recipe": "classic Los Angeles 1967-1969 fusion, improv On Frame, fusion branch, American jazz bop bebop classic japanese jazz. pocket ostinato electric piano tine, Fender blackface amp American 60s amp spring reverb bright maple pau ferro humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, raymac steel tine premium 1970s vintage replacement harder neoprene late 1970s bark grit ostinato rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon ostinato wurlitzer ep, chambered body semi acoustic fusion lead electric violin. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ.",
+  "recipe_chars": 999,
+  "score": 396.145,
   "config": {
     "traditions": [
       "fusion",
       "bebop",
-      "modal_jazz"
+      "classic_japanese_jazz"
     ],
     "instruments": [
       {
@@ -22,7 +22,7 @@
         },
         "scores": {
           "keyboard_technique": 4.7,
-          "tine_voicing": 0.315,
+          "tine_voicing": 0.195,
           "tine_effect": 4.75
         }
       },
@@ -35,28 +35,28 @@
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 4.995,
-          "amp_make": 11.830000000000002,
-          "body_wood": 1.5825000000000002,
-          "neck_wood": 1.885,
-          "fretboard": 1.885,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.24,
-          "string_material": 1.885,
-          "bridge": 0.2265,
-          "scale_length": 2.0799999999999996,
-          "string_gauge": 0.5265,
+          "electric_technique": 5.28,
+          "amp_make": 12.025000000000002,
+          "body_wood": 0.195,
+          "neck_wood": 1.495,
+          "fretboard": 1.495,
+          "pickup_magnet": 0.585,
+          "pickup_winding": 0.39,
+          "string_material": 1.7349999999999999,
+          "bridge": 0.65,
+          "scale_length": 1.885,
+          "string_gauge": 0.48,
           "finish": 0,
-          "string_tuning": 8.905
+          "string_tuning": 6.755
         }
       },
       {
@@ -64,7 +64,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -72,12 +72,12 @@
         },
         "scores": {
           "amp_make": 6.630000000000002,
-          "body_wood": 0.453,
-          "pickup_config": 0.315,
-          "string_type": 37.509499999999996,
+          "body_wood": 0.26999999999999996,
+          "pickup_config": 0.195,
+          "string_type": 34.97,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0,
-          "bass_technique": 30.275
+          "fretted_or_not": 0.045,
+          "bass_technique": 29.195
         }
       },
       {
@@ -88,8 +88,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 35.35999999999999,
-          "drumhead": 37.65449999999999,
+          "drum_technique": 32.955,
+          "drumhead": 35.54,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -97,17 +97,17 @@
         "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "oscillator": "saw_single",
+          "oscillator": "triangle_osc",
           "filter_topology": "svf",
           "envelope": "gated_env",
           "modulation": "no_mod"
         },
         "scores": {
           "electronic_technique": 0.7799999999999998,
-          "oscillator": 1.885,
-          "filter_topology": 1.045,
-          "envelope": 1.04,
-          "modulation": 0.65
+          "oscillator": 1.525,
+          "filter_topology": 1.135,
+          "envelope": 0.9500000000000001,
+          "modulation": 0.45499999999999996
         }
       },
       {
@@ -116,39 +116,39 @@
           "wind_articulation": "wind_bebop_runs",
           "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 2.75,
-          "sax_size": 4.6365,
-          "sax_reed": 1.885,
-          "sax_body_alloy": 30.323749999999997,
-          "sax_mouthpiece": 1.885,
-          "sax_technique": 30.125,
-          "sax_maker_school": 36.3505
+          "wind_articulation": 1.125,
+          "sax_size": 2.815,
+          "sax_reed": 1.495,
+          "sax_body_alloy": 29.375,
+          "sax_mouthpiece": 1.495,
+          "sax_technique": 29,
+          "sax_maker_school": 33.645
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_bebop_runs",
+          "wind_articulation": "wind_dixieland_lead",
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
-          "brass_mute": "harmon_out",
-          "trumpet_technique": "trumpet_bebop_lines",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_dixieland_lead",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 2.75,
-          "brass_size": 1.885,
-          "trumpet_mouthpiece": 37.509499999999996,
-          "brass_mute": 0.39,
-          "trumpet_technique": 2.75,
-          "trumpet_bell_metal": 0.7410000000000001,
+          "wind_articulation": 1.2349999999999999,
+          "brass_size": 1.495,
+          "trumpet_mouthpiece": 35.075,
+          "brass_mute": 0.285,
+          "trumpet_technique": 1.2349999999999999,
+          "trumpet_bell_metal": 0.195,
           "trumpet_maker_school": 5.265000000000001
         }
       },
@@ -164,10 +164,10 @@
         },
         "scores": {
           "keyboard_technique": 4.7,
-          "rhodes_model": 30.3515,
-          "rhodes_use": 0.3315,
-          "rhodes_tine_material": 1.2229999999999999,
-          "rhodes_hammer_tip": 3.25,
+          "rhodes_model": 29.135,
+          "rhodes_use": 0.24,
+          "rhodes_tine_material": 1.615,
+          "rhodes_hammer_tip": 2.495,
           "rhodes_pickup_position": 0.39
         }
       },
@@ -182,23 +182,23 @@
         },
         "scores": {
           "keyboard_technique": 4.7,
-          "wurlitzer_use": 0,
-          "wurlitzer_ep_voice": 4.087999999999999,
-          "wurlitzer_model": 4.874999999999999,
-          "wurlitzer_reed_material": 0.39
+          "wurlitzer_use": 0.195,
+          "wurlitzer_ep_voice": 3.499999999999999,
+          "wurlitzer_model": 4.6099999999999985,
+          "wurlitzer_reed_material": 0.585
         }
       },
       {
         "id": "electric_violin",
         "slots": {
-          "electric_violin_form": "electric_violin_form_five_string",
+          "electric_violin_form": "electric_violin_form_semi_acoustic",
           "electric_violin_context": "electric_violin_context_fusion_lead",
-          "electric_violin_pickup": "electric_violin_pickup_piezo"
+          "electric_violin_pickup": "electric_violin_pickup_magnetic"
         },
         "scores": {
-          "electric_violin_form": 2.2749999999999995,
-          "electric_violin_context": 9.145249999999999,
-          "electric_violin_pickup": 0.5199999999999999
+          "electric_violin_form": 1.8199999999999998,
+          "electric_violin_context": 7.385,
+          "electric_violin_pickup": 0.7149999999999999
         }
       }
     ],

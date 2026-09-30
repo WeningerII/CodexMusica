@@ -327,6 +327,19 @@
           "canonical_tags": [
             "country"
           ]
+        },
+        {
+          "id": "electric_sustained_loop",
+          "name": "Sustained guitar looping",
+          "applies_to": [
+            "electric_guitar_single_coil"
+          ],
+          "descriptors": [
+            "sustained",
+            "looped",
+            "layered"
+          ],
+          "auto": false
         }
       ],
       "_fromFamily": true

@@ -3,14 +3,14 @@
   "name": "Acousmatic Music (loudspeaker concert practice)",
   "family": "electronic",
   "lineage": "Named by François Bayle at the GRM in Paris in 1974 for fixed-media work composed directly onto tape or disk and diffused live over a loudspeaker orchestra such as the Acousmonium — no performers on stage, source recordings of objects, voices and environments transformed by filtering, time-stretching and spatial trajectory, organized by spectromorphology rather than pitch or metre.",
-  "recipe": "classic mid-1970s acousmatic music, experimental Elec, musique concrete branch, ambient experimental electric, western modern art music dark ambient drone and dark ambient. thick, breath veiled tone, slow rate, interlocked note trading. field textural sampler, sustained pad granular doepfer eurorack canonical 1995 present small format standardization pad modular synth, sustained pad eurorack modular, sustained pad digital subtractive. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-  "recipe_chars": 550,
-  "score": 273.743,
+  "recipe": "classic Asian mid-1970s acousmatic music, experimental Elec, musique concrete branch, ambient experimental electric, western modern art music dark ambient. thick, breath veiled tone, slow rate, interlocked note trading. field textural sampler, glitched textural granular doepfer eurorack canonical 1995 present small format standardization textural modular synth, glitched textural eurorack modular, sustained pad digital subtractive. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 584,
+  "score": 256.82,
   "config": {
     "traditions": [
       "acousmatic",
-      "dark_ambient",
-      "drone_dark_ambient"
+      "experimental_ambient",
+      "dark_ambient"
     ],
     "instruments": [
       {
@@ -20,55 +20,55 @@
           "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_edm"
+          "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 11.49,
+          "electronic_technique": 12.065,
           "sampler_archetypes": 2.005,
-          "sampler_bit_depth": 2.145,
-          "sampler_workflow": 12.465000000000002,
-          "sampler_classic_context": 18.752499999999998
+          "sampler_bit_depth": 1.95,
+          "sampler_workflow": 14.19,
+          "sampler_classic_context": 19
         }
       },
       {
         "id": "granular_synth",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "granular_use": "granular_ambient",
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 14.685000000000002,
-          "granular_use": 1.04,
-          "granular_synth_source": 6.695
+          "electronic_technique": 12.065,
+          "granular_use": 0.39,
+          "granular_synth_source": 8.709999999999999
         }
       },
       {
         "id": "modular_synth",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
+          "electronic_technique": "electronic_glitch_textural",
           "mod_voltage_source": "mod_sequencer",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 14.685000000000002,
-          "mod_voltage_source": 0.195,
-          "mod_patch_density": 7.41,
+          "electronic_technique": 12.065,
+          "mod_voltage_source": 0.09,
+          "mod_patch_density": 4.68,
           "mod_lineage": 1.4100000000000001
         }
       },
       {
         "id": "eurorack_modular",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
+          "electronic_technique": "electronic_glitch_textural",
           "eurorack_focus": "eurorack_west_coast",
           "eurorack_modular_context": "eurorack_modular_studio"
         },
         "scores": {
-          "electronic_technique": 14.685000000000002,
-          "eurorack_focus": 5.655000000000001,
-          "eurorack_modular_context": 5.46
+          "electronic_technique": 12.065,
+          "eurorack_focus": 6.175,
+          "eurorack_modular_context": 6.175
         }
       },
       {
@@ -79,9 +79,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 14.685000000000002,
-          "va_archetypes": 1,
-          "digital_subtractive_context": 15.989999999999998
+          "electronic_technique": 9.534999999999998,
+          "va_archetypes": 1.5,
+          "digital_subtractive_context": 14.82
         }
       },
       {
@@ -100,32 +100,32 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 2.634999999999999,
-          "voice_quality": 8.059999999999999,
+          "voice_register": 1.6099999999999997,
+          "voice_quality": 6.955000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.445,
-          "voice_articulation": 17.744999999999997,
-          "voice_microtone": 15.599999999999993,
-          "voice_tradition": 13.65,
-          "voice_mechanism_compound": 5.36,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 18.524999999999995,
-          "voice_ensemble_config": 16.379999999999995,
+          "voice_vibrato": 3.705,
+          "voice_articulation": 16.379999999999995,
+          "voice_microtone": 14.234999999999994,
+          "voice_tradition": 15.585,
+          "voice_mechanism_compound": 4.385000000000001,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 17.809999999999995,
+          "voice_ensemble_config": 15.014999999999997,
           "voice_ornament_system": 1.695,
-          "voice_pitch_organization": 4.810000000000001,
-          "voice_processing_chain": 8.17,
-          "voice_multitrack_stack": 4.42
+          "voice_pitch_organization": 3.615,
+          "voice_processing_chain": 9.095,
+          "voice_multitrack_stack": 3.5799999999999996
         }
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_pre_daw_electronic_pioneer",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_500_series_modern",

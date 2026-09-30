@@ -5,7 +5,7 @@
   "lineage": "Named for the Paradise Garage, where Larry Levan DJed from 1977 to 1987, and codified on record in the mid-1980s by Tony Humphries at Newark's Zanzibar and producers Timmy Regisford, Blaze and Masters at Work — 118-124 BPM four-on-the-floor built on live-feel drum programming and Roland TR-909, gospel-rooted full-voiced lead singing, real piano and organ chords, and long dub-style breakdowns on the twelve-inch mix.",
   "recipe": "classic North American 1984-1986 new york garage house, electronic Dance, garage house u s branch, deep house house, chicago house house, soul R&B functional song doo-wop. thick, breath veiled tone, straight note core, interlocked note trading. roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, sampler, Hammond a 100 built in Leslie home spinet Leslie 145 smaller 25w tube home club gospel runs full spectrum slow chorale tonewheel organ. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
   "recipe_chars": 946,
-  "score": 419.768,
+  "score": 415.45,
   "config": {
     "traditions": [
       "new_york_garage_house",
@@ -38,10 +38,10 @@
           "voice_quality": 20.735000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.695625,
+          "voice_vibrato": 2.6975000000000002,
           "voice_articulation": 22.48999999999999,
           "voice_microtone": 21.709999999999994,
-          "voice_tradition": 15.144999999999998,
+          "voice_tradition": 14.889999999999999,
           "voice_mechanism_compound": 3.0549999999999997,
           "voice_estill_quality": 14.349999999999996,
           "voice_speech_song": 25.61,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.65,
           "voice_pitch_organization": 2.0949999999999998,
           "voice_processing_chain": 18.575,
-          "voice_multitrack_stack": 6.4795
+          "voice_multitrack_stack": 6.1195
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr909_voice": 24.695,
-          "drum_machine_909_context": 5.589999999999998,
+          "drum_machine_909_context": 4.884999999999999,
           "tr909_production_origin": 1.4299999999999997
         }
       },
@@ -79,12 +79,12 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 14.994999999999997,
-          "grand_piano_size": 2.0549999999999997,
-          "grand_piano_brand": 2.505,
-          "piano_hammer": 2.1931249999999993,
+          "keyboard_technique": 14.739999999999998,
+          "grand_piano_size": 1.95,
+          "grand_piano_brand": 2.3999999999999995,
+          "piano_hammer": 2.2381249999999993,
           "piano_rim": 4.5249999999999995,
-          "piano_soundboard": 3.5749999999999993,
+          "piano_soundboard": 3.619999999999999,
           "piano_pinblock": -0.05,
           "piano_plate": 0.8999999999999999,
           "piano_pitch_standard": 1.4949999999999999
@@ -102,7 +102,7 @@
           "electronic_technique": 6.204999999999999,
           "poly_archetypes": 1,
           "poly_voices": 0.39,
-          "poly_maker_lineage": 2.5999999999999996
+          "poly_maker_lineage": 2.195
         }
       },
       {
@@ -117,11 +117,11 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 12.427624999999997,
+          "amp_make": 12.367624999999997,
           "body_wood": 2.535,
           "pickup_config": 0.195,
           "string_type": 12.382499999999999,
-          "scale_length_b": 3.0549999999999997,
+          "scale_length_b": 3.145,
           "fretted_or_not": 1,
           "bass_technique": 8.059999999999999
         }
@@ -140,7 +140,7 @@
           "sampler_archetypes": 0.9566249999999998,
           "sampler_bit_depth": 2.0149999999999997,
           "sampler_workflow": 0.52,
-          "sampler_classic_context": 58.70575
+          "sampler_classic_context": 56.845749999999995
         }
       },
       {
@@ -154,12 +154,12 @@
           "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 14.994999999999997,
+          "keyboard_technique": 14.739999999999998,
           "drawbar_setting": 8.075,
           "rotary_speed": 7.975,
           "percussion_setting": 0.65,
           "tonewheel_model": 6.369999999999999,
-          "leslie_cabinet_model": 1.4299999999999997
+          "leslie_cabinet_model": 1.295
         }
       }
     ],

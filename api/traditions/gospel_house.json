@@ -5,7 +5,7 @@
   "lineage": "Chicago and New York 1988-1996, codified by Marshall Jefferson and Curtis McClain, Frankie Knuckles with Robert Owens and Jamie Principle, and by Kerri Chandler and Tony Humphries at Club Zanzibar — 118-124 BPM four-on-the-floor with piano vamps, organ pads, hand claps and tambourine, topped by full-throated Black church belting, testifying ad-libs and choir-response stacks tracked in New York and Chicago commercial rooms.",
   "recipe": "classic North American mid-1990s gospel house, electronic Dance, garage house u s branch, deep house house, christian gospel black gospel contemporary urban gospel. thick, declaimed, wide pitch sway, multi note runs per syllable. contemporary full choir southern black gospel, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 smaller 25w tube home club gospel runs full spectrum fast tremolo tonewheel organ, TR-909, hand clap, tambourine orch, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 833,
-  "score": 495.451,
+  "score": 483.853,
   "config": {
     "traditions": [
       "gospel_house",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 30.301000000000002,
-          "voice_quality": 31.451,
+          "voice_register": 30.265,
+          "voice_quality": 31.295,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.625,
-          "voice_articulation": 26.142000000000007,
+          "voice_articulation": 26.070000000000007,
           "voice_microtone": 22.685000000000002,
-          "voice_tradition": 35.05200000000001,
+          "voice_tradition": 32.760000000000005,
           "voice_mechanism_compound": 4.874999999999999,
           "voice_estill_quality": 26.725,
           "voice_speech_song": 24.830000000000005,
           "voice_ensemble_config": 31.395000000000003,
           "voice_ornament_system": 6.15,
           "voice_pitch_organization": 1.1049999999999998,
-          "voice_processing_chain": 9.274999999999999,
-          "voice_multitrack_stack": 6.4350000000000005
+          "voice_processing_chain": 9.049999999999999,
+          "voice_multitrack_stack": 5.88
         }
       },
       {
@@ -60,8 +60,8 @@
           "era": "gospel_quartet_lineage"
         },
         "scores": {
-          "voices": 0.585,
-          "accompaniment": 3.1100000000000003,
+          "voices": 0.49499999999999994,
+          "accompaniment": 2.795,
           "era": 23.270000000000003
         }
       },
@@ -79,14 +79,14 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 30.66700000000001,
-          "grand_piano_size": 1.42,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 4.355,
-          "piano_rim": 5.59,
-          "piano_soundboard": 2.6649999999999996,
+          "keyboard_technique": 28.495000000000008,
+          "grand_piano_size": 1.3,
+          "grand_piano_brand": 1.585,
+          "piano_hammer": 3.935,
+          "piano_rim": 4.93,
+          "piano_soundboard": 2.59,
           "piano_pinblock": 1.625,
-          "piano_plate": 2.995,
+          "piano_plate": 2.875,
           "piano_pitch_standard": 4.7775
         }
       },
@@ -101,11 +101,11 @@
           "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 30.66700000000001,
-          "drawbar_setting": 26.81500000000001,
+          "keyboard_technique": 28.495000000000008,
+          "drawbar_setting": 26.845000000000006,
           "rotary_speed": 24.700000000000003,
           "percussion_setting": 0.195,
-          "tonewheel_model": 27.231000000000005,
+          "tonewheel_model": 25.095000000000006,
           "leslie_cabinet_model": 1.4299999999999997
         }
       },
@@ -118,7 +118,7 @@
         },
         "scores": {
           "tr909_voice": 17.445,
-          "drum_machine_909_context": 4.550999999999999,
+          "drum_machine_909_context": 4.425,
           "tr909_production_origin": -0.035
         }
       },
@@ -130,7 +130,7 @@
         },
         "scores": {
           "clap_technique": 0.65,
-          "clap_capture": 0.23099999999999998
+          "clap_capture": 0.195
         }
       },
       {
@@ -140,7 +140,7 @@
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.585,
+          "tambourine_orch_jingle": 0.45,
           "tambourine_orch_context": 1.19
         }
       },
@@ -148,7 +148,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
@@ -156,11 +156,11 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 6.045,
-          "body_wood": 0.24,
+          "amp_make": 6.015000000000001,
+          "body_wood": 0.41999999999999993,
           "pickup_config": 0.5850000000000002,
           "string_type": 2.8924999999999996,
-          "scale_length_b": 0.09,
+          "scale_length_b": 0.33,
           "fretted_or_not": 0.3,
           "bass_technique": 3.61
         }

@@ -3,14 +3,14 @@
   "name": "Post-metal",
   "family": "rock",
   "lineage": "US and European long-form instrumental-foregrounded metal-and-post-rock fusion that emerged from late-1990s onward — codified through Isis (the Boston-area post-metal band, Oceanic 2002, Panopticon 2004), Pelican (the Chicago instrumental-only canon, The Fire in Our Throats Will Beckon the Thaw 2005), Cult of Luna (Swedish), Russian Circles (Chicago instrumental-only), Neurosis (the founding pre-post-metal Oakland band, Through Silver in Blood 1996); built on extended-composition song structures (10-20 minute pieces), ambient-textural sections alternating with heavy crescendo peaks",
-  "recipe": "classic Midwestern American 1997-1999 post-metal, distorted Rock, post metal branch, experimental distorted rock krautrock ambient post-rock. thick, breath veiled tone, pure, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 600,
-  "score": 402.672,
+  "recipe": "classic Midwestern American 1997-1999 post-metal, distorted Rock, post metal branch, experimental distorted rock british post-rock canadian post-rock. thick, breath veiled tone, pure, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 549,
+  "score": 351.619,
   "config": {
     "traditions": [
       "post_metal",
-      "krautrock",
-      "ambient_post_rock"
+      "british_post_rock",
+      "canadian_post_rock"
     ],
     "instruments": [
       {
@@ -34,55 +34,55 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 28.069999999999993,
-          "voice_quality": 11.179999999999993,
+          "voice_register": 21.994999999999994,
+          "voice_quality": 9.49,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.42,
-          "voice_articulation": 15.144999999999992,
-          "voice_microtone": 27.674499999999995,
-          "voice_tradition": 14.2605,
-          "voice_mechanism_compound": 29.8865,
-          "voice_estill_quality": 2.665000000000001,
-          "voice_speech_song": 17.354999999999993,
-          "voice_ensemble_config": 13.519999999999992,
-          "voice_ornament_system": 2.9400000000000004,
-          "voice_pitch_organization": 1.13,
-          "voice_processing_chain": 14.643499999999996,
-          "voice_multitrack_stack": 6.955000000000001
+          "voice_vibrato": 5.104374999999999,
+          "voice_articulation": 10.464999999999995,
+          "voice_microtone": 22.750624999999996,
+          "voice_tradition": 11.05,
+          "voice_mechanism_compound": 30.608125,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 12.219999999999994,
+          "voice_ensemble_config": 10.074999999999998,
+          "voice_ornament_system": 2.0799999999999996,
+          "voice_pitch_organization": 1.0999999999999999,
+          "voice_processing_chain": 13.394999999999994,
+          "voice_multitrack_stack": 3.640000000000001
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 29.786500000000004,
-          "amp_make": 13.552499999999995,
-          "body_wood": 11.694000000000003,
+          "electric_technique": 30.103125000000006,
+          "amp_make": 11.959999999999997,
+          "body_wood": 10.540000000000003,
           "neck_wood": 2.275,
           "fretboard": 2.275,
-          "pickup_magnet": 0.65,
-          "pickup_winding": 1.3649999999999998,
+          "pickup_magnet": 0.51,
+          "pickup_winding": 1.17,
           "string_material": 2.275,
-          "bridge": 0.21849999999999997,
-          "scale_length": 13.891000000000002,
-          "string_gauge": 0.39,
+          "bridge": 0.09,
+          "scale_length": 13.120625000000002,
+          "string_gauge": 0.44999999999999996,
           "finish": 0.195,
-          "string_tuning": 27.95
+          "string_tuning": 25.935000000000002
         }
       },
       {
@@ -97,25 +97,25 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 14.039999999999996,
+          "amp_make": 12.219999999999999,
           "body_wood": 0.3,
-          "pickup_config": 1.2349999999999999,
-          "string_type": 31.223999999999993,
-          "scale_length_b": 0.65,
+          "pickup_config": 0.585,
+          "string_type": 29.4425,
+          "scale_length_b": 0.6900000000000001,
           "fretted_or_not": 0,
-          "bass_technique": 25.910999999999994
+          "bass_technique": 21.95
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.499999999999993,
-          "drumhead": 3.5,
+          "drum_technique": 22,
+          "drumhead": 2.275,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -3,14 +3,14 @@
   "name": "Turkish psychedelic (Anadolu psych)",
   "family": "rock",
   "lineage": "Istanbul and Ankara studio movement of roughly 1968-1980 that set Anatolian türkü melodies against Western rock instrumentation — Erkin Koray, Selda Bağcan, Barış Manço, Moğollar and Ersen — using fuzz guitar and electrified bağlama tuned to makam-derived modes, aksak 9/8 and 7/8 grooves alongside straight 4/4, combo organ and early synth, darbuka doubling the kit, and declamatory folk-poetic Turkish vocals cut to Unkapanı 45s.",
-  "recipe": "classic Middle Eastern mid-1970s turkish psychedelic, distorted Rock, regional branch, classic distorted rock, mid east n African pop functional song, modal electric drone modal psychedelic rock acid rock. thick, breath veiled tone, slow rate, interlocked note trading. makam correct mulberry bowl canonical anatolian strummed saz baglama, marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka, psychedelic foregrounded organ driven rock block chord combo organ. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ.",
-  "recipe_chars": 959,
-  "score": 393.133,
+  "recipe": "classic Middle Eastern mid-1970s turkish psychedelic, distorted Rock, regional branch, classic distorted rock, mid east n African pop functional song, modal electric drone modal psychedelic rock khalījī. thick, breath veiled tone, slow rate, interlocked note trading. makam correct juniper bowl eastern anatolian strummed saz baglama, marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, psychedelic foregrounded organ driven rock block chord combo organ. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 983,
+  "score": 369.295,
   "config": {
     "traditions": [
       "turkish_psych",
       "psychedelic_rock",
-      "acid_rock"
+      "khaliji"
     ],
     "instruments": [
       {
@@ -19,15 +19,15 @@
           "plucked_traditional_technique": "plucked_folk_strummed",
           "saz_size": "cura_saz",
           "saz_frets": "saz_microtonal_frets",
-          "saz_body_wood": "saz_mulberry_body",
+          "saz_body_wood": "saz_juniper_body",
           "saz_strings": "saz_nylon_cura",
           "saz_tradition": "saz_asik_tradition"
         },
         "scores": {
-          "plucked_traditional_technique": 4.80375,
-          "saz_size": 2.3800000000000003,
+          "plucked_traditional_technique": 4.453749999999999,
+          "saz_size": 2.23,
           "saz_frets": 1.345,
-          "saz_body_wood": 1.69,
+          "saz_body_wood": 1.76375,
           "saz_strings": 0,
           "saz_tradition": 0
         }
@@ -35,7 +35,7 @@
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_power_chord",
+          "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
@@ -49,24 +49,24 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 7.930000000000001,
-          "amp_make": 14.072499999999998,
-          "body_wood": 2.145,
-          "neck_wood": 2.145,
-          "fretboard": 2.0799999999999996,
-          "pickup_magnet": 0.885,
-          "string_material": 0.885,
-          "string_gauge": 2.145,
+          "electric_technique": 5.545,
+          "amp_make": 9.945,
+          "body_wood": 3.12,
+          "neck_wood": 3.12,
+          "fretboard": 3.055,
+          "pickup_magnet": 0.735,
+          "string_material": 0.735,
+          "string_gauge": 3.12,
           "bridge": 0.3,
-          "scale_length": 2.145,
+          "scale_length": 3.12,
           "finish": 0.435,
-          "string_tuning": 16.509999999999998
+          "string_tuning": 11.959999999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
@@ -75,13 +75,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 14.072499999999998,
-          "body_wood": 2.535,
+          "amp_make": 10.009999999999998,
+          "body_wood": 3.51,
           "pickup_config": 0.3,
-          "string_type": 32.730000000000004,
-          "scale_length_b": 2.145,
+          "string_type": 25.187499999999996,
+          "scale_length_b": 3.12,
           "fretted_or_not": 0,
-          "bass_technique": 26.335
+          "bass_technique": 19.459999999999997
         }
       },
       {
@@ -92,8 +92,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 26.34,
-          "drumhead": 2.9149999999999996,
+          "drum_technique": 19.464999999999996,
+          "drumhead": 4.789999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -106,34 +106,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 37.77000000000002,
-          "voice_quality": 9.295,
+          "voice_register": 30.744999999999997,
+          "voice_quality": 10.919999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.745,
-          "voice_articulation": 16.834999999999994,
-          "voice_microtone": 31.9,
-          "voice_tradition": 9.2625,
-          "voice_mechanism_compound": 7.67,
-          "voice_estill_quality": 4.98,
-          "voice_speech_song": 18.329999999999995,
-          "voice_ensemble_config": 16.964999999999993,
-          "voice_ornament_system": 2.785,
-          "voice_pitch_organization": 7.499999999999999,
-          "voice_processing_chain": 7.930000000000001,
-          "voice_multitrack_stack": 8.937499999999998
+          "voice_vibrato": 6.857499999999999,
+          "voice_articulation": 18.72,
+          "voice_microtone": 29.997499999999995,
+          "voice_tradition": 8.6125,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 5.555,
+          "voice_speech_song": 21.839999999999996,
+          "voice_ensemble_config": 18.004999999999995,
+          "voice_ornament_system": 4.388749999999999,
+          "voice_pitch_organization": 7.574999999999999,
+          "voice_processing_chain": 7.605,
+          "voice_multitrack_stack": 9.912499999999998
         }
       },
       {
@@ -142,13 +142,13 @@
           "percussion_technique": "percussion_open_slap",
           "darbuka_material": "darbuka_aluminum_sombaty",
           "darbuka_skin": "darbuka_goat_skin",
-          "darbuka_regional_style": "darbuka_turkish_split"
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 0.06499999999999999,
-          "darbuka_material": 1.0724999999999998,
+          "percussion_technique": 0.9099999999999999,
+          "darbuka_material": 0.39,
           "darbuka_skin": 5.1,
-          "darbuka_regional_style": 3.3
+          "darbuka_regional_style": 5.395
         }
       },
       {
@@ -161,11 +161,11 @@
           "amp_make": "amp_leslie_rotary"
         },
         "scores": {
-          "keyboard_technique": 3.3049999999999997,
-          "combo_organ_model": 4.30875,
-          "combo_organ_voicing": 5.7924999999999995,
-          "combo_organ_context": 19.565,
-          "amp_make": 0.9999999999999999
+          "keyboard_technique": 5.03,
+          "combo_organ_model": 5.5337499999999995,
+          "combo_organ_voicing": 8.567499999999999,
+          "combo_organ_context": 14.494999999999997,
+          "amp_make": 0.35
         }
       }
     ],

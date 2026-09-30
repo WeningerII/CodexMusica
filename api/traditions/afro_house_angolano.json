@@ -1,0 +1,131 @@
+{
+  "id": "afro_house_angolano",
+  "name": "Afro house angolano",
+  "family": "electronic",
+  "lineage": "Angolan house practice centered in Luanda, connecting programmed house tracks with the local semba/kuduro listening and production environment. Firsthand reporting documents software beatmaking and an Angolan rhythmic identity; the selected model leaves particular traditional acoustic instruments optional.",
+  "recipe": "classic modern afro house angolano, electronic Dance, house branch, African dance electronic dance, Afro-diasporic electric groove percussion afrofuturismo brasileiro coupé-décalé. sampler drum machine, analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 429,
+  "score": 40.36,
+  "config": {
+    "traditions": [
+      "afro_house_angolano",
+      "afrofuturismo_brasileiro",
+      "coupe_decale_ivorian"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "heavy_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 0.9099999999999999,
+          "sample_bitdepth": 0,
+          "sample_swing": -0.05,
+          "sample_processing": 0.15
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "svf",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 2.7300000000000004,
+          "oscillator": 2.925,
+          "filter_topology": 0.15,
+          "envelope": 1.3,
+          "modulation": 0.315
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.9099999999999999,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 29.119999999999997
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_parallel_blend",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "heavy_swing",
+      "sample_processing": "one_shots_layered",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "electronic_technique": "electronic_bass_sub",
+      "oscillator": "sine_osc",
+      "filter_topology": "svf",
+      "envelope": "gated_env",
+      "modulation": "no_mod"
+    },
+    "pin_parts": true,
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_parallel_blend",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

@@ -3,27 +3,27 @@
   "name": "Xtra Raw",
   "family": "electronic",
   "lineage": "A late-2010s Dutch offshoot of raw hardstyle, driven by producers such as Rebelion, Sub Sonik, Vertile and Sickmode on Gearbox and Dirty Workz — running 150-165 BPM with an extremely overdriven, screech-tailed reverse-bass kick, minor-key detuned lead screeches, heavy sidechained pumping, and drops whose energy comes from kick timbre and pitch bending rather than the euphoric melodies of classic hardstyle.",
-  "recipe": "classic 2017-2019 xtra raw, electronic Dance, hardstyle branch, techno electronic dance peak-time techno electro backbeat. thick, breath veiled tone, straight onset, interlocked note trading. TR-909, sub bass digital subtractive, sub bass wavetable synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 486,
-  "score": 186.872,
+  "recipe": "classic 2017-2019 xtra raw, electronic Dance, hardstyle branch, techno electronic dance peak-time techno belgian techno. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. TR-909, low sub bass digital subtractive, low sub bass wavetable synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 510,
+  "score": 172.507,
   "config": {
     "traditions": [
       "xtra_raw",
       "peak_techno",
-      "electro_backbeat"
+      "belgian_techno"
     ],
     "instruments": [
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_techno",
+          "drum_machine_909_context": "drum_machine_909_house",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 1.265,
-          "drum_machine_909_context": 2.6,
-          "tr909_production_origin": 0.635
+          "tr909_voice": 2.5149999999999997,
+          "drum_machine_909_context": 2.08,
+          "tr909_production_origin": 0.13499999999999998
         }
       },
       {
@@ -34,9 +34,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 6.385,
+          "electronic_technique": 5.660000000000001,
           "va_archetypes": 0,
-          "digital_subtractive_context": 17.354999999999997
+          "digital_subtractive_context": 15.469999999999995
         }
       },
       {
@@ -48,8 +48,8 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 6.385,
-          "wt_position": 7.865000000000001,
+          "electronic_technique": 5.660000000000001,
+          "wt_position": 9.165000000000001,
           "wt_family": 0.345,
           "wt_polyphony": 1.24
         }
@@ -57,39 +57,39 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "flamenco_jondo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.8150000000000013,
-          "voice_quality": 6.240000000000001,
+          "voice_register": 0.39,
+          "voice_quality": 5.46,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.7899999999999998,
-          "voice_articulation": 16.639999999999997,
-          "voice_microtone": 19.044999999999995,
-          "voice_tradition": 3.185,
-          "voice_mechanism_compound": 2.8599999999999994,
-          "voice_estill_quality": 2.6650000000000005,
-          "voice_speech_song": 18.134999999999994,
-          "voice_ensemble_config": 18.264999999999993,
+          "voice_articulation": 14.754999999999995,
+          "voice_microtone": 15.469999999999992,
+          "voice_tradition": 2.795,
+          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_estill_quality": 2.4699999999999998,
+          "voice_speech_song": 16.444999999999993,
+          "voice_ensemble_config": 15.144999999999992,
           "voice_ornament_system": 2.19,
           "voice_pitch_organization": 2.400000000000001,
-          "voice_processing_chain": 16.95,
+          "voice_processing_chain": 17.715,
           "voice_multitrack_stack": 9.23
         }
       },
@@ -102,10 +102,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.5199999999999999,
-          "sample_bitdepth": 0.39,
-          "sample_swing": 15.605000000000002,
-          "sample_processing": 0.43499999999999994
+          "electronic_technique": 0.06499999999999999,
+          "sample_bitdepth": 0.5399999999999999,
+          "sample_swing": 16.855,
+          "sample_processing": 0.195
         }
       }
     ],

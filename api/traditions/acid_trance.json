@@ -5,7 +5,7 @@
   "lineage": "European hybrid formed 1992-1995 in Germany, the Netherlands and the UK (Hardfloor, Union Jack, Choci, Dave Angel), joining Chicago-derived TB-303 resonant filter sweeps to trance's 135-145 BPM four-on-floor pulse, long breakdown-and-build arrangement, sustained minor-key pad chords and a squelching 303 line whose cutoff automation is the track's principal melodic event.",
   "recipe": "classic 1992-1995 acid trance, electronic Dance, trance branch, techno electronic dance, chicago house house acid house. squelching classic acid monosynth acid bass, roland tr 8s modern aira digital recreation TR-909, analog poly roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, roland tr 8s modern aira digital recreation TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 528,
-  "score": 95.35,
+  "score": 95.326,
   "config": {
     "traditions": [
       "acid_trance",
@@ -24,7 +24,7 @@
         "scores": {
           "electronic_technique": 12.454500000000001,
           "wave_acid": 0.15,
-          "filter_acid": 5.00125,
+          "filter_acid": 4.853125,
           "accent_acid": 8.03
         }
       },
@@ -37,8 +37,8 @@
         },
         "scores": {
           "tr909_voice": 14.239999999999998,
-          "drum_machine_909_context": 9.05675,
-          "tr909_production_origin": 1.9107499999999997
+          "drum_machine_909_context": 9.214875,
+          "tr909_production_origin": 1.8994999999999997
         }
       },
       {
@@ -50,9 +50,9 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 2.14375,
-          "poly_archetypes": 2.24375,
-          "poly_voices": 2.24375,
+          "electronic_technique": 2.1399999999999997,
+          "poly_archetypes": 2.24,
+          "poly_voices": 2.24,
           "poly_maker_lineage": -0.21
         }
       },
@@ -65,8 +65,8 @@
         },
         "scores": {
           "tr808_voice": 1.17,
-          "drum_machine_808_context": 7.612499999999999,
-          "tr808_production_origin": 1.9107499999999997
+          "drum_machine_808_context": 7.669999999999999,
+          "tr808_production_origin": 1.8994999999999997
         }
       },
       {
@@ -81,7 +81,7 @@
         "scores": {
           "electronic_technique": 12.454500000000001,
           "mono_oscillator": 0,
-          "mono_filter": 0.40249999999999997,
+          "mono_filter": 0.345,
           "mono_archetypes": 4.94,
           "mono_maker_lineage": 7.344999999999999
         }

@@ -5,7 +5,7 @@
   "lineage": "Continental African metal scenes formed from the late 1980s onward in Botswana, Angola, Kenya, Madagascar and South Africa, codified by Wrust, Skinflint, Overthrust and the Gaborone leather-cowboy subculture — NWOBHM and thrash templates at 120-190 BPM with downtuned humbucker guitars and double-kick drumming, but with Setswana, Swahili or Portuguese lyrics, local praise-song melodic contours and occasional talking drum or call-and-response chant layered over the riff.",
   "recipe": "classic Southern African 1987-1989 african heavy metal, distorted Rock, metal branch, thrash metal, regional distorted rock crossover thrash groove metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 712,
-  "score": 404.199,
+  "score": 403.735,
   "config": {
     "traditions": [
       "african_heavy_metal",
@@ -31,8 +31,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 43.2825,
-          "amp_make": 24.439999999999998,
+          "electric_technique": 43.3,
+          "amp_make": 23.929999999999996,
           "body_wood": 18.915,
           "neck_wood": 1.04,
           "fretboard": 0.975,
@@ -61,7 +61,7 @@
           "amp_make": 8.71,
           "body_wood": 1.04,
           "pickup_config": 0.78,
-          "string_type": 21.9375,
+          "string_type": 21.855,
           "scale_length_b": 1.04,
           "fretted_or_not": 0.32999999999999996,
           "bass_technique": 19.42
@@ -108,29 +108,29 @@
           "voice_vibrato": 2.6000000000000005,
           "voice_articulation": 19.24,
           "voice_microtone": 19.044999999999995,
-          "voice_tradition": 15.333749999999998,
-          "voice_mechanism_compound": 44.137499999999996,
+          "voice_tradition": 15.534999999999998,
+          "voice_mechanism_compound": 44.155,
           "voice_estill_quality": 3.4450000000000003,
           "voice_speech_song": 20.54,
           "voice_ensemble_config": 20.15,
-          "voice_ornament_system": 0.9099999999999999,
+          "voice_ornament_system": 0.85,
           "voice_pitch_organization": 1.6899999999999995,
-          "voice_processing_chain": 5.888750000000001,
-          "voice_multitrack_stack": 7.67
+          "voice_processing_chain": 5.840000000000001,
+          "voice_multitrack_stack": 7.550000000000001
         }
       },
       {
         "id": "talking_drum",
         "slots": {
           "talking_drum_origin": "gangan_yoruba",
-          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_context": "talking_drum_praise",
           "talking_drum_shell_wood": "talking_drum_iroko_alt",
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
           "talking_drum_origin": 0.195,
-          "talking_drum_context": 0.5525,
-          "talking_drum_shell_wood": 3.2612499999999995,
+          "talking_drum_context": 0.43499999999999994,
+          "talking_drum_shell_wood": 3.4999999999999996,
           "talking_drum_head": 3.1849999999999996
         }
       }

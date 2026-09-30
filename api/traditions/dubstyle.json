@@ -3,27 +3,27 @@
   "name": "Dubstyle",
   "family": "electronic",
   "lineage": "Late-2000s Dutch and Australian crossover between hardstyle and dubstep, pushed by Zatox, The Prophet and Bass Kleph around 2009-2011, halving the hardstyle framework to a 140 BPM half-time feel while retaining the reverse-bass kick-and-offbeat pattern, screeching pitched hardstyle leads and LFO-wobbled dubstep sub-bass under a snare on beat three.",
-  "recipe": "classic 2009-2011 dubstyle, electronic Dance, hardstyle branch, bass descendants bass system, continental electronic dance, techno electronic dance bass trap german techno. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-909, low sub bass analog mono low sub bass wavetable synth, low sub bass digital subtractive, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 573,
-  "score": 270.551,
+  "recipe": "classic 2009-2011 dubstyle, electronic Dance, hardstyle branch, bass descendants bass system, continental electronic dance, techno electronic dance bass trap bouncy techno. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-909, sub bass analog mono sub bass wavetable synth, sub bass digital subtractive, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 565,
+  "score": 270.357,
   "config": {
     "traditions": [
       "dubstyle",
       "bass_trap",
-      "german_techno"
+      "bouncy_techno"
     ],
     "instruments": [
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_clap",
-          "drum_machine_909_context": "drum_machine_909_techno",
-          "tr909_production_origin": "tr909_tr_8s_modern"
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 0.375,
-          "drum_machine_909_context": 2.6,
-          "tr909_production_origin": 0.5
+          "tr909_voice": 2.875,
+          "drum_machine_909_context": 1.4949999999999999,
+          "tr909_production_origin": 0.195
         }
       },
       {
@@ -33,14 +33,14 @@
           "mono_oscillator": "mono_digitally_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "minimoog",
-          "mono_maker_lineage": "mono_roland_kakehashi"
+          "mono_maker_lineage": "mono_arp_pearlman"
         },
         "scores": {
-          "electronic_technique": 25.447499999999998,
+          "electronic_technique": 26.357499999999998,
           "mono_oscillator": 0,
-          "mono_filter": -0.245,
-          "mono_archetypes": 1.4299999999999997,
-          "mono_maker_lineage": -0.6300000000000001
+          "mono_filter": -0.35,
+          "mono_archetypes": 1.2349999999999999,
+          "mono_maker_lineage": -1.435
         }
       },
       {
@@ -48,11 +48,11 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "wt_position": "wt_morphing",
-          "wt_family": "wt_industrial",
+          "wt_family": "wt_vocal",
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 25.447499999999998,
+          "electronic_technique": 26.357499999999998,
           "wt_position": 8.71,
           "wt_family": 0.65,
           "wt_polyphony": 1.2349999999999999
@@ -66,9 +66,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 25.447499999999998,
-          "va_archetypes": 0.35,
-          "digital_subtractive_context": 18.785
+          "electronic_technique": 26.357499999999998,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 17.289999999999996
         }
       },
       {
@@ -77,13 +77,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "twenty_four_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 1.5924999999999998,
+          "electronic_technique": 2.2424999999999997,
           "sample_bitdepth": 0.845,
           "sample_swing": 16.945,
-          "sample_processing": 1.16875
+          "sample_processing": 0.845
         }
       },
       {
@@ -93,7 +93,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -104,25 +104,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.235,
+          "voice_register": 1.8850000000000002,
           "voice_quality": 11.504999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.17,
-          "voice_articulation": 19.955,
-          "voice_microtone": 22.814999999999998,
-          "voice_tradition": 4.680000000000001,
-          "voice_mechanism_compound": 4.315625000000001,
-          "voice_estill_quality": 1.2999999999999998,
-          "voice_speech_song": 19.889999999999997,
-          "voice_ensemble_config": 19.499999999999996,
-          "voice_ornament_system": 2.34,
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 18.004999999999995,
+          "voice_microtone": 20.86499999999999,
+          "voice_tradition": 7.0200000000000005,
+          "voice_mechanism_compound": 4.815625000000001,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 17.939999999999994,
+          "voice_ensemble_config": 17.809999999999995,
+          "voice_ornament_system": 2.795,
           "voice_pitch_organization": 2.08,
-          "voice_processing_chain": 17.756875,
-          "voice_multitrack_stack": 4.355
+          "voice_processing_chain": 17.256875,
+          "voice_multitrack_stack": 5.265
         }
       }
     ],

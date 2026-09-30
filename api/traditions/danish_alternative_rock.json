@@ -1,0 +1,251 @@
+{
+  "id": "danish_alternative_rock",
+  "name": "Danish alternative rock",
+  "family": "rock_punk",
+  "lineage": "A Danish alternative-rock network including Mew, The Raveonettes, D-A-D, Kashmir and Dizzy Mizz Lizzy. The selected Dizzy Mizz Lizzy Alter Echo-era branch expands the guitar/bass/drum trio with Mellotron textures and more pronounced fuzz, phasing and reverberation.",
+  "recipe": "classic danish alternative rock, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp humbucker electric guitar, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. large-diaphragm condenser, console-strip pre, British high-gain stack, parametric EQ. 24-bit digital germanium fuzz phaser plate reverb.",
+  "recipe_chars": 601,
+  "score": 67.453,
+  "config": {
+    "traditions": [
+      "danish_alternative_rock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": -0.07,
+          "amp_make": 4.42,
+          "body_wood": 0.5775,
+          "neck_wood": 0.5775,
+          "fretboard": 0.39,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.714,
+          "string_material": 0.39,
+          "bridge": 0.5775,
+          "scale_length": 1.1550000000000002,
+          "string_gauge": 0.5775,
+          "finish": 0,
+          "string_tuning": 4.9399999999999995
+        }
+      },
+      {
+        "id": "mellotron",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "mellotron_voice": "mellotron_strings",
+          "mellotron_context": "mellotron_prog",
+          "mellotron_model": "mellotron_m400_canonical",
+          "mellotron_tape_material": "mellotron_polyester_tape_canonical"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "mellotron_voice": 4.55,
+          "mellotron_context": 0.39,
+          "mellotron_model": 6.175,
+          "mellotron_tape_material": 1.69
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_h",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 5.785,
+          "body_wood": 0.5775,
+          "pickup_config": 0.40950000000000003,
+          "string_type": 11.375,
+          "scale_length_b": 0.5775,
+          "fretted_or_not": 0.3,
+          "bass_technique": 8.7
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "birch_shell",
+          "cymbal_alloy": "b20"
+        },
+        "scores": {
+          "drum_technique": 8.75,
+          "drumhead": 0.651,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.39,
+          "cymbal_alloy": -0.2
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.168,
+          "voice_multitrack_stack": 0.546
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "body_wood",
+        "pickup_magnet",
+        "string_material"
+      ],
+      "mellotron": [
+        "keyboard_technique",
+        "mellotron_voice",
+        "mellotron_context",
+        "mellotron_model",
+        "mellotron_tape_material"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "shell_wood",
+        "drumhead",
+        "cymbal_alloy"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": "amp_british_high_gain",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fuzz_germanium",
+      "phaser_pedal",
+      "plate_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "electric_technique": "electric_fuzz_riff",
+      "body_wood": "mahogany_h",
+      "string_material": "nickel_plated_h",
+      "pickup_magnet": "alnico_2_h",
+      "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+      "mellotron_voice": "mellotron_strings",
+      "mellotron_context": "mellotron_prog",
+      "mellotron_model": "mellotron_m400_canonical",
+      "mellotron_tape_material": "mellotron_polyester_tape_canonical",
+      "bass_technique": "pick_aggressive",
+      "shell_wood": "birch_shell",
+      "drumhead": "double_coated",
+      "cymbal_alloy": "b20"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "fuzz_germanium",
+      "phaser_pedal",
+      "plate_reverb"
+    ],
+    "chain_amp": "amp_british_high_gain"
+  }
+}

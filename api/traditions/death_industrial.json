@@ -5,7 +5,7 @@
   "lineage": "Swedish and British offshoot of power electronics codified around 1987-1995 by Brighter Death Now, Cold Meat Industry and Megaptera, defined by slow or beatless heaving low-frequency drones, tape-loop churn, metallic scrape and clang, and buried distorted or whispered vocals — texturally dense, funereal in pace, and constructed on four-track cassette rather than mixed for clarity.",
   "recipe": "classic European mid-1990s death industrial, experimental Elec, industrial noise branch, ambient experimental electric, musique concrete experimental electric, drone metal dark ambient. thick, breath veiled tone, slow rate, interlocked note trading. doepfer eurorack canonical 1995 present small format standardization textural modular pad like pad analog synth, overtone rich sustained brass tape replay keyboard, field textural sampler. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 545,
-  "score": 254.888,
+  "score": 251.343,
   "config": {
     "traditions": [
       "death_industrial",
@@ -41,14 +41,14 @@
           "voice_vibrato": 6.045000000000002,
           "voice_articulation": 19.11,
           "voice_microtone": 17.484999999999992,
-          "voice_tradition": 14.558333333333334,
-          "voice_mechanism_compound": 17.7685,
-          "voice_estill_quality": 3.278083333333334,
+          "voice_tradition": 14.625,
+          "voice_mechanism_compound": 17.169999999999998,
+          "voice_estill_quality": 3.230833333333334,
           "voice_speech_song": 19.759999999999998,
           "voice_ensemble_config": 19.759999999999998,
           "voice_ornament_system": 0.65,
-          "voice_pitch_organization": 6.0125,
-          "voice_processing_chain": 8.451333333333332,
+          "voice_pitch_organization": 5.9575,
+          "voice_processing_chain": 7.600833333333333,
           "voice_multitrack_stack": 4.940000000000001
         }
       },
@@ -77,11 +77,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 9.306,
-          "oscillator": 3.4449999999999994,
+          "electronic_technique": 8.7075,
+          "oscillator": 3.0274999999999994,
           "filter_topology": 3.575,
           "envelope": 3.3150000000000004,
-          "modulation": 1.397
+          "modulation": 1.145
         }
       },
       {
@@ -92,9 +92,9 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": 0.9099999999999999,
-          "tape_voice": 3.509999999999999,
-          "tape_state": 0.845
+          "keyboard_technique": 0.7,
+          "tape_voice": 3.0774999999999992,
+          "tape_state": 0.6950000000000001
         }
       },
       {

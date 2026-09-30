@@ -1,0 +1,207 @@
+{
+  "id": "cinematic_post_rock",
+  "name": "Cinematic post-rock",
+  "family": "rock_punk",
+  "lineage": "A cinematic post-rock discovery cluster including Explosions in the Sky, Lights & Motion, We Lost the Sea and Nordic Giants. This default selects Explosions in the Sky’s piano-expanded instrumental branch around End, with guitar, bass, drums and supporting synthesizer textures.",
+  "recipe": "classic cinematic post-rock, distorted Rock, experimental branch. soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano, marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog synth. treated studio. large-diaphragm condenser, console-strip pre, American blackface tube, parametric EQ. 24-bit digital digital delay hall reverb.",
+  "recipe_chars": 442,
+  "score": 54.33,
+  "config": {
+    "traditions": [
+      "cinematic_post_rock"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "grand_piano_size": 0.09899999999999999,
+          "grand_piano_brand": 0.33599999999999997,
+          "piano_hammer": 4.42,
+          "piano_rim": 4.8100000000000005,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 2.015
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": -0.11850000000000002,
+          "amp_make": 4.42,
+          "body_wood": 0.09899999999999999,
+          "neck_wood": 0.414,
+          "fretboard": 0.414,
+          "pickup_magnet": 0.414,
+          "string_material": 0.414,
+          "string_gauge": 0.063,
+          "bridge": 0.315,
+          "scale_length": 0.1305,
+          "finish": 0.1365,
+          "string_tuning": 5.85
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 6.175,
+          "body_wood": 0.09899999999999999,
+          "pickup_config": 0.31949999999999995,
+          "string_type": 11.375,
+          "scale_length_b": 1.3,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_clear",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "cymbal_alloy": "b20"
+        },
+        "scores": {
+          "drum_technique": 8.75,
+          "drumhead": 0.414,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.063,
+          "cymbal_alloy": -0.2
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "oscillator": 0.273,
+          "filter_topology": 1.282,
+          "envelope": 0.588,
+          "modulation": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_soundboard"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "body_wood",
+        "string_material"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "shell_wood",
+        "drumhead",
+        "cymbal_alloy"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay",
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "electric_technique": "electric_arpeggiated_clean",
+      "body_wood": "alder",
+      "string_material": "nickel_plated",
+      "bass_technique": "fingerstyle_locked",
+      "shell_wood": "maple_shell",
+      "drumhead": "single_clear",
+      "cymbal_alloy": "b20",
+      "electronic_technique": "electronic_pad_drone",
+      "oscillator": "triangle_osc",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "no_mod"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay",
+      "hall_reverb"
+    ],
+    "chain_amp": "amp_american_blackface"
+  }
+}

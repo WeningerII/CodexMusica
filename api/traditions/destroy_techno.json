@@ -1,0 +1,138 @@
+{
+  "id": "destroy_techno",
+  "name": "Destroy techno",
+  "family": "electronic",
+  "lineage": "An Every Noise discovery label joining electro-, techno- and fidget-adjacent club artists rather than a literal instruction to maximize distortion. Siriusmo supplies the selected keyboard-and-sampler branch, supported by his own descriptions of synthesis, electric piano and sampled beat making.",
+  "recipe": "classic modern destroy techno, electronic Dance, techno branch, house electronic dance detroit house latin house. analog synth, sampler, pocket ostinato wurlitzer ep. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 370,
+  "score": 41.312,
+  "config": {
+    "traditions": [
+      "destroy_techno",
+      "detroit_house",
+      "latin_house_percussion"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "oscillator": "square_pulse",
+          "filter_topology": "svf",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 0.2,
+          "oscillator": 0.045,
+          "filter_topology": 0.24,
+          "envelope": 0.09,
+          "modulation": 0.105
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.0499999999999998,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 1,
+          "sampler_workflow": -0.15000000000000002,
+          "sampler_classic_context": 39.81249999999999
+        }
+      },
+      {
+        "id": "wurlitzer_ep",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "wurlitzer_use": "wurlitzer_supertramp",
+          "wurlitzer_ep_voice": "wurlitzer_ep_overdrive",
+          "wurlitzer_model": "wurlitzer_200a_canonical",
+          "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 3.275,
+          "wurlitzer_use": 0.15,
+          "wurlitzer_ep_voice": 0,
+          "wurlitzer_model": -1.9,
+          "wurlitzer_reed_material": 0.195
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "wurlitzer_ep": [
+        "keyboard_technique",
+        "wurlitzer_use",
+        "wurlitzer_ep_voice",
+        "wurlitzer_model",
+        "wurlitzer_reed_material"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_pluck_short",
+      "oscillator": "square_pulse",
+      "filter_topology": "svf",
+      "envelope": "pluck_env",
+      "modulation": "no_mod",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_edm",
+      "keyboard_technique": "keyboard_ostinato_groove",
+      "wurlitzer_use": "wurlitzer_supertramp",
+      "wurlitzer_ep_voice": "wurlitzer_ep_overdrive",
+      "wurlitzer_model": "wurlitzer_200a_canonical",
+      "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

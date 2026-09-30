@@ -3,14 +3,14 @@
   "name": "Art Punk",
   "family": "rock_punk",
   "lineage": "Formed 1976-79 in the UK and US art schools (Leeds, Cleveland, New York) as punk's conceptual wing — Wire, Gang of Four, Pere Ubu and The Pop Group replaced three-chord acceleration with angular non-blues guitar intervals, treble-forward scratch rhythm playing, high-register melodic basslines carrying the hook, clipped 140-170 BPM disco-derived and stop-start drum figures, and declamatory half-spoken vocals delivering Marxist or absurdist texts over deliberately dry, unreverbed studio space.",
-  "recipe": "classic British mid-1970s art punk, distorted Rock, art rock branch, punk distorted rock, experimental distorted rock, noise rock distorted rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock block chord combo organ, alto multiphonic saxophone. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 764,
-  "score": 439.692,
+  "recipe": "classic British mid-1970s art punk, distorted Rock, art rock branch, punk distorted rock, experimental distorted rock, noise rock distorted rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock block chord combo organ, alto multiphonic saxophone. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 776,
+  "score": 426.727,
   "config": {
     "traditions": [
       "art_punk",
       "noise_rock",
-      "experimental_rock"
+      "ska_punk"
     ],
     "instruments": [
       {
@@ -25,23 +25,23 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
           "bridge": "hardtail",
-          "scale_length": "scale_short",
+          "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 11.624999999999996,
-          "amp_make": 29.609999999999996,
-          "body_wood": 0.195,
-          "neck_wood": 1.8900000000000001,
-          "fretboard": 1.8900000000000001,
-          "pickup_magnet": 1.8900000000000001,
-          "string_material": 1.8900000000000001,
-          "string_gauge": 0.195,
+          "electric_technique": 18.375,
+          "amp_make": 34.535,
+          "body_wood": 1.04,
+          "neck_wood": 1.3900000000000001,
+          "fretboard": 1.3900000000000001,
+          "pickup_magnet": 1.3900000000000001,
+          "string_material": 1.3900000000000001,
+          "string_gauge": 1.04,
           "bridge": 0.39,
-          "scale_length": 0.3,
-          "finish": 0.65,
-          "string_tuning": 19.499999999999996
+          "scale_length": 1.04,
+          "finish": 0.195,
+          "string_tuning": 16.119999999999997
         }
       },
       {
@@ -56,13 +56,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 18.589999999999996,
-          "body_wood": 0.195,
+          "amp_make": 16.965,
+          "body_wood": 1.04,
           "pickup_config": 0.39,
-          "string_type": 37.275,
-          "scale_length_b": 0.195,
+          "string_type": 32.025,
+          "scale_length_b": 1.04,
           "fretted_or_not": 0.045,
-          "bass_technique": 44.695
+          "bass_technique": 46.19499999999999
         }
       },
       {
@@ -73,8 +73,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 32.25,
-          "drumhead": 2.45,
+          "drum_technique": 27,
+          "drumhead": 3.325,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -92,29 +92,29 @@
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 38.840000000000025,
-          "voice_quality": 7.8,
+          "voice_register": 34.465000000000025,
+          "voice_quality": 8.58,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.3500000000000005,
-          "voice_articulation": 16.444999999999997,
-          "voice_microtone": 34.55000000000001,
-          "voice_tradition": 8.79,
-          "voice_mechanism_compound": 12.447499999999998,
-          "voice_estill_quality": 2.0799999999999996,
-          "voice_speech_song": 17.679999999999993,
-          "voice_ensemble_config": 17.874999999999996,
+          "voice_articulation": 16.379999999999995,
+          "voice_microtone": 30.174999999999997,
+          "voice_tradition": 5.164999999999999,
+          "voice_mechanism_compound": 13,
+          "voice_estill_quality": 2.9250000000000007,
+          "voice_speech_song": 16.509999999999998,
+          "voice_ensemble_config": 21.154999999999998,
           "voice_ornament_system": 1.9399999999999997,
-          "voice_pitch_organization": 1.6249999999999998,
-          "voice_processing_chain": 5.095000000000001,
-          "voice_multitrack_stack": 9.120000000000001
+          "voice_pitch_organization": 2.4700000000000006,
+          "voice_processing_chain": 3.245,
+          "voice_multitrack_stack": 7.865000000000001
         }
       },
       {
@@ -124,14 +124,14 @@
           "combo_organ_model": "farfisa_compact",
           "combo_organ_voicing": "combo_organ_vibrato_on",
           "combo_organ_context": "combo_organ_doors_psych",
-          "amp_make": "amp_leslie_rotary"
+          "amp_make": "amp_unspecified"
         },
         "scores": {
-          "keyboard_technique": 3.975,
-          "combo_organ_model": 4.425,
-          "combo_organ_voicing": 3.235,
-          "combo_organ_context": 17.615,
-          "amp_make": 0.07499999999999996
+          "keyboard_technique": 4.85,
+          "combo_organ_model": 5.6,
+          "combo_organ_voicing": 4.760000000000001,
+          "combo_organ_context": 14.689999999999998,
+          "amp_make": 0
         }
       },
       {
@@ -140,18 +140,18 @@
           "wind_articulation": "wind_multiphonic_avant",
           "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "rose_brass_sax",
+          "sax_body_alloy": "gold_brass_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_multiphonic_avant",
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 8.95,
-          "sax_size": 2.275,
-          "sax_reed": 1.8900000000000001,
-          "sax_body_alloy": -0.035,
-          "sax_mouthpiece": 1.8900000000000001,
-          "sax_technique": 9,
+          "wind_articulation": 7.324999999999998,
+          "sax_size": 1.625,
+          "sax_reed": 1.3900000000000001,
+          "sax_body_alloy": 0.06499999999999999,
+          "sax_mouthpiece": 1.3900000000000001,
+          "sax_technique": 7.374999999999998,
           "sax_maker_school": 0
         }
       }

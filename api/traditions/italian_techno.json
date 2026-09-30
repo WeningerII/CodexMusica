@@ -1,0 +1,105 @@
+{
+  "id": "italian_techno",
+  "name": "Italian techno",
+  "family": "electronic",
+  "lineage": "Italy-centered techno networks spanning several club generations. Enrico Sangiuliano’s Milan production practice supplies this compact synth-and-drum default; Marco Carola, another documented member of the scene, illustrates the photographic record.",
+  "recipe": "classic modern italian techno, electronic Dance, techno branch. analog synth, drum machine analog. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 302,
+  "score": 7.752,
+  "config": {
+    "traditions": [
+      "italian_techno"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "saw_single",
+          "filter_topology": "svf",
+          "envelope": "pluck_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "oscillator": 0.39,
+          "filter_topology": 1.3,
+          "envelope": 0.39,
+          "modulation": 0.1365
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0.3,
+          "hat_voice": 0,
+          "shuffle_quantize": 3.601
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_lead_line",
+      "oscillator": "saw_single",
+      "filter_topology": "svf",
+      "envelope": "pluck_env",
+      "modulation": "lfo_filter",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "noise_hat",
+      "shuffle_quantize": "straight_quantize"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

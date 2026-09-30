@@ -1,0 +1,105 @@
+{
+  "id": "german_tech_house",
+  "name": "German tech house",
+  "family": "electronic",
+  "lineage": "A Germany-based tech-house production network represented in the discovery roster by Format:B, Marek Hemmann, Kaiserdisco, Daniel Steinberg and Monika Kruse. Format:B’s first-person description grounds the selected model in a house/techno mixture with funky percussion and rolling sub-bass.",
+  "recipe": "classic modern german tech house, electronic Dance, tech house branch. drum machine analog, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 309,
+  "score": 9.425,
+  "config": {
+    "traditions": [
+      "german_tech_house"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 0.17250000000000001,
+          "snare_voice": 0.178125,
+          "hat_voice": 0,
+          "shuffle_quantize": 0.0315
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "svf",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 2.7950000000000004,
+          "oscillator": 2.6,
+          "filter_topology": 0.78,
+          "envelope": 0.34275,
+          "modulation": 0
+        }
+      }
+    ],
+    "pinned": {
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_parallel_blend",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "noise_hat",
+      "shuffle_quantize": "shuffle_low",
+      "electronic_technique": "electronic_bass_sub",
+      "oscillator": "sine_osc",
+      "filter_topology": "svf",
+      "envelope": "pluck_env",
+      "modulation": "no_mod"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_parallel_blend",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

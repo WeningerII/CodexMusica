@@ -3,14 +3,14 @@
   "name": "Ambient fusion",
   "family": "jazz",
   "lineage": "Ambient-oriented electric improvisation and studio montage, represented by Jon Hassell and Maarifa Street’s Last Night the Moon Came Dropping Its Clothes in the Street (2009). Trumpet, bass, violin and live sampling dissolve the boundary between ensemble performance and electronic soundscape. Hassell’s Fourth World practice is a formative branch of this wider jazz/electronic intersection, not a synonym for every ambient-fusion recording.",
-  "recipe": "classic late-2000s ambient fusion, experimental Elec, ambient branch, American jazz fusion, musique concrete experimental electric jazztronica. bach stradivarius 180 canonical American orchestral jazz balance trumpet, ampeg b15 amp American 60s bass amp flip top character alder flatwound electric bass, modern setup longer neck longer fingerboard heavier bass bar violin orchestral, glitched textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 626,
-  "score": 66.188,
+  "recipe": "classic late-2000s ambient fusion, experimental Elec, ambient branch, American jazz fusion, musique concrete experimental electric italian jazz fusion jazztronica. bach stradivarius 180 canonical American orchestral jazz balance trumpet, ampeg b15 amp American 60s bass amp flip top character flatwound thumb muted electric bass, modern setup longer neck longer fingerboard heavier bass bar violin orchestral, glitched textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 652,
+  "score": 60.137,
   "config": {
     "traditions": [
       "ambient_fusion",
-      "jazztronica",
-      "jazz_fusion"
+      "italian_jazz_fusion",
+      "jazztronica"
     ],
     "instruments": [
       {
@@ -21,16 +21,16 @@
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_classical_legato",
-          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
           "wind_articulation": -0.1,
-          "brass_size": 0.65,
-          "trumpet_mouthpiece": 24.5375,
+          "brass_size": 0.7350000000000001,
+          "trumpet_mouthpiece": 22.5875,
           "brass_mute": 0,
-          "trumpet_technique": -0.05,
-          "trumpet_bell_metal": 0.65,
+          "trumpet_technique": 0.3,
+          "trumpet_bell_metal": 0.8250000000000001,
           "trumpet_maker_school": 2.8600000000000003
         }
       },
@@ -39,17 +39,17 @@
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "flatwound",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 6.370000000000002,
-          "body_wood": 1.2349999999999999,
-          "pickup_config": 1.145,
-          "string_type": 18.825,
+          "amp_make": 5.330000000000002,
+          "body_wood": 0.39,
+          "pickup_config": 0.44999999999999996,
+          "string_type": 17.325,
           "scale_length_b": 0.44999999999999996,
           "fretted_or_not": 0,
           "bass_technique": 1.5750000000000002
@@ -73,9 +73,9 @@
           "bowed_technique": -0.035,
           "orch_strings": 0,
           "orch_top_wood": -0.07,
-          "orch_back_wood": -0.07,
+          "orch_back_wood": 0.06499999999999999,
           "orch_varnish": 0.585,
-          "orch_setup_period": 4.030000000000001,
+          "orch_setup_period": 2.99,
           "orch_bow": 0,
           "orch_bow_stick": -0.035,
           "orch_articulation": 0.39,

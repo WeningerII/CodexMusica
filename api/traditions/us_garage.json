@@ -3,14 +3,14 @@
   "name": "US Garage",
   "family": "electronic",
   "lineage": "New York and New Jersey style of roughly 1979-1992 named for the Paradise Garage and shaped by Larry Levan, Tony Humphries, Timmy Regisford and the Salsoul, West End and Nu Groove catalogues, running 118-124 BPM with live-feel drum programming that keeps disco's open hi-hat and tambourine, warm electric-bass and Rhodes comping, real percussion overdubs, gospel-trained lead vocals with full verse-chorus writing, and long dub-style breakdowns cut for twelve-inch play.",
-  "recipe": "classic North American mid-1980s us garage, electronic Dance, garage house u s branch, deep house house, chicago house house, uk soundsystem bass system deep disco house. thick, breath veiled tone, straight note core, interlocked note trading. TR-909, chordal felt tipped hammers early Rhodes pre 1971 bell like centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, open slap hand drum congas, Hammond a 100 built in Leslie home spinet gospel runs full spectrum fast tremolo tonewheel organ, tambourine orch. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
-  "recipe_chars": 859,
-  "score": 250.627,
+  "recipe": "classic North American mid-1980s us garage, electronic Dance, garage house u s branch, deep house house, chicago house house, uk soundsystem bass system. thick, breath veiled tone, straight note core, interlocked note trading. TR-909, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, lead open slap hand drum congas, Hammond a 100 built in Leslie home spinet Leslie 145 smaller 25w tube home club gospel runs full spectrum fast tremolo tonewheel organ, tambourine orch. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 870,
+  "score": 262.835,
   "config": {
     "traditions": [
       "us_garage",
-      "deep_disco_house",
-      "hip_house"
+      "hip_house",
+      "chicago_house"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 5.915000000000001,
-          "voice_quality": 12.414999999999992,
+          "voice_register": 7.545000000000001,
+          "voice_quality": 11.439999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.1449999999999996,
-          "voice_articulation": 18.264999999999997,
-          "voice_microtone": 18.069999999999993,
-          "voice_tradition": 6.62,
-          "voice_mechanism_compound": 3.9,
-          "voice_estill_quality": 5.975,
-          "voice_speech_song": 19.499999999999996,
-          "voice_ensemble_config": 20.734999999999992,
-          "voice_ornament_system": 0.7,
-          "voice_pitch_organization": 1.9499999999999997,
-          "voice_processing_chain": 20.895000000000003,
-          "voice_multitrack_stack": 8.6
+          "voice_vibrato": 2.9899999999999998,
+          "voice_articulation": 21.06,
+          "voice_microtone": 20.864999999999995,
+          "voice_tradition": 7.87,
+          "voice_mechanism_compound": 4.095,
+          "voice_estill_quality": 7.225,
+          "voice_speech_song": 22.229999999999997,
+          "voice_ensemble_config": 24.374999999999996,
+          "voice_ornament_system": 0.7749999999999999,
+          "voice_pitch_organization": 1.8949999999999998,
+          "voice_processing_chain": 20.169999999999998,
+          "voice_multitrack_stack": 5.200000000000001
         }
       },
       {
@@ -60,64 +60,64 @@
           "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
-          "tr909_voice": 33.995,
-          "drum_machine_909_context": 3.3149999999999995,
-          "tr909_production_origin": 0.78
+          "tr909_voice": 29.195000000000004,
+          "drum_machine_909_context": 7.1850000000000005,
+          "tr909_production_origin": 0.12999999999999998
         }
       },
       {
         "id": "rhodes_electric",
         "slots": {
           "keyboard_technique": "keyboard_gospel_chord_runs",
-          "rhodes_model": "rhodes_mark2",
-          "rhodes_use": "rhodes_jazz",
+          "rhodes_model": "rhodes_suitcase",
+          "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_raymac_tine",
-          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 6.62,
-          "rhodes_model": 0.585,
-          "rhodes_use": 1.4949999999999999,
+          "keyboard_technique": 7.87,
+          "rhodes_model": 0.65,
+          "rhodes_use": 2.08,
           "rhodes_tine_material": -0.05,
-          "rhodes_hammer_tip": 2.0149999999999997,
-          "rhodes_pickup_position": 1.7349999999999999
+          "rhodes_hammer_tip": 2.2800000000000002,
+          "rhodes_pickup_position": 1.69
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 9.265,
-          "body_wood": 0.6599999999999999,
-          "pickup_config": 0.65,
-          "string_type": 8.71,
-          "scale_length_b": 1.3,
+          "amp_make": 6.775,
+          "body_wood": 1.3,
+          "pickup_config": 0.845,
+          "string_type": 6.565000000000001,
+          "scale_length_b": 1.95,
           "fretted_or_not": 0,
-          "bass_technique": 6.185
+          "bass_technique": 3.2
         }
       },
       {
         "id": "congas",
         "slots": {
           "percussion_technique": "percussion_open_slap",
-          "conga_set": "tumba",
+          "conga_set": "quinto",
           "conga_skin": "conga_cowhide",
           "conga_shell_wood": "conga_mahogany"
         },
         "scores": {
-          "percussion_technique": 3.0550000000000006,
-          "conga_set": 3.119999999999999,
-          "conga_skin": 0.24,
-          "conga_shell_wood": 0.09
+          "percussion_technique": 3.7650000000000006,
+          "conga_set": 1.8249999999999997,
+          "conga_skin": 0.65,
+          "conga_shell_wood": 0.195
         }
       },
       {
@@ -128,25 +128,25 @@
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_off",
           "tonewheel_model": "tonewheel_hammond_a100",
-          "leslie_cabinet_model": "leslie_760_solid_state"
+          "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 6.62,
-          "drawbar_setting": 4.775,
-          "rotary_speed": 4.374999999999999,
+          "keyboard_technique": 7.87,
+          "drawbar_setting": 6.675,
+          "rotary_speed": 5.824999999999999,
           "percussion_setting": 0.195,
-          "tonewheel_model": 6.305,
-          "leslie_cabinet_model": 0.15
+          "tonewheel_model": 5.655000000000001,
+          "leslie_cabinet_model": 1.4299999999999997
         }
       },
       {
         "id": "tambourine_orch",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_jingle": "tambourine_orch_brass",
           "tambourine_orch_context": "tambourine_orch_orch"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.045,
+          "tambourine_orch_jingle": 0.375,
           "tambourine_orch_context": 0
         }
       }

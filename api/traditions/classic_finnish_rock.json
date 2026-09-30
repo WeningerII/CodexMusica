@@ -1,0 +1,218 @@
+{
+  "id": "classic_finnish_rock",
+  "name": "Classic Finnish rock",
+  "family": "rock_punk",
+  "lineage": "A heritage Finnish rock-repertoire label, represented here by Hurriganes’ mid1970s guitar/bass/drum trio with drummer and bassist also supplying vocals. The selected Hot Wheels-era branch favors compact rock-and-roll songs and a rougher recorded band sound.",
+  "recipe": "classic classic finnish rock, distorted Rock, classic branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp soft down tuning single coil electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. concrete basement. shure SM57, console-strip pre, marshall super lead 1959, colored vintage console, parametric EQ. tape 15ips.",
+  "recipe_chars": 439,
+  "score": 54.198,
+  "config": {
+    "traditions": [
+      "classic_finnish_rock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_overdriven_lead",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 0.49999999999999994,
+          "amp_make": 5.720000000000001,
+          "body_wood": 0.0315,
+          "neck_wood": 0.6194999999999999,
+          "fretboard": 0.126,
+          "pickup_magnet": 0,
+          "string_material": 0.126,
+          "string_gauge": 0.6194999999999999,
+          "bridge": 0,
+          "scale_length": 1.2390000000000003,
+          "finish": 0.3045,
+          "string_tuning": 9.1
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder",
+          "pickup_config": "soapbar",
+          "string_type": "flatwound",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 7.085,
+          "body_wood": 0.0315,
+          "pickup_config": 0.0315,
+          "string_type": -0.1,
+          "scale_length_b": 0.6194999999999999,
+          "fretted_or_not": 0.6,
+          "bass_technique": 11.2945
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "mahogany_shell",
+          "bearing_edges": "edge_30",
+          "cymbal_alloy": "b20"
+        },
+        "scores": {
+          "drum_technique": 11.313,
+          "drumhead": 0.1365,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.40950000000000003,
+          "bearing_edges": 0.756,
+          "cymbal_alloy": -0.2
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.2945,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.21,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.6405
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "body_wood",
+        "pickup_magnet",
+        "string_material"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "string_type",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "shell_wood",
+        "bearing_edges",
+        "drumhead",
+        "cymbal_alloy"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ]
+    },
+    "room": "concrete_basement",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": "amp_marshall_plexi_1959",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "electric_technique": "electric_overdriven_lead",
+      "body_wood": "alder",
+      "string_material": "nickel_plated",
+      "pickup_magnet": "alnico_5",
+      "bass_technique": "pick_aggressive",
+      "string_type": "flatwound",
+      "shell_wood": "mahogany_shell",
+      "drumhead": "single_coated",
+      "bearing_edges": "edge_30",
+      "cymbal_alloy": "b20"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored",
+    "chain_fx": [],
+    "chain_amp": "amp_marshall_plexi_1959"
+  }
+}

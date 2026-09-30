@@ -3,14 +3,14 @@
   "name": "Psychedelic rock",
   "family": "rock_punk",
   "lineage": "Mid-late 1960s through early 1970s rock genre informed by hallucinogenic-drug culture and Indian classical music influence — codified through The Beatles (Revolver 1966, Sgt Pepper 1967, Magical Mystery Tour 1967), The Jimi Hendrix Experience (Are You Experienced 1967, Axis Bold as Love 1967, Electric Ladyland 1968), Pink Floyd (the Syd Barrett era The Piper at the Gates of Dawn 1967), 13th Floor Elevators, Jefferson Airplane, the Grateful Dead (their early San Francisco psychedelic era), the Doors",
-  "recipe": "classic Northern European 1967-1969 psychedelic rock, distorted Rock, classic branch, experimental distorted rock krautrock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, cedar bone maihar gharana instrumental concert lineage classical trained lineage sitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
-  "recipe_chars": 920,
-  "score": 492.212,
+  "recipe": "classic Northern European 1967-1969 psychedelic rock, distorted Rock, classic branch, experimental distorted rock canadian psychedelic rock british post-rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, cedar maihar gharana instrumental concert lineage classical trained lineage sitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
+  "recipe_chars": 899,
+  "score": 370.257,
   "config": {
     "traditions": [
       "psychedelic_rock",
-      "krautrock",
-      "experimental_rock"
+      "canadian_psychedelic_rock",
+      "british_post_rock"
     ],
     "instruments": [
       {
@@ -34,32 +34,32 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 32.9315,
-          "voice_quality": 13.844999999999994,
+          "voice_register": 22.969999999999995,
+          "voice_quality": 12.544999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.98,
-          "voice_articulation": 12.869999999999996,
-          "voice_microtone": 31.729999999999993,
-          "voice_tradition": 14.7315,
-          "voice_mechanism_compound": 5.915000000000002,
-          "voice_estill_quality": 6.323,
-          "voice_speech_song": 14.299999999999995,
-          "voice_ensemble_config": 12.609999999999994,
-          "voice_ornament_system": 6.471500000000001,
-          "voice_pitch_organization": 4.65,
-          "voice_processing_chain": 7.377000000000001,
-          "voice_multitrack_stack": 13.932500000000001
+          "voice_vibrato": 5.8100000000000005,
+          "voice_articulation": 9.424999999999999,
+          "voice_microtone": 22.869999999999994,
+          "voice_tradition": 9.1,
+          "voice_mechanism_compound": 4.615000000000001,
+          "voice_estill_quality": 4.995,
+          "voice_speech_song": 10.204999999999998,
+          "voice_ensemble_config": 9.165,
+          "voice_ornament_system": 5.430000000000001,
+          "voice_pitch_organization": 3.9000000000000004,
+          "voice_processing_chain": 5.345000000000001,
+          "voice_multitrack_stack": 11.555
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_fuzz_riff",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
-          "neck_wood": "maple",
-          "fretboard": "pau_ferro_fb",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
@@ -69,18 +69,18 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 7.307999999999999,
-          "amp_make": 15.112499999999995,
-          "body_wood": 1.6,
-          "neck_wood": 1.625,
-          "fretboard": 1.625,
-          "pickup_magnet": 1.625,
-          "string_material": 1.625,
-          "string_gauge": 1.6,
+          "electric_technique": 8.119999999999997,
+          "amp_make": 11.374999999999998,
+          "body_wood": 1.3900000000000001,
+          "neck_wood": 1.3900000000000001,
+          "fretboard": 1.34,
+          "pickup_magnet": 0.975,
+          "string_material": 0.975,
+          "string_gauge": 1.3900000000000001,
           "bridge": 0.09,
-          "scale_length": 1.69,
-          "finish": 0.65,
-          "string_tuning": 16.769999999999996
+          "scale_length": 1.48,
+          "finish": 0.195,
+          "string_tuning": 12.805
         }
       },
       {
@@ -94,11 +94,11 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 2.3760000000000003,
-          "drawbar_setting": 28.594499999999996,
-          "rotary_speed": 28.494999999999997,
-          "percussion_setting": 14.819999999999999,
-          "tonewheel_model": 13.552499999999997,
+          "keyboard_technique": 0.745,
+          "drawbar_setting": 20.875,
+          "rotary_speed": 20.87,
+          "percussion_setting": 10.855,
+          "tonewheel_model": 9.100000000000001,
           "leslie_cabinet_model": 1
         }
       },
@@ -117,16 +117,16 @@
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 5.050000000000001,
-          "sitar_neck": 3.575,
-          "sitar_resonator": 0.3315,
-          "sitar_jawari": 1.625,
+          "plucked_traditional_technique": 4.99,
+          "sitar_neck": 2.925,
+          "sitar_resonator": 0.78,
+          "sitar_jawari": 0.975,
           "sitar_taraf": 0,
           "sitar_frets": 0,
-          "sitar_pluck": 2.185,
+          "sitar_pluck": 1.8850000000000002,
           "sitar_main_strings": -1.05,
           "sitar_jawari_style": 0.195,
-          "sitar_gharana": 2.47
+          "sitar_gharana": 2.925
         }
       },
       {
@@ -137,47 +137,47 @@
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 14.754999999999997,
-          "body_wood": 1.69,
+          "amp_make": 11.634999999999998,
+          "body_wood": 1.48,
           "pickup_config": 0.15,
-          "string_type": 34.884,
-          "scale_length_b": 1.6,
-          "fretted_or_not": 0,
-          "bass_technique": 28.969499999999996
+          "string_type": 27.1375,
+          "scale_length_b": 1.3900000000000001,
+          "fretted_or_not": 0.15,
+          "bass_technique": 20.825
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 28.562999999999995,
-          "drumhead": 1.9815000000000003,
+          "drum_technique": 20.875,
+          "drumhead": 1.3900000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "mellotron",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
           "mellotron_voice": "mellotron_strings",
           "mellotron_context": "mellotron_prog",
           "mellotron_model": "mellotron_m400_canonical",
           "mellotron_tape_material": "mellotron_polyester_tape_canonical"
         },
         "scores": {
-          "keyboard_technique": 2.3760000000000003,
-          "mellotron_voice": 14.819999999999999,
-          "mellotron_context": 3.7565,
-          "mellotron_model": 16.444999999999997,
-          "mellotron_tape_material": 0.39
+          "keyboard_technique": 0.9099999999999999,
+          "mellotron_voice": 10.855,
+          "mellotron_context": 2.275,
+          "mellotron_model": 11.374999999999998,
+          "mellotron_tape_material": 0.585
         }
       }
     ],

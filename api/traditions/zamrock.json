@@ -3,80 +3,80 @@
   "name": "Zamrock",
   "family": "rock",
   "lineage": "Zambian fuzz-rock movement of roughly 1972-1979 that arose in Lusaka and the Copperbelt under Kaunda-era radio quotas favouring local content, codified by WITCH, Amanaz, Ngozi Family and Musi-O-Tunya — heavily fuzzed and wah-inflected guitar over garage-grade drum kit, mid-tempo 4/4 grooves inflected by kalindula and Congolese rumba guitar figures, and English or Bemba vocals recorded fast to modest local tape facilities.",
-  "recipe": "classic Southern African mid-1970s zamrock, distorted Rock, regional branch, classic distorted rock, African pop congolese rumba, experimental distorted rock acid rock krautrock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, cowhide mid tier congas, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 901,
-  "score": 421.475,
+  "recipe": "classic Southern African mid-1970s zamrock, distorted Rock, regional branch, classic distorted rock, African pop congolese rumba, experimental distorted rock rumba congolaise classic finnish rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany maple rosewood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, cowhide mid tier oak staved canonical Cuban congas, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 904,
+  "score": 351.97,
   "config": {
     "traditions": [
       "zamrock",
-      "acid_rock",
-      "krautrock"
+      "rumba_congolaise",
+      "classic_finnish_rock"
     ],
     "instruments": [
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "basswood_h",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
-          "string_material": "nickel_plated_h",
+          "string_material": "pure_nickel_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 8.97,
-          "amp_make": 14.462499999999999,
-          "body_wood": 2.16,
-          "neck_wood": 1.3,
-          "fretboard": 1.2349999999999999,
+          "electric_technique": 6.445,
+          "amp_make": 9.295,
+          "body_wood": 2.535,
+          "neck_wood": 2.145,
+          "fretboard": 2.0799999999999996,
           "pickup_magnet": 0.195,
           "pickup_winding": 1.885,
-          "string_material": 0.39,
-          "bridge": 1.3,
-          "scale_length": 1.3,
-          "string_gauge": 1.3,
+          "string_material": 0.195,
+          "bridge": 2.145,
+          "scale_length": 2.145,
+          "string_gauge": 2.5349999999999997,
           "finish": 0.435,
-          "string_tuning": 16.25
+          "string_tuning": 12.545
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 14.397499999999999,
-          "body_wood": 2.6,
-          "pickup_config": 1,
-          "string_type": 34.18,
-          "scale_length_b": 1.3,
-          "fretted_or_not": 0,
-          "bass_technique": 27.385
+          "amp_make": 11.244999999999997,
+          "body_wood": 3.6399999999999997,
+          "pickup_config": 1.15,
+          "string_type": 23.5625,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 0.3,
+          "bass_technique": 18.21
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 26.965,
-          "drumhead": 3.0399999999999996,
+          "drum_technique": 19.37,
+          "drumhead": 4.54,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -87,36 +87,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 33.570000000000014,
-          "voice_quality": 8.84,
+          "voice_register": 26.294999999999995,
+          "voice_quality": 8.775,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.91,
-          "voice_articulation": 17.159999999999993,
-          "voice_microtone": 30.099999999999998,
-          "voice_tradition": 8.11,
-          "voice_mechanism_compound": 8.515,
-          "voice_estill_quality": 3.1700000000000004,
-          "voice_speech_song": 18.264999999999993,
-          "voice_ensemble_config": 17.09499999999999,
-          "voice_ornament_system": 2.860000000000001,
+          "voice_vibrato": 2.425,
+          "voice_articulation": 17.55,
+          "voice_microtone": 25.124999999999996,
+          "voice_tradition": 7.89,
+          "voice_mechanism_compound": 4.940000000000001,
+          "voice_estill_quality": 1.4299999999999997,
+          "voice_speech_song": 22.035,
+          "voice_ensemble_config": 17.485,
+          "voice_ornament_system": 0.26000000000000006,
           "voice_pitch_organization": 1.89,
-          "voice_processing_chain": 5.8825,
-          "voice_multitrack_stack": 5.330000000000001
+          "voice_processing_chain": 5.069999999999999,
+          "voice_multitrack_stack": 6.7275
         }
       },
       {
@@ -128,10 +128,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 2.09,
+          "percussion_technique": 2.29,
           "conga_set": 0.195,
-          "conga_skin": 1.3,
-          "conga_shell_wood": 0.9749999999999999
+          "conga_skin": 2.145,
+          "conga_shell_wood": 1.3
         }
       },
       {
@@ -145,12 +145,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 3.625,
-          "drawbar_setting": 27.01,
-          "rotary_speed": 27.825,
-          "percussion_setting": 13.975,
-          "tonewheel_model": 11.732499999999998,
-          "leslie_cabinet_model": 1.9999999999999998
+          "keyboard_technique": 4.825,
+          "drawbar_setting": 18.26,
+          "rotary_speed": 19.075,
+          "percussion_setting": 9.425,
+          "tonewheel_model": 9.945,
+          "leslie_cabinet_model": 1.17
         }
       }
     ],

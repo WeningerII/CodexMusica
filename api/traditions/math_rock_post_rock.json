@@ -3,21 +3,21 @@
   "name": "Math rock and post-rock",
   "family": "rock_punk",
   "lineage": "Late-1980s onward underground rock movement deploying odd time signatures, polymetric and angular guitar interplay, instrumental-or-near-instrumental song form, and crescendo-based arrangement — codified through Slint (Spiderland 1991), Tortoise (Millions Now Living Will Never Die 1996), Mogwai (Mogwai Young Team 1997), Godspeed You Black Emperor (F♯ A♯ ∞ 1997), Don Caballero (American Don 2000), Battles (Mirrored 2007)",
-  "recipe": "classic 1987-1989 math rock and post-rock, distorted Rock, alternative branch, experimental distorted rock ambient post-rock krautrock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 514,
-  "score": 163.524,
+  "recipe": "classic 1987-1989 math rock and post-rock, distorted Rock, alternative branch, experimental distorted rock british post-rock cinematic post-rock. marshall plexi amp British rock amp power chord single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 454,
+  "score": 144.94,
   "config": {
     "traditions": [
       "math_rock_post_rock",
-      "ambient_post_rock",
-      "krautrock"
+      "british_post_rock",
+      "cinematic_post_rock"
     ],
     "instruments": [
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_marshall_jcm800",
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "pine",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
@@ -30,25 +30,25 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 5.37275,
-          "amp_make": 16.412499999999994,
+          "electric_technique": 5.07,
+          "amp_make": 14.624999999999998,
           "body_wood": 0.7,
           "neck_wood": 0.39,
           "fretboard": 0.325,
           "pickup_magnet": 0.24,
           "string_material": 0.195,
-          "string_gauge": 1.18425,
-          "bridge": 0.65,
+          "string_gauge": 1,
+          "bridge": 0.6,
           "scale_length": 0.39,
           "finish": 0.195,
-          "string_tuning": 16.509999999999998
+          "string_tuning": 14.95
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -56,25 +56,25 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 16.9,
+          "amp_make": 15.534999999999998,
           "body_wood": 0.39,
-          "pickup_config": 0.845,
-          "string_type": 37.299749999999996,
+          "pickup_config": 0.555,
+          "string_type": 33.515,
           "scale_length_b": 0.65,
           "fretted_or_not": 0,
-          "bass_technique": 31.374999999999996
+          "bass_technique": 27.075
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 30.999999999999996,
-          "drumhead": 3.25,
+          "drum_technique": 27.125,
+          "drumhead": 1.09,
           "drum_kit_kick_pedal": 0
         }
       }

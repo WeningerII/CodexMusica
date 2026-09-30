@@ -1,0 +1,108 @@
+{
+  "id": "organic_ambient",
+  "name": "Organic ambient",
+  "family": "electronic",
+  "lineage": "An ambient production approach that develops slowly changing, interwoven sound through recording, synthesis and processing. Projekt explicitly classifies Jeff Greinke’s Oceanic as organic ambient, while contemporary label accounts also include acoustic instruments and environmental recordings. The term does not require an acoustic ensemble: Greinke describes Oceanic as entirely sample- and synth-based. The default selects that electronic branch.",
+  "recipe": "classic organic ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art. pad like sustained analog synth, layered sustained sampler. treated studio. large-diaphragm condenser, ultra-clean solid-state pre. 24-bit digital true-stereo reverb.",
+  "recipe_chars": 276,
+  "score": 34.175,
+  "config": {
+    "traditions": [
+      "organic_ambient",
+      "sound_art"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 12.8,
+          "oscillator": 0.03712499999999999,
+          "filter_topology": 1.61875,
+          "envelope": 5.969375,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 12.8,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.45499999999999996,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 2.145
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_true_stereo_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "oscillator": "triangle_osc",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_post",
+      "electronic_technique": "electronic_sustained_layering"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "fx_true_stereo_reverb"
+    ]
+  }
+}

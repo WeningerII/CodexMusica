@@ -3,14 +3,14 @@
   "name": "Ambient Techno",
   "family": "electronic",
   "lineage": "Formed 1991-1995 around Warp's Artificial Intelligence series, Detroit's Carl Craig and Berlin's Basic Channel — Detroit techno's machine sequencing at 110-135 BPM with the dance-floor function removed, favouring dubby chord stabs, deep reverb, evolving analogue filter movement and 909 or 808 patterns mixed low beneath pads, intended for home listening rather than DJ use.",
-  "recipe": "classic Central European 1991-1995 ambient techno, experimental Elec, ambient branch, techno electronic dance, idm glitch experimental electric proto-techno berlin minimal techno. roland tr 8s modern aira digital recreation TR-909, roland tr 8s modern aira digital recreation TR-808, sustained pad analog poly doepfer eurorack canonical 1995 present small format standardization modular sustained pad fm synth, monosynth acid bass, sampler drum machine. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
-  "recipe_chars": 713,
-  "score": 98.26,
+  "recipe": "classic Central European 1991-1995 ambient techno, experimental Elec, ambient branch, techno electronic dance, idm glitch experimental electric norwegian techno proto-techno. roland tr 8s modern aira digital recreation TR-909, roland tr 8s modern aira digital recreation TR-808, sustained pad analog poly doepfer eurorack canonical 1995 present small format standardization modular sustained pad fm synth, monosynth acid bass, sampler drum machine. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
+  "recipe_chars": 708,
+  "score": 95.819,
   "config": {
     "traditions": [
       "ambient_techno",
-      "proto_techno",
-      "berlin_minimal_techno"
+      "norwegian_techno",
+      "proto_techno"
     ],
     "instruments": [
       {
@@ -21,8 +21,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 3.99,
-          "drum_machine_909_context": 9.370000000000001,
+          "tr909_voice": 3.115,
+          "drum_machine_909_context": 8.994999999999997,
           "tr909_production_origin": 1.95
         }
       },
@@ -30,12 +30,12 @@
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
+          "drum_machine_808_context": "drum_machine_808_rb",
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.2749999999999995,
-          "drum_machine_808_context": 2.34,
+          "tr808_voice": 0.585,
+          "drum_machine_808_context": 0.845,
           "tr808_production_origin": 1.95
         }
       },
@@ -48,9 +48,9 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 8.815,
+          "electronic_technique": 9.763749999999998,
           "poly_archetypes": 0.405,
-          "poly_voices": 0.24,
+          "poly_voices": 0.195,
           "poly_maker_lineage": -0.6300000000000001
         }
       },
@@ -58,14 +58,14 @@
         "id": "modular_synth",
         "slots": {
           "electronic_technique": "electronic_acid_squelch",
-          "mod_voltage_source": "mod_sequencer",
+          "mod_voltage_source": "mod_keyboard",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 16.2,
-          "mod_voltage_source": 0.345,
-          "mod_patch_density": 5.4,
+          "electronic_technique": 16.325,
+          "mod_voltage_source": 0.78,
+          "mod_patch_density": 5.41125,
           "mod_lineage": 1.4949999999999999
         }
       },
@@ -74,14 +74,14 @@
         "slots": {
           "electronic_technique": "electronic_acid_squelch",
           "wave_acid": "saw_acid",
-          "filter_acid": "closed_acid",
+          "filter_acid": "opening_acid",
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 16.2,
+          "electronic_technique": 16.325,
           "wave_acid": 0,
-          "filter_acid": 0.845,
-          "accent_acid": 0.39
+          "filter_acid": 0.28500000000000003,
+          "accent_acid": 0.8700000000000001
         }
       },
       {
@@ -93,10 +93,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.4,
+          "electronic_technique": 0.52,
           "sample_bitdepth": 1,
-          "sample_swing": 12.73,
-          "sample_processing": 1.69
+          "sample_swing": 12.229999999999999,
+          "sample_processing": 1.4949999999999999
         }
       },
       {
@@ -109,8 +109,8 @@
           "fm_model_lineage": "fm_native_instruments_fm8"
         },
         "scores": {
-          "electronic_technique": 8.815,
-          "fm_algorithm": 2.535,
+          "electronic_technique": 9.763749999999998,
+          "fm_algorithm": 1.885,
           "fm_modulator_ratio": 1.045,
           "fm_polyphony": 0.24,
           "fm_model_lineage": 0

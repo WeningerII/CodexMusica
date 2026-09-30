@@ -3,20 +3,20 @@
   "name": "UK Funky",
   "family": "electronic",
   "lineage": "London dance genre of 2008-2010 built by Crazy Cousinz, Roska, Marcus Nasty, Geeneus and Lil Silva after grime's chart decline — 128-132 BPM four-to-the-floor or broken kick patterns overlaid with soca, kuduro and Afro-Latin percussion (congas, timbales, shaker), sparse synth pads, and sung or MC'd hooks drawn from UK garage's vocal tradition.",
-  "recipe": "classic 2008-2010 uk funky, bass System, uk soundsystem branch, house electronic dance, African dance electronic dance south african house latin house. thick, breath veiled tone, slow rate, interlocked note trading. TR-909, brass hands layered timbales, digital subtractive, layered sampler, deep foundational bass rhythm calabash shekere. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3.",
-  "recipe_chars": 487,
-  "score": 247.121,
+  "recipe": "classic 2008-2010 uk funky, bass System, uk soundsystem branch, house electronic dance, African dance electronic dance latin house freestyle house. vocal fry, breath veiled tone, slow rate, interlocked note trading. TR-909, brass open slap hand drum timbales, sub bass digital subtractive, layered sampler, foundational bass rhythm calabash shekere. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3.",
+  "recipe_chars": 497,
+  "score": 241.764,
   "config": {
     "traditions": [
       "uk_funky",
-      "south_african_house",
-      "latin_house_percussion"
+      "latin_house_percussion",
+      "freestyle_house"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -29,52 +29,52 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.55875,
-          "voice_quality": 7.377500000000001,
+          "voice_register": 3.3150000000000004,
+          "voice_quality": 5.427500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.755,
-          "voice_articulation": 18.264999999999997,
-          "voice_microtone": 18.069999999999993,
-          "voice_tradition": 11.7325,
-          "voice_mechanism_compound": 3.25,
-          "voice_estill_quality": 3.2175000000000007,
-          "voice_speech_song": 18.719999999999995,
-          "voice_ensemble_config": 22.359999999999992,
-          "voice_ornament_system": 1.545,
-          "voice_pitch_organization": 0.7149999999999997,
+          "voice_vibrato": 1.56,
+          "voice_articulation": 17.224999999999994,
+          "voice_microtone": 17.22499999999999,
+          "voice_tradition": 8.58,
+          "voice_mechanism_compound": 3.9,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 17.419999999999995,
+          "voice_ensemble_config": 20.279999999999994,
+          "voice_ornament_system": 1.6949999999999998,
+          "voice_pitch_organization": 1.1193749999999998,
           "voice_processing_chain": 14.264999999999999,
-          "voice_multitrack_stack": 4.485
+          "voice_multitrack_stack": 6.045000000000002
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_behringer_rd_9"
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 19.25,
-          "drum_machine_909_context": 1.2349999999999999,
-          "tr909_production_origin": 0.5
+          "tr909_voice": 21.624999999999996,
+          "drum_machine_909_context": 1.4299999999999997,
+          "tr909_production_origin": 0.65
         }
       },
       {
         "id": "timbales",
         "slots": {
-          "percussion_technique": "percussion_hands_layered",
+          "percussion_technique": "percussion_open_slap",
           "timbales_shell": "timbales_brass",
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 13.259999999999998,
-          "timbales_shell": 1.235,
+          "percussion_technique": 17.184999999999995,
+          "timbales_shell": 1.9300000000000002,
           "timbales_context": 0.26437499999999997
         }
       },
@@ -82,13 +82,13 @@
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "va_archetypes": "novation_supernova",
+          "va_archetypes": "access_virus",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 2.9899999999999998,
-          "va_archetypes": 0.3,
-          "digital_subtractive_context": 20.54
+          "electronic_technique": 3.6399999999999997,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 18.459999999999997
         }
       },
       {
@@ -104,8 +104,8 @@
           "electronic_technique": -0.07,
           "sampler_archetypes": 0.3,
           "sampler_bit_depth": 0.7149999999999999,
-          "sampler_workflow": 1.3,
-          "sampler_classic_context": 48.62
+          "sampler_workflow": 1.1049999999999998,
+          "sampler_classic_context": 50.66749999999999
         }
       },
       {
@@ -115,8 +115,8 @@
           "shekere_beads": "shekere_seed"
         },
         "scores": {
-          "shekere_size": 3.8349999999999995,
-          "shekere_beads": 2.4050000000000002
+          "shekere_size": 2.795,
+          "shekere_beads": 1.3
         }
       }
     ],

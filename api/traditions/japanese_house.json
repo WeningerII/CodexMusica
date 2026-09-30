@@ -1,0 +1,103 @@
+{
+  "id": "japanese_house",
+  "name": "Japanese house",
+  "family": "electronic",
+  "lineage": "Japanese house production with a selected Far East Recording branch represented by Soichi Terada and Shinichiro Yokota. First-person interviews document their Tokyo partnership, house/hip-hop sample reworking, hardware samplers and digital keyboard/workstation production.",
+  "recipe": "classic modern japanese house, electronic Dance, house branch. chopped sampler, organ preset rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 317,
+  "score": 33.402,
+  "config": {
+    "traditions": [
+      "japanese_house"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.5354999999999999,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.1365,
+          "sampler_workflow": 1.4,
+          "sampler_classic_context": 19.11
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "rompler_preset_bank": "rompler_preset_dance_stabs",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_roland_jv_xp"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "rompler_preset_bank": 11.2,
+          "rompler_context": -0.05,
+          "rompler_lineage": -1.6344999999999998
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "rompler_workstation": [
+        "electronic_technique",
+        "rompler_preset_bank",
+        "rompler_context",
+        "rompler_lineage"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_parallel_blend",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_edm",
+      "electronic_technique": "electronic_pad_drone",
+      "rompler_preset_bank": "rompler_preset_dance_stabs",
+      "rompler_context": "rompler_context_pop_workstation",
+      "rompler_lineage": "rompler_roland_jv_xp"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_parallel_blend",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

@@ -222,6 +222,20 @@
             "melodic",
             "song-accompaniment"
           ]
+        },
+        {
+          "id": "bowed_continuous_drone",
+          "name": "Continuous bowed drone",
+          "applies_to": [
+            "violin_orchestral"
+          ],
+          "descriptors": [
+            "bowed",
+            "sustained-tone",
+            "drone-like",
+            "minimal"
+          ],
+          "auto": false
         }
       ],
       "_fromFamily": true

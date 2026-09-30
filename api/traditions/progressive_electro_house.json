@@ -1,0 +1,132 @@
+{
+  "id": "progressive_electro_house",
+  "name": "Progressive electro house",
+  "family": "electronic",
+  "lineage": "A broad melodic-and-electro club discovery cluster whose roster includes Alesso, Swedish House Mafia, Hardwell, Eric Prydz and Don Diablo. This authored model selects a concise synth-hook and chopped-vocal branch documented by Don Diablo rather than assuming the label denotes only the early British progressive-house tradition.",
+  "recipe": "classic modern progressive electro house, electronic Dance, house branch, continental electronic dance makina bouncy techno. sampler drum machine, analog synth, melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 389,
+  "score": 62.705,
+  "config": {
+    "traditions": [
+      "progressive_electro_house",
+      "makina",
+      "bouncy_techno"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 1.8199999999999998,
+          "sample_bitdepth": 0.045,
+          "sample_swing": 19.375000000000004,
+          "sample_processing": 0.15
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "saw_super",
+          "filter_topology": "svf",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "oscillator": 3.2199999999999998,
+          "filter_topology": 0.345,
+          "envelope": 0.345,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.8199999999999998,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.195,
+          "sampler_workflow": 2.4699999999999998,
+          "sampler_classic_context": 31.72
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_parallel_blend",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_one_shot_pitched",
+      "sampler_classic_context": "sampler_classic_edm",
+      "electronic_technique": "electronic_lead_line",
+      "oscillator": "saw_super",
+      "filter_topology": "svf",
+      "envelope": "pluck_env",
+      "modulation": "no_mod"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_parallel_blend",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

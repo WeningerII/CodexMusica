@@ -1,0 +1,125 @@
+{
+  "id": "german_trance",
+  "name": "German trance",
+  "family": "electronic",
+  "lineage": "German trance production network, represented by Paul van Dyk’s melodic club recordings and his documented Roland-machine lineage. This default selects a classic hardware-inspired arpeggio, acid-bass and programmed-kick arrangement.",
+  "recipe": "classic modern german trance, electronic Dance, trance branch. analog synth, classic acid monosynth acid bass, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 322,
+  "score": 15.932,
+  "config": {
+    "traditions": [
+      "german_trance"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "oscillator": "saw_super",
+          "filter_topology": "svf",
+          "envelope": "sustain_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "oscillator": 10.7915,
+          "filter_topology": 1.17925,
+          "envelope": 0,
+          "modulation": 0.0315
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "wave_acid": 0.1365,
+          "filter_acid": 3.0305,
+          "accent_acid": 1.5625
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": -0.035,
+          "drum_machine_909_context": -0.035,
+          "tr909_production_origin": -0.7350000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "monosynth_acid_bass": [
+        "electronic_technique",
+        "wave_acid",
+        "filter_acid",
+        "accent_acid"
+      ],
+      "drum_machine_909": [
+        "tr909_voice",
+        "drum_machine_909_context",
+        "tr909_production_origin"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "oscillator": "saw_super",
+      "filter_topology": "svf",
+      "envelope": "sustain_env",
+      "modulation": "no_mod",
+      "wave_acid": "saw_acid",
+      "filter_acid": "opening_acid",
+      "accent_acid": "subtle_accent_acid",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_techno",
+      "tr909_production_origin": "tr909_roland_osaka_canonical"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

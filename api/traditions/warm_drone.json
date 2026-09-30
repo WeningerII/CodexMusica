@@ -1,0 +1,143 @@
+{
+  "id": "warm_drone",
+  "name": "Warm drone",
+  "family": "electronic",
+  "lineage": "Soft, slowly changing sustained-tone ambience is represented here by Windy & Carl’s guitar, bass and keyboard recordings. The duo’s artist account establishes this instrumental practice; numeric and timbral defaults model a gentle guitar-led drone subset. Warm drone is a listening/texture label, not a geographically exclusive tradition or synonym for drone metal.",
+  "recipe": "classic modern warm drone, experimental Elec, ambient branch. soft attack transient modern metal basswood humbucker electric guitar, thomastik infeld low tension jazz warm electric bass, pad like pad analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb digital delay.",
+  "recipe_chars": 373,
+  "score": 25.79,
+  "config": {
+    "traditions": [
+      "warm_drone"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 2.4229642857142855,
+          "amp_make": 1.4949999999999999,
+          "body_wood": 3.38,
+          "neck_wood": 0.42342857142857143,
+          "fretboard": 0.42342857142857143,
+          "pickup_magnet": 0.105,
+          "pickup_winding": 0.105,
+          "string_material": 0.939357142857143,
+          "bridge": 0.168,
+          "scale_length": 1.69,
+          "string_gauge": 0.1995,
+          "finish": 0.3,
+          "string_tuning": 1.69
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 1.625,
+          "body_wood": 0.336,
+          "pickup_config": 0.105,
+          "string_type": 1.9815,
+          "scale_length_b": 0.19949999999999998,
+          "fretted_or_not": 0.15275,
+          "bass_technique": -0.07
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 5.38825,
+          "oscillator": 0,
+          "filter_topology": 0.78,
+          "envelope": 1.95,
+          "modulation": 0
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "hall_reverb",
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electric_technique": "electric_feedback_drone",
+      "bass_technique": "thumb_muted",
+      "electronic_technique": "electronic_pad_drone",
+      "oscillator": "triangle_osc",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_fet",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "hall_reverb",
+      "digital_delay"
+    ]
+  }
+}

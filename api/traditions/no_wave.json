@@ -3,14 +3,14 @@
   "name": "No Wave",
   "family": "rock_punk",
   "lineage": "New York downtown movement of 1978-82 crystallized by Brian Eno's No New York compilation — DNA, Mars, Teenage Jesus and the Jerks, James Chance and the Contortions, Glenn Branca — using detuned or slide-played guitars struck for noise rather than chords, atonal or single-note riffs, abrupt stop-start rhythms and skronking alto saxophone over rigid tribal drumming, shrieked or deadpan declaimed vocals, and short abrasive pieces cut cheaply in Manhattan studios.",
-  "recipe": "classic North American late-1970s no wave, distorted Rock, noise rock branch, experimental distorted rock, American jazz avant free funk free jazz. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation feedback single coil electric guitar, ampeg svt amp rock bass amp thomastik infeld low tension jazz warm electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 868,
-  "score": 437.695,
+  "recipe": "classic North American late-1970s no wave, distorted Rock, noise rock branch, experimental distorted rock, American jazz avant drone rock free funk. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 837,
+  "score": 414.28,
   "config": {
     "traditions": [
       "no_wave",
-      "free_funk",
-      "free_jazz"
+      "drone_rock",
+      "free_funk"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 27.119999999999997,
-          "voice_quality": 6.110000000000001,
+          "voice_register": 28.145,
+          "voice_quality": 7.020000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.564999999999998,
-          "voice_articulation": 16.89999999999999,
-          "voice_microtone": 27.475,
-          "voice_tradition": 19.655,
-          "voice_mechanism_compound": 6.76,
-          "voice_estill_quality": 0.8449999999999999,
-          "voice_speech_song": 16.834999999999994,
-          "voice_ensemble_config": 16.119999999999994,
-          "voice_ornament_system": 5.525000000000001,
-          "voice_pitch_organization": 2.990000000000001,
-          "voice_processing_chain": 5.915,
-          "voice_multitrack_stack": 4.385
+          "voice_vibrato": 9.145000000000001,
+          "voice_articulation": 16.379999999999995,
+          "voice_microtone": 28.695,
+          "voice_tradition": 10.485000000000001,
+          "voice_mechanism_compound": 8.190000000000001,
+          "voice_estill_quality": 1.2999999999999998,
+          "voice_speech_song": 16.964999999999993,
+          "voice_ensemble_config": 15.599999999999994,
+          "voice_ornament_system": 4.6800000000000015,
+          "voice_pitch_organization": 1.9499999999999997,
+          "voice_processing_chain": 5.87,
+          "voice_multitrack_stack": 4.625
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 7.825,
-          "amp_make": 7.54,
+          "electric_technique": 10.709999999999997,
+          "amp_make": 11.57,
           "body_wood": 0.3,
-          "neck_wood": 0.845,
-          "fretboard": 0.845,
-          "pickup_magnet": 0.845,
-          "string_material": 0.845,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4949999999999999,
+          "pickup_magnet": 1.4949999999999999,
+          "string_material": 1.4949999999999999,
           "string_gauge": 0.39,
           "bridge": 0.6499999999999999,
-          "scale_length": 0.195,
+          "scale_length": 0.18,
           "finish": 0.39,
-          "string_tuning": 7.6049999999999995
+          "string_tuning": 11.895
         }
       },
       {
@@ -89,31 +89,31 @@
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "thomastik_jazz_bass_flat",
+          "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_walking"
+          "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 6.305000000000001,
+          "amp_make": 9.945000000000002,
           "body_wood": 0.3,
           "pickup_config": 0.39,
-          "string_type": 18.68,
-          "scale_length_b": 0.585,
-          "fretted_or_not": 1.1449999999999998,
-          "bass_technique": 16.25
+          "string_type": 24.5375,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.95,
+          "bass_technique": 20.375
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "vintage_ambassador_drumhead",
+          "drumhead": "fiberskyn_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 26.292499999999997,
-          "drumhead": 18.54,
+          "drum_technique": 21.644999999999996,
+          "drumhead": 10.5,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -123,38 +123,38 @@
           "wind_articulation": "wind_multiphonic_avant",
           "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "metal_mp",
-          "sax_technique": "sax_continuous_legato",
+          "sax_technique": "sax_multiphonic_avant",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 18.075,
-          "sax_size": 2.6325,
-          "sax_reed": 0.845,
-          "sax_body_alloy": 16.75,
-          "sax_mouthpiece": 0.845,
-          "sax_technique": 16.25,
-          "sax_maker_school": 17.275
+          "wind_articulation": 13.6,
+          "sax_size": 2.73,
+          "sax_reed": 1.4949999999999999,
+          "sax_body_alloy": 10.545,
+          "sax_mouthpiece": 1.4949999999999999,
+          "sax_technique": 11.5,
+          "sax_maker_school": 7.785000000000001
         }
       },
       {
         "id": "tonewheel_organ",
         "slots": {
           "keyboard_technique": "keyboard_ostinato_groove",
-          "drawbar_setting": "jazz_drawbars",
+          "drawbar_setting": "rock_drawbars",
           "rotary_speed": "fast_tremolo",
-          "percussion_setting": "percussion_on_short",
+          "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_b3",
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
           "keyboard_technique": 2.9149999999999996,
-          "drawbar_setting": 16.34,
-          "rotary_speed": 11.12,
-          "percussion_setting": 16.55,
-          "tonewheel_model": 25.61,
-          "leslie_cabinet_model": 0.15
+          "drawbar_setting": 18.875,
+          "rotary_speed": 18.87,
+          "percussion_setting": 9.815000000000001,
+          "tonewheel_model": 20.345000000000002,
+          "leslie_cabinet_model": 0
         }
       }
     ],

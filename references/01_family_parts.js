@@ -84,7 +84,9 @@ const INSTRUMENT_FAMILY_PARTS = {
       { id: 'electric_bass_slap_pop', name: 'Slap-and-pop', applies_to: ['electric_bass', 'semi_hollow_bass', 'fretless_bass'], descriptors: ['slapped', 'popped', 'percussive'], match_tokens: ['electric', 'slappy', 'percussive-attack'], canonical_tags: ['funk'] },
       { id: 'electric_bass_thumb_muted', name: 'Thumb-muted dub', applies_to: ['electric_bass', 'semi_hollow_bass'], descriptors: ['thumb-muted'], match_tokens: ['electric', 'muted', 'picked'], canonical_tags: ['reggae', 'dub'] },
       { id: 'electric_steel_pedal_swells', name: 'Pedal-steel volume swells', applies_to: ['pedal_steel'], descriptors: ['volume-swells', 'crying', 'steel'], match_tokens: ['electric', 'picked'], canonical_tags: ['country', 'pedal-steel'] },
-    ] },
+
+        {"id":"electric_sustained_loop","name":"Sustained guitar looping","applies_to":["electric_guitar_single_coil"],"descriptors":["sustained","looped","layered"],"auto":false}
+      ] },
     // Amp make / archetype — which amplifier the electric instrument runs through.
     // Default is silent (amp_unspecified produces no descriptors) so the recipe
     // doesn't surface noise when the amp isn't a defining character. Named amp
@@ -173,7 +175,9 @@ const INSTRUMENT_FAMILY_PARTS = {
       { id: 'bowed_microtonal_inflected', name: 'Microtonal-inflected', applies_to: ['kamancheh', 'rebab', 'sarangi', 'esraj', 'violin_carnatic', 'morin_khuur', 'erhu', 'jinghu', 'haegeum'], descriptors: ['microtonal'], match_tokens: ['bowed', 'sustained-tone', 'microtonal-bend', 'shruti-inflected'], canonical_tags: ['maqam', 'arabic', 'hindustani'] },
 
       { id: 'bowed_local_song_melody', name: 'Bowed local song melody (school unspecified)', auto: false, descriptors: [ 'bowed', 'melodic', 'song-accompaniment' ], match_tokens: [ 'bowed', 'melodic', 'song-accompaniment' ] },
-    ] },
+
+        {"id":"bowed_continuous_drone","name":"Continuous bowed drone","applies_to":["violin_orchestral"],"descriptors":["bowed","sustained-tone","drone-like","minimal"],"auto":false}
+      ] },
   ],
 
   // ─────────────── KEYBOARD ───────────────
@@ -240,7 +244,9 @@ const INSTRUMENT_FAMILY_PARTS = {
       { id: 'electronic_sample_chopped', name: 'Sample chopped', applies_to: ['sampler_classic', 'sampler_drum_machine', 'turntable'], descriptors: ['chopped', 'sampled'], match_tokens: ['electronic'], canonical_tags: ['hip-hop', 'plunderphonics'] },
       { id: 'electronic_pluck_short', name: 'Pluck / short envelope', applies_to: ['analog_synth', 'analog_mono_synth', 'analog_poly_synth', 'fm_synth', 'digital_subtractive', 'wavetable_synth', 'rompler_workstation'], descriptors: ['plucked', 'short-envelope'], match_tokens: ['electronic', 'string-attack'], canonical_tags: ['pop', 'edm'] },
       { id: 'electronic_glitch_textural', name: 'Glitch / textural', applies_to: ['granular_synth', 'modular_synth', 'eurorack_modular', 'sampler_classic', 'wavetable_synth'], descriptors: ['glitched', 'textural'], match_tokens: ['electronic'], canonical_tags: ['idm', 'experimental'] },
-    ] },
+
+        {"id":"electronic_sustained_layering","name":"Sustained textural layering","applies_to":["analog_synth","fm_synth","sampler_classic"],"descriptors":["sustained","layered","looped"],"match_tokens":["electronic","ambient"],"canonical_tags":["ambient"],"auto":false}
+      ] },
   ],
 
   // ─────────────── ENSEMBLE ───────────────

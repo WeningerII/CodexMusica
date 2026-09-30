@@ -1,0 +1,165 @@
+{
+  "id": "classic_house",
+  "name": "Classic house",
+  "family": "electronic",
+  "lineage": "A retrospective house discovery cluster spanning foundational and later established producers, including Marshall Jefferson, Todd Terry, Kenny Dope and Louie Vega. This recipe selects the early Masters at Work sample-and-keyboard branch documented in their own account of working together from late 1989–1990.",
+  "recipe": "classic 1989-1990 classic house, electronic Dance, house branch, chicago house house, garage house u s house new york garage house. sampler drum machine, sampler, analog synth, pocket ostinato rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 413,
+  "score": 71.555,
+  "config": {
+    "traditions": [
+      "classic_house",
+      "chicago_house",
+      "new_york_garage_house"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 1.4949999999999999,
+          "sample_bitdepth": -0.05,
+          "sample_swing": 0.195,
+          "sample_processing": 0.09
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.4949999999999999,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": -9.714451465470119e-18,
+          "sampler_classic_context": 57.36000000000001
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "svf",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 0.585,
+          "oscillator": 0.78,
+          "filter_topology": 0.39,
+          "envelope": 0,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 3.2,
+          "rhodes_model": 1.2349999999999999,
+          "rhodes_use": 4.42,
+          "rhodes_tine_material": -1.155,
+          "rhodes_hammer_tip": -0.5950000000000001,
+          "rhodes_pickup_position": 0.195
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "rhodes_electric": [
+        "keyboard_technique",
+        "rhodes_model",
+        "rhodes_use",
+        "rhodes_tine_material",
+        "rhodes_hammer_tip",
+        "rhodes_pickup_position"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_parallel_blend",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "sample_bitdepth": "twelve_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "one_shots_layered",
+      "sampler_archetypes": "emu_sp1200",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_edm",
+      "electronic_technique": "electronic_bass_sub",
+      "oscillator": "sine_osc",
+      "filter_topology": "svf",
+      "envelope": "gated_env",
+      "modulation": "no_mod",
+      "keyboard_technique": "keyboard_ostinato_groove",
+      "rhodes_model": "rhodes_mark1_stage",
+      "rhodes_use": "rhodes_soul",
+      "rhodes_tine_material": "rhodes_torrington_tine",
+      "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+      "rhodes_pickup_position": "rhodes_pickup_centered"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_parallel_blend",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

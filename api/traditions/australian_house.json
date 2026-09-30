@@ -1,0 +1,127 @@
+{
+  "id": "australian_house",
+  "name": "Australian house",
+  "family": "electronic",
+  "lineage": "Australian house-production network with a selected bass-driven Melbourne club strand represented by Dom Dolla and Torren Foot, and wider Australian production represented by Sonny Fodera. Contemporary laptop work, programmed drums and repitched vocal hooks are documented artist practices, not a unique national meter.",
+  "recipe": "classic modern australian house, electronic Dance, house branch, tech house house brazilian tech house latin tech house. low sub bass wavetable synth, sampler drum machine, sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 375,
+  "score": 52.131,
+  "config": {
+    "traditions": [
+      "australian_house",
+      "brazilian_tech_house",
+      "latin_tech_house"
+    ],
+    "instruments": [
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_static",
+          "wt_family": "wt_analog_emul",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 3.7700000000000005,
+          "wt_position": 0.1365,
+          "wt_family": 0.15,
+          "wt_polyphony": 0
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "heavy_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 0.52,
+          "sample_bitdepth": 0.195,
+          "sample_swing": -0.05,
+          "sample_processing": 0.195
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.52,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.195,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 45.79987499999999
+        }
+      }
+    ],
+    "pinned": {
+      "wavetable_synth": [
+        "electronic_technique",
+        "wt_position",
+        "wt_family",
+        "wt_polyphony"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_dynamic",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "parts": {
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "heavy_swing",
+      "sample_processing": "one_shots_layered",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "electronic_technique": "electronic_bass_sub",
+      "wt_position": "wt_static",
+      "wt_family": "wt_analog_emul",
+      "wt_polyphony": "wt_mono"
+    },
+    "pin_parts": true,
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_dynamic",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

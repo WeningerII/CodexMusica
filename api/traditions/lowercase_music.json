@@ -5,7 +5,7 @@
   "lineage": "Formulated around 1998-2004 by Steve Roden in Los Angeles, Bernhard Gunter in Germany and Richard Chartier and the 12k and Line labels in New York — extreme-quiet composition built from close-miked microsound (paper, water, insects, small objects) and digital silence, presented near the noise floor at levels that force the listener to raise playback volume, with long silences, no beat, no harmony and near-total absence of dynamic gesture.",
   "recipe": "classic mid-2000s lowercase, experimental Elec, ambient branch, idm glitch experimental electric, musique concrete experimental electric laptronica. glitched textural granular glitched textural modular synth, prepared piano, glass harmonica, rin singing bowl, glitched textural sampler. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 401,
-  "score": 141.882,
+  "score": 141.538,
   "config": {
     "traditions": [
       "lowercase_music",
@@ -32,13 +32,13 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "prepared_piano_object": "prepared_piano_bolts",
           "prepared_piano_zone": "prepared_piano_middle",
-          "prepared_piano_instrument": "prepared_piano_grand"
+          "prepared_piano_instrument": "prepared_piano_upright"
         },
         "scores": {
           "keyboard_technique": -0.1,
           "prepared_piano_object": 0.195,
           "prepared_piano_zone": 0,
-          "prepared_piano_instrument": 1.5521875
+          "prepared_piano_instrument": 1.45
         }
       },
       {
@@ -48,7 +48,7 @@
           "glass_harmonica_technique": "glass_harmonica_wetted_finger"
         },
         "scores": {
-          "glass_harmonica_type": 0.15,
+          "glass_harmonica_type": 0.195,
           "glass_harmonica_technique": 0.045
         }
       },
@@ -63,7 +63,7 @@
         "scores": {
           "electronic_technique": 24.742812500000003,
           "mod_voltage_source": 0.65,
-          "mod_patch_density": 3.7993750000000004,
+          "mod_patch_density": 3.79,
           "mod_lineage": -0.5950000000000001
         }
       },
@@ -75,8 +75,8 @@
           "rin_cushion": "rin_zabuton"
         },
         "scores": {
-          "rin_size": 1.5521875,
-          "rin_strike": 0.44999999999999996,
+          "rin_size": 1.345,
+          "rin_strike": 0.49499999999999994,
           "rin_cushion": 0
         }
       },
@@ -91,7 +91,7 @@
         },
         "scores": {
           "electronic_technique": 24.742812500000003,
-          "sampler_archetypes": 2.299375,
+          "sampler_archetypes": 2.185,
           "sampler_bit_depth": 0.585,
           "sampler_workflow": 24.8,
           "sampler_classic_context": 20.750000000000004

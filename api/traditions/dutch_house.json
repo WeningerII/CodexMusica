@@ -5,7 +5,7 @@
   "lineage": "Netherlands club and festival style of roughly 2007-2012, codified by Chuckie, Afrojack, Sidney Samson and Laidback Luke out of Rotterdam and Amsterdam bubbling-and-house crossover, built on 128 BPM four-on-the-floor kicks with heavily sidechained tails, pitch-bent squelch leads voiced on a single detuned saw, tuned filtered toms borrowed from bubbling, near-total absence of sustained pads, and short shouted vocal stabs used as rhythmic punctuation rather than melody.",
   "recipe": "classic mid-2010s dutch house, electronic Dance, house branch, tech house house, hardstyle electronic dance jumpstyle bouncy house. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. digital subtractive, TR-909, analog mono synth, hand clap. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 461,
-  "score": 198.888,
+  "score": 198.849,
   "config": {
     "traditions": [
       "dutch_house",
@@ -21,7 +21,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 2.3275,
+          "electronic_technique": 2.5075,
           "va_archetypes": 0.845,
           "digital_subtractive_context": 17.485
         }
@@ -31,12 +31,12 @@
         "slots": {
           "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_tr_8s_modern"
+          "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
           "tr909_voice": 21.375,
-          "drum_machine_909_context": 1.75875,
-          "tr909_production_origin": 0.135
+          "drum_machine_909_context": 1.95,
+          "tr909_production_origin": 0
         }
       },
       {
@@ -46,14 +46,14 @@
           "mono_oscillator": "mono_digitally_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "sh_101",
-          "mono_maker_lineage": "mono_roland_kakehashi"
+          "mono_maker_lineage": "mono_arp_pearlman"
         },
         "scores": {
-          "electronic_technique": 2.3275,
+          "electronic_technique": 2.5075,
           "mono_oscillator": 0,
           "mono_filter": -0.245,
           "mono_archetypes": 0.65,
-          "mono_maker_lineage": -1.7199999999999998
+          "mono_maker_lineage": -2.05
         }
       },
       {
@@ -81,17 +81,17 @@
           "voice_quality": 8.190000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.95,
+          "voice_vibrato": 1.87,
           "voice_articulation": 18.004999999999995,
           "voice_microtone": 17.159999999999993,
-          "voice_tradition": 8.676875,
+          "voice_tradition": 8.736875000000001,
           "voice_mechanism_compound": 4.16,
           "voice_estill_quality": 3.9650000000000007,
           "voice_speech_song": 19.499999999999996,
           "voice_ensemble_config": 20.019999999999992,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 3.6956250000000006,
-          "voice_processing_chain": 23.309375000000006,
+          "voice_pitch_organization": 3.395625000000001,
+          "voice_processing_chain": 23.459375000000005,
           "voice_multitrack_stack": 4.484999999999999
         }
       },
@@ -99,11 +99,11 @@
         "id": "hand_clap",
         "slots": {
           "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_room_natural"
+          "clap_capture": "clap_close_dry"
         },
         "scores": {
           "clap_technique": 0.65,
-          "clap_capture": 0.345
+          "clap_capture": 0.39
         }
       }
     ],

@@ -1,0 +1,103 @@
+{
+  "id": "experimental_ambient",
+  "name": "Experimental ambient",
+  "family": "electronic",
+  "lineage": "Ambient composition treats recorded sound, acoustic resonance, noise and electronic montage as mutable material. Tim Hecker’s Ravedeath, 1972 was built from improvised pipe-organ recordings in Reykjavik and extended studio transformation in Montreal. The default models the transformed-recording stage with sampling and granular synthesis, not an assertion that Hecker used a particular sampler or granular algorithm.",
+  "recipe": "classic early-1970s experimental ambient, experimental Elec, ambient branch, musique concrete experimental electric, industrial noise experimental electric death industrial japanoise. field textural sampler, glitched textural granular synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital digital delay hall reverb.",
+  "recipe_chars": 441,
+  "score": 86.9,
+  "config": {
+    "traditions": [
+      "experimental_ambient",
+      "death_industrial",
+      "japanoise"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 16.995000000000005,
+          "sampler_archetypes": 3.25,
+          "sampler_bit_depth": 1.04,
+          "sampler_workflow": 18.939999999999998,
+          "sampler_classic_context": 35.25
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_ambient",
+          "granular_synth_source": "granular_synth_sampled"
+        },
+        "scores": {
+          "electronic_technique": 16.995000000000005,
+          "granular_use": 0.045,
+          "granular_synth_source": 1.885
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "granular_synth": [
+        "electronic_technique",
+        "granular_use",
+        "granular_synth_source"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay",
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "sampler_archetypes": "akai_s1000",
+      "sampler_classic_context": "sampler_classic_industrial",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_field_recordings",
+      "electronic_technique": "electronic_glitch_textural",
+      "granular_use": "granular_ambient",
+      "granular_synth_source": "granular_synth_sampled"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay",
+      "hall_reverb"
+    ]
+  }
+}

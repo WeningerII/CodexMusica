@@ -3,14 +3,14 @@
   "name": "German Techno",
   "family": "electronic",
   "lineage": "Techno as it was rebuilt in Frankfurt and post-Wall Berlin between 1989 and 1995 by Sven Väth, Hardfloor, Westbam, Marusha, Dr. Motte and the Tresor/Harthouse labels, taking Detroit's template toward 135-150 BPM, hard TR-909 kicks and open hats, TB-303 acid lines, sequenced hoover and stab riffs, and long linear arrangements engineered for warehouse and Love Parade sound systems.",
-  "recipe": "classic Central European late-1980s german techno, electronic Dance, techno branch, trance electronic dance, continental electronic dance acid trance hard trance. vocal fry, breath veiled tone, slow rate, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, squelching classic acid monosynth acid bass, analog poly roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, sampler drum machine. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 619,
-  "score": 233.74,
+  "recipe": "classic Central European late-1980s german techno, electronic Dance, techno branch, trance electronic dance, continental electronic dance acid trance big beat. thick, breath veiled tone, slow rate, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, squelching classic acid monosynth acid bass, analog poly roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, sampler drum machine. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 612,
+  "score": 225.02,
   "config": {
     "traditions": [
       "german_techno",
       "acid_trance",
-      "hard_trance"
+      "big_beat"
     ],
     "instruments": [
       {
@@ -21,8 +21,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 2.32,
-          "drum_machine_909_context": 4.42,
+          "tr909_voice": 2.695,
+          "drum_machine_909_context": 4.57,
           "tr909_production_origin": 1.345
         }
       },
@@ -35,10 +35,10 @@
           "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 19.22,
+          "electronic_technique": 17.97,
           "wave_acid": 0.195,
-          "filter_acid": 3.515,
-          "accent_acid": 5.82
+          "filter_acid": 3.365,
+          "accent_acid": 5.445
         }
       },
       {
@@ -50,10 +50,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 1.8849999999999996,
+          "electronic_technique": 2.34,
           "poly_archetypes": 1.3,
           "poly_voices": 1.3,
-          "poly_maker_lineage": 0.325
+          "poly_maker_lineage": 0.12999999999999998
         }
       },
       {
@@ -65,9 +65,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 0.52,
-          "sample_bitdepth": 0.5399999999999999,
-          "sample_swing": 19.65,
+          "electronic_technique": 1.9999999999999998,
+          "sample_bitdepth": 0.39,
+          "sample_swing": 17.9,
           "sample_processing": 1.74
         }
       },
@@ -81,17 +81,17 @@
           "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "electronic_technique": 19.22,
+          "electronic_technique": 17.97,
           "mono_oscillator": 0.195,
-          "mono_filter": 0.585,
-          "mono_archetypes": 1.275,
-          "mono_maker_lineage": 6.124999999999999
+          "mono_filter": 0.78,
+          "mono_archetypes": 1.5,
+          "mono_maker_lineage": 5.824999999999999
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -109,21 +109,21 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 1.04,
-          "voice_quality": 6.435000000000001,
+          "voice_register": 2.495000000000002,
+          "voice_quality": 7.345000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.365,
-          "voice_articulation": 23.399999999999995,
-          "voice_microtone": 23.39999999999999,
-          "voice_tradition": 3.120000000000001,
-          "voice_mechanism_compound": 1.885,
-          "voice_estill_quality": 2.73,
-          "voice_speech_song": 23.139999999999997,
-          "voice_ensemble_config": 24.114999999999995,
-          "voice_ornament_system": 0.65,
-          "voice_pitch_organization": 1.6249999999999998,
-          "voice_processing_chain": 21.875,
+          "voice_vibrato": 1.755,
+          "voice_articulation": 20.669999999999998,
+          "voice_microtone": 21.124999999999996,
+          "voice_tradition": 2.665000000000001,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 3.38,
+          "voice_speech_song": 21.06,
+          "voice_ensemble_config": 22.229999999999997,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 1.2349999999999999,
+          "voice_processing_chain": 21.05,
           "voice_multitrack_stack": 2.34
         }
       }

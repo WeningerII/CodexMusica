@@ -3,14 +3,14 @@
   "name": "Zenonesque",
   "family": "electronic",
   "lineage": "Mid-tempo psychedelic style named for Melbourne's Zenon Records (founded 2007 by Sensient), codified through the 2010s by Grouch, Kliment, Zen Mechanics and Way Out West festival culture — 125-140 BPM with a rolling but non-relentless kick-bass relationship, offbeat and swung hi-hat and shaker layers borrowed from techno and tribal house, granular and field-recording textures placed as percussion, dark modal or near-atonal micro-motifs instead of trance melody, and long eight-to-sixteen-bar morphs as the main structural device.",
-  "recipe": "classic mid-2010s zenonesque, electronic Dance, trance branch, techno electronic dance, tech house house, idm glitch experimental electric tech-house. analog mono modular granular synth, sub bass digital subtractive, glitched textural sampler, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 455,
-  "score": 148.552,
+  "recipe": "classic mid-2010s zenonesque, electronic Dance, trance branch, techno electronic dance, tech house house, idm glitch experimental electric idm and experimental electronic. analog mono glitched textural granular synth, sub bass digital subtractive, glitched textural sampler, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 486,
+  "score": 143.555,
   "config": {
     "traditions": [
       "zenonesque",
-      "tech_house_classic",
-      "glitch_hop"
+      "glitch_hop",
+      "idm"
     ],
     "instruments": [
       {
@@ -23,24 +23,24 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 11.999999999999998,
+          "electronic_technique": 7.675,
           "mono_oscillator": 0,
-          "mono_filter": 1.8849999999999998,
-          "mono_archetypes": 1.885,
+          "mono_filter": 1.69,
+          "mono_archetypes": 1.69,
           "mono_maker_lineage": -1.435
         }
       },
       {
         "id": "granular_synth",
         "slots": {
-          "electronic_technique": "electronic_modular_patch",
-          "granular_use": "granular_idm",
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_ambient",
           "granular_synth_source": "granular_synth_synthesized"
         },
         "scores": {
-          "electronic_technique": 10.625,
-          "granular_use": 0.045,
-          "granular_synth_source": 7.345000000000001
+          "electronic_technique": 18.275,
+          "granular_use": 0.65,
+          "granular_synth_source": 7.215000000000001
         }
       },
       {
@@ -51,9 +51,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 5.1675,
+          "electronic_technique": 4.9725,
           "va_archetypes": 3.0999999999999996,
-          "digital_subtractive_context": 19.694999999999997
+          "digital_subtractive_context": 17.03
         }
       },
       {
@@ -66,11 +66,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 10.625,
-          "sampler_archetypes": 3.07,
-          "sampler_bit_depth": 1.7399999999999998,
-          "sampler_workflow": 11.625,
-          "sampler_classic_context": 41.004999999999995
+          "electronic_technique": 18.275,
+          "sampler_archetypes": 3.72,
+          "sampler_bit_depth": 1.56,
+          "sampler_workflow": 18.625,
+          "sampler_classic_context": 28.827499999999997
         }
       },
       {
@@ -81,8 +81,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 16.615,
-          "drum_machine_909_context": 3.575,
+          "tr909_voice": 8.014999999999999,
+          "drum_machine_909_context": 2.535,
           "tr909_production_origin": 0.785
         }
       }

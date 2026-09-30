@@ -1,0 +1,103 @@
+{
+  "id": "swedish_techno",
+  "name": "Swedish techno",
+  "family": "electronic",
+  "lineage": "Sweden-centered techno networks including Adam Beyer, Cari Lekebusch, Joel Mull and more experimental contemporary producers. This default selects a repetitive groove-and-synthesis branch associated with Beyer’s Stockholm production network, while allowing his later hybrid hardware/software workflow.",
+  "recipe": "classic modern swedish techno, electronic Dance, techno branch. analog synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 303,
+  "score": 9.939,
+  "config": {
+    "traditions": [
+      "swedish_techno"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "oscillator": 0.255375,
+          "filter_topology": 0.6028749999999999,
+          "envelope": 0.26025,
+          "modulation": 0.1365
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "sample_bitdepth": 0.03712499999999999,
+          "sample_swing": 7.347249999999999,
+          "sample_processing": 1
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "oscillator": "saw_single",
+      "filter_topology": "transistor_ladder",
+      "envelope": "gated_env",
+      "modulation": "lfo_filter",
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

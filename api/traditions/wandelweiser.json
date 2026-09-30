@@ -3,9 +3,9 @@
   "name": "Wandelweiser",
   "family": "classical",
   "lineage": "Founded in Germany in 1992 by Antoine Beuger and Burkhard Schlothauer as a composers' collective and publishing house, extending Cage's 4'33\" into a full practice — long durations built mostly of measured silence, single quiet sustained tones on flute, clarinet, strings, piano or sine tone placed at notated intervals, near-static dynamics at the edge of audibility, and performance rooms where ambient sound is treated as part of the score.",
-  "recipe": "classic European early-1990s wandelweiser, art Music, western modern branch, ambient experimental electric, overtone drone modal tuvan kargyraa subharmonic throat-singing tuvan sygyt high-whistle overtone. sygyt, false fold engaged, breath pulsed, interlocked note trading. yamaha modern Japanese mid to premium breath tone airy low dynamic level flute, composite resin blackwood dust breath tone airy low dynamic level clarinet, gut sitka spruce European maple sycamore maple oil varnish violin orchestral, silver wound lamb gut core norway spruce European alpine European maple cello, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, doepfer eurorack canonical 1995 present small format standardization pad modular synth. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 833,
-  "score": 502.159,
+  "recipe": "classic European early-1990s wandelweiser, art Music, western modern branch, ambient experimental electric, overtone drone modal tuvan kargyraa subharmonic throat-singing tuvan sygyt high-whistle overtone. sygyt, false fold engaged, breath pulsed, interlocked note trading. yamaha modern Japanese mid to premium breath tone airy low dynamic level flute, grenadilla African blackwood traditional breath tone airy low dynamic level clarinet, gut sitka spruce European maple sycamore maple oil varnish violin orchestral, silver wound lamb gut core engelmann spruce European maple sycamore maple cello, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, doepfer eurorack canonical 1995 present small format standardization pad modular synth. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 845,
+  "score": 499.059,
   "config": {
     "traditions": [
       "wandelweiser",
@@ -23,26 +23,26 @@
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 4.810625,
+          "wind_articulation": 4.295,
           "flute_size": 2.34,
-          "flute_material": 9.941875,
+          "flute_material": 9.567045454545454,
           "flute_technique": 1.95,
-          "flute_maker_school": 4.9399999999999995
+          "flute_maker_school": 4.58
         }
       },
       {
         "id": "clarinet",
         "slots": {
           "wind_articulation": "wind_breath_quiet",
-          "clarinet_body": "buffet_greenline_clarinet",
+          "clarinet_body": "grenadilla_clarinet",
           "clarinet_size": "b_flat_clarinet",
           "clarinet_reed": "hard_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 4.810625,
-          "clarinet_body": 6.25,
-          "clarinet_size": 7.852499999999999,
+          "wind_articulation": 4.295,
+          "clarinet_body": 6.401818181818182,
+          "clarinet_size": 7.539999999999999,
           "clarinet_reed": 1.11,
           "clarinet_articulation": 0.5
         }
@@ -62,15 +62,15 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 4.4350000000000005,
-          "orch_strings": 6.404375,
-          "orch_top_wood": 7.479374999999999,
+          "bowed_technique": 4.482045454545455,
+          "orch_strings": 6.295,
+          "orch_top_wood": 7.244999999999999,
           "orch_back_wood": 6.25,
           "orch_varnish": 6.25,
           "orch_setup_period": 6.49,
           "orch_bow": 0.7,
           "orch_bow_stick": 6.5,
-          "orch_articulation": 6.454375,
+          "orch_articulation": 6.345,
           "orch_rosin": 6.835
         }
       },
@@ -79,7 +79,7 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "cello_strings": "silver_wound_lamb_gut_cello",
-          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_top_wood": "engelmann_spruce_cello",
           "cello_back_wood": "european_maple_cello_back",
           "cello_varnish": "oil_amber_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
@@ -88,9 +88,9 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 4.4350000000000005,
-          "cello_strings": 4.98,
-          "cello_top_wood": 3.848125,
+          "bowed_technique": 4.482045454545455,
+          "cello_strings": 5.027045454545455,
+          "cello_top_wood": 3.75,
           "cello_back_wood": 6.25,
           "cello_varnish": 6.25,
           "cello_setup_period": 6.49,
@@ -119,9 +119,9 @@
           "piano_hammer": 9.195,
           "piano_rim": 8.06,
           "piano_soundboard": 7.25,
-          "piano_pinblock": 6.445,
+          "piano_pinblock": 6.648863636363636,
           "piano_plate": 7.9,
-          "piano_pitch_standard": 14.44
+          "piano_pitch_standard": 14.487045454545454
         }
       },
       {
@@ -133,8 +133,8 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 6.885000000000001,
-          "mod_voltage_source": 0.65,
+          "electronic_technique": 6.932045454545455,
+          "mod_voltage_source": 0.8068181818181819,
           "mod_patch_density": 2.6,
           "mod_lineage": 1.3
         }
@@ -160,21 +160,21 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 37.876250000000006,
+          "voice_register": 37.720000000000006,
           "voice_quality": 39.745,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.025625,
+          "voice_vibrato": 8.807045454545454,
           "voice_articulation": 17.744999999999997,
           "voice_microtone": 20.279999999999994,
-          "voice_tradition": 28.37625,
+          "voice_tradition": 28.22,
           "voice_mechanism_compound": 29.514999999999997,
-          "voice_estill_quality": 7.8725000000000005,
+          "voice_estill_quality": 7.4350000000000005,
           "voice_speech_song": 20.409999999999993,
           "voice_ensemble_config": 20.279999999999994,
           "voice_ornament_system": 2.7900000000000005,
-          "voice_pitch_organization": 33.450625,
-          "voice_processing_chain": 10.005624999999998,
+          "voice_pitch_organization": 33.185,
+          "voice_processing_chain": 10.021818181818182,
           "voice_multitrack_stack": 4.985
         }
       }

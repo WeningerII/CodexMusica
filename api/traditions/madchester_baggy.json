@@ -3,14 +3,14 @@
   "name": "Madchester / baggy",
   "family": "rock_punk",
   "lineage": "Late-1980s-and-early-1990s Manchester-based British rock-and-dance subgenre synthesizing indie-rock with acid-house club rhythmic-influence. The Stone Roses, Happy Mondays, Inspiral Carpets, the Charlatans, and James constitute the canonical roster; the Hacienda nightclub (Manchester, opened 1982) provided the canonical performance venue. The 1989 Stone Roses self-titled debut and the parallel Happy Mondays Bummed (1988) consolidated the canonical sound.",
-  "recipe": "classic British 1987-1989 madchester / baggy, distorted Rock, alternative branch, house electronic dance detroit house deep house. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood power chord humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, sound design field sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus flanger.",
-  "recipe_chars": 715,
-  "score": 300.235,
+  "recipe": "classic British 1987-1989 madchester / baggy, distorted Rock, alternative branch, house electronic dance slap house afro house. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, sound design field sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus flanger.",
+  "recipe_chars": 701,
+  "score": 290.827,
   "config": {
     "traditions": [
       "madchester_baggy",
-      "detroit_house",
-      "deep_house_soulful"
+      "slap_house",
+      "afro_house"
     ],
     "instruments": [
       {
@@ -22,73 +22,73 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 23.559999999999995,
-          "voice_quality": 15.99,
+          "voice_register": 10.259999999999993,
+          "voice_quality": 18.2,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.114999999999999,
-          "voice_articulation": 14.429999999999994,
-          "voice_microtone": 15.299999999999997,
-          "voice_tradition": 8.485,
-          "voice_mechanism_compound": 3.5749999999999993,
-          "voice_estill_quality": 7.6000000000000005,
-          "voice_speech_song": 15.924999999999995,
-          "voice_ensemble_config": 15.014999999999993,
-          "voice_ornament_system": 0.45500000000000007,
-          "voice_pitch_organization": 6.175000000000001,
-          "voice_processing_chain": 14.395,
-          "voice_multitrack_stack": 6.870000000000001
+          "voice_vibrato": 3.115,
+          "voice_articulation": 17.549999999999997,
+          "voice_microtone": 17.354999999999993,
+          "voice_tradition": 10.2375,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 17.549999999999997,
+          "voice_ensemble_config": 17.484999999999992,
+          "voice_ornament_system": 0.49999999999999994,
+          "voice_pitch_organization": 6.675000000000001,
+          "voice_processing_chain": 13.02,
+          "voice_multitrack_stack": 7.57
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_american_fender_blackface",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
-          "neck_wood": "maple_neck_h",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
+          "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
-          "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 8.519999999999998,
-          "amp_make": 6.1049999999999995,
-          "body_wood": 4.38,
-          "neck_wood": 0.39,
-          "fretboard": 0.39,
-          "pickup_magnet": 0.24,
-          "pickup_winding": 0.24,
-          "string_material": 0.39,
-          "bridge": 0.255,
-          "scale_length": 4.725,
-          "string_gauge": 0.21,
+          "electric_technique": 8.02,
+          "amp_make": 5.485,
+          "body_wood": 4.88,
+          "neck_wood": 0.32999999999999996,
+          "fretboard": 0.22499999999999998,
+          "pickup_magnet": 0.8,
+          "pickup_winding": 0.845,
+          "string_material": 0.8,
+          "bridge": 0.8,
+          "scale_length": 5.074999999999999,
+          "string_gauge": 0.37499999999999994,
           "finish": 0.045,
-          "string_tuning": 9.999999999999998
+          "string_tuning": 9.549999999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
@@ -97,8 +97,8 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 10.435,
-          "body_wood": 0.195,
+          "amp_make": 5.77,
+          "body_wood": 0.66,
           "pickup_config": 0.26999999999999996,
           "string_type": 10.25,
           "scale_length_b": 0.43500000000000005,
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.029999999999994,
-          "drumhead": 5.889999999999999,
+          "drum_technique": 17.614999999999995,
+          "drumhead": 2.8925000000000005,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -124,16 +124,16 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "emu_emax",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sampler_archetypes": 0.65,
-          "sampler_bit_depth": 0.7149999999999999,
-          "sampler_workflow": 1.985,
-          "sampler_classic_context": 43.28999999999999
+          "sampler_archetypes": 0.845,
+          "sampler_bit_depth": 0.09,
+          "sampler_workflow": 2.6350000000000007,
+          "sampler_classic_context": 42.9975
         }
       }
     ],

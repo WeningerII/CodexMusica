@@ -1,0 +1,84 @@
+{
+  "id": "drone",
+  "name": "Drone",
+  "family": "global",
+  "lineage": "Sustained-tone music treats duration, closely controlled pitch and the interaction of held tones as form. Tony Conrad’s amplified violin work supplies the selected bowed-string practice model. Drone also includes electronic and other instrumental practices; this default is neither dark ambient nor a comprehensive instrument roster for all drone music.",
+  "recipe": "classic modern drone, drone Modal, string branch, modal electric drone modal, ambient experimental electric drone and dark ambient. copper wound carpathian spruce European maple bosnian source flamed figure violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital.",
+  "recipe_chars": 399,
+  "score": 26.734,
+  "config": {
+    "traditions": [
+      "drone",
+      "drone_dark_ambient"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_continuous_drone",
+          "orch_strings": "copper_wound_gut_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 13.247937499999999,
+          "orch_strings": 7.150000000000001,
+          "orch_top_wood": 1.2834374999999998,
+          "orch_back_wood": 1.2784374999999997,
+          "orch_varnish": 0.7,
+          "orch_setup_period": 1.1049999999999998,
+          "orch_bow": 0,
+          "orch_bow_stick": 2.01375,
+          "orch_articulation": 0.3,
+          "orch_rosin": 1.755
+        }
+      }
+    ],
+    "pinned": {
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_setup_period",
+        "orch_bow",
+        "orch_articulation"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "bowed_technique": "bowed_continuous_drone",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "orch_articulation": "arco_orch"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": []
+  }
+}

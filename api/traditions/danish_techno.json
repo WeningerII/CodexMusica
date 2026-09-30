@@ -1,0 +1,95 @@
+{
+  "id": "danish_techno",
+  "name": "Danish techno",
+  "family": "electronic",
+  "lineage": "Denmark-centered techno networks range from Kölsch’s melodic club work to the harder Copenhagen underground. This default selects the former’s documented combination of modular synthesis and drum-machine rhythm, rather than treating the national category as one tempo or mood.",
+  "recipe": "classic modern danish techno, electronic Dance, techno branch. eurorack modular, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 304,
+  "score": 1.438,
+  "config": {
+    "traditions": [
+      "danish_techno"
+    ],
+    "instruments": [
+      {
+        "id": "eurorack_modular",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "eurorack_focus": "eurorack_east_coast",
+          "eurorack_modular_context": "eurorack_modular_studio"
+        },
+        "scores": {
+          "electronic_technique": 0.325,
+          "eurorack_focus": 0.13724999999999998,
+          "eurorack_modular_context": 0.22049999999999997
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": -0.035,
+          "tr909_production_origin": -1.435
+        }
+      }
+    ],
+    "pinned": {
+      "eurorack_modular": [
+        "electronic_technique",
+        "eurorack_focus",
+        "eurorack_modular_context"
+      ],
+      "drum_machine_909": [
+        "tr909_voice",
+        "drum_machine_909_context",
+        "tr909_production_origin"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "hall_reverb",
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "eurorack_focus": "eurorack_east_coast",
+      "eurorack_modular_context": "eurorack_modular_studio",
+      "tr909_voice": "tr909_hat",
+      "drum_machine_909_context": "drum_machine_909_techno",
+      "tr909_production_origin": "tr909_roland_osaka_canonical"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "hall_reverb",
+      "digital_delay"
+    ]
+  }
+}

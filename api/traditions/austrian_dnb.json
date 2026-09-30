@@ -1,0 +1,126 @@
+{
+  "id": "austrian_dnb",
+  "name": "Austrian drum and bass",
+  "family": "electronic",
+  "lineage": "Austrian drum-and-bass networks represented by Camo & Krooked, Mefjus, Fourward and Wingz. Camo & Krooked’s first-person account describes a diverse Vienna-centered club scene and painstaking digitally synthesized percussion with modulated bass sound design. The selected recording model follows that sound-design-led branch.",
+  "recipe": "classic modern austrian drum and bass, bass System, bass descendants branch. sampler drum machine, sub bass wavetable synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 337,
+  "score": 19.738,
+  "config": {
+    "traditions": [
+      "austrian_dnb"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0,
+          "sample_swing": 2.773,
+          "sample_processing": 0
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 8.385,
+          "wt_position": 1.69,
+          "wt_family": 0,
+          "wt_polyphony": 0.1365
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "maschine_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 0,
+          "sampler_bit_depth": 0.03712499999999999,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 5.781125
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "wavetable_synth": [
+        "electronic_technique",
+        "wt_position",
+        "wt_family",
+        "wt_polyphony"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_parallel_blend",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered",
+      "electronic_technique": "electronic_bass_sub",
+      "wt_position": "wt_morphing",
+      "wt_family": "wt_industrial",
+      "wt_polyphony": "wt_mono",
+      "sampler_archetypes": "maschine_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_post"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_parallel_blend",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

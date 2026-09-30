@@ -158,6 +158,28 @@
             "pop",
             "edm"
           ]
+        },
+        {
+          "id": "electronic_sustained_layering",
+          "name": "Sustained textural layering",
+          "applies_to": [
+            "analog_synth",
+            "fm_synth",
+            "sampler_classic"
+          ],
+          "descriptors": [
+            "sustained",
+            "layered",
+            "looped"
+          ],
+          "match_tokens": [
+            "electronic",
+            "ambient"
+          ],
+          "canonical_tags": [
+            "ambient"
+          ],
+          "auto": false
         }
       ],
       "_fromFamily": true

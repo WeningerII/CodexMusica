@@ -3,14 +3,14 @@
   "name": "Bouncy Techno",
   "family": "electronic",
   "lineage": "Scottish rave subgenre of 1992-1996 centred on Glasgow, Ayrshire and labels like Clubscene and Twitch, driven by Scott Brown, Q-Tex and Ultra-Sonic — 150-170 BPM distorted four-on-the-floor kicks with a heavily syncopated bouncing offbeat bass, chopped Amen-derived breaks, hoover and organ stabs, rave piano and pitched-up diva or MC vocal samples.",
-  "recipe": "classic 1992-1996 bouncy techno, electronic Dance, continental branch, hardstyle electronic dance, techno electronic dance, uk soundsystem bass system german techno dubstyle. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-909, roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, melodic pitched sampler, low sub bass digital subtractive, cold pressed wurzen felt a 440 modern pitch us standard grand piano. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 608,
-  "score": 230.872,
+  "recipe": "classic 1992-1996 bouncy techno, electronic Dance, continental branch, hardstyle electronic dance, techno electronic dance, uk soundsystem bass system dubstyle 4-beat. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-909, sub bass analog mono synth, melodic pitched sampler, sub bass digital subtractive, cold pressed wurzen felt a 440 modern pitch us standard grand piano. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 551,
+  "score": 225.944,
   "config": {
     "traditions": [
       "bouncy_techno",
-      "german_techno",
-      "dubstyle"
+      "dubstyle",
+      "four_beat_hardcore"
     ],
     "instruments": [
       {
@@ -22,42 +22,42 @@
         },
         "scores": {
           "tr909_voice": 6.3,
-          "drum_machine_909_context": 3.1849999999999996,
-          "tr909_production_origin": 0.635
+          "drum_machine_909_context": 3.3799999999999994,
+          "tr909_production_origin": 0.135
         }
       },
       {
         "id": "analog_mono_synth",
         "slots": {
-          "electronic_technique": "electronic_acid_squelch",
+          "electronic_technique": "electronic_bass_sub",
           "mono_oscillator": "mono_voltage_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "minimoog",
-          "mono_maker_lineage": "mono_roland_kakehashi"
+          "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 11.75,
+          "electronic_technique": 13.03875,
           "mono_oscillator": 0,
-          "mono_filter": 0.195,
-          "mono_archetypes": 0.39,
-          "mono_maker_lineage": 1.4299999999999997
+          "mono_filter": 0.69,
+          "mono_archetypes": 0.195,
+          "mono_maker_lineage": -0.035
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "roland_s750",
+          "sampler_archetypes": "akai_mpc",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.0875,
-          "sampler_archetypes": 1.195,
-          "sampler_bit_depth": 0.585,
-          "sampler_workflow": 2.4699999999999998,
-          "sampler_classic_context": 20.345
+          "electronic_technique": 1.2374999999999998,
+          "sampler_archetypes": 1.625,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 3.1200000000000006,
+          "sampler_classic_context": 18.199999999999996
         }
       },
       {
@@ -68,9 +68,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 10.790000000000001,
-          "va_archetypes": 0.45499999999999996,
-          "digital_subtractive_context": 18.98
+          "electronic_technique": 13.03875,
+          "va_archetypes": 0.44125,
+          "digital_subtractive_context": 15.794999999999998
         }
       },
       {
@@ -83,7 +83,7 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -94,46 +94,46 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.885,
-          "voice_quality": 6.890000000000002,
+          "voice_register": 2.73,
+          "voice_quality": 8.775,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.52,
-          "voice_articulation": 20.279999999999998,
-          "voice_microtone": 21.514999999999993,
-          "voice_tradition": 6.37,
-          "voice_mechanism_compound": 5.265,
-          "voice_estill_quality": 1.9499999999999997,
-          "voice_speech_song": 21.059999999999995,
-          "voice_ensemble_config": 21.644999999999996,
-          "voice_ornament_system": 1.18125,
-          "voice_pitch_organization": 1.585,
-          "voice_processing_chain": 20.94375,
-          "voice_multitrack_stack": 4.225
+          "voice_vibrato": 0.7149999999999999,
+          "voice_articulation": 16.444999999999997,
+          "voice_microtone": 17.679999999999993,
+          "voice_tradition": 7.865,
+          "voice_mechanism_compound": 9.742499999999998,
+          "voice_estill_quality": 2.1449999999999996,
+          "voice_speech_song": 17.029999999999994,
+          "voice_ensemble_config": 18.264999999999993,
+          "voice_ornament_system": 2.28125,
+          "voice_pitch_organization": 2.2350000000000003,
+          "voice_processing_chain": 18.41875,
+          "voice_multitrack_stack": 5.915
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_9_foot",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "grand_piano_size": 0.28500000000000003,
-          "grand_piano_brand": 0.195,
-          "piano_hammer": 1.535,
-          "piano_rim": 0.7149999999999999,
-          "piano_soundboard": -0.035,
+          "keyboard_technique": 0.325,
+          "grand_piano_size": 0.69,
+          "grand_piano_brand": 0.69,
+          "piano_hammer": 2.185,
+          "piano_rim": 0.32499999999999996,
+          "piano_soundboard": 0.32499999999999996,
           "piano_pinblock": -0.035,
-          "piano_plate": 0.75,
+          "piano_plate": -0.035,
           "piano_pitch_standard": 3.705
         }
       }
