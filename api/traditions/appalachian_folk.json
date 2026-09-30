@@ -5,7 +5,7 @@
   "lineage": "Unaccompanied and lightly accompanied song repertoire of the southern Appalachian highlands, descended from British and Scots-Irish balladry and documented by Cecil Sharp and Olive Dame Campbell's 1916-18 collecting and by the Library of Congress field campaigns — free-rhythm or loosely metered delivery, modal Dorian-Mixolydian-Aeolian melodies in a narrow tessitura, hard nasal unornamented-to-lightly-slid solo voice, long strophic narrative texts, and drone accompaniment from mountain dulcimer, banjo or autoharp when instruments appear at all.",
   "recipe": "classic Southern American mid-1910s appalachian folk song, drone Modal, appalachian branch, Celtic balladic Scottish ballad, pre commercial country cowboy old west frontier music. thick, breath veiled tone, wide pitch sway, interlocked note trading. walnut canonical appalachian drone like modal mountain dulcimer, plain gut minstrel pre 1860s fretless canon scruggs stelling bluegrass setup banjo 5 string, folk drone like modal autoharp, dadgad tuning plain gut sheep gut pre 1900 parlor travis picked parlor acoustic guitar. bristol sessions appalachian pre commercial. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 647,
-  "score": 316.936,
+  "score": 315.238,
   "config": {
     "traditions": [
       "appalachian_folk",
@@ -43,11 +43,11 @@
           "voice_microtone": 23.984999999999992,
           "voice_tradition": 19.7925,
           "voice_mechanism_compound": 6.175,
-          "voice_estill_quality": 16.478,
+          "voice_estill_quality": 16.565,
           "voice_speech_song": 29.835,
           "voice_ensemble_config": 22.359999999999992,
-          "voice_ornament_system": 12.606499999999997,
-          "voice_pitch_organization": 2.9575000000000005,
+          "voice_ornament_system": 12.574999999999998,
+          "voice_pitch_organization": 2.8000000000000003,
           "voice_processing_chain": 6.899999999999999,
           "voice_multitrack_stack": 3.575
         }
@@ -62,10 +62,10 @@
           "dulcimer_string_material": "dulcimer_phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 10.311499999999999,
-          "dulcimer_strings": 6.9864999999999995,
-          "dulcimer_tuning": 3.939,
-          "dulcimer_body_wood": 3.989,
+          "acoustic_technique": 9.965,
+          "dulcimer_strings": 6.64,
+          "dulcimer_tuning": 3.75,
+          "dulcimer_body_wood": 3.695,
           "dulcimer_string_material": 0
         }
       },
@@ -84,7 +84,7 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 0.1785,
+          "banjo_back": 0.105,
           "tone_ring": 0.975,
           "banjo_head": 20.085,
           "banjo_pot": 0.105,
@@ -106,7 +106,7 @@
           "autoharp_body_wood": "autoharp_solid_birch"
         },
         "scores": {
-          "acoustic_technique": 10.311499999999999,
+          "acoustic_technique": 9.965,
           "autoharp_chord_bars": 2.21,
           "autoharp_context": 9.815,
           "autoharp_strings": 0,

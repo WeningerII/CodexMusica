@@ -5,7 +5,7 @@
   "lineage": "Vaporwave-adjacent aesthetic named after James Ferraro's Far Side Virtual (2011) and extended by Vektroid, Dan Mason and INTERNET CLUB, using unaltered General MIDI patches, FM bells, Windows startup jingles and corporate-demo sound design at moderate tempos with clipped rhythmic phrases, ad-copy spoken text and no analog warmth at all.",
   "recipe": "classic early-2010s utopian virtual, experimental Elec, retro aesthetic branch, pop experimental experimental electric, idm glitch experimental electric indietronica. extended whistle, breath veiled tone, fast rate, interlocked note trading. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm analog drift character textural wavetable synth, singing lead digital subtractive, glitched textural sampler, treble-extended articulate rubber vibraphone. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 635,
-  "score": 284.672,
+  "score": 284.297,
   "config": {
     "traditions": [
       "utopian_virtual",
@@ -23,7 +23,7 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 8.694999999999999,
+          "electronic_technique": 8.739999999999998,
           "fm_algorithm": 3.7714285714285714,
           "fm_modulator_ratio": 0.39,
           "fm_polyphony": 0.65,
@@ -38,7 +38,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 8.694999999999999,
+          "electronic_technique": 8.739999999999998,
           "va_archetypes": 1.65,
           "digital_subtractive_context": 16.835
         }
@@ -53,7 +53,7 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 22.889999999999997,
+          "electronic_technique": 22.695,
           "sampler_archetypes": 1.65,
           "sampler_bit_depth": 1.7932142857142854,
           "sampler_workflow": 24.005714285714284,
@@ -69,7 +69,7 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 22.889999999999997,
+          "electronic_technique": 22.695,
           "wt_position": 3.9,
           "wt_family": 1.695,
           "wt_polyphony": 0.65
@@ -100,10 +100,10 @@
           "voice_quality": 6.565000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.09,
+          "voice_vibrato": 1.045,
           "voice_articulation": 17.029999999999998,
           "voice_microtone": 15.989999999999995,
-          "voice_tradition": 24.76464285714286,
+          "voice_tradition": 24.73464285714286,
           "voice_mechanism_compound": 4.419999999999999,
           "voice_estill_quality": 3.835,
           "voice_speech_song": 19.564999999999998,

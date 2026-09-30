@@ -3,14 +3,14 @@
   "name": "Nepali pop (adhunik geet and Kathmandu pop)",
   "family": "pop",
   "lineage": "Kathmandu-based popular song developed from Radio Nepal's adhunik geet of the 1950s-70s and turned into a guitar-and-keyboard pop industry after the 1990 democracy movement by bands such as Nepathya and 1974 AD — mid-tempo 80-120 BPM verse-chorus songs in Nepali, diatonic and lightly Hindustani-inflected, with clean electric guitar, layered synth pads, programmed or acoustic kit, and madal added for national colour.",
-  "recipe": "classic mid-1950s nepali pop, functional Song, south Asian pop branch, pop rock functional song, indian bard ballad poetry yacht rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, madal, singing lead analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 724,
-  "score": 531.9,
+  "recipe": "classic mid-1950s nepali pop, functional Song, south Asian pop branch, pop rock functional song, indian bard ballad poetry yacht rock metropopolis. thick, breath veiled tone, straight onset, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, cutting composite madal, singing lead analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 745,
+  "score": 506.922,
   "config": {
     "traditions": [
       "nepali_pop",
       "yacht_rock",
-      "folk_rock"
+      "metropopolis"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 60.980000000000004,
-          "voice_quality": 9.23,
+          "voice_register": 48.43000000000002,
+          "voice_quality": 8.385,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.085,
-          "voice_articulation": 18.914999999999992,
-          "voice_microtone": 48.10000000000001,
-          "voice_tradition": 32.695,
-          "voice_mechanism_compound": 3.055,
-          "voice_estill_quality": 6.012500000000001,
-          "voice_speech_song": 25.674999999999997,
-          "voice_ensemble_config": 18.849999999999994,
+          "voice_vibrato": 6.825,
+          "voice_articulation": 20.669999999999998,
+          "voice_microtone": 46.72500000000001,
+          "voice_tradition": 37.52,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 2.9250000000000007,
+          "voice_speech_song": 26.974999999999994,
+          "voice_ensemble_config": 20.344999999999995,
           "voice_ornament_system": 5.585,
-          "voice_pitch_organization": 3.415,
-          "voice_processing_chain": 9.575,
-          "voice_multitrack_stack": 5.720000000000001
+          "voice_pitch_organization": 3.2650000000000006,
+          "voice_processing_chain": 11.374999999999998,
+          "voice_multitrack_stack": 8.775000000000002
         }
       },
       {
@@ -62,11 +62,11 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 0.59,
-          "top_wood": 3.575,
-          "back_sides": 3.575,
-          "string_acoustic": 3.575,
-          "acoustic_om_technique": 12.749999999999995
+          "string_tuning": 0.6649999999999999,
+          "top_wood": 2.73,
+          "back_sides": 2.73,
+          "string_acoustic": 2.73,
+          "acoustic_om_technique": 2.1749999999999994
         }
       },
       {
@@ -82,22 +82,22 @@
           "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
-          "finish": "nitro",
+          "finish": "poly",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 26.332500000000003,
-          "amp_make": 11.309999999999997,
-          "body_wood": 3.575,
-          "neck_wood": 3.575,
-          "fretboard": 3.5100000000000002,
+          "electric_technique": 31.2325,
+          "amp_make": 8.45,
+          "body_wood": 2.73,
+          "neck_wood": 2.73,
+          "fretboard": 2.6650000000000005,
           "pickup_magnet": 0.39,
-          "string_material": 0.585,
-          "string_gauge": 3.575,
-          "bridge": 0.39,
-          "scale_length": 3.575,
-          "finish": 0.09,
-          "string_tuning": 12.415
+          "string_material": 0.39,
+          "string_gauge": 2.535,
+          "bridge": 0.585,
+          "scale_length": 2.73,
+          "finish": 0.5,
+          "string_tuning": 9.555
         }
       },
       {
@@ -108,18 +108,18 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.764999999999999,
-          "body_wood": 3.575,
-          "pickup_config": 0.39,
-          "string_type": 28.6,
-          "scale_length_b": 3.575,
-          "fretted_or_not": 0.195,
-          "bass_technique": 22.189999999999998,
+          "amp_make": 9.36,
+          "body_wood": 2.73,
+          "pickup_config": 1.4300000000000002,
+          "string_type": 21.45,
+          "scale_length_b": 2.535,
+          "fretted_or_not": 0.545,
+          "bass_technique": 16.54,
           "electric_bass_string_configuration": 0
         }
       },
@@ -131,8 +131,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.099999999999994,
-          "drumhead": 24.34,
+          "drum_technique": 21.319999999999997,
+          "drumhead": 28.840000000000003,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -145,10 +145,10 @@
           "madal_shell": "madal_shell_composite"
         },
         "scores": {
-          "madal_role": 26.285000000000004,
-          "madal_posture": 1.7399999999999998,
+          "madal_role": 30.785000000000004,
+          "madal_posture": 2.115,
           "madal_paste": -0.035,
-          "madal_shell": 0.7
+          "madal_shell": 1.075
         }
       },
       {
@@ -160,10 +160,10 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 24.410000000000004,
-          "poly_archetypes": 11.439999999999998,
+          "electronic_technique": 29.535000000000004,
+          "poly_archetypes": 8.58,
           "poly_voices": 0.45499999999999996,
-          "poly_maker_lineage": 0.19499999999999967
+          "poly_maker_lineage": -0.42000000000000004
         }
       }
     ],

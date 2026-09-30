@@ -5,7 +5,7 @@
   "lineage": "Late-1960s British and American acid-folk, codified 1967-1971 by the Incredible String Band, Vashti Bunyan, Comus and Pearls Before Swine, applying modal fingerstyle guitar in altered tunings to raga-derived drone (sitar, tanpura, hand percussion), free-floating tempo, chamber-string and recorder overdubs, and high, unforced close-miked vocals treated with tape flange and reverse tape.",
   "recipe": "classic British 1967-1971 psychedelic folk, ballad Poetry, britfolk branch, anglo singer song freak folk, pop rock folk rock, modal electric drone modal new weird america. thick, breath veiled tone, slow rate, interlocked note trading. dadgad tuning fingerpicked acoustic marshall plexi amp British rock amp riff driven single coil electric guitar, drone like modal sitar, dark folk clay tabla, gut gut string strummed open chord ringing overtones celtic harp, melodic recorder, string quartet inst. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 691,
-  "score": 313.251,
+  "score": 312.315,
   "config": {
     "traditions": [
       "psychedelic_folk",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 30.019999999999996,
+          "voice_register": 30.064999999999994,
           "voice_quality": 8.580000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.585,
           "voice_articulation": 15.859999999999994,
           "voice_microtone": 20.539999999999992,
-          "voice_tradition": 35.584999999999994,
+          "voice_tradition": 35.43499999999999,
           "voice_mechanism_compound": 7.345000000000001,
           "voice_estill_quality": 7.020000000000001,
           "voice_speech_song": 22.424999999999997,
           "voice_ensemble_config": 15.404999999999992,
-          "voice_ornament_system": 5.070000000000002,
+          "voice_ornament_system": 4.770000000000001,
           "voice_pitch_organization": 3.7050000000000005,
           "voice_processing_chain": 3.29,
-          "voice_multitrack_stack": 9.155
+          "voice_multitrack_stack": 9.049999999999999
         }
       },
       {
@@ -62,11 +62,11 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 3.8415000000000004,
+          "string_tuning": 3.6000000000000005,
           "top_wood": 0.65,
           "back_sides": 0.65,
           "string_acoustic": 0.65,
-          "acoustic_om_technique": 30.507999999999992
+          "acoustic_om_technique": 30.444999999999993
         }
       },
       {
@@ -75,7 +75,7 @@
           "plucked_traditional_technique": "plucked_drone_modal",
           "sitar_neck": "teak",
           "sitar_resonator": "single_kaddu",
-          "sitar_jawari": "camel_bone",
+          "sitar_jawari": "antelope_horn",
           "sitar_taraf": "taraf_11",
           "sitar_frets": "tied_gut_parda",
           "sitar_pluck": "fingers_sitar",
@@ -86,10 +86,10 @@
         "scores": {
           "plucked_traditional_technique": 11.309999999999999,
           "sitar_neck": 0.65,
-          "sitar_resonator": 0.438,
-          "sitar_jawari": 0.153,
-          "sitar_taraf": 0.153,
-          "sitar_frets": 0.153,
+          "sitar_resonator": 0.42,
+          "sitar_jawari": 0.135,
+          "sitar_taraf": 0.09,
+          "sitar_frets": 0.09,
           "sitar_pluck": 0.195,
           "sitar_main_strings": -0.35,
           "sitar_jawari_style": 0.65,
@@ -117,7 +117,7 @@
           "celtic_harp_strings": "celtic_gut"
         },
         "scores": {
-          "acoustic_technique": 5.346500000000001,
+          "acoustic_technique": 5.315,
           "celtic_harp_levers": 9.749999999999998,
           "celtic_harp_strings": 3.705
         }
@@ -131,7 +131,7 @@
           "recorder_body_wood": "recorder_maple"
         },
         "scores": {
-          "wind_articulation": 22.662999999999993,
+          "wind_articulation": 22.644999999999992,
           "recorder_size": 0.195,
           "recorder_context": 0.195,
           "recorder_body_wood": 0.845
@@ -172,10 +172,10 @@
           "body_wood": 0.65,
           "neck_wood": 0.65,
           "fretboard": 0.585,
-          "pickup_magnet": 0.09,
+          "pickup_magnet": 0.135,
           "string_material": 0.18,
           "string_gauge": 0.65,
-          "bridge": 0.09,
+          "bridge": 0.135,
           "scale_length": 0.65,
           "finish": 0,
           "string_tuning": 4.875

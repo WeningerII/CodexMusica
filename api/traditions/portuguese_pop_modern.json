@@ -3,21 +3,21 @@
   "name": "Portuguese pop (modern)",
   "family": "global",
   "lineage": "Modern Portuguese mainstream pop tradition extending past the fado canon — codified through Madredeus, Mariza’s fado-fusion, the 2000s Buraka Som Sistema kuduro crossover, and contemporary artists like Sara Tavares, David Carreira; characterized by Portuguese-language vocals over electronic-and-organic hybrid production",
-  "recipe": "classic mid-2000s portuguese pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. extended whistle, breath veiled tone, straight onset, interlocked note trading. martin lifespan fingerpicked acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier wenge single coil electric guitar, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 665,
-  "score": 341.397,
+  "recipe": "classic mid-2000s portuguese pop, functional Song, iberian branch, chanson fado ballad poetry greek éntechno. thick, lament wail, straight onset, interlocked note trading. fingerpicked acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier soft down tuning single coil electric guitar, modeled amp modern rig stainless steel roundwound sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 613,
+  "score": 258.095,
   "config": {
     "traditions": [
       "portuguese_pop_modern",
-      "cape_verdean_batuko",
-      "morna"
+      "greek_entechno",
+      "fado"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
@@ -25,48 +25,48 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 11.229999999999995,
-          "voice_quality": 29.770000000000003,
+          "voice_register": 12.419999999999993,
+          "voice_quality": 17.634999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.06,
-          "voice_articulation": 24.96,
-          "voice_microtone": 25.285,
-          "voice_tradition": 19.62,
-          "voice_mechanism_compound": 6.044999999999999,
-          "voice_estill_quality": 4.94,
-          "voice_speech_song": 31.2325,
-          "voice_ensemble_config": 23.854999999999997,
-          "voice_ornament_system": 5.369999999999999,
-          "voice_pitch_organization": 5.460000000000001,
-          "voice_processing_chain": 13.715,
-          "voice_multitrack_stack": 13.324999999999998
+          "voice_vibrato": 7.359999999999999,
+          "voice_articulation": 9.879999999999999,
+          "voice_microtone": 11.732499999999993,
+          "voice_tradition": 22.394999999999996,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 4.16,
+          "voice_speech_song": 19.369999999999994,
+          "voice_ensemble_config": 10.269999999999996,
+          "voice_ornament_system": 4.92,
+          "voice_pitch_organization": 3.17,
+          "voice_processing_chain": 9.36,
+          "voice_multitrack_stack": 13.909999999999997
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "string_tuning": "open_d",
+          "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
-          "back_sides": "rosewood_bs_om",
-          "string_acoustic": "martin_lifespan_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 1.2999999999999998,
-          "top_wood": 0.8400000000000001,
-          "back_sides": 0.78,
-          "string_acoustic": 1.04,
-          "acoustic_om_technique": 6.27
+          "string_tuning": 0,
+          "top_wood": 0.65,
+          "back_sides": 0.65,
+          "string_acoustic": 0.65,
+          "acoustic_om_technique": 5.495
         }
       },
       {
@@ -75,29 +75,29 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "mahogany",
-          "neck_wood": "wenge_neck",
-          "fretboard": "ebony_fb",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
-          "string_material": "pure_nickel",
+          "string_material": "nickel_plated",
           "string_gauge": "g_12",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "dadgad"
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 11.999999999999996,
-          "amp_make": 3.575,
-          "body_wood": 0.6900000000000001,
-          "neck_wood": 1.4949999999999999,
-          "fretboard": 1.4949999999999999,
-          "pickup_magnet": 0.3,
+          "electric_technique": 9.449999999999996,
+          "amp_make": 5.719999999999999,
+          "body_wood": 0.65,
+          "neck_wood": 0.65,
+          "fretboard": 0.65,
+          "pickup_magnet": 0.65,
           "string_material": 0.845,
-          "string_gauge": 1.235,
-          "bridge": 3.6149999999999993,
-          "scale_length": 1.38,
+          "string_gauge": 0.65,
+          "bridge": 4.764999999999999,
+          "scale_length": 0.65,
           "finish": 0,
-          "string_tuning": 2.145
+          "string_tuning": 1.5925
         }
       },
       {
@@ -108,18 +108,18 @@
           "pickup_config": "soapbar",
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "sub_bass_synth_blend",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.3649999999999998,
-          "body_wood": 1.38,
-          "pickup_config": 3.5099999999999993,
-          "string_type": 4.159999999999999,
-          "scale_length_b": 3.7649999999999997,
-          "fretted_or_not": 1.4949999999999999,
-          "bass_technique": 7.549999999999999,
+          "amp_make": 4.514999999999999,
+          "body_wood": 0.65,
+          "pickup_config": 4.659999999999999,
+          "string_type": 5.699999999999999,
+          "scale_length_b": 4.914999999999999,
+          "fretted_or_not": 0.65,
+          "bass_technique": 10.424999999999997,
           "electric_bass_string_configuration": 0
         }
       },
@@ -131,8 +131,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 26.065,
-          "drumhead": 17.034999999999997,
+          "drum_technique": 13.259999999999998,
+          "drumhead": 19.759999999999994,
           "drum_kit_kick_pedal": 0
         }
       }

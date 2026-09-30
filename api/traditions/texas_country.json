@@ -5,7 +5,7 @@
   "lineage": "Texas country includes a regional touring and recording network whose participants are not all Texas-born. Turnpike Troubadours explicitly describe their longstanding place in the Texas country scene, supplying this fiddle-and-guitar band branch.",
   "recipe": "classic modern texas country, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. dreadnought acoustic Fender tweed amp American 50s amp tweed breakup single coil electric guitar, fiddle, Fender tweed amp American 50s amp tweed breakup electric bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 448,
-  "score": 79.356,
+  "score": 79.431,
   "config": {
     "traditions": [
       "texas_country"
@@ -32,7 +32,7 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 10.812999999999995,
+          "voice_register": 10.781499999999994,
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -41,7 +41,7 @@
           "voice_microtone": 3.7700000000000005,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 11.786,
+          "voice_estill_quality": 11.915,
           "voice_speech_song": 7.215,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
@@ -103,7 +103,7 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 0.2,
+          "electric_technique": 0.254,
           "amp_make": 11.205,
           "body_wood": 0.22049999999999997,
           "neck_wood": 0,
@@ -135,7 +135,7 @@
           "pickup_config": 0.1995,
           "string_type": 0.29474999999999996,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.5283749999999999,
+          "fretted_or_not": 0.42337499999999995,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -149,7 +149,7 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.2315,
+          "drumhead": 0.26,
           "drum_kit_kick_pedal": 0
         }
       }

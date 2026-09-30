@@ -3,20 +3,20 @@
   "name": "German Wiegenlied (cradle song)",
   "family": "global",
   "lineage": "German cradle-song tradition documented from medieval Marian-cradle hymns through Romantic-era Volkslied collection by Brentano-and-Arnim (Des Knaben Wunderhorn 1805-1808) and through Brahms' 1868 art-song setting that became globally iconic",
-  "recipe": "classic 1805-1808 german wiegenlied, lullaby, European branch, western common practice art music, chanson fado ballad poetry, europop functional song morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 334,
-  "score": 166.82,
+  "recipe": "classic 1805-1808 german wiegenlied, lullaby, European branch, western common practice art music, chanson fado ballad poetry, europop functional song nouvelle chanson française. thick, breath veiled tone, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 312,
+  "score": 109.817,
   "config": {
     "traditions": [
       "german_wiegenlied",
-      "morna",
-      "cape_verdean_batuko"
+      "chanson",
+      "nouvelle_chanson_francaise"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.1899999999999995,
-          "voice_quality": 26.519999999999996,
+          "voice_register": 4.800000000000001,
+          "voice_quality": 9.425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3474999999999997,
-          "voice_articulation": 21.84,
-          "voice_microtone": 23.725,
-          "voice_tradition": 15.674999999999997,
-          "voice_mechanism_compound": 4.755,
-          "voice_estill_quality": 4.829999999999999,
-          "voice_speech_song": 30.18,
-          "voice_ensemble_config": 20.735,
-          "voice_ornament_system": 1.48,
-          "voice_pitch_organization": 4.74,
-          "voice_processing_chain": 7.605000000000003,
-          "voice_multitrack_stack": 6.435000000000001
+          "voice_vibrato": 2.015,
+          "voice_articulation": 15.47,
+          "voice_microtone": 16.184999999999995,
+          "voice_tradition": 7.67,
+          "voice_mechanism_compound": 3.6050000000000004,
+          "voice_estill_quality": 3.6550000000000007,
+          "voice_speech_song": 24.504999999999995,
+          "voice_ensemble_config": 15.86,
+          "voice_ornament_system": 1.0899999999999999,
+          "voice_pitch_organization": 4.390000000000001,
+          "voice_processing_chain": 4.225,
+          "voice_multitrack_stack": 4.8100000000000005
         }
       }
     ],

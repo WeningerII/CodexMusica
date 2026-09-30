@@ -1,0 +1,141 @@
+{
+  "id": "geek_folk",
+  "name": "Geek folk",
+  "family": "vernacular",
+  "lineage": "A discovery cluster joining fantasy, fandom, humor and folk-derived songwriter networks. Its exact roster includes The Doubleclicks, whose official press material documents original comic songs with guitar/ukulele and cello.",
+  "recipe": "classic modern geek folk, ballad Poetry, anglo singer song branch. thick, breath veiled tone, neutral third half flat, m1 with m0 pulse borrowing. ukulele, pirastro cellisto cello specific cello. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 333,
+  "score": 33.342,
+  "config": {
+    "traditions": [
+      "geek_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 5.8255,
+          "voice_quality": 1.6899999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.2625,
+          "voice_articulation": 0.13000000000000003,
+          "voice_microtone": 3.380000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 3.0550000000000006,
+          "voice_speech_song": 5.915,
+          "voice_ensemble_config": 3.5100000000000002,
+          "voice_ornament_system": 1.755,
+          "voice_pitch_organization": 0.7149999999999997,
+          "voice_processing_chain": 1.3335000000000001,
+          "voice_multitrack_stack": 0.29400000000000004
+        }
+      },
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_concert",
+          "ukulele_style": "ukulele_strum",
+          "ukulele_wood": "ukulele_mahogany"
+        },
+        "scores": {
+          "ukulele_size": -0.05,
+          "ukulele_style": 0.325,
+          "ukulele_wood": 0.22049999999999997
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "cello_steel",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
+          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "brazilwood_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 0.2315,
+          "cello_strings": 0.5145,
+          "cello_top_wood": -0.035,
+          "cello_back_wood": -0.035,
+          "cello_varnish": -0.035,
+          "cello_setup_period": 0.26,
+          "cello_bow_grip": 0.3465,
+          "cello_rosin": 1.3679999999999999,
+          "cello_bow_stick": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition",
+        "voice_multitrack_stack"
+      ],
+      "ukulele": [
+        "ukulele_size",
+        "ukulele_style"
+      ],
+      "cello": [
+        "bowed_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "voice_multitrack_stack": "voice_multitrack_unison_double_take",
+      "ukulele_size": "ukulele_concert",
+      "ukulele_style": "ukulele_strum",
+      "bowed_technique": "bowed_pizzicato",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

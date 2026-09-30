@@ -3,9 +3,9 @@
   "name": "Agronejo",
   "family": "global",
   "lineage": "Brazilian sertanejo substrain named in the late 2010s around Goiás and Mato Grosso agribusiness culture and its rodeo-festival circuit — mid-tempo 90-120 BPM sertanejo universitário arrangements of viola caipira, acoustic guitar, accordion and full drum kit, with major-key parallel-third duet singing, big live-DVD stadium mixes, and lyrics explicitly celebrating farm, cattle, pickup-truck and rural-proprietor identity",
-  "recipe": "classic 2017-2019 agronejo, functional Song, Brazilian song branch, contemp main country, country rock country christian country. thick, breath veiled tone, straight note core, interlocked note trading. pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira, cedar koa phosphor bronze modern martin travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright alder mahogany single coil electric guitar, castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 931,
-  "score": 663.993,
+  "recipe": "classic 2017-2019 agronejo, functional Song, Brazilian song branch, contemp main country, country rock country christian country. thick, breath veiled tone, wide pitch sway, interlocked note trading. pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira, cedar koa phosphor bronze modern martin travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright alder mahogany single coil electric guitar, castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 928,
+  "score": 655.645,
   "config": {
     "traditions": [
       "agronejo",
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 47.76650000000002,
+          "voice_register": 47.63000000000002,
           "voice_quality": 10.269999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 26.769999999999996,
+          "voice_vibrato": 26.75,
           "voice_articulation": 14.754999999999995,
           "voice_microtone": 17.744999999999994,
           "voice_tradition": 6.727500000000001,
           "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 29.4425,
+          "voice_estill_quality": 28.685,
           "voice_speech_song": 23.529999999999998,
           "voice_ensemble_config": 18.004999999999992,
           "voice_ornament_system": 1.6949999999999998,
-          "voice_pitch_organization": 3.098,
-          "voice_processing_chain": 6.045000000000002,
+          "voice_pitch_organization": 2.7800000000000002,
+          "voice_processing_chain": 5.445000000000001,
           "voice_multitrack_stack": 7.215000000000001
         }
       },
@@ -63,11 +63,11 @@
           "viola_caipira_strings": "viola_caipira_steel_doubled"
         },
         "scores": {
-          "plucked_traditional_technique": 3.7744999999999997,
-          "viola_caipira_courses": 5.162999999999999,
-          "viola_caipira_context": 14.690000000000001,
-          "viola_caipira_top_wood": 4.225,
-          "viola_caipira_back_wood": 3.6399999999999997,
+          "plucked_traditional_technique": 3.515,
+          "viola_caipira_courses": 4.784999999999999,
+          "viola_caipira_context": 14.540000000000001,
+          "viola_caipira_top_wood": 3.25,
+          "viola_caipira_back_wood": 2.8449999999999998,
           "viola_caipira_strings": 2.015
         }
       },
@@ -81,11 +81,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 28.8265,
+          "acoustic_technique": 28.795,
           "string_tuning": 0.39999999999999997,
-          "top_wood": 1.7865,
-          "back_sides": 2.2215,
-          "string_acoustic": 4.263
+          "top_wood": 1.65,
+          "back_sides": 2.235,
+          "string_acoustic": 4.08
         }
       },
       {
@@ -100,13 +100,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 28.895,
-          "accordion_reed_material": 1.7865,
-          "musette_offset": 1.6315000000000002,
-          "reed_config": 2.19,
-          "bellows": 0.49499999999999994,
-          "voicing_chamber": 0.27299999999999996,
-          "accordion_maker_school": 2.08
+          "free_reed_technique": 28.849999999999998,
+          "accordion_reed_material": 1.65,
+          "musette_offset": 1.6,
+          "reed_config": 2.2800000000000002,
+          "bellows": 0.44999999999999996,
+          "voicing_chamber": 0.045,
+          "accordion_maker_school": 1.945
         }
       },
       {
@@ -122,13 +122,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 26.914999999999996,
-          "body_wood": 1.95,
+          "amp_make": 26.869999999999994,
+          "body_wood": 1.8,
           "pickup_config": 2.34,
-          "string_type": 15.665000000000001,
-          "scale_length_b": 2.4365,
-          "fretted_or_not": 1.15,
-          "bass_technique": 26.465,
+          "string_type": 14.435,
+          "scale_length_b": 2.15,
+          "fretted_or_not": 1.045,
+          "bass_technique": 26.51,
           "electric_bass_string_configuration": 0
         }
       },
@@ -141,7 +141,7 @@
         },
         "scores": {
           "drum_technique": 16.997499999999995,
-          "drumhead": 2.5065,
+          "drumhead": 2.3699999999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -153,7 +153,7 @@
           "body_wood": "alder",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
+          "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
@@ -163,17 +163,17 @@
         },
         "scores": {
           "electric_technique": 27.97,
-          "amp_make": 27.79,
-          "body_wood": 2.19,
-          "neck_wood": 1.7865,
-          "fretboard": 1.7365,
-          "pickup_magnet": 0.0315,
+          "amp_make": 27.745,
+          "body_wood": 2.235,
+          "neck_wood": 1.65,
+          "fretboard": 1.5999999999999999,
+          "pickup_magnet": 0,
           "string_material": 1.625,
-          "string_gauge": 2.19,
-          "bridge": 0.4365,
-          "scale_length": 1.95,
+          "string_gauge": 2.235,
+          "bridge": 0.345,
+          "scale_length": 1.8,
           "finish": 0,
-          "string_tuning": 7.085000000000001
+          "string_tuning": 6.335000000000001
         }
       },
       {
@@ -189,14 +189,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 30.084999999999997,
-          "amp_make": 27.79,
-          "pickup_steel": 1.7865,
+          "electric_technique": 29.95,
+          "amp_make": 27.745,
+          "pickup_steel": 1.65,
           "string_setup": 13.714999999999998,
-          "bar_material": 2.9365,
-          "pedal_steel_brand": 30.296499999999995,
-          "pedal_steel_neck_config": 32.9315,
-          "pedal_steel_strings": 28.259999999999998
+          "bar_material": 2.695,
+          "pedal_steel_brand": 30.264999999999993,
+          "pedal_steel_neck_config": 33.485,
+          "pedal_steel_strings": 28.365
         }
       }
     ],

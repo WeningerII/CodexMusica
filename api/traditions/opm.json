@@ -3,14 +3,14 @@
   "name": "OPM (Original Pilipino Music)",
   "family": "pop",
   "lineage": "Filipino popular song codified in Manila from the mid-1970s through the Metro Manila Popular Music Festival and the work of Ryan Cayabyab, Freddie Aguilar, APO Hiking Society and later Eraserheads and Rivermaya — Tagalog-language verse-chorus writing over a Western pop-rock and soft-rock instrumentation of piano, clean electric guitar, electric bass and kit at 70-120 BPM, with wide-interval, high-tessitura melodies engineered for full-throated belting and dense stacked backing harmony inherited from the country's choral and vocal-group culture.",
-  "recipe": "classic Southeast Asian 1974-1976 opm, functional Song, east Asian pop branch, pop rock functional song, anglo singer song ballad poetry yacht rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric cedar koa phosphor bronze modern martin strummed dreadnought acoustic guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, string machine, polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 942,
-  "score": 620.24,
+  "recipe": "classic Southeast Asian 1974-1976 opm, functional Song, east Asian pop branch, pop rock functional song, anglo singer song ballad poetry yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric cedar koa flatwound thomastik strummed dreadnought acoustic guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, string machine, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 967,
+  "score": 611.956,
   "config": {
     "traditions": [
       "opm",
       "yacht_rock",
-      "folk_rock"
+      "skiffle"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 63.498750000000015,
-          "voice_quality": 11.829999999999993,
+          "voice_register": 63.67375000000001,
+          "voice_quality": 12.86999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.695,
-          "voice_articulation": 19.434999999999995,
-          "voice_microtone": 49.85000000000001,
-          "voice_tradition": 24.765,
-          "voice_mechanism_compound": 3.055,
-          "voice_estill_quality": 9.155625000000002,
-          "voice_speech_song": 26.714999999999993,
-          "voice_ensemble_config": 20.669999999999995,
-          "voice_ornament_system": 3.5043750000000005,
-          "voice_pitch_organization": 2.717500000000001,
-          "voice_processing_chain": 13.9075,
-          "voice_multitrack_stack": 12.611249999999998
+          "voice_vibrato": 11.085624999999999,
+          "voice_articulation": 20.474999999999998,
+          "voice_microtone": 52.72500000000001,
+          "voice_tradition": 25.414999999999996,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 6.4350000000000005,
+          "voice_speech_song": 27.754999999999995,
+          "voice_ensemble_config": 21.709999999999994,
+          "voice_ornament_system": 3.204375,
+          "voice_pitch_organization": 2.567500000000001,
+          "voice_processing_chain": 11.1575,
+          "voice_multitrack_stack": 9.425
         }
       },
       {
@@ -63,18 +63,18 @@
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_441_japanese"
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 19.625000000000004,
-          "grand_piano_size": 3.575,
-          "grand_piano_brand": 3.77,
-          "piano_hammer": 18.78,
-          "piano_rim": 19.89,
-          "piano_soundboard": 19.995000000000005,
+          "keyboard_technique": 19.624999999999996,
+          "grand_piano_size": 2.925,
+          "grand_piano_brand": 2.925,
+          "piano_hammer": 19.279999999999998,
+          "piano_rim": 19.639999999999997,
+          "piano_soundboard": 20.645,
           "piano_pinblock": 1.63,
           "piano_plate": 0.9956249999999999,
-          "piano_pitch_standard": 2.7950000000000004
+          "piano_pitch_standard": 3.6400000000000006
         }
       },
       {
@@ -88,24 +88,24 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "two_point_trem",
+          "bridge": "vintage_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 19.965,
-          "amp_make": 14.299999999999995,
-          "body_wood": 3.575,
-          "neck_wood": 3.575,
-          "fretboard": 3.5100000000000002,
+          "electric_technique": 20.465,
+          "amp_make": 15.372499999999997,
+          "body_wood": 2.925,
+          "neck_wood": 2.925,
+          "fretboard": 2.47,
           "pickup_magnet": 0.39,
-          "string_material": 0.585,
-          "string_gauge": 3.575,
-          "bridge": 0.290625,
-          "scale_length": 3.575,
-          "finish": 0.09,
-          "string_tuning": 16.314999999999998
+          "string_material": 0.39,
+          "string_gauge": 2.535,
+          "bridge": 0.39,
+          "scale_length": 2.535,
+          "finish": 0.39,
+          "string_tuning": 15.079999999999997
         }
       },
       {
@@ -121,13 +121,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 17.744999999999997,
-          "body_wood": 3.575,
+          "amp_make": 17.16,
+          "body_wood": 2.73,
           "pickup_config": 1.3,
-          "string_type": 35.107499999999995,
-          "scale_length_b": 3.575,
-          "fretted_or_not": 0.195,
-          "bass_technique": 29.239999999999995,
+          "string_type": 32.732499999999995,
+          "scale_length_b": 2.535,
+          "fretted_or_not": 0.09562499999999999,
+          "bass_technique": 26.714999999999996,
           "electric_bass_string_configuration": 0
         }
       },
@@ -139,8 +139,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 27.800624999999997,
-          "drumhead": 18.495000000000005,
+          "drum_technique": 25.425624999999997,
+          "drumhead": 19.145,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -148,17 +148,17 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "open_d",
+          "string_tuning": "open_e",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
-          "acoustic_technique": 20.300000000000004,
-          "string_tuning": 0.06499999999999999,
-          "top_wood": 5.46,
+          "acoustic_technique": 20.575,
+          "string_tuning": 1.115,
+          "top_wood": 4.42,
           "back_sides": 1.095625,
-          "string_acoustic": 4.875
+          "string_acoustic": 3.8999999999999995
         }
       },
       {
@@ -172,23 +172,23 @@
         "scores": {
           "electronic_technique": 0.45499999999999996,
           "sm_voice_count": 0.7199999999999999,
-          "sm_chorus": 3.25,
-          "sm_voicing": 2.1399999999999997
+          "sm_chorus": 3.0549999999999997,
+          "sm_voicing": 1.9900000000000002
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "mens_chorus",
+          "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 3.965,
+          "choir_size": 4.225,
           "choir_polyphonic_configuration": 3.12,
-          "choir_regional_canonical_configuration": 2.4050000000000002,
-          "choir_ensemble_repertoire": 1.8199999999999998
+          "choir_regional_canonical_configuration": 2.99,
+          "choir_ensemble_repertoire": 2.275
         }
       }
     ],

@@ -1,0 +1,249 @@
+{
+  "id": "canadian_pop",
+  "name": "Canadian pop",
+  "family": "pop",
+  "lineage": "Canadian commercial pop includes carefully arranged studio songs such as Carly Rae Jepsen’s Call Me Maybe. This model retains its documented sampled orchestral-string hook, doubled by electric and acoustic guitars, with bass, drums and singing. It is a representative production branch, not a uniform national sound.",
+  "recipe": "classic modern canadian pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. sampler, clean strummed single coil electric strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 507,
+  "score": 75.314,
+  "config": {
+    "traditions": [
+      "canadian_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.1485,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.231,
+          "voice_processing_chain": 1.3315000000000001,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_orchestral_library",
+          "sampler_classic_context": "sampler_classic_pop_production"
+        },
+        "scores": {
+          "electronic_technique": 1.2,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.46199999999999997,
+          "sampler_workflow": 3.3865,
+          "sampler_classic_context": 11.3865
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "alnico_3",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 11.3575,
+          "amp_make": 1.8199999999999998,
+          "body_wood": 0.2415,
+          "neck_wood": 0.2415,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.0315,
+          "string_material": 0.0315,
+          "string_gauge": 0.1995,
+          "bridge": 0.1365,
+          "scale_length": 0.378,
+          "finish": 0,
+          "string_tuning": 1.95
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 11.71525,
+          "string_tuning": 0,
+          "top_wood": 0.1365,
+          "back_sides": 0,
+          "string_acoustic": 0.0315
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 3.575,
+          "body_wood": 0.378,
+          "pickup_config": 0.3045,
+          "string_type": 4.875,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 1.0315,
+          "bass_technique": 3.805,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_disco_four",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": -0.035,
+          "drumhead": 11.584,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_unison_double_take",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "electric_technique": "electric_clean_strummed",
+      "drum_technique": "sticks_disco_four",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_orchestral_library",
+      "sampler_classic_context": "sampler_classic_pop_production",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "top_wood": "sitka",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "eighty_twenty"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": []
+  }
+}

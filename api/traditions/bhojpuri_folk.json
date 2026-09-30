@@ -5,7 +5,7 @@
   "lineage": "Bhojpuri-language folk practice in eastern Uttar Pradesh and Bihar includes migration songs, birha, seasonal and life-cycle repertories. Field biographies and documented ensembles establish voice, harmonium, dholak and small cymbals for the selected contemporary sung branch.",
   "recipe": "classic modern bhojpuri folk, ballad Poetry. thick, breath veiled tone, neutral third half flat, notated speech melody. melodic straight harmonium indian, dholak, small manjira. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 315,
-  "score": 37.197,
+  "score": 36.534,
   "config": {
     "traditions": [
       "bhojpuri_folk"
@@ -38,14 +38,14 @@
           "voice_effort": 0,
           "voice_vibrato": 0.273,
           "voice_articulation": -0.14,
-          "voice_microtone": 5.3660000000000005,
+          "voice_microtone": 5.119000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
           "voice_estill_quality": 0.19500000000000003,
           "voice_speech_song": 6.175,
-          "voice_ensemble_config": 6.466,
+          "voice_ensemble_config": 6.219,
           "voice_ornament_system": 0.8999999999999999,
-          "voice_pitch_organization": 0.7889999999999998,
+          "voice_pitch_organization": 0.7499999999999998,
           "voice_processing_chain": 1,
           "voice_multitrack_stack": 0.40950000000000003
         }
@@ -70,13 +70,13 @@
         "slots": {
           "dholak_use": "dholak_folk_song",
           "dholak_construction": "dholak_large",
-          "dholak_head": "dholak_synthetic_head",
+          "dholak_head": "dholak_goat_skin_canonical",
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
           "dholak_use": 0.3,
           "dholak_construction": 0.273,
-          "dholak_head": 0.12999999999999998,
+          "dholak_head": 0,
           "dholak_tensioning": 0
         }
       },

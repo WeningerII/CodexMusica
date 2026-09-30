@@ -1,5 +1,5 @@
 {
-  "count": 2938,
+  "count": 3038,
   "items": [
     {
       "id": "honky_tonk",
@@ -17628,6 +17628,606 @@
       "name": "Okinawan folk",
       "family": "vernacular",
       "href": "traditions/okinawan_folk.json"
+    },
+    {
+      "id": "oklahoma_country",
+      "name": "Oklahoma country",
+      "family": "vernacular",
+      "href": "traditions/oklahoma_country.json"
+    },
+    {
+      "id": "indie_singer_songwriter",
+      "name": "Indie singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/indie_singer_songwriter.json"
+    },
+    {
+      "id": "indie_folk_italiano",
+      "name": "Indie folk italiano",
+      "family": "vernacular",
+      "href": "traditions/indie_folk_italiano.json"
+    },
+    {
+      "id": "bluegrass_fiddle",
+      "name": "Bluegrass fiddle",
+      "family": "vernacular",
+      "href": "traditions/bluegrass_fiddle.json"
+    },
+    {
+      "id": "classic_australian_country",
+      "name": "Classic Australian country",
+      "family": "vernacular",
+      "href": "traditions/classic_australian_country.json"
+    },
+    {
+      "id": "canadian_folk",
+      "name": "Canadian folk",
+      "family": "vernacular",
+      "href": "traditions/canadian_folk.json"
+    },
+    {
+      "id": "canadian_singer_songwriter",
+      "name": "Canadian singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/canadian_singer_songwriter.json"
+    },
+    {
+      "id": "british_folk",
+      "name": "British folk",
+      "family": "vernacular",
+      "href": "traditions/british_folk.json"
+    },
+    {
+      "id": "black_americana",
+      "name": "Black Americana",
+      "family": "vernacular",
+      "href": "traditions/black_americana.json"
+    },
+    {
+      "id": "danish_folk",
+      "name": "Danish folk",
+      "family": "vernacular",
+      "href": "traditions/danish_folk.json"
+    },
+    {
+      "id": "croatian_folk",
+      "name": "Croatian folk",
+      "family": "vernacular",
+      "href": "traditions/croatian_folk.json"
+    },
+    {
+      "id": "finnish_folk",
+      "name": "Finnish folk",
+      "family": "vernacular",
+      "href": "traditions/finnish_folk.json"
+    },
+    {
+      "id": "australian_americana",
+      "name": "Australian Americana",
+      "family": "vernacular",
+      "href": "traditions/australian_americana.json"
+    },
+    {
+      "id": "australian_country",
+      "name": "Australian country",
+      "family": "vernacular",
+      "href": "traditions/australian_country.json"
+    },
+    {
+      "id": "australian_indie_folk",
+      "name": "Australian indie folk",
+      "family": "vernacular",
+      "href": "traditions/australian_indie_folk.json"
+    },
+    {
+      "id": "australian_singer_songwriter",
+      "name": "Australian singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/australian_singer_songwriter.json"
+    },
+    {
+      "id": "belgian_singer_songwriter",
+      "name": "Belgian singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/belgian_singer_songwriter.json"
+    },
+    {
+      "id": "danish_singer_songwriter",
+      "name": "Danish singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/danish_singer_songwriter.json"
+    },
+    {
+      "id": "canadian_indie_folk",
+      "name": "Canadian indie folk",
+      "family": "vernacular",
+      "href": "traditions/canadian_indie_folk.json"
+    },
+    {
+      "id": "canadian_americana",
+      "name": "Canadian Americana",
+      "family": "vernacular",
+      "href": "traditions/canadian_americana.json"
+    },
+    {
+      "id": "children_s_folk",
+      "name": "Children’s folk",
+      "family": "vernacular",
+      "href": "traditions/children_s_folk.json"
+    },
+    {
+      "id": "cape_verdean_folk",
+      "name": "Cape Verdean folk",
+      "family": "vernacular",
+      "href": "traditions/cape_verdean_folk.json"
+    },
+    {
+      "id": "contemporary_folk",
+      "name": "Contemporary folk",
+      "family": "vernacular",
+      "href": "traditions/contemporary_folk.json"
+    },
+    {
+      "id": "canadian_country",
+      "name": "Canadian country",
+      "family": "vernacular",
+      "href": "traditions/canadian_country.json"
+    },
+    {
+      "id": "canadian_contemporary_country",
+      "name": "Canadian contemporary country",
+      "family": "vernacular",
+      "href": "traditions/canadian_contemporary_country.json"
+    },
+    {
+      "id": "deep_contemporary_country",
+      "name": "Deep contemporary country",
+      "family": "vernacular",
+      "href": "traditions/deep_contemporary_country.json"
+    },
+    {
+      "id": "country_road",
+      "name": "Country road",
+      "family": "vernacular",
+      "href": "traditions/country_road.json"
+    },
+    {
+      "id": "baltic_folk",
+      "name": "Baltic folk",
+      "family": "vernacular",
+      "href": "traditions/baltic_folk.json"
+    },
+    {
+      "id": "czech_country",
+      "name": "Czech country",
+      "family": "vernacular",
+      "href": "traditions/czech_country.json"
+    },
+    {
+      "id": "czech_singer_songwriter",
+      "name": "Czech singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/czech_singer_songwriter.json"
+    },
+    {
+      "id": "boston_folk",
+      "name": "Boston folk",
+      "family": "vernacular",
+      "href": "traditions/boston_folk.json"
+    },
+    {
+      "id": "folk_cantabria",
+      "name": "Cantabrian folk",
+      "family": "vernacular",
+      "href": "traditions/folk_cantabria.json"
+    },
+    {
+      "id": "french_folk",
+      "name": "French folk",
+      "family": "vernacular",
+      "href": "traditions/french_folk.json"
+    },
+    {
+      "id": "french_indie_folk",
+      "name": "French indie folk",
+      "family": "vernacular",
+      "href": "traditions/french_indie_folk.json"
+    },
+    {
+      "id": "british_singer_songwriter",
+      "name": "British singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/british_singer_songwriter.json"
+    },
+    {
+      "id": "german_country",
+      "name": "German country",
+      "family": "vernacular",
+      "href": "traditions/german_country.json"
+    },
+    {
+      "id": "dutch_americana",
+      "name": "Dutch Americana",
+      "family": "vernacular",
+      "href": "traditions/dutch_americana.json"
+    },
+    {
+      "id": "dutch_singer_songwriter",
+      "name": "Dutch singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/dutch_singer_songwriter.json"
+    },
+    {
+      "id": "geek_folk",
+      "name": "Geek folk",
+      "family": "vernacular",
+      "href": "traditions/geek_folk.json"
+    },
+    {
+      "id": "gen_z_singer_songwriter",
+      "name": "Gen Z singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/gen_z_singer_songwriter.json"
+    },
+    {
+      "id": "early_american_folk",
+      "name": "Early American folk",
+      "family": "vernacular",
+      "href": "traditions/early_american_folk.json"
+    },
+    {
+      "id": "british_country",
+      "name": "British country",
+      "family": "vernacular",
+      "href": "traditions/british_country.json"
+    },
+    {
+      "id": "chinese_singer_songwriter",
+      "name": "Chinese singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/chinese_singer_songwriter.json"
+    },
+    {
+      "id": "classic_nz_country",
+      "name": "Classic NZ country",
+      "family": "vernacular",
+      "href": "traditions/classic_nz_country.json"
+    },
+    {
+      "id": "folk_brasileiro",
+      "name": "Folk brasileiro",
+      "family": "vernacular",
+      "href": "traditions/folk_brasileiro.json"
+    },
+    {
+      "id": "deep_indie_singer_songwriter",
+      "name": "Deep indie singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/deep_indie_singer_songwriter.json"
+    },
+    {
+      "id": "country_dawn",
+      "name": "Country dawn",
+      "family": "vernacular",
+      "href": "traditions/country_dawn.json"
+    },
+    {
+      "id": "country_quebecois",
+      "name": "Country québécois",
+      "family": "vernacular",
+      "href": "traditions/country_quebecois.json"
+    },
+    {
+      "id": "experimental_folk",
+      "name": "Experimental folk",
+      "family": "vernacular",
+      "href": "traditions/experimental_folk.json"
+    },
+    {
+      "id": "deep_new_americana",
+      "name": "Deep new americana",
+      "family": "vernacular",
+      "href": "traditions/deep_new_americana.json"
+    },
+    {
+      "id": "electro_pop_francais",
+      "name": "Electro-pop francais",
+      "family": "pop",
+      "href": "traditions/electro_pop_francais.json"
+    },
+    {
+      "id": "danish_indie_pop",
+      "name": "Danish indie pop",
+      "family": "pop",
+      "href": "traditions/danish_indie_pop.json"
+    },
+    {
+      "id": "canadian_pop",
+      "name": "Canadian pop",
+      "family": "pop",
+      "href": "traditions/canadian_pop.json"
+    },
+    {
+      "id": "czech_pop",
+      "name": "Czech pop",
+      "family": "pop",
+      "href": "traditions/czech_pop.json"
+    },
+    {
+      "id": "classic_swedish_pop",
+      "name": "Classic swedish pop",
+      "family": "pop",
+      "href": "traditions/classic_swedish_pop.json"
+    },
+    {
+      "id": "classic_belgian_pop",
+      "name": "Classic belgian pop",
+      "family": "pop",
+      "href": "traditions/classic_belgian_pop.json"
+    },
+    {
+      "id": "classic_israeli_pop",
+      "name": "Classic israeli pop",
+      "family": "pop",
+      "href": "traditions/classic_israeli_pop.json"
+    },
+    {
+      "id": "classic_danish_pop",
+      "name": "Classic danish pop",
+      "family": "pop",
+      "href": "traditions/classic_danish_pop.json"
+    },
+    {
+      "id": "classic_hungarian_pop",
+      "name": "Classic hungarian pop",
+      "family": "pop",
+      "href": "traditions/classic_hungarian_pop.json"
+    },
+    {
+      "id": "classic_norwegian_pop",
+      "name": "Classic norwegian pop",
+      "family": "pop",
+      "href": "traditions/classic_norwegian_pop.json"
+    },
+    {
+      "id": "classic_latvian_pop",
+      "name": "Classic latvian pop",
+      "family": "pop",
+      "href": "traditions/classic_latvian_pop.json"
+    },
+    {
+      "id": "classic_french_pop",
+      "name": "Classic french pop",
+      "family": "pop",
+      "href": "traditions/classic_french_pop.json"
+    },
+    {
+      "id": "estonian_pop",
+      "name": "Estonian pop",
+      "family": "pop",
+      "href": "traditions/estonian_pop.json"
+    },
+    {
+      "id": "dark_pop",
+      "name": "Dark pop",
+      "family": "pop",
+      "href": "traditions/dark_pop.json"
+    },
+    {
+      "id": "blues_band",
+      "name": "Blues band",
+      "family": "blues_gospel",
+      "href": "traditions/blues_band.json"
+    },
+    {
+      "id": "traditional_blues",
+      "name": "Traditional blues",
+      "family": "blues_gospel",
+      "href": "traditions/traditional_blues.json"
+    },
+    {
+      "id": "japanese_soul",
+      "name": "Japanese soul",
+      "family": "blues_gospel",
+      "href": "traditions/japanese_soul.json"
+    },
+    {
+      "id": "korean_r_and_b",
+      "name": "Korean r&b",
+      "family": "blues_gospel",
+      "href": "traditions/korean_r_and_b.json"
+    },
+    {
+      "id": "smooth_soul",
+      "name": "Smooth soul",
+      "family": "blues_gospel",
+      "href": "traditions/smooth_soul.json"
+    },
+    {
+      "id": "instrumental_funk",
+      "name": "Instrumental funk",
+      "family": "blues_gospel",
+      "href": "traditions/instrumental_funk.json"
+    },
+    {
+      "id": "african_reggae",
+      "name": "African reggae",
+      "family": "blues_gospel",
+      "href": "traditions/african_reggae.json"
+    },
+    {
+      "id": "german_r_and_b",
+      "name": "German r&b",
+      "family": "blues_gospel",
+      "href": "traditions/german_r_and_b.json"
+    },
+    {
+      "id": "cuban_funk",
+      "name": "Cuban funk",
+      "family": "blues_gospel",
+      "href": "traditions/cuban_funk.json"
+    },
+    {
+      "id": "chinese_r_and_b",
+      "name": "Chinese r&b",
+      "family": "pop",
+      "href": "traditions/chinese_r_and_b.json"
+    },
+    {
+      "id": "gospel_r_and_b",
+      "name": "Gospel r&b",
+      "family": "blues_gospel",
+      "href": "traditions/gospel_r_and_b.json"
+    },
+    {
+      "id": "finnish_soul",
+      "name": "Finnish soul",
+      "family": "blues_gospel",
+      "href": "traditions/finnish_soul.json"
+    },
+    {
+      "id": "uk_contemporary_r_and_b",
+      "name": "Uk contemporary r&b",
+      "family": "blues_gospel",
+      "href": "traditions/uk_contemporary_r_and_b.json"
+    },
+    {
+      "id": "canadian_contemporary_r_and_b",
+      "name": "Canadian contemporary r&b",
+      "family": "blues_gospel",
+      "href": "traditions/canadian_contemporary_r_and_b.json"
+    },
+    {
+      "id": "italian_blues",
+      "name": "Italian blues",
+      "family": "blues_gospel",
+      "href": "traditions/italian_blues.json"
+    },
+    {
+      "id": "polish_blues",
+      "name": "Polish blues",
+      "family": "blues_gospel",
+      "href": "traditions/polish_blues.json"
+    },
+    {
+      "id": "bulgarian_r_and_b",
+      "name": "Bulgarian r&b",
+      "family": "blues_gospel",
+      "href": "traditions/bulgarian_r_and_b.json"
+    },
+    {
+      "id": "dutch_r_and_b",
+      "name": "Dutch r&b",
+      "family": "blues_gospel",
+      "href": "traditions/dutch_r_and_b.json"
+    },
+    {
+      "id": "alberta_hip_hop",
+      "name": "Alberta hip hop",
+      "family": "hip_hop",
+      "href": "traditions/alberta_hip_hop.json"
+    },
+    {
+      "id": "brazilian_hip_hop",
+      "name": "Brazilian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/brazilian_hip_hop.json"
+    },
+    {
+      "id": "atlantic_canada_hip_hop",
+      "name": "Atlantic Canada hip hop",
+      "family": "hip_hop",
+      "href": "traditions/atlantic_canada_hip_hop.json"
+    },
+    {
+      "id": "austrian_hip_hop",
+      "name": "Austrian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/austrian_hip_hop.json"
+    },
+    {
+      "id": "japanese_garage_rock",
+      "name": "Japanese garage rock",
+      "family": "rock_punk",
+      "href": "traditions/japanese_garage_rock.json"
+    },
+    {
+      "id": "swedish_garage_rock",
+      "name": "Swedish garage rock",
+      "family": "rock_punk",
+      "href": "traditions/swedish_garage_rock.json"
+    },
+    {
+      "id": "boston_hip_hop",
+      "name": "Boston hip hop",
+      "family": "hip_hop",
+      "href": "traditions/boston_hip_hop.json"
+    },
+    {
+      "id": "australian_indigenous_hip_hop",
+      "name": "Australian Indigenous hip hop",
+      "family": "hip_hop",
+      "href": "traditions/australian_indigenous_hip_hop.json"
+    },
+    {
+      "id": "jazz_double_bass",
+      "name": "Jazz double bass",
+      "family": "jazz",
+      "href": "traditions/jazz_double_bass.json"
+    },
+    {
+      "id": "bronx_hip_hop",
+      "name": "Bronx hip hop",
+      "family": "hip_hop",
+      "href": "traditions/bronx_hip_hop.json"
+    },
+    {
+      "id": "canadian_old_school_hip_hop",
+      "name": "Canadian old school hip hop",
+      "family": "hip_hop",
+      "href": "traditions/canadian_old_school_hip_hop.json"
+    },
+    {
+      "id": "canadian_hip_hop",
+      "name": "Canadian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/canadian_hip_hop.json"
+    },
+    {
+      "id": "canadian_underground_hip_hop",
+      "name": "Canadian underground hip hop",
+      "family": "hip_hop",
+      "href": "traditions/canadian_underground_hip_hop.json"
+    },
+    {
+      "id": "canadian_indigenous_hip_hop",
+      "name": "Canadian Indigenous hip hop",
+      "family": "hip_hop",
+      "href": "traditions/canadian_indigenous_hip_hop.json"
+    },
+    {
+      "id": "canadian_trap",
+      "name": "Canadian trap",
+      "family": "hip_hop",
+      "href": "traditions/canadian_trap.json"
+    },
+    {
+      "id": "czech_hip_hop",
+      "name": "Czech hip hop",
+      "family": "hip_hop",
+      "href": "traditions/czech_hip_hop.json"
+    },
+    {
+      "id": "czsk_hip_hop",
+      "name": "CZ/SK hip hop",
+      "family": "hip_hop",
+      "href": "traditions/czsk_hip_hop.json"
+    },
+    {
+      "id": "chinese_hip_hop",
+      "name": "Chinese hip hop",
+      "family": "hip_hop",
+      "href": "traditions/chinese_hip_hop.json"
     }
   ]
 }

@@ -3,14 +3,14 @@
   "name": "Russian bard song (avtorskaya pesnya)",
   "family": "global",
   "lineage": "Soviet-era guitar-and-poet song (avtorskaya pesnya, literally authorial song) tradition codified by Vladimir Vysotsky (the raspy-voice baritone), Bulat Okudzhava (the gentle-tenor Arbat-Street troubadour), Alexander Galich (the dissident émigré voice), Yuri Vizbor (the mountain-climbing-and-friendship songwriter) — circulated through magnitizdat (self-distributed-tape underground circulation) under Soviet censorship rather than official Melodiya release",
-  "recipe": "classic Eastern European early-1960s russian bard song, ballad Poetry, Slavic bard branch, chanson fado ballad poetry, European protest song morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. martin lifespan fingerpicked acoustic guitar, sekunda tuning Soviet orchestra canon strummed balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. dynamic moving-coil, tube pre. Walkman cassette.",
-  "recipe_chars": 487,
-  "score": 202.01,
+  "recipe": "classic Eastern European early-1960s russian bard song, ballad Poetry, Slavic bard branch, chanson fado ballad poetry, European protest song morna italian canti partigiani. vocal fry, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, sekunda tuning steel modern alternative Soviet orchestra canon balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. dynamic moving-coil, tube pre. Walkman cassette.",
+  "recipe_chars": 480,
+  "score": 137.59,
   "config": {
     "traditions": [
       "russian_bard_song",
       "morna",
-      "cape_verdean_batuko"
+      "italian_canti_partigiani"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "operatic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 3.6399999999999997,
-          "voice_quality": 30.55,
+          "voice_register": 1.04,
+          "voice_quality": 11.114999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.055,
-          "voice_articulation": 22.23,
-          "voice_microtone": 22.555,
-          "voice_tradition": 15.144999999999998,
-          "voice_mechanism_compound": 4.875,
-          "voice_estill_quality": 4.9725,
-          "voice_speech_song": 29.445000000000004,
-          "voice_ensemble_config": 23.725,
-          "voice_ornament_system": 2.4400000000000004,
-          "voice_pitch_organization": 2.795000000000001,
-          "voice_processing_chain": 6.305000000000003,
-          "voice_multitrack_stack": 5.3625
+          "voice_vibrato": 1.9175,
+          "voice_articulation": 13.129999999999997,
+          "voice_microtone": 12.999999999999993,
+          "voice_tradition": 8.735,
+          "voice_mechanism_compound": 1.625,
+          "voice_estill_quality": 10.627499999999998,
+          "voice_speech_song": 23.302499999999995,
+          "voice_ensemble_config": 15.664999999999994,
+          "voice_ornament_system": 7.574999999999999,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 4.615,
+          "voice_multitrack_stack": 5.94
         }
       },
       {
@@ -57,16 +57,16 @@
         "slots": {
           "string_tuning": "open_d",
           "top_wood": "cedar_om",
-          "back_sides": "rosewood_bs_om",
+          "back_sides": "walnut_bs_om",
           "string_acoustic": "martin_lifespan_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 1.2999999999999998,
+          "string_tuning": 0.45499999999999996,
           "top_wood": 0.8400000000000001,
-          "back_sides": 0.78,
-          "string_acoustic": 1.04,
-          "acoustic_om_technique": 9.320000000000002
+          "back_sides": 0.735,
+          "string_acoustic": 1.235,
+          "acoustic_om_technique": 7.57
         }
       },
       {
@@ -74,14 +74,14 @@
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
           "balalaika_size": "sekunda_balalaika",
-          "balalaika_strings": "fluorocarbon_balalaika",
+          "balalaika_strings": "steel_balalaika",
           "balalaika_body_wood": "balalaika_spruce_maple",
           "balalaika_tradition": "balalaika_soviet_orchestra"
         },
         "scores": {
-          "plucked_traditional_technique": 5.265,
+          "plucked_traditional_technique": 0.6824999999999999,
           "balalaika_size": 1.235,
-          "balalaika_strings": 0.54,
+          "balalaika_strings": 1.2349999999999999,
           "balalaika_body_wood": 0.39,
           "balalaika_tradition": 2.9299999999999997
         }

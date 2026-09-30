@@ -5,7 +5,7 @@
   "lineage": "Red River Valley fiddle tradition of the Manitoba, Saskatchewan and North Dakota Métis, formed in the early nineteenth-century fur trade from Scottish, French-Canadian and Orcadian tunes crossed with Cree and Anishinaabe rhythmic sensibility, and codified on record by Andy De Jarlis and Reg Bouvette — crooked jigs and Red River jigs with beats added or dropped mid-phrase, bow-driven melodic-rhythmic accent instead of vibrato, clogging or foot-tap percussion, and guitar or piano vamp accompaniment for the changing-steps dance.",
   "recipe": "classic modern métis fiddle, improv On Frame, Celtic traditional branch, pre commercial country old west frontier music string band. plain gut sheep gut double stops fiddle, foot tap, dadgad tuning cedar mahogany martin lifespan dreadnought acoustic guitar, and hand spoons, melodic straight piano accordion, upright piano. open air. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 396,
-  "score": 83.512,
+  "score": 83.421,
   "config": {
     "traditions": [
       "metis_fiddle",
@@ -24,9 +24,9 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 21.2365,
+          "bowed_technique": 21.099999999999998,
           "fiddle_strings": 1.04,
-          "fiddle_bow": 0,
+          "fiddle_bow": 0.045,
           "fiddle_mute": 0.3315,
           "fiddle_articulation": 1.2599999999999998,
           "fiddle_string_configuration": 0

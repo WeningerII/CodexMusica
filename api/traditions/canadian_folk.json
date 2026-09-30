@@ -1,0 +1,133 @@
+{
+  "id": "canadian_folk",
+  "name": "Canadian folk",
+  "family": "vernacular",
+  "lineage": "Canadian folk performance and recording traditions include regional traditional repertoires and an influential songwriter branch. The selected model follows Gordon Lightfoot’s documented narrative-song contribution and Toronto concert practice.",
+  "recipe": "classic modern canadian folk, ballad Poetry, anglo singer song branch. thick, incomplete closure resting, narrative, neutral third half flat. narrative fingerpicked dreadnought acoustic guitar, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 345,
+  "score": 44.444,
+  "config": {
+    "traditions": [
+      "canadian_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 4.8255,
+          "voice_quality": 1.75,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 1.0399999999999998,
+          "voice_microtone": 4.290000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.6499999999999999,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 8.515,
+          "voice_ensemble_config": 4.42,
+          "voice_ornament_system": 1.755,
+          "voice_pitch_organization": 0.45499999999999996,
+          "voice_processing_chain": 1.3335000000000001,
+          "voice_multitrack_stack": 0.31499999999999995
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 10.509500000000001,
+          "string_tuning": 0,
+          "top_wood": 0.27299999999999996,
+          "back_sides": 0.252,
+          "string_acoustic": 0.336
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0.5145,
+          "upright_play": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_articulation",
+        "voice_tradition",
+        "voice_multitrack_stack"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_acoustic"
+      ],
+      "upright_bass": [
+        "upright_play"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_articulation": "narrative_voice",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "acoustic_technique": "acoustic_fingerpicked",
+      "string_acoustic": "phosphor_bronze",
+      "upright_play": "pizz_upright",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,21 +3,21 @@
   "name": "French comptines (counting-out and play-song rhymes)",
   "family": "global",
   "lineage": "French-language children's play-song and counting-out-rhyme tradition continuous from medieval-and-early-modern French folk-play-song origins through 19th-century French-Republic school-curriculum codification into modern continuous French-and-French-Canadian-and-Francophone-African childhood-practice",
-  "recipe": "classic modern french comptines, nursery Rhyme, European branch, americas nursery rhyme, European lullaby, chanson fado ballad poetry morna. thick, lament wail, straight onset, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 273,
-  "score": 151.153,
+  "recipe": "classic modern french comptines, nursery Rhyme, European branch, americas nursery rhyme, European lullaby, chanson fado ballad poetry nouvelle chanson française. thick, breath veiled tone, straight onset, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 301,
+  "score": 143.725,
   "config": {
     "traditions": [
       "french_comptines",
       "chanson",
-      "morna"
+      "nouvelle_chanson_francaise"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.755,
-          "voice_quality": 12.370000000000003,
+          "voice_register": 8.355000000000002,
+          "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9,
-          "voice_articulation": 22.685,
-          "voice_microtone": 22.099999999999994,
-          "voice_tradition": 12.610000000000001,
-          "voice_mechanism_compound": 3.51,
-          "voice_estill_quality": 3.1200000000000006,
-          "voice_speech_song": 29.802500000000002,
-          "voice_ensemble_config": 22.879999999999995,
-          "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 5.665,
-          "voice_processing_chain": 4.7675,
-          "voice_multitrack_stack": 5.987500000000001
+          "voice_vibrato": 3.25,
+          "voice_articulation": 21.319999999999993,
+          "voice_microtone": 20.864999999999995,
+          "voice_tradition": 10.530000000000001,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 3.575000000000001,
+          "voice_speech_song": 29.444999999999997,
+          "voice_ensemble_config": 21.709999999999994,
+          "voice_ornament_system": 0.9099999999999997,
+          "voice_pitch_organization": 5.215000000000001,
+          "voice_processing_chain": 3.9325,
+          "voice_multitrack_stack": 4.550000000000001
         }
       }
     ],

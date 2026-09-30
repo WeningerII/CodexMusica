@@ -3,14 +3,14 @@
   "name": "Truck-Driving Country",
   "family": "country",
   "lineage": "American honky-tonk subgenre codified 1963-1976 by Dave Dudley's 'Six Days on the Road', Red Sovine, Dick Curless and C.W. McCall — a driving 2/4 or 4/4 train beat at 120-150 BPM with a fuzz or baritone-guitar riff hook, prominent pedal steel, walking electric bass, and plainspoken or recited baritone vocals narrating highway, CB-radio and long-haul life.",
-  "recipe": "classic Southern American mid-1970s truck-driving country, functional Song, honky tonk era branch, nashville country, outlaw country, americana country gulf and western nashville sound. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric cedar steel silk travis picked dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 870,
-  "score": 609.515,
+  "recipe": "classic Southern American mid-1970s truck-driving country, functional Song, honky tonk era branch, nashville country, outlaw country, americana country nashville sound instrumental country. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric steel silk travis picked dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup pyramid pure nickel bass electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 886,
+  "score": 592.63,
   "config": {
     "traditions": [
       "truck_driving_country",
-      "gulf_and_western",
-      "nashville_sound"
+      "nashville_sound",
+      "instrumental_country"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 37.86500000000002,
-          "voice_quality": 7.150000000000001,
+          "voice_register": 32.940000000000026,
+          "voice_quality": 8.059999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 29.32,
-          "voice_articulation": 13.584999999999994,
-          "voice_microtone": 13.584999999999992,
-          "voice_tradition": 7.6375,
-          "voice_mechanism_compound": 2.795,
-          "voice_estill_quality": 32.07,
-          "voice_speech_song": 22.164999999999996,
-          "voice_ensemble_config": 13.519999999999992,
-          "voice_ornament_system": 0.6299999999999999,
-          "voice_pitch_organization": 1.0399999999999998,
-          "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 5.635000000000001
+          "voice_vibrato": 28.07,
+          "voice_articulation": 14.949999999999996,
+          "voice_microtone": 13.454999999999993,
+          "voice_tradition": 8.254999999999999,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 31.619999999999994,
+          "voice_speech_song": 22.944999999999993,
+          "voice_ensemble_config": 13.584999999999994,
+          "voice_ornament_system": 0.65,
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 4.47,
+          "voice_multitrack_stack": 5.335000000000001
         }
       },
       {
@@ -65,21 +65,21 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 35.125,
-          "amp_make": 29.499999999999996,
-          "pickup_steel": 1.8199999999999998,
-          "string_setup": 14.495000000000001,
-          "bar_material": 3.575,
-          "pedal_steel_brand": 36.025000000000006,
-          "pedal_steel_neck_config": 35.435,
-          "pedal_steel_strings": 34.285
+          "electric_technique": 34.25,
+          "amp_make": 29.099999999999994,
+          "pickup_steel": 0.975,
+          "string_setup": 14.105,
+          "bar_material": 3.1200000000000006,
+          "pedal_steel_brand": 36.375,
+          "pedal_steel_neck_config": 34.834999999999994,
+          "pedal_steel_strings": 34.785
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_fingerstyle_country",
-          "amp_make": "amp_american_fender_tweed",
+          "electric_technique": "electric_country_chicken_pickin",
+          "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
@@ -92,18 +92,18 @@
           "string_tuning": "c_standard"
         },
         "scores": {
-          "electric_technique": 28.250000000000004,
-          "amp_make": 29.855,
-          "body_wood": 1.8199999999999998,
-          "neck_wood": 1.8199999999999998,
-          "fretboard": 1.755,
+          "electric_technique": 28.9,
+          "amp_make": 29.099999999999994,
+          "body_wood": 0.975,
+          "neck_wood": 0.975,
+          "fretboard": 0.9099999999999999,
           "pickup_magnet": 0.3,
-          "string_material": 3.575,
-          "string_gauge": 1.8199999999999998,
+          "string_material": 3.1200000000000006,
+          "string_gauge": 0.975,
           "bridge": 0.3,
-          "scale_length": 1.8199999999999998,
+          "scale_length": 0.975,
           "finish": 0,
-          "string_tuning": 3.34
+          "string_tuning": 2.84
         }
       },
       {
@@ -112,20 +112,20 @@
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
-          "string_type": "ernie_ball_slinky_bass",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerpicked_country_b",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 29.855,
-          "body_wood": 1.8199999999999998,
+          "amp_make": 28.804999999999996,
+          "body_wood": 0.975,
           "pickup_config": 0,
-          "string_type": 4.875,
-          "scale_length_b": 1.8199999999999998,
+          "string_type": 4.975,
+          "scale_length_b": 0.975,
           "fretted_or_not": 0,
-          "bass_technique": 28.250000000000004,
+          "bass_technique": 27.5,
           "electric_bass_string_configuration": 0
         }
       },
@@ -137,8 +137,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.649999999999995,
-          "drumhead": 5.364999999999999,
+          "drum_technique": 13.714999999999996,
+          "drumhead": 5.864999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -146,17 +146,17 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_travis_picking",
-          "string_tuning": "standard_tuning",
+          "string_tuning": "open_d",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 29.65,
-          "string_tuning": 0,
-          "top_wood": 1.8199999999999998,
+          "acoustic_technique": 27.724999999999998,
+          "string_tuning": 0.06499999999999999,
+          "top_wood": 0.975,
           "back_sides": 0.045,
-          "string_acoustic": 4.16
+          "string_acoustic": 3.7050000000000005
         }
       },
       {
@@ -165,15 +165,15 @@
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "rubber_mute",
+          "fiddle_mute": "practice_mute",
           "fiddle_articulation": "sul_tasto",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 28.475,
-          "fiddle_strings": 3.575,
-          "fiddle_bow": 0.09,
-          "fiddle_mute": 0.65,
+          "bowed_technique": 30.2,
+          "fiddle_strings": 3.1200000000000006,
+          "fiddle_bow": 0.195,
+          "fiddle_mute": 0.3,
           "fiddle_articulation": 0.3,
           "fiddle_string_configuration": 0
         }

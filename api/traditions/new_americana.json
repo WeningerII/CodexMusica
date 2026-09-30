@@ -5,7 +5,7 @@
   "lineage": "New Americana groups contemporary roots-based songwriters and ensembles across country, folk and related band practices. Margo Price provides an independently documented current Americana/country example rather than a claimed single birthplace or era boundary.",
   "recipe": "classic modern new americana, functional Song, country branch. thick, conversational, wide pitch sway, neutral third half flat. dreadnought acoustic Fender tweed amp American 50s amp tweed breakup single coil electric guitar, lap steel, Fender tweed amp American 50s amp tweed breakup pyramid pure nickel bass electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 479,
-  "score": 82.908,
+  "score": 82.907,
   "config": {
     "traditions": [
       "new_americana"
@@ -32,7 +32,7 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 10.885499999999995,
+          "voice_register": 10.853999999999996,
           "voice_quality": 0.9099999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -41,13 +41,13 @@
           "voice_microtone": 3.380000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 1.0315,
-          "voice_estill_quality": 9.3685,
+          "voice_estill_quality": 9.306249999999999,
           "voice_speech_song": 5.915,
           "voice_ensemble_config": 3.5100000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 1.6712500000000001
+          "voice_multitrack_stack": 1.6825
         }
       },
       {
@@ -84,7 +84,7 @@
           "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": 9.167000000000002,
+          "electric_technique": 9.209750000000001,
           "amp_make": 8.705,
           "body_wood": 0.9099999999999999,
           "neck_wood": 0,
@@ -125,8 +125,8 @@
           "amp_make": 8.705,
           "body_wood": 0.0315,
           "pickup_config": 0.39,
-          "string_type": 1.3912499999999999,
-          "scale_length_b": 0.39,
+          "string_type": 1.434,
+          "scale_length_b": 0.38549999999999995,
           "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
