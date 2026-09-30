@@ -1,0 +1,31 @@
+{
+  "status": "data_only_incremental_source_checkpoint_not_merged",
+  "required_predecessor": "batch005; verify predecessor hashes",
+  "expected_additions": 100,
+  "archive_bytes": 239494,
+  "archive_sha256": "cbed7c6f1e6e348ae326381ef93bd0cb2fd78f740492464d5ae42b55f5d96fa3",
+  "base64_parts": [
+    "part-000.txt",
+    "part-001.txt",
+    "part-002.txt",
+    "part-003.txt",
+    "part-004.txt",
+    "part-005.txt",
+    "part-006.txt",
+    "part-007.txt",
+    "part-008.txt",
+    "part-009.txt",
+    "part-010.txt",
+    "part-011.txt",
+    "part-012.txt",
+    "part-013.txt"
+  ],
+  "patch_sha256": "0cee8f6aa7cba1a6e60708c543e0b2b2c30321537cf8da5a954b5b9f764781b9",
+  "file_sha256": {
+    "genre-data.patch": "0cee8f6aa7cba1a6e60708c543e0b2b2c30321537cf8da5a954b5b9f764781b9",
+    "manifest.json": "1dc065a124317117e315f762de9763c766a468b7cebb692e6798ed27191e901f",
+    "release-evidence.json": "8376ca60e5640b4b006ea2102906429af8b00c35fa044d284578ee600659d5a0",
+    "snapshot-review.json": "3aebd2a510f8ced847734d4138abe2d6ccba47212a979fac76401097e9f436cf",
+    "README.txt": "f1a61e6f16f4123e6ec81b25f78b460e70a94d183f19846d4f9aed31e6c875e2"
+  }
+}
