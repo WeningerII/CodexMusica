@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "archive_sha256": "9980bb1e2717218adbb830a475fcb478b231ea80453402104f21ed42a5f1b49b",
+  "archive_bytes": 332927,
+  "base64_parts": [
+    "part-000.txt",
+    "part-001.txt",
+    "part-002.txt",
+    "part-003.txt",
+    "part-004.txt",
+    "part-005.txt",
+    "part-006.txt",
+    "part-007.txt",
+    "part-008.txt",
+    "part-009.txt",
+    "part-010.txt",
+    "part-011.txt",
+    "part-012.txt",
+    "part-013.txt",
+    "part-014.txt",
+    "part-015.txt",
+    "part-016.txt",
+    "part-017.txt",
+    "part-018.txt"
+  ],
+  "status": "source_checkpoint_NOT_merged_NOT_complete",
+  "local_catalog_count": 2672,
+  "local_additions": 34,
+  "instructions": "Concatenate parts in this exact order, base64-decode to source-checkpoint.tar.gz, verify archive_sha256, extract, then read payload/checkpoint.json. This preserves source and receipts; no production merge is claimed."
+}
