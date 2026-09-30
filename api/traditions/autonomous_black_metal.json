@@ -5,7 +5,7 @@
   "lineage": "The exact Every Noise discovery cluster, represented by its roster member Myrkur. This record does not infer a political doctrine or a universal one-person production rule from the cluster name. The selected branch is an artist-led composition with documented collaborators.",
   "recipe": "classic modern autonomous black metal, distorted Rock, black branch. equal tempered, one note per syllable, solo with instrumental accompaniment, hall reverb long decay cinematic. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano, choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 552,
-  "score": 39.9,
+  "score": 40.223,
   "config": {
     "traditions": [
       "autonomous_black_metal"
@@ -63,7 +63,7 @@
           "string_type": 0.4095,
           "scale_length_b": 0.0315,
           "fretted_or_not": 0,
-          "bass_technique": 4.204000000000001,
+          "bass_technique": 4.35775,
           "electric_bass_string_configuration": 0
         }
       },
@@ -127,7 +127,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.5205,
+          "voice_speech_song": 1.69,
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0.0315,

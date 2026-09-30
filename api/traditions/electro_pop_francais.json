@@ -3,9 +3,9 @@
   "name": "Electro-pop francais",
   "family": "pop",
   "lineage": "French-language electronic pop represented by Yelle’s sung/spoken lyrical hooks, synthesizer-led harmony and designed rhythmic production. The model follows the documented vocal, keyboard and percussion roles while its synthesizer and sample-machine choices are contemporary authorial realizations.",
-  "recipe": "classic modern electro-pop francais, functional Song, europop branch. solo with instrumental accompaniment. singing lead analog poly synth, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 307,
-  "score": 10.329,
+  "recipe": "classic modern electro-pop francais, functional Song, europop branch. one note per syllable, solo with instrumental accompaniment. singing lead analog poly synth, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 330,
+  "score": 10.784,
   "config": {
     "traditions": [
       "electro_pop_francais"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.2625,
-          "voice_ensemble_config": 1.008,
+          "voice_speech_song": 0.51,
+          "voice_ensemble_config": 1.032375,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.1365,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.378
+          "voice_multitrack_stack": 0.2415
         }
       },
       {
@@ -59,10 +59,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 8.231499999999999,
+          "electronic_technique": 8.392375,
           "poly_archetypes": 0,
-          "poly_voices": 0,
-          "poly_maker_lineage": -1.435
+          "poly_voices": 0.03712499999999999,
+          "poly_maker_lineage": -1.5039999999999998
         }
       },
       {
@@ -74,9 +74,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "sample_bitdepth": 0,
-          "sample_swing": 0.336,
+          "sample_swing": 0.496875,
           "sample_processing": 0
         }
       }

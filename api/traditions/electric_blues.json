@@ -5,7 +5,7 @@
   "lineage": "Amplified postwar blues codified in Chicago and Memphis from the late 1940s by Muddy Waters, Howlin' Wolf, Elmore James and Little Walter on Chess and Sun — Delta twelve-bar and one-chord vamps transferred to amplified single-coil guitar and slide, harmonica played through a bullet mic into an overdriven amp, walking or riffing bass, backbeat drum kit, and shouted rather than crooned vocals",
   "recipe": "classic Midwestern American 1947-1949 electric blues, functional Song, blues electric branch, blues acoustic functional song, classic distorted rock malian blues hill country blues. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric Fender blackface amp American 60s amp spring reverb bright mahogany rosewood humbucker electric guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, upright bass, brushes-and-sticks drum kit, cold pressed wurzen felt 17 ply hard rock maple a 441 grand piano. electric blues defining room 1957-1975 indie-commercial chess studios chicago. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 843,
-  "score": 421.58,
+  "score": 419.48,
   "config": {
     "traditions": [
       "electric_blues",
@@ -38,17 +38,17 @@
           "voice_quality": 13.779999999999987,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 24.149999999999995,
+          "voice_vibrato": 23.999999999999996,
           "voice_articulation": 22.944999999999997,
           "voice_microtone": 26.064999999999998,
           "voice_tradition": 11.894999999999998,
           "voice_mechanism_compound": 4.55,
-          "voice_estill_quality": 5.2325,
+          "voice_estill_quality": 5.105,
           "voice_speech_song": 29.249999999999996,
           "voice_ensemble_config": 23.919999999999995,
           "voice_ornament_system": 1.8524999999999998,
           "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 6.770000000000001,
+          "voice_processing_chain": 6.425000000000001,
           "voice_multitrack_stack": 3.51
         }
       },
@@ -65,12 +65,12 @@
           "string_gauge": "g_11",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
-          "finish": "oil_satin",
+          "finish": "nitro",
           "string_tuning": "open_g"
         },
         "scores": {
           "electric_technique": 4.842499999999999,
-          "amp_make": 4.984999999999999,
+          "amp_make": 4.835,
           "body_wood": 1.3,
           "neck_wood": 1.3,
           "fretboard": 1.2349999999999999,
@@ -79,7 +79,7 @@
           "string_gauge": 1.3,
           "bridge": 0.65,
           "scale_length": 1.3,
-          "finish": 0.24,
+          "finish": 0,
           "string_tuning": 15.014999999999999
         }
       },
@@ -97,12 +97,12 @@
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_11_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "open_g"
         },
         "scores": {
           "electric_technique": 4.842499999999999,
-          "amp_make": 4.984999999999999,
+          "amp_make": 4.835,
           "body_wood": 1.4949999999999999,
           "neck_wood": 1.3,
           "fretboard": 1.2349999999999999,
@@ -112,7 +112,7 @@
           "bridge": 1.3,
           "scale_length": 1.3,
           "string_gauge": 1.3,
-          "finish": 0.24,
+          "finish": 0,
           "string_tuning": 15.014999999999999
         }
       },
@@ -127,11 +127,11 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.40499999999999997,
-          "harmonica_comb": 23.229999999999997,
-          "harmonica_reed": 23.504999999999995,
+          "harmonica_type": 0.5549999999999999,
+          "harmonica_comb": 22.839999999999996,
+          "harmonica_reed": 23.159999999999997,
           "harmonica_technique": 26.92,
-          "harmonica_maker_school": 25.034999999999997,
+          "harmonica_maker_school": 25.447499999999994,
           "harmonica_tuning": 11.244999999999997
         }
       },
@@ -139,11 +139,11 @@
         "id": "upright_bass",
         "slots": {
           "upright_strings": "steel_upright",
-          "upright_play": "arco_upright"
+          "upright_play": "slap_upright"
         },
         "scores": {
           "upright_strings": 0.65,
-          "upright_play": 0.285
+          "upright_play": 0.135
         }
       },
       {
@@ -173,11 +173,11 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 3.175,
+          "keyboard_technique": 2.935,
           "grand_piano_size": 1.3,
           "grand_piano_brand": 1.3,
           "piano_hammer": 1.8199999999999998,
-          "piano_rim": 3.1200000000000006,
+          "piano_rim": 2.9850000000000003,
           "piano_soundboard": 0.7149999999999999,
           "piano_pinblock": -0.05,
           "piano_plate": 0.585,

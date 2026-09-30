@@ -5,7 +5,7 @@
   "lineage": "Alberta hip-hop scenes; selected Cadence Weapon electronic-rap branch",
   "recipe": "classic modern alberta hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler drum machine, digital subtractive, sampled chopped turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 331,
-  "score": 45.454,
+  "score": 46.743,
   "config": {
     "traditions": [
       "alberta_hip_hop"
@@ -37,17 +37,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0,
+          "voice_articulation": 0.15075,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.4145,
-          "voice_ensemble_config": 0.23850000000000002,
+          "voice_speech_song": 12.808250000000001,
+          "voice_ensemble_config": 0.33899999999999997,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3
+          "voice_processing_chain": 0.108,
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -59,8 +59,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.317,
-          "sample_bitdepth": 0.183,
+          "electronic_technique": 5.45875,
+          "sample_bitdepth": 0.23324999999999996,
           "sample_swing": 2.5,
           "sample_processing": 0.105
         }
@@ -74,7 +74,7 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "va_archetypes": 0.03899999999999999,
+          "va_archetypes": 0,
           "digital_subtractive_context": -0.035
         }
       },
@@ -85,8 +85,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 5.317,
-          "turntable_technique": 5.2
+          "electronic_technique": 5.45875,
+          "turntable_technique": 5.350750000000001
         }
       }
     ],

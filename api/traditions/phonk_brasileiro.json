@@ -5,7 +5,7 @@
   "lineage": "Emerged online around 2020-2022 as Brazilian producers on SoundCloud and TikTok fused drift-phonk's cowbell-driven 130-150 BPM template with funk carioca's tamborzão and beat-mandela rhythms, codified by producers such as MXZI, Yzomandias-adjacent Brazilian circles, Kordhell imitators and the 'funk phonk' / 'brazilian phonk' YouTube channel economy, marked by distorted 808 cowbell melodies, sidechained subs, chopped Memphis-style vocal samples and Portuguese shouted or pitched vocal chops.",
   "recipe": "classic 2020-2022 phonk brasileiro, mc Rhythm, experimental branch, Afro-diasporic MC rhythm, Latin electric electronic dance funk consciente rave funk. vocal fry, breath veiled tone, interlocked note trading, neutral third half flat. field textural sampler, TR-808, sub bass analog poly synth, nylon canonical rio carnival aluminum canonical modern rio escola surdo, hand clap. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 486,
-  "score": 174.531,
+  "score": 173.992,
   "config": {
     "traditions": [
       "phonk_brasileiro",
@@ -24,9 +24,9 @@
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sampler_archetypes": 2.11,
-          "sampler_bit_depth": 1.4949999999999999,
-          "sampler_workflow": 4.17,
+          "sampler_archetypes": 2.245,
+          "sampler_bit_depth": 1.42,
+          "sampler_workflow": 4.215,
           "sampler_classic_context": 27.982499999999998
         }
       },
@@ -40,7 +40,7 @@
         "scores": {
           "tr808_voice": 3.1525,
           "drum_machine_808_context": 2.4699999999999998,
-          "tr808_production_origin": 0.525
+          "tr808_production_origin": 0.09
         }
       },
       {
@@ -54,8 +54,8 @@
         "scores": {
           "electronic_technique": 3.0225,
           "poly_archetypes": 0.195,
-          "poly_voices": 0.6000000000000001,
-          "poly_maker_lineage": -1.8549999999999998
+          "poly_voices": 0.6450000000000001,
+          "poly_maker_lineage": -2.05
         }
       },
       {
@@ -79,22 +79,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.6399999999999997,
+          "voice_register": 3.6849999999999996,
           "voice_quality": 9.555,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.39,
           "voice_articulation": 17.289999999999992,
           "voice_microtone": 16.24999999999999,
-          "voice_tradition": 7.508500000000001,
+          "voice_tradition": 7.540000000000001,
           "voice_mechanism_compound": 3.8349999999999995,
           "voice_estill_quality": 2.7950000000000004,
           "voice_speech_song": 16.639999999999993,
           "voice_ensemble_config": 17.80999999999999,
           "voice_ornament_system": 4.290000000000002,
           "voice_pitch_organization": 0.8499999999999999,
-          "voice_processing_chain": 11.944999999999999,
-          "voice_multitrack_stack": 7.0200000000000005
+          "voice_processing_chain": 11.899999999999999,
+          "voice_multitrack_stack": 6.795
         }
       },
       {
@@ -105,7 +105,7 @@
           "surdo_shell": "surdo_aluminum_canonical"
         },
         "scores": {
-          "surdo_size": 1.435,
+          "surdo_size": 1.57,
           "surdo_skin": 1.4949999999999999,
           "surdo_shell": 1.4949999999999999
         }

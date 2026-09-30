@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 3038,
+  "count": 3138,
   "items": [
     {
       "id": "honky_tonk",
@@ -120487,6 +120487,3234 @@
       "description": "A multi-MC rap arrangement with808-style low-end drums and a short-envelope synth figure models the group’s trap-influenced Black Cab branch. Modern drum recreation and synth architecture are authored choices; no traditional Chinese instrument is inferred merely from nationality.",
       "exemplars": [
         "Higher Brothers — Black Cab"
+      ]
+    },
+    {
+      "id": "danish_hip_hop",
+      "name": "Danish hip hop",
+      "family": "hip_hop",
+      "lineage": "Danish hip hop ranges across many scenes and eras. The selected MC Einar branch comes from Copenhagen’s late1980s Danish-language rap, bringing DJs, an MC, human beatboxing and guitar into the recorded ensemble.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable",
+        "vocal_percussion_voice",
+        "electric_guitar_single_coil"
+      ],
+      "description": "Rhythmic Danish verses, sampled phrases, deck cuts, vocal percussion and a clean electric-guitar layer form a contemporary realization of the documented group roles. The ejective kick articulation, guitar type and sampler are authored implementation choices; the exact original instruments and Jesper Vildmand’s full articulation inventory are not asserted.",
+      "exemplars": [
+        "MC Einar — Den Nye Stil"
+      ]
+    },
+    {
+      "id": "bulgarian_hip_hop",
+      "name": "Bulgarian hip hop",
+      "family": "hip_hop",
+      "lineage": "Bulgarian hip hop includes varied local and crossover practices. The selected Krisko branch centers Bulgarian rap performance and studio-produced beats, with sampling and collaboration explicitly described by the artist.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "analog_synth"
+      ],
+      "description": "A direct rap lead, loop-layered sample rhythm bed and short synth accents provide an authored compact studio arrangement. This models the documented producer-MC workflow rather than equating Bulgarian rap with folk instruments or claiming a particular sampler brand in the original sessions.",
+      "exemplars": [
+        "Krisko — Ideal Petrov"
+      ]
+    },
+    {
+      "id": "chicago_rap",
+      "name": "Chicago rap",
+      "family": "hip_hop",
+      "lineage": "Chicago rap spans several distinct eras and styles. Common and No I.D.’s Resurrection-era partnership provides the selected jazz- and soul-sampling branch rather than a definition of the city’s later drill scene.",
+      "parent": "mcRhythm.usHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Rhythmic, wordplay-centered lead verses meet chopped and looped record fragments and a programmed breakbeat bed. The sampler carries the recorded instrumental fragments; this model does not falsely convert a piano sample into a newly played acoustic piano part. Modern sampler realization and recording chain are authored choices.",
+      "exemplars": [
+        "Common — Resurrection",
+        "No I.D."
+      ]
+    },
+    {
+      "id": "denver_rap",
+      "name": "Denver rap",
+      "family": "hip_hop",
+      "lineage": "Denver rap includes electronic beat-makers and live-band approaches. Flobots’ documented dual-MC ensemble supplies a specific live-band branch, here modeled from the credited2021 single When it All Falls.",
+      "parent": "mcRhythm.usHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "violin_orchestral",
+        "drum_kit"
+      ],
+      "description": "Two MC voices, played guitar, violin and drum kit retain the release’s named performance roles. Clean single-coil rhythm guitar and bowed song melody are authored instrument choices; the source credits a violin on this release, so the configuration does not substitute the viola associated with some earlier Flobots recordings.",
+      "exemplars": [
+        "Flobots — When it All Falls"
+      ]
+    },
+    {
+      "id": "dmv_rap",
+      "name": "DMV rap",
+      "family": "hip_hop",
+      "lineage": "Rap from the Washington D.C., Maryland and Virginia region includes many approaches. Wale with Tre And The Ppl supplies the selected live go-go-connected branch, documented at NPR’s Tiny Desk.",
+      "parent": "mcRhythm.usHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_kit",
+        "congas",
+        "electric_bass",
+        "electric_guitar_single_coil",
+        "rompler_workstation"
+      ],
+      "description": "MC delivery and responding vocals sit over played drums, hand percussion, bass, guitar and keyboard. Congas and a sample-workstation keyboard are authored realizations of the credited percussion and keys roles, supported by the documented go-go performance setting; exact instrument makes are not claimed. This is not a preset for every DMV trap or off-beat-flow recording.",
+      "exemplars": [
+        "Wale with Tre And The Ppl"
+      ]
+    },
+    {
+      "id": "classic_polish_pop",
+      "name": "Classic polish pop",
+      "family": "pop",
+      "lineage": "Historical Polish popular recording and festival repertoire, represented by Czerwone Gitary’s mid-1960s vocal guitar ensemble. This selected beat-group strand uses multiple sung lines, guitar chords and melody, bass and drums; the national historical category is broader.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Historical Polish popular recording and festival repertoire, represented by Czerwone Gitary’s mid-1960s vocal guitar ensemble. This selected beat-group strand uses multiple sung lines, guitar chords and melody, bass and drums; the national historical category is broader. This model is a contemporary realization of the documented practice, not a historical studio reconstruction.",
+      "exemplars": [
+        "Czerwone Gitary — To właśnie my"
+      ]
+    },
+    {
+      "id": "danish_pop",
+      "name": "Danish pop",
+      "family": "pop",
+      "lineage": "Danish popular recording scene represented by Aqua’s late1990s dance-pop branch. Contrasting sung and rhythmic duet parts sit over sequenced sample-ROM keyboard colors and programmed drums. The Danish-Norwegian group is one export strand within a broader national scene.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "rompler_workstation",
+        "sampler_drum_machine"
+      ],
+      "description": "The keyboard card uses actual sample-ROM synthesis rather than the earlier analog-poly placeholder. A bright preset palette and separate programmed percussion support the recognizable vocal contrast. This authored model follows the documented production mechanism without claiming an exact patch list, sequencer or drum-machine brand.",
+      "exemplars": [
+        "Aqua — Aquarium"
+      ]
+    },
+    {
+      "id": "bosnian_pop",
+      "name": "Bosnian pop",
+      "family": "pop",
+      "lineage": "Bosnia and Herzegovina’s commercial pop songwriting includes Sarajevo’s band-to-solo pop-rock lineage exemplified by Dino Merlin. This authored arrangement uses a singing lead, electric guitar, bass, keyboard and drum kit, following the documented Merlin ensemble rather than assuming folk instruments from nationality.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "analog_poly_synth",
+        "drum_kit"
+      ],
+      "description": "Bosnia and Herzegovina’s commercial pop songwriting includes Sarajevo’s band-to-solo pop-rock lineage exemplified by Dino Merlin. This authored arrangement uses a singing lead, electric guitar, bass, keyboard and drum kit, following the documented Merlin ensemble rather than assuming folk instruments from nationality.",
+      "exemplars": [
+        "Merlin — Kokuzna vremena",
+        "Dino Merlin — Love in Rewind"
+      ]
+    },
+    {
+      "id": "finnish_dance_pop",
+      "name": "Finnish dance pop",
+      "family": "pop",
+      "lineage": "Finnish-language dance-pop represented by Antti Tuisku’s En kommentoi period and Peto on irti. The authored production combines a sung lead and overdubbed backing with a keyboard synthesizer and sampled programmed rhythm, following credited keyboard/programming/vocal roles. Exact synthesizer and sampler types are contemporary design choices. Separately credited human handclaps remain a distinct body-percussion instrument rather than being silently relabeled as drum samples.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2,
+        -1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "wavetable_synth",
+        "sampler_drum_machine",
+        "hand_clap"
+      ],
+      "description": "Finnish-language dance-pop represented by Antti Tuisku’s En kommentoi period and Peto on irti. The authored production combines a sung lead and overdubbed backing with a keyboard synthesizer and sampled programmed rhythm, following credited keyboard/programming/vocal roles. Exact synthesizer and sampler types are contemporary design choices. Separately credited human handclaps remain a distinct body-percussion instrument rather than being silently relabeled as drum samples.",
+      "exemplars": [
+        "Antti Tuisku — Peto on irti, En kommentoi (2015)"
+      ]
+    },
+    {
+      "id": "colombian_pop",
+      "name": "Colombian pop",
+      "family": "pop",
+      "lineage": "Colombian popular songwriting represented by Juanes’s guitar-led2024 Tiny Desk set. This model retains lead/backing voices, electric guitar, bass, keyboard, drum kit, a trumpet/tenor-sax/trombone horn section, and separate percussion. Guitar doubling is represented by one instrument category; it is a new arrangement, not a note-for-note concert transcription.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "grand_piano",
+        "drum_kit",
+        "trumpet",
+        "trombone",
+        "saxophone",
+        "congas"
+      ],
+      "description": "The three horn types remain distinct, including the credited tenor saxophone omitted from the earlier proposal. Congas provide an authored realization of the separate percussion role, while a grand-piano card realizes unspecified keyboards. Those subtype choices are not claimed as a verified inventory of every instrument physically present at Tiny Desk.",
+      "exemplars": [
+        "Juanes — Nada valgo sin tu amor (Tiny Desk, 2024)"
+      ]
+    },
+    {
+      "id": "classic_czech_pop",
+      "name": "Classic czech pop",
+      "family": "pop",
+      "lineage": "Historical Czech commercial popular song is represented here by Jiří Korn’s 1971 Yvetta, a Karel Svoboda composition with Zdeněk Rytíř text recorded with the Czechoslovak Radio Dance Orchestra. This deliberately reduced present-day vocal-and-violin arrangement extracts two explicitly credited melodic roles, using violin responses around the sung tune; it is not a reconstruction of the orchestra.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -2,
+        0,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "violin_orchestral"
+      ],
+      "description": "Historical Czech commercial popular song is represented here by Jiří Korn’s 1971 Yvetta, a Karel Svoboda composition with Zdeněk Rytíř text recorded with the Czechoslovak Radio Dance Orchestra. This deliberately reduced present-day vocal-and-violin arrangement extracts two explicitly credited melodic roles, using violin responses around the sung tune; it is not a reconstruction of the orchestra.",
+      "exemplars": [
+        "Jiří Korn — Yvetta (1971)"
+      ]
+    },
+    {
+      "id": "croatian_pop",
+      "name": "Croatian pop",
+      "family": "pop",
+      "lineage": "Croatian contemporary popular song represented by Oliver Dragojević’s Gdje to piše? from the Oliver and Gibonni album Familija. This authored voice, guitar, keyboard and drum arrangement follows the record label’s named performers, with chosen instrument subtypes and studio chain clearly separated from original session claims. A separate sample-percussion lane represents the credited programming/percussion work in this authored production.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        -1,
+        0,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "grand_piano",
+        "drum_kit",
+        "sampler_drum_machine"
+      ],
+      "description": "Croatian contemporary popular song represented by Oliver Dragojević’s Gdje to piše? from the Oliver and Gibonni album Familija. This authored voice, guitar, keyboard and drum arrangement follows the record label’s named performers, with chosen instrument subtypes and studio chain clearly separated from original session claims. A separate sample-percussion lane represents the credited programming/percussion work in this authored production.",
+      "exemplars": [
+        "Oliver Dragojević — Gdje to piše?, Familija (2016)"
+      ]
+    },
+    {
+      "id": "spanish_blues",
+      "name": "Spanish blues",
+      "family": "blues_gospel",
+      "lineage": "Spanish blues includes local bands and transatlantic recording networks performing blues repertoire. Madrid-born Javier Vargas and the Vargas Blues Band anchor a documented electric branch through Back in Memphis, with guitar, bass, drums, keyboard and lead vocals.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        1,
+        -1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "grand_piano"
+      ],
+      "description": "Spanish blues includes local bands and transatlantic recording networks performing blues repertoire. Madrid-born Javier Vargas and the Vargas Blues Band anchor a documented electric branch through Back in Memphis, with guitar, bass, drums, keyboard and lead vocals. Newly authored recording arrangement; exact physical variants and chain are not historical session claims.",
+      "exemplars": [
+        "Vargas Blues Band — Back in Memphis (2021)"
+      ]
+    },
+    {
+      "id": "modern_blues",
+      "name": "Modern blues",
+      "family": "blues_gospel",
+      "lineage": "The exact Every Noise modern-blues performer field includes Christone Kingfish Ingram alongside blues artists of several generations. The selected Kingfish branch draws on documented guitar-led contemporary performance, without treating modern as a strict age cutoff or claiming an exclusive instrument taxonomy.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        -1,
+        -1,
+        1,
+        0,
+        0,
+        0,
+        2,
+        1,
+        2,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The exact Every Noise modern-blues performer field includes Christone Kingfish Ingram alongside blues artists of several generations. The selected Kingfish branch draws on documented guitar-led contemporary performance, without treating modern as a strict age cutoff or claiming an exclusive instrument taxonomy. The authored guitar/bass/drums/voice reduction leaves the credited keyboard role optional.",
+      "exemplars": [
+        "Christone Kingfish Ingram — Live in London (2023)"
+      ]
+    },
+    {
+      "id": "swedish_blues",
+      "name": "Swedish blues",
+      "family": "blues_gospel",
+      "lineage": "Swedish blues includes Swedish-language writing and local interpretations of blues forms. Rolf Wikström’s singing, guitar and Stockholm band practice provide a documented singer-guitarist branch.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Swedish blues includes Swedish-language writing and local interpretations of blues forms. Rolf Wikström’s singing, guitar and Stockholm band practice provide a documented singer-guitarist branch. This is a newly authored studio arrangement, not a reconstruction of the exemplar session.",
+      "exemplars": [
+        "Rolf Wikström — Hjärtslag (1977)"
+      ]
+    },
+    {
+      "id": "norwegian_blues",
+      "name": "Norwegian blues",
+      "family": "blues_gospel",
+      "lineage": "Norwegian blues includes club and festival ensembles performing blues and locally written blues-rock. V&BT documents a vocal-led quartet with guitar riffs, harmonic hooks and a bass-and-drums foundation.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Norwegian blues includes club and festival ensembles performing blues and locally written blues-rock. V&BT documents a vocal-led quartet with guitar riffs, harmonic hooks and a bass-and-drums foundation. This is a newly authored studio arrangement, not a reconstruction of the exemplar session.",
+      "exemplars": [
+        "V&BT — Diamonds at the Rainbow’s End (Live in Norway, 2024)"
+      ]
+    },
+    {
+      "id": "arabic_hip_hop",
+      "name": "Arabic hip hop",
+      "family": "hip_hop",
+      "lineage": "Arabic-language hip-hop; selected early DAM sample-and-keyboard branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "rompler_workstation"
+      ],
+      "description": "An authored realization of DAM’s early Arabic-language rap production: an accompanied rhythmic verse over layered samples, sequenced hip-hop drums and an Arabic keyboard part. Suhel Nafar names an MPC 3000 and an Arabic keyboard in the group’s formative setup. The existing oriental-arranger preset supplies a practical keyboard realization without asserting its undocumented make or synthesis architecture. Sampled Arabic sounds are not mislabeled as live oud, qanun or percussion. The selected solo verse does not stand for every vocalist or passage on Ihda’.",
+      "exemplars": [
+        "DAM — Ihda’ / Dedication (2006); Suhel Nafar’s early MPC-and-keyboard practice"
+      ]
+    },
+    {
+      "id": "asian_american_hip_hop",
+      "name": "Asian-American hip hop",
+      "family": "hip_hop",
+      "lineage": "Asian-American hip-hop communities; selected Dumbfoundead electronic-rap branch",
+      "parent": "mcRhythm.usHipHop.westCoast",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "This selected Dumbfoundead branch combines processed rap vocals with the programmed trap beat of Safe. A modern sampler is an authored implementation for the beat’s drum and pitched layers, not a claim that the producers used an MPC or only samples. Audible pitch correction is reported by the contemporary track review; the exact zero-millisecond setting is an explicit sound-design choice. The identity label describes artists and communities, not an inherited vocal timbre or a single Asian musical instrument set.",
+      "exemplars": [
+        "Dumbfoundead — Safe, from We Might Die (2016)"
+      ]
+    },
+    {
+      "id": "afrikaans_hip_hop",
+      "name": "Afrikaans hip hop",
+      "family": "hip_hop",
+      "lineage": "Afrikaans-language hip-hop; selected Jack Parow live-instrument-backed verse",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        -1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "drum_kit"
+      ],
+      "description": "The selected Cooler as Ekke verse uses conversational rhythmic rap against the sparse acoustic-guitar and drum-kit backing identified in the published musicological analysis. This is deliberately not a generic sampler-and-808 preset. The OM body, spruce/rosewood, fingerpicked articulation and maple kit are authored ways to realize the documented guitar/drum roles, not identified session specifications. The preset selects the rap verse; the additional sung female refrain is acknowledged but is not collapsed into the same spoken-flow voice setting.",
+      "exemplars": [
+        "Jack Parow — Cooler as Ekke (2009/2010), selected rap-verse texture"
+      ]
+    },
+    {
+      "id": "atl_hip_hop",
+      "name": "ATL hip hop",
+      "family": "hip_hop",
+      "lineage": "Atlanta hip-hop scenes; selected OutKast / Organized Noize soul-funk branch",
+      "parent": "mcRhythm.usHipHop.southern",
+      "axes": [
+        1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "electric_bass",
+        "rhodes_electric"
+      ],
+      "description": "The selected core of So Fresh, So Clean combines a rap verse, programmed drum beat, played electric bass and Rhodes chords. Sleepy Brown describes beginning on Rhodes and adding the beat and Preston’s bass line. This preset realizes that core groove, not a complete multitrack transcription: its sung hook, string/lead embellishments and different tracks across Stankonia are not claimed as fully represented. Exact bass construction, Rhodes model, drum-sample resolution and studio chain are authored recording defaults.",
+      "exemplars": [
+        "OutKast — So Fresh, So Clean (2000), core verse groove"
+      ]
+    },
+    {
+      "id": "desi_hip_hop",
+      "name": "Desi hip hop",
+      "family": "hip_hop",
+      "lineage": "A transnational South Asian hip-hop field spanning languages and diaspora networks. DIVINE’s Mumbai Hindi-rap collaborations with Sez on the Beat provide the selected gully-rap branch.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Direct, autobiographical rhythmic verses meet a studio-built layered beat. A modern sampler realizes the recorded rhythmic and melodic fragments; the model does not assume tabla, sitar or other classical instruments merely because the performers are South Asian. Hindi delivery is source-backed, while hardware and signal chain are authored.",
+      "exemplars": [
+        "DIVINE",
+        "Sez on the Beat"
+      ]
+    },
+    {
+      "id": "central_asian_hip_hop",
+      "name": "Central Asian hip hop",
+      "family": "hip_hop",
+      "lineage": "A multi-country Central Asian rap field with local-language and Russian-language branches. Kazakhstan’s Skryptonite supplies the selected Pavlodar-rooted producer-rapper branch.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "analog_synth"
+      ],
+      "description": "Rhythmic delivery and melodic vocal motifs sit over a self-built electronic beat and textural synth layer. This is a compact authored studio arrangement for the documented producer practice, not an inventory of his live band. The source describes guitar as part of his compositional history without establishing it as a played part on every track.",
+      "exemplars": [
+        "Skryptonite — Dom s normalnymi yavleniyami"
+      ]
+    },
+    {
+      "id": "dfw_rap",
+      "name": "DFW rap",
+      "family": "hip_hop",
+      "lineage": "Rap from the Dallas–Fort Worth metroplex includes local mixtape networks, dance-oriented records and many later styles. Dorrough’s Dallas/Lancaster breakthrough supplies the selected late2000s club-rap branch.",
+      "parent": "mcRhythm.usHipHop.southern",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "description": "A rhythmic lead and repeated hook ride a sparse programmed beat, with sustained808-style low end and a short synth motif. These are authored playable production choices for the documented club/mixtape branch; no exact original drum machine or recording chain is asserted.",
+      "exemplars": [
+        "Dorrough — Ice Cream Paint Job"
+      ]
+    },
+    {
+      "id": "cologne_hip_hop",
+      "name": "Cologne hip hop",
+      "family": "hip_hop",
+      "lineage": "Cologne hip hop encompasses several local lineages. Retrogott and Hulk Hodn provide a documented MC/DJ branch rooted in the city’s independent beat-making network.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "Word-focused rhythmic delivery meets jazz- and funk-derived sampling, swung drums and turntable work. The sampler realization is an authored implementation of the documented sample-based practice; it is not a claim that every Cologne rapper shares the duo’s sound.",
+      "exemplars": [
+        "Retrogott & Hulk Hodn"
+      ]
+    },
+    {
+      "id": "christlicher_rap",
+      "name": "Christlicher Rap",
+      "family": "hip_hop",
+      "lineage": "German-language Christian rap connects faith-centered lyric writing with hip-hop performance. Munich duo O’Bros supplies the selected2019 Exodus-era branch, combining rapped messages with played drums and keyboard.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_kit",
+        "rompler_workstation"
+      ],
+      "description": "A vocal duo delivers rhythmic verses over a live drum kit and keyboard texture. This retains the broadcaster-documented instrumental roles rather than substituting an organ or choir based only on the religious subject. A sample-based workstation and rock backbeat are authored modern choices, not an inventory of the duo’s precise stage gear.",
+      "exemplars": [
+        "O’Bros — Exodus"
+      ]
+    },
+    {
+      "id": "croatian_hip_hop",
+      "name": "Croatian hip hop",
+      "family": "hip_hop",
+      "lineage": "Croatian hip hop includes sampled studio rap and live-band hybrids. The Beat Fleet from Split supplies a documented six-piece branch combining rap with funk, reggae and rock.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation",
+        "sampler_classic"
+      ],
+      "description": "Rhythmic group vocals, guitar, bass, drum kit, keyboard and sample playback make the live-band/beat hybrid explicit. This core-band model follows festival documentation and visible performance roles; optional instruments on particular recordings are not imposed on the entire national category. Instrument makes, clean guitar comping and digital recording chain are authored choices.",
+      "exemplars": [
+        "The Beat Fleet / TBF"
+      ]
+    },
+    {
+      "id": "minimal_dubstep",
+      "name": "Minimal dubstep",
+      "family": "electronic",
+      "lineage": "Sparse UK soundsystem dubstep; selected early Mala / Digital Mystikz branch",
+      "parent": "bassSystem.ukSoundsystem",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        -2,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_classic",
+        "digital_subtractive"
+      ],
+      "description": "A sparse sampled-percussion and digital-subtractive-bass setup inspired by early Mala. The producer describes sine-derived bass in Reason, while the contemporary interview documents his sample-based tracks and South London context. The existing Nord-style virtual-analog menu is an authored practical substitute, not a claim about his actual Reason software or a physical analog synthesizer. This instrumental production branch leaves room between events; it does not import the full Cuban live percussion band from his later project or turn every sampled sound into a separate live player.",
+      "exemplars": [
+        "Mala / Digital Mystikz — early DMZ production practice"
+      ]
+    },
+    {
+      "id": "ukg_revival",
+      "name": "UKG revival",
+      "family": "electronic",
+      "lineage": "Early-2010s UK garage revival and reinterpretation; selected Disclosure sample-chop club branch",
+      "parent": "bassSystem.ukSoundsystem",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_classic",
+        "sampler_drum_machine",
+        "digital_subtractive"
+      ],
+      "description": "The selected What’s in Your Head branch uses chopped vocal recordings as sampler material over swung programmed drums, bass and syncopated synthesizer stabs. Guy Lawrence identifies the vocal pieces as cuts from Sinead Harnett’s Boiling session. A new lead singer is therefore not invented for this instrumental/sampled-vocal configuration. The sampler, virtual-analog model, bit depth and heavy-swing setting are authored realizations of the documented sound, not a session gear list. This is the duo’s club-oriented 2-step/house crossover, rather than using the different meter and full lead vocal of Latch as the default.",
+      "exemplars": [
+        "Disclosure — What’s in Your Head, The Face EP (2012)"
+      ]
+    },
+    {
+      "id": "aggressive_phonk",
+      "name": "Aggressive phonk",
+      "family": "hip_hop",
+      "lineage": "Hard-edged internet phonk; selected Kordhell drift-oriented production branch",
+      "parent": "mcRhythm.usHipHop.southern",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        1,
+        1,
+        -1,
+        2,
+        2,
+        -1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_classic",
+        "drum_machine_808"
+      ],
+      "description": "A hard, fast drift-oriented branch built from cut rap recordings, forceful low-end and pitched electronic cowbell patterns. The sampler carries the vocal fragments and supporting beat layers; the 808-family card supplies the characteristic electronic cowbell rather than an acoustic cowbell player. The chosen TR-8S realization, modern sampler, bit depth and distortion are authored defaults, not claims about an original vintage 808 in the session. This instrumental/sample-based configuration does not invent a live lead rapper or import guitar merely because its producer also plays metal.",
+      "exemplars": [
+        "Kordhell — Murder in My Mind (2022); Murder Plot (2022)"
+      ]
+    },
+    {
+      "id": "australian_trap",
+      "name": "Australian trap",
+      "family": "hip_hop",
+      "lineage": "Australian trap and grime crossover; selected Tkay Maidza / Bok Bok branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "digital_subtractive"
+      ],
+      "description": "The selected Finish Them branch pairs rapid rap and ad-libs with programmed percussion, cut vocal samples and low bass. Contemporary artist coverage identifies the grime-trap crossover, while track reviews describe its fast hats, sample cuts and sub-bass. A digital bass synth and modern sampler are authored mechanisms for realizing these sounds, not a claim about Bok Bok’s exact session hardware. The rapper’s live voice is separate from processed vocal fragments inside the sampler. This choice does not label Maidza’s softer R&B or dance-pop repertoire as trap.",
+      "exemplars": [
+        "Tkay Maidza — Finish Them, produced by Bok Bok (2014)"
+      ]
+    },
+    {
+      "id": "australian_underground_hip_hop",
+      "name": "Australian underground hip hop",
+      "family": "hip_hop",
+      "lineage": "Australian independent MC/DJ networks; selected Hilltop Hoods traditional two-MC-and-DJ branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "The selected early Hilltop Hoods approach combines two MCs, beat production from chosen drum and musical samples, and DJ cuts. One voice card represents the MC pair rather than a choir, with the beat and scratch roles kept separate. First-person accounts document the independent-scene background and refusal to replace the DJ format with a live band. The modern sampler model and recording chain are authored implementations of that workflow; later orchestral and live-band projects are not folded into this preset.",
+      "exemplars": [
+        "Hilltop Hoods — early two-MC-and-DJ practice around The Calling (2003)"
+      ]
+    },
+    {
+      "id": "balkan_hip_hop",
+      "name": "Balkan hip hop",
+      "family": "hip_hop",
+      "lineage": "Balkan hip-hop networks; selected Dubioza Kolektiv live crossover branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "rompler_workstation",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "saxophone"
+      ],
+      "description": "A live hip-hop crossover represented by Dubioza Kolektiv’s vocal pair, keyboard/sampler operator, guitar, electric bass, drums and saxophone. The label’s personnel sheet supplies the sound-producing roles. A generic workstation is the authored keyboard realization; tenor saxophone, single-coil guitar, string materials, shell wood and chain are selected defaults rather than identified session specifications. The vocal card represents two performers who move between rhythmic delivery and singing. This full-band branch is one part of Balkan hip-hop, not a claim that the region’s beatmakers all use ska or rock instrumentation.",
+      "exemplars": [
+        "Dubioza Kolektiv — label-documented live hip-hop crossover ensemble around Wild Wild East"
+      ]
+    },
+    {
+      "id": "baltimore_hip_hop",
+      "name": "Baltimore hip hop",
+      "family": "hip_hop",
+      "lineage": "Baltimore hip-hop scenes; selected JPEGMAFIA experimental electronic-rap branch",
+      "parent": "mcRhythm.usHipHop.eastCoast",
+      "axes": [
+        -1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "digital_subtractive"
+      ],
+      "description": "The selected Veteran-era branch combines rap, radically edited sample/drum layers and digital synthesizer parts. The sampler preset models computer-based audio manipulation; it does not identify the artist’s workstation as an MPC. The Nord-style virtual-analog choice is an authored alternative rather than the sourced keyboard model. A small-room digital chain and controlled saturation provide a practical starting point for the abrupt, abrasive contrasts. Baltimore is a formative scene and recording anchor even though finishing work also happened in Los Angeles.",
+      "exemplars": [
+        "JPEGMAFIA — Veteran (2018), selected electronic production branch"
+      ]
+    },
+    {
+      "id": "bayerischer_rap",
+      "name": "Bayerischer rap",
+      "family": "hip_hop",
+      "lineage": "Bavarian-dialect rap; selected Dicht & Ergreifend MC/DJ and brass ensemble",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable",
+        "tuba",
+        "trumpet"
+      ],
+      "description": "This documented live branch combines two Bavarian-dialect rappers, DJ backing/cuts, tuba bass and trumpet figures. Bayerischer Rundfunk’s own concert credits establish the five performers and their roles. A sampler supplies a practical playback/beat layer rather than inventing a live drummer. The selected BB-flat rotary tuba, yellow brass, mouthpiece, trumpet model and studio capture are authored material/default choices, not identified instruments from the broadcast. The existing tuba concert-bass context is used for its foundation-bass role; the ensemble is not described as a symphony orchestra.",
+      "exemplars": [
+        "Dicht & Ergreifend — Heimatsound Festival, Oberammergau (29 July 2023)"
+      ]
+    },
+    {
+      "id": "bc_underground_hip_hop",
+      "name": "BC underground hip hop",
+      "family": "hip_hop",
+      "lineage": "British Columbia underground hip-hop networks; selected Swollen Members / Rob the Viking reconstruction branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "analog_synth",
+        "electric_guitar_single_coil"
+      ],
+      "description": "A representative rendering of the Dagger Mouth production method: MC verses over sequenced drums and rearranged musical layers, with synthesizer and guitar parts used to rebuild the backing. The producer explicitly describes replacing uncleared samples rather than simply retaining all the original loops. The existing sampler is a practical sequencing/sample-playback realization; its modern hardware label is not substituted for his documented MPC 2000. Guitar subtype, pickup, analog oscillator/filter, articulation and room are authored choices because the interview does not specify them.",
+      "exemplars": [
+        "Swollen Members — Dagger Mouth (2011), Rob the Viking production branch"
+      ]
+    },
+    {
+      "id": "birmingham_hip_hop",
+      "name": "Birmingham hip hop",
+      "family": "hip_hop",
+      "lineage": "Birmingham and West Midlands hip-hop; selected Lady Leshurr freestyle-production branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        -1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "An accompanied, sharply articulated rap setup drawn from Lady Leshurr’s Queen’s Speech period. One modern sampler is an authored implementation for the produced beat’s drum and pitched layers, not an assertion about the producers’ hardware. Her reported phone beatboxing is a composition sketching method; it is not misrepresented as a live beatbox instrument throughout the finished track. The vocal default follows the rhythmic verse rather than imposing singing or a stereotyped regional voice quality.",
+      "exemplars": [
+        "Lady Leshurr — Queen’s Speech 4 (2015)"
+      ]
+    },
+    {
+      "id": "buffalo_hip_hop",
+      "name": "Buffalo hip hop",
+      "family": "hip_hop",
+      "lineage": "Buffalo hip hop includes the Griselda network and other local artists. The selected WWCD-era branch centers the collective’s MC voices and Daringer/Beat Butcha’s sample-like, self-recorded production.",
+      "parent": "mcRhythm.usHipHop.eastCoast",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "sampler_drum_machine",
+        "electric_guitar_humbucker"
+      ],
+      "description": "Rapped verses sit over programmed drum hits and short, repeatedly sampled musical textures. A played electric-guitar layer can be recorded and resampled, matching the producer’s described workflow. Sampler and guitar choices are authored realizations; this branch does not claim the record simply copied older commercial records when the producers explicitly built new source material.",
+      "exemplars": [
+        "Griselda — WWCD",
+        "Benny the Butcher",
+        "Daringer",
+        "Beat Butcha"
+      ]
+    },
+    {
+      "id": "cali_rap",
+      "name": "Cali rap",
+      "family": "hip_hop",
+      "lineage": "California rap spans multiple local scenes. E-40’s Bay Area club-rap branch supplies this representative model, linking his distinctive rhythmic delivery with the Lil Jon-produced Tell Me When to Go era.",
+      "parent": "mcRhythm.usHipHop.westCoast",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "sampler_classic"
+      ],
+      "description": "A sparse programmed drum foundation and contrasting MC/ad-lib responses put rhythmic delivery ahead of a dense harmonic arrangement. Modern808-style drums and loop-capable sample playback are authored tools for that stripped-down club-beat approach, not a claim that the original recording used a particular recreation or sampler.",
+      "exemplars": [
+        "E-40 — Tell Me When to Go",
+        "Keak da Sneak"
+      ]
+    },
+    {
+      "id": "cameroonian_hip_hop",
+      "name": "Cameroonian hip hop",
+      "family": "hip_hop",
+      "lineage": "Cameroonian hip hop includes French, English, Pidgin and other language practices across several cities. Stanley Enow’s Bafoussam-to-Douala MC and studio-recording trajectory supplies the selected branch.",
+      "parent": "mcRhythm.afroDiasporic",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Rhythmic lead delivery rides a layered recorded beat in a compact producer-MC arrangement. A modern sampler is the authored playback/beat-building instrument; the model does not insert traditional drums solely from the national label or imply that every Cameroonian rap record uses the same language.",
+      "exemplars": [
+        "Stanley Enow"
+      ]
+    },
+    {
+      "id": "cypriot_hip_hop",
+      "name": "Cypriot hip hop",
+      "family": "hip_hop",
+      "lineage": "Cypriot hip hop includes locally rooted and diasporic language and production branches. The selected Ayia Napa branch follows English-Cypriot rapper/producer A!MS, formerly A.M. Sniper, and his rap-and-melodic crossover practice.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "classical_nylon_string_guitar"
+      ],
+      "description": "A lead rap and sung-hook arrangement pairs programmed sampler drums with a lightly plucked nylon-string guitar layer. A!MS explicitly describes MPC beatmaking and the Latin-guitar touch of Honor; nylon strings, the sampled-drum settings and studio chain are an authored way to realize those roles, not a reconstruction of its exact session. This branch does not imply that all Cypriot rap shares the same language or guitar sound.",
+      "exemplars": [
+        "A!MS — Honor",
+        "A.M. Sniper",
+        "Cool & Dre"
+      ]
+    },
+    {
+      "id": "czech_alternative_rap",
+      "name": "Czech alternative rap",
+      "family": "hip_hop",
+      "lineage": "The discovery label covers a Czech-and-Slovak alternative rap network rather than a citizenship test. Berlin Manson is an explicitly listed Slovak exemplar, combining rap and sung delivery with synth-punk production.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "analog_synth",
+        "electric_guitar_single_coil",
+        "drum_kit"
+      ],
+      "description": "This selected live-band branch uses synthesizer layers, electric guitar and real drum-kit playing beneath speech-song. Patrik Nagy describes adding guitar and replacing computer drums with a live drummer for concerts; the studio releases need not have the same drum source. The guitar pickup, synth architecture and exact kit treatment are authored settings, not undocumented equipment claims.",
+      "exemplars": [
+        "Berlin Manson",
+        "Patrik Nagy",
+        "Adam Dragun",
+        "Tomáš Tabiš"
+      ]
+    },
+    {
+      "id": "deep_southern_trap",
+      "name": "Deep southern trap",
+      "family": "hip_hop",
+      "lineage": "An Every Noise/Spotify discovery category with a documented Baton Rouge emphasis. Kevin Gates provides the selected branch, connecting melodic rap delivery with bass-forward programmed beats.",
+      "parent": "mcRhythm.usHipHop.southern",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "description": "Rap verses and melodic hook contours alternate over a sparse synth line and808-style drums. Source-unspecified text-setting avoids forcing every phrase into pitchless speech; the synth architecture and modern drum recreation are authored choices, not exact session-equipment claims.",
+      "exemplars": [
+        "Kevin Gates — Islah"
+      ]
+    },
+    {
+      "id": "deep_underground_hip_hop",
+      "name": "Deep underground hip hop",
+      "family": "hip_hop",
+      "lineage": "An Every Noise discovery grouping of internet-era rap artists, including performers who later became mainstream. Jack Harlow is explicitly listed; his piano-loop-and-drum production branch provides the selected model, without claiming that his current career remains underground.",
+      "parent": "mcRhythm.usHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "drum_machine_808"
+      ],
+      "description": "Rhythmic lead rap rides chopped piano-loop playback and an808-style rhythm foundation. The sample-player role retains the recorded-loop distinction rather than asserting a live acoustic piano in the original session. Modern MPC and digital808 recreation are authored tools, while the piano-led beat and sparse arrangement are grounded in artist/producer accounts.",
+      "exemplars": [
+        "Jack Harlow — Whats Poppin",
+        "jetsonmade",
+        "Pooh Beatz"
+      ]
+    },
+    {
+      "id": "drill_italiana",
+      "name": "Drill italiana",
+      "family": "hip_hop",
+      "lineage": "Italian drill includes Milan-linked collaborations with both British and Chicago-oriented production. Rondodasosa’s San Siro trajectory and work with NKO provide the selected branch.",
+      "parent": "mcRhythm.drill",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "digital_subtractive"
+      ],
+      "description": "Rhythmic MC delivery and punctuating ad-libs sit over an808-style low-end drum bed and a repeated synth figure. This authored configuration selects the Chicago-leaning production branch discussed in the artist interview; it does not claim to encode every UK-drill portamento bass or syncopation in the broader scene. Exact machine and synth design are production choices.",
+      "exemplars": [
+        "Rondodasosa",
+        "NKO"
+      ]
+    },
+    {
+      "id": "finnish_hip_hop",
+      "name": "Finnish hip hop",
+      "family": "hip_hop",
+      "lineage": "Finnish hip-hop scenes; selected Don Johnson Big Band multi-instrument studio branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "rompler_workstation",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "saxophone",
+        "flute"
+      ],
+      "description": "A studio arrangement from the instrument palette of Don Johnson Big Band’s four-member formation: rap voice, keyboards, guitar, bass, drums, tenor saxophone and flute. Universal’s artist biography explicitly credits the drummer with guitar and bass as well, and one wind player with tenor sax/flute; these are overdubbable roles, not seven simultaneously performing band members. The generic workstation, single-coil guitar, electric-bass construction and kit materials are authored realizations. This Finnish scene example uses English-language rap, so Finnish is a scene marker rather than a promise about lyric language.",
+      "exemplars": [
+        "Don Johnson Big Band — Breaking Daylight (2003), label-documented studio instrument palette"
+      ]
+    },
+    {
+      "id": "german_jazz_rap",
+      "name": "German jazz rap",
+      "family": "hip_hop",
+      "lineage": "German rap with played jazz/funk ensembles; selected Jazzkantine 2019 album-tour formation",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "rompler_workstation",
+        "electric_bass",
+        "drum_kit",
+        "saxophone",
+        "trumpet",
+        "turntable"
+      ],
+      "description": "A German-language MC front line with played guitar, keyboards, bass and drum kit, saxophone/trumpet colors and DJ scratches. Jazzkantine’s own 2019 press sheet explicitly lists this nine-person touring band; two rappers share the aggregate voice role. It also describes the album’s jazz, soul and reggae inflections. The model follows that credited core rather than importing every album guest or the separate NDR big-band collaboration. Single-coil guitar, generic workstation, tenor saxophone and precise construction/technique choices are authored representative realizations, not asserted as an equipment inventory.",
+      "exemplars": [
+        "Jazzkantine — Mit Pauken und Trompeten (2019), documented core album-tour formation"
+      ]
+    },
+    {
+      "id": "german_underground_rap",
+      "name": "German underground rap",
+      "family": "hip_hop",
+      "lineage": "German independent and underground rap; selected Retrogott and Hulk Hodn sample-collage branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        -1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "An independent German MC-and-producer branch based on jazz/funk record fragments, beat construction and turntable manipulation. Retrogott describes underground as an artistic stance rather than a sales threshold; the model follows the duo’s sample-led practice, not every regional underground scene. Exact MPC architecture, sample resolution, swing, microphone and room are authored defaults. It does not inherit a live jazz orchestra from the sampled records.",
+      "exemplars": [
+        "Retrogott & Hulk Hodn — Fresh und umbenannt (2013), sample-led MC/DJ branch"
+      ]
+    },
+    {
+      "id": "ghanaian_hip_hop",
+      "name": "Ghanaian hip hop",
+      "family": "hip_hop",
+      "lineage": "Ghanaian hip-hop production; selected Sarkodie and Magnom electronic studio branch",
+      "parent": "mcRhythm.afroDiasporic",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "digital_subtractive"
+      ],
+      "description": "Rap voice over digitally programmed drums, bass and melodic layers in a representative arrangement grounded in Magnom’s account of producing Sarkodie’s Illuminati. The producer describes his Fruity Loops workflow, beat-making from drum, bass or melody ideas and studio vocal recording. Sample-drum sequencing plus virtual-analog synthesis is the authored sound-producing implementation, not a claim that he owned the named hardware or used one specific synth on the track. A software DAW is not added as a separate acoustic instrument.",
+      "exemplars": [
+        "Sarkodie — Illuminati, produced by Magnom (recording described as 2012)"
+      ]
+    },
+    {
+      "id": "hardcore_hip_hop",
+      "name": "Hardcore hip hop",
+      "family": "hip_hop",
+      "lineage": "Hard-edged hip-hop delivery and production; selected late-1980s Public Enemy sample-collage branch",
+      "parent": "mcRhythm.usHipHop.eastCoast",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "A forceful MC delivery over a dense collage of rhythm fragments, loops and manipulated records. Chuck D and Hank Shocklee describe the construction of It Takes a Nation of Millions and the turntable-to-sampler process on Don’t Believe the Hype. The SP-1200-family twelve-bit setup is a documented period production tool and an authored representative realization, not a claim that every sound in the exemplar passed through one machine. Acoustic sources inside samples are not recreated as a live funk band, and the later Anthrax guitar crossover is not inserted here.",
+      "exemplars": [
+        "Public Enemy — Don’t Believe the Hype, It Takes a Nation of Millions to Hold Us Back (1988)"
+      ]
+    },
+    {
+      "id": "hip_hop_cubano",
+      "name": "Hip hop cubano",
+      "family": "hip_hop",
+      "lineage": "Cuban hip-hop and diaspora practice; selected Orishas traditional-record sampling branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Rap and melodic vocal refrains arranged with looped Cuban-record material and hip-hop percussion. Yotuel explains that Orishas substituted Cuban source recordings for the US funk samples they had previously followed; Roldán and Ruzzo describe joining son/clave and DJ beats. A phrase sampler carries both sampled acoustic timbres and rhythmic layers here. The late-1990s sixteen-bit sampler architecture is an authored realization, not a verified machine credit. A sampled trumpet or hand drum does not require adding a live salsa band.",
+      "exemplars": [
+        "Orishas — A lo cubano, selected sample-built branch (1999)"
+      ]
+    },
+    {
+      "id": "hip_hop_galsen",
+      "name": "Hip hop galsen",
+      "family": "hip_hop",
+      "lineage": "Senegalese hip-hop scenes; selected Daara J Family Yamatélé-era played-band branch",
+      "parent": "mcRhythm.afroDiasporic",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "rompler_workstation",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Wolof-centered rap and melodic singing with played bass, kit, guitar and keyboards in the selected Daara J Family touring arrangement. A primary 2020 program credits Faada Freddy and Ndongo D, a supporting voice and the four instrumental roles. The guitar pickup type, workstation architecture and wood/metal/technique settings are authored realizations of those credits. This later ensemble is distinct from the group’s early voice-and-drum-machine beginnings; no kora, sabar or djembe is inferred from Senegalese geography.",
+      "exemplars": [
+        "Daara J Family — Yamatélé (2020), documented album-tour formation"
+      ]
+    },
+    {
+      "id": "hip_hop_quebecois",
+      "name": "Hip hop québécois",
+      "family": "hip_hop",
+      "lineage": "Québec hip-hop scenes; selected Loco Locass Langage-toi studio-collage branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "rompler_workstation",
+        "trumpet"
+      ],
+      "description": "An interlocking French-language rap front line, sampled spoken material and rhythmic layers, keyboard colors and a played trumpet motif. Research on Langage-toi distinguishes its credited trumpet from sampled material, and reports Chafiik’s broader mix of samples, MIDI instruments and studio recordings. The sampler carries the rhythm/bass and ambiguous guitar-like texture in this authored realization; no separate live guitar or acoustic kit is asserted without a performer credit. Workstation and sampler models, brass construction and recording chain are representative defaults rather than documented session gear.",
+      "exemplars": [
+        "Loco Locass — Langage-toi, Manifestif (2000)"
+      ]
+    },
+    {
+      "id": "indonesian_hip_hop",
+      "name": "Indonesian hip hop",
+      "family": "hip_hop",
+      "lineage": "Indonesian hip hop includes local-language and English-language work, as well as diasporic recordings. Rich Brian’s Jakarta-rooted producer-rapper trajectory supplies this selected self-produced, melodic sample-based branch.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "sampler_drum_machine"
+      ],
+      "description": "Lead rap and a melodic hook sit over looped, manipulated guitar-textured playback and a programmed beat. The sampler represents the recorded guitar phrase rather than asserting a live guitarist. The modern sampler and drum settings are authored tools for the described production roles; this branch does not stand for all Indonesian hip hop or imply traditional instruments purely from geography.",
+      "exemplars": [
+        "Rich Brian — Glow Like Dat",
+        "Rich Brian — Amen"
+      ]
+    },
+    {
+      "id": "irish_hip_hop",
+      "name": "Irish hip hop",
+      "family": "hip_hop",
+      "lineage": "Irish hip hop spans English-language, Irish-language and multilingual scenes. Kneecap’s West Belfast MC/producer network supplies the selected Irish-and-English recording branch.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "flute"
+      ],
+      "description": "Two-MC interplay meets a forceful programmed beat and a flute-colored sampled layer. Toddla T directly describes adding requested flutes to the Fine Art title track. Here a concert flute is an authored replay-and-resample source for that layer, paired with a sampler; it is not a claim that a concert flutist or that exact flute construction appeared in the original session. The flute role comes from the production account, not a geographic assumption.",
+      "exemplars": [
+        "Kneecap — Fine Art",
+        "Toddla T"
+      ]
+    },
+    {
+      "id": "j_rap",
+      "name": "J-rap",
+      "family": "hip_hop",
+      "lineage": "Japanese rap includes diverse eras and production styles. The selected King Giddra/Zeebra branch centers Japanese-language rhyming, coordinated MC responses and DJ/sample-based accompaniment.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "Rapped verses and coordinated MC responses sit over sampled phrases and DJ scratches. A paired-deck turntable role and sampler preserve the documented production practice. A modern sixteen-bit sampler is an authored recording tool for revisiting this branch, not a claim about the exact 1995 machine or an instruction to copy uncleared recordings.",
+      "exemplars": [
+        "King Giddra — Sora Kara no Chikara",
+        "Zeebra",
+        "K Dub Shine",
+        "DJ Oasis"
+      ]
+    },
+    {
+      "id": "japanese_old_school_hip_hop",
+      "name": "Japanese old school hip hop",
+      "family": "hip_hop",
+      "lineage": "A historically anchored Japanese hip-hop grouping. King Giddra’s 1995 debut and the related Zeebra/DJ Oasis practice provide the selected sample-and-scratch branch.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "Rapped verses and coordinated MC responses sit over sampled phrases and DJ scratches. A paired-deck turntable role and sampler preserve the documented production practice. A modern sixteen-bit sampler is an authored recording tool for revisiting this branch, not a claim about the exact 1995 machine or an instruction to copy uncleared recordings.",
+      "exemplars": [
+        "King Giddra — Sora Kara no Chikara",
+        "Zeebra",
+        "K Dub Shine",
+        "DJ Oasis"
+      ]
+    },
+    {
+      "id": "japanese_underground_rap",
+      "name": "Japanese underground rap",
+      "family": "hip_hop",
+      "lineage": "Japanese underground rap includes independent labels and transnational MC/producer networks. Shing02’s work with Nujabes and Hydeout supplies the selected independent sample-based branch.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Measured rap phrasing sits over melody-led sampled loops and a programmed beat. The sampler preserves the distinction between an existing recorded phrase and a live pianist. This compact model represents the sample-focused branch rather than claiming that every Nujabes recording lacked later live instrumental additions, or that all underground Japanese rap is mellow.",
+      "exemplars": [
+        "Shing02 and Nujabes — Luv(sic)",
+        "Hydeout Productions"
+      ]
+    },
+    {
+      "id": "jewish_hip_hop",
+      "name": "Jewish hip hop",
+      "family": "hip_hop",
+      "lineage": "Jewish hip hop is a broad cultural and performance field, not a fixed instrumental tradition or a synonym for Israeli rap. Kosha Dillz’s New York MC practice and documented sessions with Matisyahu supply the selected rap-and-beatbox branch.",
+      "parent": "mcRhythm.usHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "vocal_percussion_voice"
+      ],
+      "description": "A rhythmic lead rapper works with a separate vocal-percussion performer. Kosha Dillz directly recalls rhyming while Matisyahu beatboxed; the same practice is documented at the album-release event. The selected bilabial kick is an authored beatbox articulation, not a phonetic transcription of a particular performance. No klezmer instrument or liturgical mode is inferred simply from Jewish identity.",
+      "exemplars": [
+        "Kosha Dillz",
+        "Matisyahu"
+      ]
+    },
+    {
+      "id": "josei_rap",
+      "name": "Josei rap",
+      "family": "hip_hop",
+      "lineage": "Josei rap is a Japanese women-rapper discovery grouping, not one uniform voice type or instrumentation. Awich and producer Chaki Zulu supply this selected contemporary rap-and-hook studio branch.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "rompler_workstation"
+      ],
+      "description": "Rhythmic verses alternate with a more melodic hook over a sample-built beat and keyboard harmony. The artist/producer interview describes a sampled phrase being rewritten, sung and developed with chords in the making of Dore ni shiyoukana. A sampler and neutral-make workstation are authored tools for those roles; the model does not prescribe anatomy, vocal register or a single sound for all women rappers.",
+      "exemplars": [
+        "Awich — Dore ni shiyoukana",
+        "Chaki Zulu"
+      ]
+    },
+    {
+      "id": "kansas_city_hip_hop",
+      "name": "Kansas City hip hop",
+      "family": "hip_hop",
+      "lineage": "Kansas City rap spans multiple approaches. Tech N9ne and producer Seven supply this selected studio branch, combining precise rap delivery with programmed bass and layered, sample-based harmonic textures.",
+      "parent": "mcRhythm.usHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "drum_machine_808",
+        "digital_subtractive",
+        "rompler_workstation"
+      ],
+      "description": "Rhythmic lead verses and a sung hook sit over 808-style drums, chopped choir samples, sustained digital-synth textures and workstation string/piano sounds. Seven directly identifies these roles in his track breakdown. The stock synth and neutral-make workstation settings are authored realizations, not a claim that every listed catalog model was used in that session. Sampled choir is represented by the sampler rather than a fictitious live choir.",
+      "exemplars": [
+        "Tech N9ne",
+        "Seven — Something Else production"
+      ]
+    },
+    {
+      "id": "kazakh_hip_hop",
+      "name": "Kazakh hip hop",
+      "family": "hip_hop",
+      "lineage": "Kazakhstan’s hip-hop field includes Kazakh-language and Russian-language work. Skryptonite’s Pavlodar-rooted producer-rapper practice supplies the selected branch; language is not used to erase its Kazakhstani context.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "analog_synth"
+      ],
+      "description": "Rhythmic delivery and melodic vocal motifs sit over a self-built electronic beat and textural synth layer. This is a compact authored studio arrangement for the documented producer practice, not an inventory of his live band. The source describes guitar as part of his compositional history without establishing it as a played part on every track.",
+      "exemplars": [
+        "Skryptonite — Dom s normalnymi yavleniyami"
+      ]
+    },
+    {
+      "id": "kentucky_hip_hop",
+      "name": "Kentucky hip hop",
+      "family": "hip_hop",
+      "lineage": "Kentucky’s rap scenes include Louisville’s studio and mixtape networks. Jack Harlow’s Louisville-rooted piano-loop-and-drum production branch supplies this representative recording model.",
+      "parent": "mcRhythm.usHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "drum_machine_808"
+      ],
+      "description": "Rhythmic lead rap rides chopped piano-loop playback and an 808-style rhythm foundation. The sample-player role retains the recorded-loop distinction rather than asserting a live acoustic piano in the original session. Modern MPC and digital 808 recreation are authored tools, while the piano-led beat and sparse arrangement are grounded in artist/producer accounts.",
+      "exemplars": [
+        "Jack Harlow — Whats Poppin",
+        "jetsonmade",
+        "Pooh Beatz"
+      ]
+    },
+    {
+      "id": "kenyan_hip_hop",
+      "name": "Kenyan hip hop",
+      "family": "hip_hop",
+      "lineage": "Kenyan hip hop includes multilingual local scenes and varied production approaches. Khaligraph Jones and the Nairobi beatmaking network provide the selected contemporary programmed-rap branch.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "drum_machine_808"
+      ],
+      "description": "Lead rap is supported by a programmed drum layer and long 808-style bass-kick notes. Producer djprodluigi identifies his instrumental work on Luku and describes digitally produced trap beats with shaped 808s. These existing sampler/drum-machine cards are authored production tools, not a claim about a vintage Roland machine in the original session or about all Kenyan rap having one rhythm.",
+      "exemplars": [
+        "Khaligraph Jones — Luku",
+        "djprodluigi"
+      ]
+    },
+    {
+      "id": "cascadian_black_metal",
+      "name": "Cascadian black metal",
+      "family": "rock_punk",
+      "lineage": "Cascadian black metal is retained as the source discovery label, whose roster includes Wolves in the Throne Room alongside varied atmospheric black-metal artists. The selected Olympia band’s Primordial Arcana branch combines layered tremolo-picked guitars and drums with harsh voice and ambient synthesizer textures. Their self-recorded Owl Lodge production used contrasting distorted and spacious tones. This authored reduction keeps one guitar family, drums, voice and an analog-polyphonic pad; it does not assert that every roster member shares a regional ideology or this instrumentation.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Cascadian black metal is retained as the source discovery label, whose roster includes Wolves in the Throne Room alongside varied atmospheric black-metal artists. The selected Olympia band’s Primordial Arcana branch combines layered tremolo-picked guitars and drums with harsh voice and ambient synthesizer textures. Their self-recorded Owl Lodge production used contrasting distorted and spacious tones. This authored reduction keeps one guitar family, drums, voice and an analog-polyphonic pad; it does not assert that every roster member shares a regional ideology or this instrumentation.",
+      "exemplars": [
+        "Wolves in the Throne Room — Primordial Arcana (2021), layered guitar/synth branch"
+      ]
+    },
+    {
+      "id": "christian_metal",
+      "name": "Christian metal",
+      "family": "rock_punk",
+      "lineage": "Christian metal is a broad lyrical and community field spanning multiple metal styles. The selected Stryper branch pairs distorted hard-rock/heavy-metal riffing with harmonized guitar leads and melodic vocal harmonies. Michael Sweet directly describes the Christian message and those twin-guitar and vocal arrangements. This authored band reduction uses guitar, electric bass, drum kit and harmonized singing; a single representative guitar card covers the documented two-guitar lineup rather than inventing a second instrument type.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Christian metal is a broad lyrical and community field spanning multiple metal styles. The selected Stryper branch pairs distorted hard-rock/heavy-metal riffing with harmonized guitar leads and melodic vocal harmonies. Michael Sweet directly describes the Christian message and those twin-guitar and vocal arrangements. This authored band reduction uses guitar, electric bass, drum kit and harmonized singing; a single representative guitar card covers the documented two-guitar lineup rather than inventing a second instrument type.",
+      "exemplars": [
+        "Stryper — melodic heavy-metal branch discussed by Michael Sweet in 2020"
+      ]
+    },
+    {
+      "id": "czech_metal",
+      "name": "Czech metal",
+      "family": "rock_punk",
+      "lineage": "The Czech metal field includes the long-running Prague band Arakain. The selected Jekyll & Hyde-era branch is guitar-riff-led heavy metal with melodic singing, electric bass and drums. Jiří Urban describes home tracking through amp profilers, followed by centralized mixing, and a darker B-standard six-string branch alongside the band’s usual C-sharp-standard repertoire. This model selects that documented B-standard branch and a modeled amplifier; it represents one guitar family in the actual multiple-guitar ensemble.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "The Czech metal field includes the long-running Prague band Arakain. The selected Jekyll & Hyde-era branch is guitar-riff-led heavy metal with melodic singing, electric bass and drums. Jiří Urban describes home tracking through amp profilers, followed by centralized mixing, and a darker B-standard six-string branch alongside the band’s usual C-sharp-standard repertoire. This model selects that documented B-standard branch and a modeled amplifier; it represents one guitar family in the actual multiple-guitar ensemble.",
+      "exemplars": [
+        "Arakain — Jekyll & Hyde (2019), B-standard riff branch"
+      ]
+    },
+    {
+      "id": "danish_black_metal",
+      "name": "Danish black metal",
+      "family": "rock_punk",
+      "lineage": "Denmark’s black-metal recording field includes several approaches rather than a nationality-specific instrument formula. Myrkur’s2015 M supplies this selected branch: distorted guitar, bass and acoustic drums contrast with piano and clear melodic singing. Artist credits document collaborative recording in Oslo, so Danish scene identity does not imply that the session took place in Denmark. This authored reduction retains the piano/metal-band contrast and omits the credited choir, additional bowed strings and brass.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Denmark’s black-metal recording field includes several approaches rather than a nationality-specific instrument formula. Myrkur’s2015 M supplies this selected branch: distorted guitar, bass and acoustic drums contrast with piano and clear melodic singing. Artist credits document collaborative recording in Oslo, so Danish scene identity does not imply that the session took place in Denmark. This authored reduction retains the piano/metal-band contrast and omits the credited choir, additional bowed strings and brass.",
+      "exemplars": [
+        "Myrkur — M (2015), selected piano/metal-band branch"
+      ]
+    },
+    {
+      "id": "danish_death_metal",
+      "name": "Danish death metal",
+      "family": "rock_punk",
+      "lineage": "Denmark’s death-metal field includes Illdisposed, whose The Prestige branch favors groove-led guitar riffs, harsh voice and a bass/drum foundation with fast double-kick and blasting contrasts. Jakob Batten’s 2008 account describes recording guitars and bass at home while drums and vocals were tracked with Ziggy, and distinguishes this band-centered record from the preceding synth/sample experiments. This authored four-role model selects that guitar-band branch rather than requiring electronics throughout the scene.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Denmark’s death-metal field includes Illdisposed, whose The Prestige branch favors groove-led guitar riffs, harsh voice and a bass/drum foundation with fast double-kick and blasting contrasts. Jakob Batten’s 2008 account describes recording guitars and bass at home while drums and vocals were tracked with Ziggy, and distinguishes this band-centered record from the preceding synth/sample experiments. This authored four-role model selects that guitar-band branch rather than requiring electronics throughout the scene.",
+      "exemplars": [
+        "Illdisposed — The Prestige (2008), groove-led guitar-band branch"
+      ]
+    },
+    {
+      "id": "danish_metal",
+      "name": "Danish metal",
+      "family": "rock_punk",
+      "lineage": "Denmark’s metal field includes stylistically varied bands. The selected Volbeat branch combines riff-led metal with rock-and-roll and psychobilly inflections. Michael Poulsen’s account of Servant of the Mind documents rhythm guitars, separately contributed lead solos, bass and drums, with a long-used SG/JCM800 combination. This authored four-role recording model emphasizes the electric rhythm section and melodic lead voice; one guitar card represents the rhythm/lead guitar family rather than claiming the album has one guitarist.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Denmark’s metal field includes stylistically varied bands. The selected Volbeat branch combines riff-led metal with rock-and-roll and psychobilly inflections. Michael Poulsen’s account of Servant of the Mind documents rhythm guitars, separately contributed lead solos, bass and drums, with a long-used SG/JCM800 combination. This authored four-role recording model emphasizes the electric rhythm section and melodic lead voice; one guitar card represents the rhythm/lead guitar family rather than claiming the album has one guitarist.",
+      "exemplars": [
+        "Volbeat — Servant of the Mind (2021), riff-led recording branch"
+      ]
+    },
+    {
+      "id": "dutch_death_metal",
+      "name": "Dutch death metal",
+      "family": "rock_punk",
+      "lineage": "The Netherlands has a varied death-metal recording field. Asphyx supplies this selected death/doom branch: fast riffing alternates with slow heavy passages, supported by electric bass, acoustic drums and abrasive vocals. For Necroceros, Paul Baayens describes DI guitar tracking for later reamping, separate guitar/bass recording and drum/vocal sessions at Tom Meier’s studio. The authored model keeps those four roles and tremolo-picked guitar articulation without treating one band’s sound as universal.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "The Netherlands has a varied death-metal recording field. Asphyx supplies this selected death/doom branch: fast riffing alternates with slow heavy passages, supported by electric bass, acoustic drums and abrasive vocals. For Necroceros, Paul Baayens describes DI guitar tracking for later reamping, separate guitar/bass recording and drum/vocal sessions at Tom Meier’s studio. The authored model keeps those four roles and tremolo-picked guitar articulation without treating one band’s sound as universal.",
+      "exemplars": [
+        "Asphyx — Necroceros (2021), death/doom branch"
+      ]
+    },
+    {
+      "id": "bow_pop",
+      "name": "Bow pop",
+      "family": "pop",
+      "lineage": "Instrumental pop arrangements led by bowed strings, including contemporary hit covers and originals. Simply Three documents a violin, cello and bass approach to pop songs; this packet models a small string trio rather than an orchestral backing for a singer.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "violin_orchestral",
+        "cello",
+        "double_bass"
+      ],
+      "description": "Instrumental pop arrangements led by bowed strings, including contemporary hit covers and originals. Simply Three documents a violin, cello and bass approach to pop songs; this packet models a small string trio rather than an orchestral backing for a singer.",
+      "exemplars": [
+        "Simply Three — Counting Stars",
+        "Simply Three — Wake Me Up",
+        "2CELLOS — Smooth Criminal (broader bowed-pop branch; photo exemplar)"
+      ]
+    },
+    {
+      "id": "c_pop_girl_group",
+      "name": "C-pop girl group",
+      "family": "pop",
+      "lineage": "Mandopop girl-group performance foregrounding complementary singers and close vocal harmonies. The selected S.H.E model uses a three-part recorded vocal stack over piano, synthesizer and a simple programmed beat, reflecting the documented pop side of the Taiwanese group rather than every C-pop female ensemble.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "multitrack_vocal_stack",
+        "grand_piano",
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Mandopop girl-group performance foregrounding complementary singers and close vocal harmonies. The selected S.H.E model uses a three-part recorded vocal stack over piano, synthesizer and a simple programmed beat, reflecting the documented pop side of the Taiwanese group rather than every C-pop female ensemble. The early-album acoustic-guitar melody color is retained alongside the recorded trio, piano, synth pad and beat. Three-part thirds/fifths are a new arrangement voicing, not a universal rule for this group or a transcription of every song.",
+      "exemplars": [
+        "S.H.E — Girls’ Dorm",
+        "S.H.E — Youth Society"
+      ]
+    },
+    {
+      "id": "classic_country_pop",
+      "name": "Classic country pop",
+      "family": "pop",
+      "lineage": "Historical country-to-pop crossover repertoire, here represented by Glen Campbell’s late-1960s and 1970s songbook. Campbell’s singing and guitar playing sit at the center of a deliberately reduced acoustic/electric guitar arrangement; the model does not claim to reconstruct the original orchestral sessions.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_12_string",
+        "electric_guitar_single_coil"
+      ],
+      "description": "Historical country-to-pop crossover repertoire, here represented by Glen Campbell’s late-1960s and 1970s songbook. Campbell’s singing and guitar playing sit at the center of a deliberately reduced acoustic/electric guitar arrangement; the model does not claim to reconstruct the original orchestral sessions. The new rendition uses a paired-course12-string acoustic color alongside fingerstyle electric guitar, following the documented guitar-centered collaboration. It is not a full recreation of Wichita Lineman’s orchestral and six-string-bass session.",
+      "exemplars": [
+        "Glen Campbell — Gentle on My Mind",
+        "Glen Campbell — Wichita Lineman",
+        "Glen Campbell — Rhinestone Cowboy"
+      ]
+    },
+    {
+      "id": "classic_icelandic_pop",
+      "name": "Classic icelandic pop",
+      "family": "pop",
+      "lineage": "Icelandic retrospective commercial pop represented by Stjórnin’s late1980s and1990s band repertoire and Eitt lag enn. This model retains duet singing, keyboards, guitar, electric bass, drums and saxophone, distinguishing the longstanding pop band from its separately documented2022 symphonic collaboration.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_piano_tine",
+        "electric_bass",
+        "saxophone",
+        "electric_guitar_single_coil",
+        "drum_kit"
+      ],
+      "description": "Guitar and drums remain separate from keyboards and bass, following the historical band roster in the primary concert programme. A mellow tine-piano card is an authored realization of unspecified keyboards. This is a new small-band rendition of the classic repertoire, not a transcription of the2022 orchestra or a claim that1990 Eurovision used no orchestra.",
+      "exemplars": [
+        "Stjórnin — Eitt lag enn (1990)"
+      ]
+    },
+    {
+      "id": "classic_konkani_pop",
+      "name": "Classic konkani pop",
+      "family": "pop",
+      "lineage": "Konkani popular-song recordings associated with Chris Perry and Lorna in the 1960s and 1970s join Goan-language songwriting with jazz and nightclub performance. This compact vocal, trumpet, saxophone and keyboard arrangement draws on documented performers and timbres; it is a new arrangement of that practice, not a transcription of Bebdo.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "trumpet",
+        "saxophone",
+        "grand_piano",
+        "drum_kit"
+      ],
+      "description": "Konkani popular-song recordings associated with Chris Perry and Lorna in the 1960s and 1970s join Goan-language songwriting with jazz and nightclub performance. This compact vocal, trumpet, saxophone and keyboard arrangement draws on documented performers and timbres; it is a new arrangement of that practice, not a transcription of Bebdo. Drums are retained from the named band member’s firsthand account. Grand piano is an authored realization of the separately documented keyboard accompaniment, including the later comeback context; the recipe does not backdate that specific keyboard performance to every1960s recording.",
+      "exemplars": [
+        "Lorna / Chris Perry — Bebdo",
+        "Chris Perry and a Host of Stars — Concanim Hits"
+      ]
+    },
+    {
+      "id": "classic_nz_pop",
+      "name": "Classic nz pop",
+      "family": "pop",
+      "lineage": "New Zealand’s historical chart and television pop scene, with a selected early-1960s beat-group model. Te Ara documents independent labels, teen clubs, local television, R&B and Shadows-influenced guitars; the wider scene also contained country-pop, vocalists and psychedelic groups.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "New Zealand’s historical chart and television pop scene, with a selected early-1960s beat-group model. Te Ara documents independent labels, teen clubs, local television, R&B and Shadows-influenced guitars; the wider scene also contained country-pop, vocalists and psychedelic groups. This model is a contemporary realization of the documented practice, not a historical studio reconstruction.",
+      "exemplars": [
+        "Ray Columbus and the Invaders — She’s a Mod"
+      ]
+    },
+    {
+      "id": "classic_persian_pop",
+      "name": "Classic persian pop",
+      "family": "pop",
+      "lineage": "Historical Iranian popular-song repertoire associated with Googoosh and other pre-1979 stars. This selected new chamber rendition follows a documented Lalaee arrangement for countertenor, cello and piano, while retaining Googoosh as the repertoire exemplar. It does not assign that instrumentation or vocal range to her original recording.",
+      "parent": "functionalSong.midEastNAfricanPop",
+      "axes": [
+        0,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        -1,
+        0,
+        -1,
+        2,
+        1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "cello",
+        "grand_piano"
+      ],
+      "description": "Historical Iranian popular-song repertoire associated with Googoosh and other pre-1979 stars. This selected new chamber rendition follows a documented Lalaee arrangement for countertenor, cello and piano, while retaining Googoosh as the repertoire exemplar. It does not assign that instrumentation or vocal range to her original recording. The primary concert programmes distinguish the later interpreters and name the arrangement explicitly. Bowed cello and piano support a developed high-register solo voice; exact materials and modern recording choices are authored.",
+      "exemplars": [
+        "Googoosh — Lalaee; contemporary arrangement performed by Cameron Shahbazi, Sophia Eva Muñoz and Eno Nushi"
+      ]
+    },
+    {
+      "id": "classic_peruvian_pop",
+      "name": "Classic peruvian pop",
+      "family": "pop",
+      "lineage": "Peruvian historical mainstream pop-rock represented by late-1980s Arena Hash: voice, guitar, keyboard, bass and drums within Lima radio and recording culture. This selected band strand does not equate Peruvian pop with Andean folk instrumentation.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "analog_poly_synth",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Peruvian historical mainstream pop-rock represented by late-1980s Arena Hash: voice, guitar, keyboard, bass and drums within Lima radio and recording culture. This selected band strand does not equate Peruvian pop with Andean folk instrumentation. This model is a contemporary realization of the documented practice, not a historical studio reconstruction.",
+      "exemplars": [
+        "Arena Hash — Cuando la cama me da vueltas"
+      ]
+    },
+    {
+      "id": "classic_uk_pop",
+      "name": "Classic uk pop",
+      "family": "pop",
+      "lineage": "Historical UK mainstream chart, film and television pop, represented by the early Cliff Richard and Shadows singer-with-band practice. A relaxed guitar-led pop-song ensemble is selected; orchestral ballads and later decades remain within the wider category but are not reconstructed here.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        -1,
+        1,
+        -1,
+        0,
+        -1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "acoustic_guitar_dread",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Historical UK mainstream chart, film and television pop, represented by the early Cliff Richard and Shadows singer-with-band practice. A relaxed guitar-led pop-song ensemble is selected; orchestral ballads and later decades remain within the wider category but are not reconstructed here. This model is a contemporary realization of the documented practice, not a historical studio reconstruction. This new arrangement gives lead guitar and strummed rhythm separate instrument colors: electric single-coil and acoustic steel-string. It does not claim that the Living Doll session used a Stratocaster; that specific historic lead instrument is deliberately left unasserted.",
+      "exemplars": [
+        "Cliff Richard and the Shadows — Travellin’ Light"
+      ]
+    },
+    {
+      "id": "classic_venezuelan_pop",
+      "name": "Classic venezuelan pop",
+      "family": "pop",
+      "lineage": "Venezuelan historical popular song represented by Franco De Vita’s 1980s Spanish-language piano ballad practice and television exposure. The authored reduction retains sung melody and piano accompaniment; it does not assert that the commercial recordings lacked other instruments.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0,
+        -1,
+        2,
+        -1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Venezuelan historical popular song represented by Franco De Vita’s 1980s Spanish-language piano ballad practice and television exposure. The authored reduction retains sung melody and piano accompaniment; it does not assert that the commercial recordings lacked other instruments. This model is a contemporary realization of the documented practice, not a historical studio reconstruction.",
+      "exemplars": [
+        "Franco De Vita — Sólo importas tú"
+      ]
+    },
+    {
+      "id": "dominican_pop",
+      "name": "Dominican pop",
+      "family": "pop",
+      "lineage": "Dominican contemporary popular songwriting represented by Vicente García’s bachata/reggae crossover Bachata en Kingston. The authored arrangement preserves the credited singing, acoustic guitar, bass, keyboards, drums, separate percussion and trumpet/trombone/saxophone section, with the separately documented Mártires de León guitar role. It does not prescribe the same ensemble for all Dominican popular music.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "electric_piano_tine",
+        "drum_kit",
+        "bongos",
+        "trumpet",
+        "trombone",
+        "saxophone"
+      ],
+      "description": "Interlocking acoustic and clean electric guitar figures sit over bass, drums and a separate hand-percussion layer, with keyboard ostinato and three differentiated horn colors. The credited keyboard and percussion mechanisms are unspecified: mellow tine piano and synthetic-head bongos are explicit new arrangement choices, not a claim about the original session inventory.",
+      "exemplars": [
+        "Vicente García — Bachata en Kingston"
+      ]
+    },
+    {
+      "id": "ecuadorian_pop",
+      "name": "Ecuadorian pop",
+      "family": "pop",
+      "lineage": "Ecuadorian popular song represented by Juan Fernando Velasco’s romantic singer-songwriter repertoire and contemporary concert practice. The authored ensemble selects voice, electric guitar, piano and drums from the venue’s documented pop instrumentation; the tour’s separately identified pasillo and Andean arrangements are not silently merged into it.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "grand_piano",
+        "drum_kit"
+      ],
+      "description": "Ecuadorian popular song represented by Juan Fernando Velasco’s romantic singer-songwriter repertoire and contemporary concert practice. The authored ensemble selects voice, electric guitar, piano and drums from the venue’s documented pop instrumentation; the tour’s separately identified pasillo and Andean arrangements are not silently merged into it.",
+      "exemplars": [
+        "Juan Fernando Velasco — Chao Lola",
+        "Juan Fernando Velasco — En Primer Plano tour"
+      ]
+    },
+    {
+      "id": "faroese_pop",
+      "name": "Faroese pop",
+      "family": "pop",
+      "lineage": "Popular songwriting in the Faroe Islands, represented by Lena Anderssen’s intimate melodic songs and recorded vocal/string accompaniment. English-language work belongs to this local practice alongside her later Faroese-language writing. The selected authored chamber-pop realization follows the documented Abbey Road live string-quartet performance.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        0,
+        -1,
+        2,
+        -1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "violin_orchestral",
+        "viola_classical",
+        "cello"
+      ],
+      "description": "Popular songwriting in the Faroe Islands, represented by Lena Anderssen’s intimate melodic songs and recorded vocal/string accompaniment. English-language work belongs to this local practice alongside her later Faroese-language writing. The selected authored chamber-pop realization follows the documented Abbey Road live string-quartet performance. This model is a contemporary realization of the documented practice, not a historical studio reconstruction. The real-photo exemplar Sissal represents another documented Faroese pop branch. The default chamber arrangement remains grounded in Lena Anderssen’s live-quartet recording, and no photo of Sissal is mislabeled as Anderssen.",
+      "exemplars": [
+        "Lena Anderssen — Stones in My Pocket"
+      ]
+    },
+    {
+      "id": "belgian_blues",
+      "name": "Belgian blues",
+      "family": "blues_gospel",
+      "lineage": "Belgian blues covers Belgium’s locally sustained blues practice. Roland Van Campenhout supplies this deliberately small singer-guitarist branch: his blues turn followed seeing John Lee Hooker at Antwerp’s De Muze and his Jazz Bilzen performances established a live reputation. The authored acoustic-guitar accompaniment selects the folk-blues side of a career also spanning rock and country.",
+      "parent": "functionalSong.bluesAcoustic",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        -1,
+        0,
+        2,
+        1,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "Belgian blues covers Belgium’s locally sustained blues practice. Roland Van Campenhout supplies this deliberately small singer-guitarist branch: his blues turn followed seeing John Lee Hooker at Antwerp’s De Muze and his Jazz Bilzen performances established a live reputation. The authored acoustic-guitar accompaniment selects the folk-blues side of a career also spanning rock and country.",
+      "exemplars": [
+        "Roland Van Campenhout — Dah Blues Iz-a Comming",
+        "Roland Van Campenhout — 20 Years! Live Gentse Feesten"
+      ]
+    },
+    {
+      "id": "blues_mexicano",
+      "name": "Blues mexicano",
+      "family": "blues_gospel",
+      "lineage": "Blues mexicano identifies Mexican blues bands and songwriters. The selected Real de Catorce branch formed in Mexico City and combines José Cruz’s sung poetry with blues song structures. A reduced voice, harmonica, guitar, electric-bass and drum arrangement follows documented personnel, retaining room for blues-rock, swing and jazz inflections without imposing a single national rhythm.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "harmonica",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Blues mexicano identifies Mexican blues bands and songwriters. The selected Real de Catorce branch formed in Mexico City and combines José Cruz’s sung poetry with blues song structures. A reduced voice, harmonica, guitar, electric-bass and drum arrangement follows documented personnel, retaining room for blues-rock, swing and jazz inflections without imposing a single national rhythm.",
+      "exemplars": [
+        "Real de Catorce — Azul",
+        "Real de Catorce — Pago mi renta con un poco de blues"
+      ]
+    },
+    {
+      "id": "classic_soul",
+      "name": "Classic soul",
+      "family": "blues_gospel",
+      "lineage": "Classic soul is a retrospective discovery and listening category for established soul repertoire, overlapping regional Memphis, Southern, Motown and other soul traditions. The source-author roster explicitly includes Al Green alongside Marvin Gaye, Aretha Franklin and Otis Redding. This representative Al Green/Hi branch takes the documented singer, organ, guitar, bass, drum and conga interplay of Let’s Stay Together as a starting point. The authored reduction includes vocal support but omits the recording’s horn and string layers; it does not invent an exclusive classic-soul instrument set or equate the entire category with one Memphis session.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "tonewheel_organ",
+        "congas"
+      ],
+      "description": "Classic soul is a retrospective discovery and listening category for established soul repertoire, overlapping regional Memphis, Southern, Motown and other soul traditions. The source-author roster explicitly includes Al Green alongside Marvin Gaye, Aretha Franklin and Otis Redding. This representative Al Green/Hi branch takes the documented singer, organ, guitar, bass, drum and conga interplay of Let’s Stay Together as a starting point. The authored reduction includes vocal support but omits the recording’s horn and string layers; it does not invent an exclusive classic-soul instrument set or equate the entire category with one Memphis session.",
+      "exemplars": [
+        "Al Green — Let’s Stay Together (1971 recording; source-roster exemplar)",
+        "Aretha Franklin; Marvin Gaye; Otis Redding — category-scope examples, not gear models"
+      ]
+    },
+    {
+      "id": "congolese_gospel",
+      "name": "Congolese gospel",
+      "family": "blues_gospel",
+      "lineage": "Congolese gospel includes Christian devotional song cultivated in Congo and circulated through international Francophone and Lingala-speaking networks. The selected Dena Mwana branch links her Kinshasa church-choir background with a documented 2025 Guadeloupe worship concert accompanied by local keyboard, guitar, bass and drum players. This authored reduced live-band model represents that touring practice; it does not claim the Guadeloupe players or equipment are a fixed Congolese tradition.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_piano_tine",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Congolese gospel includes Christian devotional song cultivated in Congo and circulated through international Francophone and Lingala-speaking networks. The selected Dena Mwana branch links her Kinshasa church-choir background with a documented 2025 Guadeloupe worship concert accompanied by local keyboard, guitar, bass and drum players. This authored reduced live-band model represents that touring practice; it does not claim the Guadeloupe players or equipment are a fixed Congolese tradition.",
+      "exemplars": [
+        "Dena Mwana — worship concert, Palais des Sports du Gosier, 14 July 2025",
+        "Dena Mwana — Souffle"
+      ]
+    },
+    {
+      "id": "coral_gospel",
+      "name": "Coral gospel",
+      "family": "blues_gospel",
+      "lineage": "Coral gospel is treated here as the Brazilian Portuguese Christian choral recording practice evidenced by the allocated catalogue’s Coral UNASP and Coral Jovem IASP examples. The selected Coral UNASP recording Sopro (Acapella), on Segue-Me, expressly supplies an unaccompanied branch. This model uses a blended multi-part choir with natural vocal production and no invented instrumental backing; it is not a claim that all Brazilian gospel choirs sing a cappella.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Coral gospel is treated here as the Brazilian Portuguese Christian choral recording practice evidenced by the allocated catalogue’s Coral UNASP and Coral Jovem IASP examples. The selected Coral UNASP recording Sopro (Acapella), on Segue-Me, expressly supplies an unaccompanied branch. This model uses a blended multi-part choir with natural vocal production and no invented instrumental backing; it is not a claim that all Brazilian gospel choirs sing a cappella.",
+      "exemplars": [
+        "Coral UNASP — Sopro (Acapella), Segue-Me"
+      ]
+    },
+    {
+      "id": "deep_funk",
+      "name": "Deep funk",
+      "family": "blues_gospel",
+      "lineage": "Deep funk is a rare-funk-45 DJ and collecting scene, strongly associated with Keb Darge’s London club activity, rather than merely a low-frequency version of funk. The authored band model selects Sharon Jones and the Dap-Kings, whom Darge directly connects to his night: lead vocal, clipped electric guitar, electric bass, drums and a saxophone/trumpet section. It represents contemporary recorded funk within the scene, not every historical single in a DJ set.",
+      "parent": "groovePercussion.funkPercussive",
+      "axes": [
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "saxophone",
+        "trumpet"
+      ],
+      "description": "Deep funk is a rare-funk-45 DJ and collecting scene, strongly associated with Keb Darge’s London club activity, rather than merely a low-frequency version of funk. The authored band model selects Sharon Jones and the Dap-Kings, whom Darge directly connects to his night: lead vocal, clipped electric guitar, electric bass, drums and a saxophone/trumpet section. It represents contemporary recorded funk within the scene, not every historical single in a DJ set.",
+      "exemplars": [
+        "Sharon Jones & the Dap-Kings — Dap Dippin’",
+        "Keb Darge — Legendary Deep Funk compilation series"
+      ]
+    },
+    {
+      "id": "family_gospel",
+      "name": "Family gospel",
+      "family": "blues_gospel",
+      "lineage": "Family gospel organizes Christian singing around family ensembles rather than defining one instrumental style. This selected Isaacs branch comes from a family group rooted in bluegrass gospel and documented close vocal harmony. The model selects their Live from Norway-era acoustic guitar, banjo and fiddle alongside a blended vocal ensemble, an authored reduction of that performance lineup.",
+      "parent": "ritualDevotional.christianGospel.southernGospel",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "banjo_5_string",
+        "fiddle"
+      ],
+      "description": "Family gospel organizes Christian singing around family ensembles rather than defining one instrumental style. This selected Isaacs branch comes from a family group rooted in bluegrass gospel and documented close vocal harmony. The model selects their Live from Norway-era acoustic guitar, banjo and fiddle alongside a blended vocal ensemble, an authored reduction of that performance lineup.",
+      "exemplars": [
+        "The Isaacs — Live from Norway",
+        "The Isaacs — Family Chain"
+      ]
+    },
+    {
+      "id": "ghanaian_gospel",
+      "name": "Ghanaian gospel",
+      "family": "blues_gospel",
+      "lineage": "Ghanaian gospel is a Ghana-based Christian recording and worship scene with diverse musical branches. Joe Mettle’s Mehia Wo Yesu supplies a documented song-led branch: the official video credits lead and three supporting singers, KODA on bass and guitars, and Emmanuel Bludo Jnr on drums. This reduced authored model follows those roles, with communal vocal harmony and a band foundation; it does not infer a highlife percussion battery or claim all Ghanaian gospel has this arrangement.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Ghanaian gospel is a Ghana-based Christian recording and worship scene with diverse musical branches. Joe Mettle’s Mehia Wo Yesu supplies a documented song-led branch: the official video credits lead and three supporting singers, KODA on bass and guitars, and Emmanuel Bludo Jnr on drums. This reduced authored model follows those roles, with communal vocal harmony and a band foundation; it does not infer a highlife percussion battery or claim all Ghanaian gospel has this arrangement.",
+      "exemplars": [
+        "Joe Mettle — Mehia Wo Yesu (official2019 video)"
+      ]
+    },
+    {
+      "id": "gospel_reggae",
+      "name": "Gospel reggae",
+      "family": "blues_gospel",
+      "lineage": "Gospel reggae applies Christian praise and testimony to reggae song and groove practices. Jamaica has documented artists and competitions in the style, alongside international acts including Christafari. The selected newly authored band arrangement centers a sung lead with offbeat electric-guitar chords, bass, drums and organ, using established reggae roles rather than assigning Rastafari affiliation to Christian performers.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "tonewheel_organ"
+      ],
+      "description": "Gospel reggae applies Christian praise and testimony to reggae song and groove practices. Jamaica has documented artists and competitions in the style, alongside international acts including Christafari. The selected newly authored band arrangement centers a sung lead with offbeat electric-guitar chords, bass, drums and organ, using established reggae roles rather than assigning Rastafari affiliation to Christian performers.",
+      "exemplars": [
+        "Lester Lewis — Every Time I Read My Bible",
+        "Christafari — Reggae Worship"
+      ]
+    },
+    {
+      "id": "gospel_soul",
+      "name": "Gospel soul",
+      "family": "blues_gospel",
+      "lineage": "Gospel soul combines Christian testimony and gospel vocal response with the rhythmic language of soul, sometimes extending into funk or disco. The selected Annie and the Caldwells branch is a West Point family performance practice: a lead singer with answering family voices, guitar, bass, drums and Hammond organ. Can’t Lose My (Soul) personnel ground these roles; the authored studio model does not recreate the original church mobile rig.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "tonewheel_organ"
+      ],
+      "description": "Gospel soul combines Christian testimony and gospel vocal response with the rhythmic language of soul, sometimes extending into funk or disco. The selected Annie and the Caldwells branch is a West Point family performance practice: a lead singer with answering family voices, guitar, bass, drums and Hammond organ. Can’t Lose My (Soul) personnel ground these roles; the authored studio model does not recreate the original church mobile rig.",
+      "exemplars": [
+        "Annie and the Caldwells — Can’t Lose My (Soul)",
+        "Annie and the Caldwells — Dear Lord"
+      ]
+    },
+    {
+      "id": "haitian_gospel",
+      "name": "Haitian gospel",
+      "family": "blues_gospel",
+      "lineage": "Haitian gospel includes Christian song and worship in Haiti and connected diaspora communities. This selected francophone branch follows Haitian-born singer Maggie Blanchard, whose international ministry connects Port-au-Prince, Montreal and European audiences. Peggy Polito’s documented piano-and-vocal accompaniment provides a supported basis for a reduced authored lead-voice-and-piano recording model. It is neither a claim about an entire Libéré studio session nor an assertion that every Haitian gospel form uses piano.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "description": "Haitian gospel includes Christian song and worship in Haiti and connected diaspora communities. This selected francophone branch follows Haitian-born singer Maggie Blanchard, whose international ministry connects Port-au-Prince, Montreal and European audiences. Peggy Polito’s documented piano-and-vocal accompaniment provides a supported basis for a reduced authored lead-voice-and-piano recording model. It is neither a claim about an entire Libéré studio session nor an assertion that every Haitian gospel form uses piano.",
+      "exemplars": [
+        "Maggie Blanchard — documented piano accompaniment by Peggy Polito",
+        "Maggie Blanchard — Libéré (repertoire context, not session reconstruction)"
+      ]
+    },
+    {
+      "id": "instrumental_soul",
+      "name": "Instrumental soul",
+      "family": "blues_gospel",
+      "lineage": "Soul arranged without a lead singer, allowing horn melody and rhythm-section phrasing to carry the song. The selected Brooklyn Menahan Street Band practice also feeds hip-hop sampling.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        -1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "trumpet",
+        "saxophone",
+        "tonewheel_organ"
+      ],
+      "description": "Soul arranged without a lead singer, allowing horn melody and rhythm-section phrasing to carry the song. The selected Brooklyn Menahan Street Band practice also feeds hip-hop sampling. This is a newly authored studio arrangement, not a reconstruction of the exemplar session.",
+      "exemplars": [
+        "Menahan Street Band — Make the Road by Walking (2008)"
+      ]
+    },
+    {
+      "id": "neapolitan_funk",
+      "name": "Neapolitan funk",
+      "family": "blues_gospel",
+      "lineage": "Naples-associated funk draws on the city’s 1970s–1980s dance music and its contemporary revival. Nu Genea’s Nuova Napoli joins dialect vocals, electric bass, guitar, saxophone, keyboards and programmed and played drums. The selected authored reduction retains the live drum-kit branch and one analog-synth role alongside Rhodes; it does not reproduce every programmed drum, Kawai piano or Korg keyboard layer credited on the album.",
+      "parent": "groovePercussion.funkPercussive",
+      "axes": [
+        -1,
+        -1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "rhodes_electric",
+        "analog_synth",
+        "electric_bass",
+        "electric_guitar_single_coil",
+        "drum_kit",
+        "saxophone"
+      ],
+      "description": "Naples-associated funk draws on the city’s 1970s–1980s dance music and its contemporary revival. Nu Genea’s Nuova Napoli joins dialect vocals, electric bass, guitar, saxophone, keyboards and programmed and played drums. The selected authored reduction retains the live drum-kit branch and one analog-synth role alongside Rhodes; it does not reproduce every programmed drum, Kawai piano or Korg keyboard layer credited on the album.",
+      "exemplars": [
+        "Nu Genea — Nuova Napoli (2018)"
+      ]
+    },
+    {
+      "id": "pre_war_blues",
+      "name": "Pre-war blues",
+      "family": "blues_gospel",
+      "lineage": "Pre-war blues is an era-defined corpus of blues recorded before the Second World War, spanning multiple regional and ensemble practices. The selected Robert Johnson performance represents only its solo Delta-guitar branch.",
+      "parent": "functionalSong.bluesAcoustic",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        -2,
+        -1,
+        1,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om"
+      ],
+      "description": "Pre-war blues is an era-defined corpus of blues recorded before the Second World War, spanning multiple regional and ensemble practices. The selected Robert Johnson performance represents only its solo Delta-guitar branch. This is a newly authored studio arrangement, not a reconstruction of the exemplar session.",
+      "exemplars": [
+        "Robert Johnson — Cross Road Blues (recorded 1936)"
+      ]
+    },
+    {
+      "id": "quarteto_gospel",
+      "name": "Quarteto gospel",
+      "family": "blues_gospel",
+      "lineage": "Brazilian gospel quartet centers Christian text in four male vocal roles. Arautos do Rei anchors the Adventist broadcast and concert branch, adapting quartet spiritual repertory and performing both accompanied and unaccompanied harmony. The authored unaccompanied small-ensemble branch uses chordal harmony; the two-tenor, baritone and bass roles are vocal parts, not an instrumental bass chair.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "choir_ensemble"
+      ],
+      "description": "Brazilian gospel quartet centers Christian text in four male vocal roles. Arautos do Rei anchors the Adventist broadcast and concert branch, adapting quartet spiritual repertory and performing both accompanied and unaccompanied harmony. The authored unaccompanied small-ensemble branch uses chordal harmony; the two-tenor, baritone and bass roles are vocal parts, not an instrumental bass chair.",
+      "exemplars": [
+        "Arautos do Rei — A Cappella (1998)"
+      ]
+    },
+    {
+      "id": "dutch_hip_hop",
+      "name": "Dutch hip hop",
+      "family": "hip_hop",
+      "lineage": "Netherlands hip-hop scenes; selected De Jeugd van Tegenwoordig synth/electro branch",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "analog_synth",
+        "drum_machine_analog"
+      ],
+      "description": "A Dutch MC front line with slow electro pulse and bass-led synthesizer phrasing. Vjèze Fur describes finding his rap placement over Bas Bron’s deliberately slow electronic beat on Watskeburt; band and label interviews place synth production at the core. Analog drum voices and subtractive synthesis are authored realizations of that electronic palette, not a verified hardware list. The model does not turn the national category into a single accent, lyrical theme or production tradition.",
+      "exemplars": [
+        "De Jeugd van Tegenwoordig — Watskeburt?! (2005)"
+      ]
+    },
+    {
+      "id": "harlem_hip_hop",
+      "name": "Harlem hip hop",
+      "family": "hip_hop",
+      "lineage": "Harlem hip-hop scenes; selected A$AP Rocky and Clams Casino clouded sample branch",
+      "parent": "mcRhythm.usHipHop.eastCoast",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Relaxed rap over slowed, reworked vocal fragments and layered digital beat material in the selected A$AP Rocky/Clams Casino branch. Clams describes transforming one vocal source repeatedly and slowing a rejected fast section to create Bass; his lecture specifies laptop software rather than then-current hardware. The existing sampler instrument is a functional sound-production model, with its modern preset and resolution explicitly authored rather than a claim that the record used that device. Sampled voice texture is not scored as a newly recorded choir.",
+      "exemplars": [
+        "A$AP Rocky — Bass, LIVE.LOVE.A$AP (2011), produced by Clams Casino"
       ]
     }
   ]
