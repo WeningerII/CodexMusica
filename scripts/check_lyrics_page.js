@@ -187,6 +187,197 @@ print(json.dumps([n for n, _ in (_sections_from_marks(sys.stdin.read().split('\\
   }
 }
 
+// ── H. headers and the document's identity, unit-level ────────────────────
+// Every rhythm shape the page writes reads back as the same declaration; a
+// review, a certification and a suggestion answer for the whole document —
+// headers, section boundaries, setup rows (duplicates kept) and voices — and
+// nothing a display preference or a run stamp changes.
+function unitHeadersAndIdentity() {
+  stage = 'H. headers and identity';
+  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
+  const draft = { value: '' };
+  const ctx = vm.createContext({
+    console,
+    $ui: (id) => (id === 'lyrics-draft' ? draft : null),
+    uiRegisterPage: () => {},
+    uiCount: (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`,
+    chatState: { generation: 0, lyric: null, busy: false },
+    UI: {},
+  });
+  vm.runInContext(src, ctx, { filename: 'src/pages/lyrics.js' });
+  const run = (code, vars = {}) => {
+    Object.assign(ctx, vars);
+    return vm.runInContext(code, ctx);
+  };
+  // SHA-256 of the page, against node's own, on ASCII and multibyte text.
+  for (const text of [
+    'abc',
+    '',
+    'Leave a light on, New York — I’m coming home 🎵',
+    'x'.repeat(200),
+  ])
+    check(
+      run('lySha256(__t)', { __t: text }) ===
+        require('crypto').createHash('sha256').update(text, 'utf8').digest('hex'),
+      `lySha256(${JSON.stringify(text.slice(0, 20))}) differs from node's SHA-256`
+    );
+  // Every header shape round-trips, fields and text alike.
+  const shapes = [
+    ['[CHORUS — 6 lines — 6/8]', { lines: 6, bars: null, meter: '6/8', pickup: null }],
+    [
+      '[CHORUS — 6 lines — 6/8, pickup 1 beat]',
+      { lines: 6, bars: null, meter: '6/8', pickup: 'pickup 1 beat' },
+    ],
+    ['[CHORUS — 6 lines — 4 bars]', { lines: 6, bars: 4, meter: null, pickup: null }],
+    ['[CHORUS — 6 lines — 4 bars of 6/8]', { lines: 6, bars: 4, meter: '6/8', pickup: null }],
+    [
+      '[CHORUS — 5 lines — 5 bars of 7/8, one-beat pickup]',
+      { lines: 5, bars: 5, meter: '7/8', pickup: 'one-beat pickup' },
+    ],
+    [
+      '[INTERLUDE — instrumental — 2 bars of 8/8, no words]',
+      { lines: null, bars: 2, meter: '8/8', pickup: 'no words', extra: ['instrumental'] },
+    ],
+    ['[BRIDGE — 4 lines — 0/8]', { lines: 4, bars: null, meter: null, extra: ['0/8'] }],
+    [
+      '[BRIDGE — 0 bars of 4/4]',
+      { lines: null, bars: null, meter: null, extra: ['0 bars of 4/4'] },
+    ],
+    ['[VERSE — 4 lines — sung softly]', { lines: 4, meter: null, extra: ['sung softly'] }],
+    ['[OUTRO]', { lines: null, bars: null, meter: null, extra: [] }],
+  ];
+  for (const [text, want] of shapes) {
+    const h = JSON.parse(run('JSON.stringify(lyParseHeader(__h))', { __h: text }));
+    for (const [k, v] of Object.entries(want))
+      check(
+        JSON.stringify(h[k]) === JSON.stringify(v),
+        `${text}: ${k} read as ${JSON.stringify(h[k])}, not ${JSON.stringify(v)}`
+      );
+    check(
+      run('lyHeaderText(lyParseHeader(__h))', { __h: text }) === text,
+      `${text} does not round-trip`
+    );
+  }
+  // The audit's witness: the rhythm form saves 6/8 with no bars; it reads back.
+  const saved = run(
+    "lyHeaderText({ name: 'CHORUS', lines: 4, bars: null, meter: '6/8', pickup: null, extra: [], order: [] })"
+  );
+  check(saved === '[CHORUS — 4 lines — 6/8]', `meter-only saved as ${saved}`);
+  check(
+    run('lyParseHeader(__h).meter', { __h: saved }) === '6/8',
+    'a saved meter-only header reads back with no meter'
+  );
+  const withPickup = run(
+    "lyHeaderText({ name: 'CHORUS', lines: 4, bars: null, meter: '6/8', pickup: 'pickup 1 beat', extra: [], order: [] })"
+  );
+  check(
+    withPickup === '[CHORUS — 4 lines — 6/8, pickup 1 beat]' &&
+      run('lyParseHeader(__h).pickup', { __h: withPickup }) === 'pickup 1 beat',
+    `meter and pickup without bars saved as ${withPickup} and did not read back`
+  );
+  // A rewrite keeps each part where it stood.
+  const moved = run(
+    "(() => { const h = lyParseHeader('[INTERLUDE — instrumental — 2 bars of 8/8, no words]'); h.bars = 4; return lyHeaderText(h); })()"
+  );
+  check(
+    moved === '[INTERLUDE — instrumental — 4 bars of 8/8, no words]',
+    `a rewrite moved an unknown clause: ${moved}`
+  );
+  // The writer is sent the header as written.
+  draft.value = '[CHORUS — 4 lines — 6/8]\na\nb\nc\nd';
+  check(
+    run('lyDraftForWriter()').includes('[CHORUS — 4 lines — 6/8]'),
+    'the meter-only header did not reach the writer'
+  );
+
+  // Identity: what changes it and what does not.
+  const id = (text) => run('lyIdentity(lyParse(__d))', { __d: text });
+  const base = DRAFT;
+  const same = [
+    ['a run stamp appended', base + '\n\n[FINISHED — seed 7 — exit 0 — CLEAN]'],
+    ['trailing blank lines', base + '\n\n\n'],
+    ['CRLF line endings', base.replace(/\n/g, '\r\n').replace(/\r/g, '')],
+  ];
+  for (const [what, text] of same)
+    check(id(text) === id(base), `${what} changed the identity (it is not the song)`);
+  const changed = [
+    ['a section renamed', base.replace('[BRIDGE — 4 lines]', '[MIDDLE EIGHT — 4 lines]')],
+    ['a declared size', base.replace('[BRIDGE — 4 lines]', '[BRIDGE — 3 lines]')],
+    [
+      'bars',
+      base.replace('[VERSE — 4 lines — 8 bars of 4/4]', '[VERSE — 4 lines — 6 bars of 4/4]'),
+    ],
+    [
+      'meter',
+      base.replace('[VERSE — 4 lines — 8 bars of 4/4]', '[VERSE — 4 lines — 8 bars of 7/8]'),
+    ],
+    [
+      'a pickup',
+      base.replace(
+        '[VERSE — 4 lines — 8 bars of 4/4]',
+        '[VERSE — 4 lines — 8 bars of 4/4, one-beat pickup]'
+      ),
+    ],
+    [
+      'a section boundary',
+      base.replace('And if the dark comes early on\n', 'And if the dark comes early on\n[TAG]\n'),
+    ],
+    ['a sung line', base.replace(OLD3, NEW3)],
+    ['a setup row', withAvoid(base)],
+    [
+      'a duplicated setup row',
+      base.replace(
+        '[SETUP — rhyme groups — 3,4]',
+        '[SETUP — rhyme groups — 3,4]\n[SETUP — rhyme groups — 3,4]'
+      ),
+    ],
+    ['voices', '[SETUP — voices — parentheses are sung]\n' + base],
+  ];
+  for (const [what, text] of changed)
+    check(id(text) !== id(base), `${what} left the identity unchanged`);
+
+  // Certification follows the identity, for every header field on its own.
+  const model = (text) => run('lyParse(__d)', { __d: text });
+  const certRun = (resultText, known = true) => ({
+    id: 1,
+    generation: 0,
+    artifact: { certified: true, status: 'finished_clean' },
+    completion: { certified: true },
+    final: sung(resultText),
+    resultId: known ? id(resultText) : null,
+    resultModel: known ? model(resultText) : null,
+  });
+  const status = (r, text) => run('lyRunStatus(__r, lyParse(__d)).word', { __r: r, __d: text });
+  check(
+    status(certRun(base), base) === 'Finished · certified',
+    'a run certifying this exact version does not read certified'
+  );
+  for (const [what, text] of changed.slice(0, 6))
+    check(
+      status(certRun(base), text) === 'Last run certified an earlier draft',
+      `a header-only change (${what}) kept the certification: ${status(certRun(base), text)}`
+    );
+  check(
+    status(certRun(base, false), base) === 'Earlier result · declarations unknown',
+    'a certified reply with no request on record reads as current'
+  );
+  // A suggestion made against one version refuses on another, naming what moved.
+  const sugRun = { baseId: id(base), baseSetup: null, baseModel: model(base) };
+  sugRun.baseSetup = run('lySetupKey(lyParse(__d))', { __d: base });
+  check(
+    run('lyDeclarationRefusal(__r, lyParse(__d))', { __r: sugRun, __d: base }) === '',
+    'a suggestion against the current version was refused'
+  );
+  const meterRefusal = run('lyDeclarationRefusal(__r, lyParse(__d))', {
+    __r: sugRun,
+    __d: changed[3][1],
+  });
+  check(
+    /section headers/.test(meterRefusal) && /Nothing was changed/.test(meterRefusal),
+    `a meter change did not refuse a stale suggestion by name: ${meterRefusal}`
+  );
+}
+
 // ── Fixture replies ───────────────────────────────────────────────────────
 const certified = () => ({
   reply: 'Finished.',
@@ -512,14 +703,27 @@ async function browserChecks(chromium) {
       const id = await page.evaluate(
         () => LY.items.find((i) => i.decision && !i.decision.whole)?.id
       );
-      await page.evaluate((i) => {
-        LY_ACTIONS['ly-review']();
-        LY_ACTIONS['ly-apply'](i);
-      }, id);
-      const r = await page.evaluate(() => ({
-        line3: LY.model.sung[2].text,
-        msg: document.querySelector('#ly-review .ly-outcome')?.innerText || '',
-      }));
+      const apply = async () => {
+        await page.evaluate((i) => {
+          LY_ACTIONS['ly-review']();
+          LY_ACTIONS['ly-apply'](i);
+        }, id);
+        return page.evaluate(() => ({
+          line3: LY.model.sung[2].text,
+          msg: document.querySelector('#ly-review .ly-outcome')?.innerText || '',
+        }));
+      };
+      // A suggestion answers for the version it was made against: with line 2
+      // edited since, it is stale, and says so before anything else.
+      let r = await apply();
+      check(r.line3 === OLD3, 'applied a suggestion made against an earlier version');
+      check(
+        /changed after you asked the writer/.test(r.msg) && /Recheck/.test(r.msg),
+        `a stale suggestion was not refused as stale: ${r.msg}`
+      );
+      // Back on the exact version asked about, the page's own checks decide.
+      await edit(page, 'The rain had blurred', 'The rain has blurred');
+      r = await apply();
       check(r.line3 === OLD3, 'applied a suggestion that adds an issue the page checks');
       check(/would add 1 issue/.test(r.msg), `the refusal does not name the new issue: ${r.msg}`);
       await shot(page, 'b2-refused-new-issue');
@@ -674,6 +878,16 @@ async function browserChecks(chromium) {
 
 (async () => {
   unitWriterPayload();
+  unitHeadersAndIdentity();
+  if (flags['unit-only']) {
+    if (failures.length) {
+      console.error(`LYRICS PAGE (unit): FAIL — ${failures.length} problem(s):`);
+      for (const f of failures) console.error('  ✗ ' + f);
+      process.exit(1);
+    }
+    console.log(`LYRICS PAGE (unit): PASS — ${checks} assertions`);
+    process.exit(0);
+  }
   if (!fs.existsSync(path.join(ROOT, HTML))) {
     console.error(`LYRICS PAGE: FAIL — ${HTML} not found (build it first)`);
     process.exit(1);
@@ -693,8 +907,9 @@ async function browserChecks(chromium) {
   }
   console.log(
     `LYRICS PAGE: PASS — ${checks} assertions (fixture replies, no provider): no [SETUP] row ` +
-      'reaches the writer (unit, harness reader and /chat); certified only for the same sung ' +
-      'lines and [SETUP] rows, in header, Review and History; Check & apply refuses changed ' +
+      'reaches the writer (unit, harness reader and /chat); every rhythm header shape round-trips; ' +
+      'certified only for the same whole version (sung lines, headers, boundaries, [SETUP] rows, ' +
+      'voices), in header, Review and History; Check & apply refuses a stale version, changed ' +
       'declarations and new issues; waiting read only from the live conversation, with a ' +
       'warning before a helper archives it; auto-apply keeps headers and setup; Undo restores ' +
       'the suggestion.'
