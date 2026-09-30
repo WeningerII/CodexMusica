@@ -1,5 +1,5 @@
-/* exported uiLyricsWaiting */
-/* global $ui, UI, UILayout, _chatSyncCount, app, chatState, compileRecipeStack, confirmDialog, copyToClipboard, esc, icon, pushHistory, showToast, uiButton, uiChatOpen, uiCount, uiDownload, uiEmptyState, uiFocus, uiNavigate, uiNewTask, uiRegisterPage, uiSaveLyrics, uiSwitchChat */
+/* exported uiLyricsWaiting, lyDraftForWriter */
+/* global $ui, UI, UILayout, CHAT_BACKEND, _chatRecover, _chatReset, _chatSend, _chatSyncCount, app, chatState, compileRecipeStack, esc, execCopyFallback, icon, lyricMetaOf, pushHistory, showToast, uiAutosave, uiButton, uiChatOpen, uiCount, uiDownload, uiEmptyState, uiExport, uiFocus, uiNavigate, uiRegisterPage, uiSaveLyrics, uiSwitchChat, uiUpdatePrompt */
 /* Lyrics page. Owned by the Lyrics page worker; see docs/ui-foundation.md.
 
    THE DRAFT IS THE ONE SOURCE OF TRUTH. Everything this page shows is read
@@ -319,16 +319,21 @@ function lyParse(text) {
 const LY = {
   model: null,
   text: null,
-  view: 'read', // 'read' | 'edit'
-  pane: 'review', // 'review' | 'history' | 'writer' | '' (closed)
-  reviewTab: 'issue', // 'issue' | 'input' | 'note'
-  reviewAt: 0,
-  songTab: 'sections', // 'sections' | 'plan'
-  tool: 'structure',
-  toolsOpen: false,
+  // The inspector's tab and the selected tool ('' is the Tools index).
+  tab: 'tools',
+  tool: '',
+  // Below 960px one view at a time: 'song' | 'tools' | 'writer' | 'review'.
+  mobile: 'song',
+  // The Lyrics container's width class: 'wide' (>=1280), 'compact'
+  // (960-1279), 'narrow' (<960). Set from the container, not the window.
+  size: 'wide',
+  outline: true,
+  railOpen: false,
+  // The sung line the caret or selection is on (0: none).
   activeLine: 0,
+  caretRow: 0,
   menu: '',
-  find: { q: '', at: 0 },
+  find: { q: '', at: 0, open: false },
   // The latest lyric reply this page saw, and what the draft was when it was asked.
   run: null,
   // Per-decision results: id → { state: 'applied'|'failed'|'kept', message }.
@@ -336,20 +341,65 @@ const LY = {
   own: {}, // decision id → the user's own line while writing it
   picks: { readingLine: 0, readingToken: 0, linkMembers: [] },
   prefs: null,
+  titleEdit: false,
+  briefEdit: false,
+  // Run review waiting on pending tool changes; a live run blocking new work.
+  gate: null,
+  conflict: null,
+  // The latest review this page started: its request and the version it asked about.
+  analysis: null,
+  // The latest read-only progress record for a running request.
+  progress: null,
+  // Tool result cards from a named request: rhymes and pronunciation options.
+  results: {},
+  // Persistence as the page last observed it (shell autosave).
+  notice: '',
 };
 const LY_TONES = {
   issue: { label: 'Issues', one: 'Issue', icon: 'circle-alert' },
   input: { label: 'Needs input', one: 'Needs input', icon: 'circle-question-mark' },
   note: { label: 'Notes', one: 'Note', icon: 'info' },
 };
+// The inspector's tabs and the Tools index, in their fixed order.
+const LY_TABS = [
+  ['tools', 'Tools', 'wrench'],
+  ['writer', 'Writer', 'user'],
+  ['review', 'Review', 'file-check'],
+  ['history', 'History', 'history'],
+];
 const LY_TOOLS = [
-  ['structure', 'Structure & story', 'list'],
-  ['rhymes', 'Rhymes & word rules', 'link'],
-  ['rhythm', 'Rhythm & placement', 'music'],
-  ['pronunciation', 'Language & readings', 'globe'],
-  ['returns', 'Returns & voices', 'repeat'],
-  ['checks', 'All checks', 'circle-check'],
-  ['export', 'Export', 'download'],
+  ['form-story', 'Form & story', 'Section order and story jobs', 'book-open'],
+  ['rhymes', 'Rhymes', 'Declared rhyme links', 'link'],
+  ['rhythm', 'Rhythm', 'Meter and line placement', 'music'],
+  ['pronunciation', 'Pronunciation', 'Sung-word readings', 'message-circle'],
+  ['repeats-voices', 'Repeats & voices', 'Exact repeats and sung asides', 'users'],
+  ['word-rules', 'Word rules', 'Required and avoided phrases', 'list'],
+];
+// Friendly story vocabulary → the harness's own atoms and junctions.
+const LY_ATOM_LABELS = {
+  ESTABLISH: 'Set the scene',
+  COMPLICATE: 'Introduce a complication',
+  TURN: 'Change direction',
+  DWELL: 'Stay with a moment',
+  ANCHOR: 'Return to the central idea',
+  JUDGE: 'Take a position',
+  RESOLVE: 'Resolve',
+  DEPART: 'Depart',
+};
+const LY_JUNCTION_LABELS = {
+  THEREFORE: 'Because',
+  BUT: 'But',
+  AND_THEN: 'Then',
+  MEANWHILE: 'Meanwhile',
+  ELABORATE: 'Expand',
+  JUXTAPOSE: 'Contrast',
+};
+// Rhyme relation: the friendly choice → the exact declared relation.
+const LY_RELATIONS = [
+  ['', 'Any'],
+  ['class:RHYME', 'Rhyme'],
+  ['class:ASSONANCE', 'Assonance'],
+  ['class:CONSONANCE', 'Consonance'],
 ];
 
 const lyDraft = () => $ui('lyrics-draft');
@@ -529,7 +579,7 @@ function lyBarSpans(model) {
 
 // Everything declared on this page, as the exact values the lyric tools take,
 // so the writer never has to reinterpret a [SETUP] line.
-function lyWriterDeclarations(model) {
+function lyDeclarationsOf(model) {
   const one = (key) => lySetupOf(model, key)[0]?.value;
   const d = {};
   if (one('title')) d.title = lyTitleOf(model);
@@ -571,6 +621,10 @@ function lyWriterDeclarations(model) {
     avoid = lySetupOf(model, 'avoid').map((x) => x.value);
   if (req.length) d.must_include = req;
   if (avoid.length) d.avoid = avoid;
+  return d;
+}
+function lyWriterDeclarations(model) {
+  const d = lyDeclarationsOf(model);
   return Object.keys(d).length
     ? `\n\nDeclared on the Lyrics page (exact values for the lyric tools; never guess a reading that is not chosen):\n${JSON.stringify(d)}`
     : '';
@@ -668,7 +722,7 @@ function lyLocalChecks(model) {
           ? 'Its exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.'
           : `Word ${r.token} of that line is now “${toks[r.token - 1] || 'missing'}”.`,
         actions: [
-          ['ly-tool', 'Choose again', 'globe', 'pronunciation'],
+          ['ly-tool', 'Choose again', 'message-circle', 'pronunciation'],
           ['ly-remove-setup', 'Remove it', 'trash-2', r.i],
         ],
       });
@@ -681,7 +735,7 @@ function lyLocalChecks(model) {
         where: lyLineRef(lines),
         lines,
         text: 'A reading is required here and none is chosen. Supply one with its source, or ask the writer for the dictionary options.',
-        actions: [['ly-tool', 'Choose a reading', 'globe', 'pronunciation']],
+        actions: [['ly-tool', 'Choose a reading', 'message-circle', 'pronunciation']],
       });
     else if (r.state === 'uncertain')
       add({
@@ -692,7 +746,7 @@ function lyLocalChecks(model) {
         where: lyLineRef(lines),
         lines,
         text: 'Kept as an explicit uncertainty; nothing assumes a reading for it.',
-        actions: [['ly-tool', 'Open readings', 'globe', 'pronunciation']],
+        actions: [['ly-tool', 'Open pronunciation', 'message-circle', 'pronunciation']],
       });
   }
   // Rhyme links and declared returns that point outside the draft.
@@ -713,9 +767,9 @@ function lyLocalChecks(model) {
           actions: [
             [
               'ly-tool',
-              key === 'returns' ? 'Open returns' : 'Open rhyme links',
+              key === 'returns' ? 'Open repeats' : 'Open rhymes',
               key === 'returns' ? 'repeat' : 'link',
-              key === 'returns' ? 'returns' : 'rhymes',
+              key === 'returns' ? 'repeats-voices' : 'rhymes',
             ],
           ],
         });
@@ -733,7 +787,7 @@ function lyLocalChecks(model) {
         where: 'Whole draft',
         lines: [],
         text: 'Checked on this page by exact word match.',
-        actions: [['ly-tool', 'Open word rules', 'link', 'rhymes']],
+        actions: [['ly-tool', 'Open word rules', 'list', 'word-rules']],
       });
   }
   for (const d of lySetupOf(model, 'avoid')) {
@@ -748,7 +802,7 @@ function lyLocalChecks(model) {
         where: lyLineRef(hits),
         lines: hits,
         text: 'Checked on this page by exact word match.',
-        actions: [['ly-tool', 'Open word rules', 'link', 'rhymes']],
+        actions: [['ly-tool', 'Open word rules', 'list', 'word-rules']],
       });
   }
   const hook = lySetupOf(model, 'hook')[0];
@@ -762,7 +816,7 @@ function lyLocalChecks(model) {
       where: hook.line || hook.value,
       lines: [],
       text: 'The hook binds an exact line. Choose it again from the current lines.',
-      actions: [['ly-tool', 'Choose the hook', 'link', 'rhymes']],
+      actions: [['ly-brief-edit', 'Choose the hook', 'pencil', '']],
     });
   const title = lySetupOf(model, 'title')[0];
   if (title && hook && hookLines.length) {
@@ -870,10 +924,10 @@ function lyLocalChecks(model) {
         title: !n.ok
           ? 'The story plan cannot be read'
           : `The story plan names ${uiCount(n.steps.length, 'section')}; the song has ${sung}`,
-        where: 'Structure & story',
+        where: 'Form & story',
         lines: [],
         text: 'One story job per sung section, with a junction before every job after the first. Change the plan or the sections so they agree.',
-        actions: [['ly-tool', 'Open story', 'list', 'structure']],
+        actions: [['ly-tool', 'Open form & story', 'book-open', 'form-story']],
       });
   }
   for (const st of model.stamps)
@@ -1216,7 +1270,7 @@ function lyRunChecks(model) {
       where: lySectionOfLine(model, n)?.title || `Line ${n}`,
       lines: [n],
       text: reasonsFor(n).join(' ') || 'The run stopped with this line unresolved.',
-      actions: [['ly-open-writer', 'Continue with the writer', 'message-circle', '']],
+      actions: [['ly-tab', 'Open the writer', 'user', 'writer']],
     });
   const tied = new Set(open.flatMap((n) => reasonsFor(n)));
   standing
@@ -1278,7 +1332,7 @@ function lyRunChecks(model) {
         where: 'Writer run',
         lines: [],
         text: String(t.refusal).slice(0, 300),
-        actions: [['ly-open-writer', 'Open the writer', 'message-circle', '']],
+        actions: [['ly-tab', 'Open the writer', 'user', 'writer']],
       });
   }
   // Coverage: what the run could not judge is missing input, not a defect.
@@ -1304,8 +1358,8 @@ function lyRunChecks(model) {
           o.reason ||
           'The run could not judge this obligation, so its coverage is incomplete. That is missing input, not a pass or a failure.',
         actions: pron
-          ? [['ly-tool', 'Open readings', 'globe', 'pronunciation']]
-          : [['ly-tool', 'See all checks', 'circle-check', 'checks']],
+          ? [['ly-tool', 'Open pronunciation', 'message-circle', 'pronunciation']]
+          : [['ly-tab', 'Open review', 'file-check', 'review']],
       });
     });
     if (refused.length > 12)
@@ -1317,7 +1371,7 @@ function lyRunChecks(model) {
         where: 'Writer run',
         lines: [],
         text: 'All of them are listed under All checks.',
-        actions: [['ly-tool', 'See all checks', 'circle-check', 'checks']],
+        actions: [['ly-tab', 'Open review', 'file-check', 'review']],
       });
     const unasked = coverage.obligations.filter((o) => o.status === 'not_requested');
     if (unasked.length)
@@ -1329,7 +1383,7 @@ function lyRunChecks(model) {
         where: 'Writer run',
         lines: [],
         text: 'Disclosed by the run and not asked of this song; they are neither passed nor failed.',
-        actions: [['ly-tool', 'See all checks', 'circle-check', 'checks']],
+        actions: [['ly-tab', 'Open review', 'file-check', 'review']],
       });
   }
   for (const t of run.tools || [])
@@ -1347,7 +1401,7 @@ function lyRunChecks(model) {
             [f.answer ? `It answered “${f.answer}”.` : '', ...(f.reasons || [])]
               .filter(Boolean)
               .join(' ') || 'Rejected by the run’s verification.',
-          actions: [['ly-open-writer', 'Open the writer', 'message-circle', '']],
+          actions: [['ly-tab', 'Open the writer', 'user', 'writer']],
         });
       }
   const asked = [...(run.tools || [])].reverse().find((t) => t.asked)?.asked;
@@ -1369,7 +1423,7 @@ function lyRunChecks(model) {
       text: 'The run asked a question and is paused until it gets an answer. Nothing continues on its own.',
       question: run.reply || null,
       answer: askedLines.length ? askedLines : [0],
-      actions: [['ly-open-writer', 'Open the writer', 'message-circle', '']],
+      actions: [['ly-tab', 'Open the writer', 'user', 'writer']],
     });
   if (run.stopped && !run.recoveryExport)
     add({
@@ -1383,7 +1437,7 @@ function lyRunChecks(model) {
       where: 'Writer run',
       lines: [],
       text: 'The reply is incomplete for that reason, not finished.',
-      actions: [['ly-open-writer', 'Open the writer', 'message-circle', '']],
+      actions: [['ly-tab', 'Open the writer', 'user', 'writer']],
     });
   const cur = lyRunCurrent(run, model);
   if (lyRunOutcome(run)?.certified && cur.setup)
@@ -1411,7 +1465,7 @@ function lyRunChecks(model) {
       text: !cur.known
         ? 'This reply came without the request it answered, so the version it certified is unknown here and it does not cover this draft.'
         : `Your ${changed.length ? changed.join(', ') : 'draft'} changed since that run, so its certification does not cover this version. Ask the writer to review the current draft.`,
-      actions: [['ly-ask-review', 'Ask the writer to review', 'sparkles', '']],
+      actions: [['ly-run-review', 'Run review', 'play', '']],
     });
   }
   return items;
@@ -1734,673 +1788,769 @@ const lyMenu = (
   label,
   ic,
   items,
-  { cls = 'cm-btn', align = 'start', hideLabel = false } = {}
+  { cls = 'cm-btn', align = 'start', hideLabel = false, chevron = true } = {}
 ) =>
-  `<div class="ly-menu-wrap"><button type="button" class="${cls}" data-ui="ly-menu" data-id="${id}" aria-haspopup="true" aria-expanded="false" aria-controls="ly-menu-${id}"${hideLabel ? ` aria-label="${esc(label)}" title="${esc(label)}"` : ''}>${ic ? icon(ic, 18) : ''}${hideLabel ? '' : `<span>${esc(label)}</span>${icon('chevron-down', 16)}`}</button><div class="cm-menu ly-menu" data-align="${align}" id="ly-menu-${id}" hidden>${items}</div></div>`;
+  `<div class="ly-menu-wrap"><button type="button" class="${cls}" data-ui="ly-menu" data-id="${id}" aria-haspopup="true" aria-expanded="false" aria-controls="ly-menu-${id}"${hideLabel ? ` aria-label="${esc(label)}" title="${esc(label)}"` : ''}>${ic ? icon(ic, 18) : ''}${hideLabel ? '' : `<span>${esc(label)}</span>${chevron ? icon('chevron-down', 16) : ''}`}</button><div class="cm-menu ly-menu" data-align="${align}" id="ly-menu-${id}" role="menu" hidden>${items}</div></div>`;
 const lyMenuItem = (act, label, ic, id = '', extra = '') =>
   lyBtn(act, label, ic, { id, cls: 'ly-menu-item', extra: `role="menuitem" ${extra}` });
 const lyStatus = (tone, word, ic) =>
   `<span class="cm-status" data-tone="${tone}">${icon(ic || (tone === 'success' ? 'circle-check' : tone === 'danger' ? 'circle-alert' : tone === 'warning' ? 'triangle-alert' : 'info'), 14)}<span>${esc(word)}</span></span>`;
-function lyWordCount(text) {
-  return lyTokens(text, LY.model?.voices).length;
+// A state pill: a dot and a word; colour never carries the meaning alone.
+const lyPill = (tone, word, extra = '') =>
+  `<span class="ly-pill" data-tone="${tone}" ${extra}><span class="ly-dot" aria-hidden="true"></span><span>${esc(word)}</span></span>`;
+
+// ── Page context: versioned lyric UI metadata ─────────────────────────────
+// The creative brief, a note per section, the pending tool entries and this
+// page's layout choices live in app.lyricMeta (src/app.js lyricMetaOf), which
+// autosave, saved copies, session export/import and Undo carry. Engine
+// declarations and sung text stay in the document.
+function lyMeta() {
+  if (!app.lyricMeta || app.lyricMeta !== LY.metaRef) {
+    app.lyricMeta = lyricMetaOf(app.lyricMeta);
+    LY.metaRef = app.lyricMeta;
+  }
+  return app.lyricMeta;
+}
+let lyMetaTimer = 0;
+function lyMetaSaved() {
+  clearTimeout(lyMetaTimer);
+  lyMetaTimer = setTimeout(() => uiAutosave(), 250);
+}
+const lyNoteOf = (s) => lyMeta().notes[s.title] || '';
+function lyBriefLine() {
+  const b = lyMeta().brief.trim();
+  return b ? b.split('\n')[0] : '';
+}
+const lyHookOf = (model) => lySetupOf(model, 'hook')[0]?.line || '';
+
+// ── Tool drafts ───────────────────────────────────────────────────────────
+// Every tool form reads its values from a controlled draft keyed by tool and
+// target, never from committed setup while an entry is pending. Each entry
+// holds the committed fingerprint it began from, its values, the fields that
+// differ and their errors. Apply validates every pending field first; any
+// error keeps every value and commits nothing; a valid Apply is one undo
+// step. A target whose committed values moved underneath a pending entry is
+// "changed": the entry is kept and Apply waits until the target is chosen
+// again. Pending values never reach a provider.
+const lyDraftKey = (tool, target) => `${tool}|${target}`;
+function lyDrafts(tool) {
+  const all = lyMeta().drafts;
+  return Object.keys(all)
+    .filter((k) => k.split('|')[0] === tool)
+    .map((k) => all[k]);
+}
+function lyDraftOf(tool, target) {
+  return lyMeta().drafts[lyDraftKey(tool, target)] || null;
+}
+// A pending value, else the committed one.
+function lyVal(tool, target, field, committed) {
+  const d = lyDraftOf(tool, target);
+  return d && d.dirty.includes(field) ? d.values[field] : committed;
+}
+function lyDraftSet(tool, target, field, value) {
+  const spec = LY_FORMS[tool];
+  const model = LY.model;
+  const drafts = lyMeta().drafts;
+  const key = lyDraftKey(tool, target);
+  const committed = spec.committed(model, target);
+  let d = drafts[key];
+  if (!d)
+    d = drafts[key] = {
+      tool,
+      target,
+      base: spec.fp(model, target),
+      values: {},
+      dirty: [],
+      errors: {},
+    };
+  d.values[field] = value;
+  const same = JSON.stringify(committed[field] ?? '') === JSON.stringify(value ?? '');
+  d.dirty = d.dirty.filter((f) => f !== field);
+  if (!same) d.dirty.push(field);
+  delete d.errors[field];
+  if (!d.dirty.length) delete drafts[key];
+  lyMetaSaved();
+}
+function lyDraftStale(d, model = LY.model) {
+  return !!d && LY_FORMS[d.tool].fp(model, d.target) !== d.base;
+}
+function lyPending(tool) {
+  return lyDrafts(tool).reduce((t, d) => t + d.dirty.length, 0);
+}
+const lyPendingAll = () => LY_TOOLS.reduce((t, [id]) => t + lyPending(id), 0);
+function lyDraftDiscard(tool, target = null) {
+  const drafts = lyMeta().drafts;
+  for (const k of Object.keys(drafts))
+    if (k.split('|')[0] === tool && (target === null || drafts[k].target === target))
+      delete drafts[k];
+  lyMetaSaved();
+}
+// Rebind a changed target's entry to what is committed there now.
+function lyDraftRebase(tool, target) {
+  const d = lyDraftOf(tool, target);
+  if (!d) return;
+  d.base = LY_FORMS[tool].fp(LY.model, target);
+  lyMetaSaved();
+}
+// Apply every pending entry of `tool` (or only `target`) as one change.
+function lyDraftApply(tool, target = null) {
+  const spec = LY_FORMS[tool];
+  const model = lyParse(lyDraft().value);
+  const entries = lyDrafts(tool).filter((d) => target === null || d.target === target);
+  if (!entries.length) return false;
+  if (entries.some((d) => lyDraftStale(d, model))) {
+    showToast('Target changed. Review these entries before applying.', 'error');
+    return false;
+  }
+  let text = model.text;
+  let bad = false;
+  const messages = [];
+  const meta = lyMeta();
+  const notes = { ...meta.notes };
+  for (const d of entries) {
+    const values = { ...spec.committed(lyParse(text), d.target) };
+    for (const f of d.dirty) values[f] = d.values[f];
+    const out = spec.apply(lyParse(text), d.target, values, d.dirty, notes);
+    if (out.errors && Object.keys(out.errors).length) {
+      d.errors = out.errors;
+      bad = true;
+      continue;
+    }
+    text = out.text ?? text;
+    if (out.message) messages.push(out.message);
+  }
+  if (bad) {
+    lyMetaSaved();
+    // The errors must show even where a field still has focus.
+    if (document.activeElement?.closest?.('#surface-lyrics')) document.activeElement.blur();
+    lyRefresh(true);
+    uiFocus(document.querySelector('#surface-lyrics [aria-invalid="true"]'));
+    showToast('Nothing was applied. Correct the marked fields.', 'error');
+    return false;
+  }
+  for (const d of entries) delete meta.drafts[lyDraftKey(d.tool, d.target)];
+  meta.notes = notes;
+  lyCommit(text, messages.join(' ') || 'Changes applied. Undo reverses them.');
+  return true;
+}
+const lyErr = (d, field) =>
+  d?.errors?.[field]
+    ? ` aria-invalid="true" aria-describedby="ly-err-${esc(field.replace(/\W/g, '-'))}"`
+    : '';
+const lyErrText = (d, field) =>
+  d?.errors?.[field]
+    ? `<p class="ly-field-error" id="ly-err-${esc(field.replace(/\W/g, '-'))}">${esc(d.errors[field])}</p>`
+    : '';
+
+// Section header rewrite on a text (not the live draft): one section's header.
+function lyHeaderIn(text, sectionIndex, change) {
+  const model = lyParse(text);
+  const s = model.sections[sectionIndex];
+  if (!s) return text;
+  const rows = model.text.split('\n');
+  const header = s.header
+    ? { ...s.header, extra: [...s.header.extra], order: [...s.header.order] }
+    : { name: 'SECTION', lines: null, bars: null, meter: null, pickup: null, extra: [], order: [] };
+  change(header, s);
+  const out = lyHeaderText(header);
+  if (s.headerRow) rows[s.headerRow.i] = out;
+  else rows.splice(s.rows[0].i, 0, out);
+  return rows.join('\n');
+}
+const lySungSections = (model) => model.sections.filter((s) => s.sung.length);
+function lyStorySteps(model) {
+  const d = lySetupOf(model, 'narrative')[0];
+  const plan = d ? lyParseNarrative(d.value) : null;
+  const steps = new Map();
+  if (plan && !plan.off)
+    lySungSections(model).forEach((s, k) => plan.steps[k] && steps.set(s.index, plan.steps[k]));
+  return { steps, off: !!plan?.off, declared: !!d };
+}
+const LY_NAME_BAD = /[[\]\n—]/;
+
+// Each form: committed values for a target, its fingerprint, and how pending
+// values become one text change (or field errors).
+const LY_FORMS = {
+  'form-story': {
+    committed(model) {
+      const v = {};
+      const story = lyStorySteps(model);
+      for (const s of model.sections) {
+        v[`name.${s.index}`] = s.header ? s.header.name : '';
+        v[`lines.${s.index}`] = s.header?.lines != null ? String(s.header.lines) : '';
+        v[`atom.${s.index}`] = story.steps.get(s.index)?.atom || '';
+        v[`junction.${s.index}`] = story.steps.get(s.index)?.junction || '';
+        v[`note.${s.index}`] = lyNoteOf(s);
+      }
+      return v;
+    },
+    fp(model) {
+      return (
+        JSON.stringify(
+          model.sections.map((s) => [s.title, s.header?.name ?? null, s.header?.lines ?? null])
+        ) + JSON.stringify(lySetupOf(model, 'narrative').map((d) => d.value))
+      );
+    },
+    apply(model, _target, v, dirty, notes) {
+      const errors = {};
+      for (const f of dirty) {
+        const [kind] = f.split('.');
+        const val = v[f] ?? '';
+        if (kind === 'name' && (!val.trim() || val.length > 80 || LY_NAME_BAD.test(val)))
+          errors[f] = 'A name of 1 to 80 characters, without brackets, dashes or line breaks.';
+        if (kind === 'lines' && val !== '' && !/^\d{1,3}$/.test(String(val).trim()))
+          errors[f] = 'Leave blank, or a whole number from 0 to 999.';
+        if (kind === 'note' && val.length > 400) errors[f] = 'At most 400 characters.';
+      }
+      const sung = lySungSections(model);
+      const storyDirty = dirty.some((f) => /^(atom|junction)\./.test(f));
+      let narrative = null;
+      if (storyDirty) {
+        const rows = sung.map((s) => ({
+          s,
+          atom: v[`atom.${s.index}`],
+          junction: v[`junction.${s.index}`],
+        }));
+        if (rows.every((r) => !r.atom && !r.junction)) narrative = [];
+        else {
+          rows.forEach((r, k) => {
+            if (!r.atom) errors[`atom.${r.s.index}`] = 'Choose a story job for every sung section.';
+            if (k && !r.junction)
+              errors[`junction.${r.s.index}`] = 'Choose how this section follows.';
+          });
+          narrative = [rows.map((r, k) => (k ? `${r.atom}/${r.junction}` : r.atom)).join(',')];
+        }
+      }
+      if (Object.keys(errors).length) return { errors };
+      let text = model.text;
+      const titles = model.sections.map((s) => s.title);
+      for (const s of model.sections) {
+        const nd = dirty.includes(`name.${s.index}`),
+          ld = dirty.includes(`lines.${s.index}`);
+        if (!nd && !ld) continue;
+        text = lyHeaderIn(text, s.index, (h) => {
+          if (nd) h.name = v[`name.${s.index}`].trim();
+          if (ld) h.lines = v[`lines.${s.index}`] === '' ? null : Number(v[`lines.${s.index}`]);
+        });
+      }
+      if (narrative) text = lySetSetup('narrative', narrative, text);
+      // Notes follow their section to its (possibly new) title.
+      const after = lyParse(text);
+      for (const s of model.sections) {
+        const note = dirty.includes(`note.${s.index}`)
+          ? v[`note.${s.index}`]
+          : notes[titles[s.index]];
+        const t = after.sections[s.index]?.title;
+        if (titles[s.index] !== t || dirty.includes(`note.${s.index}`)) {
+          delete notes[titles[s.index]];
+          if (t && note && note.trim()) notes[t] = note.trim().slice(0, 400);
+        }
+      }
+      return { text, message: 'Form & story applied. Undo reverses it.' };
+    },
+  },
+  rhythm: {
+    committed(model, target) {
+      const s = model.sections[Number(target)];
+      const h = s?.header || {};
+      return {
+        meter: h.meter || '',
+        bars: h.bars != null ? String(h.bars) : '',
+        pickup: h.pickup || '',
+      };
+    },
+    fp(model, target) {
+      const s = model.sections[Number(target)];
+      return s
+        ? JSON.stringify([
+            s.title,
+            s.header?.meter ?? null,
+            s.header?.bars ?? null,
+            s.header?.pickup ?? null,
+          ])
+        : 'none';
+    },
+    apply(model, target, v) {
+      const errors = {};
+      const meter = String(v.meter || '').trim(),
+        bars = String(v.bars || '').trim();
+      if (meter && !LY_METER.test(meter))
+        errors.meter = 'Write the meter as beats/unit, each from 1 to 99, e.g. 6/8.';
+      if (bars && (!/^\d{1,3}$/.test(bars) || Number(bars) < 1))
+        errors.bars = 'Leave blank, or a whole number from 1 to 999.';
+      if (v.pickup && !meter) errors.pickup = 'A pickup needs a meter.';
+      if (Object.keys(errors).length) return { errors };
+      const k = Number(target);
+      const s = model.sections[k];
+      if (!s) return { errors: { meter: 'This section no longer exists.' } };
+      const text = lyHeaderIn(model.text, k, (h) => {
+        h.meter = meter || null;
+        h.bars = bars ? Number(bars) : null;
+        h.pickup = v.pickup || null;
+      });
+      return {
+        text,
+        message: `${meter || 'No meter'} saved · ${bars ? uiCount(Number(bars), 'bar') : 'bars not set'}.`,
+      };
+    },
+  },
+  placement: {
+    committed(model, target) {
+      const s = model.sections[Number(target)];
+      const have = new Map(
+        lySetupOf(model, 'placement')
+          .flatMap((d) => lyParsePlacement(d.value))
+          .filter((r) => !r.bad)
+          .map((r) => [r.line, r])
+      );
+      const v = {};
+      for (const r of s?.sung || []) {
+        const p = have.get(r.n) || {};
+        v[`bar.${r.n}`] = p.bar != null ? String(p.bar) : '';
+        v[`beat.${r.n}`] = p.beat != null ? String(p.beat) : '';
+        v[`duration.${r.n}`] = p.duration != null ? String(p.duration) : '';
+      }
+      return v;
+    },
+    fp(model, target) {
+      const s = model.sections[Number(target)];
+      return s ? JSON.stringify([s.title, s.sung.map((r) => r.n)]) : 'none';
+    },
+    apply(model, target, v) {
+      const errors = {};
+      const sec = model.sections[Number(target)];
+      if (!sec) return { errors: {} };
+      const next = [];
+      const num = (x) => /^\d+(\.\d+)?$/.test(x) && Number(x) > 0;
+      for (const r of sec.sung) {
+        const bar = String(v[`bar.${r.n}`] ?? '').trim(),
+          beat = String(v[`beat.${r.n}`] ?? '').trim(),
+          duration = String(v[`duration.${r.n}`] ?? '').trim();
+        const filled = [bar, beat, duration].filter(Boolean).length;
+        if (!filled) continue;
+        if (filled < 3 || !/^\d+$/.test(bar) || Number(bar) < 1 || !num(beat) || !num(duration)) {
+          errors[`bar.${r.n}`] =
+            `Line ${r.n}: a whole bar number, a start beat and a duration in beats (all above zero), or all three blank.`;
+          continue;
+        }
+        next.push({ line: r.n, bar: Number(bar), beat: Number(beat), duration: Number(duration) });
+      }
+      if (Object.keys(errors).length) return { errors };
+      const inSection = new Set(sec.sung.map((r) => r.n));
+      const others = lySetupOf(model, 'placement')
+        .flatMap((d) => lyParsePlacement(d.value))
+        .filter((r) => !r.bad && !inSection.has(r.line));
+      const all = [...others, ...next];
+      return {
+        text: lySetSetup('placement', all.length ? [lyPlacementText(all)] : [], model.text),
+        message: next.length
+          ? `Placement declared for ${sec.title}.`
+          : `Placement cleared for ${sec.title}.`,
+      };
+    },
+  },
+  melody: {
+    committed(model) {
+      const d = lySetupOf(model, 'melody')[0];
+      const m = d ? lyParseMelody(d.value).melody : null;
+      return m
+        ? {
+            meter: `${m.meter.beats}/${m.meter.unit}`,
+            groups: m.meter.groups.join('+'),
+            bars: String(m.bars),
+            subdivision: String(m.subdivision),
+            events: m.notes
+              .map((n) => `${n.pitch_hz === null ? 'rest' : n.pitch_hz}:${n.ticks}`)
+              .join(' '),
+          }
+        : { meter: '', groups: '', bars: '', subdivision: '2', events: '' };
+    },
+    fp(model) {
+      return JSON.stringify(lySetupOf(model, 'melody').map((d) => d.value));
+    },
+    apply(model, _t, v) {
+      if (!v.meter && !v.events && !v.bars)
+        return { text: lySetSetup('melody', [], model.text), message: 'Melody removed.' };
+      const text = [
+        v.meter,
+        v.groups && `groups ${v.groups}`,
+        v.bars && `${v.bars} bars`,
+        `subdivision ${v.subdivision || 2}`,
+        v.events,
+      ]
+        .filter(Boolean)
+        .join(LY_DASH);
+      const m = lyParseMelody(text);
+      if (m.error) return { errors: { events: m.error } };
+      return {
+        text: lySetSetup('melody', [lyMelodyText(m.melody)], model.text),
+        message: 'Melody declared.',
+      };
+    },
+  },
+  rhymes: {
+    committed(model) {
+      return { relation: lySetupOf(model, 'relation')[0]?.value || '', members: [] };
+    },
+    fp(model) {
+      return JSON.stringify([
+        lySetupOf(model, 'relation').map((d) => d.value),
+        lySetupOf(model, 'rhyme groups').map((d) => d.value),
+      ]);
+    },
+    apply(model, _t, v, dirty) {
+      const errors = {};
+      let text = model.text;
+      const rel = String(v.relation || '').trim();
+      if (dirty.includes('relation') && rel && !/^(type|class|schema):\S/.test(rel))
+        errors.relation = 'Name the relation with its namespace: type:, class: or schema:.';
+      const members = Array.isArray(v.members) ? v.members : [];
+      if (dirty.includes('members')) {
+        const seen = new Set();
+        for (const m of members) {
+          const k = `${m.line}.${m.place}`;
+          if (seen.has(k)) errors.members = 'A member appears twice.';
+          seen.add(k);
+          if (!model.sung[m.line - 1]) errors.members = `Line ${m.line} is not in the draft.`;
+        }
+        if (members.length < 2) errors.members = 'A link needs at least two members.';
+      }
+      if (Object.keys(errors).length) return { errors };
+      const out = [];
+      if (dirty.includes('relation')) {
+        text = lySetSetup('relation', rel ? [rel] : [], text);
+        out.push(rel ? `Relation declared: ${rel}.` : 'Relation no longer declared.');
+      }
+      if (dirty.includes('members')) {
+        const groups = lySetupOf(lyParse(text), 'rhyme groups').flatMap((d) =>
+          lyParseGroups(d.value)
+        );
+        groups.push(members.map((m) => ({ line: m.line, place: m.place })));
+        text = lySetSetup('rhyme groups', [lyGroupsText(groups)], text);
+        out.push('Rhyme link saved.');
+      }
+      return { text, message: out.join(' ') };
+    },
+  },
+  pronunciation: {
+    committed() {
+      return { kind: '', phones: '', source: '', option: '' };
+    },
+    // Target: "line text|token|word"; it stands while that exact word does.
+    fp(model, target) {
+      const [line, token, word] = lyReadingTarget(target);
+      const ok =
+        model.sung.some((r) => r.text === line) && lyTokens(line, model.voices)[token - 1] === word;
+      return ok ? 'ok' : 'gone';
+    },
+    apply(model, target, v) {
+      const [line, token, word] = lyReadingTarget(target);
+      const errors = {};
+      const kind = v.kind;
+      if (!['dictionary', 'declared', 'uncertain', 'choice'].includes(kind))
+        errors.kind = 'Choose a reading, declare your own, or mark it uncertain.';
+      const data = { token, word, line, kind: kind === 'dictionary' ? 'declared' : kind };
+      if (kind === 'dictionary' || kind === 'declared') {
+        data.phones = String(v.phones || '')
+          .trim()
+          .toUpperCase()
+          .split(/\s+/)
+          .filter(Boolean);
+        data.basis = kind === 'dictionary' ? 'dictionary' : 'declared';
+        data.source = String(v.source || '').trim() || (kind === 'dictionary' ? 'CMUdict' : '');
+        const bad = lyValidPhones(data.phones);
+        if (bad) errors.phones = bad;
+        if (!data.source) errors.source = 'Say who chose this reading and why, or its source.';
+      }
+      if (line.includes(']'))
+        errors.kind = 'This line contains “]”, which a setup line cannot hold.';
+      if (Object.keys(errors).length) return { errors };
+      const others = lySetupOf(model, 'reading')
+        .filter((r) => !(r.line === line && r.token === token))
+        .map((r) => r.value);
+      const lines = model.sung.filter((r) => r.text === line).map((r) => r.n);
+      return {
+        text: lySetSetup('reading', [...others, lyReadingValue(data)], model.text),
+        message: `Reading for “${word}” saved for ${lyLineRef(lines)}.`,
+      };
+    },
+  },
+  'repeats-voices': {
+    committed(model) {
+      return { voices: model.voices ? 'sung' : 'unsung', placed: [] };
+    },
+    fp(model) {
+      return JSON.stringify([model.voices, lySetupOf(model, 'returns').map((d) => d.value)]);
+    },
+    apply(model, _t, v, dirty) {
+      let text = model.text;
+      const out = [];
+      if (dirty.includes('voices')) {
+        text = lySetSetup('voices', v.voices === 'sung' ? ['parentheses are sung'] : [], text);
+        out.push(
+          v.voices === 'sung'
+            ? 'Parentheses are a sung second voice.'
+            : 'Parentheses are unsung asides.'
+        );
+      }
+      if (dirty.includes('placed')) {
+        const members = v.placed || [];
+        if (members.length < 2)
+          return { errors: { placed: 'A placed return needs at least two members.' } };
+        const groups = lySetupOf(lyParse(text), 'returns').flatMap((d) => lyParseGroups(d.value));
+        groups.push(members.map((m) => ({ line: m.line, place: m.place })));
+        text = lySetSetup('returns', [lyGroupsText(groups)], text);
+        out.push('Placed return declared.');
+      }
+      return { text, message: out.join(' ') };
+    },
+  },
+  'word-rules': {
+    committed(model) {
+      return {
+        require: lySetupOf(model, 'require').map((d) => d.value),
+        avoid: lySetupOf(model, 'avoid').map((d) => d.value),
+      };
+    },
+    fp(model) {
+      return JSON.stringify([
+        lySetupOf(model, 'require').map((d) => d.value),
+        lySetupOf(model, 'avoid').map((d) => d.value),
+      ]);
+    },
+    apply(model, _t, v, dirty) {
+      let text = model.text;
+      const notes = [];
+      for (const key of ['require', 'avoid']) {
+        if (!dirty.includes(key)) continue;
+        const seen = new Set();
+        const list = [];
+        for (const raw of v[key] || []) {
+          const w = String(raw)
+            .replace(/[\]\n]/g, ' ')
+            .trim();
+          if (!w) continue;
+          const k = lyNorm(w).join(' ') || w.toLowerCase();
+          if (seen.has(k)) {
+            notes.push(`“${w}” was listed twice and is kept once.`);
+            continue;
+          }
+          seen.add(k);
+          list.push(w);
+        }
+        text = lySetSetup(key, list, text);
+      }
+      return { text, message: ['Word rules applied.', ...notes].join(' ') };
+    },
+  },
+};
+const lyReadingTarget = (t) => {
+  const [line, token, word] = JSON.parse(t);
+  return [line, Number(token), word];
+};
+const lyReadingKey = (line, token, word) => JSON.stringify([line, token, word]);
+
+// ── The current document's analysis ───────────────────────────────────────
+// Three records never derived from one another: persistence (the shell's
+// autosave), this analysis, and the latest writer attempt (LY.run / chatState).
+const LY_ANALYSIS = {
+  none: ['Not reviewed', 'warning'],
+  running: ['Reviewing this version', 'info'],
+  assessed_clear: ['Reviewed for this version', 'info'],
+  assessed_findings: ['Reviewed · issues found', 'warning'],
+  input: ['Review needs input', 'warning'],
+  stale: ['Edited since review', 'warning'],
+  failed: ['Review incomplete', 'danger'],
+};
+const lyLyricChat = () =>
+  (chatState.task?.domain || chatState.pending?.domain) === 'lyrics' || !!chatState.lyric;
+function lyAnalysis(model = LY.model) {
+  const now = lyIdentity(model);
+  const a = LY.analysis;
+  const out = (state, more = {}) => ({
+    state,
+    label: LY_ANALYSIS[state][0],
+    tone: LY_ANALYSIS[state][1],
+    ...more,
+  });
+  if (chatState.busy && lyLyricChat() && a && a.requestId === chatState.pending?.request_id)
+    return out('running', { earlier: now !== a.baseId });
+  const run = LY.run;
+  if (!run || (run.baseId == null && run.resultId == null)) return out('none', { legacy: !!run });
+  if (now !== run.resultId && now !== run.baseId) return out('stale');
+  const lyric = run.lyric || {};
+  if (
+    run.error ||
+    (run.stopped && !run.recoveryExport) ||
+    run.artifact?.status === 'interrupted' ||
+    lyric.uncertain_proposal
+  )
+    return out('failed');
+  const refused = (run.coverage?.obligations || []).some((o) => o.status === 'refused');
+  if (refused || (lyRunLive(run) && lyLiveWaiting())) return out('input');
+  const findings = lyRunChecks(model).filter((i) => i.tone === 'issue' && !i.stale).length;
+  if (findings) return out('assessed_findings');
+  // Only the server's artifact and completion, both certifying this exact
+  // version, add Certified; anything short of a complete inventory is not clear.
+  const certified = !!lyRunOutcome(run)?.certified && now === run.resultId;
+  if (certified) return out('assessed_clear', { certified });
+  if (!run.coverage) return out('failed');
+  return out('assessed_clear', { certified: false });
+}
+// Which layer an obligation belongs to, for the coverage rows.
+function lyLayerOf(o) {
+  const id = String(o.layer || o.id || '').toLowerCase();
+  if (/pronunc|reading/.test(id)) return 'Pronunciation';
+  if (/meter|rhythm|bar|placement|melody|stress|beat|syllab/.test(id)) return 'Rhythm';
+  if (/pair|rhyme|group|relation|assonance|consonance/.test(id)) return 'Rhymes';
+  return 'Form';
 }
 
+// ── Mount ─────────────────────────────────────────────────────────────────
 function lyMountMarkup() {
   const sectionItems =
     LY_SECTION_NAMES.map((name) => lyMenuItem('ly-add-section', name, 'plus', name)).join('') +
     '<div class="cm-menu-sep"></div>' +
-    lyMenuItem('ly-add-section', 'Other name…', 'pencil', '');
-  return `<div class="ly-page">
-<header class="ly-head">
-  <div class="ly-head-title"><span class="ly-doc-icon">${icon('file-text', 22)}</span><div class="ly-head-text"><h2 id="ly-title">Untitled song</h2><p id="ly-meta" class="ly-meta"></p></div></div>
-  <div class="ly-head-actions">
-    ${lyBtn('ly-pane', 'History & recovery', 'refresh-cw', { id: 'history', cls: 'cm-btn cm-btn-outline ly-history-btn' })}
-    ${lyMenu('export', 'Export', 'download', lyMenuItem('copy-lyrics', 'Copy with headers', 'copy') + lyMenuItem('ly-copy-sung', 'Copy sung lines only', 'clipboard') + lyMenuItem('ly-download', 'Download as text', 'download'), { cls: 'cm-btn cm-btn-outline', align: 'end' })}
-    ${lyMenu('ai', 'Write with AI', 'sparkles', lyMenuItem('new-lyrics', 'New song', 'file-plus') + lyMenuItem('edit-lyrics', 'Edit this draft', 'edit-3') + lyMenuItem('attach-recipe', 'Use current recipe', 'layers') + '<div class="cm-menu-sep"></div>' + lyMenuItem('ly-pane', 'Open the writer', 'message-circle', 'writer'), { cls: 'cm-btn cm-btn-outline', align: 'end' })}
-    ${lyBtn('ly-review', 'Review draft', 'check', { cls: 'cm-btn cm-btn-primary' })}
+    lyMenuItem('ly-add-section', 'Custom…', 'pencil', '');
+  const tabs = LY_TABS.map(
+    ([id, label, ic]) =>
+      `<button type="button" class="ly-itab" role="tab" id="ly-tab-${id}" data-ui="ly-tab" data-id="${id}" aria-controls="ly-panel-${id}" aria-selected="false" tabindex="-1">${icon(ic, 20)}<span>${label}</span></button>`
+  ).join('');
+  const panels = LY_TABS.map(
+    ([id]) =>
+      `<div class="ly-ipanel" id="ly-panel-${id}" role="tabpanel" aria-labelledby="ly-tab-${id}" tabindex="0" hidden>${
+        id === 'writer'
+          ? '<div id="ly-writer-status"></div><section class="ly-convo" aria-labelledby="ly-convo-h"><h3 class="ly-h3" id="ly-convo-h">Conversation</h3><div id="lyrics-chat"></div></section>'
+          : ''
+      }</div>`
+  ).join('');
+  const mobileTabs = [
+    ['song', 'Song', 'file-text'],
+    ['tools', 'Tools', 'wrench'],
+    ['writer', 'Writer', 'user'],
+    ['review', 'Review', 'file-check'],
+  ]
+    .map(
+      ([id, label, ic]) =>
+        `<button type="button" class="ly-mtab" role="tab" id="ly-mtab-${id}" data-ui="ly-mobile" data-id="${id}" aria-controls="ly-body" aria-selected="false" tabindex="-1">${icon(ic, 20)}<span>${label}</span></button>`
+    )
+    .join('');
+  return `<div class="ly-page" id="ly-page">
+<header class="ly-head" id="ly-head">
+  <div class="ly-head-main">
+    <div class="ly-title-wrap" id="ly-title-wrap"></div>
+    <p class="ly-workspace" id="ly-workspace"></p>
   </div>
+  <div class="ly-head-actions">
+    <span id="ly-badge" class="ly-badge-wrap" role="status" aria-live="polite"></span>
+    ${lyBtn('ly-run-review', 'Run review', 'play', { cls: 'cm-btn cm-btn-primary ly-run' })}
+    ${lyMenu('ai', 'Write with AI', 'pencil', lyMenuItem('new-lyrics', 'New song', 'file-plus') + lyMenuItem('edit-lyrics', 'Edit this draft', 'pencil') + lyMenuItem('attach-recipe', 'Use current recipe', 'layers'), { cls: 'cm-btn cm-btn-outline', align: 'end' })}
+    ${lyMenu('export', 'Export', 'upload', lyMenuItem('copy-lyrics', 'Copy with headers', 'copy') + lyMenuItem('ly-copy-sung', 'Copy sung lines', 'clipboard') + lyMenuItem('ly-download', 'Download text', 'download') + lyMenuItem('ly-export-session', 'Export session', 'upload'), { cls: 'cm-btn cm-btn-outline', align: 'end' })}
+  </div>
+  <div class="ly-head-note" id="ly-gate" hidden></div>
 </header>
 <div class="ly-body" id="ly-body">
-  <aside class="ly-song" id="ly-song" aria-label="Song outline and setup">
-    <div class="ly-song-scroll">
-      <section class="ly-card" aria-labelledby="ly-song-h">
-        <div class="ly-card-head"><h3 id="ly-song-h">Song</h3>${lyBtn('ly-collapse', 'Collapse song outline', 'chevron-down', { id: 'song', cls: 'cm-btn cm-btn-icon ly-collapse', hideLabel: true, extra: 'aria-expanded="true"' })}</div>
-        <div class="ly-collapsible" id="ly-song-part">
-          <div class="ly-tabs" role="tablist" aria-label="Song">${lyBtn('ly-song-tab', 'Sections', '', { id: 'sections', cls: 'cm-tab', extra: 'role="tab"' })}${lyBtn('ly-song-tab', 'Plan', '', { id: 'plan', cls: 'cm-tab', extra: 'role="tab"' })}</div>
-          <div id="ly-song-body" role="tabpanel"></div>
-        </div>
-      </section>
-      <section class="ly-card" aria-labelledby="ly-setup-h">
-        <div class="ly-card-head"><h3 id="ly-setup-h">Song setup</h3>${lyBtn('ly-collapse', 'Collapse song setup', 'chevron-down', { id: 'setup', cls: 'cm-btn cm-btn-icon ly-collapse', hideLabel: true, extra: 'aria-expanded="true"' })}</div>
-        <div class="ly-collapsible" id="ly-setup-part"><div id="ly-setup-list"></div></div>
-      </section>
+  <aside class="ly-outline" id="ly-outline" aria-labelledby="ly-outline-h">
+    <button type="button" class="ly-rail-btn" data-ui="ly-outline-toggle" aria-expanded="false" aria-controls="ly-outline-panel" aria-label="Sections" title="Sections">${icon('list', 20)}<span>Sections</span></button>
+    <div class="ly-outline-panel" id="ly-outline-panel">
+      <div class="ly-pane-head"><h2 class="ly-h2" id="ly-outline-h">Sections</h2>${lyBtn('ly-outline-toggle', 'Collapse sections', 'chevrons-left', { cls: 'cm-btn cm-btn-icon ly-outline-close', hideLabel: true, extra: 'aria-expanded="true" aria-controls="ly-outline-panel"' })}</div>
+      <ol class="ly-sections" id="ly-sections"></ol>
+      <p class="ly-totals" id="ly-totals"></p>
+      <div class="ly-outline-foot">
+        ${lyMenu('add', 'Add section', 'plus', sectionItems, { cls: 'cm-btn cm-btn-outline ly-add', chevron: false })}
+        <div class="ly-foot-row">${lyBtn('ly-blank', 'New', 'file', { cls: 'cm-btn cm-btn-outline' })}${lyBtn('ly-import', 'Import', 'upload', { cls: 'cm-btn cm-btn-outline' })}</div>
+      </div>
     </div>
-    <div class="ly-song-foot">${lyMenu('start', 'New song or import…', 'file-plus', lyMenuItem('new-lyrics', 'New song with the writer', 'sparkles') + lyMenuItem('ly-import', 'Import a text file', 'upload') + lyMenuItem('ly-blank', 'Start a blank draft', 'file'), { cls: 'cm-btn ly-start' })}</div>
   </aside>
-  <main class="ly-doc-col" id="ly-doc-col">
-    <div class="ly-toolbar" role="toolbar" aria-label="Document">
-      <div class="cm-segmented ly-mode" role="group" aria-label="Mode">${lyBtn('ly-view', 'Read', 'eye', { id: 'read', cls: '' })}${lyBtn('ly-view', 'Edit', 'pencil', { id: 'edit', cls: '' })}</div>
-      ${lyMenu('section', 'Section', 'plus', sectionItems)}
-      ${lyBtn('ly-find-open', 'Find', 'search', { extra: 'aria-controls="ly-find"' })}
-      ${lyMenu('display', 'Display', 'sliders-horizontal', '<div class="cm-menu-label">Text size</div>' + ['Normal', 'Large', 'Larger'].map((l, k) => lyMenuItem('ly-text-size', l, '', String(k), 'aria-pressed="false"')).join('') + '<div class="cm-menu-sep"></div>' + lyMenuItem('ly-numbers', 'Line numbers', '', '', 'aria-pressed="true"') + lyMenuItem('ly-setup-rows', 'Setup and stamps in Read', '', '', 'aria-pressed="true"'), { align: 'end' })}
-    </div>
-    <div class="ly-find" id="ly-find" hidden role="search"><input id="ly-find-input" class="cm-input" type="search" placeholder="Find in lyrics" aria-label="Find in lyrics" autocomplete="off"><span id="ly-find-count" class="ly-find-count" role="status" aria-live="polite"></span>${lyBtn('ly-find-step', 'Previous match', 'arrow-up', { id: '-1', cls: 'cm-btn cm-btn-icon', hideLabel: true })}${lyBtn('ly-find-step', 'Next match', 'arrow-down', { id: '1', cls: 'cm-btn cm-btn-icon', hideLabel: true })}${lyBtn('ly-find-close', 'Close find', 'x', { cls: 'cm-btn cm-btn-icon', hideLabel: true })}</div>
-    <div class="ly-doc-scroll" id="ly-doc-scroll">
-      <div class="ly-doc" id="ly-doc"></div>
-      <div class="lyrics-editor" id="lyrics-editor" hidden><label for="lyrics-draft" class="ly-sr">Lyrics draft</label><textarea id="lyrics-draft" placeholder="Write here. A line in [brackets] starts a section, e.g. [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4]." spellcheck="true"></textarea></div>
-    </div>
-    <div class="ly-status" id="ly-status"></div>
-    <div class="ly-tools" id="ly-tools">
-      <div class="ly-tools-bar" role="toolbar" aria-label="Writing tools">
-        ${lyBtn('ly-tools-toggle', 'Writing tools', 'list', { cls: 'cm-btn ly-tools-main', extra: 'aria-expanded="false" aria-controls="ly-tools-drawer"' })}
-        <span class="ly-tools-sep" aria-hidden="true"></span>
-        ${lyBtn('ly-tool', 'Rhyme links', 'link', { id: 'rhymes', cls: 'cm-btn ly-tool-short', extra: 'title="Rhyme links"' })}
-        ${lyBtn('ly-tool', 'Rhythm & placement', 'music', { id: 'rhythm', cls: 'cm-btn ly-tool-short', extra: 'title="Rhythm &amp; placement"' })}
-        ${lyBtn('ly-tool', 'Pronunciation', 'volume-2', { id: 'pronunciation', cls: 'cm-btn ly-tool-short', extra: 'title="Pronunciation"' })}
-        ${lyBtn('ly-tool', 'Returns & voices', 'repeat', { id: 'returns', cls: 'cm-btn ly-tool-short', extra: 'title="Returns &amp; voices"' })}
-        ${lyBtn('ly-tools-toggle', 'Show or hide writing tools', 'chevron-down', { cls: 'cm-btn cm-btn-icon ly-tools-chevron', hideLabel: true, extra: 'aria-expanded="false" aria-controls="ly-tools-drawer"' })}
+  <main class="ly-main" id="ly-main" aria-label="Song">
+    <div class="ly-brief" id="ly-brief"></div>
+    <div class="ly-main-scroll" id="ly-main-scroll">
+      <div class="ly-section-nav" id="ly-section-nav"></div>
+      <div class="ly-toolbar" role="toolbar" aria-label="Document" id="ly-toolbar">
+        ${lyBtn('ly-find-open', 'Find', 'search', { cls: 'cm-btn cm-btn-outline', extra: 'aria-controls="ly-find" aria-expanded="false"' })}
+        ${lyBtn('ly-undo', 'Undo', 'undo-2', { cls: 'cm-btn cm-btn-outline' })}
+        ${lyBtn('ly-redo', 'Redo', 'redo-2', { cls: 'cm-btn cm-btn-outline' })}
+        ${lyMenu('display', 'Display', 'monitor', '<div class="cm-menu-label">Text size</div>' + ['Normal', 'Large', 'Larger'].map((l, k) => lyMenuItem('ly-text-size', l, '', String(k), 'aria-pressed="false"')).join('') + '<div class="cm-menu-sep"></div>' + lyMenuItem('ly-numbers', 'Line numbers', '', '', 'aria-pressed="true"'), { cls: 'cm-btn cm-btn-outline' })}
       </div>
-      <div class="ly-tools-drawer" id="ly-tools-drawer" hidden>
-        <div class="ly-tabs ly-tool-tabs" role="tablist" aria-label="Writing tools">${LY_TOOLS.map(([id, label, ic]) => lyBtn('ly-tool', label, ic, { id, cls: 'cm-tab', extra: 'role="tab"' })).join('')}</div>
-        <div class="ly-tool-body" id="ly-tool-body" role="tabpanel"></div>
+      <div class="ly-find" id="ly-find" hidden role="search"><input id="ly-find-input" class="cm-input" type="search" placeholder="Find in lyrics" aria-label="Find in lyrics" autocomplete="off"><span id="ly-find-count" class="ly-find-count" role="status" aria-live="polite"></span>${lyBtn('ly-find-step', 'Previous match', 'arrow-up', { id: '-1', cls: 'cm-btn cm-btn-icon', hideLabel: true })}${lyBtn('ly-find-step', 'Next match', 'arrow-down', { id: '1', cls: 'cm-btn cm-btn-icon', hideLabel: true })}${lyBtn('ly-find-close', 'Close find', 'x', { cls: 'cm-btn cm-btn-icon', hideLabel: true })}</div>
+      <div class="ly-doc-note" id="ly-doc-note" hidden></div>
+      <div class="ly-tool-main" id="ly-tool-main" hidden></div>
+      <div class="ly-doc-wrap" id="ly-doc-wrap">
+        <div class="ly-empty-doc" id="ly-empty-doc" hidden></div>
+        <div class="ly-editor" id="ly-editor">
+          <div class="ly-overlay" id="ly-overlay" aria-hidden="true"></div>
+          <label for="lyrics-draft" class="ly-sr">Lyrics document. A line in [brackets] starts a section.</label>
+          <textarea id="lyrics-draft" class="ly-input" spellcheck="true" autocapitalize="sentences" placeholder="Write here. A line in [brackets] starts a section, e.g. [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4]."></textarea>
+          <div class="ly-linebar" id="ly-linebar" role="toolbar" hidden></div>
+        </div>
       </div>
     </div>
+    <div class="ly-linedock" id="ly-linedock" role="toolbar" hidden></div>
   </main>
-  <aside class="ly-side" id="ly-side" aria-label="Review, history and writer">
-    <div class="ly-side-head">
-      <div class="ly-side-tabs" role="tablist" aria-label="Panel">${lyBtn('ly-pane', 'Review', 'circle-alert', { id: 'review', cls: 'cm-tab', extra: 'role="tab"' })}${lyBtn('ly-pane', 'History', 'refresh-cw', { id: 'history', cls: 'cm-tab', extra: 'role="tab"' })}${lyBtn('ly-pane', 'Writer', 'message-circle', { id: 'writer', cls: 'cm-tab', extra: 'role="tab"' })}</div>
-      ${lyBtn('ly-pane', 'Close panel', 'x', { id: '', cls: 'cm-btn cm-btn-icon', hideLabel: true })}
-    </div>
-    <div class="ly-side-view" id="ly-review" role="tabpanel" aria-label="Review"></div>
-    <div class="ly-side-view" id="ly-history" role="tabpanel" aria-label="History and recovery" hidden></div>
-    <div class="ly-side-view ly-writer" id="ly-writer" role="tabpanel" aria-label="Writer" hidden>
-      <div class="ly-writer-actions">${lyBtn('new-lyrics', 'New song', 'file-plus', { cls: 'cm-btn cm-btn-tonal' })}${lyBtn('edit-lyrics', 'Edit this draft', 'edit-3', { cls: 'cm-btn cm-btn-outline' })}${lyBtn('attach-recipe', 'Use current recipe', 'layers', { cls: 'cm-btn cm-btn-outline' })}</div>
-      <p class="ly-note">The writer is a separate AI conversation on the Codex Musica service. Nothing is sent until you press Ask, and lyric work never changes your recipe.</p>
-      <div id="lyrics-chat"></div>
-    </div>
+  <aside class="ly-inspector" id="ly-inspector" aria-label="Tools, writer, review and history">
+    <div class="ly-itabs" role="tablist" aria-label="Inspector">${tabs}</div>
+    ${panels}
   </aside>
 </div>
+<nav class="ly-mnav" id="ly-mnav" aria-label="Lyrics views"><div role="tablist" aria-label="Lyrics views">${mobileTabs}</div></nav>
+<div class="ly-sheet-scrim" id="ly-scrim" hidden data-ui="ly-outline-toggle"></div>
 <input type="file" id="ly-file" accept=".txt,.md,text/plain" hidden>
 </div>`;
 }
 
-// ── Header, outline and setup ─────────────────────────────────────────────
+// ── Header and song brief ─────────────────────────────────────────────────
 function lyRenderHead() {
   const model = LY.model;
   const title = lyTitleOf(model);
-  $ui('ly-title').textContent = title || 'Untitled song';
-  const status = lyRunStatus(LY.run);
-  const bits = [
-    `Session: ${app.workspaceName || 'Untitled session'}`,
-    uiCount(model.sung.length, 'line'),
-  ];
-  $ui('ly-meta').innerHTML =
-    bits.map(esc).join(' · ') +
-    (chatState.busy && chatState.task?.domain === 'lyrics'
-      ? ' ' + lyStatus('info', 'Writer running', 'loader')
-      : status
-        ? ' ' + lyStatus(status.tone, status.word)
-        : '');
-}
-function lySectionMeta(s) {
-  const parts = [uiCount(s.sung.length, 'line')];
-  if (s.header?.bars != null) parts.push(uiCount(s.header.bars, 'bar'));
-  if (s.header?.meter) parts.push(s.header.meter);
-  if (s.returnOf) parts.push(`Same as ${s.returnOf.title}`);
-  else if (s.uses > 1) parts.push(`Used ${s.uses} times`);
-  return parts.join(' · ');
-}
-function lyRenderSong(items) {
-  const model = LY.model;
-  document
-    .querySelectorAll('[data-ui="ly-song-tab"]')
-    .forEach((b) => b.setAttribute('aria-selected', String(b.dataset.id === LY.songTab)));
-  const body = $ui('ly-song-body');
-  if (LY.songTab === 'plan') body.innerHTML = lyPlanHtml();
-  else {
-    const active = lySectionOfLine(model, LY.activeLine);
-    const flagged = new Map();
-    for (const it of items)
-      for (const n of it.lines || []) {
-        const s = lySectionOfLine(model, n);
-        if (s && (!flagged.has(s.index) || it.tone === 'issue')) flagged.set(s.index, it.tone);
-      }
-    const rows = model.sections
-      .map((s) => {
-        const tone = flagged.get(s.index);
-        const menu = lyMenu(
-          `sec-${s.index}`,
-          `${s.title} actions`,
-          'ellipsis',
-          lyMenuItem(
-            'ly-sec-move',
-            'Move up',
-            'arrow-up',
-            `${s.index}:-1`,
-            s.index === 0 ? 'disabled' : ''
-          ) +
-            lyMenuItem(
-              'ly-sec-move',
-              'Move down',
-              'arrow-down',
-              `${s.index}:1`,
-              s.index === model.sections.length - 1 ? 'disabled' : ''
-            ) +
-            lyMenuItem('ly-sec-dup', 'Duplicate', 'copy', s.index) +
-            lyMenuItem('ly-sec-rhythm', 'Rhythm…', 'music', s.index) +
-            '<div class="cm-menu-sep"></div>' +
-            lyMenuItem('ly-sec-remove', 'Remove', 'trash-2', s.index),
-          { cls: 'cm-btn cm-btn-icon', align: 'end', hideLabel: true }
-        );
-        return `<li class="ly-sec-row${active === s ? ' is-active' : ''}"><button type="button" class="ly-sec-main" data-ui="ly-goto" data-id="${s.index}"${active === s ? ' aria-current="true"' : ''}><span class="ly-sec-num">${s.index + 1}</span><span class="ly-sec-text"><strong>${esc(s.title)}</strong><small>${esc(lySectionMeta(s))}</small></span>${s.returnOf ? `<span class="ly-sec-link" title="Exact return of ${esc(s.returnOf.title)}">${icon('repeat', 16)}</span>` : ''}${tone ? `<span class="ly-dot" data-tone="${tone}" title="${esc(LY_TONES[tone].one)}"><span class="ly-sr">${esc(LY_TONES[tone].one)}</span></span>` : ''}</button>${menu}</li>`;
-      })
-      .join('');
-    const bars = model.sections.filter((s) => s.sung.length);
-    const allBars = bars.length && bars.every((s) => s.header?.bars != null);
-    body.innerHTML =
-      (model.sections.length
-        ? `<ol class="ly-outline">${rows}</ol>`
-        : `<p class="ly-note ly-pad">No sections yet. A line in [brackets] starts one; without brackets, blank lines separate stanzas.</p>`) +
-      lyMenu(
-        'add',
-        'Add section',
-        'plus',
-        LY_SECTION_NAMES.map((name) => lyMenuItem('ly-add-section', name, 'plus', name)).join('') +
-          '<div class="cm-menu-sep"></div>' +
-          lyMenuItem('ly-add-section', 'Other name…', 'pencil', ''),
-        { cls: 'cm-btn ly-add' }
-      ) +
-      `<p class="ly-totals">${esc(uiCount(model.sung.length, 'line'))} · ${
-        allBars
-          ? esc(
-              uiCount(
-                bars.reduce((t, s) => t + s.header.bars, 0),
-                'bar'
-              )
-            )
-          : 'bars not declared'
-      }</p>`;
+  const wrap = $ui('ly-title-wrap');
+  if (LY.titleEdit) {
+    if (!wrap.querySelector('input'))
+      wrap.innerHTML = `<label class="ly-sr" for="ly-title-input">Song title</label><input id="ly-title-input" class="cm-input ly-title-input" maxlength="160" value="${esc(title)}" placeholder="Untitled song" autocomplete="off">`;
+  } else
+    wrap.innerHTML = `<h2 class="ly-title"><button type="button" class="ly-title-btn" data-ui="ly-title-edit" aria-label="Song title: ${esc(title || 'Untitled song')}. Edit title"><span>${esc(title || 'Untitled song')}</span>${icon('pencil', 18)}</button></h2>`;
+  const ws =
+    app.workspaceName && app.workspaceName !== 'Untitled session'
+      ? app.workspaceName
+      : 'Untitled workspace';
+  $ui('ly-workspace').textContent = `Workspace: ${ws}`;
+  const a = lyAnalysis(model);
+  LY.state = a;
+  $ui('ly-badge').innerHTML =
+    lyPill(a.tone, a.label) + (a.certified ? lyPill('success', 'Certified for this version') : '');
+  const busy = chatState.busy;
+  const run = document.querySelector('[data-ui="ly-run-review"]');
+  if (run) {
+    run.disabled = busy || !model.sung.length;
+    run.title = busy
+      ? 'Writer is working. You can keep editing.'
+      : model.sung.length
+        ? ''
+        : 'Write some lines first';
   }
-  // Song setup summaries: declared values only.
-  const setup = [
-    [
-      'structure',
-      'Structure & story',
-      'file-text',
-      model.sections.length
-        ? `${[...new Set(model.sections.map((s) => s.base))].join(' – ')} · ${uiCount(model.sections.length, 'section')}`
-        : 'No sections yet',
-      'violet',
-    ],
-    [
-      'rhythm',
-      'Rhythm & timing',
-      'music',
-      (() => {
-        const m = [...new Set(model.sections.map((s) => s.header?.meter).filter(Boolean))];
-        return m.length ? `${m.join(', ')} declared` : 'Not declared';
-      })(),
-      'amber',
-    ],
-    [
-      'rhymes',
-      'Rhymes & word rules',
-      'link',
-      (() => {
-        const bits = [];
-        const rel = lySetupOf(model, 'relation')[0];
-        if (rel) bits.push(rel.value);
-        const g = lySetupOf(model, 'rhyme groups').flatMap((d) => lyParseGroups(d.value));
-        if (g.length) bits.push(uiCount(g.length, 'link'));
-        if (lySetupOf(model, 'title').length) bits.push('title');
-        if (lySetupOf(model, 'hook').length) bits.push('hook');
-        const w = lySetupOf(model, 'require').length + lySetupOf(model, 'avoid').length;
-        if (w) bits.push(uiCount(w, 'word rule'));
-        return bits.join(' · ') || 'Nothing declared';
-      })(),
-      'pink',
-    ],
-    [
-      'pronunciation',
-      'Language & readings',
-      'globe',
-      (() => {
-        const r = lySetupOf(model, 'reading');
-        const need = r.filter((x) => x.state !== 'declared').length;
-        return r.length
-          ? `${uiCount(r.length - need, 'reading')} chosen${need ? ` · ${need} open` : ''}`
-          : 'No readings declared';
-      })(),
-      'blue',
-    ],
-  ];
-  $ui('ly-setup-list').innerHTML = setup
-    .map(
-      ([id, label, ic, sum, hue]) =>
-        `<button type="button" class="ly-setup-row" data-ui="ly-tool" data-id="${id}"><span class="ly-setup-icon" data-hue="${hue}">${icon(ic, 18)}</span><span class="ly-setup-text"><strong>${esc(label)}</strong><small>${esc(sum)}</small></span>${icon('chevron-right', 16)}</button>`
-    )
-    .join('');
-}
-function lyPlanHtml() {
-  const live = lyRunLive(LY.run);
-  const task = chatState.task?.domain === 'lyrics' ? chatState.task : live ? LY.run.task : null;
-  const lyric = chatState.lyric || (live ? LY.run.lyric : null);
-  const w = task?.domain === 'lyrics' ? task.workflow : null;
-  const decl = lyric?.decl && typeof lyric.decl === 'object' ? lyric.decl : null;
-  if (!w && !decl)
-    return `<div class="ly-pad">${uiEmptyState({ title: 'No writer plan yet', text: 'Plans come from the writer: it sweeps seeds, screens rhyme pairs and then draws a plan.', actions: lyBtn('new-lyrics', 'New song with the writer', 'sparkles', { cls: '' }) })}</div>`;
-  const steps = w
-    ? [
-        ['Sweep', w.sweeps?.length ? `${uiCount(w.sweeps.length, 'sweep')}` : ''],
-        ['Screen', w.screen ? 'done' : ''],
-        ['Plan', w.plan ? 'done' : ''],
-        ['Grade', w.grade ? 'done' : ''],
-        ['Revise', task.artifact ? task.artifact.status || 'run' : ''],
-      ]
-    : [];
-  const fields = decl
-    ? Object.entries(decl)
-        .filter(([, v]) => v !== null && v !== undefined && v !== '')
-        .slice(0, 24)
-        .map(
-          ([k, v]) =>
-            `<dt>${esc(k.replace(/_/g, ' '))}</dt><dd>${esc((typeof v === 'string' ? v : JSON.stringify(v)).slice(0, 400))}</dd>`
-        )
-        .join('')
-    : '';
-  return `<div class="ly-pad"><p class="ly-note">Planning information from the writer’s current conversation. It records what was planned and declared; it does not certify the story or the song.</p>${
-    steps.length
-      ? `<ol class="ly-steps">${steps.map(([name, st]) => `<li data-done="${st ? 'true' : 'false'}">${icon(st ? 'circle-check' : 'circle', 16)}<span>${name}</span><small>${esc(st || 'not yet')}</small></li>`).join('')}</ol>`
-      : ''
-  }${fields ? `<h4 class="ly-h4">Declared for the run</h4><dl class="ly-dl">${fields}</dl>` : ''}</div>`;
-}
-
-// ── The document ──────────────────────────────────────────────────────────
-function lyLineHtml(row, model, marks, focus) {
-  const spans = lyWordSpans(row.text, model.voices)
-    .map((p) => {
-      if (p.gap !== undefined) return esc(p.gap);
-      const cls = [
-        p.aside ? 'ly-aside' : '',
-        LY.find.q && p.word.toLowerCase().includes(LY.find.q.toLowerCase()) ? 'ly-hit' : '',
-      ]
-        .filter(Boolean)
-        .join(' ');
-      return `<span${cls ? ` class="${cls}"` : ''}${p.aside ? ' title="Unsung aside (parentheses are not sung unless voices are declared)"' : ''}>${esc(p.word)}</span>`;
-    })
-    .join('');
-  const tone = marks.get(row.n);
-  const active = LY.activeLine === row.n;
-  let html = `<li class="ly-line${active ? ' is-active' : ''}${focus.has(row.n) ? ' is-focus' : ''}"${tone ? ` data-tone="${tone}"` : ''} data-n="${row.n}"><button type="button" class="ly-line-btn" data-ui="ly-line" data-id="${row.n}" aria-pressed="${active}"><span class="ly-num" aria-hidden="true">${row.n}</span><span class="ly-sr">Line ${row.n}${tone ? `, ${LY_TONES[tone].one}` : ''}: </span><span class="ly-text">${spans}</span>${tone ? `<span class="ly-mark" data-tone="${tone}">${icon(LY_TONES[tone].icon, 16)}</span>` : ''}</button></li>`;
-  if (active) {
-    const repeated = model.repeats.find((r) => r.text === row.text);
-    html += `<li class="ly-line-tools" role="toolbar" aria-label="Line ${row.n} tools">${lyBtn('ly-line-tool', 'Rhyme link', 'link', { id: `rhymes:${row.n}` })}${lyBtn('ly-line-tool', 'Rhythm', 'music', { id: `rhythm:${row.n}` })}${lyBtn('ly-line-tool', 'Pronunciation', 'volume-2', { id: `pronunciation:${row.n}` })}${repeated ? lyBtn('ly-line-tool', `Used ${repeated.lines.length} times`, 'repeat', { id: `returns:${row.n}` }) : ''}${lyBtn('ly-line-tool', 'Edit line', 'pencil', { id: `edit:${row.n}` })}</li>`;
+  const gate = $ui('ly-gate');
+  if (LY.gate && lyPendingAll()) {
+    gate.hidden = false;
+    gate.innerHTML = `<div class="ly-inline" data-tone="warning" role="alert">${icon('triangle-alert', 18)}<span><strong>Apply pending changes before review</strong> ${esc(uiCount(lyPendingAll(), 'pending change'))} are not in the document. Review saved version sends only what is committed.</span><div class="ly-actions">${lyBtn('ly-gate-apply', 'Apply all', 'check', { cls: 'cm-btn cm-btn-tonal' })}${lyBtn('ly-gate-saved', 'Review saved version', 'play', { cls: 'cm-btn cm-btn-outline' })}${lyBtn('ly-gate-close', 'Cancel', '', { cls: 'cm-btn' })}</div></div>`;
+  } else {
+    LY.gate = null;
+    gate.hidden = true;
+    gate.innerHTML = '';
   }
-  return html;
 }
-function lyRenderDoc(items, current) {
+function lyRenderBrief() {
+  const box = $ui('ly-brief');
+  const meta = lyMeta();
   const model = LY.model;
-  const doc = $ui('ly-doc');
-  const editing = LY.view === 'edit';
-  doc.hidden = editing;
-  $ui('lyrics-editor').hidden = !editing;
-  document
-    .querySelectorAll('[data-ui="ly-view"]')
-    .forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.id === LY.view)));
-  if (editing) return;
-  if (!model.text.trim()) {
-    doc.innerHTML = uiEmptyState({
-      title: 'No lyrics yet',
-      text: 'Write the draft yourself in Edit, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.',
-      actions:
-        lyBtn('ly-view', 'Start writing', 'pencil', { id: 'edit', cls: '' }) +
-        lyBtn('new-lyrics', 'New song with the writer', 'sparkles', { cls: '' }) +
-        lyBtn('ly-import', 'Import a text file', 'upload', { cls: '' }),
-    });
+  const hook = lyHookOf(model);
+  if (LY.briefEdit) {
+    if (box.querySelector('form')) return;
+    const hookN = model.sung.find((r) => r.text === hook)?.n || 0;
+    box.innerHTML = `<form class="ly-brief-form" id="ly-brief-form" aria-labelledby="ly-brief-h"><h3 class="ly-h3" id="ly-brief-h">Song brief</h3><label class="ly-label" for="ly-brief-text">Creative brief</label><textarea id="ly-brief-text" class="cm-input ly-brief-text" maxlength="4000" rows="3" aria-describedby="ly-brief-help">${esc(meta.brief)}</textarea><p class="ly-help" id="ly-brief-help">Creative context for the writer: what the song is for. It is not graded.</p><label class="ly-label" for="ly-hook-in">Exact hook line</label><select id="ly-hook-in" class="cm-select"><option value="">Hook not declared</option>${lyLineOptions(model, hookN, { distinct: true })}</select><div class="ly-actions">${lyBtn('ly-brief-save', 'Save brief', 'check', { cls: 'cm-btn cm-btn-primary' })}${lyBtn('ly-brief-cancel', 'Cancel', '', { cls: 'cm-btn cm-btn-outline' })}</div></form>`;
     return;
   }
-  const marks = new Map();
-  for (const it of items)
-    for (const n of it.lines || []) if (!marks.has(n) || it.tone === 'issue') marks.set(n, it.tone);
-  const focus = new Set(current?.lines || []);
-  const prefs = LY.prefs;
-  let html = '';
-  if (prefs.setupRows.get() && model.setup.length)
-    html += `<div class="ly-setup-block"><div class="ly-block-label">${icon('settings', 14)}<span>Declared for the writer</span>${lyBtn('ly-tool', 'Edit', '', { id: 'rhymes', cls: 'ly-link-btn' })}</div><ul>${model.setup.map((d) => `<li>${esc(d.raw.slice(1, -1).replace(/^SETUP\s+—\s+/i, ''))}</li>`).join('')}</ul></div>`;
-  for (const s of model.sections) {
-    const meta = [uiCount(s.sung.length, 'line')];
-    if (s.header?.bars != null || s.header?.meter)
-      meta.push(
-        `${s.header.bars != null ? uiCount(s.header.bars, 'bar') : ''}${s.header.meter ? `${s.header.bars != null ? ' of ' : ''}${s.header.meter}` : ''}${s.header.pickup ? `, ${s.header.pickup}` : ''}`
-      );
-    const ret = s.returnOf
-      ? lyBtn('ly-goto', `Same as ${s.returnOf.title}`, 'repeat', {
-          id: s.returnOf.index,
-          cls: 'ly-chip-link',
-        })
-      : s.uses > 1
-        ? lyBtn('ly-tool', `Used ${s.uses} times`, 'repeat', { id: 'returns', cls: 'ly-chip-link' })
-        : '';
-    const count =
-      s.header?.lines != null && s.header.lines !== s.sung.length
-        ? lyStatus('danger', `declares ${s.header.lines}`)
-        : '';
-    html += `<section class="ly-sec" id="ly-sec-${s.index}" aria-labelledby="ly-sec-h-${s.index}"><header class="ly-sec-head"><h3 id="ly-sec-h-${s.index}">${esc(s.title)}</h3>${ret}<span class="ly-sec-meta">${esc(meta.join(' · '))}</span>${count}</header>`;
-    html += s.sung.length
-      ? `<ol class="ly-lines${prefs.numbers.get() ? '' : ' no-numbers'}">${s.sung.map((r) => lyLineHtml(r, model, marks, focus)).join('')}</ol>`
-      : `<p class="ly-note">No lines yet. ${lyBtn('ly-edit-at', 'Write in this section', 'pencil', { id: s.headerRow ? s.headerRow.i : 0, cls: 'ly-link-btn' })}</p>`;
-    html += '</section>';
-  }
-  if (prefs.setupRows.get() && model.stamps.length)
-    html += `<div class="ly-setup-block">${model.stamps.map((st) => `<div class="ly-block-label">${icon('bookmark', 14)}<span>Run stamp</span></div><p>${esc(st.raw)}</p>`).join('')}</div>`;
-  doc.innerHTML = html;
-  doc.dataset.size = prefs.size.get();
+  const line = lyBriefLine();
+  box.innerHTML = `<div class="ly-brief-strip"><span class="ly-brief-label">${icon('file-text', 18)}<strong>Song brief</strong></span><span class="ly-brief-text${line ? '' : ' is-empty'}" title="${esc(meta.brief)}">${esc(line || 'No brief yet')}</span><span class="ly-brief-hook${hook ? '' : ' is-empty'}" title="${esc(hook)}">${esc(hook ? `Hook: ${hook}` : 'Hook not declared')}</span>${lyBtn('ly-brief-edit', 'Edit brief', 'pencil', { cls: 'cm-btn ly-link-btn' })}</div>`;
 }
-function lyCaret() {
-  const draft = lyDraft();
-  const before = draft.value.slice(0, draft.selectionStart);
-  const rowIndex = before.split('\n').length - 1;
-  const row = LY.model.rows[rowIndex];
-  const col = before.length - before.lastIndexOf('\n') - 1;
-  let word = '';
-  if (row && row.kind === 'sung') {
-    const m = [...row.raw.matchAll(/(?:[A-Za-zÀ-ɏḀ-ỿ]|['’-])+/g)].find(
-      (x) => x.index <= col && x.index + x[0].length >= col
-    );
-    word = m ? m[0] : '';
-  }
-  return { row, word };
-}
-function lyRenderStatus() {
-  const model = LY.model;
-  let left = '';
-  if (LY.view === 'edit') {
-    const { row, word } = lyCaret();
-    if (row?.kind === 'sung')
-      left = [
-        row.section?.title,
-        `Line ${row.n}`,
-        uiCount(lyWordCount(row.text), 'word'),
-        word && `Word: ${word}`,
-      ]
-        .filter(Boolean)
-        .join(' · ');
-    else if (row?.kind === 'section') left = `Section header · ${row.section.title}`;
-    else if (row?.kind === 'setup') left = 'Setup line (not sung)';
-    else if (row?.kind === 'stamp') left = 'Run stamp (not sung)';
-    else left = 'Blank line';
-  } else if (LY.activeLine && model.sung[LY.activeLine - 1]) {
-    const row = model.sung[LY.activeLine - 1];
-    const readings = lySetupOf(model, 'reading').filter((r) => r.line === row.text).length;
-    left = [
-      row.section?.title,
-      `Line ${row.n}`,
-      uiCount(lyWordCount(row.text), 'word'),
-      readings && uiCount(readings, 'reading'),
-    ]
-      .filter(Boolean)
-      .join(' · ');
-  } else left = 'Select a line to see its tools';
-  $ui('ly-status').innerHTML =
-    `<span>${esc(left)}</span><span>${esc(`${uiCount(model.sung.length, 'line')} · ${uiCount(model.sections.length, 'section')}`)}</span>`;
-}
-
-// ── Review: one active decision at a time ─────────────────────────────────
-function lyRecoveryState() {
-  // Only the live conversation: a reset (new work from a page helper) clears
-  // chatState.lyric, and an archived run is not waiting for anything here.
-  const lyric = chatState.lyric || null;
-  const lyricChat = (chatState.task?.domain || chatState.pending?.domain) === 'lyrics' || !!lyric;
-  const s = {
-    busy: chatState.busy && lyricChat,
-    pending: lyricChat && !!chatState.pending && !chatState.busy,
-    archives: chatState.archives || [],
-    lyric,
-    retryAt: chatState.retryAt || 0,
-  };
-  s.attention =
-    s.pending ||
-    !!lyric?.uncertain_proposal ||
-    !!lyric?.new_run_required ||
-    LY.run?.artifact?.status === 'interrupted';
-  return s;
-}
-function lyItemHtml(item, count, index) {
-  const tone = LY_TONES[item.tone];
-  const out = LY.outcomes[item.id];
-  const own = LY.own[item.id];
-  let html = `<article class="ly-item" data-tone="${item.tone}" aria-labelledby="ly-item-title"><div class="ly-item-cat">${icon(tone.icon, 16)}<span>${esc(item.category)}</span><span class="ly-sr">(${esc(tone.one)})</span></div>`;
-  if (item.stale)
-    html += `<p class="ly-stale">${lyStatus('warning', 'From the writer’s last run')} Your draft has changed since, so this may no longer apply. ${lyBtn('ly-ask-review', 'Ask the writer to review the current draft', '', { cls: 'ly-link-btn' })}</p>`;
-  else if (item.source === 'run') html += `<p class="ly-source">From the writer’s last reply</p>`;
-  html += `<h3 id="ly-item-title">${esc(item.title)}</h3><p class="ly-item-where">${esc(item.where)}${item.lines?.length ? ` · ${lyBtn('ly-show-lines', 'Show in draft', '', { id: item.lines[0], cls: 'ly-link-btn' })}` : ''}</p>`;
-  if (item.text) html += `<p class="ly-item-text">${esc(item.text)}</p>`;
-  if (item.original !== undefined) {
-    const n = item.decision.n;
-    html += `<div class="ly-compare"><div class="ly-orig"><span>Original</span><p>${esc(item.original)}</p></div><div class="ly-sugg"><span>Suggested</span><p>${esc(item.proposal)}</p></div></div><p class="ly-meta">${esc(`${uiCount(lyWordCount(item.original), 'word')} → ${uiCount(lyWordCount(item.proposal), 'word')}`)}</p>`;
-    if (out?.state === 'failed')
-      html += `<div class="ly-outcome" data-tone="danger" role="alert">${icon('circle-alert', 16)}<span><strong>Not applied.</strong> ${esc(out.message)}</span></div>`;
-    if (own !== undefined)
-      html += `<div class="ly-own"><label for="ly-own-input">Your line ${n}</label><input id="ly-own-input" class="cm-input" data-id="${esc(item.id)}" value="${esc(own)}"><div class="ly-actions">${lyBtn('ly-own-check', 'Ask the writer to check it', 'sparkles', { id: item.id, cls: 'cm-btn cm-btn-tonal' })}${lyBtn('ly-own-put', 'Put it in my draft (unchecked)', 'pencil', { id: item.id, cls: 'cm-btn cm-btn-outline' })}${lyBtn('ly-own-cancel', 'Cancel', '', { id: item.id, cls: 'cm-btn' })}</div><p class="ly-note">The writer checks it against the current draft and its declarations; putting it in yourself is an ordinary edit that nothing has checked.</p></div>`;
-    else
-      html += `<div class="ly-actions">${lyBtn('ly-apply', 'Check & apply', 'check', { id: item.id, cls: 'cm-btn cm-btn-primary' })}${lyBtn('ly-own', 'Write my own', 'pencil', { id: item.id, cls: 'cm-btn cm-btn-outline' })}${lyBtn('ly-keep', 'Keep mine', '', { id: item.id, cls: 'cm-btn cm-btn-outline' })}</div><p class="ly-note">Check & apply first confirms that line ${n}, the line numbering and your [SETUP] declarations are the ones the writer was given, and that this page’s exact checks find no new issue in the result. If any of that fails, your original stays and the reason is shown. It does not re-grade rhyme or meter.</p>`;
-    const partners = lyPartners(n);
-    html += `<div class="ly-actions ly-secondary">${lyBtn('ly-explore', 'Explore rhyme words', 'search', { id: n, cls: 'ly-link-btn' })}${partners.length ? lyBtn('ly-rewrite-group', partners.length === 1 ? 'Rewrite both lines' : 'Rewrite the linked lines', 'repeat', { id: [n, ...partners].join(','), cls: 'ly-link-btn' }) : ''}</div>`;
-  } else if (item.whole) {
-    if (out?.state === 'failed')
-      html += `<div class="ly-outcome" data-tone="danger" role="alert">${icon('circle-alert', 16)}<span><strong>Not applied.</strong> ${esc(out.message)}</span></div>`;
-    html += `<details class="ly-whole"><summary>Compare with your draft</summary><div class="ly-compare ly-compare-whole"><div class="ly-orig"><span>Your draft</span><pre>${esc(lySungTexts(LY.model).join('\n'))}</pre></div><div class="ly-sugg"><span>Writer’s draft</span><pre>${esc(item.whole.join('\n'))}</pre></div></div></details><div class="ly-actions">${
-      LY.run?.base
-        ? lyBtn('ly-apply', 'Check & apply', 'check', { id: item.id, cls: 'cm-btn cm-btn-primary' })
-        : lyBtn('ly-apply', 'Replace with the writer’s draft', 'file-text', {
-            id: item.id,
-            cls: 'cm-btn cm-btn-primary',
-          })
-    }${lyBtn('ly-keep', 'Keep mine', '', { id: item.id, cls: 'cm-btn cm-btn-outline' })}</div><p class="ly-note">${
-      LY.run?.base
-        ? 'Applies only if your sung lines and [SETUP] declarations are still the ones you asked about and this page’s exact checks find no new issue, as one change that Undo reverses.'
-        : 'Nothing checks this: the reply came without the draft it was asked about. It replaces your sung lines as one change that Undo reverses; your headers and [SETUP] lines stay where the line counts allow.'
-    }</p>`;
-  }
-  if (item.answer) {
-    if (item.question)
-      html += `<div class="ly-question"><span>The writer asked</span><p>${esc(item.question)}</p></div>`;
-    html += `<div class="ly-own">${item.answer
-      .map(
-        (n) =>
-          `<label for="ly-answer-${n}">${n ? `Your line ${n}` : 'Your answer'}</label><input id="ly-answer-${n}" class="cm-input" data-answer="${n}" value="${esc(n ? lySungTexts(LY.model)[n - 1] || '' : '')}">`
-      )
-      .join(
-        ''
-      )}<div class="ly-actions">${lyBtn('ly-answer', 'Put my answer in the writer', 'message-circle', { cls: 'cm-btn cm-btn-tonal' })}</div><p class="ly-note">Opens the same, still-waiting conversation with your answer filled in; nothing is sent until you press Ask. The run checks the answer against the current draft and its declarations.</p></div>`;
-  }
-  if (item.actions?.length)
-    html += `<div class="ly-actions">${item.actions.map(([act, label, ic, id]) => lyBtn(act, label, ic, { id, cls: 'cm-btn cm-btn-outline' })).join('')}</div>`;
-  if (out?.state === 'applied')
-    html += `<div class="ly-outcome" data-tone="success" role="status">${icon('circle-check', 16)}<span>${esc(out.message)}</span></div>`;
-  return html + `<span class="ly-sr">Item ${index + 1} of ${count}</span></article>`;
-}
-function lyPartners(n) {
-  const model = LY.model;
-  const out = new Set();
-  for (const d of lySetupOf(model, 'rhyme groups'))
-    for (const g of lyParseGroups(d.value))
-      if (g.some((m) => m.line === n)) g.forEach((m) => m.line !== n && !m.bad && out.add(m.line));
-  return [...out].sort((a, b) => a - b);
-}
-function lyRenderReview(itemsIn) {
-  const items = itemsIn || lyItems();
-  LY.items = items;
-  const box = $ui('ly-review');
-  if (!box) return;
-  const counts = { issue: 0, input: 0, note: 0 };
-  items.forEach((i) => counts[i.tone]++);
-  const list = items.filter((i) => i.tone === LY.reviewTab);
-  if (LY.reviewAt >= list.length) LY.reviewAt = Math.max(0, list.length - 1);
-  const item = list[LY.reviewAt];
-  const tabs = Object.entries(LY_TONES)
-    .map(
-      ([tone, t]) =>
-        `<button type="button" class="cm-tab ly-rtab" role="tab" data-ui="ly-rtab" data-id="${tone}" data-tone="${tone}" aria-selected="${LY.reviewTab === tone}">${icon(t.icon, 16)}<span>${t.label}</span><span class="ly-count">${counts[tone]}</span></button>`
-    )
-    .join('');
-  let html = `<div class="ly-rtabs" role="tablist" aria-label="Review">${tabs}</div>`;
-  if (item) {
-    html += `<div class="ly-pager">${lyBtn('ly-rstep', 'Previous', 'arrow-left', { id: '-1', cls: 'cm-btn cm-btn-icon', hideLabel: true, extra: LY.reviewAt === 0 ? 'disabled' : '' })}<span role="status">${LY.reviewAt + 1} of ${list.length}</span>${lyBtn('ly-rstep', 'Next', 'arrow-right', { id: '1', cls: 'cm-btn cm-btn-icon', hideLabel: true, extra: LY.reviewAt >= list.length - 1 ? 'disabled' : '' })}${lyBtn('ly-tool', 'All feedback', 'chevron-right', { id: 'checks', cls: 'ly-link-btn ly-all' })}</div>`;
-    html += lyItemHtml(item, list.length, LY.reviewAt);
-    const next = list[LY.reviewAt + 1];
-    if (next)
-      html += `<button type="button" class="ly-row ly-next" data-ui="ly-rstep" data-id="1" data-tone="${next.tone}">${icon(LY_TONES[next.tone].icon, 18)}<span><strong>Up next: ${esc(next.title)}</strong><small>${esc(next.where)}</small></span>${icon('chevron-right', 16)}</button>`;
-  } else {
-    const text = !LY.model.sung.length
-      ? 'There is no draft to review yet.'
-      : LY.reviewTab === 'issue'
-        ? 'Nothing to fix from this page’s exact checks or the writer’s last reply. This is not a grade: rhyme, meter and coverage are judged only by a writer run.'
-        : LY.reviewTab === 'input'
-          ? 'No missing input is known: no open readings, broken links or waiting questions.'
-          : 'No notes.';
-    html += `<div class="ly-pad">${uiEmptyState({ title: `No ${LY_TONES[LY.reviewTab].label.toLowerCase()}`, text, actions: LY.model.sung.length ? lyBtn('ly-ask-review', 'Ask the writer to review', 'sparkles', { cls: '' }) : '' })}</div>`;
-  }
-  html += `<button type="button" class="ly-row" data-ui="ly-tool" data-id="checks">${icon('circle-check', 18)}<span><strong>All checks & coverage</strong><small>${esc(`${uiCount(counts.issue, 'issue')} · ${counts.input} need input · ${uiCount(counts.note, 'note')}`)}</small></span>${icon('chevron-right', 16)}</button>`;
-  const rec = lyRecoveryState();
-  if (rec.attention || rec.busy)
-    html += `<button type="button" class="ly-row" data-ui="ly-pane" data-id="history" data-tone="${rec.busy ? 'info' : 'warning'}">${icon(rec.busy ? 'loader' : 'triangle-alert', 18)}<span><strong>${rec.busy ? 'Writer running' : 'Earlier run interrupted'}</strong><small>${rec.busy ? 'Its progress stays in the writer conversation.' : 'Accepted work is kept; open History to recover it safely.'}</small></span><span class="ly-row-link">Open history</span>${icon('arrow-right', 16)}</button>`;
-  box.innerHTML = html;
-  lyRenderDocFocus(item);
-}
-// Outline marks follow the active item without re-rendering the document.
-function lyRenderDocFocus(item) {
-  const focus = new Set(item?.lines || []);
-  document
-    .querySelectorAll('#ly-doc .ly-line')
-    .forEach((li) => li.classList.toggle('is-focus', focus.has(Number(li.dataset.n))));
-}
-
-// ── History & recovery ────────────────────────────────────────────────────
-// Everything here is the AI writer's real state (src/app.js chatState): the
-// saved request, the run record, the saved runs. Recovery runs the writer's
-// own recovery path (#chat-recover); nothing here repeats uncertain work.
-function lyRenderHistory() {
-  const box = $ui('ly-history');
-  if (!box) return;
-  const rec = lyRecoveryState();
-  const run = LY.run;
-  const lyric = rec.lyric;
-  const cards = [];
-  const card = (tone, ic, title, text, actions = '') =>
-    cards.push(
-      `<div class="ly-hcard" data-tone="${tone}"><div class="ly-hcard-head">${icon(ic, 18)}<strong>${esc(title)}</strong></div>${text ? `<p>${esc(text)}</p>` : ''}${actions ? `<div class="ly-actions">${actions}</div>` : ''}</div>`
-    );
-  if (rec.busy)
-    card(
-      'info',
-      'loader',
-      'Running',
-      'A lyric request is in progress. Its progress stays in the writer conversation; this page updates when it replies.',
-      lyBtn('ly-pane', 'Open the writer', 'message-circle', {
-        id: 'writer',
-        cls: 'cm-btn cm-btn-outline',
-      })
-    );
-  else if (rec.pending)
-    card(
-      'warning',
-      'triangle-alert',
-      'Interrupted',
-      'A saved lyric request did not finish in this tab. Recovering reads its saved outcome from the service; it does not send the request again.',
-      lyBtn('ly-recover', 'Recover the saved request', 'refresh-cw', {
-        cls: 'cm-btn cm-btn-primary',
-      })
-    );
-  if (rec.retryAt > Date.now())
-    card(
-      'warning',
-      'triangle-alert',
-      'Waiting',
-      `The service asked to wait until ${new Date(rec.retryAt).toLocaleTimeString()} before continuing.`
-    );
-  if (lyric?.uncertain_proposal)
-    card(
-      'danger',
-      'circle-alert',
-      'Uncertain proposal — not resumable',
-      'The interrupted proposal may already have been charged. Its receipt is kept; it will not be repeated automatically. Keep its accepted draft and start explicit new work if needed.'
-    );
-  if (lyric?.new_run_required)
-    card(
-      'danger',
-      'circle-alert',
-      'This run cannot continue',
-      'It reached its journal capacity. Its accepted draft is kept; continuing needs a new run.'
-    );
-  if (lyric?.parked)
-    card(
-      'warning',
-      'triangle-alert',
-      `Parked with ${uiCount((lyric.open || []).length, 'open line')}`,
-      'The run stopped with lines unresolved. The next step is a rewritten draft for those lines.',
-      lyBtn('ly-pane', 'Continue in the writer', 'message-circle', {
-        id: 'writer',
-        cls: 'cm-btn cm-btn-outline',
-      })
-    );
-  if (lyLiveWaiting(lyric) && !rec.busy)
-    card(
-      'info',
-      'circle-question-mark',
-      'Waiting for your answer',
-      'The run asked a question. It stays paused until it gets an answer.',
-      lyBtn('ly-pane', 'Answer in the writer', 'message-circle', {
-        id: 'writer',
-        cls: 'cm-btn cm-btn-outline',
-      })
-    );
-  if (run) {
-    const status = lyRunStatus(run);
-    const accepted = run.final;
-    card(
-      status.tone || 'info',
-      status.tone === 'success' ? 'circle-check' : 'file-text',
-      `Last writer reply: ${status.word}`,
-      `${new Date(run.at).toLocaleTimeString()} · ${accepted ? `accepted draft of ${uiCount(accepted.length, 'line')}` : 'no draft in this reply'}${run.base ? '' : ' · asked about an unknown draft'}.`,
-      accepted && !lySame(accepted, lySungTexts(LY.model))
-        ? lyBtn('ly-review-run', 'Review its changes', 'circle-alert', {
-            cls: 'cm-btn cm-btn-outline',
-          })
-        : ''
-    );
-  }
-  if (!cards.length)
-    card(
-      '',
-      'info',
-      'No writer run in this tab',
-      'Replies from the writer, interrupted requests and saved runs appear here.',
-      lyBtn('new-lyrics', 'New song with the writer', 'sparkles', { cls: 'cm-btn cm-btn-outline' })
-    );
-  const archives = rec.archives.filter((a) => a && (a.domain === 'lyrics' || !a.domain));
-  let html = `<div class="ly-pad"><h3 class="ly-h3">Writer status</h3>${cards.join('')}`;
-  html += `<h3 class="ly-h3">Saved runs</h3>`;
-  if (archives.length)
-    html += `<ul class="ly-archives">${archives
-      .slice()
-      .reverse()
-      .map(
-        (a) =>
-          `<li>${icon('bookmark', 16)}<span><strong>${esc((a.message || 'Saved conversation').slice(0, 80))}</strong><small>${a.created_at ? esc(new Date(a.created_at).toLocaleString()) : 'Saved conversation'}</small></span></li>`
-      )
-      .join(
-        ''
-      )}</ul><div class="ly-actions">${lyBtn('ly-recover', 'Recover the most recent', 'refresh-cw', { cls: 'cm-btn cm-btn-outline', extra: rec.busy || rec.pending ? 'disabled' : '' })}</div><p class="ly-note">Recovery reads the saved outcome; accepted text comes back to review, never as a finished song.</p>`;
-  else
-    html += `<p class="ly-note">No saved lyric runs in this browser. Starting new work saves the previous conversation here.</p>`;
-  html += `<h3 class="ly-h3">Draft history</h3><p class="ly-note">Undo and Redo in the header step through draft changes, including every change applied from this page.</p>`;
-  if (LY.model.stamps.length)
-    html += `<h3 class="ly-h3">Stamps in the draft</h3><ul class="ly-archives">${LY.model.stamps.map((st) => `<li>${icon('bookmark', 16)}<span><strong>${esc(st.kind)}${st.exit != null ? ` · exit ${st.exit}` : ''}</strong><small>${esc(st.raw)}</small></span></li>`).join('')}</ul><p class="ly-note">A stamp describes the run that wrote it. It is not re-checked here.</p>`;
-  box.innerHTML = html + '</div>';
-}
-
-// ── Writing tools ─────────────────────────────────────────────────────────
 const lyLineOptions = (model, selected, { distinct = false } = {}) => {
   const seen = new Set();
   return model.sung
@@ -2411,153 +2561,694 @@ const lyLineOptions = (model, selected, { distinct = false } = {}) => {
     )
     .join('');
 };
-function lyToolStructure(model) {
-  const headerless = model.sections.length && model.sections.every((s) => !s.header);
-  const form = model.sections.map((s) => s.title).join(' – ');
-  const rows = model.sections
+
+// ── Section outline ───────────────────────────────────────────────────────
+function lyRenderOutline() {
+  const model = LY.model;
+  const active = lySectionOfLine(model, LY.activeLine) || lySectionAtRow(model, LY.caretRow);
+  $ui('ly-sections').innerHTML = model.sections.length
+    ? model.sections
+        .map(
+          (s) =>
+            `<li><button type="button" class="ly-sec${active === s ? ' is-active' : ''}" data-ui="ly-goto" data-id="${s.index}"${active === s ? ' aria-current="true"' : ''}>${icon('file-text', 18)}<span class="ly-sec-name">${esc(s.title)}</span><span class="ly-sec-count" aria-label="${esc(uiCount(s.sung.length, 'line'))}">${s.sung.length}</span></button></li>`
+        )
+        .join('')
+    : `<li class="ly-help ly-pad">No sections yet. A line in [brackets] starts one.</li>`;
+  $ui('ly-totals').textContent =
+    `${uiCount(model.sung.length, 'line')} · ${uiCount(model.sections.length, 'section')}`;
+  const page = $ui('ly-page');
+  const railed = LY.size === 'compact' || (LY.size === 'wide' && !LY.outline);
+  page.dataset.outline =
+    LY.size === 'narrow'
+      ? LY.railOpen
+        ? 'sheet'
+        : 'closed'
+      : railed
+        ? LY.railOpen
+          ? 'overlay'
+          : 'rail'
+        : 'open';
+  document
+    .querySelectorAll('[data-ui="ly-outline-toggle"][aria-controls]')
+    .forEach((b) =>
+      b.setAttribute('aria-expanded', String(page.dataset.outline === 'open' || LY.railOpen))
+    );
+  $ui('ly-scrim').hidden = !(LY.railOpen && (LY.size === 'narrow' || railed));
+  // Song view on a phone: previous/next section and where the reader is.
+  const nav = $ui('ly-section-nav');
+  if (LY.size === 'narrow' && model.sections.length) {
+    const k = active ? active.index : 0;
+    const s = model.sections[k];
+    nav.innerHTML = `${lyBtn('ly-sec-step', 'Previous section', 'chevron-left', { id: '-1', cls: 'cm-btn cm-btn-icon', hideLabel: true, extra: k === 0 ? 'disabled' : '' })}<button type="button" class="ly-sec-pos" data-ui="ly-outline-toggle" aria-controls="ly-outline-panel" aria-expanded="${LY.railOpen}">${icon('file-text', 18)}<strong>${esc(s.title)}</strong><span>· ${k + 1} of ${model.sections.length}</span></button>${lyBtn('ly-sec-step', 'Next section', 'chevron-right', { id: '1', cls: 'cm-btn cm-btn-icon', hideLabel: true, extra: k >= model.sections.length - 1 ? 'disabled' : '' })}`;
+    nav.hidden = false;
+  } else {
+    nav.hidden = true;
+    nav.innerHTML = '';
+  }
+}
+function lySectionAtRow(model, i) {
+  let found = null;
+  for (const s of model.sections) {
+    const start = s.headerRow ? s.headerRow.i : (s.rows[0]?.i ?? Infinity);
+    if (start <= i) found = s;
+  }
+  return found;
+}
+
+// ── The document: one textarea, one read layer ────────────────────────────
+// The whole-document textarea stays the authoritative input: caret,
+// selection, typing, paste, IME, spellcheck, find and undo are the browser's
+// own. Its text is transparent; the read layer underneath draws the same rows
+// in the same font and wrapping, so every glyph sits exactly where the
+// textarea's caret expects it. Headers, setup rows and stamps are drawn as
+// labels over their (invisible) raw text; the row holding the caret shows its
+// raw text so it can be edited in place.
+function lyRowHtml(row, model, ctx) {
+  const raw = row.raw;
+  const caret = ctx.caretRow === row.i;
+  if (row.kind === 'blank') return `<div class="ly-r" data-i="${row.i}"><br></div>`;
+  if (row.kind === 'sung') {
+    const tone = ctx.marks.get(row.n);
+    const spans = lyWordSpans(raw, model.voices)
+      .map((p) => {
+        if (p.gap !== undefined) return esc(p.gap);
+        const cls = [];
+        if (p.aside) cls.push('ly-aside');
+        if (ctx.find && p.word.toLowerCase().includes(ctx.find)) cls.push('ly-hit');
+        const g = p.token && ctx.ends.get(`${row.n}:${p.token}`);
+        if (g) cls.push('ly-end');
+        if (p.token && ctx.reading === `${row.text}|${p.token}`) cls.push('ly-reading');
+        return cls.length
+          ? `<span class="${cls.join(' ')}"${g ? ` data-g="${g.k % 6}"` : ''}>${esc(p.word)}</span>`
+          : esc(p.word);
+      })
+      .join('');
+    const letters = ctx.letters.get(row.n) || [];
+    return `<div class="ly-r ly-r-sung${LY.activeLine === row.n ? ' is-active' : ''}${ctx.focus.has(row.n) ? ' is-focus' : ''}" data-i="${row.i}" data-n="${row.n}"${tone ? ` data-tone="${tone}"` : ''}><span class="ly-gut">${letters.map((g) => `<span class="ly-letter" data-g="${g.k % 6}">${g.letter}</span>`).join('')}<span class="ly-num">${row.n}</span></span><span class="ly-t">${spans || '<br>'}</span></div>`;
+  }
+  let label = '',
+    kind = row.kind;
+  if (row.kind === 'section') {
+    const s = row.section;
+    const meta = [uiCount(s.sung.length, 'line')];
+    const r = s.header && lyRhythmText(s.header);
+    if (r) meta.push(r);
+    if (s.header?.lines != null && s.header.lines !== s.sung.length)
+      meta.push(`declares ${s.header.lines}`);
+    label = `<span class="ly-h">${esc(s.title)}</span><span class="ly-hmeta">${esc(meta.join(' · '))}</span>`;
+  } else if (row.kind === 'setup') {
+    const item = lyParseSetup(row.text);
+    label = `<span class="ly-setup-key">${esc(lyCap(item.key))}</span><span class="ly-setup-val">${esc(item.value)}</span>`;
+  } else if (row.kind === 'stamp')
+    label = `<span class="ly-setup-key">Run stamp</span><span class="ly-setup-val">${esc(row.text)}</span>`;
+  else kind = 'other';
+  return `<div class="ly-r ly-r-${kind}${caret ? ' is-caret' : ''}" data-i="${row.i}"><span class="ly-raw">${esc(raw)}</span>${label ? `<span class="ly-lab" aria-hidden="true">${label}</span>` : ''}</div>`;
+}
+// Rhyme annotation: every declared link gets a letter and a colour; the
+// colour is identity, never a verdict.
+function lyRhymeMarks(model) {
+  const ends = new Map(),
+    letters = new Map();
+  if (LY.tool !== 'rhymes') return { ends, letters };
+  const groups = lySetupOf(model, 'rhyme groups').flatMap((d) => lyParseGroups(d.value));
+  const pending = lyVal('rhymes', 'song', 'members', []) || [];
+  const all = [
+    ...groups.map((g) => ({ g })),
+    ...(pending.length ? [{ g: pending, pending: true }] : []),
+  ];
+  all.forEach(({ g }, k) => {
+    const letter = String.fromCharCode(65 + (k % 26));
+    for (const m of g) {
+      if (m.bad) continue;
+      const row = model.sung[m.line - 1];
+      if (!row) continue;
+      const toks = lyTokens(row.text, model.voices);
+      let t = toks.length;
+      if (/^T\d+$/.test(m.place)) t = Number(m.place.slice(1));
+      else if (m.place === 'head' || m.place === 'headrime') t = 1;
+      if (m.place !== 'line') ends.set(`${m.line}:${t}`, { k, letter });
+      const list = letters.get(m.line) || [];
+      if (!list.some((x) => x.letter === letter)) list.push({ k, letter });
+      letters.set(m.line, list);
+    }
+  });
+  return { ends, letters };
+}
+function lyRenderEditor() {
+  const model = LY.model;
+  const draft = lyDraft();
+  const overlay = $ui('ly-overlay');
+  if (!overlay || !draft) return;
+  const marks = new Map();
+  for (const it of LY.items || [])
+    if (!it.stale)
+      for (const n of it.lines || [])
+        if (!marks.has(n) || it.tone === 'issue') marks.set(n, it.tone);
+  const { ends, letters } = lyRhymeMarks(model);
+  const readingTarget =
+    LY.tool === 'pronunciation' && LY.picks.reading ? lyReadingTarget(LY.picks.reading) : null;
+  const ctx = {
+    caretRow: document.activeElement === draft ? LY.caretRow : -1,
+    marks,
+    ends,
+    letters,
+    focus: new Set(LY.focusLines || []),
+    find: LY.find.open && LY.find.q ? LY.find.q.toLowerCase() : '',
+    reading: readingTarget ? `${readingTarget[0]}|${readingTarget[1]}` : '',
+  };
+  overlay.innerHTML =
+    model.rows.map((r) => lyRowHtml(r, model, ctx)).join('') || '<div class="ly-r"><br></div>';
+  const editor = $ui('ly-editor');
+  editor.dataset.size = LY.prefs.size.get();
+  editor.classList.toggle('no-numbers', !LY.prefs.numbers.get());
+  editor.classList.toggle('has-letters', letters.size > 0);
+  draft.scrollTop = 0;
+  const empty = !model.text.trim();
+  const box = $ui('ly-empty-doc');
+  box.hidden = !empty || document.activeElement === draft;
+  if (!box.hidden)
+    box.innerHTML = uiEmptyState({
+      title: 'No lyrics yet',
+      text: 'Write in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.',
+      actions:
+        lyBtn('ly-focus-doc', 'Start writing', 'pencil', { cls: 'cm-btn cm-btn-outline' }) +
+        lyBtn('new-lyrics', 'New song with the writer', 'sparkles', {
+          cls: 'cm-btn cm-btn-outline',
+        }) +
+        lyBtn('ly-import', 'Import a text file', 'upload', { cls: 'cm-btn cm-btn-outline' }),
+    });
+  lyPlaceLineBar();
+}
+// Where the caret is: its raw row, and the sung line on it.
+function lySyncCaret() {
+  const draft = lyDraft();
+  if (!draft || !LY.model) return;
+  const row = draft.value.slice(0, draft.selectionStart).split('\n').length - 1;
+  const endRow = draft.value.slice(0, draft.selectionEnd).split('\n').length - 1;
+  const was = [LY.caretRow, LY.activeLine];
+  LY.caretRow = row;
+  const r = LY.model.rows[row];
+  // A selection across rows keeps the first sung line it touches.
+  let n = r?.kind === 'sung' ? r.n : 0;
+  if (!n && endRow > row)
+    for (let i = row; i <= endRow; i++)
+      if (LY.model.rows[i]?.kind === 'sung') ((n = LY.model.rows[i].n), (i = endRow));
+  const setupOnly = r && ['setup', 'stamp'].includes(r.kind);
+  LY.activeLine = setupOnly
+    ? 0
+    : n || (r?.kind === 'section' ? 0 : LY.activeLine && r?.kind === 'blank' ? 0 : n);
+  if (was[0] !== LY.caretRow || was[1] !== LY.activeLine) {
+    const overlay = $ui('ly-overlay');
+    overlay?.querySelector('.ly-r.is-caret')?.classList.remove('is-caret');
+    overlay?.querySelector('.ly-r.is-active')?.classList.remove('is-active');
+    const caretEl = overlay?.querySelector(`.ly-r[data-i="${row}"]`);
+    if (caretEl && document.activeElement === draft && !caretEl.classList.contains('ly-r-sung'))
+      caretEl.classList.add('is-caret');
+    if (LY.activeLine)
+      overlay?.querySelector(`.ly-r[data-n="${LY.activeLine}"]`)?.classList.add('is-active');
+    lyPlaceLineBar();
+    lyRenderOutlineActive();
+  }
+}
+function lyRenderOutlineActive() {
+  const model = LY.model;
+  const active = lySectionOfLine(model, LY.activeLine) || lySectionAtRow(model, LY.caretRow);
+  document.querySelectorAll('#ly-sections .ly-sec').forEach((b) => {
+    const on = active && Number(b.dataset.id) === active.index;
+    b.classList.toggle('is-active', !!on);
+    if (on) b.setAttribute('aria-current', 'true');
+    else b.removeAttribute('aria-current');
+  });
+}
+// The selected line's tools: beside the line when it fits, otherwise in the
+// dock under the document, so they never cover a word of the lyrics.
+function lyPlaceLineBar() {
+  const bar = $ui('ly-linebar'),
+    dock = $ui('ly-linedock');
+  if (!bar || !dock) return;
+  const n = LY.activeLine;
+  const row = n && LY.model.sung[n - 1];
+  const showDoc = !$ui('ly-doc-wrap').hidden;
+  if (!row || !showDoc) {
+    bar.hidden = dock.hidden = true;
+    return;
+  }
+  const buttons = (short) =>
+    `${lyBtn('ly-line-tool', short ? 'Rhyme' : 'Link rhyme', 'link', { id: `rhymes:${n}`, cls: 'cm-btn ly-lt' })}${lyBtn('ly-line-tool', 'Rhythm', 'music', { id: `rhythm:${n}`, cls: 'cm-btn ly-lt' })}${lyBtn('ly-line-tool', short ? 'Reading' : 'Pronunciation', 'message-circle', { id: `pronunciation:${n}`, cls: 'cm-btn ly-lt' })}`;
+  const label = `Line ${n} tools`;
+  const el = $ui('ly-overlay')?.querySelector(`.ly-r[data-n="${n}"]`);
+  const text = el?.querySelector('.ly-t');
+  bar.setAttribute('aria-label', label);
+  dock.setAttribute('aria-label', label);
+  if (el && text && LY.size !== 'narrow') {
+    bar.innerHTML = buttons(false);
+    bar.hidden = false;
+    const editor = $ui('ly-editor').getBoundingClientRect();
+    const t = text.getBoundingClientRect();
+    const room = editor.right - t.right - 24;
+    if (room >= bar.offsetWidth) {
+      bar.style.top = `${el.offsetTop + (el.offsetHeight > 40 ? el.offsetHeight - 40 : 0)}px`;
+      bar.style.left = `${t.right - editor.left + 16}px`;
+      dock.hidden = true;
+      return;
+    }
+    bar.hidden = true;
+  } else bar.hidden = true;
+  dock.innerHTML = `<span class="ly-dock-label">Line ${n}</span>${buttons(LY.size === 'narrow')}`;
+  dock.hidden = false;
+}
+
+// ── Inspector ─────────────────────────────────────────────────────────────
+const LY_MAIN_TOOLS = ['form-story', 'rhythm'];
+function lyRenderTabs() {
+  document.querySelectorAll('.ly-itab').forEach((b) => {
+    const on = b.dataset.id === LY.tab;
+    b.setAttribute('aria-selected', String(on));
+    b.tabIndex = on ? 0 : -1;
+  });
+  // A panel out of view keeps nothing stale: it is drawn again when shown.
+  for (const [id] of LY_TABS) {
+    const panel = $ui(`ly-panel-${id}`);
+    panel.hidden = id !== LY.tab;
+    if (panel.hidden) {
+      if (id === 'writer') lyClock(false);
+      const box = id === 'writer' ? $ui('ly-writer-status') : panel;
+      box.innerHTML = '';
+      box.dataset.view = '';
+    }
+  }
+  document.querySelectorAll('.ly-mtab').forEach((b) => {
+    const on = b.dataset.id === LY.mobile;
+    b.setAttribute('aria-selected', String(on));
+    b.tabIndex = on ? 0 : -1;
+  });
+  const page = $ui('ly-page');
+  page.dataset.mobile = LY.mobile;
+  page.dataset.tab = LY.tab;
+}
+// Keep what someone is typing: re-drawing the same view never replaces a
+// focused field inside `box`; a different view (another tool) always draws.
+function lySetHtml(box, html, view = '') {
+  const a = document.activeElement;
+  if (
+    box.dataset.view === view &&
+    a &&
+    box.contains(a) &&
+    a.matches('input:not([type=radio]):not([type=checkbox]), textarea, select')
+  )
+    return false;
+  box.dataset.view = view;
+  box.innerHTML = html;
+  return true;
+}
+const lyToolMeta = (id) => LY_TOOLS.find((t) => t[0] === id);
+function lyToolRow(id, { selected = false, expanded = null } = {}) {
+  const [, label, help, ic] = lyToolMeta(id);
+  const n = lyPending(id);
+  return `<button type="button" class="ly-toolrow${selected ? ' is-selected' : ''}" data-ui="ly-tool" data-id="${id}"${expanded === null ? '' : ` aria-expanded="${expanded}"`}${selected ? ' aria-current="true"' : ''}>${icon(ic, 22)}<span class="ly-toolrow-text"><strong>${esc(label)}</strong><small>${esc(help)}</small></span>${n ? `<span class="ly-count" aria-label="${esc(uiCount(n, 'pending change'))}">${n}</span>` : ''}${icon(expanded ? 'chevron-down' : 'chevron-right', 18)}</button>`;
+}
+function lyPendingStrip(tool, { applyLabel = 'Apply' } = {}) {
+  const drafts = [
+    ...lyDrafts(tool),
+    ...(tool === 'rhythm' ? [...lyDrafts('placement'), ...lyDrafts('melody')] : []),
+  ];
+  const n = drafts.reduce((t, d) => t + d.dirty.length, 0);
+  const stale = drafts.filter((d) => lyDraftStale(d));
+  if (!n) return `<div class="ly-pending" id="ly-pending-${tool}" hidden></div>`;
+  return `<div class="ly-pending" id="ly-pending-${tool}" data-tone="${stale.length ? 'warning' : 'info'}" role="status">${
+    stale.length
+      ? `<p class="ly-pending-warn">${icon('triangle-alert', 16)}<span>Target changed. Review these entries before applying.</span>${lyBtn('ly-draft-rebase', 'Use current target', 'refresh-cw', { id: tool, cls: 'cm-btn ly-link-btn' })}</p>`
+      : ''
+  }<span class="ly-pending-count">${lyPill('warning', `${n} pending change${n === 1 ? '' : 's'}`)}<small>Entries are kept when you switch tools.</small></span><span class="ly-actions">${lyBtn('ly-draft-apply', applyLabel, 'check', { id: tool, cls: 'cm-btn cm-btn-primary', extra: stale.length ? 'disabled aria-disabled="true"' : '' })}${lyBtn('ly-draft-discard', 'Discard', '', { id: tool, cls: 'cm-btn cm-btn-outline' })}</span></div>`;
+}
+function lyRenderTools() {
+  const box = $ui('ly-panel-tools');
+  const model = LY.model;
+  const narrow = LY.size === 'narrow';
+  let html = '';
+  if (!LY.tool) {
+    html = `<h3 class="ly-h3 ly-sr">Tools</h3><div class="ly-toolrows">${LY_TOOLS.map(([id]) => lyToolRow(id, { expanded: narrow ? false : null })).join('')}</div>`;
+    const a = LY.state || lyAnalysis(model);
+    if (a.state === 'none' && model.sung.length)
+      html += `<div class="ly-callout" data-tone="warning">${lyPill('warning', 'This version has not been reviewed')}<p>Run a review to check form, rhymes, rhythm and pronunciation.</p>${lyBtn('ly-run-review', 'Run review', 'play', { cls: 'cm-btn cm-btn-primary ly-block', extra: chatState.busy ? 'disabled' : '' })}</div>`;
+    else if (a.state === 'stale')
+      html += `<div class="ly-callout" data-tone="warning">${lyPill('warning', 'Edited since review')}<p>The document changed after the last review. Review this version again.</p>${lyBtn('ly-run-review', 'Run review', 'play', { cls: 'cm-btn cm-btn-primary ly-block', extra: chatState.busy ? 'disabled' : '' })}</div>`;
+    lySetHtml(box, html, `tools:${LY.tool}:${LY.size}`);
+    return;
+  }
+  const [, label, help, ic] = lyToolMeta(LY.tool);
+  const head = `<div class="ly-tool-nav">${lyBtn('ly-tool', 'Back to tools', 'arrow-left', { id: '', cls: 'cm-btn ly-link-btn' })}<nav class="ly-crumbs" aria-label="Breadcrumb"><span>Tools</span>${icon('chevron-right', 14)}<strong aria-current="page">${esc(label)}</strong></nav></div>`;
+  if (narrow) {
+    // One list: every tool, the selected one expanded under its row.
+    html = `<h3 class="ly-h3">Tools</h3><div class="ly-toolrows">${LY_TOOLS.map(([id]) => lyToolRow(id, { expanded: id === LY.tool, selected: id === LY.tool }) + (id === LY.tool ? `<div class="ly-tool-inline" role="region" aria-label="${esc(label)}">${lyToolBody(id, model)}</div>` : '')).join('')}</div><p class="ly-help ly-pad-t">${icon('info', 14)} Entries are kept when you switch tools.</p>`;
+    lySetHtml(box, html, `tools:${LY.tool}:${LY.size}`);
+    return;
+  }
+  if (LY_MAIN_TOOLS.includes(LY.tool)) {
+    // The form lives in the main area; the inspector keeps the index.
+    let extra = '';
+    if (LY.tool === 'rhythm') {
+      const s = model.sections[lyRhythmSec(model)];
+      if (s)
+        extra = `<div class="ly-card ly-sec-card"><p><strong>${esc(s.title)}</strong> · ${esc([uiCount(s.sung.length, 'line'), s.header?.meter].filter(Boolean).join(' · '))}</p>${s.sung[0] ? `<p class="ly-muted"><span class="ly-num-inline">${s.sung[0].n}</span> ${esc(s.sung[0].text)}</p>` : ''}</div>`;
+    }
+    html = `${head}<div class="ly-toolrows">${lyToolRow(LY.tool, { selected: true })}${extra}${LY_TOOLS.filter(
+      ([id]) => id !== LY.tool
+    )
+      .map(([id]) => lyToolRow(id))
+      .join('')}</div>`;
+    lySetHtml(box, html, `tools:${LY.tool}:${LY.size}`);
+    return;
+  }
+  html = `${head}<div class="ly-tool-head">${icon(ic, 22)}<div><h3 class="ly-h3">${esc(label)}</h3><p class="ly-help">${esc(help)}</p></div></div>${lyToolBody(LY.tool, model)}`;
+  lySetHtml(box, html, `tools:${LY.tool}:${LY.size}`);
+}
+function lyToolBody(id, model) {
+  return {
+    'form-story': () => lyToolFormStory(model),
+    rhymes: () => lyToolRhymes(model),
+    rhythm: () => lyToolRhythm(model),
+    pronunciation: () => lyToolPronunciation(model),
+    'repeats-voices': () => lyToolRepeats(model),
+    'word-rules': () => lyToolWordRules(model),
+  }[id]();
+}
+function lyRenderMainTool() {
+  const main = $ui('ly-tool-main');
+  const docWrap = $ui('ly-doc-wrap');
+  const inMain = LY.size !== 'narrow' && LY_MAIN_TOOLS.includes(LY.tool);
+  main.hidden = !inMain;
+  docWrap.hidden = inMain;
+  $ui('ly-toolbar').hidden = inMain;
+  if (inMain) lySetHtml(main, lyToolBody(LY.tool, LY.model), LY.tool);
+  else {
+    main.innerHTML = '';
+    main.dataset.view = '';
+  }
+}
+
+// ── Form & story ──────────────────────────────────────────────────────────
+const lyOpts = (pairs, value, blank) =>
+  (blank !== null ? `<option value="">${esc(blank)}</option>` : '') +
+  pairs
     .map(
-      (s) =>
-        `<tr><td><input class="cm-input ly-in" data-field="name" data-sec="${s.index}" value="${esc(s.header ? s.header.name : s.title)}" aria-label="${esc(s.title)} name"${s.header ? '' : ' placeholder="Add a header"'}></td><td><input class="cm-input ly-in ly-num-in" type="number" min="0" max="999" data-field="lines" data-sec="${s.index}" value="${s.header?.lines ?? ''}" placeholder="—" aria-label="${esc(s.title)} declared lines"></td><td>${s.sung.length}${s.returnOf ? ` <small>same as ${esc(s.returnOf.title)}</small>` : ''}</td><td class="ly-row-actions">${lyBtn('ly-sec-move', 'Move up', 'arrow-up', { id: `${s.index}:-1`, cls: 'cm-btn cm-btn-icon', hideLabel: true, extra: s.index === 0 ? 'disabled' : '' })}${lyBtn('ly-sec-move', 'Move down', 'arrow-down', { id: `${s.index}:1`, cls: 'cm-btn cm-btn-icon', hideLabel: true, extra: s.index === model.sections.length - 1 ? 'disabled' : '' })}${lyBtn('ly-sec-dup', 'Duplicate', 'copy', { id: s.index, cls: 'cm-btn cm-btn-icon', hideLabel: true })}${lyBtn('ly-sec-remove', 'Remove', 'trash-2', { id: s.index, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</td></tr>`
+      ([v, l]) => `<option value="${esc(v)}"${v === value ? ' selected' : ''}>${esc(l)}</option>`
     )
     .join('');
-  return `<p><strong>Form:</strong> ${esc(form || 'no sections yet')}</p>${headerless ? `<p class="ly-note">These stanzas have no headers. ${lyBtn('ly-label-stanzas', 'Add a header to each stanza', 'plus', { cls: 'ly-link-btn' })}</p>` : ''}${
-    model.sections.length
-      ? `<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Section</th><th>Declared lines</th><th>Lines</th><th><span class="ly-sr">Actions</span></th></tr></thead><tbody>${rows}</tbody></table></div>`
-      : ''
-  }<p class="ly-note">Names and declared sizes are written into each section header, where the writer reads them.</p>${lyStoryHtml(model)}`;
-}
-function lyStoryHtml(model) {
-  const sung = model.sections.filter((s) => s.sung.length);
-  const d = lySetupOf(model, 'narrative')[0];
-  const plan = d ? lyParseNarrative(d.value) : null;
-  const opt = (list, value, blank) =>
-    `<option value="">${blank}</option>` +
-    list.map((x) => `<option${x === value ? ' selected' : ''}>${x}</option>`).join('');
-  const rows = sung
-    .map((s, k) => {
-      const step = plan && !plan.off ? plan.steps[k] : null;
-      return `<tr data-story="${k}"><th scope="row">${esc(s.title)}</th><td>${k ? `<select class="cm-select" data-story-field="junction" aria-label="${esc(s.title)} enters by">${opt(LY_JUNCTIONS, step?.junction, '—')}</select>` : '<span class="ly-note">first</span>'}</td><td><select class="cm-select" data-story-field="atom" aria-label="${esc(s.title)} story job">${opt(LY_ATOMS, step?.atom, 'Not declared')}</select></td></tr>`;
-    })
-    .join('');
-  return `<h4 class="ly-h4">Story plan</h4><p class="ly-note">${plan?.off ? 'Declared off: no story layer.' : d ? `Declared: ${esc(d.value)}` : 'Not declared: a new plan from the writer draws one job per sung section.'} A record for the writer, not a gate — nothing grades a draft against its story plan, and the page does not judge the plot.</p>${
-    sung.length
-      ? `<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Section</th><th>Enters by</th><th>Job</th></tr></thead><tbody>${rows}</tbody></table></div>`
-      : ''
-  }<div class="ly-actions">${lyBtn('ly-story-save', 'Save story plan', 'check', { cls: 'cm-btn cm-btn-tonal', extra: sung.length ? '' : 'disabled' })}${lyBtn('ly-story-off', 'Turn the story layer off', '', { cls: 'cm-btn cm-btn-outline' })}${d ? lyBtn('ly-story-clear', 'Clear', '', { cls: 'cm-btn' }) : ''}</div><p class="ly-note" id="ly-story-error" role="alert"></p>`;
-}
-function lyToolRhymes(model) {
-  const rel = lySetupOf(model, 'relation')[0]?.value || '';
-  const known = ['class:RHYME', 'class:ASSONANCE', 'class:CONSONANCE'];
-  const relSel = `<select class="cm-select" id="ly-relation" aria-label="Rhyme relation"><option value="">Not declared — any relation may satisfy a link</option>${known.map((k) => `<option${rel === k ? ' selected' : ''}>${k}</option>`).join('')}<option value="other"${rel && !known.includes(rel) ? ' selected' : ''}>Other (namespaced)…</option></select><input class="cm-input" id="ly-relation-other" placeholder="e.g. type:rime riche or schema:perfect rhyme" value="${esc(rel && !known.includes(rel) ? rel : '')}" aria-label="Other relation"${rel && !known.includes(rel) ? '' : ' hidden'}>`;
-  const groups = lySetupOf(model, 'rhyme groups').flatMap((d) =>
-    lyParseGroups(d.value).map((g) => ({ g, d }))
-  );
-  const linkList = groups.length
-    ? `<ul class="ly-links">${groups
-        .map(
-          ({ g }, k) =>
-            `<li><span class="ly-chips">${g.map((m) => `<span class="cm-chip ly-member">L${m.line} · ${esc(lyMemberLabel(m))}${lyMemberWord(model, m) ? ` · “${esc(String(lyMemberWord(model, m)).slice(0, 40))}”` : ' · missing'}</span>`).join(`<span aria-hidden="true">~</span>`)}</span>${lyBtn('ly-link-remove', 'Remove link', 'trash-2', { id: k, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</li>`
-        )
-        .join('')}</ul>`
-    : `<p class="ly-note">No rhyme links declared.</p>`;
-  const pick = LY.picks;
-  const line = model.sung[pick.linkLine - 1] ? pick.linkLine : model.sung[0]?.n || 0;
-  const toks = line ? lyTokens(model.sung[line - 1].text, model.voices) : [];
-  const places =
-    Object.entries(LY_PLACES)
-      .map(([v, l]) => `<option value="${v}">${esc(l)}</option>`)
-      .join('') +
-    toks.map((t, i) => `<option value="T${i + 1}">word ${i + 1} · ${esc(t)}</option>`).join('');
-  const pending = pick.linkMembers.length
-    ? `<span class="ly-chips">${pick.linkMembers.map((m) => `<span class="cm-chip ly-member">L${m.line} · ${esc(lyMemberLabel(m))} · “${esc(String(lyMemberWord(model, m) || '').slice(0, 40))}”</span>`).join('<span aria-hidden="true">~</span>')}</span>`
-    : '<span class="ly-note">No members yet.</span>';
-  const title = lySetupOf(model, 'title')[0]?.value || '';
-  const hook = lySetupOf(model, 'hook')[0]?.line || '';
-  const hookN = model.sung.find((r) => r.text === hook)?.n || 0;
-  const words = (key) =>
-    lySetupOf(model, key)
-      .map(
-        (d) =>
-          `<span class="cm-chip">${esc(d.value)}${lyBtn('ly-word-remove', `Remove ${d.value}`, 'x', { id: d.i, cls: 'ly-chip-x', hideLabel: true })}</span>`
-      )
-      .join('') || '<span class="ly-note">None.</span>';
-  return `<div class="ly-tool-grid">
-<section><h4 class="ly-h4">Rhyme relation</h4><div class="ly-form">${relSel}${lyBtn('ly-relation-save', 'Save relation', 'check', { cls: 'cm-btn cm-btn-outline' })}</div><p class="ly-note">Undeclared, the writer’s run judges every link against every relation and a link stands when any one holds. Declaring one narrows it to that relation.</p></section>
-<section><h4 class="ly-h4">Rhyme links</h4>${linkList}<div class="ly-form"><select class="cm-select" id="ly-link-line" aria-label="Line">${lyLineOptions(model, line)}</select><select class="cm-select" id="ly-link-place" aria-label="Place in the line">${places}</select>${lyBtn('ly-link-add', 'Add member', 'plus', { cls: 'cm-btn cm-btn-outline', extra: line ? '' : 'disabled' })}</div><div class="ly-pending">${pending}</div><div class="ly-actions">${lyBtn('ly-link-save', 'Save link', 'link', { cls: 'cm-btn cm-btn-tonal', extra: pick.linkMembers.length > 1 ? '' : 'disabled' })}${lyBtn('ly-link-clear', 'Clear', '', { cls: 'cm-btn', extra: pick.linkMembers.length ? '' : 'disabled' })}</div><p class="ly-note">A link binds two or more places — any word, not only line ends. Links may overlap: a line can belong to several, at different places. Saved in the harness’s own spelling (line numbers), so an edit that moves lines is shown here.</p></section>
-<section><h4 class="ly-h4">Word rules</h4><div class="ly-form"><label class="ly-label" for="ly-title-in">Title</label><input class="cm-input" id="ly-title-in" value="${esc(title)}" placeholder="Not declared">${lyBtn('ly-title-save', 'Save title', 'check', { cls: 'cm-btn cm-btn-outline' })}</div><div class="ly-form"><label class="ly-label" for="ly-hook-in">Hook line</label><select class="cm-select" id="ly-hook-in"><option value="">Not declared</option>${lyLineOptions(model, hookN, { distinct: true })}</select>${lyBtn('ly-hook-save', 'Save hook', 'check', { cls: 'cm-btn cm-btn-outline' })}</div>
-<div class="ly-form"><label class="ly-label" for="ly-require-in">Must include</label><input class="cm-input" id="ly-require-in" placeholder="a word or phrase">${lyBtn('ly-word-add', 'Add', 'plus', { id: 'require', cls: 'cm-btn cm-btn-outline' })}</div><div class="ly-chips">${words('require')}</div>
-<div class="ly-form"><label class="ly-label" for="ly-avoid-in">Avoid</label><input class="cm-input" id="ly-avoid-in" placeholder="a word or phrase">${lyBtn('ly-word-add', 'Add', 'plus', { id: 'avoid', cls: 'cm-btn cm-btn-outline' })}</div><div class="ly-chips">${words('avoid')}</div><p class="ly-note">Must include and Avoid are checked on this page by exact word match. The hook binds an exact line, so its repeats share it.</p></section>
-<section><h4 class="ly-h4">Explore rhyme words</h4><div class="ly-form"><input class="cm-input" id="ly-explore-in" placeholder="a word to rhyme with" value="${esc(pick.explore || '')}"><input class="cm-input" id="ly-explore-with" placeholder="optional: must also (e.g. two syllables)" value=""></div><div class="ly-actions">${lyBtn('ly-explore-ask', 'Ask the writer', 'sparkles', { cls: 'cm-btn cm-btn-tonal' })}</div><p class="ly-note">The writer screens candidates against every requirement at once; its answer arrives in the Writer panel. A partial match is listed as partial — it does not satisfy every requirement.</p></section>
-</div>`;
-}
-function lyToolRhythm(model) {
-  const pickups = [
-    '',
-    'quarter-beat pickup',
-    'half-beat pickup',
-    'one-beat pickup',
-    'two-beat pickup',
-  ];
+function lyToolFormStory(model) {
+  const T = 'form-story',
+    G = 'song';
+  const d = lyDraftOf(T, G);
+  const c = LY_FORMS[T].committed(model);
+  const v = (f) => lyVal(T, G, f, c[f]);
+  const sel = model.sections[LY.picks.formSec] ? LY.picks.formSec : 0;
+  const sung = lySungSections(model);
+  const story = lyStorySteps(model);
   const rows = model.sections
     .map((s) => {
-      const h = s.header || {};
-      const custom = h.pickup && !pickups.includes(h.pickup);
-      return `<tr data-sec="${s.index}"${LY.picks.rhythmSec === s.index ? ' class="is-picked"' : ''}><th scope="row">${esc(s.title)}</th><td><input class="cm-input ly-in" data-rhythm="meter" value="${esc(h.meter || '')}" placeholder="Not declared" pattern="\\d+/\\d+" aria-label="${esc(s.title)} meter, e.g. 4/4"></td><td><input class="cm-input ly-in ly-num-in" type="number" min="1" max="999" data-rhythm="bars" value="${h.bars ?? ''}" placeholder="—" aria-label="${esc(s.title)} bars"></td><td><select class="cm-select" data-rhythm="pickup" aria-label="${esc(s.title)} pickup">${pickups.map((p) => `<option value="${esc(p)}"${(h.pickup || '') === p ? ' selected' : ''}>${esc(p || 'No pickup declared')}</option>`).join('')}${custom ? `<option selected value="${esc(h.pickup)}">${esc(h.pickup)}</option>` : ''}</select></td><td>${lyBtn('ly-rhythm-save', 'Save', 'check', { id: s.index, cls: 'cm-btn cm-btn-outline' })}</td></tr>`;
+      const atom = v(`atom.${s.index}`);
+      const note = v(`note.${s.index}`);
+      return `<tr class="${s.index === sel ? 'is-selected' : ''}" data-sec="${s.index}" draggable="true"><td class="ly-handle" aria-hidden="true">${icon('grip-vertical', 16)}</td><th scope="row"><button type="button" class="ly-rowpick" data-ui="ly-form-pick" data-id="${s.index}" aria-pressed="${s.index === sel}">${esc(d?.dirty.includes(`name.${s.index}`) ? lyCap(v(`name.${s.index}`)) : s.title)}</button></th><td>${s.sung.length}</td><td>${esc(v(`lines.${s.index}`) || '—')}</td><td>${esc(note || (atom ? LY_ATOM_LABELS[atom] : '') || '—')}</td><td class="ly-row-actions">${lyBtn('ly-sec-move', 'Move up', 'arrow-up', { id: `${s.index}:-1`, cls: 'cm-btn cm-btn-outline ly-sm', extra: s.index === 0 ? 'disabled' : '' })}${lyBtn('ly-sec-move', 'Move down', 'arrow-down', { id: `${s.index}:1`, cls: 'cm-btn cm-btn-outline ly-sm', extra: s.index === model.sections.length - 1 ? 'disabled' : '' })}${lyBtn('ly-sec-dup', 'Duplicate section', 'copy', { id: s.index, cls: 'cm-btn cm-btn-outline ly-sm' })}${lyBtn('ly-sec-remove', 'Remove', 'trash-2', { id: s.index, cls: 'cm-btn cm-btn-outline ly-sm', hideLabel: true })}</td></tr>`;
     })
     .join('');
-  return `${model.sections.length ? `<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Section</th><th>Meter</th><th>Bars</th><th>Pickup</th><th><span class="ly-sr">Save</span></th></tr></thead><tbody>${rows}</tbody></table></div>` : '<p class="ly-note">Add a section first; rhythm is declared per section header.</p>'}<p class="ly-note">Declared values only. No tempo is assumed and no performed rhythm is inferred from the words; leave a field empty to keep it undeclared. The declaration is written into the section header the way the harness writes it (e.g. [CHORUS — 5 lines — 5 bars of 7/8, one-beat pickup]).</p>${lyPlacementHtml(model)}${lyMelodyHtml(model)}`;
+  // Creative guidance: the declared jobs and notes, in order, with the
+  // junction that joins each to the one before. Nothing invented between them.
+  const flow = sung
+    .map((s, k) => {
+      const atom = v(`atom.${s.index}`),
+        junction = v(`junction.${s.index}`),
+        note = v(`note.${s.index}`);
+      if (!atom && !note) return '';
+      return `${k && junction ? `<span class="ly-flow-join">${esc(LY_JUNCTION_LABELS[junction] || junction)}${icon('arrow-right', 14)}</span>` : ''}<span class="ly-flow-node${s.index === sel ? ' is-selected' : ''}"><small>${esc(s.title)}</small>${esc(note || LY_ATOM_LABELS[atom] || atom)}${note && atom ? `<small>${esc(LY_ATOM_LABELS[atom])}</small>` : ''}</span>`;
+    })
+    .filter(Boolean)
+    .join('');
+  const s = model.sections[sel];
+  const k = sung.indexOf(s);
+  const f = (name) => `${name}.${sel}`;
+  const form = s
+    ? `<div class="ly-form-grid"><div class="ly-field"><label class="ly-label" for="ly-f-name">Section name</label><input id="ly-f-name" class="cm-input" maxlength="80" data-draft="${T}" data-target="${G}" data-field="${f('name')}" value="${esc(v(f('name')))}" placeholder="${esc(s.title)}"${lyErr(d, f('name'))}>${lyErrText(d, f('name'))}</div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-f-lines">Target (lines)</label><input id="ly-f-lines" class="cm-input" inputmode="numeric" data-draft="${T}" data-target="${G}" data-field="${f('lines')}" value="${esc(v(f('lines')))}" placeholder="Not set" aria-describedby="ly-f-lines-help"${lyErr(d, f('lines'))}><small class="ly-help" id="ly-f-lines-help">Actual: ${s.sung.length}</small>${lyErrText(d, f('lines'))}</div>${
+        k >= 0
+          ? `<div class="ly-field"><label class="ly-label" for="ly-f-atom">Story job</label><select id="ly-f-atom" class="cm-select" data-draft="${T}" data-target="${G}" data-field="${f('atom')}"${lyErr(d, f('atom'))}>${lyOpts(Object.entries(LY_ATOM_LABELS), v(f('atom')), 'Not declared')}</select>${lyErrText(d, f('atom'))}</div>${
+              k > 0
+                ? `<div class="ly-field"><label class="ly-label" for="ly-f-junction">Follows the section before by</label><select id="ly-f-junction" class="cm-select" data-draft="${T}" data-target="${G}" data-field="${f('junction')}"${lyErr(d, f('junction'))}>${lyOpts(Object.entries(LY_JUNCTION_LABELS), v(f('junction')), 'Not declared')}</select>${lyErrText(d, f('junction'))}</div>`
+                : ''
+            }`
+          : ''
+      }<div class="ly-field ly-field-wide"><label class="ly-label" for="ly-f-note">Section note</label><textarea id="ly-f-note" class="cm-input" rows="2" maxlength="400" data-draft="${T}" data-target="${G}" data-field="${f('note')}" placeholder="This section’s creative job, e.g. Arrival and kindness"${lyErr(d, f('note'))}>${esc(v(f('note')))}</textarea>${lyErrText(d, f('note'))}</div></div>`
+    : '';
+  const headerless = model.sections.length && model.sections.every((x) => !x.header);
+  return `<div class="ly-tool-view"><div class="ly-view-head">${icon('book-open', 22)}<div><h3 class="ly-h3">Form & story</h3><p class="ly-help">Section order and story jobs</p></div></div>${headerless ? `<p class="ly-help">These stanzas have no headers. ${lyBtn('ly-label-stanzas', 'Add a header to each stanza', 'plus', { cls: 'cm-btn ly-link-btn' })}</p>` : ''}${
+    model.sections.length
+      ? `<div class="ly-table-wrap"><table class="ly-table ly-form-table"><thead><tr><th><span class="ly-sr">Move</span></th><th>Section</th><th>Lines</th><th>Target</th><th>Story job</th><th><span class="ly-sr">Actions</span></th></tr></thead><tbody id="ly-form-rows">${rows}</tbody></table></div>`
+      : '<p class="ly-help">No sections yet. Add one from the Sections list.</p>'
+  }<h4 class="ly-h4">Creative guidance</h4>${flow ? `<div class="ly-flow">${flow}</div>` : '<p class="ly-help">No story jobs or section notes yet.</p>'}<p class="ly-help">Story jobs and notes guide the writer. They are not graded, and nothing here judges the plot.${story.off ? ' The story layer is declared off.' : ''}</p>${s ? `<h4 class="ly-h4">Edit selected section</h4>${form}` : ''}<div class="ly-actions">${story.declared && !story.off ? lyBtn('ly-story-off', 'Turn the story layer off', '', { cls: 'cm-btn cm-btn-outline' }) : ''}${story.declared ? lyBtn('ly-story-clear', 'Clear story plan', '', { cls: 'cm-btn' }) : ''}</div>${lyPendingStrip(T)}</div>`;
 }
-function lyPlacementHtml(model) {
-  const secs = model.sections.filter((x) => x.sung.length);
-  if (!secs.length) return '';
-  const k = secs.some((x) => x.index === LY.picks.rhythmSec) ? LY.picks.rhythmSec : secs[0].index;
-  const sec = model.sections[k];
-  const have = new Map(
-    lySetupOf(model, 'placement')
-      .flatMap((d) => lyParsePlacement(d.value))
-      .filter((r) => !r.bad)
-      .map((r) => [r.line, r])
-  );
-  const span = lyBarSpans(model).get(k);
-  const rows = sec.sung
+
+// ── Rhythm and melody ─────────────────────────────────────────────────────
+const LY_COMMON_METERS = ['2/4', '3/4', '4/4', '6/8', '7/8', '9/8', '12/8'];
+const LY_PICKUPS = [
+  'quarter-beat pickup',
+  'half-beat pickup',
+  'one-beat pickup',
+  'two-beat pickup',
+];
+function lyRhythmSec(model) {
+  const k = LY.picks.rhythmSec;
+  if (model.sections[k]) return k;
+  return lySectionOfLine(model, LY.activeLine)?.index ?? 0;
+}
+// Scientific pitch for a frequency on the 12-TET grid (A4 = 440 Hz), or the
+// exact hertz when it is not on it. Display only; the stored value is kept.
+function lyPitchName(hz) {
+  if (hz === null) return 'Rest';
+  const midi = 69 + 12 * Math.log2(hz / 440);
+  const r = Math.round(midi);
+  if (Math.abs(midi - r) > 0.02) return `${hz} Hz`;
+  const names = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
+  return `${names[((r % 12) + 12) % 12]}${Math.floor(r / 12) - 1}`;
+}
+function lyToolRhythm(model) {
+  const k = lyRhythmSec(model);
+  const s = model.sections[k];
+  if (!s)
+    return `<div class="ly-tool-view"><div class="ly-view-head">${icon('music', 22)}<div><h3 class="ly-h3">Rhythm</h3><p class="ly-help">Meter and line placement</p></div></div><p class="ly-help">Add a section first; rhythm is declared per section header.</p></div>`;
+  const T = 'rhythm',
+    G = String(k);
+  const d = lyDraftOf(T, G);
+  const c = LY_FORMS[T].committed(model, G);
+  const v = (f) => lyVal(T, G, f, c[f]);
+  const saved =
+    LY.picks.rhythmSaved && LY.picks.rhythmSaved.k === k ? LY.picks.rhythmSaved.text : '';
+  const pickups = [
+    ...new Set([...LY_PICKUPS, ...model.sections.map((x) => x.header?.pickup).filter(Boolean)]),
+  ];
+  const table = model.sections
+    .map(
+      (x) =>
+        `<tr class="${x.index === k ? 'is-selected' : ''}"><th scope="row"><button type="button" class="ly-rowpick" data-ui="ly-rhythm-pick" data-id="${x.index}" aria-pressed="${x.index === k}">${esc(x.title)}</button></th><td>${esc(x.header?.meter || 'Not set')}</td><td>${esc(x.header?.bars != null ? String(x.header.bars) : 'Not set')}</td><td>${esc(x.header?.pickup || 'None')}</td></tr>`
+    )
+    .join('');
+  const copy = LY.picks.rhythmCopy
+    ? `<fieldset class="ly-fieldset ly-copy"><legend>Copy ${esc(s.title)}’s meter, bars and pickup to</legend>${model.sections
+        .filter((x) => x.index !== k)
+        .map(
+          (x) =>
+            `<label class="ly-check"><input type="checkbox" data-copy="${x.index}"> ${esc(x.title)}</label>`
+        )
+        .join(
+          ''
+        )}<div class="ly-actions">${lyBtn('ly-rhythm-copy-apply', 'Apply', 'check', { cls: 'cm-btn cm-btn-primary' })}${lyBtn('ly-rhythm-copy', 'Cancel', '', { cls: 'cm-btn cm-btn-outline' })}</div></fieldset>`
+    : '';
+  // Line placement for this section.
+  const P = 'placement';
+  const pd = lyDraftOf(P, G);
+  const pc = LY_FORMS[P].committed(model, G);
+  const pv = (f) => lyVal(P, G, f, pc[f]);
+  const beats = s.header?.meter ? Number(s.header.meter.split('/')[0]) : 0;
+  const unit = beats && LY.picks.durUnit === 'bars' ? 'bars' : 'beats';
+  const prow = s.sung
     .map((r) => {
-      const p = have.get(r.n) || {};
-      return `<tr data-place="${r.n}"><th scope="row">${r.n}</th><td class="ly-cell-text">${esc(r.text)}</td><td><input class="cm-input ly-num-in" inputmode="numeric" data-p="bar" value="${p.bar ?? ''}" placeholder="—" aria-label="Line ${r.n} bar"></td><td><input class="cm-input ly-num-in" inputmode="decimal" data-p="beat" value="${p.beat ?? ''}" placeholder="—" aria-label="Line ${r.n} starting beat"></td><td><input class="cm-input ly-num-in" inputmode="decimal" data-p="duration" value="${p.duration ?? ''}" placeholder="—" aria-label="Line ${r.n} duration in beats"></td></tr>`;
+      const dur = pv(`duration.${r.n}`);
+      const shown =
+        unit === 'bars' && dur !== '' && Number.isFinite(Number(dur))
+          ? String(Number(dur) / beats)
+          : dur;
+      return `<tr><th scope="row">${r.n}</th><td class="ly-cell-text">${esc(r.text)}</td><td><input class="cm-input ly-num-in" inputmode="numeric" data-draft="${P}" data-target="${G}" data-field="bar.${r.n}" value="${esc(pv(`bar.${r.n}`))}" placeholder="—" aria-label="Line ${r.n} bar"${lyErr(pd, `bar.${r.n}`)}></td><td><input class="cm-input ly-num-in" inputmode="decimal" data-draft="${P}" data-target="${G}" data-field="beat.${r.n}" value="${esc(pv(`beat.${r.n}`))}" placeholder="—" aria-label="Line ${r.n} start beat"></td><td><input class="cm-input ly-num-in" inputmode="decimal" data-draft="${P}" data-target="${G}" data-field="duration.${r.n}" data-unit="${unit}" data-beats="${beats}" value="${esc(shown)}" placeholder="—" aria-label="Line ${r.n} duration in ${unit}">${unit === 'bars' && dur ? `<small class="ly-help">${esc(dur)} beats</small>` : ''}</td></tr>${pd?.errors?.[`bar.${r.n}`] ? `<tr><td colspan="5">${lyErrText(pd, `bar.${r.n}`)}</td></tr>` : ''}`;
     })
     .join('');
-  return `<details class="cm-accordion ly-placement"${have.size || LY.picks.placementOpen ? ' open' : ''}><summary>Line placement (advanced) ${have.size ? lyStatus('success', `${uiCount(have.size, 'line')} placed`) : lyStatus('', 'Not declared')}</summary><p class="ly-note">Where each line sits: its bar, the beat it starts on and how many beats it lasts. Declared only — nothing here derives placement from the words or assumes a tempo. Lines left empty stay undeclared.${span ? ` ${esc(sec.title)} spans bars ${span[0]}–${span[1]} by its header.` : ''}</p><div class="ly-form"><label class="ly-label" for="ly-place-sec">Section</label><select class="cm-select" id="ly-place-sec">${secs.map((x) => `<option value="${x.index}"${x.index === k ? ' selected' : ''}>${esc(x.title)}</option>`).join('')}</select></div><div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Line</th><th>Text</th><th>Bar</th><th>Beat</th><th>Beats long</th></tr></thead><tbody>${rows}</tbody></table></div><div class="ly-actions">${lyBtn('ly-place-save', 'Save placement', 'check', { id: k, cls: 'cm-btn cm-btn-tonal' })}</div><p class="ly-note" id="ly-place-error" role="alert"></p></details>`;
+  // Declared melody (song-wide).
+  const M = 'melody';
+  const md = lyDraftOf(M, 'song');
+  const mc = LY_FORMS[M].committed(model);
+  const mv = (f) => lyVal(M, 'song', f, mc[f]);
+  const mdecl = lySetupOf(model, 'melody')[0];
+  const mm = mdecl ? lyParseMelody(mdecl.value).melody : null;
+  const chips = mm
+    ? mm.notes
+        .map(
+          (n) =>
+            `<span class="ly-note-chip"><strong>${esc(lyPitchName(n.pitch_hz))}</strong><small>${esc(`${n.ticks / mm.subdivision} beat${n.ticks / mm.subdivision === 1 ? '' : 's'}`)}</small></span>`
+        )
+        .join('')
+    : '';
+  return `<div class="ly-tool-view"><div class="ly-view-head">${icon('music', 22)}<div><h3 class="ly-h3">Rhythm</h3><p class="ly-help">Set meter, bars and line placement for each section.</p></div>${saved ? `<span class="ly-view-status">${lyStatus('success', saved)}</span>` : ''}</div>
+<div class="ly-form-grid"><div class="ly-field"><label class="ly-label" for="ly-r-meter">Meter <small>(${esc(s.title)})</small></label><input id="ly-r-meter" class="cm-input" list="ly-meters" data-draft="${T}" data-target="${G}" data-field="meter" value="${esc(v('meter'))}" placeholder="Not set" autocomplete="off"${lyErr(d, 'meter')}><datalist id="ly-meters">${LY_COMMON_METERS.map((m) => `<option value="${m}">`).join('')}</datalist>${lyErrText(d, 'meter')}</div><div class="ly-field"><label class="ly-label" for="ly-r-bars">Section bars <small>(optional)</small></label><input id="ly-r-bars" class="cm-input" inputmode="numeric" data-draft="${T}" data-target="${G}" data-field="bars" value="${esc(v('bars'))}" placeholder="Not set"${lyErr(d, 'bars')}>${lyErrText(d, 'bars')}</div><div class="ly-field"><label class="ly-label" for="ly-r-pickup">Pickup</label><select id="ly-r-pickup" class="cm-select" data-draft="${T}" data-target="${G}" data-field="pickup"${lyErr(d, 'pickup')}>${lyOpts(
+    pickups.map((p) => [p, p]),
+    v('pickup'),
+    'None'
+  )}</select>${lyErrText(d, 'pickup')}</div></div>
+<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Section</th><th>Meter</th><th>Bars (optional)</th><th>Pickup</th></tr></thead><tbody>${table}</tbody></table></div>
+<div class="ly-actions">${lyBtn('ly-rhythm-save', 'Save rhythm', 'check', { id: k, cls: 'cm-btn cm-btn-primary', extra: lyDraftStale(d) ? 'disabled' : '' })}${lyBtn('ly-rhythm-copy', 'Copy to other sections', 'copy', { cls: 'cm-btn cm-btn-outline', extra: `aria-expanded="${!!LY.picks.rhythmCopy}"` })}</div>${copy}
+<h4 class="ly-h4">Line placement <small>(optional)</small></h4><p class="ly-help">Where each line starts within the song’s bars and how long it lasts. All three blank is undeclared. No tempo is assumed.</p>${
+    beats
+      ? `<div class="ly-inline-field"><label class="ly-label" for="ly-dur-unit">Duration unit</label><select id="ly-dur-unit" class="cm-select">${lyOpts(
+          [
+            ['beats', 'Beats'],
+            ['bars', `Bars (× ${beats} beats)`],
+          ],
+          unit,
+          null
+        )}</select></div>`
+      : ''
+  }<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Line</th><th>Text</th><th>Bar</th><th>Start beat</th><th>Duration (${unit})</th></tr></thead><tbody>${prow}</tbody></table></div>
+<h4 class="ly-h4">Declared melody <small>(optional)</small></h4><p class="ly-help">One repeating phrase per line, in scientific pitch (A4 = 440 Hz); durations in beats of the meter’s unit.</p>${chips ? `<div class="ly-note-chips">${chips}</div>` : '<p class="ly-help">No melody declared.</p>'}<details class="cm-accordion"${md ? ' open' : ''}><summary>Advanced input</summary><div class="ly-form-grid"><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-meter">Meter</label><input id="ly-m-meter" class="cm-input" data-draft="${M}" data-target="song" data-field="meter" value="${esc(mv('meter'))}" placeholder="6/8"></div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-groups">Beat groups</label><input id="ly-m-groups" class="cm-input" data-draft="${M}" data-target="song" data-field="groups" value="${esc(mv('groups'))}" placeholder="3+3"></div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-bars">Bars per line</label><input id="ly-m-bars" class="cm-input" inputmode="numeric" data-draft="${M}" data-target="song" data-field="bars" value="${esc(mv('bars'))}" placeholder="1"></div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-sub">Subdivision</label><select id="ly-m-sub" class="cm-select" data-draft="${M}" data-target="song" data-field="subdivision">${lyOpts(
+    [
+      ['1', '1'],
+      ['2', '2'],
+      ['4', '4'],
+    ],
+    mv('subdivision'),
+    null
+  )}</select></div><div class="ly-field ly-field-wide"><label class="ly-label" for="ly-m-events">Events: hertz:ticks or rest:ticks</label><input id="ly-m-events" class="cm-input" data-draft="${M}" data-target="song" data-field="events" value="${esc(mv('events'))}" placeholder="261.63:1 329.63:1 392:2 rest:2"${lyErr(md, 'events')}>${lyErrText(md, 'events')}</div></div></details><p class="ly-help">${icon('info', 14)} Declaration only · Run review to check this version.</p>${lyPendingStrip(T)}</div>`;
 }
-function lyMelodyHtml(model) {
-  const d = lySetupOf(model, 'melody')[0];
-  const parsed = d ? lyParseMelody(d.value) : null;
-  const m = parsed?.melody;
-  const draft =
-    LY.picks.melody ||
-    (m
-      ? {
-          meter: `${m.meter.beats}/${m.meter.unit}`,
-          groups: m.meter.groups.join('+'),
-          bars: String(m.bars),
-          subdivision: String(m.subdivision),
-          events: m.notes
-            .map((n) => `${n.pitch_hz === null ? 'rest' : n.pitch_hz}:${n.ticks}`)
-            .join(' '),
-        }
-      : { meter: '', groups: '', bars: '', subdivision: '2', events: '' });
-  const status = !d
-    ? lyStatus('', 'Not declared')
-    : m
-      ? lyStatus('success', 'Declared')
-      : lyStatus('warning', 'Cannot be used');
-  return `<details class="cm-accordion ly-melody"${d || LY.picks.melodyOpen ? ' open' : ''}><summary>Declared melody (optional, advanced) ${status}</summary>
-<p class="ly-note">One repeating monophonic phrase, sung once per line. The writer plans meter, phrase length and subdivision from it. It is an instruction, not a recording: pitch, underlay and performance are not certified by any grade.</p>
-<div class="ly-form"><label class="ly-label" for="ly-mel-meter">Meter, beat groups, bars per line and ticks per beat</label><input class="cm-input ly-num-in" id="ly-mel-meter" placeholder="4/4" value="${esc(draft.meter)}" aria-label="Meter"><input class="cm-input ly-num-in" id="ly-mel-groups" placeholder="2+2" value="${esc(draft.groups)}" aria-label="Beat groups (2s and 3s)"><input class="cm-input ly-num-in" id="ly-mel-bars" type="number" min="1" placeholder="bars" value="${esc(draft.bars)}" aria-label="Bars per line"><select class="cm-select" id="ly-mel-sub" aria-label="Ticks per beat">${['1', '2', '4'].map((v) => `<option${draft.subdivision === v ? ' selected' : ''}>${v}</option>`).join('')}</select></div>
-<div class="ly-form"><label class="ly-label" for="ly-mel-events">Events in order: hertz:ticks, or rest:ticks</label><input class="cm-input" id="ly-mel-events" placeholder="440:4 rest:2 493.9:2 440:8" value="${esc(draft.events)}"></div>
-<p class="ly-note" id="ly-mel-status" role="status">${esc(parsed?.error || (m ? `${m.notes.reduce((t, n) => t + n.ticks, 0)} ticks · ${uiCount(m.notes.filter((n) => n.pitch_hz !== null).length, 'note')}, ${uiCount(m.notes.filter((n) => n.pitch_hz === null).length, 'rest')}` : ''))}</p>
-<div class="ly-actions">${lyBtn('ly-melody-save', 'Save melody', 'check', { cls: 'cm-btn cm-btn-tonal' })}${d ? lyBtn('ly-melody-clear', 'Remove melody', 'trash-2', { cls: 'cm-btn' }) : ''}</div></details>`;
+
+// ── Rhymes ────────────────────────────────────────────────────────────────
+function lyToolRhymes(model) {
+  const T = 'rhymes',
+    G = 'song';
+  const d = lyDraftOf(T, G);
+  const c = LY_FORMS[T].committed(model);
+  const rel = lyVal(T, G, 'relation', c.relation);
+  const members = lyVal(T, G, 'members', []) || [];
+  const known = LY_RELATIONS.map((r) => r[0]);
+  const custom = rel && !known.includes(rel);
+  const relName = (r) => LY_RELATIONS.find((x) => x[0] === r)?.[1] || r || 'any relation';
+  const seg = LY_RELATIONS.map(
+    ([val, label]) =>
+      `<button type="button" data-ui="ly-relation" data-id="${esc(val)}" aria-pressed="${!custom && rel === val}">${esc(label)}</button>`
+  ).join('');
+  const line =
+    LY.picks.linkLine && model.sung[LY.picks.linkLine - 1]
+      ? LY.picks.linkLine
+      : LY.activeLine || model.sung[0]?.n || 0;
+  const toks = line ? lyTokens(model.sung[line - 1].text, model.voices) : [];
+  const place = LY.picks.linkPlace || 'end';
+  const places = [
+    ['end', 'End of line'],
+    ['endword', 'Last word'],
+    ['head', 'First word'],
+    ['headrime', 'First rhyme'],
+    ['line', 'Whole line'],
+    ...toks.map((t, i) => [`T${i + 1}`, `Word ${i + 1} · ${t}`]),
+  ];
+  const groups = lySetupOf(model, 'rhyme groups').flatMap((dd) => lyParseGroups(dd.value));
+  const selGroup = groups[LY.picks.linkGroup] ? LY.picks.linkGroup : -1;
+  const committedList = groups.length
+    ? `<ul class="ly-links">${groups
+        .map((g, k) => {
+          const letter = String.fromCharCode(65 + (k % 26));
+          return `<li><label class="ly-check"><input type="radio" name="ly-link-group" value="${k}"${k === selGroup ? ' checked' : ''}><span class="ly-letter" data-g="${k % 6}">${letter}</span><span><strong>${letter} · declared ${esc(relName(c.relation))}</strong><small>${g.map((m) => (m.bad ? esc(m.raw) : `Line ${m.line} · ${esc(String(lyMemberWord(model, m) ?? 'missing').slice(0, 30))}`)).join(' ~ ')}</small></span></label></li>`;
+        })
+        .join('')}</ul>`
+    : '<p class="ly-help">No rhyme links declared.</p>';
+  const memberList = members.length
+    ? `<ul class="ly-members">${members.map((m, i) => `<li><span>Line ${m.line}</span><span>${esc(lyMemberLabel(m))}</span><strong>“${esc(String(lyMemberWord(model, m) ?? '').slice(0, 40))}”</strong>${lyBtn('ly-member-remove', `Remove line ${m.line}`, 'x', { id: i, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</li>`).join('')}</ul>`
+    : '<p class="ly-help">Select a line in the document, then add it.</p>';
+  const busy = chatState.busy;
+  const status = groups.length
+    ? lyPill(
+        'warning',
+        `Links declared · ${LY.state?.state === 'assessed_clear' || LY.state?.state === 'assessed_findings' ? 'reviewed' : 'not reviewed'}`
+      )
+    : '';
+  return `<div class="ly-tool-view"><h4 class="ly-label">Relation</h4><div class="cm-segmented ly-seg" role="group" aria-label="Relation">${seg}</div><details class="ly-adv"${custom ? ' open' : ''}><summary>Advanced: custom relation</summary><div class="ly-inline-field"><input class="cm-input" id="ly-rel-custom" data-draft="${T}" data-target="${G}" data-field="relation" value="${esc(custom ? rel : '')}" placeholder="type:…, class:… or schema:…" aria-label="Custom relation"${lyErr(d, 'relation')}></div>${lyErrText(d, 'relation')}</details><p class="ly-help">The relation applies to every link in the song.</p>
+<div class="ly-inline-field"><label class="ly-label" for="ly-link-place">Placement</label><select id="ly-link-place" class="cm-select">${lyOpts(places, place, null)}</select></div>
+<div class="ly-inline-field"><label class="ly-label" for="ly-link-line">Line</label><select id="ly-link-line" class="cm-select">${lyLineOptions(model, line)}</select>${lyBtn('ly-link-add', 'Add', 'plus', { cls: 'cm-btn cm-btn-outline', extra: line ? '' : 'disabled' })}</div>
+<h4 class="ly-label">Selected members</h4>${memberList}${lyErrText(d, 'members')}
+<div class="ly-actions">${lyBtn('ly-draft-apply', 'Link endings', 'link', { id: T, cls: 'cm-btn cm-btn-primary', extra: members.length >= 2 && !lyDraftStale(d) ? '' : 'disabled' })}${lyBtn('ly-link-remove', 'Remove link', 'link', { cls: 'cm-btn cm-btn-outline', extra: selGroup >= 0 ? '' : 'disabled' })}</div>
+<h4 class="ly-label">Declared links</h4>${committedList}
+${lyBtn('ly-rhyme-options', 'Ask writer for rhyme options', 'pencil', { cls: 'cm-btn cm-btn-outline ly-block', extra: busy ? 'disabled aria-describedby="ly-busy-note"' : '' })}${busy ? '<p class="ly-help" id="ly-busy-note">Writer is working. You can keep editing.</p>' : ''}${lyRhymeResults()}${status ? `<p class="ly-status-line">${status}</p>` : ''}${lyPendingStrip(T)}</div>`;
 }
+// A screen's pair verdicts as options; nothing is inserted or declared.
+function lyRhymeResults() {
+  const r = LY.results.rhymes;
+  if (!r) return '';
+  const rows = r.pairs
+    .map((p) => {
+      const kind = p.refused ? 'refused' : p.codes.length ? 'partial' : 'matched';
+      const word = kind === 'matched' ? 'Matched' : kind === 'partial' ? 'Partial' : 'Refused';
+      return `<li data-kind="${kind}">${lyPill(kind === 'matched' ? 'success' : kind === 'partial' ? 'warning' : 'danger', word)}<span><strong>${esc(p.a)} ~ ${esc(p.b)}</strong><small>${esc(p.refused ? p.reason || 'Not judged' : p.codes.length ? `Banned: ${p.codes.join(', ')}` : p.relations.join(', ') || 'no relation')}</small></span></li>`;
+    })
+    .join('');
+  return `<section class="ly-result" aria-labelledby="ly-rr-h"><h4 class="ly-h4" id="ly-rr-h">Rhyme options</h4><p class="ly-help">From the writer’s screen of ${esc(uiCount(r.pairs.length, 'pair'))}${r.stale ? ' · asked about an earlier version' : ''}. Nothing was inserted or declared.</p><ul class="ly-options">${rows || '<li>No pairs returned.</li>'}</ul></section>`;
+}
+
+// ── Pronunciation ─────────────────────────────────────────────────────────
 function lyToolPronunciation(model) {
   const readings = lySetupOf(model, 'reading');
+  const line = LY.activeLine || LY.picks.readingLine || model.sung[0]?.n || 0;
+  const row = model.sung[line - 1];
+  const toks = row ? lyTokens(row.text, model.voices) : [];
+  const key = LY.picks.reading;
+  const target = key ? lyReadingTarget(key) : null;
+  const chips = toks
+    .map((t, i) => {
+      const k = lyReadingKey(row.text, i + 1, t);
+      return `<button type="button" class="cm-chip" data-ui="ly-reading-pick" data-id="${esc(k)}" aria-pressed="${k === key}">${esc(t)}</button>`;
+    })
+    .join('');
+  let card = '';
+  if (target) {
+    const [tl, tt, tw] = target;
+    const T = 'pronunciation';
+    const d = lyDraftOf(T, key);
+    const stale = lyDraftStale(d) || LY_FORMS[T].fp(model, key) === 'gone';
+    const kind = lyVal(T, key, 'kind', '');
+    const committed = readings.find((r) => r.line === tl && r.token === tt);
+    const options = (LY.results.pronunciation?.items || []).filter(
+      (o) => o.line === tl && o.token === tt && o.word === tw
+    );
+    const readingOf = (phones) => {
+      const syl = phones.filter((p) => /\d$/.test(p));
+      const stress = syl.findIndex((p) => p.endsWith('1'));
+      return `${uiCount(syl.length, 'syllable')}${stress >= 0 ? ` · stress on ${['first', 'second', 'third', 'fourth', 'fifth'][stress] || `syllable ${stress + 1}`}` : ''}`;
+    };
+    const optHtml = options.length
+      ? `<ul class="ly-options">${options
+          .flatMap((o) => o.dictionary_readings)
+          .map(
+            (r, i) =>
+              `<li><span><strong>${esc(r.phones.join(' '))}</strong><small>${esc(`${uiCount(r.syllables ?? 0, 'syllable')} · stress ${r.stress.join('-')}`)} · Dictionary reading (CMUdict)</small></span>${lyBtn('ly-reading-use', 'Use reading', 'check', { id: i, cls: 'cm-btn cm-btn-primary ly-sm' })}</li>`
+          )
+          .join('')}</ul>`
+      : `<p class="ly-help">${LY.results.pronunciation ? 'The dictionary returned no alternative readings for this word.' : 'No dictionary options fetched for this word.'}</p>`;
+    const current = committed
+      ? committed.malformed
+        ? 'This reading cannot be read.'
+        : committed.state === 'declared'
+          ? `${committed.phones.join(' ')} · ${readingOf(committed.phones)} · ${committed.basis === 'dictionary' ? 'Dictionary reading' : 'Declared'} · source: ${committed.source || 'Source unavailable'}`
+          : committed.state === 'uncertain'
+            ? 'Marked uncertain'
+            : 'Needs a choice'
+      : 'No reading declared.';
+    const own = kind === 'declared';
+    card = `<div class="ly-word-card"><p class="ly-word">${esc(tw)}</p><p class="ly-help">Word ${tt} of ${esc(lyLineRef(model.sung.filter((r) => r.text === tl).map((r) => r.n)) || 'no current line')}</p><p>${esc(current)}</p>${stale ? `<p class="ly-inline" data-tone="warning">${icon('triangle-alert', 16)}<span><strong>Text changed · choose again</strong> The word has been edited. Choose a word from the current line.</span></p>` : ''}${optHtml}<div class="ly-actions">${lyBtn('ly-reading-kind', 'Declare my own', 'pencil', { id: 'declared', cls: `cm-btn cm-btn-outline${own ? ' is-on' : ''}`, extra: `aria-pressed="${own}"` })}${lyBtn('ly-reading-kind', 'Mark uncertain', 'circle-question-mark', { id: 'uncertain', cls: 'cm-btn cm-btn-outline', extra: `aria-pressed="${kind === 'uncertain'}"` })}</div>${
+      own
+        ? `<div class="ly-field"><label class="ly-label" for="ly-phones">Phones (stressed ARPABET)</label><input id="ly-phones" class="cm-input" data-draft="${T}" data-target="${esc(key)}" data-field="phones" value="${esc(lyVal(T, key, 'phones', ''))}" placeholder="G R OW1 S ER0" autocapitalize="characters"${lyErr(d, 'phones')}>${lyErrText(d, 'phones')}</div><div class="ly-field"><label class="ly-label" for="ly-source">Source (required)</label><input id="ly-source" class="cm-input" data-draft="${T}" data-target="${esc(key)}" data-field="source" value="${esc(lyVal(T, key, 'source', ''))}" placeholder="Who chose it and why"${lyErr(d, 'source')}>${lyErrText(d, 'source')}</div>`
+        : ''
+    }${lyErrText(d, 'kind')}${lyBtn('ly-pron-options', 'Get dictionary options', 'search', { cls: 'cm-btn cm-btn-outline ly-block', extra: chatState.busy ? 'disabled' : '' })}${chatState.busy ? '<p class="ly-help">Writer is working. You can keep editing.</p>' : ''}${committed ? lyBtn('ly-remove-setup', 'Remove reading', 'trash-2', { id: committed.i, cls: 'cm-btn ly-link-btn' }) : ''}</div>`;
+  }
   const list = readings.length
     ? `<ul class="ly-readings">${readings
         .map((r) => {
@@ -2568,158 +3259,319 @@ function lyToolPronunciation(model) {
           const what = r.malformed
             ? 'Cannot be read'
             : r.state === 'declared'
-              ? `${r.phones.join(' ')} · ${r.basis} · source: ${r.source}`
+              ? `${r.phones.join(' ')} · ${r.source || 'Source unavailable'}`
               : r.state === 'uncertain'
                 ? 'Marked uncertain'
                 : 'Needs a choice';
-          return `<li><span><strong>“${esc(r.word || '?')}”</strong> <small>word ${r.token || '?'} of ${ok ? esc(lyLineRef(lines)) : 'no matching line'}</small><small>${esc(what)}</small></span>${ok ? lyStatus(r.state === 'declared' ? 'success' : 'warning', r.state === 'declared' ? 'Bound' : 'Open') : lyStatus('danger', 'Stale')}${lyBtn('ly-remove-setup', 'Remove reading', 'trash-2', { id: r.i, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</li>`;
+          return `<li><button type="button" class="ly-link-btn" data-ui="ly-reading-pick" data-id="${esc(lyReadingKey(r.line, r.token, r.word))}"><strong>“${esc(r.word || '?')}”</strong></button><small>${ok ? esc(lyLineRef(lines)) : ''} · ${esc(what)}</small>${ok ? '' : lyStatus('warning', 'Text changed · choose again')}</li>`;
         })
         .join('')}</ul>`
-    : `<p class="ly-note">No readings declared.</p>`;
-  const pick = LY.picks;
-  const line = model.sung[pick.readingLine - 1] ? pick.readingLine : model.sung[0]?.n || 0;
-  const row = model.sung[line - 1];
-  const toks = row ? lyTokens(row.text, model.voices) : [];
-  const chips = toks
+    : '<p class="ly-help">No readings declared.</p>';
+  return `<div class="ly-tool-view">${row ? `<p class="ly-help">Line ${line}: choose a sung word.</p><div class="ly-chips" role="group" aria-label="Sung words on line ${line}">${chips}</div>` : '<p class="ly-help">Write some lines first.</p>'}${card}<details class="ly-adv"><summary>Declared readings (${readings.length})</summary>${list}</details><p class="ly-help">A reading binds an exact line and word position; identical lines share it.</p>${lyPendingStrip('pronunciation')}</div>`;
+}
+
+// ── Repeats & voices ──────────────────────────────────────────────────────
+function lyToolRepeats(model) {
+  const T = 'repeats-voices',
+    G = 'song';
+  const voices = lyVal(T, G, 'voices', model.voices ? 'sung' : 'unsung');
+  const placed = lyVal(T, G, 'placed', []) || [];
+  const declared = lySetupOf(model, 'returns').flatMap((dd) => lyParseGroups(dd.value));
+  const secs = model.sections.filter((s) => s.returnOf);
+  const cards = secs
     .map(
-      (t, i) =>
-        `<button type="button" class="cm-chip" data-ui="ly-reading-token" data-id="${i + 1}" aria-pressed="${pick.readingToken === i + 1}">${i + 1} · ${esc(t)}</button>`
+      (s) =>
+        `<div class="ly-card"><p><strong>${esc(s.title)} repeats ${esc(s.returnOf.title)}</strong></p><p class="ly-help">${esc(`${s.title} (${uiCount(s.sung.length, 'line')}) is an exact repeat of ${s.returnOf.title} (${uiCount(s.returnOf.sung.length, 'line')}).`)}</p><div class="ly-actions">${lyBtn('ly-view-both', 'View both', 'eye', { id: `${s.returnOf.index}:${s.index}`, cls: 'cm-btn cm-btn-outline' })}${lyBtn('ly-declare-repeat', 'Declare exact repeat', 'repeat', { id: `${s.returnOf.index}:${s.index}`, cls: 'cm-btn cm-btn-primary' })}</div></div>`
     )
     .join('');
-  const kind = pick.readingKind || 'choice';
-  const radio = (v, label) =>
-    `<label class="ly-radio"><input type="radio" name="ly-reading-kind" value="${v}"${kind === v ? ' checked' : ''}> ${esc(label)}</label>`;
-  return `<div class="ly-tool-grid"><section><h4 class="ly-h4">Readings</h4>${list}<p class="ly-note">A reading binds an exact line and one sung word position. Identical lines — a returning chorus — share it. A changed line never inherits it: it shows as stale until you choose again.</p>${readings.some((r) => r.state === 'choice') ? lyBtn('ly-reading-ask', 'Ask the writer for dictionary options', 'sparkles', { cls: 'cm-btn cm-btn-tonal' }) : ''}</section>
-<section><h4 class="ly-h4">Add a reading</h4>${
-    row
-      ? `<div class="ly-form"><select class="cm-select" id="ly-reading-line" aria-label="Line">${lyLineOptions(model, line, { distinct: true })}</select></div><div class="ly-chips" role="group" aria-label="Sung word">${chips || '<span class="ly-note">No sung words on this line.</span>'}</div>
-<fieldset class="ly-fieldset"><legend>Reading</legend>${radio('choice', 'Needs a choice — the writer lists the dictionary options')}${radio('declared', 'Supply a reading')}${radio('uncertain', 'Mark as uncertain')}</fieldset>
-<div class="ly-form"${kind === 'declared' ? '' : ' hidden'} id="ly-reading-supply"><input class="cm-input" id="ly-phones" placeholder="ARPABET, e.g. R EH1 K ER0 D" aria-label="ARPABET phones" autocapitalize="characters"><select class="cm-select" id="ly-basis" aria-label="Basis"><option value="dictionary">dictionary (CMUdict reading)</option><option value="declared">declared (supplied, with a source)</option></select><input class="cm-input" id="ly-source" placeholder="Who chose it and why, or its source" aria-label="Source"></div>
-<div class="ly-actions">${lyBtn('ly-reading-save', 'Save reading', 'check', { cls: 'cm-btn cm-btn-tonal', extra: pick.readingToken ? '' : 'disabled' })}</div><p class="ly-note" id="ly-reading-error" role="alert"></p>`
-      : '<p class="ly-note">Write some lines first.</p>'
-  }<p class="ly-note">Language: the harness reads Latin-script words; letters outside that repertoire are not read as words. Parentheses are ${model.voices ? 'declared sung' : 'unsung asides'} (see Returns & voices).</p></section></div>`;
-}
-function lyPlacedHtml(model) {
-  const pick = LY.picks;
-  const line = model.sung[pick.placedLine - 1] ? pick.placedLine : model.sung[0]?.n || 0;
-  const toks = line ? lyTokens(model.sung[line - 1].text, model.voices) : [];
-  const places =
-    [
-      ['head', 'first word'],
-      ['line', 'whole line'],
-      ['endword', 'last word'],
-    ]
-      .map(([v, l]) => `<option value="${v}">${l}</option>`)
-      .join('') +
-    toks.map((t, i) => `<option value="T${i + 1}">word ${i + 1} · ${esc(t)}</option>`).join('');
-  const members = pick.placedMembers || [];
-  return `<h4 class="ly-h4">Placed returns</h4><p class="ly-note">The same words at a place in different lines — a head that returns while the tail changes. Declared in the harness’s spelling (e.g. 1.head,3.head); the writer’s run judges them by placement.</p><div class="ly-form"><select class="cm-select" id="ly-placed-line" aria-label="Line">${lyLineOptions(model, line)}</select><select class="cm-select" id="ly-placed-place" aria-label="Place">${places}</select>${lyBtn('ly-placed-add', 'Add member', 'plus', { cls: 'cm-btn cm-btn-outline', extra: line ? '' : 'disabled' })}</div><div class="ly-pending">${members.length ? `<span class="ly-chips">${members.map((m) => `<span class="cm-chip ly-member">L${m.line} · ${esc(lyMemberLabel(m))} · “${esc(String(lyMemberWord(model, m) || '').slice(0, 40))}”</span>`).join('<span aria-hidden="true">=</span>')}</span>` : '<span class="ly-note">No members yet.</span>'}</div><div class="ly-actions">${lyBtn('ly-placed-save', 'Save placed return', 'repeat', { cls: 'cm-btn cm-btn-tonal', extra: members.length > 1 ? '' : 'disabled' })}${lyBtn('ly-placed-clear', 'Clear', '', { cls: 'cm-btn', extra: members.length ? '' : 'disabled' })}</div>`;
-}
-function lyToolReturns(model) {
-  const sectionReturns = model.sections.filter((s) => s.uses > 1);
-  const repeats = model.repeats;
-  const declared = lySetupOf(model, 'returns')[0]?.value || '';
+  const lines = model.repeats
+    .map((r) => `<li>“${esc(r.text.slice(0, 80))}” — ${esc(lyLineRef(r.lines))}</li>`)
+    .join('');
   const parens = model.sung.filter((r) => /\(/.test(r.text));
-  return `<div class="ly-tool-grid"><section><h4 class="ly-h4">Exact returns</h4>${
-    sectionReturns.length
-      ? `<ul class="ly-plain">${sectionReturns
+  const line = LY.activeLine || model.sung[0]?.n || 0;
+  const toks = line ? lyTokens(model.sung[line - 1].text, model.voices) : [];
+  const places = [
+    ['head', 'First word'],
+    ['line', 'Whole line'],
+    ['endword', 'Last word'],
+    ...toks.map((t, i) => [`T${i + 1}`, `Word ${i + 1} · ${t}`]),
+  ];
+  return `<div class="ly-tool-view"><h4 class="ly-h4">Detected repeats</h4>${cards || '<p class="ly-help">No section returns word for word.</p>'}${lines ? `<ul class="ly-plain">${lines}</ul>` : '<p class="ly-help">No line repeats word for word.</p>'}<p class="ly-help">Found on this page by exact text. A changed final chorus is not an exact return.</p>
+<h4 class="ly-h4">Declared returns</h4>${declared.length ? `<ul class="ly-plain">${declared.map((g) => `<li>${g.map((m) => (m.bad ? esc(m.raw) : `Line ${m.line}${m.place && m.place !== 'end' ? ` · ${esc(lyMemberLabel(m))}` : ''}`)).join(' = ')}</li>`).join('')}</ul>${lyBtn('ly-returns-clear', 'Clear declared returns', '', { cls: 'cm-btn ly-link-btn' })}<p class="ly-help">Clearing a return never deletes lyrics.</p>` : '<p class="ly-help">None declared.</p>'}
+<details class="ly-adv"${placed.length ? ' open' : ''}><summary>Placed returns</summary><p class="ly-help">The same words at a place in different lines, e.g. a head that returns while the tail changes.</p><div class="ly-inline-field"><label class="ly-label" for="ly-placed-place">Place in line ${line}</label><select id="ly-placed-place" class="cm-select">${lyOpts(places, LY.picks.placedPlace || 'head', null)}</select>${lyBtn('ly-placed-add', 'Add', 'plus', { cls: 'cm-btn cm-btn-outline', extra: line ? '' : 'disabled' })}</div>${placed.length ? `<ul class="ly-members">${placed.map((m, i) => `<li><span>Line ${m.line}</span><span>${esc(lyMemberLabel(m))}</span><strong>“${esc(String(lyMemberWord(model, m) ?? '').slice(0, 40))}”</strong>${lyBtn('ly-placed-remove', `Remove line ${m.line}`, 'x', { id: i, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</li>`).join('')}</ul>` : ''}</details>
+<h4 class="ly-h4">Parenthesised text</h4><div class="cm-segmented ly-seg" role="group" aria-label="Parenthesised text">${lyBtn('ly-voices', 'Unsung aside', '', { id: 'unsung', cls: '', extra: `aria-pressed="${voices !== 'sung'}"` })}${lyBtn('ly-voices', 'Sung second voice', '', { id: 'sung', cls: '', extra: `aria-pressed="${voices === 'sung'}"` })}</div><p class="ly-help">Applies to the whole document. Changing it changes which words are sung, so readings and review may need renewing.</p>${parens.length ? `<ul class="ly-plain">${parens.map((r) => `<li>Line ${r.n}: ${esc(r.text.slice(0, 80))}</li>`).join('')}</ul>` : '<p class="ly-help">No line in this document has parentheses.</p>'}${lyPendingStrip(T)}</div>`;
+}
+
+// ── Word rules ────────────────────────────────────────────────────────────
+function lyToolWordRules(model) {
+  const T = 'word-rules',
+    G = 'song';
+  const d = lyDraftOf(T, G);
+  const c = LY_FORMS[T].committed(model);
+  const list = (key, label, hint) => {
+    const values = lyVal(T, G, key, c[key]) || [];
+    return `<div class="ly-field"><h4 class="ly-label">${label}</h4>${values.map((w, i) => `<div class="ly-inline-field"><input class="cm-input" data-list="${key}" data-idx="${i}" value="${esc(w)}" aria-label="${label} ${i + 1}">${lyBtn('ly-word-remove', `Remove ${w || 'phrase'}`, 'x', { id: `${key}:${i}`, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</div>`).join('')}<div class="ly-inline-field"><input class="cm-input" id="ly-${key}-new" placeholder="${hint}" aria-label="Add a ${label.toLowerCase().replace(/s$/, '')}">${lyBtn('ly-word-add', 'Add phrase', 'plus', { id: key, cls: 'cm-btn cm-btn-outline' })}</div></div>`;
+  };
+  return `<div class="ly-tool-view">${list('require', 'Required phrases', 'Add phrase…')}${list('avoid', 'Avoid phrases', 'Add phrase…')}${lyErrText(d, 'require')}<p class="ly-help">Checked on this page by exact wording. Blank entries are ignored; repeated entries are kept once. Title and hook are set in the Song brief.</p>${lyPendingStrip(T)}</div>`;
+}
+
+// ── Review ────────────────────────────────────────────────────────────────
+const lyShortId = (id) => (id ? id.slice(0, 7) : 'unknown');
+function lyCoverageRows(a) {
+  const run = LY.run;
+  const layers = ['Form', 'Rhymes', 'Rhythm', 'Pronunciation'];
+  const status = {};
+  const measured = ['assessed_clear', 'assessed_findings', 'input', 'failed'].includes(a.state);
+  for (const l of layers) {
+    if (a.state === 'running') status[l] = ['info', 'Pending'];
+    else if (!measured) status[l] = ['', 'Not reviewed'];
+    else {
+      const obs = (run?.coverage?.obligations || []).filter((o) => lyLayerOf(o) === l);
+      if (!run?.coverage) status[l] = ['warning', 'Unknown'];
+      else if (!obs.length) status[l] = ['', 'Not requested'];
+      else if (obs.some((o) => o.status === 'refused')) status[l] = ['warning', 'Needs input'];
+      else if (obs.every((o) => o.status === 'not_requested')) status[l] = ['', 'Not requested'];
+      else status[l] = ['info', 'Executed'];
+    }
+  }
+  const rows = layers
+    .map((l) => `<li><span>${l}</span>${lyPill(status[l][0], status[l][1])}</li>`)
+    .join('');
+  return `<ul class="ly-coverage">${rows}<li><span>Story</span>${lyPill('', 'Creative guidance')}</li><li><span>Performance</span>${lyPill('', 'Not assessed')}</li></ul>`;
+}
+function lySuggestionHtml(item) {
+  const run = LY.run;
+  const out = LY.outcomes[item.id];
+  const own = LY.own[item.id];
+  const model = LY.model;
+  // Current only when the run, the whole document binding and the target
+  // still match; otherwise Apply becomes Recheck.
+  let stale = !run || item.decision?.run !== run.id;
+  if (!stale && run.base)
+    stale = !!lyDeclarationRefusal(run, model) && lyIdentity(model) !== run.baseId;
+  if (!stale && !item.decision.whole && run.base) {
+    const k = item.decision.n - 1;
+    stale = lySungTexts(model)[k] !== run.base[k] || model.sung.length !== run.base.length;
+  }
+  const base = `Based on ${lyShortId(run?.baseId)}${stale ? ' · stale' : ''}`;
+  let html = `<article class="ly-card ly-sugg" aria-labelledby="ly-s-${esc(item.id)}"><div class="ly-sugg-head"><h4 class="ly-h4" id="ly-s-${esc(item.id)}">${esc(item.decision.whole ? 'Writer result ready · compare with your current draft' : 'Suggestion')}</h4>${lyPill(stale ? 'warning' : '', base)}</div><p class="ly-help">${esc(item.where)}${item.lines?.length ? ` · ${lyBtn('ly-show-lines', 'Show in draft', '', { id: item.lines[0], cls: 'cm-btn ly-link-btn' })}` : ''}</p>`;
+  if (item.decision.whole)
+    html += `<details class="ly-whole"><summary>Compare</summary><div class="ly-compare"><div><span class="ly-label">Your draft</span><pre>${esc(lySungTexts(model).join('\n'))}</pre></div><div><span class="ly-label">Writer’s draft</span><pre>${esc(item.whole.join('\n'))}</pre></div></div></details>`;
+  else
+    html += `<div class="ly-field"><span class="ly-label">Original</span><p class="ly-quote">${esc(item.original)}</p></div><div class="ly-field"><span class="ly-label">Proposed</span><p class="ly-quote ly-quote-new">${esc(item.proposal)}</p></div>`;
+  if (item.text && !item.decision.whole) html += `<p class="ly-help">${esc(item.text)}</p>`;
+  if (out?.state === 'failed')
+    html += `<div class="ly-inline" data-tone="danger" role="alert">${icon('circle-alert', 16)}<span><strong>Not applied.</strong> ${esc(out.message)}</span></div>`;
+  if (own !== undefined)
+    html += `<div class="ly-field"><label class="ly-label" for="ly-own-input">Your line ${item.decision.n}</label><input id="ly-own-input" class="cm-input" data-id="${esc(item.id)}" value="${esc(own)}"><div class="ly-actions">${lyBtn('ly-own-put', 'Put in draft (unchecked)', 'pencil', { id: item.id, cls: 'cm-btn cm-btn-outline' })}${lyBtn('ly-own-cancel', 'Cancel', '', { id: item.id, cls: 'cm-btn' })}</div><p class="ly-help">An ordinary edit that nothing has checked; it cannot carry any certification.</p></div>`;
+  else
+    html += `<div class="ly-actions">${lyBtn('ly-keep', 'Keep mine', 'bookmark', { id: item.id, cls: 'cm-btn cm-btn-outline' })}${
+      stale
+        ? `<button type="button" class="cm-btn cm-btn-primary" disabled aria-disabled="true">Recheck before applying</button>${lyBtn('ly-recheck', 'Recheck suggestion', 'refresh-cw', { id: item.id, cls: 'cm-btn cm-btn-outline', extra: chatState.busy ? 'disabled' : '' })}`
+        : lyBtn(
+            'ly-apply',
+            item.decision.whole && !run?.base
+              ? 'Replace with writer’s draft (unchecked)'
+              : 'Apply change',
+            'check',
+            { id: item.id, cls: 'cm-btn cm-btn-primary' }
+          )
+    }${item.decision.whole ? '' : lyBtn('ly-own', 'Write my own', 'pencil', { id: item.id, cls: 'cm-btn cm-btn-outline' })}</div>`;
+  if (out?.state === 'applied')
+    html += `<div class="ly-inline" data-tone="success" role="status">${icon('circle-check', 16)}<span>${esc(out.message)}</span></div>`;
+  return html + '</article>';
+}
+function lyItemRow(item) {
+  const tone = LY_TONES[item.tone];
+  return `<li class="ly-item" data-tone="${item.tone}">${icon(tone.icon, 16)}<span><strong>${esc(item.title)}</strong><small>${esc(item.where)}${item.stale ? ' · from an earlier version' : ''}</small>${item.text ? `<small>${esc(item.text)}</small>` : ''}${item.actions?.length ? `<span class="ly-actions">${item.actions.map(([act, label, ic, id]) => lyBtn(act, label, ic, { id, cls: 'cm-btn ly-link-btn' })).join('')}</span>` : ''}${item.lines?.length ? lyBtn('ly-show-lines', 'Show in draft', '', { id: item.lines[0], cls: 'cm-btn ly-link-btn' }) : ''}</span></li>`;
+}
+function lyRenderReview() {
+  const box = $ui('ly-panel-review');
+  if (!box) return;
+  const model = LY.model;
+  const a = LY.state || lyAnalysis(model);
+  const items = LY.items || lyItems();
+  const run = items.filter((i) => i.source === 'run');
+  const local = items.filter((i) => i.source === 'page');
+  const suggestions = run.filter((i) => i.decision && !i.stale);
+  const others = run.filter((i) => !i.decision);
+  let html = `<section class="ly-card" aria-labelledby="ly-cur-h"><div class="ly-rev-head"><h3 class="ly-h3" id="ly-cur-h">Current version · ${esc(lyShortId(lyIdentity(model)))}</h3>${lyPill(a.tone, a.label)}</div>${a.certified ? `<p>${lyPill('success', 'Certified for this version')}</p>` : ''}${a.earlier ? `<p class="ly-inline" data-tone="warning">${icon('triangle-alert', 16)}<span>Review running for earlier version. Its results will arrive as history.</span></p>` : ''}${a.state === 'stale' && LY.run?.resultModel ? `<p class="ly-help">${esc(lyIdentityDiff(LY.run.resultModel, model).join(', ') || 'The document')} changed since the review.</p>` : ''}<h4 class="ly-h4">Coverage</h4>${lyCoverageRows(a)}${
+    a.state === 'none' || a.state === 'stale'
+      ? lyBtn('ly-run-review', 'Run review', 'play', {
+          cls: 'cm-btn cm-btn-primary ly-block',
+          extra: chatState.busy || !model.sung.length ? 'disabled' : '',
+        })
+      : ''
+  }</section>`;
+  if (LY.run && (LY.run.baseId || LY.run.resultId) && a.state !== 'stale' && a.state !== 'none')
+    html += '';
+  else if (LY.run)
+    html += `<button type="button" class="ly-card ly-row" data-ui="ly-tab" data-id="history"><span><strong>Earlier result · ${esc(LY.run.baseId ? lyShortId(LY.run.baseId) : 'declarations unknown')}</strong><small>${esc(lyRunStatus(LY.run)?.word || '')}</small></span>${icon('chevron-right', 18)}</button>`;
+  html += suggestions.map(lySuggestionHtml).join('');
+  if (others.length)
+    html += `<section class="ly-card" aria-labelledby="ly-find-h"><h4 class="ly-h4" id="ly-find-h">From the review</h4><ul class="ly-items">${others.map(lyItemRow).join('')}</ul></section>`;
+  html += `<details class="ly-card ly-local"${local.length && !run.length ? ' open' : ''}><summary><strong>Local checks</strong> <span class="ly-count">${local.length}</span></summary><p class="ly-help">Exact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.</p>${local.length ? `<ul class="ly-items">${local.map(lyItemRow).join('')}</ul>` : '<p class="ly-help">Nothing found.</p>'}</details><p class="ly-help">${icon('info', 14)} Changes to text, form or rhythm require a new review.</p>`;
+  lySetHtml(box, html, 'review');
+}
+
+// ── Writer ────────────────────────────────────────────────────────────────
+const LY_STAGES = ['Planning', 'Drafting', 'Checking', 'Revising', 'Finished'];
+// The receipt's stage (lower case, from the server or the shell) as a word;
+// anything else, or none, is just Working.
+const lyStageName = (stage) =>
+  LY_STAGES.find((s) => s.toLowerCase() === String(stage || '').toLowerCase()) || 'Working';
+function lyElapsed(ms) {
+  const s = Math.max(0, Math.round(ms / 1000));
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+}
+function lyWriterState() {
+  const lyric = chatState.lyric || null;
+  const lyricChat = lyLyricChat();
+  const run = LY.run;
+  const live = run && lyRunLive(run);
+  return {
+    busy: chatState.busy && lyricChat,
+    unknown: lyricChat && !!chatState.pending && !chatState.busy,
+    lyric,
+    waiting: lyricChat && lyLiveWaiting(lyric) && !chatState.busy,
+    parked: lyricChat && !!lyric?.parked,
+    uncertain: !!lyric?.uncertain_proposal,
+    capacity: !!lyric?.new_run_required,
+    interrupted:
+      !!(live && (run.artifact?.status === 'interrupted' || run.error)) || !!chatState.disconnected,
+    disconnected: !!chatState.disconnected,
+  };
+}
+function lyRenderWriter() {
+  const box = $ui('ly-writer-status');
+  if (!box) return;
+  const w = lyWriterState();
+  const run = LY.run;
+  const model = LY.model;
+  let html = `<div class="ly-writer-head"><h3 class="ly-h3">Writer</h3>${lyBtn('ly-tab', 'History', 'history', { id: 'history', cls: 'cm-btn ly-link-btn' })}</div>`;
+  if (LY.conflict) {
+    const what = w.unknown
+      ? 'A saved request’s outcome is unknown.'
+      : w.waiting
+        ? 'The writer is waiting for your answer.'
+        : w.parked
+          ? `The writer’s run is parked with ${uiCount((w.lyric?.open || []).length, 'open line')}.`
+          : 'The writer has unfinished work.';
+    html += `<div class="ly-card" data-tone="warning" role="alert"><p><strong>${esc(what)}</strong> Starting this now would set it aside.</p><div class="ly-actions">${lyBtn('ly-conflict-resume', 'Resume current work', 'play', { cls: 'cm-btn cm-btn-primary' })}${lyBtn('ly-conflict-new', 'Start independent work', 'file-plus', { cls: 'cm-btn cm-btn-outline', extra: w.unknown ? 'disabled' : '' })}${lyBtn('ly-conflict-cancel', 'Cancel', '', { cls: 'cm-btn' })}</div><p class="ly-help">Starts a separate writer run. The current one stays under History${w.unknown ? ' — retrieve its saved result first' : ''}.</p></div>`;
+  }
+  if (w.busy) {
+    const p = LY.progress || chatState.progress || null;
+    const stage = lyStageName(p?.stage);
+    const started = p?.created_at
+      ? Date.parse(p.created_at) || p.created_at
+      : chatState.pending?.created_at;
+    const updated = p?.updated_at ? Date.parse(p.updated_at) || p.updated_at : null;
+    html += `<section class="ly-card" aria-labelledby="ly-prog-h"><h4 class="ly-h4" id="ly-prog-h">${esc(stage)}${p?.round != null ? ` · cycle ${esc(String(p.round))}` : ''}</h4><ol class="ly-stages">${LY_STAGES.map((s) => `<li${s === stage ? ' aria-current="step" class="is-current"' : ''}>${icon(s === stage ? 'loader' : 'circle', 16)}<span>${s}</span></li>`).join('')}</ol><dl class="ly-dl"><dt>Elapsed</dt><dd id="ly-elapsed" aria-live="off">${started ? lyElapsed(Date.now() - started) : '—'}</dd><dt>Last update</dt><dd id="ly-updated">${updated ? `${lyElapsed(Date.now() - updated)} ago` : '—'}</dd>${p?.accepted_lines != null ? `<dt>Accepted lines</dt><dd>${esc(String(p.accepted_lines))}</dd>` : ''}</dl><p class="ly-help">You can keep editing. The result is compared with your draft when it arrives.</p></section>`;
+  } else if (w.unknown)
+    html += `<section class="ly-card" data-tone="warning" role="status"><p>${lyPill('warning', 'Interrupted')}</p><p><strong>Outcome unknown. Retrieve the saved result before starting another request.</strong></p>${lyBtn('ly-retrieve', 'Retrieve saved result', 'refresh-cw', { cls: 'cm-btn cm-btn-primary ly-block' })}</section>`;
+  else if (w.interrupted || w.uncertain || w.capacity) {
+    const safe = !!(
+      w.lyric?.state &&
+      w.lyric.resumable !== false &&
+      !w.uncertain &&
+      !w.capacity &&
+      chatState.continuationId
+    );
+    const accepted = run?.final;
+    const differs = accepted && !lySame(accepted, lySungTexts(model));
+    html += `<section class="ly-card" data-tone="warning" aria-labelledby="ly-int-h"><p>${lyPill('warning', 'Interrupted')}</p><h4 class="ly-h4" id="ly-int-h">${w.disconnected ? 'The connection ended before the writer finished.' : 'The writer stopped before finishing.'}</h4>${accepted ? `<p>${lyStatus('success', 'Your accepted draft is saved.')} <small>${esc(uiCount(accepted.length, 'line'))}</small></p>` : ''}<p>${lyPill('warning', 'Review incomplete')}</p>${safe ? `<p>${lyStatus('success', 'Saved checkpoint available')}</p>` : ''}${w.uncertain ? '<p class="ly-help">The interrupted proposal may already have been charged. It will not be repeated automatically.</p>' : ''}${w.capacity ? '<p class="ly-help">This run reached its journal capacity; continuing needs new work.</p>' : ''}<div class="ly-actions ly-stack">${safe ? lyBtn('ly-resume', 'Resume from saved draft', 'play', { cls: 'cm-btn cm-btn-primary', extra: differs ? 'disabled aria-describedby="ly-resume-why"' : '' }) : ''}${safe && differs ? `<p class="ly-help" id="ly-resume-why">Your draft differs from the checkpoint.</p>${lyBtn('ly-restore-checkpoint', 'Restore checkpoint draft', 'refresh-cw', { cls: 'cm-btn cm-btn-outline' })}` : ''}${lyBtn('ly-retrieve', 'Retrieve saved result', 'refresh-cw', { cls: 'cm-btn cm-btn-outline', extra: chatState.pending ? '' : 'disabled' })}${lyBtn('ly-new-work', differs ? 'Start new work from current draft' : 'Start new work', 'file-plus', { cls: 'cm-btn cm-btn-outline' })}</div><p class="ly-help">Starts a separate writer run.</p><details class="ly-adv"><summary>Technical details</summary><dl class="ly-dl">${
+      [
+        ['Code', run?.error?.code || run?.stopped || run?.artifact?.status || ''],
+        [
+          'Reason',
+          typeof run?.error === 'string'
+            ? run.error
+            : run?.error?.message || run?.artifact?.last_attempt?.error || '',
+        ],
+        ['Request', chatState.continuationId || chatState.disconnected || ''],
+        ['Stage', LY.progress?.stage || ''],
+      ]
+        .filter(([, x]) => x)
+        .map(([k, x]) => `<dt>${k}</dt><dd>${esc(String(x).slice(0, 300))}</dd>`)
+        .join('') || '<dt>Details</dt><dd>None supplied.</dd>'
+    }</dl></details></section>`;
+  } else if (w.waiting) {
+    const item = (LY.items || []).find((i) => i.id === 'waiting');
+    const lines = item?.answer || [0];
+    html += `<section class="ly-card" aria-labelledby="ly-ask-h"><h4 class="ly-h4" id="ly-ask-h">${esc(item?.title || 'The writer is waiting for an answer')}</h4>${item?.question ? `<p class="ly-quote">${esc(item.question)}</p>` : ''}${lines.map((n) => `<div class="ly-field"><label class="ly-label" for="ly-answer-${n}">${n ? `Your line ${n}` : 'Your answer'}</label><textarea id="ly-answer-${n}" class="cm-input" rows="2" data-answer="${n}">${esc(n ? lySungTexts(model)[n - 1] || '' : '')}</textarea></div>`).join('')}${lyBtn('ly-answer', 'Submit answer', 'send', { cls: 'cm-btn cm-btn-primary' })}<p class="ly-help">Sent to the same, still-waiting run.</p></section>`;
+  } else if (w.parked)
+    html += `<section class="ly-card" data-tone="warning"><p><strong>Parked with ${esc(uiCount((w.lyric.open || []).length, 'open line'))}</strong></p><p class="ly-help">The run stopped with lines unresolved. Answer in the conversation below, or start new work.</p></section>`;
+  else if (!run)
+    html += `<section class="ly-card"><p>The writer is idle. Nothing is sent until you choose an action.</p><div class="ly-actions ly-stack">${lyBtn('new-lyrics', 'New song', 'file-plus', { cls: 'cm-btn cm-btn-outline' })}${lyBtn('edit-lyrics', 'Edit this draft', 'pencil', { cls: 'cm-btn cm-btn-outline' })}${lyBtn('attach-recipe', 'Use current recipe', 'layers', { cls: 'cm-btn cm-btn-outline' })}</div></section>`;
+  else {
+    const st = lyRunStatus(run);
+    html += `<section class="ly-card"><p>${lyPill(st.tone || '', `Last reply: ${st.word}`)}</p><p class="ly-help">${esc(new Date(run.at).toLocaleTimeString())} · ${run.final ? esc(uiCount(run.final.length, 'line')) : 'no draft in this reply'}</p></section>`;
+  }
+  html += `<p class="ly-sr" id="ly-stage-live" aria-live="polite">${esc(LY.stageSaid || '')}</p>`;
+  lySetHtml(box, html, 'writer');
+  lyClock(w.busy);
+}
+// The clock ticks without re-rendering or announcing, and only while a
+// request runs with the Writer showing it: an idle page holds no timer.
+let lyClockTimer = 0;
+function lyClock(on) {
+  if (on && !lyClockTimer) lyClockTimer = setInterval(lyClockTick, 1000);
+  if (!on && lyClockTimer) {
+    clearInterval(lyClockTimer);
+    lyClockTimer = 0;
+  }
+}
+function lyClockTick() {
+  const el = document.getElementById('ly-elapsed');
+  if (!el || !chatState.busy) return lyClock(false);
+  const p = LY.progress;
+  const started = p?.created_at
+    ? Date.parse(p.created_at) || p.created_at
+    : chatState.pending?.created_at;
+  if (started) el.textContent = lyElapsed(Date.now() - started);
+  const up = document.getElementById('ly-updated');
+  const updated = p?.updated_at ? Date.parse(p.updated_at) : null;
+  if (up && updated) up.textContent = `${lyElapsed(Date.now() - updated)} ago`;
+}
+
+// ── History ───────────────────────────────────────────────────────────────
+function lyRenderHistory() {
+  const box = $ui('ly-panel-history');
+  if (!box) return;
+  const model = LY.model;
+  let html = `<h3 class="ly-h3">History</h3>`;
+  const runs = [...(LY.past || [])].reverse();
+  if (LY.run) runs.unshift(LY.run);
+  html += runs.length
+    ? `<ul class="ly-hist">${runs
+        .map((r) => {
+          const st = lyRunStatus(r, model);
+          return `<li><span><strong>${esc(new Date(r.at).toLocaleString())}</strong><small>${esc(st?.word || '')} · ${r.baseId ? `version ${esc(lyShortId(r.resultId || r.baseId))}` : 'declarations unknown'}${r.final ? ` · ${esc(uiCount(r.final.length, 'line'))}` : ''}</small></span>${r === LY.run ? lyBtn('ly-tab', 'View result', '', { id: 'review', cls: 'cm-btn cm-btn-outline ly-sm' }) : ''}</li>`;
+        })
+        .join('')}</ul>`
+    : '<p class="ly-help">No writer results in this tab yet.</p>';
+  const archives = (chatState.archives || []).filter(
+    (a) => a && (a.domain === 'lyrics' || !a.domain)
+  );
+  html += `<h4 class="ly-h4">Saved runs</h4>${
+    archives.length
+      ? `<ul class="ly-hist">${archives
+          .slice()
+          .reverse()
           .map(
-            (s) =>
-              `<li>${lyBtn('ly-goto', s.title, 'repeat', { id: s.index, cls: 'ly-link-btn' })} — used ${s.uses} times (${esc(
-                model.sections
-                  .filter((o) => o === s || o.returnOf === s)
-                  .map((o) => `section ${o.index + 1}`)
-                  .join(', ')
-              )})</li>`
+            (a) =>
+              `<li><span><strong>${esc((a.message || 'Saved conversation').slice(0, 80))}</strong><small>${a.created_at ? esc(new Date(a.created_at).toLocaleString()) : 'Saved conversation'}</small></span>${lyBtn('ly-retrieve-id', 'Retrieve saved result', '', { id: a.request_id, cls: 'cm-btn cm-btn-outline ly-sm' })}</li>`
           )
           .join('')}</ul>`
-      : '<p class="ly-note">No section returns word for word.</p>'
-  }<h4 class="ly-h4">Repeated lines</h4>${
-    repeats.length
-      ? `<ul class="ly-plain">${repeats.map((r) => `<li>“${esc(r.text.slice(0, 80))}” — ${esc(lyLineRef(r.lines))}</li>`).join('')}</ul>`
-      : '<p class="ly-note">No line repeats word for word.</p>'
-  }<p class="ly-note">Counted by exact text on this page. Intentional repeats are kept as they are.</p><p><strong>Declared returns:</strong> ${esc(declared || 'none')}</p><div class="ly-actions">${lyBtn('ly-returns-declare', 'Declare these exact returns', 'repeat', { cls: 'cm-btn cm-btn-outline', extra: repeats.length ? '' : 'disabled' })}${declared ? lyBtn('ly-returns-clear', 'Clear', '', { cls: 'cm-btn' }) : ''}</div>${lyPlacedHtml(model)}</section>
-<section><h4 class="ly-h4">Voices</h4><fieldset class="ly-fieldset"><legend>Parenthesised text</legend><label class="ly-radio"><input type="radio" name="ly-voices" value="unsung"${model.voices ? '' : ' checked'}> Unsung asides (default)</label><label class="ly-radio"><input type="radio" name="ly-voices" value="sung"${model.voices ? ' checked' : ''}> Sung — a second voice or call-and-response</label></fieldset>${
-    parens.length
-      ? `<ul class="ly-plain">${parens.map((r) => `<li>Line ${r.n}: ${esc(r.text.slice(0, 80))} <small>(${model.voices ? 'second voice, sung' : 'aside, unsung'})</small></li>`).join('')}</ul>`
-      : '<p class="ly-note">No line has parentheses.</p>'
-  }<p class="ly-note">Unsung asides carry no end word, so a line that is only an aside has no rhyme to judge.</p></section></div>`;
-}
-function lyToolChecks(model, items) {
-  const group = (tone) => items.filter((i) => i.tone === tone);
-  const listOf = (arr) =>
-    arr.length
-      ? `<ul class="ly-plain">${arr.map((i) => `<li>${esc(i.title)} <small>${esc(i.where)}${i.stale ? ' · stale' : ''}</small></li>`).join('')}</ul>`
-      : '<p class="ly-note">None.</p>';
-  const run = LY.run;
-  let runHtml = '<p class="ly-note">No writer reply in this tab yet.</p>';
-  if (run) {
-    const status = lyRunStatus(run);
-    const cov = run.coverage;
-    const tools = (run.tools || []).filter((t) => /^lyric_/.test(t.name));
-    runHtml = `<p>${lyStatus(status.tone, status.word)} ${run.final && !lySame(run.final, lySungTexts(model)) ? lyStatus('warning', 'Your draft has changed since') : ''}</p>`;
-    if (tools.length)
-      runHtml += `<ul class="ly-plain">${tools.map((t) => `<li><code>${esc(t.name)}</code>${typeof t.exit_code === 'number' ? ` · exit ${t.exit_code}` : ''}${t.status ? ` · ${esc(t.status)}` : ''}${t.error ? ' · error' : ''}</li>`).join('')}</ul>`;
-    if (cov && Array.isArray(cov.obligations)) {
-      const by = (st) => cov.obligations.filter((o) => o.status === st);
-      const ob = (arr) =>
-        arr.length
-          ? `<ul class="ly-plain ly-small">${arr
-              .slice(0, 60)
-              .map(
-                (o) =>
-                  `<li><code>${esc(o.id)}</code>${o.detail ? ` — ${esc(String(o.detail).slice(0, 160))}` : ''}</li>`
-              )
-              .join('')}${arr.length > 60 ? `<li>…and ${arr.length - 60} more</li>` : ''}</ul>`
-          : '<p class="ly-note">None.</p>';
-      runHtml += `<p class="ly-note">Rhyme pairs: ${cov.pairs_mandated ?? '?'} requested · ${cov.pairs_judged ?? '?'} judged · ${cov.pairs_refused ?? '?'} not judged. Coverage ${cov.certified === true ? 'complete for what was requested' : 'incomplete'}.</p><details class="cm-accordion" open><summary>Answered (${by('answered').length})</summary>${ob(by('answered'))}</details><details class="cm-accordion"${by('refused').length ? ' open' : ''}><summary>Not judged — needs input (${by('refused').length})</summary>${ob(by('refused'))}</details><details class="cm-accordion"><summary>Not requested (${by('not_requested').length})</summary>${ob(by('not_requested'))}</details>`;
-    } else runHtml += '<p class="ly-note">This reply carried no coverage record.</p>';
-  }
-  return `<div class="ly-tool-grid"><section><h4 class="ly-h4">From this page</h4><p class="ly-note">Exact text facts only: declared sizes, returns, readings, links and word rules.</p><h5>Issues</h5>${listOf(group('issue').filter((i) => i.source === 'page'))}<h5>Needs input</h5>${listOf(group('input').filter((i) => i.source === 'page'))}<h5>Notes</h5>${listOf(group('note').filter((i) => i.source === 'page'))}</section><section><h4 class="ly-h4">From the writer’s last reply</h4>${runHtml}<p class="ly-note">There is no overall score. Requested, answered, not judged and not requested are reported separately; a run that stopped or was interrupted is never shown as finished.</p>${model.sung.length ? lyBtn('ly-ask-review', 'Ask the writer to review this draft', 'sparkles', { cls: 'cm-btn cm-btn-tonal' }) : ''}</section></div>`;
-}
-function lyToolExport() {
-  return `<div class="ly-actions">${lyBtn('copy-lyrics', 'Copy with headers', 'copy', { cls: 'cm-btn cm-btn-outline' })}${lyBtn('ly-copy-sung', 'Copy sung lines only', 'clipboard', { cls: 'cm-btn cm-btn-outline' })}${lyBtn('ly-download', 'Download as text', 'download', { cls: 'cm-btn cm-btn-outline' })}</div><p class="ly-note">“With headers” is the exact draft: section headers (with their declared sizes and rhythm), setup lines and run stamps. “Sung lines only” drops every whole-line bracket, the way the harness reads a draft. The whole session (recipe and lyrics) is exported from More → Export.</p>`;
-}
-function lyRenderTools(items) {
-  const open = LY.toolsOpen;
-  $ui('ly-tools-drawer').hidden = !open;
-  document
-    .querySelectorAll('[data-ui="ly-tools-toggle"]')
-    .forEach((b) => b.setAttribute('aria-expanded', String(open)));
-  document.querySelectorAll('#ly-tools [data-ui="ly-tool"]').forEach((b) => {
-    if (b.getAttribute('role') === 'tab')
-      b.setAttribute('aria-selected', String(b.dataset.id === LY.tool));
-    else b.setAttribute('aria-pressed', String(open && b.dataset.id === LY.tool));
-  });
-  if (!open) return;
-  // Bring the selected tab into view inside its own scrolling row.
-  const tab = document.querySelector(`.ly-tool-tabs [data-id="${LY.tool}"]`);
-  const row = tab?.parentElement;
-  if (tab && row) {
-    const r = tab.getBoundingClientRect(),
-      p = row.getBoundingClientRect();
-    if (r.left < p.left || r.right > p.right) row.scrollLeft += r.left - p.left - 12;
-  }
-  const model = LY.model;
-  const body = $ui('ly-tool-body');
-  const html = {
-    structure: () => lyToolStructure(model),
-    rhymes: () => lyToolRhymes(model),
-    rhythm: () => lyToolRhythm(model),
-    pronunciation: () => lyToolPronunciation(model),
-    returns: () => lyToolReturns(model),
-    checks: () => lyToolChecks(model, items),
-    export: () => lyToolExport(),
-  }[LY.tool]();
-  // Keep what someone is typing: a text field the user is in is not replaced.
-  const active = document.activeElement;
-  if (
-    active &&
-    body.contains(active) &&
-    active.matches('input[type="text"], input:not([type]), input[type="search"]')
-  )
-    return;
-  body.innerHTML = html;
+      : '<p class="ly-help">No saved lyric runs in this browser. Starting new work keeps the previous run here.</p>'
+  }`;
+  const got = LY.retrieved;
+  if (got)
+    html += `<section class="ly-card" aria-labelledby="ly-got-h"><h4 class="ly-h4" id="ly-got-h">Saved result · ${esc(got.state)}</h4>${got.text ? `<pre class="ly-pre">${esc(got.text)}</pre>` : `<p class="ly-help">${esc(got.note || 'No song in this record.')}</p>`}<p class="ly-help">Shown as saved. Nothing was sent, resumed or graded.</p></section>`;
+  html += `<h4 class="ly-h4">Draft history</h4><p class="ly-help">Undo and Redo step through every change, including changes applied from this page.</p>`;
+  if (model.stamps.length)
+    html += `<h4 class="ly-h4">Stamps in the draft</h4><ul class="ly-hist">${model.stamps.map((st) => `<li><span><strong>${esc(st.kind)}${st.exit != null ? ` · exit ${st.exit}` : ''}</strong><small>${esc(st.raw)}</small></span></li>`).join('')}</ul>`;
+  lySetHtml(box, html, 'history');
 }
 
 // ── Refresh ───────────────────────────────────────────────────────────────
@@ -2736,12 +3588,8 @@ function lyRefresh(now = false) {
   if (draft.value !== LY.text) {
     const prev = LY.model;
     const next = lyParse(draft.value);
-    // The shell puts a writer's lyrics in place whole (automatically, or by
-    // "Use these lyrics"); that text has no [SETUP] lines and its own (or no)
-    // headers. Where the line counts match, put only the sung lines into the
-    // person's draft, so headers, declared sizes, bars, meter and setup
-    // survive; otherwise keep at least the setup. Visibly, once per reply,
-    // as its own step so Undo can step past it.
+    // A writer's lyrics put in place whole by the shell keep this draft's
+    // headers and setup where the line counts match (see lyResultText).
     const run = LY.run;
     if (
       prev &&
@@ -2770,76 +3618,68 @@ function lyRefresh(now = false) {
     }
     LY.text = draft.value;
     LY.model = next;
-    // A text change can invalidate an earlier check result; failures are
-    // re-derived on the next attempt, never kept as a verdict on new text.
     for (const [id, out] of Object.entries(LY.outcomes))
       if (out.state === 'failed') delete LY.outcomes[id];
   }
   if (!LY.model) LY.model = lyParse(draft.value);
   if (LY.activeLine > LY.model.sung.length) LY.activeLine = 0;
-  const items = lyItems();
-  LY.items = items;
-  const list = items.filter((i) => i.tone === LY.reviewTab);
-  const current = list[Math.min(LY.reviewAt, Math.max(0, list.length - 1))];
+  LY.items = lyItems();
   lyRenderHead();
-  lyRenderSong(items);
-  lyRenderDoc(items, current);
-  lyRenderStatus();
-  lyRenderPane(items);
-  lyRenderTools(items);
-}
-function lyRenderPane(items) {
-  const page = document.querySelector('#surface-lyrics .ly-page');
-  if (!page) return;
-  page.dataset.pane = LY.pane || 'closed';
-  for (const id of ['review', 'history', 'writer']) $ui('ly-' + id).hidden = LY.pane !== id;
-  document
-    .querySelectorAll('.ly-side-tabs [data-ui="ly-pane"]')
-    .forEach((b) => b.setAttribute('aria-selected', String(b.dataset.id === LY.pane)));
-  if (LY.pane === 'review') lyRenderReview(items);
-  if (LY.pane === 'history') lyRenderHistory();
-}
-function lyShowPane(pane, { focus = false } = {}) {
-  LY.pane = pane;
-  LY.prefs.pane.set(pane);
-  lyRefresh(true);
-  if (pane && focus) {
-    const view = $ui('ly-' + pane);
-    view?.scrollIntoView?.({ block: 'nearest' });
-    uiFocus(document.querySelector(`.ly-side-tabs [data-id="${pane}"]`));
+  lyRenderBrief();
+  lyRenderOutline();
+  lyRenderMainTool();
+  lyRenderEditor();
+  lyRenderTabs();
+  if (LY.tab === 'tools') lyRenderTools();
+  if (LY.tab === 'writer') lyRenderWriter();
+  if (LY.tab === 'review') lyRenderReview();
+  if (LY.tab === 'history') lyRenderHistory();
+  lyRenderHistoryButtons();
+  lyFindUpdate();
+  const ui = lyMeta().ui;
+  if (ui.tab !== LY.tab || ui.tool !== LY.tool || ui.outline !== LY.outline) {
+    Object.assign(ui, { tab: LY.tab, tool: LY.tool, outline: LY.outline });
+    lyMetaSaved();
   }
 }
-function lySetView(view) {
-  LY.view = view;
-  lyRefresh(true);
+function lyRenderHistoryButtons() {
+  const u = $ui('ui-undo') || $ui('btn-undo'),
+    r = $ui('ui-redo') || $ui('btn-redo');
+  const canUndo = app.historyIndex > 0,
+    canRedo = app.historyIndex < app.history.length - 1;
+  document.querySelector('[data-ui="ly-undo"]')?.toggleAttribute('disabled', !canUndo && !u);
+  const undoBtn = document.querySelector('[data-ui="ly-undo"]');
+  const redoBtn = document.querySelector('[data-ui="ly-redo"]');
+  if (undoBtn) undoBtn.disabled = !canUndo;
+  if (redoBtn) redoBtn.disabled = !canRedo || !r;
 }
-function lyScrollToLine(n, { edit = false } = {}) {
+function lyShowTab(tab, { focus = false } = {}) {
+  LY.tab = tab;
+  if (LY.size === 'narrow') LY.mobile = tab === 'history' ? 'writer' : tab;
+  lyRefresh(true);
+  if (focus) uiFocus($ui(`ly-tab-${tab}`));
+}
+function lyScrollToLine(n, { select = true } = {}) {
   const model = LY.model;
   const row = model.sung[n - 1];
   if (!row) return;
-  LY.activeLine = n;
-  if (edit) {
-    lySetView('edit');
-    const draft = lyDraft();
+  if (LY.size === 'narrow' && LY.mobile !== 'song') LY.mobile = 'song';
+  if (LY_MAIN_TOOLS.includes(LY.tool) && LY.size !== 'narrow') LY.tool = '';
+  lyRefresh(true);
+  const draft = lyDraft();
+  if (select) {
     const rows = draft.value.split('\n');
     const start = rows.slice(0, row.i).reduce((t, r) => t + r.length + 1, 0);
     draft.focus({ preventScroll: true });
     draft.setSelectionRange(start + rows[row.i].length, start + rows[row.i].length);
-    LY.caretRow = row.i;
-    const lineHeight = parseFloat(getComputedStyle(draft).lineHeight) || 28;
-    draft.scrollTop = Math.max(0, row.i * lineHeight - draft.clientHeight / 3);
-    lyRenderStatus();
-    return;
+    lySyncCaret();
   }
-  if (LY.view !== 'read') LY.view = 'read';
-  lyRefresh(true);
-  const li = document.querySelector(`#ly-doc .ly-line[data-n="${n}"]`);
-  li?.scrollIntoView?.({ block: 'center' });
+  $ui('ly-overlay')?.querySelector(`.ly-r[data-n="${n}"]`)?.scrollIntoView?.({ block: 'center' });
 }
 
-// The writer's replies. The shell forwards each reply to uiReceiveReply; this
-// page reads the same payload afterwards (see Shell requests in the PR: a page
-// hook would replace this wrapper). Only lyric replies are kept.
+// ── The writer's replies ──────────────────────────────────────────────────
+// The shell forwards each reply to uiReceiveReply; this page reads the same
+// payload afterwards. Only lyric replies are kept.
 let lyRunSeq = 0;
 function lyReceive(payload, request) {
   if (!payload || typeof payload !== 'object') return;
@@ -2857,8 +3697,6 @@ function lyReceive(payload, request) {
       : null);
   const matches = request?.request_id && UI.lyricRequest?.id === request.request_id;
   const tools = Array.isArray(payload.tools) ? payload.tools : [];
-  // The request as it was sent: its sung lines and its [SETUP] rows. The
-  // stored text keeps the rows; the writer was given their values as JSON.
   const asked = matches ? lyParse(UI.lyricRequest.text || '') : null;
   const coverageTool = [...tools]
     .reverse()
@@ -2871,6 +3709,7 @@ function lyReceive(payload, request) {
         : null;
   const title = lyArtifactTitle(payload.artifact);
   const resultModel = lyResultModel(asked, final, wholeText, title);
+  if (LY.run) LY.past = [...(LY.past || []), LY.run].slice(-12);
   LY.run = {
     id: ++lyRunSeq,
     at: Date.now(),
@@ -2890,57 +3729,25 @@ function lyReceive(payload, request) {
     wholeText,
     base: asked ? lySungTexts(asked) : null,
     baseSetup: asked ? lySetupKey(asked) : null,
-    // The version asked about and the version the reply accepted, by identity.
     baseModel: asked,
     baseId: asked ? lyIdentity(asked) : null,
     resultModel,
     resultId: resultModel ? lyIdentity(resultModel) : null,
     title,
   };
-  LY.reviewTab = 'issue';
-  LY.reviewAt = 0;
+  // Options a named request asked for, kept as tool results; nothing is applied.
+  const screen = [...tools].reverse().find((t) => Array.isArray(t?.pairs));
+  if (screen) LY.results.rhymes = { pairs: screen.pairs, baseId: LY.run.baseId };
+  const pron = [...tools].reverse().find((t) => t?.pronunciation_options?.items);
+  if (pron) LY.results.pronunciation = { ...pron.pronunciation_options, baseId: LY.run.baseId };
+  LY.progress = null;
   lyRefresh(true);
 }
 
-// ── Writer prompts (sent only when the person presses Ask) ─────────────────
-// Every helper here starts new work: uiNewTask → _chatReset clears the live
-// conversation. A run waiting for an answer, or parked with open lines, would
-// be archived by that (or lost, with no saved copy), so ask first.
-async function lyConfirmReset() {
-  const lyric = chatState.lyric;
-  if (chatState.busy || !(lyLiveWaiting(lyric) || lyric?.parked)) return true;
-  const saved = !!(chatState.continuationId || chatState.pending);
-  const what = lyric.parked
-    ? `The writer’s run is parked with ${uiCount((lyric.open || []).length, 'open line')}.`
-    : 'The writer is waiting for your answer.';
-  const ok = await confirmDialog({
-    title: 'Start a new writer conversation?',
-    message: `${what} This starts a new conversation, which ${saved ? 'archives that run under History → Saved runs' : 'ends that run: this browser has no saved copy of it'}. It can no longer be answered or continued from this page.`,
-    confirmLabel: saved ? 'Archive it and start' : 'End it and start',
-    cancelLabel: 'Keep the run',
-  });
-  if (!ok) showToast('Kept the waiting run. Answer it in the writer, or start new work later.');
-  return ok;
-}
-async function lyNewTask(domain) {
-  if (!(await lyConfirmReset())) return false;
-  lyShowPane('writer');
-  const ok = uiNewTask(domain);
-  lyRefresh(true);
-  return ok;
-}
-async function lyAskWriter(domain, message) {
-  if (!(await lyNewTask(domain))) return false;
-  $ui('chat-input').value = message;
-  // A script write fires no input event; see _chatSyncCount in src/app.js.
-  _chatSyncCount();
-  $ui('chat-input').focus();
-  return true;
-}
-// What the writer is sent. [SETUP] rows stay in the stored draft only: the
-// harness reads every whole-line bracket as a section mark (lyric_recover →
-// quality/recover.py _sections_from_marks), so a [SETUP] row would open a
-// section. Their values travel in the JSON declarations block instead.
+// What the writer is given as the document. [SETUP] rows stay in the stored
+// draft only: the harness reads every whole-line bracket as a section mark
+// (lyric_recover → quality/recover.py _sections_from_marks), so a [SETUP] row
+// would open a section. Their values travel as exact declarations instead.
 function lyWriterText(text) {
   const rows = String(text || '')
     .split('\n')
@@ -2950,6 +3757,163 @@ function lyWriterText(text) {
 }
 const lyDraftForWriter = (text = lyDraft().value) =>
   lyWriterText(text) + lyWriterDeclarations(lyParse(text));
+
+// ── Direct actions: submitLyricsAction ────────────────────────────────────
+// One adapter for the named actions (review, edit, rhyme-options,
+// pronunciation-options, resume, answer). It uses the shell's own send path
+// (_chatSend: request id, persisted receipt, signed continuation, polling),
+// never a synthetic click on the conversation form. A waiting, parked or
+// unknown-outcome run is never reset behind the person's back: the Writer
+// tab offers Resume current work / Start independent work instead.
+function lyContext(model, { document = true } = {}) {
+  const meta = lyMeta();
+  const notes = model.sections
+    .filter((s) => (meta.notes[s.title] || '').trim())
+    .slice(0, 120)
+    .map((s) => ({ section: s.title.slice(0, 80), note: meta.notes[s.title].slice(0, 400) }));
+  const decl = lyDeclarationsOf(model);
+  return {
+    version: 1,
+    document: document ? lyWriterText(model.text) : '',
+    declarations: document ? decl : {},
+    brief: meta.brief.slice(0, 4000),
+    notes,
+    binding: {
+      document_sha256: lyIdentity(model),
+      context_sha256: lySha256(JSON.stringify({ brief: meta.brief, notes })),
+    },
+  };
+}
+const LY_ACTION_TEXT = {
+  review: () =>
+    'Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.',
+  'rhyme-options': ({ word, n, relation }) =>
+    `Suggest rhyme options for “${word}” (line ${n}) that fit this song, then screen them with lyric_screen together with “${word}”${relation ? ` under the relation ${relation}` : ''}. Report each pair as matched, partial or refused. Do not change the draft and do not declare anything.`,
+  'pronunciation-options': ({ word, token, n }) =>
+    `Check the committed document in the page context and list the dictionary pronunciation options (pronunciation_options) for “${word}”, word ${token} of line ${n}. Do not choose a reading and do not rewrite anything.`,
+  recheck: ({ n, proposal }) =>
+    `Check this replacement for line ${n} against the committed document in the page context and its declarations. If it fails, keep the original line and say why.\nReplacement: ${proposal}`,
+  lines: ({ ns }) =>
+    `Rewrite ${lyLineRef(ns)} of the committed document in the page context together, so they keep their rhyme link and every other declaration. Change no other line.`,
+};
+function lyLiveWork() {
+  const w = lyWriterState();
+  return w.unknown || w.waiting || w.parked;
+}
+async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
+  lyCloseMenus();
+  if (chatState.busy) {
+    showToast('Writer is working. You can keep editing.', 'error');
+    return false;
+  }
+  const model = (LY.model = lyParse(lyDraft().value));
+  if (kind === 'answer' || kind === 'resume') {
+    if (!uiSwitchChat('lyrics')) return false;
+    const r = await _chatSend(
+      args.message || 'Resume from the saved checkpoint and continue the run.',
+      {
+        choice: 'lyrics-edit',
+      }
+    );
+    lyRefresh(true);
+    return r.ok;
+  }
+  if (lyLiveWork() && !force) {
+    LY.conflict = { kind, args };
+    lyShowTab('writer');
+    return false;
+  }
+  if (chatState.pending) {
+    showToast('Retrieve the saved result before starting another request.', 'error');
+    lyShowTab('writer');
+    return false;
+  }
+  if (!uiSwitchChat('lyrics')) {
+    showToast('Wait for the active recipe request to finish.', 'error');
+    return false;
+  }
+  LY.conflict = null;
+  _chatReset();
+  $ui('chat-domain').value = 'lyrics-edit';
+  uiUpdatePrompt();
+  const message = LY_ACTION_TEXT[kind](args);
+  const context = lyContext(model);
+  const sent = _chatSend(message, { choice: 'lyrics-edit', context });
+  // _chatSend records the request synchronously before it awaits the POST.
+  const requestId = chatState.pending?.request_id || null;
+  if (kind === 'review') LY.analysis = { requestId, baseId: lyIdentity(model), at: Date.now() };
+  LY.lastAction = kind;
+  LY.tab = kind === 'review' ? 'review' : LY.tab;
+  lyRefresh(true);
+  const r = await sent;
+  if (!r.ok && r.reason) showToast('Nothing was sent.', 'error');
+  lyRefresh(true);
+  return r.ok;
+}
+// A new conversation the person will type into: the same conflict rule.
+async function lyStartConversation(choice, prefill = '') {
+  lyCloseMenus();
+  if (chatState.busy) {
+    showToast('Writer is working. You can keep editing.', 'error');
+    return false;
+  }
+  if (lyLiveWork()) {
+    LY.conflict = { kind: 'conversation', args: { choice, prefill } };
+    lyShowTab('writer');
+    return false;
+  }
+  if (!uiSwitchChat('lyrics')) {
+    showToast('Wait for the active recipe request to finish.', 'error');
+    return false;
+  }
+  LY.conflict = null;
+  _chatReset();
+  $ui('chat-domain').value = choice;
+  uiUpdatePrompt();
+  lyShowTab('writer');
+  uiChatOpen();
+  if (prefill) {
+    $ui('chat-input').value = prefill;
+    _chatSyncCount();
+  }
+  $ui('chat-input')?.focus();
+  return true;
+}
+// The page context every new lyrics task typed in the conversation carries:
+// the committed document for an edit, the brief and notes for a new song.
+if (typeof window !== 'undefined')
+  window.uiLyricContext = (choice) => {
+    if (!LY.model) return null;
+    const model = lyParse(lyDraft().value);
+    return lyContext(model, { document: choice === 'lyrics-edit' });
+  };
+async function lyRetrieve(id) {
+  if (!/^[a-f0-9]{64}$/.test(id || ''))
+    return showToast('This saved run has no retrievable record.', 'error');
+  try {
+    const res = await fetch(`${CHAT_BACKEND}/chat/jobs/${id}`, { cache: 'no-store' });
+    const record = await res.json();
+    if (!res.ok) throw Error(record.error || 'The saved result could not be read.');
+    const body = record.response?.body;
+    const text =
+      typeof body?.artifact?.text === 'string'
+        ? body.artifact.text
+        : Array.isArray(body?.artifact?.final_draft)
+          ? body.artifact.final_draft.join('\n')
+          : typeof body?.reply === 'string'
+            ? body.reply
+            : '';
+    LY.retrieved = {
+      id,
+      state: record.state || 'unknown',
+      text: text.slice(0, 20000),
+      note: record.error || '',
+    };
+  } catch (err) {
+    LY.retrieved = { id, state: 'unavailable', text: '', note: err.message };
+  }
+  lyShowTab('history');
+}
 
 // ── Menus ─────────────────────────────────────────────────────────────────
 function lyCloseMenus(except = '') {
@@ -2984,9 +3948,6 @@ function lySyncDisplayMenu() {
   document
     .querySelector('[data-ui="ly-numbers"]')
     ?.setAttribute('aria-pressed', String(!!LY.prefs.numbers.get()));
-  document
-    .querySelector('[data-ui="ly-setup-rows"]')
-    ?.setAttribute('aria-pressed', String(!!LY.prefs.setupRows.get()));
 }
 
 // ── Actions ───────────────────────────────────────────────────────────────
@@ -3010,69 +3971,97 @@ function lyValidPhones(phones) {
 }
 function lyInsertSection(name) {
   const model = lyParse(lyDraft().value);
-  const header = `[${name}]`;
-  const rows = model.text ? model.text.split('\n') : [];
-  let at;
-  if (LY.view === 'edit' && LY.caretRow != null && LY.caretRow <= rows.length) {
-    // In Edit the header goes where the caret was, before that line.
-    at = LY.caretRow;
-    rows.splice(at, 0, header);
-  } else {
-    const after = lySectionOfLine(model, LY.activeLine);
-    const parts = lyBlocks(model);
-    const block = [{ raw: header }];
-    if (after) parts.blocks.splice(after.index + 1, 0, block);
-    else parts.blocks.push(block);
-    const { text } = lyAssemble(parts);
-    lyCommit(text, `Added ${name}. Write its lines in Edit.`);
-    return;
+  const after = lySectionOfLine(model, LY.activeLine) || lySectionAtRow(model, LY.caretRow);
+  const parts = lyBlocks(model);
+  const block = [{ raw: `[${name}]` }];
+  if (after) parts.blocks.splice(after.index + 1, 0, block);
+  else parts.blocks.push(block);
+  const { text } = lyAssemble(parts);
+  lyCommit(text, `Added ${lyCap(name)}. Write its lines under its header.`);
+  return after ? after.index + 1 : lyParse(text).sections.length - 1;
+}
+function lyCommitTitle(value) {
+  const v = Array.from(
+    String(value)
+      .replace(/[\]\n\r]/g, ' ')
+      .trim()
+  )
+    .slice(0, 160)
+    .join('');
+  LY.titleEdit = false;
+  if (v === lyTitleOf(LY.model)) return lyRefresh(true);
+  lySetupCommit(
+    'title',
+    v ? [v] : [],
+    v ? 'Title saved.' : 'Title removed. The song reads Untitled song.'
+  );
+}
+function lyToolOpen(id) {
+  const wasMain = LY_MAIN_TOOLS.includes(LY.tool);
+  LY.tool = id;
+  LY.tab = 'tools';
+  if (LY.size === 'narrow') LY.mobile = 'tools';
+  lyRefresh(true);
+  // A form that replaces the document starts at its top; leaving it returns
+  // to the document where the caret is.
+  if (LY.size !== 'narrow' && (LY_MAIN_TOOLS.includes(id) || wasMain)) {
+    $ui('ly-main-scroll').scrollTop = 0;
+    if (!LY_MAIN_TOOLS.includes(id) && LY.activeLine)
+      $ui('ly-overlay')
+        ?.querySelector(`.ly-r[data-n="${LY.activeLine}"]`)
+        ?.scrollIntoView?.({ block: 'center' });
   }
-  lyCommit(rows.join('\n'), `Added ${name}.`);
+}
+function lyDraftList(tool, key) {
+  const c = LY_FORMS[tool].committed(LY.model)[key] || [];
+  return [...(lyVal(tool, 'song', key, c) || [])];
 }
 const LY_ACTIONS = {
   'view-running'() {
     uiNavigate('genre');
     document.body.classList.add('assistant-open');
   },
-  async 'new-lyrics'() {
-    lyCloseMenus();
-    await lyNewTask('lyrics');
+  'new-lyrics'() {
+    return lyStartConversation('lyrics');
   },
-  async 'edit-lyrics'() {
-    lyCloseMenus();
-    if (!(await lyNewTask('lyrics-edit'))) return;
-    $ui('chat-input').value = 'Edit these lyrics:\n' + lyDraftForWriter();
-    // maxlength does not bind a script write, so a long draft lands PAST
-    // the wall; the counter is what says so before the server refuses it.
-    _chatSyncCount();
+  'edit-lyrics'() {
+    return lyStartConversation('lyrics-edit', 'Edit this draft: ');
   },
   'attach-recipe'() {
-    lyCloseMenus();
-    lyShowPane('writer');
-    if (!uiSwitchChat('lyrics')) {
-      showToast('Wait for the active recipe request to finish.', 'error');
-      return;
-    }
-    $ui('chat-input').value =
+    return lyStartConversation(
+      'lyrics',
       'Write lyrics for this recording recipe:\n' +
-      compileRecipeStack(app.cards, 'rich', { ceiling: 1000 });
-    _chatSyncCount();
-    $ui('chat-input').focus();
+        compileRecipeStack(app.cards, 'rich', { ceiling: 1000 })
+    );
   },
   'copy-lyrics'() {
     lyCloseMenus();
-    copyToClipboard(lyDraft().value, 'Lyrics copied with headers', 'Could not copy');
+    lyCopy(lyDraft().value, 'Copied with headers');
   },
   'ly-copy-sung'() {
     lyCloseMenus();
-    copyToClipboard(lySungTexts(LY.model).join('\n'), 'Sung lines copied', 'Could not copy');
+    lyCopy(lySungTexts(LY.model).join('\n'), 'Sung lines copied');
+  },
+  'ly-copy-close'() {
+    $ui('ly-doc-note').hidden = true;
+    $ui('ly-doc-note').innerHTML = '';
   },
   'ly-download'() {
     lyCloseMenus();
     const name =
-      (lyTitleOf(LY.model) || app.workspaceName || 'lyrics').replace(/[^\w\- ]+/g, '').trim() ||
-      'lyrics';
+      (
+        lyTitleOf(LY.model) ||
+        (app.workspaceName !== 'Untitled session' && app.workspaceName) ||
+        'lyrics'
+      )
+        .replace(/[^\w\- ]+/g, '')
+        .trim() || 'lyrics';
     uiDownload(name + '.txt', lyDraft().value, 'text/plain;charset=utf-8');
+    showToast('Text download started', 'success');
+  },
+  'ly-export-session'() {
+    lyCloseMenus();
+    uiExport();
   },
   'ly-import'() {
     lyCloseMenus();
@@ -3087,52 +4076,130 @@ const LY_ACTIONS = {
     lyToggleMenu(id, b);
     if (id === 'display') lySyncDisplayMenu();
   },
-  'ly-pane'(id) {
+  'ly-tab'(id) {
     lyCloseMenus();
-    lyShowPane(id, { focus: !!id });
-    if (!id) uiFocus(document.querySelector('[data-ui="ly-review"]'));
+    lyShowTab(id, { focus: true });
   },
-  'ly-review'() {
-    LY.reviewAt = 0;
-    const items = lyItems();
-    if (!items.some((i) => i.tone === LY.reviewTab))
-      LY.reviewTab =
-        ['issue', 'input', 'note'].find((t) => items.some((i) => i.tone === t)) || 'issue';
-    lyShowPane('review', { focus: true });
-  },
-  'ly-collapse'(id, b) {
-    const part = $ui(`ly-${id}-part`);
-    part.hidden = !part.hidden;
-    b.setAttribute('aria-expanded', String(!part.hidden));
-    b.classList.toggle('is-collapsed', part.hidden);
-  },
-  'ly-song-tab'(id) {
-    LY.songTab = id;
+  'ly-mobile'(id) {
+    if (LY.mobile === 'song') {
+      const d = lyDraft();
+      LY.songCaret = [d.selectionStart, d.selectionEnd, $ui('ly-main-scroll').scrollTop];
+    }
+    LY.mobile = id;
+    if (id !== 'song') LY.tab = id;
     lyRefresh(true);
+    if (id === 'song' && LY.songCaret) {
+      const draft = lyDraft();
+      draft.setSelectionRange(LY.songCaret[0], LY.songCaret[1]);
+      $ui('ly-main-scroll').scrollTop = LY.songCaret[2];
+    }
+    uiFocus($ui(`ly-mtab-${id}`));
+  },
+  'ly-run-review'() {
+    lyCloseMenus();
+    if (lyPendingAll()) {
+      LY.gate = true;
+      lyRefresh(true);
+      uiFocus(document.querySelector('[data-ui="ly-gate-apply"]'));
+      return;
+    }
+    return lySubmitLyricsAction('review');
+  },
+  'ly-gate-apply'() {
+    for (const [id] of LY_TOOLS) if (lyPending(id) && !lyDraftApply(id)) return;
+    LY.gate = null;
+    return lySubmitLyricsAction('review');
+  },
+  'ly-gate-saved'() {
+    LY.gate = null;
+    return lySubmitLyricsAction('review');
+  },
+  'ly-gate-close'() {
+    LY.gate = null;
+    lyRefresh(true);
+  },
+  'ly-title-edit'() {
+    LY.titleEdit = true;
+    lyRenderHead();
+    const input = $ui('ly-title-input');
+    input?.focus();
+    input?.select();
+  },
+  'ly-brief-edit'() {
+    LY.briefEdit = true;
+    if (LY.size === 'narrow') LY.mobile = 'song';
+    lyRefresh(true);
+    $ui('ly-brief-text')?.focus();
+  },
+  'ly-brief-cancel'() {
+    LY.briefEdit = false;
+    lyRefresh(true);
+    uiFocus(document.querySelector('[data-ui="ly-brief-edit"]'));
+  },
+  'ly-brief-save'() {
+    const brief = $ui('ly-brief-text').value.slice(0, 4000);
+    const n = Number($ui('ly-hook-in').value);
+    const text = LY.model.sung[n - 1]?.text || '';
+    if (text.includes(']'))
+      return showToast('This line contains “]”, which a setup line cannot hold.', 'error');
+    const meta = lyMeta();
+    meta.brief = brief;
+    LY.briefEdit = false;
+    const next = lySetSetup('hook', text ? [lyQuote(text)] : []);
+    if (next !== lyDraft().value) lyCommit(next, 'Brief saved.');
+    else {
+      pushHistory();
+      uiAutosave();
+      showToast('Brief saved.', 'success');
+      lyRefresh(true);
+    }
+    uiFocus(document.querySelector('[data-ui="ly-brief-edit"]'));
+  },
+  'ly-outline-toggle'() {
+    if (LY.size === 'wide' && !LY.railOpen) LY.outline = !LY.outline;
+    else LY.railOpen = !LY.railOpen;
+    lyRefresh(true);
+    UILayout.refresh?.();
+    if (LY.railOpen || (LY.size === 'wide' && LY.outline))
+      uiFocus(
+        document.querySelector('#ly-sections .ly-sec') ||
+          document.querySelector('.ly-outline-close')
+      );
+    else uiFocus(document.querySelector('.ly-rail-btn'));
   },
   'ly-goto'(id) {
     const s = LY.model.sections[Number(id)];
     if (!s) return;
+    LY.railOpen = false;
     if (s.sung.length) lyScrollToLine(s.sung[0].n);
     else {
-      lySetView('read');
-      $ui(`ly-sec-${s.index}`)?.scrollIntoView?.({ block: 'start' });
+      LY.mobile = 'song';
+      lyRefresh(true);
+      $ui('ly-overlay')
+        ?.querySelector(`.ly-r[data-i="${s.headerRow?.i ?? 0}"]`)
+        ?.scrollIntoView?.({ block: 'start' });
     }
+  },
+  'ly-sec-step'(id) {
+    const model = LY.model;
+    const cur =
+      lySectionOfLine(model, LY.activeLine) ||
+      lySectionAtRow(model, LY.caretRow) ||
+      model.sections[0];
+    const k = Math.max(0, Math.min(model.sections.length - 1, (cur?.index ?? 0) + Number(id)));
+    LY_ACTIONS['ly-goto'](k);
   },
   'ly-add-section'(name) {
     lyCloseMenus();
-    if (name) return lyInsertSection(name.toUpperCase());
-    lyInsertSection('SECTION');
-    LY.tool = 'structure';
-    LY.toolsOpen = true;
-    lyRefresh(true);
-    const inputs = document.querySelectorAll('#ly-tool-body input[data-field="name"]');
-    const last = [...inputs].find((i) => i.value === 'SECTION') || inputs[inputs.length - 1];
-    last?.focus();
-    last?.select();
+    const k = lyInsertSection(name ? name.toUpperCase() : 'SECTION');
+    if (name) return;
+    LY.picks.formSec = k;
+    lyToolOpen('form-story');
+    const input = $ui('ly-f-name');
+    input?.focus();
+    input?.select();
   },
   'ly-sec-move'(id) {
-    lyCloseMenus();
     const [k, d] = id.split(':').map(Number);
     lyEditSections(
       ({ blocks }) => {
@@ -3142,209 +4209,271 @@ const LY_ACTIONS = {
       },
       `Moved section ${d < 0 ? 'up' : 'down'}.`
     );
+    if (LY.picks.formSec === k) LY.picks.formSec = k + d;
   },
   'ly-sec-dup'(id) {
-    lyCloseMenus();
     const k = Number(id);
     lyEditSections(({ blocks }) => {
       blocks.splice(
         k + 1,
         0,
-        blocks[k].map((r) => ({ raw: r.raw }))
+        blocks[k].map((r) => ({ raw: r.raw, n: r.n }))
       );
-    }, 'Duplicated the section as an exact return.');
+    }, 'Duplicated the section after the original.');
   },
   'ly-sec-remove'(id) {
-    lyCloseMenus();
     const k = Number(id);
     const title = LY.model.sections[k]?.title || 'section';
     lyEditSections(({ blocks }) => {
       blocks.splice(k, 1);
-    }, `Removed ${title}.`);
-  },
-  'ly-sec-rhythm'(id) {
-    lyCloseMenus();
-    LY.picks.rhythmSec = Number(id);
-    LY_ACTIONS['ly-tool']('rhythm', null, null, true);
+    }, `Removed ${title}. Undo restores it.`);
   },
   'ly-label-stanzas'() {
     lyEditSections(({ blocks }) => {
       blocks.forEach((b, k) => b.unshift({ raw: `[Stanza ${k + 1}]` }));
-    }, 'Each stanza now has a header. Rename them in Structure & story.');
+    }, 'Each stanza now has a header. Rename them in Form & story.');
   },
-  'ly-view'(id) {
-    lySetView(id);
-    if (id === 'edit') {
-      const n = LY.activeLine;
-      if (n) lyScrollToLine(n, { edit: true });
-      else lyDraft().focus();
-    }
-  },
-  'ly-edit-at'(id) {
-    lySetView('edit');
-    const draft = lyDraft();
-    const rows = draft.value.split('\n');
-    const i = Math.min(Number(id), rows.length - 1);
-    const pos = rows.slice(0, i + 1).reduce((t, r) => t + r.length + 1, 0) - 1;
-    draft.focus();
-    draft.setSelectionRange(Math.max(0, pos), Math.max(0, pos));
-    LY.caretRow = i;
-  },
-  'ly-find-open'() {
-    $ui('ly-find').hidden = false;
-    lySetView('read');
-    $ui('ly-find-input').focus();
-    $ui('ly-find-input').select();
-  },
-  'ly-find-step'(id) {
-    lyFindStep(Number(id));
-  },
-  'ly-find-close'() {
-    lyFindClose();
-  },
-  'ly-text-size'(id) {
-    LY.prefs.size.set(id);
-    lySyncDisplayMenu();
+  'ly-form-pick'(id) {
+    LY.picks.formSec = Number(id);
     lyRefresh(true);
+    uiFocus(document.querySelector(`[data-ui="ly-form-pick"][data-id="${id}"]`));
   },
-  'ly-numbers'() {
-    LY.prefs.numbers.set(!LY.prefs.numbers.get());
-    lySyncDisplayMenu();
-    lyRefresh(true);
-  },
-  'ly-setup-rows'() {
-    LY.prefs.setupRows.set(!LY.prefs.setupRows.get());
-    lySyncDisplayMenu();
-    lyRefresh(true);
-  },
-  'ly-tools-toggle'() {
-    LY.toolsOpen = !LY.toolsOpen;
-    lyRefresh(true);
-  },
-  'ly-tool'(id, b, _e, force) {
+  'ly-tool'(id) {
     lyCloseMenus();
-    const isTab = b?.getAttribute('role') === 'tab';
-    if (!force && !isTab && LY.toolsOpen && LY.tool === id && b?.closest('.ly-tools-bar'))
-      LY.toolsOpen = false;
-    else {
-      LY.tool = id;
-      LY.toolsOpen = true;
-    }
-    lyRefresh(true);
-    if (LY.toolsOpen) {
-      $ui('ly-tools')?.scrollIntoView?.({ block: 'nearest' });
-      if (LY.activeLine)
-        document
-          .querySelector(`#ly-doc .ly-line[data-n="${LY.activeLine}"]`)
-          ?.scrollIntoView?.({ block: 'nearest' });
-      if (!isTab && !b?.closest('.ly-tools-bar'))
-        uiFocus(document.querySelector(`.ly-tool-tabs [data-id="${id}"]`));
-    }
-  },
-  'ly-line'(id) {
-    const n = Number(id);
-    LY.activeLine = LY.activeLine === n ? 0 : n;
-    lyRefresh(true);
-    uiFocus(document.querySelector(`#ly-doc .ly-line[data-n="${n}"] .ly-line-btn`));
+    if (LY.size === 'narrow' && id && id === LY.tool) id = '';
+    lyToolOpen(id);
+    if (!id) uiFocus(document.querySelector('.ly-toolrow'));
+    else if (LY.size !== 'narrow')
+      uiFocus(document.querySelector('.ly-tool-nav [data-ui="ly-tool"]'));
   },
   'ly-line-tool'(id) {
     const [tool, n] = [id.split(':')[0], Number(id.split(':')[1])];
-    if (tool === 'edit') return lyScrollToLine(n, { edit: true });
-    if (tool === 'rhymes') {
-      LY.picks.linkLine = n;
-      LY.picks.explore = lyTokens(LY.model.sung[n - 1]?.text || '', LY.model.voices).pop() || '';
-    }
-    if (tool === 'rhythm') LY.picks.rhythmSec = lySectionOfLine(LY.model, n)?.index;
+    const model = LY.model;
+    if (tool === 'rhymes') LY.picks.linkLine = n;
+    if (tool === 'rhythm') LY.picks.rhythmSec = lySectionOfLine(model, n)?.index;
     if (tool === 'pronunciation') {
-      LY.picks.readingLine =
-        LY.model.sung.find((r) => r.text === LY.model.sung[n - 1]?.text)?.n || n;
-      LY.picks.readingToken = 0;
+      LY.picks.readingLine = n;
+      const toks = lyTokens(model.sung[n - 1]?.text || '', model.voices);
+      LY.picks.reading = toks.length
+        ? lyReadingKey(model.sung[n - 1].text, toks.length, toks[toks.length - 1])
+        : null;
     }
-    LY_ACTIONS['ly-tool'](tool, null, null, true);
+    lyToolOpen(tool);
   },
-  'ly-rtab'(id) {
-    LY.reviewTab = id;
-    LY.reviewAt = 0;
+  'ly-draft-apply'(tool) {
+    const tools = tool === 'rhythm' ? ['rhythm', 'placement', 'melody'] : [tool];
+    let any = false;
+    for (const t of tools) if (lyDrafts(t).length) any = lyDraftApply(t) || any;
+    if (any && tool === 'rhymes') LY.picks.linkGroup = -1;
+  },
+  'ly-draft-discard'(tool) {
+    for (const t of tool === 'rhythm' ? ['rhythm', 'placement', 'melody'] : [tool])
+      lyDraftDiscard(t);
     lyRefresh(true);
-    uiFocus(document.querySelector(`[data-ui="ly-rtab"][data-id="${id}"]`));
+    showToast('Pending changes discarded.', 'success');
   },
-  'ly-rstep'(id) {
-    LY.reviewAt = Math.max(0, LY.reviewAt + Number(id));
-    lyRefresh(true);
-    const it = LY.items.filter((i) => i.tone === LY.reviewTab)[LY.reviewAt];
-    if (it?.lines?.length && LY.view === 'read')
-      document
-        .querySelector(`#ly-doc .ly-line[data-n="${it.lines[0]}"]`)
-        ?.scrollIntoView?.({ block: 'center' });
-    uiFocus(document.querySelector('#ly-item-title')) ||
-      uiFocus(document.querySelector('.ly-pager [data-ui="ly-rstep"]:not([disabled])'));
-  },
-  'ly-apply'(id) {
-    const item = lyItem(id);
-    if (!item) return;
-    const ok = lyCheckApply(item);
-    uiFocus(
-      document.querySelector(ok ? '.ly-outcome, .ly-pager span, #ly-review .cm-tab' : '.ly-outcome')
-    );
-  },
-  'ly-own'(id) {
-    const item = lyItem(id);
-    if (!item) return;
-    LY.own[id] = item.proposal;
-    lyRenderReview();
-    $ui('ly-own-input')?.focus();
-  },
-  'ly-own-cancel'(id) {
-    delete LY.own[id];
-    lyRenderReview();
-  },
-  'ly-own-check'(id) {
-    const item = lyItem(id);
-    const text = ($ui('ly-own-input')?.value || '').trim();
-    if (!item || !text) return;
-    const n = item.decision.n;
-    return lyAskWriter(
-      'lyrics-edit',
-      `Check this replacement for line ${n} against the current draft and its declarations. If it fails, keep the original line and say why.\nLine ${n} now: ${lySungTexts(LY.model)[n - 1] ?? item.original}\nReplacement: ${text}\n\nCurrent draft:\n${lyDraftForWriter()}`
-    );
-  },
-  'ly-own-put'(id) {
-    const item = lyItem(id);
-    const text = ($ui('ly-own-input')?.value || '').trim();
-    if (!item || !text) return;
-    if (lyCheckApply({ ...item, proposal: text, own: true })) {
-      LY.outcomes[id].message =
-        'Your own line is in the draft. Nothing has checked it; Undo restores the original.';
-      delete LY.own[id];
-      lyRenderReview();
-    }
-  },
-  'ly-keep'(id) {
-    LY.outcomes[id] = { state: 'kept', message: 'Kept your line.' };
-    showToast('Kept your line', 'success');
+  'ly-draft-rebase'(tool) {
+    for (const t of tool === 'rhythm' ? ['rhythm', 'placement', 'melody'] : [tool])
+      for (const d of lyDrafts(t)) if (lyDraftStale(d)) lyDraftRebase(t, d.target);
     lyRefresh(true);
   },
-  'ly-explore'(id) {
-    LY.picks.explore =
-      lyTokens(LY.model.sung[Number(id) - 1]?.text || '', LY.model.voices).pop() || '';
-    LY_ACTIONS['ly-tool']('rhymes', null, null, true);
-    $ui('ly-explore-in')?.focus();
+  'ly-rhythm-pick'(id) {
+    LY.picks.rhythmSec = Number(id);
+    LY.picks.rhythmCopy = false;
+    lyRefresh(true);
+    uiFocus(document.querySelector(`[data-ui="ly-rhythm-pick"][data-id="${id}"]`));
   },
-  'ly-rewrite-group'(id) {
-    const ns = id.split(',').map(Number);
-    return lyAskWriter(
-      'lyrics-edit',
-      `Rewrite ${lyLineRef(ns)} together so they keep their rhyme link and every other declaration. Change no other line.\n\nCurrent draft:\n${lyDraftForWriter()}`
+  'ly-rhythm-save'(id) {
+    const k = String(id);
+    if (!lyDraftOf('rhythm', k))
+      return showToast('Nothing to save: the rhythm form matches the section.', 'success');
+    const before = lyDraftOf('rhythm', k);
+    const meter = before.values.meter ?? LY_FORMS.rhythm.committed(LY.model, k).meter;
+    const bars = before.values.bars ?? LY_FORMS.rhythm.committed(LY.model, k).bars;
+    if (lyDraftApply('rhythm', k))
+      LY.picks.rhythmSaved = {
+        k: Number(k),
+        text: `${meter || 'No meter'} saved · ${bars ? uiCount(Number(bars), 'bar') : 'bars not set'}`,
+      };
+    lyRefresh(true);
+  },
+  'ly-rhythm-copy'() {
+    LY.picks.rhythmCopy = !LY.picks.rhythmCopy;
+    lyRefresh(true);
+  },
+  'ly-rhythm-copy-apply'() {
+    const k = lyRhythmSec(LY.model);
+    const src = LY.model.sections[k]?.header || {};
+    const targets = [...document.querySelectorAll('#surface-lyrics [data-copy]:checked')].map((c) =>
+      Number(c.dataset.copy)
+    );
+    if (!targets.length) return showToast('Choose at least one section.', 'error');
+    let text = lyDraft().value;
+    for (const t of targets)
+      text = lyHeaderIn(text, t, (h) => {
+        h.meter = src.meter || null;
+        h.bars = src.bars ?? null;
+        h.pickup = src.pickup || null;
+      });
+    LY.picks.rhythmCopy = false;
+    lyCommit(text, `Copied meter, bars and pickup to ${uiCount(targets.length, 'section')}.`);
+  },
+  'ly-relation'(id) {
+    lyDraftSet('rhymes', 'song', 'relation', id);
+    lyRefresh(true);
+  },
+  'ly-link-add'() {
+    const line = Number($ui('ly-link-line')?.value) || LY.activeLine;
+    const place = $ui('ly-link-place')?.value || 'end';
+    if (!line) return;
+    const members = lyDraftList('rhymes', 'members');
+    if (members.some((m) => m.line === line && m.place === place))
+      return showToast('That member is already selected.', 'error');
+    members.push({ line, place });
+    lyDraftSet('rhymes', 'song', 'members', members);
+    lyRefresh(true);
+    uiFocus(document.querySelector('[data-ui="ly-link-add"]'));
+  },
+  'ly-member-remove'(i) {
+    const members = lyDraftList('rhymes', 'members');
+    members.splice(Number(i), 1);
+    lyDraftSet('rhymes', 'song', 'members', members);
+    lyRefresh(true);
+  },
+  'ly-link-remove'() {
+    const groups = lySetupOf(LY.model, 'rhyme groups').flatMap((d) => lyParseGroups(d.value));
+    const k = LY.picks.linkGroup;
+    if (!groups[k]) return;
+    groups.splice(k, 1);
+    LY.picks.linkGroup = -1;
+    lySetupCommit(
+      'rhyme groups',
+      groups.length ? [lyGroupsText(groups)] : [],
+      'Rhyme link removed. Undo restores it.'
     );
   },
-  'ly-show-lines'(id) {
-    lyScrollToLine(Number(id));
+  'ly-rhyme-options'() {
+    const model = LY.model;
+    const members = lyDraftList('rhymes', 'members');
+    const m = members[0] || (LY.activeLine ? { line: LY.activeLine, place: 'end' } : null);
+    const word = m && lyMemberWord(model, m);
+    if (!word) return showToast('Select a line in the document first.', 'error');
+    return lySubmitLyricsAction('rhyme-options', {
+      word,
+      n: m.line,
+      relation: lySetupOf(model, 'relation')[0]?.value || '',
+    });
   },
-  'ly-ask-review'() {
-    return lyAskWriter(
-      'lyrics-edit',
-      `Review these lyrics against their section headers and [SETUP] declarations. Report every finding, what could not be judged, and what input is missing. Do not rewrite anything yet.\n\n${lyDraftForWriter()}`
+  'ly-reading-pick'(id) {
+    LY.picks.reading = id;
+    const [line] = lyReadingTarget(id);
+    LY.picks.readingLine = LY.model.sung.find((r) => r.text === line)?.n || LY.picks.readingLine;
+    lyRefresh(true);
+  },
+  'ly-reading-use'(i) {
+    const key = LY.picks.reading;
+    if (!key) return;
+    const [line, token, word] = lyReadingTarget(key);
+    const opts = (LY.results.pronunciation?.items || [])
+      .filter((o) => o.line === line && o.token === token && o.word === word)
+      .flatMap((o) => o.dictionary_readings);
+    const r = opts[Number(i)];
+    if (!r) return;
+    lyDraftSet('pronunciation', key, 'kind', 'dictionary');
+    lyDraftSet('pronunciation', key, 'phones', r.phones.join(' '));
+    lyDraftSet('pronunciation', key, 'source', 'CMUdict (dictionary option)');
+    lyDraftApply('pronunciation', key);
+  },
+  'ly-reading-kind'(id) {
+    const key = LY.picks.reading;
+    if (!key) return;
+    lyDraftSet('pronunciation', key, 'kind', id);
+    if (id === 'uncertain') return lyDraftApply('pronunciation', key);
+    lyRefresh(true);
+    $ui('ly-phones')?.focus();
+  },
+  'ly-pron-options'() {
+    const key = LY.picks.reading;
+    if (!key) return showToast('Choose a word first.', 'error');
+    const [line, token, word] = lyReadingTarget(key);
+    const n = LY.model.sung.find((r) => r.text === line)?.n;
+    if (!n) return showToast('Text changed · choose again', 'error');
+    return lySubmitLyricsAction('pronunciation-options', { word, token, n });
+  },
+  'ly-voices'(id) {
+    lyDraftSet('repeats-voices', 'song', 'voices', id);
+    lyRefresh(true);
+  },
+  'ly-placed-add'() {
+    const line = LY.activeLine || LY.model.sung[0]?.n;
+    const place = $ui('ly-placed-place')?.value || 'head';
+    if (!line) return;
+    const list = lyDraftList('repeats-voices', 'placed');
+    if (!list.some((m) => m.line === line && m.place === place)) list.push({ line, place });
+    lyDraftSet('repeats-voices', 'song', 'placed', list);
+    lyRefresh(true);
+  },
+  'ly-placed-remove'(i) {
+    const list = lyDraftList('repeats-voices', 'placed');
+    list.splice(Number(i), 1);
+    lyDraftSet('repeats-voices', 'song', 'placed', list);
+    lyRefresh(true);
+  },
+  'ly-view-both'(id) {
+    const [a, b] = id.split(':').map(Number);
+    const model = LY.model;
+    LY.focusLines = [...model.sections[a].sung, ...model.sections[b].sung].map((r) => r.n);
+    lyRenderEditor();
+    $ui('ly-overlay')
+      ?.querySelector(`.ly-r[data-n="${model.sections[a].sung[0].n}"]`)
+      ?.scrollIntoView?.({ block: 'start' });
+  },
+  'ly-declare-repeat'(id) {
+    const [a, b] = id.split(':').map(Number);
+    const model = LY.model;
+    const A = model.sections[a],
+      B = model.sections[b];
+    if (!A || !B || A.sung.length !== B.sung.length) return;
+    const groups = lySetupOf(model, 'returns').flatMap((d) => lyParseGroups(d.value));
+    const have = new Set(groups.map((g) => lyGroupsText([g])));
+    A.sung.forEach((r, j) => {
+      const g = [
+        { line: r.n, place: 'end' },
+        { line: B.sung[j].n, place: 'end' },
+      ];
+      if (!have.has(lyGroupsText([g]))) groups.push(g);
+    });
+    lySetupCommit(
+      'returns',
+      [lyGroupsText(groups)],
+      `${B.title} is declared an exact repeat of ${A.title}.`
     );
+  },
+  'ly-returns-clear'() {
+    lySetupCommit('returns', [], 'Declared returns cleared. The lyrics are unchanged.');
+  },
+  'ly-word-add'(key) {
+    const input = $ui(`ly-${key}-new`);
+    const v = input.value.replace(/[\]\n]/g, ' ').trim();
+    if (!v) return input.focus();
+    const list = lyDraftList('word-rules', key);
+    list.push(v);
+    lyDraftSet('word-rules', 'song', key, list);
+    lyRefresh(true);
+    $ui(`ly-${key}-new`)?.focus();
+  },
+  'ly-word-remove'(id) {
+    const [key, i] = id.split(':');
+    const list = lyDraftList('word-rules', key);
+    list.splice(Number(i), 1);
+    lyDraftSet('word-rules', 'song', key, list);
+    lyRefresh(true);
+  },
+  'ly-story-off'() {
+    lySetupCommit('narrative', ['off'], 'The story layer is declared off.');
+  },
+  'ly-story-clear'() {
+    lySetupCommit('narrative', [], 'Story plan no longer declared.');
   },
   'ly-fix-count'(id) {
     lyRewriteHeader(Number(id), (h, s) => (h.lines = s.sung.length), 'Header updated.');
@@ -3369,339 +4498,151 @@ const LY_ACTIONS = {
     rows.splice(i, 1);
     lyCommit(rows.join('\n'), 'Declaration removed.');
   },
-  'ly-open-writer'() {
-    lyShowPane('writer');
-    uiChatOpen();
+  'ly-show-lines'(id) {
+    lyScrollToLine(Number(id));
   },
-  'ly-recover'() {
-    lyShowPane('writer');
-    $ui('chat-recover')?.click();
+  'ly-apply'(id) {
+    const item = lyItem(id);
+    if (!item) return;
+    lyCheckApply(item);
   },
-  'ly-review-run'() {
-    LY.reviewTab = 'issue';
-    LY.reviewAt = 0;
-    lyShowPane('review', { focus: true });
+  'ly-own'(id) {
+    const item = lyItem(id);
+    if (!item) return;
+    LY.own[id] = item.proposal;
+    lyRenderReview();
+    $ui('ly-own-input')?.focus();
   },
-  'ly-relation-save'() {
-    const sel = $ui('ly-relation').value;
-    const v = sel === 'other' ? $ui('ly-relation-other').value.trim() : sel;
-    if (sel === 'other' && !/^(type|class|schema):\S/.test(v))
-      return showToast('Name the relation with its namespace: type:, class: or schema:', 'error');
-    lySetupCommit(
-      'relation',
-      v ? [v] : [],
-      v ? `Relation declared: ${v}.` : 'Relation no longer declared.'
-    );
+  'ly-own-cancel'(id) {
+    delete LY.own[id];
+    lyRenderReview();
   },
-  'ly-link-add'() {
-    const line = Number($ui('ly-link-line').value);
-    const place = $ui('ly-link-place').value;
-    if (!line) return;
-    const m = { line, place };
-    if (!LY.picks.linkMembers.some((x) => x.line === line && x.place === place))
-      LY.picks.linkMembers.push(m);
-    LY.picks.linkLine = line;
-    lyRefresh(true);
-    uiFocus($ui('ly-link-line'));
-  },
-  'ly-link-clear'() {
-    LY.picks.linkMembers = [];
-    lyRefresh(true);
-  },
-  'ly-link-save'() {
-    const members = LY.picks.linkMembers;
-    if (members.length < 2) return;
-    const groups = lySetupOf(LY.model, 'rhyme groups').flatMap((d) => lyParseGroups(d.value));
-    groups.push(members);
-    LY.picks.linkMembers = [];
-    lySetupCommit('rhyme groups', [lyGroupsText(groups)], 'Rhyme link saved.');
-  },
-  'ly-link-remove'(id) {
-    const groups = lySetupOf(LY.model, 'rhyme groups').flatMap((d) => lyParseGroups(d.value));
-    groups.splice(Number(id), 1);
-    lySetupCommit(
-      'rhyme groups',
-      groups.length ? [lyGroupsText(groups)] : [],
-      'Rhyme link removed.'
-    );
-  },
-  'ly-title-save'() {
-    const v = $ui('ly-title-in')
-      .value.replace(/[\]\n]/g, ' ')
-      .trim();
-    lySetupCommit('title', v ? [v] : [], v ? 'Title declared.' : 'Title no longer declared.');
-  },
-  'ly-hook-save'() {
-    const n = Number($ui('ly-hook-in').value);
-    const text = LY.model.sung[n - 1]?.text;
-    if (text?.includes(']'))
-      return showToast(
-        'This line contains “]”, which cannot be kept inside a setup line.',
-        'error'
-      );
-    lySetupCommit(
-      'hook',
-      text ? [lyQuote(text)] : [],
-      text ? 'Hook declared.' : 'Hook no longer declared.'
-    );
-  },
-  'ly-word-add'(id) {
-    const input = $ui(`ly-${id}-in`);
-    const v = input.value.replace(/[\]\n]/g, ' ').trim();
-    if (!v) return;
-    const values = [...lySetupOf(LY.model, id).map((d) => d.value), v];
-    lySetupCommit(
-      id,
-      values,
-      id === 'require' ? `“${v}” must be included.` : `“${v}” is set to avoid.`
-    );
-  },
-  'ly-word-remove'(id) {
-    LY_ACTIONS['ly-remove-setup'](id);
-  },
-  'ly-explore-ask'() {
-    const w = $ui('ly-explore-in').value.trim();
-    const also = $ui('ly-explore-with').value.trim();
-    if (!w) return $ui('ly-explore-in').focus();
-    LY.picks.explore = w;
-    return lyAskWriter(
-      'lyrics-edit',
-      `Screen rhyme candidates for “${w}”${also ? ` that also ${also}` : ''} in this draft. List full matches separately from partial matches, and say which requirement each partial match misses. Do not change the draft.\n\n${lyDraftForWriter()}`
-    );
-  },
-  'ly-rhythm-save'(id) {
-    const k = Number(id);
-    const tr = document.querySelector(`#ly-tool-body tr[data-sec="${k}"]`);
-    const meter = tr.querySelector('[data-rhythm="meter"]').value.trim();
-    const bars = tr.querySelector('[data-rhythm="bars"]').value.trim();
-    const pickup = tr.querySelector('[data-rhythm="pickup"]').value;
-    if (meter && !LY_METER.test(meter))
-      return showToast('Write the meter as beats/unit from 1 to 99, e.g. 4/4 or 7/8', 'error');
-    if (bars && (!/^\d{1,3}$/.test(bars) || Number(bars) < 1))
-      return showToast('Bars must be a whole number from 1 to 999', 'error');
-    if (pickup && !meter) return showToast('Declare a meter with the pickup', 'error');
-    LY.picks.rhythmSec = k;
-    lyRewriteHeader(
-      k,
-      (h) => {
-        h.meter = meter || null;
-        h.bars = bars ? Number(bars) : null;
-        h.pickup = pickup || null;
-      },
-      'Rhythm declared.'
-    );
-  },
-  'ly-reading-token'(id) {
-    LY.picks.readingToken = Number(id);
-    lyRefresh(true);
-  },
-  'ly-reading-save'() {
-    const model = LY.model;
-    const n = Number($ui('ly-reading-line').value);
-    const row = model.sung[n - 1];
-    const token = LY.picks.readingToken;
-    const word = row && lyTokens(row.text, model.voices)[token - 1];
-    const err = $ui('ly-reading-error');
-    if (!row || !word) return (err.textContent = 'Choose a sung word.');
-    if (row.text.includes(']'))
-      return (err.textContent =
-        'This line contains “]”, which cannot be kept inside a setup line. Declare its reading to the writer in the conversation instead.');
-    const kind = document.querySelector('input[name="ly-reading-kind"]:checked')?.value || 'choice';
-    const data = { token, word, line: row.text, kind };
-    if (kind === 'declared') {
-      data.phones = $ui('ly-phones').value.trim().toUpperCase().split(/\s+/).filter(Boolean);
-      data.basis = $ui('ly-basis').value;
-      data.source = $ui('ly-source').value.trim();
-      const bad =
-        lyValidPhones(data.phones) ||
-        (!data.source
-          ? 'State who chose this reading and why, or its source. A reading is never silently guessed.'
-          : '');
-      if (bad) return (err.textContent = bad);
+  'ly-own-put'(id) {
+    const item = lyItem(id);
+    const text = ($ui('ly-own-input')?.value || '').trim();
+    if (!item || !text) return;
+    if (lyCheckApply({ ...item, proposal: text, own: true })) {
+      LY.outcomes[id].message =
+        'Your own line is in the draft. Nothing has checked it; Undo restores the original.';
+      delete LY.own[id];
+      lyRenderReview();
     }
-    const others = lySetupOf(model, 'reading')
-      .filter((r) => !(r.line === row.text && r.token === token))
-      .map((r) => r.value);
-    LY.picks.readingToken = 0;
-    lySetupCommit(
-      'reading',
-      [...others, lyReadingValue(data)],
-      `Reading for “${word}” saved for ${lyLineRef(model.sung.filter((r) => r.text === row.text).map((r) => r.n))}.`
-    );
   },
-  'ly-reading-ask'() {
-    return lyAskWriter(
-      'lyrics-edit',
-      `List the dictionary pronunciation options (pronunciation_options) for the words whose [SETUP — reading] says “needs a choice”. Do not choose for me and do not rewrite the lyrics.\n\n${lyDraftForWriter()}`
-    );
+  'ly-keep'(id) {
+    LY.outcomes[id] = { state: 'kept', message: 'Kept your line.' };
+    showToast('Kept your line', 'success');
+    lyRefresh(true);
   },
-  'ly-returns-declare'() {
-    const placed = lySetupOf(LY.model, 'returns')
-      .flatMap((d) => lyParseGroups(d.value))
-      .filter((g) => g.some((m) => m.place && m.place !== 'end'));
-    const exact = LY.model.repeats.map((r) => r.lines.map((line) => ({ line, place: 'end' })));
-    if (!exact.length) return;
-    lySetupCommit(
-      'returns',
-      [lyGroupsText([...exact, ...placed])],
-      placed.length ? 'Exact returns declared; placed returns kept.' : 'Exact returns declared.'
-    );
+  'ly-recheck'(id) {
+    const item = lyItem(id);
+    if (!item?.decision?.n) return;
+    return lySubmitLyricsAction('recheck', { n: item.decision.n, proposal: item.proposal });
   },
-  'ly-place-save'(id) {
-    const k = Number(id);
-    const sec = LY.model.sections[k];
-    const rows = [...document.querySelectorAll('#ly-tool-body tr[data-place]')];
-    const next = [];
-    for (const tr of rows) {
-      const n = Number(tr.dataset.place);
-      const v = Object.fromEntries(
-        ['bar', 'beat', 'duration'].map((f) => [
-          f,
-          tr.querySelector(`[data-p="${f}"]`).value.trim(),
-        ])
-      );
-      const filled = Object.values(v).filter(Boolean).length;
-      if (!filled) continue;
-      if (
-        filled < 3 ||
-        !/^\d+$/.test(v.bar) ||
-        Number(v.bar) < 1 ||
-        !/^\d+(\.\d+)?$/.test(v.beat) ||
-        Number(v.beat) <= 0 ||
-        !/^\d+(\.\d+)?$/.test(v.duration) ||
-        Number(v.duration) <= 0
-      ) {
-        $ui('ly-place-error').textContent =
-          `Line ${n}: give a whole bar number, a starting beat and a length in beats (all above zero), or leave all three empty.`;
-        return;
-      }
-      next.push({
-        line: n,
-        bar: Number(v.bar),
-        beat: Number(v.beat),
-        duration: Number(v.duration),
-      });
-    }
-    const inSection = new Set(sec.sung.map((r) => r.n));
-    const others = lySetupOf(LY.model, 'placement')
-      .flatMap((d) => lyParsePlacement(d.value))
-      .filter((r) => !r.bad && !inSection.has(r.line));
-    const all = [...others, ...next];
-    LY.picks.placementOpen = true;
-    LY.picks.rhythmSec = k;
-    lySetupCommit(
-      'placement',
-      all.length ? [lyPlacementText(all)] : [],
-      next.length ? `Placement declared for ${sec.title}.` : `Placement cleared for ${sec.title}.`
-    );
+  'ly-conflict-resume'() {
+    const w = lyWriterState();
+    LY.conflict = null;
+    if (w.unknown) return _chatRecover();
+    lyShowTab('writer');
+    (document.querySelector('#ly-writer-status [data-answer]') || $ui('chat-input'))?.focus();
+  },
+  'ly-conflict-new'() {
+    const c = LY.conflict;
+    LY.conflict = null;
+    if (!c) return;
+    if (c.kind === 'conversation')
+      return lyStartConversation(c.args.choice, c.args.prefill, { force: true });
+    return lySubmitLyricsAction(c.kind, c.args, { force: true });
+  },
+  'ly-conflict-cancel'() {
+    LY.conflict = null;
+    lyRefresh(true);
+  },
+  'ly-retrieve'() {
+    if (chatState.pending) return _chatRecover();
+    showToast('No saved request is waiting to be retrieved.', 'error');
+  },
+  'ly-retrieve-id'(id) {
+    return lyRetrieve(id);
+  },
+  'ly-resume'() {
+    return lySubmitLyricsAction('resume');
+  },
+  'ly-restore-checkpoint'() {
+    const run = LY.run;
+    if (!run?.final) return;
+    const text =
+      lyResultText(run.baseModel || LY.model, run.final, run.wholeText, run.title) ||
+      run.final.join('\n');
+    lyCommit(text, 'Checkpoint draft restored. Undo returns to yours.');
+  },
+  'ly-new-work'() {
+    return lyStartConversation('lyrics-edit', 'Continue from the current draft: ', { force: true });
   },
   'ly-answer'() {
-    // Only into the conversation that asked: never a fresh one.
-    if (!lyRunLive(LY.run) || !lyLiveWaiting()) {
-      showToast(
-        'That question belongs to a conversation that has been archived. Nothing was filled in.',
-        'error'
-      );
-      return lyRefresh(true);
-    }
-    const rows = [...document.querySelectorAll('#ly-review [data-answer]')].map((i) => ({
+    const rows = [...document.querySelectorAll('#ly-writer-status [data-answer]')].map((i) => ({
       n: Number(i.dataset.answer),
       text: i.value.trim(),
     }));
-    if (rows.some((r) => !r.text))
+    if (!rows.length || rows.some((r) => !r.text))
       return showToast('Write an answer for every line the writer asked about', 'error');
     const message =
       rows.length === 1 && !rows[0].n
         ? rows[0].text
         : rows.map((r) => `L${r.n}: ${r.text}`).join('\n');
-    lyShowPane('writer');
-    if (!uiChatOpen()) return;
-    $ui('chat-input').value = message;
-    _chatSyncCount();
-    $ui('chat-input').focus();
+    return lySubmitLyricsAction('answer', { message });
   },
-  'ly-melody-save'() {
-    const v = (id) => $ui(id).value.trim();
-    const text = [
-      v('ly-mel-meter'),
-      v('ly-mel-groups') && `groups ${v('ly-mel-groups')}`,
-      v('ly-mel-bars') && `${v('ly-mel-bars')} bars`,
-      `subdivision ${v('ly-mel-sub')}`,
-      v('ly-mel-events'),
-    ]
-      .filter(Boolean)
-      .join(LY_DASH);
-    LY.picks.melody = {
-      meter: v('ly-mel-meter'),
-      groups: v('ly-mel-groups'),
-      bars: v('ly-mel-bars'),
-      subdivision: v('ly-mel-sub'),
-      events: v('ly-mel-events'),
-    };
-    LY.picks.melodyOpen = true;
-    const m = lyParseMelody(text);
-    if (m.error) {
-      $ui('ly-mel-status').textContent = m.error;
-      return;
-    }
-    LY.picks.melody = null;
-    lySetupCommit('melody', [lyMelodyText(m.melody)], 'Melody declared.');
+  'ly-find-open'() {
+    LY.find.open = true;
+    $ui('ly-find').hidden = false;
+    document.querySelector('[data-ui="ly-find-open"]')?.setAttribute('aria-expanded', 'true');
+    $ui('ly-find-input').focus();
+    $ui('ly-find-input').select();
   },
-  'ly-melody-clear'() {
-    LY.picks.melody = null;
-    lySetupCommit('melody', [], 'Melody removed.');
+  'ly-find-step'(id) {
+    lyFindStep(Number(id));
   },
-  'ly-story-save'() {
-    const rows = [...document.querySelectorAll('#ly-tool-body tr[data-story]')];
-    const steps = rows.map((tr, k) => ({
-      atom: tr.querySelector('[data-story-field="atom"]').value,
-      junction: k ? tr.querySelector('[data-story-field="junction"]').value : '',
-    }));
-    const missing = steps.findIndex((x, k) => !x.atom || (k && !x.junction));
-    if (missing >= 0) {
-      $ui('ly-story-error').textContent =
-        `Choose a job${missing ? ' and how it enters' : ''} for every sung section (row ${missing + 1} is incomplete).`;
-      return;
-    }
-    lySetupCommit(
-      'narrative',
-      [steps.map((x, k) => (k ? `${x.atom}/${x.junction}` : x.atom)).join(',')],
-      'Story plan declared.'
-    );
+  'ly-find-close'() {
+    lyFindClose();
   },
-  'ly-story-off'() {
-    lySetupCommit('narrative', ['off'], 'The story layer is declared off.');
+  'ly-undo'() {
+    ($ui('ui-undo') || $ui('btn-undo'))?.click();
   },
-  'ly-story-clear'() {
-    lySetupCommit('narrative', [], 'Story plan no longer declared.');
+  'ly-redo'() {
+    ($ui('ui-redo') || $ui('btn-redo'))?.click();
   },
-  'ly-placed-add'() {
-    const line = Number($ui('ly-placed-line').value);
-    const place = $ui('ly-placed-place').value;
-    if (!line) return;
-    LY.picks.placedMembers = LY.picks.placedMembers || [];
-    if (!LY.picks.placedMembers.some((x) => x.line === line && x.place === place))
-      LY.picks.placedMembers.push({ line, place });
-    LY.picks.placedLine = line;
-    lyRefresh(true);
-    uiFocus($ui('ly-placed-line'));
-  },
-  'ly-placed-clear'() {
-    LY.picks.placedMembers = [];
+  'ly-text-size'(id) {
+    LY.prefs.size.set(id);
+    lySyncDisplayMenu();
     lyRefresh(true);
   },
-  'ly-placed-save'() {
-    const members = LY.picks.placedMembers || [];
-    if (members.length < 2) return;
-    const groups = lySetupOf(LY.model, 'returns').flatMap((d) => lyParseGroups(d.value));
-    groups.push(members);
-    LY.picks.placedMembers = [];
-    lySetupCommit('returns', [lyGroupsText(groups)], 'Placed return declared.');
+  'ly-numbers'() {
+    LY.prefs.numbers.set(!LY.prefs.numbers.get());
+    lySyncDisplayMenu();
+    lyRefresh(true);
   },
-  'ly-returns-clear'() {
-    lySetupCommit('returns', [], 'Returns no longer declared.');
+  'ly-focus-doc'() {
+    lyDraft().focus();
+    lyRefresh(true);
   },
 };
+
+// Copy: a fulfilled browser write confirms; a failure leaves the exact text
+// selected on the page so it can still be copied by hand.
+function lyCopy(text, ok) {
+  const done = () => showToast(ok, 'success');
+  const fail = () => {
+    const box = $ui('ly-doc-note');
+    box.innerHTML = `<div class="ly-inline" data-tone="danger" role="alert">${icon('circle-alert', 16)}<span><strong>Copy failed</strong> Select the text below and copy it.</span><textarea class="cm-input ly-copy-text" readonly rows="6" aria-label="Text to copy">${esc(text)}</textarea><span class="ly-actions">${lyBtn('ly-copy-close', 'Close', 'x', { cls: 'cm-btn cm-btn-outline' })}</span></div>`;
+    box.hidden = false;
+    const ta = box.querySelector('textarea');
+    ta.focus();
+    ta.select();
+    showToast('Copy failed', 'error');
+  };
+  if (navigator.clipboard && window.isSecureContext)
+    navigator.clipboard.writeText(text).then(done, () => execCopyFallback(text, done, fail));
+  else execCopyFallback(text, done, fail);
+}
 
 // ── Find ──────────────────────────────────────────────────────────────────
 function lyFindMatches() {
@@ -3711,11 +4652,13 @@ function lyFindMatches() {
 function lyFindUpdate() {
   const hits = lyFindMatches();
   if (LY.find.at >= hits.length) LY.find.at = 0;
-  $ui('ly-find-count').textContent = LY.find.q
-    ? hits.length
-      ? `${LY.find.at + 1} of ${uiCount(hits.length, 'line')}`
-      : 'No matches'
-    : '';
+  const el = $ui('ly-find-count');
+  if (el)
+    el.textContent = LY.find.q
+      ? hits.length
+        ? `${LY.find.at + 1} of ${uiCount(hits.length, 'line')}`
+        : 'No matches'
+      : '';
   return hits;
 }
 function lyFindStep(d) {
@@ -3723,15 +4666,27 @@ function lyFindStep(d) {
   if (!hits.length) return lyFindUpdate();
   LY.find.at = (LY.find.at + d + hits.length) % hits.length;
   lyFindUpdate();
-  lyScrollToLine(hits[LY.find.at]);
+  const row = LY.model.sung[hits[LY.find.at] - 1];
+  const draft = lyDraft();
+  const rows = draft.value.split('\n');
+  const start = rows.slice(0, row.i).reduce((t, r) => t + r.length + 1, 0);
+  const at = rows[row.i].toLowerCase().indexOf(LY.find.q.toLowerCase());
+  draft.setSelectionRange(start + at, start + at + LY.find.q.length);
+  LY.caretRow = row.i;
+  LY.activeLine = row.n;
+  lyRenderEditor();
+  $ui('ly-overlay')
+    ?.querySelector(`.ly-r[data-n="${row.n}"]`)
+    ?.scrollIntoView?.({ block: 'center' });
   $ui('ly-find-input').focus();
 }
 function lyFindClose() {
-  LY.find = { q: '', at: 0 };
+  LY.find = { q: '', at: 0, open: false };
   $ui('ly-find-input').value = '';
   $ui('ly-find').hidden = true;
+  document.querySelector('[data-ui="ly-find-open"]')?.setAttribute('aria-expanded', 'false');
   lyFindUpdate();
-  lyRefresh(true);
+  lyRenderEditor();
   uiFocus(document.querySelector('[data-ui="ly-find-open"]'));
 }
 
@@ -3744,6 +4699,25 @@ function uiLyricsWaiting() {
     '<p>Your recipe request is still running.</p>' +
     uiButton('view-running', 'View request', 'message-circle');
   $ui('lyrics-chat').append(note);
+}
+// The inspector and mobile tab sets: arrows, Home and End move and select.
+function lyTabKeys(e) {
+  const tab = e.target.closest('[role="tab"]');
+  if (!tab || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+  const list = [...tab.parentElement.querySelectorAll('[role="tab"]')];
+  const i = list.indexOf(tab);
+  const next =
+    e.key === 'Home'
+      ? 0
+      : e.key === 'End'
+        ? list.length - 1
+        : (i + (e.key === 'ArrowRight' ? 1 : -1) + list.length) % list.length;
+  e.preventDefault();
+  list[next].click();
+  list[next].focus();
+}
+function lySizeOf(width) {
+  return width >= 1280 ? 'wide' : width >= 960 ? 'compact' : 'narrow';
 }
 function lyWire(surface) {
   const draft = lyDraft();
@@ -3762,22 +4736,32 @@ function lyWire(surface) {
   });
   draft.addEventListener('input', () => {
     uiSaveLyrics();
+    // The read layer must follow every keystroke: the textarea's own text is
+    // transparent. The rest of the page follows on the next tick.
+    LY.text = draft.value;
+    LY.model = lyParse(draft.value);
+    lySyncCaret();
+    lyRenderEditor();
     lyRefresh();
   });
-  draft.addEventListener('blur', () => pushHistory());
-  for (const ev of ['keyup', 'click', 'select'])
-    draft.addEventListener(ev, () => {
-      LY.caretRow = draft.value.slice(0, draft.selectionStart).split('\n').length - 1;
-      if (LY.model) lyRenderStatus();
-    });
+  draft.addEventListener('blur', () => {
+    pushHistory();
+    lyRenderEditor();
+  });
+  draft.addEventListener('focus', () => {
+    $ui('ly-empty-doc').hidden = true;
+    lySyncCaret();
+    lyRenderEditor();
+  });
+  draft.addEventListener('scroll', () => (draft.scrollTop = 0));
+  for (const ev of ['keyup', 'click', 'select']) draft.addEventListener(ev, () => lySyncCaret());
+  document.addEventListener('selectionchange', () => {
+    if (document.activeElement === draft) lySyncCaret();
+  });
   $ui('ly-find-input').addEventListener('input', (e) => {
-    LY.find = { q: e.target.value, at: 0 };
-    const hits = lyFindUpdate();
-    lyRefresh(true);
-    if (hits.length)
-      document
-        .querySelector(`#ly-doc .ly-line[data-n="${hits[0]}"]`)
-        ?.scrollIntoView?.({ block: 'center' });
+    LY.find = { q: e.target.value, at: 0, open: true };
+    lyFindUpdate();
+    lyRenderEditor();
   });
   $ui('ly-find-input').addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
@@ -3796,59 +4780,61 @@ function lyWire(surface) {
       showToast('Import failed: ' + err.message, 'error');
     }
   });
+  // Tool fields write only to their draft; the pending strip follows.
+  surface.addEventListener('input', (e) => {
+    const t = e.target;
+    if (t.dataset.draft) {
+      let value = t.value;
+      if (t.dataset.unit === 'bars' && value.trim() !== '' && Number.isFinite(Number(value)))
+        value = String(Number(value) * Number(t.dataset.beats));
+      lyDraftSet(t.dataset.draft, t.dataset.target, t.dataset.field, value);
+      t.removeAttribute('aria-invalid');
+      lyRenderPendingOnly(t.dataset.draft);
+    } else if (t.dataset.list) {
+      const list = lyDraftList('word-rules', t.dataset.list);
+      list[Number(t.dataset.idx)] = t.value;
+      lyDraftSet('word-rules', 'song', t.dataset.list, list);
+      lyRenderPendingOnly('word-rules');
+    }
+  });
   surface.addEventListener('change', (e) => {
     const t = e.target;
-    if (t.id === 'ly-relation') $ui('ly-relation-other').hidden = t.value !== 'other';
+    if (t.id === 'ly-link-place') LY.picks.linkPlace = t.value;
     else if (t.id === 'ly-link-line') {
       LY.picks.linkLine = Number(t.value);
       lyRefresh(true);
       uiFocus($ui('ly-link-line'));
-    } else if (t.id === 'ly-place-sec') {
-      LY.picks.rhythmSec = Number(t.value);
-      LY.picks.placementOpen = true;
+    } else if (t.id === 'ly-placed-place') LY.picks.placedPlace = t.value;
+    else if (t.id === 'ly-dur-unit') {
+      LY.picks.durUnit = t.value;
       lyRefresh(true);
-      uiFocus($ui('ly-place-sec'));
-    } else if (t.id === 'ly-placed-line') {
-      LY.picks.placedLine = Number(t.value);
+      uiFocus($ui('ly-dur-unit'));
+    } else if (t.name === 'ly-link-group') {
+      LY.picks.linkGroup = Number(t.value);
       lyRefresh(true);
-      uiFocus($ui('ly-placed-line'));
-    } else if (t.id === 'ly-reading-line') {
-      LY.picks.readingLine = Number(t.value);
-      LY.picks.readingToken = 0;
+    } else if (t.dataset.draft && t.tagName === 'SELECT') {
+      const id = t.id;
+      t.blur();
       lyRefresh(true);
-      uiFocus($ui('ly-reading-line'));
-    } else if (t.name === 'ly-reading-kind') {
-      LY.picks.readingKind = t.value;
-      $ui('ly-reading-supply').hidden = t.value !== 'declared';
-    } else if (t.name === 'ly-voices')
-      lySetupCommit(
-        'voices',
-        t.value === 'sung' ? ['parentheses are sung'] : [],
-        t.value === 'sung' ? 'Parentheses are declared sung.' : 'Parentheses are unsung asides.'
-      );
-    else if (t.dataset.field && t.dataset.sec !== undefined) {
-      const k = Number(t.dataset.sec);
-      if (t.dataset.field === 'name') {
-        const v = t.value.replace(/[[\]\n—]/g, ' ').trim();
-        if (!v) return;
-        lyRewriteHeader(k, (h) => (h.name = v), 'Section renamed.');
-      } else {
-        const v = t.value.trim();
-        if (v && !/^\d{1,3}$/.test(v)) return;
-        lyRewriteHeader(
-          k,
-          (h) => (h.lines = v ? Number(v) : null),
-          v ? 'Declared size updated.' : 'Declared size removed.'
-        );
-      }
+      uiFocus($ui(id));
     }
   });
-  // Close a page menu on an outside click.
-  document.addEventListener('click', (e) => {
-    if (LY.menu && !e.target.closest('.ly-menu-wrap')) lyCloseMenus();
-  });
-  // Arrow keys inside an open page menu.
   surface.addEventListener('keydown', (e) => {
+    if (e.target.id === 'ly-title-input') {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        lyCommitTitle(e.target.value);
+        uiFocus(document.querySelector('[data-ui="ly-title-edit"]'));
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        e.stopPropagation();
+        LY.titleEdit = false;
+        lyRenderHead();
+        uiFocus(document.querySelector('[data-ui="ly-title-edit"]'));
+      }
+      return;
+    }
+    if (e.target.closest('.ly-itabs, .ly-mnav')) return lyTabKeys(e);
     const menu = e.target.closest('.ly-menu');
     if (!menu || !['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key)) return;
     const items = [...menu.querySelectorAll('button:not([disabled])')];
@@ -3862,10 +4848,50 @@ function lyWire(surface) {
     items[next]?.focus();
     e.preventDefault();
   });
-  // The shell hands a reply over while its request still reads busy
-  // (uiReceiveReply runs before _chatSetBusy(false)). Re-render when the
-  // dock's busy state flips, so "Writer running" never outlives the request
-  // and a waiting question shows as soon as the writer is idle.
+  surface.addEventListener(
+    'blur',
+    (e) => {
+      if (e.target.id === 'ly-title-input' && LY.titleEdit) lyCommitTitle(e.target.value);
+    },
+    true
+  );
+  surface.addEventListener('submit', (e) => e.preventDefault());
+  // Drag a Form & story row by its handle to move the section.
+  surface.addEventListener('dragstart', (e) => {
+    const tr = e.target.closest?.('#ly-form-rows tr[data-sec]');
+    if (!tr) return;
+    LY.dragFrom = Number(tr.dataset.sec);
+    e.dataTransfer.effectAllowed = 'move';
+  });
+  surface.addEventListener('dragover', (e) => {
+    if (LY.dragFrom != null && e.target.closest?.('#ly-form-rows tr[data-sec]')) e.preventDefault();
+  });
+  surface.addEventListener('drop', (e) => {
+    const tr = e.target.closest?.('#ly-form-rows tr[data-sec]');
+    const from = LY.dragFrom;
+    LY.dragFrom = null;
+    if (!tr || from == null) return;
+    e.preventDefault();
+    const to = Number(tr.dataset.sec);
+    if (to === from) return;
+    lyEditSections(({ blocks }) => {
+      const [b] = blocks.splice(from, 1);
+      blocks.splice(to, 0, b);
+    }, 'Moved the section.');
+    LY.picks.formSec = to;
+  });
+  document.addEventListener('click', (e) => {
+    if (LY.menu && !e.target.closest('.ly-menu-wrap')) lyCloseMenus();
+  });
+  // Read-only progress while a request runs (src/app.js _chatPollStart).
+  document.addEventListener('chat-progress', (e) => {
+    const p = e.detail || null;
+    const was = LY.progress?.stage;
+    LY.progress = p;
+    if (p?.stage && p.stage !== was) LY.stageSaid = `Writer: ${lyStageName(p.stage)}`;
+    if (LY.tab === 'writer' && !$ui('surface-lyrics')?.hidden) lyRenderWriter();
+  });
+  // The shell's busy state flips around a reply; re-render when it does.
   const dock = $ui('chat-dock');
   let busy = chatState.busy;
   if (dock)
@@ -3874,7 +4900,17 @@ function lyWire(surface) {
       busy = chatState.busy;
       if (LY.model) lyRefresh();
     }).observe(dock, { attributes: true, attributeFilter: ['class'] });
-  // The shell hands every writer reply to uiReceiveReply; read it after.
+  // The layout follows the Lyrics container's own width.
+  if (typeof ResizeObserver === 'function')
+    new ResizeObserver(() => {
+      const size = lySizeOf(surface.clientWidth || innerWidth);
+      if (size !== LY.size) {
+        LY.size = size;
+        LY.railOpen = false;
+        $ui('ly-page').dataset.size = size;
+        if (LY.model) lyRefresh(true);
+      } else lyPlaceLineBar();
+    }).observe(surface);
   const shellReceive = window.uiReceiveReply;
   if (!shellReceive.lyWrapped) {
     const wrapped = function (payload, request) {
@@ -3890,69 +4926,94 @@ function lyWire(surface) {
     window.uiReceiveReply = wrapped;
   }
 }
+// After a tool field changes, only its pending strip and the tool row counts
+// move; the field someone is typing in is never replaced.
+function lyRenderPendingOnly(tool) {
+  const t = tool === 'placement' || tool === 'melody' ? 'rhythm' : tool;
+  const el = $ui(`ly-pending-${t}`);
+  if (el) el.outerHTML = lyPendingStrip(t);
+  document
+    .querySelectorAll(`.ly-toolrow[data-id="${t}"] .ly-count`)
+    .forEach((c) => (c.textContent = lyPending(t) || ''));
+  if (t === 'rhymes') {
+    const link = document.querySelector(
+      '[data-ui="ly-draft-apply"][data-id="rhymes"]:not(.cm-btn-primary)'
+    );
+    link?.toggleAttribute('disabled', false);
+  }
+}
 uiRegisterPage({
   id: 'lyrics',
   mount(surface) {
     LY.prefs = {
       size: UILayout.remember('lyrics-text-size', '0'),
       numbers: UILayout.remember('lyrics-line-numbers', true),
-      setupRows: UILayout.remember('lyrics-setup-rows', true),
-      pane: UILayout.remember('lyrics-pane', 'review'),
     };
-    LY.pane = LY.prefs.pane.get();
+    const ui = lyMeta().ui;
+    if (LY_TABS.some((t) => t[0] === ui.tab)) LY.tab = ui.tab;
+    if (!ui.tool || LY_TOOLS.some((t) => t[0] === ui.tool)) LY.tool = ui.tool || '';
+    if (typeof ui.outline === 'boolean') LY.outline = ui.outline;
     surface.innerHTML = lyMountMarkup();
+    LY.size = lySizeOf(surface.clientWidth || innerWidth);
+    $ui('ly-page').dataset.size = LY.size;
     lyWire(surface);
-    // On a phone the document comes first: the outline and setup start folded.
-    if (matchMedia('(max-width: 699px)').matches)
-      for (const id of ['song', 'setup']) {
-        $ui(`ly-${id}-part`).hidden = true;
-        const b = document.querySelector(`[data-ui="ly-collapse"][data-id="${id}"]`);
-        b.setAttribute('aria-expanded', 'false');
-        b.classList.add('is-collapsed');
-      }
     LY.model = lyParse(lyDraft().value);
     LY.text = lyDraft().value;
     lyRefresh(true);
   },
   render() {
-    // Replies recovered on load, before this page saw them, are still the
-    // writer's latest state; show their status without a base draft.
+    // Replies recovered on load are the writer's latest state, shown without
+    // a base draft: never as a current review.
     if (!LY.run && chatState.task?.domain === 'lyrics' && chatState.task.artifact)
       lyReceive(
         { artifact: chatState.task.artifact, lyric: chatState.lyric, task: chatState.task },
         null
       );
+    const surface = $ui('surface-lyrics');
+    if (surface?.clientWidth) {
+      LY.size = lySizeOf(surface.clientWidth);
+      $ui('ly-page').dataset.size = LY.size;
+    }
     lyRefresh(true);
-    // Navigation renders the page before it switches the dock to the lyric
-    // conversation; read the live conversation again once it has.
     setTimeout(() => LY.model && lyRefresh(true), 0);
   },
-  // Page geometry: the song outline and the side panel resize from their
-  // inner edges (drag or arrow keys; Home resets), above 1100px.
+  // Splitters: the outline (200–300 px) and the inspector (320–420 px), each
+  // stopping before the document would fall below 560 px.
   layout() {
     const body = $ui('ly-body');
+    const width = (id, fallback) => $ui(id)?.getBoundingClientRect().width || fallback;
     UILayout.splitter({
       container: body,
-      panel: $ui('ly-song'),
-      key: 'lyrics-song',
-      property: '--ly-song-width',
-      title: 'Resize song outline',
-      limits: () => [220, Math.min(420, body.clientWidth * 0.3)],
-      enabled: () => innerWidth >= 900 && body.clientWidth >= 1000,
+      panel: $ui('ly-outline'),
+      key: 'lyrics-outline',
+      property: '--ly-outline-width',
+      title: 'Resize sections',
+      limits: () => [
+        200,
+        Math.max(200, Math.min(300, body.clientWidth - width('ly-inspector', 344) - 560 - 40)),
+      ],
+      enabled: () => LY.size === 'wide' && LY.outline,
     });
     UILayout.splitter({
       container: body,
-      panel: $ui('ly-side'),
-      key: 'lyrics-side',
-      property: '--ly-side-width',
-      title: 'Resize review panel',
+      panel: $ui('ly-inspector'),
+      key: 'lyrics-inspector',
+      property: '--ly-inspector-width',
+      title: 'Resize inspector',
       side: 'left',
-      limits: () => [300, Math.min(560, body.clientWidth * 0.45)],
-      enabled: () => innerWidth >= 900 && body.clientWidth >= 760 && !!LY.pane,
+      limits: () => [
+        320,
+        Math.max(
+          320,
+          Math.min(420, body.clientWidth - (LY.outline ? width('ly-outline', 240) : 48) - 560 - 40)
+        ),
+      ],
+      enabled: () => LY.size !== 'narrow',
     });
   },
   resetLayout() {
-    LY.pane = LY.prefs.pane.get();
+    LY.outline = true;
+    LY.railOpen = false;
     lyRefresh(true);
   },
   escape() {
@@ -3961,17 +5022,20 @@ uiRegisterPage({
       lyCloseMenus();
       return uiFocus(opener);
     }
-    if (!$ui('ly-find').hidden) return lyFindClose();
-    if (LY.toolsOpen) {
-      LY.toolsOpen = false;
+    if (LY.find.open) return lyFindClose();
+    if (LY.briefEdit) return LY_ACTIONS['ly-brief-cancel']();
+    if (LY.railOpen) {
+      LY.railOpen = false;
       lyRefresh(true);
-      return uiFocus(document.querySelector('.ly-tools-main'));
+      return uiFocus(
+        document.querySelector('.ly-rail-btn') || document.querySelector('.ly-sec-pos')
+      );
     }
-    if (LY.activeLine) {
-      const n = LY.activeLine;
-      LY.activeLine = 0;
+    if (LY.gate) return LY_ACTIONS['ly-gate-close']();
+    if (LY.tool && LY.size !== 'narrow') {
+      LY.tool = '';
       lyRefresh(true);
-      return uiFocus(document.querySelector(`#ly-doc .ly-line[data-n="${n}"] .ly-line-btn`));
+      return uiFocus(document.querySelector('.ly-toolrow'));
     }
   },
   actions: LY_ACTIONS,

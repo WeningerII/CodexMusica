@@ -1,6 +1,6 @@
 /* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload */
 /* global UILayout */
-/* global ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
+/* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
    canonical app (src/app.js) and catalog, which stay the only engine.
@@ -348,8 +348,12 @@ function uiRecipePanelSetup() {
     uiRecipeAskAI(e.submitter || ai.querySelector('.recipe-ai-send'));
   });
   for (const mode of UI_RECIPE_MODES)
-    uiRecipeCollapsed[mode] = UILayout.remember('recipe-collapsed-' + mode, false, () =>
-      uiApplyRecipeMode()
+    // The Lyrics page is the one 'sidebar' page; its recipe starts folded so
+    // the song gets the width. A person's own choice is remembered as before.
+    uiRecipeCollapsed[mode] = UILayout.remember(
+      'recipe-collapsed-' + mode,
+      mode === 'sidebar',
+      () => uiApplyRecipeMode()
     );
   // Crossing 900px moves the add controls between the sheet and the panel.
   matchMedia('(max-width: 899px)').addEventListener?.('change', () => uiPlaceRecipeParts());
@@ -559,6 +563,7 @@ function uiExport() {
     name: app.workspaceName,
     cards: app.cards.map((c) => ({ ...c, ..._CARD_TRANSIENTS })),
     lyrics: $ui('lyrics-draft').value,
+    lyricMeta: lyricMetaOf(app.lyricMeta),
   };
   uiDownload('codex-musica-session.json', JSON.stringify(p, null, 2), 'application/json');
 }
@@ -573,6 +578,7 @@ async function uiImport(file) {
     // A legacy recipe-only file is a complete session with no lyrics. Never
     // attach the previous session's writing to the imported arrangement.
     app.lyrics = typeof s.lyrics === 'string' ? s.lyrics : '';
+    app.lyricMeta = lyricMetaOf(s.lyricMeta);
     $ui('lyrics-draft').value = app.lyrics;
     uiSaveLyrics();
     pushHistory();
@@ -1817,6 +1823,26 @@ function uiReceiveReply(payload, request) {
 const uiSvg = (paths) =>
   `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${paths}</svg>`;
 const UI_ICONS = {
+  // The Lyrics page's inspector, tools and outline (Lucide).
+  wrench: uiSvg(
+    '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>'
+  ),
+  user: uiSvg(
+    '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>'
+  ),
+  users: uiSvg(
+    '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>'
+  ),
+  history: uiSvg(
+    '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M12 7v5l4 2"></path>'
+  ),
+  'book-open': uiSvg(
+    '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>'
+  ),
+  'file-check': uiSvg(
+    '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="m9 15 2 2 4-4"></path>'
+  ),
+  'chevrons-left': uiSvg('<path d="m11 17-5-5 5-5"></path><path d="m18 17-5-5 5-5"></path>'),
   tag: uiSvg(
     '<path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>'
   ),
@@ -1917,6 +1943,7 @@ function uiRestoreSession() {
         : (localStorage.getItem('musica-lyrics-v3') ??
           JSON.parse(localStorage.getItem('musica-writing-v1') || '{}').lyrics ??
           '');
+    app.lyricMeta = lyricMetaOf(saved?.lyricMeta);
     $ui('lyrics-draft').value = app.lyrics;
     if (saved && !app.cards.length) {
       app.cards = normalizeWorkspaceCards(saved.cards || saved.workspace?.cards);
@@ -1937,6 +1964,7 @@ function uiAutosave() {
     name: app.workspaceName,
     cards: app.cards.map((c) => ({ ...c, ..._CARD_TRANSIENTS })),
     lyrics: app.lyrics || '',
+    lyricMeta: lyricMetaOf(app.lyricMeta),
   });
   if (data === UI.lastSaved) return;
   try {

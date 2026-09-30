@@ -2,7 +2,7 @@
 
 The single source of truth for every interactive surface in the codex. Read this before changing the UI. Update this in the same commit as any UI change. The build's reachability gate (`scripts/ui_reachability_check.js`) enforces that every `status: reachable` entry's selector resolves to at least one element under the entry's precondition. Surfaces that aren't catalogued here are invisible to the build gate, which is how the master-detail refactor silently dropped the stack signature panel, the tradition-group delete, and three drag-drop interactions.
 
-**Updated:** 2026-09-26 for the photo lightbox (a catalog photo enlarges on a click; see "Photo lightbox" at the end), and 2026-09-25 for the reference Your recipe panel (right-hand column, row and genre menus, Recording environment, Recipe preview format, AI entry; see "Your recipe — the reference panel" at the end) and before that for the shared UI foundation (theme, shell, one recipe panel on every route, lifecycle states; see `docs/ui-foundation.md` and the section at the end). Previously 2026-09-12 for the production shared workspace. Reachability is enforced by `scripts/ui_reachability_check.js`; this structural check proves selectors exist under stated preconditions, not that every workflow is usable. Browser mobile checks and `scripts/check_workbench.js` cover separate interaction and state boundaries.
+**Updated:** 2026-09-30 for the redesigned Lyrics page (see "Lyrics page"), 2026-09-26 for the photo lightbox (a catalog photo enlarges on a click; see "Photo lightbox" at the end), and 2026-09-25 for the reference Your recipe panel (right-hand column, row and genre menus, Recording environment, Recipe preview format, AI entry; see "Your recipe — the reference panel" at the end) and before that for the shared UI foundation (theme, shell, one recipe panel on every route, lifecycle states; see `docs/ui-foundation.md` and the section at the end). Previously 2026-09-12 for the production shared workspace. Reachability is enforced by `scripts/ui_reachability_check.js`; this structural check proves selectors exist under stated preconditions, not that every workflow is usable. Browser mobile checks and `scripts/check_workbench.js` cover separate interaction and state boundaries.
 
 ---
 
@@ -1103,7 +1103,7 @@ precondition: empty
 name: lyrics-draft
 kind: widget
 selector: '#lyrics-draft'
-surface: Lyrics — the draft text (Edit mode); the one source of the document, outline and checks
+surface: Lyrics — the document: one textarea, always editable, under its read layer; the one source of the outline, tools and checks
 implementation: src/pages/lyrics.js (committed through uiSaveLyrics in src/workbench.js)
 status: reachable
 precondition: empty
@@ -1499,49 +1499,99 @@ status: reachable
 precondition: empty
 ```
 
-## Lyrics page (2026-09-25)
+## Lyrics page (2026-09-25, redesigned 2026-09-30)
 
-The Lyrics page redesign (`src/pages/lyrics.js`, `src/pages/lyrics.css`): a
-spacious document with sections and an outline, one active review decision at
-a time, history and safe recovery, and the writing tools. Lyric work goes
-through the one AI writer; nothing here writes the recipe.
+The Lyrics page (`src/pages/lyrics.js`, `src/pages/lyrics.css`), rebuilt on
+2026-09-30 to the Lyrics engineering handoff: one document, a section outline,
+a main work area and one inspector (Tools, Writer, Review, History). The
+whole-document textarea is the authoritative input under a read layer drawn in
+the same font and wrapping, so there is no Read/Edit switch. Tool forms read
+and write controlled drafts in the lyric metadata (`app.lyricMeta`) until
+Apply. Lyric work goes through the one AI writer; nothing here writes the
+recipe. Gated with fixture replies by `scripts/check_lyrics_page.js`.
 
 ```yaml
 name: lyrics-document-read-edit
 kind: widget
 selector: '[data-ui="ly-view"]'
-surface: Lyrics — document toolbar: Read (sections, numbered sung lines, returns, marks) / Edit (the draft text)
+surface: Lyrics — document toolbar Read / Edit switch
 implementation: lyRenderDoc / ly-view in src/pages/lyrics.js
+status: retired
+precondition: empty
+notes: Retired 2026-09-30 by the handoff spec (§1, §3). The document is always editable, with line selection at the same time, through one textarea over a synchronized read layer (lyRenderEditor).
+```
+
+```yaml
+name: lyrics-song-title
+kind: data-action
+selector: '#ly-title-wrap'
+surface: Lyrics — song header title: a heading button with a pencil; edits in place (Enter or blur commits, Escape restores, blank removes the title declaration and reads Untitled song); the workspace name shows separately
+implementation: ly-title-edit / lyCommitTitle in src/pages/lyrics.js
 status: reachable
 precondition: empty
+notes: Writes the [SETUP — title] declaration, never the workspace name. At most 160 characters.
+```
+
+```yaml
+name: lyrics-song-brief
+kind: data-action
+selector: '#ly-brief'
+surface: Lyrics — Song brief strip (brief, Hook, Edit brief) and its inline form (Creative brief, Exact hook line, Save brief, Cancel)
+implementation: lyRenderBrief / ly-brief-save in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: The brief is creative context in app.lyricMeta (autosave, saved copies, session export/import, Undo); the hook is the existing exact-line declaration. Neither is graded.
+```
+
+```yaml
+name: lyrics-inspector-tabs
+kind: widget
+selector: '.ly-itabs [role="tab"]'
+surface: Lyrics — inspector tabs Tools, Writer, Review, History (arrows, Home and End move between them); below 960px a bottom Song / Tools / Writer / Review bar
+implementation: lyRenderTabs / ly-tab / ly-mobile in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: The selected tab and tool are kept in the lyric metadata's ui record.
+```
+
+```yaml
+name: lyrics-mobile-nav
+kind: widget
+selector: '#ly-mnav'
+surface: Lyrics — below 960px of page width: one view at a time with Song / Tools / Writer / Review at the bottom; History from the Writer heading
+implementation: ly-mobile in src/pages/lyrics.js; .ly-mnav in src/pages/lyrics.css
+status: reachable
+precondition: empty
+notes: Hidden above 960px; the page's width class comes from its own container (ResizeObserver).
 ```
 
 ```yaml
 name: lyrics-line-tools
 kind: data-action
-selector: '#surface-lyrics [data-ui="ly-view"][data-id="read"]'
-surface: Lyrics — Read: select a line to get Rhyme link, Rhythm, Pronunciation, Used n times and Edit line for that exact line
-implementation: ly-line / ly-line-tool in src/pages/lyrics.js
+selector: '#ly-linebar, #ly-linedock'
+surface: Lyrics — the selected sung line's Link rhyme / Rhythm / Pronunciation, beside the line when it fits, otherwise in the dock under the document
+implementation: lyPlaceLineBar / ly-line-tool in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Line buttons render with the document; the Read control that shows them is the stable anchor.
+notes: Present while a sung line holds the caret or selection; hidden for header, setup and stamp rows. Never covers a word of the lyrics.
 ```
 
 ```yaml
 name: lyrics-add-section
 kind: data-action
 selector: '[data-ui="ly-add-section"]'
-surface: Lyrics — + Section menu and Song → Add section: Verse, Pre-chorus, Chorus, Bridge, Intro, Outro, Hook, Refrain, Other name
+surface: Lyrics — Sections → Add section: Verse, Pre-chorus, Chorus, Bridge, Intro, Outro, Hook, Refrain, Custom…
 implementation: lyInsertSection in src/pages/lyrics.js
 status: reachable
 precondition: empty
+notes: Custom opens Form & story with the new section's name selected.
 ```
 
 ```yaml
 name: lyrics-find
 kind: widget
 selector: '[data-ui="ly-find-open"]'
-surface: Lyrics — Find: marks matches in the document, n of m lines, previous/next (Enter / Shift+Enter), Escape closes
+surface: Lyrics — document toolbar Find: marks matches, n of m lines, previous/next (Enter / Shift+Enter) selecting the match in the document, Escape closes
 implementation: lyFindStep / lyFindClose in src/pages/lyrics.js
 status: reachable
 precondition: empty
@@ -1551,19 +1601,19 @@ precondition: empty
 name: lyrics-display
 kind: widget
 selector: '[data-ui="ly-menu"][data-id="display"]'
-surface: Lyrics — Display: text size, line numbers, setup and stamps in Read
-implementation: ly-text-size / ly-numbers / ly-setup-rows (UILayout.remember) in src/pages/lyrics.js
+surface: Lyrics — document toolbar Display: text size and line numbers
+implementation: ly-text-size / ly-numbers (UILayout.remember) in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Layout preferences under codex-layout:*, never in the session; Reset layout restores them.
+notes: Layout preferences under codex-layout:*, never in the session or the document's identity.
 ```
 
 ```yaml
 name: lyrics-outline
 kind: widget
-selector: '#ly-song-body'
-surface: Lyrics — Song → Sections: numbered outline with line counts, declared bars and meter, Same as / Used n times, a mark per section with review items; select to jump
-implementation: lyRenderSong in src/pages/lyrics.js
+selector: '#ly-sections'
+surface: Lyrics — Sections: each section with its line count, the caret's section highlighted; select to jump; 40 lines · 9 sections; collapses to a 48px rail (960–1279px always a rail, opening a 240px overlay with Close and Escape)
+implementation: lyRenderOutline in src/pages/lyrics.js
 status: reachable
 precondition: empty
 ```
@@ -1571,41 +1621,53 @@ precondition: empty
 ```yaml
 name: lyrics-section-actions
 kind: data-action
-selector: '#ly-song-body [data-ui="ly-menu"]'
-surface: Lyrics — each section's menu: Move up, Move down, Duplicate, Rhythm…, Remove (also in Structure & story)
-implementation: ly-sec-move / ly-sec-dup / ly-sec-remove via lyEditSections in src/pages/lyrics.js
+selector: '[data-ui="ly-tool"][data-id="form-story"]'
+surface: Lyrics — Form & story: each section's Move up, Move down, Duplicate section and Remove, and a drag handle
+implementation: ly-sec-move / ly-sec-dup / ly-sec-remove and row drag via lyEditSections in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Non-drag reordering. Line-number declarations (rhyme groups, returns) follow their lines; members on removed lines are dropped and reported in the toast. Every change is one Undo step.
+notes: Line-number declarations (rhyme groups, returns, placement) follow their lines; members on removed lines are dropped and reported. Every change is one Undo step. Selector anchors the tool row; the table renders when the tool is open.
 ```
 
 ```yaml
-name: lyrics-plan
-kind: widget
-selector: '[data-ui="ly-song-tab"][data-id="plan"]'
-surface: Lyrics — Song → Plan: the writer's creation steps (sweep, screen, plan, grade, revise) and the run's declarations, labelled as planning information
-implementation: lyPlanHtml in src/pages/lyrics.js
+name: lyrics-form-story
+kind: data-action
+selector: '[data-ui="ly-tool"][data-id="form-story"]'
+surface: Lyrics — Form & story (in the main area): Section / Lines / Target / Story job table, Creative guidance from the declared jobs and notes, Edit selected section (name, target, story job, how it follows, section note)
+implementation: lyToolFormStory and LY_FORMS['form-story'] in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Read from the writer's task and lyric record (chatState); an empty state explains that plans come from the writer.
+notes: Story jobs map exactly to the harness atoms (Set the scene=ESTABLISH … Depart=DEPART) and junctions (Because=THEREFORE … Contrast=JUXTAPOSE); section notes are creative context in app.lyricMeta, never an atom. Guidance, not a grade.
 ```
 
 ```yaml
 name: lyrics-song-setup
 kind: widget
 selector: '#ly-setup-list [data-ui="ly-tool"]'
-surface: Lyrics — Song setup: Structure & story, Rhythm & timing, Rhymes & word rules, Language & readings, each with a summary of what is declared
+surface: Lyrics — Song setup summaries
 implementation: lyRenderSong in src/pages/lyrics.js
-status: reachable
+status: retired
 precondition: empty
+notes: Retired 2026-09-30. The Tools index (six rows with fixed help) replaces the setup summaries; declared values show in each tool.
+```
+
+```yaml
+name: lyrics-plan
+kind: widget
+selector: '[data-ui="ly-song-tab"][data-id="plan"]'
+surface: Lyrics — Song → Plan
+implementation: lyPlanHtml in src/pages/lyrics.js
+status: retired
+precondition: empty
+notes: Retired 2026-09-30. A running writer's stage (Planning, Drafting, Checking, Revising, Finished) is shown in Writer, read from the job receipt.
 ```
 
 ```yaml
 name: lyrics-new-or-import
 kind: data-action
 selector: '[data-ui="ly-import"]'
-surface: Lyrics — New song or import…: New song with the writer, Import a text file (replaces the draft, one Undo step), Start a blank draft
-implementation: ly-import / ly-blank / new-lyrics in src/pages/lyrics.js
+surface: Lyrics — Sections → New (a blank draft, one Undo step) and Import (a text file, one Undo step)
+implementation: ly-import / ly-blank in src/pages/lyrics.js
 status: reachable
 precondition: empty
 notes: Imported text is kept exactly (line endings normalised).
@@ -1615,29 +1677,30 @@ notes: Imported text is kept exactly (line endings normalised).
 name: lyrics-new-song-writer
 kind: data-action
 selector: '[data-ui="new-lyrics"]'
-surface: Lyrics — Write with AI → New song; Writer panel → New song
-implementation: new-lyrics → uiNewTask('lyrics') in src/pages/lyrics.js
+surface: Lyrics — Write with AI → New song
+implementation: new-lyrics → lyStartConversation('lyrics') in src/pages/lyrics.js
 status: reachable
 precondition: empty
+notes: A new lyrics task carries the brief and section notes as lyric_context; creation keeps its server-enforced sweep → screen → plan → grade → revise.
 ```
 
 ```yaml
 name: lyrics-edit-with-writer
 kind: data-action
 selector: '[data-ui="edit-lyrics"]'
-surface: Lyrics — Write with AI → Edit this draft; Writer panel → Edit this draft (prefills the edit writer with the exact draft)
-implementation: edit-lyrics in src/pages/lyrics.js
+surface: Lyrics — Write with AI → Edit this draft (a short prefill; the committed document travels as the request's page context)
+implementation: edit-lyrics → lyStartConversation('lyrics-edit') in src/pages/lyrics.js; lyric_context in _chatSend (src/app.js)
 status: reachable
 precondition: empty
-notes: The prefill is a script write; _chatSyncCount keeps the counter honest past the ceiling (scripts/check_chat_counter.js). Every text this page sends the writer leaves out the [SETUP] rows, because the harness reads each whole-line bracket as a section mark (lyric-harness/quality/recover.py); their values travel in the JSON declarations block, and the rows stay in the stored draft. Before a helper starts a new conversation over a run that is waiting or parked, it asks, and says the run will be archived (or ended when no saved copy exists). Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
+notes: The document sent as context leaves out the [SETUP] rows, because the harness reads each whole-line bracket as a section mark (lyric-harness/quality/recover.py); their values travel as exact declarations. A waiting, parked or unknown-outcome run is never reset: Writer offers Resume current work / Start independent work. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
 ```
 
 ```yaml
 name: lyrics-writer-panel
 kind: widget
 selector: '#lyrics-chat'
-surface: Lyrics — side panel → Writer: the one AI writer, hosted here on the Lyrics route
-implementation: uiNavigate appends #chat-dock here (src/workbench.js); page chrome in src/pages/lyrics.js
+surface: Lyrics — Writer tab: the one AI writer's conversation, under the page's writer status (progress, recovery, waiting answer)
+implementation: uiNavigate appends #chat-dock here (src/workbench.js); lyRenderWriter in src/pages/lyrics.js
 status: reachable
 precondition: empty
 ```
@@ -1645,105 +1708,130 @@ precondition: empty
 ```yaml
 name: lyrics-review-draft
 kind: data-action
-selector: '[data-ui="ly-review"]'
-surface: Lyrics — Review draft: opens Review on the first tab that has items
-implementation: ly-review in src/pages/lyrics.js
+selector: '[data-ui="ly-run-review"]'
+surface: Lyrics — Run review (the header's one primary action): one direct edit-phase request with the committed document, declarations, brief and notes; with pending tool changes it first offers Apply all / Review saved version
+implementation: ly-run-review → lySubmitLyricsAction('review') in src/pages/lyrics.js
 status: reachable
 precondition: empty
+notes: No hidden prefill and no Ask step. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
 ```
 
 ```yaml
 name: lyrics-review-tabs
 kind: widget
 selector: '#ly-review [data-ui="ly-rtab"]'
-surface: Lyrics — Review: Issues / Needs input / Notes with counts; one item at a time with previous/next and Up next
+surface: Lyrics — Review: Issues / Needs input / Notes tabs
 implementation: lyRenderReview in src/pages/lyrics.js
+status: retired
+precondition: empty
+notes: Retired 2026-09-30. Review shows the current version's analysis state and coverage rows (Form, Rhymes, Rhythm, Pronunciation; Story as Creative guidance; Performance not assessed), suggestion cards, the review's findings, and Local checks in their own disclosure. See lyrics-review-panel.
+```
+
+```yaml
+name: lyrics-review-panel
+kind: widget
+selector: '#ly-panel-review'
+surface: Lyrics — Review tab: Current version with its label (Not reviewed, Reviewing this version, Reviewed for this version, Reviewed · issues found, Review needs input, Edited since review, Review incomplete), coverage, suggestions, Local checks
+implementation: lyAnalysis / lyRenderReview in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Missing input (open readings, broken links, unjudged coverage, a waiting question) is its own tab, distinct from defects and advisory notes. Run findings are labelled as the writer's and marked stale once the draft moves on. "Finished · certified" (header, History and the Review note) holds only while the sung lines equal the certified draft and the [SETUP] rows equal the request's; otherwise it reads "Last run certified an earlier draft". Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
+notes: Certified for this version shows only when the server's artifact and completion certify exactly the current document. Persistence, analysis and the writer attempt are separate records.
 ```
 
 ```yaml
 name: lyrics-check-and-apply
 kind: data-action
-selector: '#ly-review [data-ui="ly-rtab"][data-id="issue"]'
-surface: Lyrics — Review → a writer suggestion: Original / Suggested, Check & apply, Write my own, Keep mine, Explore rhyme words, Rewrite both lines
-implementation: lyCheckApply in src/pages/lyrics.js
+selector: '[data-ui="ly-tab"][data-id="review"]'
+surface: Lyrics — Review → a suggestion: baseline version, Original / Proposed, Keep mine, Apply change, Write my own (Put in draft, unchecked); stale → Recheck before applying (disabled) and Recheck suggestion
+implementation: lySuggestionHtml / lyCheckApply in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Check & apply re-reads the current draft and verifies the exact suggestion against it (same line text, same numbering, a single sung line), refuses when the [SETUP] rows differ from the ones the request carried, and refuses when this page's exact local checks find an issue the change would add, before one undoable write; on failure the original stays and the reason is shown. It does not re-grade rhyme or meter. A whole writer draft that came without its request is labelled "Replace with the writer's draft" and says it is unchecked. Undo brings an applied suggestion back. Manual edits clear earlier check results. Selector anchors the Issues tab; suggestion cards exist only after a writer reply. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
+notes: Apply re-reads the current draft and verifies the suggestion against it (the whole version it was made for, the target line, and this page's exact checks) before one undoable write. A whole writer draft that came without its request is an unchecked replacement. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
 ```
 
 ```yaml
 name: lyrics-history-recovery
 kind: data-action
-selector: '[data-ui="ly-pane"][data-id="history"]'
-surface: Lyrics — History & recovery: writer status (running, interrupted with Recover, waiting for an answer, parked, uncertain proposal, cannot continue), last reply, saved runs, stamps
-implementation: lyRenderHistory in src/pages/lyrics.js; recovery through #chat-recover (src/app.js)
+selector: '[data-ui="ly-tab"][data-id="history"]'
+surface: Lyrics — History: writer results with version labels, saved runs with Retrieve saved result (a GET, nothing re-run), draft history, stamps; Writer shows Interrupted with Resume from saved draft / Retrieve saved result / Start new work / Technical details
+implementation: lyRenderHistory / lyRenderWriter / lyRetrieve in src/pages/lyrics.js; recovery through _chatRecover (src/app.js)
 status: reachable
 precondition: empty
-notes: Recover reads the saved outcome and never re-sends; an uncertain or capacity-stopped run has no resume button. Nothing unresolved is shown as finished. Waiting, parked and uncertain are read only from the live conversation (chatState.lyric), so a run archived by a reset is never shown as waiting or resumable. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
+notes: Retrieve reads the saved outcome and never re-sends; an uncertain or capacity-stopped run offers no Resume; Resume is disabled while the draft differs from the checkpoint (Restore checkpoint draft). Unknown outcome: "Outcome unknown. Retrieve the saved result before starting another request."
 ```
 
 ```yaml
 name: lyrics-export
 kind: data-action
 selector: '[data-ui="ly-menu"][data-id="export"]'
-surface: Lyrics — Export: Copy with headers (exact draft), Copy sung lines only, Download as text
-implementation: copy-lyrics / ly-copy-sung / ly-download in src/pages/lyrics.js
+surface: Lyrics — Export: Copy with headers (exact document), Copy sung lines, Download text, Export session
+implementation: copy-lyrics / ly-copy-sung / ly-download / ly-export-session in src/pages/lyrics.js
 status: reachable
 precondition: empty
+notes: A failed copy leaves the exact text selectable on the page with Copy failed; Download says Text download started. Export session carries the lyric metadata (brief, notes, pending entries).
 ```
 
 ```yaml
 name: lyrics-writing-tools
 kind: widget
-selector: '[data-ui="ly-tools-toggle"]'
-surface: Lyrics — Writing tools bar and drawer: Structure & story, Rhymes & word rules, Rhythm & placement, Language & readings, Returns & voices, All checks, Export
-implementation: lyRenderTools in src/pages/lyrics.js
+selector: '#ly-panel-tools'
+surface: Lyrics — Tools index: Form & story, Rhymes, Rhythm, Pronunciation, Repeats & voices, Word rules, each with its fixed help; a selected tool shows Back to tools and its form; a pending strip ({n} pending changes, Apply, Discard)
+implementation: lyRenderTools / lyPendingStrip in src/pages/lyrics.js
 status: reachable
 precondition: empty
+notes: Pending values live in controlled drafts (app.lyricMeta.drafts) and never reach the document or a provider until Apply, which validates every field first and is one Undo step; a target that moved blocks Apply with "Target changed. Review these entries before applying."
 ```
 
 ```yaml
 name: lyrics-rhyme-links
 kind: data-action
-selector: '#ly-tools [data-ui="ly-tool"][data-id="rhymes"]'
-surface: Lyrics — Rhymes & word rules: relation, rhyme links at any place (last rhyme, first word, word n…, overlapping), title, hook line, must-include and avoid words, Explore rhyme words
-implementation: lyToolRhymes and ly-link-* / ly-title-save / ly-hook-save / ly-word-add in src/pages/lyrics.js
+selector: '[data-ui="ly-tool"][data-id="rhymes"]'
+surface: Lyrics — Rhymes: relation (Any, Rhyme, Assonance, Consonance; custom under Advanced), placement, selected members, Link endings, Remove link, declared links lettered A, B… with "declared {relation}", Ask writer for rhyme options (matched / partial / refused)
+implementation: lyToolRhymes / LY_FORMS.rhymes / ly-rhyme-options in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Written as [SETUP — …] lines in the harness's own spelling (e.g. 3,4;5.head,13.head). Must-include and avoid are exact local checks; everything else is declared to the writer.
+notes: Written as [SETUP — …] lines in the harness's own spelling. The relation is song-wide in the engine, so every link shares it. Rhyme options never insert a word or declare a link.
 ```
 
 ```yaml
 name: lyrics-rhythm-placement
 kind: data-action
-selector: '#ly-tools [data-ui="ly-tool"][data-id="rhythm"]'
-surface: Lyrics — Rhythm & placement: per-section meter, bars and pickup, declared into the section header
-implementation: lyToolRhythm / ly-rhythm-save in src/pages/lyrics.js
+selector: '[data-ui="ly-tool"][data-id="rhythm"]'
+surface: Lyrics — Rhythm (in the main area): Meter, Section bars (optional), Pickup, Save rhythm, Copy to other sections, the section table
+implementation: lyToolRhythm / LY_FORMS.rhythm in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Declared only: no tempo is assumed and nothing is inferred.
+notes: Declared only: no tempo is assumed and nothing is inferred. Every header shape round-trips (6/8; 6/8, pickup; 4 bars; 4 bars of 6/8).
+```
+
+```yaml
+name: lyrics-word-rules
+kind: data-action
+selector: '[data-ui="ly-tool"][data-id="word-rules"]'
+surface: Lyrics — Word rules: Required phrases and Avoid phrases, each a repeatable field with Add phrase
+implementation: lyToolWordRules / LY_FORMS['word-rules'] in src/pages/lyrics.js
+status: reachable
+precondition: empty
+notes: Exact normalized wording; blank entries ignored, duplicates kept once with a notice. No prose or cliché judgement.
 ```
 
 ```yaml
 name: lyrics-pronunciation
 kind: data-action
-selector: '#ly-tools [data-ui="ly-tool"][data-id="pronunciation"]'
-surface: Lyrics — Language & readings: readings bound to an exact line and sung-word position (needs a choice / supplied ARPABET with basis and source / uncertain); identical lines share; changed lines show stale
-implementation: lyToolPronunciation / ly-reading-save in src/pages/lyrics.js
+selector: '[data-ui="ly-tool"][data-id="pronunciation"]'
+surface: Lyrics — Pronunciation: choose a sung word; its reading, dictionary options (Use reading), Declare my own (phones and a required source), Mark uncertain, Get dictionary options, Remove reading; changed text reads "Text changed · choose again"
+implementation: lyToolPronunciation / LY_FORMS.pronunciation in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Token positions follow lyric_harness.line_tokens; supplied phones are validated like quality/pronunciation.py.
+notes: A reading binds an exact line and sung-word position; identical lines share it. Supplied phones are validated like quality/pronunciation.py.
 ```
 
 ```yaml
 name: lyrics-returns-voices
 kind: data-action
-selector: '#ly-tools [data-ui="ly-tool"][data-id="returns"]'
-surface: Lyrics — Returns & voices: exact section returns, repeated lines with counts, declare returns, parentheses sung or unsung
-implementation: lyToolReturns in src/pages/lyrics.js
+selector: '[data-ui="ly-tool"][data-id="repeats-voices"]'
+surface: Lyrics — Repeats & voices: detected exact repeats (View both, Declare exact repeat), declared returns (Clear), placed returns, parenthesised text as Unsung aside or Sung second voice
+implementation: lyToolRepeats in src/pages/lyrics.js
 status: reachable
 precondition: empty
 ```
@@ -1752,77 +1840,77 @@ precondition: empty
 name: lyrics-all-checks
 kind: data-action
 selector: '.ly-tool-tabs [data-ui="ly-tool"][data-id="checks"]'
-surface: Lyrics — All checks: this page's exact facts, and the writer's last reply (status, tool exit codes, coverage answered / not judged / not requested)
+surface: Lyrics — All checks tool
 implementation: lyToolChecks in src/pages/lyrics.js
-status: reachable
+status: retired
 precondition: empty
-notes: No overall score; an interrupted or stopped run is never shown as finished.
+notes: Retired 2026-09-30. Review's coverage rows and its Local checks disclosure replace it; there is still no overall score.
 ```
 
 ```yaml
 name: lyrics-page-resize
 kind: drag-drop
 selector: '#ly-body > .layout-splitter'
-surface: Lyrics — song outline and side panel edges: drag, or arrow keys; Home resets
+surface: Lyrics — the outline (200–300px) and inspector (320–420px) edges: drag, or arrow keys; Home resets
 implementation: UILayout.splitter in the lyrics page layout()
 status: reachable
 precondition: empty
-notes: Above 1000px (outline) and 760px (side panel) of page width; Reset layout clears both.
+notes: Each stops before the document would fall below 560px; Reset layout clears both.
 ```
 
 ```yaml
 name: lyrics-declared-melody
 kind: widget
-selector: '#ly-tools [data-ui="ly-tool"][data-id="rhythm"]'
-surface: Lyrics — Rhythm & placement → Declared melody (optional, advanced): meter, beat groups, bars per line, ticks per beat and the note/rest events
-implementation: lyMelodyHtml / lyParseMelody / ly-melody-save in src/pages/lyrics.js
+selector: '[data-ui="ly-tool"][data-id="rhythm"]'
+surface: Lyrics — Rhythm → Declared melody (optional): note chips in scientific pitch with beats; Advanced input for meter, beat groups, bars per line, subdivision and hertz:ticks events
+implementation: lyToolRhythm / LY_FORMS.melody / lyParseMelody in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Validated to lyric-harness/MELODY.md (groups of 2 and 3 summing to the beats, subdivision 1/2/4, events summing to bars × beats × subdivision, at least one pitch) and passed to the writer as the tools' melody object. Labelled as an instruction; pitch, underlay and performance are not certified.
+notes: Validated to lyric-harness/MELODY.md; imported frequencies are kept as written. A declaration only; pitch, underlay and performance are not certified.
 ```
 
 ```yaml
 name: lyrics-line-placement
 kind: widget
-selector: '#ly-tools [data-ui="ly-tool"][data-id="rhythm"]'
-surface: Lyrics — Rhythm & placement → Line placement (advanced): per line bar, starting beat and length in beats, section by section
-implementation: lyPlacementHtml / lyParsePlacement / ly-place-save in src/pages/lyrics.js
+selector: '[data-ui="ly-tool"][data-id="rhythm"]'
+surface: Lyrics — Rhythm → Line placement (optional): per line Bar, Start beat and Duration, in beats or, once the meter is known, bars
+implementation: lyToolRhythm / LY_FORMS.placement in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Declared only, never derived from the words; renumbered with section moves; a bar outside the section's declared span is an issue. Passed to the writer as line_placement.
+notes: Bars convert exactly to beats (2 bars of 6/8 is stored as 12 beats); all three blank is undeclared, a partial row is refused. Declared only; renumbered with section moves.
 ```
 
 ```yaml
 name: lyrics-story-intentions
 kind: widget
-selector: '#ly-tools [data-ui="ly-tool"][data-id="structure"]'
-surface: Lyrics — Structure & story → Story plan: one job per sung section and the junction it enters by; Turn the story layer off; Clear
-implementation: lyStoryHtml / lyParseNarrative / ly-story-save in src/pages/lyrics.js
+selector: '[data-ui="ly-tool"][data-id="form-story"]'
+surface: Lyrics — Form & story → story job per sung section and how it follows the one before; Turn the story layer off; Clear story plan
+implementation: lyToolFormStory / LY_FORMS['form-story'] in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Written in the harness's narrative spelling (ESTABLISH,COMPLICATE/BUT,…). A record for the writer, not a gate; a plan whose count no longer matches the sung sections is listed under Needs input.
+notes: Written in the harness's narrative spelling (ESTABLISH,COMPLICATE/BUT,…). A record for the writer, not a gate.
 ```
 
 ```yaml
 name: lyrics-structured-answer
 kind: data-action
-selector: '#ly-review [data-ui="ly-rtab"][data-id="input"]'
-surface: Lyrics — Review → Needs input → "The writer is waiting for an answer about lines …": the writer's question, one answer field per asked line, Put my answer in the writer
-implementation: lyRunChecks (waiting item) and ly-answer in src/pages/lyrics.js
+selector: '[data-ui="ly-tab"][data-id="writer"]'
+surface: Lyrics — Writer → "The writer is waiting for an answer": the question, one answer field per asked line, Submit answer
+implementation: lyRenderWriter and ly-answer → lySubmitLyricsAction('answer') in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Continues the same conversation (uiChatOpen, no reset) with the answer filled in as L<n> rows; nothing is sent until Ask. Selector anchors the Needs input tab; the item exists only while a run waits in the live conversation, and the action refuses once that conversation has been reset. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
+notes: Sent to the same, still-waiting run (its continuation), never a fresh one. Selector anchors the Writer tab; the form exists only while a run waits in the live conversation. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
 ```
 
 ```yaml
 name: lyrics-placed-returns
 kind: data-action
-selector: '#ly-tools [data-ui="ly-tool"][data-id="returns"]'
-surface: Lyrics — Returns & voices → Placed returns: members at a place (first word, whole line, last word, word n) across lines
-implementation: lyPlacedHtml / ly-placed-save in src/pages/lyrics.js
+selector: '[data-ui="ly-tool"][data-id="repeats-voices"]'
+surface: Lyrics — Repeats & voices → Placed returns: members at a place (first word, whole line, last word, word n) across lines
+implementation: lyToolRepeats / LY_FORMS['repeats-voices'] in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Kept alongside the exact returns in one declaration in the harness's spelling (e.g. 5.head,13.head); Declare these exact returns keeps placed ones.
+notes: Kept alongside the exact returns in one declaration in the harness's spelling (e.g. 5.head,13.head).
 ```
 
 ## Genre page redesign (2026-09-25)

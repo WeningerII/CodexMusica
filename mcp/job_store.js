@@ -541,6 +541,55 @@ export class JobStore {
   }
 }
 
+// A job receipt in brief, for a page polling while its POST is in flight
+// (GET /chat/jobs/:id?view=progress): the state and times, the last lyric tool
+// the turn has on record and the stage that names, and the kitchen's round and
+// accepted-line count when its worker progress says so. Nothing here is a
+// result: the POST, or recovery, delivers that. Stages: sweep/screen →
+// planning; plan → drafting (the writer is writing to the plan);
+// grade/check/verify → checking; revise or kitchen progress → revising.
+export function progressView(record) {
+  let tool = null;
+  for (const turn of record.checkpoint?.history || [])
+    for (const part of turn?.parts || [])
+      if (part?.functionCall?.name) tool = part.functionCall.name;
+  const worker = record.progress && typeof record.progress === 'object' ? record.progress : null;
+  const verb = tool ? String(tool).replace(/^lyric_/, '') : null;
+  const stage =
+    record.state === 'completed'
+      ? 'finished'
+      : worker
+        ? 'revising'
+        : !verb
+          ? null
+          : ['sweep', 'screen'].includes(verb)
+            ? 'planning'
+            : verb === 'plan'
+              ? 'drafting'
+              : ['grade', 'check', 'verify', 'recover', 'types'].includes(verb)
+                ? 'checking'
+                : verb === 'revise'
+                  ? 'revising'
+                  : 'working';
+  return {
+    view: 'progress',
+    request_id: record.request_id,
+    state: record.state,
+    created_at: record.created_at,
+    updated_at: record.updated_at,
+    tool,
+    stage,
+    round: Number.isInteger(worker?.round) ? worker.round : null,
+    accepted_lines: Array.isArray(worker?.accepted_lines) ? worker.accepted_lines.length : null,
+    uncertain_proposal: !!(record.uncertain_proposal || worker?.uncertain_proposal),
+    interruption:
+      typeof record.interruption === 'string'
+        ? record.interruption
+        : (record.interruption?.reason ?? null),
+    successor_id: record.successor_id ?? null,
+  };
+}
+
 // `exposes` names the receipts this router may answer for. A store can hold
 // receipts that belong to another surface (connector sessions written before
 // they had their own store); those carry private continuation state their own
@@ -574,6 +623,7 @@ export function createJobRouter({
           error:
             'No retained receipt for this request_id; absence does not establish that work was never executed.',
         });
+      if (req.query?.view === 'progress') return res.json(progressView(record));
       return res.json(publicRecord(record));
     } catch {
       return res

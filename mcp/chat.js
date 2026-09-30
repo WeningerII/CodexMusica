@@ -23,7 +23,7 @@ import { performance } from 'node:perf_hooks';
 import { requestContext, withExecutionContext } from './execution_context.js';
 import { createOperationBudget, paidLedger } from './paid_budget.js';
 import { loadChatSecret } from './job_store.js';
-import { taskDomain } from './task_contract.js';
+import { lyricContext, taskDomain } from './task_contract.js';
 import { runKeyOf } from './run_store.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import {
@@ -532,6 +532,11 @@ export async function createChatRouter({
       maxTurns: limits.maxTurns,
       taskDomains: ['recipe', 'lyrics'],
       durableContinuations: true,
+      // What a page may send and read beyond the message: a structured lyric
+      // context (version 1) on a new lyrics task, and a compact progress view
+      // of a job receipt (GET /chat/jobs/:id?view=progress).
+      lyricContextVersion: 1,
+      progressView: true,
     });
   });
 
@@ -616,6 +621,23 @@ export async function createChatRouter({
     const { message, history, workspace, lyric, sig, task } = input;
     if (typeof message !== 'string' || !message.trim()) {
       return res.status(400).json({ error: 'Say something first.' });
+    }
+    // A lyric context belongs to the task it starts: a continuation keeps the
+    // context it was signed with, so one sent beside an envelope is refused
+    // rather than silently merged or dropped.
+    let context = null;
+    if (req.body?.lyric_context != null) {
+      if (storedContinuation || sig !== undefined)
+        return res.status(400).json({
+          error:
+            'lyric_context starts a new lyrics task; a continuation keeps the context it began with.',
+          code: 'LYRIC_CONTEXT',
+        });
+      try {
+        context = lyricContext(req.body.lyric_context);
+      } catch (error) {
+        return res.status(error.status || 400).json({ error: error.message, code: error.code });
+      }
     }
     if (message.length > limits.maxMessageChars) {
       return res.status(400).json({ error: `Keep it under ${limits.maxMessageChars} characters.` });
@@ -703,12 +725,17 @@ export async function createChatRouter({
         return res
           .status(400)
           .json({ error: `The ${domain} task phase must be ${phases.join(' or ')}.` });
+      if (context && domain !== 'lyrics')
+        return res
+          .status(400)
+          .json({ error: 'lyric_context belongs to a lyrics task.', code: 'LYRIC_CONTEXT' });
       priorTask = {
         version: CONNECTOR_CONTRACT_VERSION,
         domain,
         ...(domain === 'lyrics'
           ? { connector_semantic_identity: continuationSemanticIdentity() }
           : {}),
+        ...(context ? { lyric_context: context } : {}),
         format: 'rich',
         maxChars: 1000,
         phase: task?.phase ?? 'create',
@@ -935,6 +962,9 @@ export async function createChatRouter({
           standing: c.standing ?? null,
           flags: c.flags ?? null,
           whole_flags: c.whole_flags ?? null,
+          // The choices the lyrics page's Rhymes and Pronunciation tools offer.
+          pairs: c.pairs ?? null,
+          pronunciation_options: c.pronunciation_options ?? null,
         })),
         stopped: run.stopped,
         // WHY IT STOPPED, WITH THE NUMBERS (2026-09-02, triage C11).

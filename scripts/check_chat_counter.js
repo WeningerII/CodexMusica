@@ -29,10 +29,12 @@
 // counter follow. faults.js plants exactly that defect and expects this gate to
 // name it.
 //
-// maxlength binds typing only. The workbench's Edit lyrics button assigns the
-// whole draft to the field, which can put the field PAST the wall — so the
-// gate also drives that button and demands the counter say "over", not
-// "limit reached".
+// maxlength binds typing only. A script write can put the field PAST the wall.
+// The Lyrics page's Edit this draft no longer does (the draft travels as the
+// request's structured page context, not in the message), so the gate drives
+// that button to prove the prefill stays short and syncs the counter, then
+// writes past the wall the way every prefill writes (value, then
+// _chatSyncCount) and demands the counter say "over", not "limit reached".
 //
 // The page is booted for real (embedded build, jsdom, initChatDock and the
 // workbench wired by the app's own boot path) and driven with real `input`
@@ -252,28 +254,36 @@ async function main() {
     assert(s.sr === '', `the live region still says "${s.sr}" over an empty field`);
   });
 
-  // maxlength does not bind a script write, and Edit lyrics writes the whole
-  // draft into the field. No `input` event fires, so this also proves the
-  // prefill syncs the counter itself. The action is async (it may first ask
-  // before resetting a waiting writer run), so the write lands after click()
-  // returns: wait for it, bounded, before reading.
+  // Edit this draft: a short prefill, even over a draft as long as the wall.
+  // The action is async, so the write lands after click() returns: wait for
+  // it, bounded, before reading.
   const editButton = doc.querySelector('[data-ui="edit-lyrics"]');
   const editDraft = doc.getElementById('lyrics-draft');
   if (editButton && editDraft) {
     editDraft.value = 'x'.repeat(max);
     editButton.click();
-    for (let i = 0; i < 40 && input.value.length <= max; i++) await sleep(50);
+    for (let i = 0; i < 40 && !/^Edit this draft/.test(input.value); i++) await sleep(50);
   }
+  check('Edit this draft keeps the draft out of the message', () => {
+    assert(editButton && editDraft, 'the workbench has no Edit this draft button to drive');
+    assert(
+      /^Edit this draft/.test(input.value) && input.value.length < 200,
+      `Edit this draft put ${input.value.length} characters in the field`
+    );
+  });
+  // A script write past the wall, synced the way every prefill syncs.
+  input.value = 'x'.repeat(max + 17);
+  win.eval('_chatSyncCount()');
   check('names a script write past the wall as over, not as "limit reached"', () => {
-    const button = editButton;
-    const draft = editDraft;
-    assert(button && draft, 'the workbench has no Edit lyrics button to drive');
     const len = input.value.length;
-    assert(len > max, `Edit lyrics put ${len} characters in the field; expected more than ${max}`);
+    assert(
+      len > max,
+      `the script write put ${len} characters in the field; expected more than ${max}`
+    );
     const s = read();
     assert(
       s.text === `${len} / ${max}`,
-      `after Edit lyrics the counter reads "${s.text}", expected "${len} / ${max}"`
+      `after the script write the counter reads "${s.text}", expected "${len} / ${max}"`
     );
     assert(!s.hidden && s.red, 'the counter is not showing red over a field past its ceiling');
     assert(
