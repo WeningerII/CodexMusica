@@ -1,0 +1,238 @@
+{
+  "checked_at": "2026-09-30T01:24:53.382Z",
+  "scope": "Production Node seed/render with packet records in memory. Browser parity remains parent overlay responsibility.",
+  "entries": [
+    {
+      "id": "polish_ambient",
+      "signature_tokens": [
+        "ambient",
+        "minimal",
+        "sustained",
+        "sustained-tone",
+        "drone-foundation",
+        "drone-like",
+        "layered-ambient",
+        "meditative-tempo",
+        "soft",
+        "soft-onset",
+        "smoothed",
+        "mellow",
+        "quiet",
+        "reverberant",
+        "resonant",
+        "layered",
+        "contemplative",
+        "lush-ambient",
+        "melodic",
+        "naturally-reverberant"
+      ],
+      "prefaces": [
+        {
+          "instrument": "sampler_classic",
+          "preface": "depaysement"
+        },
+        {
+          "instrument": "violin_orchestral",
+          "preface": "drowning"
+        },
+        {
+          "instrument": "harpsichord",
+          "preface": "calm"
+        },
+        {
+          "instrument": "clarinet",
+          "preface": "cloud-floating"
+        }
+      ],
+      "formats": {
+        "rich": "Polish ambient, depaysement sampler: field low-distortion-low-coloration sound-design, drowning orchestral-violin: norway-spruce european-maple synthetic, calm harpsichord: delrin-plastic-plectra-canonical-modern-stable-replacement flemish-ruckers-antwerp-canonical-late-16th-17th-century neoclassical, cloud-floating clarinet: dense-hardwood african-blackwood sweeter, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse reverb, fet-condenser: fet solid-state-clean full-range-flat condenser, solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean full-range-flat, none-minimal: flat-curve source-honest unprocessed untouched, digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat, in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent.",
+        "tags": "Polish ambient, depaysement sampler: field low-distortion-low-coloration, drowning orchestral-violin: norway-spruce european-maple synthetic, calm harpsichord: delrin-plastic-plectra-canonical-modern-stable-replacement flemish-ruckers-antwerp-canonical-late-16th-17th-century, cloud-floating clarinet: dense-hardwood african-blackwood, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist, effects-hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse, microphone-fet-condenser: fet solid-state-clean full-range-flat, preamplifier-solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean, compression-none-minimal: unprocessed untouched dynamic, equalizer-none-minimal: flat-curve source-honest untouched, medium-digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean, console-color-in-the-box-daw-summing: in-the-box total-recall-clean clean-summing.",
+        "prose": "Polish ambient, depaysement sampler, drowning orchestral-violin, calm harpsichord, cloud-floating clarinet, twelve-tone-equal-temperament, auteur-professional-grade-home-studio, hall-reverb, fet-condenser, solid-state-ultra-clean, none-minimal, digital-24-bit-96-khz+, in-the-box-daw-summing.",
+        "compact": "Polish ambient, depaysement sampler,\ndrowning orchestral violin,\ncalm harpsichord,\ncloud-floating clarinet,\nTwelve-tone equal temperament · Auteur professional-grade home studio · effects: Hall reverb · microphone: FET condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: None / minimal · medium: Digital (24-bit / 96 kHz+) · console color: In-the-box / DAW summing,"
+      }
+    },
+    {
+      "id": "pop_ambient",
+      "signature_tokens": [
+        "ambient",
+        "minimal",
+        "sustained",
+        "sustained-tone",
+        "drone-foundation",
+        "drone-like",
+        "layered-ambient",
+        "meditative-tempo",
+        "soft",
+        "soft-onset",
+        "smoothed",
+        "mellow",
+        "quiet",
+        "reverberant",
+        "resonant",
+        "layered",
+        "contemplative",
+        "lush-ambient",
+        "melodic",
+        "warm-glowing"
+      ],
+      "prefaces": [
+        {
+          "instrument": "sampler_classic",
+          "preface": "calm"
+        },
+        {
+          "instrument": "analog_synth",
+          "preface": "cloud-floating"
+        },
+        {
+          "instrument": "grand_piano",
+          "preface": "depaysement"
+        }
+      ],
+      "formats": {
+        "rich": "Pop ambient (Kompakt beat-free electronics), calm sampler: looped low-distortion-low-coloration sampled chopped modern-standard, cloud-floating analog-synth: low-resonance-default odd-harmonic-rolloff pad-like wobbly flutey, depaysement grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse reverb orchestral, fet-condenser: fet solid-state-clean full-range-flat condenser, solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean full-range-flat, none-minimal: flat-curve source-honest unprocessed untouched dynamic, digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat digital, in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent digital console.",
+        "tags": "Pop ambient (Kompakt beat-free electronics), calm sampler: looped low-distortion-low-coloration sampled, cloud-floating analog-synth: low-resonance-default odd-harmonic-rolloff pad-like, depaysement grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, effects-hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse, microphone-fet-condenser: fet solid-state-clean full-range-flat, preamplifier-solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean, compression-none-minimal: unprocessed untouched dynamic, equalizer-none-minimal: flat-curve source-honest untouched, medium-digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat, console-color-in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent.",
+        "prose": "Pop ambient (Kompakt beat-free electronics), calm sampler, cloud-floating analog-synth, depaysement grand-piano, twelve-tone-equal-temperament, auteur-professional-grade-home-studio, hall-reverb, fet-condenser, solid-state-ultra-clean, none-minimal, digital-24-bit-96-khz+, in-the-box-daw-summing.",
+        "compact": "Pop ambient (Kompakt beat-free electronics), calm sampler,\ncloud-floating analog synth,\ndepaysement grand piano,\nTwelve-tone equal temperament · Auteur professional-grade home studio · effects: Hall reverb · microphone: FET condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: None / minimal · medium: Digital (24-bit / 96 kHz+) · console color: In-the-box / DAW summing,"
+      }
+    },
+    {
+      "id": "ritual_ambient",
+      "signature_tokens": [
+        "ambient",
+        "minimal",
+        "sustained",
+        "sustained-tone",
+        "drone-foundation",
+        "drone-like",
+        "layered-ambient",
+        "meditative-tempo",
+        "smoothed",
+        "quiet",
+        "reverberant",
+        "resonant",
+        "layered",
+        "contemplative",
+        "lush-ambient",
+        "ritual",
+        "dark",
+        "overtone-singing"
+      ],
+      "prefaces": [
+        {
+          "instrument": "voice",
+          "preface": "depaysement"
+        },
+        {
+          "instrument": "sampler_classic",
+          "preface": "drowning"
+        }
+      ],
+      "formats": {
+        "rich": "Ritual ambient, depaysement voice: ametrical-pitched-chant-free-rhythm continuous-phonation hall-reverb-long-decay-cinematic minimal-AES-narrowing single-lead-single-track-no-stacking solo-with-instrumental-accompaniment, drowning sampler: looped low-distortion-low-coloration glitched modern-standard textural layered, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse reverb orchestral, fet-condenser: fet solid-state-clean full-range-flat condenser, solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean full-range-flat, none-minimal: flat-curve source-honest unprocessed untouched dynamic, digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat digital, in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent digital console.",
+        "tags": "Ritual ambient, depaysement voice: ametrical-pitched-chant-free-rhythm continuous-phonation hall-reverb-long-decay-cinematic minimal-AES-narrowing, drowning sampler: looped low-distortion-low-coloration glitched modern-standard textural, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, effects-hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse reverb orchestral, microphone-fet-condenser: fet solid-state-clean full-range-flat condenser, preamplifier-solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean full-range-flat, compression-none-minimal: unprocessed untouched dynamic, equalizer-none-minimal: flat-curve source-honest untouched, medium-digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat digital, console-color-in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent digital.",
+        "prose": "Ritual ambient, depaysement voice, drowning sampler, twelve-tone-equal-temperament, auteur-professional-grade-home-studio, hall-reverb, fet-condenser, solid-state-ultra-clean, none-minimal, digital-24-bit-96-khz+, in-the-box-daw-summing.",
+        "compact": "Ritual ambient, depaysement voice · Twelve-tone equal temperament · Auteur professional-grade home studio · effects: Hall reverb · microphone: FET condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: None / minimal · medium: Digital (24-bit / 96 kHz+) · console color: In-the-box / DAW summing,\ndrowning sampler · Twelve-tone equal temperament · Auteur professional-grade home studio · effects: Hall reverb · microphone: FET condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: None / minimal · medium: Digital (24-bit / 96 kHz+) · console color: In-the-box / DAW summing,"
+      }
+    },
+    {
+      "id": "warm_drone",
+      "signature_tokens": [
+        "ambient",
+        "minimal",
+        "sustained",
+        "sustained-tone",
+        "drone-foundation",
+        "drone-like",
+        "layered-ambient",
+        "meditative-tempo",
+        "soft",
+        "soft-onset",
+        "smoothed",
+        "mellow",
+        "quiet",
+        "reverberant",
+        "resonant",
+        "layered",
+        "contemplative",
+        "lush-ambient",
+        "warm-glowing",
+        "warmed",
+        "low-mid-rich"
+      ],
+      "prefaces": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "preface": "autumnal"
+        },
+        {
+          "instrument": "electric_bass",
+          "preface": "calm"
+        },
+        {
+          "instrument": "analog_synth",
+          "preface": "cloud-floating"
+        }
+      ],
+      "formats": {
+        "rich": "Warm drone, autumnal humbucker-solid-body-electric-guitar: alnico nickel maple rosewood mahogany, calm electric-bass: alder nickel focused-low-end-decay mid-rich thumb-muted, cloud-floating analog-synth: low-resonance-default odd-harmonic-rolloff pad-like wobbly flutey, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse reverb orchestral, digital-delay: digital-clean-pass no-loss-feedback delay, fet-condenser: fet solid-state-clean full-range-flat condenser, solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean full-range-flat, none-minimal: flat-curve source-honest unprocessed untouched dynamic, digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat digital, in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent digital console.",
+        "tags": "Warm drone, autumnal humbucker-solid-body-electric-guitar: alnico nickel maple rosewood mahogany, calm electric-bass: alder nickel focused-low-end-decay, cloud-floating analog-synth: low-resonance-default odd-harmonic-rolloff pad-like, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, effects-hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse, effects-digital-delay: digital-clean-pass no-loss-feedback delay, microphone-fet-condenser: fet solid-state-clean full-range-flat, preamplifier-solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean, compression-none-minimal: unprocessed untouched dynamic, equalizer-none-minimal: flat-curve source-honest untouched, medium-digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat, console-color-in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent.",
+        "prose": "Warm drone, autumnal humbucker-solid-body-electric-guitar, calm electric-bass, cloud-floating analog-synth, twelve-tone-equal-temperament, auteur-professional-grade-home-studio, hall-reverb, digital-delay, fet-condenser, solid-state-ultra-clean, none-minimal, digital-24-bit-96-khz+, in-the-box-daw-summing.",
+        "compact": "Warm drone, autumnal humbucker solid-body electric guitar,\ncalm electric bass,\ncloud-floating analog synth,\nTwelve-tone equal temperament · Auteur professional-grade home studio · effects: Hall reverb · effects: Digital delay · microphone: FET condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: None / minimal · medium: Digital (24-bit / 96 kHz+) · console color: In-the-box / DAW summing,"
+      }
+    },
+    {
+      "id": "world_meditation",
+      "signature_tokens": [
+        "ambient",
+        "minimal",
+        "sustained",
+        "sustained-tone",
+        "drone-foundation",
+        "drone-like",
+        "layered-ambient",
+        "meditative-tempo",
+        "soft",
+        "soft-onset",
+        "smoothed",
+        "mellow",
+        "quiet",
+        "reverberant",
+        "resonant",
+        "layered",
+        "contemplative",
+        "lush-ambient",
+        "melodic",
+        "warm-glowing"
+      ],
+      "prefaces": [
+        {
+          "instrument": "analog_synth",
+          "preface": "calm"
+        },
+        {
+          "instrument": "shakuhachi",
+          "preface": "depaysement"
+        },
+        {
+          "instrument": "erhu",
+          "preface": "drowning"
+        },
+        {
+          "instrument": "tanpura",
+          "preface": "atmospheric"
+        },
+        {
+          "instrument": "himalayan_singing_bowl",
+          "preface": "cloud-floating"
+        }
+      ],
+      "formats": {
+        "rich": "World meditation, calm analog-synth: low-resonance-default pad-like static, depaysement shakuhachi: madake-bamboo-phyllostachys-canonical-japanese-root-section kinko-ryu-canonical-edo-period-concert breath-tone-airy, drowning erhu: bamboo-stick steel-modern horsehair hide, atmospheric tanpura: bronze-steel-mix gourd-body canonical-traditional, cloud-floating singing-bowl: slow-swell continuous-drone enveloping, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse, fet-condenser: fet solid-state-clean full-range-flat, solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean, none-minimal: flat-curve source-honest unprocessed, digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat, in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent.",
+        "tags": "World meditation, calm analog-synth: low-resonance-default pad-like, depaysement shakuhachi: madake-bamboo-phyllostachys-canonical-japanese-root-section kinko-ryu-canonical-edo-period-concert, drowning erhu: bamboo-stick steel-modern horsehair hide, atmospheric tanpura: bronze-steel-mix gourd-body, cloud-floating singing-bowl: slow-swell continuous-drone, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist, effects-hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse, microphone-fet-condenser: fet solid-state-clean full-range-flat, preamplifier-solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean, compression-none-minimal: unprocessed untouched dynamic, equalizer-none-minimal: flat-curve source-honest untouched, medium-digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean, console-color-in-the-box-daw-summing: in-the-box total-recall-clean clean-summing.",
+        "prose": "World meditation, calm analog-synth, depaysement shakuhachi, drowning erhu, atmospheric tanpura, cloud-floating singing-bowl, twelve-tone-equal-temperament, auteur-professional-grade-home-studio, hall-reverb, fet-condenser, solid-state-ultra-clean, none-minimal, digital-24-bit-96-khz+, in-the-box-daw-summing.",
+        "compact": "World meditation, calm analog synth,\ndepaysement shakuhachi,\ndrowning erhu,\natmospheric tanpura,\ncloud-floating singing bowl,\nTwelve-tone equal temperament · Auteur professional-grade home studio · effects: Hall reverb · microphone: FET condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: None / minimal · medium: Digital (24-bit / 96 kHz+) · console color: In-the-box / DAW summing,"
+      }
+    }
+  ]
+}

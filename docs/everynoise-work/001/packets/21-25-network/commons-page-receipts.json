@@ -1,0 +1,16 @@
+[
+  {
+    "name": "gui-filepage",
+    "status": 200,
+    "final_url": "https://commons.wikimedia.org/wiki/File:Gui-boratto@ten-days-off-2008.jpg",
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 110337
+  },
+  {
+    "name": "dom-filepage",
+    "status": 200,
+    "final_url": "https://commons.wikimedia.org/wiki/File:Dom_Dolla_-_@shevindphoto.jpg",
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 123555
+  }
+]

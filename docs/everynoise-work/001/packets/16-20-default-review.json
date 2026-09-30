@@ -1,0 +1,1228 @@
+{
+  "voice": [
+    {
+      "id": "voice_register",
+      "defaults": [
+        {
+          "id": "chest_voice",
+          "descriptors": [
+            "thick",
+            "grounded",
+            "speech-derived"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_quality",
+      "defaults": [
+        {
+          "id": "opera_voice",
+          "descriptors": [
+            "covered",
+            "ringing",
+            "vibrato-rich"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_vocal_tract",
+      "defaults": [
+        {
+          "id": "tract_neutral",
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "voice_effort",
+      "defaults": [
+        {
+          "id": "effort_moderate",
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "voice_vibrato",
+      "defaults": [
+        {
+          "id": "slow_vibrato",
+          "descriptors": [
+            "slow-rate",
+            "rounded-even-pulse",
+            "warm-low-mid-resonance",
+            "chest-resonance-low-mid",
+            "expressive",
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_articulation",
+      "defaults": [
+        {
+          "id": "legato_voice",
+          "descriptors": [
+            "continuous-phonation",
+            "connected",
+            "flowing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_microtone",
+      "defaults": [
+        {
+          "id": "tempered_voice",
+          "descriptors": [
+            "equal-tempered",
+            "western-default"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_tradition",
+      "defaults": [
+        {
+          "id": "modern_pop_vocal_training",
+          "descriptors": [
+            "modern-pop-training",
+            "contemporary-commercial",
+            "mixed-belt",
+            "studio-ready"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_mechanism_compound",
+      "defaults": [
+        {
+          "id": "voice_mechanism_single_source",
+          "descriptors": [
+            "single-source-phonation",
+            "standard-fold-vibration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_estill_quality",
+      "defaults": [
+        {
+          "id": "voice_estill_speech",
+          "descriptors": [
+            "speech-quality-modal-neutral-larynx",
+            "minimal-AES-narrowing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_speech_song",
+      "defaults": [
+        {
+          "id": "voice_syllabic_singing",
+          "descriptors": [
+            "one-note-per-syllable",
+            "text-forward",
+            "plain-direct-line",
+            "syllabic-singing-one-note-per-syllable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_ensemble_config",
+      "defaults": [
+        {
+          "id": "voice_ensemble_solo_unaccompanied",
+          "descriptors": [
+            "solo-unaccompanied"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_ornament_system",
+      "defaults": [
+        {
+          "id": "voice_ornament_none",
+          "descriptors": [
+            "no-specific-ornament-system"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_pitch_organization",
+      "defaults": [
+        {
+          "id": "voice_pitch_equal_tempered_12",
+          "descriptors": [
+            "equal-tempered-12-fixed-pitch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_processing_chain",
+      "defaults": [
+        {
+          "id": "voice_processing_unprocessed",
+          "descriptors": [
+            "unprocessed-natural-acoustic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_multitrack_stack",
+      "defaults": [
+        {
+          "id": "voice_multitrack_single_lead",
+          "descriptors": [
+            "single-lead-single-track-no-stacking"
+          ]
+        }
+      ]
+    }
+  ],
+  "sampler_classic": [
+    {
+      "id": "electronic_technique",
+      "defaults": [
+        {
+          "id": "electronic_sample_chopped",
+          "descriptors": [
+            "chopped",
+            "sampled"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sampler_archetypes",
+      "defaults": [
+        {
+          "id": "akai_mpc",
+          "descriptors": [
+            "swung",
+            "beat-suited"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sampler_bit_depth",
+      "defaults": [
+        {
+          "id": "sampler_sixteen_bit",
+          "descriptors": [
+            "clean",
+            "low-distortion-low-coloration",
+            "modern-standard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sampler_workflow",
+      "defaults": [
+        {
+          "id": "sampler_orchestral_library",
+          "descriptors": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sampler_classic_context",
+      "defaults": [
+        {
+          "id": "sampler_classic_hiphop",
+          "descriptors": [
+            "breaks-and-loops",
+            "foundational"
+          ]
+        }
+      ]
+    }
+  ],
+  "analog_synth": [
+    {
+      "id": "electronic_technique",
+      "defaults": [
+        {
+          "id": "electronic_pad_drone",
+          "descriptors": [
+            "sustained",
+            "pad"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oscillator",
+      "defaults": [
+        {
+          "id": "square_pulse",
+          "descriptors": [
+            "hollow",
+            "reedy",
+            "classic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "filter_topology",
+      "defaults": [
+        {
+          "id": "transistor_ladder",
+          "descriptors": [
+            "analog-drift-character",
+            "low-mid-thick",
+            "classic-bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "envelope",
+      "defaults": [
+        {
+          "id": "pluck_env",
+          "descriptors": [
+            "percussive",
+            "plucky",
+            "fast-decay-focused-low"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "modulation",
+      "defaults": [
+        {
+          "id": "lfo_pitch",
+          "descriptors": [
+            "vibrato-y",
+            "gentle",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "electric_guitar_humbucker": [
+    {
+      "id": "electric_technique",
+      "defaults": [
+        {
+          "id": "electric_clean_strummed",
+          "descriptors": [
+            "clean",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amp_make",
+      "defaults": [
+        {
+          "id": "amp_unspecified",
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "body_wood",
+      "defaults": [
+        {
+          "id": "mahogany_maple_cap",
+          "descriptors": [
+            "low-mid-thick",
+            "articulate",
+            "singing",
+            "mahogany",
+            "maple"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neck_wood",
+      "defaults": [
+        {
+          "id": "mahogany_neck_h",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "woody",
+            "mahogany"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fretboard",
+      "defaults": [
+        {
+          "id": "rosewood_fb_h",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "oily-pore-damping",
+            "rosewood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pickup_magnet",
+      "defaults": [
+        {
+          "id": "alnico_2_h",
+          "descriptors": [
+            "bloomy",
+            "vintage",
+            "alnico"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pickup_winding",
+      "defaults": [
+        {
+          "id": "mid_wind",
+          "descriptors": [
+            "balanced",
+            "classic",
+            "versatile"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_material",
+      "defaults": [
+        {
+          "id": "pure_nickel_h",
+          "descriptors": [
+            "vintage",
+            "treble-rolled-off",
+            "mellow",
+            "nickel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bridge",
+      "defaults": [
+        {
+          "id": "vibrato_arm",
+          "descriptors": [
+            "subtle",
+            "woody",
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scale_length",
+      "defaults": [
+        {
+          "id": "scale_gibson_h",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "slinky",
+            "low-mid-thick"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_gauge",
+      "defaults": [
+        {
+          "id": "g_10_hum",
+          "descriptors": [
+            "full",
+            "present",
+            "balanced"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "defaults": [
+        {
+          "id": "nitro_hum",
+          "descriptors": [
+            "thin",
+            "woody",
+            "breathing",
+            "nitrocellulose"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_tuning",
+      "defaults": [
+        {
+          "id": "standard_tuning",
+          "descriptors": [
+            "conventional-tuning",
+            "standard-pitch"
+          ]
+        }
+      ]
+    }
+  ],
+  "electric_bass": [
+    {
+      "id": "amp_make",
+      "defaults": [
+        {
+          "id": "amp_unspecified",
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "body_wood",
+      "defaults": [
+        {
+          "id": "alder_b",
+          "descriptors": [
+            "balanced",
+            "fast-attack-transient",
+            "mid-rich",
+            "alder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pickup_config",
+      "defaults": [
+        {
+          "id": "split_coil",
+          "descriptors": [
+            "thumpy",
+            "midrange",
+            "fundamental"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_type",
+      "defaults": [
+        {
+          "id": "roundwound_n",
+          "descriptors": [
+            "balanced",
+            "growly",
+            "articulate",
+            "nickel",
+            "roundwound"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scale_length_b",
+      "defaults": [
+        {
+          "id": "long_scale_b",
+          "descriptors": [
+            "standard",
+            "focused-low-end-decay",
+            "articulate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fretted_or_not",
+      "defaults": [
+        {
+          "id": "fretted",
+          "descriptors": [
+            "articulate",
+            "percussive",
+            "standard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_technique",
+      "defaults": [
+        {
+          "id": "pick_aggressive",
+          "descriptors": [
+            "picked",
+            "high-gain-saturation"
+          ]
+        }
+      ]
+    }
+  ],
+  "grand_piano": [
+    {
+      "id": "keyboard_technique",
+      "defaults": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "descriptors": [
+            "block-chord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grand_piano_size",
+      "defaults": [
+        {
+          "id": "grand_7_foot",
+          "descriptors": [
+            "recital",
+            "hammer-low-mid-emphasis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grand_piano_brand",
+      "defaults": [
+        {
+          "id": "steinway_d",
+          "descriptors": [
+            "singing",
+            "romantic-orchestra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_hammer",
+      "defaults": [
+        {
+          "id": "steinway_original_hammer",
+          "descriptors": [
+            "soft-felt",
+            "lacquer-voiced",
+            "requires-voicing",
+            "hard-rock-maple-molding"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_rim",
+      "defaults": [
+        {
+          "id": "steinway_17_ply_hard_rock_maple_rim",
+          "descriptors": [
+            "17-ply",
+            "hard-rock-maple",
+            "continuous-bent",
+            "one-piece",
+            "3.25-inch-thick"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_soundboard",
+      "defaults": [
+        {
+          "id": "sitka_spruce_diaphragmatic",
+          "descriptors": [
+            "sitka-spruce",
+            "quartersawn",
+            "9mm-center",
+            "6mm-rim",
+            "double-crowned",
+            "diaphragmatic",
+            "8-12-rings-per-inch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_pinblock",
+      "defaults": [
+        {
+          "id": "hexagrip_7_ply_quartersawn_maple",
+          "descriptors": [
+            "7-ply",
+            "quartersawn-maple",
+            "cross-grained-45-90",
+            "tuning-stability"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_plate",
+      "defaults": [
+        {
+          "id": "gray_iron_full_perimeter_plate",
+          "descriptors": [
+            "gray-iron",
+            "cast-plate",
+            "full-perimeter",
+            "cnc-milled",
+            "bronzed-lacquered"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_pitch_standard",
+      "defaults": [
+        {
+          "id": "a_440_modern",
+          "descriptors": [
+            "a-440",
+            "modern-pitch",
+            "us-standard"
+          ]
+        }
+      ]
+    }
+  ],
+  "harpsichord": [
+    {
+      "id": "keyboard_technique",
+      "defaults": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "descriptors": [
+            "block-chord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_register",
+      "defaults": [
+        {
+          "id": "harpsi_8_foot",
+          "descriptors": [
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_context",
+      "defaults": [
+        {
+          "id": "harpsichord_solo",
+          "descriptors": [
+            "art-music",
+            "standard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_maker_school",
+      "defaults": [
+        {
+          "id": "harpsichord_flemish_ruckers",
+          "descriptors": [
+            "flemish-ruckers-antwerp-canonical-late-16th-17th-century"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_plectrum",
+      "defaults": [
+        {
+          "id": "harpsichord_quill_canonical",
+          "descriptors": [
+            "bird-quill-plectra-canonical-historical-raven-crow-turkey"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_temperament",
+      "defaults": [
+        {
+          "id": "harpsichord_meantone_quarter",
+          "descriptors": [
+            "quarter-comma-meantone-canonical-renaissance-early-baroque"
+          ]
+        }
+      ]
+    }
+  ],
+  "clarinet": [
+    {
+      "id": "wind_articulation",
+      "defaults": [
+        {
+          "id": "wind_continuous_legato",
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_body",
+      "defaults": [
+        {
+          "id": "grenadilla_clarinet",
+          "descriptors": [
+            "grenadilla",
+            "african-blackwood",
+            "dense-hardwood",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_size",
+      "defaults": [
+        {
+          "id": "a_clarinet",
+          "descriptors": [
+            "mellower",
+            "sweeter",
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_reed",
+      "defaults": [
+        {
+          "id": "medium_clarinet_reed",
+          "descriptors": [
+            "balanced",
+            "versatile",
+            "standard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_articulation",
+      "defaults": [
+        {
+          "id": "tongued_clarinet",
+          "descriptors": [
+            "narrow-q-precise",
+            "articulate",
+            "controlled"
+          ]
+        }
+      ]
+    }
+  ],
+  "violin_orchestral": [
+    {
+      "id": "bowed_technique",
+      "defaults": [
+        {
+          "id": "bowed_legato_classical",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_strings",
+      "defaults": [
+        {
+          "id": "synthetic_orch",
+          "descriptors": [
+            "balanced",
+            "standard",
+            "stable",
+            "synthetic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_top_wood",
+      "defaults": [
+        {
+          "id": "norway_spruce_alpine_violin",
+          "descriptors": [
+            "norway-spruce",
+            "european-alpine",
+            "low-altitude-growth",
+            "quartersawn",
+            "fine-grain"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_back_wood",
+      "defaults": [
+        {
+          "id": "bosnian_flamed_maple_violin",
+          "descriptors": [
+            "european-maple",
+            "acer-pseudoplatanus",
+            "bosnian-source",
+            "flamed-figure"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_varnish",
+      "defaults": [
+        {
+          "id": "oil_amber_varnish_violin",
+          "descriptors": [
+            "oil-varnish",
+            "amber-tinted",
+            "larch-turpentine",
+            "linseed-base"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_setup_period",
+      "defaults": [
+        {
+          "id": "modern_setup_violin",
+          "descriptors": [
+            "modern-setup",
+            "longer-neck",
+            "longer-fingerboard",
+            "heavier-bass-bar",
+            "chinrest-fitted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_bow",
+      "defaults": [
+        {
+          "id": "modern_bow",
+          "descriptors": [
+            "sustaining",
+            "expressive",
+            "romantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_bow_stick",
+      "defaults": [
+        {
+          "id": "pernambuco_stick_orch",
+          "descriptors": [
+            "pernambuco",
+            "paubrasilia-echinata",
+            "tournée-friendly",
+            "classical-canon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_articulation",
+      "defaults": [
+        {
+          "id": "arco_orch",
+          "descriptors": [
+            "sustaining",
+            "melodic",
+            "full"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_rosin",
+      "defaults": [
+        {
+          "id": "pirastro_gold_rosin_orch",
+          "descriptors": [
+            "modern-rosin",
+            "pirastro",
+            "balanced-grip"
+          ]
+        }
+      ]
+    }
+  ],
+  "shakuhachi": [
+    {
+      "id": "wind_articulation",
+      "defaults": [
+        {
+          "id": "wind_continuous_legato",
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shaku_length",
+      "defaults": [
+        {
+          "id": "one_eight",
+          "descriptors": [
+            "standard",
+            "versatile"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shaku_technique",
+      "defaults": [
+        {
+          "id": "meri_kari",
+          "descriptors": [
+            "microtonal",
+            "expressive",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shakuhachi_body_material",
+      "defaults": [
+        {
+          "id": "shakuhachi_madake_canonical",
+          "descriptors": [
+            "madake-bamboo-phyllostachys-canonical-japanese-root-section"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shakuhachi_lineage",
+      "defaults": [
+        {
+          "id": "shakuhachi_kinko",
+          "descriptors": [
+            "kinko-ryu-canonical-edo-period-concert"
+          ]
+        }
+      ]
+    }
+  ],
+  "erhu": [
+    {
+      "id": "bowed_technique",
+      "defaults": [
+        {
+          "id": "bowed_legato_classical",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erhu_skin",
+      "defaults": [
+        {
+          "id": "erhu_python",
+          "descriptors": [
+            "vocal-imitating",
+            "low-mid-rich-spectrum",
+            "classical",
+            "python-skin",
+            "snake-skin",
+            "hide"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erhu_use",
+      "defaults": [
+        {
+          "id": "erhu_classical",
+          "descriptors": [
+            "lyrical",
+            "virtuoso",
+            "expressive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erhu_body_wood",
+      "defaults": [
+        {
+          "id": "erhu_red_sandalwood",
+          "descriptors": [
+            "red-sandalwood-zitan",
+            "premium-canonical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erhu_strings",
+      "defaults": [
+        {
+          "id": "erhu_steel_modern",
+          "descriptors": [
+            "steel-modern-canonical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erhu_bow",
+      "defaults": [
+        {
+          "id": "erhu_bamboo_horsehair",
+          "descriptors": [
+            "bamboo-stick",
+            "horsehair",
+            "threaded-between-strings-canonical"
+          ]
+        }
+      ]
+    }
+  ],
+  "tanpura": [
+    {
+      "id": "plucked_traditional_technique",
+      "defaults": [
+        {
+          "id": "plucked_ornamented_melodic",
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_size",
+      "defaults": [
+        {
+          "id": "female_size",
+          "descriptors": [
+            "silvery",
+            "treble-extended",
+            "suited-to-female-vocal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_jawari",
+      "defaults": [
+        {
+          "id": "curved_jawari",
+          "descriptors": [
+            "buzzing",
+            "overtone-rich"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_strings",
+      "defaults": [
+        {
+          "id": "four_string_classical",
+          "descriptors": [
+            "full-spectrum",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_string_material",
+      "defaults": [
+        {
+          "id": "tanpura_bronze_steel",
+          "descriptors": [
+            "bronze-steel-mix",
+            "canonical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_body_wood",
+      "defaults": [
+        {
+          "id": "tanpura_gourd_body",
+          "descriptors": [
+            "gourd-body",
+            "kaddu",
+            "canonical-traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "himalayan_singing_bowl": [
+    {
+      "id": "singing_bowl_form",
+      "defaults": [
+        {
+          "id": "singing_bowl_hand_hammered",
+          "descriptors": [
+            "beating-partials",
+            "warm-hum",
+            "long-decay"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "singing_bowl_technique",
+      "defaults": [
+        {
+          "id": "singing_bowl_rim_rubbed",
+          "descriptors": [
+            "continuous-drone",
+            "swelling",
+            "glassy"
+          ]
+        }
+      ]
+    }
+  ]
+}

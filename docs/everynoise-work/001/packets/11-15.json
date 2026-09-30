@@ -1,0 +1,1432 @@
+{
+  "schema_version": 1,
+  "group_id": "001",
+  "allocation_ordinals": [
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "checked_date": "2026-09-30",
+  "status": "research_packet_incomplete_for_publication",
+  "shared_files_modified": false,
+  "entries": [
+    {
+      "source_label": "future ambient",
+      "source_url": "https://everynoise.com/engenremap-futureambient.html",
+      "id": "future_ambient",
+      "allocation_ordinal": 11,
+      "proposed_outcome": "add_pending_source_and_photo_verification",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_recording_model",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_fx": [
+          "fx_true_stereo_reverb"
+        ],
+        "pin_parts": true,
+        "id": "future_ambient",
+        "name": "Future ambient",
+        "family": "electronic",
+        "lineage": "A provisional electronic ambient grouping whose representative producers combine synthesis with manipulated everyday sounds and rhythmic sample construction. J.Views documents this approach in contemporary studio work. The candidate models its articulated, sample-based side; exact scope and artist membership require direct Every Noise inspection before publication. Recording and component choices are authored, not universal genre facts.",
+        "instruments": [
+          "analog_synth",
+          "sampler_classic"
+        ],
+        "parts": {
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pluck_env",
+          "modulation": "lfo_filter",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post",
+          "electronic_technique": "electronic_arpeggiated"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": -1,
+          "meter": 0,
+          "density": 0,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": -1,
+          "voice": -2,
+          "timbre": 1,
+          "percussion": 0,
+          "cyclicity": 1
+        },
+        "description": "This candidate treats electronic texture and sampling as a composed production language. J.Views demonstrates transforming ordinary objects, vintage synthesizers and drum machines into beats; his 401 Days interview describes preserving raw performances while editing and combining them digitally. The selected ensemble supports those methods without declaring a fixed tempo, dance rhythm or required vintage device for every artist.",
+        "exemplars": [
+          "J.Views — 401 Days (2016)",
+          "J.Views — sampling and beat-production studio demonstration (2020)"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "experimentalElec.idmGlitch"
+        ]
+      },
+      "geo": [
+        40.6782,
+        -73.9442,
+        "Brooklyn",
+        "North America"
+      ],
+      "signature_tokens": [
+        "ambient",
+        "sample-foundational",
+        "layered-ambient",
+        "soft-onset"
+      ],
+      "sources": [
+        {
+          "url": "https://everynoise.com/engenremap-futureambient.html",
+          "title": "Every Noise genre map — future ambient",
+          "checked_date": "2026-09-30",
+          "inspection": "blocked",
+          "supported_claims": [
+            "Exact source label and URL come from the fixed allocation only; page artist membership was not inspected."
+          ],
+          "failure": "Exact allocated URL returned HTTP 403 Forbidden via actual escalated urllib request with proxy environment preserved; web tool also inaccessible."
+        },
+        {
+          "url": "https://www.waves.com/jviews-sampling-beat-production-kaleidoscopes",
+          "title": "J.Views Explores Sampling & Beat Production with Kaleidoscopes",
+          "checked_date": "2026-09-30",
+          "inspection": "page_body_inspected_via_web_tool",
+          "supported_claims": [
+            "Brooklyn studio practice; object sampling, vintage synthesizers and drum machines used in beat production."
+          ],
+          "published_date": "2020-10-22"
+        },
+        {
+          "url": "https://delicious-audio.com/j-views-creative-process-and-gear-on-401-days/",
+          "title": "J.Views’ creative process and gear on the 401 Days album",
+          "checked_date": "2026-09-30",
+          "inspection": "page_body_inspected_via_web_tool",
+          "supported_claims": [
+            "Firsthand account of raw performances, digital assembly and hardware/software recording practice."
+          ],
+          "published_date": "2016-05-18"
+        },
+        {
+          "url": "https://www.musicmetricsvault.com/genres/future-ambient/1830",
+          "title": "Future ambient artists — Music Metrics Vault",
+          "checked_date": "2026-09-30",
+          "inspection": "search_index_artist_table_inspected",
+          "supported_claims": [
+            "The structured artist table associates J.Views, Jean F. Cochois, Zero One and others with the future ambient Spotify taxonomy."
+          ],
+          "source_type": "secondary Spotify genre metadata; membership corroboration only",
+          "excluded_claims": [
+            "Do not use the page’s speculative autogenerated genre history, geographic or gear descriptions."
+          ]
+        }
+      ],
+      "neighbor_distinction": "The proposed rhythmic and articulated sampling model differs from steady drone and from ambient synth’s Hauschildt sequence-focused model. Label-level distinction remains provisional until the exact Every Noise artist set can be inspected; no equivalence has been established.",
+      "geo_rationale": "A practice anchor from the documented J.Views studio visit in Brooklyn; this is an evidenced producer location, not an asserted birthplace or exclusive national origin of the label.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "future_ambient",
+          "name": "Future ambient",
+          "source": "commons_api_manual",
+          "source_page": "https://commons.wikimedia.org/wiki/File:J.viewzlive.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/J.viewzlive.jpg/1280px-J.viewzlive.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/J.viewzlive.jpg/960px-J.viewzlive.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 3.0",
+          "credit": "Roy Rochlin",
+          "match_confidence": "high",
+          "matched_label": "J.Views performing at Terminal 5, New York"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "rights_metadata_inspected": true,
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+          "creator_inspected": true,
+          "source_reported_dimensions": [
+            1000,
+            665
+          ],
+          "source_file_revision": "2013-01-03 00:20:05",
+          "source_description": "j.viewz live at Terminal 5 in New York, NY, Aug 11th, 2012,",
+          "source_date": "2013-01-02 19:18:14",
+          "photo_visually_inspected": false,
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/J.viewzlive.jpg",
+            "result": "Pending root actual binary verification",
+            "http_status": null,
+            "mime_type": null,
+            "decoded_dimensions": null
+          },
+          "thumbnail": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/J.viewzlive.jpg/960px-J.viewzlive.jpg",
+            "result": "Pending root actual binary verification",
+            "http_status": null,
+            "mime_type": null,
+            "decoded_dimensions": null
+          },
+          "publication_ready": false,
+          "permission_ticket": "2013010710010502",
+          "file_description_wikitext_inspected": true,
+          "file_description_receipt": "11-15-photo-source-1.json"
+        },
+        "delivery_selection": {
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/J.viewzlive.jpg",
+          "delivery_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/J.viewzlive.jpg/1280px-J.viewzlive.jpg",
+          "reason": "Original endpoint returned HTTP429 and explicitly requested less disruptive supported thumbnail deliveries. Full-subject resized photograph retained; final status must be independently fetched and visually verified."
+        }
+      },
+      "default_review": {
+        "model_status": "authored_representative_subset",
+        "notes": [
+          "All selected components are engineering choices unless a source claim explicitly says otherwise; no exact gear is inferred from a genre name.",
+          "Sampler S1000 pin avoids beat-suited MPC default; sampler context avoids inherited hip-hop breaks; loop/field workflow avoids orchestral-library default.",
+          "Flat electronic_technique pins apply to synths only when sampler lacks the variant; sampler remains electronic_sample_chopped. Chopping is an authored source-editing operation, not evidence of mandatory hip-hop beats.",
+          "Generic source/editing techniques are modeled here; historical brand/material defaults are not asserted as exemplar equipment. Production render review must inspect all surviving descriptors."
+        ],
+        "instruments": [
+          {
+            "instrument_id": "analog_synth",
+            "parts": [
+              {
+                "part_id": "electronic_technique",
+                "selected_variant": "electronic_arpeggiated",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "oscillator",
+                "selected_variant": "triangle_osc",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "filter_topology",
+                "selected_variant": "svf",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "envelope",
+                "selected_variant": "pluck_env",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "modulation",
+                "selected_variant": "lfo_filter",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              }
+            ]
+          },
+          {
+            "instrument_id": "sampler_classic",
+            "parts": [
+              {
+                "part_id": "electronic_technique",
+                "selected_variant": "electronic_sample_chopped",
+                "selection": "reviewed_catalog_default",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_archetypes",
+                "selected_variant": "akai_s1000",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_bit_depth",
+                "selected_variant": "sampler_sixteen_bit",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_workflow",
+                "selected_variant": "sampler_loop_layered",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_classic_context",
+                "selected_variant": "sampler_classic_post",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              }
+            ]
+          }
+        ]
+      },
+      "equivalent_mapping": null,
+      "blockers": [
+        "Exact Every Noise membership page is inaccessible; verify candidate scope using source corroboration before declaring source interpretation complete.",
+        "Exact genre definition and candidate artist membership are unconfirmed while Every Noise is inaccessible.",
+        "Commons API creator/license metadata now inspected; full photo, thumbnail, HTTP/MIME/decoded dimensions and visual verification pending root."
+      ],
+      "source_access_limitation": {
+        "exact_allocated_page": "HTTP403",
+        "author_mirror_nonwww": "HTTP502",
+        "author_mirror_www": "HTTP502",
+        "fixed_allocation_label_and_url_verified": true,
+        "notes": "Access failure is recorded honestly; allocation establishes exact label identity. Root may assess independent genre/practice evidence separately from missing source-page membership."
+      }
+    },
+    {
+      "source_label": "indian ambient",
+      "source_url": "https://everynoise.com/engenremap-indianambient.html",
+      "id": "indian_ambient",
+      "allocation_ordinal": 12,
+      "proposed_outcome": "add_pending_source_and_photo_verification",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "just_intonation",
+        "chain_status": "authored_recording_model",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_fx": [
+          "fx_true_stereo_reverb"
+        ],
+        "pin_parts": true,
+        "id": "indian_ambient",
+        "name": "Indian ambient",
+        "family": "electronic",
+        "lineage": "Ambient work combining Indian classical melodic instruments and contemporary electronic production also operates across the diaspora. The selected sitar-led branch follows Al Gromer Khan’s documented Vilayat Khani training and sitar/synth recordings. This grouping does not imply a single religion, an exclusively Indian production location or one compulsory raga. Exact tuning, construction and recording settings below are authored models.",
+        "instruments": [
+          "sitar",
+          "analog_synth"
+        ],
+        "parts": {
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter",
+          "electronic_technique": "electronic_pad_drone",
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sitar_gharana": "sitar_imdadkhani_gharana",
+          "sitar_jawari_style": "sitar_jawari_closed"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": -1,
+          "pitch": 1,
+          "ornament": 2,
+          "meter": -2,
+          "density": -1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": -1,
+          "voice": -2,
+          "timbre": 1,
+          "percussion": -2,
+          "cyclicity": 1
+        },
+        "description": "The selected palette places ornamented sitar melody against sustained synthesizer accompaniment. Sitar Secrets documents both straight raga pieces and electronic combinations, with tabla appearing on some tracks. This default represents a spacious, percussion-free branch, rather than prescribing the complete alap–jod–jhala–gat sequence or treating all Indian ambient music as traditional concert performance.",
+        "exemplars": [
+          "Al Gromer Khan — Sitar Secrets",
+          "Al Gromer Khan — Space Hotel",
+          "Prem Joshua & Manish Vyas — Water Down the Ganges (2002)"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "droneModal.overtone"
+        ]
+      },
+      "geo": [
+        48.1351,
+        11.582,
+        "Munich",
+        "Europe"
+      ],
+      "signature_tokens": [
+        "ambient",
+        "ornamented",
+        "sustained-tone",
+        "reverberant"
+      ],
+      "sources": [
+        {
+          "url": "https://everynoise.com/engenremap-indianambient.html",
+          "title": "Every Noise genre map — indian ambient",
+          "checked_date": "2026-09-30",
+          "inspection": "blocked",
+          "supported_claims": [
+            "Exact source label and URL come from the fixed allocation only; page artist membership was not inspected."
+          ],
+          "failure": "Exact allocated URL returned HTTP 403 Forbidden via actual escalated urllib request with proxy environment preserved; web tool also inaccessible."
+        },
+        {
+          "url": "https://khanart.de/press",
+          "title": "Al Gromer Khan — Press",
+          "checked_date": "2026-09-30",
+          "inspection": "page_body_inspected_via_web_tool",
+          "supported_claims": [
+            "Sitar Secrets includes melody-focused sitar, synth accompaniment and selected tabla/tamboura contributions; training is in Vilayat Khani lineage; artist is Munich-based."
+          ],
+          "source_type": "artist-hosted archive of attributed independent album reviews"
+        },
+        {
+          "url": "https://www.ancient-future.com/pdf/MediaMatthewMontfort.pdf",
+          "title": "Ancient-Future.com Records — Matthew Montfort media report, Hearts of Space program 875 INDIA EVOLUTION (page 42 / PDF index 41)",
+          "checked_date": "2026-09-30",
+          "inspection": "full_pdf_text_inspected_via_web_tool",
+          "supported_claims": [
+            "The reproduced Hearts of Space program notes explicitly discuss Indian ambient and list Prem Joshua/Manish Vyas Water Down the Ganges, Prem Joshua Taranga and Al Gromer Khan Sitar Secrets in the program.",
+            "Drone, modal organization and ornamented melodic lines characterize the broadcaster’s selected Indian-influenced ambient program."
+          ],
+          "source_type": "artist-label press archive reproducing independent broadcaster playlist and notes",
+          "original_program_date": "2009-05-08"
+        }
+      ],
+      "neighbor_distinction": "The selected sitar and electronic accompaniment differ from generic electronic drone and from a full Hindustani concert-form model. The wider label may include other approaches; exact Every Noise membership is still pending.",
+      "geo_rationale": "The artist’s own press archive identifies Al Gromer Khan as Munich-based. This diaspora practice anchor is intentional; it does not relocate the Indian classical lineage or claim that Munich originated the genre.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "indian_ambient",
+          "name": "Indian ambient",
+          "source": "commons_api_manual",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Prem_Joshua.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Prem_Joshua.jpg/1280px-Prem_Joshua.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Prem_Joshua.jpg/330px-Prem_Joshua.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 3.0 Unported",
+          "credit": "Bditya.chandra — Prem Joshua with Indian flute maker Subhash Thakur",
+          "match_confidence": "high",
+          "matched_label": "Prem Joshua, independent Hearts of Space Indian ambient program exemplar"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "rights_metadata_inspected": true,
+          "creator_inspected": true,
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "source_reported_dimensions": [
+            960,
+            640
+          ],
+          "source_date": "2013-10-20",
+          "source_file_revision": "2013-10-20T14:47:10Z",
+          "source_description": "Prem Joshua with Indian flute maker Subhash Thakur",
+          "source_receipt": "11-15-prem-joshua-commons.json",
+          "photo_visually_inspected": false,
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Prem_Joshua.jpg",
+            "result": "Pending root binary and visual verification",
+            "http_status": null,
+            "mime_type": null,
+            "decoded_dimensions": null
+          },
+          "thumbnail": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Prem_Joshua.jpg/330px-Prem_Joshua.jpg",
+            "result": "Pending root binary and visual verification",
+            "http_status": null,
+            "mime_type": null,
+            "decoded_dimensions": null
+          },
+          "publication_ready": false
+        },
+        "delivery_selection": {
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Prem_Joshua.jpg",
+          "delivery_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Prem_Joshua.jpg/1280px-Prem_Joshua.jpg",
+          "reason": "Original endpoint returned HTTP429 and explicitly requested less disruptive supported thumbnail deliveries. Full-subject resized photograph retained; final status must be independently fetched and visually verified."
+        }
+      },
+      "default_review": {
+        "model_status": "authored_representative_subset",
+        "notes": [
+          "All selected components are engineering choices unless a source claim explicitly says otherwise; no exact gear is inferred from a genre name.",
+          "Sampler S1000 pin avoids beat-suited MPC default; sampler context avoids inherited hip-hop breaks; loop/field workflow avoids orchestral-library default.",
+          "Flat electronic_technique pins apply to synths only when sampler lacks the variant; sampler remains electronic_sample_chopped. Chopping is an authored source-editing operation, not evidence of mandatory hip-hop beats.",
+          "Generic source/editing techniques are modeled here; historical brand/material defaults are not asserted as exemplar equipment. Production render review must inspect all surviving descriptors."
+        ],
+        "instruments": [
+          {
+            "instrument_id": "sitar",
+            "parts": [
+              {
+                "part_id": "plucked_traditional_technique",
+                "selected_variant": "plucked_classical_idiom",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sitar_neck",
+                "selected_variant": "teak",
+                "selection": "reviewed_catalog_default",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sitar_resonator",
+                "selected_variant": "single_kaddu",
+                "selection": "reviewed_catalog_default",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sitar_jawari",
+                "selected_variant": "synthetic_jawari",
+                "selection": "reviewed_catalog_default",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sitar_taraf",
+                "selected_variant": "taraf_11",
+                "selection": "reviewed_catalog_default",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sitar_frets",
+                "selected_variant": "tied_gut_parda",
+                "selection": "reviewed_catalog_default",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sitar_pluck",
+                "selected_variant": "wire_mizrab",
+                "selection": "reviewed_catalog_default",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sitar_main_strings",
+                "selected_variant": "sitar_bronze_steel_modern",
+                "selection": "reviewed_catalog_default",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sitar_jawari_style",
+                "selected_variant": "sitar_jawari_closed",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sitar_gharana",
+                "selected_variant": "sitar_imdadkhani_gharana",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              }
+            ]
+          },
+          {
+            "instrument_id": "analog_synth",
+            "parts": [
+              {
+                "part_id": "electronic_technique",
+                "selected_variant": "electronic_pad_drone",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "oscillator",
+                "selected_variant": "triangle_osc",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "filter_topology",
+                "selected_variant": "svf",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "envelope",
+                "selected_variant": "pad_env",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "modulation",
+                "selected_variant": "lfo_filter",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              }
+            ]
+          }
+        ]
+      },
+      "equivalent_mapping": null,
+      "blockers": [
+        "Exact Every Noise membership page is inaccessible; verify candidate scope using source corroboration before declaring source interpretation complete.",
+        "Registered just_intonation is an authored drone-relative approximation, not a measured raga tuning. Its pure/key-locked descriptor must be reviewed in rendered output; a neutral drone-relative registered tuning would be preferable to falsely invoking a complete Hindustani concert form.",
+        "Replacement Prem Joshua photograph creator/CC BY-SA3.0 own-work rights inspected; actual photo transport, dimensions and visual checks pending root."
+      ],
+      "rejected_photo": {
+        "source_page": "https://www.flickr.com/photos/54683323@N07/41017051100/",
+        "reason": "Actual image inspected by root is third-party published album artwork; Flickr uploader license does not establish artwork rights. Do not register."
+      },
+      "source_access_limitation": {
+        "exact_allocated_page": "HTTP403",
+        "author_mirror_nonwww": "HTTP502",
+        "author_mirror_www": "HTTP502",
+        "fixed_allocation_label_and_url_verified": true,
+        "notes": "Access failure is recorded honestly; allocation establishes exact label identity. Root may assess independent genre/practice evidence separately from missing source-page membership."
+      }
+    },
+    {
+      "source_label": "j-ambient",
+      "source_url": "https://everynoise.com/engenremap-jambient.html",
+      "id": "j_ambient",
+      "allocation_ordinal": 13,
+      "proposed_outcome": "add_pending_source_and_photo_verification",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_recording_model",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_fx": [
+          "fx_true_stereo_reverb"
+        ],
+        "pin_parts": true,
+        "id": "j_ambient",
+        "name": "J-ambient",
+        "family": "electronic",
+        "lineage": "A provisional broad Japanese ambient grouping spanning electronic environmental composition and later studio electroacoustic work. Hiroshi Yoshimura’s GREEN documents a Tokyo home-studio FM approach; Eiko Ishibashi’s For McCoy documents a later collage practice with synthesizers, field recordings and acoustic collaborators. This proposed scope needs Every Noise membership confirmation. The default is an authored electronic subset, not a reconstruction of either album.",
+        "instruments": [
+          "fm_synth",
+          "sampler_classic"
+        ],
+        "parts": {
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post",
+          "electronic_technique": "electronic_sustained_layering",
+          "fm_algorithm": "fm_simple",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": -1,
+          "meter": -2,
+          "density": -1,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": -1,
+          "voice": -2,
+          "timbre": 1,
+          "percussion": -2,
+          "cyclicity": 0
+        },
+        "description": "The selected electronic subset uses harmonic FM layers and edited recorded sound. Its historical reference is Yoshimura’s unhurried GREEN; the original Japanese mix omitted nature effects later added for a US edition. Ishibashi’s later studio work brings together musique concrète, synthetic layers and recurring acoustic fragments. Neither traditional Japanese instruments nor environmental recordings are compulsory across these examples.",
+        "exemplars": [
+          "Hiroshi Yoshimura — GREEN (1986)",
+          "Eiko Ishibashi — For McCoy (2022)"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "experimentalElec.musiqueConcrete"
+        ]
+      },
+      "geo": [
+        35.6762,
+        139.6503,
+        "Tokyo",
+        "East Asia"
+      ],
+      "signature_tokens": [
+        "ambient",
+        "layered-ambient",
+        "sparse",
+        "sample-foundational"
+      ],
+      "sources": [
+        {
+          "url": "https://everynoise.com/engenremap-jambient.html",
+          "title": "Every Noise genre map — j-ambient",
+          "checked_date": "2026-09-30",
+          "inspection": "blocked",
+          "supported_claims": [
+            "Exact source label and URL come from the fixed allocation only; page artist membership was not inspected."
+          ],
+          "failure": "Exact allocated URL returned HTTP 403 Forbidden via actual escalated urllib request with proxy environment preserved; web tool also inaccessible."
+        },
+        {
+          "url": "https://hiroshiyoshimura.bandcamp.com/album/green",
+          "title": "GREEN | Hiroshi Yoshimura",
+          "checked_date": "2026-09-30",
+          "inspection": "page_body_inspected_via_web_tool",
+          "supported_claims": [
+            "Tokyo home-studio recording in winter 1985–86; Yamaha FM synthesis; original Japanese mix without added nature sound effects."
+          ],
+          "source_type": "Light in the Attic label album description"
+        },
+        {
+          "url": "https://eikoishibashi.bandcamp.com/album/for-mccoy-2",
+          "title": "For McCoy | Eiko Ishibashi",
+          "checked_date": "2026-09-30",
+          "inspection": "page_body_inspected_via_web_tool",
+          "supported_claims": [
+            "Black Truffle describes home-studio musique concrète, synth layers, flute and other acoustic collaborations, field recordings, and a Tokyo artist profile."
+          ],
+          "published_date": "2022-01-21"
+        }
+      ],
+      "neighbor_distinction": "Do not map automatically to environmental_music: that existing record describes a specific 1980s kankyō ongaku ensemble and commissioning context. The candidate broader scope includes contemporary collage work. Without direct Every Noise membership, an exact equivalent mapping remains unestablished.",
+      "geo_rationale": "GREEN’s label account identifies Yoshimura’s Tokyo home studio; Ishibashi’s label profile also identifies Tokyo. This anchors documented practice rather than asserting a sole birthplace for all Japanese ambient.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "j_ambient",
+          "name": "J-ambient",
+          "source": "commons_api_manual",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Eiko_Ishibashi_2022_1.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Eiko_Ishibashi_2022_1.jpg/1280px-Eiko_Ishibashi_2022_1.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Eiko_Ishibashi_2022_1.jpg/960px-Eiko_Ishibashi_2022_1.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 2.0",
+          "credit": "Seth Tisue from Reno, Nevada, USA",
+          "match_confidence": "high",
+          "matched_label": "Eiko Ishibashi performing"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "rights_metadata_inspected": true,
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+          "creator_inspected": true,
+          "source_reported_dimensions": [
+            3867,
+            2900
+          ],
+          "source_file_revision": "2024-07-06 18:37:01",
+          "source_description": "Eiko Ishibashi performing in December 2022",
+          "source_date": "2022-06-10 21:09",
+          "photo_visually_inspected": false,
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Eiko_Ishibashi_2022_1.jpg",
+            "result": "Pending root actual binary verification",
+            "http_status": null,
+            "mime_type": null,
+            "decoded_dimensions": null
+          },
+          "thumbnail": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Eiko_Ishibashi_2022_1.jpg/960px-Eiko_Ishibashi_2022_1.jpg",
+            "result": "Pending root actual binary verification",
+            "http_status": null,
+            "mime_type": null,
+            "decoded_dimensions": null
+          },
+          "publication_ready": false,
+          "file_description_wikitext_inspected": true,
+          "file_description_receipt": "11-15-photo-source-2.json",
+          "metadata_date_conflict": "Commons description says December 2022, date field says 2022-06-10. Preserve conflict; do not assert exact performance date."
+        },
+        "delivery_selection": {
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Eiko_Ishibashi_2022_1.jpg",
+          "delivery_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Eiko_Ishibashi_2022_1.jpg/1280px-Eiko_Ishibashi_2022_1.jpg",
+          "reason": "Original endpoint returned HTTP429 and explicitly requested less disruptive supported thumbnail deliveries. Full-subject resized photograph retained; final status must be independently fetched and visually verified."
+        }
+      },
+      "default_review": {
+        "model_status": "authored_representative_subset",
+        "notes": [
+          "All selected components are engineering choices unless a source claim explicitly says otherwise; no exact gear is inferred from a genre name.",
+          "Sampler S1000 pin avoids beat-suited MPC default; sampler context avoids inherited hip-hop breaks; loop/field workflow avoids orchestral-library default.",
+          "New sustained-layering pin applies only to sampler_classic; synth retains its pad/drone default. Root must register the documented prerequisite before integrating this packet.",
+          "Generic source/editing techniques are modeled here; historical brand/material defaults are not asserted as exemplar equipment. Production render review must inspect all surviving descriptors."
+        ],
+        "instruments": [
+          {
+            "instrument_id": "fm_synth",
+            "parts": [
+              {
+                "part_id": "electronic_technique",
+                "selected_variant": "electronic_pad_drone",
+                "selection": "reviewed_catalog_default",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "fm_algorithm",
+                "selected_variant": "fm_simple",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "fm_modulator_ratio",
+                "selected_variant": "fm_harmonic",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "fm_polyphony",
+                "selected_variant": "fm_poly",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "fm_model_lineage",
+                "selected_variant": "fm_yamaha_dx7",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              }
+            ]
+          },
+          {
+            "instrument_id": "sampler_classic",
+            "parts": [
+              {
+                "part_id": "electronic_technique",
+                "selected_variant": "electronic_sustained_layering",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_archetypes",
+                "selected_variant": "akai_s1000",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_bit_depth",
+                "selected_variant": "sampler_sixteen_bit",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_workflow",
+                "selected_variant": "sampler_loop_layered",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_classic_context",
+                "selected_variant": "sampler_classic_post",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              }
+            ]
+          }
+        ]
+      },
+      "equivalent_mapping": null,
+      "blockers": [
+        "Exact Every Noise membership page is inaccessible; verify candidate scope using source corroboration before declaring source interpretation complete.",
+        "Exact breadth of j-ambient and exemplar membership require inspection of the source page.",
+        "Commons API creator/license metadata now inspected; full photo, thumbnail, HTTP/MIME/decoded dimensions and visual verification pending root."
+      ],
+      "source_access_limitation": {
+        "exact_allocated_page": "HTTP403",
+        "author_mirror_nonwww": "HTTP502",
+        "author_mirror_www": "HTTP502",
+        "fixed_allocation_label_and_url_verified": true,
+        "notes": "Access failure is recorded honestly; allocation establishes exact label identity. Root may assess independent genre/practice evidence separately from missing source-page membership."
+      }
+    },
+    {
+      "source_label": "nordic ambient",
+      "source_url": "https://everynoise.com/engenremap-nordicambient.html",
+      "id": "nordic_ambient",
+      "allocation_ordinal": 14,
+      "proposed_outcome": "add_pending_source_and_photo_verification",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_recording_model",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_fx": [
+          "fx_true_stereo_reverb"
+        ],
+        "pin_parts": true,
+        "id": "nordic_ambient",
+        "name": "Nordic ambient",
+        "family": "electronic",
+        "lineage": "A provisional regional grouping of ambient practice from Nordic countries. The selected Biosphere branch uses electronic layers and sampled environments rather than an inherited folk ensemble. The documented Tromsø artist profile provides a practice anchor; regional affiliation does not establish a universal icy timbre, national tuning or compulsory ritual setting. Exact Every Noise membership and the wider grouping remain pending.",
+        "instruments": [
+          "analog_synth",
+          "sampler_classic"
+        ],
+        "parts": {
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_post",
+          "electronic_technique": "electronic_sustained_layering"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": -1,
+          "pitch": 0,
+          "ornament": -2,
+          "meter": -2,
+          "density": -1,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": -1,
+          "voice": -2,
+          "timbre": 2,
+          "percussion": -2,
+          "cyclicity": 1
+        },
+        "description": "Biosphere’s Wireless documents an immersive live electronic set, integrating natural and science-fiction samples with synthetic material; its credits include field samples and a trumpet contribution. The default selects the synthesizer/sample core and leaves the optional trumpet out. It represents one evidenced production branch rather than making landscape, weather or traditional Nordic instruments mandatory musical features.",
+        "exemplars": [
+          "Biosphere — Wireless (2009)",
+          "Biosphere — Substrata (1997)"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "experimentalElec.musiqueConcrete"
+        ]
+      },
+      "geo": [
+        69.6492,
+        18.9553,
+        "Tromsø",
+        "Europe"
+      ],
+      "signature_tokens": [
+        "ambient",
+        "sample-foundational",
+        "sustained-tone",
+        "layered-ambient"
+      ],
+      "sources": [
+        {
+          "url": "https://everynoise.com/engenremap-nordicambient.html",
+          "title": "Every Noise genre map — nordic ambient",
+          "checked_date": "2026-09-30",
+          "inspection": "blocked",
+          "supported_claims": [
+            "Exact source label and URL come from the fixed allocation only; page artist membership was not inspected."
+          ],
+          "failure": "Exact allocated URL returned HTTP 403 Forbidden via actual escalated urllib request with proxy environment preserved; web tool also inaccessible."
+        },
+        {
+          "url": "https://biospherereleases.bandcamp.com/album/wireless",
+          "title": "Wireless | Biosphere",
+          "checked_date": "2026-09-30",
+          "inspection": "page_body_inspected_via_web_tool",
+          "supported_claims": [
+            "Live set at Arnolfini in Bristol in 2007; field-sample and trumpet credits; natural/science-fiction sample practice; artist profile Tromsø."
+          ],
+          "published_date": "2009-05-15"
+        },
+        {
+          "url": "https://biosphere.bandcamp.com/album/substrata-alternative-versions",
+          "title": "Substrata (alternative versions) | Biosphere",
+          "checked_date": "2026-09-30",
+          "inspection": "search_result_only_not_used_for_default_fact",
+          "supported_claims": [
+            "Artist album metadata identifies alternative material from 1995–96 sessions."
+          ]
+        }
+      ],
+      "neighbor_distinction": "This regional grouping is not equivalent to dark ambient or ritual ambient, and does not imply Nordic folk instrumentation. The Biosphere default emphasizes environmental samples; exact label-level distinction awaits direct membership inspection.",
+      "geo_rationale": "Biosphere’s own Bandcamp profile locates his practice in Tromsø. The photographed performance is in Tolmin and is not used as an origin claim.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "nordic_ambient",
+          "name": "Nordic ambient",
+          "source": "commons_search_manual",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Geir_Jenssen_at_Sajeta_2011.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Geir_Jenssen_at_Sajeta_2011.jpg/1280px-Geir_Jenssen_at_Sajeta_2011.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Geir_Jenssen_at_Sajeta_2011.jpg/960px-Geir_Jenssen_at_Sajeta_2011.jpg",
+          "license": "CC BY",
+          "license_raw": "CC BY 3.0 Unported",
+          "credit": "Mitja Podreka — Geir Jenssen at Sajeta 2011",
+          "match_confidence": "high",
+          "matched_label": "Biosphere (Geir Jenssen) performing with electronic equipment"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "license_page_inspected": true,
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "creator_inspected": true,
+          "source_date": "2011-07-23",
+          "source_file_revision": "2014-02-09T13:05:00Z",
+          "photo_visually_inspected": true,
+          "visual_description": "Geir Jenssen at keyboard and laptop during an outdoor performance.",
+          "source_reported_dimensions": [
+            3800,
+            2524
+          ],
+          "source_reported_mime": "image/jpeg",
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Geir_Jenssen_at_Sajeta_2011.jpg",
+            "result": "full image successfully displayed by web tool; response headers and decoded binary dimensions unavailable",
+            "final_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Geir_Jenssen_at_Sajeta_2011.jpg",
+            "http_status": null,
+            "mime_type": null,
+            "decoded_dimensions": null
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Geir_Jenssen_at_Sajeta_2011.jpg/960px-Geir_Jenssen_at_Sajeta_2011.jpg",
+            "result": "web tool restricted access; shell network unavailable",
+            "final_url": null,
+            "http_status": null,
+            "mime_type": null,
+            "decoded_dimensions": null
+          },
+          "publication_ready": false
+        },
+        "delivery_selection": {
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Geir_Jenssen_at_Sajeta_2011.jpg",
+          "delivery_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Geir_Jenssen_at_Sajeta_2011.jpg/1280px-Geir_Jenssen_at_Sajeta_2011.jpg",
+          "reason": "Original endpoint returned HTTP429 and explicitly requested less disruptive supported thumbnail deliveries. Full-subject resized photograph retained; final status must be independently fetched and visually verified."
+        }
+      },
+      "default_review": {
+        "model_status": "authored_representative_subset",
+        "notes": [
+          "All selected components are engineering choices unless a source claim explicitly says otherwise; no exact gear is inferred from a genre name.",
+          "Sampler S1000 pin avoids beat-suited MPC default; sampler context avoids inherited hip-hop breaks; loop/field workflow avoids orchestral-library default.",
+          "New sustained-layering pin applies only to sampler_classic; synth retains its pad/drone default. Root must register the documented prerequisite before integrating this packet.",
+          "Generic source/editing techniques are modeled here; historical brand/material defaults are not asserted as exemplar equipment. Production render review must inspect all surviving descriptors."
+        ],
+        "instruments": [
+          {
+            "instrument_id": "analog_synth",
+            "parts": [
+              {
+                "part_id": "electronic_technique",
+                "selected_variant": "electronic_pad_drone",
+                "selection": "reviewed_catalog_default",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "oscillator",
+                "selected_variant": "triangle_osc",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "filter_topology",
+                "selected_variant": "svf",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "envelope",
+                "selected_variant": "pad_env",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "modulation",
+                "selected_variant": "lfo_filter",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              }
+            ]
+          },
+          {
+            "instrument_id": "sampler_classic",
+            "parts": [
+              {
+                "part_id": "electronic_technique",
+                "selected_variant": "electronic_sustained_layering",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_archetypes",
+                "selected_variant": "akai_s1000",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_bit_depth",
+                "selected_variant": "sampler_sixteen_bit",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_workflow",
+                "selected_variant": "sampler_field_recordings",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_classic_context",
+                "selected_variant": "sampler_classic_post",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              }
+            ]
+          }
+        ]
+      },
+      "equivalent_mapping": null,
+      "blockers": [
+        "Exact Every Noise membership page is inaccessible; verify candidate scope using source corroboration before declaring source interpretation complete.",
+        "Full photograph and rights inspected, but actual HTTP/MIME/decoded-dimension receipts and a working thumbnail remain pending."
+      ],
+      "source_access_limitation": {
+        "exact_allocated_page": "HTTP403",
+        "author_mirror_nonwww": "HTTP502",
+        "author_mirror_www": "HTTP502",
+        "fixed_allocation_label_and_url_verified": true,
+        "notes": "Access failure is recorded honestly; allocation establishes exact label identity. Root may assess independent genre/practice evidence separately from missing source-page membership."
+      }
+    },
+    {
+      "source_label": "organic ambient",
+      "source_url": "https://everynoise.com/engenremap-organicambient.html",
+      "id": "organic_ambient",
+      "allocation_ordinal": 15,
+      "proposed_outcome": "add_pending_source_and_photo_verification",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_recording_model",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_fx": [
+          "fx_true_stereo_reverb"
+        ],
+        "pin_parts": true,
+        "id": "organic_ambient",
+        "name": "Organic ambient",
+        "family": "electronic",
+        "lineage": "An ambient production approach that develops slowly changing, interwoven sound through recording, synthesis and processing. Projekt explicitly classifies Jeff Greinke’s Oceanic as organic ambient, while contemporary label accounts also include acoustic instruments and environmental recordings. The term does not require an acoustic ensemble: Greinke describes Oceanic as entirely sample- and synth-based. The default selects that electronic branch.",
+        "instruments": [
+          "analog_synth",
+          "sampler_classic"
+        ],
+        "parts": {
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post",
+          "electronic_technique": "electronic_sustained_layering"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": -1,
+          "pitch": 0,
+          "ornament": -1,
+          "meter": -2,
+          "density": 0,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": -1,
+          "voice": -2,
+          "timbre": 2,
+          "percussion": -2,
+          "cyclicity": 0
+        },
+        "description": "Layered sources are transformed into evolving timbres and spatial motion. Greinke’s Oceanic uses manipulated samples and synthesizers without additional players; other contemporary label examples integrate field recordings and acoustic textures. The default therefore uses the documented electronic core rather than assuming handpan, strings or flute are mandatory. Nature-oriented ambience is represented by Steve Roach’s processed Australian outdoor recordings in Atmosphere for Dreaming.",
+        "exemplars": [
+          "Jeff Greinke — Oceanic (2024)",
+          "Steve Roach — Atmosphere for Dreaming (2018)",
+          "Mulvey — Signal Alchemy artist profile"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "experimentalElec.musiqueConcrete"
+        ]
+      },
+      "geo": [
+        32.2226,
+        -110.9747,
+        "Tucson",
+        "North America"
+      ],
+      "signature_tokens": [
+        "ambient",
+        "layered-ambient",
+        "smoothed",
+        "reverberant"
+      ],
+      "sources": [
+        {
+          "url": "https://everynoise.com/engenremap-organicambient.html",
+          "title": "Every Noise genre map — organic ambient",
+          "checked_date": "2026-09-30",
+          "inspection": "blocked",
+          "supported_claims": [
+            "Exact source label and URL come from the fixed allocation only; page artist membership was not inspected."
+          ],
+          "failure": "Exact allocated URL returned HTTP 403 Forbidden via actual escalated urllib request with proxy environment preserved; web tool also inaccessible."
+        },
+        {
+          "url": "https://www.projekt.com/store/product/pro00417/",
+          "title": "Jeff Greinke: Oceanic (CD) | Shop Projekt: Darkwave",
+          "checked_date": "2026-09-30",
+          "inspection": "page_body_inspected_via_web_tool",
+          "supported_claims": [
+            "Label explicitly tags Organic Ambient; Greinke describes layered, manipulated sample/synth work with no other players."
+          ],
+          "published_date": "2024-02-02"
+        },
+        {
+          "url": "https://signalalchemy.com/team/mulvey/",
+          "title": "Mulvey | Signal Alchemy",
+          "checked_date": "2026-09-30",
+          "inspection": "page_body_inspected_via_web_tool",
+          "supported_claims": [
+            "Artist Isaac Alstad is based in Langley and develops field-recording, pad and acoustic-texture work."
+          ]
+        },
+        {
+          "url": "https://signalalchemy.com/signal-alchemy-expands-global-organic-ambient-roster-with-new-artists-from-poland-and-sweden/",
+          "title": "Signal Alchemy expands global Organic Ambient roster with new artists from Poland and Sweden",
+          "checked_date": "2026-09-30",
+          "inspection": "page_body_inspected_via_web_tool",
+          "supported_claims": [
+            "Label describes a global place/process approach with acoustic, field-recording and analog-synth practices, rather than one fixed ensemble."
+          ],
+          "published_date": "2026-03-17"
+        },
+        {
+          "url": "https://steveroach.bandcamp.com/album/atmosphere-for-dreaming",
+          "title": "Atmosphere for Dreaming | Steve Roach",
+          "checked_date": "2026-09-30",
+          "inspection": "page_body_inspected_via_web_tool",
+          "supported_claims": [
+            "Sustained ambience uses processed Australian outdoor recordings, with looped-playback intent; recorded at Timehouse in Baja Arizona; artist profile Tucson."
+          ]
+        }
+      ],
+      "neighbor_distinction": "The term describes an evolving production approach, unlike a geographic scene label; it is also broader than exclusively acoustic ambient. The sample-and-synth Oceanic evidence prevents conflating organic with an unprocessed acoustic ensemble.",
+      "geo_rationale": "Steve Roach’s album page identifies his Tucson practice and the recording’s Baja Arizona Timehouse setting. This is an evidenced exemplar anchor for a globally distributed approach, not an exclusive birthplace.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "organic_ambient",
+          "name": "Organic ambient",
+          "source": "commons_search_manual",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Steve_Roach,_Tucson.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Steve_Roach%2C_Tucson.jpg/1280px-Steve_Roach%2C_Tucson.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Steve_Roach%2C_Tucson.jpg/960px-Steve_Roach%2C_Tucson.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 3.0 Unported",
+          "credit": "Linda Kohanov — Steve Roach, Tucson",
+          "match_confidence": "high",
+          "matched_label": "Steve Roach, evidenced ambient exemplar"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "license_page_inspected": true,
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "creator_inspected": true,
+          "source_date": "2013-03-15",
+          "source_file_revision": "2013-03-15T10:05:00Z",
+          "permission_ticket": "2013031610000752",
+          "photo_visually_inspected": false,
+          "source_reported_dimensions": [
+            3072,
+            2304
+          ],
+          "source_reported_mime": "image/jpeg",
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Steve_Roach%2C_Tucson.jpg",
+            "result": "file-description page inspected; image request restricted by web tool; shell network unavailable",
+            "final_url": null,
+            "http_status": null,
+            "mime_type": null,
+            "decoded_dimensions": null
+          },
+          "thumbnail": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Steve_Roach%2C_Tucson.jpg/960px-Steve_Roach%2C_Tucson.jpg",
+            "result": "observed source URL with tracking parameters normalized; fetch restricted",
+            "final_url": null,
+            "http_status": null,
+            "mime_type": null,
+            "decoded_dimensions": null
+          },
+          "publication_ready": false
+        },
+        "delivery_selection": {
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Steve_Roach%2C_Tucson.jpg",
+          "delivery_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Steve_Roach%2C_Tucson.jpg/1280px-Steve_Roach%2C_Tucson.jpg",
+          "reason": "Original endpoint returned HTTP429 and explicitly requested less disruptive supported thumbnail deliveries. Full-subject resized photograph retained; final status must be independently fetched and visually verified."
+        }
+      },
+      "default_review": {
+        "model_status": "authored_representative_subset",
+        "notes": [
+          "All selected components are engineering choices unless a source claim explicitly says otherwise; no exact gear is inferred from a genre name.",
+          "Sampler S1000 pin avoids beat-suited MPC default; sampler context avoids inherited hip-hop breaks; loop/field workflow avoids orchestral-library default.",
+          "New sustained-layering pin applies only to sampler_classic; synth retains its pad/drone default. Root must register the documented prerequisite before integrating this packet.",
+          "Generic source/editing techniques are modeled here; historical brand/material defaults are not asserted as exemplar equipment. Production render review must inspect all surviving descriptors."
+        ],
+        "instruments": [
+          {
+            "instrument_id": "analog_synth",
+            "parts": [
+              {
+                "part_id": "electronic_technique",
+                "selected_variant": "electronic_pad_drone",
+                "selection": "reviewed_catalog_default",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "oscillator",
+                "selected_variant": "triangle_osc",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "filter_topology",
+                "selected_variant": "svf",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "envelope",
+                "selected_variant": "pad_env",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "modulation",
+                "selected_variant": "lfo_filter",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              }
+            ]
+          },
+          {
+            "instrument_id": "sampler_classic",
+            "parts": [
+              {
+                "part_id": "electronic_technique",
+                "selected_variant": "electronic_sustained_layering",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_archetypes",
+                "selected_variant": "akai_s1000",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_bit_depth",
+                "selected_variant": "sampler_sixteen_bit",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_workflow",
+                "selected_variant": "sampler_loop_layered",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              },
+              {
+                "part_id": "sampler_classic_context",
+                "selected_variant": "sampler_classic_post",
+                "selection": "explicit_applicable_pin",
+                "source_status": "authored_component_choice_unless_explicitly_attested"
+              }
+            ]
+          }
+        ]
+      },
+      "equivalent_mapping": null,
+      "blockers": [
+        "Exact Every Noise membership page is inaccessible; verify candidate scope using source corroboration before declaring source interpretation complete.",
+        "Commons rights and metadata inspected, but the photograph itself, HTTP/MIME/decoded-dimension receipts and working thumbnail remain pending."
+      ],
+      "source_access_limitation": {
+        "exact_allocated_page": "HTTP403",
+        "author_mirror_nonwww": "HTTP502",
+        "author_mirror_www": "HTTP502",
+        "fixed_allocation_label_and_url_verified": true,
+        "notes": "Access failure is recorded honestly; allocation establishes exact label identity. Root may assess independent genre/practice evidence separately from missing source-page membership."
+      }
+    }
+  ],
+  "prerequisites": [
+    {
+      "target_file": "references/01_family_parts.js",
+      "family": "electronic",
+      "part_id": "electronic_technique",
+      "variant": {
+        "id": "electronic_sustained_layering",
+        "name": "Sustained sample layering",
+        "applies_to": [
+          "sampler_classic"
+        ],
+        "descriptors": [
+          "sampled",
+          "sustained",
+          "layered",
+          "looped"
+        ],
+        "match_tokens": [
+          "electronic",
+          "sample-based",
+          "ambient"
+        ],
+        "canonical_tags": [
+          "ambient"
+        ],
+        "auto": false
+      },
+      "rationale": "Only existing sampler techniques imply chopped/stuttering or glitch textures. This optional variant models documented sample layering/long loops without changing any old default or recipe.",
+      "evidence_urls": [
+        "https://www.projekt.com/store/product/pro00417/",
+        "https://biospherereleases.bandcamp.com/album/wireless",
+        "https://eikoishibashi.bandcamp.com/album/for-mccoy-2"
+      ]
+    }
+  ],
+  "local_reference_validation": {
+    "checked_date": "2026-09-30",
+    "entries": 5,
+    "before_prerequisite_changes": {
+      "reference_issues": 0,
+      "all_flat_pins_apply_somewhere": true,
+      "signature_tokens_classified_sonic_or_style": true
+    },
+    "current_expected_unregistered_references": [
+      "electronic_sustained_layering"
+    ],
+    "production_review": "Root overlay initial 20 recipe outputs were read. Indian jhala-cascading and sampler micro-stuttering were rejected; changed existing Indian plucked pin and proposed sampler-only prerequisite. Root must repeat actual output parity/render review after these changes."
+  }
+}

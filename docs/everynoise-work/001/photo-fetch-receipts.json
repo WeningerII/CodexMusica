@@ -1,0 +1,917 @@
+{
+  "group_id": "001",
+  "checked_at": "2026-09-30T01:27:12.500340+00:00",
+  "complete": false,
+  "receipts": [
+    {
+      "id": "ambient_lo_fi",
+      "checked_at": "2026-09-30T01:27:12.500340+00:00",
+      "status": "no_manifest_candidate"
+    },
+    {
+      "id": "ambient_trance",
+      "role": "full",
+      "requested_url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Carbon-Based-Lifeforms-2021-09-25-0002.jpg",
+      "checked_at": "2026-09-30T01:16:16.603830+00:00",
+      "http_status": 200,
+      "final_url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Carbon-Based-Lifeforms-2021-09-25-0002.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        4742,
+        3163
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/ambient_trance-full",
+      "byte_count": 12248782,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "ambient_trance",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Carbon-Based-Lifeforms-2021-09-25-0002.jpg/960px-Carbon-Based-Lifeforms-2021-09-25-0002.jpg",
+      "checked_at": "2026-09-30T01:16:16.603830+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Carbon-Based-Lifeforms-2021-09-25-0002.jpg/960px-Carbon-Based-Lifeforms-2021-09-25-0002.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        640
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/ambient_trance-thumbnail",
+      "byte_count": 157657,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "ambient_worship",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg/1280px-Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg/1280px-Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1280,
+        1709
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/ambient_worship-full",
+      "byte_count": 307947,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "ambient_worship",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg/500px-Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg/500px-Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        500,
+        668
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/ambient_worship-thumbnail",
+      "byte_count": 88878,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "argentine_ambient",
+      "role": "full",
+      "requested_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Homenaje_Gustavo_Cerati_(15094206984).jpg",
+      "checked_at": "2026-09-30T01:16:16.603830+00:00",
+      "http_status": 200,
+      "final_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Homenaje_Gustavo_Cerati_(15094206984).jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        4928,
+        3280
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/argentine_ambient-full",
+      "byte_count": 2080912,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "argentine_ambient",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Homenaje_Gustavo_Cerati_(15094206984).jpg/960px-Homenaje_Gustavo_Cerati_(15094206984).jpg",
+      "checked_at": "2026-09-30T01:16:16.603830+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Homenaje_Gustavo_Cerati_(15094206984).jpg/960px-Homenaje_Gustavo_Cerati_(15094206984).jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        639
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/argentine_ambient-thumbnail",
+      "byte_count": 156675,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "australian_ambient",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Lawrence_English_2012.jpg/1280px-Lawrence_English_2012.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Lawrence_English_2012.jpg/1280px-Lawrence_English_2012.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1280,
+        854
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/australian_ambient-full",
+      "byte_count": 328456,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "australian_ambient",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Lawrence_English_2012.jpg/960px-Lawrence_English_2012.jpg",
+      "checked_at": "2026-09-30T01:16:16.603830+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Lawrence_English_2012.jpg/960px-Lawrence_English_2012.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        641
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/australian_ambient-thumbnail",
+      "byte_count": 192444,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "deep_ambient",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Steve_Roach_portrait.jpg/960px-Steve_Roach_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "checked_at": "2026-09-30T01:18:17.263756+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Steve_Roach_portrait.jpg/960px-Steve_Roach_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        1275
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/deep_ambient-thumbnail",
+      "byte_count": 222456,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "deep_ambient",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Steve_Roach_portrait.jpg/960px-Steve_Roach_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "checked_at": "2026-09-30T01:18:17.263756+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Steve_Roach_portrait.jpg/960px-Steve_Roach_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        1275
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/deep_ambient-thumbnail",
+      "byte_count": 222456,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "drone",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Tony_Conrad_2_-_DMS35th.jpg/960px-Tony_Conrad_2_-_DMS35th.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "checked_at": "2026-09-30T01:18:17.263756+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Tony_Conrad_2_-_DMS35th.jpg/960px-Tony_Conrad_2_-_DMS35th.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        910
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/drone-thumbnail",
+      "byte_count": 189595,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "drone",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Tony_Conrad_2_-_DMS35th.jpg/960px-Tony_Conrad_2_-_DMS35th.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "checked_at": "2026-09-30T01:18:17.263756+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Tony_Conrad_2_-_DMS35th.jpg/960px-Tony_Conrad_2_-_DMS35th.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        910
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/drone-thumbnail",
+      "byte_count": 189595,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "drone_psych",
+      "role": "full",
+      "requested_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Bardo_Pond-4.jpg",
+      "checked_at": "2026-09-30T01:18:17.263756+00:00",
+      "http_status": 200,
+      "final_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Bardo_Pond-4.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1024,
+        768
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/drone_psych-full",
+      "byte_count": 103340,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full"
+    },
+    {
+      "id": "drone_psych",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Bardo_Pond-4.jpg/960px-Bardo_Pond-4.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Bardo_Pond-4.jpg/960px-Bardo_Pond-4.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        720
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/drone_psych-thumbnail",
+      "byte_count": 99689,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "drone_rock",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Spiritualized_2009.05.29_003.jpg/1280px-Spiritualized_2009.05.29_003.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Spiritualized_2009.05.29_003.jpg/1280px-Spiritualized_2009.05.29_003.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1280,
+        850
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/drone_rock-full",
+      "byte_count": 219386,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "drone_rock",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Spiritualized_2009.05.29_003.jpg/960px-Spiritualized_2009.05.29_003.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Spiritualized_2009.05.29_003.jpg/960px-Spiritualized_2009.05.29_003.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        638
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/drone_rock-thumbnail",
+      "byte_count": 128343,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "experimental_ambient",
+      "role": "full",
+      "requested_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg",
+      "checked_at": "2026-09-30T01:18:17.263756+00:00",
+      "http_status": 200,
+      "final_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1600,
+        1200
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/experimental_ambient-full",
+      "byte_count": 1148036,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full"
+    },
+    {
+      "id": "experimental_ambient",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg/960px-Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg",
+      "checked_at": "2026-09-30T01:18:17.263756+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg/960px-Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        720
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/experimental_ambient-thumbnail",
+      "byte_count": 167292,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full"
+    },
+    {
+      "id": "future_ambient",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/J.viewzlive.jpg/1280px-J.viewzlive.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/J.viewzlive.jpg/1280px-J.viewzlive.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1280,
+        851
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/future_ambient-full",
+      "byte_count": 152986,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "future_ambient",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/J.viewzlive.jpg/960px-J.viewzlive.jpg",
+      "checked_at": "2026-09-30T01:18:17.263756+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/J.viewzlive.jpg/960px-J.viewzlive.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        638
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/future_ambient-thumbnail",
+      "byte_count": 96929,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "indian_ambient",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Prem_Joshua.jpg/1280px-Prem_Joshua.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Prem_Joshua.jpg/1280px-Prem_Joshua.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1280,
+        853
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/indian_ambient-full",
+      "byte_count": 130041,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "indian_ambient",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Prem_Joshua.jpg/330px-Prem_Joshua.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Prem_Joshua.jpg/330px-Prem_Joshua.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        330,
+        220
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/indian_ambient-thumbnail",
+      "byte_count": 24378,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "j_ambient",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Eiko_Ishibashi_2022_1.jpg/1280px-Eiko_Ishibashi_2022_1.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Eiko_Ishibashi_2022_1.jpg/1280px-Eiko_Ishibashi_2022_1.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1280,
+        960
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/j_ambient-full",
+      "byte_count": 218425,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "j_ambient",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Eiko_Ishibashi_2022_1.jpg/960px-Eiko_Ishibashi_2022_1.jpg",
+      "checked_at": "2026-09-30T01:18:17.263756+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Eiko_Ishibashi_2022_1.jpg/960px-Eiko_Ishibashi_2022_1.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        720
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/j_ambient-thumbnail",
+      "byte_count": 128104,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "nordic_ambient",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Geir_Jenssen_at_Sajeta_2011.jpg/1280px-Geir_Jenssen_at_Sajeta_2011.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Geir_Jenssen_at_Sajeta_2011.jpg/1280px-Geir_Jenssen_at_Sajeta_2011.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1280,
+        850
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/nordic_ambient-full",
+      "byte_count": 214291,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "nordic_ambient",
+      "role": "thumbnail",
+      "requested_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Geir_Jenssen_at_Sajeta_2011.jpg/960px-Geir_Jenssen_at_Sajeta_2011.jpg",
+      "checked_at": "2026-09-30T01:18:17.263756+00:00",
+      "http_status": 200,
+      "final_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Geir_Jenssen_at_Sajeta_2011.jpg/960px-Geir_Jenssen_at_Sajeta_2011.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        638
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/nordic_ambient-thumbnail",
+      "byte_count": 113168,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "organic_ambient",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Steve_Roach%2C_Tucson.jpg/1280px-Steve_Roach%2C_Tucson.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Steve_Roach%2C_Tucson.jpg/1280px-Steve_Roach%2C_Tucson.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1280,
+        960
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/organic_ambient-full",
+      "byte_count": 257426,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "organic_ambient",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Steve_Roach%2C_Tucson.jpg/960px-Steve_Roach%2C_Tucson.jpg",
+      "checked_at": "2026-09-30T01:18:17.263756+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Steve_Roach%2C_Tucson.jpg/960px-Steve_Roach%2C_Tucson.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        720
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/organic_ambient-thumbnail",
+      "byte_count": 156081,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "polish_ambient",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/1920px-Micha%C5%82_Jacaszek.JPG",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/1920px-Micha%C5%82_Jacaszek.JPG",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1920,
+        2567
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/polish_ambient-full",
+      "byte_count": 886707,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "polish_ambient",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/330px-Micha%C5%82_Jacaszek.JPG",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/330px-Micha%C5%82_Jacaszek.JPG",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        330,
+        441
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/polish_ambient-thumbnail",
+      "byte_count": 46679,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "pop_ambient",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/1280px-Wolfgang_Voigt_2012.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/1280px-Wolfgang_Voigt_2012.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1280,
+        853
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/pop_ambient-full",
+      "byte_count": 220594,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "pop_ambient",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/330px-Wolfgang_Voigt_2012.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/330px-Wolfgang_Voigt_2012.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        330,
+        220
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/pop_ambient-thumbnail",
+      "byte_count": 25778,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "ritual_ambient",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/960px-Lustmord.jpg",
+      "checked_at": "2026-09-30T01:16:16.603830+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/960px-Lustmord.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        640
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/ritual_ambient-thumbnail",
+      "byte_count": 139911,
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately.",
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail"
+    },
+    {
+      "id": "ritual_ambient",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/330px-Lustmord.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/330px-Lustmord.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        330,
+        220
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/ritual_ambient-thumbnail",
+      "byte_count": 16063,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "warm_drone",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/1280px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/1280px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        1280,
+        960
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/warm_drone-full",
+      "byte_count": 172217,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "warm_drone",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/330px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/330px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        330,
+        247
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/warm_drone-thumbnail",
+      "byte_count": 19997,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "world_meditation",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/500px-Nawang_Khechog.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/500px-Nawang_Khechog.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        500,
+        332
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/world_meditation-full",
+      "byte_count": 51785,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "world_meditation",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/330px-Nawang_Khechog.jpg",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/330px-Nawang_Khechog.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        330,
+        219
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/world_meditation-thumbnail",
+      "byte_count": 26405,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "afro_house_angolano",
+      "checked_at": "2026-09-30T01:27:12.500340+00:00",
+      "status": "no_manifest_candidate"
+    },
+    {
+      "id": "australian_house",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Dom_Dolla_-_%40shevindphoto.jpg/960px-Dom_Dolla_-_%40shevindphoto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Dom_Dolla_-_%40shevindphoto.jpg/960px-Dom_Dolla_-_%40shevindphoto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        640
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/australian_house-thumbnail",
+      "byte_count": 96232,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "australian_house",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Dom_Dolla_-_%40shevindphoto.jpg/960px-Dom_Dolla_-_%40shevindphoto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "checked_at": "2026-09-30T01:25:52.591107+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Dom_Dolla_-_%40shevindphoto.jpg/960px-Dom_Dolla_-_%40shevindphoto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        640
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/australian_house-thumbnail",
+      "byte_count": 96232,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "thumbnail",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "beach_house",
+      "checked_at": "2026-09-30T01:27:12.500340+00:00",
+      "status": "no_manifest_candidate"
+    },
+    {
+      "id": "brazilian_house",
+      "role": "full",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Gui-boratto%40ten-days-off-2008.jpg/960px-Gui-boratto%40ten-days-off-2008.jpg",
+      "checked_at": "2026-09-30T01:27:12.500340+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Gui-boratto%40ten-days-off-2008.jpg/960px-Gui-boratto%40ten-days-off-2008.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        960,
+        1439
+      ],
+      "visual_inspected": true,
+      "status": "bytes_and_visual_verified",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/brazilian_house-full",
+      "byte_count": 138506,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "brazilian_house",
+      "role": "thumbnail",
+      "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Gui-boratto%40ten-days-off-2008.jpg/330px-Gui-boratto%40ten-days-off-2008.jpg",
+      "checked_at": "2026-09-30T01:27:12.500340+00:00",
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Gui-boratto%40ten-days-off-2008.jpg/330px-Gui-boratto%40ten-days-off-2008.jpg",
+      "mime_type": "image/jpeg",
+      "decoded_dimensions": [
+        330,
+        495
+      ],
+      "visual_inspected": false,
+      "status": "bytes_verified_corresponding_photograph_reviewed",
+      "decoded_format": "JPEG",
+      "local_path": "/tmp/codex-everynoise-001-photo-checks/brazilian_house-thumbnail",
+      "byte_count": 33123,
+      "corresponding_photograph_visually_reviewed": true,
+      "reviewed_delivery_role": "full",
+      "visual_review": "Actual downloaded photograph reviewed in indicated delivery role; counterpart URL bytes and decoded dimensions verified separately."
+    },
+    {
+      "id": "brazilian_tech_house",
+      "checked_at": "2026-09-30T01:27:12.500340+00:00",
+      "status": "no_manifest_candidate"
+    }
+  ],
+  "photo_candidates_with_both_deliveries_verified": 21,
+  "photo_candidates_visually_reviewed": 21,
+  "missing_photo_ids": [
+    "ambient_lo_fi",
+    "afro_house_angolano",
+    "beach_house",
+    "brazilian_tech_house"
+  ]
+}

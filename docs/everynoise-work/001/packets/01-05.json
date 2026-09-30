@@ -1,0 +1,1423 @@
+{
+  "schema_version": 1,
+  "group_id": "001",
+  "allocation_ordinals": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "prepared_at": "2026-09-30T01:14:04.281Z",
+  "status": "research_packet_incomplete_for_publication",
+  "authored_model_policy": "All exact recording chain, tuning, pins and axes are authored recipes; source claims are separately enumerated. Photo page metadata does not stand in for fetching/decoding images.",
+  "baseline_catalog_count": 2638,
+  "prerequisites": [],
+  "entries": [
+    {
+      "source_label": "ambient lo-fi",
+      "source_url": "https://everynoise.com/engenremap-ambientlofi.html",
+      "suggested_id": "ambient_lo_fi",
+      "allocation_ordinal": 1,
+      "outcome": "candidate_addition",
+      "integration_status": "blocked_exact_source_scope_and_photo",
+      "tradition": {
+        "room": "untreated_bedroom",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_mastering_clean_digital",
+        "chain_medium": "medium_cassette_4track_bedroom",
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "id": "ambient_lo_fi",
+        "name": "Ambient lo-fi",
+        "family": "electronic",
+        "lineage": "Ambient with deliberately exposed recording grain and small repeated textures. A documented branch is Earthen Sea’s Tidal Range: environmental recordings are transformed into a quiet electronic space, with the release explicitly filed under both ambient and lo-fi. The chosen tape-coloured sampler and slow synthesizer bed model that branch; this does not establish all artists on a changing platform playlist as one historical movement.",
+        "instruments": [
+          "analog_synth",
+          "sampler_classic"
+        ],
+        "production_aesthetic": "lofi_deliberate",
+        "chain_fx": [
+          "tape_echo",
+          "hall_reverb"
+        ],
+        "parts": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "no_mod",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_post"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": -2,
+          "meter": -1,
+          "density": -2,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": -2,
+          "voice": -2,
+          "timbre": -1,
+          "percussion": -1,
+          "cyclicity": 1
+        },
+        "description": "Low-fidelity ambience gives quiet environmental or sampled material and softly sustained harmony priority over a foreground beat. Earthen Sea’s Tidal Range provides a concrete ambient/lo-fi intersection rather than a claimed birthplace. Tape grain, muffled timbre and restrained repetition are the authored defaults. It differs from the existing lo-fi umbrella and lo-fi hip hop defaults by omitting a bass-and-drum groove ensemble; it differs from clean space ambient by allowing recording texture and short imperfect loops to remain audible.",
+        "exemplars": [
+          "Earthen Sea — Tidal Range"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "experimentalElec.lofi",
+          "experimentalElec.musiqueConcrete"
+        ]
+      },
+      "geo": [
+        40.6782,
+        -73.9442,
+        "Brooklyn",
+        "North America"
+      ],
+      "geo_rationale": "Outlaw Ocean identifies Earthen Sea in Brooklyn; this locates the selected documented practitioner, not an origin for all ambient lo-fi.",
+      "equivalence": {
+        "equivalent_id": null,
+        "decision": "No exact equivalent established; proposal retained for integration review.",
+        "review_notes": "Compared existing lo_fi, lofi_hiphop, ambient and ambient_dub_techno. Texture-first ambient/lo-fi intersection is narrower than lo_fi; exact EN membership and modern playlist scope require review."
+      },
+      "model_policy": "Roster is a reduced representative arrangement, not a complete album credit list. Every numeric axis, precise material, variant, mic, preamp, room, EQ, medium and FX setting is authored unless separately stated in the evidence. No historic studio equipment claim is inferred from the label.",
+      "local_reference_review": {
+        "checked_date": "2026-09-30",
+        "instrument_parts_loaded": true,
+        "applicable_pins": {
+          "analog_synth": {
+            "electronic_technique": "electronic_pad_drone",
+            "oscillator": "triangle_osc",
+            "filter_topology": "svf",
+            "envelope": "pad_env",
+            "modulation": "no_mod"
+          },
+          "sampler_classic": {
+            "sampler_archetypes": "akai_s1000",
+            "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+            "sampler_workflow": "sampler_field_recordings",
+            "sampler_classic_context": "sampler_classic_post"
+          }
+        }
+      },
+      "instrument_photo_coverage": [
+        {
+          "id": "analog_synth",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        },
+        {
+          "id": "sampler_classic",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        }
+      ],
+      "every_noise_receipt": {
+        "checked_date": "2026-09-30",
+        "url": "https://everynoise.com/engenremap-ambientlofi.html",
+        "opened": false,
+        "error": "Exact allocated Every Noise URL returned HTTP 403 Forbidden on 2026-09-30; artist-map contents not inspected at that URL.",
+        "http_status": 403,
+        "method": "Actual escalated urllib request to the exact allocated URL",
+        "mirror_attempt": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-ambientlofi.html",
+          "http_status": 502,
+          "method": "Escalated urllib Mozilla/5.0",
+          "checked_date": "2026-09-30"
+        }
+      },
+      "id": "ambient_lo_fi",
+      "signature_tokens": [
+        "ambient",
+        "sparse",
+        "minimal",
+        "quiet",
+        "soft",
+        "soft-onset",
+        "smoothed",
+        "mellow",
+        "intimate",
+        "warmed",
+        "surface-noise-bedded",
+        "sample-foundational",
+        "layered-ambient",
+        "sustained-tone"
+      ],
+      "sources": [
+        {
+          "url": "https://www.theoutlawoceanmusic.com/artists/earthen-sea/",
+          "title": "Earthen Sea | The Outlaw Ocean Music Project",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn112view1",
+          "supported_claims": [
+            "Tidal Range is filed under Ambient and Lo-fi.",
+            "Artist describes transforming recorded environments and using his own field recordings.",
+            "Project location is Brooklyn.",
+            "Biography documents earlier tape decks and keyboards."
+          ]
+        }
+      ],
+      "neighbor_distinction": "Compared existing lo_fi, lofi_hiphop, ambient and ambient_dub_techno. Texture-first ambient/lo-fi intersection is narrower than lo_fi; exact EN membership and modern playlist scope require review.",
+      "photo": null,
+      "blockers": [
+        "Exact allocated Every Noise URL returned HTTP 403 Forbidden on 2026-09-30; artist-map contents not inspected at that URL.",
+        "No inspected eligible photograph of this evidenced exemplar or the exact allocated practice was located. Unrelated ambient musicians are not substituted.",
+        "Source membership/model scope unresolved: modern source playlist emphasizes XRIAN/ghxsted.; Earthen Sea is an independently documented ambient+lofi exemplar but not verified in the allocated source cluster. Do not integrate until root resolves scope."
+      ],
+      "photo_search_notes": {
+        "status": "unresolved",
+        "manifest_record": null,
+        "searches": [
+          "site:commons.wikimedia.org \"Earthen Sea\"",
+          "site:commons.wikimedia.org \"Huerco\""
+        ],
+        "reason": "No inspected eligible photograph of this evidenced exemplar or the exact allocated practice was located. Unrelated ambient musicians are not substituted.",
+        "additional_inspected_candidate": {
+          "url": "https://www.flickr.com/photos/peterhutchins/52808986333/",
+          "title": "Black Eyes — Dan Caldas, Jacob Long, Mike Kanin, Daniel Martin-McCormick & Hugh McElroy",
+          "checked_date": "2026-09-30",
+          "inspection": "actual_http_200_page",
+          "result": "Relevant named identity but page license0/allrightsreserved; no compatible license. Not used."
+        }
+      },
+      "signature_revision_review": {
+        "checked_at": "2026-09-30T01:16:32.692Z",
+        "private_overlay": "/tmp/codex-001-review-01-05",
+        "prefaces": [
+          [
+            "analog_synth",
+            "restrained"
+          ],
+          [
+            "sampler_classic",
+            "autumnal"
+          ]
+        ],
+        "formats": {
+          "rich": "Ambient lo-fi, restrained analog-synth: low-resonance-default odd-harmonic-rolloff pad-like flutey static ambient, autumnal sampler: twenty-first-century field mid-rolled-off sampled sound-design chopped, twelve-tone-equal-temperament: Western, untreated-bedroom-studio: midrange-piled modey boxy, tape-echo-delay: tape-wow-flutter echo head-feedback-darken-each-pass, hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse reverb orchestral, large-diaphragm-condenser: proximity-bass-buildup hyped-top large-diaphragm condenser, solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean full-range-flat, none-minimal: unprocessed untouched dynamic, clean-digital-mastering-eq: surgical modern-mastering parametric transparent digital, tascam-portastudio-4-track-cassette-bedroom: portastudio tascam 4-track-bounce wow-and-flutter-noticeable cassette analog, in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent digital console.",
+          "prose": "Ambient lo-fi, restrained analog-synth, autumnal sampler, twelve-tone-equal-temperament, untreated-bedroom-studio, tape-echo-delay, hall-reverb, large-diaphragm-condenser, solid-state-ultra-clean, none-minimal, clean-digital-mastering-eq, tascam-portastudio-4-track-cassette-bedroom, in-the-box-daw-summing.",
+          "tags": "Ambient lo-fi, restrained analog-synth: low-resonance-default odd-harmonic-rolloff pad-like flutey, autumnal sampler: twenty-first-century field mid-rolled-off sampled, twelve-tone-equal-temperament: Western, untreated-bedroom-studio: midrange-piled modey boxy, effects-tape-echo-delay: tape-wow-flutter echo head-feedback-darken-each-pass, effects-hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse reverb, microphone-large-diaphragm-condenser: proximity-bass-buildup hyped-top large-diaphragm condenser, preamplifier-solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean full-range-flat, compression-none-minimal: unprocessed untouched dynamic, equalizer-clean-digital-mastering-eq: surgical modern-mastering parametric transparent, medium-tascam-portastudio-4-track-cassette-bedroom: portastudio tascam 4-track-bounce wow-and-flutter-noticeable, console-color-in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent digital.",
+          "compact": "Ambient lo-fi, restrained analog synth · Twelve-tone equal temperament · Untreated bedroom studio · effects: Tape echo / delay · effects: Hall reverb · microphone: Large-diaphragm condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: Clean digital mastering EQ · medium: Tascam Portastudio 4-track cassette (bedroom) · console color: In-the-box / DAW summing,\nautumnal sampler · Twelve-tone equal temperament · Untreated bedroom studio · effects: Tape echo / delay · effects: Hall reverb · microphone: Large-diaphragm condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: Clean digital mastering EQ · medium: Tascam Portastudio 4-track cassette (bedroom) · console color: In-the-box / DAW summing,"
+        }
+      }
+    },
+    {
+      "source_label": "ambient trance",
+      "source_url": "https://everynoise.com/engenremap-ambienttrance.html",
+      "suggested_id": "ambient_trance",
+      "allocation_ordinal": 2,
+      "outcome": "candidate_addition",
+      "integration_status": "blocked_pending_complete_photograph_and_membership_receipts",
+      "tradition": {
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_mastering_clean_digital",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "id": "ambient_trance",
+        "name": "Ambient trance",
+        "family": "electronic",
+        "lineage": "The atmospheric listening side of trance and related electronic music, represented by Carbon Based Lifeforms, Solar Fields and the Ultimae orbit. Long melodic layers and repeated sequencer/bass figures may carry soft beats or become beatless. The selected model retains a measured machine pulse rather than prescribing a peak-time trance build.",
+        "instruments": [
+          "analog_synth",
+          "monosynth_acid_bass",
+          "sampler_drum_machine"
+        ],
+        "chain_fx": [
+          "digital_delay",
+          "hall_reverb"
+        ],
+        "parts": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "saw_super",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter",
+          "wave_acid": "square_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance.trance",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": -1,
+          "meter": 1,
+          "density": -1,
+          "transmission": 0,
+          "improv": -1,
+          "soundTech": 2,
+          "intensity": -1,
+          "voice": -2,
+          "timbre": -1,
+          "percussion": 0,
+          "cyclicity": 2
+        },
+        "description": "Ambient trance is an atmospheric trance-adjacent listening category, spanning hypnotic electronic sequences, resonant bass and lingering melodic layers rather than only festival-speed four-on-the-floor anthems. The source-linked Sounds of Spotify list includes Carbon Based Lifeforms, Solar Fields, AES Dana and Union Jack. The default models a gently persistent synth/bass/drum pulse. Compared with classic or uplifting trance it recesses intensity and climactic song architecture; compared with beatless ambient it retains sequenced rhythmic recurrence. There is substantial overlap with existing ambient_psychill: this allocation is a broader discovery category, not an assertion of an unrelated lineage or a uniquely measured sonic boundary.",
+        "exemplars": [
+          "Carbon Based Lifeforms — Interloper",
+          "Solar Fields — Until We Meet the Sky",
+          "Union Jack — Water Drums"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "experimentalElec.ambient"
+        ]
+      },
+      "geo": [
+        57.7089,
+        11.9746,
+        "Gothenburg",
+        "Europe"
+      ],
+      "geo_rationale": "Carbon Based Lifeforms is a documented Gothenburg act; a selected practice anchor for an international category.",
+      "equivalence": {
+        "equivalent_id": null,
+        "decision": "No exact equivalent established; proposal retained for integration review.",
+        "review_notes": "ambient_psychill shares CBL and some methods. Do not manufacture an origin split. Review broader EN map repertoire when accessible; no equivalence is concluded from artist overlap alone."
+      },
+      "model_policy": "Roster is a reduced representative arrangement, not a complete album credit list. Every numeric axis, precise material, variant, mic, preamp, room, EQ, medium and FX setting is authored unless separately stated in the evidence. No historic studio equipment claim is inferred from the label.",
+      "local_reference_review": {
+        "checked_date": "2026-09-30",
+        "instrument_parts_loaded": true,
+        "applicable_pins": {
+          "analog_synth": {
+            "electronic_technique": "electronic_pad_drone",
+            "oscillator": "saw_super",
+            "filter_topology": "svf",
+            "envelope": "pad_env",
+            "modulation": "lfo_filter"
+          },
+          "monosynth_acid_bass": {
+            "wave_acid": "square_acid",
+            "filter_acid": "closed_acid",
+            "accent_acid": "no_accent_acid"
+          },
+          "sampler_drum_machine": {
+            "sample_bitdepth": "sixteen_bit",
+            "sample_swing": "tight_swing",
+            "sample_processing": "one_shots_layered"
+          }
+        }
+      },
+      "instrument_photo_coverage": [
+        {
+          "id": "analog_synth",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        },
+        {
+          "id": "monosynth_acid_bass",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        },
+        {
+          "id": "sampler_drum_machine",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        }
+      ],
+      "every_noise_receipt": {
+        "checked_date": "2026-09-30",
+        "url": "https://everynoise.com/engenremap-ambienttrance.html",
+        "opened": false,
+        "error": "Exact allocated Every Noise URL returned HTTP 403 Forbidden on 2026-09-30; artist-map contents not inspected at that URL.",
+        "http_status": 403,
+        "method": "Actual escalated urllib request to the exact allocated URL",
+        "mirror_attempt": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-ambienttrance.html",
+          "http_status": 502,
+          "method": "Escalated urllib Mozilla/5.0",
+          "checked_date": "2026-09-30"
+        }
+      },
+      "id": "ambient_trance",
+      "signature_tokens": [
+        "ambient",
+        "synthesized",
+        "layered",
+        "reverberant"
+      ],
+      "sources": [
+        {
+          "url": "https://open.spotify.com/playlist/4lFah00zj4wCnxf1rquFRA",
+          "title": "The Sound of Ambient Trance | The Sounds of Spotify",
+          "checked_date": "2026-09-30",
+          "inspection": "search_index_page_text; opening returned empty content",
+          "web_reference": "turn36search2",
+          "supported_claims": [
+            "Playlist links its context to Every Noise and includes named exemplars."
+          ]
+        },
+        {
+          "url": "https://www.psybient.org/love/interview-carbon-based-lifeforms/",
+          "title": "Interview with Carbon Based Lifeforms (CBL)",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn112view0",
+          "supported_claims": [
+            "Artists discuss drones, ambient, trance listeners, TB-303 timbre and sequencer, drums/percussion, and melodic/beatless branches."
+          ]
+        },
+        {
+          "url": "https://australianmusician.com.au/carbon-based-lifeforms-interview/",
+          "title": "Carbon Based Lifeforms Interview",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn139view1",
+          "supported_claims": [
+            "Group formed in Gothenburg in 1996; supports selected practice anchor.",
+            "Interloper was released in 2010.",
+            "Firsthand answers name synthesizers, sampler use in early hardware, beats/rhythm and DAW/live production."
+          ]
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Carbon-Based-Lifeforms-2021-09-25-0002.jpg",
+          "title": "Carbon-Based-Lifeforms-2021-09-25-0002.jpg",
+          "checked_date": "2026-09-30",
+          "inspection": "search_index_full_file_page_text; direct opening blocked",
+          "web_reference": "turn66search0",
+          "supported_claims": [
+            "Exact photographed exemplar, creator and compatible license version are listed on the file description.",
+            "Listed image MIME and dimensions are metadata; no HTTP/decoded-file claim."
+          ]
+        }
+      ],
+      "neighbor_distinction": "ambient_psychill shares CBL and some methods. Do not manufacture an origin split. Review broader EN map repertoire when accessible; no equivalence is concluded from artist overlap alone.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "ambient_trance",
+          "name": "Ambient trance",
+          "source": "commons_researched_exemplar",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Carbon-Based-Lifeforms-2021-09-25-0002.jpg",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Carbon-Based-Lifeforms-2021-09-25-0002.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Carbon-Based-Lifeforms-2021-09-25-0002.jpg/960px-Carbon-Based-Lifeforms-2021-09-25-0002.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "credit": "Itokyl (Paweł Brześciński)",
+          "match_confidence": "high",
+          "matched_label": "Carbon Based Lifeforms performing at Progresja, Warsaw, 25 September 2021"
+        },
+        "verification": {
+          "rights": {
+            "checked_date": "2026-09-30",
+            "web_reference": "turn66search0",
+            "page_inspected": false,
+            "metadata_retrieved": true,
+            "creator": "Itokyl (Paweł Brześciński)",
+            "license_raw": "CC BY-SA 4.0",
+            "file_page_dimensions": [
+              4742,
+              3163
+            ],
+            "file_page_mime": "image/jpeg",
+            "image_url_derivation": "Canonical Commons filename MD5 URL; requires live fetch before publication."
+          },
+          "fetch": {
+            "checked_date": "2026-09-30",
+            "status": "blocked",
+            "http_status": null,
+            "final_url": null,
+            "mime": null,
+            "decoded_dimensions": null,
+            "visual_inspected": false,
+            "reason": "Initial default-shell/web retrieval was blocked. Escalated network now works for some hosts; root owns actual photo fetch, decoded-size and visual receipts. These fields have not been verified by this packet author."
+          },
+          "checked": false
+        }
+      },
+      "blockers": [
+        "Exact allocated Every Noise URL returned HTTP 403 Forbidden on 2026-09-30; artist-map contents not inspected at that URL.",
+        "Photograph actual original/thumbnail fetch and decoded dimensions/visual inspection are unverified."
+      ],
+      "photo_search_notes": {
+        "reason": "Real file and thumbnail fetch/visual inspection pending."
+      },
+      "signature_revision_review": {
+        "checked_at": "2026-09-30T01:16:32.699Z",
+        "private_overlay": "/tmp/codex-001-review-01-05",
+        "prefaces": [
+          [
+            "analog_synth",
+            "futuristic"
+          ],
+          [
+            "monosynth_acid_bass",
+            "depaysement"
+          ],
+          [
+            "sampler_drum_machine",
+            "micro-stuttering"
+          ]
+        ],
+        "formats": {
+          "rich": "Ambient trance, futuristic analog depaysement mono-bass synth: low-resonance-default pad-like sub-driven subby, micro-stuttering sampler-drum-machine: engineered rigid low-distortion-low-coloration hybrid, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, digital-delay: digital-clean-pass no-loss-feedback delay, hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse reverb, large-diaphragm-condenser: proximity-bass-buildup hyped-top large-diaphragm condenser, solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean full-range-flat, none-minimal: unprocessed untouched dynamic, clean-digital-mastering-eq: surgical modern-mastering parametric transparent digital, digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat digital, in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent digital.",
+          "prose": "Ambient trance, futuristic analog depaysement mono-bass synth, micro-stuttering sampler-drum-machine, twelve-tone-equal-temperament, auteur-professional-grade-home-studio, digital-delay, hall-reverb, large-diaphragm-condenser, solid-state-ultra-clean, none-minimal, clean-digital-mastering-eq, digital-24-bit-96-khz+, in-the-box-daw-summing.",
+          "tags": "Ambient trance, futuristic analog-synth: low-resonance-default pad-like wobbly, depaysement mono-bass-synth: sub-driven subby flat, micro-stuttering sampler-drum-machine: engineered rigid low-distortion-low-coloration, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, effects-digital-delay: digital-clean-pass no-loss-feedback delay, effects-hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse, microphone-large-diaphragm-condenser: proximity-bass-buildup hyped-top large-diaphragm, preamplifier-solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean, compression-none-minimal: unprocessed untouched dynamic, equalizer-clean-digital-mastering-eq: surgical modern-mastering parametric, medium-digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean, console-color-in-the-box-daw-summing: in-the-box total-recall-clean clean-summing.",
+          "compact": "Ambient trance, futuristic analog synth,\ndepaysement mono bass synth,\nmicro-stuttering sampler drum machine,\nTwelve-tone equal temperament · Auteur professional-grade home studio · effects: Digital delay · effects: Hall reverb · microphone: Large-diaphragm condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: Clean digital mastering EQ · medium: Digital (24-bit / 96 kHz+) · console color: In-the-box / DAW summing,"
+        }
+      }
+    },
+    {
+      "source_label": "ambient worship",
+      "source_url": "https://everynoise.com/engenremap-ambientworship.html",
+      "suggested_id": "ambient_worship",
+      "allocation_ordinal": 3,
+      "outcome": "candidate_addition",
+      "integration_status": "blocked_pending_complete_photograph_and_membership_receipts",
+      "tradition": {
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_mastering_clean_digital",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "id": "ambient_worship",
+        "name": "Ambient worship",
+        "family": "electronic",
+        "lineage": "Contemporary Christian music for prayer and reflection that uses ambient soundscapes, intimate sung phrases and melodic acoustic or electronic layers. Salt of the Sound explicitly uses this name for a listening-oriented form alongside, rather than exclusively inside, congregational worship services.",
+        "instruments": [
+          "voice",
+          "grand_piano",
+          "analog_synth"
+        ],
+        "chain_fx": [
+          "digital_delay",
+          "hall_reverb"
+        ],
+        "parts": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter",
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "piano_hammer": "felt_piano_practice_hammer",
+          "piano_pitch_standard": "a_440_modern",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "breath_admixed_voice",
+          "voice_effort": "effort_minimal_undersung",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_hall_reverb_long",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ornament_system": "voice_ornament_none"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.christianGospel",
+        "axes": {
+          "harm": -1,
+          "pitch": 1,
+          "ornament": -1,
+          "meter": -1,
+          "density": -1,
+          "transmission": 1,
+          "improv": -1,
+          "soundTech": 2,
+          "intensity": -2,
+          "voice": 0,
+          "timbre": -1,
+          "percussion": -2,
+          "cyclicity": 1
+        },
+        "description": "Ambient worship places Christian prayer, hymns and reflective sung phrases within expansive soundscapes. Salt of the Sound’s firsthand definition includes both large textures and soft intimate songs, with vocals in varying amounts, and distinguishes the style from a typical Sunday congregational set. Their release notes document muted piano and ethereal phrases as well as instrumental meditations. The default is the quiet vocal/piano/pad branch, not a claim that all releases use this exact trio. Compared with contemporary_worship, drums, massed congregation and the auditorium crescendo cease to be default chairs; compared with secular ambient, the reflective Christian song function is explicit.",
+        "exemplars": [
+          "Salt of the Sound — Beyond Here",
+          "Salt of the Sound — Lent, Vol. 3",
+          "Salt of the Sound & Khamir Music — words unspoken",
+          "Dave Griffiths — Softenhush"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "experimentalElec.ambient"
+        ]
+      },
+      "geo": [
+        22.3193,
+        114.1694,
+        "Hong Kong",
+        "East Asia"
+      ],
+      "geo_rationale": "Salt of the Sound’s own current biography and release pages identify Hong Kong; a documented current practice anchor, not the genre’s exclusive birthplace.",
+      "equivalence": {
+        "equivalent_id": null,
+        "decision": "No exact equivalent established; proposal retained for integration review.",
+        "review_notes": "Not equivalent to contemporary_worship, world_worship or generic ambient: documented ambient listening function and smaller arrangement differ from congregational band model."
+      },
+      "model_policy": "Roster is a reduced representative arrangement, not a complete album credit list. Every numeric axis, precise material, variant, mic, preamp, room, EQ, medium and FX setting is authored unless separately stated in the evidence. No historic studio equipment claim is inferred from the label.",
+      "local_reference_review": {
+        "checked_date": "2026-09-30",
+        "instrument_parts_loaded": true,
+        "applicable_pins": {
+          "voice": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "breath_admixed_voice",
+            "voice_effort": "effort_minimal_undersung",
+            "voice_vibrato": "straight_tone",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "tempered_voice",
+            "voice_tradition": "modern_pop_vocal_training",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_processing_chain": "voice_processing_hall_reverb_long",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ornament_system": "voice_ornament_none"
+          },
+          "grand_piano": {
+            "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+            "piano_hammer": "felt_piano_practice_hammer",
+            "piano_pitch_standard": "a_440_modern"
+          },
+          "analog_synth": {
+            "electronic_technique": "electronic_pad_drone",
+            "oscillator": "triangle_osc",
+            "filter_topology": "svf",
+            "envelope": "pad_env",
+            "modulation": "lfo_filter"
+          }
+        }
+      },
+      "instrument_photo_coverage": [
+        {
+          "id": "voice",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        },
+        {
+          "id": "grand_piano",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        },
+        {
+          "id": "analog_synth",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        }
+      ],
+      "every_noise_receipt": {
+        "checked_date": "2026-09-30",
+        "url": "https://everynoise.com/engenremap-ambientworship.html",
+        "opened": false,
+        "error": "Exact allocated Every Noise URL returned HTTP 403 Forbidden on 2026-09-30; artist-map contents not inspected at that URL.",
+        "http_status": 403,
+        "method": "Actual escalated urllib request to the exact allocated URL",
+        "mirror_attempt": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-ambientworship.html",
+          "http_status": 502,
+          "method": "Escalated urllib Mozilla/5.0",
+          "checked_date": "2026-09-30",
+          "opened": true,
+          "inspection": "opened_web_search_result",
+          "web_reference": "turn155view0",
+          "artist_membership_verified": [
+            "Salt Of The Sound",
+            "Dave Griffiths"
+          ],
+          "note": "The exact Every Noise mirror page was inspected through returned search-result reference turn153search2; shell request still502."
+        }
+      },
+      "id": "ambient_worship",
+      "signature_tokens": [
+        "ambient",
+        "devotional",
+        "contemplative",
+        "quiet",
+        "soft",
+        "soft-onset",
+        "smoothed",
+        "intimate",
+        "mellow",
+        "melodic",
+        "sung",
+        "singing-sustain",
+        "sustained-tone",
+        "reverberant"
+      ],
+      "sources": [
+        {
+          "url": "https://saltofthesound.com/inspiration/ambient-worship/",
+          "title": "Ambient worship: a collection of peaceful Christian indie songs",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn123view3",
+          "supported_claims": [
+            "Ben Tatlow gives an explicit firsthand description of ambient worship and its use outside the standard Sunday-morning context."
+          ]
+        },
+        {
+          "url": "https://saltofthesound.com/listen/",
+          "title": "Our Music | Salt of the Sound",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn107view1",
+          "supported_claims": [
+            "words unspoken is described with muted piano and ethereal vocal phrases.",
+            "Artist catalog includes both vocal and instrumental prayer music."
+          ]
+        },
+        {
+          "url": "https://saltofthesound.com/about/",
+          "title": "About Salt of the Sound",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn107view0",
+          "supported_claims": [
+            "Duo Anita and Ben Tatlow creates reflection music and currently lives in Hong Kong."
+          ]
+        },
+        {
+          "url": "https://saltofthesound.bandcamp.com/album/lent-vol-3",
+          "title": "Lent, Vol. 3 | Salt of the Sound",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn123view4",
+          "supported_claims": [
+            "2024 release explicitly identifies its ambient worship style.",
+            "Credits include strings by Yoed Nir, so the reduced default is not its complete credit inventory."
+          ]
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-ambientworship.html",
+          "title": "Every Noise at Once — ambient worship (author mirror)",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn155view0",
+          "supported_claims": [
+            "Salt Of The Sound and Dave Griffiths are explicit artist members on the source genre map; genre map describes data through2023-11-19."
+          ]
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5W6bxdaey4mnoC1QVxg61t",
+          "title": "The Sound of Ambient Worship — The Sounds of Spotify",
+          "checked_date": "2026-09-30",
+          "inspection": "indexed_source_playlist",
+          "web_reference": "turn153search1",
+          "supported_claims": [
+            "Dave Griffiths — Softenhush is included in the source-linked genre playlist."
+          ]
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Held_by_Trees_live_at_Chelmsford_Social_Club,_Friday_18th_July_2025.-_54667994428_(cropped).jpg",
+          "title": "File:Held by Trees live at Chelmsford Social Club, Friday18thJuly2025.—54667994428(cropped).jpg",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_actual_http_file_page",
+          "supported_claims": [
+            "Steve Knight is photographer; the file-specific license isCC BY4.0. Existing Commons crop is877×1171 JPEG; described performance includes DavidJoseph on guitar."
+          ],
+          "local_page_receipt": "/tmp/01-05-dave-commons.html"
+        }
+      ],
+      "neighbor_distinction": "Not equivalent to contemporary_worship, world_worship or generic ambient: documented ambient listening function and smaller arrangement differ from congregational band model.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "ambient_worship",
+          "name": "Ambient worship",
+          "source": "commons_researched_exemplar",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Held_by_Trees_live_at_Chelmsford_Social_Club,_Friday_18th_July_2025.-_54667994428_(cropped).jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg/1280px-Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg/500px-Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg",
+          "license": "CC BY",
+          "license_raw": "CC BY 4.0",
+          "credit": "Steve Knight",
+          "match_confidence": "high",
+          "matched_label": "Dave Griffiths (David Joseph) performing with Held By Trees at Chelmsford Social Club, 18 July 2025; artist portrait, not a depicted ambient worship set"
+        },
+        "verification": {
+          "rights": {
+            "checked_date": "2026-09-30",
+            "page_inspected": true,
+            "method": "Escalated urllib actual Commons file-page HTTP200; parsed specific Summary and Licensing sections",
+            "creator": "Steve Knight",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0",
+            "file_page_dimensions": [
+              877,
+              1171
+            ],
+            "file_page_mime": "image/jpeg",
+            "image_url_derivation": "Exact fullImageLink URL on inspected file page; thumbnail is the page-listed500px size.",
+            "source_photo": "https://www.flickr.com/photos/kitmasterbloke/54667994428/",
+            "crop_note": "Commons existing crop; photographer remains Steve Knight",
+            "identity_evidence": "Wikipedia Dave Griffiths infobox uses this crop and captions Griffiths with Held By Trees in2025; Commons full description identifies David Joseph on guitar."
+          },
+          "fetch": {
+            "checked_date": "2026-09-30",
+            "status": "blocked",
+            "http_status": 429,
+            "mime": null,
+            "decoded_dimensions": null,
+            "visual_inspected": false,
+            "reason": "Original actual urllib request returned429 Too Many Requests; actual500px thumbnail independently fetched200 and visually inspected; original receipt remains incomplete."
+          },
+          "checked": false,
+          "thumbnail_fetch": {
+            "checked_date": "2026-09-30",
+            "http_status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg/500px-Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20250720225022",
+            "mime": "image/jpeg",
+            "bytes": 88878,
+            "decoded_dimensions": [
+              500,
+              668
+            ],
+            "local_path": "/tmp/01-05-dave-portrait-thumb.jpg",
+            "visual_inspected": true,
+            "visual_observation": "Portrait crop shows one guitarist; identity supported by Dave Griffiths Wikipedia linked named caption and Commons DavidJoseph description."
+          }
+        },
+        "delivery_selection": {
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg",
+          "delivery_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg/1280px-Held_by_Trees_live_at_Chelmsford_Social_Club%2C_Friday_18th_July_2025.-_54667994428_%28cropped%29.jpg",
+          "reason": "Original endpoint returned HTTP429 and explicitly requested less disruptive supported thumbnail deliveries. Full-subject resized photograph retained; final status must be independently fetched and visually verified."
+        }
+      },
+      "blockers": [
+        "Exact allocated Every Noise URL returned HTTP 403 Forbidden on 2026-09-30; artist-map contents not inspected at that URL.",
+        "Original photograph fetch returned429; actual500px thumbnail fetched200, JPEG dimensions500x668 verified and visually inspected. Root original-photo receipt pending."
+      ],
+      "photo_search_notes": {
+        "status": "unresolved",
+        "manifest_record": null,
+        "searches": [
+          "site:commons.wikimedia.org \"Salt of the Sound\"",
+          "site:commons.wikimedia.org \"Michael Gungor\"",
+          "site:commons.wikimedia.org \"ambient\" \"Worship\""
+        ],
+        "reason": "Artist portraits exist on official pages, but no compatible image license was established. All-rights-reserved Bandcamp releases are not photo-rights evidence."
+      },
+      "signature_revision_review": {
+        "checked_at": "2026-09-30T01:16:32.708Z",
+        "private_overlay": "/tmp/codex-001-review-01-05",
+        "prefaces": [
+          [
+            "voice",
+            "calm"
+          ],
+          [
+            "grand_piano",
+            "content"
+          ],
+          [
+            "analog_synth",
+            "humble"
+          ]
+        ],
+        "formats": {
+          "rich": "Ambient worship, calm voice: breath-admixed contemporary-commercial continuous-phonation, content grand-piano: gray-iron quartersawn-maple hard-rock-maple sitka-spruce, humble analog-synth: low-resonance-default odd-harmonic-rolloff pad-like, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, digital-delay: digital-clean-pass no-loss-feedback delay, hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse, large-diaphragm-condenser: proximity-bass-buildup hyped-top large-diaphragm, solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean full-range-flat, none-minimal: unprocessed untouched dynamic, clean-digital-mastering-eq: surgical modern-mastering parametric transparent, digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat, in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent.",
+          "prose": "Ambient worship, calm voice, content grand-piano, humble analog-synth, twelve-tone-equal-temperament, auteur-professional-grade-home-studio, digital-delay, hall-reverb, large-diaphragm-condenser, solid-state-ultra-clean, none-minimal, clean-digital-mastering-eq, digital-24-bit-96-khz+, in-the-box-daw-summing.",
+          "tags": "Ambient worship, calm voice: breath-admixed contemporary-commercial, content grand-piano: gray-iron quartersawn-maple hard-rock-maple sitka-spruce, humble analog-synth: low-resonance-default odd-harmonic-rolloff pad-like, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, effects-digital-delay: digital-clean-pass no-loss-feedback delay, effects-hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse, microphone-large-diaphragm-condenser: proximity-bass-buildup hyped-top large-diaphragm, preamplifier-solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean, compression-none-minimal: unprocessed untouched dynamic, equalizer-clean-digital-mastering-eq: surgical modern-mastering parametric, medium-digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean, console-color-in-the-box-daw-summing: in-the-box total-recall-clean clean-summing.",
+          "compact": "Ambient worship, calm voice,\ncontent grand piano,\nhumble analog synth,\nTwelve-tone equal temperament · Auteur professional-grade home studio · effects: Digital delay · effects: Hall reverb · microphone: Large-diaphragm condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: Clean digital mastering EQ · medium: Digital (24-bit / 96 kHz+) · console color: In-the-box / DAW summing,"
+        }
+      }
+    },
+    {
+      "source_label": "argentine ambient",
+      "source_url": "https://everynoise.com/engenremap-argentineambient.html",
+      "suggested_id": "argentine_ambient",
+      "allocation_ordinal": 4,
+      "outcome": "candidate_addition",
+      "integration_status": "blocked_pending_complete_photograph_and_membership_receipts",
+      "tradition": {
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_mastering_clean_digital",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "id": "argentine_ambient",
+        "name": "Argentine ambient",
+        "family": "electronic",
+        "lineage": "A geographically grouped ambient scene with multiple practices, including Leandro Fresco’s layered synthesizer compositions and Federico Durand’s intimate recorded loops and small sounds. This representative model combines quiet synth colour, a clean guitar fragment and looping recorded material; it does not assert a national timbre or compulsory tango instrumentation.",
+        "instruments": [
+          "analog_synth",
+          "electric_guitar_single_coil",
+          "sampler_classic"
+        ],
+        "chain_fx": [
+          "tape_echo",
+          "hall_reverb"
+        ],
+        "parts": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post",
+          "electric_technique": "electric_arpeggiated_clean",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "string_tuning": "standard_tuning",
+          "bridge": "hardtail",
+          "pickup_magnet": "alnico_2",
+          "scale_length": "scale_fender",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "finish": "poly",
+          "amp_make": "amp_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": -1,
+          "meter": -1,
+          "density": -1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 2,
+          "intensity": -2,
+          "voice": -2,
+          "timbre": -1,
+          "percussion": -2,
+          "cyclicity": 1
+        },
+        "description": "Argentine ambient is a regional discovery category, not one inherited rhythmic form. Leandro Fresco’s El Reino Invisible documents slow synth textures and guitar details recorded between Buenos Aires and San Martín de los Andes; Federico Durand describes cassette collage, asymmetrical repetition, field recordings and modest sonic materials. The reduced default selects the synth/guitar/loop intersection while leaving their other methods editable. Unlike ambient_synth’s foregrounded arpeggio model, this branch gives diffuse melody and recorded fragments more space. Geography supports the catalogue grouping; it does not warrant adding folklore instruments, an Indigenous lineage or tango rhythm without entry-specific evidence.",
+        "exemplars": [
+          "Leandro Fresco — El Reino Invisible (2015)",
+          "Federico Durand — Herbario (2021)"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "experimentalElec.musiqueConcrete"
+        ]
+      },
+      "geo": [
+        -34.6037,
+        -58.3816,
+        "Buenos Aires",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Kompakt documents Fresco’s Buenos Aires formation and recording there; Durand’s own interview also discusses the metropolitan scene. The pin is one practice anchor, not an exclusive origin.",
+      "equivalence": {
+        "equivalent_id": null,
+        "decision": "No exact equivalent established; proposal retained for integration review.",
+        "review_notes": "Distinct regional discovery category with concrete sources; not identical to ambient, ambient_synth or the Kompakt pop-ambient label, which are broader sonic or label groupings. Photograph shows an evidenced exemplar; do not claim the photographed Cerati tribute is an ambient set."
+      },
+      "model_policy": "Roster is a reduced representative arrangement, not a complete album credit list. Every numeric axis, precise material, variant, mic, preamp, room, EQ, medium and FX setting is authored unless separately stated in the evidence. No historic studio equipment claim is inferred from the label.",
+      "local_reference_review": {
+        "checked_date": "2026-09-30",
+        "instrument_parts_loaded": true,
+        "applicable_pins": {
+          "analog_synth": {
+            "electronic_technique": "electronic_pad_drone",
+            "oscillator": "triangle_osc",
+            "filter_topology": "svf",
+            "envelope": "pad_env",
+            "modulation": "lfo_filter"
+          },
+          "electric_guitar_single_coil": {
+            "electric_technique": "electric_arpeggiated_clean",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "string_tuning": "standard_tuning",
+            "bridge": "hardtail",
+            "pickup_magnet": "alnico_2",
+            "scale_length": "scale_fender",
+            "body_wood": "alder",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "finish": "poly",
+            "amp_make": "amp_unspecified"
+          },
+          "sampler_classic": {
+            "sampler_archetypes": "akai_s1000",
+            "sampler_bit_depth": "sampler_sixteen_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_post"
+          }
+        }
+      },
+      "instrument_photo_coverage": [
+        {
+          "id": "analog_synth",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        },
+        {
+          "id": "electric_guitar_single_coil",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        },
+        {
+          "id": "sampler_classic",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        }
+      ],
+      "every_noise_receipt": {
+        "checked_date": "2026-09-30",
+        "url": "https://everynoise.com/engenremap-argentineambient.html",
+        "opened": false,
+        "error": "Exact allocated Every Noise URL returned HTTP 403 Forbidden on 2026-09-30; artist-map contents not inspected at that URL.",
+        "http_status": 403,
+        "method": "Actual escalated urllib request to the exact allocated URL",
+        "mirror_attempt": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-argentineambient.html",
+          "http_status": 502,
+          "method": "Escalated urllib Mozilla/5.0",
+          "checked_date": "2026-09-30"
+        }
+      },
+      "id": "argentine_ambient",
+      "signature_tokens": [
+        "ambient",
+        "sparse",
+        "minimal",
+        "quiet",
+        "soft",
+        "soft-onset",
+        "smoothed",
+        "mellow",
+        "melodic",
+        "warm-glowing",
+        "sustained-tone",
+        "layered-ambient",
+        "sample-foundational"
+      ],
+      "sources": [
+        {
+          "url": "https://kompakt.fm/releases/el_reino_invisible",
+          "title": "El Reino Invisible | Leandro Fresco | Kompakt",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn112view2",
+          "supported_claims": [
+            "2015 release; slowly evolving synth textures and guitar plucking.",
+            "Recorded partly in Buenos Aires and partly San Martín de los Andes."
+          ]
+        },
+        {
+          "url": "https://www.12k.com/news/federico-durand/",
+          "title": "Federico Durand — IndieHoy (2022) | 12k",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn112view3",
+          "supported_claims": [
+            "Firsthand cassette collage, loops, field recordings, synths, small instruments and exposed recording imperfections.",
+            "Identifies artist as part of the Argentine ambient scene."
+          ]
+        },
+        {
+          "url": "https://www.earwander.com/g/argentineambient",
+          "title": "Argentine ambient | earwander",
+          "checked_date": "2026-09-30",
+          "inspection": "search_index_page_text; open failed",
+          "web_reference": "turn15search5",
+          "supported_claims": [
+            "Mirror list includes Leandro Fresco and Federico Durand, among other varied practitioners."
+          ]
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Homenaje_Gustavo_Cerati_(15094206984).jpg",
+          "title": "Homenaje_Gustavo_Cerati_(15094206984).jpg",
+          "checked_date": "2026-09-30",
+          "inspection": "search_index_full_file_page_text; direct opening blocked",
+          "web_reference": "turn50search2",
+          "supported_claims": [
+            "Exact photographed exemplar, creator and compatible license version are listed on the file description.",
+            "Listed image MIME and dimensions are metadata; no HTTP/decoded-file claim."
+          ]
+        }
+      ],
+      "neighbor_distinction": "Distinct regional discovery category with concrete sources; not identical to ambient, ambient_synth or the Kompakt pop-ambient label, which are broader sonic or label groupings. Photograph shows an evidenced exemplar; do not claim the photographed Cerati tribute is an ambient set.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "argentine_ambient",
+          "name": "Argentine ambient",
+          "source": "commons_researched_exemplar",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Homenaje_Gustavo_Cerati_(15094206984).jpg",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Homenaje_Gustavo_Cerati_(15094206984).jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Homenaje_Gustavo_Cerati_(15094206984).jpg/960px-Homenaje_Gustavo_Cerati_(15094206984).jpg",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.0",
+          "credit": "Prensa TV Pública",
+          "match_confidence": "high",
+          "matched_label": "Leandro Fresco at Homenaje Gustavo Cerati, 4 November 2014"
+        },
+        "verification": {
+          "rights": {
+            "checked_date": "2026-09-30",
+            "web_reference": "turn50search2",
+            "page_inspected": false,
+            "metadata_retrieved": true,
+            "creator": "Prensa TV Pública",
+            "license_raw": "CC BY 2.0",
+            "file_page_dimensions": [
+              4928,
+              3280
+            ],
+            "file_page_mime": "image/jpeg",
+            "image_url_derivation": "Canonical Commons filename MD5 URL; requires live fetch before publication."
+          },
+          "fetch": {
+            "checked_date": "2026-09-30",
+            "status": "blocked",
+            "http_status": null,
+            "final_url": null,
+            "mime": null,
+            "decoded_dimensions": null,
+            "visual_inspected": false,
+            "reason": "Initial default-shell/web retrieval was blocked. Escalated network now works for some hosts; root owns actual photo fetch, decoded-size and visual receipts. These fields have not been verified by this packet author."
+          },
+          "checked": false
+        }
+      },
+      "blockers": [
+        "Exact allocated Every Noise URL returned HTTP 403 Forbidden on 2026-09-30; artist-map contents not inspected at that URL.",
+        "Photograph actual original/thumbnail fetch and decoded dimensions/visual inspection are unverified."
+      ],
+      "photo_search_notes": {
+        "reason": "Real file and thumbnail fetch/visual inspection pending."
+      },
+      "signature_revision_review": {
+        "checked_at": "2026-09-30T01:16:32.715Z",
+        "private_overlay": "/tmp/codex-001-review-01-05",
+        "prefaces": [
+          [
+            "analog_synth",
+            "wistful"
+          ],
+          [
+            "electric_guitar_single_coil",
+            "autumnal"
+          ],
+          [
+            "sampler_classic",
+            "micro-stuttering"
+          ]
+        ],
+        "formats": {
+          "rich": "Argentine ambient, wistful analog-synth: low-resonance-default odd-harmonic-rolloff pad-like, autumnal single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood, micro-stuttering sampler: twenty-first-century looped low-distortion-low-coloration, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, tape-echo-delay: tape-wow-flutter echo head-feedback-darken-each-pass, hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse, large-diaphragm-condenser: proximity-bass-buildup hyped-top large-diaphragm, solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean, none-minimal: unprocessed untouched dynamic, clean-digital-mastering-eq: surgical modern-mastering parametric, digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat, in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent.",
+          "prose": "Argentine ambient, wistful analog-synth, autumnal single-coil-solid-body-electric-guitar, micro-stuttering sampler, twelve-tone-equal-temperament, auteur-professional-grade-home-studio, tape-echo-delay, hall-reverb, large-diaphragm-condenser, solid-state-ultra-clean, none-minimal, clean-digital-mastering-eq, digital-24-bit-96-khz+, in-the-box-daw-summing.",
+          "tags": "Argentine ambient, wistful analog-synth: low-resonance-default odd-harmonic-rolloff, autumnal single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood, micro-stuttering sampler: twenty-first-century looped, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist, effects-tape-echo-delay: tape-wow-flutter echo head-feedback-darken-each-pass, effects-hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse, microphone-large-diaphragm-condenser: proximity-bass-buildup hyped-top large-diaphragm, preamplifier-solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean, compression-none-minimal: unprocessed untouched dynamic, equalizer-clean-digital-mastering-eq: surgical modern-mastering parametric, medium-digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean, console-color-in-the-box-daw-summing: in-the-box total-recall-clean clean-summing.",
+          "compact": "Argentine ambient, wistful analog synth,\nautumnal single-coil solid-body electric guitar,\nmicro-stuttering sampler,\nTwelve-tone equal temperament · Auteur professional-grade home studio · effects: Tape echo / delay · effects: Hall reverb · microphone: Large-diaphragm condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: Clean digital mastering EQ · medium: Digital (24-bit / 96 kHz+) · console color: In-the-box / DAW summing,"
+        }
+      }
+    },
+    {
+      "source_label": "australian ambient",
+      "source_url": "https://everynoise.com/engenremap-australianambient.html",
+      "suggested_id": "australian_ambient",
+      "allocation_ordinal": 5,
+      "outcome": "candidate_addition",
+      "integration_status": "blocked_pending_complete_photograph_and_membership_receipts",
+      "tradition": {
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_mastering_clean_digital",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "id": "australian_ambient",
+        "name": "Australian ambient",
+        "family": "electronic",
+        "lineage": "Australian atmospheric electronic and electroacoustic practices, represented here by Lawrence English and the Brisbane ROOM40 network: environmental listening, recorded sound and slowly transformed electronic material. A representative field-recording/synthesis arrangement is selected rather than a national instrument inventory.",
+        "instruments": [
+          "sampler_classic",
+          "analog_synth"
+        ],
+        "chain_fx": [
+          "pitch_shifter",
+          "hall_reverb"
+        ],
+        "parts": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "sine_osc",
+          "filter_topology": "svf",
+          "envelope": "sustain_env",
+          "modulation": "no_mod",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_post"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": -2,
+          "pitch": -2,
+          "ornament": -2,
+          "meter": -2,
+          "density": -1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 2,
+          "intensity": -2,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": -2,
+          "cyclicity": 0
+        },
+        "description": "Australian ambient groups a diverse scene by documented practice in Australia. The selected Lawrence English branch emphasizes field-recorded environments and their transformation: Ghost Towns is built largely from recorded sound treated with EQ and pitch shifting, and later collaborations credit electronics and environmental recordings. The sampler is a registered representation of recorded-material manipulation and the synth a quiet sustaining layer; neither is asserted as the hardware used on Ghost Towns. Compared with the melodic synth-and-guitar selection for Argentine ambient, this default gives listening texture and irregular environmental events greater weight. No pan-Australian timbre, automatic didgeridoo chair or Indigenous provenance is inferred.",
+        "exemplars": [
+          "Lawrence English — Ghost Towns (2003)",
+          "David Toop & Lawrence English — The Shell That Speaks the Sea (2023)"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "experimentalElec.musiqueConcrete"
+        ]
+      },
+      "geo": [
+        -27.4698,
+        153.0251,
+        "Brisbane",
+        "Oceania & Pacific"
+      ],
+      "geo_rationale": "ROOM40 and English document Brisbane performance/label activity; the Commons photograph also identifies Brisbane. This is one established practice node in a diverse national scene.",
+      "equivalence": {
+        "equivalent_id": null,
+        "decision": "No exact equivalent established; proposal retained for integration review.",
+        "review_notes": "Regional category with a field-recording-centered selected branch; not equivalent to generic ambient or australian_experimental. Neither all Australian artists nor all ROOM40 releases are ambient."
+      },
+      "model_policy": "Roster is a reduced representative arrangement, not a complete album credit list. Every numeric axis, precise material, variant, mic, preamp, room, EQ, medium and FX setting is authored unless separately stated in the evidence. No historic studio equipment claim is inferred from the label.",
+      "local_reference_review": {
+        "checked_date": "2026-09-30",
+        "instrument_parts_loaded": true,
+        "applicable_pins": {
+          "sampler_classic": {
+            "sampler_archetypes": "akai_s1000",
+            "sampler_bit_depth": "sampler_twentyfour_bit",
+            "sampler_workflow": "sampler_field_recordings",
+            "sampler_classic_context": "sampler_classic_post"
+          },
+          "analog_synth": {
+            "electronic_technique": "electronic_pad_drone",
+            "oscillator": "sine_osc",
+            "filter_topology": "svf",
+            "envelope": "sustain_env",
+            "modulation": "no_mod"
+          }
+        }
+      },
+      "instrument_photo_coverage": [
+        {
+          "id": "sampler_classic",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        },
+        {
+          "id": "analog_synth",
+          "manifest_record_present": true,
+          "live_photo_fetch_verified": false
+        }
+      ],
+      "every_noise_receipt": {
+        "checked_date": "2026-09-30",
+        "url": "https://everynoise.com/engenremap-australianambient.html",
+        "opened": false,
+        "error": "Exact allocated Every Noise URL returned HTTP 403 Forbidden on 2026-09-30; artist-map contents not inspected at that URL.",
+        "http_status": 403,
+        "method": "Actual escalated urllib request to the exact allocated URL",
+        "mirror_attempt": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-australianambient.html",
+          "http_status": 502,
+          "method": "Escalated urllib Mozilla/5.0",
+          "checked_date": "2026-09-30"
+        }
+      },
+      "id": "australian_ambient",
+      "signature_tokens": [
+        "ambient",
+        "sparse",
+        "drone-like",
+        "layered"
+      ],
+      "sources": [
+        {
+          "url": "https://room40.org/edition/ghost-towns/",
+          "title": "Ghost Towns | Lawrence English | ROOM40",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn107view3",
+          "supported_claims": [
+            "2003 composition is largely field recordings processed with EQ and pitch shifting."
+          ]
+        },
+        {
+          "url": "https://room40.org/edition/the-shell-that-speaks-the-sea/",
+          "title": "The Shell That Speaks the Sea | ROOM40",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn112view4",
+          "supported_claims": [
+            "English credits include electronics and field recordings; firsthand note identifies Brisbane Powerhouse."
+          ]
+        },
+        {
+          "url": "https://culturemachine.net/recordings/rhythms-and-refrains/",
+          "title": "Rhythms and Refrains: A Brief History of Australian Electronica",
+          "checked_date": "2026-09-30",
+          "inspection": "search_index_page_text",
+          "web_reference": "turn131search14",
+          "supported_claims": [
+            "Academic account locates English’s ROOM40 network in Brisbane and describes wider international reach."
+          ]
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Lawrence_English_2012.jpg",
+          "title": "Lawrence_English_2012.jpg",
+          "checked_date": "2026-09-30",
+          "inspection": "opened_page",
+          "web_reference": "turn107view6",
+          "supported_claims": [
+            "Exact photographed exemplar, creator and compatible license version are listed on the file description.",
+            "Listed image MIME and dimensions are metadata; no HTTP/decoded-file claim."
+          ]
+        }
+      ],
+      "neighbor_distinction": "Regional category with a field-recording-centered selected branch; not equivalent to generic ambient or australian_experimental. Neither all Australian artists nor all ROOM40 releases are ambient.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "australian_ambient",
+          "name": "Australian ambient",
+          "source": "commons_researched_exemplar",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Lawrence_English_2012.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Lawrence_English_2012.jpg/1280px-Lawrence_English_2012.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Lawrence_English_2012.jpg/960px-Lawrence_English_2012.jpg",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.0",
+          "credit": "Greg Neate",
+          "match_confidence": "high",
+          "matched_label": "Lawrence English, Brisbane, 16 January 2012"
+        },
+        "verification": {
+          "rights": {
+            "checked_date": "2026-09-30",
+            "web_reference": "turn107view6",
+            "page_inspected": true,
+            "metadata_retrieved": true,
+            "creator": "Greg Neate",
+            "license_raw": "CC BY 2.0",
+            "file_page_dimensions": [
+              1533,
+              1023
+            ],
+            "file_page_mime": "image/jpeg",
+            "image_url_derivation": "Canonical Commons filename MD5 URL; requires live fetch before publication."
+          },
+          "fetch": {
+            "checked_date": "2026-09-30",
+            "status": "blocked",
+            "http_status": null,
+            "final_url": null,
+            "mime": null,
+            "decoded_dimensions": null,
+            "visual_inspected": false,
+            "reason": "Initial default-shell/web retrieval was blocked. Escalated network now works for some hosts; root owns actual photo fetch, decoded-size and visual receipts. These fields have not been verified by this packet author."
+          },
+          "checked": false
+        },
+        "delivery_selection": {
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Lawrence_English_2012.jpg",
+          "delivery_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Lawrence_English_2012.jpg/1280px-Lawrence_English_2012.jpg",
+          "reason": "Original endpoint returned HTTP429 and explicitly requested less disruptive supported thumbnail deliveries. Full-subject resized photograph retained; final status must be independently fetched and visually verified."
+        }
+      },
+      "blockers": [
+        "Exact allocated Every Noise URL returned HTTP 403 Forbidden on 2026-09-30; artist-map contents not inspected at that URL.",
+        "Photograph actual original/thumbnail fetch and decoded dimensions/visual inspection are unverified."
+      ],
+      "photo_search_notes": {
+        "reason": "Real file and thumbnail fetch/visual inspection pending."
+      },
+      "signature_revision_review": {
+        "checked_at": "2026-09-30T01:16:32.719Z",
+        "private_overlay": "/tmp/codex-001-review-01-05",
+        "prefaces": [
+          [
+            "sampler_classic",
+            "bewildering"
+          ],
+          [
+            "analog_synth",
+            "clean"
+          ]
+        ],
+        "formats": {
+          "rich": "Australian ambient, bewildering sampler: twenty-first-century field pristine low-distortion-low-coloration, clean analog-synth: low-resonance-default static present hybrid, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, pitch-shifter-harmonizer: digital-pitch-shift formant-may-shift engineered harmonizer, hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse reverb, large-diaphragm-condenser: proximity-bass-buildup hyped-top large-diaphragm condenser, solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean full-range-flat, none-minimal: unprocessed untouched dynamic, clean-digital-mastering-eq: surgical modern-mastering parametric transparent digital, digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat digital, in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent digital.",
+          "prose": "Australian ambient, bewildering sampler, clean analog-synth, twelve-tone-equal-temperament, auteur-professional-grade-home-studio, pitch-shifter-harmonizer, hall-reverb, large-diaphragm-condenser, solid-state-ultra-clean, none-minimal, clean-digital-mastering-eq, digital-24-bit-96-khz+, in-the-box-daw-summing.",
+          "tags": "Australian ambient, bewildering sampler: twenty-first-century field pristine, clean analog-synth: low-resonance-default static present, twelve-tone-equal-temperament: Western, auteur-professional-grade-home-studio: auteur-controlled multi-instrumentalist professional-grade-domestic, effects-pitch-shifter-harmonizer: digital-pitch-shift formant-may-shift engineered, effects-hall-reverb: exponential-density-buildup hall long-decay-large-volume-impulse, microphone-large-diaphragm-condenser: proximity-bass-buildup hyped-top large-diaphragm condenser, preamplifier-solid-state-ultra-clean: ultra-clean headroom-generous solid-state-clean full-range-flat, compression-none-minimal: unprocessed untouched dynamic, equalizer-clean-digital-mastering-eq: surgical modern-mastering parametric transparent, medium-digital-24-bit-96-khz+: high-resolution headroom-generous solid-state-clean full-range-flat, console-color-in-the-box-daw-summing: in-the-box total-recall-clean clean-summing transparent.",
+          "compact": "Australian ambient, bewildering sampler · Twelve-tone equal temperament · Auteur professional-grade home studio · effects: Pitch-shifter / harmonizer · effects: Hall reverb · microphone: Large-diaphragm condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: Clean digital mastering EQ · medium: Digital (24-bit / 96 kHz+) · console color: In-the-box / DAW summing,\nclean analog synth · Twelve-tone equal temperament · Auteur professional-grade home studio · effects: Pitch-shifter / harmonizer · effects: Hall reverb · microphone: Large-diaphragm condenser · preamplifier: Solid-state ultra-clean · compression: None / minimal · equalizer: Clean digital mastering EQ · medium: Digital (24-bit / 96 kHz+) · console color: In-the-box / DAW summing,"
+        }
+      }
+    }
+  ],
+  "validation": {
+    "reference_check": "passed",
+    "reference_failures": [],
+    "production_overlay_check": "not_run_by_packet_agent; root integration owns source overlays and production checks",
+    "photo_checks": "blocked; three rights-metadata candidates and two unresolved eligible photographs",
+    "complete": false,
+    "signature_revision_review": "All five candidates reviewed in private real production overlay; all four full formatted strings retained per entry. Worship additionally pins syllabic singing and no ornaments."
+  },
+  "blockers": [
+    "Exact allocated Every Noise URLs returned actualHTTP403; worship author mirror inspected successfully via web search-result ref, remaining mirrors shellHTTP502.",
+    "Ambientlofi exact source-model scope remains unresolved.",
+    "One photo remains missing; four licensed candidates await root actual fetch/decoded-size/visual receipt.",
+    "Production signature corrections were reviewed in private real overlay in all four full formats; root owns final group validation."
+  ]
+}

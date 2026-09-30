@@ -1,0 +1,1360 @@
+{
+  "schema_version": 1,
+  "group_id": "001",
+  "allocation_ordinals": [
+    21,
+    22,
+    23,
+    24,
+    25
+  ],
+  "status": "researched_proposals_incomplete",
+  "checked_date": "2026-09-30",
+  "entries": [
+    {
+      "source_label": "afro house angolano",
+      "source_url": "https://everynoise.com/engenremap-afrohouseangolano.html",
+      "suggested_id": "afro_house_angolano",
+      "allocation_ordinal": 21,
+      "outcome": "blocked_pending_verification",
+      "proposed_action": "add",
+      "tradition": {
+        "family": "electronic",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_pre": "pre_di_box_dedicated",
+        "chain_console": "console_in_the_box",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "id": "afro_house_angolano",
+        "name": "Afro house angolano",
+        "lineage": "Angolan house practice centered in Luanda, connecting programmed house tracks with the local semba/kuduro listening and production environment. Firsthand reporting documents software beatmaking and an Angolan rhythmic identity; the selected model leaves particular traditional acoustic instruments optional.",
+        "instruments": [
+          "sampler_drum_machine",
+          "analog_synth",
+          "sampler_classic"
+        ],
+        "room": "studio_auteur_home_pro",
+        "chain_comp": "comp_parallel_blend",
+        "chain_eq": "eq_active_parametric",
+        "chain_fx": [
+          "digital_delay"
+        ],
+        "parts": {
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "heavy_swing",
+          "sample_processing": "one_shots_layered",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm",
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "svf",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance.house",
+        "axes": {
+          "harm": 0,
+          "pitch": 1,
+          "ornament": 1,
+          "meter": 0,
+          "density": 1,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 1,
+          "voice": 0,
+          "timbre": 1,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Luanda-centered Angolan Afro house practice. Electronic percussion, repeating bass figures and sampled or recorded hooks support dance tracks shaped by local listening to semba and kuduro. This regional network is distinguished from the catalog’s broader Afro house row; it does not prescribe an amapiano log drum or Lagos studio.",
+        "exemplars": [
+          "DJ Hélio Baiano & AfroZone — Afrologia",
+          "DJ Delany Duvall",
+          "Djeff"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "electronicDance.africanDance",
+          "groovePercussion.afroDiasporicElec"
+        ]
+      },
+      "geo": [
+        -8.8383,
+        13.2344,
+        "Luanda",
+        "Africa"
+      ],
+      "geo_rationale": "Luanda is a documented club and beatmaking practice anchor in the 2011 firsthand FADER reporting and Djeff interview; not an exclusive invention claim.",
+      "equivalence_check": {
+        "equivalent_id": null,
+        "rationale": "No existing id/name match. Existing afro_house is broader and emphasizes different geographic exemplars; kuduro is a neighboring practice, not an established synonym. Regional scope does not justify manufacturing a wholly separate rhythmic system."
+      },
+      "model_policy": "The ensemble is a representative authored recording model, not a claim that every cited artist uses these exact devices. Axes, chain, microphone/DI choices, sample bit depth, processing and flat parts pins are authored selections. No documentary source establishes universal gear, numeric axes or one exclusive birthplace.",
+      "source_page_receipt": {
+        "url": "https://everynoise.com/engenremap-afrohouseangolano.html",
+        "checked_date": "2026-09-30",
+        "status": "http_403_forbidden",
+        "inspected": false,
+        "membership_claim": "Immutable supplied allocation proves assigned source label; Every Noise artist membership not yet inspected.",
+        "actual_http_status": 403,
+        "network_method": "escalated Python urllib with existing proxy environment",
+        "network_receipt": "21-25-network/receipts.json",
+        "author_mirror": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-afrohouseangolano.html",
+          "http_status": 502,
+          "inspected": false,
+          "receipt": "21-25-network/author-www-mirror-receipts.json"
+        }
+      },
+      "images": [],
+      "photo_candidates": [
+        {
+          "source_page": "https://commons.wikimedia.org/wiki/File:DJEFF.jpg",
+          "file_page_inspected": true,
+          "page_http_status": 200,
+          "page_version": "oldid=1160139129",
+          "checked_date": "2026-09-30",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "credit_metadata": "WDB Management",
+          "photographer_description": "Pic by Segmedia",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/DJEFF.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/DJEFF.jpg/960px-DJEFF.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "reported_dimensions": [
+            4240,
+            2384
+          ],
+          "reported_file_size_bytes": 504985,
+          "source_date": "2018-03-07",
+          "metadata_receipt": "21-25-network/djeff-metadata.json",
+          "status": "candidate_pending_identity_credit_bytes_visual_review",
+          "blocker": "Description credits Segmedia while author metadata names WDB Management. Preserve both; source file gives no explanatory photographer/uploader relationship. Exact artist identity needs independent/visual review."
+        }
+      ],
+      "blockers": [
+        "Exact Every Noise page membership not inspected. Escalated HTTP retry returned 403 Forbidden. Original author WWW mirror retry returned HTTP 502 Bad Gateway.",
+        "Commons DJEFF.jpg source page/CC BY-SA 4.0 inspected, but Segmedia photographer vs WDB Management author metadata relationship and exact depicted exemplar identity require review; image bytes/visual inspection pending."
+      ],
+      "id": "afro_house_angolano",
+      "signature_tokens": [
+        "dance-friendly",
+        "sample-foundational",
+        "sub-bass",
+        "percussive-attack"
+      ],
+      "sources": [
+        {
+          "url": "https://www.thefader.com/2011/09/14/lungu-lungu-kanye-meets-angola-on-the-dancefloor",
+          "title": "Lungu Lungu: Kanye Meets Angola on the Dancefloor",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "Luanda club circulation by 2011; DJ Delany Duvall software beatmaking; semba/kuduro-informed Angolan house distinction; Djeff documented as Angolan-house producer."
+          ]
+        },
+        {
+          "url": "https://electronicgroove.com/interview-djeff/",
+          "title": "Djeff: Africa is full of talented musicians that just need support and a stage to showcase their music",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "Djeff describes Luanda Afro-house clubs; Kazukuta promotes Angolan producers; collaborations include recorded vocalists."
+          ]
+        },
+        {
+          "url": "https://app.bandacast.ao/episode/d5e87d2c-94e3-4767-a2af-b8d5ace7dfde",
+          "title": "O JOGO C/ DJ MALVADO Feat.TRIXU,DJ HÉLIO BAIANO, WEIA CORDEIRO, MAURO TUGA, DJ PAULO ALVES| Parte 1",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "Episode description documents DJ Hélio Baiano in Angolan clubbing network. Audio not listened to; no audio-content claims."
+          ]
+        },
+        {
+          "url": "https://www.chosic.com/genre-chart/afro-house-angolano/",
+          "title": "Afro House Angolano Music Genre: Artists, Tracks and Related Genres",
+          "checked_date": "2026-09-30",
+          "inspection": "search_index_extract_only",
+          "kind": "label_membership_proxy",
+          "supported_claims": [
+            "Search index lists DJ Hélio Baiano and Adilson Beats as tagged artists. Direct page returned 403."
+          ]
+        }
+      ],
+      "neighbor_distinction": "No existing id/name match. Existing afro_house is broader and emphasizes different geographic exemplars; kuduro is a neighboring practice, not an established synonym. Regional scope does not justify manufacturing a wholly separate rhythmic system.",
+      "photo": null,
+      "instrument_photo_review": {
+        "checked_date": "2026-09-30",
+        "manifest_roster_lookup": [
+          {
+            "id": "sampler_drum_machine",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg"
+          },
+          {
+            "id": "analog_synth",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Buchla_Music_Easel.jpg"
+          },
+          {
+            "id": "sampler_classic",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg"
+          }
+        ],
+        "limitation": "Existing instrument image rows checked for presence only; photo bytes, real creator/license page inspection and dimensions remain unverified. Generic shared sampler photo cannot establish selected device identity."
+      },
+      "defaults_review": {
+        "policy": "All flat pins are explicitly reviewed authored model choices. Avoid tying percussion to unspecified ethnic acoustic instruments. Electronic bass-sub pin applies only when both part and variant exist; samplers lacking bass-sub keep their own chopped-sample technique.",
+        "voice": "No live vocal chair prescribed: sampled vocal hooks belong to sampler sources, whose legal sourcing remains user responsibility. The recipe does not fabricate singer training, register or vocal-tract measurements.",
+        "materials": "Electronic instruments need no acoustic body material selections. Brazilian-house guitar choices (alder/maple/rosewood, pure nickel 10 gauge, standard tuning, single-coil defaults) are one author-selected clean guitar model, not documentation of Boratto’s own specific guitar.",
+        "environment": "Modern studio DI/in-box chain is an authored reusable recipe environment. Djeff/FADER support software beatmaking; Dom Dolla supports traveling in-box production; Boratto supports home studio treatment, interfaces and synth integration. Exact chain brands and axes are not claimed as historical facts."
+      },
+      "structural_receipt": {
+        "part_applications": {
+          "sample_bitdepth": [
+            "sampler_drum_machine"
+          ],
+          "sample_swing": [
+            "sampler_drum_machine"
+          ],
+          "sample_processing": [
+            "sampler_drum_machine"
+          ],
+          "sampler_archetypes": [
+            "sampler_classic"
+          ],
+          "sampler_bit_depth": [
+            "sampler_classic"
+          ],
+          "sampler_workflow": [
+            "sampler_classic"
+          ],
+          "sampler_classic_context": [
+            "sampler_classic"
+          ],
+          "electronic_technique": [
+            "analog_synth"
+          ],
+          "oscillator": [
+            "analog_synth"
+          ],
+          "filter_topology": [
+            "analog_synth"
+          ],
+          "envelope": [
+            "analog_synth"
+          ],
+          "modulation": [
+            "analog_synth"
+          ]
+        },
+        "collisions": [],
+        "roster_resolves": true,
+        "checked_date": "2026-09-30"
+      }
+    },
+    {
+      "source_label": "australian house",
+      "source_url": "https://everynoise.com/engenremap-australianhouse.html",
+      "suggested_id": "australian_house",
+      "allocation_ordinal": 22,
+      "outcome": "blocked_pending_verification",
+      "proposed_action": "add",
+      "tradition": {
+        "family": "electronic",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_pre": "pre_di_box_dedicated",
+        "chain_console": "console_in_the_box",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "id": "australian_house",
+        "name": "Australian house",
+        "lineage": "Australian house-production network with a selected bass-driven Melbourne club strand represented by Dom Dolla and Torren Foot, and wider Australian production represented by Sonny Fodera. Contemporary laptop work, programmed drums and repitched vocal hooks are documented artist practices, not a unique national meter.",
+        "instruments": [
+          "wavetable_synth",
+          "sampler_drum_machine",
+          "sampler_classic"
+        ],
+        "room": "studio_distributed_production",
+        "chain_comp": "comp_pumping",
+        "chain_eq": "eq_dynamic",
+        "chain_fx": [
+          "digital_delay"
+        ],
+        "parts": {
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "heavy_swing",
+          "sample_processing": "one_shots_layered",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm",
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_static",
+          "wt_family": "wt_analog_emul",
+          "wt_polyphony": "wt_mono"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance.house",
+        "axes": {
+          "harm": 0,
+          "pitch": 1,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 1,
+          "voice": 0,
+          "timbre": 1,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Australian house network, with this recipe selecting the chugging bass, programmed percussion and manipulated hooks documented in Dom Dolla’s productions. Its regional provenance separates the discovery record from umbrella house and tech-house; Australian house encompasses multiple approaches and is not synonymous with Melbourne bounce or lo-fi house.",
+        "exemplars": [
+          "Dom Dolla — Take It",
+          "Dom Dolla & Sonny Fodera — Moving Blind",
+          "Torren Foot"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "electronicDance.house.techHouse"
+        ]
+      },
+      "geo": [
+        -37.8136,
+        144.9631,
+        "Melbourne",
+        "Oceania & Pacific"
+      ],
+      "geo_rationale": "Melbourne is documented as Dom Dolla’s party/scene anchor by DJ Mag; not the birthplace of all Australian house.",
+      "equivalence_check": {
+        "equivalent_id": null,
+        "rationale": "No equivalent regional record. tech_house_classic and lofi_house_aesthetic cover sound subsets; aussietronica is a broader electronic scene umbrella, not an exact Australian-house equivalence."
+      },
+      "model_policy": "The ensemble is a representative authored recording model, not a claim that every cited artist uses these exact devices. Axes, chain, microphone/DI choices, sample bit depth, processing and flat parts pins are authored selections. No documentary source establishes universal gear, numeric axes or one exclusive birthplace.",
+      "source_page_receipt": {
+        "url": "https://everynoise.com/engenremap-australianhouse.html",
+        "checked_date": "2026-09-30",
+        "status": "http_403_forbidden",
+        "inspected": false,
+        "membership_claim": "Immutable supplied allocation proves assigned source label; Every Noise artist membership not yet inspected.",
+        "actual_http_status": 403,
+        "network_method": "escalated Python urllib with existing proxy environment",
+        "network_receipt": "21-25-network/receipts.json",
+        "author_mirror": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-australianhouse.html",
+          "http_status": 502,
+          "inspected": false,
+          "receipt": "21-25-network/author-www-mirror-receipts.json"
+        }
+      },
+      "images": [],
+      "photo_candidates": [
+        {
+          "manifest_record": {
+            "kind": "tradition",
+            "id": "australian_house",
+            "name": "Australian house",
+            "source": "commons_manual",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Dom_Dolla_-_@shevindphoto.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Dom_Dolla_-_%40shevindphoto.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Dom_Dolla_-_%40shevindphoto.jpg/1024px-Dom_Dolla_-_%40shevindphoto.jpg",
+            "license": "CC0",
+            "license_raw": "CC0 1.0 Universal Public Domain Dedication",
+            "credit": "Shevin Dissanayake",
+            "match_confidence": "high",
+            "matched_label": "Dom Dolla, documented Australian house producer"
+          },
+          "rights_receipt": {
+            "page_inspected": true,
+            "checked_date": "2026-09-30",
+            "page_version": "oldid=1032056893",
+            "license_review": "FlickreviewR 2 review 11 September 2024 confirms Flickr cc-zero",
+            "source_flickr": "https://www.flickr.com/photos/200324400@N06/53598379413/",
+            "reported_dimensions": [
+              8192,
+              5464
+            ],
+            "reported_mime": "image/jpeg",
+            "reported_file_size": "4.04 MB",
+            "source_date": "2 December 2023",
+            "caption_date_conflict": "Page caption says 2024; EXIF/summary date says December 2023. Do not silently retitle as a 2024 concert."
+          },
+          "image_receipt": {
+            "full_fetch": "web click original returned Internal Error",
+            "thumbnail_fetch": "web click 1024 thumbnail returned Internal Error",
+            "http_status": null,
+            "final_url": null,
+            "mime_verified": null,
+            "dimensions_verified": null,
+            "visual_inspected": false,
+            "checked_date": "2026-09-30"
+          },
+          "url_construction": "Full/thumbnail URL follows Wikimedia MD5 filename convention; link targets not byte-verified."
+        }
+      ],
+      "blockers": [
+        "Exact Every Noise membership not inspected. Escalated HTTP retry returned 403 Forbidden. Original author WWW mirror retry returned HTTP 502 Bad Gateway.",
+        "Dom Dolla photo rights/creator inspected, but full and thumbnail image retrieval failed; no actual HTTP/MIME/dimensions/visual verification."
+      ],
+      "id": "australian_house",
+      "signature_tokens": [
+        "sub-bass",
+        "dance-driving",
+        "sample-foundational"
+      ],
+      "sources": [
+        {
+          "url": "https://djmag.com/cover-features/dom-dolla-designing-dream",
+          "title": "Dom Dolla: designing the dream",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "Melbourne parties; in-box traveling production; self-recorded repitched vocal hooks; chugging tech-house bass lines; variation across artist catalog."
+          ]
+        },
+        {
+          "url": "https://www.abc.net.au/triplej/news/dom-dolla-sonny-fodera-collab-singel-moving-blind-interview/12392104",
+          "title": "First Spin: Dom Dolla joins forces with Sonny Fodera for Moving Blind",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "Artist interview documents synths, hi-hats, bass, drum programming and Dom Dolla voice on Moving Blind; Sonny Fodera’s Adelaide connection."
+          ]
+        },
+        {
+          "url": "https://musictech.com/features/plug-ins-i-actually-use-dom-dolla/",
+          "title": "Plug-ins I Actually Use: Dom Dolla",
+          "checked_date": "2026-09-30",
+          "inspection": "search_index_extract_only",
+          "kind": "independent",
+          "supported_claims": [
+            "Search extract supports bass/synth sidechain processing, but direct page 403; not used to assert exact plug-in settings."
+          ]
+        }
+      ],
+      "neighbor_distinction": "No equivalent regional record. tech_house_classic and lofi_house_aesthetic cover sound subsets; aussietronica is a broader electronic scene umbrella, not an exact Australian-house equivalence.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "australian_house",
+          "name": "Australian house",
+          "source": "commons_manual",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Dom_Dolla_-_@shevindphoto.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Dom_Dolla_-_%40shevindphoto.jpg/960px-Dom_Dolla_-_%40shevindphoto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Dom_Dolla_-_%40shevindphoto.jpg/960px-Dom_Dolla_-_%40shevindphoto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "license": "CC0",
+          "license_raw": "CC0 1.0 Universal Public Domain Dedication",
+          "credit": "Shevin Dissanayake",
+          "match_confidence": "high",
+          "matched_label": "Dom Dolla, documented Australian house producer"
+        },
+        "verification": {
+          "page_inspected": true,
+          "checked_date": "2026-09-30",
+          "page_version": "oldid=1190342499",
+          "license_review": "FlickreviewR 2 review 11 September 2024 confirms Flickr cc-zero",
+          "source_flickr": "https://www.flickr.com/photos/200324400@N06/53598379413/",
+          "reported_dimensions": [
+            8192,
+            5464
+          ],
+          "reported_mime": "image/jpeg",
+          "reported_file_size": "4.04 MB",
+          "source_date": "2 December 2023",
+          "caption_date_conflict": "Page caption says 2024; EXIF/summary date says December 2023. Do not silently retitle as a 2024 concert.",
+          "full_fetch": "web click original returned Internal Error",
+          "thumbnail_fetch": "web click 1024 thumbnail returned Internal Error",
+          "http_status": null,
+          "final_url": null,
+          "mime_verified": null,
+          "dimensions_verified": null,
+          "visual_inspected": false,
+          "metadata_api_inspected": true,
+          "page_http_status": 200,
+          "page_http_bytes": 123555,
+          "metadata_receipt": "21-25-network/commons-metadata.json",
+          "metadata_url_source": "Actual Commons imageinfo API response; image bytes unverified."
+        },
+        "delivery_selection": {
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Dom_Dolla_-_%40shevindphoto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "delivery_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Dom_Dolla_-_%40shevindphoto.jpg/960px-Dom_Dolla_-_%40shevindphoto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "reason": "Canonical original denied HTTP429; supported full-subject photograph delivery decoded successfully. Same actual photo delivery serves both full image and thumbnail; no false claim of native original resolution."
+        }
+      },
+      "instrument_photo_review": {
+        "checked_date": "2026-09-30",
+        "manifest_roster_lookup": [
+          {
+            "id": "wavetable_synth",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Waldorf_M_wavetable_synthesizer.jpg"
+          },
+          {
+            "id": "sampler_drum_machine",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg"
+          },
+          {
+            "id": "sampler_classic",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg"
+          }
+        ],
+        "limitation": "Existing instrument image rows checked for presence only; photo bytes, real creator/license page inspection and dimensions remain unverified. Generic shared sampler photo cannot establish selected device identity."
+      },
+      "defaults_review": {
+        "policy": "All flat pins are explicitly reviewed authored model choices. Avoid tying percussion to unspecified ethnic acoustic instruments. Electronic bass-sub pin applies only when both part and variant exist; samplers lacking bass-sub keep their own chopped-sample technique.",
+        "voice": "No live vocal chair prescribed: sampled vocal hooks belong to sampler sources, whose legal sourcing remains user responsibility. The recipe does not fabricate singer training, register or vocal-tract measurements.",
+        "materials": "Electronic instruments need no acoustic body material selections. Brazilian-house guitar choices (alder/maple/rosewood, pure nickel 10 gauge, standard tuning, single-coil defaults) are one author-selected clean guitar model, not documentation of Boratto’s own specific guitar.",
+        "environment": "Modern studio DI/in-box chain is an authored reusable recipe environment. Djeff/FADER support software beatmaking; Dom Dolla supports traveling in-box production; Boratto supports home studio treatment, interfaces and synth integration. Exact chain brands and axes are not claimed as historical facts."
+      },
+      "structural_receipt": {
+        "part_applications": {
+          "sample_bitdepth": [
+            "sampler_drum_machine"
+          ],
+          "sample_swing": [
+            "sampler_drum_machine"
+          ],
+          "sample_processing": [
+            "sampler_drum_machine"
+          ],
+          "sampler_archetypes": [
+            "sampler_classic"
+          ],
+          "sampler_bit_depth": [
+            "sampler_classic"
+          ],
+          "sampler_workflow": [
+            "sampler_classic"
+          ],
+          "sampler_classic_context": [
+            "sampler_classic"
+          ],
+          "electronic_technique": [
+            "wavetable_synth"
+          ],
+          "wt_position": [
+            "wavetable_synth"
+          ],
+          "wt_family": [
+            "wavetable_synth"
+          ],
+          "wt_polyphony": [
+            "wavetable_synth"
+          ]
+        },
+        "collisions": [],
+        "roster_resolves": true,
+        "checked_date": "2026-09-30"
+      }
+    },
+    {
+      "source_label": "beach house",
+      "source_url": "https://everynoise.com/engenremap-beachhouse.html",
+      "suggested_id": "beach_house",
+      "allocation_ordinal": 23,
+      "outcome": "blocked_pending_verification",
+      "proposed_action": "add",
+      "tradition": {
+        "family": "electronic",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_pre": "pre_di_box_dedicated",
+        "chain_console": "console_in_the_box",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "id": "beach_house",
+        "name": "Beach house",
+        "lineage": "Discovery label for laid-back electronic house and related soft-house listening. Secondary roster evidence associates Sum Wave and other library/streaming artists with the label; inspected label credits independently establish Sum Wave’s electronic, melodic, laid-back work. Precise Every Noise membership and scope remain unverified.",
+        "instruments": [
+          "analog_synth",
+          "sampler_drum_machine",
+          "sampler_classic"
+        ],
+        "room": "studio_auteur_home_pro",
+        "chain_comp": "comp_optical",
+        "chain_eq": "eq_tilt",
+        "chain_fx": [
+          "fx_true_stereo_reverb",
+          "digital_delay"
+        ],
+        "parts": {
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "heavy_swing",
+          "sample_processing": "one_shots_layered",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm",
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance.house.deepHouse",
+        "axes": {
+          "harm": 1,
+          "pitch": 1,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": -1,
+          "voice": -1,
+          "timbre": 1,
+          "percussion": 1,
+          "cyclicity": 2
+        },
+        "description": "A laid-back electronic house discovery label, distinct from the Baltimore band of the same name. This provisional model uses a soft repeating pulse, sustained chord textures and looped samples. Exact placement and artist coverage require checking the assigned Every Noise page; broad beach-mood copy and Hed Kandi compilation history alone cannot establish this label’s identity.",
+        "exemplars": [
+          "Sum Wave — City Skylines",
+          "Sum Wave — Lounge Drinks",
+          "Androm"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        59.3293,
+        18.0686,
+        "Stockholm (internet-native)",
+        "Europe"
+      ],
+      "geo_rationale": "PROVISIONAL distribution-network anchor: Sum Wave’s independently inspected label is based in Stockholm. This does not establish Stockholm as the origin of beach house or confirm every tagged artist is Swedish. Geographic anchor must be reconsidered after exact Every Noise roster inspection.",
+      "equivalence_check": {
+        "equivalent_id": null,
+        "rationale": "Do not map to dream_pop, do not use Beach House band photos, do not equate automatically with tropical_house or balearic_beat. Existing deep_house_soulful includes vocal-soul priorities not established for this discovery set. Proposed entry is intentionally held pending exact source roster and firsthand practice evidence."
+      },
+      "model_policy": "The ensemble is a representative authored recording model, not a claim that every cited artist uses these exact devices. Axes, chain, microphone/DI choices, sample bit depth, processing and flat parts pins are authored selections. No documentary source establishes universal gear, numeric axes or one exclusive birthplace.",
+      "source_page_receipt": {
+        "url": "https://everynoise.com/engenremap-beachhouse.html",
+        "checked_date": "2026-09-30",
+        "status": "http_403_forbidden",
+        "inspected": false,
+        "membership_claim": "Immutable supplied allocation proves assigned source label; Every Noise artist membership not yet inspected.",
+        "actual_http_status": 403,
+        "network_method": "escalated Python urllib with existing proxy environment",
+        "network_receipt": "21-25-network/receipts.json",
+        "author_mirror": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-beachhouse.html",
+          "http_status": 502,
+          "inspected": false,
+          "receipt": "21-25-network/author-www-mirror-receipts.json"
+        }
+      },
+      "images": [],
+      "photo_candidates": [],
+      "blockers": [
+        "Exact Every Noise artist roster and label distinction unresolved. Escalated HTTP retry returned 403 Forbidden. Original author WWW mirror retry returned HTTP 502 Bad Gateway.",
+        "Independent source verifies Sum Wave practice but only secondary metadata connects Sum Wave to beach-house label.",
+        "Stockholm geo is a provisional label-distribution anchor, not established genre origin.",
+        "No accepted real licensed photograph of a documented label exemplar located."
+      ],
+      "id": "beach_house",
+      "signature_tokens": [
+        "warm-glowing",
+        "tonal-groove",
+        "dance-friendly"
+      ],
+      "sources": [
+        {
+          "url": "https://recentmusic.com/genre/beach-house/artists/",
+          "title": "RecentMusic - Beach House Artists",
+          "checked_date": "2026-09-30",
+          "inspection": "search_index_extract_only",
+          "kind": "label_membership_proxy",
+          "supported_claims": [
+            "Search index lists Sum Wave and Androm in the electronic beach-house set; proxy evidence only; body describes electronic grooves rather than Baltimore dream pop."
+          ]
+        },
+        {
+          "url": "https://www.epidemicsound.com/artists/sum-wave/",
+          "title": "Music by Sum Wave | Epidemic Sound",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "Sum Wave is Swedish composer Niclas Gustavsson; melodic electronic production described as laid back; official tracks tagged deep/soft house."
+          ]
+        },
+        {
+          "url": "https://www.epidemicsound.com/about-us/",
+          "title": "This is Epidemic Sound",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "Stockholm address for the documented distribution/label network."
+          ]
+        },
+        {
+          "url": "https://www.musicmetricsvault.com/genres/beach-house/3095",
+          "title": "Beach house Artists - Spotify Statistics",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "label_membership_proxy",
+          "supported_claims": [
+            "Current tagged roster contains Mr. Chillout, Androm, Art Van Delay and Ben Sass; generic explanatory text separately names better-known tropical-house artists and is not proof those artists inhabit the roster."
+          ]
+        }
+      ],
+      "neighbor_distinction": "Do not map to dream_pop, do not use Beach House band photos, do not equate automatically with tropical_house or balearic_beat. Existing deep_house_soulful includes vocal-soul priorities not established for this discovery set. Proposed entry is intentionally held pending exact source roster and firsthand practice evidence.",
+      "photo": null,
+      "instrument_photo_review": {
+        "checked_date": "2026-09-30",
+        "manifest_roster_lookup": [
+          {
+            "id": "analog_synth",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Buchla_Music_Easel.jpg"
+          },
+          {
+            "id": "sampler_drum_machine",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg"
+          },
+          {
+            "id": "sampler_classic",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg"
+          }
+        ],
+        "limitation": "Existing instrument image rows checked for presence only; photo bytes, real creator/license page inspection and dimensions remain unverified. Generic shared sampler photo cannot establish selected device identity."
+      },
+      "defaults_review": {
+        "policy": "All flat pins are explicitly reviewed authored model choices. Avoid tying percussion to unspecified ethnic acoustic instruments. Electronic bass-sub pin applies only when both part and variant exist; samplers lacking bass-sub keep their own chopped-sample technique.",
+        "voice": "No live vocal chair prescribed: sampled vocal hooks belong to sampler sources, whose legal sourcing remains user responsibility. The recipe does not fabricate singer training, register or vocal-tract measurements.",
+        "materials": "Electronic instruments need no acoustic body material selections. Brazilian-house guitar choices (alder/maple/rosewood, pure nickel 10 gauge, standard tuning, single-coil defaults) are one author-selected clean guitar model, not documentation of Boratto’s own specific guitar.",
+        "environment": "Modern studio DI/in-box chain is an authored reusable recipe environment. Djeff/FADER support software beatmaking; Dom Dolla supports traveling in-box production; Boratto supports home studio treatment, interfaces and synth integration. Exact chain brands and axes are not claimed as historical facts."
+      },
+      "structural_receipt": {
+        "part_applications": {
+          "sample_bitdepth": [
+            "sampler_drum_machine"
+          ],
+          "sample_swing": [
+            "sampler_drum_machine"
+          ],
+          "sample_processing": [
+            "sampler_drum_machine"
+          ],
+          "sampler_archetypes": [
+            "sampler_classic"
+          ],
+          "sampler_bit_depth": [
+            "sampler_classic"
+          ],
+          "sampler_workflow": [
+            "sampler_classic"
+          ],
+          "sampler_classic_context": [
+            "sampler_classic"
+          ],
+          "electronic_technique": [
+            "analog_synth"
+          ],
+          "oscillator": [
+            "analog_synth"
+          ],
+          "filter_topology": [
+            "analog_synth"
+          ],
+          "envelope": [
+            "analog_synth"
+          ],
+          "modulation": [
+            "analog_synth"
+          ]
+        },
+        "collisions": [],
+        "roster_resolves": true,
+        "checked_date": "2026-09-30"
+      }
+    },
+    {
+      "source_label": "brazilian house",
+      "source_url": "https://everynoise.com/engenremap-brazilianhouse.html",
+      "suggested_id": "brazilian_house",
+      "allocation_ordinal": 24,
+      "outcome": "blocked_pending_verification",
+      "proposed_action": "add",
+      "tradition": {
+        "family": "electronic",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_pre": "pre_di_box_dedicated",
+        "chain_console": "console_in_the_box",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "id": "brazilian_house",
+        "name": "Brazilian house",
+        "lineage": "Brazilian house-production network, with the selected melodic and hybrid studio strand documented through Gui Boratto. His practice combines hardware/soft synthesis, sequenced electronics and guitar/piano musicianship; this is a regional umbrella and does not require samba instrumentation in every track.",
+        "instruments": [
+          "analog_synth",
+          "drum_machine_909",
+          "electric_guitar_single_coil"
+        ],
+        "room": "studio_auteur_home_pro",
+        "chain_comp": "comp_parallel_blend",
+        "chain_eq": "eq_active_parametric",
+        "chain_fx": [
+          "digital_delay"
+        ],
+        "parts": {
+          "electronic_technique": "electronic_arpeggiated",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "sustain_env",
+          "modulation": "lfo_filter",
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_roland_osaka_canonical",
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning"
+        },
+        "chain_amp": "amp_modeling"
+      },
+      "extras": {
+        "parent": "electronicDance.house",
+        "axes": {
+          "harm": 1,
+          "pitch": 1,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 1,
+          "percussion": 1,
+          "cyclicity": 2
+        },
+        "description": "Brazilian house network with a selected melodic studio approach. Synthesizers and programmed house percussion meet keyboard and guitar parts in the documented Gui Boratto strand. This regional discovery scope is broader than Brazilian tech house and differs from Brazilian bass; a samba/forró acoustic ensemble is not automatically appropriate.",
+        "exemplars": [
+          "Gui Boratto — Beautiful Life",
+          "Gui Boratto — Azzurra",
+          "D.O.C. Records"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "electronicDance.house.techHouse"
+        ]
+      },
+      "geo": [
+        -23.5505,
+        -46.6333,
+        "São Paulo",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Gui Boratto explicitly documents his home studio in São Paulo. This is a current production anchor for one evidenced strand, not an exclusive national birthplace.",
+      "equivalence_check": {
+        "equivalent_id": null,
+        "rationale": "No matching id/name. Existing latin_house_percussion selects New York Latin-percussion house; not an equivalent to a broad Brazilian production network. Existing tech_house_classic describes one cross-border sound subset."
+      },
+      "model_policy": "The ensemble is a representative authored recording model, not a claim that every cited artist uses these exact devices. Axes, chain, microphone/DI choices, sample bit depth, processing and flat parts pins are authored selections. No documentary source establishes universal gear, numeric axes or one exclusive birthplace.",
+      "source_page_receipt": {
+        "url": "https://everynoise.com/engenremap-brazilianhouse.html",
+        "checked_date": "2026-09-30",
+        "status": "http_403_forbidden",
+        "inspected": false,
+        "membership_claim": "Immutable supplied allocation proves assigned source label; Every Noise artist membership not yet inspected.",
+        "actual_http_status": 403,
+        "network_method": "escalated Python urllib with existing proxy environment",
+        "network_receipt": "21-25-network/receipts.json",
+        "author_mirror": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-brazilianhouse.html",
+          "http_status": 502,
+          "inspected": false,
+          "receipt": "21-25-network/author-www-mirror-receipts.json"
+        }
+      },
+      "images": [],
+      "photo_candidates": [
+        {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Gui-boratto@ten-days-off-2008.jpg",
+          "status": "accepted_rights_pending_bytes",
+          "metadata_receipt": "21-25-network/commons-metadata.json"
+        }
+      ],
+      "blockers": [
+        "Exact Every Noise membership not inspected. Escalated HTTP retry returned 403 Forbidden. Original author WWW mirror retry returned HTTP 502 Bad Gateway.",
+        "Gui Boratto Commons source page and API creator/CC BY-SA 3.0 license inspected via HTTP 200; full and thumbnail bytes/dimensions/visual inspection pending root verification."
+      ],
+      "id": "brazilian_house",
+      "signature_tokens": [
+        "tonal-groove",
+        "dance-friendly",
+        "percussive-attack"
+      ],
+      "sources": [
+        {
+          "url": "https://www.attackmagazine.com/features/my-studio/gui-boratto/",
+          "title": "Gui Boratto - My Studio",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "São Paulo apartment studio; Pro Tools/Logic; hardware synthesis; guitar/bass; acoustic treatment; album Abaporu."
+          ]
+        },
+        {
+          "url": "https://iamacloudeer.blogspot.com/2016/02/wed-12-dec-2012-1656-words-cloudy-ku.html",
+          "title": "Interview | Gui Boratto",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "Artist identifies guitar and piano musicianship; hardware and soft synths, Roland drum machines; Logic programming, DI/interface path; Beautiful Life expanded audience."
+          ]
+        },
+        {
+          "url": "https://volt.fm/genre/2646/brazilian-house",
+          "title": "Brazilian House Artists, Songs, Albums, Playlists and Listeners",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "label_membership_proxy",
+          "supported_claims": [
+            "Inspected page identifies Brazilian-house discovery label; generic unsourced historical paragraph not used as gear/origin authority."
+          ]
+        }
+      ],
+      "neighbor_distinction": "No matching id/name. Existing latin_house_percussion selects New York Latin-percussion house; not an equivalent to a broad Brazilian production network. Existing tech_house_classic describes one cross-border sound subset.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "brazilian_house",
+          "name": "Brazilian house",
+          "source": "commons_manual",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Gui-boratto@ten-days-off-2008.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Gui-boratto%40ten-days-off-2008.jpg/960px-Gui-boratto%40ten-days-off-2008.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Gui-boratto%40ten-days-off-2008.jpg/330px-Gui-boratto%40ten-days-off-2008.jpg",
+          "license": "CC BY-SA 3.0",
+          "license_raw": "Creative Commons Attribution-Share Alike 3.0 Unported",
+          "credit": "Dave Van den Eynde",
+          "match_confidence": "high",
+          "matched_label": "Gui Boratto, documented Brazilian house producer"
+        },
+        "verification": {
+          "page_inspected": true,
+          "checked_date": "2026-09-30",
+          "page_version": "oldid=1206135325",
+          "page_http_status": 200,
+          "page_http_bytes": 110337,
+          "metadata_api_inspected": true,
+          "metadata_receipt": "21-25-network/commons-metadata.json",
+          "reported_dimensions": [
+            427,
+            640
+          ],
+          "reported_file_size_bytes": 106014,
+          "creator": "Dave Van den Eynde (GroovBird)",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source_date": "2008-07-26",
+          "description": "Gui Boratto performing at Ten Days Off 2008, Ghent, Belgium",
+          "http_status": null,
+          "final_url": null,
+          "mime_verified": null,
+          "dimensions_verified": null,
+          "visual_inspected": false,
+          "thumbnail_note": "API thumbnail is unscaled original; its displayed width 800 exceeds actual original 427. Must inspect actual bytes; no claim of native 800px image."
+        },
+        "delivery_selection": {
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Gui-boratto%40ten-days-off-2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "delivery_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Gui-boratto%40ten-days-off-2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original/1280px-Gui-boratto%40ten-days-off-2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "reason": "Original endpoint returned HTTP429 and explicitly requested less disruptive supported thumbnail deliveries. Full-subject resized photograph retained; final status must be independently fetched and visually verified."
+        }
+      },
+      "instrument_photo_review": {
+        "checked_date": "2026-09-30",
+        "manifest_roster_lookup": [
+          {
+            "id": "analog_synth",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Buchla_Music_Easel.jpg"
+          },
+          {
+            "id": "drum_machine_909",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Roland_TR-909.jpg"
+          },
+          {
+            "id": "electric_guitar_single_coil",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Strat_s%C3%A9rie_L.jpg"
+          }
+        ],
+        "limitation": "Existing instrument image rows checked for presence only; photo bytes, real creator/license page inspection and dimensions remain unverified. Generic shared sampler photo cannot establish selected device identity."
+      },
+      "defaults_review": {
+        "policy": "All flat pins are explicitly reviewed authored model choices. Avoid tying percussion to unspecified ethnic acoustic instruments. Electronic bass-sub pin applies only when both part and variant exist; samplers lacking bass-sub keep their own chopped-sample technique.",
+        "voice": "No live vocal chair prescribed: sampled vocal hooks belong to sampler sources, whose legal sourcing remains user responsibility. The recipe does not fabricate singer training, register or vocal-tract measurements.",
+        "materials": "Electronic instruments need no acoustic body material selections. Brazilian-house guitar choices (alder/maple/rosewood, pure nickel 10 gauge, standard tuning, single-coil defaults) are one author-selected clean guitar model, not documentation of Boratto’s own specific guitar.",
+        "environment": "Modern studio DI/in-box chain is an authored reusable recipe environment. Djeff/FADER support software beatmaking; Dom Dolla supports traveling in-box production; Boratto supports home studio treatment, interfaces and synth integration. Exact chain brands and axes are not claimed as historical facts."
+      },
+      "structural_receipt": {
+        "part_applications": {
+          "electronic_technique": [
+            "analog_synth"
+          ],
+          "oscillator": [
+            "analog_synth"
+          ],
+          "filter_topology": [
+            "analog_synth"
+          ],
+          "envelope": [
+            "analog_synth"
+          ],
+          "modulation": [
+            "analog_synth"
+          ],
+          "tr909_voice": [
+            "drum_machine_909"
+          ],
+          "drum_machine_909_context": [
+            "drum_machine_909"
+          ],
+          "tr909_production_origin": [
+            "drum_machine_909"
+          ],
+          "electric_technique": [
+            "electric_guitar_single_coil"
+          ],
+          "amp_make": [
+            "electric_guitar_single_coil"
+          ],
+          "body_wood": [
+            "electric_guitar_single_coil"
+          ],
+          "neck_wood": [
+            "electric_guitar_single_coil"
+          ],
+          "fretboard": [
+            "electric_guitar_single_coil"
+          ],
+          "pickup_magnet": [
+            "electric_guitar_single_coil"
+          ],
+          "string_material": [
+            "electric_guitar_single_coil"
+          ],
+          "string_gauge": [
+            "electric_guitar_single_coil"
+          ],
+          "bridge": [
+            "electric_guitar_single_coil"
+          ],
+          "scale_length": [
+            "electric_guitar_single_coil"
+          ],
+          "finish": [
+            "electric_guitar_single_coil"
+          ],
+          "string_tuning": [
+            "electric_guitar_single_coil"
+          ]
+        },
+        "collisions": [],
+        "roster_resolves": true,
+        "checked_date": "2026-09-30"
+      }
+    },
+    {
+      "source_label": "brazilian tech house",
+      "source_url": "https://everynoise.com/engenremap-braziliantechhouse.html",
+      "suggested_id": "brazilian_tech_house",
+      "allocation_ordinal": 25,
+      "outcome": "blocked_pending_verification",
+      "proposed_action": "add",
+      "tradition": {
+        "family": "electronic",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_pre": "pre_di_box_dedicated",
+        "chain_console": "console_in_the_box",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "id": "brazilian_tech_house",
+        "name": "Brazilian tech house",
+        "lineage": "Brazilian tech-house production and DJ network, with documented examples from Vivi Seixas/Keskem and Mochakk. Club-focused programmed rhythm, repeating bass hooks and selectively sampled vocals are supported practice; the national label does not mandate a traditional Brazilian percussion instrument.",
+        "instruments": [
+          "analog_synth",
+          "sampler_drum_machine",
+          "sampler_classic"
+        ],
+        "room": "treated_studio",
+        "chain_comp": "comp_pumping",
+        "chain_eq": "eq_active_parametric",
+        "chain_fx": [
+          "digital_delay"
+        ],
+        "parts": {
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "heavy_swing",
+          "sample_processing": "one_shots_layered",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm",
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "svf",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance.house.techHouse",
+        "axes": {
+          "harm": 0,
+          "pitch": 1,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 1,
+          "voice": 0,
+          "timbre": 1,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Brazilian tech-house network represented by bass-and-groove-led productions and DJ sets. Short programmed drums, repeating bass hooks and selected vocal samples support lean club arrangements. It is a regional discovery subset of tech house, not another term for Brazilian bass and not a promise of samba instruments.",
+        "exemplars": [
+          "Vivi Seixas & Keskem — Smoke and Sweat",
+          "Mochakk — False Need",
+          "Duarte (BR)"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "electronicDance.house"
+        ]
+      },
+      "geo": [
+        -22.9068,
+        -43.1729,
+        "Rio de Janeiro",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Rio de Janeiro is an evidenced Vivi Seixas performance/practice anchor (first DJ gig Tijuca documented firsthand); not an exclusive origin or a claim that all Brazilian tech-house artists are based there.",
+      "equivalence_check": {
+        "equivalent_id": null,
+        "rationale": "No equivalent regional id/name. tech_house_classic is the global parent practice; Brazilian house is broader and includes melodic/hybrid strands. These regional entries are related; do not pretend every single Brazilian artist has one exclusive genre."
+      },
+      "model_policy": "The ensemble is a representative authored recording model, not a claim that every cited artist uses these exact devices. Axes, chain, microphone/DI choices, sample bit depth, processing and flat parts pins are authored selections. No documentary source establishes universal gear, numeric axes or one exclusive birthplace.",
+      "source_page_receipt": {
+        "url": "https://everynoise.com/engenremap-braziliantechhouse.html",
+        "checked_date": "2026-09-30",
+        "status": "http_403_forbidden",
+        "inspected": false,
+        "membership_claim": "Immutable supplied allocation proves assigned source label; Every Noise artist membership not yet inspected.",
+        "actual_http_status": 403,
+        "network_method": "escalated Python urllib with existing proxy environment",
+        "network_receipt": "21-25-network/receipts.json",
+        "author_mirror": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-braziliantechhouse.html",
+          "http_status": 502,
+          "inspected": false,
+          "receipt": "21-25-network/author-www-mirror-receipts.json"
+        }
+      },
+      "images": [],
+      "photo_candidates": [
+        {
+          "source_page": "https://www.flickr.com/photos/canadavis/5137756952/",
+          "subject": "DJ Vivi Seixas",
+          "creator": "Ana Alexandrino (Cana Davis)",
+          "license_raw": "All rights reserved",
+          "page_inspected": true,
+          "checked_date": "2026-09-30",
+          "accepted": false,
+          "reason_rejected": "Inspected Flickr page identifies All rights reserved. Do not reuse under a Creative Commons assumption."
+        }
+      ],
+      "blockers": [
+        "Exact Every Noise membership not inspected. Escalated HTTP retry returned 403 Forbidden. Original author WWW mirror retry returned HTTP 502 Bad Gateway.",
+        "No accepted licensed photo located: inspected Vivi Seixas Flickr photograph is All rights reserved."
+      ],
+      "id": "brazilian_tech_house",
+      "signature_tokens": [
+        "minimal",
+        "dance-friendly",
+        "sample-foundational",
+        "sub-bass"
+      ],
+      "sources": [
+        {
+          "url": "https://www.zebunarede.com/2023/08/zebunarede-entrevista-vivi-seixas.html",
+          "title": "ZEBUNAREDE ENTREVISTA - VIVI SEIXAS",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "Artist says her set features tech house and groove; production collaborations and remix practice."
+          ]
+        },
+        {
+          "url": "https://alataj.com.br/minha-primeira-gig/vivi-seixas",
+          "title": "Minha Primeira Gig | Vivi Seixas",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "Smoke and Sweat EP with Keskem described as club-oriented tech house; firsthand Tijuca/Rio gig and California production training history."
+          ]
+        },
+        {
+          "url": "https://www.thenocturnaltimes.com/mochakks-newest-track-false-need-interview/",
+          "title": "Mochakk’s Newest Track False Need [Interview]",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "Logic production; short saturated drums, bouncing offbeat groove, hook and vocal layering described firsthand."
+          ]
+        },
+        {
+          "url": "https://www.beatport.com/artist/duarte-br/954927",
+          "title": "Duarte (BR) Music & Downloads on Beatport",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "independent",
+          "supported_claims": [
+            "Artist profile explicitly identifies Brazilian tech-house practice and releases on Coco/CUFF/Hellbent/Sola/DoggHaüz."
+          ]
+        },
+        {
+          "url": "https://www.musicmetricsvault.com/genres/brazilian-tech-house/2995",
+          "title": "Brazilian tech house Artists - Spotify Statistics",
+          "checked_date": "2026-09-30",
+          "inspection": "web_open_search_result_ref",
+          "kind": "label_membership_proxy",
+          "supported_claims": [
+            "Current tagged roster includes Vivi Seixas; no universal samba/gear claims inferred from promotional genre prose."
+          ]
+        }
+      ],
+      "neighbor_distinction": "No equivalent regional id/name. tech_house_classic is the global parent practice; Brazilian house is broader and includes melodic/hybrid strands. These regional entries are related; do not pretend every single Brazilian artist has one exclusive genre.",
+      "photo": null,
+      "instrument_photo_review": {
+        "checked_date": "2026-09-30",
+        "manifest_roster_lookup": [
+          {
+            "id": "analog_synth",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Buchla_Music_Easel.jpg"
+          },
+          {
+            "id": "sampler_drum_machine",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg"
+          },
+          {
+            "id": "sampler_classic",
+            "record_present": true,
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg"
+          }
+        ],
+        "limitation": "Existing instrument image rows checked for presence only; photo bytes, real creator/license page inspection and dimensions remain unverified. Generic shared sampler photo cannot establish selected device identity."
+      },
+      "defaults_review": {
+        "policy": "All flat pins are explicitly reviewed authored model choices. Avoid tying percussion to unspecified ethnic acoustic instruments. Electronic bass-sub pin applies only when both part and variant exist; samplers lacking bass-sub keep their own chopped-sample technique.",
+        "voice": "No live vocal chair prescribed: sampled vocal hooks belong to sampler sources, whose legal sourcing remains user responsibility. The recipe does not fabricate singer training, register or vocal-tract measurements.",
+        "materials": "Electronic instruments need no acoustic body material selections. Brazilian-house guitar choices (alder/maple/rosewood, pure nickel 10 gauge, standard tuning, single-coil defaults) are one author-selected clean guitar model, not documentation of Boratto’s own specific guitar.",
+        "environment": "Modern studio DI/in-box chain is an authored reusable recipe environment. Djeff/FADER support software beatmaking; Dom Dolla supports traveling in-box production; Boratto supports home studio treatment, interfaces and synth integration. Exact chain brands and axes are not claimed as historical facts."
+      },
+      "structural_receipt": {
+        "part_applications": {
+          "sample_bitdepth": [
+            "sampler_drum_machine"
+          ],
+          "sample_swing": [
+            "sampler_drum_machine"
+          ],
+          "sample_processing": [
+            "sampler_drum_machine"
+          ],
+          "sampler_archetypes": [
+            "sampler_classic"
+          ],
+          "sampler_bit_depth": [
+            "sampler_classic"
+          ],
+          "sampler_workflow": [
+            "sampler_classic"
+          ],
+          "sampler_classic_context": [
+            "sampler_classic"
+          ],
+          "electronic_technique": [
+            "analog_synth"
+          ],
+          "oscillator": [
+            "analog_synth"
+          ],
+          "filter_topology": [
+            "analog_synth"
+          ],
+          "envelope": [
+            "analog_synth"
+          ],
+          "modulation": [
+            "analog_synth"
+          ]
+        },
+        "collisions": [],
+        "roster_resolves": true,
+        "checked_date": "2026-09-30"
+      }
+    }
+  ],
+  "shared_prerequisites": [],
+  "validation": {
+    "structural_checked": true,
+    "structural_issues": [],
+    "production_overlay_checked": false,
+    "complete": false
+  },
+  "handoff_note": "Do not count these five labels complete or merge their additions as fully verified until listed membership/photo blockers are cleared. No shared source/generated files edited. Escalated networking retrieved Commons source pages and API metadata; all five exact Every Noise endpoints still HTTP 403. Root owns full/thumb bytes and visual review."
+}

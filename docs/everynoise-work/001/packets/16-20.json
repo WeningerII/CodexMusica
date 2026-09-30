@@ -1,0 +1,1338 @@
+{
+  "schema_version": 1,
+  "group_id": "001",
+  "allocation_ordinals": [
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "checked_date": "2026-09-30",
+  "status": "researched_proposals_with_explicit_verification_blockers",
+  "shared_files_modified": false,
+  "entries": [
+    {
+      "source_label": "polish ambient",
+      "source_url": "https://everynoise.com/engenremap-polishambient.html",
+      "suggested_id": "polish_ambient",
+      "allocation_ordinal": 16,
+      "id": "polish_ambient",
+      "proposed_outcome": "add",
+      "tradition": {
+        "id": "polish_ambient",
+        "name": "Polish ambient",
+        "family": "electronic",
+        "lineage": "Contemporary ambient practice in Poland includes Jacaszek’s processed acoustic instrumentation and the string/electronic collaboration with Stefan Wesołowski. This is a regional scene grouping, not a uniform national sound. The default models the acoustic-electronic palette documented around Treny and Glimmer; exact construction and recording settings are authored.",
+        "instruments": [
+          "sampler_classic",
+          "violin_orchestral",
+          "harpsichord",
+          "clarinet"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_contemporary_recording_model",
+        "chain_mic": "condenser_fet",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_fx": [
+          "hall_reverb"
+        ],
+        "parts": {
+          "sampler_archetypes": "akai_s1000",
+          "sampler_classic_context": "sampler_classic_industrial",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_workflow": "sampler_field_recordings",
+          "bowed_technique": "bowed_sul_tasto",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_articulation": "arco_orch",
+          "harpsichord_temperament": "harpsichord_equal_modern",
+          "harpsichord_plectrum": "harpsichord_delrin_modern",
+          "harpsichord_context": "harpsichord_modern",
+          "wind_articulation": "wind_classical_legato"
+        },
+        "pin_parts": true
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": 0,
+          "pitch": 1,
+          "ornament": -1,
+          "meter": -2,
+          "density": -1,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": -1,
+          "voice": -2,
+          "timbre": 2,
+          "percussion": -2,
+          "cyclicity": 0
+        },
+        "description": "A regional grouping of ambient musicians working in Poland, with acoustic/electronic and field-recording approaches rather than one mandatory style. Jacaszek’s Treny combines arranged strings with quiet electronic texture; Glimmer adds harpsichord and clarinet, while Pentral uses recordings from Gothic church interiors. The selected ensemble combines these documented acoustic/electronic practices; it does not prescribe a shared Polish tuning, inherited folk ensemble or exclusive origin.",
+        "exemplars": [
+          "Jacaszek — Treny",
+          "Jacaszek — Glimmer",
+          "Jacaszek — Pentral",
+          "Stefan Wesołowski — Liebestod"
+        ],
+        "status": "researched",
+        "crossRefs": [
+          "experimentalElec.musiqueConcrete"
+        ]
+      },
+      "geo": [
+        54.352,
+        18.6466,
+        "Gdańsk",
+        "Europe"
+      ],
+      "signature_tokens": [
+        "ambient",
+        "minimal",
+        "sustained",
+        "sustained-tone",
+        "drone-foundation",
+        "drone-like",
+        "layered-ambient",
+        "meditative-tempo",
+        "soft",
+        "soft-onset",
+        "smoothed",
+        "mellow",
+        "quiet",
+        "reverberant",
+        "resonant",
+        "layered",
+        "contemplative",
+        "lush-ambient",
+        "melodic",
+        "naturally-reverberant"
+      ],
+      "sources": [
+        {
+          "url": "https://culture.pl/en/artist/michal-jacaszek",
+          "title": "Michał Jacaszek — Biography | Culture.pl",
+          "checked_date": "2026-09-30",
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "Jacaszek processed acoustic instruments and samples; Treny arranged strings; Glimmer harpsichord and clarinet; Pentral church field recordings; collaborations and exemplars."
+          ]
+        },
+        {
+          "url": "https://hat.web.amu.edu.pl/en/category/projects/",
+          "title": "Projects — Humanities/Art/Technology Research Center",
+          "checked_date": "2026-09-30",
+          "inspection": "search_result_read_page_open_blocked",
+          "supported_claims": [
+            "2023 Polish Ambient project includes 28 interviews; scene includes Jacaszek, Wolski, Mirt, Bojanek, Bednarczyk and others."
+          ]
+        },
+        {
+          "url": "https://culture.pl/en/event/jacaszeks-electro-plays-the-us",
+          "title": "Jacaszek’s Electro Plays the US | Culture.pl",
+          "checked_date": "2026-09-30",
+          "inspection": "search_result_read",
+          "supported_claims": [
+            "Pentral recorded at three Gdańsk-area churches supports Gdańsk practice anchor."
+          ]
+        },
+        {
+          "url": "https://stefanwesolowski.bandcamp.com/album/liebestod",
+          "title": "Liebestod | Stefan Wesołowski",
+          "checked_date": "2026-09-30",
+          "inspection": "search_result_read",
+          "supported_claims": [
+            "Artist credits compositions for piano, brass, strings and electronics; Gdańsk support."
+          ]
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Micha%C5%82_Jacaszek.JPG",
+          "title": "File:Michał Jacaszek.JPG — Wikimedia Commons",
+          "checked_date": "2026-09-30",
+          "inspection": "actual_file_page_HTML_read_and_API_metadata_compared",
+          "supported_claims": [
+            "Photo subject: Michał Jacaszek",
+            "Creator: Artur Andrzej",
+            "License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)",
+            "Full-subject delivered JPEG and separate thumbnail were fetched, decoded and visually checked; canonical original returned HTTP 429."
+          ]
+        }
+      ],
+      "model_policy": "Axes, representative ensemble construction/material settings, exact room, tuning, microphone/preamp/mixer/compressor/EQ/medium and effects are authored recipe defaults, not documented gear or measured facts. Source support is limited to each cited claim. A roster represents one supported practice model rather than all musicians in the label.",
+      "membership": {
+        "original_url_attempted": "https://everynoise.com/engenremap-polishambient.html",
+        "original_inspection": "blocked_tool_not_accessible",
+        "mirror_url": "https://furia.com/everynoise_public/engenremap-polishambient.html",
+        "mirror_inspection": "blocked_restricted_or_403",
+        "member_examples_verified": false,
+        "escalated_retrieval_receipts": {
+          "https://everynoise.com/engenremap-polishambient.html": {
+            "error": "HTTP Error 403: Forbidden"
+          },
+          "https://furia.com/everynoise_public/engenremap-polishambient.html": {
+            "error": "HTTP Error 403: Forbidden"
+          },
+          "https://www.furia.com/everynoise_public/engenremap-polishambient.html": {
+            "error": "HTTP Error 502: Bad Gateway"
+          }
+        },
+        "www_mirror_url": "https://www.furia.com/everynoise_public/engenremap-polishambient.html",
+        "www_mirror_inspection": "actual_HTTP_502_Bad_Gateway; browse_tool_restricted_URL"
+      },
+      "production_validation": {
+        "status": "production_node_four_formats_reviewed_pending_parent_browser_overlay",
+        "checked": false,
+        "node_four_formats_checked": true,
+        "browser_parity_checked": false,
+        "review_file": "docs/everynoise-work/001/packets/16-20-evidence/render-review.json",
+        "actual_prefaces": [
+          {
+            "instrument": "sampler_classic",
+            "preface": "depaysement"
+          },
+          {
+            "instrument": "violin_orchestral",
+            "preface": "drowning"
+          },
+          {
+            "instrument": "harpsichord",
+            "preface": "calm"
+          },
+          {
+            "instrument": "clarinet",
+            "preface": "cloud-floating"
+          }
+        ],
+        "review": "Rich/tags/prose/compact reviewed; no erhuang, stride-trotting, kora-cascading, samul-percussive or street-pulsing attribution. Parts/environment are authored source-informed models, not documented exact equipment. Existing classified sonic/style vocabulary only."
+      },
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "polish_ambient",
+          "name": "Polish ambient",
+          "source": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Micha%C5%82_Jacaszek.JPG",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/1920px-Micha%C5%82_Jacaszek.JPG",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/330px-Micha%C5%82_Jacaszek.JPG",
+          "license": "CC BY-SA 4.0",
+          "license_raw": "Creative Commons Attribution-Share Alike 4.0",
+          "credit": "Artur Andrzej / Wikimedia Commons / CC BY-SA 4.0",
+          "match_confidence": "high",
+          "matched_label": "Michał Jacaszek",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "wikidata": "Q6110522"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "checked": true,
+          "rights_metadata": "actual_commons_file_page_and_imageinfo_API_read",
+          "metadata_dimensions": [
+            3033,
+            4055
+          ],
+          "metadata_mime_type": "image/jpeg",
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Micha%C5%82_Jacaszek.JPG",
+          "canonical_original_fetch_result": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
+          "delivery_note": "Manifest image_url is a Commons full-subject resized delivery, not the canonical original. Original URL and failed original fetch are preserved here. Full subject and aspect ratio are retained.",
+          "http_status": 200,
+          "final_full_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/1920px-Micha%C5%82_Jacaszek.JPG",
+          "final_thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/330px-Micha%C5%82_Jacaszek.JPG",
+          "full": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/1920px-Micha%C5%82_Jacaszek.JPG",
+            "status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/1920px-Micha%C5%82_Jacaszek.JPG",
+            "content_type": "image/jpeg",
+            "bytes": 886707,
+            "sha256": "43a88ad3401bdb7da8b18198a20696158196abd1d2bf599392da2c1530e6f435",
+            "dimensions": [
+              1920,
+              2567
+            ],
+            "format": "JPEG",
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/polish_ambient-full-delivery.jpg"
+          },
+          "thumbnail": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/330px-Micha%C5%82_Jacaszek.JPG",
+            "status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/330px-Micha%C5%82_Jacaszek.JPG",
+            "content_type": "image/jpeg",
+            "bytes": 46679,
+            "sha256": "a3eb5cd42af8a9cfee9b6ee6f761fb0e8e600135fcb6900dfe2b4b5db3bd600f",
+            "dimensions": [
+              330,
+              441
+            ],
+            "format": "JPEG",
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/polish_ambient-thumb-delivery.jpg"
+          },
+          "bytes_checked": true,
+          "visual_checked": true,
+          "visual_review": "Jacaszek stands at a laptop, mixer and cabled electronics; a music-practice photograph, not a landscape.",
+          "thumbnail_visual_review": "Actual separate thumbnail checked in thumb-visual-review.jpg; same subject and framing as full delivery.",
+          "license_creator_checked": true,
+          "checked_method": "Public HTTPS fetch via retained environment proxy; JPEG dimensions decoded from actual downloaded bytes with Pillow; actual file page text, full image and separate thumbnail visually inspected.",
+          "evidence_file": "docs/everynoise-work/001/packets/16-20-evidence/retrieval.json"
+        }
+      },
+      "blockers": [
+        "Exact Every Noise artist membership page could not be inspected."
+      ],
+      "geo_rationale": "Gdańsk anchors Jacaszek/Wesołowski practice and documented Pentral field recording locations; not a birthplace claim.",
+      "neighbor_distinction": "Distinct from ambient_synth and space_ambient by regional grouping and selected documented acoustic/electronic model; no claim that these instruments define all Polish ambient.",
+      "signature_rationale": "Quiet acoustic/electronic layering, extended resonance and spacious processing model the documented Jacaszek palette. Naturally-reverberant describes the Pentral church-recording strand specifically, rather than attributing a national scale or folk articulation."
+    },
+    {
+      "source_label": "pop ambient",
+      "source_url": "https://everynoise.com/engenremap-popambient.html",
+      "suggested_id": "pop_ambient",
+      "allocation_ordinal": 17,
+      "id": "pop_ambient",
+      "proposed_outcome": "add",
+      "tradition": {
+        "id": "pop_ambient",
+        "name": "Pop ambient (Kompakt beat-free electronics)",
+        "family": "electronic",
+        "lineage": "Wolfgang Voigt’s Kompakt Pop Ambient compilations began in 2001 and foreground instrumental beat-free electronic atmosphere. This reverses neither the existing vocal ambient-pop category nor its song form. Piano and sample-based harmonic abstraction are documented in the 2013 edition; synthesis, build settings and recording chain are representative authored choices.",
+        "instruments": [
+          "sampler_classic",
+          "analog_synth",
+          "grand_piano"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_contemporary_recording_model",
+        "chain_mic": "condenser_fet",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_fx": [
+          "hall_reverb"
+        ],
+        "parts": {
+          "sampler_archetypes": "akai_s1000",
+          "sampler_classic_context": "sampler_classic_industrial",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter",
+          "keyboard_technique": "keyboard_classical_legato"
+        },
+        "pin_parts": true
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": 1,
+          "pitch": 1,
+          "ornament": -1,
+          "meter": -2,
+          "density": -1,
+          "transmission": 1,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": -1,
+          "voice": -2,
+          "timbre": 2,
+          "percussion": -2,
+          "cyclicity": 1
+        },
+        "description": "Kompakt’s Pop Ambient compilation idiom, curated by Wolfgang Voigt from 2001: gentle, largely beat-free electronic textures and enlarged harmonic material. The 2013 edition documents sample sculpting, piano, synthetic/natural timbre boundaries and resolving drones. Rare vocal tracks exist, but the default is instrumental. This differs from ambient_pop, whose current catalog record models intimate vocal band songs, and from ambient house or ambient techno by omitting the beat-centered ensemble.",
+        "exemplars": [
+          "Kompakt — Pop Ambient 2001",
+          "Wolfgang Voigt — Rückverzauberung 7",
+          "Anton Kubikov — Ambianopolis",
+          "Leandro Fresco — El Cruce Imposible"
+        ],
+        "status": "researched",
+        "crossRefs": []
+      },
+      "geo": [
+        50.9375,
+        6.9603,
+        "Cologne",
+        "Europe"
+      ],
+      "signature_tokens": [
+        "ambient",
+        "minimal",
+        "sustained",
+        "sustained-tone",
+        "drone-foundation",
+        "drone-like",
+        "layered-ambient",
+        "meditative-tempo",
+        "soft",
+        "soft-onset",
+        "smoothed",
+        "mellow",
+        "quiet",
+        "reverberant",
+        "resonant",
+        "layered",
+        "contemplative",
+        "lush-ambient",
+        "melodic",
+        "warm-glowing"
+      ],
+      "sources": [
+        {
+          "url": "https://kompakt.fm/downloads/pop-ambient",
+          "title": "Pop Ambient 2001–2021 | Kompakt",
+          "checked_date": "2026-09-30",
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "Label defines beat-free series curated by Wolfgang Voigt; contributions and chronology."
+          ]
+        },
+        {
+          "url": "https://kompakt.fm/releases/pop_ambient_2013_digital_album",
+          "title": "Pop Ambient 2013 | Kompakt",
+          "checked_date": "2026-09-30",
+          "inspection": "search_result_full_text_read_page_open_blocked",
+          "supported_claims": [
+            "2013 notes document piano, samples, drones; rare vocal closer; inception 2001."
+          ]
+        },
+        {
+          "url": "https://kompakt.bandcamp.com/album/pop-ambient-2011",
+          "title": "Pop Ambient 2011 | Kompakt",
+          "checked_date": "2026-09-30",
+          "inspection": "search_result_read",
+          "supported_claims": [
+            "Label account identifies Cologne, Germany."
+          ]
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Wolfgang_Voigt_2012.jpg",
+          "title": "File:Wolfgang Voigt 2012.jpg — Wikimedia Commons",
+          "checked_date": "2026-09-30",
+          "inspection": "actual_file_page_HTML_read_and_API_metadata_compared",
+          "supported_claims": [
+            "Photo subject: Wolfgang Voigt",
+            "Creator: Alec Luhn",
+            "License: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)",
+            "Full-subject delivered JPEG and separate thumbnail were fetched, decoded and visually checked; canonical original returned HTTP 429."
+          ]
+        }
+      ],
+      "model_policy": "Axes, representative ensemble construction/material settings, exact room, tuning, microphone/preamp/mixer/compressor/EQ/medium and effects are authored recipe defaults, not documented gear or measured facts. Source support is limited to each cited claim. A roster represents one supported practice model rather than all musicians in the label.",
+      "membership": {
+        "original_url_attempted": "https://everynoise.com/engenremap-popambient.html",
+        "original_inspection": "blocked_tool_not_accessible",
+        "mirror_url": "https://furia.com/everynoise_public/engenremap-popambient.html",
+        "mirror_inspection": "page_opened_and_read",
+        "member_examples_verified": true,
+        "member_examples": [
+          "Leandro Fresco",
+          "Anton Kubikov",
+          "Jens-Uwe Beyer",
+          "Jürgen Paape",
+          "Thomas Fehlmann"
+        ],
+        "escalated_retrieval_receipts": {
+          "https://everynoise.com/engenremap-popambient.html": {
+            "error": "HTTP Error 403: Forbidden"
+          },
+          "https://furia.com/everynoise_public/engenremap-popambient.html": {
+            "error": "HTTP Error 403: Forbidden"
+          },
+          "https://www.furia.com/everynoise_public/engenremap-popambient.html": {
+            "error": "HTTP Error 502: Bad Gateway"
+          }
+        },
+        "www_mirror_url": "https://www.furia.com/everynoise_public/engenremap-popambient.html",
+        "www_mirror_inspection": "actual_HTTP_502_Bad_Gateway; browse_tool_restricted_URL"
+      },
+      "production_validation": {
+        "status": "production_node_four_formats_reviewed_pending_parent_browser_overlay",
+        "checked": false,
+        "node_four_formats_checked": true,
+        "browser_parity_checked": false,
+        "review_file": "docs/everynoise-work/001/packets/16-20-evidence/render-review.json",
+        "actual_prefaces": [
+          {
+            "instrument": "sampler_classic",
+            "preface": "calm"
+          },
+          {
+            "instrument": "analog_synth",
+            "preface": "cloud-floating"
+          },
+          {
+            "instrument": "grand_piano",
+            "preface": "depaysement"
+          }
+        ],
+        "review": "Rich/tags/prose/compact reviewed; no erhuang, stride-trotting, kora-cascading, samul-percussive or street-pulsing attribution. Parts/environment are authored source-informed models, not documented exact equipment. Existing classified sonic/style vocabulary only."
+      },
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "pop_ambient",
+          "name": "Pop ambient (Kompakt beat-free electronics)",
+          "source": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Wolfgang_Voigt_2012.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/1280px-Wolfgang_Voigt_2012.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/330px-Wolfgang_Voigt_2012.jpg",
+          "license": "CC BY 2.0",
+          "license_raw": "Creative Commons Attribution 2.0",
+          "credit": "Alec Luhn / Wikimedia Commons / CC BY 2.0",
+          "match_confidence": "high",
+          "matched_label": "Wolfgang Voigt",
+          "license_url": "https://creativecommons.org/licenses/by/2.0",
+          "wikidata": "Q85367"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "checked": true,
+          "rights_metadata": "actual_commons_file_page_and_imageinfo_API_read",
+          "metadata_dimensions": [
+            5184,
+            3456
+          ],
+          "metadata_mime_type": "image/jpeg",
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Wolfgang_Voigt_2012.jpg",
+          "canonical_original_fetch_result": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
+          "delivery_note": "Manifest image_url is a Commons full-subject resized delivery, not the canonical original. Original URL and failed original fetch are preserved here. Full subject and aspect ratio are retained.",
+          "http_status": 200,
+          "final_full_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/1280px-Wolfgang_Voigt_2012.jpg",
+          "final_thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/330px-Wolfgang_Voigt_2012.jpg",
+          "full": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/1280px-Wolfgang_Voigt_2012.jpg",
+            "status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/1280px-Wolfgang_Voigt_2012.jpg",
+            "content_type": "image/jpeg",
+            "bytes": 220594,
+            "sha256": "790ba6bacf0b1754bcfcad6cc665eae40d94224272562a4d585db8bf6fd6738a",
+            "dimensions": [
+              1280,
+              853
+            ],
+            "format": "JPEG",
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/pop_ambient-full-delivery.jpg"
+          },
+          "thumbnail": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/330px-Wolfgang_Voigt_2012.jpg",
+            "status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/330px-Wolfgang_Voigt_2012.jpg",
+            "content_type": "image/jpeg",
+            "bytes": 25778,
+            "sha256": "30740954ab7fc0744c0db57d488d98a7345c8092794ea140223cfaf3fce35c89",
+            "dimensions": [
+              330,
+              220
+            ],
+            "format": "JPEG",
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/pop_ambient-thumb-delivery.jpg"
+          },
+          "bytes_checked": true,
+          "visual_checked": true,
+          "visual_review": "Wolfgang Voigt in the Kompakt record shop; an identified curator portrait with records and label material.",
+          "thumbnail_visual_review": "Actual separate thumbnail checked in thumb-visual-review.jpg; same subject and framing as full delivery.",
+          "license_creator_checked": true,
+          "checked_method": "Public HTTPS fetch via retained environment proxy; JPEG dimensions decoded from actual downloaded bytes with Pillow; actual file page text, full image and separate thumbnail visually inspected.",
+          "evidence_file": "docs/everynoise-work/001/packets/16-20-evidence/retrieval.json"
+        }
+      },
+      "blockers": [],
+      "geo_rationale": "Cologne anchors Kompakt label practice. The label’s official Bandcamp release page lists Cologne; no exclusive birthplace claim.",
+      "equivalence_decision": {
+        "ambient_pop": "not_equivalent",
+        "reason": "Existing record models 2010s vocal ambient pop with Cigarettes After Sex; Kompakt Pop Ambient practice is primarily beat-free instrumental and has its own Every Noise label."
+      },
+      "neighbor_distinction": "Not equivalent to ambient_pop: distinct Every Noise label and Kompakt beat-free compilation practice, versus current voice/guitar/bass/drums ambient_pop model.",
+      "signature_rationale": "Sustained, soft layered ambient texture and contemplative pace describe the beat-free Kompakt compilation practice; melodic and warm-glowing follow the documented chords and piano alongside sculpted samples. No pop-song groove or vocal band is implied."
+    },
+    {
+      "source_label": "ritual ambient",
+      "source_url": "https://everynoise.com/engenremap-ritualambient.html",
+      "suggested_id": "ritual_ambient",
+      "allocation_ordinal": 18,
+      "id": "ritual_ambient",
+      "proposed_outcome": "add",
+      "tradition": {
+        "id": "ritual_ambient",
+        "name": "Ritual ambient",
+        "family": "electronic",
+        "lineage": "Ceremonial ambient practice encompasses electronic production and vocal-centered ritual performance. Lustmord’s The Word as Power documents guest voices and long studio pieces; Phurpa’s performances foreground overtone chanting and ritual instruments. The selected model processes an ametrical vocal source through a sampler, without asserting one shared religion or an authentic monastic instrumentation.",
+        "instruments": [
+          "voice",
+          "sampler_classic"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_contemporary_recording_model",
+        "chain_mic": "condenser_fet",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_fx": [
+          "hall_reverb"
+        ],
+        "parts": {
+          "sampler_archetypes": "akai_s1000",
+          "sampler_classic_context": "sampler_classic_industrial",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "electronic_technique": "electronic_glitch_textural",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_speech_song": "voice_ametrical_chant",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_aural_relative",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_hall_reverb_long",
+          "voice_vibrato": "straight_tone"
+        },
+        "pin_parts": true
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": -1,
+          "pitch": 0,
+          "ornament": -1,
+          "meter": -2,
+          "density": -1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 2,
+          "percussion": -2,
+          "cyclicity": 1
+        },
+        "description": "Ambient practice foregrounding ceremony, incantation and sustained vocal or electronic space. Every Noise’s cluster includes Lustmord, Phurpa and Soriah, whose approaches vary substantially. Lustmord’s The Word as Power credits distinct guest voices; Phurpa performs overtone chanting with ritual instruments. The default supplies voice and sampled transformation as a contemporary studio model. It does not equate the entire genre with Bön, Tibetan monastic chant, one sacred language, or one religious institution.",
+        "exemplars": [
+          "Lustmord — The Word as Power",
+          "Phurpa — Tro-Wo Phur Nag",
+          "Soriah — Grigori"
+        ],
+        "status": "researched",
+        "crossRefs": [
+          "experimentalElec.industrialNoise"
+        ]
+      },
+      "geo": [
+        34.0522,
+        -118.2437,
+        "Los Angeles",
+        "North America"
+      ],
+      "signature_tokens": [
+        "ambient",
+        "minimal",
+        "sustained",
+        "sustained-tone",
+        "drone-foundation",
+        "drone-like",
+        "layered-ambient",
+        "meditative-tempo",
+        "smoothed",
+        "quiet",
+        "reverberant",
+        "resonant",
+        "layered",
+        "contemplative",
+        "lush-ambient",
+        "ritual",
+        "dark",
+        "overtone-singing"
+      ],
+      "sources": [
+        {
+          "url": "https://www.bardomethodology.com/articles/2016/04/20/phurpa/",
+          "title": "Phurpa interview | Bardo Methodology",
+          "checked_date": "2026-09-30",
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "Firsthand performance and interview: rgyud-skad overtone chanting, drums/cymbals/horns/shells/oboes; Phurpa self-identifies as ritual; source does not generalize entire genre."
+          ]
+        },
+        {
+          "url": "https://lustmord.bandcamp.com/album/the-word-as-power",
+          "title": "The Word As Power | Lustmord",
+          "checked_date": "2026-09-30",
+          "inspection": "search_result_full_text_read",
+          "supported_claims": [
+            "Artist credits voices, production 2009–2012 at scientific electric Los Angeles, 2013 release."
+          ]
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Lustmord.jpg",
+          "title": "File:Lustmord.jpg — Wikimedia Commons",
+          "checked_date": "2026-09-30",
+          "inspection": "actual_file_page_HTML_read_and_API_metadata_compared",
+          "supported_claims": [
+            "Photo subject: Lustmord",
+            "Creator: Henrik Strömberg from Sweden",
+            "License: CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0)",
+            "Full-subject delivered JPEG and separate thumbnail were fetched, decoded and visually checked; canonical original returned HTTP 429."
+          ]
+        }
+      ],
+      "model_policy": "Axes, representative ensemble construction/material settings, exact room, tuning, microphone/preamp/mixer/compressor/EQ/medium and effects are authored recipe defaults, not documented gear or measured facts. Source support is limited to each cited claim. A roster represents one supported practice model rather than all musicians in the label.",
+      "membership": {
+        "original_url_attempted": "https://everynoise.com/engenremap-ritualambient.html",
+        "original_inspection": "blocked_tool_not_accessible",
+        "mirror_url": "https://furia.com/everynoise_public/engenremap-ritualambient.html",
+        "mirror_inspection": "page_opened_and_read",
+        "member_examples_verified": true,
+        "member_examples": [
+          "Lustmord",
+          "Phurpa",
+          "Soriah"
+        ],
+        "escalated_retrieval_receipts": {
+          "https://everynoise.com/engenremap-ritualambient.html": {
+            "error": "HTTP Error 403: Forbidden"
+          },
+          "https://furia.com/everynoise_public/engenremap-ritualambient.html": {
+            "error": "HTTP Error 403: Forbidden"
+          },
+          "https://www.furia.com/everynoise_public/engenremap-ritualambient.html": {
+            "error": "HTTP Error 502: Bad Gateway"
+          }
+        },
+        "www_mirror_url": "https://www.furia.com/everynoise_public/engenremap-ritualambient.html",
+        "www_mirror_inspection": "actual_HTTP_502_Bad_Gateway; browse_tool_restricted_URL"
+      },
+      "production_validation": {
+        "status": "production_node_four_formats_reviewed_pending_parent_browser_overlay",
+        "checked": false,
+        "node_four_formats_checked": true,
+        "browser_parity_checked": false,
+        "review_file": "docs/everynoise-work/001/packets/16-20-evidence/render-review.json",
+        "actual_prefaces": [
+          {
+            "instrument": "voice",
+            "preface": "depaysement"
+          },
+          {
+            "instrument": "sampler_classic",
+            "preface": "drowning"
+          }
+        ],
+        "review": "Rich/tags/prose/compact reviewed; no erhuang, stride-trotting, kora-cascading, samul-percussive or street-pulsing attribution. Parts/environment are authored source-informed models, not documented exact equipment. Existing classified sonic/style vocabulary only."
+      },
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "ritual_ambient",
+          "name": "Ritual ambient",
+          "source": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Lustmord.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/960px-Lustmord.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/330px-Lustmord.jpg",
+          "license": "CC BY-SA 2.0",
+          "license_raw": "Creative Commons Attribution-Share Alike 2.0",
+          "credit": "Henrik Strömberg from Sweden / Wikimedia Commons / CC BY-SA 2.0",
+          "match_confidence": "high",
+          "matched_label": "Lustmord",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+          "wikidata": "Q913245"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "checked": true,
+          "rights_metadata": "actual_commons_file_page_and_imageinfo_API_read",
+          "metadata_dimensions": [
+            1024,
+            683
+          ],
+          "metadata_mime_type": "image/jpeg",
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Lustmord.jpg",
+          "canonical_original_fetch_result": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
+          "delivery_note": "Manifest image_url is a Commons full-subject resized delivery, not the canonical original. Original URL and failed original fetch are preserved here. Full subject and aspect ratio are retained.",
+          "http_status": 200,
+          "final_full_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/960px-Lustmord.jpg",
+          "final_thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/330px-Lustmord.jpg",
+          "full": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/960px-Lustmord.jpg",
+            "status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/960px-Lustmord.jpg",
+            "content_type": "image/jpeg",
+            "bytes": 139911,
+            "sha256": "40320649303288731ff611c6d8a6220fb030ffee8313dc1cb83c109f40a41af9",
+            "dimensions": [
+              960,
+              640
+            ],
+            "format": "JPEG",
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/ritual_ambient-full-delivery.jpg"
+          },
+          "thumbnail": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/330px-Lustmord.jpg",
+            "status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/330px-Lustmord.jpg",
+            "content_type": "image/jpeg",
+            "bytes": 16063,
+            "sha256": "65e51854bbf529ac38762af3ef71bba06cedcb191c71ceb2c9d63e7c12971c6f",
+            "dimensions": [
+              330,
+              220
+            ],
+            "format": "JPEG",
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/ritual_ambient-thumb-delivery.jpg"
+          },
+          "bytes_checked": true,
+          "visual_checked": true,
+          "visual_review": "Lustmord performs at an electronic workstation and laptop on a dark stage.",
+          "thumbnail_visual_review": "Actual separate thumbnail checked in thumb-visual-review.jpg; same subject and framing as full delivery.",
+          "license_creator_checked": true,
+          "checked_method": "Public HTTPS fetch via retained environment proxy; JPEG dimensions decoded from actual downloaded bytes with Pillow; actual file page text, full image and separate thumbnail visually inspected.",
+          "evidence_file": "docs/everynoise-work/001/packets/16-20-evidence/retrieval.json"
+        }
+      },
+      "blockers": [],
+      "geo_rationale": "Los Angeles anchors documented Lustmord studio practice on The Word as Power; Phurpa is Moscow-based, so this pin is deliberately representative rather than universal.",
+      "neighbor_distinction": "Distinct from generic dark ambient by foregrounded vocal/ceremonial gesture and examples; current dark ambient entries use predominantly instrument/drone sound design.",
+      "signature_rationale": "Dark, resonant layers, sustained drones and slow ritual pacing describe the documented Lustmord/Phurpa sound. Overtone-singing is a documented strand; the voice defaults keep register, cultural tradition and mechanism unspecified rather than claim one compulsory chant technique."
+    },
+    {
+      "source_label": "warm drone",
+      "source_url": "https://everynoise.com/engenremap-warmdrone.html",
+      "suggested_id": "warm_drone",
+      "allocation_ordinal": 19,
+      "id": "warm_drone",
+      "proposed_outcome": "add",
+      "tradition": {
+        "id": "warm_drone",
+        "name": "Warm drone",
+        "family": "electronic",
+        "lineage": "Soft, slowly changing sustained-tone ambience is represented here by Windy & Carl’s guitar, bass and keyboard recordings. The duo’s artist account establishes this instrumental practice; numeric and timbral defaults model a gentle guitar-led drone subset. Warm drone is a listening/texture label, not a geographically exclusive tradition or synonym for drone metal.",
+        "instruments": [
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "analog_synth"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_contemporary_recording_model",
+        "chain_mic": "condenser_fet",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_fx": [
+          "hall_reverb",
+          "digital_delay"
+        ],
+        "parts": {
+          "electric_technique": "electric_feedback_drone",
+          "bass_technique": "thumb_muted",
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "pin_parts": true
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": -1,
+          "pitch": 1,
+          "ornament": -2,
+          "meter": -2,
+          "density": -1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": -2,
+          "voice": -2,
+          "timbre": 2,
+          "percussion": -2,
+          "cyclicity": 1
+        },
+        "description": "A texture-oriented drone grouping favoring soft, enveloping sustained harmony and gradual timbral change. This representative default follows the guitar/bass/keyboard practice documented by Windy & Carl and their album Consciousness. It keeps continuous resonance ahead of riff-based structure, metal distortion, dance rhythm or a lead pop vocal. The label does not establish a shared historical school; artist membership in the exact Every Noise page remains unverified in this run.",
+        "exemplars": [
+          "Windy & Carl — Consciousness",
+          "Windy & Carl — Elevation",
+          "Leandro Fresco & Rafael Anton Irisarri — Una Presencia En La Brisa"
+        ],
+        "status": "researched",
+        "crossRefs": []
+      },
+      "geo": [
+        42.3223,
+        -83.1763,
+        "Dearborn",
+        "North America"
+      ],
+      "signature_tokens": [
+        "ambient",
+        "minimal",
+        "sustained",
+        "sustained-tone",
+        "drone-foundation",
+        "drone-like",
+        "layered-ambient",
+        "meditative-tempo",
+        "soft",
+        "soft-onset",
+        "smoothed",
+        "mellow",
+        "quiet",
+        "reverberant",
+        "resonant",
+        "layered",
+        "contemplative",
+        "lush-ambient",
+        "warm-glowing",
+        "warmed",
+        "low-mid-rich"
+      ],
+      "sources": [
+        {
+          "url": "https://windyandcarl.bandcamp.com/album/consciousness",
+          "title": "Consciousness | Windy & Carl",
+          "checked_date": "2026-09-30",
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "Artist account: guitars, bass, keys, occasional vocals; Dearborn anchor; 2001 album."
+          ]
+        },
+        {
+          "url": "https://ink19.com/2001/06/magazine/music-reviews/bhuduc-windy-and-carl",
+          "title": "Windy And Carl — Consciousness | Ink 19",
+          "checked_date": "2026-09-30",
+          "inspection": "search_result_full_text_read",
+          "supported_claims": [
+            "Contemporary review characterizes warm guitar/bass/keyboard ambience and drone context."
+          ]
+        },
+        {
+          "url": "https://irisarri.bandcamp.com/track/encore-live-at-cafe-oto",
+          "title": "Encore (Live at Cafe OTO) | Rafael Anton Irisarri",
+          "checked_date": "2026-09-30",
+          "inspection": "search_result_full_text_read",
+          "supported_claims": [
+            "Artist credits bowed guitar, processing, field recordings, piano, violin; independent potential practice/photo relevance."
+          ]
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_(11_March_2024).jpg",
+          "title": "File:Rafael Anton Irisarri at Café Oto (11 March 2024).jpg — Wikimedia Commons",
+          "checked_date": "2026-09-30",
+          "inspection": "actual_file_page_HTML_read_and_API_metadata_compared",
+          "supported_claims": [
+            "Photo subject: Rafael Anton Irisarri",
+            "Creator: FromMorningToMidnight",
+            "License: CC0 (http://creativecommons.org/publicdomain/zero/1.0/deed.en)",
+            "Full-subject delivered JPEG and separate thumbnail were fetched, decoded and visually checked; canonical original returned HTTP 429."
+          ]
+        },
+        {
+          "url": "https://leandrofrescorafaelantonirisarri.bandcamp.com/album/una-presencia-en-la-brisa",
+          "title": "Una Presencia En La Brisa | Leandro Fresco & Rafael Anton Irisarri",
+          "checked_date": "2026-09-30",
+          "inspection": "search_result_full_text_read; direct_page_open_restricted",
+          "supported_claims": [
+            "Artist/label release text explicitly documents warm harmonic drones, engineering by Rafael Anton Irisarri, remote Buenos Aires/New York collaboration, textures and manipulated voices.",
+            "Supports warm-drone photographic relevance independently; does not claim verified Every Noise membership."
+          ]
+        }
+      ],
+      "model_policy": "Axes, representative ensemble construction/material settings, exact room, tuning, microphone/preamp/mixer/compressor/EQ/medium and effects are authored recipe defaults, not documented gear or measured facts. Source support is limited to each cited claim. A roster represents one supported practice model rather than all musicians in the label.",
+      "membership": {
+        "original_url_attempted": "https://everynoise.com/engenremap-warmdrone.html",
+        "original_inspection": "blocked_tool_not_accessible",
+        "mirror_url": "https://furia.com/everynoise_public/engenremap-warmdrone.html",
+        "mirror_inspection": "blocked_restricted_or_403",
+        "member_examples_verified": false,
+        "escalated_retrieval_receipts": {
+          "https://everynoise.com/engenremap-warmdrone.html": {
+            "error": "HTTP Error 403: Forbidden"
+          },
+          "https://furia.com/everynoise_public/engenremap-warmdrone.html": {
+            "error": "HTTP Error 403: Forbidden"
+          },
+          "https://www.furia.com/everynoise_public/engenremap-warmdrone.html": {
+            "error": "HTTP Error 502: Bad Gateway"
+          }
+        },
+        "www_mirror_url": "https://www.furia.com/everynoise_public/engenremap-warmdrone.html",
+        "www_mirror_inspection": "actual_HTTP_502_Bad_Gateway; browse_tool_restricted_URL"
+      },
+      "production_validation": {
+        "status": "production_node_four_formats_reviewed_pending_parent_browser_overlay",
+        "checked": false,
+        "node_four_formats_checked": true,
+        "browser_parity_checked": false,
+        "review_file": "docs/everynoise-work/001/packets/16-20-evidence/render-review.json",
+        "actual_prefaces": [
+          {
+            "instrument": "electric_guitar_humbucker",
+            "preface": "autumnal"
+          },
+          {
+            "instrument": "electric_bass",
+            "preface": "calm"
+          },
+          {
+            "instrument": "analog_synth",
+            "preface": "cloud-floating"
+          }
+        ],
+        "review": "Rich/tags/prose/compact reviewed; no erhuang, stride-trotting, kora-cascading, samul-percussive or street-pulsing attribution. Parts/environment are authored source-informed models, not documented exact equipment. Existing classified sonic/style vocabulary only."
+      },
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "warm_drone",
+          "name": "Warm drone",
+          "source": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_(11_March_2024).jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/1280px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/330px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+          "license": "CC0",
+          "license_raw": "Creative Commons Zero, Public Domain Dedication",
+          "credit": "FromMorningToMidnight / Wikimedia Commons / CC0",
+          "match_confidence": "high",
+          "matched_label": "Rafael Anton Irisarri",
+          "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "checked": true,
+          "rights_metadata": "actual_commons_file_page_and_imageinfo_API_read",
+          "metadata_dimensions": [
+            4032,
+            3024
+          ],
+          "metadata_mime_type": "image/jpeg",
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+          "canonical_original_fetch_result": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
+          "delivery_note": "Manifest image_url is a Commons full-subject resized delivery, not the canonical original. Original URL and failed original fetch are preserved here. Full subject and aspect ratio are retained.",
+          "http_status": 200,
+          "final_full_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/1280px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+          "final_thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/330px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+          "full": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/1280px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+            "status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/1280px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+            "content_type": "image/jpeg",
+            "bytes": 172217,
+            "sha256": "eeec59ead253a23916e6df70ee717cb9ed844317c4e522bfbf7e60d1b0866a42",
+            "dimensions": [
+              1280,
+              960
+            ],
+            "format": "JPEG",
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/warm_drone-full-delivery.jpg"
+          },
+          "thumbnail": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/330px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+            "status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/330px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+            "content_type": "image/jpeg",
+            "bytes": 19997,
+            "sha256": "a465a7f606eae354b07659191ddb7b47fc704fe97f204279d04ac63fcabb8261",
+            "dimensions": [
+              330,
+              247
+            ],
+            "format": "JPEG",
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/warm_drone-thumb-delivery.jpg"
+          },
+          "bytes_checked": true,
+          "visual_checked": true,
+          "visual_review": "Irisarri performs at a laptop and cabled electronic workstation at Café Oto; matching documented performance context.",
+          "thumbnail_visual_review": "Actual separate thumbnail checked in thumb-visual-review.jpg; same subject and framing as full delivery.",
+          "license_creator_checked": true,
+          "checked_method": "Public HTTPS fetch via retained environment proxy; JPEG dimensions decoded from actual downloaded bytes with Pillow; actual file page text, full image and separate thumbnail visually inspected.",
+          "evidence_file": "docs/everynoise-work/001/packets/16-20-evidence/retrieval.json",
+          "relevance_basis": "Artist/label album Una Presencia En La Brisa explicitly describes Irisarri/Fresco warm harmonic drones; separate Café Oto artist recording credits processing and bowed guitar. Exact Every Noise membership remains pending."
+        }
+      },
+      "blockers": [
+        "Exact Every Noise artist membership page could not be inspected."
+      ],
+      "geo_rationale": "Dearborn is Windy & Carl’s documented artist location; not a warm-drone birthplace claim.",
+      "neighbor_distinction": "Distinct from drone metal by soft guitar/electronic texture and low-intensity model; from ritual ambient by instrumental texture rather than ceremony/chant. Exact Every Noise exemplar membership must still be verified.",
+      "signature_rationale": "Warm-glowing, warmed and low-mid-rich color a soft, sustained guitar/bass/keyboard drone model supported by Windy & Carl; the signature describes a listening texture, not an asserted instrument construction or regional technique."
+    },
+    {
+      "source_label": "world meditation",
+      "source_url": "https://everynoise.com/engenremap-worldmeditation.html",
+      "suggested_id": "world_meditation",
+      "allocation_ordinal": 20,
+      "id": "world_meditation",
+      "proposed_outcome": "add",
+      "tradition": {
+        "id": "world_meditation",
+        "name": "World meditation",
+        "family": "global",
+        "lineage": "Cross-cultural instrumental meditation recordings combine selected acoustic timbres and studio atmosphere. Deuter’s Koyasan explicitly credits erhu, shakuhachi, tamboura and Tibetan bowls with keyboards; Nawang Khechog’s Tibetan Meditation Music combines flute with chant and sparse accents. The default models the former palette without presenting it as the traditional ensemble of any single culture.",
+        "instruments": [
+          "analog_synth",
+          "shakuhachi",
+          "erhu",
+          "tanpura",
+          "himalayan_singing_bowl"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_status": "authored_contemporary_recording_model",
+        "chain_mic": "condenser_fet",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_fx": [
+          "hall_reverb"
+        ],
+        "parts": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "sine_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "no_mod",
+          "wind_articulation": "wind_breath_quiet",
+          "bowed_technique": "bowed_legato_classical",
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "singing_bowl_technique": "singing_bowl_rim_rubbed",
+          "singing_bowl_form": "singing_bowl_large_low"
+        },
+        "pin_parts": true
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": -1,
+          "pitch": 1,
+          "ornament": -1,
+          "meter": -2,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": -2,
+          "voice": -2,
+          "timbre": 1,
+          "percussion": -2,
+          "cyclicity": 1
+        },
+        "description": "A functional, cross-cultural meditation-recording grouping, represented by Deuter’s Koyasan and Nawang Khechog’s Tibetan Meditation Music. Sustained electronic atmosphere surrounds slowly paced acoustic instruments; the former album documents erhu, shakuhachi, tamboura and bowls, while the latter emphasizes flute, chant and subdued rhythm. This differs from guided_meditation by providing music rather than spoken instruction, and from ritual ambient by its contemplative listening function. No clinical efficacy or shared inherited world tradition is claimed.",
+        "exemplars": [
+          "Deuter — Koyasan: Reiki Sound Healing",
+          "Nawang Khechog — Tibetan Meditation Music"
+        ],
+        "status": "researched",
+        "crossRefs": []
+      },
+      "geo": [
+        40.015,
+        -105.2705,
+        "Boulder",
+        "North America"
+      ],
+      "signature_tokens": [
+        "ambient",
+        "minimal",
+        "sustained",
+        "sustained-tone",
+        "drone-foundation",
+        "drone-like",
+        "layered-ambient",
+        "meditative-tempo",
+        "soft",
+        "soft-onset",
+        "smoothed",
+        "mellow",
+        "quiet",
+        "reverberant",
+        "resonant",
+        "layered",
+        "contemplative",
+        "lush-ambient",
+        "melodic",
+        "warm-glowing"
+      ],
+      "sources": [
+        {
+          "url": "https://newearthrecords.com/music/koyasan/",
+          "title": "Koyasan: Reiki Sound Healing | New Earth Records",
+          "checked_date": "2026-09-30",
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "Label credits erhu, shakuhachi, tamboura, bowls and keyboards; contemplative pace; Boulder creative office anchor."
+          ]
+        },
+        {
+          "url": "https://www.soundstrue.com/products/tibetan-meditation-music",
+          "title": "Tibetan Meditation Music | Sounds True",
+          "checked_date": "2026-09-30",
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "Label documents flute, Tibetan chants, sparse vocals/bells/percussion/Western classical accents; deemphasized rhythm."
+          ]
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Nawang_Khechog.jpg",
+          "title": "File:Nawang Khechog.jpg — Wikimedia Commons",
+          "checked_date": "2026-09-30",
+          "inspection": "actual_file_page_HTML_read_and_API_metadata_compared",
+          "supported_claims": [
+            "Photo subject: Nawang Khechog",
+            "Creator: stef niKo",
+            "License: CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0)",
+            "Full-subject delivered JPEG and separate thumbnail were fetched, decoded and visually checked; canonical original returned HTTP 429."
+          ]
+        }
+      ],
+      "model_policy": "Axes, representative ensemble construction/material settings, exact room, tuning, microphone/preamp/mixer/compressor/EQ/medium and effects are authored recipe defaults, not documented gear or measured facts. Source support is limited to each cited claim. A roster represents one supported practice model rather than all musicians in the label.",
+      "membership": {
+        "original_url_attempted": "https://everynoise.com/engenremap-worldmeditation.html",
+        "original_inspection": "blocked_tool_not_accessible",
+        "mirror_url": "https://furia.com/everynoise_public/engenremap-worldmeditation.html",
+        "mirror_inspection": "blocked_restricted_or_403",
+        "member_examples_verified": false,
+        "escalated_retrieval_receipts": {
+          "https://everynoise.com/engenremap-worldmeditation.html": {
+            "error": "HTTP Error 403: Forbidden"
+          },
+          "https://furia.com/everynoise_public/engenremap-worldmeditation.html": {
+            "error": "HTTP Error 403: Forbidden"
+          },
+          "https://www.furia.com/everynoise_public/engenremap-worldmeditation.html": {
+            "error": "HTTP Error 502: Bad Gateway"
+          }
+        },
+        "www_mirror_url": "https://www.furia.com/everynoise_public/engenremap-worldmeditation.html",
+        "www_mirror_inspection": "actual_HTTP_502_Bad_Gateway; browse_tool_restricted_URL"
+      },
+      "production_validation": {
+        "status": "production_node_four_formats_reviewed_pending_parent_browser_overlay",
+        "checked": false,
+        "node_four_formats_checked": true,
+        "browser_parity_checked": false,
+        "review_file": "docs/everynoise-work/001/packets/16-20-evidence/render-review.json",
+        "actual_prefaces": [
+          {
+            "instrument": "analog_synth",
+            "preface": "calm"
+          },
+          {
+            "instrument": "shakuhachi",
+            "preface": "depaysement"
+          },
+          {
+            "instrument": "erhu",
+            "preface": "drowning"
+          },
+          {
+            "instrument": "tanpura",
+            "preface": "atmospheric"
+          },
+          {
+            "instrument": "himalayan_singing_bowl",
+            "preface": "cloud-floating"
+          }
+        ],
+        "review": "Rich/tags/prose/compact reviewed; no erhuang, stride-trotting, kora-cascading, samul-percussive or street-pulsing attribution. Parts/environment are authored source-informed models, not documented exact equipment. Existing classified sonic/style vocabulary only."
+      },
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "world_meditation",
+          "name": "World meditation",
+          "source": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Nawang_Khechog.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/500px-Nawang_Khechog.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/330px-Nawang_Khechog.jpg",
+          "license": "CC BY-SA 2.0",
+          "license_raw": "Creative Commons Attribution-Share Alike 2.0",
+          "credit": "stef niKo / Wikimedia Commons / CC BY-SA 2.0",
+          "match_confidence": "high",
+          "matched_label": "Nawang Khechog",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+          "wikidata": "Q2721088"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "checked": true,
+          "rights_metadata": "actual_commons_file_page_and_imageinfo_API_read",
+          "metadata_dimensions": [
+            800,
+            531
+          ],
+          "metadata_mime_type": "image/jpeg",
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Nawang_Khechog.jpg",
+          "canonical_original_fetch_result": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
+          "delivery_note": "Manifest image_url is a Commons full-subject resized delivery, not the canonical original. Original URL and failed original fetch are preserved here. Full subject and aspect ratio are retained.",
+          "http_status": 200,
+          "final_full_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/500px-Nawang_Khechog.jpg",
+          "final_thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/330px-Nawang_Khechog.jpg",
+          "full": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/500px-Nawang_Khechog.jpg",
+            "status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/500px-Nawang_Khechog.jpg",
+            "content_type": "image/jpeg",
+            "bytes": 51785,
+            "sha256": "819c5b3838fcc1b545469ebb4ef18ef1273b40263d6a36fc16f52f8eaf1d9d64",
+            "dimensions": [
+              500,
+              332
+            ],
+            "format": "JPEG",
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/world_meditation-full-delivery.jpg"
+          },
+          "thumbnail": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/330px-Nawang_Khechog.jpg",
+            "status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/330px-Nawang_Khechog.jpg",
+            "content_type": "image/jpeg",
+            "bytes": 26405,
+            "sha256": "6a5fc1d70ae02b84227796a357aee4cab20e580bf1346cf14ecf28ca45712844",
+            "dimensions": [
+              330,
+              219
+            ],
+            "format": "JPEG",
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/world_meditation-thumb-delivery.jpg"
+          },
+          "bytes_checked": true,
+          "visual_checked": true,
+          "visual_review": "Nawang Khechog plays a transverse flute on a stage with microphones at the Tibetan cultural festival.",
+          "thumbnail_visual_review": "Actual separate thumbnail checked in thumb-visual-review.jpg; same subject and framing as full delivery.",
+          "license_creator_checked": true,
+          "checked_method": "Public HTTPS fetch via retained environment proxy; JPEG dimensions decoded from actual downloaded bytes with Pillow; actual file page text, full image and separate thumbnail visually inspected.",
+          "evidence_file": "docs/everynoise-work/001/packets/16-20-evidence/retrieval.json"
+        }
+      },
+      "blockers": [
+        "Exact Every Noise artist membership page could not be inspected."
+      ],
+      "geo_rationale": "Boulder is the sourced New Earth Records creative-office/catalog circulation anchor. This labels a recorded-music practice and publishing network, not a claimed origin for the instruments or meditation.",
+      "neighbor_distinction": "Distinct from guided_meditation by instrumental musical content; from tradition-specific devotional recordings by documented studio assembly of cross-cultural instrumental palettes. Exact Every Noise membership remains unresolved.",
+      "signature_rationale": "Soft sustained resonances, quiet onsets, melodic flute/erhu and contemplative tempo model the sourced Deuter/Nawang instrumental meditation recordings. Naturally-reverberant is excluded because the modeled studio hall effect does not establish a natural recording space."
+    }
+  ],
+  "instrument_defaults_review_file": "docs/everynoise-work/001/packets/16-20-default-review.json",
+  "remaining_validation": "Parent must rerun production source overlay/browser parity and address exact Every Noise artist membership for polish ambient, warm drone and world meditation before counting them complete. All five photos now have actual rights, HTTP/MIME, decoded dimensions and visual full/thumbnail receipts for the manifest delivery URLs; canonical originals return 429 and are preserved separately.",
+  "photo_evidence_file": "docs/everynoise-work/001/packets/16-20-evidence/retrieval.json",
+  "render_review_file": "docs/everynoise-work/001/packets/16-20-evidence/render-review.json"
+}

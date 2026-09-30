@@ -1,0 +1,1267 @@
+{
+  "schema_version": 1,
+  "group_id": "001",
+  "allocation_ordinals": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "checked_date": "2026-09-30",
+  "status": "researched_proposals_with_explicit_verification_blockers",
+  "shared_files_modified": false,
+  "entries": [
+    {
+      "source_label": "deep ambient",
+      "source_url": "https://everynoise.com/engenremap-deepambient.html",
+      "suggested_id": "deep_ambient",
+      "allocation_ordinal": 6,
+      "id": "deep_ambient",
+      "proposed_outcome": "add",
+      "tradition": {
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_mastering_clean_digital",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "id": "deep_ambient",
+        "name": "Deep ambient",
+        "family": "electronic",
+        "lineage": "A listening and texture label for slowly unfolding, immersive ambient fields. Steve Roach explicitly describes Nostalgia for the Future as deep ambient, while Low Volume Music with Dirk Serries foregrounds overlapping loops. This proposal models the latter layered electronic continuum; the boundary with space ambient is porous and requires Every Noise membership verification.",
+        "instruments": [
+          "analog_synth",
+          "sampler_classic"
+        ],
+        "parts": {
+          "sampler_archetypes": "akai_s1000",
+          "sampler_classic_context": "sampler_classic_industrial",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "electronic_technique": "electronic_sustained_layering",
+          "oscillator": "triangle_osc",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "chain_fx": [
+          "fx_true_stereo_reverb",
+          "hall_reverb"
+        ]
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": -2,
+          "pitch": -1,
+          "ornament": -2,
+          "meter": -2,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": -2,
+          "voice": -2,
+          "timbre": -2,
+          "percussion": -2,
+          "cyclicity": 1
+        },
+        "description": "An immersive, low-attack ambient field built from slow electronic layers and overlapping loops. The default combines a gently modulated sustained synthesizer with layered sampled texture. This is an authored realization of a documented deep-ambient listening practice, without a mandatory instrument brand or a claimed geographic origin.",
+        "exemplars": [
+          "Steve Roach — Nostalgia for the Future (2017)",
+          "Steve Roach & Dirk Serries — Low Volume Music (2012)"
+        ],
+        "status": "researched",
+        "crossRefs": [
+          "droneModal.modalElectric"
+        ]
+      },
+      "geo": [
+        32.2226,
+        -110.9747,
+        "Tucson",
+        "North America"
+      ],
+      "signature_tokens": [
+        "ambient",
+        "layered-ambient",
+        "sustained-tone"
+      ],
+      "sources": [
+        {
+          "url": "https://everynoise.com/engenremap-deepambient.html",
+          "title": "Every Noise at Once — deep ambient",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "blocked_tool_not_accessible",
+          "supported_claims": []
+        },
+        {
+          "url": "https://steveroach.com/product/nostalgia-for-the-future/",
+          "title": "Nostalgia for the Future | Steve Roach",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "The artist explicitly calls the album deep ambient and describes six interconnected immersions.",
+            "The album was created January–July 2017 at the Timeroom in Baja Arizona."
+          ]
+        },
+        {
+          "url": "https://steveroach.bandcamp.com/album/nostalgia-for-the-future",
+          "title": "Nostalgia for the Future | Steve Roach",
+          "checked_date": "2026-09-30",
+          "publication_date": "2017-08-05",
+          "inspection": "search_result_file_text_read",
+          "supported_claims": [
+            "Artist profile identifies Tucson, Arizona."
+          ]
+        },
+        {
+          "url": "https://steveroach.bandcamp.com/album/low-volume-music",
+          "title": "Low Volume Music | Steve Roach & Dirk Serries",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "search_result_read",
+          "supported_claims": [
+            "Primary release description characterizes deep ambient looping textures and subtle harmonic layers."
+          ]
+        },
+        {
+          "url": "https://www.steveroach.com/2026/01/01/the-surface-below-immersion-six/",
+          "title": "The Surface Below – Immersion Six | Steve Roach",
+          "checked_date": "2026-09-30",
+          "publication_date": "2026-01-01",
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "Artist describes hardware synthesizers, effects and analog-console mixing for long slowly evolving sound fields."
+          ]
+        }
+      ],
+      "neighbor_distinction": "The current space_ambient row already models Roach’s steady-state Immersion branch. This proposal selects overlapping loops and mild timbral modulation, but these are representative defaults rather than an established exclusive genre boundary. Mapping deep ambient to space_ambient cannot be ruled equivalent until the exact source membership is inspected.",
+      "geo_rationale": "Tucson is a regional practice anchor: the artist Bandcamp identifies Tucson and the album account documents Timeroom work in Baja Arizona. These rounded city-center coordinates do not purport to locate the private studio.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "deep_ambient",
+          "name": "Deep ambient",
+          "source": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Steve_Roach_portrait.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Steve_Roach_portrait.jpg/960px-Steve_Roach_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Steve_Roach_portrait.jpg/960px-Steve_Roach_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "license": "CC BY-SA 3.0",
+          "license_raw": "Creative Commons Attribution-Share Alike 3.0 Unported",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "credit": "Sam Howzit; derivative by Keraunoscopia / Wikimedia Commons / CC BY-SA 3.0",
+          "match_confidence": "high",
+          "matched_label": "Steve Roach"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "rights_metadata": "Commons_API_imageinfo_extmetadata_read_with_creator_and_license",
+          "photograph_date": "2010",
+          "image_subject": "Steve Roach",
+          "metadata_dimensions": [
+            1675,
+            2225
+          ],
+          "metadata_mime_type": "image/jpeg",
+          "image_urls_provenance": "Commons_API_imageinfo",
+          "visual_checked": true,
+          "bytes_checked": false,
+          "decoded_dimensions": null,
+          "final_full_url": null,
+          "final_thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Steve_Roach_portrait.jpg/960px-Steve_Roach_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "http_status": 429,
+          "checked": false,
+          "full_fetch_receipt": {
+            "method": "GET",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Steve_Roach_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original?download=1",
+            "success": false,
+            "error": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
+            "http_status": 429
+          },
+          "full_fetch_result": "HTTP_or_network_failure",
+          "thumbnail_fetch_receipt": {
+            "success": true,
+            "http_status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Steve_Roach_portrait.jpg/960px-Steve_Roach_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "mime_type": "image/jpeg",
+            "bytes": 222456,
+            "decoded_dimensions": [
+              960,
+              1275
+            ],
+            "decoded_format": "JPEG",
+            "decoded_verified": true,
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/deep_ambient-thumbnail.jpg"
+          },
+          "thumbnail_fetch_result": "success",
+          "commons_api_receipt": {
+            "success": true,
+            "http_status": 200,
+            "final_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&titles=File%3ASteve_Roach_portrait.jpg&prop=imageinfo&iiprop=url%7Csize%7Cmime%7Cextmetadata&iiurlwidth=800",
+            "mime_type": "application/json; charset=utf-8",
+            "bytes": 3593
+          },
+          "full_prior_fetch_receipt": {
+            "success": false,
+            "error": "HTTP Error 429: Too many requests (f061ab2)",
+            "http_status": 429
+          },
+          "visual_observation": "Viewed retrieved portrait thumbnail; a seated/standing close portrait, no performance context inferred.",
+          "rights_verified_fields": {
+            "Artist": "<p>Original image photographed by <a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/aloha75/\">Sam Howzit</a><br>\n</p>\n<small>Derivative image by – <span style=\"color: #A60000;\">Kerαunoςcopia<sup><small>◁</small></sup></span><i><small><a href=\"https://en.wikipedia.org/wiki/User:Keraunoscopia\" class=\"extiw\" title=\"en:User:Keraunoscopia\">gala</a><a href=\"https://en.wikipedia.org/wiki/User_talk:Keraunoscopia\" class=\"extiw\" title=\"en:User talk:Keraunoscopia\">xies</a></small></i></small>",
+            "LicenseShortName": "CC BY-SA 3.0",
+            "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "AttributionRequired": "true",
+            "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
+            "Copyrighted": "True"
+          },
+          "receipt_policy": "Metadata dimensions are source-reported; decoded_dimensions in successful GET receipts come from actual retrieved image bytes. Visual observation concerns the retrieved image size explicitly named, without unverified performance/person identity inference."
+        },
+        "delivery_selection": {
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Steve_Roach_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "delivery_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Steve_Roach_portrait.jpg/960px-Steve_Roach_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "reason": "Canonical original denied HTTP429; supported full-subject photograph delivery decoded successfully. Same actual photo delivery serves both full image and thumbnail; no false claim of native original resolution."
+        }
+      },
+      "model_policy": "Axes, representative instrument construction, technique variants, exact room, tuning, microphone/preamp/console/compressor/EQ/medium and effects are authored recording defaults, not measured facts or documented artist gear. Software sample manipulation is represented by catalog sampler/granular chairs, not an assertion of particular hardware. Instrumentation and historical claims are limited to the cited sources. No exclusive origin is inferred from a practice anchor.",
+      "membership": {
+        "original_url_attempted": "https://everynoise.com/engenremap-deepambient.html",
+        "original_inspection": "blocked_tool_not_accessible",
+        "member_examples_verified": false,
+        "original_fetch_receipt": {
+          "success": false,
+          "error": "HTTP Error 403: Forbidden",
+          "http_status": 403
+        },
+        "mirror_fetch_receipt": {
+          "success": false,
+          "error": "HTTP Error 403: Forbidden",
+          "http_status": 403
+        },
+        "www_mirror_fetch_receipt": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-deepambient.html",
+          "error": "HTTP Error 502: Bad Gateway",
+          "http_status": 502,
+          "success": false
+        },
+        "mirror_inspection": "www author mirror HTTP502; non-www author mirror HTTP403; exact original HTTP403"
+      },
+      "equivalent_mapping": null,
+      "production_validation": {
+        "status": "pending_coordinator_source_overlay",
+        "checked": false
+      },
+      "blockers": [
+        "Exact Every Noise page artist membership could not be inspected; exemplar membership and label boundary remain unverified.",
+        "Deep ambient substantially overlaps current space_ambient; the new-entry versus equivalent-entry decision is provisional pending exact source inspection.",
+        "Full-size original GET remains HTTP429; retrieved thumbnail is visually inspected and decoded, but original retrieval is incomplete.",
+        "Requires optional electronic_sustained_layering sampler technique from 11–15 packet; catalog integration pending."
+      ],
+      "required_prerequisites": [
+        "electronic_technique:electronic_sustained_layering (agent 11-15 prerequisite)"
+      ]
+    },
+    {
+      "source_label": "drone",
+      "source_url": "https://everynoise.com/engenremap-drone.html",
+      "suggested_id": "drone",
+      "allocation_ordinal": 7,
+      "id": "drone",
+      "proposed_outcome": "add",
+      "tradition": {
+        "room": "studio_auteur_home_pro",
+        "tuning": "just_intonation",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_mastering_clean_digital",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "id": "drone",
+        "name": "Drone",
+        "family": "global",
+        "lineage": "Sustained-tone music treats duration, closely controlled pitch and the interaction of held tones as form. Tony Conrad’s amplified violin work supplies the selected bowed-string practice model. Drone also includes electronic and other instrumental practices; this default is neither dark ambient nor a comprehensive instrument roster for all drone music.",
+        "instruments": [
+          "violin_orchestral"
+        ],
+        "parts": {
+          "bowed_technique": "bowed_continuous_drone",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_articulation": "arco_orch"
+        },
+        "chain_fx": []
+      },
+      "extras": {
+        "parent": "droneModal.string",
+        "axes": {
+          "harm": -2,
+          "pitch": 2,
+          "ornament": -2,
+          "meter": -2,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 1,
+          "percussion": -2,
+          "cyclicity": -2
+        },
+        "description": "Long held pitches and subtle interactions among layered tones foreground sustained sound rather than harmonic progression or a beat. This bowed-string default represents Conrad’s amplified, overdubbed violin practice and uses just intonation. Other drone practices use different tunings and sources; neither darkness nor metallic distortion is a defining requirement. Continuous bowing is modeled without a sourced claim of bridge position or classical melodic ornament.",
+        "exemplars": [
+          "Tony Conrad — Four Violins (recorded 1964; issued 1996)"
+        ],
+        "status": "researched",
+        "crossRefs": [
+          "droneModal.modalElectric",
+          "experimentalElec.ambient"
+        ]
+      },
+      "geo": [
+        40.7128,
+        -74.006,
+        "New York",
+        "North America"
+      ],
+      "signature_tokens": [
+        "drone-foundation",
+        "minimal",
+        "sustained-tone",
+        "drone-like",
+        "bowed-strings",
+        "layered",
+        "electric",
+        "rough",
+        "gritty"
+      ],
+      "sources": [
+        {
+          "url": "https://everynoise.com/engenremap-drone.html",
+          "title": "Every Noise at Once — drone",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "blocked_tool_not_accessible",
+          "supported_claims": []
+        },
+        {
+          "url": "https://www.tableoftheelements.co.uk/tcc-08-four-violins-1964",
+          "title": "Tony Conrad — Four Violins (1964) — Table of the Elements",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "Conrad’s amplified strings introduced sustained just-intonation drone into minimal music in 1962.",
+            "The Dream Syndicate employed long duration and precise pitch; Conrad recorded Four Violins on 19 December 1964."
+          ]
+        },
+        {
+          "url": "https://www.centrepompidou.fr/en/ressources/oeuvre/4ajqUIg",
+          "title": "Four Violins — Centre Pompidou",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "Four sessions of amplified violin were overdubbed.",
+            "The artist’s recording studio was 56 Ludlow Street, New York, on 19 December 1964."
+          ]
+        }
+      ],
+      "neighbor_distinction": "Current drone_dark_ambient combines sustained-tone minimalism and dark atmospheric music. This new row isolates sustained pitch/duration without an obligatory dark/horror atmosphere. Current drone_metal, drone_folk and didgeridoo_drone_practice are specific instrumental or scene branches. No existing bare drone/drone_music id exists in the restored catalog, so no rename or equivalent mapping is proposed.",
+      "geo_rationale": "The museum record locates the documented Four Violins recording at the artist’s studio on Ludlow Street, New York. The pin is a rounded city-center practice anchor, not an exclusive origin or the artist’s birthplace.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "drone",
+          "name": "Drone",
+          "source": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Tony_Conrad_2_-_DMS35th.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Tony_Conrad_2_-_DMS35th.jpg/960px-Tony_Conrad_2_-_DMS35th.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Tony_Conrad_2_-_DMS35th.jpg/960px-Tony_Conrad_2_-_DMS35th.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "license": "Public domain",
+          "license_raw": "Public domain dedication by copyright holder (PD-self)",
+          "license_url": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "credit": "Dave Pape / Wikimedia Commons / public domain",
+          "match_confidence": "high",
+          "matched_label": "Tony Conrad"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "rights_metadata": "Commons_API_imageinfo_extmetadata_read_with_creator_and_license",
+          "photograph_date": "2009-05-02",
+          "image_subject": "Tony Conrad",
+          "metadata_dimensions": [
+            2735,
+            2592
+          ],
+          "metadata_mime_type": "image/jpeg",
+          "image_urls_provenance": "Commons_API_imageinfo",
+          "visual_checked": true,
+          "bytes_checked": false,
+          "decoded_dimensions": null,
+          "final_full_url": null,
+          "final_thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Tony_Conrad_2_-_DMS35th.jpg/960px-Tony_Conrad_2_-_DMS35th.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "http_status": 429,
+          "checked": false,
+          "full_fetch_receipt": {
+            "method": "GET",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Tony_Conrad_2_-_DMS35th.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original?download=1",
+            "success": false,
+            "error": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
+            "http_status": 429
+          },
+          "full_fetch_result": "HTTP_or_network_failure",
+          "thumbnail_fetch_receipt": {
+            "success": true,
+            "http_status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Tony_Conrad_2_-_DMS35th.jpg/960px-Tony_Conrad_2_-_DMS35th.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "mime_type": "image/jpeg",
+            "bytes": 189595,
+            "decoded_dimensions": [
+              960,
+              910
+            ],
+            "decoded_format": "JPEG",
+            "decoded_verified": true,
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/drone-thumbnail.jpg"
+          },
+          "thumbnail_fetch_result": "success",
+          "commons_api_receipt": {
+            "success": true,
+            "http_status": 200,
+            "final_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&titles=File%3ATony_Conrad_2_-_DMS35th.jpg&prop=imageinfo&iiprop=url%7Csize%7Cmime%7Cextmetadata&iiurlwidth=800",
+            "mime_type": "application/json; charset=utf-8",
+            "bytes": 3361
+          },
+          "full_prior_fetch_receipt": {
+            "success": false,
+            "error": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
+            "http_status": 429
+          },
+          "visual_observation": "Viewed retrieved portrait thumbnail; speaker at a microphone, no violin-performance context inferred.",
+          "rights_verified_fields": {
+            "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Davepape\" title=\"User:Davepape\">Dave Pape</a>",
+            "LicenseShortName": "Public domain",
+            "AttributionRequired": "false",
+            "UsageTerms": "Public domain",
+            "Copyrighted": "False"
+          },
+          "receipt_policy": "Metadata dimensions are source-reported; decoded_dimensions in successful GET receipts come from actual retrieved image bytes. Visual observation concerns the retrieved image size explicitly named, without unverified performance/person identity inference."
+        },
+        "delivery_selection": {
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Tony_Conrad_2_-_DMS35th.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "delivery_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Tony_Conrad_2_-_DMS35th.jpg/960px-Tony_Conrad_2_-_DMS35th.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "reason": "Canonical original denied HTTP429; supported full-subject photograph delivery decoded successfully. Same actual photo delivery serves both full image and thumbnail; no false claim of native original resolution."
+        }
+      },
+      "model_policy": "Axes, representative instrument construction, technique variants, exact room, tuning, microphone/preamp/console/compressor/EQ/medium and effects are authored recording defaults, not measured facts or documented artist gear. Software sample manipulation is represented by catalog sampler/granular chairs, not an assertion of particular hardware. Instrumentation and historical claims are limited to the cited sources. No exclusive origin is inferred from a practice anchor.",
+      "membership": {
+        "original_url_attempted": "https://everynoise.com/engenremap-drone.html",
+        "original_inspection": "blocked_tool_not_accessible",
+        "member_examples_verified": false,
+        "original_fetch_receipt": {
+          "success": false,
+          "error": "HTTP Error 403: Forbidden",
+          "http_status": 403
+        },
+        "mirror_fetch_receipt": {
+          "success": false,
+          "error": "HTTP Error 403: Forbidden",
+          "http_status": 403
+        },
+        "www_mirror_fetch_receipt": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-drone.html",
+          "error": "HTTP Error 502: Bad Gateway",
+          "http_status": 502,
+          "success": false
+        },
+        "mirror_inspection": "www author mirror HTTP502; non-www author mirror HTTP403; exact original HTTP403"
+      },
+      "equivalent_mapping": null,
+      "production_validation": {
+        "status": "pending_coordinator_source_overlay",
+        "checked": false
+      },
+      "blockers": [
+        "Exact Every Noise page artist membership could not be inspected; exemplar membership and label boundary remain unverified.",
+        "Full-size original GET remains HTTP429; retrieved thumbnail is visually inspected and decoded, but original retrieval is incomplete.",
+        "Requires proposed scoped bowed_continuous_drone variant; catalog integration pending."
+      ]
+    },
+    {
+      "source_label": "drone psych",
+      "source_url": "https://everynoise.com/engenremap-dronepsych.html",
+      "suggested_id": "drone_psych",
+      "allocation_ordinal": 8,
+      "id": "drone_psych",
+      "proposed_outcome": "add",
+      "tradition": {
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_mastering_clean_digital",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "id": "drone_psych",
+        "name": "Drone psych",
+        "family": "rock",
+        "lineage": "Psychedelic rock extends guitar sustain and noisy texture into long ensemble improvisation. Bardo Pond’s Philadelphia recordings support a twin-guitar, bass, drums, voice and flute practice; electronics are also documented. The catalog represents the guitar role with one guitar chair, not a claim that the documented band has only one guitarist.",
+        "instruments": [
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "flute",
+          "voice"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_processing_chain": "voice_processing_hall_reverb_long",
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_unspecified",
+          "bass_technique": "fingerstyle_locked",
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "flute_technique": "classical_flute",
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "concert_flute"
+        },
+        "chain_fx": [
+          "fuzz_silicon",
+          "analog_delay",
+          "hall_reverb"
+        ]
+      },
+      "extras": {
+        "parent": "distortedRock.experimental",
+        "axes": {
+          "harm": -2,
+          "pitch": 0,
+          "ornament": -1,
+          "meter": -1,
+          "density": 1,
+          "transmission": 1,
+          "improv": 2,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": -1,
+          "timbre": 2,
+          "percussion": 0,
+          "cyclicity": 1
+        },
+        "description": "A psychedelic ensemble practice in which sustained amplified guitar and dense noise coexist with open-ended collective playing. The chosen Bardo Pond model adds flute and voice to bass and drums, letting instrumental texture lead the vocal song. Specific pickup, drumhead, flute construction and effects settings are author choices, not documented band equipment.",
+        "exemplars": [
+          "Bardo Pond — Bardo Pond (2010)"
+        ],
+        "status": "researched",
+        "crossRefs": [
+          "distortedRock.noiseRock",
+          "droneModal.modalElectric"
+        ]
+      },
+      "geo": [
+        39.9526,
+        -75.1652,
+        "Philadelphia",
+        "North America"
+      ],
+      "signature_tokens": [
+        "rock-context",
+        "drone-like",
+        "sustained-tone",
+        "distorted",
+        "gritty",
+        "growly",
+        "sub-fundamental-buzz",
+        "rough",
+        "electric",
+        "low-mid-thick"
+      ],
+      "sources": [
+        {
+          "url": "https://everynoise.com/engenremap-dronepsych.html",
+          "title": "Every Noise at Once — drone psych",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "blocked_tool_not_accessible",
+          "supported_claims": []
+        },
+        {
+          "url": "https://www.firerecords.com/artists/bardo-pond/",
+          "title": "Bardo Pond — FIRE RECORDS",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "The band combines twin guitars, bass, drums and Isobel Sollenberger’s voice, flute and violin.",
+            "The label describes psychedelic rock and experimental noise practices."
+          ]
+        },
+        {
+          "url": "https://www.firerecords.com/product/bardo-pond-bardo-pond/",
+          "title": "Bardo Pond — Bardo Pond — FIRE RECORDS",
+          "checked_date": "2026-09-30",
+          "publication_date": "2010-12-06",
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "The 2010 album documents Philadelphia/Compound studio practice.",
+            "Credits specify guitars, bass, voice/flute, electronics and drums."
+          ]
+        }
+      ],
+      "neighbor_distinction": "Relative to the proposed drone_rock default, this roster foregrounds flute/voice and collective psychedelic improvisation rather than a stripped guitar-feedback rock loop. Relative to psychedelic_rock it emphasizes sustained noise and extended texture. The distinction is a supported exemplar choice, not a claim that the categories are disjoint.",
+      "geo_rationale": "Fire Records identifies the Philadelphia band and its Compound studio. This anchors the selected recorded practice; the label is not geographically exclusive.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "drone_psych",
+          "name": "Drone psych",
+          "source": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Bardo_Pond-4.jpg",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Bardo_Pond-4.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Bardo_Pond-4.jpg/960px-Bardo_Pond-4.jpg",
+          "license": "CC BY 2.0",
+          "license_raw": "Creative Commons Attribution 2.0 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.0/",
+          "credit": "furminator / Wikimedia Commons / CC BY 2.0",
+          "match_confidence": "high",
+          "matched_label": "Bardo Pond"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "rights_metadata": "file_page_opened_and_read",
+          "photograph_date": "2007-06-30",
+          "image_subject": "Bardo Pond",
+          "metadata_dimensions": [
+            1024,
+            768
+          ],
+          "metadata_mime_type": "image/jpeg",
+          "image_urls_provenance": "original_and_thumbnail_links_observed",
+          "visual_checked": true,
+          "bytes_checked": true,
+          "decoded_dimensions": [
+            1024,
+            768
+          ],
+          "final_full_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Bardo_Pond-4.jpg",
+          "final_thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Bardo_Pond-4.jpg/960px-Bardo_Pond-4.jpg",
+          "http_status": 200,
+          "checked": true,
+          "full_fetch_receipt": {
+            "success": true,
+            "http_status": 200,
+            "final_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Bardo_Pond-4.jpg",
+            "mime_type": "image/jpeg",
+            "bytes": 103340,
+            "decoded_dimensions": [
+              1024,
+              768
+            ],
+            "decoded_format": "JPEG",
+            "decoded_verified": true,
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/drone_psych-full.jpg"
+          },
+          "full_fetch_result": "success",
+          "thumbnail_fetch_receipt": {
+            "method": "GET",
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Bardo_Pond-4.jpg/960px-Bardo_Pond-4.jpg",
+            "success": true,
+            "http_status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Bardo_Pond-4.jpg/960px-Bardo_Pond-4.jpg",
+            "mime_type": "image/jpeg",
+            "bytes": 99689,
+            "decoded_dimensions": [
+              960,
+              720
+            ],
+            "decoded_format": "JPEG",
+            "decoded_verified": true,
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/drone_psych-thumbnail.jpg"
+          },
+          "thumbnail_fetch_result": "success",
+          "commons_api_receipt": {
+            "success": false,
+            "error": "HTTP Error 429: Too Many Requests",
+            "http_status": 429
+          },
+          "thumbnail_prior_fetch_receipt": {
+            "success": false,
+            "error": "HTTP Error 400: Use thumbnail sizes listed on https://w.wiki/GHai",
+            "http_status": 400
+          },
+          "visual_observation": "Viewed retrieved original photograph; a band performing onstage with amplified guitars, drum kit and a keyboard/electronics station.",
+          "receipt_policy": "Metadata dimensions are source-reported; decoded_dimensions in successful GET receipts come from actual retrieved image bytes. Visual observation concerns the retrieved image size explicitly named, without unverified performance/person identity inference."
+        }
+      },
+      "model_policy": "Axes, representative instrument construction, technique variants, exact room, tuning, microphone/preamp/console/compressor/EQ/medium and effects are authored recording defaults, not measured facts or documented artist gear. Software sample manipulation is represented by catalog sampler/granular chairs, not an assertion of particular hardware. Instrumentation and historical claims are limited to the cited sources. No exclusive origin is inferred from a practice anchor.",
+      "membership": {
+        "original_url_attempted": "https://everynoise.com/engenremap-dronepsych.html",
+        "original_inspection": "blocked_tool_not_accessible",
+        "member_examples_verified": false,
+        "original_fetch_receipt": {
+          "success": false,
+          "error": "HTTP Error 403: Forbidden",
+          "http_status": 403
+        },
+        "mirror_fetch_receipt": {
+          "success": false,
+          "error": "HTTP Error 403: Forbidden",
+          "http_status": 403
+        },
+        "www_mirror_fetch_receipt": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-dronepsych.html",
+          "error": "HTTP Error 502: Bad Gateway",
+          "http_status": 502,
+          "success": false
+        },
+        "mirror_inspection": "www author mirror HTTP502; non-www author mirror HTTP403; exact original HTTP403"
+      },
+      "equivalent_mapping": null,
+      "production_validation": {
+        "status": "pending_coordinator_source_overlay",
+        "checked": false
+      },
+      "blockers": [
+        "Exact Every Noise page artist membership could not be inspected; exemplar membership and label boundary remain unverified."
+      ]
+    },
+    {
+      "source_label": "drone rock",
+      "source_url": "https://everynoise.com/engenremap-dronerock.html",
+      "suggested_id": "drone_rock",
+      "allocation_ordinal": 9,
+      "id": "drone_rock",
+      "proposed_outcome": "add",
+      "tradition": {
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_mastering_clean_digital",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "id": "drone_rock",
+        "name": "Drone rock",
+        "family": "rock",
+        "lineage": "A rock practice that builds extended passages from repetitive accompaniment and sustained guitar feedback. Spacemen 3’s live Geneva album is explicitly described as drone rock by its label; Sonic Boom’s firsthand notes describe sustained keys and feedback guitars. The modern recording chain and instrument build choices are representative, not a reconstruction of the 1989 stage rig.",
+        "instruments": [
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "voice"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_processing_chain": "voice_processing_hall_reverb_long",
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_unspecified",
+          "bass_technique": "fingerstyle_locked",
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated"
+        },
+        "chain_fx": [
+          "fuzz_silicon",
+          "analog_delay"
+        ]
+      },
+      "extras": {
+        "parent": "distortedRock.experimental",
+        "axes": {
+          "harm": -2,
+          "pitch": -1,
+          "ornament": -2,
+          "meter": 1,
+          "density": 0,
+          "transmission": 1,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": -1,
+          "timbre": 2,
+          "percussion": 1,
+          "cyclicity": 2
+        },
+        "description": "Repeated bass/drum accompaniment and long amplified guitar tones support extended rock passages. The selected Spacemen 3 model foregrounds feedback and repetition while retaining a vocal chair. The default describes one reusable studio arrangement, not every track or the exact historical live equipment.",
+        "exemplars": [
+          "Spacemen 3 — Live at the New Morning, Geneva, Switzerland, 18.05.1989"
+        ],
+        "status": "researched",
+        "crossRefs": [
+          "droneModal.modalElectric",
+          "distortedRock.noiseRock"
+        ]
+      },
+      "geo": [
+        46.2044,
+        6.1432,
+        "Geneva",
+        "Europe"
+      ],
+      "signature_tokens": [
+        "rock-context",
+        "drone-like",
+        "sustained-tone",
+        "distorted"
+      ],
+      "sources": [
+        {
+          "url": "https://everynoise.com/engenremap-dronerock.html",
+          "title": "Every Noise at Once — drone rock",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "blocked_tool_not_accessible",
+          "supported_claims": []
+        },
+        {
+          "url": "https://spaceagerecordings.bandcamp.com/album/live-at-the-new-morning-geneva-switzerland-18051989",
+          "title": "Live At The New Morning, Geneva, Switzerland 18.05.1989 | Spacemen 3 | Space Age Recordings",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "The label describes the band as drone rock and documents the Geneva performance.",
+            "Sonic Boom’s firsthand notes describe held keys, guitars feeding back against speaker cabinets and the extended Suicide performance."
+          ]
+        },
+        {
+          "url": "https://spacemen3.co.uk/discs/performance/",
+          "title": "Performance — spacemen3.co.uk",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "search_result_read",
+          "supported_claims": [
+            "Archive lists guitar, organ and vocals, bass, and percussion personnel."
+          ]
+        },
+        {
+          "url": "https://fatpossum.com/products/lazer-guided-melodies",
+          "title": "Lazer Guided Melodies — Spiritualized — Fat Possum Records",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "search_result_read",
+          "supported_claims": [
+            "Primary label documents Spiritualized’s early album; Spiritualized photo is a related Jason Pierce practice exemplar, not a photograph of Spacemen 3."
+          ]
+        }
+      ],
+      "neighbor_distinction": "Unlike drone_metal, distorted guitar sustain here accompanies repetitive psychedelic rock with ordinary rock drums rather than a mandated slow heavy-metal riff grammar. Compared with the proposed drone_psych row, this model has a leaner guitar/bass/drum/voice roster and more cyclic accompaniment. Genre boundaries still require exact Every Noise artist-map inspection.",
+      "geo_rationale": "The label documents the New Morning concert in Geneva on 18 May 1989. Geneva is a performance-practice anchor for this exemplar, deliberately not an assertion of the band’s origin.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "drone_rock",
+          "name": "Drone rock",
+          "source": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Spiritualized_2009.05.29_003.jpg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Spiritualized_2009.05.29_003.jpg/1280px-Spiritualized_2009.05.29_003.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Spiritualized_2009.05.29_003.jpg/960px-Spiritualized_2009.05.29_003.jpg",
+          "license": "CC BY-SA 3.0",
+          "license_raw": "Creative Commons Attribution-Share Alike 3.0 Unported",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "credit": "LivePict.com / Wikimedia Commons / CC BY-SA 3.0",
+          "match_confidence": "high",
+          "matched_label": "Spiritualized"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "rights_metadata": "indexed_file_page_text_read_direct_page_open_blocked",
+          "photograph_date": "2009-05-29",
+          "image_subject": "Spiritualized",
+          "metadata_dimensions": [
+            4288,
+            2848
+          ],
+          "metadata_mime_type": "image/jpeg",
+          "image_urls_provenance": "standard_Commons_filename_hash_candidates_not_live_verified",
+          "visual_checked": true,
+          "bytes_checked": false,
+          "decoded_dimensions": null,
+          "final_full_url": null,
+          "final_thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Spiritualized_2009.05.29_003.jpg/960px-Spiritualized_2009.05.29_003.jpg",
+          "http_status": 429,
+          "checked": false,
+          "full_fetch_receipt": {
+            "method": "GET",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Spiritualized_2009.05.29_003.jpg?download=1",
+            "success": false,
+            "error": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
+            "http_status": 429
+          },
+          "full_fetch_result": "HTTP_or_network_failure",
+          "thumbnail_fetch_receipt": {
+            "method": "GET",
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Spiritualized_2009.05.29_003.jpg/960px-Spiritualized_2009.05.29_003.jpg",
+            "success": true,
+            "http_status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Spiritualized_2009.05.29_003.jpg/960px-Spiritualized_2009.05.29_003.jpg",
+            "mime_type": "image/jpeg",
+            "bytes": 128343,
+            "decoded_dimensions": [
+              960,
+              638
+            ],
+            "decoded_format": "JPEG",
+            "decoded_verified": true,
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/drone_rock-thumbnail.jpg"
+          },
+          "thumbnail_fetch_result": "success",
+          "commons_api_receipt": {
+            "success": false,
+            "error": "HTTP Error 429: Too Many Requests",
+            "http_status": 429
+          },
+          "full_prior_fetch_receipt": {
+            "success": false,
+            "error": "HTTP Error 429: Too many requests (f061ab2)",
+            "http_status": 429
+          },
+          "thumbnail_prior_fetch_receipt": {
+            "success": false,
+            "error": "HTTP Error 400: Use thumbnail sizes listed on https://w.wiki/GHai",
+            "http_status": 400
+          },
+          "visual_observation": "Viewed retrieved thumbnail; guitarist/vocalist at stage microphones, consistent with Commons Spiritualized caption.",
+          "receipt_policy": "Metadata dimensions are source-reported; decoded_dimensions in successful GET receipts come from actual retrieved image bytes. Visual observation concerns the retrieved image size explicitly named, without unverified performance/person identity inference."
+        },
+        "delivery_selection": {
+          "canonical_original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Spiritualized_2009.05.29_003.jpg",
+          "delivery_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Spiritualized_2009.05.29_003.jpg/1280px-Spiritualized_2009.05.29_003.jpg",
+          "reason": "Original endpoint returned HTTP429 and explicitly requested less disruptive supported thumbnail deliveries. Full-subject resized photograph retained; final status must be independently fetched and visually verified."
+        }
+      },
+      "model_policy": "Axes, representative instrument construction, technique variants, exact room, tuning, microphone/preamp/console/compressor/EQ/medium and effects are authored recording defaults, not measured facts or documented artist gear. Software sample manipulation is represented by catalog sampler/granular chairs, not an assertion of particular hardware. Instrumentation and historical claims are limited to the cited sources. No exclusive origin is inferred from a practice anchor.",
+      "membership": {
+        "original_url_attempted": "https://everynoise.com/engenremap-dronerock.html",
+        "original_inspection": "blocked_tool_not_accessible",
+        "member_examples_verified": false,
+        "original_fetch_receipt": {
+          "success": false,
+          "error": "HTTP Error 403: Forbidden",
+          "http_status": 403
+        },
+        "mirror_fetch_receipt": {
+          "success": false,
+          "error": "HTTP Error 403: Forbidden",
+          "http_status": 403
+        },
+        "www_mirror_fetch_receipt": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-dronerock.html",
+          "error": "HTTP Error 502: Bad Gateway",
+          "http_status": 502,
+          "success": false
+        },
+        "mirror_inspection": "www author mirror HTTP502; non-www author mirror HTTP403; exact original HTTP403"
+      },
+      "equivalent_mapping": null,
+      "production_validation": {
+        "status": "pending_coordinator_source_overlay",
+        "checked": false
+      },
+      "blockers": [
+        "Exact Every Noise page artist membership could not be inspected; exemplar membership and label boundary remain unverified.",
+        "Selected Spiritualized photo is a related practitioner image, not the documented Spacemen 3 concert; direct file page remains blocked and membership is unverified. Prefer a verified Spacemen 3/Loop photo if available during final verification.",
+        "Full-size original GET remains HTTP429; retrieved thumbnail is visually inspected and decoded, but original retrieval is incomplete."
+      ]
+    },
+    {
+      "source_label": "experimental ambient",
+      "source_url": "https://everynoise.com/engenremap-experimentalambient.html",
+      "suggested_id": "experimental_ambient",
+      "allocation_ordinal": 10,
+      "id": "experimental_ambient",
+      "proposed_outcome": "add",
+      "tradition": {
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_mastering_clean_digital",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "id": "experimental_ambient",
+        "name": "Experimental ambient",
+        "family": "electronic",
+        "lineage": "Ambient composition treats recorded sound, acoustic resonance, noise and electronic montage as mutable material. Tim Hecker’s Ravedeath, 1972 was built from improvised pipe-organ recordings in Reykjavik and extended studio transformation in Montreal. The default models the transformed-recording stage with sampling and granular synthesis, not an assertion that Hecker used a particular sampler or granular algorithm.",
+        "instruments": [
+          "sampler_classic",
+          "granular_synth"
+        ],
+        "parts": {
+          "sampler_archetypes": "akai_s1000",
+          "sampler_classic_context": "sampler_classic_industrial",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_ambient",
+          "granular_synth_source": "granular_synth_sampled"
+        },
+        "chain_fx": [
+          "digital_delay",
+          "hall_reverb"
+        ]
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": -1,
+          "pitch": 1,
+          "ornament": -1,
+          "meter": -2,
+          "density": 1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 2,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 1,
+          "percussion": -2,
+          "cyclicity": -1
+        },
+        "description": "Recorded acoustic tone, noise and electronic processing form a shifting ambient composition rather than a regular beat or a prescribed mellow pad. The sample/granular roster models Hecker’s studio montage of improvised organ recordings. The acoustic pipe organ is the documented source; these catalog chairs represent its transformed recorded material and do not replace that fact with a hardware claim.",
+        "exemplars": [
+          "Tim Hecker — Ravedeath, 1972 (2011)",
+          "Tim Hecker — Harmony in Ultraviolet (2006)"
+        ],
+        "status": "researched",
+        "crossRefs": [
+          "experimentalElec.musiqueConcrete",
+          "experimentalElec.industrialNoise"
+        ]
+      },
+      "geo": [
+        45.5019,
+        -73.5674,
+        "Montréal",
+        "North America"
+      ],
+      "signature_tokens": [
+        "ambient",
+        "layered-ambient",
+        "rough",
+        "sustained-tone"
+      ],
+      "sources": [
+        {
+          "url": "https://everynoise.com/engenremap-experimentalambient.html",
+          "title": "Every Noise at Once — experimental ambient",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "blocked_tool_not_accessible",
+          "supported_claims": []
+        },
+        {
+          "url": "https://exclaim.ca/music/article/tim_hecker_talks_ravedeath_1972",
+          "title": "Tim Hecker Talks Ravedeath, 1972 — Exclaim!",
+          "checked_date": "2026-09-30",
+          "publication_date": "2011-02-16",
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "Firsthand interview documents improvised pipe-organ recording in a wooden church in Reykjavik.",
+            "Hecker then worked in his Montreal studio for a month on layering, montage and editing."
+          ]
+        },
+        {
+          "url": "https://montreal.mutek.org/en/artists/tim-hecker",
+          "title": "Tim Hecker — MUTEK Montréal",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "page_opened_and_read",
+          "supported_claims": [
+            "The institution characterizes his work through noise, dissonance and melody structured as ambient composition.",
+            "The profile lists Ravedeath, 1972 and Harmony in Ultraviolet."
+          ]
+        },
+        {
+          "url": "https://montreal.mutek.org/en/artists/tim-hecker-konoyo-ensemble",
+          "title": "Tim Hecker Konoyo Ensemble — MUTEK Montréal",
+          "checked_date": "2026-09-30",
+          "publication_date": null,
+          "inspection": "search_result_read",
+          "supported_claims": [
+            "Institutional program documents synthesis, sequencers, software and static/feedback alongside acoustic ensemble sounds."
+          ]
+        }
+      ],
+      "neighbor_distinction": "Compared with current ambient/space_ambient sustained-pad defaults, this selected practice makes transformed acoustic source recordings and noise/dissonance central. Compared with dark ambient it does not require horror atmosphere. Sampler plus granular processing is a reusable model of the documented montage practice rather than a universal experimental-ambient roster.",
+      "geo_rationale": "Hecker’s firsthand interview describes extensive Montreal studio transformation after recording a Reykjavik church organ. Montréal anchors the composition/montage stage represented by this recipe; Reykjavik remains a documented source-recording location.",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "experimental_ambient",
+          "name": "Experimental ambient",
+          "source": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg/960px-Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg",
+          "license": "CC BY-SA 2.0",
+          "license_raw": "Creative Commons Attribution-Share Alike 2.0 Generic",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "credit": "basic_sounds / Wikimedia Commons / CC BY-SA 2.0",
+          "match_confidence": "high",
+          "matched_label": "Tim Hecker at MUTEK A/Visions 4"
+        },
+        "verification": {
+          "checked_date": "2026-09-30",
+          "rights_metadata": "file_page_opened_and_read",
+          "photograph_date": "2010-06-08",
+          "image_subject": "Tim Hecker at MUTEK A/Visions 4",
+          "metadata_dimensions": [
+            1600,
+            1200
+          ],
+          "metadata_mime_type": "image/jpeg",
+          "image_urls_provenance": "original_and_thumbnail_links_observed",
+          "visual_checked": true,
+          "bytes_checked": true,
+          "decoded_dimensions": [
+            1600,
+            1200
+          ],
+          "final_full_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg",
+          "final_thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg/960px-Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg",
+          "http_status": 200,
+          "checked": true,
+          "full_fetch_receipt": {
+            "success": true,
+            "http_status": 200,
+            "final_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg",
+            "mime_type": "image/jpeg",
+            "bytes": 1148036,
+            "decoded_dimensions": [
+              1600,
+              1200
+            ],
+            "decoded_format": "JPEG",
+            "decoded_verified": true,
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/experimental_ambient-full.jpg"
+          },
+          "full_fetch_result": "success",
+          "thumbnail_fetch_receipt": {
+            "success": true,
+            "http_status": 200,
+            "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg/960px-Tim_Hecker_-_A-Visions_4_%284690826583%29.jpg",
+            "mime_type": "image/jpeg",
+            "bytes": 167292,
+            "decoded_dimensions": [
+              960,
+              720
+            ],
+            "decoded_format": "JPEG",
+            "decoded_verified": true,
+            "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/experimental_ambient-thumbnail.jpg"
+          },
+          "thumbnail_fetch_result": "success",
+          "commons_api_receipt": {
+            "success": false,
+            "error": "HTTP Error 429: Too Many Requests",
+            "http_status": 429
+          },
+          "visual_observation": "Viewed original and thumbnail; performer using laptop, keyboard and mixer before an audience, consistent with Commons MUTEK caption.",
+          "receipt_policy": "Metadata dimensions are source-reported; decoded_dimensions in successful GET receipts come from actual retrieved image bytes. Visual observation concerns the retrieved image size explicitly named, without unverified performance/person identity inference."
+        }
+      },
+      "model_policy": "Axes, representative instrument construction, technique variants, exact room, tuning, microphone/preamp/console/compressor/EQ/medium and effects are authored recording defaults, not measured facts or documented artist gear. Software sample manipulation is represented by catalog sampler/granular chairs, not an assertion of particular hardware. Instrumentation and historical claims are limited to the cited sources. No exclusive origin is inferred from a practice anchor.",
+      "membership": {
+        "original_url_attempted": "https://everynoise.com/engenremap-experimentalambient.html",
+        "original_inspection": "blocked_tool_not_accessible",
+        "member_examples_verified": false,
+        "original_fetch_receipt": {
+          "success": false,
+          "error": "HTTP Error 403: Forbidden",
+          "http_status": 403
+        },
+        "mirror_fetch_receipt": {
+          "success": false,
+          "error": "HTTP Error 403: Forbidden",
+          "http_status": 403
+        },
+        "www_mirror_fetch_receipt": {
+          "url": "https://www.furia.com/everynoise_public/engenremap-experimentalambient.html",
+          "error": "HTTP Error 502: Bad Gateway",
+          "http_status": 502,
+          "success": false
+        },
+        "mirror_inspection": "www author mirror HTTP502; non-www author mirror HTTP403; exact original HTTP403"
+      },
+      "equivalent_mapping": null,
+      "production_validation": {
+        "status": "pending_coordinator_source_overlay",
+        "checked": false
+      },
+      "blockers": [
+        "Exact Every Noise page artist membership could not be inspected; exemplar membership and label boundary remain unverified."
+      ],
+      "acoustic_source_model_note": "The pipe_organ catalog currently defaults to historical voicing/school/context not established in the Hecker interview. This proposal represents recorded organ material in sample/granular chairs to avoid presenting arbitrary organ-maker defaults as evidence. If integration requires a live source-organ chair, add explicit non-default, auto:false, empty-descriptor unspecified variants for the organ-specific dimensions and verify zero existing recipe drift first."
+    }
+  ],
+  "completion_blocked": true,
+  "prerequisites": [
+    {
+      "target_file": "references/01_family_parts.js",
+      "family": "bowed",
+      "part_id": "bowed_technique",
+      "variant": {
+        "id": "bowed_continuous_drone",
+        "name": "Continuous bowed drone",
+        "applies_to": [
+          "violin_orchestral"
+        ],
+        "descriptors": [
+          "bowed",
+          "sustained-tone",
+          "drone-like",
+          "minimal"
+        ],
+        "auto": false
+      },
+      "rationale": "Sustained precisely controlled amplified violin is documented, while existing legato-classical and sul-ponticello variants introduce classical melody or undocumented bridge placement. This explicitly selected non-default technique models duration and sustained pitch without changing older recipes.",
+      "evidence_urls": [
+        "https://www.tableoftheelements.co.uk/tcc-08-four-violins-1964",
+        "https://www.centrepompidou.fr/en/ressources/oeuvre/4ajqUIg"
+      ]
+    }
+  ]
+}

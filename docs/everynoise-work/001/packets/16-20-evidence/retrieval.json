@@ -1,0 +1,813 @@
+{
+  "checked_at": "2026-09-30T01:18:58Z",
+  "membership": {
+    "polish ambient": {
+      "https://everynoise.com/engenremap-polishambient.html": {
+        "error": "HTTP Error 403: Forbidden"
+      },
+      "https://furia.com/everynoise_public/engenremap-polishambient.html": {
+        "error": "HTTP Error 403: Forbidden"
+      },
+      "https://www.furia.com/everynoise_public/engenremap-polishambient.html": {
+        "error": "HTTP Error 502: Bad Gateway"
+      }
+    },
+    "pop ambient": {
+      "https://everynoise.com/engenremap-popambient.html": {
+        "error": "HTTP Error 403: Forbidden"
+      },
+      "https://furia.com/everynoise_public/engenremap-popambient.html": {
+        "error": "HTTP Error 403: Forbidden"
+      },
+      "https://www.furia.com/everynoise_public/engenremap-popambient.html": {
+        "error": "HTTP Error 502: Bad Gateway"
+      }
+    },
+    "ritual ambient": {
+      "https://everynoise.com/engenremap-ritualambient.html": {
+        "error": "HTTP Error 403: Forbidden"
+      },
+      "https://furia.com/everynoise_public/engenremap-ritualambient.html": {
+        "error": "HTTP Error 403: Forbidden"
+      },
+      "https://www.furia.com/everynoise_public/engenremap-ritualambient.html": {
+        "error": "HTTP Error 502: Bad Gateway"
+      }
+    },
+    "warm drone": {
+      "https://everynoise.com/engenremap-warmdrone.html": {
+        "error": "HTTP Error 403: Forbidden"
+      },
+      "https://furia.com/everynoise_public/engenremap-warmdrone.html": {
+        "error": "HTTP Error 403: Forbidden"
+      },
+      "https://www.furia.com/everynoise_public/engenremap-warmdrone.html": {
+        "error": "HTTP Error 502: Bad Gateway"
+      }
+    },
+    "world meditation": {
+      "https://everynoise.com/engenremap-worldmeditation.html": {
+        "error": "HTTP Error 403: Forbidden"
+      },
+      "https://furia.com/everynoise_public/engenremap-worldmeditation.html": {
+        "error": "HTTP Error 403: Forbidden"
+      },
+      "https://www.furia.com/everynoise_public/engenremap-worldmeditation.html": {
+        "error": "HTTP Error 502: Bad Gateway"
+      }
+    }
+  },
+  "photos": {
+    "polish_ambient": {
+      "metadata_api_url": "https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url%7Cextmetadata%7Csize&iiurlwidth=960&format=json&titles=File%3AMicha%C5%82+Jacaszek.JPG",
+      "api": {
+        "size": 1742923,
+        "width": 3033,
+        "height": 4055,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/960px-Micha%C5%82_Jacaszek.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 1283,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/1920px-Micha%C5%82_Jacaszek.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/960px-Micha%C5%82_Jacaszek.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 1283,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/1920px-Micha%C5%82_Jacaszek.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Micha%C5%82_Jacaszek.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Micha%C5%82_Jacaszek.JPG",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=40763307",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2015-06-06 09:25:31",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Michał Jacaszek",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Michał Jacaszek|Self-published work",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Michał Jacaszek, muzyk.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2015-04-24",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Artur_Andrzej\" title=\"User:Artur Andrzej\">Artur Andrzej</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 4.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 4.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-4.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "file_page": {
+        "status": 200,
+        "final_url": "https://commons.wikimedia.org/wiki/File:Micha%C5%82_Jacaszek.JPG",
+        "bytes": 102018,
+        "content_type": null
+      },
+      "full": {
+        "requested_url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Micha%C5%82_Jacaszek.JPG",
+        "error": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)"
+      },
+      "thumb": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/960px-Micha%C5%82_Jacaszek.JPG",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/960px-Micha%C5%82_Jacaszek.JPG",
+        "content_type": null,
+        "bytes": 272046,
+        "sha256": "1b3086dfe6832435f23627d167abb60a9c990c2bc0b422f7ef3d35008ce65015",
+        "dimensions": [
+          960,
+          1283
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/polish_ambient-thumb.jpg"
+      },
+      "full_delivery": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/1920px-Micha%C5%82_Jacaszek.JPG",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/1920px-Micha%C5%82_Jacaszek.JPG",
+        "content_type": "image/jpeg",
+        "bytes": 886707,
+        "sha256": "43a88ad3401bdb7da8b18198a20696158196abd1d2bf599392da2c1530e6f435",
+        "dimensions": [
+          1920,
+          2567
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/polish_ambient-full-delivery.jpg"
+      },
+      "thumb_delivery": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/330px-Micha%C5%82_Jacaszek.JPG",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Micha%C5%82_Jacaszek.JPG/330px-Micha%C5%82_Jacaszek.JPG",
+        "content_type": "image/jpeg",
+        "bytes": 46679,
+        "sha256": "a3eb5cd42af8a9cfee9b6ee6f761fb0e8e600135fcb6900dfe2b4b5db3bd600f",
+        "dimensions": [
+          330,
+          441
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/polish_ambient-thumb-delivery.jpg"
+      }
+    },
+    "pop_ambient": {
+      "metadata_api_url": "https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url%7Cextmetadata%7Csize&iiurlwidth=960&format=json&titles=File%3AWolfgang+Voigt+2012.jpg",
+      "api": {
+        "size": 6506923,
+        "width": 5184,
+        "height": 3456,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/960px-Wolfgang_Voigt_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 640,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/1920px-Wolfgang_Voigt_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/960px-Wolfgang_Voigt_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 640,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/1920px-Wolfgang_Voigt_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Wolfgang_Voigt_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Wolfgang_Voigt_2012.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=32049508",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2014-04-08 01:25:05",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Wolfgang Voigt 2012",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Taken with Canon EOS 550D|Wolfgang Voigt|Images with extracted images|Flickr images reviewed by FlickreviewR",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Wolfgang Voigt 2012",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2012-07-08 21:03:03",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/simianrelative/7596506518\">https://www.flickr.com/photos/simianrelative/7596506518</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "Alec Luhn",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY 2.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution 2.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by/2.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-2.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "file_page": {
+        "status": 200,
+        "final_url": "https://commons.wikimedia.org/wiki/File:Wolfgang_Voigt_2012.jpg",
+        "bytes": 134339,
+        "content_type": null
+      },
+      "full": {
+        "requested_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Wolfgang_Voigt_2012.jpg",
+        "error": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)"
+      },
+      "thumb": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/960px-Wolfgang_Voigt_2012.jpg",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/960px-Wolfgang_Voigt_2012.jpg",
+        "content_type": null,
+        "bytes": 138134,
+        "sha256": "179d2123a1b9fa0ba00105648e109b09bc51b3a663b5f731eab500edcdaf83fb",
+        "dimensions": [
+          960,
+          640
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/pop_ambient-thumb.jpg"
+      },
+      "full_delivery": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/1280px-Wolfgang_Voigt_2012.jpg",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/1280px-Wolfgang_Voigt_2012.jpg",
+        "content_type": "image/jpeg",
+        "bytes": 220594,
+        "sha256": "790ba6bacf0b1754bcfcad6cc665eae40d94224272562a4d585db8bf6fd6738a",
+        "dimensions": [
+          1280,
+          853
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/pop_ambient-full-delivery.jpg"
+      },
+      "thumb_delivery": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/330px-Wolfgang_Voigt_2012.jpg",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Wolfgang_Voigt_2012.jpg/330px-Wolfgang_Voigt_2012.jpg",
+        "content_type": "image/jpeg",
+        "bytes": 25778,
+        "sha256": "30740954ab7fc0744c0db57d488d98a7345c8092794ea140223cfaf3fce35c89",
+        "dimensions": [
+          330,
+          220
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/pop_ambient-thumb-delivery.jpg"
+      }
+    },
+    "ritual_ambient": {
+      "metadata_api_url": "https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url%7Cextmetadata%7Csize&iiurlwidth=960&format=json&titles=File%3ALustmord.jpg",
+      "api": {
+        "size": 492733,
+        "width": 1024,
+        "height": 683,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/960px-Lustmord.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 640,
+        "responsiveUrls": {
+          "2": "https://upload.wikimedia.org/wikipedia/commons/3/35/Lustmord.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/960px-Lustmord.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 640,
+          "srcset": "https://upload.wikimedia.org/wikipedia/commons/3/35/Lustmord.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Lustmord.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Lustmord.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=18418692",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2012-02-18 13:05:52",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Lustmord",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Norbergfestival|Male musicians from the United Kingdom|Flickr images reviewed by File Upload Bot (Magnus Manske)|Files with derivative versions",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "lustmord",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2011-08-02 11:52",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<p><a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/kawayama/6001517710/\">lustmord</a>\n</p>\n<ul><li>Uploaded by <a href=\"//commons.wikimedia.org/wiki/User:Alison\" title=\"User:Alison\">Alison</a></li></ul>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/46017000@N00\">Henrik Strömberg</a> from Sweden",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 2.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 2.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/2.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-2.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "file_page": {
+        "status": 200,
+        "final_url": "https://commons.wikimedia.org/wiki/File:Lustmord.jpg",
+        "bytes": 100421,
+        "content_type": null
+      },
+      "full": {
+        "requested_url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Lustmord.jpg",
+        "error": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)"
+      },
+      "thumb": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/960px-Lustmord.jpg",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/960px-Lustmord.jpg",
+        "content_type": null,
+        "bytes": 139911,
+        "sha256": "40320649303288731ff611c6d8a6220fb030ffee8313dc1cb83c109f40a41af9",
+        "dimensions": [
+          960,
+          640
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/ritual_ambient-thumb.jpg"
+      },
+      "full_delivery": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/960px-Lustmord.jpg",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/960px-Lustmord.jpg",
+        "content_type": "image/jpeg",
+        "bytes": 139911,
+        "sha256": "40320649303288731ff611c6d8a6220fb030ffee8313dc1cb83c109f40a41af9",
+        "dimensions": [
+          960,
+          640
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/ritual_ambient-full-delivery.jpg"
+      },
+      "thumb_delivery": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/330px-Lustmord.jpg",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Lustmord.jpg/330px-Lustmord.jpg",
+        "content_type": "image/jpeg",
+        "bytes": 16063,
+        "sha256": "65e51854bbf529ac38762af3ef71bba06cedcb191c71ceb2c9d63e7c12971c6f",
+        "dimensions": [
+          330,
+          220
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/ritual_ambient-thumb-delivery.jpg"
+      }
+    },
+    "warm_drone": {
+      "metadata_api_url": "https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url%7Cextmetadata%7Csize&iiurlwidth=960&format=json&titles=File%3ARafael+Anton+Irisarri+at+Caf%C3%A9+Oto+%2811+March+2024%29.jpg",
+      "api": {
+        "size": 1112152,
+        "width": 4032,
+        "height": 3024,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/960px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 720,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/1920px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/960px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 720,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/1920px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_(11_March_2024).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=147298435",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2024-04-11 22:29:39",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Rafael Anton Irisarri at Café Oto (11 March 2024)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Self-published work|All media needing categories as of 2024|Media needing categories as of 11 April 2024",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "American electronic Rafael Anton Irisarri plays at Café Oto, London on 11 March 2024.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2024-03-11 21:29:23",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:FromMorningToMidnight&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:FromMorningToMidnight (page does not exist)\">FromMorningToMidnight</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "file_page": {
+        "status": 200,
+        "final_url": "https://commons.wikimedia.org/wiki/File:Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_(11_March_2024).jpg",
+        "bytes": 95790,
+        "content_type": null
+      },
+      "full": {
+        "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+        "error": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)"
+      },
+      "thumb": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/960px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/960px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+        "content_type": null,
+        "bytes": 109317,
+        "sha256": "eb3d2cbb74b23124c92d0e44d4169d9078599a4ef626af17f1b87ed76829c9bc",
+        "dimensions": [
+          960,
+          720
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/warm_drone-thumb.jpg"
+      },
+      "full_delivery": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/1280px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/1280px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+        "content_type": "image/jpeg",
+        "bytes": 172217,
+        "sha256": "eeec59ead253a23916e6df70ee717cb9ed844317c4e522bfbf7e60d1b0866a42",
+        "dimensions": [
+          1280,
+          960
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/warm_drone-full-delivery.jpg"
+      },
+      "thumb_delivery": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/330px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg/330px-Rafael_Anton_Irisarri_at_Caf%C3%A9_Oto_%2811_March_2024%29.jpg",
+        "content_type": "image/jpeg",
+        "bytes": 19997,
+        "sha256": "a465a7f606eae354b07659191ddb7b47fc704fe97f204279d04ac63fcabb8261",
+        "dimensions": [
+          330,
+          247
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/warm_drone-thumb-delivery.jpg"
+      }
+    },
+    "world_meditation": {
+      "metadata_api_url": "https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url%7Cextmetadata%7Csize&iiurlwidth=960&format=json&titles=File%3ANawang+Khechog.jpg",
+      "api": {
+        "size": 133871,
+        "width": 800,
+        "height": 531,
+        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Nawang_Khechog.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbwidth": 960,
+        "thumbheight": 637,
+        "thumbattribs": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Nawang_Khechog.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 637
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Nawang_Khechog.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Nawang_Khechog.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=14761248",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2011-04-01 21:14:46",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Nawang Khechog",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Taken with Nikon D70|Musicians from Tibet|Ashtamangala|Flickr images uploaded by Flickr upload bot|Festival culturel du Tibet et des peuples de l'Himalaya 2004",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Nawang Khechog at the <a href=\"https://fr.wikipedia.org/wiki/Festival_culturel_du_Tibet_et_des_peuples_de_l%27Himalaya\" class=\"extiw\" title=\"fr:Festival culturel du Tibet et des peuples de l'Himalaya\">fr:Festival culturel du Tibet et des peuples de l'Himalaya</a>,  19 September 2004, 5e Festival du Tibet à Vincennes",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2004-09-19 17:32:40",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/Flickr\" class=\"mw-redirect\" title=\"Flickr\">Flickr</a>: <a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/20138612@N00/128845916\">Musicien</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/20138612@N00\">stef niKo</a>",
+            "source": "commons-desc-page"
+          },
+          "Permission": {
+            "value": "<table id=\"FlickrReview\" style=\"width:100%; margin:0.3em auto; text-align:start; background-color:var(--background-color-success-subtle,#d5fdf4); padding: 3px; border:1px solid var(--border-color-base,#a2a9b1); color:inherit;\" dir=\"ltr\" lang=\"en\">\n\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Checked_copyright_icon.svg/60px-Checked_copyright_icon.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"50\" height=\"48\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Checked_copyright_icon.svg/120px-Checked_copyright_icon.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"160\" data-file-height=\"153\"></span></span>\n</td>\n<td>This image, which was originally posted to <b><a href=\"https://en.wikipedia.org/wiki/Flickr\" class=\"extiw\" title=\"en:Flickr\">Flickr</a></b>, was uploaded to Commons using <b><a href=\"//commons.wikimedia.org/wiki/User:Flickr_upload_bot\" title=\"User:Flickr upload bot\">Flickr upload bot</a></b> on 1 April 2011, 21:14 by <span id=\"flickr_upload_bot_reviewer\"><b><a href=\"//commons.wikimedia.org/wiki/User:R%C3%A9dacteur_Tibet\" title=\"User:Rédacteur Tibet\">Rédacteur Tibet</a></b></span>. On that date, it was confirmed to be licensed under the terms of the license indicated.\n</td>\n<td><span typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Flickr_dots.svg/60px-Flickr_dots.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"50\" height=\"50\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Flickr_dots.svg/120px-Flickr_dots.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"512\" data-file-height=\"512\"></span></span>\n</td></tr></tbody></table>\n<div class=\"responsive-license-cc layouttemplate licensetpl\" dir=\"ltr\" lang=\"en\"><div class=\"rlicense-icons\"><span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"w:en:Creative Commons\"><img alt=\"w:en:Creative Commons\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/120px-CC_some_rights_reserved.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"90\" height=\"36\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/250px-CC_some_rights_reserved.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"744\" data-file-height=\"300\"></span></span><br>\n<span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"attribution\"><img alt=\"attribution\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/40px-Cc-by_new_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"24\" height=\"24\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/60px-Cc-by_new_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span> <span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"share alike\"><img alt=\"share alike\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/40px-Cc-sa_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"24\" height=\"24\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/60px-Cc-sa_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span></div><div class=\"rlicense-text\"><div class=\"rlicense-declaration\">This file is licensed under the <a href=\"https://en.wikipedia.org/wiki/en:Creative_Commons\" class=\"extiw\" title=\"w:en:Creative Commons\">Creative Commons</a> <a href=\"//creativecommons.org/licenses/by-sa/2.0/deed.en\" class=\"extiw\" title=\"creativecommons:by-sa/2.0/deed.en\">Attribution-Share Alike 2.0 Generic</a> license.</div><div class=\"rlicense-desc\" style=\"text-align:start;\" lang=\"en\">\n<dl><dd>You are free:\n<ul><li><b>to share</b> – to copy, distribute and transmit the work</li>\n<li><b>to remix</b> – to adapt the work</li></ul></dd>\n<dd>Under the following conditions:\n<ul><li><b>attribution</b> – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</li>\n<li><b>share alike</b> – If you remix, transform, or build upon the material, you must distribute your contributions under the <a href=\"https://creativecommons.org/share-your-work/licensing-considerations/compatible-licenses\" class=\"extiw\" title=\"ccorg:share-your-work/licensing-considerations/compatible-licenses\">same or compatible license</a> as the original.</li></ul></dd></dl></div><span class=\"licensetpl_link\" style=\"display:none;\">https://creativecommons.org/licenses/by-sa/2.0</span><span class=\"licensetpl_short\" style=\"display:none;\">CC BY-SA 2.0 </span><span class=\"licensetpl_long\" style=\"display:none;\">Creative Commons Attribution-Share Alike 2.0 </span><span class=\"licensetpl_link_req\" style=\"display:none;\">true</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">true</span></div></div>",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 2.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 2.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/2.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-2.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "file_page": {
+        "status": 200,
+        "final_url": "https://commons.wikimedia.org/wiki/File:Nawang_Khechog.jpg",
+        "bytes": 107419,
+        "content_type": null
+      },
+      "full": {
+        "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Nawang_Khechog.jpg",
+        "error": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)"
+      },
+      "thumb": {
+        "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Nawang_Khechog.jpg",
+        "error": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)"
+      },
+      "full_delivery": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/500px-Nawang_Khechog.jpg",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/500px-Nawang_Khechog.jpg",
+        "content_type": "image/jpeg",
+        "bytes": 51785,
+        "sha256": "819c5b3838fcc1b545469ebb4ef18ef1273b40263d6a36fc16f52f8eaf1d9d64",
+        "dimensions": [
+          500,
+          332
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/world_meditation-full-delivery.jpg"
+      },
+      "thumb_delivery": {
+        "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/330px-Nawang_Khechog.jpg",
+        "status": 200,
+        "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nawang_Khechog.jpg/330px-Nawang_Khechog.jpg",
+        "content_type": "image/jpeg",
+        "bytes": 26405,
+        "sha256": "6a5fc1d70ae02b84227796a357aee4cab20e580bf1346cf14ecf28ca45712844",
+        "dimensions": [
+          330,
+          219
+        ],
+        "format": "JPEG",
+        "local_path": "/workspace/scratch/ef615f31cedd/CodexMusica/docs/everynoise-work/001/packets/16-20-evidence/world_meditation-thumb-delivery.jpg"
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "group_id": "001",
+  "owner_token": "6d40b684-32df-4ea8-b764-69db69385df6",
+  "updated_at": "2026-09-30T01:29:33.832903+00:00",
+  "allocation_commit": "6c22659c84459822843021ea46e485894a48d1ef",
+  "allocation_sha256": "246ac5b37a638fa6a72627d55fad57cc6a04e4a0d34f968694bbf6eba63c61c7",
+  "claim_commit": "1638709a5f8b0255270d7704a92d9d3775491b41",
+  "baseline_commit": "db747bcba763b8301afaee497b7b56808b411516",
+  "state": "blocked_research_checkpoint",
+  "complete": false,
+  "production_integrated": false,
+  "assigned_count": 25,
+  "proposed_records": 25,
+  "added_or_resolved_count": 0,
+  "overlay": {
+    "records_passed": 25,
+    "format_pairs_byte_identical": 100,
+    "old_authored_sources_extras_geo_preserved": true,
+    "scope": "Temporary source overlay only; no production import, final generated builds, CI or merge certification."
+  },
+  "photos": {
+    "candidates_with_both_deliveries_http_200_and_decoded": 21,
+    "candidate_photographs_visually_reviewed": 21,
+    "assigned_count": 25,
+    "missing_ids": [
+      "ambient_lo_fi",
+      "afro_house_angolano",
+      "beach_house",
+      "brazilian_tech_house"
+    ],
+    "rights_evidence": "See individual packets. Candidate rights and exemplar relevance still require final integration review. No missing image is represented by a placeholder."
+  },
+  "unresolved_label_scope": [
+    "ambient_lo_fi",
+    "deep_ambient",
+    "beach_house"
+  ],
+  "blockers": [
+    "Four allocated labels lack an accepted relevant, eligible licensed photo: ambient lo-fi, afro house angolano, beach house, brazilian tech house.",
+    "Ambient lo-fi source cluster is not established by the provisional Earthen Sea model; deep ambient equivalence to space_ambient remains unresolved; beach house label membership/boundary remains unresolved.",
+    "Every Noise direct pages returned HTTP 403 and many author mirror requests returned 403/502. Exact artist membership remains uninspected for labels noted in packets. Independent sources do not establish missing classifier boundaries."
+  ],
+  "pr": null,
+  "merged_main_sha": null,
+  "merge_lock_acquired": false,
+  "pending_checks": [
+    "Resolve source scope and missing photos",
+    "Final per-entry source/rights and recipe editorial review",
+    "Acquire merge lock and reconcile against then-current main",
+    "Import records, prerequisites and completion gate",
+    "Required builds, older compiled-output drift review and complete repository checks",
+    "Open PR, verify exact head and current required CI, merge and record receipt"
+  ],
+  "resume": {
+    "branch": "codex/everynoise-group-001",
+    "claim_path": "docs/everynoise-work/001/claim.json",
+    "warning": "Resume this owner only with explicit authorization. Do not claim completion from passing overlay checks. Packet blocker text is historical; this status and fetch receipts distinguish later verification from unresolved issues."
+  }
+}
