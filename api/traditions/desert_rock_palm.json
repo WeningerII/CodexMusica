@@ -5,7 +5,7 @@
   "lineage": "Late-1980s-and-1990s Palm Desert California scene that birthed stoner rock through generator-party performances in the high desert outside Palm Springs and Joshua Tree. The \"generator parties\" allowed local bands (Kyuss, Yawning Man, Across the River, Fatso Jetson) to perform with the band powered by gasoline generators in remote desert locations free of police interference. The 1988-1992 generator-party period mythologized the geographic-cultural specificity of the desert-rock scene.",
   "recipe": "classic Midwestern American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal. thick, larynx lowered, straight note core, interlocked note trading. orange amp British heavy crunch basswood alnico power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
   "recipe_chars": 536,
-  "score": 367.631,
+  "score": 368.63,
   "config": {
     "traditions": [
       "desert_rock_palm",
@@ -38,18 +38,18 @@
           "voice_quality": 17.499999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4369999999999994,
+          "voice_vibrato": 2.4699999999999998,
           "voice_articulation": 12.284999999999997,
-          "voice_microtone": 26.875,
+          "voice_microtone": 26.9065,
           "voice_tradition": 3.380000000000001,
-          "voice_mechanism_compound": 29.513749999999998,
-          "voice_estill_quality": 4.030000000000001,
+          "voice_mechanism_compound": 29.671249999999997,
+          "voice_estill_quality": 4.022500000000001,
           "voice_speech_song": 12.284999999999997,
-          "voice_ensemble_config": 13.42925,
+          "voice_ensemble_config": 13.3805,
           "voice_ornament_system": 0.9999999999999998,
           "voice_pitch_organization": 0.6499999999999999,
           "voice_processing_chain": 7.3465,
-          "voice_multitrack_stack": 8.041
+          "voice_multitrack_stack": 8.167000000000002
         }
       },
       {
@@ -70,8 +70,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 22.09825,
-          "amp_make": 23.348499999999994,
+          "electric_technique": 22.31875,
+          "amp_make": 23.484999999999996,
           "body_wood": 5.395,
           "neck_wood": 0.39,
           "fretboard": 0.585,
@@ -97,12 +97,12 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 23.348499999999994,
+          "amp_make": 23.484999999999996,
           "body_wood": 0.585,
           "pickup_config": 0,
-          "string_type": 31.713500000000003,
+          "string_type": 31.976000000000003,
           "scale_length_b": 0.975,
-          "fretted_or_not": 0.08025,
+          "fretted_or_not": 0.0315,
           "bass_technique": 31.800000000000004
         }
       },

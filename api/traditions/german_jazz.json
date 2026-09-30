@@ -5,7 +5,7 @@
   "lineage": "German jazz scenes; selected Berlin composition-led acoustic quartet",
   "recipe": "classic modern german jazz, improv On Frame, American jazz branch. grand piano, saxophone, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 318,
-  "score": 44.058,
+  "score": 43.328,
   "config": {
     "traditions": [
       "german_jazz"
@@ -25,9 +25,9 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.147,
-          "grand_piano_brand": 0.207,
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 0.0735,
+          "grand_piano_brand": 0.105,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,
@@ -48,13 +48,13 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": -0.035,
+          "wind_articulation": -0.05,
           "sax_size": 0.19500000000000003,
-          "sax_reed": 0.1785,
+          "sax_reed": 0.105,
           "sax_body_alloy": 0.26,
           "sax_mouthpiece": 0,
-          "sax_technique": -0.035,
-          "sax_maker_school": 0.357
+          "sax_technique": -0.05,
+          "sax_maker_school": 0.29774999999999996
         }
       },
       {
@@ -64,7 +64,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.19949999999999998,
+          "upright_strings": 0.1485,
           "upright_play": 11.25
         }
       },
@@ -87,11 +87,11 @@
           "drum_technique": 7.67,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.252,
+          "shell_wood": 0.0735,
           "shell_thickness": 0,
           "bearing_edges": 0.1365,
-          "snare_wires": 0.147,
-          "cymbal_alloy": 11.246999999999998,
+          "snare_wires": 0.0735,
+          "cymbal_alloy": 11.173499999999997,
           "cymbal_hammering": 11.641,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0

@@ -5,7 +5,7 @@
   "lineage": "Austria-connected jazz musicians working in international ensembles. Wolfgang Muthspiel’s Rising Grace quintet supplies this selected branch: electric guitar, trumpet and piano converse above acoustic bass and drums.",
   "recipe": "classic modern austrian jazz, improv On Frame, bop branch. acoustic leaning carved top solid spruce Gibson canon thomastik archtop, bach stradivarius 180 canonical American orchestral trumpet, grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 433,
-  "score": 91.478,
+  "score": 91.443,
   "config": {
     "traditions": [
       "austrian_jazz"
@@ -44,7 +44,7 @@
         "scores": {
           "wind_articulation": 0.325,
           "brass_size": 0.1365,
-          "trumpet_mouthpiece": -0.07,
+          "trumpet_mouthpiece": -0.1,
           "brass_mute": 0,
           "trumpet_technique": -0.05,
           "trumpet_bell_metal": 0.1365,
@@ -65,7 +65,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "grand_piano_size": 0,
           "grand_piano_brand": 0,
           "piano_hammer": -0.07,
@@ -106,13 +106,13 @@
           "drum_technique": 9.49,
           "drumhead": 0.06862499999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.04462499999999999,
+          "shell_wood": 0.07424999999999998,
           "shell_thickness": 0,
           "bearing_edges": 0.17924999999999996,
           "snare_wires": 0.03712499999999999,
-          "cymbal_alloy": 11.107499999999998,
-          "cymbal_hammering": 11.375499999999999,
-          "cymbal_lathing": -0.11475000000000002,
+          "cymbal_alloy": 11.099999999999998,
+          "cymbal_hammering": 11.367999999999999,
+          "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0.0315
         }
       }

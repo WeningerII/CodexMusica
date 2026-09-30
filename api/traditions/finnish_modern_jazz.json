@@ -5,7 +5,7 @@
   "lineage": "Contemporary Finland-connected improvised music, represented by Verneri Pohjola’s Bullhorn quartet. Trumpet, piano, acoustic bass and drums balance memorable compositions, lyrical lines and bursts of rougher energy.",
   "recipe": "classic modern finnish modern jazz, improv On Frame, bop branch. bach stradivarius 180 canonical American orchestral standard rim orchestral balance trumpet, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 459,
-  "score": 63.566,
+  "score": 63.523,
   "config": {
     "traditions": [
       "finnish_modern_jazz"
@@ -46,15 +46,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "grand_piano_size": 0,
           "grand_piano_brand": 0,
-          "piano_hammer": 3.05925,
-          "piano_rim": 3.01725,
+          "piano_hammer": 3.0380000000000003,
+          "piano_rim": 2.996,
           "piano_soundboard": 2.5445,
           "piano_pinblock": 2.555,
           "piano_plate": 2.45,
-          "piano_pitch_standard": 3.67075
+          "piano_pitch_standard": 3.646
         }
       },
       {
@@ -64,7 +64,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.1725,
+          "upright_strings": 0.168,
           "upright_play": 8.75
         }
       },
@@ -85,16 +85,16 @@
         },
         "scores": {
           "drum_technique": 8.58,
-          "drumhead": 0.06749999999999999,
+          "drumhead": 0.063,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.0315,
+          "shell_wood": 0.0705,
           "shell_thickness": 0,
-          "bearing_edges": 0.17175,
+          "bearing_edges": 0.168,
           "snare_wires": 0.0315,
           "cymbal_alloy": 8.599999999999998,
           "cymbal_hammering": 8.867999999999999,
-          "cymbal_lathing": 2.7125000000000004,
-          "cymbal_finish": 0.03599999999999999
+          "cymbal_lathing": 2.7,
+          "cymbal_finish": 0.0315
         }
       }
     ],

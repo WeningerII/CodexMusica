@@ -5,7 +5,7 @@
   "lineage": "Contemporary Brazilian jazz; selected Recife piano-trio branch",
   "recipe": "classic modern brazilian modern jazz, improv On Frame, Latin jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 375,
-  "score": 63.59,
+  "score": 63.971,
   "config": {
     "traditions": [
       "brazilian_modern_jazz"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.044375000000000005,
-          "grand_piano_size": 0.0315,
+          "keyboard_technique": -0.03875000000000001,
+          "grand_piano_size": 0.11699999999999999,
           "grand_piano_brand": 0.0315,
-          "piano_hammer": 2.4545000000000003,
-          "piano_rim": 2.4545000000000003,
-          "piano_soundboard": 2.794625,
+          "piano_hammer": 2.45,
+          "piano_rim": 2.49275,
+          "piano_soundboard": 2.80025,
           "piano_pinblock": 2.4815,
-          "piano_plate": 2.4815,
-          "piano_pitch_standard": 3.04675
+          "piano_plate": 2.5445,
+          "piano_pitch_standard": 3.1727499999999997
         }
       },
       {
@@ -43,7 +43,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.20400000000000001,
+          "upright_strings": 0.21075000000000002,
           "upright_play": 11.25
         }
       },
@@ -64,7 +64,7 @@
         },
         "scores": {
           "drum_technique": 8.45,
-          "drumhead": 0.0675,
+          "drumhead": 0.063,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.0315,
           "shell_thickness": 0,
@@ -72,8 +72,8 @@
           "snare_wires": 0,
           "cymbal_alloy": 11.131499999999997,
           "cymbal_hammering": 11.5,
-          "cymbal_lathing": 2.4314999999999998,
-          "cymbal_finish": 0.036
+          "cymbal_lathing": 2.4945,
+          "cymbal_finish": 0.0315
         }
       }
     ],

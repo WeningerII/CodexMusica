@@ -5,7 +5,7 @@
   "lineage": "The broad country-music tradition — Anglo-American vernacular song built on storytelling, descended from Appalachian folk and codified through the Nashville recording industry across the 20th century",
   "recipe": "classic modern country, functional Song, contemp main branch. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit, double stops fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 593,
-  "score": 200.34,
+  "score": 201.183,
   "config": {
     "traditions": [
       "country"
@@ -40,8 +40,8 @@
           "voice_articulation": 2.275,
           "voice_microtone": 2.0799999999999996,
           "voice_tradition": 6.37,
-          "voice_mechanism_compound": 0.5398749999999999,
-          "voice_estill_quality": 11.432374999999999,
+          "voice_mechanism_compound": 0.6343749999999999,
+          "voice_estill_quality": 11.463874999999998,
           "voice_speech_song": 5.915000000000001,
           "voice_ensemble_config": 2.4325000000000006,
           "voice_ornament_system": 0.17437500000000003,
@@ -67,8 +67,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 11.342749999999999,
-          "amp_make": 11.994999999999997,
+          "electric_technique": 11.374249999999998,
+          "amp_make": 12.204999999999997,
           "body_wood": 0.31300000000000006,
           "neck_wood": 0.11249999999999999,
           "fretboard": 0.017499999999999998,
@@ -95,7 +95,7 @@
         },
         "scores": {
           "electric_technique": 12.202249999999998,
-          "amp_make": 11.994999999999997,
+          "amp_make": 12.204999999999997,
           "pickup_steel": 0.11249999999999999,
           "string_setup": 5.719999999999999,
           "bar_material": 0.39,
@@ -112,17 +112,17 @@
           "pickup_config": "soapbar",
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 11.924999999999997,
+          "amp_make": 12.134999999999998,
           "body_wood": 0.225,
           "pickup_config": 0.448,
           "string_type": 0.39,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.007499999999999999,
-          "bass_technique": 11.342749999999999
+          "fretted_or_not": 0.0315,
+          "bass_technique": 11.374249999999998
         }
       },
       {

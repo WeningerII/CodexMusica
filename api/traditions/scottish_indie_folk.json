@@ -1,0 +1,143 @@
+{
+  "id": "scottish_indie_folk",
+  "name": "Scottish indie folk",
+  "family": "vernacular",
+  "lineage": "Scottish indie folk includes performer-led independent song networks such as King Creosote’s Fife-based practice. His From Scotland with Love arrangements supply one acoustic and free-reed branch rather than a generic tartan soundtrack.",
+  "recipe": "classic modern scottish indie folk, ballad Poetry, indie folk branch. thick, neutral third half flat, m1 with m0 pulse borrowing, opera quality low larynx anchored. dadgad tuning acoustic guitar, accordion. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 344,
+  "score": 32.441,
+  "config": {
+    "traditions": [
+      "scottish_indie_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "whisper_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 8.417999999999997,
+          "voice_quality": 0.273,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.31499999999999995,
+          "voice_articulation": -0.14,
+          "voice_microtone": 1.6899999999999997,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.755,
+          "voice_speech_song": 5.135,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 1.755,
+          "voice_pitch_organization": 0.105,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 1.2730000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "dadgad",
+          "top_wood": "cedar_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_strummed_open"
+        },
+        "scores": {
+          "string_tuning": 4.85,
+          "top_wood": 0.45149999999999996,
+          "back_sides": 0.313,
+          "string_acoustic": 0.483,
+          "acoustic_om_technique": -0.035
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_maker_unspecified"
+        },
+        "scores": {
+          "free_reed_technique": -0.07,
+          "accordion_reed_material": 0.42,
+          "musette_offset": 0.0315,
+          "reed_config": 0.2415,
+          "bellows": 0.0315,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition",
+        "voice_ensemble_config"
+      ],
+      "acoustic_guitar_om": [
+        "acoustic_om_technique"
+      ],
+      "accordion": [
+        "free_reed_technique",
+        "musette_offset",
+        "accordion_maker_school"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "acoustic_om_technique": "om_strummed_open",
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "accordion_maker_school": "accordion_maker_unspecified",
+      "musette_offset": "dry_tuning",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

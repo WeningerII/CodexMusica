@@ -5,7 +5,7 @@
   "lineage": "Singaporean Mandarin campus-folk movement formed 1979-1985 among junior-college and university students (Liang Wern Fook, Eric Moo, Billy Koh, and the Hocktone/Ocean Butterflies circle), built on strummed steel-string guitar at unhurried 70-100 BPM ballad tempos, diatonic verse-chorus songwriting with light piano and fretless-toned bass, and a conversational untrained-sounding Mandarin vocal delivery singing local Singaporean subject matter rather than Taiwanese or Hong Kong romantic convention.",
   "recipe": "classic Southeast Asian mid-1980s xinyao, functional Song, east Asian pop branch, anglo singer song indie folk chinese minyao stomp and flutter. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, rock canon ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, venice catlin high twist renaissance bass hard rock maple synthetic varnish cello. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 767,
-  "score": 280.65,
+  "score": 277.96,
   "config": {
     "traditions": [
       "xinyao",
@@ -47,7 +47,7 @@
           "voice_speech_song": 21.709999999999994,
           "voice_ensemble_config": 14.819999999999997,
           "voice_ornament_system": 6.987500000000001,
-          "voice_pitch_organization": 7.2597499999999995,
+          "voice_pitch_organization": 6.8,
           "voice_processing_chain": 2.145,
           "voice_multitrack_stack": 2.5349999999999997
         }
@@ -62,7 +62,7 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 21.741,
+          "acoustic_technique": 21.63,
           "string_tuning": 0.775,
           "top_wood": 0.3,
           "back_sides": 0.45499999999999996,
@@ -83,12 +83,12 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 9.85,
+          "keyboard_technique": 9.94,
           "grand_piano_size": 0.44999999999999996,
-          "grand_piano_brand": 2.1365,
-          "piano_hammer": 10.592,
-          "piano_rim": 10.64825,
-          "piano_soundboard": 12.552750000000001,
+          "grand_piano_brand": 2.135,
+          "piano_hammer": 10.045,
+          "piano_rim": 10,
+          "piano_soundboard": 11.955000000000002,
           "piano_pinblock": 0.4875,
           "piano_plate": 1.0074999999999998,
           "piano_pitch_standard": 2.5675
@@ -111,7 +111,7 @@
           "pickup_config": 0.195,
           "string_type": 2.7625,
           "scale_length_b": 0.3,
-          "fretted_or_not": 1.1365,
+          "fretted_or_not": 1.135,
           "bass_technique": 2.12
         }
       },
@@ -124,7 +124,7 @@
         },
         "scores": {
           "drum_technique": 13.909999999999997,
-          "drumhead": 10.573,
+          "drumhead": 10.3,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -147,7 +147,7 @@
           "cello_top_wood": 0.57,
           "cello_back_wood": 1.5925,
           "cello_varnish": 1.0725,
-          "cello_setup_period": 3.2750000000000004,
+          "cello_setup_period": 3.1350000000000002,
           "cello_bow_grip": 1.3,
           "cello_rosin": 1.2675,
           "cello_bow_stick": 0.375

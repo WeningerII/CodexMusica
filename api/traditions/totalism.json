@@ -3,14 +3,14 @@
   "name": "Totalism",
   "family": "classical",
   "lineage": "New York downtown movement of the late 1980s and 1990s — Michael Gordon, Julia Wolfe and David Lang with Bang on a Can, plus Mikel Rouse, Rhys Chatham and critic Kyle Gann — steady fast pulse with conflicting tempo layers stacked as 3:4 or 5:7 rhythmic dissonance over it, harmony richer and more dissonant than minimalism, amplified mixed ensembles of electric guitar, bass, drums, piano and winds played at rock volume but with through-composed formal scale.",
-  "recipe": "classic 1987-1989 totalism, art Music, western modern branch, classic distorted rock belgian stoner rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, grenadilla African blackwood traditional clarinet, synthetic engelmann spruce hard rock maple oil varnish amber tinted cello, marimba sitka spruce hard rock maple acer saccharum oil varnish amber tinted violin orchestral, doepfer eurorack canonical 1995 present small format standardization modular synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 821,
-  "score": 261.478,
+  "recipe": "classic 1987-1989 totalism, art Music, western modern branch, classic distorted rock classic garage rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, grenadilla African blackwood traditional clarinet, venice catlin high twist renaissance bass engelmann spruce hard rock maple cello, marimba sitka spruce hard rock maple acer saccharum oil varnish amber tinted violin orchestral, doepfer eurorack canonical 1995 present small format standardization modular synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 828,
+  "score": 274.973,
   "config": {
     "traditions": [
       "totalism",
-      "classic_rock",
-      "belgian_stoner_rock"
+      "classic_garage_rock",
+      "classic_rock"
     ],
     "instruments": [
       {
@@ -26,23 +26,23 @@
           "string_material": "pure_nickel_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 3.2825000000000006,
-          "amp_make": 7.280000000000001,
-          "body_wood": 2.795,
+          "electric_technique": 2.7300000000000004,
+          "amp_make": 8.125,
+          "body_wood": 2.6,
           "neck_wood": 0.65,
           "fretboard": 1,
           "pickup_magnet": 2.5,
-          "pickup_winding": 3.445,
-          "string_material": 0.195,
+          "pickup_winding": 3.6399999999999997,
+          "string_material": 0.845,
           "bridge": 1,
-          "scale_length": 2.34,
-          "string_gauge": 0.845,
-          "finish": 0.435,
+          "scale_length": 1.95,
+          "string_gauge": 0.65,
+          "finish": 0.195,
           "string_tuning": 10.725
         }
       },
@@ -58,38 +58,38 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 8.319999999999999,
+          "amp_make": 9.62,
           "body_wood": 1.95,
-          "pickup_config": 2.195,
-          "string_type": 15.6,
+          "pickup_config": 1.6949999999999998,
+          "string_type": 18.557499999999997,
           "scale_length_b": 1.5,
-          "fretted_or_not": 0.15,
-          "bass_technique": 12.084999999999999
+          "fretted_or_not": 0.65,
+          "bass_technique": 13.709999999999997
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 2.545,
-          "grand_piano_size": 0.6950000000000001,
-          "grand_piano_brand": 0.65,
-          "piano_hammer": 14.365,
-          "piano_rim": 14.559999999999999,
+          "grand_piano_size": 0.65,
+          "grand_piano_brand": 0.6950000000000001,
+          "piano_hammer": 15.209999999999999,
+          "piano_rim": 15.405,
           "piano_soundboard": 6.4,
-          "piano_pinblock": 7.4,
-          "piano_plate": 6.945,
-          "piano_pitch_standard": 10.19
+          "piano_pinblock": 7.25,
+          "piano_plate": 6.82,
+          "piano_pitch_standard": 10.540000000000001
         }
       },
       {
@@ -105,7 +105,7 @@
           "wind_articulation": 2.5,
           "clarinet_body": 6.3500000000000005,
           "clarinet_size": 1.24,
-          "clarinet_reed": 0.195,
+          "clarinet_reed": 0.18,
           "clarinet_articulation": 0.15
         }
       },
@@ -113,7 +113,7 @@
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "cello_synthetic",
+          "cello_strings": "venice_catlin_cello",
           "cello_top_wood": "engelmann_spruce_cello",
           "cello_back_wood": "hard_rock_maple_cello_back",
           "cello_varnish": "oil_amber_varnish_cello",
@@ -124,14 +124,14 @@
         },
         "scores": {
           "bowed_technique": 2.7399999999999998,
-          "cello_strings": 2.195,
+          "cello_strings": 2.235,
           "cello_top_wood": 3.75,
-          "cello_back_wood": 11.115,
+          "cello_back_wood": 11.959999999999999,
           "cello_varnish": 6.25,
-          "cello_setup_period": 8.440000000000001,
-          "cello_bow_grip": 1.39,
-          "cello_rosin": 6.8500000000000005,
-          "cello_bow_stick": 6.890000000000001
+          "cello_setup_period": 8.79,
+          "cello_bow_grip": 1.89,
+          "cello_rosin": 6.7,
+          "cello_bow_stick": 7.540000000000001
         }
       },
       {
@@ -144,7 +144,7 @@
         "scores": {
           "percussion_technique": -0.05,
           "marimba_size": 1.24,
-          "marimba_orchestral_bar": 0.195
+          "marimba_orchestral_bar": 0.48
         }
       },
       {
@@ -158,20 +158,20 @@
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
-          "orch_articulation": "arco_orch",
+          "orch_articulation": "sul_pont_orch",
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
           "bowed_technique": 2.7399999999999998,
-          "orch_strings": 0.195,
-          "orch_top_wood": 4.17,
-          "orch_back_wood": 12.805,
+          "orch_strings": 0.18,
+          "orch_top_wood": 4.32,
+          "orch_back_wood": 13.844999999999999,
           "orch_varnish": 6.25,
-          "orch_setup_period": 8.440000000000001,
+          "orch_setup_period": 8.79,
           "orch_bow": 0.045,
-          "orch_bow_stick": 6.890000000000001,
-          "orch_articulation": 0.845,
-          "orch_rosin": 6.8500000000000005
+          "orch_bow_stick": 7.540000000000001,
+          "orch_articulation": 0.3,
+          "orch_rosin": 6.7
         }
       },
       {
@@ -183,8 +183,8 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 1.7399999999999998,
-          "mod_voltage_source": 4.745,
+          "electronic_technique": 2.09,
+          "mod_voltage_source": 4.9399999999999995,
           "mod_patch_density": 0.65,
           "mod_lineage": 1.6049999999999995
         }

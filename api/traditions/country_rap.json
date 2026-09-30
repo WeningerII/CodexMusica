@@ -5,7 +5,7 @@
   "lineage": "US Southern hybrid consolidated after 2008 through Colt Ford, Bubba Sparxxx and the Average Joes label — rapped verses in a rural Southern accent over 808-driven trap or boom-bap programming at 75-95 BPM, alternating with sung country hooks, acoustic guitar and slide or banjo loops, and lyrics about trucks, dirt roads and small-town life.",
   "recipe": "classic late-2000s country rap, mc Rhythm, southern branch, contemp main country, us hip hop modern christian country. thick, rap, straight note core, interlocked note trading. TR-808, sampled chopped sampler drum machine, phosphor bronze modern martin travis picked dreadnought acoustic guitar, walnut warmer than maple light steel clawhammer canon scruggs stelling banjo 5 string, Fender tweed amp American 50s amp tweed breakup stainless steel roundwound electric bass, steel c6 sacred steel lap steel, sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 732,
-  "score": 383.748,
+  "score": 383.123,
   "config": {
     "traditions": [
       "country_rap",
@@ -26,7 +26,7 @@
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pelog_7",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 35.18,
-          "voice_quality": 17.56,
+          "voice_quality": 17.23,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 28.959999999999997,
           "voice_articulation": 14.494999999999996,
           "voice_microtone": 13.389999999999992,
-          "voice_tradition": 7.9799999999999995,
+          "voice_tradition": 8.024999999999999,
           "voice_mechanism_compound": 3.9,
-          "voice_estill_quality": 33.425,
-          "voice_speech_song": 17.135,
+          "voice_estill_quality": 33.035,
+          "voice_speech_song": 17.09499999999999,
           "voice_ensemble_config": 14.364999999999995,
           "voice_ornament_system": 3.9000000000000012,
-          "voice_pitch_organization": 1.0849999999999997,
+          "voice_pitch_organization": 0.9949999999999998,
           "voice_processing_chain": 11.74,
           "voice_multitrack_stack": 3.4775000000000005
         }
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 6.12,
+          "tr808_voice": 6.165,
           "drum_machine_808_context": 2.9899999999999998,
           "tr808_production_origin": 0.9099999999999999
         }
@@ -100,7 +100,7 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "banjo_back": "open_back",
+          "banjo_back": "resonator",
           "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
@@ -112,7 +112,7 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 0.3,
+          "banjo_back": 0.15,
           "tone_ring": 0.585,
           "banjo_head": 13.194999999999999,
           "banjo_pot": 0.15,
@@ -136,13 +136,13 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 28.349999999999998,
+          "amp_make": 28.65,
           "body_wood": 0.65,
           "pickup_config": 2.145,
           "string_type": 2.6,
           "scale_length_b": 1.3,
-          "fretted_or_not": 0.045,
-          "bass_technique": 28.695
+          "fretted_or_not": 0.09,
+          "bass_technique": 28.74
         }
       },
       {
@@ -165,7 +165,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 11.47,
+          "electronic_technique": 11.365,
           "poly_archetypes": 0.845,
           "poly_voices": 0.845,
           "poly_maker_lineage": -2.05

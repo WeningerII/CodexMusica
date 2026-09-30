@@ -5,7 +5,7 @@
   "lineage": "Brazilian sertanejo substrain named in the late 2010s around Goiás and Mato Grosso agribusiness culture and its rodeo-festival circuit — mid-tempo 90-120 BPM sertanejo universitário arrangements of viola caipira, acoustic guitar, accordion and full drum kit, with major-key parallel-third duet singing, big live-DVD stadium mixes, and lyrics explicitly celebrating farm, cattle, pickup-truck and rural-proprietor identity",
   "recipe": "classic 2017-2019 agronejo, functional Song, Brazilian song branch, contemp main country, country rock country christian country. thick, breath veiled tone, straight note core, interlocked note trading. pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira, cedar koa phosphor bronze modern martin travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright alder mahogany single coil electric guitar, castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 931,
-  "score": 663.648,
+  "score": 663.993,
   "config": {
     "traditions": [
       "agronejo",
@@ -43,11 +43,11 @@
           "voice_microtone": 17.744999999999994,
           "voice_tradition": 6.727500000000001,
           "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 29.397499999999997,
+          "voice_estill_quality": 29.4425,
           "voice_speech_song": 23.529999999999998,
           "voice_ensemble_config": 18.004999999999992,
-          "voice_ornament_system": 1.8315,
-          "voice_pitch_organization": 3.185,
+          "voice_ornament_system": 1.6949999999999998,
+          "voice_pitch_organization": 3.098,
           "voice_processing_chain": 6.045000000000002,
           "voice_multitrack_stack": 7.215000000000001
         }
@@ -63,7 +63,7 @@
           "viola_caipira_strings": "viola_caipira_steel_doubled"
         },
         "scores": {
-          "plucked_traditional_technique": 3.911,
+          "plucked_traditional_technique": 3.7744999999999997,
           "viola_caipira_courses": 5.162999999999999,
           "viola_caipira_context": 14.690000000000001,
           "viola_caipira_top_wood": 4.225,
@@ -84,8 +84,8 @@
           "acoustic_technique": 28.8265,
           "string_tuning": 0.39999999999999997,
           "top_wood": 1.7865,
-          "back_sides": 2.34,
-          "string_acoustic": 4.29
+          "back_sides": 2.2215,
+          "string_acoustic": 4.263
         }
       },
       {
@@ -103,8 +103,8 @@
           "free_reed_technique": 28.895,
           "accordion_reed_material": 1.7865,
           "musette_offset": 1.6315000000000002,
-          "reed_config": 2.3265000000000002,
-          "bellows": 0.585,
+          "reed_config": 2.19,
+          "bellows": 0.49499999999999994,
           "voicing_chamber": 0.27299999999999996,
           "accordion_maker_school": 2.08
         }
@@ -121,13 +121,13 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 26.614999999999995,
+          "amp_make": 26.914999999999996,
           "body_wood": 1.95,
           "pickup_config": 2.34,
           "string_type": 15.665000000000001,
           "scale_length_b": 2.4365,
-          "fretted_or_not": 1.105,
-          "bass_technique": 26.42
+          "fretted_or_not": 1.15,
+          "bass_technique": 26.465
         }
       },
       {
@@ -139,7 +139,7 @@
         },
         "scores": {
           "drum_technique": 16.997499999999995,
-          "drumhead": 2.4614999999999996,
+          "drumhead": 2.5065,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -161,13 +161,13 @@
         },
         "scores": {
           "electric_technique": 27.97,
-          "amp_make": 27.49,
-          "body_wood": 2.3265000000000002,
+          "amp_make": 27.79,
+          "body_wood": 2.19,
           "neck_wood": 1.7865,
           "fretboard": 1.7365,
           "pickup_magnet": 0.0315,
           "string_material": 1.625,
-          "string_gauge": 2.3265000000000002,
+          "string_gauge": 2.19,
           "bridge": 0.4365,
           "scale_length": 1.95,
           "finish": 0,
@@ -188,12 +188,12 @@
         },
         "scores": {
           "electric_technique": 30.084999999999997,
-          "amp_make": 27.49,
+          "amp_make": 27.79,
           "pickup_steel": 1.7865,
           "string_setup": 13.714999999999998,
-          "bar_material": 2.8915,
+          "bar_material": 2.9365,
           "pedal_steel_brand": 30.296499999999995,
-          "pedal_steel_neck_config": 32.7065,
+          "pedal_steel_neck_config": 32.9315,
           "pedal_steel_strings": 28.259999999999998
         }
       }

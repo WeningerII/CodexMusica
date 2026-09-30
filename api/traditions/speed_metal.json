@@ -3,14 +3,14 @@
   "name": "Speed metal",
   "family": "rock_punk",
   "lineage": "Mid-1980s heavy-metal subgenre emphasizing extreme tempo and virtuoso guitar-playing while retaining melodic-vocal lines and traditional heavy-metal song-structure (vs the simultaneously-emerging thrash metal's harsher vocal-and-rhythmic-aggression). Motörhead's 1979-onward catalog inaugurated the style; Helloween (Hamburg, 1984-onward), Iced Earth, and (especially in 1990s extension) the Italian power-metal scene continued the lineage. Distinguished from thrash metal by speed metal's retention of melodic-vocal lines and traditional metal harmonic-vocabulary.",
-  "recipe": "classic North American modern speed metal, distorted Rock, thrash branch, power metal neoclassical metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
-  "recipe_chars": 676,
-  "score": 409.301,
+  "recipe": "classic North American modern speed metal, distorted Rock, thrash branch, power metal brazilian power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 679,
+  "score": 373.65,
   "config": {
     "traditions": [
       "speed_metal",
-      "power_metal_european",
-      "neoclassical_metal"
+      "brazilian_power_metal",
+      "power_metal_european"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 13.443999999999992,
-          "voice_quality": 8.385,
+          "voice_register": 10.411499999999997,
+          "voice_quality": 9.230000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.3135,
-          "voice_articulation": 15.989999999999995,
-          "voice_microtone": 17.679999999999993,
-          "voice_tradition": 7.51175,
-          "voice_mechanism_compound": 48.30750000000002,
-          "voice_estill_quality": 5.035000000000001,
-          "voice_speech_song": 18.71999999999999,
-          "voice_ensemble_config": 20.539999999999992,
+          "voice_vibrato": 4.3585,
+          "voice_articulation": 11.244999999999997,
+          "voice_microtone": 11.894999999999996,
+          "voice_tradition": 6.689000000000001,
+          "voice_mechanism_compound": 49.43250000000002,
+          "voice_estill_quality": 4.8525,
+          "voice_speech_song": 13.519999999999998,
+          "voice_ensemble_config": 15.014999999999997,
           "voice_ornament_system": 4.775,
-          "voice_pitch_organization": 2.9250000000000007,
-          "voice_processing_chain": 4.7372499999999995,
-          "voice_multitrack_stack": 8.81425
+          "voice_pitch_organization": 2.2749999999999995,
+          "voice_processing_chain": 4.38725,
+          "voice_multitrack_stack": 8.85925
         }
       },
       {
@@ -60,8 +60,8 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "mid_wind",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 54.37775000000001,
-          "amp_make": 22.804750000000002,
-          "body_wood": 23.140000000000004,
+          "electric_technique": 55.92275,
+          "amp_make": 24.05,
+          "body_wood": 24.050000000000004,
           "neck_wood": 1.69,
           "fretboard": 1.625,
-          "pickup_magnet": 1.4949999999999999,
-          "pickup_winding": 0.45499999999999996,
+          "pickup_magnet": 0.8744999999999999,
+          "pickup_winding": 0.1785,
           "string_material": 0.1365,
           "bridge": 1.69,
-          "scale_length": 21.450000000000003,
+          "scale_length": 22.360000000000003,
           "string_gauge": 1.69,
           "finish": 0.04875,
-          "string_tuning": 34.71
+          "string_tuning": 34.06
         }
       },
       {
@@ -93,17 +93,17 @@
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 8.450000000000001,
-          "body_wood": 2.34,
-          "pickup_config": 0.65,
-          "string_type": 15.505,
+          "amp_make": 6.435000000000001,
+          "body_wood": 1.69,
+          "pickup_config": 0.696,
+          "string_type": 12.730000000000002,
           "scale_length_b": 1.69,
-          "fretted_or_not": 0.168,
-          "bass_technique": 14.765
+          "fretted_or_not": 0.195,
+          "bass_technique": 11.115000000000002
         }
       },
       {
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.859999999999994,
+          "drum_technique": 10.919999999999998,
           "drumhead": 2.145,
           "drum_kit_kick_pedal": 0
         }

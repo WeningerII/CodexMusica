@@ -5,7 +5,7 @@
   "lineage": "Japanese jazz scenes; selected Hiromi solo-piano composition and improvisation branch",
   "recipe": "classic modern japanese jazz, improv On Frame, American jazz branch. grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 226,
-  "score": 2.082,
+  "score": 2.154,
   "config": {
     "traditions": [
       "japanese_jazz"
@@ -25,8 +25,8 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.25,
-          "grand_piano_size": 0.147,
+          "keyboard_technique": 0.286,
+          "grand_piano_size": 0.183,
           "grand_piano_brand": 0.105,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,

@@ -5,7 +5,7 @@
   "lineage": "Formalised in Sheffield and London from 2003 by the TOPLAP collective — Alex McLean, Nick Collins and Adrian Ward — and spread through algorave events after 2012, with SuperCollider, TidalCycles and Sonic Pi as the primary tools: performers write and rewrite executing code onstage with the screen projected, generating pattern-based dance music at 120-170 BPM from sample banks and synthesis, with structure emerging from edits made in real time.",
   "recipe": "classic early-2000s live coding, experimental Elec, idm glitch branch, techno electronic dance, western modern art music algorave french techno. modular granular glitched textural wavetable fm modular synth, sampler drum machine, monosynth acid bass. festival stage. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 401,
-  "score": 76.567,
+  "score": 76.525,
   "config": {
     "traditions": [
       "live_coding",
@@ -52,7 +52,7 @@
         "scores": {
           "electronic_technique": 0.4,
           "sample_bitdepth": 0.7,
-          "sample_swing": 12.61892857142857,
+          "sample_swing": 12.605,
           "sample_processing": 0.38999999999999996
         }
       },
@@ -83,7 +83,7 @@
         },
         "scores": {
           "electronic_technique": 10.325000000000001,
-          "mod_voltage_source": 0.8389285714285716,
+          "mod_voltage_source": 0.8250000000000001,
           "mod_patch_density": 0.39,
           "mod_lineage": -1.33
         }
@@ -100,7 +100,7 @@
           "electronic_technique": 10.325000000000001,
           "wave_acid": 0,
           "filter_acid": 0.28500000000000003,
-          "accent_acid": 0.9289285714285714
+          "accent_acid": 0.9150000000000001
         }
       }
     ],

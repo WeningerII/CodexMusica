@@ -3,14 +3,14 @@
   "name": "Yorkshire Bleeps and Bass",
   "family": "electronic",
   "lineage": "Sheffield and Leeds, 1988-1991, codified on Warp and Bassic by Forgemasters, Unique 3, LFO and Nightmares on Wax — 120-130 BPM electro-derived programmed drums under stark sine-wave and square 'bleep' motifs, with an enormous sustained sub-bass borrowed from Jamaican sound-system practice and near-empty midrange, cut for maximum system pressure.",
-  "recipe": "classic Asian 1988-1991 yorkshire bleeps and bass, electronic Dance, techno branch, uk soundsystem bass system, continental electronic dance, idm glitch experimental electric electro-grime. TR-909, TR-808, low sub bass monosynth acid bass, low sub bass analog poly synth, glitched textural sampler. concrete basement. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 451,
-  "score": 113.403,
+  "recipe": "classic Asian 1988-1991 yorkshire bleeps and bass, electronic Dance, techno branch, uk soundsystem bass system, continental electronic dance, idm glitch experimental electric live coding. roland tr 8s modern aira digital recreation TR-909, roland tr 8s modern aira digital recreation TR-808, low sub bass monosynth acid bass, low sub bass analog poly synth, glitched textural sampler. concrete basement. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 537,
+  "score": 106.517,
   "config": {
     "traditions": [
       "yorkshire_bleeps_and_bass",
       "glitch_hop",
-      "electro_grime"
+      "live_coding"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
         "scores": {
           "tr909_voice": 0.75,
           "drum_machine_909_context": 1.95,
-          "tr909_production_origin": 0.65
+          "tr909_production_origin": 1
         }
       },
       {
@@ -31,12 +31,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 13.325,
-          "drum_machine_808_context": 11.180000000000001,
-          "tr808_production_origin": 0.65
+          "tr808_voice": 9.9775,
+          "drum_machine_808_context": 8.969999999999999,
+          "tr808_production_origin": 1
         }
       },
       {
@@ -48,9 +48,9 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 13.584999999999999,
+          "electronic_technique": 10.237499999999999,
           "wave_acid": 0.345,
-          "filter_acid": 2.535,
+          "filter_acid": 1.69,
           "accent_acid": 0.345
         }
       },
@@ -60,13 +60,13 @@
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 13.584999999999999,
+          "electronic_technique": 10.237499999999999,
           "poly_archetypes": 1,
           "poly_voices": 1,
-          "poly_maker_lineage": 0.585
+          "poly_maker_lineage": -0.035
         }
       },
       {
@@ -79,11 +79,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 10.625,
-          "sampler_archetypes": 3.38,
+          "electronic_technique": 14.375,
+          "sampler_archetypes": 2.6650000000000005,
           "sampler_bit_depth": 0.75,
-          "sampler_workflow": 10.625,
-          "sampler_classic_context": 23.4
+          "sampler_workflow": 14.375,
+          "sampler_classic_context": 22.5225
         }
       }
     ],

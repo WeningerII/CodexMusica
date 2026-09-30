@@ -5,7 +5,7 @@
   "lineage": "A Germany-based tech-house production network represented in the discovery roster by Format:B, Marek Hemmann, Kaiserdisco, Daniel Steinberg and Monika Kruse. Format:B’s first-person description grounds the selected model in a house/techno mixture with funky percussion and rolling sub-bass.",
   "recipe": "classic modern german tech house, electronic Dance, tech house branch. drum machine analog, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 309,
-  "score": 9.425,
+  "score": 9.421,
   "config": {
     "traditions": [
       "german_tech_house"
@@ -20,8 +20,8 @@
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 0.17250000000000001,
-          "snare_voice": 0.178125,
+          "kick_voice": 0.168,
+          "snare_voice": 0.17925,
           "hat_voice": 0,
           "shuffle_quantize": 0.0315
         }

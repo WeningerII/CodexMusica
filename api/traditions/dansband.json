@@ -3,14 +3,14 @@
   "name": "Dansband",
   "family": "pop",
   "lineage": "Swedish social-dance popular style formalized in the late 1960s and 1970s out of the folkpark circuit — foxtrot, bugg and waltz tempos around 100-130 BPM played by five- or six-piece bands with electric guitar, bass, drums, saxophone and heavy use of Hammond or synth pads, singing Swedish-language sentimental lyrics in smooth major-key harmony.",
-  "recipe": "classic North American 1967-1969 dansband, functional Song, europop branch, contemp main country, pop rock functional song folk rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, melodic straight piano accordion. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 957,
-  "score": 506.585,
+  "recipe": "classic North American 1967-1969 dansband, functional Song, europop branch, contemp main country, pop rock functional song folk rock yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, phosphor bronze continuous-airflow legato saxophone, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, singing lead analog poly synth, melodic straight piano accordion. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 845,
+  "score": 507.72,
   "config": {
     "traditions": [
       "dansband",
       "folk_rock",
-      "skiffle"
+      "yacht_rock"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 55.60625,
-          "voice_quality": 11.699999999999992,
+          "voice_register": 50.98125,
+          "voice_quality": 10.529999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.407499999999999,
-          "voice_articulation": 17.484999999999992,
-          "voice_microtone": 32.975,
-          "voice_tradition": 22.74999999999999,
-          "voice_mechanism_compound": 3.3149999999999995,
-          "voice_estill_quality": 8.920625000000001,
-          "voice_speech_song": 24.11499999999999,
-          "voice_ensemble_config": 18.199999999999992,
+          "voice_vibrato": 7.3575,
+          "voice_articulation": 15.014999999999993,
+          "voice_microtone": 36.4,
+          "voice_tradition": 15.664999999999996,
+          "voice_mechanism_compound": 3.055,
+          "voice_estill_quality": 8.375625000000001,
+          "voice_speech_song": 20.994999999999994,
+          "voice_ensemble_config": 15.339999999999991,
           "voice_ornament_system": 0.19500000000000003,
-          "voice_pitch_organization": 3.3087500000000003,
-          "voice_processing_chain": 7.01625,
-          "voice_multitrack_stack": 5.915
+          "voice_pitch_organization": 3.4637500000000006,
+          "voice_processing_chain": 11.39625,
+          "voice_multitrack_stack": 9.962499999999999
         }
       },
       {
@@ -66,21 +66,21 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "d_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 11.501875,
-          "amp_make": 11.732499999999996,
-          "body_wood": 2.21,
-          "neck_wood": 2.21,
-          "fretboard": 1.7550000000000001,
-          "pickup_magnet": 0.045,
-          "string_material": 0.195,
-          "string_gauge": 1.4300000000000002,
+          "electric_technique": 12.626874999999998,
+          "amp_make": 11.309999999999995,
+          "body_wood": 3.055,
+          "neck_wood": 3.055,
+          "fretboard": 2.99,
+          "pickup_magnet": 0.345,
+          "string_material": 0.585,
+          "string_gauge": 2.6650000000000005,
           "bridge": 0.38999999999999996,
-          "scale_length": 1.8200000000000003,
-          "finish": 0.39,
-          "string_tuning": 10.399999999999999
+          "scale_length": 3.055,
+          "finish": 0,
+          "string_tuning": 12.414999999999996
         }
       },
       {
@@ -95,47 +95,47 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 12.219999999999995,
-          "body_wood": 2.015,
+          "amp_make": 13.064999999999996,
+          "body_wood": 3.055,
           "pickup_config": 0.7181250000000001,
-          "string_type": 22.94812499999999,
-          "scale_length_b": 1.8200000000000003,
-          "fretted_or_not": 1,
-          "bass_technique": 18.519999999999996
+          "string_type": 25.76312499999999,
+          "scale_length_b": 3.055,
+          "fretted_or_not": 1.045,
+          "bass_technique": 22.144999999999992
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "brushes_and_sticks",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.709999999999994,
-          "drumhead": 10.145,
+          "drum_technique": 22.044999999999995,
+          "drumhead": 11.495,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_ska_skank_stab",
+          "wind_articulation": "wind_bebop_runs",
           "sax_size": "baritone_sax",
-          "sax_reed": "medium_reed",
+          "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.06499999999999999,
-          "sax_size": 1.4300000000000002,
-          "sax_reed": 0.195,
-          "sax_body_alloy": 4.749999999999998,
-          "sax_mouthpiece": 0.3,
-          "sax_technique": 4.749999999999998,
-          "sax_maker_school": 4.114999999999998
+          "wind_articulation": -0.035,
+          "sax_size": 2.6650000000000005,
+          "sax_reed": 0.345,
+          "sax_body_alloy": 2.75,
+          "sax_mouthpiece": 0.345,
+          "sax_technique": 2.75,
+          "sax_maker_school": 0.7450000000000002
         }
       },
       {
@@ -146,15 +146,15 @@
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_122_canonical"
+          "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 10.495,
-          "drawbar_setting": 18.569999999999997,
-          "rotary_speed": 18.519999999999996,
-          "percussion_setting": 9.554999999999996,
-          "tonewheel_model": 14.689999999999994,
-          "leslie_cabinet_model": 0.95
+          "keyboard_technique": 12.444999999999999,
+          "drawbar_setting": 22.194999999999993,
+          "rotary_speed": 21.949999999999992,
+          "percussion_setting": 11.439999999999996,
+          "tonewheel_model": 13.779999999999994,
+          "leslie_cabinet_model": 0.975
         }
       },
       {
@@ -166,10 +166,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 12.134999999999998,
-          "poly_archetypes": 9.554999999999996,
-          "poly_voices": 0.39,
-          "poly_maker_lineage": 1.2999999999999998
+          "electronic_technique": 13.589999999999996,
+          "poly_archetypes": 11.439999999999996,
+          "poly_voices": 0.5399999999999999,
+          "poly_maker_lineage": 0.9099999999999999
         }
       },
       {
@@ -180,9 +180,9 @@
           "pa_use": "pa_polka"
         },
         "scores": {
-          "free_reed_technique": 20.914999999999996,
-          "pa_size": 8.059999999999997,
-          "pa_use": 8.059999999999997
+          "free_reed_technique": 14.839999999999996,
+          "pa_size": 4.744999999999998,
+          "pa_use": 4.744999999999998
         }
       }
     ],

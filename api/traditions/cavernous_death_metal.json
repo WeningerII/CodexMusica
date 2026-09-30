@@ -5,7 +5,7 @@
   "lineage": "Spatially dense death-metal production and composition aesthetic represented here by Finnish Krypts’ Cadaver Circulation (2019). Dark Descent describes reverberant atmosphere, unsettling chords and deep harsh vocals, and gives guitar, drums, bass/vocal and in-house recording credits. The selected down-tuned chordal model pairs heavy decay with slow weight while retaining the death-metal band frame.",
   "recipe": "classic late-2010s cavernous death metal, distorted Rock, death branch, doom metal doom blues. interlocked note trading, equal tempered, solo with instrumental accompaniment, hall reverb long decay cinematic. orange amp British heavy crunch mahogany ebony low output no compression humbucker electric guitar, orange amp British heavy crunch mahogany electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 531,
-  "score": 179.896,
+  "score": 180.451,
   "config": {
     "traditions": [
       "cavernous_death_metal",
@@ -31,11 +31,11 @@
           "string_tuning": "c_standard"
         },
         "scores": {
-          "electric_technique": 37.3814375,
-          "amp_make": 28.725375,
+          "electric_technique": 37.46543749999999,
+          "amp_make": 28.783875,
           "body_wood": 1.3649999999999998,
           "neck_wood": 1.3649999999999998,
-          "fretboard": 2.5688124999999995,
+          "fretboard": 2.7323125,
           "pickup_magnet": 0,
           "pickup_winding": 1.3649999999999998,
           "string_material": 0.195,
@@ -58,13 +58,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 28.725375,
+          "amp_make": 28.783875,
           "body_wood": 1.3649999999999998,
           "pickup_config": 0,
           "string_type": 0.195,
-          "scale_length_b": 3.040937499999999,
+          "scale_length_b": 3.2044374999999996,
           "fretted_or_not": 0.195,
-          "bass_technique": 16.0895
+          "bass_technique": 16.026500000000002
         }
       },
       {
@@ -107,7 +107,7 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 14.169999999999996,
-          "voice_microtone": 15.599999999999998,
+          "voice_microtone": 15.644999999999998,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 2.4699999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.0765,
-          "voice_processing_chain": 1.8878125,
+          "voice_processing_chain": 1.9328125,
           "voice_multitrack_stack": 0.5399999999999999
         }
       }

@@ -1,0 +1,252 @@
+{
+  "id": "arkansas_metal",
+  "name": "Arkansas metal",
+  "family": "rock_punk",
+  "lineage": "Arkansas geographic metal scope represented by Little Rock’s Pallbearer and its doom-based melodic/progressive interplay. The authored branch follows documented baritone-guitar practice rather than treating low tuning as a new instrument.",
+  "recipe": "classic modern arkansas metal, distorted Rock, doom branch. equal tempered, one note per syllable. 27 inch short baritone nickel plated steel baritone gauge dual humbucker baritone electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 504,
+  "score": 54.378,
+  "config": {
+    "traditions": [
+      "arkansas_metal"
+    ],
+    "instruments": [
+      {
+        "id": "baritone_electric",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "baritone_use": "baritone_metal",
+          "baritone_electric_tuning": "baritone_electric_drop_a",
+          "baritone_electric_scale": "baritone_27_scale",
+          "baritone_electric_strings": "baritone_nickel_plated",
+          "baritone_electric_pickup": "baritone_dual_humbucker"
+        },
+        "scores": {
+          "electric_technique": -0.07,
+          "amp_make": 0,
+          "baritone_use": 0.01875,
+          "baritone_electric_tuning": 4.9399999999999995,
+          "baritone_electric_scale": 3.3316250000000003,
+          "baritone_electric_strings": 2.08,
+          "baritone_electric_pickup": 9.7415
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 1.69,
+          "pickup_config": 0,
+          "string_type": 0.3225,
+          "scale_length_b": 1.4575,
+          "fretted_or_not": 0.0315,
+          "bass_technique": -0.15000000000000002
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": 6.25,
+          "drumhead": 2.244125,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.268125,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 0.3225,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 6.15,
+          "cymbal_lathing": 6.513,
+          "cymbal_finish": 0.1365
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0.0315,
+          "voice_microtone": 6.300000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.67425,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0.01125,
+          "voice_pitch_organization": 0.0315,
+          "voice_processing_chain": 0.016875,
+          "voice_multitrack_stack": 0.378
+        }
+      }
+    ],
+    "pinned": {
+      "baritone_electric": [
+        "electric_technique",
+        "amp_make",
+        "baritone_use",
+        "baritone_electric_tuning",
+        "baritone_electric_scale",
+        "baritone_electric_strings",
+        "baritone_electric_pickup"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay",
+      "hall_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_articulation": "legato_voice",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_microtone": "tempered_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_s",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "birch_shell",
+      "shell_thickness": "medium_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "double_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "electric_technique": "electric_clean_strummed",
+      "amp_make": "amp_unspecified",
+      "baritone_use": "baritone_metal",
+      "baritone_electric_tuning": "baritone_electric_drop_a",
+      "baritone_electric_scale": "baritone_27_scale",
+      "baritone_electric_strings": "baritone_nickel_plated",
+      "baritone_electric_pickup": "baritone_dual_humbucker"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay",
+      "hall_reverb"
+    ],
+    "chain_amp_guitar": "amp_mesa_dual_rectifier",
+    "chain_amp_bass": "amp_american_ampeg_svt"
+  }
+}

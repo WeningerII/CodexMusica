@@ -5,7 +5,7 @@
   "lineage": "Havana dance-band style consolidated between 1988 and 1995 by NG La Banda under José Luis Cortés, then Charanga Habanera and Los Van Van, layering funk and jazz harmony over Cuban son structures — extended, fully arranged cuerpo sections giving way to open montuno/despelote passages, tumbadora and timbales driving a broken, marcha-heavy groove around a shifting 2-3 or 3-2 son clave, virtuosic bass tumbaos that abandon the anticipated bass, dense brass punches, and a shouted, slangy lead vocal traded with coro.",
   "recipe": "classic Caribbean late-1980s timba, groove Percussion, son salsa branch, rumba Cuban, Latin jazz improv on frame descarga ethio-jazz. thick, breath veiled tone, straight onset, interlocked note trading. driving open tone tumbadora, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, a 415 Baroque pitch grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, vintage ambassador asymmetric brushes-and-sticks drum kit. Cuban state recording 1962-present mid tier estudios areito havana. shure SM57.",
   "recipe_chars": 996,
-  "score": 510.037,
+  "score": 509.602,
   "config": {
     "traditions": [
       "timba",
@@ -34,7 +34,7 @@
           "timbales_context": "timbales_descarga"
         },
         "scores": {
-          "percussion_technique": 12.51,
+          "percussion_technique": 12.015,
           "timbales_shell": 9.36,
           "timbales_context": 1.935
         }
@@ -48,8 +48,8 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 12.51,
-          "bongos_skin": 20.78,
+          "percussion_technique": 12.015,
+          "bongos_skin": 20.63,
           "bongos_context": 1.935,
           "bongos_shell_wood": 7.540000000000001
         }
@@ -61,16 +61,16 @@
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "thomastik_jazz_bass_flat",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 8.09,
+          "amp_make": 7.744999999999999,
           "body_wood": 0.195,
           "pickup_config": 0.24,
-          "string_type": 20.895,
-          "scale_length_b": 0.3,
+          "string_type": 21.27,
+          "scale_length_b": 0.195,
           "fretted_or_not": 0,
           "bass_technique": 17.625
         }
@@ -97,7 +97,7 @@
           "piano_soundboard": 0.5199999999999999,
           "piano_pinblock": 0.06499999999999999,
           "piano_plate": 0.39499999999999996,
-          "piano_pitch_standard": 5.574999999999999
+          "piano_pitch_standard": 5.664999999999999
         }
       },
       {
@@ -114,10 +114,10 @@
         "scores": {
           "wind_articulation": 3.4774999999999996,
           "brass_size": 2.2350000000000003,
-          "trumpet_mouthpiece": 20.445,
+          "trumpet_mouthpiece": 20.97,
           "brass_mute": 0.49499999999999994,
           "trumpet_technique": 3.4774999999999996,
-          "trumpet_bell_metal": 3.745,
+          "trumpet_bell_metal": 3.4450000000000003,
           "trumpet_maker_school": 2.9899999999999998
         }
       },
@@ -135,10 +135,10 @@
         "scores": {
           "wind_articulation": 3.4774999999999996,
           "trombone_type": 17.625,
-          "trombone_mouthpiece": 17.77,
+          "trombone_mouthpiece": 17.62,
           "trombone_mute": 0.49499999999999994,
           "trombone_technique": 1.3900000000000001,
-          "trombone_bell_metal": 3.745,
+          "trombone_bell_metal": 3.4450000000000003,
           "trombone_maker_school": 2.9899999999999998
         }
       },
@@ -155,12 +155,12 @@
         },
         "scores": {
           "wind_articulation": 3.4774999999999996,
-          "sax_size": 2.185,
+          "sax_size": 2.23,
           "sax_reed": 2.2350000000000003,
           "sax_body_alloy": 18.82,
           "sax_mouthpiece": 2.2350000000000003,
           "sax_technique": 17.715,
-          "sax_maker_school": 22.5
+          "sax_maker_school": 22.875
         }
       },
       {
@@ -180,25 +180,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
-          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 18.874999999999993,
+          "voice_register": 18.724999999999994,
           "voice_quality": 8.645,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 17.615,
           "voice_articulation": 16.314999999999998,
           "voice_microtone": 18.004999999999995,
-          "voice_tradition": 20.985,
+          "voice_tradition": 21.405,
           "voice_mechanism_compound": 4.615,
           "voice_estill_quality": 6.175000000000001,
           "voice_speech_song": 17.874999999999996,
           "voice_ensemble_config": 16.9,
           "voice_ornament_system": 2.085,
           "voice_pitch_organization": 7.844999999999998,
-          "voice_processing_chain": 4.005,
+          "voice_processing_chain": 3.7049999999999996,
           "voice_multitrack_stack": 5.9799999999999995
         }
       },
@@ -211,7 +211,7 @@
         },
         "scores": {
           "drum_technique": 26.39,
-          "drumhead": 21.709999999999997,
+          "drumhead": 22.235,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -1,0 +1,257 @@
+{
+  "id": "atlanta_metal",
+  "name": "Atlanta metal",
+  "family": "rock_punk",
+  "lineage": "An Atlanta metal discovery scene represented by Mastodon’s progressive guitar-band work. Their direct accounts document complementary guitar roles, variable riff structures, melodic singing and expanded electric-guitar textures alongside the heavy rhythm section.",
+  "recipe": "classic modern atlanta metal, distorted Rock, prog branch. equal tempered, one note per syllable, solo with instrumental accompaniment. modern metal basswood humbucker electric guitar, twelve string electric, electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 394,
+  "score": 28.978,
+  "config": {
+    "traditions": [
+      "atlanta_metal"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_unspecified",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 0.585,
+          "amp_make": 0,
+          "body_wood": 5.719999999999999,
+          "neck_wood": 0.168,
+          "fretboard": 0.168,
+          "pickup_magnet": 0.0315,
+          "pickup_winding": 0.0315,
+          "string_material": 0.168,
+          "bridge": 0.0315,
+          "scale_length": 0,
+          "string_gauge": 0.7629999999999999,
+          "finish": 0,
+          "string_tuning": 0
+        }
+      },
+      {
+        "id": "twelve_string_electric",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_unspecified",
+          "twelve_string_electric_model": "twelve_string_electric_modern",
+          "twelve_string_electric_context": "twelve_string_electric_arena",
+          "twelve_string_electric_strings": "twelve_string_electric_nickel_plated",
+          "twelve_string_electric_pickup": "twelve_string_hi_gain_rick"
+        },
+        "scores": {
+          "electric_technique": 0.585,
+          "amp_make": 0,
+          "twelve_string_electric_model": 0,
+          "twelve_string_electric_context": 2.47,
+          "twelve_string_electric_strings": 0,
+          "twelve_string_electric_pickup": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.063,
+          "pickup_config": 0,
+          "string_type": 0.168,
+          "scale_length_b": 0.0315,
+          "fretted_or_not": 0,
+          "bass_technique": 3.7315
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_double"
+        },
+        "scores": {
+          "drum_technique": 3.855,
+          "drumhead": 0.7314999999999999,
+          "drum_kit_kick_pedal": 0.39
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0.0315,
+          "voice_microtone": 3.814625000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 2.9899999999999998,
+          "voice_ensemble_config": 0.5432499999999999,
+          "voice_ornament_system": 0.056624999999999995,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.34162499999999996,
+          "voice_multitrack_stack": 0.13374999999999998
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "pickup_magnet",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_tuning"
+      ],
+      "twelve_string_electric": [
+        "electric_technique",
+        "amp_make",
+        "twelve_string_electric_model",
+        "twelve_string_electric_context",
+        "twelve_string_electric_strings",
+        "twelve_string_electric_pickup"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drumhead",
+        "drum_kit_kick_pedal"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_articulation": "legato_voice",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_microtone": "tempered_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "electric_technique": "electric_arpeggiated_clean",
+      "pickup_magnet": "alnico_5_h",
+      "string_material": "nickel_plated_h",
+      "bridge": "stoptail",
+      "scale_length": "scale_fender_h",
+      "string_tuning": "d_standard",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_s",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_aggressive",
+      "amp_make": "amp_unspecified",
+      "drum_technique": "sticks_rock",
+      "drumhead": "double_coated",
+      "drum_kit_kick_pedal": "dk_kick_double",
+      "twelve_string_electric_model": "twelve_string_electric_modern",
+      "twelve_string_electric_context": "twelve_string_electric_arena",
+      "twelve_string_electric_strings": "twelve_string_electric_nickel_plated",
+      "twelve_string_electric_pickup": "twelve_string_hi_gain_rick"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [],
+    "chain_amp_guitar": "amp_unspecified",
+    "chain_amp_bass": "amp_american_ampeg_svt"
+  }
+}

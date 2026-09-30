@@ -5,7 +5,7 @@
   "lineage": "Mexican women's singer-songwriter lineage running from Guadalajara and Mexico City in the late 1990s through the 2000s-2020s Natalia Lafourcade and Carla Morrison records — nylon-string or small-body acoustic guitar with accordion, jarana and requinto colorings, moderate 3/4 vals and 2/4 bolero-son frames beside plain pop 4/4, close-miked conversational mezzo vocals with minimal vibrato, and first-person lyric writing that reclaims son jarocho and bolero repertoire rather than importing Anglo folk-rock forms.",
   "recipe": "classic 1997-1999 cantautora mexicana, ballad Poetry, Latin am troubadour branch, anglo singer song indie folk, Mexican functional song, iberian Latin protest song chinese minyao ectofolk. thick, breath veiled tone, straight onset, interlocked note trading. cedar plain gut sheep gut unsplit fingerpicked classical nylon-string steel silk fingerpicked acoustic guitar, castagnari Italian premium folk music straight accordion, palo escrito Mexican rosewood gut pre 1950s son jarocho strummed jarana jarocha, upright bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, plain gut sheep gut unsplit hard rock maple acer saccharum violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 894,
-  "score": 348.157,
+  "score": 347.129,
   "config": {
     "traditions": [
       "cantautora_mexicana",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 28.034999999999993,
+          "voice_register": 27.839999999999993,
           "voice_quality": 12.804999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9575000000000005,
+          "voice_vibrato": 2.8450000000000006,
           "voice_articulation": 16.184999999999995,
           "voice_microtone": 16.18499999999999,
           "voice_tradition": 24.927499999999995,
@@ -63,10 +63,10 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 27.709999999999997,
+          "acoustic_technique": 27.755,
           "string_tuning": 0,
           "top_wood_classical": 3.7700000000000005,
-          "bracing_classical": 0.49499999999999994,
+          "bracing_classical": 0.585,
           "string_classical": 1.885,
           "attack_technique_cl": 0.495
         }
@@ -85,7 +85,7 @@
           "top_wood": 0.645,
           "back_sides": 0.345,
           "string_acoustic": 1.3,
-          "acoustic_om_technique": 27.709999999999997
+          "acoustic_om_technique": 27.755
         }
       },
       {
@@ -100,10 +100,10 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 17.825,
+          "free_reed_technique": 17.87,
           "accordion_reed_material": 1.65,
           "musette_offset": 1.645,
-          "reed_config": 0.245625,
+          "reed_config": 0.395625,
           "bellows": 0.49499999999999994,
           "voicing_chamber": 0.050624999999999996,
           "accordion_maker_school": 7.93
@@ -119,10 +119,10 @@
           "jarana_jarocha_strings": "jarana_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 16.490624999999998,
+          "plucked_traditional_technique": 16.385624999999997,
           "jarana_size": 3.8999999999999995,
-          "jarana_jarocha_context": 1.69,
-          "jarana_jarocha_body_wood": 2.145,
+          "jarana_jarocha_context": 1.4949999999999999,
+          "jarana_jarocha_body_wood": 1.65,
           "jarana_jarocha_strings": 1.8499999999999994
         }
       },
@@ -134,7 +134,7 @@
         },
         "scores": {
           "upright_strings": 0.65,
-          "upright_play": 0.195
+          "upright_play": 0.285
         }
       },
       {
@@ -155,7 +155,7 @@
           "grand_piano_size": 0.44999999999999996,
           "grand_piano_brand": 0.345,
           "piano_hammer": 8.245,
-          "piano_rim": 9.004375,
+          "piano_rim": 8.419374999999999,
           "piano_soundboard": 8.655,
           "piano_pinblock": 0.585,
           "piano_plate": 0.9099999999999999,
@@ -185,7 +185,7 @@
           "orch_setup_period": 1.3649999999999998,
           "orch_bow": 0.195,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0.195,
+          "orch_articulation": 0.39,
           "orch_rosin": 1.4299999999999997
         }
       }

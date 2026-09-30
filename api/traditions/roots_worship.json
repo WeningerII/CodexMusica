@@ -5,7 +5,7 @@
   "lineage": "Acoustic, Americana-inflected congregational worship that emerged in North American and Northern Irish church-planting circles after 2008 — Rend Collective, All Sons & Daughters and Shane & Shane stripped arena-worship synth pads back to dreadnought guitar, mandolin, upright-toned bass, brushed kit and Hammond, with 70-100 BPM 6/8 and 4/4 hymn-shaped forms, congregational unison choruses and unaffected, slightly rough lead vocals.",
   "recipe": "classic late-2000s roots worship, ritual Devotional, christian gospel branch, americana country, anglo singer song indie folk gulf and western hellbilly music. thick, declaimed, wide pitch sway, interlocked note trading. cedar steel silk travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar, bowl back Italian Italian alpine spruce brescian calace big leaf maple modern American mandolin, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet gospel runs fast tremolo tonewheel organ, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu choir ensemble. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 955,
-  "score": 370.613,
+  "score": 369.947,
   "config": {
     "traditions": [
       "roots_worship",
@@ -38,17 +38,17 @@
           "voice_quality": 7.285000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.419999999999998,
+          "voice_vibrato": 15.374999999999998,
           "voice_articulation": 16.119999999999997,
           "voice_microtone": 16.509999999999994,
           "voice_tradition": 9.1325,
           "voice_mechanism_compound": 2.73,
-          "voice_estill_quality": 18.199999999999996,
+          "voice_estill_quality": 18.259999999999998,
           "voice_speech_song": 22.229999999999997,
           "voice_ensemble_config": 16.249999999999996,
           "voice_ornament_system": 3.65,
           "voice_pitch_organization": 0.65,
-          "voice_processing_chain": 4.305,
+          "voice_processing_chain": 4.3500000000000005,
           "voice_multitrack_stack": 4.1275
         }
       },
@@ -63,9 +63,9 @@
         },
         "scores": {
           "acoustic_technique": 19.049999999999997,
-          "string_tuning": 0.95,
+          "string_tuning": 0.845,
           "top_wood": 1.04,
-          "back_sides": 0.9099999999999999,
+          "back_sides": 0.8049999999999999,
           "string_acoustic": 1.6899999999999997
         }
       },
@@ -82,11 +82,11 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 1.95,
+          "acoustic_technique": 1.65,
           "mandolin_shape": 3.445,
           "mandolin_top": 1.15,
           "mandolin_back": 3.3150000000000004,
-          "mandolin_bracing": 2.185,
+          "mandolin_bracing": 1.99,
           "mandolin_strings": 1.6899999999999997,
           "mandolin_fingerboard": 0.78,
           "mandolin_pickup": 18.46
@@ -97,7 +97,7 @@
         "slots": {
           "electric_technique": "electric_country_chicken_pickin",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "pine",
+          "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_2",
@@ -110,14 +110,14 @@
         },
         "scores": {
           "electric_technique": 15.524999999999997,
-          "amp_make": 20.334999999999997,
-          "body_wood": 0.9099999999999999,
+          "amp_make": 20.484999999999996,
+          "body_wood": 0.845,
           "neck_wood": 0.845,
           "fretboard": 0.78,
           "pickup_magnet": 0,
           "string_material": 1.6899999999999997,
           "string_gauge": 1.04,
-          "bridge": 0.645,
+          "bridge": 0.6,
           "scale_length": 0.845,
           "finish": 0,
           "string_tuning": 2.6649999999999996
@@ -135,13 +135,13 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 19.165,
+          "amp_make": 19.314999999999998,
           "body_wood": 1.04,
           "pickup_config": 0.78,
           "string_type": 6.6625,
           "scale_length_b": 0.845,
-          "fretted_or_not": 0.3,
-          "bass_technique": 15.344999999999999
+          "fretted_or_not": 0.345,
+          "bass_technique": 15.089999999999998
         }
       },
       {

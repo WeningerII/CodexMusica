@@ -3,14 +3,14 @@
   "name": "American clipper-ship shanty",
   "family": "global",
   "lineage": "American-clipper-ship-era shanty tradition continuous from 1830s-1880s American-merchant-marine clipper-ship work-song practice (the heyday of American clipper-ship trade between American-Eastern-Seaboard, California, China, and Australia) through 20th-century revival into modern American-folk-revival continuous practice; foundational repertoire includes \"Sacramento\" (capstan-shanty for California-gold-rush trade), \"Shenandoah\"",
-  "recipe": "classic mid-1830s american clipper-ship shanty, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry british folk revival chinese minyao. thick, breath veiled tone, straight onset, interlocked note trading. Celtic Irish straight concertina, plain gut lamb gut whole lamb method magic rosin modern acrylic base fiddle. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 458,
-  "score": 164.655,
+  "recipe": "classic mid-1830s american clipper-ship shanty, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry british folk revival anti-folk. thick, breath veiled tone, breath pulsed, interlocked note trading. Celtic Irish straight concertina, magic rosin modern acrylic base drone like fiddle. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 426,
+  "score": 164.015,
   "config": {
     "traditions": [
       "american_clipper_shanty",
       "british_folk_revival",
-      "chinese_minyao"
+      "antifolk_nyc"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 17.759999999999998,
-          "voice_quality": 11.569999999999993,
+          "voice_register": 16.509999999999998,
+          "voice_quality": 11.114999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.0075,
-          "voice_articulation": 12.284999999999997,
-          "voice_microtone": 12.739999999999995,
-          "voice_tradition": 20.919999999999998,
-          "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 4.095000000000001,
-          "voice_speech_song": 21.319999999999993,
-          "voice_ensemble_config": 10.724999999999994,
-          "voice_ornament_system": 3.6075000000000004,
+          "voice_vibrato": 0.65,
+          "voice_articulation": 12.739999999999997,
+          "voice_microtone": 13.194999999999993,
+          "voice_tradition": 21.919999999999998,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 3.250000000000001,
+          "voice_speech_song": 19.629999999999992,
+          "voice_ensemble_config": 10.984999999999994,
+          "voice_ornament_system": 2.6975000000000016,
           "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 2.4049999999999994,
-          "voice_multitrack_stack": 2.5350000000000006
+          "voice_processing_chain": 4.49,
+          "voice_multitrack_stack": 4.030000000000001
         }
       },
       {
@@ -75,8 +75,8 @@
           "fiddle_articulation": "pizz"
         },
         "scores": {
-          "bowed_technique": 13.499999999999998,
-          "fiddle_strings": 1.0999999999999999,
+          "bowed_technique": 13.349999999999996,
+          "fiddle_strings": 0.585,
           "fiddle_bow": 2.2300000000000004,
           "fiddle_mute": 0.85,
           "fiddle_articulation": 0.195
