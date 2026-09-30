@@ -5,7 +5,7 @@
   "lineage": "German rap with played jazz/funk ensembles; selected Jazzkantine 2019 album-tour formation",
   "recipe": "classic late-2010s german jazz rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. clean strummed single coil electric guitar, rompler workstation, pocket fingerstyle locked electric bass, bronze bell bronze hand hammered random pattern asymmetric drum kit, round tenor saxophone, trumpet, turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 505,
-  "score": 52.202,
+  "score": 51.357,
   "config": {
     "traditions": [
       "german_jazz_rap"
@@ -42,10 +42,10 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.931999999999999,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 10.8645,
+          "voice_ensemble_config": 1.6555,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.1365,
+          "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.378
         }
@@ -64,21 +64,23 @@
           "bridge": "hardtail",
           "scale_length": "scale_fender",
           "finish": "poly",
-          "string_tuning": "standard_tuning"
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 3.7,
           "amp_make": 0,
           "body_wood": 0,
-          "neck_wood": 0.2415,
+          "neck_wood": 0.1365,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "string_material": 0.1365,
           "string_gauge": 0,
           "bridge": 0,
           "scale_length": 0,
-          "finish": 0.105,
-          "string_tuning": 0
+          "finish": 0,
+          "string_tuning": 0,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -90,8 +92,8 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.102,
+          "electronic_technique": -0.1,
+          "rompler_preset_bank": 0.141,
           "rompler_context": 0,
           "rompler_lineage": 0
         }
@@ -138,12 +140,12 @@
           "drum_technique": 0.7,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 0.03899999999999999,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": 5.873,
-          "cymbal_hammering": 5.8365,
+          "cymbal_alloy": 5.6000000000000005,
+          "cymbal_hammering": 5.7,
           "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0
         }
@@ -166,7 +168,7 @@
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0,
           "sax_technique": -0.035,
-          "sax_maker_school": 0.6194999999999999
+          "sax_maker_school": 0.5459999999999999
         }
       },
       {
@@ -197,7 +199,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 2.2,
+          "electronic_technique": 2.2390000000000003,
           "turntable_technique": 2.2
         }
       }

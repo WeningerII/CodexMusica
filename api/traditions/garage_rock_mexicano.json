@@ -5,7 +5,7 @@
   "lineage": "Mexican garage-rock discovery scope, represented by Los Dug Dug’s and Armando Nava’s guitar-band practice. Direct artist interviews connect the group to international garage/psychedelic scenes and document guitar, bass, drum and multi-instrumental branches.",
   "recipe": "classic modern garage rock mexicano, functional Song, pop rock branch. pure, equal tempered, one note per syllable, solo with instrumental accompaniment. humbucker electric guitar, electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 366,
-  "score": 44.083,
+  "score": 43.829,
   "config": {
     "traditions": [
       "garage_rock_mexicano"
@@ -38,16 +38,16 @@
           "voice_effort": 0,
           "voice_vibrato": 2.1335,
           "voice_articulation": 0,
-          "voice_microtone": 13.249874999999998,
+          "voice_microtone": 13.088999999999997,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.0315,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.441,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.06862499999999999,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0.231,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.194625
+          "voice_multitrack_stack": 0.1575
         }
       },
       {
@@ -71,7 +71,7 @@
           "electric_technique": 2.9255,
           "amp_make": 0,
           "body_wood": 0.063,
-          "neck_wood": 0.26025,
+          "neck_wood": 0.2415,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,

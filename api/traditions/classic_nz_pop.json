@@ -64,7 +64,8 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "eb_standard"
+          "string_tuning": "eb_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 15.357499999999998,
@@ -78,7 +79,8 @@
           "bridge": 0.1365,
           "scale_length": 0.636,
           "finish": 0,
-          "string_tuning": 3.25
+          "string_tuning": 3.25,
+          "single_coil_pickup_construction": 0
         }
       },
       {

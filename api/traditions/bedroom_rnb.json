@@ -98,7 +98,8 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_short",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 10.95,
@@ -112,7 +113,8 @@
           "bridge": 0.585,
           "scale_length": 0.78,
           "finish": 0.15,
-          "string_tuning": 2.08
+          "string_tuning": 2.08,
+          "single_coil_pickup_construction": 0
         }
       },
       {

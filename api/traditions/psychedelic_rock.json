@@ -3,14 +3,14 @@
   "name": "Psychedelic rock",
   "family": "rock_punk",
   "lineage": "Mid-late 1960s through early 1970s rock genre informed by hallucinogenic-drug culture and Indian classical music influence — codified through The Beatles (Revolver 1966, Sgt Pepper 1967, Magical Mystery Tour 1967), The Jimi Hendrix Experience (Are You Experienced 1967, Axis Bold as Love 1967, Electric Ladyland 1968), Pink Floyd (the Syd Barrett era The Piper at the Gates of Dawn 1967), 13th Floor Elevators, Jefferson Airplane, the Grateful Dead (their early San Francisco psychedelic era), the Doors",
-  "recipe": "classic Northern European 1967-1969 psychedelic rock, distorted Rock, classic branch, experimental distorted rock garage psych canadian psychedelic rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, cedar maihar gharana instrumental concert lineage classical trained lineage sitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
-  "recipe_chars": 894,
-  "score": 356.897,
+  "recipe": "classic Northern European 1967-1969 psychedelic rock, distorted Rock, classic branch, experimental distorted rock finnish psychedelic rock garage psych. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, cedar maihar gharana instrumental concert lineage classical trained lineage sitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
+  "recipe_chars": 893,
+  "score": 363.262,
   "config": {
     "traditions": [
       "psychedelic_rock",
-      "garage_psych",
-      "canadian_psychedelic_rock"
+      "finnish_psychedelic_rock",
+      "garage_psych"
     ],
     "instruments": [
       {
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 21.719999999999995,
-          "voice_quality": 12.609999999999994,
+          "voice_quality": 13.519999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.8100000000000005,
-          "voice_articulation": 9.165,
-          "voice_microtone": 21.619999999999994,
+          "voice_vibrato": 5.96,
+          "voice_articulation": 9.62,
+          "voice_microtone": 21.469999999999995,
           "voice_tradition": 9.1,
-          "voice_mechanism_compound": 4.615000000000001,
+          "voice_mechanism_compound": 6.305000000000001,
           "voice_estill_quality": 4.995,
-          "voice_speech_song": 10.14,
-          "voice_ensemble_config": 9.295,
+          "voice_speech_song": 11.439999999999996,
+          "voice_ensemble_config": 9.945,
           "voice_ornament_system": 5.280000000000001,
           "voice_pitch_organization": 3.9000000000000004,
-          "voice_processing_chain": 5.7700000000000005,
-          "voice_multitrack_stack": 11.555
+          "voice_processing_chain": 6.2700000000000005,
+          "voice_multitrack_stack": 11.18
         }
       },
       {
@@ -66,10 +66,11 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "eb_standard"
+          "string_tuning": "eb_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 10.769999999999998,
+          "electric_technique": 10.394999999999998,
           "amp_make": 10.075,
           "body_wood": 1.3900000000000001,
           "neck_wood": 1.3900000000000001,
@@ -80,7 +81,8 @@
           "bridge": 0.09,
           "scale_length": 1.48,
           "finish": 0.195,
-          "string_tuning": 12.35
+          "string_tuning": 12.35,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -142,12 +144,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 10.53,
+          "amp_make": 11.18,
           "body_wood": 1.48,
           "pickup_config": 0.15,
           "string_type": 25.5125,
           "scale_length_b": 1.3900000000000001,
-          "fretted_or_not": 0.3,
+          "fretted_or_not": 0.65,
           "bass_technique": 19.575,
           "electric_bass_string_configuration": 0
         }
@@ -178,8 +180,8 @@
           "keyboard_technique": 0.9099999999999999,
           "mellotron_voice": 10.205,
           "mellotron_context": 2.08,
-          "mellotron_model": 10.724999999999998,
-          "mellotron_tape_material": 0.585
+          "mellotron_model": 10.53,
+          "mellotron_tape_material": 0.39
         }
       }
     ],

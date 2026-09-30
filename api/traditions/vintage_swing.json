@@ -60,7 +60,8 @@
           "archtop_pickup": "archtop_dearmond_rhythm_chief",
           "archtop_top_wood": "archtop_carved_spruce",
           "archtop_strings": "thomastik_jazz_flat",
-          "archtop_technique": "archtop_comp_swing"
+          "archtop_technique": "archtop_comp_swing",
+          "archtop_string_tuning": "archtop_tuning_source_unspecified"
         },
         "scores": {
           "amp_make": 11.862499999999997,
@@ -68,7 +69,8 @@
           "archtop_pickup": 36.2375,
           "archtop_top_wood": 18.07,
           "archtop_strings": 23.432500000000005,
-          "archtop_technique": 21.904999999999998
+          "archtop_technique": 21.904999999999998,
+          "archtop_string_tuning": 0
         }
       },
       {

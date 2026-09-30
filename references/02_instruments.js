@@ -793,7 +793,11 @@ const INSTRUMENTS = [
         { id: 'archtop_bebop_lines', name: 'Bebop single-line', descriptors: ['single-line'], match_tokens: ['bebop-derived', 'jazz-trained', 'electric', 'plucked'], canonical_tags: ['bebop'] },
         { id: 'archtop_bossa_finger', name: 'Bossa fingerpicked', descriptors: ['fingerpicked'], match_tokens: ['electric', 'plucked'], canonical_tags: ['bossa'] },
         { id: 'archtop_chunk_chord', name: 'Western-swing chunk', descriptors: ['chunked', 'rhythm-comping'], match_tokens: ['chordal', 'block-chord', 'electric', 'plucked'], canonical_tags: ['western-swing'] },
-      ] },
+
+      {"id":"archtop_fuzz_riff","name":"Fuzz-driven archtop riff","descriptors":["fuzz-driven","riff-led"],"auto":false,"default":false}
+    ] },
+
+      {"id":"archtop_string_tuning","name":"String tuning / altered open setup","variants":[{"id":"archtop_tuning_source_unspecified","name":"Source-unspecified string tuning","descriptors":[],"default":true},{"id":"archtop_low_open_unspecified","name":"Low altered open tuning; exact pitches unspecified","descriptors":["low-altered-open-tuning"],"auto":false,"default":false}]}
     ]
   },
   {
@@ -1217,6 +1221,8 @@ const INSTRUMENTS = [
         { id: 'open_e', name: 'Open E', descriptors: ['open-string-resonance', 'slide-blues-canonical'], match_tokens: ['electric', 'plucked', 'treble-extended'] },
         { id: 'dadgad', name: 'DADGAD', descriptors: ['modal-open-tuning', 'celtic-modal-canonical'], match_tokens: ['electric', 'plucked', 'treble-extended'] },
       ] },
+
+      {"id":"single_coil_pickup_construction","name":"Single-coil pickup construction","variants":[{"id":"single_coil_construction_unspecified","name":"Source-unspecified single-coil construction","descriptors":[],"default":true},{"id":"p90_dogear_single_coil","name":"P-90 dog-ear single-coil","descriptors":["P-90-dog-ear-single-coil"],"auto":false,"default":false}]}
     ]
   },
   {
@@ -8177,7 +8183,9 @@ const INSTRUMENTS = [
         { id: 'jupiter_8', name: 'Roland Jupiter-8', descriptors: ['overtone-rich-sustained', 'pad-suited'], match_tokens: ['electronic', 'analog', 'synthesized'] },
         { id: 'oberheim_obxa', name: 'Oberheim OB-Xa', descriptors: ['wide', 'rock-context', 'beefy'], match_tokens: ['electronic', 'analog', 'synthesized'] },
         { id: 'juno_60', name: 'Roland Juno-60/106', descriptors: ['accessible', 'classic-pad'], match_tokens: ['electronic', 'analog', 'synthesized'] },
-      ] },
+
+      {"id":"oberheim_obx","name":"Oberheim OB-X","descriptors":["OB-X","SEM-derived-analog-polyphonic"],"auto":false,"default":false}
+    ] },
       { id: 'poly_voices', surface: false, name: 'Voice count', variants: [
         { id: 'poly_5_voice', default: true, name: '5-voice', descriptors: ['vintage', 'analog-drift-character'], match_tokens: ['electronic', 'analog', 'synthesized'] },
         { id: 'poly_8_voice', surface: false, name: '8-voice', descriptors: ['overtone-rich-sustained', 'pad-suited', 'flagship'], match_tokens: ['electronic', 'analog', 'synthesized'] },
@@ -8540,7 +8548,9 @@ const INSTRUMENTS = [
         { id: 'pitched_kick', default: true, name: 'Pitched-and-stretched kick', descriptors: ['low-mid-thick', 'tuned'], match_tokens: ['electronic', 'sample-based', 'machine-quantized'] },
         { id: 'chopped_break', name: 'Chopped breakbeat', descriptors: ['rolling'], match_tokens: ['chopped', 'electronic', 'sample-based', 'machine-quantized'], canonical_tags: ['jungle'] },
         { id: 'one_shots_layered', name: 'Layered one-shots', descriptors: ['dense', 'hybrid', 'engineered'], match_tokens: ['layered', 'electronic', 'sample-based'] },
-      ] },
+
+      {"id":"sample_808_legato_slides","name":"808-style sample pitch slides","descriptors":["808-style","pitched","legato-glide","sub-bass","slide"],"auto":false,"default":false}
+    ] },
     ]
   },
   {
@@ -10238,11 +10248,15 @@ const INSTRUMENTS = [
     parts: [
       { id: 'cajon_peruano_construction', name: 'Construction', variants: [
         { id: 'cajon_peruano_open_back', default: true, name: 'Open-back wooden box (Afro-Peruvian original)', descriptors: ['wood', 'open-back', 'afro-peruvian-tradition', 'festejo-tradition', 'marinera-tradition'], match_tokens: ['percussive-attack', 'hands', 'afro-peruvian-tradition'] },
-      ] },
+
+      {"id":"cajon_peruano_unsnared_rear_port_box","name":"Unsnared wooden box with rear sound port","descriptors":["wood","unsnared","rear-sound-port"],"auto":false,"default":false}
+    ] },
       { id: 'cajon_peruano_role', name: 'Role', variants: [
         { id: 'cajon_peruano_festejo', default: true, name: 'Festejo accompaniment', descriptors: ['festejo-tradition', 'fast-syncopated'], match_tokens: ['percussive-attack', 'afro-peruvian-tradition'] },
         { id: 'cajon_peruano_marinera', name: 'Marinera accompaniment', descriptors: ['marinera-tradition', 'medium-paced'], match_tokens: ['percussive-attack', 'marinera-tradition'] },
-      ] },
+
+      {"id":"cajon_peruano_role_source_unspecified","name":"Recording role, regional pattern unspecified","descriptors":[],"auto":false,"default":false}
+    ] },
     ]
   },
 
@@ -13195,7 +13209,9 @@ const INSTRUMENTS = [
               "nola-context"
             ]
           }
-        ]
+        ,
+        {"id":"sousaphone_pop_funk_riff","name":"Pop/funk bass-hook accompaniment","descriptors":["riff-driven","bass-hook","pop-funk"],"auto":false,"default":false}
+      ]
       }
     ]
   },

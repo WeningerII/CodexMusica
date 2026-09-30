@@ -66,7 +66,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "eb_standard"
+          "string_tuning": "eb_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 10.985,
@@ -80,7 +81,8 @@
           "bridge": 0,
           "scale_length": 1.95,
           "finish": 1.04,
-          "string_tuning": 22.035
+          "string_tuning": 22.035,
+          "single_coil_pickup_construction": 0
         }
       },
       {

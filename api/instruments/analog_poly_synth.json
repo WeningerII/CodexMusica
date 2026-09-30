@@ -219,6 +219,16 @@
             "analog",
             "synthesized"
           ]
+        },
+        {
+          "id": "oberheim_obx",
+          "name": "Oberheim OB-X",
+          "descriptors": [
+            "OB-X",
+            "SEM-derived-analog-polyphonic"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -399,6 +409,16 @@
             "analog",
             "synthesized"
           ]
+        },
+        {
+          "id": "oberheim_obx",
+          "name": "Oberheim OB-X",
+          "descriptors": [
+            "OB-X",
+            "SEM-derived-analog-polyphonic"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
