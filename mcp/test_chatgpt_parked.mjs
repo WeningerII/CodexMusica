@@ -1,11 +1,15 @@
 // The parked new song's continuation, on the REAL lyric harness: a revise
 // that stops with open lines says how to go on, skipping the grade it names is
 // refused, and following it starts a new run. It walks the whole creation
-// order (sweep, screen, plan, grade, revise, grade, revise), 55-60 s here and
-// 85-105 s on a CI runner beside other leaves, so it has a file of its own:
-// node's --test-timeout (120 s in test:production:offline) is per FILE, and
-// beside the two tests now in test_chatgpt_revise.mjs it ran past it (main CI
-// run 2776).
+// order (sweep, screen, plan, grade, revise, grade, revise): 55-60 s here, of
+// which the first grade is about 29 s (a second grade of the same draft is
+// 4 s), and 85 s to past 120 s on a CI runner beside other leaves.
+//
+// So this file is its own leaf, run WITHOUT --test-timeout: node applies that
+// flag to each FILE, and the 120 s the other session suites share cut this
+// test off (main CI 2776 and 2777, PR 428's first attempt) while it was
+// passing, under the 300 s it declares for itself below. That declared
+// timeout is the one that governs it now.
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
