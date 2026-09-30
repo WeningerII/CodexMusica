@@ -66,7 +66,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_fender",
           "finish": "nitro",
-          "string_tuning": "eb_standard"
+          "string_tuning": "eb_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 9.002500000000001,
@@ -80,7 +81,8 @@
           "bridge": 0.045,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 14.430000000000001
+          "string_tuning": 14.430000000000001,
+          "single_coil_pickup_construction": 0
         }
       },
       {

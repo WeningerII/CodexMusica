@@ -36,6 +36,17 @@
             "hands",
             "afro-peruvian-tradition"
           ]
+        },
+        {
+          "id": "cajon_peruano_unsnared_rear_port_box",
+          "name": "Unsnared wooden box with rear sound port",
+          "descriptors": [
+            "wood",
+            "unsnared",
+            "rear-sound-port"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -67,6 +78,13 @@
             "percussive-attack",
             "marinera-tradition"
           ]
+        },
+        {
+          "id": "cajon_peruano_role_source_unspecified",
+          "name": "Recording role, regional pattern unspecified",
+          "descriptors": [],
+          "auto": false,
+          "default": false
         }
       ]
     }
@@ -92,6 +110,17 @@
             "hands",
             "afro-peruvian-tradition"
           ]
+        },
+        {
+          "id": "cajon_peruano_unsnared_rear_port_box",
+          "name": "Unsnared wooden box with rear sound port",
+          "descriptors": [
+            "wood",
+            "unsnared",
+            "rear-sound-port"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -123,6 +152,13 @@
             "percussive-attack",
             "marinera-tradition"
           ]
+        },
+        {
+          "id": "cajon_peruano_role_source_unspecified",
+          "name": "Recording role, regional pattern unspecified",
+          "descriptors": [],
+          "auto": false,
+          "default": false
         }
       ]
     }

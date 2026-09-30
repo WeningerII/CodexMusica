@@ -44,7 +44,8 @@
           "archtop_pickup": "archtop_floating",
           "archtop_top_wood": "archtop_carved_spruce",
           "archtop_strings": "thomastik_jazz_flat",
-          "archtop_technique": "archtop_bebop_lines"
+          "archtop_technique": "archtop_bebop_lines",
+          "archtop_string_tuning": "archtop_tuning_source_unspecified"
         },
         "scores": {
           "amp_make": 0,
@@ -52,7 +53,8 @@
           "archtop_pickup": 6.629999999999999,
           "archtop_top_wood": 12.063,
           "archtop_strings": 15.6,
-          "archtop_technique": 0.876
+          "archtop_technique": 0.876,
+          "archtop_string_tuning": 0
         }
       },
       {

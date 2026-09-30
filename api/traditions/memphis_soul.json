@@ -102,7 +102,8 @@
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 26.264999999999997,
@@ -116,7 +117,8 @@
           "bridge": 2.245,
           "scale_length": 3.38,
           "finish": 1.1949999999999998,
-          "string_tuning": 1.4300000000000002
+          "string_tuning": 1.4300000000000002,
+          "single_coil_pickup_construction": 0
         }
       },
       {

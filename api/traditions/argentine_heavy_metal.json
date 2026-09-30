@@ -25,7 +25,8 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_fender",
           "finish": "nitro",
-          "string_tuning": "standard_tuning"
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 0.6499999999999999,
@@ -39,7 +40,8 @@
           "bridge": 0.168,
           "scale_length": 0,
           "finish": 0.105,
-          "string_tuning": 0.3045
+          "string_tuning": 0.3045,
+          "single_coil_pickup_construction": 0
         }
       },
       {

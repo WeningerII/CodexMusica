@@ -66,7 +66,8 @@
           "bridge": "vintage_trem",
           "scale_length": "scale_short",
           "finish": "nitro",
-          "string_tuning": "dadgad"
+          "string_tuning": "dadgad",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 1.6999999999999997,
@@ -80,7 +81,8 @@
           "bridge": 0.45499999999999996,
           "scale_length": 0.39,
           "finish": 0.45499999999999996,
-          "string_tuning": 5.484999999999999
+          "string_tuning": 5.484999999999999,
+          "single_coil_pickup_construction": 0
         }
       },
       {

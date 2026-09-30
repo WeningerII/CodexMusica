@@ -83,7 +83,8 @@
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "dadgad"
+          "string_tuning": "dadgad",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 20.499999999999993,
@@ -97,7 +98,8 @@
           "bridge": 1.4949999999999999,
           "scale_length": 1.38,
           "finish": 0,
-          "string_tuning": 2.535
+          "string_tuning": 2.535,
+          "single_coil_pickup_construction": 0
         }
       },
       {

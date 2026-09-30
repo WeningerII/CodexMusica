@@ -3,9 +3,9 @@
   "name": "Danish metal",
   "family": "rock_punk",
   "lineage": "Denmark’s metal field includes stylistically varied bands. The selected Volbeat branch combines riff-led metal with rock-and-roll and psychobilly inflections. Michael Poulsen’s account of Servant of the Mind documents rhythm guitars, separately contributed lead solos, bass and drums, with a long-used SG/JCM800 combination. This authored four-role recording model emphasizes the electric rhythm section and melodic lead voice; one guitar card represents the rhythm/lead guitar family rather than claiming the album has one guitarist.",
-  "recipe": "classic modern danish metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation conventional tuning humbucker electric guitar, ampeg svt amp rock bass amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 566,
-  "score": 82.97,
+  "recipe": "classic modern danish metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 557,
+  "score": 82.695,
   "config": {
     "traditions": [
       "danish_metal"
@@ -39,9 +39,9 @@
           "string_material": 0.105,
           "bridge": 0.5775,
           "scale_length": 0,
-          "string_gauge": 0.1785,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 1.0064999999999997
+          "string_tuning": 0.7649999999999998
         }
       },
       {
@@ -61,8 +61,8 @@
           "body_wood": 0.5775,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 1.0065,
-          "fretted_or_not": 0.8384999999999998,
+          "scale_length_b": 0.8699999999999999,
+          "fretted_or_not": 0.7019999999999998,
           "bass_technique": 6.949999999999999,
           "electric_bass_string_configuration": 0
         }
@@ -84,15 +84,15 @@
         },
         "scores": {
           "drum_technique": 6.999999999999999,
-          "drumhead": 0.651,
+          "drumhead": 0.5775,
           "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0.42,
-          "shell_thickness": 0.8384999999999998,
+          "shell_thickness": 0.7019999999999998,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
+          "cymbal_alloy": -0.14,
           "cymbal_hammering": 7.036499999999999,
-          "cymbal_lathing": 7.9799999999999995,
+          "cymbal_lathing": 7.972499999999999,
           "cymbal_finish": 0
         }
       },
@@ -123,7 +123,7 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 6.813,
+          "voice_microtone": 6.984,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
@@ -132,7 +132,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.5145,
           "voice_processing_chain": -0.10500000000000001,
-          "voice_multitrack_stack": 4.640999999999999
+          "voice_multitrack_stack": 5.045999999999999
         }
       }
     ],

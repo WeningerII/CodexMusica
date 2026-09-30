@@ -5,7 +5,7 @@
   "lineage": "British Columbia underground hip-hop networks; selected Swollen Members / Rob the Viking reconstruction branch",
   "recipe": "classic modern bc underground hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler, sub bass analog synth, single coil electric guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 329,
-  "score": 41.197,
+  "score": 41.262,
   "config": {
     "traditions": [
       "bc_underground_hip_hop"
@@ -37,7 +37,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0,
+          "voice_articulation": 0.054,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -45,7 +45,7 @@
           "voice_speech_song": 8.645,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
+          "voice_pitch_organization": 0.054,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.042749999999999996
         }
@@ -61,7 +61,7 @@
         },
         "scores": {
           "electronic_technique": 5.2855,
-          "sampler_archetypes": 0.89775,
+          "sampler_archetypes": 0.855,
           "sampler_bit_depth": 0.39,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 8.385
@@ -98,7 +98,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_fender",
           "finish": "poly",
-          "string_tuning": "standard_tuning"
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": -0.15000000000000002,
@@ -112,7 +113,8 @@
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0,
+          "single_coil_pickup_construction": 0
         }
       }
     ],

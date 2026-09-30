@@ -1,0 +1,364 @@
+{
+  "reviewed_ids": [
+    "anadolu_rock",
+    "bassline_uk",
+    "dream_pop",
+    "dubstep_140",
+    "gothic_rock",
+    "indie_pop_modern",
+    "industrial",
+    "jam_band",
+    "jangle_pop",
+    "mathcore",
+    "modern_indie_rock_2010s",
+    "noise_rock",
+    "progressive_rock",
+    "psychedelic_rock",
+    "reggae_fusion_modern",
+    "space_rock",
+    "tropicalia"
+  ],
+  "scope": "17 individually reviewed output differences under the unchanged optimizer; no old genre source or test logic changes.",
+  "reviews": {
+    "dream_pop": [
+      {
+        "id": "dream_pop",
+        "decision": "accept_fixture_delta",
+        "reason": "German indie rock adds a valid Tocotronic guitar/bass/drum/synth neighbor through the unchanged alternative-rock cross-reference. JC-120 clean guitar, breath-pulsed voice and bass wood are pre-existing unpinned options; Omnichord detail compression does not remove the instrument. No source alteration or new default causes an invalid setting."
+      }
+    ],
+    "psychedelic_rock": [
+      {
+        "id": "psychedelic_rock",
+        "decision": "accept_fixture_delta",
+        "reason": "Finnish psychedelic rock is a valid Jess and the Ancient Ones garage-psychedelic member of the unchanged experimental-rock pool. Only the neighbor labels change; all instrument/chain text remains identical."
+      }
+    ],
+    "jangle_pop": [
+      {
+        "id": "jangle_pop",
+        "decision": "accept_fixture_delta",
+        "reason": "German indie rock replaces modern indie rock in the unchanged alternative-rock cross-reference. The defining twelve-string toaster-pickup guitar remains; removed guitar wood adjectives and Ampeg rather than Marshall bass amp are ordinary pre-existing unpinned choices."
+      }
+    ],
+    "modern_indie_rock_2010s": [
+      {
+        "id": "modern_indie_rock_2010s",
+        "decision": "accept_fixture_delta",
+        "reason": "Finnish psychedelic rock replaces post-rock in the unchanged experimental-rock pool. Its guitar/organ/synth scene model supports that branch. Voice modulation changes from slow-rate to breath-pulsed through existing unpinned options; instrument and production roles remain unchanged."
+      }
+    ],
+    "industrial": [
+      {
+        "id": "industrial",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": [
+          {
+            "ref": "distortedRock.experimental",
+            "voice_isolated": true
+          }
+        ],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "Only the existing voice-isolated experimental-rock cross-reference chooses French post-rock instead of drone rock; garage psych remains. All instrument, vocal descriptor and environment text is unchanged. French post-rock is correctly filed in distortedRock.experimental and its Totorro instrumental lineup is internally consistent; this is not newly authored French geography for industrial.",
+        "real_new_data_error": null
+      }
+    ],
+    "mathcore": [
+      {
+        "id": "mathcore",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": ["distortedRock.experimental"],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "The existing experimental-rock cross-reference selects Finnish psychedelic rock instead of British math rock. The unpinned bass amp changes from existing Marshall Plexi to existing Ampeg SVT. The old row and its drop-C source choice were not changed; no new amp option or source default causes this delta.",
+        "real_new_data_error": null
+      }
+    ],
+    "noise_rock": [
+      {
+        "id": "noise_rock",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": ["distortedRock.experimental", "distortedRock.alternative"],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "The existing alternative-rock cross-reference selects German alternative rock instead of Boston rock. The unpinned single-coil description changes feedback emphasis to maple. The added single-coil pickup-construction control has an empty-descriptor unspecified default; no old option was changed or removed. This is a permitted existing-option/descriptor optimizer change, not a new requirement that noise rock avoid feedback.",
+        "real_new_data_error": null
+      }
+    ],
+    "gothic_rock": [
+      {
+        "id": "gothic_rock",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": ["distortedRock.alternative", "distortedRock.experimental"],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "The old experimental/alternative cross-references select Finnish psychedelic rock instead of Boston rock; alternative metal remains. Short bass-synth wording loses fast-decay/focused emphasis while roster and environment persist. No mono-synth menu/default was changed, so this is normal unpinned optimization/compression. Inherited North American/date claims are not recertified.",
+        "real_new_data_error": null
+      }
+    ],
+    "dubstep_140": [
+      {
+        "id": "dubstep_140",
+        "decision": "accept_tranche_delta",
+        "reason": "Accept: only the eligible international-hip-hop neighbor changes from trap_funk to german_trap; the instrument/environment string is unchanged. Old source and extras are unchanged, unpinned, with the exact source role set retained.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "dubstep_140",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": [],
+        "non_baseline_selected_options": []
+      }
+    ],
+    "bassline_uk": [
+      {
+        "id": "bassline_uk",
+        "decision": "accept_tranche_delta",
+        "reason": "Accept: hungarian_hip_hop replaces uk_grime under the unchanged mcRhythm.intlHipHop cross-reference. Instrument/environment text is unchanged, all source roles remain and every selected option already existed in batch005.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "bassline_uk",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": [],
+        "non_baseline_selected_options": []
+      }
+    ],
+    "reggae_fusion_modern": [
+      {
+        "id": "reggae_fusion_modern",
+        "decision": "accept_tranche_delta",
+        "reason": "Accept: german_alternative_rap is eligible under the old international-hip-hop cross-reference. Guitar amp, bass amp and drum gesture are allowed existing unpinned choices; role set and environment remain. A new single-coil construction part resolves to its descriptor-empty unspecified default, not the auto:false P-90 option, so it introduces no false pickup claim.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "reggae_fusion_modern",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": [],
+        "non_baseline_selected_options": [
+          [
+            "electric_guitar_single_coil",
+            "single_coil_pickup_construction",
+            "single_coil_construction_unspecified"
+          ]
+        ]
+      }
+    ],
+    "indie_pop_modern": [
+      {
+        "id": "indie_pop_modern",
+        "decision": "accept_tranche_delta",
+        "reason": "Accept: german_indie_rock replaces danish_alternative_rock under the old alternative-rock cross-reference. Pine guitar body is an existing unpinned material choice; clean-technique wording is compressed, not a source-role deletion. New pickup-construction part remains descriptor-empty unspecified, with the explicit P-90 variant unselected.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "indie_pop_modern",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": [],
+        "non_baseline_selected_options": [
+          [
+            "electric_guitar_single_coil",
+            "single_coil_pickup_construction",
+            "single_coil_construction_unspecified"
+          ]
+        ]
+      }
+    ],
+    "tropicalia": [
+      {
+        "id": "tropicalia",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["tropicalia", "canadian_psychedelic_rock", "garage_psych"],
+        "new_neighbors": ["tropicalia", "french_post_rock", "finnish_psychedelic_rock"],
+        "changed_slots": [
+          ["voice", "voice_estill_quality", "voice_estill_nasal_twang", "voice_estill_speech"],
+          [
+            "voice",
+            "voice_ornament_system",
+            "voice_ornament_connemara_unaccompanied",
+            "voice_ornament_none"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_vocoder_8_band",
+            "voice_processing_talkbox"
+          ],
+          [
+            "classical_nylon_string_guitar",
+            "string_classical",
+            "plain_lamb_gut_classical_guitar",
+            "nylon_high_cl"
+          ],
+          [
+            "electric_guitar_humbucker",
+            "electric_technique",
+            "electric_fuzz_riff",
+            "electric_power_chord"
+          ],
+          ["electric_guitar_humbucker", "body_wood", "korina", "basswood_h"],
+          ["electric_guitar_humbucker", "bridge", "stoptail", "string_thru"],
+          ["electric_guitar_humbucker", "scale_length", "scale_gibson_h", "scale_baritone_h"],
+          ["electric_guitar_humbucker", "string_gauge", "g_11_hum", "g_10_hum"],
+          ["electric_guitar_humbucker", "string_tuning", "eb_standard", "drop_d"],
+          ["analog_synth", "oscillator", "triangle_osc", "sine_osc"],
+          ["analog_synth", "envelope", "gated_env", "sustain_env"],
+          ["berimbau", "berimbau_size", "berimbau_medio", "berimbau_gunga"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "jam_band": [
+      {
+        "id": "jam_band",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["jam_band", "early_rock_and_roll_50s", "roots_rock"],
+        "new_neighbors": ["jam_band", "dutch_rock", "dutch_stoner_rock"],
+        "changed_slots": [
+          ["voice", "voice_quality", "blues_shouter_voice", "speech_voice"],
+          ["voice", "voice_vibrato", "oscillating_vibrato", "fast_vibrato"],
+          ["voice", "voice_tradition", "gospel_pentecostal_tradition", "sean_nos_tradition"],
+          [
+            "voice",
+            "voice_ornament_system",
+            "voice_ornament_connemara_unaccompanied",
+            "voice_ornament_dhrupad_meend_andolan"
+          ],
+          [
+            "voice",
+            "voice_pitch_organization",
+            "voice_pitch_equal_tempered_12",
+            "voice_pitch_slendro_5"
+          ],
+          [
+            "electric_guitar_humbucker",
+            "electric_technique",
+            "electric_overdriven_lead",
+            "electric_power_chord"
+          ],
+          [
+            "electric_guitar_humbucker",
+            "amp_make",
+            "amp_british_late_60s_marshall_plexi",
+            "amp_british_marshall_jcm800"
+          ],
+          ["electric_guitar_humbucker", "bridge", "stoptail", "string_thru"],
+          [
+            "electric_guitar_single_coil",
+            "electric_technique",
+            "electric_overdriven_lead",
+            "electric_power_chord"
+          ],
+          [
+            "electric_guitar_single_coil",
+            "amp_make",
+            "amp_british_late_60s_marshall_plexi",
+            "amp_british_marshall_jcm800"
+          ],
+          ["electric_guitar_single_coil", "bridge", "two_point_trem", "hardtail"],
+          ["electric_guitar_single_coil", "string_tuning", "d_standard", "eb_standard"],
+          ["electric_bass", "fretted_or_not", "fretted", "fretless"],
+          ["drum_kit", "drumhead", "single_clear", "hydraulic"],
+          [
+            "tonewheel_organ",
+            "keyboard_technique",
+            "keyboard_gospel_chord_runs",
+            "keyboard_block_chord_pop"
+          ]
+        ],
+        "unresolved": []
+      }
+    ],
+    "progressive_rock": [
+      {
+        "id": "progressive_rock",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["progressive_rock", "action_rock", "psychedelic_rock"],
+        "new_neighbors": ["progressive_rock", "action_rock", "french_stoner_rock"],
+        "changed_slots": [
+          [
+            "voice",
+            "voice_multitrack_stack",
+            "voice_multitrack_mid_1960s_double_tracking_era",
+            "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          ],
+          ["electric_guitar_humbucker", "bridge", "stoptail", "string_thru"],
+          ["electric_bass", "body_wood", "alder_b", "mahogany_b"],
+          ["electric_bass", "fretted_or_not", "fretted", "fretless"],
+          ["mellotron", "mellotron_voice", "mellotron_strings", "mellotron_choir"],
+          ["analog_synth", "electronic_technique", "electronic_lead_line", "electronic_bass_sub"],
+          ["analog_synth", "oscillator", "saw_single", "square_pulse"],
+          ["grand_piano", "piano_pitch_standard", "a_442_european", "a_432_alternative"],
+          ["flute", "flute_maker_school", "flute_yamaha", "flute_powell_boston"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "anadolu_rock": [
+      {
+        "id": "anadolu_rock",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["anadolu_rock", "belgian_stoner_rock", "classic_finnish_rock"],
+        "new_neighbors": ["anadolu_rock", "dutch_rock", "french_rock"],
+        "changed_slots": [
+          ["voice", "voice_vibrato", "oscillating_vibrato", "diaphragm_vibrato"],
+          ["electric_bass", "fretted_or_not", "fretted", "fretless"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "space_rock": [
+      {
+        "id": "space_rock",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["space_rock", "canadian_psychedelic_rock", "post_rock_extended"],
+        "new_neighbors": ["space_rock", "canadian_psychedelic_rock", "finnish_psychedelic_rock"],
+        "changed_slots": [
+          [
+            "voice",
+            "voice_mechanism_compound",
+            "voice_mechanism_M0_pulse_borrowed",
+            "voice_mechanism_false_fold_distorted"
+          ],
+          ["voice", "voice_estill_quality", "voice_estill_opera", "voice_estill_nasal_twang"],
+          ["electric_guitar_humbucker", "body_wood", "basswood_h", "mahogany_maple_cap"],
+          ["analog_synth", "electronic_technique", "electronic_pad_drone", "electronic_bass_sub"],
+          ["analog_synth", "envelope", "pad_env", "sustain_env"]
+        ],
+        "unresolved": []
+      }
+    ]
+  }
+}

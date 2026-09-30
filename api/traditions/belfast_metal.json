@@ -3,9 +3,9 @@
   "name": "Belfast metal",
   "family": "rock_punk",
   "lineage": "Belfast geographic metal scope represented by Sweet Savage and its early Vivian Campbell guitar lineage. The historical two-guitar band and later power-trio arrangements are documented by bassist/singer Ray Haller.",
-  "recipe": "classic modern belfast metal, distorted Rock, metal branch. equal tempered, one note per syllable. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 376,
-  "score": 27.564,
+  "recipe": "classic modern belfast metal, distorted Rock, metal branch. equal tempered, one note per syllable, single lead single track no stacking. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 414,
+  "score": 28.337,
   "config": {
     "traditions": [
       "belfast_metal"
@@ -36,7 +36,7 @@
           "fretboard": 0.168,
           "pickup_magnet": 0,
           "pickup_winding": 0.0315,
-          "string_material": 0.105,
+          "string_material": 0.42674999999999996,
           "bridge": 0.5775,
           "scale_length": 1.155,
           "string_gauge": 0,
@@ -60,7 +60,7 @@
           "amp_make": 0,
           "body_wood": 0.5775,
           "pickup_config": 0,
-          "string_type": 0.105,
+          "string_type": 0.265875,
           "scale_length_b": 0.168,
           "fretted_or_not": 0,
           "bass_technique": 3.7,
@@ -123,7 +123,7 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0.33899999999999997,
-          "voice_microtone": 3.563000000000001,
+          "voice_microtone": 3.5315000000000007,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
@@ -132,7 +132,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.28425
+          "voice_multitrack_stack": 0.606
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Canadian metal scope represented by Montreal’s Cryptopsy, whose official artist profiles document a technical death-metal quartet and purposeful alternation of intensity, melodic material and groove.",
   "recipe": "classic modern canadian metal, distorted Rock, metal branch. solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 390,
-  "score": 32.251,
+  "score": 32.884,
   "config": {
     "traditions": [
       "canadian_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "c_standard"
         },
         "scores": {
-          "electric_technique": 13.912749999999999,
+          "electric_technique": 14.283249999999999,
           "amp_make": 0,
           "body_wood": 0.39,
           "neck_wood": 0.14775,
@@ -85,12 +85,12 @@
         "scores": {
           "drum_technique": 3.75,
           "drumhead": 0.39,
-          "drum_kit_kick_pedal": 1.2855000000000003,
+          "drum_kit_kick_pedal": 1.4392500000000001,
           "shell_wood": 0.46275,
           "shell_thickness": 0,
           "bearing_edges": 0.14775,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
+          "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.7865,
           "cymbal_lathing": 3.7865,
           "cymbal_finish": 0
@@ -128,10 +128,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.0515,
+          "voice_ensemble_config": 0.9465,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.07425,
+          "voice_processing_chain": 0.22799999999999998,
           "voice_multitrack_stack": 0.21
         }
       }
