@@ -2610,7 +2610,13 @@ class Reviser:
         _, endwords, _, matrix = self._matrix(lines, profile=profile)
         edges = {tuple(c["lines"]) for c in rep["collisions"]}
         th = self.decl.theta_rhyme
-        out = []
+        # TWO PASSES (2026-09-30). The first finds every group pair that
+        # clears (a) and the cross pairs (b) leaves unresolved; the second
+        # asks the schema judge ONCE, for exactly those pairs. Asked per
+        # candidate with no pair list, the judge measured every line pair of
+        # the draft -- 5,356 of them on a 104-line song, the largest cost
+        # left in a grade once the pair ban stopped building fields.
+        candidates = []
         for a in range(len(m.groups)):
             for b in range(a + 1, len(m.groups)):
                 ga, gb = m.groups[a], m.groups[b]
@@ -2656,25 +2662,29 @@ class Reviser:
                         unresolved.append((i, j))
                 if not ok:
                     continue
-                if unresolved and not self._schema_satisfies(
-                        lines, m, unresolved, sections=sections):
-                    continue
-                declared, how = self._declared_return(m, a, b)
-                out.append({
-                    "groups": (a, b),
-                    "labels": (m.labels[a], m.labels[b]),
-                    "members": (list(ga), list(gb)),
-                    "lines": sorted(set(ga) | set(gb)),
-                    "edges": [(i, j, matrix[i - 1][j - 1]["total"],
-                               tuple(sorted(matrix[i - 1][j - 1]["relations"])),
-                               endwords[i - 1], endwords[j - 1])
-                              for i, j in cross],
-                    "declared": declared,
-                    "how": how or ("derived from the rhyme graph; the mandate "
-                                   "cannot state a return")})
+                candidates.append((a, b, ga, gb, cross, unresolved))
+        among = {p for *_x, unresolved in candidates for p in unresolved}
+        out = []
+        for a, b, ga, gb, cross, unresolved in candidates:
+            if unresolved and not self._schema_satisfies(
+                    lines, m, unresolved, sections=sections, among=among):
+                continue
+            declared, how = self._declared_return(m, a, b)
+            out.append({
+                "groups": (a, b),
+                "labels": (m.labels[a], m.labels[b]),
+                "members": (list(ga), list(gb)),
+                "lines": sorted(set(ga) | set(gb)),
+                "edges": [(i, j, matrix[i - 1][j - 1]["total"],
+                           tuple(sorted(matrix[i - 1][j - 1]["relations"])),
+                           endwords[i - 1], endwords[j - 1])
+                          for i, j in cross],
+                "declared": declared,
+                "how": how or ("derived from the rhyme graph; the mandate "
+                               "cannot state a return")})
         return out
 
-    def _schema_satisfies(self, lines, m, pairs, sections=None):
+    def _schema_satisfies(self, lines, m, pairs, sections=None, among=None):
         """Do ALL these mandated line pairs stand in some registered schema?
 
         THE 77-SCHEMA HALF OF THE DEFAULT (owner ruling 2026-08-25, M-116),
@@ -2695,13 +2705,25 @@ class Reviser:
         caller who NARROWED `Declaration.admit` has declared what satisfies
         them, and the rescue does not override a declaration.
         `lyric_harness.admit_is_default` is the one definition.
+
+        ONLY THE PAIRS ASKED ABOUT ARE MEASURED (2026-09-30). `among` is
+        every pair the caller will ask about in this pass (`group_merges`
+        collects them first), so one call answers them all; without it the
+        judge is asked for `pairs` alone. An unrequested pair is absent from
+        the answer, never measured false, and a requested pair's answer is
+        the one the full registry gives in full context
+        (`test_production_relations.py`
+        `test_requested_pairs_match_full_registry_in_full_context`).
         """
         from lyric_harness import admit_is_default as _AID
         if not _AID(self.decl):
             return False
+        asked = frozenset(tuple(sorted(p)) for p in (among or pairs))
+        asked |= frozenset(tuple(sorted(p)) for p in pairs)
         key = (tuple(lines),
                tuple(tuple(g) for g in getattr(m, "groups", ())),
-               tuple(sections) if sections else None)
+               tuple(sections) if sections else None,
+               asked)
         hit = getattr(self, "_wvp_cache", None)
         if hit is None:
             hit = self._wvp_cache = {}
@@ -2712,7 +2734,8 @@ class Reviser:
             hit[key] = _RF.whole_vocabulary_pairs(
                 lines, self._relation_phonology(), sections=sections,
                 bearing={ln - 1 for g in getattr(m, "groups", ())
-                         for ln in g if 1 <= ln <= len(lines)})
+                         for ln in g if 1 <= ln <= len(lines)},
+                requested_pairs=asked)
         wvp = hit[key]
         return all(tuple(sorted(p)) in wvp for p in pairs)
 
