@@ -19289,7 +19289,13 @@ async function _chatSend(message, { choice, context = null, clearInput = false }
     if (chatState.lyric != null) body.lyric = chatState.lyric;
     if (chatState.task != null) body.task = chatState.task;
     else delete body.task; // Preserve signatures from before task contracts.
-  } else if (context && domain === 'lyrics') body.lyric_context = context;
+  } else if (domain === 'lyrics') {
+    // A new lyrics task carries the Lyrics page's context (document,
+    // declarations, brief, notes) as its own validated field, never appended
+    // to the message; a continuation keeps the context it began with.
+    const ctx = context || (typeof window.uiLyricContext === 'function' ? window.uiLyricContext(choice) : null);
+    if (ctx) body.lyric_context = ctx;
+  }
   chatState.pending = {request_id,message,domain,created_at:Date.now()};
   try { _chatSave(); }
   catch {

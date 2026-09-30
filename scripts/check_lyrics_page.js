@@ -13,26 +13,36 @@
 //      and the harness's own reader finds only the draft's sections.
 //
 //   BROWSER (the shipped codex.html in Chromium)
-//   1. "Finished · certified" (header, History, the Review note) holds only
-//      while the sung lines equal the certified draft AND the [SETUP] rows
-//      equal the request's; otherwise "Last run certified an earlier draft".
-//   2. Check & apply refuses when the [SETUP] rows differ from the request's,
-//      and when this page's own checks find an issue the change would add; the
-//      original stays and the reason is shown. A whole draft that came without
-//      its request is labelled a replacement, not "Check & apply".
-//   3. Waiting and resumable are read only from the live conversation: a page
-//      helper warns before it would archive a waiting run, and after a reset
-//      nothing reads as waiting and no answer is filled into a fresh one.
-//   4. The /chat request the page prefilled carries no [SETUP] row, while the
-//      stored draft keeps them; an auto-applied reply keeps the headers, sizes,
-//      bars, meter and setup; "Writer running" clears with the request.
+//   0. One document: inspector tabs exactly Tools / Writer / Review / History,
+//      the six tools with their fixed help, Run review the one header primary,
+//      no Read/Edit switch, the textarea authoritative; the title commits on
+//      Enter, restores on Escape and a blank title removes its declaration;
+//      the brief saves to the page context and Undo restores it.
+//   1. "Certified for this version" holds only while the whole version equals
+//      the certified one (sung lines, headers, [SETUP] rows); otherwise the
+//      badge reads "Edited since review" and History "Last run certified an
+//      earlier draft". Run review is one direct edit-phase request carrying the
+//      page context (no [SETUP] row, declarations as JSON, a binding).
+//   2. A stale suggestion offers "Recheck before applying", never Apply; Check
+//      & apply refuses changed declarations and new issues; a whole draft that
+//      came without its request is an unchecked replacement.
+//   3. A waiting run is never reset behind the person: new work offers Resume
+//      current work / Start independent work; the answer continues the same
+//      run; independent work keeps the old run under History.
+//   5. Tool drafts: pending values stay out of the document and survive tool
+//      switches; Run review asks first and "Review saved version" sends only
+//      what is committed; an invalid field commits nothing; Apply is one Undo;
+//      a moved target blocks Apply with "Target changed".
+//   6. Progress is read from the receipt while the POST is out: a stage, the
+//      elapsed and last-update times, no percentage, and no second POST.
+//   7. Phone: Song / Tools / Writer / Review at the bottom, no sideways scroll.
 //
 // Usage: node scripts/check_lyrics_page.js [--html=codex.html] [--shots=DIR]
 // --shots writes screenshots of the states above (and light/dark, desktop/phone).
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global document, localStorage, $ui, LY, LY_ACTIONS, UI, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, pushHistory, uiNewTask, uiSaveLyrics */
+/* global document, localStorage, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, pushHistory, uiNewTask, uiSaveLyrics */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -473,7 +483,7 @@ async function browserChecks(chromium) {
       if (/\/chat$/.test(r.request().url()) && r.request().method() === 'POST') {
         q.calls.push(JSON.parse(r.request().postData() || '{}'));
         const next = q.replies.shift() || { reply: 'no fixture', history: [], sig: 'x' };
-        await new Promise((res) => setTimeout(res, 150));
+        await new Promise((res) => setTimeout(res, q.delay || 150));
         return r.fulfill({ contentType: 'application/json', body: JSON.stringify(next) });
       }
       return r.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' });
@@ -508,37 +518,39 @@ async function browserChecks(chromium) {
       },
       [from, to]
     );
-  const meta = (page) => page.evaluate(() => $ui('ly-meta').innerText.replace(/\s+/g, ' '));
+  // The header badge and the last reply's own status, as one line.
+  const meta = (page) =>
+    page.evaluate(
+      () =>
+        $ui('ly-badge').innerText.replace(/\s+/g, ' ') +
+        ' | ' +
+        (LY.run ? lyRunStatus(LY.run)?.word || '' : '')
+    );
   const ids = (page) => page.evaluate(() => LY.items.map((i) => i.id));
   const pane = (page, p) =>
     page.evaluate((x) => {
-      LY_ACTIONS['ly-pane'](x);
-      return x === 'history' ? $ui('ly-history').innerText : '';
+      LY_ACTIONS['ly-tab'](x);
+      return $ui('ly-panel-' + x).innerText;
     }, p);
-  // Sends the page's own "Edit with the writer" prefill through the dock;
-  // `during` runs while the request is out.
-  const sendEdit = async (page, q, reply, during) => {
+  // Run review: one direct edit-phase request; `during` runs while it is out.
+  const sendReview = async (page, q, reply, during) => {
     q.replies.push(reply);
-    await page.evaluate(() => LY_ACTIONS['edit-lyrics']());
-    await page.waitForFunction(() => /^Edit these lyrics:/.test($ui('chat-input').value));
-    const sent = page.evaluate(() => $ui('chat-form').requestSubmit());
+    const sent = page.evaluate(() => LY_ACTIONS['ly-run-review']());
     if (during) {
       await page.waitForFunction(() => chatState.busy);
       await during();
     }
     await sent;
     await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
-    // The page re-renders on its own once the dock stops being busy. Checked,
-    // then forced, so the states after it are still judged when it fails.
     const cleared = await page
-      .waitForFunction(() => !/Writer running/.test($ui('ly-meta').innerText), null, {
+      .waitForFunction(() => !/Reviewing this version/.test($ui('ly-badge').innerText), null, {
         timeout: 3000,
       })
       .then(
         () => true,
         () => false
       );
-    check(cleared, '"Writer running" outlived the request');
+    check(cleared, '"Reviewing this version" outlived the request');
     if (!cleared) await page.evaluate(() => lyRefresh(true));
   };
 
@@ -555,18 +567,139 @@ async function browserChecks(chromium) {
     }
   };
   try {
+    // ── 0. the shape: one document, fixed tabs and tools, no mode switch ──
+    await step('0. structure', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      const s = await page.evaluate(() => ({
+        tabs: [...document.querySelectorAll('.ly-itab')].map((b) => b.innerText.trim()),
+        tools: [...document.querySelectorAll('.ly-toolrow')].map((b) =>
+          b.innerText.trim().replace(/\s+/g, ' ')
+        ),
+        head: [...document.querySelectorAll('.ly-head-actions > *')].map((b) =>
+          b.innerText.trim().replace(/\s+/g, ' ')
+        ),
+        primary: [...document.querySelectorAll('.ly-head .cm-btn-primary')].map((b) =>
+          b.innerText.trim()
+        ),
+        modes: document.querySelectorAll('[data-ui="ly-view"]').length,
+        textarea: !!document.querySelector('#ly-editor textarea#lyrics-draft'),
+        brief: $ui('ly-brief').innerText.replace(/\s+/g, ' '),
+        workspace: $ui('ly-workspace').innerText,
+        title: document.querySelector('.ly-title-btn')?.innerText.trim(),
+      }));
+      check(
+        JSON.stringify(s.tabs) === '["Tools","Writer","Review","History"]',
+        `inspector tabs are ${JSON.stringify(s.tabs)}`
+      );
+      check(
+        JSON.stringify(s.tools) ===
+          JSON.stringify([
+            'Form & story Section order and story jobs',
+            'Rhymes Declared rhyme links',
+            'Rhythm Meter and line placement',
+            'Pronunciation Sung-word readings',
+            'Repeats & voices Exact repeats and sung asides',
+            'Word rules Required and avoided phrases',
+          ]),
+        `the Tools index reads ${JSON.stringify(s.tools)}`
+      );
+      check(
+        /Not reviewed/.test(s.head[0]) &&
+          s.head[1] === 'Run review' &&
+          s.head[2] === 'Write with AI' &&
+          s.head[3] === 'Export',
+        `header actions are ${JSON.stringify(s.head)}`
+      );
+      check(
+        JSON.stringify(s.primary) === '["Run review"]',
+        `header primaries: ${JSON.stringify(s.primary)}`
+      );
+      check(s.modes === 0, 'a Read/Edit mode switch is still on the page');
+      check(s.textarea, 'the document is not one textarea in the editor');
+      check(
+        /Song brief/.test(s.brief) &&
+          /Hook: Leave the light on when you go home/.test(s.brief) &&
+          /Edit brief/.test(s.brief),
+        `the brief strip reads: ${s.brief}`
+      );
+      check(s.workspace.startsWith('Workspace: '), `workspace line: ${s.workspace}`);
+      check(s.title === 'Leave the Light On', `title button reads ${s.title}`);
+      // The title: Escape restores, Enter commits, blank removes the declaration.
+      const titleRow = () =>
+        page.evaluate(() =>
+          $ui('lyrics-draft')
+            .value.split('\n')
+            .filter((r) => /^\[SETUP — title/.test(r))
+        );
+      await page.click('.ly-title-btn');
+      await page.fill('#ly-title-input', 'Something Else');
+      await page.keyboard.press('Escape');
+      check(
+        JSON.stringify(await titleRow()) === '["[SETUP — title — \\"Leave the Light On\\"]"]',
+        'Escape did not restore the title'
+      );
+      await page.click('.ly-title-btn');
+      await page.fill('#ly-title-input', '  Porch Light  ');
+      await page.keyboard.press('Enter');
+      check(
+        JSON.stringify(await titleRow()) === '["[SETUP — title — Porch Light]"]',
+        `Enter did not write the title declaration: ${await titleRow()}`
+      );
+      await page.click('.ly-title-btn');
+      await page.fill('#ly-title-input', '   ');
+      await page.keyboard.press('Enter');
+      check((await titleRow()).length === 0, 'a blank title kept a declaration');
+      check(
+        (await page.evaluate(() => document.querySelector('.ly-title-btn').innerText.trim())) ===
+          'Untitled song',
+        'a blank title does not read Untitled song'
+      );
+      // The brief: saved to the page context, undone by Undo.
+      await page.evaluate(() => LY_ACTIONS['ly-brief-edit']());
+      await page.fill('#ly-brief-text', 'A love letter to a city');
+      await page.evaluate(() => LY_ACTIONS['ly-brief-save']());
+      check(
+        (await page.evaluate(() => app.lyricMeta.brief)) === 'A love letter to a city',
+        'the brief did not reach the lyric context'
+      );
+      check(
+        /A love letter to a city/.test(await page.evaluate(() => $ui('ly-brief').innerText)),
+        'the brief strip does not show the saved brief'
+      );
+      await page.evaluate(() => LY_ACTIONS['ly-undo']());
+      await page.evaluate(() => lyRefresh(true));
+      check(
+        (await page.evaluate(() => app.lyricMeta.brief)) === '',
+        'Undo did not restore the brief'
+      );
+      await shot(page, 'b0-editor');
+      await ctx.close();
+    });
+
     // ── 1 + 4. certified reply, auto-applied; then the draft moves on ────
     await step('1. certified', async () => {
       const { ctx, page, q } = await boot({ theme: 'dark' });
       await setDraft(page, DRAFT);
-      await sendEdit(page, q, certified());
-      const msg = q.calls[0]?.message || '';
-      check(msg.startsWith('Edit these lyrics:'), 'the edit prefill was not what /chat received');
-      check(!/\[SETUP/i.test(msg), 'the /chat message carried a [SETUP] row');
-      check(/"groups":"3,4"/.test(msg), 'the declarations did not reach /chat as JSON');
+      await sendReview(page, q, certified());
+      const body = q.calls[0] || {};
+      const msg = body.message || '';
+      const c = body.lyric_context || {};
+      check(body.task?.phase === 'edit', `Run review asked for phase ${body.task?.phase}`);
+      check(/^Review the committed document/.test(msg), `Run review sent: ${msg.slice(0, 80)}`);
       check(
-        /\[VERSE — 4 lines — 8 bars of 4\/4\]/.test(msg),
+        !/\[SETUP/i.test(msg) && msg.length < 1000,
+        'the message carried the draft or a [SETUP] row'
+      );
+      check(!/\[SETUP/i.test(c.document || ''), 'the page context document carried a [SETUP] row');
+      check(c.declarations?.groups === '3,4', 'the declarations did not reach /chat as JSON');
+      check(
+        /\[VERSE — 4 lines — 8 bars of 4\/4\]/.test(c.document || ''),
         'the section headers did not reach /chat'
+      );
+      check(
+        /^[0-9a-f]{64}$/.test(c.binding?.document_sha256 || ''),
+        'the request carries no document binding'
       );
       check(
         (await page.evaluate(() => UI.lyricRequest?.text || '')).includes(
@@ -586,18 +719,20 @@ async function browserChecks(chromium) {
         'auto-apply dropped headers, sizes, bars or meter'
       );
       const m1 = await meta(page);
-      check(/Finished · certified/.test(m1), `certified draft not shown as certified: ${m1}`);
+      check(
+        /Certified for this version/.test(m1) && /Finished · certified/.test(m1),
+        `certified draft not shown as certified: ${m1}`
+      );
       check((await ids(page)).includes('certified'), 'no certified note for the certified draft');
-      await page.evaluate(() => {
-        LY_ACTIONS['ly-review']();
-        LY_ACTIONS['ly-rtab']('note');
-      });
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('review'));
       await shot(page, 'b1-certified-current');
 
       await edit(page, 'I leave the porch light on for you', 'I left the porch light on for you');
       const m2 = await meta(page);
       check(
-        /Last run certified an earlier draft/.test(m2) && !/Finished · certified/.test(m2),
+        /Edited since review/.test(m2) &&
+          /Last run certified an earlier draft/.test(m2) &&
+          !/Certified for this version/.test(m2),
         `a sung edit still reads certified: ${m2}`
       );
       let now = await ids(page);
@@ -605,18 +740,16 @@ async function browserChecks(chromium) {
         !now.includes('certified') && now.includes('certified-earlier'),
         `the Review note still says certified after a sung edit: ${now}`
       );
-      await page.evaluate(() => LY_ACTIONS['ly-rtab']('note'));
       await shot(page, 'b1-certified-after-edit');
       const hist = await pane(page, 'history');
       check(!/Finished · certified/.test(hist), 'History still says certified after a sung edit');
-      await pane(page, 'review');
 
       await edit(page, 'I left the porch light on for you', 'I leave the porch light on for you');
       await edit(page, '[SETUP — rhyme groups — 3,4]', '[SETUP — rhyme groups — 1,2;3,4]');
       const m3 = await meta(page);
       now = await ids(page);
       check(
-        /Last run certified an earlier draft/.test(m3),
+        /Last run certified an earlier draft/.test(m3) && !/Certified for this version/.test(m3),
         `a declaration change still reads certified: ${m3}`
       );
       check(
@@ -626,7 +759,7 @@ async function browserChecks(chromium) {
       await shot(page, 'b1-certified-after-declaration-change');
       await edit(page, '[SETUP — rhyme groups — 1,2;3,4]', '[SETUP — rhyme groups — 3,4]');
       check(
-        /Finished · certified/.test(await meta(page)),
+        /Certified for this version/.test(await meta(page)),
         'the certified draft, restored exactly, is not certified again'
       );
       await ctx.close();
@@ -636,7 +769,7 @@ async function browserChecks(chromium) {
     await step('2. check & apply (declarations)', async () => {
       const { ctx, page, q } = await boot({ theme: 'dark' });
       await setDraft(page, DRAFT);
-      await sendEdit(page, q, unfinished(), () =>
+      await sendReview(page, q, unfinished(), () =>
         page.evaluate((a) => {
           const d = $ui('lyrics-draft');
           d.value = d.value.replace(
@@ -648,30 +781,41 @@ async function browserChecks(chromium) {
       );
       const m = await meta(page);
       check(/Unfinished/.test(m) && !/Unfinished · unfinished/i.test(m), `status reads: ${m}`);
+      check(/Edited since review/.test(m), `an edit during the review is not stale: ${m}`);
       const id = await page.evaluate(
         () => LY.items.find((i) => i.decision && !i.decision.whole)?.id
       );
       check(!!id, 'no per-line suggestion after an edit during the request');
-      await page.evaluate((i) => {
-        LY_ACTIONS['ly-review']();
-        LY_ACTIONS['ly-apply'](i);
-      }, id);
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('review'));
+      const card = await page.evaluate(() => ({
+        recheck: !!document.querySelector('#ly-panel-review [data-ui="ly-recheck"]'),
+        disabled: [...document.querySelectorAll('#ly-panel-review button[disabled]')].map((b) =>
+          b.innerText.trim()
+        ),
+        apply: !!document.querySelector('#ly-panel-review [data-ui="ly-apply"]'),
+      }));
+      check(
+        card.recheck && card.disabled.includes('Recheck before applying') && !card.apply,
+        `a stale suggestion still offers Apply: ${JSON.stringify(card)}`
+      );
+      await page.evaluate((i) => LY_ACTIONS['ly-apply'](i), id);
       const r = await page.evaluate(() => ({
         line3: LY.model.sung[2].text,
-        msg: document.querySelector('#ly-review .ly-outcome')?.innerText || '',
-        note: document.querySelector('#ly-review .ly-item .ly-note')?.innerText || '',
+        msg:
+          document.querySelector('#ly-panel-review .ly-inline[data-tone="danger"]')?.innerText ||
+          '',
       }));
       check(r.line3 === OLD3, `applied despite changed [SETUP] rows: line 3 is "${r.line3}"`);
       check(
         /declarations changed/.test(r.msg) && /avoid — sound/.test(r.msg),
         `the refusal does not name the changed row: ${r.msg}`
       );
-      check(
-        /\[SETUP\] declarations/.test(r.note) && /does not re-grade/.test(r.note),
-        `the Check & apply copy does not say what it checks: ${r.note}`
-      );
       await shot(page, 'b2-refused-declarations-changed');
       await edit(page, '\n' + AVOID, '');
+      const apply = await page.evaluate(
+        () => !!document.querySelector('#ly-panel-review [data-ui="ly-apply"]')
+      );
+      check(apply, 'the suggestion does not offer Apply change once the version matches again');
       const ok = await page.evaluate((i) => lyCheckApply(lyItem(i)), id);
       check(
         ok === true && (await page.evaluate(() => LY.model.sung[2].text)) === NEW3,
@@ -691,9 +835,7 @@ async function browserChecks(chromium) {
     await step('2. check & apply (new issue)', async () => {
       const { ctx, page, q } = await boot({ theme: 'light' });
       await setDraft(page, withAvoid(DRAFT));
-      // An edit elsewhere during the request stops the shell's auto-apply
-      // without touching the declarations or line 3.
-      await sendEdit(page, q, unfinished(), () =>
+      await sendReview(page, q, unfinished(), () =>
         page.evaluate(() => {
           const d = $ui('lyrics-draft');
           d.value = d.value.replace('The rain has blurred', 'The rain had blurred');
@@ -705,23 +847,22 @@ async function browserChecks(chromium) {
       );
       const apply = async () => {
         await page.evaluate((i) => {
-          LY_ACTIONS['ly-review']();
+          LY_ACTIONS['ly-tab']('review');
           LY_ACTIONS['ly-apply'](i);
         }, id);
         return page.evaluate(() => ({
           line3: LY.model.sung[2].text,
-          msg: document.querySelector('#ly-review .ly-outcome')?.innerText || '',
+          msg:
+            document.querySelector('#ly-panel-review .ly-inline[data-tone="danger"]')?.innerText ||
+            '',
         }));
       };
-      // A suggestion answers for the version it was made against: with line 2
-      // edited since, it is stale, and says so before anything else.
       let r = await apply();
       check(r.line3 === OLD3, 'applied a suggestion made against an earlier version');
       check(
         /changed after you asked the writer/.test(r.msg) && /Recheck/.test(r.msg),
         `a stale suggestion was not refused as stale: ${r.msg}`
       );
-      // Back on the exact version asked about, the page's own checks decide.
       await edit(page, 'The rain had blurred', 'The rain has blurred');
       r = await apply();
       check(r.line3 === OLD3, 'applied a suggestion that adds an issue the page checks');
@@ -736,97 +877,106 @@ async function browserChecks(chromium) {
           },
           null
         );
-        LY_ACTIONS['ly-review']();
+        LY_ACTIONS['ly-tab']('review');
       }, five);
       const btn = await page.evaluate(() => ({
-        apply: [...document.querySelectorAll('#ly-review [data-ui="ly-apply"]')].map((b) =>
+        apply: [...document.querySelectorAll('#ly-panel-review [data-ui="ly-apply"]')].map((b) =>
           b.innerText.trim()
         ),
-        keep: document.querySelector('#ly-review [data-ui="ly-keep"]')?.className || '',
+        keep: document.querySelector('#ly-panel-review [data-ui="ly-keep"]')?.className || '',
+        badge: $ui('ly-badge').innerText,
       }));
       check(
-        btn.apply.includes('Replace with the writer’s draft') &&
-          !btn.apply.includes('Check & apply'),
+        btn.apply.includes('Replace with writer’s draft (unchecked)') &&
+          !btn.apply.includes('Apply change'),
         `a whole draft without its request is labelled ${JSON.stringify(btn.apply)}`
       );
       check(
         /\bcm-btn\b/.test(btn.keep) && /cm-btn-outline/.test(btn.keep),
         'Keep mine is unstyled'
       );
+      check(
+        /Not reviewed/.test(btn.badge),
+        `a reply without its request reads as a review of this version: ${btn.badge}`
+      );
       await shot(page, 'b2-whole-no-base-replace');
       await ctx.close();
     });
 
-    // ── 3. a waiting run, then a page helper would reset the conversation ─
+    // ── 3. a waiting run: new work never resets it behind the person ─────
     await step('3. waiting run', async () => {
       const { ctx, page, q } = await boot({ theme: 'dark' });
       await setDraft(page, DRAFT);
-      await sendEdit(page, q, waiting());
+      await sendReview(page, q, waiting());
       let now = await ids(page);
       check(now.includes('waiting'), `no waiting item once the writer is idle: ${now}`);
-      check(/Waiting for your answer/.test(await meta(page)), 'the header does not say waiting');
-      await page.evaluate(() => {
-        LY.reviewTab = 'input';
-        LY_ACTIONS['ly-pane']('review');
-      });
-      await shot(page, 'waiting-after-reply-fixed');
-      const keep = page.evaluate(() => LY_ACTIONS['ly-rewrite-group']('3,4'));
-      await page.waitForSelector('.confirm-dialog', { timeout: 5000 });
-      const dlg = await page.evaluate(() => document.querySelector('.confirm-dialog').innerText);
+      check(/Review needs input/.test(await meta(page)), 'the header does not say input is needed');
+      await page.evaluate(() => LY_ACTIONS['ly-run-review']());
+      const card = await page.evaluate(() => $ui('ly-writer-status').innerText);
       check(
-        /waiting for your answer/.test(dlg) && /archives that run/.test(dlg),
-        `no warning before archiving a waiting run: ${dlg}`
+        /waiting for your answer/.test(card) &&
+          /Resume current work/.test(card) &&
+          /Start independent work/.test(card),
+        `no Resume/Start choice before new work: ${card}`
       );
-      await shot(page, 'b3-reset-warning');
-      await page.click('[data-confirm-action="cancel"]');
-      await keep;
       check(
         await page.evaluate(() => !!chatState.lyric?.state && chatState.archives.length === 0),
-        'declining the warning still reset the conversation'
+        'asking for new work reset the waiting run'
       );
-      check((await ids(page)).includes('waiting'), 'declining the warning lost the waiting item');
-      const go = page.evaluate(() => LY_ACTIONS['ly-rewrite-group']('3,4'));
-      await page.waitForSelector('.confirm-dialog', { timeout: 5000 });
-      await page.click('[data-confirm-action="confirm"]');
-      await go;
+      check(q.calls.length === 1, 'a request was sent over a waiting run');
+      await shot(page, 'b3-conflict');
+      await page.evaluate(() => LY_ACTIONS['ly-conflict-cancel']());
+      check((await ids(page)).includes('waiting'), 'cancelling lost the waiting item');
+      // The answer goes to the same run.
+      q.replies.push(certified());
+      await page.fill('#ly-answer-3', 'I keep one foot upon the chair');
+      await page.evaluate(() => LY_ACTIONS['ly-answer']());
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      check(
+        q.calls.length === 2 &&
+          !!(q.calls[1].continuation_id || q.calls[1].sig) &&
+          !q.calls[1].lyric_context,
+        `the answer did not continue the same run: ${JSON.stringify(Object.keys(q.calls[1] || {}))}`
+      );
+      check(
+        /L3: I keep one foot upon the chair/.test(q.calls[1]?.message || ''),
+        'the answer was not sent'
+      );
+      await ctx.close();
+    });
+    await step('3. waiting run, independent work', async () => {
+      const { ctx, page, q } = await boot({ theme: 'dark' });
+      await setDraft(page, DRAFT);
+      await sendReview(page, q, waiting());
+      q.replies.push(unfinished());
+      await page.evaluate(() => LY_ACTIONS['ly-run-review']());
+      await page.evaluate(() => LY_ACTIONS['ly-conflict-new']());
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
       await page.evaluate(() => lyRefresh(true));
-      const st = await page.evaluate(() => ({
-        lyric: chatState.lyric,
-        archives: chatState.archives.length,
-        input: $ui('chat-input').value,
-      }));
-      check(st.lyric === null && st.archives === 1, 'confirming did not archive the run');
-      check(/^Rewrite lines 3 and 4/.test(st.input), 'the helper prompt was not filled in');
-      check(!/\[SETUP/i.test(st.input), 'the helper prompt carries a [SETUP] row');
-      now = await ids(page);
+      const st = await page.evaluate(() => ({ archives: chatState.archives.length }));
+      check(st.archives === 1, 'starting independent work did not keep the run under History');
+      check(
+        q.calls.length === 2 &&
+          !!q.calls[1].lyric_context &&
+          !q.calls[1].sig &&
+          !q.calls[1].continuation_id,
+        'independent work did not start a new task with the page context'
+      );
+      const now = await ids(page);
       check(
         !now.includes('waiting') && !now.some((i) => /^open:/.test(i)),
         `an archived run still reads as waiting or open: ${now}`
       );
-      check(!/Waiting for your answer/.test(await meta(page)), 'the header still says waiting');
       const hist = await pane(page, 'history');
       check(
-        !/Waiting for your answer/.test(hist) && !/Answer in the writer/.test(hist),
-        'History still offers the archived run as waiting'
+        /Saved runs/.test(hist) && /Retrieve saved result/.test(hist),
+        'History does not keep the set-aside run'
       );
-      await shot(page, 'b3-after-reset-history');
-      await page.evaluate(() => {
-        LY.reviewTab = 'input';
-        LY_ACTIONS['ly-pane']('review');
-      });
       check(
         !(await page.evaluate(() => !!document.querySelector('[data-ui="ly-answer"]'))),
-        '"Put my answer in the writer" is offered for an archived run'
+        '"Submit answer" is offered for an archived run'
       );
-      await shot(page, 'b3-after-reset-review');
-      await page.evaluate(() => {
-        $ui('chat-input').value = '';
-        LY_ACTIONS['ly-answer']();
-      });
-      check(
-        (await page.evaluate(() => $ui('chat-input').value)) === '',
-        'an answer was filled into a fresh conversation'
-      );
+      await shot(page, 'b3-after-independent-work');
       await ctx.close();
     });
 
@@ -834,16 +984,176 @@ async function browserChecks(chromium) {
     await step('3. shell reset', async () => {
       const { ctx, page, q } = await boot({ theme: 'dark' });
       await setDraft(page, DRAFT);
-      await sendEdit(page, q, waiting());
+      await sendReview(page, q, waiting());
       await page.evaluate(() => {
         uiNewTask('lyrics');
         lyRefresh(true);
       });
-      const hist = await pane(page, 'history');
+      const w = await pane(page, 'writer');
       check(
-        !(await ids(page)).includes('waiting') && !/Waiting for your answer/.test(hist),
+        !(await ids(page)).includes('waiting') && !/waiting for an answer/i.test(w),
         'a run reset by the shell still reads as waiting'
       );
+      await ctx.close();
+    });
+
+    // ── 5. pending tool changes: drafts, the review gate, one undo ───────
+    await step('5. tool drafts', async () => {
+      const { ctx, page, q } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => {
+        LY.picks.rhythmSec = 3;
+        LY_ACTIONS['ly-tool']('rhythm');
+      });
+      await page.fill('#ly-r-meter', '6/8');
+      const strip = () =>
+        page.evaluate(
+          () => document.querySelector('#ly-pending-rhythm')?.innerText.replace(/\s+/g, ' ') || ''
+        );
+      check(/1 pending change\b/.test(await strip()), `pending strip reads: ${await strip()}`);
+      check(
+        !(await page.evaluate(() => $ui('lyrics-draft').value)).includes('6/8'),
+        'a pending value reached the document'
+      );
+      // Switching tools keeps the entry; the form reads it back.
+      await page.evaluate(() => LY_ACTIONS['ly-tool']('word-rules'));
+      await page.evaluate(() => LY_ACTIONS['ly-tool']('rhythm'));
+      check(
+        (await page.evaluate(() => $ui('ly-r-meter').value)) === '6/8',
+        'the pending meter was lost on switching tools'
+      );
+      // Run review with pending entries asks first; the saved version is sent.
+      await page.evaluate(() => LY_ACTIONS['ly-run-review']());
+      const gate = await page.evaluate(() => $ui('ly-gate').innerText);
+      check(
+        /Apply pending changes before review/.test(gate) &&
+          /Apply all/.test(gate) &&
+          /Review saved version/.test(gate),
+        `no pending-changes gate: ${gate}`
+      );
+      check(q.calls.length === 0, 'Run review sent while pending changes waited');
+      q.replies.push(unfinished());
+      await page.evaluate(() => LY_ACTIONS['ly-gate-saved']());
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      check(
+        q.calls.length === 1 && !/6\/8/.test(q.calls[0].lyric_context?.document || ''),
+        'Review saved version sent a pending value'
+      );
+      // An invalid value keeps everything and commits nothing.
+      await page.fill('#ly-r-bars', '0');
+      const before = await page.evaluate(() => $ui('lyrics-draft').value);
+      await page.evaluate(() => LY_ACTIONS['ly-draft-apply']('rhythm'));
+      check(
+        (await page.evaluate(() => $ui('lyrics-draft').value)) === before &&
+          (await page.evaluate(() => $ui('ly-r-meter').value)) === '6/8',
+        'an invalid field let Apply commit, or lost a value'
+      );
+      check(
+        await page.evaluate(() => $ui('ly-r-bars').getAttribute('aria-invalid') === 'true'),
+        'the invalid field is not marked'
+      );
+      await page.fill('#ly-r-bars', '4');
+      await page.evaluate(() => LY_ACTIONS['ly-draft-apply']('rhythm'));
+      const after = await page.evaluate(() => $ui('lyrics-draft').value);
+      check(
+        /\[BRIDGE — 4 lines — 4 bars of 6\/8\]/.test(after),
+        `Apply did not write the rhythm header: ${after.split('\n').find((r) => /BRIDGE/.test(r))}`
+      );
+      await page.evaluate(() => $ui('btn-undo').click());
+      check(
+        (await page.evaluate(() => $ui('lyrics-draft').value)).includes('[BRIDGE — 4 lines]'),
+        'one Undo did not reverse the applied change'
+      );
+      // A pending entry whose target moves is kept and blocked.
+      await page.evaluate(() => {
+        LY.picks.formSec = 0;
+        LY_ACTIONS['ly-tool']('form-story');
+      });
+      await page.fill('#ly-f-note', 'Arrival and kindness');
+      // The person clicks Move down: focus leaves the note field.
+      await page.evaluate(() => {
+        document.activeElement.blur();
+        LY_ACTIONS['ly-sec-move']('0:1');
+      });
+      await page.evaluate(() => lyRefresh(true));
+      const blocked = await page.evaluate(() => ({
+        text: document.querySelector('#ly-pending-form-story')?.innerText || '',
+        disabled: !!document.querySelector(
+          '#ly-pending-form-story [data-ui="ly-draft-apply"][disabled]'
+        ),
+      }));
+      check(
+        /Target changed\. Review these entries before applying\./.test(blocked.text) &&
+          blocked.disabled,
+        `a moved target did not block Apply: ${JSON.stringify(blocked)}`
+      );
+      await shot(page, 'b5-target-changed');
+      await ctx.close();
+    });
+
+    // ── 6. progress while the POST is out: read-only, from the receipt ───
+    await step('6. progress', async () => {
+      const { ctx, page, q } = await boot({ theme: 'light' });
+      let polls = 0;
+      await ctx.route(/\/chat\/jobs\/[0-9a-f]+\?view=progress/, (r) => {
+        polls++;
+        return r.fulfill({
+          contentType: 'application/json',
+          body: JSON.stringify({
+            view: 'progress',
+            state: 'pending',
+            stage: 'checking',
+            created_at: new Date(Date.now() - 65000).toISOString(),
+            updated_at: new Date().toISOString(),
+            round: null,
+          }),
+        });
+      });
+      await setDraft(page, DRAFT);
+      q.delay = 4500;
+      q.replies.push(unfinished());
+      const sent = page.evaluate(() => LY_ACTIONS['ly-run-review']());
+      await page.waitForFunction(() => chatState.busy);
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('writer'));
+      await page.waitForFunction(() => /Checking/.test($ui('ly-writer-status').innerText), null, {
+        timeout: 8000,
+      });
+      const w = await page.evaluate(() => $ui('ly-writer-status').innerText);
+      check(/Elapsed/.test(w) && /Last update/.test(w), `the progress card lacks times: ${w}`);
+      check(!/%/.test(w), 'the progress card shows a percentage');
+      check(
+        /Reviewing this version/.test(await page.evaluate(() => $ui('ly-badge').innerText)),
+        'the badge does not say the review is running'
+      );
+      await shot(page, 'b6-progress');
+      await sent;
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      check(polls >= 1, 'no progress GET was made while the POST was out');
+      check(q.calls.length === 1, 'polling re-sent the POST');
+      await ctx.close();
+    });
+
+    // ── 7. phone: one view at a time, a bottom bar, no sideways scroll ───
+    await step('7. phone', async () => {
+      const { ctx, page } = await boot({ theme: 'light', phone: true });
+      await setDraft(page, DRAFT);
+      const s = await page.evaluate(() => ({
+        nav: [...document.querySelectorAll('.ly-mtab')].map((b) => b.innerText.trim()),
+        navShown: getComputedStyle($ui('ly-mnav')).display !== 'none',
+        wide: document.documentElement.scrollWidth - innerWidth,
+      }));
+      check(
+        JSON.stringify(s.nav) === '["Song","Tools","Writer","Review"]' && s.navShown,
+        `phone navigation: ${JSON.stringify(s)}`
+      );
+      check(s.wide <= 0, `the phone page scrolls sideways by ${s.wide}px`);
+      await page.evaluate(() => LY_ACTIONS['ly-mobile']('tools'));
+      const tools = await page.evaluate(() => ({
+        rows: document.querySelectorAll('.ly-toolrow').length,
+        doc: getComputedStyle($ui('ly-main')).display,
+      }));
+      check(tools.rows === 6 && tools.doc === 'none', `phone Tools view: ${JSON.stringify(tools)}`);
+      await shot(page, 'b7-phone-tools');
       await ctx.close();
     });
 
@@ -854,14 +1164,14 @@ async function browserChecks(chromium) {
         for (const phone of [false, true]) {
           const { ctx, page, q } = await boot({ theme, phone });
           await setDraft(page, DRAFT);
-          await sendEdit(page, q, unfinished(), () =>
+          await sendReview(page, q, unfinished(), () =>
             page.evaluate(() => {
               const d = $ui('lyrics-draft');
               d.value = d.value.replace('The rain has blurred', 'The rain had blurred');
               uiSaveLyrics();
             })
           );
-          await page.evaluate(() => LY_ACTIONS['ly-review']());
+          await page.evaluate((p) => LY_ACTIONS[p ? 'ly-mobile' : 'ly-tab']('review'), phone);
           await shot(page, `lyrics-${theme}-${phone ? 'phone' : 'desktop'}`);
           await ctx.close();
         }
@@ -906,13 +1216,12 @@ async function browserChecks(chromium) {
     process.exit(1);
   }
   console.log(
-    `LYRICS PAGE: PASS — ${checks} assertions (fixture replies, no provider): no [SETUP] row ` +
-      'reaches the writer (unit, harness reader and /chat); every rhythm header shape round-trips; ' +
-      'certified only for the same whole version (sung lines, headers, boundaries, [SETUP] rows, ' +
-      'voices), in header, Review and History; Check & apply refuses a stale version, changed ' +
-      'declarations and new issues; waiting read only from the live conversation, with a ' +
-      'warning before a helper archives it; auto-apply keeps headers and setup; Undo restores ' +
-      'the suggestion.'
+    `LYRICS PAGE: PASS — ${checks} assertions (fixture replies, no provider): one document with ` +
+      'fixed tabs and tools; no [SETUP] row reaches the writer (unit, harness reader and /chat); ' +
+      'every rhythm header shape round-trips; certified only for the same whole version; stale ' +
+      'suggestions recheck, never apply; a waiting run is never reset behind the person; pending ' +
+      'tool values stay out of the document and apply as one Undo; progress read-only from the ' +
+      'receipt; phone navigation without sideways scroll.'
   );
   process.exit(0);
 })();
