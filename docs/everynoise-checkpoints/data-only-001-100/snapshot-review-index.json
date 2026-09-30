@@ -1,0 +1,8 @@
+{
+  "archive_sha256": "dd5d71c1c65a28b0c50a47c2be9b40e3c278f436de1fa31d8048d1ca54f1835e",
+  "archive_bytes": 12867,
+  "archive_base64_file": "snapshot-review.zip.b64",
+  "snapshot_sha256": "2ff6f54f558b3e78d61153c7ab6157ac001ea738de2309f77e7b8524551a74c5",
+  "reviewed_changed_fixture_count": 40,
+  "instructions": "Base64-decode snapshot-review.zip.b64, verify archive SHA256, extract reviewed-snapshots.patch and snapshot-review.json, then follow its instructions. No test logic is modified."
+}
