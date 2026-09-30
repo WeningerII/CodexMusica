@@ -428,12 +428,37 @@ def test_tier_two_is_evidence_gated():
           f"{b2.empty_head_cause!r}")
 
 
+def test_evidenced_head_is_the_same_head():
+    """`Reviser.modal_head_evidenced` answers the pair ban from the song
+    table's own partners instead of from the whole field (2026-09-30: the
+    full field made a 104-line grade take 14 minutes, past the connector's
+    600 s deadline). It is only allowed to be FASTER: for every call it must
+    name exactly the words `modal_head` names past tier 1, in the same
+    order — rich tables, thin ones, empty ones, and the partners a real
+    104-line draft binds."""
+    print("\n7. the evidenced head IS modal_head's tier 2, word for word")
+    R = Reviser()
+    calls = ("thing", "spring", "way", "sane", "varnish", "head", "played",
+             "four", "lean", "two", "speed", "fire", "heart", "night")
+    diff = []
+    for call in calls:
+        rc = R._spelled_rime(call)
+        want = [w for w in R.modal_head(call) if R._spelled_rime(w) != rc]
+        got = R.modal_head_evidenced(call)
+        if got != want:
+            diff.append((call, got, want))
+    check("`modal_head_evidenced` == `modal_head` minus tier 1, in order, "
+          f"over {len(calls)} calls",
+          not diff, diff or f"{len(calls)} calls agree")
+
+
 if __name__ == "__main__":
     for fn in (test_spelled_rime, test_two_tiers_compose,
                test_pair_verdicts, test_pursuit_is_mandatory,
                test_the_admit_coordinate,
                test_the_default_admits_everything_admittable,
-               test_tier_two_is_evidence_gated):
+               test_tier_two_is_evidence_gated,
+               test_evidenced_head_is_the_same_head):
         fn()
     print("=" * 62)
     if FAILURES:
