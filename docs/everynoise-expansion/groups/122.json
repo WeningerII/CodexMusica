@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "122",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "chip hop",
+      "source_url": "https://everynoise.com/engenremap-chiphop.html",
+      "suggested_id": "chip_hop",
+      "allocation_ordinal": 3026
+    },
+    {
+      "source_label": "choro contemporaneo",
+      "source_url": "https://everynoise.com/engenremap-chorocontemporaneo.html",
+      "suggested_id": "choro_contemporaneo",
+      "allocation_ordinal": 3027
+    },
+    {
+      "source_label": "christchurch indie",
+      "source_url": "https://everynoise.com/engenremap-christchurchindie.html",
+      "suggested_id": "christchurch_indie",
+      "allocation_ordinal": 3028
+    },
+    {
+      "source_label": "christelijk",
+      "source_url": "https://everynoise.com/engenremap-christelijk.html",
+      "suggested_id": "christelijk",
+      "allocation_ordinal": 3029
+    },
+    {
+      "source_label": "christian a cappella",
+      "source_url": "https://everynoise.com/engenremap-christianacappella.html",
+      "suggested_id": "christian_a_cappella",
+      "allocation_ordinal": 3030
+    },
+    {
+      "source_label": "christian afrobeat",
+      "source_url": "https://everynoise.com/engenremap-christianafrobeat.html",
+      "suggested_id": "christian_afrobeat",
+      "allocation_ordinal": 3031
+    },
+    {
+      "source_label": "christian indie",
+      "source_url": "https://everynoise.com/engenremap-christianindie.html",
+      "suggested_id": "christian_indie",
+      "allocation_ordinal": 3032
+    },
+    {
+      "source_label": "christian lo-fi",
+      "source_url": "https://everynoise.com/engenremap-christianlofi.html",
+      "suggested_id": "christian_lo_fi",
+      "allocation_ordinal": 3033
+    },
+    {
+      "source_label": "christian music",
+      "source_url": "https://everynoise.com/engenremap-christianmusic.html",
+      "suggested_id": "christian_music",
+      "allocation_ordinal": 3034
+    },
+    {
+      "source_label": "christian uplift",
+      "source_url": "https://everynoise.com/engenremap-christianuplift.html",
+      "suggested_id": "christian_uplift",
+      "allocation_ordinal": 3035
+    },
+    {
+      "source_label": "christmas instrumental",
+      "source_url": "https://everynoise.com/engenremap-christmasinstrumental.html",
+      "suggested_id": "christmas_instrumental",
+      "allocation_ordinal": 3036
+    },
+    {
+      "source_label": "christmas product",
+      "source_url": "https://everynoise.com/engenremap-christmasproduct.html",
+      "suggested_id": "christmas_product",
+      "allocation_ordinal": 3037
+    },
+    {
+      "source_label": "cincinnati indie",
+      "source_url": "https://everynoise.com/engenremap-cincinnatiindie.html",
+      "suggested_id": "cincinnati_indie",
+      "allocation_ordinal": 3038
+    },
+    {
+      "source_label": "circuit",
+      "source_url": "https://everynoise.com/engenremap-circuit.html",
+      "suggested_id": "circuit",
+      "allocation_ordinal": 3039
+    },
+    {
+      "source_label": "circus",
+      "source_url": "https://everynoise.com/engenremap-circus.html",
+      "suggested_id": "circus",
+      "allocation_ordinal": 3040
+    },
+    {
+      "source_label": "clap and tap",
+      "source_url": "https://everynoise.com/engenremap-clapandtap.html",
+      "suggested_id": "clap_and_tap",
+      "allocation_ordinal": 3041
+    },
+    {
+      "source_label": "clarinet ensemble",
+      "source_url": "https://everynoise.com/engenremap-clarinetensemble.html",
+      "suggested_id": "clarinet_ensemble",
+      "allocation_ordinal": 3042
+    },
+    {
+      "source_label": "classic afrobeat",
+      "source_url": "https://everynoise.com/engenremap-classicafrobeat.html",
+      "suggested_id": "classic_afrobeat",
+      "allocation_ordinal": 3043
+    },
+    {
+      "source_label": "classic anime",
+      "source_url": "https://everynoise.com/engenremap-classicanime.html",
+      "suggested_id": "classic_anime",
+      "allocation_ordinal": 3044
+    },
+    {
+      "source_label": "classic bhangra",
+      "source_url": "https://everynoise.com/engenremap-classicbhangra.html",
+      "suggested_id": "classic_bhangra",
+      "allocation_ordinal": 3045
+    },
+    {
+      "source_label": "classic bollywood",
+      "source_url": "https://everynoise.com/engenremap-classicbollywood.html",
+      "suggested_id": "classic_bollywood",
+      "allocation_ordinal": 3046
+    },
+    {
+      "source_label": "classic cantopop",
+      "source_url": "https://everynoise.com/engenremap-classiccantopop.html",
+      "suggested_id": "classic_cantopop",
+      "allocation_ordinal": 3047
+    },
+    {
+      "source_label": "classic girl group",
+      "source_url": "https://everynoise.com/engenremap-classicgirlgroup.html",
+      "suggested_id": "classic_girl_group",
+      "allocation_ordinal": 3048
+    },
+    {
+      "source_label": "classic hardstyle",
+      "source_url": "https://everynoise.com/engenremap-classichardstyle.html",
+      "suggested_id": "classic_hardstyle",
+      "allocation_ordinal": 3049
+    },
+    {
+      "source_label": "classic iskelma",
+      "source_url": "https://everynoise.com/engenremap-classiciskelma.html",
+      "suggested_id": "classic_iskelma",
+      "allocation_ordinal": 3050
+    }
+  ]
+}

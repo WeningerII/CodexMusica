@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "034",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "latin metal",
+      "source_url": "https://everynoise.com/engenremap-latinmetal.html",
+      "suggested_id": "latin_metal",
+      "allocation_ordinal": 826
+    },
+    {
+      "source_label": "latvian metal",
+      "source_url": "https://everynoise.com/engenremap-latvianmetal.html",
+      "suggested_id": "latvian_metal",
+      "allocation_ordinal": 827
+    },
+    {
+      "source_label": "lithuanian metal",
+      "source_url": "https://everynoise.com/engenremap-lithuanianmetal.html",
+      "suggested_id": "lithuanian_metal",
+      "allocation_ordinal": 828
+    },
+    {
+      "source_label": "louisiana metal",
+      "source_url": "https://everynoise.com/engenremap-louisianametal.html",
+      "suggested_id": "louisiana_metal",
+      "allocation_ordinal": 829
+    },
+    {
+      "source_label": "lovecraftian metal",
+      "source_url": "https://everynoise.com/engenremap-lovecraftianmetal.html",
+      "suggested_id": "lovecraftian_metal",
+      "allocation_ordinal": 830
+    },
+    {
+      "source_label": "luxembourgian metal",
+      "source_url": "https://everynoise.com/engenremap-luxembourgianmetal.html",
+      "suggested_id": "luxembourgian_metal",
+      "allocation_ordinal": 831
+    },
+    {
+      "source_label": "macedonian metal",
+      "source_url": "https://everynoise.com/engenremap-macedonianmetal.html",
+      "suggested_id": "macedonian_metal",
+      "allocation_ordinal": 832
+    },
+    {
+      "source_label": "mainland se asia metal",
+      "source_url": "https://everynoise.com/engenremap-mainlandseasiametal.html",
+      "suggested_id": "mainland_se_asia_metal",
+      "allocation_ordinal": 833
+    },
+    {
+      "source_label": "malaysian metal",
+      "source_url": "https://everynoise.com/engenremap-malaysianmetal.html",
+      "suggested_id": "malaysian_metal",
+      "allocation_ordinal": 834
+    },
+    {
+      "source_label": "maltese metal",
+      "source_url": "https://everynoise.com/engenremap-maltesemetal.html",
+      "suggested_id": "maltese_metal",
+      "allocation_ordinal": 835
+    },
+    {
+      "source_label": "medieval black metal",
+      "source_url": "https://everynoise.com/engenremap-medievalblackmetal.html",
+      "suggested_id": "medieval_black_metal",
+      "allocation_ordinal": 836
+    },
+    {
+      "source_label": "melodic black metal",
+      "source_url": "https://everynoise.com/engenremap-melodicblackmetal.html",
+      "suggested_id": "melodic_black_metal",
+      "allocation_ordinal": 837
+    },
+    {
+      "source_label": "melodic deathcore",
+      "source_url": "https://everynoise.com/engenremap-melodicdeathcore.html",
+      "suggested_id": "melodic_deathcore",
+      "allocation_ordinal": 838
+    },
+    {
+      "source_label": "melodic groove metal",
+      "source_url": "https://everynoise.com/engenremap-melodicgroovemetal.html",
+      "suggested_id": "melodic_groove_metal",
+      "allocation_ordinal": 839
+    },
+    {
+      "source_label": "melodic metal",
+      "source_url": "https://everynoise.com/engenremap-melodicmetal.html",
+      "suggested_id": "melodic_metal",
+      "allocation_ordinal": 840
+    },
+    {
+      "source_label": "melodic metalcore",
+      "source_url": "https://everynoise.com/engenremap-melodicmetalcore.html",
+      "suggested_id": "melodic_metalcore",
+      "allocation_ordinal": 841
+    },
+    {
+      "source_label": "melodic power metal",
+      "source_url": "https://everynoise.com/engenremap-melodicpowermetal.html",
+      "suggested_id": "melodic_power_metal",
+      "allocation_ordinal": 842
+    },
+    {
+      "source_label": "melodic progressive metal",
+      "source_url": "https://everynoise.com/engenremap-melodicprogressivemetal.html",
+      "suggested_id": "melodic_progressive_metal",
+      "allocation_ordinal": 843
+    },
+    {
+      "source_label": "metal baiano",
+      "source_url": "https://everynoise.com/engenremap-metalbaiano.html",
+      "suggested_id": "metal_baiano",
+      "allocation_ordinal": 844
+    },
+    {
+      "source_label": "metal balear",
+      "source_url": "https://everynoise.com/engenremap-metalbalear.html",
+      "suggested_id": "metal_balear",
+      "allocation_ordinal": 845
+    },
+    {
+      "source_label": "metal catala",
+      "source_url": "https://everynoise.com/engenremap-metalcatala.html",
+      "suggested_id": "metal_catala",
+      "allocation_ordinal": 846
+    },
+    {
+      "source_label": "metal catarinense",
+      "source_url": "https://everynoise.com/engenremap-metalcatarinense.html",
+      "suggested_id": "metal_catarinense",
+      "allocation_ordinal": 847
+    },
+    {
+      "source_label": "metal cearense",
+      "source_url": "https://everynoise.com/engenremap-metalcearense.html",
+      "suggested_id": "metal_cearense",
+      "allocation_ordinal": 848
+    },
+    {
+      "source_label": "metal colombiano",
+      "source_url": "https://everynoise.com/engenremap-metalcolombiano.html",
+      "suggested_id": "metal_colombiano",
+      "allocation_ordinal": 849
+    },
+    {
+      "source_label": "metal cover",
+      "source_url": "https://everynoise.com/engenremap-metalcover.html",
+      "suggested_id": "metal_cover",
+      "allocation_ordinal": 850
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "060",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names"],
+  "entries": [
+    {
+      "source_label": "pub rock",
+      "source_url": "https://everynoise.com/engenremap-pubrock.html",
+      "suggested_id": "pub_rock",
+      "allocation_ordinal": 1476
+    },
+    {
+      "source_label": "puerto rican rock",
+      "source_url": "https://everynoise.com/engenremap-puertoricanrock.html",
+      "suggested_id": "puerto_rican_rock",
+      "allocation_ordinal": 1477
+    },
+    {
+      "source_label": "raga rock",
+      "source_url": "https://everynoise.com/engenremap-ragarock.html",
+      "suggested_id": "raga_rock",
+      "allocation_ordinal": 1478
+    },
+    {
+      "source_label": "reggae rock",
+      "source_url": "https://everynoise.com/engenremap-reggaerock.html",
+      "suggested_id": "reggae_rock",
+      "allocation_ordinal": 1479
+    },
+    {
+      "source_label": "rhythm rock",
+      "source_url": "https://everynoise.com/engenremap-rhythmrock.html",
+      "suggested_id": "rhythm_rock",
+      "allocation_ordinal": 1480
+    },
+    {
+      "source_label": "rock abc paulista",
+      "source_url": "https://everynoise.com/engenremap-rockabcpaulista.html",
+      "suggested_id": "rock_abc_paulista",
+      "allocation_ordinal": 1481
+    },
+    {
+      "source_label": "rock alagoano",
+      "source_url": "https://everynoise.com/engenremap-rockalagoano.html",
+      "suggested_id": "rock_alagoano",
+      "allocation_ordinal": 1482
+    },
+    {
+      "source_label": "rock alternatif francais",
+      "source_url": "https://everynoise.com/engenremap-rockalternatiffrancais.html",
+      "suggested_id": "rock_alternatif_francais",
+      "allocation_ordinal": 1483
+    },
+    {
+      "source_label": "rock alternativo brasileiro",
+      "source_url": "https://everynoise.com/engenremap-rockalternativobrasileiro.html",
+      "suggested_id": "rock_alternativo_brasileiro",
+      "allocation_ordinal": 1484
+    },
+    {
+      "source_label": "rock alternativo espanol",
+      "source_url": "https://everynoise.com/engenremap-rockalternativoespanol.html",
+      "suggested_id": "rock_alternativo_espanol",
+      "allocation_ordinal": 1485
+    },
+    {
+      "source_label": "rock andaluz",
+      "source_url": "https://everynoise.com/engenremap-rockandaluz.html",
+      "suggested_id": "rock_andaluz",
+      "allocation_ordinal": 1486
+    },
+    {
+      "source_label": "rock baiano",
+      "source_url": "https://everynoise.com/engenremap-rockbaiano.html",
+      "suggested_id": "rock_baiano",
+      "allocation_ordinal": 1487
+    },
+    {
+      "source_label": "rock brasiliense",
+      "source_url": "https://everynoise.com/engenremap-rockbrasiliense.html",
+      "suggested_id": "rock_brasiliense",
+      "allocation_ordinal": 1488
+    },
+    {
+      "source_label": "rock campineiro",
+      "source_url": "https://everynoise.com/engenremap-rockcampineiro.html",
+      "suggested_id": "rock_campineiro",
+      "allocation_ordinal": 1489
+    },
+    {
+      "source_label": "rock catala",
+      "source_url": "https://everynoise.com/engenremap-rockcatala.html",
+      "suggested_id": "rock_catala",
+      "allocation_ordinal": 1490
+    },
+    {
+      "source_label": "rock catarinense",
+      "source_url": "https://everynoise.com/engenremap-rockcatarinense.html",
+      "suggested_id": "rock_catarinense",
+      "allocation_ordinal": 1491
+    },
+    {
+      "source_label": "rock catracho",
+      "source_url": "https://everynoise.com/engenremap-rockcatracho.html",
+      "suggested_id": "rock_catracho",
+      "allocation_ordinal": 1492
+    },
+    {
+      "source_label": "rock cearense",
+      "source_url": "https://everynoise.com/engenremap-rockcearense.html",
+      "suggested_id": "rock_cearense",
+      "allocation_ordinal": 1493
+    },
+    {
+      "source_label": "rock chapin",
+      "source_url": "https://everynoise.com/engenremap-rockchapin.html",
+      "suggested_id": "rock_chapin",
+      "allocation_ordinal": 1494
+    },
+    {
+      "source_label": "rock cristao fluminense",
+      "source_url": "https://everynoise.com/engenremap-rockcristaofluminense.html",
+      "suggested_id": "rock_cristao_fluminense",
+      "allocation_ordinal": 1495
+    },
+    {
+      "source_label": "rock curitibano",
+      "source_url": "https://everynoise.com/engenremap-rockcuritibano.html",
+      "suggested_id": "rock_curitibano",
+      "allocation_ordinal": 1496
+    },
+    {
+      "source_label": "rock dominicano",
+      "source_url": "https://everynoise.com/engenremap-rockdominicano.html",
+      "suggested_id": "rock_dominicano",
+      "allocation_ordinal": 1497
+    },
+    {
+      "source_label": "rock en asturiano",
+      "source_url": "https://everynoise.com/engenremap-rockenasturiano.html",
+      "suggested_id": "rock_en_asturiano",
+      "allocation_ordinal": 1498
+    },
+    {
+      "source_label": "rock gaucho",
+      "source_url": "https://everynoise.com/engenremap-rockgaucho.html",
+      "suggested_id": "rock_gaucho",
+      "allocation_ordinal": 1499
+    },
+    {
+      "source_label": "rock goiano",
+      "source_url": "https://everynoise.com/engenremap-rockgoiano.html",
+      "suggested_id": "rock_goiano",
+      "allocation_ordinal": 1500
+    }
+  ]
+}

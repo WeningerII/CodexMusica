@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "174",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "spa",
+      "source_url": "https://everynoise.com/engenremap-spa.html",
+      "suggested_id": "spa",
+      "allocation_ordinal": 4326
+    },
+    {
+      "source_label": "spacegrunge",
+      "source_url": "https://everynoise.com/engenremap-spacegrunge.html",
+      "suggested_id": "spacegrunge",
+      "allocation_ordinal": 4327
+    },
+    {
+      "source_label": "spacesynth",
+      "source_url": "https://everynoise.com/engenremap-spacesynth.html",
+      "suggested_id": "spacesynth",
+      "allocation_ordinal": 4328
+    },
+    {
+      "source_label": "spacewave",
+      "source_url": "https://everynoise.com/engenremap-spacewave.html",
+      "suggested_id": "spacewave",
+      "allocation_ordinal": 4329
+    },
+    {
+      "source_label": "spanish electropop",
+      "source_url": "https://everynoise.com/engenremap-spanishelectropop.html",
+      "suggested_id": "spanish_electropop",
+      "allocation_ordinal": 4330
+    },
+    {
+      "source_label": "spanish experimental",
+      "source_url": "https://everynoise.com/engenremap-spanishexperimental.html",
+      "suggested_id": "spanish_experimental",
+      "allocation_ordinal": 4331
+    },
+    {
+      "source_label": "spanish invasion",
+      "source_url": "https://everynoise.com/engenremap-spanishinvasion.html",
+      "suggested_id": "spanish_invasion",
+      "allocation_ordinal": 4332
+    },
+    {
+      "source_label": "spanish new wave",
+      "source_url": "https://everynoise.com/engenremap-spanishnewwave.html",
+      "suggested_id": "spanish_new_wave",
+      "allocation_ordinal": 4333
+    },
+    {
+      "source_label": "spanish prog",
+      "source_url": "https://everynoise.com/engenremap-spanishprog.html",
+      "suggested_id": "spanish_prog",
+      "allocation_ordinal": 4334
+    },
+    {
+      "source_label": "spectra",
+      "source_url": "https://everynoise.com/engenremap-spectra.html",
+      "suggested_id": "spectra",
+      "allocation_ordinal": 4335
+    },
+    {
+      "source_label": "speed plug brasileiro",
+      "source_url": "https://everynoise.com/engenremap-speedplugbrasileiro.html",
+      "suggested_id": "speed_plug_brasileiro",
+      "allocation_ordinal": 4336
+    },
+    {
+      "source_label": "speed up brasileiro",
+      "source_url": "https://everynoise.com/engenremap-speedupbrasileiro.html",
+      "suggested_id": "speed_up_brasileiro",
+      "allocation_ordinal": 4337
+    },
+    {
+      "source_label": "speed up turkce",
+      "source_url": "https://everynoise.com/engenremap-speedupturkce.html",
+      "suggested_id": "speed_up_turkce",
+      "allocation_ordinal": 4338
+    },
+    {
+      "source_label": "speedrun",
+      "source_url": "https://everynoise.com/engenremap-speedrun.html",
+      "suggested_id": "speedrun",
+      "allocation_ordinal": 4339
+    },
+    {
+      "source_label": "springfield mo indie",
+      "source_url": "https://everynoise.com/engenremap-springfieldmoindie.html",
+      "suggested_id": "springfield_mo_indie",
+      "allocation_ordinal": 4340
+    },
+    {
+      "source_label": "spytrack",
+      "source_url": "https://everynoise.com/engenremap-spytrack.html",
+      "suggested_id": "spytrack",
+      "allocation_ordinal": 4341
+    },
+    {
+      "source_label": "st petersburg fl indie",
+      "source_url": "https://everynoise.com/engenremap-stpetersburgflindie.html",
+      "suggested_id": "st_petersburg_fl_indie",
+      "allocation_ordinal": 4342
+    },
+    {
+      "source_label": "staff band",
+      "source_url": "https://everynoise.com/engenremap-staffband.html",
+      "suggested_id": "staff_band",
+      "allocation_ordinal": 4343
+    },
+    {
+      "source_label": "stl indie",
+      "source_url": "https://everynoise.com/engenremap-stlindie.html",
+      "suggested_id": "stl_indie",
+      "allocation_ordinal": 4344
+    },
+    {
+      "source_label": "stockholm indie",
+      "source_url": "https://everynoise.com/engenremap-stockholmindie.html",
+      "suggested_id": "stockholm_indie",
+      "allocation_ordinal": 4345
+    },
+    {
+      "source_label": "stomp and whittle",
+      "source_url": "https://everynoise.com/engenremap-stompandwhittle.html",
+      "suggested_id": "stomp_and_whittle",
+      "allocation_ordinal": 4346
+    },
+    {
+      "source_label": "straight edge",
+      "source_url": "https://everynoise.com/engenremap-straightedge.html",
+      "suggested_id": "straight_edge",
+      "allocation_ordinal": 4347
+    },
+    {
+      "source_label": "streektaal",
+      "source_url": "https://everynoise.com/engenremap-streektaal.html",
+      "suggested_id": "streektaal",
+      "allocation_ordinal": 4348
+    },
+    {
+      "source_label": "street band",
+      "source_url": "https://everynoise.com/engenremap-streetband.html",
+      "suggested_id": "street_band",
+      "allocation_ordinal": 4349
+    },
+    {
+      "source_label": "string duo",
+      "source_url": "https://everynoise.com/engenremap-stringduo.html",
+      "suggested_id": "string_duo",
+      "allocation_ordinal": 4350
+    }
+  ]
+}

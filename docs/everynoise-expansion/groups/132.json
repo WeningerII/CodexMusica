@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "132",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "fan chant",
+      "source_url": "https://everynoise.com/engenremap-fanchant.html",
+      "suggested_id": "fan_chant",
+      "allocation_ordinal": 3276
+    },
+    {
+      "source_label": "fantasy",
+      "source_url": "https://everynoise.com/engenremap-fantasy.html",
+      "suggested_id": "fantasy",
+      "allocation_ordinal": 3277
+    },
+    {
+      "source_label": "faroese indie",
+      "source_url": "https://everynoise.com/engenremap-faroeseindie.html",
+      "suggested_id": "faroese_indie",
+      "allocation_ordinal": 3278
+    },
+    {
+      "source_label": "festigal",
+      "source_url": "https://everynoise.com/engenremap-festigal.html",
+      "suggested_id": "festigal",
+      "allocation_ordinal": 3279
+    },
+    {
+      "source_label": "filthstep",
+      "source_url": "https://everynoise.com/engenremap-filthstep.html",
+      "suggested_id": "filthstep",
+      "allocation_ordinal": 3280
+    },
+    {
+      "source_label": "finlandssvenska musik",
+      "source_url": "https://everynoise.com/engenremap-finlandssvenskamusik.html",
+      "suggested_id": "finlandssvenska_musik",
+      "allocation_ordinal": 3281
+    },
+    {
+      "source_label": "finnish experimental",
+      "source_url": "https://everynoise.com/engenremap-finnishexperimental.html",
+      "suggested_id": "finnish_experimental",
+      "allocation_ordinal": 3282
+    },
+    {
+      "source_label": "finnish indie",
+      "source_url": "https://everynoise.com/engenremap-finnishindie.html",
+      "suggested_id": "finnish_indie",
+      "allocation_ordinal": 3283
+    },
+    {
+      "source_label": "finnish new wave",
+      "source_url": "https://everynoise.com/engenremap-finnishnewwave.html",
+      "suggested_id": "finnish_new_wave",
+      "allocation_ordinal": 3284
+    },
+    {
+      "source_label": "finnish worship",
+      "source_url": "https://everynoise.com/engenremap-finnishworship.html",
+      "suggested_id": "finnish_worship",
+      "allocation_ordinal": 3285
+    },
+    {
+      "source_label": "firenze indie",
+      "source_url": "https://everynoise.com/engenremap-firenzeindie.html",
+      "suggested_id": "firenze_indie",
+      "allocation_ordinal": 3286
+    },
+    {
+      "source_label": "fisarmonica",
+      "source_url": "https://everynoise.com/engenremap-fisarmonica.html",
+      "suggested_id": "fisarmonica",
+      "allocation_ordinal": 3287
+    },
+    {
+      "source_label": "flamenco fusion",
+      "source_url": "https://everynoise.com/engenremap-flamencofusion.html",
+      "suggested_id": "flamenco_fusion",
+      "allocation_ordinal": 3288
+    },
+    {
+      "source_label": "flamenco urbano",
+      "source_url": "https://everynoise.com/engenremap-flamencourbano.html",
+      "suggested_id": "flamenco_urbano",
+      "allocation_ordinal": 3289
+    },
+    {
+      "source_label": "flick hop",
+      "source_url": "https://everynoise.com/engenremap-flickhop.html",
+      "suggested_id": "flick_hop",
+      "allocation_ordinal": 3290
+    },
+    {
+      "source_label": "fluxwork",
+      "source_url": "https://everynoise.com/engenremap-fluxwork.html",
+      "suggested_id": "fluxwork",
+      "allocation_ordinal": 3291
+    },
+    {
+      "source_label": "fo jing",
+      "source_url": "https://everynoise.com/engenremap-fojing.html",
+      "suggested_id": "fo_jing",
+      "allocation_ordinal": 3292
+    },
+    {
+      "source_label": "focus",
+      "source_url": "https://everynoise.com/engenremap-focus.html",
+      "suggested_id": "focus",
+      "allocation_ordinal": 3293
+    },
+    {
+      "source_label": "focus beats",
+      "source_url": "https://everynoise.com/engenremap-focusbeats.html",
+      "suggested_id": "focus_beats",
+      "allocation_ordinal": 3294
+    },
+    {
+      "source_label": "fogo pentecostal",
+      "source_url": "https://everynoise.com/engenremap-fogopentecostal.html",
+      "suggested_id": "fogo_pentecostal",
+      "allocation_ordinal": 3295
+    },
+    {
+      "source_label": "folclor colombiano",
+      "source_url": "https://everynoise.com/engenremap-folclorcolombiano.html",
+      "suggested_id": "folclor_colombiano",
+      "allocation_ordinal": 3296
+    },
+    {
+      "source_label": "folclore castilla y leon",
+      "source_url": "https://everynoise.com/engenremap-folclorecastillayleon.html",
+      "suggested_id": "folclore_castilla_y_leon",
+      "allocation_ordinal": 3297
+    },
+    {
+      "source_label": "folclore extremeno",
+      "source_url": "https://everynoise.com/engenremap-folcloreextremeno.html",
+      "suggested_id": "folclore_extremeno",
+      "allocation_ordinal": 3298
+    },
+    {
+      "source_label": "folclore navarra",
+      "source_url": "https://everynoise.com/engenremap-folclorenavarra.html",
+      "suggested_id": "folclore_navarra",
+      "allocation_ordinal": 3299
+    },
+    {
+      "source_label": "folclore portugues",
+      "source_url": "https://everynoise.com/engenremap-folcloreportugues.html",
+      "suggested_id": "folclore_portugues",
+      "allocation_ordinal": 3300
+    }
+  ]
+}

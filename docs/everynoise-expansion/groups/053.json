@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "053",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names"],
+  "entries": [
+    {
+      "source_label": "cinematic post-rock",
+      "source_url": "https://everynoise.com/engenremap-cinematicpostrock.html",
+      "suggested_id": "cinematic_post_rock",
+      "allocation_ordinal": 1301
+    },
+    {
+      "source_label": "classic canadian rock",
+      "source_url": "https://everynoise.com/engenremap-classiccanadianrock.html",
+      "suggested_id": "classic_canadian_rock",
+      "allocation_ordinal": 1302
+    },
+    {
+      "source_label": "classic danish rock",
+      "source_url": "https://everynoise.com/engenremap-classicdanishrock.html",
+      "suggested_id": "classic_danish_rock",
+      "allocation_ordinal": 1303
+    },
+    {
+      "source_label": "classic finnish rock",
+      "source_url": "https://everynoise.com/engenremap-classicfinnishrock.html",
+      "suggested_id": "classic_finnish_rock",
+      "allocation_ordinal": 1304
+    },
+    {
+      "source_label": "classic greek rock",
+      "source_url": "https://everynoise.com/engenremap-classicgreekrock.html",
+      "suggested_id": "classic_greek_rock",
+      "allocation_ordinal": 1305
+    },
+    {
+      "source_label": "classic hungarian rock",
+      "source_url": "https://everynoise.com/engenremap-classichungarianrock.html",
+      "suggested_id": "classic_hungarian_rock",
+      "allocation_ordinal": 1306
+    },
+    {
+      "source_label": "classic indonesian rock",
+      "source_url": "https://everynoise.com/engenremap-classicindonesianrock.html",
+      "suggested_id": "classic_indonesian_rock",
+      "allocation_ordinal": 1307
+    },
+    {
+      "source_label": "classic j-rock",
+      "source_url": "https://everynoise.com/engenremap-classicjrock.html",
+      "suggested_id": "classic_j_rock",
+      "allocation_ordinal": 1308
+    },
+    {
+      "source_label": "classic psychedelic rock",
+      "source_url": "https://everynoise.com/engenremap-classicpsychedelicrock.html",
+      "suggested_id": "classic_psychedelic_rock",
+      "allocation_ordinal": 1309
+    },
+    {
+      "source_label": "classic rock",
+      "source_url": "https://everynoise.com/engenremap-classicrock.html",
+      "suggested_id": "classic_rock",
+      "allocation_ordinal": 1310
+    },
+    {
+      "source_label": "classic russian rock",
+      "source_url": "https://everynoise.com/engenremap-classicrussianrock.html",
+      "suggested_id": "classic_russian_rock",
+      "allocation_ordinal": 1311
+    },
+    {
+      "source_label": "colombian rock",
+      "source_url": "https://everynoise.com/engenremap-colombianrock.html",
+      "suggested_id": "colombian_rock",
+      "allocation_ordinal": 1312
+    },
+    {
+      "source_label": "comedy rock",
+      "source_url": "https://everynoise.com/engenremap-comedyrock.html",
+      "suggested_id": "comedy_rock",
+      "allocation_ordinal": 1313
+    },
+    {
+      "source_label": "cosmic post-rock",
+      "source_url": "https://everynoise.com/engenremap-cosmicpostrock.html",
+      "suggested_id": "cosmic_post_rock",
+      "allocation_ordinal": 1314
+    },
+    {
+      "source_label": "croatian rock",
+      "source_url": "https://everynoise.com/engenremap-croatianrock.html",
+      "suggested_id": "croatian_rock",
+      "allocation_ordinal": 1315
+    },
+    {
+      "source_label": "czech folk rock",
+      "source_url": "https://everynoise.com/engenremap-czechfolkrock.html",
+      "suggested_id": "czech_folk_rock",
+      "allocation_ordinal": 1316
+    },
+    {
+      "source_label": "czech pop rock",
+      "source_url": "https://everynoise.com/engenremap-czechpoprock.html",
+      "suggested_id": "czech_pop_rock",
+      "allocation_ordinal": 1317
+    },
+    {
+      "source_label": "czech rock",
+      "source_url": "https://everynoise.com/engenremap-czechrock.html",
+      "suggested_id": "czech_rock",
+      "allocation_ordinal": 1318
+    },
+    {
+      "source_label": "dance rock",
+      "source_url": "https://everynoise.com/engenremap-dancerock.html",
+      "suggested_id": "dance_rock",
+      "allocation_ordinal": 1319
+    },
+    {
+      "source_label": "danish alternative rock",
+      "source_url": "https://everynoise.com/engenremap-danishalternativerock.html",
+      "suggested_id": "danish_alternative_rock",
+      "allocation_ordinal": 1320
+    },
+    {
+      "source_label": "danish pop rock",
+      "source_url": "https://everynoise.com/engenremap-danishpoprock.html",
+      "suggested_id": "danish_pop_rock",
+      "allocation_ordinal": 1321
+    },
+    {
+      "source_label": "danish rock",
+      "source_url": "https://everynoise.com/engenremap-danishrock.html",
+      "suggested_id": "danish_rock",
+      "allocation_ordinal": 1322
+    },
+    {
+      "source_label": "dark rock",
+      "source_url": "https://everynoise.com/engenremap-darkrock.html",
+      "suggested_id": "dark_rock",
+      "allocation_ordinal": 1323
+    },
+    {
+      "source_label": "deep active rock",
+      "source_url": "https://everynoise.com/engenremap-deepactiverock.html",
+      "suggested_id": "deep_active_rock",
+      "allocation_ordinal": 1324
+    },
+    {
+      "source_label": "deep christian rock",
+      "source_url": "https://everynoise.com/engenremap-deepchristianrock.html",
+      "suggested_id": "deep_christian_rock",
+      "allocation_ordinal": 1325
+    }
+  ]
+}

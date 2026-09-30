@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "105",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["blues soul funk and gospel names"],
+  "entries": [
+    {
+      "source_label": "indonesian blues",
+      "source_url": "https://everynoise.com/engenremap-indonesianblues.html",
+      "suggested_id": "indonesian_blues",
+      "allocation_ordinal": 2601
+    },
+    {
+      "source_label": "indonesian r&b",
+      "source_url": "https://everynoise.com/engenremap-indonesianrb.html",
+      "suggested_id": "indonesian_r_and_b",
+      "allocation_ordinal": 2602
+    },
+    {
+      "source_label": "instrumental funk",
+      "source_url": "https://everynoise.com/engenremap-instrumentalfunk.html",
+      "suggested_id": "instrumental_funk",
+      "allocation_ordinal": 2603
+    },
+    {
+      "source_label": "instrumental soul",
+      "source_url": "https://everynoise.com/engenremap-instrumentalsoul.html",
+      "suggested_id": "instrumental_soul",
+      "allocation_ordinal": 2604
+    },
+    {
+      "source_label": "italian blues",
+      "source_url": "https://everynoise.com/engenremap-italianblues.html",
+      "suggested_id": "italian_blues",
+      "allocation_ordinal": 2605
+    },
+    {
+      "source_label": "japanese blues",
+      "source_url": "https://everynoise.com/engenremap-japaneseblues.html",
+      "suggested_id": "japanese_blues",
+      "allocation_ordinal": 2606
+    },
+    {
+      "source_label": "japanese r&b",
+      "source_url": "https://everynoise.com/engenremap-japaneserb.html",
+      "suggested_id": "japanese_r_and_b",
+      "allocation_ordinal": 2607
+    },
+    {
+      "source_label": "japanese soul",
+      "source_url": "https://everynoise.com/engenremap-japanesesoul.html",
+      "suggested_id": "japanese_soul",
+      "allocation_ordinal": 2608
+    },
+    {
+      "source_label": "kenyan r&b",
+      "source_url": "https://everynoise.com/engenremap-kenyanrb.html",
+      "suggested_id": "kenyan_r_and_b",
+      "allocation_ordinal": 2609
+    },
+    {
+      "source_label": "kikuyu gospel",
+      "source_url": "https://everynoise.com/engenremap-kikuyugospel.html",
+      "suggested_id": "kikuyu_gospel",
+      "allocation_ordinal": 2610
+    },
+    {
+      "source_label": "korean r&b",
+      "source_url": "https://everynoise.com/engenremap-koreanrb.html",
+      "suggested_id": "korean_r_and_b",
+      "allocation_ordinal": 2611
+    },
+    {
+      "source_label": "latin funk",
+      "source_url": "https://everynoise.com/engenremap-latinfunk.html",
+      "suggested_id": "latin_funk",
+      "allocation_ordinal": 2612
+    },
+    {
+      "source_label": "mizo gospel",
+      "source_url": "https://everynoise.com/engenremap-mizogospel.html",
+      "suggested_id": "mizo_gospel",
+      "allocation_ordinal": 2613
+    },
+    {
+      "source_label": "modern blues",
+      "source_url": "https://everynoise.com/engenremap-modernblues.html",
+      "suggested_id": "modern_blues",
+      "allocation_ordinal": 2614
+    },
+    {
+      "source_label": "mpb gospel",
+      "source_url": "https://everynoise.com/engenremap-mpbgospel.html",
+      "suggested_id": "mpb_gospel",
+      "allocation_ordinal": 2615
+    },
+    {
+      "source_label": "musica eletronica gospel",
+      "source_url": "https://everynoise.com/engenremap-musicaeletronicagospel.html",
+      "suggested_id": "musica_eletronica_gospel",
+      "allocation_ordinal": 2616
+    },
+    {
+      "source_label": "myanmar gospel",
+      "source_url": "https://everynoise.com/engenremap-myanmargospel.html",
+      "suggested_id": "myanmar_gospel",
+      "allocation_ordinal": 2617
+    },
+    {
+      "source_label": "neapolitan funk",
+      "source_url": "https://everynoise.com/engenremap-neapolitanfunk.html",
+      "suggested_id": "neapolitan_funk",
+      "allocation_ordinal": 2618
+    },
+    {
+      "source_label": "neo r&b",
+      "source_url": "https://everynoise.com/engenremap-neorb.html",
+      "suggested_id": "neo_r_and_b",
+      "allocation_ordinal": 2619
+    },
+    {
+      "source_label": "norwegian blues",
+      "source_url": "https://everynoise.com/engenremap-norwegianblues.html",
+      "suggested_id": "norwegian_blues",
+      "allocation_ordinal": 2620
+    },
+    {
+      "source_label": "norwegian gospel",
+      "source_url": "https://everynoise.com/engenremap-norwegiangospel.html",
+      "suggested_id": "norwegian_gospel",
+      "allocation_ordinal": 2621
+    },
+    {
+      "source_label": "pacific islands gospel",
+      "source_url": "https://everynoise.com/engenremap-pacificislandsgospel.html",
+      "suggested_id": "pacific_islands_gospel",
+      "allocation_ordinal": 2622
+    },
+    {
+      "source_label": "polish blues",
+      "source_url": "https://everynoise.com/engenremap-polishblues.html",
+      "suggested_id": "polish_blues",
+      "allocation_ordinal": 2623
+    },
+    {
+      "source_label": "pre-war blues",
+      "source_url": "https://everynoise.com/engenremap-prewarblues.html",
+      "suggested_id": "pre_war_blues",
+      "allocation_ordinal": 2624
+    },
+    {
+      "source_label": "quarteto gospel",
+      "source_url": "https://everynoise.com/engenremap-quartetogospel.html",
+      "suggested_id": "quarteto_gospel",
+      "allocation_ordinal": 2625
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "090",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["classical and vocal ensemble names"],
+  "entries": [
+    {
+      "source_label": "cambridge choir",
+      "source_url": "https://everynoise.com/engenremap-cambridgechoir.html",
+      "suggested_id": "cambridge_choir",
+      "allocation_ordinal": 2226
+    },
+    {
+      "source_label": "canadian choir",
+      "source_url": "https://everynoise.com/engenremap-canadianchoir.html",
+      "suggested_id": "canadian_choir",
+      "allocation_ordinal": 2227
+    },
+    {
+      "source_label": "canadian classical",
+      "source_url": "https://everynoise.com/engenremap-canadianclassical.html",
+      "suggested_id": "canadian_classical",
+      "allocation_ordinal": 2228
+    },
+    {
+      "source_label": "canadian classical piano",
+      "source_url": "https://everynoise.com/engenremap-canadianclassicalpiano.html",
+      "suggested_id": "canadian_classical_piano",
+      "allocation_ordinal": 2229
+    },
+    {
+      "source_label": "canadian contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-canadiancontemporaryclassical.html",
+      "suggested_id": "canadian_contemporary_classical",
+      "allocation_ordinal": 2230
+    },
+    {
+      "source_label": "cathedral choir",
+      "source_url": "https://everynoise.com/engenremap-cathedralchoir.html",
+      "suggested_id": "cathedral_choir",
+      "allocation_ordinal": 2231
+    },
+    {
+      "source_label": "caucasian classical",
+      "source_url": "https://everynoise.com/engenremap-caucasianclassical.html",
+      "suggested_id": "caucasian_classical",
+      "allocation_ordinal": 2232
+    },
+    {
+      "source_label": "caucasian classical piano",
+      "source_url": "https://everynoise.com/engenremap-caucasianclassicalpiano.html",
+      "suggested_id": "caucasian_classical_piano",
+      "allocation_ordinal": 2233
+    },
+    {
+      "source_label": "chamber orchestra",
+      "source_url": "https://everynoise.com/engenremap-chamberorchestra.html",
+      "suggested_id": "chamber_orchestra",
+      "allocation_ordinal": 2234
+    },
+    {
+      "source_label": "children's choir",
+      "source_url": "https://everynoise.com/engenremap-childrenschoir.html",
+      "suggested_id": "children_s_choir",
+      "allocation_ordinal": 2235
+    },
+    {
+      "source_label": "chinese classical",
+      "source_url": "https://everynoise.com/engenremap-chineseclassical.html",
+      "suggested_id": "chinese_classical",
+      "allocation_ordinal": 2236
+    },
+    {
+      "source_label": "chinese classical performance",
+      "source_url": "https://everynoise.com/engenremap-chineseclassicalperformance.html",
+      "suggested_id": "chinese_classical_performance",
+      "allocation_ordinal": 2237
+    },
+    {
+      "source_label": "chinese classical piano",
+      "source_url": "https://everynoise.com/engenremap-chineseclassicalpiano.html",
+      "suggested_id": "chinese_classical_piano",
+      "allocation_ordinal": 2238
+    },
+    {
+      "source_label": "classical accordion",
+      "source_url": "https://everynoise.com/engenremap-classicalaccordion.html",
+      "suggested_id": "classical_accordion",
+      "allocation_ordinal": 2239
+    },
+    {
+      "source_label": "classical baritone",
+      "source_url": "https://everynoise.com/engenremap-classicalbaritone.html",
+      "suggested_id": "classical_baritone",
+      "allocation_ordinal": 2240
+    },
+    {
+      "source_label": "classical bassoon",
+      "source_url": "https://everynoise.com/engenremap-classicalbassoon.html",
+      "suggested_id": "classical_bassoon",
+      "allocation_ordinal": 2241
+    },
+    {
+      "source_label": "classical cello",
+      "source_url": "https://everynoise.com/engenremap-classicalcello.html",
+      "suggested_id": "classical_cello",
+      "allocation_ordinal": 2242
+    },
+    {
+      "source_label": "classical clarinet",
+      "source_url": "https://everynoise.com/engenremap-classicalclarinet.html",
+      "suggested_id": "classical_clarinet",
+      "allocation_ordinal": 2243
+    },
+    {
+      "source_label": "classical contralto",
+      "source_url": "https://everynoise.com/engenremap-classicalcontralto.html",
+      "suggested_id": "classical_contralto",
+      "allocation_ordinal": 2244
+    },
+    {
+      "source_label": "classical countertenor",
+      "source_url": "https://everynoise.com/engenremap-classicalcountertenor.html",
+      "suggested_id": "classical_countertenor",
+      "allocation_ordinal": 2245
+    },
+    {
+      "source_label": "classical flute",
+      "source_url": "https://everynoise.com/engenremap-classicalflute.html",
+      "suggested_id": "classical_flute",
+      "allocation_ordinal": 2246
+    },
+    {
+      "source_label": "classical guitar",
+      "source_url": "https://everynoise.com/engenremap-classicalguitar.html",
+      "suggested_id": "classical_guitar",
+      "allocation_ordinal": 2247
+    },
+    {
+      "source_label": "classical guitar duo",
+      "source_url": "https://everynoise.com/engenremap-classicalguitarduo.html",
+      "suggested_id": "classical_guitar_duo",
+      "allocation_ordinal": 2248
+    },
+    {
+      "source_label": "classical guitar quartet",
+      "source_url": "https://everynoise.com/engenremap-classicalguitarquartet.html",
+      "suggested_id": "classical_guitar_quartet",
+      "allocation_ordinal": 2249
+    },
+    {
+      "source_label": "classical harp",
+      "source_url": "https://everynoise.com/engenremap-classicalharp.html",
+      "suggested_id": "classical_harp",
+      "allocation_ordinal": 2250
+    }
+  ]
+}

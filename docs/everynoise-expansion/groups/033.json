@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "033",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "instrumental progressive metal",
+      "source_url": "https://everynoise.com/engenremap-instrumentalprogressivemetal.html",
+      "suggested_id": "instrumental_progressive_metal",
+      "allocation_ordinal": 801
+    },
+    {
+      "source_label": "iranian metal",
+      "source_url": "https://everynoise.com/engenremap-iranianmetal.html",
+      "suggested_id": "iranian_metal",
+      "allocation_ordinal": 802
+    },
+    {
+      "source_label": "irish black metal",
+      "source_url": "https://everynoise.com/engenremap-irishblackmetal.html",
+      "suggested_id": "irish_black_metal",
+      "allocation_ordinal": 803
+    },
+    {
+      "source_label": "irish death metal",
+      "source_url": "https://everynoise.com/engenremap-irishdeathmetal.html",
+      "suggested_id": "irish_death_metal",
+      "allocation_ordinal": 804
+    },
+    {
+      "source_label": "irish metal",
+      "source_url": "https://everynoise.com/engenremap-irishmetal.html",
+      "suggested_id": "irish_metal",
+      "allocation_ordinal": 805
+    },
+    {
+      "source_label": "israeli metal",
+      "source_url": "https://everynoise.com/engenremap-israelimetal.html",
+      "suggested_id": "israeli_metal",
+      "allocation_ordinal": 806
+    },
+    {
+      "source_label": "italian black metal",
+      "source_url": "https://everynoise.com/engenremap-italianblackmetal.html",
+      "suggested_id": "italian_black_metal",
+      "allocation_ordinal": 807
+    },
+    {
+      "source_label": "italian death metal",
+      "source_url": "https://everynoise.com/engenremap-italiandeathmetal.html",
+      "suggested_id": "italian_death_metal",
+      "allocation_ordinal": 808
+    },
+    {
+      "source_label": "italian doom metal",
+      "source_url": "https://everynoise.com/engenremap-italiandoommetal.html",
+      "suggested_id": "italian_doom_metal",
+      "allocation_ordinal": 809
+    },
+    {
+      "source_label": "italian folk metal",
+      "source_url": "https://everynoise.com/engenremap-italianfolkmetal.html",
+      "suggested_id": "italian_folk_metal",
+      "allocation_ordinal": 810
+    },
+    {
+      "source_label": "italian gothic metal",
+      "source_url": "https://everynoise.com/engenremap-italiangothicmetal.html",
+      "suggested_id": "italian_gothic_metal",
+      "allocation_ordinal": 811
+    },
+    {
+      "source_label": "italian heavy metal",
+      "source_url": "https://everynoise.com/engenremap-italianheavymetal.html",
+      "suggested_id": "italian_heavy_metal",
+      "allocation_ordinal": 812
+    },
+    {
+      "source_label": "italian metal",
+      "source_url": "https://everynoise.com/engenremap-italianmetal.html",
+      "suggested_id": "italian_metal",
+      "allocation_ordinal": 813
+    },
+    {
+      "source_label": "italian metalcore",
+      "source_url": "https://everynoise.com/engenremap-italianmetalcore.html",
+      "suggested_id": "italian_metalcore",
+      "allocation_ordinal": 814
+    },
+    {
+      "source_label": "italian power metal",
+      "source_url": "https://everynoise.com/engenremap-italianpowermetal.html",
+      "suggested_id": "italian_power_metal",
+      "allocation_ordinal": 815
+    },
+    {
+      "source_label": "italian progressive metal",
+      "source_url": "https://everynoise.com/engenremap-italianprogressivemetal.html",
+      "suggested_id": "italian_progressive_metal",
+      "allocation_ordinal": 816
+    },
+    {
+      "source_label": "j-metal",
+      "source_url": "https://everynoise.com/engenremap-jmetal.html",
+      "suggested_id": "j_metal",
+      "allocation_ordinal": 817
+    },
+    {
+      "source_label": "japanese black metal",
+      "source_url": "https://everynoise.com/engenremap-japaneseblackmetal.html",
+      "suggested_id": "japanese_black_metal",
+      "allocation_ordinal": 818
+    },
+    {
+      "source_label": "japanese death metal",
+      "source_url": "https://everynoise.com/engenremap-japanesedeathmetal.html",
+      "suggested_id": "japanese_death_metal",
+      "allocation_ordinal": 819
+    },
+    {
+      "source_label": "japanese heavy metal",
+      "source_url": "https://everynoise.com/engenremap-japaneseheavymetal.html",
+      "suggested_id": "japanese_heavy_metal",
+      "allocation_ordinal": 820
+    },
+    {
+      "source_label": "japanese metalcore",
+      "source_url": "https://everynoise.com/engenremap-japanesemetalcore.html",
+      "suggested_id": "japanese_metalcore",
+      "allocation_ordinal": 821
+    },
+    {
+      "source_label": "japanese power metal",
+      "source_url": "https://everynoise.com/engenremap-japanesepowermetal.html",
+      "suggested_id": "japanese_power_metal",
+      "allocation_ordinal": 822
+    },
+    {
+      "source_label": "kentucky metal",
+      "source_url": "https://everynoise.com/engenremap-kentuckymetal.html",
+      "suggested_id": "kentucky_metal",
+      "allocation_ordinal": 823
+    },
+    {
+      "source_label": "korean metal",
+      "source_url": "https://everynoise.com/engenremap-koreanmetal.html",
+      "suggested_id": "korean_metal",
+      "allocation_ordinal": 824
+    },
+    {
+      "source_label": "lapland metal",
+      "source_url": "https://everynoise.com/engenremap-laplandmetal.html",
+      "suggested_id": "lapland_metal",
+      "allocation_ordinal": 825
+    }
+  ]
+}

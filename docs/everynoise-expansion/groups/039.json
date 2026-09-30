@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "039",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "slovak metal",
+      "source_url": "https://everynoise.com/engenremap-slovakmetal.html",
+      "suggested_id": "slovak_metal",
+      "allocation_ordinal": 951
+    },
+    {
+      "source_label": "slovenian metal",
+      "source_url": "https://everynoise.com/engenremap-slovenianmetal.html",
+      "suggested_id": "slovenian_metal",
+      "allocation_ordinal": 952
+    },
+    {
+      "source_label": "south african metal",
+      "source_url": "https://everynoise.com/engenremap-southafricanmetal.html",
+      "suggested_id": "south_african_metal",
+      "allocation_ordinal": 953
+    },
+    {
+      "source_label": "south asian metal",
+      "source_url": "https://everynoise.com/engenremap-southasianmetal.html",
+      "suggested_id": "south_asian_metal",
+      "allocation_ordinal": 954
+    },
+    {
+      "source_label": "south carolina metal",
+      "source_url": "https://everynoise.com/engenremap-southcarolinametal.html",
+      "suggested_id": "south_carolina_metal",
+      "allocation_ordinal": 955
+    },
+    {
+      "source_label": "southern metal",
+      "source_url": "https://everynoise.com/engenremap-southernmetal.html",
+      "suggested_id": "southern_metal",
+      "allocation_ordinal": 956
+    },
+    {
+      "source_label": "spanish black metal",
+      "source_url": "https://everynoise.com/engenremap-spanishblackmetal.html",
+      "suggested_id": "spanish_black_metal",
+      "allocation_ordinal": 957
+    },
+    {
+      "source_label": "spanish death metal",
+      "source_url": "https://everynoise.com/engenremap-spanishdeathmetal.html",
+      "suggested_id": "spanish_death_metal",
+      "allocation_ordinal": 958
+    },
+    {
+      "source_label": "spanish folk metal",
+      "source_url": "https://everynoise.com/engenremap-spanishfolkmetal.html",
+      "suggested_id": "spanish_folk_metal",
+      "allocation_ordinal": 959
+    },
+    {
+      "source_label": "spanish metal",
+      "source_url": "https://everynoise.com/engenremap-spanishmetal.html",
+      "suggested_id": "spanish_metal",
+      "allocation_ordinal": 960
+    },
+    {
+      "source_label": "swedish black metal",
+      "source_url": "https://everynoise.com/engenremap-swedishblackmetal.html",
+      "suggested_id": "swedish_black_metal",
+      "allocation_ordinal": 961
+    },
+    {
+      "source_label": "swedish death metal",
+      "source_url": "https://everynoise.com/engenremap-swedishdeathmetal.html",
+      "suggested_id": "swedish_death_metal",
+      "allocation_ordinal": 962
+    },
+    {
+      "source_label": "swedish doom metal",
+      "source_url": "https://everynoise.com/engenremap-swedishdoommetal.html",
+      "suggested_id": "swedish_doom_metal",
+      "allocation_ordinal": 963
+    },
+    {
+      "source_label": "swedish grindcore",
+      "source_url": "https://everynoise.com/engenremap-swedishgrindcore.html",
+      "suggested_id": "swedish_grindcore",
+      "allocation_ordinal": 964
+    },
+    {
+      "source_label": "swedish heavy metal",
+      "source_url": "https://everynoise.com/engenremap-swedishheavymetal.html",
+      "suggested_id": "swedish_heavy_metal",
+      "allocation_ordinal": 965
+    },
+    {
+      "source_label": "swedish melodeath",
+      "source_url": "https://everynoise.com/engenremap-swedishmelodeath.html",
+      "suggested_id": "swedish_melodeath",
+      "allocation_ordinal": 966
+    },
+    {
+      "source_label": "swedish metal",
+      "source_url": "https://everynoise.com/engenremap-swedishmetal.html",
+      "suggested_id": "swedish_metal",
+      "allocation_ordinal": 967
+    },
+    {
+      "source_label": "swedish metalcore",
+      "source_url": "https://everynoise.com/engenremap-swedishmetalcore.html",
+      "suggested_id": "swedish_metalcore",
+      "allocation_ordinal": 968
+    },
+    {
+      "source_label": "swedish power metal",
+      "source_url": "https://everynoise.com/engenremap-swedishpowermetal.html",
+      "suggested_id": "swedish_power_metal",
+      "allocation_ordinal": 969
+    },
+    {
+      "source_label": "swedish progressive metal",
+      "source_url": "https://everynoise.com/engenremap-swedishprogressivemetal.html",
+      "suggested_id": "swedish_progressive_metal",
+      "allocation_ordinal": 970
+    },
+    {
+      "source_label": "swiss black metal",
+      "source_url": "https://everynoise.com/engenremap-swissblackmetal.html",
+      "suggested_id": "swiss_black_metal",
+      "allocation_ordinal": 971
+    },
+    {
+      "source_label": "swiss metal",
+      "source_url": "https://everynoise.com/engenremap-swissmetal.html",
+      "suggested_id": "swiss_metal",
+      "allocation_ordinal": 972
+    },
+    {
+      "source_label": "symphonic black metal",
+      "source_url": "https://everynoise.com/engenremap-symphonicblackmetal.html",
+      "suggested_id": "symphonic_black_metal",
+      "allocation_ordinal": 973
+    },
+    {
+      "source_label": "symphonic death metal",
+      "source_url": "https://everynoise.com/engenremap-symphonicdeathmetal.html",
+      "suggested_id": "symphonic_death_metal",
+      "allocation_ordinal": 974
+    },
+    {
+      "source_label": "symphonic deathcore",
+      "source_url": "https://everynoise.com/engenremap-symphonicdeathcore.html",
+      "suggested_id": "symphonic_deathcore",
+      "allocation_ordinal": 975
+    }
+  ]
+}

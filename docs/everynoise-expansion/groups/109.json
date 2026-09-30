@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "109",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["reggae ska and dub", "other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "russian ska",
+      "source_url": "https://everynoise.com/engenremap-russianska.html",
+      "suggested_id": "russian_ska",
+      "allocation_ordinal": 2701
+    },
+    {
+      "source_label": "ska catala",
+      "source_url": "https://everynoise.com/engenremap-skacatala.html",
+      "suggested_id": "ska_catala",
+      "allocation_ordinal": 2702
+    },
+    {
+      "source_label": "ska chileno",
+      "source_url": "https://everynoise.com/engenremap-skachileno.html",
+      "suggested_id": "ska_chileno",
+      "allocation_ordinal": 2703
+    },
+    {
+      "source_label": "ska espanol",
+      "source_url": "https://everynoise.com/engenremap-skaespanol.html",
+      "suggested_id": "ska_espanol",
+      "allocation_ordinal": 2704
+    },
+    {
+      "source_label": "spanish reggae",
+      "source_url": "https://everynoise.com/engenremap-spanishreggae.html",
+      "suggested_id": "spanish_reggae",
+      "allocation_ordinal": 2705
+    },
+    {
+      "source_label": "swedish dancehall",
+      "source_url": "https://everynoise.com/engenremap-swedishdancehall.html",
+      "suggested_id": "swedish_dancehall",
+      "allocation_ordinal": 2706
+    },
+    {
+      "source_label": "swedish reggae",
+      "source_url": "https://everynoise.com/engenremap-swedishreggae.html",
+      "suggested_id": "swedish_reggae",
+      "allocation_ordinal": 2707
+    },
+    {
+      "source_label": "swiss reggae",
+      "source_url": "https://everynoise.com/engenremap-swissreggae.html",
+      "suggested_id": "swiss_reggae",
+      "allocation_ordinal": 2708
+    },
+    {
+      "source_label": "traditional reggae",
+      "source_url": "https://everynoise.com/engenremap-traditionalreggae.html",
+      "suggested_id": "traditional_reggae",
+      "allocation_ordinal": 2709
+    },
+    {
+      "source_label": "trinidadian reggae",
+      "source_url": "https://everynoise.com/engenremap-trinidadianreggae.html",
+      "suggested_id": "trinidadian_reggae",
+      "allocation_ordinal": 2710
+    },
+    {
+      "source_label": "turkish reggae",
+      "source_url": "https://everynoise.com/engenremap-turkishreggae.html",
+      "suggested_id": "turkish_reggae",
+      "allocation_ordinal": 2711
+    },
+    {
+      "source_label": "uk dub",
+      "source_url": "https://everynoise.com/engenremap-ukdub.html",
+      "suggested_id": "uk_dub",
+      "allocation_ordinal": 2712
+    },
+    {
+      "source_label": "uk reggae",
+      "source_url": "https://everynoise.com/engenremap-ukreggae.html",
+      "suggested_id": "uk_reggae",
+      "allocation_ordinal": 2713
+    },
+    {
+      "source_label": "vintage reggae",
+      "source_url": "https://everynoise.com/engenremap-vintagereggae.html",
+      "suggested_id": "vintage_reggae",
+      "allocation_ordinal": 2714
+    },
+    {
+      "source_label": "virgin islands reggae",
+      "source_url": "https://everynoise.com/engenremap-virginislandsreggae.html",
+      "suggested_id": "virgin_islands_reggae",
+      "allocation_ordinal": 2715
+    },
+    {
+      "source_label": "west coast reggae",
+      "source_url": "https://everynoise.com/engenremap-westcoastreggae.html",
+      "suggested_id": "west_coast_reggae",
+      "allocation_ordinal": 2716
+    },
+    {
+      "source_label": "432hz",
+      "source_url": "https://everynoise.com/engenremap-432hz.html",
+      "suggested_id": "432hz",
+      "allocation_ordinal": 2717
+    },
+    {
+      "source_label": "48g",
+      "source_url": "https://everynoise.com/engenremap-48g.html",
+      "suggested_id": "48g",
+      "allocation_ordinal": 2718
+    },
+    {
+      "source_label": "528hz",
+      "source_url": "https://everynoise.com/engenremap-528hz.html",
+      "suggested_id": "528hz",
+      "allocation_ordinal": 2719
+    },
+    {
+      "source_label": "8d",
+      "source_url": "https://everynoise.com/engenremap-8d.html",
+      "suggested_id": "8d",
+      "allocation_ordinal": 2720
+    },
+    {
+      "source_label": "aarhus indie",
+      "source_url": "https://everynoise.com/engenremap-aarhusindie.html",
+      "suggested_id": "aarhus_indie",
+      "allocation_ordinal": 2721
+    },
+    {
+      "source_label": "aberdeen indie",
+      "source_url": "https://everynoise.com/engenremap-aberdeenindie.html",
+      "suggested_id": "aberdeen_indie",
+      "allocation_ordinal": 2722
+    },
+    {
+      "source_label": "abstract",
+      "source_url": "https://everynoise.com/engenremap-abstract.html",
+      "suggested_id": "abstract",
+      "allocation_ordinal": 2723
+    },
+    {
+      "source_label": "abstract beats",
+      "source_url": "https://everynoise.com/engenremap-abstractbeats.html",
+      "suggested_id": "abstract_beats",
+      "allocation_ordinal": 2724
+    },
+    {
+      "source_label": "abstractro",
+      "source_url": "https://everynoise.com/engenremap-abstractro.html",
+      "suggested_id": "abstractro",
+      "allocation_ordinal": 2725
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "010",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "brockton hip hop",
+      "source_url": "https://everynoise.com/engenremap-brocktonhiphop.html",
+      "suggested_id": "brockton_hip_hop",
+      "allocation_ordinal": 226
+    },
+    {
+      "source_label": "bronx hip hop",
+      "source_url": "https://everynoise.com/engenremap-bronxhiphop.html",
+      "suggested_id": "bronx_hip_hop",
+      "allocation_ordinal": 227
+    },
+    {
+      "source_label": "buffalo hip hop",
+      "source_url": "https://everynoise.com/engenremap-buffalohiphop.html",
+      "suggested_id": "buffalo_hip_hop",
+      "allocation_ordinal": 228
+    },
+    {
+      "source_label": "bulgarian hip hop",
+      "source_url": "https://everynoise.com/engenremap-bulgarianhiphop.html",
+      "suggested_id": "bulgarian_hip_hop",
+      "allocation_ordinal": 229
+    },
+    {
+      "source_label": "bulgarian trap",
+      "source_url": "https://everynoise.com/engenremap-bulgariantrap.html",
+      "suggested_id": "bulgarian_trap",
+      "allocation_ordinal": 230
+    },
+    {
+      "source_label": "cali rap",
+      "source_url": "https://everynoise.com/engenremap-calirap.html",
+      "suggested_id": "cali_rap",
+      "allocation_ordinal": 231
+    },
+    {
+      "source_label": "cameroonian hip hop",
+      "source_url": "https://everynoise.com/engenremap-cameroonianhiphop.html",
+      "suggested_id": "cameroonian_hip_hop",
+      "allocation_ordinal": 232
+    },
+    {
+      "source_label": "canadian drill",
+      "source_url": "https://everynoise.com/engenremap-canadiandrill.html",
+      "suggested_id": "canadian_drill",
+      "allocation_ordinal": 233
+    },
+    {
+      "source_label": "canadian hip hop",
+      "source_url": "https://everynoise.com/engenremap-canadianhiphop.html",
+      "suggested_id": "canadian_hip_hop",
+      "allocation_ordinal": 234
+    },
+    {
+      "source_label": "canadian indigenous hip hop",
+      "source_url": "https://everynoise.com/engenremap-canadianindigenoushiphop.html",
+      "suggested_id": "canadian_indigenous_hip_hop",
+      "allocation_ordinal": 235
+    },
+    {
+      "source_label": "canadian old school hip hop",
+      "source_url": "https://everynoise.com/engenremap-canadianoldschoolhiphop.html",
+      "suggested_id": "canadian_old_school_hip_hop",
+      "allocation_ordinal": 236
+    },
+    {
+      "source_label": "canadian trap",
+      "source_url": "https://everynoise.com/engenremap-canadiantrap.html",
+      "suggested_id": "canadian_trap",
+      "allocation_ordinal": 237
+    },
+    {
+      "source_label": "canadian underground hip hop",
+      "source_url": "https://everynoise.com/engenremap-canadianundergroundhiphop.html",
+      "suggested_id": "canadian_underground_hip_hop",
+      "allocation_ordinal": 238
+    },
+    {
+      "source_label": "central asian hip hop",
+      "source_url": "https://everynoise.com/engenremap-centralasianhiphop.html",
+      "suggested_id": "central_asian_hip_hop",
+      "allocation_ordinal": 239
+    },
+    {
+      "source_label": "chicago rap",
+      "source_url": "https://everynoise.com/engenremap-chicagorap.html",
+      "suggested_id": "chicago_rap",
+      "allocation_ordinal": 240
+    },
+    {
+      "source_label": "chill drill",
+      "source_url": "https://everynoise.com/engenremap-chilldrill.html",
+      "suggested_id": "chill_drill",
+      "allocation_ordinal": 241
+    },
+    {
+      "source_label": "chill phonk",
+      "source_url": "https://everynoise.com/engenremap-chillphonk.html",
+      "suggested_id": "chill_phonk",
+      "allocation_ordinal": 242
+    },
+    {
+      "source_label": "chinese hip hop",
+      "source_url": "https://everynoise.com/engenremap-chinesehiphop.html",
+      "suggested_id": "chinese_hip_hop",
+      "allocation_ordinal": 243
+    },
+    {
+      "source_label": "chinese melodic rap",
+      "source_url": "https://everynoise.com/engenremap-chinesemelodicrap.html",
+      "suggested_id": "chinese_melodic_rap",
+      "allocation_ordinal": 244
+    },
+    {
+      "source_label": "christlicher rap",
+      "source_url": "https://everynoise.com/engenremap-christlicherrap.html",
+      "suggested_id": "christlicher_rap",
+      "allocation_ordinal": 245
+    },
+    {
+      "source_label": "cincinnati rap",
+      "source_url": "https://everynoise.com/engenremap-cincinnatirap.html",
+      "suggested_id": "cincinnati_rap",
+      "allocation_ordinal": 246
+    },
+    {
+      "source_label": "classical drill",
+      "source_url": "https://everynoise.com/engenremap-classicaldrill.html",
+      "suggested_id": "classical_drill",
+      "allocation_ordinal": 247
+    },
+    {
+      "source_label": "cloud rap francais",
+      "source_url": "https://everynoise.com/engenremap-cloudrapfrancais.html",
+      "suggested_id": "cloud_rap_francais",
+      "allocation_ordinal": 248
+    },
+    {
+      "source_label": "cologne hip hop",
+      "source_url": "https://everynoise.com/engenremap-colognehiphop.html",
+      "suggested_id": "cologne_hip_hop",
+      "allocation_ordinal": 249
+    },
+    {
+      "source_label": "croatian hip hop",
+      "source_url": "https://everynoise.com/engenremap-croatianhiphop.html",
+      "suggested_id": "croatian_hip_hop",
+      "allocation_ordinal": 250
+    }
+  ]
+}

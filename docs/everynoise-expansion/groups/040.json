@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "040",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "symphonic melodic death metal",
+      "source_url": "https://everynoise.com/engenremap-symphonicmelodicdeathmetal.html",
+      "suggested_id": "symphonic_melodic_death_metal",
+      "allocation_ordinal": 976
+    },
+    {
+      "source_label": "symphonic power metal",
+      "source_url": "https://everynoise.com/engenremap-symphonicpowermetal.html",
+      "suggested_id": "symphonic_power_metal",
+      "allocation_ordinal": 977
+    },
+    {
+      "source_label": "taiwan metal",
+      "source_url": "https://everynoise.com/engenremap-taiwanmetal.html",
+      "suggested_id": "taiwan_metal",
+      "allocation_ordinal": 978
+    },
+    {
+      "source_label": "technical black metal",
+      "source_url": "https://everynoise.com/engenremap-technicalblackmetal.html",
+      "suggested_id": "technical_black_metal",
+      "allocation_ordinal": 979
+    },
+    {
+      "source_label": "technical brutal death metal",
+      "source_url": "https://everynoise.com/engenremap-technicalbrutaldeathmetal.html",
+      "suggested_id": "technical_brutal_death_metal",
+      "allocation_ordinal": 980
+    },
+    {
+      "source_label": "technical deathcore",
+      "source_url": "https://everynoise.com/engenremap-technicaldeathcore.html",
+      "suggested_id": "technical_deathcore",
+      "allocation_ordinal": 981
+    },
+    {
+      "source_label": "technical grindcore",
+      "source_url": "https://everynoise.com/engenremap-technicalgrindcore.html",
+      "suggested_id": "technical_grindcore",
+      "allocation_ordinal": 982
+    },
+    {
+      "source_label": "technical groove metal",
+      "source_url": "https://everynoise.com/engenremap-technicalgroovemetal.html",
+      "suggested_id": "technical_groove_metal",
+      "allocation_ordinal": 983
+    },
+    {
+      "source_label": "technical melodic death metal",
+      "source_url": "https://everynoise.com/engenremap-technicalmelodicdeathmetal.html",
+      "suggested_id": "technical_melodic_death_metal",
+      "allocation_ordinal": 984
+    },
+    {
+      "source_label": "tennessee metal",
+      "source_url": "https://everynoise.com/engenremap-tennesseemetal.html",
+      "suggested_id": "tennessee_metal",
+      "allocation_ordinal": 985
+    },
+    {
+      "source_label": "texas death metal",
+      "source_url": "https://everynoise.com/engenremap-texasdeathmetal.html",
+      "suggested_id": "texas_death_metal",
+      "allocation_ordinal": 986
+    },
+    {
+      "source_label": "texas metal",
+      "source_url": "https://everynoise.com/engenremap-texasmetal.html",
+      "suggested_id": "texas_metal",
+      "allocation_ordinal": 987
+    },
+    {
+      "source_label": "thai metal",
+      "source_url": "https://everynoise.com/engenremap-thaimetal.html",
+      "suggested_id": "thai_metal",
+      "allocation_ordinal": 988
+    },
+    {
+      "source_label": "thrash-groove metal",
+      "source_url": "https://everynoise.com/engenremap-thrashgroovemetal.html",
+      "suggested_id": "thrash_groove_metal",
+      "allocation_ordinal": 989
+    },
+    {
+      "source_label": "tolkien metal",
+      "source_url": "https://everynoise.com/engenremap-tolkienmetal.html",
+      "suggested_id": "tolkien_metal",
+      "allocation_ordinal": 990
+    },
+    {
+      "source_label": "turkish black metal",
+      "source_url": "https://everynoise.com/engenremap-turkishblackmetal.html",
+      "suggested_id": "turkish_black_metal",
+      "allocation_ordinal": 991
+    },
+    {
+      "source_label": "turkish death metal",
+      "source_url": "https://everynoise.com/engenremap-turkishdeathmetal.html",
+      "suggested_id": "turkish_death_metal",
+      "allocation_ordinal": 992
+    },
+    {
+      "source_label": "turkish metal",
+      "source_url": "https://everynoise.com/engenremap-turkishmetal.html",
+      "suggested_id": "turkish_metal",
+      "allocation_ordinal": 993
+    },
+    {
+      "source_label": "uk doom metal",
+      "source_url": "https://everynoise.com/engenremap-ukdoommetal.html",
+      "suggested_id": "uk_doom_metal",
+      "allocation_ordinal": 994
+    },
+    {
+      "source_label": "uk post-metal",
+      "source_url": "https://everynoise.com/engenremap-ukpostmetal.html",
+      "suggested_id": "uk_post_metal",
+      "allocation_ordinal": 995
+    },
+    {
+      "source_label": "ukrainian black metal",
+      "source_url": "https://everynoise.com/engenremap-ukrainianblackmetal.html",
+      "suggested_id": "ukrainian_black_metal",
+      "allocation_ordinal": 996
+    },
+    {
+      "source_label": "ukrainian metal",
+      "source_url": "https://everynoise.com/engenremap-ukrainianmetal.html",
+      "suggested_id": "ukrainian_metal",
+      "allocation_ordinal": 997
+    },
+    {
+      "source_label": "ukrainian metalcore",
+      "source_url": "https://everynoise.com/engenremap-ukrainianmetalcore.html",
+      "suggested_id": "ukrainian_metalcore",
+      "allocation_ordinal": 998
+    },
+    {
+      "source_label": "unblack metal",
+      "source_url": "https://everynoise.com/engenremap-unblackmetal.html",
+      "suggested_id": "unblack_metal",
+      "allocation_ordinal": 999
+    },
+    {
+      "source_label": "us power metal",
+      "source_url": "https://everynoise.com/engenremap-uspowermetal.html",
+      "suggested_id": "us_power_metal",
+      "allocation_ordinal": 1000
+    }
+  ]
+}

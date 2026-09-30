@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "120",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "cdmx indie",
+      "source_url": "https://everynoise.com/engenremap-cdmxindie.html",
+      "suggested_id": "cdmx_indie",
+      "allocation_ordinal": 2976
+    },
+    {
+      "source_label": "cdo indie",
+      "source_url": "https://everynoise.com/engenremap-cdoindie.html",
+      "suggested_id": "cdo_indie",
+      "allocation_ordinal": 2977
+    },
+    {
+      "source_label": "cedm",
+      "source_url": "https://everynoise.com/engenremap-cedm.html",
+      "suggested_id": "cedm",
+      "allocation_ordinal": 2978
+    },
+    {
+      "source_label": "cello",
+      "source_url": "https://everynoise.com/engenremap-cello.html",
+      "suggested_id": "cello",
+      "allocation_ordinal": 2979
+    },
+    {
+      "source_label": "cello ensemble",
+      "source_url": "https://everynoise.com/engenremap-celloensemble.html",
+      "suggested_id": "cello_ensemble",
+      "allocation_ordinal": 2980
+    },
+    {
+      "source_label": "celtic harp",
+      "source_url": "https://everynoise.com/engenremap-celticharp.html",
+      "suggested_id": "celtic_harp",
+      "allocation_ordinal": 2981
+    },
+    {
+      "source_label": "cerkes muzikleri",
+      "source_url": "https://everynoise.com/engenremap-cerkesmuzikleri.html",
+      "suggested_id": "cerkes_muzikleri",
+      "allocation_ordinal": 2982
+    },
+    {
+      "source_label": "ceske chvaly",
+      "source_url": "https://everynoise.com/engenremap-ceskechvaly.html",
+      "suggested_id": "ceske_chvaly",
+      "allocation_ordinal": 2983
+    },
+    {
+      "source_label": "chakra",
+      "source_url": "https://everynoise.com/engenremap-chakra.html",
+      "suggested_id": "chakra",
+      "allocation_ordinal": 2984
+    },
+    {
+      "source_label": "chamame brasilero",
+      "source_url": "https://everynoise.com/engenremap-chamamebrasilero.html",
+      "suggested_id": "chamame_brasilero",
+      "allocation_ordinal": 2985
+    },
+    {
+      "source_label": "chamber ensemble",
+      "source_url": "https://everynoise.com/engenremap-chamberensemble.html",
+      "suggested_id": "chamber_ensemble",
+      "allocation_ordinal": 2986
+    },
+    {
+      "source_label": "chamber psych",
+      "source_url": "https://everynoise.com/engenremap-chamberpsych.html",
+      "suggested_id": "chamber_psych",
+      "allocation_ordinal": 2987
+    },
+    {
+      "source_label": "channel islands indie",
+      "source_url": "https://everynoise.com/engenremap-channelislandsindie.html",
+      "suggested_id": "channel_islands_indie",
+      "allocation_ordinal": 2988
+    },
+    {
+      "source_label": "chanson humoristique",
+      "source_url": "https://everynoise.com/engenremap-chansonhumoristique.html",
+      "suggested_id": "chanson_humoristique",
+      "allocation_ordinal": 2989
+    },
+    {
+      "source_label": "chanson paillarde",
+      "source_url": "https://everynoise.com/engenremap-chansonpaillarde.html",
+      "suggested_id": "chanson_paillarde",
+      "allocation_ordinal": 2990
+    },
+    {
+      "source_label": "chanson quebecois",
+      "source_url": "https://everynoise.com/engenremap-chansonquebecois.html",
+      "suggested_id": "chanson_quebecois",
+      "allocation_ordinal": 2991
+    },
+    {
+      "source_label": "chanson virale",
+      "source_url": "https://everynoise.com/engenremap-chansonvirale.html",
+      "suggested_id": "chanson_virale",
+      "allocation_ordinal": 2992
+    },
+    {
+      "source_label": "chant basque",
+      "source_url": "https://everynoise.com/engenremap-chantbasque.html",
+      "suggested_id": "chant_basque",
+      "allocation_ordinal": 2993
+    },
+    {
+      "source_label": "chant religieux",
+      "source_url": "https://everynoise.com/engenremap-chantreligieux.html",
+      "suggested_id": "chant_religieux",
+      "allocation_ordinal": 2994
+    },
+    {
+      "source_label": "chapman stick",
+      "source_url": "https://everynoise.com/engenremap-chapmanstick.html",
+      "suggested_id": "chapman_stick",
+      "allocation_ordinal": 2995
+    },
+    {
+      "source_label": "charango",
+      "source_url": "https://everynoise.com/engenremap-charango.html",
+      "suggested_id": "charango",
+      "allocation_ordinal": 2996
+    },
+    {
+      "source_label": "charlotte nc indie",
+      "source_url": "https://everynoise.com/engenremap-charlottencindie.html",
+      "suggested_id": "charlotte_nc_indie",
+      "allocation_ordinal": 2997
+    },
+    {
+      "source_label": "charlottesville indie",
+      "source_url": "https://everynoise.com/engenremap-charlottesvilleindie.html",
+      "suggested_id": "charlottesville_indie",
+      "allocation_ordinal": 2998
+    },
+    {
+      "source_label": "charred death",
+      "source_url": "https://everynoise.com/engenremap-charreddeath.html",
+      "suggested_id": "charred_death",
+      "allocation_ordinal": 2999
+    },
+    {
+      "source_label": "charva",
+      "source_url": "https://everynoise.com/engenremap-charva.html",
+      "suggested_id": "charva",
+      "allocation_ordinal": 3000
+    }
+  ]
+}

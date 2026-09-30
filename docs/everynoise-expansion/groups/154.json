@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "154",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "musica amapaense",
+      "source_url": "https://everynoise.com/engenremap-musicaamapaense.html",
+      "suggested_id": "musica_amapaense",
+      "allocation_ordinal": 3826
+    },
+    {
+      "source_label": "musica andina colombiana",
+      "source_url": "https://everynoise.com/engenremap-musicaandinacolombiana.html",
+      "suggested_id": "musica_andina_colombiana",
+      "allocation_ordinal": 3827
+    },
+    {
+      "source_label": "musica andorra",
+      "source_url": "https://everynoise.com/engenremap-musicaandorra.html",
+      "suggested_id": "musica_andorra",
+      "allocation_ordinal": 3828
+    },
+    {
+      "source_label": "musica angolana",
+      "source_url": "https://everynoise.com/engenremap-musicaangolana.html",
+      "suggested_id": "musica_angolana",
+      "allocation_ordinal": 3829
+    },
+    {
+      "source_label": "musica aragonesa",
+      "source_url": "https://everynoise.com/engenremap-musicaaragonesa.html",
+      "suggested_id": "musica_aragonesa",
+      "allocation_ordinal": 3830
+    },
+    {
+      "source_label": "musica ayacuchana",
+      "source_url": "https://everynoise.com/engenremap-musicaayacuchana.html",
+      "suggested_id": "musica_ayacuchana",
+      "allocation_ordinal": 3831
+    },
+    {
+      "source_label": "musica baiana",
+      "source_url": "https://everynoise.com/engenremap-musicabaiana.html",
+      "suggested_id": "musica_baiana",
+      "allocation_ordinal": 3832
+    },
+    {
+      "source_label": "musica bautista",
+      "source_url": "https://everynoise.com/engenremap-musicabautista.html",
+      "suggested_id": "musica_bautista",
+      "allocation_ordinal": 3833
+    },
+    {
+      "source_label": "musica blumenauense",
+      "source_url": "https://everynoise.com/engenremap-musicablumenauense.html",
+      "suggested_id": "musica_blumenauense",
+      "allocation_ordinal": 3834
+    },
+    {
+      "source_label": "musica brasiliense",
+      "source_url": "https://everynoise.com/engenremap-musicabrasiliense.html",
+      "suggested_id": "musica_brasiliense",
+      "allocation_ordinal": 3835
+    },
+    {
+      "source_label": "musica cabo-verdiana",
+      "source_url": "https://everynoise.com/engenremap-musicacaboverdiana.html",
+      "suggested_id": "musica_cabo_verdiana",
+      "allocation_ordinal": 3836
+    },
+    {
+      "source_label": "musica calabrese",
+      "source_url": "https://everynoise.com/engenremap-musicacalabrese.html",
+      "suggested_id": "musica_calabrese",
+      "allocation_ordinal": 3837
+    },
+    {
+      "source_label": "musica campechana",
+      "source_url": "https://everynoise.com/engenremap-musicacampechana.html",
+      "suggested_id": "musica_campechana",
+      "allocation_ordinal": 3838
+    },
+    {
+      "source_label": "musica campineira",
+      "source_url": "https://everynoise.com/engenremap-musicacampineira.html",
+      "suggested_id": "musica_campineira",
+      "allocation_ordinal": 3839
+    },
+    {
+      "source_label": "musica campista",
+      "source_url": "https://everynoise.com/engenremap-musicacampista.html",
+      "suggested_id": "musica_campista",
+      "allocation_ordinal": 3840
+    },
+    {
+      "source_label": "musica canaria",
+      "source_url": "https://everynoise.com/engenremap-musicacanaria.html",
+      "suggested_id": "musica_canaria",
+      "allocation_ordinal": 3841
+    },
+    {
+      "source_label": "musica capixaba",
+      "source_url": "https://everynoise.com/engenremap-musicacapixaba.html",
+      "suggested_id": "musica_capixaba",
+      "allocation_ordinal": 3842
+    },
+    {
+      "source_label": "musica caririense",
+      "source_url": "https://everynoise.com/engenremap-musicacaririense.html",
+      "suggested_id": "musica_caririense",
+      "allocation_ordinal": 3843
+    },
+    {
+      "source_label": "musica catalana",
+      "source_url": "https://everynoise.com/engenremap-musicacatalana.html",
+      "suggested_id": "musica_catalana",
+      "allocation_ordinal": 3844
+    },
+    {
+      "source_label": "musica catarinense",
+      "source_url": "https://everynoise.com/engenremap-musicacatarinense.html",
+      "suggested_id": "musica_catarinense",
+      "allocation_ordinal": 3845
+    },
+    {
+      "source_label": "musica cearense",
+      "source_url": "https://everynoise.com/engenremap-musicacearense.html",
+      "suggested_id": "musica_cearense",
+      "allocation_ordinal": 3846
+    },
+    {
+      "source_label": "musica chiapaneca",
+      "source_url": "https://everynoise.com/engenremap-musicachiapaneca.html",
+      "suggested_id": "musica_chiapaneca",
+      "allocation_ordinal": 3847
+    },
+    {
+      "source_label": "musica coahuilense",
+      "source_url": "https://everynoise.com/engenremap-musicacoahuilense.html",
+      "suggested_id": "musica_coahuilense",
+      "allocation_ordinal": 3848
+    },
+    {
+      "source_label": "musica colimense",
+      "source_url": "https://everynoise.com/engenremap-musicacolimense.html",
+      "suggested_id": "musica_colimense",
+      "allocation_ordinal": 3849
+    },
+    {
+      "source_label": "musica colombiana instrumental",
+      "source_url": "https://everynoise.com/engenremap-musicacolombianainstrumental.html",
+      "suggested_id": "musica_colombiana_instrumental",
+      "allocation_ordinal": 3850
+    }
+  ]
+}

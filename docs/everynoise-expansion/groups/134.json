@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "134",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "future bounce",
+      "source_url": "https://everynoise.com/engenremap-futurebounce.html",
+      "suggested_id": "future_bounce",
+      "allocation_ordinal": 3326
+    },
+    {
+      "source_label": "futuristic swag",
+      "source_url": "https://everynoise.com/engenremap-futuristicswag.html",
+      "suggested_id": "futuristic_swag",
+      "allocation_ordinal": 3327
+    },
+    {
+      "source_label": "gaian doom",
+      "source_url": "https://everynoise.com/engenremap-gaiandoom.html",
+      "suggested_id": "gaian_doom",
+      "allocation_ordinal": 3328
+    },
+    {
+      "source_label": "gainesville indie",
+      "source_url": "https://everynoise.com/engenremap-gainesvilleindie.html",
+      "suggested_id": "gainesville_indie",
+      "allocation_ordinal": 3329
+    },
+    {
+      "source_label": "gaita",
+      "source_url": "https://everynoise.com/engenremap-gaita.html",
+      "suggested_id": "gaita",
+      "allocation_ordinal": 3330
+    },
+    {
+      "source_label": "galego",
+      "source_url": "https://everynoise.com/engenremap-galego.html",
+      "suggested_id": "galego",
+      "allocation_ordinal": 3331
+    },
+    {
+      "source_label": "galician indie",
+      "source_url": "https://everynoise.com/engenremap-galicianindie.html",
+      "suggested_id": "galician_indie",
+      "allocation_ordinal": 3332
+    },
+    {
+      "source_label": "galway indie",
+      "source_url": "https://everynoise.com/engenremap-galwayindie.html",
+      "suggested_id": "galway_indie",
+      "allocation_ordinal": 3333
+    },
+    {
+      "source_label": "game mood",
+      "source_url": "https://everynoise.com/engenremap-gamemood.html",
+      "suggested_id": "game_mood",
+      "allocation_ordinal": 3334
+    },
+    {
+      "source_label": "gamecore",
+      "source_url": "https://everynoise.com/engenremap-gamecore.html",
+      "suggested_id": "gamecore",
+      "allocation_ordinal": 3335
+    },
+    {
+      "source_label": "gay chorus",
+      "source_url": "https://everynoise.com/engenremap-gaychorus.html",
+      "suggested_id": "gay_chorus",
+      "allocation_ordinal": 3336
+    },
+    {
+      "source_label": "gbvfi",
+      "source_url": "https://everynoise.com/engenremap-gbvfi.html",
+      "suggested_id": "gbvfi",
+      "allocation_ordinal": 3337
+    },
+    {
+      "source_label": "geinin song",
+      "source_url": "https://everynoise.com/engenremap-geininsong.html",
+      "suggested_id": "geinin_song",
+      "allocation_ordinal": 3338
+    },
+    {
+      "source_label": "georgian alternative",
+      "source_url": "https://everynoise.com/engenremap-georgianalternative.html",
+      "suggested_id": "georgian_alternative",
+      "allocation_ordinal": 3339
+    },
+    {
+      "source_label": "german boom bap",
+      "source_url": "https://everynoise.com/engenremap-germanboombap.html",
+      "suggested_id": "german_boom_bap",
+      "allocation_ordinal": 3340
+    },
+    {
+      "source_label": "german ccm",
+      "source_url": "https://everynoise.com/engenremap-germanccm.html",
+      "suggested_id": "german_ccm",
+      "allocation_ordinal": 3341
+    },
+    {
+      "source_label": "german hyperpop",
+      "source_url": "https://everynoise.com/engenremap-germanhyperpop.html",
+      "suggested_id": "german_hyperpop",
+      "allocation_ordinal": 3342
+    },
+    {
+      "source_label": "german literature",
+      "source_url": "https://everynoise.com/engenremap-germanliterature.html",
+      "suggested_id": "german_literature",
+      "allocation_ordinal": 3343
+    },
+    {
+      "source_label": "german oi",
+      "source_url": "https://everynoise.com/engenremap-germanoi.html",
+      "suggested_id": "german_oi",
+      "allocation_ordinal": 3344
+    },
+    {
+      "source_label": "german prog",
+      "source_url": "https://everynoise.com/engenremap-germanprog.html",
+      "suggested_id": "german_prog",
+      "allocation_ordinal": 3345
+    },
+    {
+      "source_label": "german show tunes",
+      "source_url": "https://everynoise.com/engenremap-germanshowtunes.html",
+      "suggested_id": "german_show_tunes",
+      "allocation_ordinal": 3346
+    },
+    {
+      "source_label": "german soundtrack",
+      "source_url": "https://everynoise.com/engenremap-germansoundtrack.html",
+      "suggested_id": "german_soundtrack",
+      "allocation_ordinal": 3347
+    },
+    {
+      "source_label": "german worship",
+      "source_url": "https://everynoise.com/engenremap-germanworship.html",
+      "suggested_id": "german_worship",
+      "allocation_ordinal": 3348
+    },
+    {
+      "source_label": "ghanaian alternative",
+      "source_url": "https://everynoise.com/engenremap-ghanaianalternative.html",
+      "suggested_id": "ghanaian_alternative",
+      "allocation_ordinal": 3349
+    },
+    {
+      "source_label": "ghanaian traditional",
+      "source_url": "https://everynoise.com/engenremap-ghanaiantraditional.html",
+      "suggested_id": "ghanaian_traditional",
+      "allocation_ordinal": 3350
+    }
+  ]
+}

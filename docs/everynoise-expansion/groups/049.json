@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "049",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["punk and emo"],
+  "entries": [
+    {
+      "source_label": "punk euskera",
+      "source_url": "https://everynoise.com/engenremap-punkeuskera.html",
+      "suggested_id": "punk_euskera",
+      "allocation_ordinal": 1201
+    },
+    {
+      "source_label": "punk galego",
+      "source_url": "https://everynoise.com/engenremap-punkgalego.html",
+      "suggested_id": "punk_galego",
+      "allocation_ordinal": 1202
+    },
+    {
+      "source_label": "punk melodico chileno",
+      "source_url": "https://everynoise.com/engenremap-punkmelodicochileno.html",
+      "suggested_id": "punk_melodico_chileno",
+      "allocation_ordinal": 1203
+    },
+    {
+      "source_label": "punk mexicano",
+      "source_url": "https://everynoise.com/engenremap-punkmexicano.html",
+      "suggested_id": "punk_mexicano",
+      "allocation_ordinal": 1204
+    },
+    {
+      "source_label": "punk rock italiano",
+      "source_url": "https://everynoise.com/engenremap-punkrockitaliano.html",
+      "suggested_id": "punk_rock_italiano",
+      "allocation_ordinal": 1205
+    },
+    {
+      "source_label": "punk rock mexicano",
+      "source_url": "https://everynoise.com/engenremap-punkrockmexicano.html",
+      "suggested_id": "punk_rock_mexicano",
+      "allocation_ordinal": 1206
+    },
+    {
+      "source_label": "punk ska",
+      "source_url": "https://everynoise.com/engenremap-punkska.html",
+      "suggested_id": "punk_ska",
+      "allocation_ordinal": 1207
+    },
+    {
+      "source_label": "punk tico",
+      "source_url": "https://everynoise.com/engenremap-punktico.html",
+      "suggested_id": "punk_tico",
+      "allocation_ordinal": 1208
+    },
+    {
+      "source_label": "punk tuga",
+      "source_url": "https://everynoise.com/engenremap-punktuga.html",
+      "suggested_id": "punk_tuga",
+      "allocation_ordinal": 1209
+    },
+    {
+      "source_label": "punk urbano",
+      "source_url": "https://everynoise.com/engenremap-punkurbano.html",
+      "suggested_id": "punk_urbano",
+      "allocation_ordinal": 1210
+    },
+    {
+      "source_label": "quebec hardcore",
+      "source_url": "https://everynoise.com/engenremap-quebechardcore.html",
+      "suggested_id": "quebec_hardcore",
+      "allocation_ordinal": 1211
+    },
+    {
+      "source_label": "quebec punk",
+      "source_url": "https://everynoise.com/engenremap-quebecpunk.html",
+      "suggested_id": "quebec_punk",
+      "allocation_ordinal": 1212
+    },
+    {
+      "source_label": "romanian punk",
+      "source_url": "https://everynoise.com/engenremap-romanianpunk.html",
+      "suggested_id": "romanian_punk",
+      "allocation_ordinal": 1213
+    },
+    {
+      "source_label": "russian emo",
+      "source_url": "https://everynoise.com/engenremap-russianemo.html",
+      "suggested_id": "russian_emo",
+      "allocation_ordinal": 1214
+    },
+    {
+      "source_label": "russian hardcore",
+      "source_url": "https://everynoise.com/engenremap-russianhardcore.html",
+      "suggested_id": "russian_hardcore",
+      "allocation_ordinal": 1215
+    },
+    {
+      "source_label": "russian pop punk",
+      "source_url": "https://everynoise.com/engenremap-russianpoppunk.html",
+      "suggested_id": "russian_pop_punk",
+      "allocation_ordinal": 1216
+    },
+    {
+      "source_label": "russian post-punk",
+      "source_url": "https://everynoise.com/engenremap-russianpostpunk.html",
+      "suggested_id": "russian_post_punk",
+      "allocation_ordinal": 1217
+    },
+    {
+      "source_label": "russian punk",
+      "source_url": "https://everynoise.com/engenremap-russianpunk.html",
+      "suggested_id": "russian_punk",
+      "allocation_ordinal": 1218
+    },
+    {
+      "source_label": "russian punk rock",
+      "source_url": "https://everynoise.com/engenremap-russianpunkrock.html",
+      "suggested_id": "russian_punk_rock",
+      "allocation_ordinal": 1219
+    },
+    {
+      "source_label": "russian screamo",
+      "source_url": "https://everynoise.com/engenremap-russianscreamo.html",
+      "suggested_id": "russian_screamo",
+      "allocation_ordinal": 1220
+    },
+    {
+      "source_label": "singaporean punk",
+      "source_url": "https://everynoise.com/engenremap-singaporeanpunk.html",
+      "suggested_id": "singaporean_punk",
+      "allocation_ordinal": 1221
+    },
+    {
+      "source_label": "slash punk",
+      "source_url": "https://everynoise.com/engenremap-slashpunk.html",
+      "suggested_id": "slash_punk",
+      "allocation_ordinal": 1222
+    },
+    {
+      "source_label": "slc hardcore",
+      "source_url": "https://everynoise.com/engenremap-slchardcore.html",
+      "suggested_id": "slc_hardcore",
+      "allocation_ordinal": 1223
+    },
+    {
+      "source_label": "slovak punk",
+      "source_url": "https://everynoise.com/engenremap-slovakpunk.html",
+      "suggested_id": "slovak_punk",
+      "allocation_ordinal": 1224
+    },
+    {
+      "source_label": "socal pop punk",
+      "source_url": "https://everynoise.com/engenremap-socalpoppunk.html",
+      "suggested_id": "socal_pop_punk",
+      "allocation_ordinal": 1225
+    }
+  ]
+}

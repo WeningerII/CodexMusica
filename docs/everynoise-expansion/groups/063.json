@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "063",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names"],
+  "entries": [
+    {
+      "source_label": "swedish indie rock",
+      "source_url": "https://everynoise.com/engenremap-swedishindierock.html",
+      "suggested_id": "swedish_indie_rock",
+      "allocation_ordinal": 1551
+    },
+    {
+      "source_label": "swedish melodic rock",
+      "source_url": "https://everynoise.com/engenremap-swedishmelodicrock.html",
+      "suggested_id": "swedish_melodic_rock",
+      "allocation_ordinal": 1552
+    },
+    {
+      "source_label": "swedish psychedelic rock",
+      "source_url": "https://everynoise.com/engenremap-swedishpsychedelicrock.html",
+      "suggested_id": "swedish_psychedelic_rock",
+      "allocation_ordinal": 1553
+    },
+    {
+      "source_label": "swedish rock-and-roll",
+      "source_url": "https://everynoise.com/engenremap-swedishrockandroll.html",
+      "suggested_id": "swedish_rock_and_roll",
+      "allocation_ordinal": 1554
+    },
+    {
+      "source_label": "swedish rockabilly",
+      "source_url": "https://everynoise.com/engenremap-swedishrockabilly.html",
+      "suggested_id": "swedish_rockabilly",
+      "allocation_ordinal": 1555
+    },
+    {
+      "source_label": "swedish stoner rock",
+      "source_url": "https://everynoise.com/engenremap-swedishstonerrock.html",
+      "suggested_id": "swedish_stoner_rock",
+      "allocation_ordinal": 1556
+    },
+    {
+      "source_label": "swiss alternative rock",
+      "source_url": "https://everynoise.com/engenremap-swissalternativerock.html",
+      "suggested_id": "swiss_alternative_rock",
+      "allocation_ordinal": 1557
+    },
+    {
+      "source_label": "swiss rock",
+      "source_url": "https://everynoise.com/engenremap-swissrock.html",
+      "suggested_id": "swiss_rock",
+      "allocation_ordinal": 1558
+    },
+    {
+      "source_label": "symphonic rock",
+      "source_url": "https://everynoise.com/engenremap-symphonicrock.html",
+      "suggested_id": "symphonic_rock",
+      "allocation_ordinal": 1559
+    },
+    {
+      "source_label": "taiwan post-rock",
+      "source_url": "https://everynoise.com/engenremap-taiwanpostrock.html",
+      "suggested_id": "taiwan_post_rock",
+      "allocation_ordinal": 1560
+    },
+    {
+      "source_label": "taiwan rock",
+      "source_url": "https://everynoise.com/engenremap-taiwanrock.html",
+      "suggested_id": "taiwan_rock",
+      "allocation_ordinal": 1561
+    },
+    {
+      "source_label": "thai folk rock",
+      "source_url": "https://everynoise.com/engenremap-thaifolkrock.html",
+      "suggested_id": "thai_folk_rock",
+      "allocation_ordinal": 1562
+    },
+    {
+      "source_label": "thai indie rock",
+      "source_url": "https://everynoise.com/engenremap-thaiindierock.html",
+      "suggested_id": "thai_indie_rock",
+      "allocation_ordinal": 1563
+    },
+    {
+      "source_label": "thai post-rock",
+      "source_url": "https://everynoise.com/engenremap-thaipostrock.html",
+      "suggested_id": "thai_post_rock",
+      "allocation_ordinal": 1564
+    },
+    {
+      "source_label": "thai rock",
+      "source_url": "https://everynoise.com/engenremap-thairock.html",
+      "suggested_id": "thai_rock",
+      "allocation_ordinal": 1565
+    },
+    {
+      "source_label": "thai shoegaze",
+      "source_url": "https://everynoise.com/engenremap-thaishoegaze.html",
+      "suggested_id": "thai_shoegaze",
+      "allocation_ordinal": 1566
+    },
+    {
+      "source_label": "traditional rockabilly",
+      "source_url": "https://everynoise.com/engenremap-traditionalrockabilly.html",
+      "suggested_id": "traditional_rockabilly",
+      "allocation_ordinal": 1567
+    },
+    {
+      "source_label": "trash rock",
+      "source_url": "https://everynoise.com/engenremap-trashrock.html",
+      "suggested_id": "trash_rock",
+      "allocation_ordinal": 1568
+    },
+    {
+      "source_label": "turkish alternative rock",
+      "source_url": "https://everynoise.com/engenremap-turkishalternativerock.html",
+      "suggested_id": "turkish_alternative_rock",
+      "allocation_ordinal": 1569
+    },
+    {
+      "source_label": "turkish rock",
+      "source_url": "https://everynoise.com/engenremap-turkishrock.html",
+      "suggested_id": "turkish_rock",
+      "allocation_ordinal": 1570
+    },
+    {
+      "source_label": "uk noise rock",
+      "source_url": "https://everynoise.com/engenremap-uknoiserock.html",
+      "suggested_id": "uk_noise_rock",
+      "allocation_ordinal": 1571
+    },
+    {
+      "source_label": "uk rockabilly",
+      "source_url": "https://everynoise.com/engenremap-ukrockabilly.html",
+      "suggested_id": "uk_rockabilly",
+      "allocation_ordinal": 1572
+    },
+    {
+      "source_label": "uk stoner rock",
+      "source_url": "https://everynoise.com/engenremap-ukstonerrock.html",
+      "suggested_id": "uk_stoner_rock",
+      "allocation_ordinal": 1573
+    },
+    {
+      "source_label": "ukrainian alternative rock",
+      "source_url": "https://everynoise.com/engenremap-ukrainianalternativerock.html",
+      "suggested_id": "ukrainian_alternative_rock",
+      "allocation_ordinal": 1574
+    },
+    {
+      "source_label": "ukrainian folk rock",
+      "source_url": "https://everynoise.com/engenremap-ukrainianfolkrock.html",
+      "suggested_id": "ukrainian_folk_rock",
+      "allocation_ordinal": 1575
+    }
+  ]
+}

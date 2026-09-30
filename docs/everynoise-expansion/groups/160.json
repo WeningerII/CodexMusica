@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "160",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "nederreggae",
+      "source_url": "https://everynoise.com/engenremap-nederreggae.html",
+      "suggested_id": "nederreggae",
+      "allocation_ordinal": 3976
+    },
+    {
+      "source_label": "neo honky tonk",
+      "source_url": "https://everynoise.com/engenremap-neohonkytonk.html",
+      "suggested_id": "neo_honky_tonk",
+      "allocation_ordinal": 3977
+    },
+    {
+      "source_label": "neo mellow",
+      "source_url": "https://everynoise.com/engenremap-neomellow.html",
+      "suggested_id": "neo_mellow",
+      "allocation_ordinal": 3978
+    },
+    {
+      "source_label": "neo-crust",
+      "source_url": "https://everynoise.com/engenremap-neocrust.html",
+      "suggested_id": "neo_crust",
+      "allocation_ordinal": 3979
+    },
+    {
+      "source_label": "neo-kraut",
+      "source_url": "https://everynoise.com/engenremap-neokraut.html",
+      "suggested_id": "neo_kraut",
+      "allocation_ordinal": 3980
+    },
+    {
+      "source_label": "neo-manele",
+      "source_url": "https://everynoise.com/engenremap-neomanele.html",
+      "suggested_id": "neo_manele",
+      "allocation_ordinal": 3981
+    },
+    {
+      "source_label": "neo-pagan",
+      "source_url": "https://everynoise.com/engenremap-neopagan.html",
+      "suggested_id": "neo_pagan",
+      "allocation_ordinal": 3982
+    },
+    {
+      "source_label": "neo-progressive",
+      "source_url": "https://everynoise.com/engenremap-neoprogressive.html",
+      "suggested_id": "neo_progressive",
+      "allocation_ordinal": 3983
+    },
+    {
+      "source_label": "neo-proto",
+      "source_url": "https://everynoise.com/engenremap-neoproto.html",
+      "suggested_id": "neo_proto",
+      "allocation_ordinal": 3984
+    },
+    {
+      "source_label": "neo-psicodelia brasileira",
+      "source_url": "https://everynoise.com/engenremap-neopsicodeliabrasileira.html",
+      "suggested_id": "neo_psicodelia_brasileira",
+      "allocation_ordinal": 3985
+    },
+    {
+      "source_label": "neo-psychedelic",
+      "source_url": "https://everynoise.com/engenremap-neopsychedelic.html",
+      "suggested_id": "neo_psychedelic",
+      "allocation_ordinal": 3986
+    },
+    {
+      "source_label": "neo-trad prog",
+      "source_url": "https://everynoise.com/engenremap-neotradprog.html",
+      "suggested_id": "neo_trad_prog",
+      "allocation_ordinal": 3987
+    },
+    {
+      "source_label": "neotango",
+      "source_url": "https://everynoise.com/engenremap-neotango.html",
+      "suggested_id": "neotango",
+      "allocation_ordinal": 3988
+    },
+    {
+      "source_label": "nepali indie",
+      "source_url": "https://everynoise.com/engenremap-nepaliindie.html",
+      "suggested_id": "nepali_indie",
+      "allocation_ordinal": 3989
+    },
+    {
+      "source_label": "nephop",
+      "source_url": "https://everynoise.com/engenremap-nephop.html",
+      "suggested_id": "nephop",
+      "allocation_ordinal": 3990
+    },
+    {
+      "source_label": "nerdcore brasileiro",
+      "source_url": "https://everynoise.com/engenremap-nerdcorebrasileiro.html",
+      "suggested_id": "nerdcore_brasileiro",
+      "allocation_ordinal": 3991
+    },
+    {
+      "source_label": "neru",
+      "source_url": "https://everynoise.com/engenremap-neru.html",
+      "suggested_id": "neru",
+      "allocation_ordinal": 3992
+    },
+    {
+      "source_label": "neue deutsche todeskunst",
+      "source_url": "https://everynoise.com/engenremap-neuedeutschetodeskunst.html",
+      "suggested_id": "neue_deutsche_todeskunst",
+      "allocation_ordinal": 3993
+    },
+    {
+      "source_label": "neue neue deutsche welle",
+      "source_url": "https://everynoise.com/engenremap-neueneuedeutschewelle.html",
+      "suggested_id": "neue_neue_deutsche_welle",
+      "allocation_ordinal": 3994
+    },
+    {
+      "source_label": "neurostep",
+      "source_url": "https://everynoise.com/engenremap-neurostep.html",
+      "suggested_id": "neurostep",
+      "allocation_ordinal": 3995
+    },
+    {
+      "source_label": "new brunswick indie",
+      "source_url": "https://everynoise.com/engenremap-newbrunswickindie.html",
+      "suggested_id": "new_brunswick_indie",
+      "allocation_ordinal": 3996
+    },
+    {
+      "source_label": "new comedy",
+      "source_url": "https://everynoise.com/engenremap-newcomedy.html",
+      "suggested_id": "new_comedy",
+      "allocation_ordinal": 3997
+    },
+    {
+      "source_label": "new delhi indie",
+      "source_url": "https://everynoise.com/engenremap-newdelhiindie.html",
+      "suggested_id": "new_delhi_indie",
+      "allocation_ordinal": 3998
+    },
+    {
+      "source_label": "new england experimental",
+      "source_url": "https://everynoise.com/engenremap-newenglandexperimental.html",
+      "suggested_id": "new_england_experimental",
+      "allocation_ordinal": 3999
+    },
+    {
+      "source_label": "new french touch",
+      "source_url": "https://everynoise.com/engenremap-newfrenchtouch.html",
+      "suggested_id": "new_french_touch",
+      "allocation_ordinal": 4000
+    }
+  ]
+}

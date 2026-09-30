@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "149",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "lo-fi chill",
+      "source_url": "https://everynoise.com/engenremap-lofichill.html",
+      "suggested_id": "lo_fi_chill",
+      "allocation_ordinal": 3701
+    },
+    {
+      "source_label": "lo-fi cover",
+      "source_url": "https://everynoise.com/engenremap-loficover.html",
+      "suggested_id": "lo_fi_cover",
+      "allocation_ordinal": 3702
+    },
+    {
+      "source_label": "lo-fi indie",
+      "source_url": "https://everynoise.com/engenremap-lofiindie.html",
+      "suggested_id": "lo_fi_indie",
+      "allocation_ordinal": 3703
+    },
+    {
+      "source_label": "lo-fi jazzhop",
+      "source_url": "https://everynoise.com/engenremap-lofijazzhop.html",
+      "suggested_id": "lo_fi_jazzhop",
+      "allocation_ordinal": 3704
+    },
+    {
+      "source_label": "lo-fi latino",
+      "source_url": "https://everynoise.com/engenremap-lofilatino.html",
+      "suggested_id": "lo_fi_latino",
+      "allocation_ordinal": 3705
+    },
+    {
+      "source_label": "lo-fi product",
+      "source_url": "https://everynoise.com/engenremap-lofiproduct.html",
+      "suggested_id": "lo_fi_product",
+      "allocation_ordinal": 3706
+    },
+    {
+      "source_label": "lo-fi sleep",
+      "source_url": "https://everynoise.com/engenremap-lofisleep.html",
+      "suggested_id": "lo_fi_sleep",
+      "allocation_ordinal": 3707
+    },
+    {
+      "source_label": "lo-fi study",
+      "source_url": "https://everynoise.com/engenremap-lofistudy.html",
+      "suggested_id": "lo_fi_study",
+      "allocation_ordinal": 3708
+    },
+    {
+      "source_label": "lo-fi vgm",
+      "source_url": "https://everynoise.com/engenremap-lofivgm.html",
+      "suggested_id": "lo_fi_vgm",
+      "allocation_ordinal": 3709
+    },
+    {
+      "source_label": "lombok indie",
+      "source_url": "https://everynoise.com/engenremap-lombokindie.html",
+      "suggested_id": "lombok_indie",
+      "allocation_ordinal": 3710
+    },
+    {
+      "source_label": "london indie",
+      "source_url": "https://everynoise.com/engenremap-londonindie.html",
+      "suggested_id": "london_indie",
+      "allocation_ordinal": 3711
+    },
+    {
+      "source_label": "london on indie",
+      "source_url": "https://everynoise.com/engenremap-londononindie.html",
+      "suggested_id": "london_on_indie",
+      "allocation_ordinal": 3712
+    },
+    {
+      "source_label": "louange",
+      "source_url": "https://everynoise.com/engenremap-louange.html",
+      "suggested_id": "louange",
+      "allocation_ordinal": 3713
+    },
+    {
+      "source_label": "louisville indie",
+      "source_url": "https://everynoise.com/engenremap-louisvilleindie.html",
+      "suggested_id": "louisville_indie",
+      "allocation_ordinal": 3714
+    },
+    {
+      "source_label": "louisville underground",
+      "source_url": "https://everynoise.com/engenremap-louisvilleunderground.html",
+      "suggested_id": "louisville_underground",
+      "allocation_ordinal": 3715
+    },
+    {
+      "source_label": "louvor",
+      "source_url": "https://everynoise.com/engenremap-louvor.html",
+      "suggested_id": "louvor",
+      "allocation_ordinal": 3716
+    },
+    {
+      "source_label": "louvor icm",
+      "source_url": "https://everynoise.com/engenremap-louvoricm.html",
+      "suggested_id": "louvor_icm",
+      "allocation_ordinal": 3717
+    },
+    {
+      "source_label": "louvores pentecostais",
+      "source_url": "https://everynoise.com/engenremap-louvorespentecostais.html",
+      "suggested_id": "louvores_pentecostais",
+      "allocation_ordinal": 3718
+    },
+    {
+      "source_label": "lund indie",
+      "source_url": "https://everynoise.com/engenremap-lundindie.html",
+      "suggested_id": "lund_indie",
+      "allocation_ordinal": 3719
+    },
+    {
+      "source_label": "lustrum",
+      "source_url": "https://everynoise.com/engenremap-lustrum.html",
+      "suggested_id": "lustrum",
+      "allocation_ordinal": 3720
+    },
+    {
+      "source_label": "lute",
+      "source_url": "https://everynoise.com/engenremap-lute.html",
+      "suggested_id": "lute",
+      "allocation_ordinal": 3721
+    },
+    {
+      "source_label": "luxembourgian indie",
+      "source_url": "https://everynoise.com/engenremap-luxembourgianindie.html",
+      "suggested_id": "luxembourgian_indie",
+      "allocation_ordinal": 3722
+    },
+    {
+      "source_label": "macedonian indie",
+      "source_url": "https://everynoise.com/engenremap-macedonianindie.html",
+      "suggested_id": "macedonian_indie",
+      "allocation_ordinal": 3723
+    },
+    {
+      "source_label": "magyar alternative",
+      "source_url": "https://everynoise.com/engenremap-magyaralternative.html",
+      "suggested_id": "magyar_alternative",
+      "allocation_ordinal": 3724
+    },
+    {
+      "source_label": "magyar kabare",
+      "source_url": "https://everynoise.com/engenremap-magyarkabare.html",
+      "suggested_id": "magyar_kabare",
+      "allocation_ordinal": 3725
+    }
+  ]
+}

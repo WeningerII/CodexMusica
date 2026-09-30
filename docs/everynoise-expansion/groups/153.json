@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "153",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "modern salsa",
+      "source_url": "https://everynoise.com/engenremap-modernsalsa.html",
+      "suggested_id": "modern_salsa",
+      "allocation_ordinal": 3801
+    },
+    {
+      "source_label": "modern uplift",
+      "source_url": "https://everynoise.com/engenremap-modernuplift.html",
+      "suggested_id": "modern_uplift",
+      "allocation_ordinal": 3802
+    },
+    {
+      "source_label": "moderne ludovky",
+      "source_url": "https://everynoise.com/engenremap-moderneludovky.html",
+      "suggested_id": "moderne_ludovky",
+      "allocation_ordinal": 3803
+    },
+    {
+      "source_label": "mongolian alternative",
+      "source_url": "https://everynoise.com/engenremap-mongolianalternative.html",
+      "suggested_id": "mongolian_alternative",
+      "allocation_ordinal": 3804
+    },
+    {
+      "source_label": "montana indie",
+      "source_url": "https://everynoise.com/engenremap-montanaindie.html",
+      "suggested_id": "montana_indie",
+      "allocation_ordinal": 3805
+    },
+    {
+      "source_label": "montana roots",
+      "source_url": "https://everynoise.com/engenremap-montanaroots.html",
+      "suggested_id": "montana_roots",
+      "allocation_ordinal": 3806
+    },
+    {
+      "source_label": "monterrey indie",
+      "source_url": "https://everynoise.com/engenremap-monterreyindie.html",
+      "suggested_id": "monterrey_indie",
+      "allocation_ordinal": 3807
+    },
+    {
+      "source_label": "montreal indie",
+      "source_url": "https://everynoise.com/engenremap-montrealindie.html",
+      "suggested_id": "montreal_indie",
+      "allocation_ordinal": 3808
+    },
+    {
+      "source_label": "moog",
+      "source_url": "https://everynoise.com/engenremap-moog.html",
+      "suggested_id": "moog",
+      "allocation_ordinal": 3809
+    },
+    {
+      "source_label": "moorish traditional",
+      "source_url": "https://everynoise.com/engenremap-moorishtraditional.html",
+      "suggested_id": "moorish_traditional",
+      "allocation_ordinal": 3810
+    },
+    {
+      "source_label": "morelos indie",
+      "source_url": "https://everynoise.com/engenremap-morelosindie.html",
+      "suggested_id": "morelos_indie",
+      "allocation_ordinal": 3811
+    },
+    {
+      "source_label": "moroccan traditional",
+      "source_url": "https://everynoise.com/engenremap-moroccantraditional.html",
+      "suggested_id": "moroccan_traditional",
+      "allocation_ordinal": 3812
+    },
+    {
+      "source_label": "motivation",
+      "source_url": "https://everynoise.com/engenremap-motivation.html",
+      "suggested_id": "motivation",
+      "allocation_ordinal": 3813
+    },
+    {
+      "source_label": "mountain dulcimer",
+      "source_url": "https://everynoise.com/engenremap-mountaindulcimer.html",
+      "suggested_id": "mountain_dulcimer",
+      "allocation_ordinal": 3814
+    },
+    {
+      "source_label": "movie tunes",
+      "source_url": "https://everynoise.com/engenremap-movietunes.html",
+      "suggested_id": "movie_tunes",
+      "allocation_ordinal": 3815
+    },
+    {
+      "source_label": "multidisciplinary",
+      "source_url": "https://everynoise.com/engenremap-multidisciplinary.html",
+      "suggested_id": "multidisciplinary",
+      "allocation_ordinal": 3816
+    },
+    {
+      "source_label": "mumbai indie",
+      "source_url": "https://everynoise.com/engenremap-mumbaiindie.html",
+      "suggested_id": "mumbai_indie",
+      "allocation_ordinal": 3817
+    },
+    {
+      "source_label": "mundart",
+      "source_url": "https://everynoise.com/engenremap-mundart.html",
+      "suggested_id": "mundart",
+      "allocation_ordinal": 3818
+    },
+    {
+      "source_label": "munich indie",
+      "source_url": "https://everynoise.com/engenremap-munichindie.html",
+      "suggested_id": "munich_indie",
+      "allocation_ordinal": 3819
+    },
+    {
+      "source_label": "murcia indie",
+      "source_url": "https://everynoise.com/engenremap-murciaindie.html",
+      "suggested_id": "murcia_indie",
+      "allocation_ordinal": 3820
+    },
+    {
+      "source_label": "murga",
+      "source_url": "https://everynoise.com/engenremap-murga.html",
+      "suggested_id": "murga",
+      "allocation_ordinal": 3821
+    },
+    {
+      "source_label": "music box",
+      "source_url": "https://everynoise.com/engenremap-musicbox.html",
+      "suggested_id": "music_box",
+      "allocation_ordinal": 3822
+    },
+    {
+      "source_label": "musica acoriana",
+      "source_url": "https://everynoise.com/engenremap-musicaacoriana.html",
+      "suggested_id": "musica_acoriana",
+      "allocation_ordinal": 3823
+    },
+    {
+      "source_label": "musica aguascalentense",
+      "source_url": "https://everynoise.com/engenremap-musicaaguascalentense.html",
+      "suggested_id": "musica_aguascalentense",
+      "allocation_ordinal": 3824
+    },
+    {
+      "source_label": "musica alagoana",
+      "source_url": "https://everynoise.com/engenremap-musicaalagoana.html",
+      "suggested_id": "musica_alagoana",
+      "allocation_ordinal": 3825
+    }
+  ]
+}

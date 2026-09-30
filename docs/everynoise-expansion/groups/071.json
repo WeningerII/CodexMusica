@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "071",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol"],
+  "entries": [
+    {
+      "source_label": "japanese indie pop",
+      "source_url": "https://everynoise.com/engenremap-japaneseindiepop.html",
+      "suggested_id": "japanese_indie_pop",
+      "allocation_ordinal": 1751
+    },
+    {
+      "source_label": "japanese viral pop",
+      "source_url": "https://everynoise.com/engenremap-japaneseviralpop.html",
+      "suggested_id": "japanese_viral_pop",
+      "allocation_ordinal": 1752
+    },
+    {
+      "source_label": "jazz pop",
+      "source_url": "https://everynoise.com/engenremap-jazzpop.html",
+      "suggested_id": "jazz_pop",
+      "allocation_ordinal": 1753
+    },
+    {
+      "source_label": "jewish pop",
+      "source_url": "https://everynoise.com/engenremap-jewishpop.html",
+      "suggested_id": "jewish_pop",
+      "allocation_ordinal": 1754
+    },
+    {
+      "source_label": "jordanian pop",
+      "source_url": "https://everynoise.com/engenremap-jordanianpop.html",
+      "suggested_id": "jordanian_pop",
+      "allocation_ordinal": 1755
+    },
+    {
+      "source_label": "k-pop ballad",
+      "source_url": "https://everynoise.com/engenremap-kpopballad.html",
+      "suggested_id": "k_pop_ballad",
+      "allocation_ordinal": 1756
+    },
+    {
+      "source_label": "k-pop girl group",
+      "source_url": "https://everynoise.com/engenremap-kpopgirlgroup.html",
+      "suggested_id": "k_pop_girl_group",
+      "allocation_ordinal": 1757
+    },
+    {
+      "source_label": "k-pop reality show",
+      "source_url": "https://everynoise.com/engenremap-kpoprealityshow.html",
+      "suggested_id": "k_pop_reality_show",
+      "allocation_ordinal": 1758
+    },
+    {
+      "source_label": "kamba pop",
+      "source_url": "https://everynoise.com/engenremap-kambapop.html",
+      "suggested_id": "kamba_pop",
+      "allocation_ordinal": 1759
+    },
+    {
+      "source_label": "kannada pop",
+      "source_url": "https://everynoise.com/engenremap-kannadapop.html",
+      "suggested_id": "kannada_pop",
+      "allocation_ordinal": 1760
+    },
+    {
+      "source_label": "karadeniz pop",
+      "source_url": "https://everynoise.com/engenremap-karadenizpop.html",
+      "suggested_id": "karadeniz_pop",
+      "allocation_ordinal": 1761
+    },
+    {
+      "source_label": "karbi pop",
+      "source_url": "https://everynoise.com/engenremap-karbipop.html",
+      "suggested_id": "karbi_pop",
+      "allocation_ordinal": 1762
+    },
+    {
+      "source_label": "karen pop",
+      "source_url": "https://everynoise.com/engenremap-karenpop.html",
+      "suggested_id": "karen_pop",
+      "allocation_ordinal": 1763
+    },
+    {
+      "source_label": "kashmiri pop",
+      "source_url": "https://everynoise.com/engenremap-kashmiripop.html",
+      "suggested_id": "kashmiri_pop",
+      "allocation_ordinal": 1764
+    },
+    {
+      "source_label": "kenyan pop",
+      "source_url": "https://everynoise.com/engenremap-kenyanpop.html",
+      "suggested_id": "kenyan_pop",
+      "allocation_ordinal": 1765
+    },
+    {
+      "source_label": "khandeshi pop",
+      "source_url": "https://everynoise.com/engenremap-khandeshipop.html",
+      "suggested_id": "khandeshi_pop",
+      "allocation_ordinal": 1766
+    },
+    {
+      "source_label": "khasi pop",
+      "source_url": "https://everynoise.com/engenremap-khasipop.html",
+      "suggested_id": "khasi_pop",
+      "allocation_ordinal": 1767
+    },
+    {
+      "source_label": "khortha pop",
+      "source_url": "https://everynoise.com/engenremap-khorthapop.html",
+      "suggested_id": "khortha_pop",
+      "allocation_ordinal": 1768
+    },
+    {
+      "source_label": "kikuyu pop",
+      "source_url": "https://everynoise.com/engenremap-kikuyupop.html",
+      "suggested_id": "kikuyu_pop",
+      "allocation_ordinal": 1769
+    },
+    {
+      "source_label": "kinnauri pop",
+      "source_url": "https://everynoise.com/engenremap-kinnauripop.html",
+      "suggested_id": "kinnauri_pop",
+      "allocation_ordinal": 1770
+    },
+    {
+      "source_label": "kokborok pop",
+      "source_url": "https://everynoise.com/engenremap-kokborokpop.html",
+      "suggested_id": "kokborok_pop",
+      "allocation_ordinal": 1771
+    },
+    {
+      "source_label": "konkani pop",
+      "source_url": "https://everynoise.com/engenremap-konkanipop.html",
+      "suggested_id": "konkani_pop",
+      "allocation_ordinal": 1772
+    },
+    {
+      "source_label": "korean dream pop",
+      "source_url": "https://everynoise.com/engenremap-koreandreampop.html",
+      "suggested_id": "korean_dream_pop",
+      "allocation_ordinal": 1773
+    },
+    {
+      "source_label": "korean pop",
+      "source_url": "https://everynoise.com/engenremap-koreanpop.html",
+      "suggested_id": "korean_pop",
+      "allocation_ordinal": 1774
+    },
+    {
+      "source_label": "kosovan pop",
+      "source_url": "https://everynoise.com/engenremap-kosovanpop.html",
+      "suggested_id": "kosovan_pop",
+      "allocation_ordinal": 1775
+    }
+  ]
+}

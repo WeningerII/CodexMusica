@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "146",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "korean experimental",
+      "source_url": "https://everynoise.com/engenremap-koreanexperimental.html",
+      "suggested_id": "korean_experimental",
+      "allocation_ordinal": 3626
+    },
+    {
+      "source_label": "korean hyperpop",
+      "source_url": "https://everynoise.com/engenremap-koreanhyperpop.html",
+      "suggested_id": "korean_hyperpop",
+      "allocation_ordinal": 3627
+    },
+    {
+      "source_label": "korean instrumental",
+      "source_url": "https://everynoise.com/engenremap-koreaninstrumental.html",
+      "suggested_id": "korean_instrumental",
+      "allocation_ordinal": 3628
+    },
+    {
+      "source_label": "korean musicals",
+      "source_url": "https://everynoise.com/engenremap-koreanmusicals.html",
+      "suggested_id": "korean_musicals",
+      "allocation_ordinal": 3629
+    },
+    {
+      "source_label": "korean ost",
+      "source_url": "https://everynoise.com/engenremap-koreanost.html",
+      "suggested_id": "korean_ost",
+      "allocation_ordinal": 3630
+    },
+    {
+      "source_label": "korean soundtrack",
+      "source_url": "https://everynoise.com/engenremap-koreansoundtrack.html",
+      "suggested_id": "korean_soundtrack",
+      "allocation_ordinal": 3631
+    },
+    {
+      "source_label": "korean superband",
+      "source_url": "https://everynoise.com/engenremap-koreansuperband.html",
+      "suggested_id": "korean_superband",
+      "allocation_ordinal": 3632
+    },
+    {
+      "source_label": "korean talent show",
+      "source_url": "https://everynoise.com/engenremap-koreantalentshow.html",
+      "suggested_id": "korean_talent_show",
+      "allocation_ordinal": 3633
+    },
+    {
+      "source_label": "korean traditional",
+      "source_url": "https://everynoise.com/engenremap-koreantraditional.html",
+      "suggested_id": "korean_traditional",
+      "allocation_ordinal": 3634
+    },
+    {
+      "source_label": "korean worship",
+      "source_url": "https://everynoise.com/engenremap-koreanworship.html",
+      "suggested_id": "korean_worship",
+      "allocation_ordinal": 3635
+    },
+    {
+      "source_label": "kosovan indie",
+      "source_url": "https://everynoise.com/engenremap-kosovanindie.html",
+      "suggested_id": "kosovan_indie",
+      "allocation_ordinal": 3636
+    },
+    {
+      "source_label": "krajiska muzika",
+      "source_url": "https://everynoise.com/engenremap-krajiskamuzika.html",
+      "suggested_id": "krajiska_muzika",
+      "allocation_ordinal": 3637
+    },
+    {
+      "source_label": "kritika",
+      "source_url": "https://everynoise.com/engenremap-kritika.html",
+      "suggested_id": "kritika",
+      "allocation_ordinal": 3638
+    },
+    {
+      "source_label": "kuduro antigo",
+      "source_url": "https://everynoise.com/engenremap-kuduroantigo.html",
+      "suggested_id": "kuduro_antigo",
+      "allocation_ordinal": 3639
+    },
+    {
+      "source_label": "kundalini",
+      "source_url": "https://everynoise.com/engenremap-kundalini.html",
+      "suggested_id": "kundalini",
+      "allocation_ordinal": 3640
+    },
+    {
+      "source_label": "kurdish remix",
+      "source_url": "https://everynoise.com/engenremap-kurdishremix.html",
+      "suggested_id": "kurdish_remix",
+      "allocation_ordinal": 3641
+    },
+    {
+      "source_label": "kyushu indie",
+      "source_url": "https://everynoise.com/engenremap-kyushuindie.html",
+      "suggested_id": "kyushu_indie",
+      "allocation_ordinal": 3642
+    },
+    {
+      "source_label": "la indie",
+      "source_url": "https://everynoise.com/engenremap-laindie.html",
+      "suggested_id": "la_indie",
+      "allocation_ordinal": 3643
+    },
+    {
+      "source_label": "laboratorio",
+      "source_url": "https://everynoise.com/engenremap-laboratorio.html",
+      "suggested_id": "laboratorio",
+      "allocation_ordinal": 3644
+    },
+    {
+      "source_label": "lafayette indie",
+      "source_url": "https://everynoise.com/engenremap-lafayetteindie.html",
+      "suggested_id": "lafayette_indie",
+      "allocation_ordinal": 3645
+    },
+    {
+      "source_label": "lagu aceh",
+      "source_url": "https://everynoise.com/engenremap-laguaceh.html",
+      "suggested_id": "lagu_aceh",
+      "allocation_ordinal": 3646
+    },
+    {
+      "source_label": "lagu betawi",
+      "source_url": "https://everynoise.com/engenremap-lagubetawi.html",
+      "suggested_id": "lagu_betawi",
+      "allocation_ordinal": 3647
+    },
+    {
+      "source_label": "lagu bugis",
+      "source_url": "https://everynoise.com/engenremap-lagubugis.html",
+      "suggested_id": "lagu_bugis",
+      "allocation_ordinal": 3648
+    },
+    {
+      "source_label": "lagu iban",
+      "source_url": "https://everynoise.com/engenremap-laguiban.html",
+      "suggested_id": "lagu_iban",
+      "allocation_ordinal": 3649
+    },
+    {
+      "source_label": "lagu jambi",
+      "source_url": "https://everynoise.com/engenremap-lagujambi.html",
+      "suggested_id": "lagu_jambi",
+      "allocation_ordinal": 3650
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "145",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "kenyan alternative",
+      "source_url": "https://everynoise.com/engenremap-kenyanalternative.html",
+      "suggested_id": "kenyan_alternative",
+      "allocation_ordinal": 3601
+    },
+    {
+      "source_label": "kenyan traditional",
+      "source_url": "https://everynoise.com/engenremap-kenyantraditional.html",
+      "suggested_id": "kenyan_traditional",
+      "allocation_ordinal": 3602
+    },
+    {
+      "source_label": "kerkkoor",
+      "source_url": "https://everynoise.com/engenremap-kerkkoor.html",
+      "suggested_id": "kerkkoor",
+      "allocation_ordinal": 3603
+    },
+    {
+      "source_label": "kermis",
+      "source_url": "https://everynoise.com/engenremap-kermis.html",
+      "suggested_id": "kermis",
+      "allocation_ordinal": 3604
+    },
+    {
+      "source_label": "khmer",
+      "source_url": "https://everynoise.com/engenremap-khmer.html",
+      "suggested_id": "khmer",
+      "allocation_ordinal": 3605
+    },
+    {
+      "source_label": "kinderchor",
+      "source_url": "https://everynoise.com/engenremap-kinderchor.html",
+      "suggested_id": "kinderchor",
+      "allocation_ordinal": 3606
+    },
+    {
+      "source_label": "kinderliedjies",
+      "source_url": "https://everynoise.com/engenremap-kinderliedjies.html",
+      "suggested_id": "kinderliedjies",
+      "allocation_ordinal": 3607
+    },
+    {
+      "source_label": "kingston on indie",
+      "source_url": "https://everynoise.com/engenremap-kingstononindie.html",
+      "suggested_id": "kingston_on_indie",
+      "allocation_ordinal": 3608
+    },
+    {
+      "source_label": "kizomba antigas",
+      "source_url": "https://everynoise.com/engenremap-kizombaantigas.html",
+      "suggested_id": "kizomba_antigas",
+      "allocation_ordinal": 3609
+    },
+    {
+      "source_label": "kizomba cabo-verdiana",
+      "source_url": "https://everynoise.com/engenremap-kizombacaboverdiana.html",
+      "suggested_id": "kizomba_cabo_verdiana",
+      "allocation_ordinal": 3610
+    },
+    {
+      "source_label": "kleine hoerspiel",
+      "source_url": "https://everynoise.com/engenremap-kleinehoerspiel.html",
+      "suggested_id": "kleine_hoerspiel",
+      "allocation_ordinal": 3611
+    },
+    {
+      "source_label": "kleinkunst",
+      "source_url": "https://everynoise.com/engenremap-kleinkunst.html",
+      "suggested_id": "kleinkunst",
+      "allocation_ordinal": 3612
+    },
+    {
+      "source_label": "klubowe",
+      "source_url": "https://everynoise.com/engenremap-klubowe.html",
+      "suggested_id": "klubowe",
+      "allocation_ordinal": 3613
+    },
+    {
+      "source_label": "knoxville indie",
+      "source_url": "https://everynoise.com/engenremap-knoxvilleindie.html",
+      "suggested_id": "knoxville_indie",
+      "allocation_ordinal": 3614
+    },
+    {
+      "source_label": "kodomo no ongaku",
+      "source_url": "https://everynoise.com/engenremap-kodomonoongaku.html",
+      "suggested_id": "kodomo_no_ongaku",
+      "allocation_ordinal": 3615
+    },
+    {
+      "source_label": "kol isha",
+      "source_url": "https://everynoise.com/engenremap-kolisha.html",
+      "suggested_id": "kol_isha",
+      "allocation_ordinal": 3616
+    },
+    {
+      "source_label": "koledy",
+      "source_url": "https://everynoise.com/engenremap-koledy.html",
+      "suggested_id": "koledy",
+      "allocation_ordinal": 3617
+    },
+    {
+      "source_label": "koligeet",
+      "source_url": "https://everynoise.com/engenremap-koligeet.html",
+      "suggested_id": "koligeet",
+      "allocation_ordinal": 3618
+    },
+    {
+      "source_label": "kolkata indie",
+      "source_url": "https://everynoise.com/engenremap-kolkataindie.html",
+      "suggested_id": "kolkata_indie",
+      "allocation_ordinal": 3619
+    },
+    {
+      "source_label": "kolsche karneval",
+      "source_url": "https://everynoise.com/engenremap-kolschekarneval.html",
+      "suggested_id": "kolsche_karneval",
+      "allocation_ordinal": 3620
+    },
+    {
+      "source_label": "komedi",
+      "source_url": "https://everynoise.com/engenremap-komedi.html",
+      "suggested_id": "komedi",
+      "allocation_ordinal": 3621
+    },
+    {
+      "source_label": "kompa chretien",
+      "source_url": "https://everynoise.com/engenremap-kompachretien.html",
+      "suggested_id": "kompa_chretien",
+      "allocation_ordinal": 3622
+    },
+    {
+      "source_label": "kora",
+      "source_url": "https://everynoise.com/engenremap-kora.html",
+      "suggested_id": "kora",
+      "allocation_ordinal": 3623
+    },
+    {
+      "source_label": "korean bl ost",
+      "source_url": "https://everynoise.com/engenremap-koreanblost.html",
+      "suggested_id": "korean_bl_ost",
+      "allocation_ordinal": 3624
+    },
+    {
+      "source_label": "korean electropop",
+      "source_url": "https://everynoise.com/engenremap-koreanelectropop.html",
+      "suggested_id": "korean_electropop",
+      "allocation_ordinal": 3625
+    }
+  ]
+}

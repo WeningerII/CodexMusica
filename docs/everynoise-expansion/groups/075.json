@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "075",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol"],
+  "entries": [
+    {
+      "source_label": "pop urbaine",
+      "source_url": "https://everynoise.com/engenremap-popurbaine.html",
+      "suggested_id": "pop_urbaine",
+      "allocation_ordinal": 1851
+    },
+    {
+      "source_label": "pop venezolano",
+      "source_url": "https://everynoise.com/engenremap-popvenezolano.html",
+      "suggested_id": "pop_venezolano",
+      "allocation_ordinal": 1852
+    },
+    {
+      "source_label": "pop violin",
+      "source_url": "https://everynoise.com/engenremap-popviolin.html",
+      "suggested_id": "pop_violin",
+      "allocation_ordinal": 1853
+    },
+    {
+      "source_label": "pop virale italiano",
+      "source_url": "https://everynoise.com/engenremap-popviraleitaliano.html",
+      "suggested_id": "pop_virale_italiano",
+      "allocation_ordinal": 1854
+    },
+    {
+      "source_label": "pop worship",
+      "source_url": "https://everynoise.com/engenremap-popworship.html",
+      "suggested_id": "pop_worship",
+      "allocation_ordinal": 1855
+    },
+    {
+      "source_label": "puerto rican pop",
+      "source_url": "https://everynoise.com/engenremap-puertoricanpop.html",
+      "suggested_id": "puerto_rican_pop",
+      "allocation_ordinal": 1856
+    },
+    {
+      "source_label": "purulia pop",
+      "source_url": "https://everynoise.com/engenremap-puruliapop.html",
+      "suggested_id": "purulia_pop",
+      "allocation_ordinal": 1857
+    },
+    {
+      "source_label": "rajasthani pop",
+      "source_url": "https://everynoise.com/engenremap-rajasthanipop.html",
+      "suggested_id": "rajasthani_pop",
+      "allocation_ordinal": 1858
+    },
+    {
+      "source_label": "reunion pop",
+      "source_url": "https://everynoise.com/engenremap-reunionpop.html",
+      "suggested_id": "reunion_pop",
+      "allocation_ordinal": 1859
+    },
+    {
+      "source_label": "romanian pop",
+      "source_url": "https://everynoise.com/engenremap-romanianpop.html",
+      "suggested_id": "romanian_pop",
+      "allocation_ordinal": 1860
+    },
+    {
+      "source_label": "rongmei pop",
+      "source_url": "https://everynoise.com/engenremap-rongmeipop.html",
+      "suggested_id": "rongmei_pop",
+      "allocation_ordinal": 1861
+    },
+    {
+      "source_label": "russian alt pop",
+      "source_url": "https://everynoise.com/engenremap-russianaltpop.html",
+      "suggested_id": "russian_alt_pop",
+      "allocation_ordinal": 1862
+    },
+    {
+      "source_label": "russian dance pop",
+      "source_url": "https://everynoise.com/engenremap-russiandancepop.html",
+      "suggested_id": "russian_dance_pop",
+      "allocation_ordinal": 1863
+    },
+    {
+      "source_label": "russian pop",
+      "source_url": "https://everynoise.com/engenremap-russianpop.html",
+      "suggested_id": "russian_pop",
+      "allocation_ordinal": 1864
+    },
+    {
+      "source_label": "russian viral pop",
+      "source_url": "https://everynoise.com/engenremap-russianviralpop.html",
+      "suggested_id": "russian_viral_pop",
+      "allocation_ordinal": 1865
+    },
+    {
+      "source_label": "rwandan pop",
+      "source_url": "https://everynoise.com/engenremap-rwandanpop.html",
+      "suggested_id": "rwandan_pop",
+      "allocation_ordinal": 1866
+    },
+    {
+      "source_label": "sambalpuri pop",
+      "source_url": "https://everynoise.com/engenremap-sambalpuripop.html",
+      "suggested_id": "sambalpuri_pop",
+      "allocation_ordinal": 1867
+    },
+    {
+      "source_label": "samoan pop",
+      "source_url": "https://everynoise.com/engenremap-samoanpop.html",
+      "suggested_id": "samoan_pop",
+      "allocation_ordinal": 1868
+    },
+    {
+      "source_label": "santali pop",
+      "source_url": "https://everynoise.com/engenremap-santalipop.html",
+      "suggested_id": "santali_pop",
+      "allocation_ordinal": 1869
+    },
+    {
+      "source_label": "sepedi pop",
+      "source_url": "https://everynoise.com/engenremap-sepedipop.html",
+      "suggested_id": "sepedi_pop",
+      "allocation_ordinal": 1870
+    },
+    {
+      "source_label": "sertanejo pop",
+      "source_url": "https://everynoise.com/engenremap-sertanejopop.html",
+      "suggested_id": "sertanejo_pop",
+      "allocation_ordinal": 1871
+    },
+    {
+      "source_label": "sesotho pop",
+      "source_url": "https://everynoise.com/engenremap-sesothopop.html",
+      "suggested_id": "sesotho_pop",
+      "allocation_ordinal": 1872
+    },
+    {
+      "source_label": "seychelles pop",
+      "source_url": "https://everynoise.com/engenremap-seychellespop.html",
+      "suggested_id": "seychelles_pop",
+      "allocation_ordinal": 1873
+    },
+    {
+      "source_label": "sierra leonean pop",
+      "source_url": "https://everynoise.com/engenremap-sierraleoneanpop.html",
+      "suggested_id": "sierra_leonean_pop",
+      "allocation_ordinal": 1874
+    },
+    {
+      "source_label": "singaporean pop",
+      "source_url": "https://everynoise.com/engenremap-singaporeanpop.html",
+      "suggested_id": "singaporean_pop",
+      "allocation_ordinal": 1875
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "055",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names"],
+  "entries": [
+    {
+      "source_label": "french post-rock",
+      "source_url": "https://everynoise.com/engenremap-frenchpostrock.html",
+      "suggested_id": "french_post_rock",
+      "allocation_ordinal": 1351
+    },
+    {
+      "source_label": "french rock",
+      "source_url": "https://everynoise.com/engenremap-frenchrock.html",
+      "suggested_id": "french_rock",
+      "allocation_ordinal": 1352
+    },
+    {
+      "source_label": "french rock-and-roll",
+      "source_url": "https://everynoise.com/engenremap-frenchrockandroll.html",
+      "suggested_id": "french_rock_and_roll",
+      "allocation_ordinal": 1353
+    },
+    {
+      "source_label": "french rockabilly",
+      "source_url": "https://everynoise.com/engenremap-frenchrockabilly.html",
+      "suggested_id": "french_rockabilly",
+      "allocation_ordinal": 1354
+    },
+    {
+      "source_label": "french shoegaze",
+      "source_url": "https://everynoise.com/engenremap-frenchshoegaze.html",
+      "suggested_id": "french_shoegaze",
+      "allocation_ordinal": 1355
+    },
+    {
+      "source_label": "french stoner rock",
+      "source_url": "https://everynoise.com/engenremap-frenchstonerrock.html",
+      "suggested_id": "french_stoner_rock",
+      "allocation_ordinal": 1356
+    },
+    {
+      "source_label": "future rock",
+      "source_url": "https://everynoise.com/engenremap-futurerock.html",
+      "suggested_id": "future_rock",
+      "allocation_ordinal": 1357
+    },
+    {
+      "source_label": "galician rock",
+      "source_url": "https://everynoise.com/engenremap-galicianrock.html",
+      "suggested_id": "galician_rock",
+      "allocation_ordinal": 1358
+    },
+    {
+      "source_label": "geek rock",
+      "source_url": "https://everynoise.com/engenremap-geekrock.html",
+      "suggested_id": "geek_rock",
+      "allocation_ordinal": 1359
+    },
+    {
+      "source_label": "german alternative rock",
+      "source_url": "https://everynoise.com/engenremap-germanalternativerock.html",
+      "suggested_id": "german_alternative_rock",
+      "allocation_ordinal": 1360
+    },
+    {
+      "source_label": "german hard rock",
+      "source_url": "https://everynoise.com/engenremap-germanhardrock.html",
+      "suggested_id": "german_hard_rock",
+      "allocation_ordinal": 1361
+    },
+    {
+      "source_label": "german indie rock",
+      "source_url": "https://everynoise.com/engenremap-germanindierock.html",
+      "suggested_id": "german_indie_rock",
+      "allocation_ordinal": 1362
+    },
+    {
+      "source_label": "german pop rock",
+      "source_url": "https://everynoise.com/engenremap-germanpoprock.html",
+      "suggested_id": "german_pop_rock",
+      "allocation_ordinal": 1363
+    },
+    {
+      "source_label": "german post-rock",
+      "source_url": "https://everynoise.com/engenremap-germanpostrock.html",
+      "suggested_id": "german_post_rock",
+      "allocation_ordinal": 1364
+    },
+    {
+      "source_label": "german rockabilly",
+      "source_url": "https://everynoise.com/engenremap-germanrockabilly.html",
+      "suggested_id": "german_rockabilly",
+      "allocation_ordinal": 1365
+    },
+    {
+      "source_label": "german shoegaze",
+      "source_url": "https://everynoise.com/engenremap-germanshoegaze.html",
+      "suggested_id": "german_shoegaze",
+      "allocation_ordinal": 1366
+    },
+    {
+      "source_label": "german stoner rock",
+      "source_url": "https://everynoise.com/engenremap-germanstonerrock.html",
+      "suggested_id": "german_stoner_rock",
+      "allocation_ordinal": 1367
+    },
+    {
+      "source_label": "greek indie rock",
+      "source_url": "https://everynoise.com/engenremap-greekindierock.html",
+      "suggested_id": "greek_indie_rock",
+      "allocation_ordinal": 1368
+    },
+    {
+      "source_label": "greek psychedelic rock",
+      "source_url": "https://everynoise.com/engenremap-greekpsychedelicrock.html",
+      "suggested_id": "greek_psychedelic_rock",
+      "allocation_ordinal": 1369
+    },
+    {
+      "source_label": "grunge argentina",
+      "source_url": "https://everynoise.com/engenremap-grungeargentina.html",
+      "suggested_id": "grunge_argentina",
+      "allocation_ordinal": 1370
+    },
+    {
+      "source_label": "grunge brasileiro",
+      "source_url": "https://everynoise.com/engenremap-grungebrasileiro.html",
+      "suggested_id": "grunge_brasileiro",
+      "allocation_ordinal": 1371
+    },
+    {
+      "source_label": "grunge pop",
+      "source_url": "https://everynoise.com/engenremap-grungepop.html",
+      "suggested_id": "grunge_pop",
+      "allocation_ordinal": 1372
+    },
+    {
+      "source_label": "grunge revival",
+      "source_url": "https://everynoise.com/engenremap-grungerevival.html",
+      "suggested_id": "grunge_revival",
+      "allocation_ordinal": 1373
+    },
+    {
+      "source_label": "hard rock brasileiro",
+      "source_url": "https://everynoise.com/engenremap-hardrockbrasileiro.html",
+      "suggested_id": "hard_rock_brasileiro",
+      "allocation_ordinal": 1374
+    },
+    {
+      "source_label": "hard rock mexicano",
+      "source_url": "https://everynoise.com/engenremap-hardrockmexicano.html",
+      "suggested_id": "hard_rock_mexicano",
+      "allocation_ordinal": 1375
+    }
+  ]
+}

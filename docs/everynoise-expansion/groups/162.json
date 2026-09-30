@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "162",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "north alabama indie",
+      "source_url": "https://everynoise.com/engenremap-northalabamaindie.html",
+      "suggested_id": "north_alabama_indie",
+      "allocation_ordinal": 4026
+    },
+    {
+      "source_label": "north carolina indie",
+      "source_url": "https://everynoise.com/engenremap-northcarolinaindie.html",
+      "suggested_id": "north_carolina_indie",
+      "allocation_ordinal": 4027
+    },
+    {
+      "source_label": "north carolina roots",
+      "source_url": "https://everynoise.com/engenremap-northcarolinaroots.html",
+      "suggested_id": "north_carolina_roots",
+      "allocation_ordinal": 4028
+    },
+    {
+      "source_label": "north dakota indie",
+      "source_url": "https://everynoise.com/engenremap-northdakotaindie.html",
+      "suggested_id": "north_dakota_indie",
+      "allocation_ordinal": 4029
+    },
+    {
+      "source_label": "north east england indie",
+      "source_url": "https://everynoise.com/engenremap-northeastenglandindie.html",
+      "suggested_id": "north_east_england_indie",
+      "allocation_ordinal": 4030
+    },
+    {
+      "source_label": "northamptonshire indie",
+      "source_url": "https://everynoise.com/engenremap-northamptonshireindie.html",
+      "suggested_id": "northamptonshire_indie",
+      "allocation_ordinal": 4031
+    },
+    {
+      "source_label": "northeast indian indie",
+      "source_url": "https://everynoise.com/engenremap-northeastindianindie.html",
+      "suggested_id": "northeast_indian_indie",
+      "allocation_ordinal": 4032
+    },
+    {
+      "source_label": "northern irish indie",
+      "source_url": "https://everynoise.com/engenremap-northernirishindie.html",
+      "suggested_id": "northern_irish_indie",
+      "allocation_ordinal": 4033
+    },
+    {
+      "source_label": "northwest china indie",
+      "source_url": "https://everynoise.com/engenremap-northwestchinaindie.html",
+      "suggested_id": "northwest_china_indie",
+      "allocation_ordinal": 4034
+    },
+    {
+      "source_label": "norwegian experimental",
+      "source_url": "https://everynoise.com/engenremap-norwegianexperimental.html",
+      "suggested_id": "norwegian_experimental",
+      "allocation_ordinal": 4035
+    },
+    {
+      "source_label": "norwegian indie",
+      "source_url": "https://everynoise.com/engenremap-norwegianindie.html",
+      "suggested_id": "norwegian_indie",
+      "allocation_ordinal": 4036
+    },
+    {
+      "source_label": "norwegian prog",
+      "source_url": "https://everynoise.com/engenremap-norwegianprog.html",
+      "suggested_id": "norwegian_prog",
+      "allocation_ordinal": 4037
+    },
+    {
+      "source_label": "norwegian psychedelic",
+      "source_url": "https://everynoise.com/engenremap-norwegianpsychedelic.html",
+      "suggested_id": "norwegian_psychedelic",
+      "allocation_ordinal": 4038
+    },
+    {
+      "source_label": "nottingham indie",
+      "source_url": "https://everynoise.com/engenremap-nottinghamindie.html",
+      "suggested_id": "nottingham_indie",
+      "allocation_ordinal": 4039
+    },
+    {
+      "source_label": "nova musica amazonense",
+      "source_url": "https://everynoise.com/engenremap-novamusicaamazonense.html",
+      "suggested_id": "nova_musica_amazonense",
+      "allocation_ordinal": 4040
+    },
+    {
+      "source_label": "nova musica carioca",
+      "source_url": "https://everynoise.com/engenremap-novamusicacarioca.html",
+      "suggested_id": "nova_musica_carioca",
+      "allocation_ordinal": 4041
+    },
+    {
+      "source_label": "nova musica maranhense",
+      "source_url": "https://everynoise.com/engenremap-novamusicamaranhense.html",
+      "suggested_id": "nova_musica_maranhense",
+      "allocation_ordinal": 4042
+    },
+    {
+      "source_label": "nova musica paulista",
+      "source_url": "https://everynoise.com/engenremap-novamusicapaulista.html",
+      "suggested_id": "nova_musica_paulista",
+      "allocation_ordinal": 4043
+    },
+    {
+      "source_label": "novos talentos brasileiros",
+      "source_url": "https://everynoise.com/engenremap-novostalentosbrasileiros.html",
+      "suggested_id": "novos_talentos_brasileiros",
+      "allocation_ordinal": 4044
+    },
+    {
+      "source_label": "nu age",
+      "source_url": "https://everynoise.com/engenremap-nuage.html",
+      "suggested_id": "nu_age",
+      "allocation_ordinal": 4045
+    },
+    {
+      "source_label": "nu gabber",
+      "source_url": "https://everynoise.com/engenremap-nugabber.html",
+      "suggested_id": "nu_gabber",
+      "allocation_ordinal": 4046
+    },
+    {
+      "source_label": "nu gaze",
+      "source_url": "https://everynoise.com/engenremap-nugaze.html",
+      "suggested_id": "nu_gaze",
+      "allocation_ordinal": 4047
+    },
+    {
+      "source_label": "nubian traditional",
+      "source_url": "https://everynoise.com/engenremap-nubiantraditional.html",
+      "suggested_id": "nubian_traditional",
+      "allocation_ordinal": 4048
+    },
+    {
+      "source_label": "nueva ola chilena",
+      "source_url": "https://everynoise.com/engenremap-nuevaolachilena.html",
+      "suggested_id": "nueva_ola_chilena",
+      "allocation_ordinal": 4049
+    },
+    {
+      "source_label": "nueva ola peruana",
+      "source_url": "https://everynoise.com/engenremap-nuevaolaperuana.html",
+      "suggested_id": "nueva_ola_peruana",
+      "allocation_ordinal": 4050
+    }
+  ]
+}

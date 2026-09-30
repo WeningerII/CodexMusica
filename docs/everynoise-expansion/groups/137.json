@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "137",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "hammond organ",
+      "source_url": "https://everynoise.com/engenremap-hammondorgan.html",
+      "suggested_id": "hammond_organ",
+      "allocation_ordinal": 3401
+    },
+    {
+      "source_label": "hampton roads indie",
+      "source_url": "https://everynoise.com/engenremap-hamptonroadsindie.html",
+      "suggested_id": "hampton_roads_indie",
+      "allocation_ordinal": 3402
+    },
+    {
+      "source_label": "handbells",
+      "source_url": "https://everynoise.com/engenremap-handbells.html",
+      "suggested_id": "handbells",
+      "allocation_ordinal": 3403
+    },
+    {
+      "source_label": "handpan",
+      "source_url": "https://everynoise.com/engenremap-handpan.html",
+      "suggested_id": "handpan",
+      "allocation_ordinal": 3404
+    },
+    {
+      "source_label": "hangoskonyvek",
+      "source_url": "https://everynoise.com/engenremap-hangoskonyvek.html",
+      "suggested_id": "hangoskonyvek",
+      "allocation_ordinal": 3405
+    },
+    {
+      "source_label": "hard alternative",
+      "source_url": "https://everynoise.com/engenremap-hardalternative.html",
+      "suggested_id": "hard_alternative",
+      "allocation_ordinal": 3406
+    },
+    {
+      "source_label": "hard chime",
+      "source_url": "https://everynoise.com/engenremap-hardchime.html",
+      "suggested_id": "hard_chime",
+      "allocation_ordinal": 3407
+    },
+    {
+      "source_label": "hard glam",
+      "source_url": "https://everynoise.com/engenremap-hardglam.html",
+      "suggested_id": "hard_glam",
+      "allocation_ordinal": 3408
+    },
+    {
+      "source_label": "hard motivation",
+      "source_url": "https://everynoise.com/engenremap-hardmotivation.html",
+      "suggested_id": "hard_motivation",
+      "allocation_ordinal": 3409
+    },
+    {
+      "source_label": "hardgroove",
+      "source_url": "https://everynoise.com/engenremap-hardgroove.html",
+      "suggested_id": "hardgroove",
+      "allocation_ordinal": 3410
+    },
+    {
+      "source_label": "harmonikka",
+      "source_url": "https://everynoise.com/engenremap-harmonikka.html",
+      "suggested_id": "harmonikka",
+      "allocation_ordinal": 3411
+    },
+    {
+      "source_label": "harp",
+      "source_url": "https://everynoise.com/engenremap-harp.html",
+      "suggested_id": "harp",
+      "allocation_ordinal": 3412
+    },
+    {
+      "source_label": "harpsichord",
+      "source_url": "https://everynoise.com/engenremap-harpsichord.html",
+      "suggested_id": "harpsichord",
+      "allocation_ordinal": 3413
+    },
+    {
+      "source_label": "haryanvi ragni",
+      "source_url": "https://everynoise.com/engenremap-haryanviragni.html",
+      "suggested_id": "haryanvi_ragni",
+      "allocation_ordinal": 3414
+    },
+    {
+      "source_label": "haur kantak",
+      "source_url": "https://everynoise.com/engenremap-haurkantak.html",
+      "suggested_id": "haur_kantak",
+      "allocation_ordinal": 3415
+    },
+    {
+      "source_label": "hawaiian indie",
+      "source_url": "https://everynoise.com/engenremap-hawaiianindie.html",
+      "suggested_id": "hawaiian_indie",
+      "allocation_ordinal": 3416
+    },
+    {
+      "source_label": "healing hz",
+      "source_url": "https://everynoise.com/engenremap-healinghz.html",
+      "suggested_id": "healing_hz",
+      "allocation_ordinal": 3417
+    },
+    {
+      "source_label": "heavy alternative",
+      "source_url": "https://everynoise.com/engenremap-heavyalternative.html",
+      "suggested_id": "heavy_alternative",
+      "allocation_ordinal": 3418
+    },
+    {
+      "source_label": "heavy psych",
+      "source_url": "https://everynoise.com/engenremap-heavypsych.html",
+      "suggested_id": "heavy_psych",
+      "allocation_ordinal": 3419
+    },
+    {
+      "source_label": "hel",
+      "source_url": "https://everynoise.com/engenremap-hel.html",
+      "suggested_id": "hel",
+      "allocation_ordinal": 3420
+    },
+    {
+      "source_label": "heligonka",
+      "source_url": "https://everynoise.com/engenremap-heligonka.html",
+      "suggested_id": "heligonka",
+      "allocation_ordinal": 3421
+    },
+    {
+      "source_label": "hengelliset laulut",
+      "source_url": "https://everynoise.com/engenremap-hengellisetlaulut.html",
+      "suggested_id": "hengelliset_laulut",
+      "allocation_ordinal": 3422
+    },
+    {
+      "source_label": "high vibe",
+      "source_url": "https://everynoise.com/engenremap-highvibe.html",
+      "suggested_id": "high_vibe",
+      "allocation_ordinal": 3423
+    },
+    {
+      "source_label": "high-tech minimal",
+      "source_url": "https://everynoise.com/engenremap-hightechminimal.html",
+      "suggested_id": "high_tech_minimal",
+      "allocation_ordinal": 3424
+    },
+    {
+      "source_label": "hindi indie",
+      "source_url": "https://everynoise.com/engenremap-hindiindie.html",
+      "suggested_id": "hindi_indie",
+      "allocation_ordinal": 3425
+    }
+  ]
+}

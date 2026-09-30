@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "014",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "idaho hip hop",
+      "source_url": "https://everynoise.com/engenremap-idahohiphop.html",
+      "suggested_id": "idaho_hip_hop",
+      "allocation_ordinal": 326
+    },
+    {
+      "source_label": "igbo rap",
+      "source_url": "https://everynoise.com/engenremap-igborap.html",
+      "suggested_id": "igbo_rap",
+      "allocation_ordinal": 327
+    },
+    {
+      "source_label": "igbo trap",
+      "source_url": "https://everynoise.com/engenremap-igbotrap.html",
+      "suggested_id": "igbo_trap",
+      "allocation_ordinal": 328
+    },
+    {
+      "source_label": "indian underground rap",
+      "source_url": "https://everynoise.com/engenremap-indianundergroundrap.html",
+      "suggested_id": "indian_underground_rap",
+      "allocation_ordinal": 329
+    },
+    {
+      "source_label": "indiana hip hop",
+      "source_url": "https://everynoise.com/engenremap-indianahiphop.html",
+      "suggested_id": "indiana_hip_hop",
+      "allocation_ordinal": 330
+    },
+    {
+      "source_label": "indie hip hop",
+      "source_url": "https://everynoise.com/engenremap-indiehiphop.html",
+      "suggested_id": "indie_hip_hop",
+      "allocation_ordinal": 331
+    },
+    {
+      "source_label": "indie pop rap",
+      "source_url": "https://everynoise.com/engenremap-indiepoprap.html",
+      "suggested_id": "indie_pop_rap",
+      "allocation_ordinal": 332
+    },
+    {
+      "source_label": "indonesian emo rap",
+      "source_url": "https://everynoise.com/engenremap-indonesianemorap.html",
+      "suggested_id": "indonesian_emo_rap",
+      "allocation_ordinal": 333
+    },
+    {
+      "source_label": "indonesian hip hop",
+      "source_url": "https://everynoise.com/engenremap-indonesianhiphop.html",
+      "suggested_id": "indonesian_hip_hop",
+      "allocation_ordinal": 334
+    },
+    {
+      "source_label": "indonesian trap",
+      "source_url": "https://everynoise.com/engenremap-indonesiantrap.html",
+      "suggested_id": "indonesian_trap",
+      "allocation_ordinal": 335
+    },
+    {
+      "source_label": "indonesian underground hip hop",
+      "source_url": "https://everynoise.com/engenremap-indonesianundergroundhiphop.html",
+      "suggested_id": "indonesian_underground_hip_hop",
+      "allocation_ordinal": 336
+    },
+    {
+      "source_label": "iowa hip hop",
+      "source_url": "https://everynoise.com/engenremap-iowahiphop.html",
+      "suggested_id": "iowa_hip_hop",
+      "allocation_ordinal": 337
+    },
+    {
+      "source_label": "iraqi hip hop",
+      "source_url": "https://everynoise.com/engenremap-iraqihiphop.html",
+      "suggested_id": "iraqi_hip_hop",
+      "allocation_ordinal": 338
+    },
+    {
+      "source_label": "irish drill",
+      "source_url": "https://everynoise.com/engenremap-irishdrill.html",
+      "suggested_id": "irish_drill",
+      "allocation_ordinal": 339
+    },
+    {
+      "source_label": "irish hip hop",
+      "source_url": "https://everynoise.com/engenremap-irishhiphop.html",
+      "suggested_id": "irish_hip_hop",
+      "allocation_ordinal": 340
+    },
+    {
+      "source_label": "irish trap",
+      "source_url": "https://everynoise.com/engenremap-irishtrap.html",
+      "suggested_id": "irish_trap",
+      "allocation_ordinal": 341
+    },
+    {
+      "source_label": "irish underground rap",
+      "source_url": "https://everynoise.com/engenremap-irishundergroundrap.html",
+      "suggested_id": "irish_underground_rap",
+      "allocation_ordinal": 342
+    },
+    {
+      "source_label": "israeli hip hop",
+      "source_url": "https://everynoise.com/engenremap-israelihiphop.html",
+      "suggested_id": "israeli_hip_hop",
+      "allocation_ordinal": 343
+    },
+    {
+      "source_label": "israeli trap",
+      "source_url": "https://everynoise.com/engenremap-israelitrap.html",
+      "suggested_id": "israeli_trap",
+      "allocation_ordinal": 344
+    },
+    {
+      "source_label": "israelite hip hop",
+      "source_url": "https://everynoise.com/engenremap-israelitehiphop.html",
+      "suggested_id": "israelite_hip_hop",
+      "allocation_ordinal": 345
+    },
+    {
+      "source_label": "italian hip hop",
+      "source_url": "https://everynoise.com/engenremap-italianhiphop.html",
+      "suggested_id": "italian_hip_hop",
+      "allocation_ordinal": 346
+    },
+    {
+      "source_label": "italian underground hip hop",
+      "source_url": "https://everynoise.com/engenremap-italianundergroundhiphop.html",
+      "suggested_id": "italian_underground_hip_hop",
+      "allocation_ordinal": 347
+    },
+    {
+      "source_label": "j-rap",
+      "source_url": "https://everynoise.com/engenremap-jrap.html",
+      "suggested_id": "j_rap",
+      "allocation_ordinal": 348
+    },
+    {
+      "source_label": "jamaican hip hop",
+      "source_url": "https://everynoise.com/engenremap-jamaicanhiphop.html",
+      "suggested_id": "jamaican_hip_hop",
+      "allocation_ordinal": 349
+    },
+    {
+      "source_label": "japanese chill rap",
+      "source_url": "https://everynoise.com/engenremap-japanesechillrap.html",
+      "suggested_id": "japanese_chill_rap",
+      "allocation_ordinal": 350
+    }
+  ]
+}

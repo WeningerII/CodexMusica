@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "092",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["classical and vocal ensemble names"],
+  "entries": [
+    {
+      "source_label": "danish classical",
+      "source_url": "https://everynoise.com/engenremap-danishclassical.html",
+      "suggested_id": "danish_classical",
+      "allocation_ordinal": 2276
+    },
+    {
+      "source_label": "danish contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-danishcontemporaryclassical.html",
+      "suggested_id": "danish_contemporary_classical",
+      "allocation_ordinal": 2277
+    },
+    {
+      "source_label": "dutch baroque",
+      "source_url": "https://everynoise.com/engenremap-dutchbaroque.html",
+      "suggested_id": "dutch_baroque",
+      "allocation_ordinal": 2278
+    },
+    {
+      "source_label": "dutch classical piano",
+      "source_url": "https://everynoise.com/engenremap-dutchclassicalpiano.html",
+      "suggested_id": "dutch_classical_piano",
+      "allocation_ordinal": 2279
+    },
+    {
+      "source_label": "dutch contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-dutchcontemporaryclassical.html",
+      "suggested_id": "dutch_contemporary_classical",
+      "allocation_ordinal": 2280
+    },
+    {
+      "source_label": "early music choir",
+      "source_url": "https://everynoise.com/engenremap-earlymusicchoir.html",
+      "suggested_id": "early_music_choir",
+      "allocation_ordinal": 2281
+    },
+    {
+      "source_label": "english baroque",
+      "source_url": "https://everynoise.com/engenremap-englishbaroque.html",
+      "suggested_id": "english_baroque",
+      "allocation_ordinal": 2282
+    },
+    {
+      "source_label": "experimental classical",
+      "source_url": "https://everynoise.com/engenremap-experimentalclassical.html",
+      "suggested_id": "experimental_classical",
+      "allocation_ordinal": 2283
+    },
+    {
+      "source_label": "fictitious orchestra",
+      "source_url": "https://everynoise.com/engenremap-fictitiousorchestra.html",
+      "suggested_id": "fictitious_orchestra",
+      "allocation_ordinal": 2284
+    },
+    {
+      "source_label": "finnish choir",
+      "source_url": "https://everynoise.com/engenremap-finnishchoir.html",
+      "suggested_id": "finnish_choir",
+      "allocation_ordinal": 2285
+    },
+    {
+      "source_label": "finnish classical",
+      "source_url": "https://everynoise.com/engenremap-finnishclassical.html",
+      "suggested_id": "finnish_classical",
+      "allocation_ordinal": 2286
+    },
+    {
+      "source_label": "finnish contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-finnishcontemporaryclassical.html",
+      "suggested_id": "finnish_contemporary_classical",
+      "allocation_ordinal": 2287
+    },
+    {
+      "source_label": "french classical piano",
+      "source_url": "https://everynoise.com/engenremap-frenchclassicalpiano.html",
+      "suggested_id": "french_classical_piano",
+      "allocation_ordinal": 2288
+    },
+    {
+      "source_label": "french contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-frenchcontemporaryclassical.html",
+      "suggested_id": "french_contemporary_classical",
+      "allocation_ordinal": 2289
+    },
+    {
+      "source_label": "french opera",
+      "source_url": "https://everynoise.com/engenremap-frenchopera.html",
+      "suggested_id": "french_opera",
+      "allocation_ordinal": 2290
+    },
+    {
+      "source_label": "french orchestra",
+      "source_url": "https://everynoise.com/engenremap-frenchorchestra.html",
+      "suggested_id": "french_orchestra",
+      "allocation_ordinal": 2291
+    },
+    {
+      "source_label": "french renaissance",
+      "source_url": "https://everynoise.com/engenremap-frenchrenaissance.html",
+      "suggested_id": "french_renaissance",
+      "allocation_ordinal": 2292
+    },
+    {
+      "source_label": "german choir",
+      "source_url": "https://everynoise.com/engenremap-germanchoir.html",
+      "suggested_id": "german_choir",
+      "allocation_ordinal": 2293
+    },
+    {
+      "source_label": "german classical piano",
+      "source_url": "https://everynoise.com/engenremap-germanclassicalpiano.html",
+      "suggested_id": "german_classical_piano",
+      "allocation_ordinal": 2294
+    },
+    {
+      "source_label": "german contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-germancontemporaryclassical.html",
+      "suggested_id": "german_contemporary_classical",
+      "allocation_ordinal": 2295
+    },
+    {
+      "source_label": "german opera",
+      "source_url": "https://everynoise.com/engenremap-germanopera.html",
+      "suggested_id": "german_opera",
+      "allocation_ordinal": 2296
+    },
+    {
+      "source_label": "german orchestra",
+      "source_url": "https://everynoise.com/engenremap-germanorchestra.html",
+      "suggested_id": "german_orchestra",
+      "allocation_ordinal": 2297
+    },
+    {
+      "source_label": "german renaissance",
+      "source_url": "https://everynoise.com/engenremap-germanrenaissance.html",
+      "suggested_id": "german_renaissance",
+      "allocation_ordinal": 2298
+    },
+    {
+      "source_label": "greek contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-greekcontemporaryclassical.html",
+      "suggested_id": "greek_contemporary_classical",
+      "allocation_ordinal": 2299
+    },
+    {
+      "source_label": "harlem renaissance",
+      "source_url": "https://everynoise.com/engenremap-harlemrenaissance.html",
+      "suggested_id": "harlem_renaissance",
+      "allocation_ordinal": 2300
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "143",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "italogaze",
+      "source_url": "https://everynoise.com/engenremap-italogaze.html",
+      "suggested_id": "italogaze",
+      "allocation_ordinal": 3551
+    },
+    {
+      "source_label": "j-division",
+      "source_url": "https://everynoise.com/engenremap-jdivision.html",
+      "suggested_id": "j_division",
+      "allocation_ordinal": 3552
+    },
+    {
+      "source_label": "jacksonville indie",
+      "source_url": "https://everynoise.com/engenremap-jacksonvilleindie.html",
+      "suggested_id": "jacksonville_indie",
+      "allocation_ordinal": 3553
+    },
+    {
+      "source_label": "jain bhajan",
+      "source_url": "https://everynoise.com/engenremap-jainbhajan.html",
+      "suggested_id": "jain_bhajan",
+      "allocation_ordinal": 3554
+    },
+    {
+      "source_label": "jalsat",
+      "source_url": "https://everynoise.com/engenremap-jalsat.html",
+      "suggested_id": "jalsat",
+      "allocation_ordinal": 3555
+    },
+    {
+      "source_label": "jamtronica",
+      "source_url": "https://everynoise.com/engenremap-jamtronica.html",
+      "suggested_id": "jamtronica",
+      "allocation_ordinal": 3556
+    },
+    {
+      "source_label": "japanese beats",
+      "source_url": "https://everynoise.com/engenremap-japanesebeats.html",
+      "suggested_id": "japanese_beats",
+      "allocation_ordinal": 3557
+    },
+    {
+      "source_label": "japanese boom bap",
+      "source_url": "https://everynoise.com/engenremap-japaneseboombap.html",
+      "suggested_id": "japanese_boom_bap",
+      "allocation_ordinal": 3558
+    },
+    {
+      "source_label": "japanese buddhist chant",
+      "source_url": "https://everynoise.com/engenremap-japanesebuddhistchant.html",
+      "suggested_id": "japanese_buddhist_chant",
+      "allocation_ordinal": 3559
+    },
+    {
+      "source_label": "japanese celtic",
+      "source_url": "https://everynoise.com/engenremap-japaneseceltic.html",
+      "suggested_id": "japanese_celtic",
+      "allocation_ordinal": 3560
+    },
+    {
+      "source_label": "japanese chillhop",
+      "source_url": "https://everynoise.com/engenremap-japanesechillhop.html",
+      "suggested_id": "japanese_chillhop",
+      "allocation_ordinal": 3561
+    },
+    {
+      "source_label": "japanese concert band",
+      "source_url": "https://everynoise.com/engenremap-japaneseconcertband.html",
+      "suggested_id": "japanese_concert_band",
+      "allocation_ordinal": 3562
+    },
+    {
+      "source_label": "japanese experimental",
+      "source_url": "https://everynoise.com/engenremap-japaneseexperimental.html",
+      "suggested_id": "japanese_experimental",
+      "allocation_ordinal": 3563
+    },
+    {
+      "source_label": "japanese guitar",
+      "source_url": "https://everynoise.com/engenremap-japaneseguitar.html",
+      "suggested_id": "japanese_guitar",
+      "allocation_ordinal": 3564
+    },
+    {
+      "source_label": "japanese hyperpop",
+      "source_url": "https://everynoise.com/engenremap-japanesehyperpop.html",
+      "suggested_id": "japanese_hyperpop",
+      "allocation_ordinal": 3565
+    },
+    {
+      "source_label": "japanese instrumental",
+      "source_url": "https://everynoise.com/engenremap-japaneseinstrumental.html",
+      "suggested_id": "japanese_instrumental",
+      "allocation_ordinal": 3566
+    },
+    {
+      "source_label": "japanese jazztronica",
+      "source_url": "https://everynoise.com/engenremap-japanesejazztronica.html",
+      "suggested_id": "japanese_jazztronica",
+      "allocation_ordinal": 3567
+    },
+    {
+      "source_label": "japanese new wave",
+      "source_url": "https://everynoise.com/engenremap-japanesenewwave.html",
+      "suggested_id": "japanese_new_wave",
+      "allocation_ordinal": 3568
+    },
+    {
+      "source_label": "japanese piano",
+      "source_url": "https://everynoise.com/engenremap-japanesepiano.html",
+      "suggested_id": "japanese_piano",
+      "allocation_ordinal": 3569
+    },
+    {
+      "source_label": "japanese prog",
+      "source_url": "https://everynoise.com/engenremap-japaneseprog.html",
+      "suggested_id": "japanese_prog",
+      "allocation_ordinal": 3570
+    },
+    {
+      "source_label": "japanese psychedelic",
+      "source_url": "https://everynoise.com/engenremap-japanesepsychedelic.html",
+      "suggested_id": "japanese_psychedelic",
+      "allocation_ordinal": 3571
+    },
+    {
+      "source_label": "japanese traditional",
+      "source_url": "https://everynoise.com/engenremap-japanesetraditional.html",
+      "suggested_id": "japanese_traditional",
+      "allocation_ordinal": 3572
+    },
+    {
+      "source_label": "japanese vgm",
+      "source_url": "https://everynoise.com/engenremap-japanesevgm.html",
+      "suggested_id": "japanese_vgm",
+      "allocation_ordinal": 3573
+    },
+    {
+      "source_label": "japanese vtuber",
+      "source_url": "https://everynoise.com/engenremap-japanesevtuber.html",
+      "suggested_id": "japanese_vtuber",
+      "allocation_ordinal": 3574
+    },
+    {
+      "source_label": "japanese worship",
+      "source_url": "https://everynoise.com/engenremap-japaneseworship.html",
+      "suggested_id": "japanese_worship",
+      "allocation_ordinal": 3575
+    }
+  ]
+}

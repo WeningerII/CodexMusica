@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "017",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "middle east hip hop",
+      "source_url": "https://everynoise.com/engenremap-middleeasthiphop.html",
+      "suggested_id": "middle_east_hip_hop",
+      "allocation_ordinal": 401
+    },
+    {
+      "source_label": "military rap",
+      "source_url": "https://everynoise.com/engenremap-militaryrap.html",
+      "suggested_id": "military_rap",
+      "allocation_ordinal": 402
+    },
+    {
+      "source_label": "milwaukee hip hop",
+      "source_url": "https://everynoise.com/engenremap-milwaukeehiphop.html",
+      "suggested_id": "milwaukee_hip_hop",
+      "allocation_ordinal": 403
+    },
+    {
+      "source_label": "minnesota hip hop",
+      "source_url": "https://everynoise.com/engenremap-minnesotahiphop.html",
+      "suggested_id": "minnesota_hip_hop",
+      "allocation_ordinal": 404
+    },
+    {
+      "source_label": "mississippi hip hop",
+      "source_url": "https://everynoise.com/engenremap-mississippihiphop.html",
+      "suggested_id": "mississippi_hip_hop",
+      "allocation_ordinal": 405
+    },
+    {
+      "source_label": "mongolian hip hop",
+      "source_url": "https://everynoise.com/engenremap-mongolianhiphop.html",
+      "suggested_id": "mongolian_hip_hop",
+      "allocation_ordinal": 406
+    },
+    {
+      "source_label": "myanmar hip hop",
+      "source_url": "https://everynoise.com/engenremap-myanmarhiphop.html",
+      "suggested_id": "myanmar_hip_hop",
+      "allocation_ordinal": 407
+    },
+    {
+      "source_label": "native american hip hop",
+      "source_url": "https://everynoise.com/engenremap-nativeamericanhiphop.html",
+      "suggested_id": "native_american_hip_hop",
+      "allocation_ordinal": 408
+    },
+    {
+      "source_label": "new jersey underground rap",
+      "source_url": "https://everynoise.com/engenremap-newjerseyundergroundrap.html",
+      "suggested_id": "new_jersey_underground_rap",
+      "allocation_ordinal": 409
+    },
+    {
+      "source_label": "new orleans rap",
+      "source_url": "https://everynoise.com/engenremap-neworleansrap.html",
+      "suggested_id": "new_orleans_rap",
+      "allocation_ordinal": 410
+    },
+    {
+      "source_label": "new school turkce rap",
+      "source_url": "https://everynoise.com/engenremap-newschoolturkcerap.html",
+      "suggested_id": "new_school_turkce_rap",
+      "allocation_ordinal": 411
+    },
+    {
+      "source_label": "nigerian hip hop",
+      "source_url": "https://everynoise.com/engenremap-nigerianhiphop.html",
+      "suggested_id": "nigerian_hip_hop",
+      "allocation_ordinal": 412
+    },
+    {
+      "source_label": "nordnorsk rap",
+      "source_url": "https://everynoise.com/engenremap-nordnorskrap.html",
+      "suggested_id": "nordnorsk_rap",
+      "allocation_ordinal": 413
+    },
+    {
+      "source_label": "norrlandsk hip hop",
+      "source_url": "https://everynoise.com/engenremap-norrlandskhiphop.html",
+      "suggested_id": "norrlandsk_hip_hop",
+      "allocation_ordinal": 414
+    },
+    {
+      "source_label": "north carolina hip hop",
+      "source_url": "https://everynoise.com/engenremap-northcarolinahiphop.html",
+      "suggested_id": "north_carolina_hip_hop",
+      "allocation_ordinal": 415
+    },
+    {
+      "source_label": "north moroccan rap",
+      "source_url": "https://everynoise.com/engenremap-northmoroccanrap.html",
+      "suggested_id": "north_moroccan_rap",
+      "allocation_ordinal": 416
+    },
+    {
+      "source_label": "northeast indian hip hop",
+      "source_url": "https://everynoise.com/engenremap-northeastindianhiphop.html",
+      "suggested_id": "northeast_indian_hip_hop",
+      "allocation_ordinal": 417
+    },
+    {
+      "source_label": "norwegian hip hop",
+      "source_url": "https://everynoise.com/engenremap-norwegianhiphop.html",
+      "suggested_id": "norwegian_hip_hop",
+      "allocation_ordinal": 418
+    },
+    {
+      "source_label": "norwegian pop rap",
+      "source_url": "https://everynoise.com/engenremap-norwegianpoprap.html",
+      "suggested_id": "norwegian_pop_rap",
+      "allocation_ordinal": 419
+    },
+    {
+      "source_label": "norwegian trap",
+      "source_url": "https://everynoise.com/engenremap-norwegiantrap.html",
+      "suggested_id": "norwegian_trap",
+      "allocation_ordinal": 420
+    },
+    {
+      "source_label": "nottingham hip hop",
+      "source_url": "https://everynoise.com/engenremap-nottinghamhiphop.html",
+      "suggested_id": "nottingham_hip_hop",
+      "allocation_ordinal": 421
+    },
+    {
+      "source_label": "nz gangsta rap",
+      "source_url": "https://everynoise.com/engenremap-nzgangstarap.html",
+      "suggested_id": "nz_gangsta_rap",
+      "allocation_ordinal": 422
+    },
+    {
+      "source_label": "nz hip hop",
+      "source_url": "https://everynoise.com/engenremap-nzhiphop.html",
+      "suggested_id": "nz_hip_hop",
+      "allocation_ordinal": 423
+    },
+    {
+      "source_label": "oc rap",
+      "source_url": "https://everynoise.com/engenremap-ocrap.html",
+      "suggested_id": "oc_rap",
+      "allocation_ordinal": 424
+    },
+    {
+      "source_label": "ohio hip hop",
+      "source_url": "https://everynoise.com/engenremap-ohiohiphop.html",
+      "suggested_id": "ohio_hip_hop",
+      "allocation_ordinal": 425
+    }
+  ]
+}

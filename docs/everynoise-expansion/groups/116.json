@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "116",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "bible",
+      "source_url": "https://everynoise.com/engenremap-bible.html",
+      "suggested_id": "bible",
+      "allocation_ordinal": 2876
+    },
+    {
+      "source_label": "big room",
+      "source_url": "https://everynoise.com/engenremap-bigroom.html",
+      "suggested_id": "big_room",
+      "allocation_ordinal": 2877
+    },
+    {
+      "source_label": "binaural",
+      "source_url": "https://everynoise.com/engenremap-binaural.html",
+      "suggested_id": "binaural",
+      "allocation_ordinal": 2878
+    },
+    {
+      "source_label": "birdsong",
+      "source_url": "https://everynoise.com/engenremap-birdsong.html",
+      "suggested_id": "birdsong",
+      "allocation_ordinal": 2879
+    },
+    {
+      "source_label": "birmingham indie",
+      "source_url": "https://everynoise.com/engenremap-birminghamindie.html",
+      "suggested_id": "birmingham_indie",
+      "allocation_ordinal": 2880
+    },
+    {
+      "source_label": "birthday",
+      "source_url": "https://everynoise.com/engenremap-birthday.html",
+      "suggested_id": "birthday",
+      "allocation_ordinal": 2881
+    },
+    {
+      "source_label": "bisaya indie",
+      "source_url": "https://everynoise.com/engenremap-bisayaindie.html",
+      "suggested_id": "bisaya_indie",
+      "allocation_ordinal": 2882
+    },
+    {
+      "source_label": "bisaya worship",
+      "source_url": "https://everynoise.com/engenremap-bisayaworship.html",
+      "suggested_id": "bisaya_worship",
+      "allocation_ordinal": 2883
+    },
+    {
+      "source_label": "black 'n' roll",
+      "source_url": "https://everynoise.com/engenremap-blacknroll.html",
+      "suggested_id": "black_n_roll",
+      "allocation_ordinal": 2884
+    },
+    {
+      "source_label": "black comedy",
+      "source_url": "https://everynoise.com/engenremap-blackcomedy.html",
+      "suggested_id": "black_comedy",
+      "allocation_ordinal": 2885
+    },
+    {
+      "source_label": "black death",
+      "source_url": "https://everynoise.com/engenremap-blackdeath.html",
+      "suggested_id": "black_death",
+      "allocation_ordinal": 2886
+    },
+    {
+      "source_label": "black noise",
+      "source_url": "https://everynoise.com/engenremap-blacknoise.html",
+      "suggested_id": "black_noise",
+      "allocation_ordinal": 2887
+    },
+    {
+      "source_label": "black sludge",
+      "source_url": "https://everynoise.com/engenremap-blacksludge.html",
+      "suggested_id": "black_sludge",
+      "allocation_ordinal": 2888
+    },
+    {
+      "source_label": "black thrash",
+      "source_url": "https://everynoise.com/engenremap-blackthrash.html",
+      "suggested_id": "black_thrash",
+      "allocation_ordinal": 2889
+    },
+    {
+      "source_label": "blackened crust",
+      "source_url": "https://everynoise.com/engenremap-blackenedcrust.html",
+      "suggested_id": "blackened_crust",
+      "allocation_ordinal": 2890
+    },
+    {
+      "source_label": "blasmusik",
+      "source_url": "https://everynoise.com/engenremap-blasmusik.html",
+      "suggested_id": "blasmusik",
+      "allocation_ordinal": 2891
+    },
+    {
+      "source_label": "bleakgaze",
+      "source_url": "https://everynoise.com/engenremap-bleakgaze.html",
+      "suggested_id": "bleakgaze",
+      "allocation_ordinal": 2892
+    },
+    {
+      "source_label": "bloco",
+      "source_url": "https://everynoise.com/engenremap-bloco.html",
+      "suggested_id": "bloco",
+      "allocation_ordinal": 2893
+    },
+    {
+      "source_label": "bmore",
+      "source_url": "https://everynoise.com/engenremap-bmore.html",
+      "suggested_id": "bmore",
+      "allocation_ordinal": 2894
+    },
+    {
+      "source_label": "boeremusiek",
+      "source_url": "https://everynoise.com/engenremap-boeremusiek.html",
+      "suggested_id": "boeremusiek",
+      "allocation_ordinal": 2895
+    },
+    {
+      "source_label": "bogor indie",
+      "source_url": "https://everynoise.com/engenremap-bogorindie.html",
+      "suggested_id": "bogor_indie",
+      "allocation_ordinal": 2896
+    },
+    {
+      "source_label": "bohol indie",
+      "source_url": "https://everynoise.com/engenremap-boholindie.html",
+      "suggested_id": "bohol_indie",
+      "allocation_ordinal": 2897
+    },
+    {
+      "source_label": "boom bap brasileiro",
+      "source_url": "https://everynoise.com/engenremap-boombapbrasileiro.html",
+      "suggested_id": "boom_bap_brasileiro",
+      "allocation_ordinal": 2898
+    },
+    {
+      "source_label": "boom bap espanol",
+      "source_url": "https://everynoise.com/engenremap-boombapespanol.html",
+      "suggested_id": "boom_bap_espanol",
+      "allocation_ordinal": 2899
+    },
+    {
+      "source_label": "bornehistorier",
+      "source_url": "https://everynoise.com/engenremap-bornehistorier.html",
+      "suggested_id": "bornehistorier",
+      "allocation_ordinal": 2900
+    }
+  ]
+}

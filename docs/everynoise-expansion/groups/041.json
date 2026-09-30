@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "041",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names", "punk and emo"],
+  "entries": [
+    {
+      "source_label": "utah metal",
+      "source_url": "https://everynoise.com/engenremap-utahmetal.html",
+      "suggested_id": "utah_metal",
+      "allocation_ordinal": 1001
+    },
+    {
+      "source_label": "vancouver metal",
+      "source_url": "https://everynoise.com/engenremap-vancouvermetal.html",
+      "suggested_id": "vancouver_metal",
+      "allocation_ordinal": 1002
+    },
+    {
+      "source_label": "venezuelan metal",
+      "source_url": "https://everynoise.com/engenremap-venezuelanmetal.html",
+      "suggested_id": "venezuelan_metal",
+      "allocation_ordinal": 1003
+    },
+    {
+      "source_label": "viking black metal",
+      "source_url": "https://everynoise.com/engenremap-vikingblackmetal.html",
+      "suggested_id": "viking_black_metal",
+      "allocation_ordinal": 1004
+    },
+    {
+      "source_label": "virginia metal",
+      "source_url": "https://everynoise.com/engenremap-virginiametal.html",
+      "suggested_id": "virginia_metal",
+      "allocation_ordinal": 1005
+    },
+    {
+      "source_label": "vocaloid metal",
+      "source_url": "https://everynoise.com/engenremap-vocaloidmetal.html",
+      "suggested_id": "vocaloid_metal",
+      "allocation_ordinal": 1006
+    },
+    {
+      "source_label": "war metal",
+      "source_url": "https://everynoise.com/engenremap-warmetal.html",
+      "suggested_id": "war_metal",
+      "allocation_ordinal": 1007
+    },
+    {
+      "source_label": "welsh metal",
+      "source_url": "https://everynoise.com/engenremap-welshmetal.html",
+      "suggested_id": "welsh_metal",
+      "allocation_ordinal": 1008
+    },
+    {
+      "source_label": "west virginia metal",
+      "source_url": "https://everynoise.com/engenremap-westvirginiametal.html",
+      "suggested_id": "west_virginia_metal",
+      "allocation_ordinal": 1009
+    },
+    {
+      "source_label": "western ny metal",
+      "source_url": "https://everynoise.com/engenremap-westernnymetal.html",
+      "suggested_id": "western_ny_metal",
+      "allocation_ordinal": 1010
+    },
+    {
+      "source_label": "wisconsin metal",
+      "source_url": "https://everynoise.com/engenremap-wisconsinmetal.html",
+      "suggested_id": "wisconsin_metal",
+      "allocation_ordinal": 1011
+    },
+    {
+      "source_label": "5th wave emo",
+      "source_url": "https://everynoise.com/engenremap-5thwaveemo.html",
+      "suggested_id": "5th_wave_emo",
+      "allocation_ordinal": 1012
+    },
+    {
+      "source_label": "acoustic punk",
+      "source_url": "https://everynoise.com/engenremap-acousticpunk.html",
+      "suggested_id": "acoustic_punk",
+      "allocation_ordinal": 1013
+    },
+    {
+      "source_label": "adelaide punk",
+      "source_url": "https://everynoise.com/engenremap-adelaidepunk.html",
+      "suggested_id": "adelaide_punk",
+      "allocation_ordinal": 1014
+    },
+    {
+      "source_label": "alabama hardcore",
+      "source_url": "https://everynoise.com/engenremap-alabamahardcore.html",
+      "suggested_id": "alabama_hardcore",
+      "allocation_ordinal": 1015
+    },
+    {
+      "source_label": "alternative emo",
+      "source_url": "https://everynoise.com/engenremap-alternativeemo.html",
+      "suggested_id": "alternative_emo",
+      "allocation_ordinal": 1016
+    },
+    {
+      "source_label": "alternative hardcore",
+      "source_url": "https://everynoise.com/engenremap-alternativehardcore.html",
+      "suggested_id": "alternative_hardcore",
+      "allocation_ordinal": 1017
+    },
+    {
+      "source_label": "american post-punk",
+      "source_url": "https://everynoise.com/engenremap-americanpostpunk.html",
+      "suggested_id": "american_post_punk",
+      "allocation_ordinal": 1018
+    },
+    {
+      "source_label": "anthem emo",
+      "source_url": "https://everynoise.com/engenremap-anthememo.html",
+      "suggested_id": "anthem_emo",
+      "allocation_ordinal": 1019
+    },
+    {
+      "source_label": "argentine hardcore",
+      "source_url": "https://everynoise.com/engenremap-argentinehardcore.html",
+      "suggested_id": "argentine_hardcore",
+      "allocation_ordinal": 1020
+    },
+    {
+      "source_label": "argentine punk",
+      "source_url": "https://everynoise.com/engenremap-argentinepunk.html",
+      "suggested_id": "argentine_punk",
+      "allocation_ordinal": 1021
+    },
+    {
+      "source_label": "arizona punk",
+      "source_url": "https://everynoise.com/engenremap-arizonapunk.html",
+      "suggested_id": "arizona_punk",
+      "allocation_ordinal": 1022
+    },
+    {
+      "source_label": "atlanta punk",
+      "source_url": "https://everynoise.com/engenremap-atlantapunk.html",
+      "suggested_id": "atlanta_punk",
+      "allocation_ordinal": 1023
+    },
+    {
+      "source_label": "aussie emo",
+      "source_url": "https://everynoise.com/engenremap-aussieemo.html",
+      "suggested_id": "aussie_emo",
+      "allocation_ordinal": 1024
+    },
+    {
+      "source_label": "australian hardcore",
+      "source_url": "https://everynoise.com/engenremap-australianhardcore.html",
+      "suggested_id": "australian_hardcore",
+      "allocation_ordinal": 1025
+    }
+  ]
+}

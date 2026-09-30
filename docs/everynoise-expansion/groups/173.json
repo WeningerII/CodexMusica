@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "173",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "sleep",
+      "source_url": "https://everynoise.com/engenremap-sleep.html",
+      "suggested_id": "sleep",
+      "allocation_ordinal": 4301
+    },
+    {
+      "source_label": "slovak indie",
+      "source_url": "https://everynoise.com/engenremap-slovakindie.html",
+      "suggested_id": "slovak_indie",
+      "allocation_ordinal": 4302
+    },
+    {
+      "source_label": "slovenian indie",
+      "source_url": "https://everynoise.com/engenremap-slovenianindie.html",
+      "suggested_id": "slovenian_indie",
+      "allocation_ordinal": 4303
+    },
+    {
+      "source_label": "slovenske chvaly",
+      "source_url": "https://everynoise.com/engenremap-slovenskechvaly.html",
+      "suggested_id": "slovenske_chvaly",
+      "allocation_ordinal": 4304
+    },
+    {
+      "source_label": "slow game",
+      "source_url": "https://everynoise.com/engenremap-slowgame.html",
+      "suggested_id": "slow_game",
+      "allocation_ordinal": 4305
+    },
+    {
+      "source_label": "slowed and reverb",
+      "source_url": "https://everynoise.com/engenremap-slowedandreverb.html",
+      "suggested_id": "slowed_and_reverb",
+      "allocation_ordinal": 4306
+    },
+    {
+      "source_label": "sludgecore",
+      "source_url": "https://everynoise.com/engenremap-sludgecore.html",
+      "suggested_id": "sludgecore",
+      "allocation_ordinal": 4307
+    },
+    {
+      "source_label": "small room",
+      "source_url": "https://everynoise.com/engenremap-smallroom.html",
+      "suggested_id": "small_room",
+      "allocation_ordinal": 4308
+    },
+    {
+      "source_label": "smooth saxophone",
+      "source_url": "https://everynoise.com/engenremap-smoothsaxophone.html",
+      "suggested_id": "smooth_saxophone",
+      "allocation_ordinal": 4309
+    },
+    {
+      "source_label": "socal indie",
+      "source_url": "https://everynoise.com/engenremap-socalindie.html",
+      "suggested_id": "socal_indie",
+      "allocation_ordinal": 4310
+    },
+    {
+      "source_label": "solfeggio product",
+      "source_url": "https://everynoise.com/engenremap-solfeggioproduct.html",
+      "suggested_id": "solfeggio_product",
+      "allocation_ordinal": 4311
+    },
+    {
+      "source_label": "solipsynthm",
+      "source_url": "https://everynoise.com/engenremap-solipsynthm.html",
+      "suggested_id": "solipsynthm",
+      "allocation_ordinal": 4312
+    },
+    {
+      "source_label": "solo wave",
+      "source_url": "https://everynoise.com/engenremap-solowave.html",
+      "suggested_id": "solo_wave",
+      "allocation_ordinal": 4313
+    },
+    {
+      "source_label": "son cubano clasico",
+      "source_url": "https://everynoise.com/engenremap-soncubanoclasico.html",
+      "suggested_id": "son_cubano_clasico",
+      "allocation_ordinal": 4314
+    },
+    {
+      "source_label": "sonora indie",
+      "source_url": "https://everynoise.com/engenremap-sonoraindie.html",
+      "suggested_id": "sonora_indie",
+      "allocation_ordinal": 4315
+    },
+    {
+      "source_label": "sotalaulut",
+      "source_url": "https://everynoise.com/engenremap-sotalaulut.html",
+      "suggested_id": "sotalaulut",
+      "allocation_ordinal": 4316
+    },
+    {
+      "source_label": "sound",
+      "source_url": "https://everynoise.com/engenremap-sound.html",
+      "suggested_id": "sound",
+      "allocation_ordinal": 4317
+    },
+    {
+      "source_label": "sound effects",
+      "source_url": "https://everynoise.com/engenremap-soundeffects.html",
+      "suggested_id": "sound_effects",
+      "allocation_ordinal": 4318
+    },
+    {
+      "source_label": "sound team",
+      "source_url": "https://everynoise.com/engenremap-soundteam.html",
+      "suggested_id": "sound_team",
+      "allocation_ordinal": 4319
+    },
+    {
+      "source_label": "south african alternative",
+      "source_url": "https://everynoise.com/engenremap-southafricanalternative.html",
+      "suggested_id": "south_african_alternative",
+      "allocation_ordinal": 4320
+    },
+    {
+      "source_label": "south borneo indie",
+      "source_url": "https://everynoise.com/engenremap-southborneoindie.html",
+      "suggested_id": "south_borneo_indie",
+      "allocation_ordinal": 4321
+    },
+    {
+      "source_label": "south carolina indie",
+      "source_url": "https://everynoise.com/engenremap-southcarolinaindie.html",
+      "suggested_id": "south_carolina_indie",
+      "allocation_ordinal": 4322
+    },
+    {
+      "source_label": "south dakota indie",
+      "source_url": "https://everynoise.com/engenremap-southdakotaindie.html",
+      "suggested_id": "south_dakota_indie",
+      "allocation_ordinal": 4323
+    },
+    {
+      "source_label": "southampton indie",
+      "source_url": "https://everynoise.com/engenremap-southamptonindie.html",
+      "suggested_id": "southampton_indie",
+      "allocation_ordinal": 4324
+    },
+    {
+      "source_label": "southern china indie",
+      "source_url": "https://everynoise.com/engenremap-southernchinaindie.html",
+      "suggested_id": "southern_china_indie",
+      "allocation_ordinal": 4325
+    }
+  ]
+}

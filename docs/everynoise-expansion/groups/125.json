@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "125",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "cruise",
+      "source_url": "https://everynoise.com/engenremap-cruise.html",
+      "suggested_id": "cruise",
+      "allocation_ordinal": 3101
+    },
+    {
+      "source_label": "cuban alternative",
+      "source_url": "https://everynoise.com/engenremap-cubanalternative.html",
+      "suggested_id": "cuban_alternative",
+      "allocation_ordinal": 3102
+    },
+    {
+      "source_label": "cuento infantile",
+      "source_url": "https://everynoise.com/engenremap-cuentoinfantile.html",
+      "suggested_id": "cuento_infantile",
+      "allocation_ordinal": 3103
+    },
+    {
+      "source_label": "cumbia",
+      "source_url": "https://everynoise.com/engenremap-cumbia.html",
+      "suggested_id": "cumbia",
+      "allocation_ordinal": 3104
+    },
+    {
+      "source_label": "cumbia cristiana",
+      "source_url": "https://everynoise.com/engenremap-cumbiacristiana.html",
+      "suggested_id": "cumbia_cristiana",
+      "allocation_ordinal": 3105
+    },
+    {
+      "source_label": "cumbia del sureste",
+      "source_url": "https://everynoise.com/engenremap-cumbiadelsureste.html",
+      "suggested_id": "cumbia_del_sureste",
+      "allocation_ordinal": 3106
+    },
+    {
+      "source_label": "cumbia ecuatoriana",
+      "source_url": "https://everynoise.com/engenremap-cumbiaecuatoriana.html",
+      "suggested_id": "cumbia_ecuatoriana",
+      "allocation_ordinal": 3107
+    },
+    {
+      "source_label": "cumbia lagunera",
+      "source_url": "https://everynoise.com/engenremap-cumbialagunera.html",
+      "suggested_id": "cumbia_lagunera",
+      "allocation_ordinal": 3108
+    },
+    {
+      "source_label": "cumbia salvadorena",
+      "source_url": "https://everynoise.com/engenremap-cumbiasalvadorena.html",
+      "suggested_id": "cumbia_salvadorena",
+      "allocation_ordinal": 3109
+    },
+    {
+      "source_label": "cumbia santafesina",
+      "source_url": "https://everynoise.com/engenremap-cumbiasantafesina.html",
+      "suggested_id": "cumbia_santafesina",
+      "allocation_ordinal": 3110
+    },
+    {
+      "source_label": "cumbia sonorense",
+      "source_url": "https://everynoise.com/engenremap-cumbiasonorense.html",
+      "suggested_id": "cumbia_sonorense",
+      "allocation_ordinal": 3111
+    },
+    {
+      "source_label": "cumbia uruguaya",
+      "source_url": "https://everynoise.com/engenremap-cumbiauruguaya.html",
+      "suggested_id": "cumbia_uruguaya",
+      "allocation_ordinal": 3112
+    },
+    {
+      "source_label": "cyberpunk",
+      "source_url": "https://everynoise.com/engenremap-cyberpunk.html",
+      "suggested_id": "cyberpunk",
+      "allocation_ordinal": 3113
+    },
+    {
+      "source_label": "cymraeg",
+      "source_url": "https://everynoise.com/engenremap-cymraeg.html",
+      "suggested_id": "cymraeg",
+      "allocation_ordinal": 3114
+    },
+    {
+      "source_label": "czech experimental",
+      "source_url": "https://everynoise.com/engenremap-czechexperimental.html",
+      "suggested_id": "czech_experimental",
+      "allocation_ordinal": 3115
+    },
+    {
+      "source_label": "czech indie",
+      "source_url": "https://everynoise.com/engenremap-czechindie.html",
+      "suggested_id": "czech_indie",
+      "allocation_ordinal": 3116
+    },
+    {
+      "source_label": "czech psychedelic",
+      "source_url": "https://everynoise.com/engenremap-czechpsychedelic.html",
+      "suggested_id": "czech_psychedelic",
+      "allocation_ordinal": 3117
+    },
+    {
+      "source_label": "czsk electropop",
+      "source_url": "https://everynoise.com/engenremap-czskelectropop.html",
+      "suggested_id": "czsk_electropop",
+      "allocation_ordinal": 3118
+    },
+    {
+      "source_label": "czsk hyperpop",
+      "source_url": "https://everynoise.com/engenremap-czskhyperpop.html",
+      "suggested_id": "czsk_hyperpop",
+      "allocation_ordinal": 3119
+    },
+    {
+      "source_label": "dainuojamoji poezija",
+      "source_url": "https://everynoise.com/engenremap-dainuojamojipoezija.html",
+      "suggested_id": "dainuojamoji_poezija",
+      "allocation_ordinal": 3120
+    },
+    {
+      "source_label": "dakke dak",
+      "source_url": "https://everynoise.com/engenremap-dakkedak.html",
+      "suggested_id": "dakke_dak",
+      "allocation_ordinal": 3121
+    },
+    {
+      "source_label": "dalarna indie",
+      "source_url": "https://everynoise.com/engenremap-dalarnaindie.html",
+      "suggested_id": "dalarna_indie",
+      "allocation_ordinal": 3122
+    },
+    {
+      "source_label": "dallas indie",
+      "source_url": "https://everynoise.com/engenremap-dallasindie.html",
+      "suggested_id": "dallas_indie",
+      "allocation_ordinal": 3123
+    },
+    {
+      "source_label": "dangdut remix",
+      "source_url": "https://everynoise.com/engenremap-dangdutremix.html",
+      "suggested_id": "dangdut_remix",
+      "allocation_ordinal": 3124
+    },
+    {
+      "source_label": "danish electropop",
+      "source_url": "https://everynoise.com/engenremap-danishelectropop.html",
+      "suggested_id": "danish_electropop",
+      "allocation_ordinal": 3125
+    }
+  ]
+}

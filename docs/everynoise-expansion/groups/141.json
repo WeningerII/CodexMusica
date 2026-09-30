@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "141",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "indie trujillano",
+      "source_url": "https://everynoise.com/engenremap-indietrujillano.html",
+      "suggested_id": "indie_trujillano",
+      "allocation_ordinal": 3501
+    },
+    {
+      "source_label": "indie tucumano",
+      "source_url": "https://everynoise.com/engenremap-indietucumano.html",
+      "suggested_id": "indie_tucumano",
+      "allocation_ordinal": 3502
+    },
+    {
+      "source_label": "indie valenciana",
+      "source_url": "https://everynoise.com/engenremap-indievalenciana.html",
+      "suggested_id": "indie_valenciana",
+      "allocation_ordinal": 3503
+    },
+    {
+      "source_label": "indie veneto",
+      "source_url": "https://everynoise.com/engenremap-indieveneto.html",
+      "suggested_id": "indie_veneto",
+      "allocation_ordinal": 3504
+    },
+    {
+      "source_label": "indie viet",
+      "source_url": "https://everynoise.com/engenremap-indieviet.html",
+      "suggested_id": "indie_viet",
+      "allocation_ordinal": 3505
+    },
+    {
+      "source_label": "indiecoustica",
+      "source_url": "https://everynoise.com/engenremap-indiecoustica.html",
+      "suggested_id": "indiecoustica",
+      "allocation_ordinal": 3506
+    },
+    {
+      "source_label": "indonesian bamboo",
+      "source_url": "https://everynoise.com/engenremap-indonesianbamboo.html",
+      "suggested_id": "indonesian_bamboo",
+      "allocation_ordinal": 3507
+    },
+    {
+      "source_label": "indonesian experimental",
+      "source_url": "https://everynoise.com/engenremap-indonesianexperimental.html",
+      "suggested_id": "indonesian_experimental",
+      "allocation_ordinal": 3508
+    },
+    {
+      "source_label": "indonesian hyperpop",
+      "source_url": "https://everynoise.com/engenremap-indonesianhyperpop.html",
+      "suggested_id": "indonesian_hyperpop",
+      "allocation_ordinal": 3509
+    },
+    {
+      "source_label": "indonesian indie",
+      "source_url": "https://everynoise.com/engenremap-indonesianindie.html",
+      "suggested_id": "indonesian_indie",
+      "allocation_ordinal": 3510
+    },
+    {
+      "source_label": "indonesian indigenous traditional",
+      "source_url": "https://everynoise.com/engenremap-indonesianindigenoustraditional.html",
+      "suggested_id": "indonesian_indigenous_traditional",
+      "allocation_ordinal": 3511
+    },
+    {
+      "source_label": "indonesian neo-psychedelia",
+      "source_url": "https://everynoise.com/engenremap-indonesianneopsychedelia.html",
+      "suggested_id": "indonesian_neo_psychedelia",
+      "allocation_ordinal": 3512
+    },
+    {
+      "source_label": "indonesian worship",
+      "source_url": "https://everynoise.com/engenremap-indonesianworship.html",
+      "suggested_id": "indonesian_worship",
+      "allocation_ordinal": 3513
+    },
+    {
+      "source_label": "industrial noise",
+      "source_url": "https://everynoise.com/engenremap-industrialnoise.html",
+      "suggested_id": "industrial_noise",
+      "allocation_ordinal": 3514
+    },
+    {
+      "source_label": "indy indie",
+      "source_url": "https://everynoise.com/engenremap-indyindie.html",
+      "suggested_id": "indy_indie",
+      "allocation_ordinal": 3515
+    },
+    {
+      "source_label": "instrumental acoustic guitar",
+      "source_url": "https://everynoise.com/engenremap-instrumentalacousticguitar.html",
+      "suggested_id": "instrumental_acoustic_guitar",
+      "allocation_ordinal": 3516
+    },
+    {
+      "source_label": "instrumental lullaby",
+      "source_url": "https://everynoise.com/engenremap-instrumentallullaby.html",
+      "suggested_id": "instrumental_lullaby",
+      "allocation_ordinal": 3517
+    },
+    {
+      "source_label": "instrumental worship",
+      "source_url": "https://everynoise.com/engenremap-instrumentalworship.html",
+      "suggested_id": "instrumental_worship",
+      "allocation_ordinal": 3518
+    },
+    {
+      "source_label": "iowa indie",
+      "source_url": "https://everynoise.com/engenremap-iowaindie.html",
+      "suggested_id": "iowa_indie",
+      "allocation_ordinal": 3519
+    },
+    {
+      "source_label": "iranian experimental",
+      "source_url": "https://everynoise.com/engenremap-iranianexperimental.html",
+      "suggested_id": "iranian_experimental",
+      "allocation_ordinal": 3520
+    },
+    {
+      "source_label": "irish accordion",
+      "source_url": "https://everynoise.com/engenremap-irishaccordion.html",
+      "suggested_id": "irish_accordion",
+      "allocation_ordinal": 3521
+    },
+    {
+      "source_label": "irish ballad",
+      "source_url": "https://everynoise.com/engenremap-irishballad.html",
+      "suggested_id": "irish_ballad",
+      "allocation_ordinal": 3522
+    },
+    {
+      "source_label": "irish experimental",
+      "source_url": "https://everynoise.com/engenremap-irishexperimental.html",
+      "suggested_id": "irish_experimental",
+      "allocation_ordinal": 3523
+    },
+    {
+      "source_label": "irish fiddle",
+      "source_url": "https://everynoise.com/engenremap-irishfiddle.html",
+      "suggested_id": "irish_fiddle",
+      "allocation_ordinal": 3524
+    },
+    {
+      "source_label": "irish flute",
+      "source_url": "https://everynoise.com/engenremap-irishflute.html",
+      "suggested_id": "irish_flute",
+      "allocation_ordinal": 3525
+    }
+  ]
+}

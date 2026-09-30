@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "150",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "magyar mulatos",
+      "source_url": "https://everynoise.com/engenremap-magyarmulatos.html",
+      "suggested_id": "magyar_mulatos",
+      "allocation_ordinal": 3726
+    },
+    {
+      "source_label": "magyar musicalek",
+      "source_url": "https://everynoise.com/engenremap-magyarmusicalek.html",
+      "suggested_id": "magyar_musicalek",
+      "allocation_ordinal": 3727
+    },
+    {
+      "source_label": "maimouna",
+      "source_url": "https://everynoise.com/engenremap-maimouna.html",
+      "suggested_id": "maimouna",
+      "allocation_ordinal": 3728
+    },
+    {
+      "source_label": "maine indie",
+      "source_url": "https://everynoise.com/engenremap-maineindie.html",
+      "suggested_id": "maine_indie",
+      "allocation_ordinal": 3729
+    },
+    {
+      "source_label": "maithili",
+      "source_url": "https://everynoise.com/engenremap-maithili.html",
+      "suggested_id": "maithili",
+      "allocation_ordinal": 3730
+    },
+    {
+      "source_label": "malang indie",
+      "source_url": "https://everynoise.com/engenremap-malangindie.html",
+      "suggested_id": "malang_indie",
+      "allocation_ordinal": 3731
+    },
+    {
+      "source_label": "malayalam cover",
+      "source_url": "https://everynoise.com/engenremap-malayalamcover.html",
+      "suggested_id": "malayalam_cover",
+      "allocation_ordinal": 3732
+    },
+    {
+      "source_label": "malayalam indie",
+      "source_url": "https://everynoise.com/engenremap-malayalamindie.html",
+      "suggested_id": "malayalam_indie",
+      "allocation_ordinal": 3733
+    },
+    {
+      "source_label": "malayalam madh",
+      "source_url": "https://everynoise.com/engenremap-malayalammadh.html",
+      "suggested_id": "malayalam_madh",
+      "allocation_ordinal": 3734
+    },
+    {
+      "source_label": "malayalam worship",
+      "source_url": "https://everynoise.com/engenremap-malayalamworship.html",
+      "suggested_id": "malayalam_worship",
+      "allocation_ordinal": 3735
+    },
+    {
+      "source_label": "malaysian indie",
+      "source_url": "https://everynoise.com/engenremap-malaysianindie.html",
+      "suggested_id": "malaysian_indie",
+      "allocation_ordinal": 3736
+    },
+    {
+      "source_label": "malaysian mandopop",
+      "source_url": "https://everynoise.com/engenremap-malaysianmandopop.html",
+      "suggested_id": "malaysian_mandopop",
+      "allocation_ordinal": 3737
+    },
+    {
+      "source_label": "malaysian traditional",
+      "source_url": "https://everynoise.com/engenremap-malaysiantraditional.html",
+      "suggested_id": "malaysian_traditional",
+      "allocation_ordinal": 3738
+    },
+    {
+      "source_label": "malian traditional",
+      "source_url": "https://everynoise.com/engenremap-maliantraditional.html",
+      "suggested_id": "malian_traditional",
+      "allocation_ordinal": 3739
+    },
+    {
+      "source_label": "mallet",
+      "source_url": "https://everynoise.com/engenremap-mallet.html",
+      "suggested_id": "mallet",
+      "allocation_ordinal": 3740
+    },
+    {
+      "source_label": "malmo indie",
+      "source_url": "https://everynoise.com/engenremap-malmoindie.html",
+      "suggested_id": "malmo_indie",
+      "allocation_ordinal": 3741
+    },
+    {
+      "source_label": "manchester indie",
+      "source_url": "https://everynoise.com/engenremap-manchesterindie.html",
+      "suggested_id": "manchester_indie",
+      "allocation_ordinal": 3742
+    },
+    {
+      "source_label": "mandible",
+      "source_url": "https://everynoise.com/engenremap-mandible.html",
+      "suggested_id": "mandible",
+      "allocation_ordinal": 3743
+    },
+    {
+      "source_label": "mandolin",
+      "source_url": "https://everynoise.com/engenremap-mandolin.html",
+      "suggested_id": "mandolin",
+      "allocation_ordinal": 3744
+    },
+    {
+      "source_label": "manitoba indie",
+      "source_url": "https://everynoise.com/engenremap-manitobaindie.html",
+      "suggested_id": "manitoba_indie",
+      "allocation_ordinal": 3745
+    },
+    {
+      "source_label": "manso indie",
+      "source_url": "https://everynoise.com/engenremap-mansoindie.html",
+      "suggested_id": "manso_indie",
+      "allocation_ordinal": 3746
+    },
+    {
+      "source_label": "mapouka",
+      "source_url": "https://everynoise.com/engenremap-mapouka.html",
+      "suggested_id": "mapouka",
+      "allocation_ordinal": 3747
+    },
+    {
+      "source_label": "marathi balgeet",
+      "source_url": "https://everynoise.com/engenremap-marathibalgeet.html",
+      "suggested_id": "marathi_balgeet",
+      "allocation_ordinal": 3748
+    },
+    {
+      "source_label": "marathi devotional",
+      "source_url": "https://everynoise.com/engenremap-marathidevotional.html",
+      "suggested_id": "marathi_devotional",
+      "allocation_ordinal": 3749
+    },
+    {
+      "source_label": "marathi remix",
+      "source_url": "https://everynoise.com/engenremap-marathiremix.html",
+      "suggested_id": "marathi_remix",
+      "allocation_ordinal": 3750
+    }
+  ]
+}

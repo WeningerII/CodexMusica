@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "110",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "accordeon",
+      "source_url": "https://everynoise.com/engenremap-accordeon.html",
+      "suggested_id": "accordeon",
+      "allocation_ordinal": 2726
+    },
+    {
+      "source_label": "accordion",
+      "source_url": "https://everynoise.com/engenremap-accordion.html",
+      "suggested_id": "accordion",
+      "allocation_ordinal": 2727
+    },
+    {
+      "source_label": "accordion band",
+      "source_url": "https://everynoise.com/engenremap-accordionband.html",
+      "suggested_id": "accordion_band",
+      "allocation_ordinal": 2728
+    },
+    {
+      "source_label": "acoustic chill",
+      "source_url": "https://everynoise.com/engenremap-acousticchill.html",
+      "suggested_id": "acoustic_chill",
+      "allocation_ordinal": 2729
+    },
+    {
+      "source_label": "acoustic cover",
+      "source_url": "https://everynoise.com/engenremap-acousticcover.html",
+      "suggested_id": "acoustic_cover",
+      "allocation_ordinal": 2730
+    },
+    {
+      "source_label": "acoustic guitar cover",
+      "source_url": "https://everynoise.com/engenremap-acousticguitarcover.html",
+      "suggested_id": "acoustic_guitar_cover",
+      "allocation_ordinal": 2731
+    },
+    {
+      "source_label": "acoustic opm",
+      "source_url": "https://everynoise.com/engenremap-acousticopm.html",
+      "suggested_id": "acoustic_opm",
+      "allocation_ordinal": 2732
+    },
+    {
+      "source_label": "adelaide indie",
+      "source_url": "https://everynoise.com/engenremap-adelaideindie.html",
+      "suggested_id": "adelaide_indie",
+      "allocation_ordinal": 2733
+    },
+    {
+      "source_label": "adoracion",
+      "source_url": "https://everynoise.com/engenremap-adoracion.html",
+      "suggested_id": "adoracion",
+      "allocation_ordinal": 2734
+    },
+    {
+      "source_label": "adoracion pentecostal",
+      "source_url": "https://everynoise.com/engenremap-adoracionpentecostal.html",
+      "suggested_id": "adoracion_pentecostal",
+      "allocation_ordinal": 2735
+    },
+    {
+      "source_label": "adventista",
+      "source_url": "https://everynoise.com/engenremap-adventista.html",
+      "suggested_id": "adventista",
+      "allocation_ordinal": 2736
+    },
+    {
+      "source_label": "african experimental",
+      "source_url": "https://everynoise.com/engenremap-africanexperimental.html",
+      "suggested_id": "african_experimental",
+      "allocation_ordinal": 2737
+    },
+    {
+      "source_label": "african percussion",
+      "source_url": "https://everynoise.com/engenremap-africanpercussion.html",
+      "suggested_id": "african_percussion",
+      "allocation_ordinal": 2738
+    },
+    {
+      "source_label": "afrikaans",
+      "source_url": "https://everynoise.com/engenremap-afrikaans.html",
+      "suggested_id": "afrikaans",
+      "allocation_ordinal": 2739
+    },
+    {
+      "source_label": "afrikaans gqom",
+      "source_url": "https://everynoise.com/engenremap-afrikaansgqom.html",
+      "suggested_id": "afrikaans_gqom",
+      "allocation_ordinal": 2740
+    },
+    {
+      "source_label": "afro psych",
+      "source_url": "https://everynoise.com/engenremap-afropsych.html",
+      "suggested_id": "afro_psych",
+      "allocation_ordinal": 2741
+    },
+    {
+      "source_label": "afro-cuban percussion",
+      "source_url": "https://everynoise.com/engenremap-afrocubanpercussion.html",
+      "suggested_id": "afro_cuban_percussion",
+      "allocation_ordinal": 2742
+    },
+    {
+      "source_label": "afro-cuban traditional",
+      "source_url": "https://everynoise.com/engenremap-afrocubantraditional.html",
+      "suggested_id": "afro_cuban_traditional",
+      "allocation_ordinal": 2743
+    },
+    {
+      "source_label": "afrobeat brasileiro",
+      "source_url": "https://everynoise.com/engenremap-afrobeatbrasileiro.html",
+      "suggested_id": "afrobeat_brasileiro",
+      "allocation_ordinal": 2744
+    },
+    {
+      "source_label": "afrobeat fusion",
+      "source_url": "https://everynoise.com/engenremap-afrobeatfusion.html",
+      "suggested_id": "afrobeat_fusion",
+      "allocation_ordinal": 2745
+    },
+    {
+      "source_label": "aggro chileno",
+      "source_url": "https://everynoise.com/engenremap-aggrochileno.html",
+      "suggested_id": "aggro_chileno",
+      "allocation_ordinal": 2746
+    },
+    {
+      "source_label": "aghani lil-atfal",
+      "source_url": "https://everynoise.com/engenremap-aghanililatfal.html",
+      "suggested_id": "aghani_lil_atfal",
+      "allocation_ordinal": 2747
+    },
+    {
+      "source_label": "ai",
+      "source_url": "https://everynoise.com/engenremap-ai.html",
+      "suggested_id": "ai",
+      "allocation_ordinal": 2748
+    },
+    {
+      "source_label": "akordeon",
+      "source_url": "https://everynoise.com/engenremap-akordeon.html",
+      "suggested_id": "akordeon",
+      "allocation_ordinal": 2749
+    },
+    {
+      "source_label": "alabama indie",
+      "source_url": "https://everynoise.com/engenremap-alabamaindie.html",
+      "suggested_id": "alabama_indie",
+      "allocation_ordinal": 2750
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "032",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "german pagan metal",
+      "source_url": "https://everynoise.com/engenremap-germanpaganmetal.html",
+      "suggested_id": "german_pagan_metal",
+      "allocation_ordinal": 776
+    },
+    {
+      "source_label": "german power metal",
+      "source_url": "https://everynoise.com/engenremap-germanpowermetal.html",
+      "suggested_id": "german_power_metal",
+      "allocation_ordinal": 777
+    },
+    {
+      "source_label": "german thrash metal",
+      "source_url": "https://everynoise.com/engenremap-germanthrashmetal.html",
+      "suggested_id": "german_thrash_metal",
+      "allocation_ordinal": 778
+    },
+    {
+      "source_label": "gothenburg metal",
+      "source_url": "https://everynoise.com/engenremap-gothenburgmetal.html",
+      "suggested_id": "gothenburg_metal",
+      "allocation_ordinal": 779
+    },
+    {
+      "source_label": "gothic black metal",
+      "source_url": "https://everynoise.com/engenremap-gothicblackmetal.html",
+      "suggested_id": "gothic_black_metal",
+      "allocation_ordinal": 780
+    },
+    {
+      "source_label": "gothic symphonic metal",
+      "source_url": "https://everynoise.com/engenremap-gothicsymphonicmetal.html",
+      "suggested_id": "gothic_symphonic_metal",
+      "allocation_ordinal": 781
+    },
+    {
+      "source_label": "greek black metal",
+      "source_url": "https://everynoise.com/engenremap-greekblackmetal.html",
+      "suggested_id": "greek_black_metal",
+      "allocation_ordinal": 782
+    },
+    {
+      "source_label": "greek metal",
+      "source_url": "https://everynoise.com/engenremap-greekmetal.html",
+      "suggested_id": "greek_metal",
+      "allocation_ordinal": 783
+    },
+    {
+      "source_label": "grim death metal",
+      "source_url": "https://everynoise.com/engenremap-grimdeathmetal.html",
+      "suggested_id": "grim_death_metal",
+      "allocation_ordinal": 784
+    },
+    {
+      "source_label": "grisly death metal",
+      "source_url": "https://everynoise.com/engenremap-grislydeathmetal.html",
+      "suggested_id": "grisly_death_metal",
+      "allocation_ordinal": 785
+    },
+    {
+      "source_label": "guatemalan metal",
+      "source_url": "https://everynoise.com/engenremap-guatemalanmetal.html",
+      "suggested_id": "guatemalan_metal",
+      "allocation_ordinal": 786
+    },
+    {
+      "source_label": "hungarian black metal",
+      "source_url": "https://everynoise.com/engenremap-hungarianblackmetal.html",
+      "suggested_id": "hungarian_black_metal",
+      "allocation_ordinal": 787
+    },
+    {
+      "source_label": "hungarian metal",
+      "source_url": "https://everynoise.com/engenremap-hungarianmetal.html",
+      "suggested_id": "hungarian_metal",
+      "allocation_ordinal": 788
+    },
+    {
+      "source_label": "icelandic black metal",
+      "source_url": "https://everynoise.com/engenremap-icelandicblackmetal.html",
+      "suggested_id": "icelandic_black_metal",
+      "allocation_ordinal": 789
+    },
+    {
+      "source_label": "icelandic metal",
+      "source_url": "https://everynoise.com/engenremap-icelandicmetal.html",
+      "suggested_id": "icelandic_metal",
+      "allocation_ordinal": 790
+    },
+    {
+      "source_label": "indian metal",
+      "source_url": "https://everynoise.com/engenremap-indianmetal.html",
+      "suggested_id": "indian_metal",
+      "allocation_ordinal": 791
+    },
+    {
+      "source_label": "indonesian black metal",
+      "source_url": "https://everynoise.com/engenremap-indonesianblackmetal.html",
+      "suggested_id": "indonesian_black_metal",
+      "allocation_ordinal": 792
+    },
+    {
+      "source_label": "indonesian death metal",
+      "source_url": "https://everynoise.com/engenremap-indonesiandeathmetal.html",
+      "suggested_id": "indonesian_death_metal",
+      "allocation_ordinal": 793
+    },
+    {
+      "source_label": "indonesian deathcore",
+      "source_url": "https://everynoise.com/engenremap-indonesiandeathcore.html",
+      "suggested_id": "indonesian_deathcore",
+      "allocation_ordinal": 794
+    },
+    {
+      "source_label": "indonesian metal",
+      "source_url": "https://everynoise.com/engenremap-indonesianmetal.html",
+      "suggested_id": "indonesian_metal",
+      "allocation_ordinal": 795
+    },
+    {
+      "source_label": "indonesian thrash metal",
+      "source_url": "https://everynoise.com/engenremap-indonesianthrashmetal.html",
+      "suggested_id": "indonesian_thrash_metal",
+      "allocation_ordinal": 796
+    },
+    {
+      "source_label": "industrial black metal",
+      "source_url": "https://everynoise.com/engenremap-industrialblackmetal.html",
+      "suggested_id": "industrial_black_metal",
+      "allocation_ordinal": 797
+    },
+    {
+      "source_label": "instrumental black metal",
+      "source_url": "https://everynoise.com/engenremap-instrumentalblackmetal.html",
+      "suggested_id": "instrumental_black_metal",
+      "allocation_ordinal": 798
+    },
+    {
+      "source_label": "instrumental death metal",
+      "source_url": "https://everynoise.com/engenremap-instrumentaldeathmetal.html",
+      "suggested_id": "instrumental_death_metal",
+      "allocation_ordinal": 799
+    },
+    {
+      "source_label": "instrumental djent",
+      "source_url": "https://everynoise.com/engenremap-instrumentaldjent.html",
+      "suggested_id": "instrumental_djent",
+      "allocation_ordinal": 800
+    }
+  ]
+}

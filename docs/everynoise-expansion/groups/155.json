@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "155",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "musica costarricense",
+      "source_url": "https://everynoise.com/engenremap-musicacostarricense.html",
+      "suggested_id": "musica_costarricense",
+      "allocation_ordinal": 3851
+    },
+    {
+      "source_label": "musica crista reformada",
+      "source_url": "https://everynoise.com/engenremap-musicacristareformada.html",
+      "suggested_id": "musica_crista_reformada",
+      "allocation_ordinal": 3852
+    },
+    {
+      "source_label": "musica cristiana guatemalteca",
+      "source_url": "https://everynoise.com/engenremap-musicacristianaguatemalteca.html",
+      "suggested_id": "musica_cristiana_guatemalteca",
+      "allocation_ordinal": 3853
+    },
+    {
+      "source_label": "musica ecuatoguineana",
+      "source_url": "https://everynoise.com/engenremap-musicaecuatoguineana.html",
+      "suggested_id": "musica_ecuatoguineana",
+      "allocation_ordinal": 3854
+    },
+    {
+      "source_label": "musica eletronica brasileira",
+      "source_url": "https://everynoise.com/engenremap-musicaeletronicabrasileira.html",
+      "suggested_id": "musica_eletronica_brasileira",
+      "allocation_ordinal": 3855
+    },
+    {
+      "source_label": "musica etnica",
+      "source_url": "https://everynoise.com/engenremap-musicaetnica.html",
+      "suggested_id": "musica_etnica",
+      "allocation_ordinal": 3856
+    },
+    {
+      "source_label": "musica evangelica instrumental",
+      "source_url": "https://everynoise.com/engenremap-musicaevangelicainstrumental.html",
+      "suggested_id": "musica_evangelica_instrumental",
+      "allocation_ordinal": 3857
+    },
+    {
+      "source_label": "musica feirense",
+      "source_url": "https://everynoise.com/engenremap-musicafeirense.html",
+      "suggested_id": "musica_feirense",
+      "allocation_ordinal": 3858
+    },
+    {
+      "source_label": "musica gaucha",
+      "source_url": "https://everynoise.com/engenremap-musicagaucha.html",
+      "suggested_id": "musica_gaucha",
+      "allocation_ordinal": 3859
+    },
+    {
+      "source_label": "musica gaucha tradicionalista",
+      "source_url": "https://everynoise.com/engenremap-musicagauchatradicionalista.html",
+      "suggested_id": "musica_gaucha_tradicionalista",
+      "allocation_ordinal": 3860
+    },
+    {
+      "source_label": "musica goiana",
+      "source_url": "https://everynoise.com/engenremap-musicagoiana.html",
+      "suggested_id": "musica_goiana",
+      "allocation_ordinal": 3861
+    },
+    {
+      "source_label": "musica guerrerense",
+      "source_url": "https://everynoise.com/engenremap-musicaguerrerense.html",
+      "suggested_id": "musica_guerrerense",
+      "allocation_ordinal": 3862
+    },
+    {
+      "source_label": "musica guineense",
+      "source_url": "https://everynoise.com/engenremap-musicaguineense.html",
+      "suggested_id": "musica_guineense",
+      "allocation_ordinal": 3863
+    },
+    {
+      "source_label": "musica hondurena",
+      "source_url": "https://everynoise.com/engenremap-musicahondurena.html",
+      "suggested_id": "musica_hondurena",
+      "allocation_ordinal": 3864
+    },
+    {
+      "source_label": "musica indigena brasileira",
+      "source_url": "https://everynoise.com/engenremap-musicaindigenabrasileira.html",
+      "suggested_id": "musica_indigena_brasileira",
+      "allocation_ordinal": 3865
+    },
+    {
+      "source_label": "musica indigena latinoamericana",
+      "source_url": "https://everynoise.com/engenremap-musicaindigenalatinoamericana.html",
+      "suggested_id": "musica_indigena_latinoamericana",
+      "allocation_ordinal": 3866
+    },
+    {
+      "source_label": "musica infantil",
+      "source_url": "https://everynoise.com/engenremap-musicainfantil.html",
+      "suggested_id": "musica_infantil",
+      "allocation_ordinal": 3867
+    },
+    {
+      "source_label": "musica infantil catala",
+      "source_url": "https://everynoise.com/engenremap-musicainfantilcatala.html",
+      "suggested_id": "musica_infantil_catala",
+      "allocation_ordinal": 3868
+    },
+    {
+      "source_label": "musica instrumental cristiana",
+      "source_url": "https://everynoise.com/engenremap-musicainstrumentalcristiana.html",
+      "suggested_id": "musica_instrumental_cristiana",
+      "allocation_ordinal": 3869
+    },
+    {
+      "source_label": "musica istmena",
+      "source_url": "https://everynoise.com/engenremap-musicaistmena.html",
+      "suggested_id": "musica_istmena",
+      "allocation_ordinal": 3870
+    },
+    {
+      "source_label": "musica jalisciense",
+      "source_url": "https://everynoise.com/engenremap-musicajalisciense.html",
+      "suggested_id": "musica_jalisciense",
+      "allocation_ordinal": 3871
+    },
+    {
+      "source_label": "musica juiz-forana",
+      "source_url": "https://everynoise.com/engenremap-musicajuizforana.html",
+      "suggested_id": "musica_juiz_forana",
+      "allocation_ordinal": 3872
+    },
+    {
+      "source_label": "musica lombarda",
+      "source_url": "https://everynoise.com/engenremap-musicalombarda.html",
+      "suggested_id": "musica_lombarda",
+      "allocation_ordinal": 3873
+    },
+    {
+      "source_label": "musica londrinense",
+      "source_url": "https://everynoise.com/engenremap-musicalondrinense.html",
+      "suggested_id": "musica_londrinense",
+      "allocation_ordinal": 3874
+    },
+    {
+      "source_label": "musica madeirense",
+      "source_url": "https://everynoise.com/engenremap-musicamadeirense.html",
+      "suggested_id": "musica_madeirense",
+      "allocation_ordinal": 3875
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "009",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "assamese hip hop",
+      "source_url": "https://everynoise.com/engenremap-assamesehiphop.html",
+      "suggested_id": "assamese_hip_hop",
+      "allocation_ordinal": 201
+    },
+    {
+      "source_label": "atl hip hop",
+      "source_url": "https://everynoise.com/engenremap-atlhiphop.html",
+      "suggested_id": "atl_hip_hop",
+      "allocation_ordinal": 202
+    },
+    {
+      "source_label": "atlantic canada hip hop",
+      "source_url": "https://everynoise.com/engenremap-atlanticcanadahiphop.html",
+      "suggested_id": "atlantic_canada_hip_hop",
+      "allocation_ordinal": 203
+    },
+    {
+      "source_label": "aussie drill",
+      "source_url": "https://everynoise.com/engenremap-aussiedrill.html",
+      "suggested_id": "aussie_drill",
+      "allocation_ordinal": 204
+    },
+    {
+      "source_label": "austin hip hop",
+      "source_url": "https://everynoise.com/engenremap-austinhiphop.html",
+      "suggested_id": "austin_hip_hop",
+      "allocation_ordinal": 205
+    },
+    {
+      "source_label": "australian indigenous hip hop",
+      "source_url": "https://everynoise.com/engenremap-australianindigenoushiphop.html",
+      "suggested_id": "australian_indigenous_hip_hop",
+      "allocation_ordinal": 206
+    },
+    {
+      "source_label": "australian trap",
+      "source_url": "https://everynoise.com/engenremap-australiantrap.html",
+      "suggested_id": "australian_trap",
+      "allocation_ordinal": 207
+    },
+    {
+      "source_label": "australian underground hip hop",
+      "source_url": "https://everynoise.com/engenremap-australianundergroundhiphop.html",
+      "suggested_id": "australian_underground_hip_hop",
+      "allocation_ordinal": 208
+    },
+    {
+      "source_label": "austrian hip hop",
+      "source_url": "https://everynoise.com/engenremap-austrianhiphop.html",
+      "suggested_id": "austrian_hip_hop",
+      "allocation_ordinal": 209
+    },
+    {
+      "source_label": "azeri rap",
+      "source_url": "https://everynoise.com/engenremap-azerirap.html",
+      "suggested_id": "azeri_rap",
+      "allocation_ordinal": 210
+    },
+    {
+      "source_label": "balkan drill",
+      "source_url": "https://everynoise.com/engenremap-balkandrill.html",
+      "suggested_id": "balkan_drill",
+      "allocation_ordinal": 211
+    },
+    {
+      "source_label": "balkan hip hop",
+      "source_url": "https://everynoise.com/engenremap-balkanhiphop.html",
+      "suggested_id": "balkan_hip_hop",
+      "allocation_ordinal": 212
+    },
+    {
+      "source_label": "balkan trap",
+      "source_url": "https://everynoise.com/engenremap-balkantrap.html",
+      "suggested_id": "balkan_trap",
+      "allocation_ordinal": 213
+    },
+    {
+      "source_label": "baltimore hip hop",
+      "source_url": "https://everynoise.com/engenremap-baltimorehiphop.html",
+      "suggested_id": "baltimore_hip_hop",
+      "allocation_ordinal": 214
+    },
+    {
+      "source_label": "bangladeshi hip hop",
+      "source_url": "https://everynoise.com/engenremap-bangladeshihiphop.html",
+      "suggested_id": "bangladeshi_hip_hop",
+      "allocation_ordinal": 215
+    },
+    {
+      "source_label": "bayerischer rap",
+      "source_url": "https://everynoise.com/engenremap-bayerischerrap.html",
+      "suggested_id": "bayerischer_rap",
+      "allocation_ordinal": 216
+    },
+    {
+      "source_label": "bc underground hip hop",
+      "source_url": "https://everynoise.com/engenremap-bcundergroundhiphop.html",
+      "suggested_id": "bc_underground_hip_hop",
+      "allocation_ordinal": 217
+    },
+    {
+      "source_label": "belarusian hip hop",
+      "source_url": "https://everynoise.com/engenremap-belarusianhiphop.html",
+      "suggested_id": "belarusian_hip_hop",
+      "allocation_ordinal": 218
+    },
+    {
+      "source_label": "belgian hip hop",
+      "source_url": "https://everynoise.com/engenremap-belgianhiphop.html",
+      "suggested_id": "belgian_hip_hop",
+      "allocation_ordinal": 219
+    },
+    {
+      "source_label": "birmingham hip hop",
+      "source_url": "https://everynoise.com/engenremap-birminghamhiphop.html",
+      "suggested_id": "birmingham_hip_hop",
+      "allocation_ordinal": 220
+    },
+    {
+      "source_label": "bisaya rap",
+      "source_url": "https://everynoise.com/engenremap-bisayarap.html",
+      "suggested_id": "bisaya_rap",
+      "allocation_ordinal": 221
+    },
+    {
+      "source_label": "boston hip hop",
+      "source_url": "https://everynoise.com/engenremap-bostonhiphop.html",
+      "suggested_id": "boston_hip_hop",
+      "allocation_ordinal": 222
+    },
+    {
+      "source_label": "botswana hip hop",
+      "source_url": "https://everynoise.com/engenremap-botswanahiphop.html",
+      "suggested_id": "botswana_hip_hop",
+      "allocation_ordinal": 223
+    },
+    {
+      "source_label": "brazilian hip hop",
+      "source_url": "https://everynoise.com/engenremap-brazilianhiphop.html",
+      "suggested_id": "brazilian_hip_hop",
+      "allocation_ordinal": 224
+    },
+    {
+      "source_label": "brisbane hip hop",
+      "source_url": "https://everynoise.com/engenremap-brisbanehiphop.html",
+      "suggested_id": "brisbane_hip_hop",
+      "allocation_ordinal": 225
+    }
+  ]
+}

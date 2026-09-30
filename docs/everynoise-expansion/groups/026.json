@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "026",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap", "metal and related names"],
+  "entries": [
+    {
+      "source_label": "uk hip hop",
+      "source_url": "https://everynoise.com/engenremap-ukhiphop.html",
+      "suggested_id": "uk_hip_hop",
+      "allocation_ordinal": 626
+    },
+    {
+      "source_label": "uk melodic rap",
+      "source_url": "https://everynoise.com/engenremap-ukmelodicrap.html",
+      "suggested_id": "uk_melodic_rap",
+      "allocation_ordinal": 627
+    },
+    {
+      "source_label": "ukrainian hip hop",
+      "source_url": "https://everynoise.com/engenremap-ukrainianhiphop.html",
+      "suggested_id": "ukrainian_hip_hop",
+      "allocation_ordinal": 628
+    },
+    {
+      "source_label": "ukrainian phonk",
+      "source_url": "https://everynoise.com/engenremap-ukrainianphonk.html",
+      "suggested_id": "ukrainian_phonk",
+      "allocation_ordinal": 629
+    },
+    {
+      "source_label": "upstate ny rap",
+      "source_url": "https://everynoise.com/engenremap-upstatenyrap.html",
+      "suggested_id": "upstate_ny_rap",
+      "allocation_ordinal": 630
+    },
+    {
+      "source_label": "urdu hip hop",
+      "source_url": "https://everynoise.com/engenremap-urduhiphop.html",
+      "suggested_id": "urdu_hip_hop",
+      "allocation_ordinal": 631
+    },
+    {
+      "source_label": "uzbek hip hop",
+      "source_url": "https://everynoise.com/engenremap-uzbekhiphop.html",
+      "suggested_id": "uzbek_hip_hop",
+      "allocation_ordinal": 632
+    },
+    {
+      "source_label": "venda rap",
+      "source_url": "https://everynoise.com/engenremap-vendarap.html",
+      "suggested_id": "venda_rap",
+      "allocation_ordinal": 633
+    },
+    {
+      "source_label": "viet chill rap",
+      "source_url": "https://everynoise.com/engenremap-vietchillrap.html",
+      "suggested_id": "viet_chill_rap",
+      "allocation_ordinal": 634
+    },
+    {
+      "source_label": "vietnamese hip hop",
+      "source_url": "https://everynoise.com/engenremap-vietnamesehiphop.html",
+      "suggested_id": "vietnamese_hip_hop",
+      "allocation_ordinal": 635
+    },
+    {
+      "source_label": "vietnamese trap",
+      "source_url": "https://everynoise.com/engenremap-vietnamesetrap.html",
+      "suggested_id": "vietnamese_trap",
+      "allocation_ordinal": 636
+    },
+    {
+      "source_label": "viral rap",
+      "source_url": "https://everynoise.com/engenremap-viralrap.html",
+      "suggested_id": "viral_rap",
+      "allocation_ordinal": 637
+    },
+    {
+      "source_label": "viral trap",
+      "source_url": "https://everynoise.com/engenremap-viraltrap.html",
+      "suggested_id": "viral_trap",
+      "allocation_ordinal": 638
+    },
+    {
+      "source_label": "virginia hip hop",
+      "source_url": "https://everynoise.com/engenremap-virginiahiphop.html",
+      "suggested_id": "virginia_hip_hop",
+      "allocation_ordinal": 639
+    },
+    {
+      "source_label": "vlaamse rap",
+      "source_url": "https://everynoise.com/engenremap-vlaamserap.html",
+      "suggested_id": "vlaamse_rap",
+      "allocation_ordinal": 640
+    },
+    {
+      "source_label": "welsh hip hop",
+      "source_url": "https://everynoise.com/engenremap-welshhiphop.html",
+      "suggested_id": "welsh_hip_hop",
+      "allocation_ordinal": 641
+    },
+    {
+      "source_label": "west australian hip hop",
+      "source_url": "https://everynoise.com/engenremap-westaustralianhiphop.html",
+      "suggested_id": "west_australian_hip_hop",
+      "allocation_ordinal": 642
+    },
+    {
+      "source_label": "west coast trap",
+      "source_url": "https://everynoise.com/engenremap-westcoasttrap.html",
+      "suggested_id": "west_coast_trap",
+      "allocation_ordinal": 643
+    },
+    {
+      "source_label": "west-vlaamse hip hop",
+      "source_url": "https://everynoise.com/engenremap-westvlaamsehiphop.html",
+      "suggested_id": "west_vlaamse_hip_hop",
+      "allocation_ordinal": 644
+    },
+    {
+      "source_label": "winnipeg hip hop",
+      "source_url": "https://everynoise.com/engenremap-winnipeghiphop.html",
+      "suggested_id": "winnipeg_hip_hop",
+      "allocation_ordinal": 645
+    },
+    {
+      "source_label": "xhosa hip hop",
+      "source_url": "https://everynoise.com/engenremap-xhosahiphop.html",
+      "suggested_id": "xhosa_hip_hop",
+      "allocation_ordinal": 646
+    },
+    {
+      "source_label": "zambian hip hop",
+      "source_url": "https://everynoise.com/engenremap-zambianhiphop.html",
+      "suggested_id": "zambian_hip_hop",
+      "allocation_ordinal": 647
+    },
+    {
+      "source_label": "zim hip hop",
+      "source_url": "https://everynoise.com/engenremap-zimhiphop.html",
+      "suggested_id": "zim_hip_hop",
+      "allocation_ordinal": 648
+    },
+    {
+      "source_label": "alabama metal",
+      "source_url": "https://everynoise.com/engenremap-alabamametal.html",
+      "suggested_id": "alabama_metal",
+      "allocation_ordinal": 649
+    },
+    {
+      "source_label": "alternative metalcore",
+      "source_url": "https://everynoise.com/engenremap-alternativemetalcore.html",
+      "suggested_id": "alternative_metalcore",
+      "allocation_ordinal": 650
+    }
+  ]
+}

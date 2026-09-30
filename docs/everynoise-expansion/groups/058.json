@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "058",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names"],
+  "entries": [
+    {
+      "source_label": "malaysian post-rock",
+      "source_url": "https://everynoise.com/engenremap-malaysianpostrock.html",
+      "suggested_id": "malaysian_post_rock",
+      "allocation_ordinal": 1426
+    },
+    {
+      "source_label": "math rock latinoamericano",
+      "source_url": "https://everynoise.com/engenremap-mathrocklatinoamericano.html",
+      "suggested_id": "math_rock_latinoamericano",
+      "allocation_ordinal": 1427
+    },
+    {
+      "source_label": "melodic hard rock",
+      "source_url": "https://everynoise.com/engenremap-melodichardrock.html",
+      "suggested_id": "melodic_hard_rock",
+      "allocation_ordinal": 1428
+    },
+    {
+      "source_label": "mexican classic rock",
+      "source_url": "https://everynoise.com/engenremap-mexicanclassicrock.html",
+      "suggested_id": "mexican_classic_rock",
+      "allocation_ordinal": 1429
+    },
+    {
+      "source_label": "mexican post-rock",
+      "source_url": "https://everynoise.com/engenremap-mexicanpostrock.html",
+      "suggested_id": "mexican_post_rock",
+      "allocation_ordinal": 1430
+    },
+    {
+      "source_label": "mexican rock-and-roll",
+      "source_url": "https://everynoise.com/engenremap-mexicanrockandroll.html",
+      "suggested_id": "mexican_rock_and_roll",
+      "allocation_ordinal": 1431
+    },
+    {
+      "source_label": "modern alternative rock",
+      "source_url": "https://everynoise.com/engenremap-modernalternativerock.html",
+      "suggested_id": "modern_alternative_rock",
+      "allocation_ordinal": 1432
+    },
+    {
+      "source_label": "modern blues rock",
+      "source_url": "https://everynoise.com/engenremap-modernbluesrock.html",
+      "suggested_id": "modern_blues_rock",
+      "allocation_ordinal": 1433
+    },
+    {
+      "source_label": "modern country rock",
+      "source_url": "https://everynoise.com/engenremap-moderncountryrock.html",
+      "suggested_id": "modern_country_rock",
+      "allocation_ordinal": 1434
+    },
+    {
+      "source_label": "modern folk rock",
+      "source_url": "https://everynoise.com/engenremap-modernfolkrock.html",
+      "suggested_id": "modern_folk_rock",
+      "allocation_ordinal": 1435
+    },
+    {
+      "source_label": "modern hard rock",
+      "source_url": "https://everynoise.com/engenremap-modernhardrock.html",
+      "suggested_id": "modern_hard_rock",
+      "allocation_ordinal": 1436
+    },
+    {
+      "source_label": "modern j-rock",
+      "source_url": "https://everynoise.com/engenremap-modernjrock.html",
+      "suggested_id": "modern_j_rock",
+      "allocation_ordinal": 1437
+    },
+    {
+      "source_label": "modern progressive rock",
+      "source_url": "https://everynoise.com/engenremap-modernprogressiverock.html",
+      "suggested_id": "modern_progressive_rock",
+      "allocation_ordinal": 1438
+    },
+    {
+      "source_label": "modern rock",
+      "source_url": "https://everynoise.com/engenremap-modernrock.html",
+      "suggested_id": "modern_rock",
+      "allocation_ordinal": 1439
+    },
+    {
+      "source_label": "modern southern rock",
+      "source_url": "https://everynoise.com/engenremap-modernsouthernrock.html",
+      "suggested_id": "modern_southern_rock",
+      "allocation_ordinal": 1440
+    },
+    {
+      "source_label": "neo-industrial rock",
+      "source_url": "https://everynoise.com/engenremap-neoindustrialrock.html",
+      "suggested_id": "neo_industrial_rock",
+      "allocation_ordinal": 1441
+    },
+    {
+      "source_label": "neo-rockabilly",
+      "source_url": "https://everynoise.com/engenremap-neorockabilly.html",
+      "suggested_id": "neo_rockabilly",
+      "allocation_ordinal": 1442
+    },
+    {
+      "source_label": "nordic post-rock",
+      "source_url": "https://everynoise.com/engenremap-nordicpostrock.html",
+      "suggested_id": "nordic_post_rock",
+      "allocation_ordinal": 1443
+    },
+    {
+      "source_label": "nordic shoegaze",
+      "source_url": "https://everynoise.com/engenremap-nordicshoegaze.html",
+      "suggested_id": "nordic_shoegaze",
+      "allocation_ordinal": 1444
+    },
+    {
+      "source_label": "norwegian alternative rock",
+      "source_url": "https://everynoise.com/engenremap-norwegianalternativerock.html",
+      "suggested_id": "norwegian_alternative_rock",
+      "allocation_ordinal": 1445
+    },
+    {
+      "source_label": "norwegian folk rock",
+      "source_url": "https://everynoise.com/engenremap-norwegianfolkrock.html",
+      "suggested_id": "norwegian_folk_rock",
+      "allocation_ordinal": 1446
+    },
+    {
+      "source_label": "norwegian rock",
+      "source_url": "https://everynoise.com/engenremap-norwegianrock.html",
+      "suggested_id": "norwegian_rock",
+      "allocation_ordinal": 1447
+    },
+    {
+      "source_label": "novo rock gaucho",
+      "source_url": "https://everynoise.com/engenremap-novorockgaucho.html",
+      "suggested_id": "novo_rock_gaucho",
+      "allocation_ordinal": 1448
+    },
+    {
+      "source_label": "nz alternative rock",
+      "source_url": "https://everynoise.com/engenremap-nzalternativerock.html",
+      "suggested_id": "nz_alternative_rock",
+      "allocation_ordinal": 1449
+    },
+    {
+      "source_label": "pakistani rock",
+      "source_url": "https://everynoise.com/engenremap-pakistanirock.html",
+      "suggested_id": "pakistani_rock",
+      "allocation_ordinal": 1450
+    }
+  ]
+}

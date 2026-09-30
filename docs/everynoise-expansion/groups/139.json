@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "139",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "hypertrance",
+      "source_url": "https://everynoise.com/engenremap-hypertrance.html",
+      "suggested_id": "hypertrance",
+      "allocation_ordinal": 3451
+    },
+    {
+      "source_label": "hypnosis",
+      "source_url": "https://everynoise.com/engenremap-hypnosis.html",
+      "suggested_id": "hypnosis",
+      "allocation_ordinal": 3452
+    },
+    {
+      "source_label": "icelandic experimental",
+      "source_url": "https://everynoise.com/engenremap-icelandicexperimental.html",
+      "suggested_id": "icelandic_experimental",
+      "allocation_ordinal": 3453
+    },
+    {
+      "source_label": "icelandic indie",
+      "source_url": "https://everynoise.com/engenremap-icelandicindie.html",
+      "suggested_id": "icelandic_indie",
+      "allocation_ordinal": 3454
+    },
+    {
+      "source_label": "idaho indie",
+      "source_url": "https://everynoise.com/engenremap-idahoindie.html",
+      "suggested_id": "idaho_indie",
+      "allocation_ordinal": 3455
+    },
+    {
+      "source_label": "igbo traditional",
+      "source_url": "https://everynoise.com/engenremap-igbotraditional.html",
+      "suggested_id": "igbo_traditional",
+      "allocation_ordinal": 3456
+    },
+    {
+      "source_label": "igbo worship",
+      "source_url": "https://everynoise.com/engenremap-igboworship.html",
+      "suggested_id": "igbo_worship",
+      "allocation_ordinal": 3457
+    },
+    {
+      "source_label": "ilahiler",
+      "source_url": "https://everynoise.com/engenremap-ilahiler.html",
+      "suggested_id": "ilahiler",
+      "allocation_ordinal": 3458
+    },
+    {
+      "source_label": "indian fusion",
+      "source_url": "https://everynoise.com/engenremap-indianfusion.html",
+      "suggested_id": "indian_fusion",
+      "allocation_ordinal": 3459
+    },
+    {
+      "source_label": "indian indie",
+      "source_url": "https://everynoise.com/engenremap-indianindie.html",
+      "suggested_id": "indian_indie",
+      "allocation_ordinal": 3460
+    },
+    {
+      "source_label": "indian lo-fi",
+      "source_url": "https://everynoise.com/engenremap-indianlofi.html",
+      "suggested_id": "indian_lo_fi",
+      "allocation_ordinal": 3461
+    },
+    {
+      "source_label": "indian percussion",
+      "source_url": "https://everynoise.com/engenremap-indianpercussion.html",
+      "suggested_id": "indian_percussion",
+      "allocation_ordinal": 3462
+    },
+    {
+      "source_label": "indian violin",
+      "source_url": "https://everynoise.com/engenremap-indianviolin.html",
+      "suggested_id": "indian_violin",
+      "allocation_ordinal": 3463
+    },
+    {
+      "source_label": "indiana indie",
+      "source_url": "https://everynoise.com/engenremap-indianaindie.html",
+      "suggested_id": "indiana_indie",
+      "allocation_ordinal": 3464
+    },
+    {
+      "source_label": "indie arequipeno",
+      "source_url": "https://everynoise.com/engenremap-indiearequipeno.html",
+      "suggested_id": "indie_arequipeno",
+      "allocation_ordinal": 3465
+    },
+    {
+      "source_label": "indie asturiana",
+      "source_url": "https://everynoise.com/engenremap-indieasturiana.html",
+      "suggested_id": "indie_asturiana",
+      "allocation_ordinal": 3466
+    },
+    {
+      "source_label": "indie boliviano",
+      "source_url": "https://everynoise.com/engenremap-indieboliviano.html",
+      "suggested_id": "indie_boliviano",
+      "allocation_ordinal": 3467
+    },
+    {
+      "source_label": "indie campechano",
+      "source_url": "https://everynoise.com/engenremap-indiecampechano.html",
+      "suggested_id": "indie_campechano",
+      "allocation_ordinal": 3468
+    },
+    {
+      "source_label": "indie canario",
+      "source_url": "https://everynoise.com/engenremap-indiecanario.html",
+      "suggested_id": "indie_canario",
+      "allocation_ordinal": 3469
+    },
+    {
+      "source_label": "indie cantabria",
+      "source_url": "https://everynoise.com/engenremap-indiecantabria.html",
+      "suggested_id": "indie_cantabria",
+      "allocation_ordinal": 3470
+    },
+    {
+      "source_label": "indie catala",
+      "source_url": "https://everynoise.com/engenremap-indiecatala.html",
+      "suggested_id": "indie_catala",
+      "allocation_ordinal": 3471
+    },
+    {
+      "source_label": "indie catracho",
+      "source_url": "https://everynoise.com/engenremap-indiecatracho.html",
+      "suggested_id": "indie_catracho",
+      "allocation_ordinal": 3472
+    },
+    {
+      "source_label": "indie cordoba",
+      "source_url": "https://everynoise.com/engenremap-indiecordoba.html",
+      "suggested_id": "indie_cordoba",
+      "allocation_ordinal": 3473
+    },
+    {
+      "source_label": "indie cristao",
+      "source_url": "https://everynoise.com/engenremap-indiecristao.html",
+      "suggested_id": "indie_cristao",
+      "allocation_ordinal": 3474
+    },
+    {
+      "source_label": "indie curitibano",
+      "source_url": "https://everynoise.com/engenremap-indiecuritibano.html",
+      "suggested_id": "indie_curitibano",
+      "allocation_ordinal": 3475
+    }
+  ]
+}

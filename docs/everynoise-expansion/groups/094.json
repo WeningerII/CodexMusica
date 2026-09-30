@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "094",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["classical and vocal ensemble names"],
+  "entries": [
+    {
+      "source_label": "japanese classical piano",
+      "source_url": "https://everynoise.com/engenremap-japaneseclassicalpiano.html",
+      "suggested_id": "japanese_classical_piano",
+      "allocation_ordinal": 2326
+    },
+    {
+      "source_label": "japanese contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-japanesecontemporaryclassical.html",
+      "suggested_id": "japanese_contemporary_classical",
+      "allocation_ordinal": 2327
+    },
+    {
+      "source_label": "japanese orchestra",
+      "source_url": "https://everynoise.com/engenremap-japaneseorchestra.html",
+      "suggested_id": "japanese_orchestra",
+      "allocation_ordinal": 2328
+    },
+    {
+      "source_label": "korean classical performance",
+      "source_url": "https://everynoise.com/engenremap-koreanclassicalperformance.html",
+      "suggested_id": "korean_classical_performance",
+      "allocation_ordinal": 2329
+    },
+    {
+      "source_label": "korean classical piano",
+      "source_url": "https://everynoise.com/engenremap-koreanclassicalpiano.html",
+      "suggested_id": "korean_classical_piano",
+      "allocation_ordinal": 2330
+    },
+    {
+      "source_label": "korean contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-koreancontemporaryclassical.html",
+      "suggested_id": "korean_contemporary_classical",
+      "allocation_ordinal": 2331
+    },
+    {
+      "source_label": "latin american baroque",
+      "source_url": "https://everynoise.com/engenremap-latinamericanbaroque.html",
+      "suggested_id": "latin_american_baroque",
+      "allocation_ordinal": 2332
+    },
+    {
+      "source_label": "latin american classical piano",
+      "source_url": "https://everynoise.com/engenremap-latinamericanclassicalpiano.html",
+      "suggested_id": "latin_american_classical_piano",
+      "allocation_ordinal": 2333
+    },
+    {
+      "source_label": "latin classical",
+      "source_url": "https://everynoise.com/engenremap-latinclassical.html",
+      "suggested_id": "latin_classical",
+      "allocation_ordinal": 2334
+    },
+    {
+      "source_label": "man's orchestra",
+      "source_url": "https://everynoise.com/engenremap-mansorchestra.html",
+      "suggested_id": "man_s_orchestra",
+      "allocation_ordinal": 2335
+    },
+    {
+      "source_label": "men's choir",
+      "source_url": "https://everynoise.com/engenremap-menschoir.html",
+      "suggested_id": "men_s_choir",
+      "allocation_ordinal": 2336
+    },
+    {
+      "source_label": "mexican classical",
+      "source_url": "https://everynoise.com/engenremap-mexicanclassical.html",
+      "suggested_id": "mexican_classical",
+      "allocation_ordinal": 2337
+    },
+    {
+      "source_label": "modern string quartet",
+      "source_url": "https://everynoise.com/engenremap-modernstringquartet.html",
+      "suggested_id": "modern_string_quartet",
+      "allocation_ordinal": 2338
+    },
+    {
+      "source_label": "neo-classical",
+      "source_url": "https://everynoise.com/engenremap-neoclassical.html",
+      "suggested_id": "neo_classical",
+      "allocation_ordinal": 2339
+    },
+    {
+      "source_label": "new zealand classical",
+      "source_url": "https://everynoise.com/engenremap-newzealandclassical.html",
+      "suggested_id": "new_zealand_classical",
+      "allocation_ordinal": 2340
+    },
+    {
+      "source_label": "nordic classical piano",
+      "source_url": "https://everynoise.com/engenremap-nordicclassicalpiano.html",
+      "suggested_id": "nordic_classical_piano",
+      "allocation_ordinal": 2341
+    },
+    {
+      "source_label": "nordic contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-nordiccontemporaryclassical.html",
+      "suggested_id": "nordic_contemporary_classical",
+      "allocation_ordinal": 2342
+    },
+    {
+      "source_label": "nordic orchestra",
+      "source_url": "https://everynoise.com/engenremap-nordicorchestra.html",
+      "suggested_id": "nordic_orchestra",
+      "allocation_ordinal": 2343
+    },
+    {
+      "source_label": "norwegian choir",
+      "source_url": "https://everynoise.com/engenremap-norwegianchoir.html",
+      "suggested_id": "norwegian_choir",
+      "allocation_ordinal": 2344
+    },
+    {
+      "source_label": "norwegian classical",
+      "source_url": "https://everynoise.com/engenremap-norwegianclassical.html",
+      "suggested_id": "norwegian_classical",
+      "allocation_ordinal": 2345
+    },
+    {
+      "source_label": "opera",
+      "source_url": "https://everynoise.com/engenremap-opera.html",
+      "suggested_id": "opera",
+      "allocation_ordinal": 2346
+    },
+    {
+      "source_label": "opera chorus",
+      "source_url": "https://everynoise.com/engenremap-operachorus.html",
+      "suggested_id": "opera_chorus",
+      "allocation_ordinal": 2347
+    },
+    {
+      "source_label": "orchestra",
+      "source_url": "https://everynoise.com/engenremap-orchestra.html",
+      "suggested_id": "orchestra",
+      "allocation_ordinal": 2348
+    },
+    {
+      "source_label": "orchestral performance",
+      "source_url": "https://everynoise.com/engenremap-orchestralperformance.html",
+      "suggested_id": "orchestral_performance",
+      "allocation_ordinal": 2349
+    },
+    {
+      "source_label": "oriental classical",
+      "source_url": "https://everynoise.com/engenremap-orientalclassical.html",
+      "suggested_id": "oriental_classical",
+      "allocation_ordinal": 2350
+    }
+  ]
+}

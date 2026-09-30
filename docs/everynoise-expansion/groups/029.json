@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "029",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "caribbean metal",
+      "source_url": "https://everynoise.com/engenremap-caribbeanmetal.html",
+      "suggested_id": "caribbean_metal",
+      "allocation_ordinal": 701
+    },
+    {
+      "source_label": "cascadian black metal",
+      "source_url": "https://everynoise.com/engenremap-cascadianblackmetal.html",
+      "suggested_id": "cascadian_black_metal",
+      "allocation_ordinal": 702
+    },
+    {
+      "source_label": "celtic metal",
+      "source_url": "https://everynoise.com/engenremap-celticmetal.html",
+      "suggested_id": "celtic_metal",
+      "allocation_ordinal": 703
+    },
+    {
+      "source_label": "central american metal",
+      "source_url": "https://everynoise.com/engenremap-centralamericanmetal.html",
+      "suggested_id": "central_american_metal",
+      "allocation_ordinal": 704
+    },
+    {
+      "source_label": "chaotic black metal",
+      "source_url": "https://everynoise.com/engenremap-chaoticblackmetal.html",
+      "suggested_id": "chaotic_black_metal",
+      "allocation_ordinal": 705
+    },
+    {
+      "source_label": "chilean black metal",
+      "source_url": "https://everynoise.com/engenremap-chileanblackmetal.html",
+      "suggested_id": "chilean_black_metal",
+      "allocation_ordinal": 706
+    },
+    {
+      "source_label": "chilean metal",
+      "source_url": "https://everynoise.com/engenremap-chileanmetal.html",
+      "suggested_id": "chilean_metal",
+      "allocation_ordinal": 707
+    },
+    {
+      "source_label": "chinese black metal",
+      "source_url": "https://everynoise.com/engenremap-chineseblackmetal.html",
+      "suggested_id": "chinese_black_metal",
+      "allocation_ordinal": 708
+    },
+    {
+      "source_label": "chinese metal",
+      "source_url": "https://everynoise.com/engenremap-chinesemetal.html",
+      "suggested_id": "chinese_metal",
+      "allocation_ordinal": 709
+    },
+    {
+      "source_label": "chinese metalcore",
+      "source_url": "https://everynoise.com/engenremap-chinesemetalcore.html",
+      "suggested_id": "chinese_metalcore",
+      "allocation_ordinal": 710
+    },
+    {
+      "source_label": "christian death metal",
+      "source_url": "https://everynoise.com/engenremap-christiandeathmetal.html",
+      "suggested_id": "christian_death_metal",
+      "allocation_ordinal": 711
+    },
+    {
+      "source_label": "christian deathcore",
+      "source_url": "https://everynoise.com/engenremap-christiandeathcore.html",
+      "suggested_id": "christian_deathcore",
+      "allocation_ordinal": 712
+    },
+    {
+      "source_label": "christian doom metal",
+      "source_url": "https://everynoise.com/engenremap-christiandoommetal.html",
+      "suggested_id": "christian_doom_metal",
+      "allocation_ordinal": 713
+    },
+    {
+      "source_label": "christian metal",
+      "source_url": "https://everynoise.com/engenremap-christianmetal.html",
+      "suggested_id": "christian_metal",
+      "allocation_ordinal": 714
+    },
+    {
+      "source_label": "christian metalcore",
+      "source_url": "https://everynoise.com/engenremap-christianmetalcore.html",
+      "suggested_id": "christian_metalcore",
+      "allocation_ordinal": 715
+    },
+    {
+      "source_label": "christian power metal",
+      "source_url": "https://everynoise.com/engenremap-christianpowermetal.html",
+      "suggested_id": "christian_power_metal",
+      "allocation_ordinal": 716
+    },
+    {
+      "source_label": "christian symphonic metal",
+      "source_url": "https://everynoise.com/engenremap-christiansymphonicmetal.html",
+      "suggested_id": "christian_symphonic_metal",
+      "allocation_ordinal": 717
+    },
+    {
+      "source_label": "christian thrash metal",
+      "source_url": "https://everynoise.com/engenremap-christianthrashmetal.html",
+      "suggested_id": "christian_thrash_metal",
+      "allocation_ordinal": 718
+    },
+    {
+      "source_label": "cleveland metal",
+      "source_url": "https://everynoise.com/engenremap-clevelandmetal.html",
+      "suggested_id": "cleveland_metal",
+      "allocation_ordinal": 719
+    },
+    {
+      "source_label": "colombian black metal",
+      "source_url": "https://everynoise.com/engenremap-colombianblackmetal.html",
+      "suggested_id": "colombian_black_metal",
+      "allocation_ordinal": 720
+    },
+    {
+      "source_label": "colombian death metal",
+      "source_url": "https://everynoise.com/engenremap-colombiandeathmetal.html",
+      "suggested_id": "colombian_death_metal",
+      "allocation_ordinal": 721
+    },
+    {
+      "source_label": "comic metal",
+      "source_url": "https://everynoise.com/engenremap-comicmetal.html",
+      "suggested_id": "comic_metal",
+      "allocation_ordinal": 722
+    },
+    {
+      "source_label": "cosmic death metal",
+      "source_url": "https://everynoise.com/engenremap-cosmicdeathmetal.html",
+      "suggested_id": "cosmic_death_metal",
+      "allocation_ordinal": 723
+    },
+    {
+      "source_label": "croatian metal",
+      "source_url": "https://everynoise.com/engenremap-croatianmetal.html",
+      "suggested_id": "croatian_metal",
+      "allocation_ordinal": 724
+    },
+    {
+      "source_label": "cryptic black metal",
+      "source_url": "https://everynoise.com/engenremap-crypticblackmetal.html",
+      "suggested_id": "cryptic_black_metal",
+      "allocation_ordinal": 725
+    }
+  ]
+}

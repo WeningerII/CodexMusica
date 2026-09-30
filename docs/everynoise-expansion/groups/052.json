@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "052",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names"],
+  "entries": [
+    {
+      "source_label": "belgian stoner rock",
+      "source_url": "https://everynoise.com/engenremap-belgianstonerrock.html",
+      "suggested_id": "belgian_stoner_rock",
+      "allocation_ordinal": 1276
+    },
+    {
+      "source_label": "blues-rock guitar",
+      "source_url": "https://everynoise.com/engenremap-bluesrockguitar.html",
+      "suggested_id": "blues_rock_guitar",
+      "allocation_ordinal": 1277
+    },
+    {
+      "source_label": "bolivian rock",
+      "source_url": "https://everynoise.com/engenremap-bolivianrock.html",
+      "suggested_id": "bolivian_rock",
+      "allocation_ordinal": 1278
+    },
+    {
+      "source_label": "boston rock",
+      "source_url": "https://everynoise.com/engenremap-bostonrock.html",
+      "suggested_id": "boston_rock",
+      "allocation_ordinal": 1279
+    },
+    {
+      "source_label": "brazilian indie rock",
+      "source_url": "https://everynoise.com/engenremap-brazilianindierock.html",
+      "suggested_id": "brazilian_indie_rock",
+      "allocation_ordinal": 1280
+    },
+    {
+      "source_label": "brazilian lo-fi rock",
+      "source_url": "https://everynoise.com/engenremap-brazilianlofirock.html",
+      "suggested_id": "brazilian_lo_fi_rock",
+      "allocation_ordinal": 1281
+    },
+    {
+      "source_label": "brazilian post-rock",
+      "source_url": "https://everynoise.com/engenremap-brazilianpostrock.html",
+      "suggested_id": "brazilian_post_rock",
+      "allocation_ordinal": 1282
+    },
+    {
+      "source_label": "brazilian rockabilly",
+      "source_url": "https://everynoise.com/engenremap-brazilianrockabilly.html",
+      "suggested_id": "brazilian_rockabilly",
+      "allocation_ordinal": 1283
+    },
+    {
+      "source_label": "brazilian stoner rock",
+      "source_url": "https://everynoise.com/engenremap-brazilianstonerrock.html",
+      "suggested_id": "brazilian_stoner_rock",
+      "allocation_ordinal": 1284
+    },
+    {
+      "source_label": "brazilian surf rock",
+      "source_url": "https://everynoise.com/engenremap-braziliansurfrock.html",
+      "suggested_id": "brazilian_surf_rock",
+      "allocation_ordinal": 1285
+    },
+    {
+      "source_label": "british alternative rock",
+      "source_url": "https://everynoise.com/engenremap-britishalternativerock.html",
+      "suggested_id": "british_alternative_rock",
+      "allocation_ordinal": 1286
+    },
+    {
+      "source_label": "british indie rock",
+      "source_url": "https://everynoise.com/engenremap-britishindierock.html",
+      "suggested_id": "british_indie_rock",
+      "allocation_ordinal": 1287
+    },
+    {
+      "source_label": "british math rock",
+      "source_url": "https://everynoise.com/engenremap-britishmathrock.html",
+      "suggested_id": "british_math_rock",
+      "allocation_ordinal": 1288
+    },
+    {
+      "source_label": "british post-rock",
+      "source_url": "https://everynoise.com/engenremap-britishpostrock.html",
+      "suggested_id": "british_post_rock",
+      "allocation_ordinal": 1289
+    },
+    {
+      "source_label": "bulgarian rock",
+      "source_url": "https://everynoise.com/engenremap-bulgarianrock.html",
+      "suggested_id": "bulgarian_rock",
+      "allocation_ordinal": 1290
+    },
+    {
+      "source_label": "canadian post-rock",
+      "source_url": "https://everynoise.com/engenremap-canadianpostrock.html",
+      "suggested_id": "canadian_post_rock",
+      "allocation_ordinal": 1291
+    },
+    {
+      "source_label": "canadian psychedelic rock",
+      "source_url": "https://everynoise.com/engenremap-canadianpsychedelicrock.html",
+      "suggested_id": "canadian_psychedelic_rock",
+      "allocation_ordinal": 1292
+    },
+    {
+      "source_label": "canadian rock",
+      "source_url": "https://everynoise.com/engenremap-canadianrock.html",
+      "suggested_id": "canadian_rock",
+      "allocation_ordinal": 1293
+    },
+    {
+      "source_label": "canadian rockabilly",
+      "source_url": "https://everynoise.com/engenremap-canadianrockabilly.html",
+      "suggested_id": "canadian_rockabilly",
+      "allocation_ordinal": 1294
+    },
+    {
+      "source_label": "canadian shoegaze",
+      "source_url": "https://everynoise.com/engenremap-canadianshoegaze.html",
+      "suggested_id": "canadian_shoegaze",
+      "allocation_ordinal": 1295
+    },
+    {
+      "source_label": "canadian stoner rock",
+      "source_url": "https://everynoise.com/engenremap-canadianstonerrock.html",
+      "suggested_id": "canadian_stoner_rock",
+      "allocation_ordinal": 1296
+    },
+    {
+      "source_label": "chinese indie rock",
+      "source_url": "https://everynoise.com/engenremap-chineseindierock.html",
+      "suggested_id": "chinese_indie_rock",
+      "allocation_ordinal": 1297
+    },
+    {
+      "source_label": "chinese post-rock",
+      "source_url": "https://everynoise.com/engenremap-chinesepostrock.html",
+      "suggested_id": "chinese_post_rock",
+      "allocation_ordinal": 1298
+    },
+    {
+      "source_label": "christian alternative rock",
+      "source_url": "https://everynoise.com/engenremap-christianalternativerock.html",
+      "suggested_id": "christian_alternative_rock",
+      "allocation_ordinal": 1299
+    },
+    {
+      "source_label": "christian hard rock",
+      "source_url": "https://everynoise.com/engenremap-christianhardrock.html",
+      "suggested_id": "christian_hard_rock",
+      "allocation_ordinal": 1300
+    }
+  ]
+}

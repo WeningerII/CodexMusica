@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "130",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "eau claire indie",
+      "source_url": "https://everynoise.com/engenremap-eauclaireindie.html",
+      "suggested_id": "eau_claire_indie",
+      "allocation_ordinal": 3226
+    },
+    {
+      "source_label": "ecuadorian indie",
+      "source_url": "https://everynoise.com/engenremap-ecuadorianindie.html",
+      "suggested_id": "ecuadorian_indie",
+      "allocation_ordinal": 3227
+    },
+    {
+      "source_label": "edinburgh indie",
+      "source_url": "https://everynoise.com/engenremap-edinburghindie.html",
+      "suggested_id": "edinburgh_indie",
+      "allocation_ordinal": 3228
+    },
+    {
+      "source_label": "edmonton indie",
+      "source_url": "https://everynoise.com/engenremap-edmontonindie.html",
+      "suggested_id": "edmonton_indie",
+      "allocation_ordinal": 3229
+    },
+    {
+      "source_label": "edo old school",
+      "source_url": "https://everynoise.com/engenremap-edooldschool.html",
+      "suggested_id": "edo_old_school",
+      "allocation_ordinal": 3230
+    },
+    {
+      "source_label": "egyptian alternative",
+      "source_url": "https://everynoise.com/engenremap-egyptianalternative.html",
+      "suggested_id": "egyptian_alternative",
+      "allocation_ordinal": 3231
+    },
+    {
+      "source_label": "egyptian traditional",
+      "source_url": "https://everynoise.com/engenremap-egyptiantraditional.html",
+      "suggested_id": "egyptian_traditional",
+      "allocation_ordinal": 3232
+    },
+    {
+      "source_label": "el paso indie",
+      "source_url": "https://everynoise.com/engenremap-elpasoindie.html",
+      "suggested_id": "el_paso_indie",
+      "allocation_ordinal": 3233
+    },
+    {
+      "source_label": "electra",
+      "source_url": "https://everynoise.com/engenremap-electra.html",
+      "suggested_id": "electra",
+      "allocation_ordinal": 3234
+    },
+    {
+      "source_label": "electrofox",
+      "source_url": "https://everynoise.com/engenremap-electrofox.html",
+      "suggested_id": "electrofox",
+      "allocation_ordinal": 3235
+    },
+    {
+      "source_label": "electropop",
+      "source_url": "https://everynoise.com/engenremap-electropop.html",
+      "suggested_id": "electropop",
+      "allocation_ordinal": 3236
+    },
+    {
+      "source_label": "electropowerpop",
+      "source_url": "https://everynoise.com/engenremap-electropowerpop.html",
+      "suggested_id": "electropowerpop",
+      "allocation_ordinal": 3237
+    },
+    {
+      "source_label": "elephant 6",
+      "source_url": "https://everynoise.com/engenremap-elephant6.html",
+      "suggested_id": "elephant_6",
+      "allocation_ordinal": 3238
+    },
+    {
+      "source_label": "eletronica underground brasileira",
+      "source_url": "https://everynoise.com/engenremap-eletronicaundergroundbrasileira.html",
+      "suggested_id": "eletronica_underground_brasileira",
+      "allocation_ordinal": 3239
+    },
+    {
+      "source_label": "emoplugg",
+      "source_url": "https://everynoise.com/engenremap-emoplugg.html",
+      "suggested_id": "emoplugg",
+      "allocation_ordinal": 3240
+    },
+    {
+      "source_label": "epa dunk",
+      "source_url": "https://everynoise.com/engenremap-epadunk.html",
+      "suggested_id": "epa_dunk",
+      "allocation_ordinal": 3241
+    },
+    {
+      "source_label": "epic collage",
+      "source_url": "https://everynoise.com/engenremap-epiccollage.html",
+      "suggested_id": "epic_collage",
+      "allocation_ordinal": 3242
+    },
+    {
+      "source_label": "epic doom",
+      "source_url": "https://everynoise.com/engenremap-epicdoom.html",
+      "suggested_id": "epic_doom",
+      "allocation_ordinal": 3243
+    },
+    {
+      "source_label": "epunk",
+      "source_url": "https://everynoise.com/engenremap-epunk.html",
+      "suggested_id": "epunk",
+      "allocation_ordinal": 3244
+    },
+    {
+      "source_label": "er ge",
+      "source_url": "https://everynoise.com/engenremap-erge.html",
+      "suggested_id": "er_ge",
+      "allocation_ordinal": 3245
+    },
+    {
+      "source_label": "erotic product",
+      "source_url": "https://everynoise.com/engenremap-eroticproduct.html",
+      "suggested_id": "erotic_product",
+      "allocation_ordinal": 3246
+    },
+    {
+      "source_label": "erotica",
+      "source_url": "https://everynoise.com/engenremap-erotica.html",
+      "suggested_id": "erotica",
+      "allocation_ordinal": 3247
+    },
+    {
+      "source_label": "erotik",
+      "source_url": "https://everynoise.com/engenremap-erotik.html",
+      "suggested_id": "erotik",
+      "allocation_ordinal": 3248
+    },
+    {
+      "source_label": "escape room",
+      "source_url": "https://everynoise.com/engenremap-escaperoom.html",
+      "suggested_id": "escape_room",
+      "allocation_ordinal": 3249
+    },
+    {
+      "source_label": "esperanto",
+      "source_url": "https://everynoise.com/engenremap-esperanto.html",
+      "suggested_id": "esperanto",
+      "allocation_ordinal": 3250
+    }
+  ]
+}

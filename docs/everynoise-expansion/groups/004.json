@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "004",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["techno"],
+  "entries": [
+    {
+      "source_label": "brazilian techno",
+      "source_url": "https://everynoise.com/engenremap-braziliantechno.html",
+      "suggested_id": "brazilian_techno",
+      "allocation_ordinal": 76
+    },
+    {
+      "source_label": "chilean techno",
+      "source_url": "https://everynoise.com/engenremap-chileantechno.html",
+      "suggested_id": "chilean_techno",
+      "allocation_ordinal": 77
+    },
+    {
+      "source_label": "danish techno",
+      "source_url": "https://everynoise.com/engenremap-danishtechno.html",
+      "suggested_id": "danish_techno",
+      "allocation_ordinal": 78
+    },
+    {
+      "source_label": "dark minimal techno",
+      "source_url": "https://everynoise.com/engenremap-darkminimaltechno.html",
+      "suggested_id": "dark_minimal_techno",
+      "allocation_ordinal": 79
+    },
+    {
+      "source_label": "dark techno",
+      "source_url": "https://everynoise.com/engenremap-darktechno.html",
+      "suggested_id": "dark_techno",
+      "allocation_ordinal": 80
+    },
+    {
+      "source_label": "deep minimal techno",
+      "source_url": "https://everynoise.com/engenremap-deepminimaltechno.html",
+      "suggested_id": "deep_minimal_techno",
+      "allocation_ordinal": 81
+    },
+    {
+      "source_label": "deep techno",
+      "source_url": "https://everynoise.com/engenremap-deeptechno.html",
+      "suggested_id": "deep_techno",
+      "allocation_ordinal": 82
+    },
+    {
+      "source_label": "destroy techno",
+      "source_url": "https://everynoise.com/engenremap-destroytechno.html",
+      "suggested_id": "destroy_techno",
+      "allocation_ordinal": 83
+    },
+    {
+      "source_label": "experimental techno",
+      "source_url": "https://everynoise.com/engenremap-experimentaltechno.html",
+      "suggested_id": "experimental_techno",
+      "allocation_ordinal": 84
+    },
+    {
+      "source_label": "finnish techno",
+      "source_url": "https://everynoise.com/engenremap-finnishtechno.html",
+      "suggested_id": "finnish_techno",
+      "allocation_ordinal": 85
+    },
+    {
+      "source_label": "french techno",
+      "source_url": "https://everynoise.com/engenremap-frenchtechno.html",
+      "suggested_id": "french_techno",
+      "allocation_ordinal": 86
+    },
+    {
+      "source_label": "german dark minimal techno",
+      "source_url": "https://everynoise.com/engenremap-germandarkminimaltechno.html",
+      "suggested_id": "german_dark_minimal_techno",
+      "allocation_ordinal": 87
+    },
+    {
+      "source_label": "greek techno",
+      "source_url": "https://everynoise.com/engenremap-greektechno.html",
+      "suggested_id": "greek_techno",
+      "allocation_ordinal": 88
+    },
+    {
+      "source_label": "hard industrial techno",
+      "source_url": "https://everynoise.com/engenremap-hardindustrialtechno.html",
+      "suggested_id": "hard_industrial_techno",
+      "allocation_ordinal": 89
+    },
+    {
+      "source_label": "hard minimal techno",
+      "source_url": "https://everynoise.com/engenremap-hardminimaltechno.html",
+      "suggested_id": "hard_minimal_techno",
+      "allocation_ordinal": 90
+    },
+    {
+      "source_label": "hungarian techno",
+      "source_url": "https://everynoise.com/engenremap-hungariantechno.html",
+      "suggested_id": "hungarian_techno",
+      "allocation_ordinal": 91
+    },
+    {
+      "source_label": "indian techno",
+      "source_url": "https://everynoise.com/engenremap-indiantechno.html",
+      "suggested_id": "indian_techno",
+      "allocation_ordinal": 92
+    },
+    {
+      "source_label": "irish techno",
+      "source_url": "https://everynoise.com/engenremap-irishtechno.html",
+      "suggested_id": "irish_techno",
+      "allocation_ordinal": 93
+    },
+    {
+      "source_label": "israeli techno",
+      "source_url": "https://everynoise.com/engenremap-israelitechno.html",
+      "suggested_id": "israeli_techno",
+      "allocation_ordinal": 94
+    },
+    {
+      "source_label": "italian techno",
+      "source_url": "https://everynoise.com/engenremap-italiantechno.html",
+      "suggested_id": "italian_techno",
+      "allocation_ordinal": 95
+    },
+    {
+      "source_label": "japanese techno",
+      "source_url": "https://everynoise.com/engenremap-japanesetechno.html",
+      "suggested_id": "japanese_techno",
+      "allocation_ordinal": 96
+    },
+    {
+      "source_label": "mexican techno",
+      "source_url": "https://everynoise.com/engenremap-mexicantechno.html",
+      "suggested_id": "mexican_techno",
+      "allocation_ordinal": 97
+    },
+    {
+      "source_label": "minimal melodic techno",
+      "source_url": "https://everynoise.com/engenremap-minimalmelodictechno.html",
+      "suggested_id": "minimal_melodic_techno",
+      "allocation_ordinal": 98
+    },
+    {
+      "source_label": "norwegian techno",
+      "source_url": "https://everynoise.com/engenremap-norwegiantechno.html",
+      "suggested_id": "norwegian_techno",
+      "allocation_ordinal": 99
+    },
+    {
+      "source_label": "polish techno",
+      "source_url": "https://everynoise.com/engenremap-polishtechno.html",
+      "suggested_id": "polish_techno",
+      "allocation_ordinal": 100
+    }
+  ]
+}

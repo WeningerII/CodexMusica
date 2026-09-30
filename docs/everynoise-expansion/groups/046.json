@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "046",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["punk and emo"],
+  "entries": [
+    {
+      "source_label": "irish punk",
+      "source_url": "https://everynoise.com/engenremap-irishpunk.html",
+      "suggested_id": "irish_punk",
+      "allocation_ordinal": 1126
+    },
+    {
+      "source_label": "israeli punk",
+      "source_url": "https://everynoise.com/engenremap-israelipunk.html",
+      "suggested_id": "israeli_punk",
+      "allocation_ordinal": 1127
+    },
+    {
+      "source_label": "italian emo",
+      "source_url": "https://everynoise.com/engenremap-italianemo.html",
+      "suggested_id": "italian_emo",
+      "allocation_ordinal": 1128
+    },
+    {
+      "source_label": "italian hardcore",
+      "source_url": "https://everynoise.com/engenremap-italianhardcore.html",
+      "suggested_id": "italian_hardcore",
+      "allocation_ordinal": 1129
+    },
+    {
+      "source_label": "italian pop punk",
+      "source_url": "https://everynoise.com/engenremap-italianpoppunk.html",
+      "suggested_id": "italian_pop_punk",
+      "allocation_ordinal": 1130
+    },
+    {
+      "source_label": "italian post-hardcore",
+      "source_url": "https://everynoise.com/engenremap-italianposthardcore.html",
+      "suggested_id": "italian_post_hardcore",
+      "allocation_ordinal": 1131
+    },
+    {
+      "source_label": "italian post-punk",
+      "source_url": "https://everynoise.com/engenremap-italianpostpunk.html",
+      "suggested_id": "italian_post_punk",
+      "allocation_ordinal": 1132
+    },
+    {
+      "source_label": "italian punk",
+      "source_url": "https://everynoise.com/engenremap-italianpunk.html",
+      "suggested_id": "italian_punk",
+      "allocation_ordinal": 1133
+    },
+    {
+      "source_label": "italian screamo",
+      "source_url": "https://everynoise.com/engenremap-italianscreamo.html",
+      "suggested_id": "italian_screamo",
+      "allocation_ordinal": 1134
+    },
+    {
+      "source_label": "japanese emo",
+      "source_url": "https://everynoise.com/engenremap-japaneseemo.html",
+      "suggested_id": "japanese_emo",
+      "allocation_ordinal": 1135
+    },
+    {
+      "source_label": "japanese girl punk",
+      "source_url": "https://everynoise.com/engenremap-japanesegirlpunk.html",
+      "suggested_id": "japanese_girl_punk",
+      "allocation_ordinal": 1136
+    },
+    {
+      "source_label": "japanese melodic hardcore",
+      "source_url": "https://everynoise.com/engenremap-japanesemelodichardcore.html",
+      "suggested_id": "japanese_melodic_hardcore",
+      "allocation_ordinal": 1137
+    },
+    {
+      "source_label": "japanese melodic punk",
+      "source_url": "https://everynoise.com/engenremap-japanesemelodicpunk.html",
+      "suggested_id": "japanese_melodic_punk",
+      "allocation_ordinal": 1138
+    },
+    {
+      "source_label": "japanese pop punk",
+      "source_url": "https://everynoise.com/engenremap-japanesepoppunk.html",
+      "suggested_id": "japanese_pop_punk",
+      "allocation_ordinal": 1139
+    },
+    {
+      "source_label": "japanese post-hardcore",
+      "source_url": "https://everynoise.com/engenremap-japaneseposthardcore.html",
+      "suggested_id": "japanese_post_hardcore",
+      "allocation_ordinal": 1140
+    },
+    {
+      "source_label": "japanese post-punk",
+      "source_url": "https://everynoise.com/engenremap-japanesepostpunk.html",
+      "suggested_id": "japanese_post_punk",
+      "allocation_ordinal": 1141
+    },
+    {
+      "source_label": "japanese punk rock",
+      "source_url": "https://everynoise.com/engenremap-japanesepunkrock.html",
+      "suggested_id": "japanese_punk_rock",
+      "allocation_ordinal": 1142
+    },
+    {
+      "source_label": "japanese screamo",
+      "source_url": "https://everynoise.com/engenremap-japanesescreamo.html",
+      "suggested_id": "japanese_screamo",
+      "allocation_ordinal": 1143
+    },
+    {
+      "source_label": "kentucky punk",
+      "source_url": "https://everynoise.com/engenremap-kentuckypunk.html",
+      "suggested_id": "kentucky_punk",
+      "allocation_ordinal": 1144
+    },
+    {
+      "source_label": "korean hardcore",
+      "source_url": "https://everynoise.com/engenremap-koreanhardcore.html",
+      "suggested_id": "korean_hardcore",
+      "allocation_ordinal": 1145
+    },
+    {
+      "source_label": "korean punk",
+      "source_url": "https://everynoise.com/engenremap-koreanpunk.html",
+      "suggested_id": "korean_punk",
+      "allocation_ordinal": 1146
+    },
+    {
+      "source_label": "lion city hardcore",
+      "source_url": "https://everynoise.com/engenremap-lioncityhardcore.html",
+      "suggested_id": "lion_city_hardcore",
+      "allocation_ordinal": 1147
+    },
+    {
+      "source_label": "lo-fi emo",
+      "source_url": "https://everynoise.com/engenremap-lofiemo.html",
+      "suggested_id": "lo_fi_emo",
+      "allocation_ordinal": 1148
+    },
+    {
+      "source_label": "long island punk",
+      "source_url": "https://everynoise.com/engenremap-longislandpunk.html",
+      "suggested_id": "long_island_punk",
+      "allocation_ordinal": 1149
+    },
+    {
+      "source_label": "lowlands hardcore",
+      "source_url": "https://everynoise.com/engenremap-lowlandshardcore.html",
+      "suggested_id": "lowlands_hardcore",
+      "allocation_ordinal": 1150
+    }
+  ]
+}

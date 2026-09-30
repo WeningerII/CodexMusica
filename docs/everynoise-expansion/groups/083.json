@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "083",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["electronic and dance names"],
+  "entries": [
+    {
+      "source_label": "serbian electronic",
+      "source_url": "https://everynoise.com/engenremap-serbianelectronic.html",
+      "suggested_id": "serbian_electronic",
+      "allocation_ordinal": 2051
+    },
+    {
+      "source_label": "singaporean electronic",
+      "source_url": "https://everynoise.com/engenremap-singaporeanelectronic.html",
+      "suggested_id": "singaporean_electronic",
+      "allocation_ordinal": 2052
+    },
+    {
+      "source_label": "sinhala edm",
+      "source_url": "https://everynoise.com/engenremap-sinhalaedm.html",
+      "suggested_id": "sinhala_edm",
+      "allocation_ordinal": 2053
+    },
+    {
+      "source_label": "slovak electronic",
+      "source_url": "https://everynoise.com/engenremap-slovakelectronic.html",
+      "suggested_id": "slovak_electronic",
+      "allocation_ordinal": 2054
+    },
+    {
+      "source_label": "slovenian electronic",
+      "source_url": "https://everynoise.com/engenremap-slovenianelectronic.html",
+      "suggested_id": "slovenian_electronic",
+      "allocation_ordinal": 2055
+    },
+    {
+      "source_label": "south african electronic",
+      "source_url": "https://everynoise.com/engenremap-southafricanelectronic.html",
+      "suggested_id": "south_african_electronic",
+      "allocation_ordinal": 2056
+    },
+    {
+      "source_label": "soviet synthpop",
+      "source_url": "https://everynoise.com/engenremap-sovietsynthpop.html",
+      "suggested_id": "soviet_synthpop",
+      "allocation_ordinal": 2057
+    },
+    {
+      "source_label": "spanish electronic",
+      "source_url": "https://everynoise.com/engenremap-spanishelectronic.html",
+      "suggested_id": "spanish_electronic",
+      "allocation_ordinal": 2058
+    },
+    {
+      "source_label": "spanish synthpop",
+      "source_url": "https://everynoise.com/engenremap-spanishsynthpop.html",
+      "suggested_id": "spanish_synthpop",
+      "allocation_ordinal": 2059
+    },
+    {
+      "source_label": "swedish electronic",
+      "source_url": "https://everynoise.com/engenremap-swedishelectronic.html",
+      "suggested_id": "swedish_electronic",
+      "allocation_ordinal": 2060
+    },
+    {
+      "source_label": "swedish synth",
+      "source_url": "https://everynoise.com/engenremap-swedishsynth.html",
+      "suggested_id": "swedish_synth",
+      "allocation_ordinal": 2061
+    },
+    {
+      "source_label": "swedish synthpop",
+      "source_url": "https://everynoise.com/engenremap-swedishsynthpop.html",
+      "suggested_id": "swedish_synthpop",
+      "allocation_ordinal": 2062
+    },
+    {
+      "source_label": "synth funk",
+      "source_url": "https://everynoise.com/engenremap-synthfunk.html",
+      "suggested_id": "synth_funk",
+      "allocation_ordinal": 2063
+    },
+    {
+      "source_label": "synth prog",
+      "source_url": "https://everynoise.com/engenremap-synthprog.html",
+      "suggested_id": "synth_prog",
+      "allocation_ordinal": 2064
+    },
+    {
+      "source_label": "synthwave brasileiro",
+      "source_url": "https://everynoise.com/engenremap-synthwavebrasileiro.html",
+      "suggested_id": "synthwave_brasileiro",
+      "allocation_ordinal": 2065
+    },
+    {
+      "source_label": "taiwan electronic",
+      "source_url": "https://everynoise.com/engenremap-taiwanelectronic.html",
+      "suggested_id": "taiwan_electronic",
+      "allocation_ordinal": 2066
+    },
+    {
+      "source_label": "tijuana electronic",
+      "source_url": "https://everynoise.com/engenremap-tijuanaelectronic.html",
+      "suggested_id": "tijuana_electronic",
+      "allocation_ordinal": 2067
+    },
+    {
+      "source_label": "turkish edm",
+      "source_url": "https://everynoise.com/engenremap-turkishedm.html",
+      "suggested_id": "turkish_edm",
+      "allocation_ordinal": 2068
+    },
+    {
+      "source_label": "turkish electronic",
+      "source_url": "https://everynoise.com/engenremap-turkishelectronic.html",
+      "suggested_id": "turkish_electronic",
+      "allocation_ordinal": 2069
+    },
+    {
+      "source_label": "uk experimental electronic",
+      "source_url": "https://everynoise.com/engenremap-ukexperimentalelectronic.html",
+      "suggested_id": "uk_experimental_electronic",
+      "allocation_ordinal": 2070
+    },
+    {
+      "source_label": "ukrainian edm",
+      "source_url": "https://everynoise.com/engenremap-ukrainianedm.html",
+      "suggested_id": "ukrainian_edm",
+      "allocation_ordinal": 2071
+    },
+    {
+      "source_label": "ukrainian electronic",
+      "source_url": "https://everynoise.com/engenremap-ukrainianelectronic.html",
+      "suggested_id": "ukrainian_electronic",
+      "allocation_ordinal": 2072
+    },
+    {
+      "source_label": "viet edm",
+      "source_url": "https://everynoise.com/engenremap-vietedm.html",
+      "suggested_id": "viet_edm",
+      "allocation_ordinal": 2073
+    },
+    {
+      "source_label": "vietnamese electronic",
+      "source_url": "https://everynoise.com/engenremap-vietnameseelectronic.html",
+      "suggested_id": "vietnamese_electronic",
+      "allocation_ordinal": 2074
+    },
+    {
+      "source_label": "vintage french electronic",
+      "source_url": "https://everynoise.com/engenremap-vintagefrenchelectronic.html",
+      "suggested_id": "vintage_french_electronic",
+      "allocation_ordinal": 2075
+    }
+  ]
+}

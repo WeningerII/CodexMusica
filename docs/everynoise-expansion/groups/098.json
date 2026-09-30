@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "098",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["folk and country names"],
+  "entries": [
+    {
+      "source_label": "contemporary folk",
+      "source_url": "https://everynoise.com/engenremap-contemporaryfolk.html",
+      "suggested_id": "contemporary_folk",
+      "allocation_ordinal": 2426
+    },
+    {
+      "source_label": "country dawn",
+      "source_url": "https://everynoise.com/engenremap-countrydawn.html",
+      "suggested_id": "country_dawn",
+      "allocation_ordinal": 2427
+    },
+    {
+      "source_label": "country quebecois",
+      "source_url": "https://everynoise.com/engenremap-countryquebecois.html",
+      "suggested_id": "country_quebecois",
+      "allocation_ordinal": 2428
+    },
+    {
+      "source_label": "country road",
+      "source_url": "https://everynoise.com/engenremap-countryroad.html",
+      "suggested_id": "country_road",
+      "allocation_ordinal": 2429
+    },
+    {
+      "source_label": "croatian folk",
+      "source_url": "https://everynoise.com/engenremap-croatianfolk.html",
+      "suggested_id": "croatian_folk",
+      "allocation_ordinal": 2430
+    },
+    {
+      "source_label": "czech country",
+      "source_url": "https://everynoise.com/engenremap-czechcountry.html",
+      "suggested_id": "czech_country",
+      "allocation_ordinal": 2431
+    },
+    {
+      "source_label": "czech singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-czechsingersongwriter.html",
+      "suggested_id": "czech_singer_songwriter",
+      "allocation_ordinal": 2432
+    },
+    {
+      "source_label": "danish folk",
+      "source_url": "https://everynoise.com/engenremap-danishfolk.html",
+      "suggested_id": "danish_folk",
+      "allocation_ordinal": 2433
+    },
+    {
+      "source_label": "danish singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-danishsingersongwriter.html",
+      "suggested_id": "danish_singer_songwriter",
+      "allocation_ordinal": 2434
+    },
+    {
+      "source_label": "deep contemporary country",
+      "source_url": "https://everynoise.com/engenremap-deepcontemporarycountry.html",
+      "suggested_id": "deep_contemporary_country",
+      "allocation_ordinal": 2435
+    },
+    {
+      "source_label": "deep indie singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-deepindiesingersongwriter.html",
+      "suggested_id": "deep_indie_singer_songwriter",
+      "allocation_ordinal": 2436
+    },
+    {
+      "source_label": "deep new americana",
+      "source_url": "https://everynoise.com/engenremap-deepnewamericana.html",
+      "suggested_id": "deep_new_americana",
+      "allocation_ordinal": 2437
+    },
+    {
+      "source_label": "dutch americana",
+      "source_url": "https://everynoise.com/engenremap-dutchamericana.html",
+      "suggested_id": "dutch_americana",
+      "allocation_ordinal": 2438
+    },
+    {
+      "source_label": "dutch singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-dutchsingersongwriter.html",
+      "suggested_id": "dutch_singer_songwriter",
+      "allocation_ordinal": 2439
+    },
+    {
+      "source_label": "early american folk",
+      "source_url": "https://everynoise.com/engenremap-earlyamericanfolk.html",
+      "suggested_id": "early_american_folk",
+      "allocation_ordinal": 2440
+    },
+    {
+      "source_label": "experimental folk",
+      "source_url": "https://everynoise.com/engenremap-experimentalfolk.html",
+      "suggested_id": "experimental_folk",
+      "allocation_ordinal": 2441
+    },
+    {
+      "source_label": "finnish folk",
+      "source_url": "https://everynoise.com/engenremap-finnishfolk.html",
+      "suggested_id": "finnish_folk",
+      "allocation_ordinal": 2442
+    },
+    {
+      "source_label": "folk brasileiro",
+      "source_url": "https://everynoise.com/engenremap-folkbrasileiro.html",
+      "suggested_id": "folk_brasileiro",
+      "allocation_ordinal": 2443
+    },
+    {
+      "source_label": "folk cantabria",
+      "source_url": "https://everynoise.com/engenremap-folkcantabria.html",
+      "suggested_id": "folk_cantabria",
+      "allocation_ordinal": 2444
+    },
+    {
+      "source_label": "folk siciliana",
+      "source_url": "https://everynoise.com/engenremap-folksiciliana.html",
+      "suggested_id": "folk_siciliana",
+      "allocation_ordinal": 2445
+    },
+    {
+      "source_label": "french folk",
+      "source_url": "https://everynoise.com/engenremap-frenchfolk.html",
+      "suggested_id": "french_folk",
+      "allocation_ordinal": 2446
+    },
+    {
+      "source_label": "french indie folk",
+      "source_url": "https://everynoise.com/engenremap-frenchindiefolk.html",
+      "suggested_id": "french_indie_folk",
+      "allocation_ordinal": 2447
+    },
+    {
+      "source_label": "geek folk",
+      "source_url": "https://everynoise.com/engenremap-geekfolk.html",
+      "suggested_id": "geek_folk",
+      "allocation_ordinal": 2448
+    },
+    {
+      "source_label": "gen z singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-genzsingersongwriter.html",
+      "suggested_id": "gen_z_singer_songwriter",
+      "allocation_ordinal": 2449
+    },
+    {
+      "source_label": "german country",
+      "source_url": "https://everynoise.com/engenremap-germancountry.html",
+      "suggested_id": "german_country",
+      "allocation_ordinal": 2450
+    }
+  ]
+}

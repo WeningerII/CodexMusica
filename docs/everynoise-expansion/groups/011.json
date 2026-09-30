@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "011",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "cypriot hip hop",
+      "source_url": "https://everynoise.com/engenremap-cypriothiphop.html",
+      "suggested_id": "cypriot_hip_hop",
+      "allocation_ordinal": 251
+    },
+    {
+      "source_label": "czech alternative rap",
+      "source_url": "https://everynoise.com/engenremap-czechalternativerap.html",
+      "suggested_id": "czech_alternative_rap",
+      "allocation_ordinal": 252
+    },
+    {
+      "source_label": "czech drill",
+      "source_url": "https://everynoise.com/engenremap-czechdrill.html",
+      "suggested_id": "czech_drill",
+      "allocation_ordinal": 253
+    },
+    {
+      "source_label": "czech hip hop",
+      "source_url": "https://everynoise.com/engenremap-czechhiphop.html",
+      "suggested_id": "czech_hip_hop",
+      "allocation_ordinal": 254
+    },
+    {
+      "source_label": "czsk emo rap",
+      "source_url": "https://everynoise.com/engenremap-czskemorap.html",
+      "suggested_id": "czsk_emo_rap",
+      "allocation_ordinal": 255
+    },
+    {
+      "source_label": "czsk hip hop",
+      "source_url": "https://everynoise.com/engenremap-czskhiphop.html",
+      "suggested_id": "czsk_hip_hop",
+      "allocation_ordinal": 256
+    },
+    {
+      "source_label": "danish hip hop",
+      "source_url": "https://everynoise.com/engenremap-danishhiphop.html",
+      "suggested_id": "danish_hip_hop",
+      "allocation_ordinal": 257
+    },
+    {
+      "source_label": "deep east coast hip hop",
+      "source_url": "https://everynoise.com/engenremap-deepeastcoasthiphop.html",
+      "suggested_id": "deep_east_coast_hip_hop",
+      "allocation_ordinal": 258
+    },
+    {
+      "source_label": "deep german hip hop",
+      "source_url": "https://everynoise.com/engenremap-deepgermanhiphop.html",
+      "suggested_id": "deep_german_hip_hop",
+      "allocation_ordinal": 259
+    },
+    {
+      "source_label": "deep southern trap",
+      "source_url": "https://everynoise.com/engenremap-deepsoutherntrap.html",
+      "suggested_id": "deep_southern_trap",
+      "allocation_ordinal": 260
+    },
+    {
+      "source_label": "deep underground hip hop",
+      "source_url": "https://everynoise.com/engenremap-deepundergroundhiphop.html",
+      "suggested_id": "deep_underground_hip_hop",
+      "allocation_ordinal": 261
+    },
+    {
+      "source_label": "denver rap",
+      "source_url": "https://everynoise.com/engenremap-denverrap.html",
+      "suggested_id": "denver_rap",
+      "allocation_ordinal": 262
+    },
+    {
+      "source_label": "desi emo rap",
+      "source_url": "https://everynoise.com/engenremap-desiemorap.html",
+      "suggested_id": "desi_emo_rap",
+      "allocation_ordinal": 263
+    },
+    {
+      "source_label": "desi hip hop",
+      "source_url": "https://everynoise.com/engenremap-desihiphop.html",
+      "suggested_id": "desi_hip_hop",
+      "allocation_ordinal": 264
+    },
+    {
+      "source_label": "detroit trap brasileiro",
+      "source_url": "https://everynoise.com/engenremap-detroittrapbrasileiro.html",
+      "suggested_id": "detroit_trap_brasileiro",
+      "allocation_ordinal": 265
+    },
+    {
+      "source_label": "detroit trap en espanol",
+      "source_url": "https://everynoise.com/engenremap-detroittrapenespanol.html",
+      "suggested_id": "detroit_trap_en_espanol",
+      "allocation_ordinal": 266
+    },
+    {
+      "source_label": "dfw rap",
+      "source_url": "https://everynoise.com/engenremap-dfwrap.html",
+      "suggested_id": "dfw_rap",
+      "allocation_ordinal": 267
+    },
+    {
+      "source_label": "dirty texas rap",
+      "source_url": "https://everynoise.com/engenremap-dirtytexasrap.html",
+      "suggested_id": "dirty_texas_rap",
+      "allocation_ordinal": 268
+    },
+    {
+      "source_label": "dmv rap",
+      "source_url": "https://everynoise.com/engenremap-dmvrap.html",
+      "suggested_id": "dmv_rap",
+      "allocation_ordinal": 269
+    },
+    {
+      "source_label": "drill beats",
+      "source_url": "https://everynoise.com/engenremap-drillbeats.html",
+      "suggested_id": "drill_beats",
+      "allocation_ordinal": 270
+    },
+    {
+      "source_label": "drill brasileiro",
+      "source_url": "https://everynoise.com/engenremap-drillbrasileiro.html",
+      "suggested_id": "drill_brasileiro",
+      "allocation_ordinal": 271
+    },
+    {
+      "source_label": "drill chileno",
+      "source_url": "https://everynoise.com/engenremap-drillchileno.html",
+      "suggested_id": "drill_chileno",
+      "allocation_ordinal": 272
+    },
+    {
+      "source_label": "drill dominicano",
+      "source_url": "https://everynoise.com/engenremap-drilldominicano.html",
+      "suggested_id": "drill_dominicano",
+      "allocation_ordinal": 273
+    },
+    {
+      "source_label": "drill italiana",
+      "source_url": "https://everynoise.com/engenremap-drillitaliana.html",
+      "suggested_id": "drill_italiana",
+      "allocation_ordinal": 274
+    },
+    {
+      "source_label": "drill tuga",
+      "source_url": "https://everynoise.com/engenremap-drilltuga.html",
+      "suggested_id": "drill_tuga",
+      "allocation_ordinal": 275
+    }
+  ]
+}

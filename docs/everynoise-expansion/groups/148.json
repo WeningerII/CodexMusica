@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "148",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "latvian indie",
+      "source_url": "https://everynoise.com/engenremap-latvianindie.html",
+      "suggested_id": "latvian_indie",
+      "allocation_ordinal": 3676
+    },
+    {
+      "source_label": "laulaja-lauluntekija",
+      "source_url": "https://everynoise.com/engenremap-laulajalauluntekija.html",
+      "suggested_id": "laulaja_lauluntekija",
+      "allocation_ordinal": 3677
+    },
+    {
+      "source_label": "lawrence ks indie",
+      "source_url": "https://everynoise.com/engenremap-lawrenceksindie.html",
+      "suggested_id": "lawrence_ks_indie",
+      "allocation_ordinal": 3678
+    },
+    {
+      "source_label": "lds",
+      "source_url": "https://everynoise.com/engenremap-lds.html",
+      "suggested_id": "lds",
+      "allocation_ordinal": 3679
+    },
+    {
+      "source_label": "lds instrumental",
+      "source_url": "https://everynoise.com/engenremap-ldsinstrumental.html",
+      "suggested_id": "lds_instrumental",
+      "allocation_ordinal": 3680
+    },
+    {
+      "source_label": "lds youth",
+      "source_url": "https://everynoise.com/engenremap-ldsyouth.html",
+      "suggested_id": "lds_youth",
+      "allocation_ordinal": 3681
+    },
+    {
+      "source_label": "lebanese indie",
+      "source_url": "https://everynoise.com/engenremap-lebaneseindie.html",
+      "suggested_id": "lebanese_indie",
+      "allocation_ordinal": 3682
+    },
+    {
+      "source_label": "leeds indie",
+      "source_url": "https://everynoise.com/engenremap-leedsindie.html",
+      "suggested_id": "leeds_indie",
+      "allocation_ordinal": 3683
+    },
+    {
+      "source_label": "leicester indie",
+      "source_url": "https://everynoise.com/engenremap-leicesterindie.html",
+      "suggested_id": "leicester_indie",
+      "allocation_ordinal": 3684
+    },
+    {
+      "source_label": "leipzig indie",
+      "source_url": "https://everynoise.com/engenremap-leipzigindie.html",
+      "suggested_id": "leipzig_indie",
+      "allocation_ordinal": 3685
+    },
+    {
+      "source_label": "leon gto indie",
+      "source_url": "https://everynoise.com/engenremap-leongtoindie.html",
+      "suggested_id": "leon_gto_indie",
+      "allocation_ordinal": 3686
+    },
+    {
+      "source_label": "lesen",
+      "source_url": "https://everynoise.com/engenremap-lesen.html",
+      "suggested_id": "lesen",
+      "allocation_ordinal": 3687
+    },
+    {
+      "source_label": "lesotho traditional",
+      "source_url": "https://everynoise.com/engenremap-lesothotraditional.html",
+      "suggested_id": "lesotho_traditional",
+      "allocation_ordinal": 3688
+    },
+    {
+      "source_label": "lexington ky indie",
+      "source_url": "https://everynoise.com/engenremap-lexingtonkyindie.html",
+      "suggested_id": "lexington_ky_indie",
+      "allocation_ordinal": 3689
+    },
+    {
+      "source_label": "liechtenstein",
+      "source_url": "https://everynoise.com/engenremap-liechtenstein.html",
+      "suggested_id": "liechtenstein",
+      "allocation_ordinal": 3690
+    },
+    {
+      "source_label": "light music",
+      "source_url": "https://everynoise.com/engenremap-lightmusic.html",
+      "suggested_id": "light_music",
+      "allocation_ordinal": 3691
+    },
+    {
+      "source_label": "lilith",
+      "source_url": "https://everynoise.com/engenremap-lilith.html",
+      "suggested_id": "lilith",
+      "allocation_ordinal": 3692
+    },
+    {
+      "source_label": "limerick indie",
+      "source_url": "https://everynoise.com/engenremap-limerickindie.html",
+      "suggested_id": "limerick_indie",
+      "allocation_ordinal": 3693
+    },
+    {
+      "source_label": "lincoln ne indie",
+      "source_url": "https://everynoise.com/engenremap-lincolnneindie.html",
+      "suggested_id": "lincoln_ne_indie",
+      "allocation_ordinal": 3694
+    },
+    {
+      "source_label": "lithuanian indie",
+      "source_url": "https://everynoise.com/engenremap-lithuanianindie.html",
+      "suggested_id": "lithuanian_indie",
+      "allocation_ordinal": 3695
+    },
+    {
+      "source_label": "liverpool indie",
+      "source_url": "https://everynoise.com/engenremap-liverpoolindie.html",
+      "suggested_id": "liverpool_indie",
+      "allocation_ordinal": 3696
+    },
+    {
+      "source_label": "livetronica",
+      "source_url": "https://everynoise.com/engenremap-livetronica.html",
+      "suggested_id": "livetronica",
+      "allocation_ordinal": 3697
+    },
+    {
+      "source_label": "lldm",
+      "source_url": "https://everynoise.com/engenremap-lldm.html",
+      "suggested_id": "lldm",
+      "allocation_ordinal": 3698
+    },
+    {
+      "source_label": "lo star",
+      "source_url": "https://everynoise.com/engenremap-lostar.html",
+      "suggested_id": "lo_star",
+      "allocation_ordinal": 3699
+    },
+    {
+      "source_label": "lo-fi brasileiro",
+      "source_url": "https://everynoise.com/engenremap-lofibrasileiro.html",
+      "suggested_id": "lo_fi_brasileiro",
+      "allocation_ordinal": 3700
+    }
+  ]
+}

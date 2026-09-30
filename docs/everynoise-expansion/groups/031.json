@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "031",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "euskal metal",
+      "source_url": "https://everynoise.com/engenremap-euskalmetal.html",
+      "suggested_id": "euskal_metal",
+      "allocation_ordinal": 751
+    },
+    {
+      "source_label": "experimental black metal",
+      "source_url": "https://everynoise.com/engenremap-experimentalblackmetal.html",
+      "suggested_id": "experimental_black_metal",
+      "allocation_ordinal": 752
+    },
+    {
+      "source_label": "fantasy metal",
+      "source_url": "https://everynoise.com/engenremap-fantasymetal.html",
+      "suggested_id": "fantasy_metal",
+      "allocation_ordinal": 753
+    },
+    {
+      "source_label": "finnish black metal",
+      "source_url": "https://everynoise.com/engenremap-finnishblackmetal.html",
+      "suggested_id": "finnish_black_metal",
+      "allocation_ordinal": 754
+    },
+    {
+      "source_label": "finnish death metal",
+      "source_url": "https://everynoise.com/engenremap-finnishdeathmetal.html",
+      "suggested_id": "finnish_death_metal",
+      "allocation_ordinal": 755
+    },
+    {
+      "source_label": "finnish doom metal",
+      "source_url": "https://everynoise.com/engenremap-finnishdoommetal.html",
+      "suggested_id": "finnish_doom_metal",
+      "allocation_ordinal": 756
+    },
+    {
+      "source_label": "finnish heavy metal",
+      "source_url": "https://everynoise.com/engenremap-finnishheavymetal.html",
+      "suggested_id": "finnish_heavy_metal",
+      "allocation_ordinal": 757
+    },
+    {
+      "source_label": "finnish melodeath",
+      "source_url": "https://everynoise.com/engenremap-finnishmelodeath.html",
+      "suggested_id": "finnish_melodeath",
+      "allocation_ordinal": 758
+    },
+    {
+      "source_label": "finnish metal",
+      "source_url": "https://everynoise.com/engenremap-finnishmetal.html",
+      "suggested_id": "finnish_metal",
+      "allocation_ordinal": 759
+    },
+    {
+      "source_label": "finnish metalcore",
+      "source_url": "https://everynoise.com/engenremap-finnishmetalcore.html",
+      "suggested_id": "finnish_metalcore",
+      "allocation_ordinal": 760
+    },
+    {
+      "source_label": "finnish power metal",
+      "source_url": "https://everynoise.com/engenremap-finnishpowermetal.html",
+      "suggested_id": "finnish_power_metal",
+      "allocation_ordinal": 761
+    },
+    {
+      "source_label": "finnish progressive metal",
+      "source_url": "https://everynoise.com/engenremap-finnishprogressivemetal.html",
+      "suggested_id": "finnish_progressive_metal",
+      "allocation_ordinal": 762
+    },
+    {
+      "source_label": "florida death metal",
+      "source_url": "https://everynoise.com/engenremap-floridadeathmetal.html",
+      "suggested_id": "florida_death_metal",
+      "allocation_ordinal": 763
+    },
+    {
+      "source_label": "folk metal latinoamericano",
+      "source_url": "https://everynoise.com/engenremap-folkmetallatinoamericano.html",
+      "suggested_id": "folk_metal_latinoamericano",
+      "allocation_ordinal": 764
+    },
+    {
+      "source_label": "forest black metal",
+      "source_url": "https://everynoise.com/engenremap-forestblackmetal.html",
+      "suggested_id": "forest_black_metal",
+      "allocation_ordinal": 765
+    },
+    {
+      "source_label": "french black metal",
+      "source_url": "https://everynoise.com/engenremap-frenchblackmetal.html",
+      "suggested_id": "french_black_metal",
+      "allocation_ordinal": 766
+    },
+    {
+      "source_label": "french death metal",
+      "source_url": "https://everynoise.com/engenremap-frenchdeathmetal.html",
+      "suggested_id": "french_death_metal",
+      "allocation_ordinal": 767
+    },
+    {
+      "source_label": "french metal",
+      "source_url": "https://everynoise.com/engenremap-frenchmetal.html",
+      "suggested_id": "french_metal",
+      "allocation_ordinal": 768
+    },
+    {
+      "source_label": "german black metal",
+      "source_url": "https://everynoise.com/engenremap-germanblackmetal.html",
+      "suggested_id": "german_black_metal",
+      "allocation_ordinal": 769
+    },
+    {
+      "source_label": "german death metal",
+      "source_url": "https://everynoise.com/engenremap-germandeathmetal.html",
+      "suggested_id": "german_death_metal",
+      "allocation_ordinal": 770
+    },
+    {
+      "source_label": "german grindcore",
+      "source_url": "https://everynoise.com/engenremap-germangrindcore.html",
+      "suggested_id": "german_grindcore",
+      "allocation_ordinal": 771
+    },
+    {
+      "source_label": "german heavy metal",
+      "source_url": "https://everynoise.com/engenremap-germanheavymetal.html",
+      "suggested_id": "german_heavy_metal",
+      "allocation_ordinal": 772
+    },
+    {
+      "source_label": "german melodeath",
+      "source_url": "https://everynoise.com/engenremap-germanmelodeath.html",
+      "suggested_id": "german_melodeath",
+      "allocation_ordinal": 773
+    },
+    {
+      "source_label": "german metal",
+      "source_url": "https://everynoise.com/engenremap-germanmetal.html",
+      "suggested_id": "german_metal",
+      "allocation_ordinal": 774
+    },
+    {
+      "source_label": "german metalcore",
+      "source_url": "https://everynoise.com/engenremap-germanmetalcore.html",
+      "suggested_id": "german_metalcore",
+      "allocation_ordinal": 775
+    }
+  ]
+}

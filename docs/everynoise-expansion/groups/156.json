@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "156",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "musica mallorquina",
+      "source_url": "https://everynoise.com/engenremap-musicamallorquina.html",
+      "suggested_id": "musica_mallorquina",
+      "allocation_ordinal": 3876
+    },
+    {
+      "source_label": "musica maranhense",
+      "source_url": "https://everynoise.com/engenremap-musicamaranhense.html",
+      "suggested_id": "musica_maranhense",
+      "allocation_ordinal": 3877
+    },
+    {
+      "source_label": "musica maringaense",
+      "source_url": "https://everynoise.com/engenremap-musicamaringaense.html",
+      "suggested_id": "musica_maringaense",
+      "allocation_ordinal": 3878
+    },
+    {
+      "source_label": "musica mato-grossense",
+      "source_url": "https://everynoise.com/engenremap-musicamatogrossense.html",
+      "suggested_id": "musica_mato_grossense",
+      "allocation_ordinal": 3879
+    },
+    {
+      "source_label": "musica menorquina",
+      "source_url": "https://everynoise.com/engenremap-musicamenorquina.html",
+      "suggested_id": "musica_menorquina",
+      "allocation_ordinal": 3880
+    },
+    {
+      "source_label": "musica mexiquense",
+      "source_url": "https://everynoise.com/engenremap-musicamexiquense.html",
+      "suggested_id": "musica_mexiquense",
+      "allocation_ordinal": 3881
+    },
+    {
+      "source_label": "musica michoacana",
+      "source_url": "https://everynoise.com/engenremap-musicamichoacana.html",
+      "suggested_id": "musica_michoacana",
+      "allocation_ordinal": 3882
+    },
+    {
+      "source_label": "musica mocambicana",
+      "source_url": "https://everynoise.com/engenremap-musicamocambicana.html",
+      "suggested_id": "musica_mocambicana",
+      "allocation_ordinal": 3883
+    },
+    {
+      "source_label": "musica mogiana",
+      "source_url": "https://everynoise.com/engenremap-musicamogiana.html",
+      "suggested_id": "musica_mogiana",
+      "allocation_ordinal": 3884
+    },
+    {
+      "source_label": "musica morelense",
+      "source_url": "https://everynoise.com/engenremap-musicamorelense.html",
+      "suggested_id": "musica_morelense",
+      "allocation_ordinal": 3885
+    },
+    {
+      "source_label": "musica nayarita",
+      "source_url": "https://everynoise.com/engenremap-musicanayarita.html",
+      "suggested_id": "musica_nayarita",
+      "allocation_ordinal": 3886
+    },
+    {
+      "source_label": "musica neoleonesa",
+      "source_url": "https://everynoise.com/engenremap-musicaneoleonesa.html",
+      "suggested_id": "musica_neoleonesa",
+      "allocation_ordinal": 3887
+    },
+    {
+      "source_label": "musica nicaraguense",
+      "source_url": "https://everynoise.com/engenremap-musicanicaraguense.html",
+      "suggested_id": "musica_nicaraguense",
+      "allocation_ordinal": 3888
+    },
+    {
+      "source_label": "musica nublensina",
+      "source_url": "https://everynoise.com/engenremap-musicanublensina.html",
+      "suggested_id": "musica_nublensina",
+      "allocation_ordinal": 3889
+    },
+    {
+      "source_label": "musica oaxaquena",
+      "source_url": "https://everynoise.com/engenremap-musicaoaxaquena.html",
+      "suggested_id": "musica_oaxaquena",
+      "allocation_ordinal": 3890
+    },
+    {
+      "source_label": "musica occitana",
+      "source_url": "https://everynoise.com/engenremap-musicaoccitana.html",
+      "suggested_id": "musica_occitana",
+      "allocation_ordinal": 3891
+    },
+    {
+      "source_label": "musica otavalena",
+      "source_url": "https://everynoise.com/engenremap-musicaotavalena.html",
+      "suggested_id": "musica_otavalena",
+      "allocation_ordinal": 3892
+    },
+    {
+      "source_label": "musica para criancas",
+      "source_url": "https://everynoise.com/engenremap-musicaparacriancas.html",
+      "suggested_id": "musica_para_criancas",
+      "allocation_ordinal": 3893
+    },
+    {
+      "source_label": "musica paraibana",
+      "source_url": "https://everynoise.com/engenremap-musicaparaibana.html",
+      "suggested_id": "musica_paraibana",
+      "allocation_ordinal": 3894
+    },
+    {
+      "source_label": "musica paranaense",
+      "source_url": "https://everynoise.com/engenremap-musicaparanaense.html",
+      "suggested_id": "musica_paranaense",
+      "allocation_ordinal": 3895
+    },
+    {
+      "source_label": "musica per bambini",
+      "source_url": "https://everynoise.com/engenremap-musicaperbambini.html",
+      "suggested_id": "musica_per_bambini",
+      "allocation_ordinal": 3896
+    },
+    {
+      "source_label": "musica piauiense",
+      "source_url": "https://everynoise.com/engenremap-musicapiauiense.html",
+      "suggested_id": "musica_piauiense",
+      "allocation_ordinal": 3897
+    },
+    {
+      "source_label": "musica piemonteisa",
+      "source_url": "https://everynoise.com/engenremap-musicapiemonteisa.html",
+      "suggested_id": "musica_piemonteisa",
+      "allocation_ordinal": 3898
+    },
+    {
+      "source_label": "musica pitiusa",
+      "source_url": "https://everynoise.com/engenremap-musicapitiusa.html",
+      "suggested_id": "musica_pitiusa",
+      "allocation_ordinal": 3899
+    },
+    {
+      "source_label": "musica poblana",
+      "source_url": "https://everynoise.com/engenremap-musicapoblana.html",
+      "suggested_id": "musica_poblana",
+      "allocation_ordinal": 3900
+    }
+  ]
+}

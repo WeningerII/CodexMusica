@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "group_id": "096",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": [
+    "classical and vocal ensemble names",
+    "folk and country names"
+  ],
+  "entries": [
+    {
+      "source_label": "swedish contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-swedishcontemporaryclassical.html",
+      "suggested_id": "swedish_contemporary_classical",
+      "allocation_ordinal": 2376
+    },
+    {
+      "source_label": "swiss classical piano",
+      "source_url": "https://everynoise.com/engenremap-swissclassicalpiano.html",
+      "suggested_id": "swiss_classical_piano",
+      "allocation_ordinal": 2377
+    },
+    {
+      "source_label": "swiss contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-swisscontemporaryclassical.html",
+      "suggested_id": "swiss_contemporary_classical",
+      "allocation_ordinal": 2378
+    },
+    {
+      "source_label": "synthetic classical",
+      "source_url": "https://everynoise.com/engenremap-syntheticclassical.html",
+      "suggested_id": "synthetic_classical",
+      "allocation_ordinal": 2379
+    },
+    {
+      "source_label": "taiwan classical performance",
+      "source_url": "https://everynoise.com/engenremap-taiwanclassicalperformance.html",
+      "suggested_id": "taiwan_classical_performance",
+      "allocation_ordinal": 2380
+    },
+    {
+      "source_label": "turkish classical performance",
+      "source_url": "https://everynoise.com/engenremap-turkishclassicalperformance.html",
+      "suggested_id": "turkish_classical_performance",
+      "allocation_ordinal": 2381
+    },
+    {
+      "source_label": "ukrainian choir",
+      "source_url": "https://everynoise.com/engenremap-ukrainianchoir.html",
+      "suggested_id": "ukrainian_choir",
+      "allocation_ordinal": 2382
+    },
+    {
+      "source_label": "ukrainian classical",
+      "source_url": "https://everynoise.com/engenremap-ukrainianclassical.html",
+      "suggested_id": "ukrainian_classical",
+      "allocation_ordinal": 2383
+    },
+    {
+      "source_label": "ukrainian classical piano",
+      "source_url": "https://everynoise.com/engenremap-ukrainianclassicalpiano.html",
+      "suggested_id": "ukrainian_classical_piano",
+      "allocation_ordinal": 2384
+    },
+    {
+      "source_label": "ukrainian contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-ukrainiancontemporaryclassical.html",
+      "suggested_id": "ukrainian_contemporary_classical",
+      "allocation_ordinal": 2385
+    },
+    {
+      "source_label": "university choir",
+      "source_url": "https://everynoise.com/engenremap-universitychoir.html",
+      "suggested_id": "university_choir",
+      "allocation_ordinal": 2386
+    },
+    {
+      "source_label": "vintage classical singing",
+      "source_url": "https://everynoise.com/engenremap-vintageclassicalsinging.html",
+      "suggested_id": "vintage_classical_singing",
+      "allocation_ordinal": 2387
+    },
+    {
+      "source_label": "welsh choir",
+      "source_url": "https://everynoise.com/engenremap-welshchoir.html",
+      "suggested_id": "welsh_choir",
+      "allocation_ordinal": 2388
+    },
+    {
+      "source_label": "youth orchestra",
+      "source_url": "https://everynoise.com/engenremap-youthorchestra.html",
+      "suggested_id": "youth_orchestra",
+      "allocation_ordinal": 2389
+    },
+    {
+      "source_label": "afrikaans folk",
+      "source_url": "https://everynoise.com/engenremap-afrikaansfolk.html",
+      "suggested_id": "afrikaans_folk",
+      "allocation_ordinal": 2390
+    },
+    {
+      "source_label": "ainu folk",
+      "source_url": "https://everynoise.com/engenremap-ainufolk.html",
+      "suggested_id": "ainu_folk",
+      "allocation_ordinal": 2391
+    },
+    {
+      "source_label": "albanian folk",
+      "source_url": "https://everynoise.com/engenremap-albanianfolk.html",
+      "suggested_id": "albanian_folk",
+      "allocation_ordinal": 2392
+    },
+    {
+      "source_label": "alberta country",
+      "source_url": "https://everynoise.com/engenremap-albertacountry.html",
+      "suggested_id": "alberta_country",
+      "allocation_ordinal": 2393
+    },
+    {
+      "source_label": "algerian folk",
+      "source_url": "https://everynoise.com/engenremap-algerianfolk.html",
+      "suggested_id": "algerian_folk",
+      "allocation_ordinal": 2394
+    },
+    {
+      "source_label": "alternative americana",
+      "source_url": "https://everynoise.com/engenremap-alternativeamericana.html",
+      "suggested_id": "alternative_americana",
+      "allocation_ordinal": 2395
+    },
+    {
+      "source_label": "alternative country",
+      "source_url": "https://everynoise.com/engenremap-alternativecountry.html",
+      "suggested_id": "alternative_country",
+      "allocation_ordinal": 2396
+    },
+    {
+      "source_label": "appenzeller folk",
+      "source_url": "https://everynoise.com/engenremap-appenzellerfolk.html",
+      "suggested_id": "appenzeller_folk",
+      "allocation_ordinal": 2397
+    },
+    {
+      "source_label": "arab folk",
+      "source_url": "https://everynoise.com/engenremap-arabfolk.html",
+      "suggested_id": "arab_folk",
+      "allocation_ordinal": 2398
+    },
+    {
+      "source_label": "austin americana",
+      "source_url": "https://everynoise.com/engenremap-austinamericana.html",
+      "suggested_id": "austin_americana",
+      "allocation_ordinal": 2399
+    },
+    {
+      "source_label": "austin singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-austinsingersongwriter.html",
+      "suggested_id": "austin_singer_songwriter",
+      "allocation_ordinal": 2400
+    }
+  ]
+}

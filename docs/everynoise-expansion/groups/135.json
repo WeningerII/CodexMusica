@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "135",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "ghent indie",
+      "source_url": "https://everynoise.com/engenremap-ghentindie.html",
+      "suggested_id": "ghent_indie",
+      "allocation_ordinal": 3351
+    },
+    {
+      "source_label": "ghoststep",
+      "source_url": "https://everynoise.com/engenremap-ghoststep.html",
+      "suggested_id": "ghoststep",
+      "allocation_ordinal": 3352
+    },
+    {
+      "source_label": "girl group",
+      "source_url": "https://everynoise.com/engenremap-girlgroup.html",
+      "suggested_id": "girl_group",
+      "allocation_ordinal": 3353
+    },
+    {
+      "source_label": "glasgow indie",
+      "source_url": "https://everynoise.com/engenremap-glasgowindie.html",
+      "suggested_id": "glasgow_indie",
+      "allocation_ordinal": 3354
+    },
+    {
+      "source_label": "glass",
+      "source_url": "https://everynoise.com/engenremap-glass.html",
+      "suggested_id": "glass",
+      "allocation_ordinal": 3355
+    },
+    {
+      "source_label": "glee club",
+      "source_url": "https://everynoise.com/engenremap-gleeclub.html",
+      "suggested_id": "glee_club",
+      "allocation_ordinal": 3356
+    },
+    {
+      "source_label": "glitch beats",
+      "source_url": "https://everynoise.com/engenremap-glitchbeats.html",
+      "suggested_id": "glitch_beats",
+      "allocation_ordinal": 3357
+    },
+    {
+      "source_label": "glitchbreak",
+      "source_url": "https://everynoise.com/engenremap-glitchbreak.html",
+      "suggested_id": "glitchbreak",
+      "allocation_ordinal": 3358
+    },
+    {
+      "source_label": "gong",
+      "source_url": "https://everynoise.com/engenremap-gong.html",
+      "suggested_id": "gong",
+      "allocation_ordinal": 3359
+    },
+    {
+      "source_label": "goregrind",
+      "source_url": "https://everynoise.com/engenremap-goregrind.html",
+      "suggested_id": "goregrind",
+      "allocation_ordinal": 3360
+    },
+    {
+      "source_label": "gothenburg indie",
+      "source_url": "https://everynoise.com/engenremap-gothenburgindie.html",
+      "suggested_id": "gothenburg_indie",
+      "allocation_ordinal": 3361
+    },
+    {
+      "source_label": "gothic alternative",
+      "source_url": "https://everynoise.com/engenremap-gothicalternative.html",
+      "suggested_id": "gothic_alternative",
+      "allocation_ordinal": 3362
+    },
+    {
+      "source_label": "gothic doom",
+      "source_url": "https://everynoise.com/engenremap-gothicdoom.html",
+      "suggested_id": "gothic_doom",
+      "allocation_ordinal": 3363
+    },
+    {
+      "source_label": "gotico brasileiro",
+      "source_url": "https://everynoise.com/engenremap-goticobrasileiro.html",
+      "suggested_id": "gotico_brasileiro",
+      "allocation_ordinal": 3364
+    },
+    {
+      "source_label": "gotlandsk musik",
+      "source_url": "https://everynoise.com/engenremap-gotlandskmusik.html",
+      "suggested_id": "gotlandsk_musik",
+      "allocation_ordinal": 3365
+    },
+    {
+      "source_label": "granada indie",
+      "source_url": "https://everynoise.com/engenremap-granadaindie.html",
+      "suggested_id": "granada_indie",
+      "allocation_ordinal": 3366
+    },
+    {
+      "source_label": "grand rapids indie",
+      "source_url": "https://everynoise.com/engenremap-grandrapidsindie.html",
+      "suggested_id": "grand_rapids_indie",
+      "allocation_ordinal": 3367
+    },
+    {
+      "source_label": "grave wave",
+      "source_url": "https://everynoise.com/engenremap-gravewave.html",
+      "suggested_id": "grave_wave",
+      "allocation_ordinal": 3368
+    },
+    {
+      "source_label": "graz indie",
+      "source_url": "https://everynoise.com/engenremap-grazindie.html",
+      "suggested_id": "graz_indie",
+      "allocation_ordinal": 3369
+    },
+    {
+      "source_label": "greek downtempo",
+      "source_url": "https://everynoise.com/engenremap-greekdowntempo.html",
+      "suggested_id": "greek_downtempo",
+      "allocation_ordinal": 3370
+    },
+    {
+      "source_label": "greek guitar",
+      "source_url": "https://everynoise.com/engenremap-greekguitar.html",
+      "suggested_id": "greek_guitar",
+      "allocation_ordinal": 3371
+    },
+    {
+      "source_label": "greek indie",
+      "source_url": "https://everynoise.com/engenremap-greekindie.html",
+      "suggested_id": "greek_indie",
+      "allocation_ordinal": 3372
+    },
+    {
+      "source_label": "grimewave",
+      "source_url": "https://everynoise.com/engenremap-grimewave.html",
+      "suggested_id": "grimewave",
+      "allocation_ordinal": 3373
+    },
+    {
+      "source_label": "griot",
+      "source_url": "https://everynoise.com/engenremap-griot.html",
+      "suggested_id": "griot",
+      "allocation_ordinal": 3374
+    },
+    {
+      "source_label": "groove room",
+      "source_url": "https://everynoise.com/engenremap-grooveroom.html",
+      "suggested_id": "groove_room",
+      "allocation_ordinal": 3375
+    }
+  ]
+}

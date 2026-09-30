@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "051",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["punk and emo", "rock and related names"],
+  "entries": [
+    {
+      "source_label": "vancouver punk",
+      "source_url": "https://everynoise.com/engenremap-vancouverpunk.html",
+      "suggested_id": "vancouver_punk",
+      "allocation_ordinal": 1251
+    },
+    {
+      "source_label": "virginia punk",
+      "source_url": "https://everynoise.com/engenremap-virginiapunk.html",
+      "suggested_id": "virginia_punk",
+      "allocation_ordinal": 1252
+    },
+    {
+      "source_label": "acoustic rock",
+      "source_url": "https://everynoise.com/engenremap-acousticrock.html",
+      "suggested_id": "acoustic_rock",
+      "allocation_ordinal": 1253
+    },
+    {
+      "source_label": "african rock",
+      "source_url": "https://everynoise.com/engenremap-africanrock.html",
+      "suggested_id": "african_rock",
+      "allocation_ordinal": 1254
+    },
+    {
+      "source_label": "albanian rock",
+      "source_url": "https://everynoise.com/engenremap-albanianrock.html",
+      "suggested_id": "albanian_rock",
+      "allocation_ordinal": 1255
+    },
+    {
+      "source_label": "alternative pop rock",
+      "source_url": "https://everynoise.com/engenremap-alternativepoprock.html",
+      "suggested_id": "alternative_pop_rock",
+      "allocation_ordinal": 1256
+    },
+    {
+      "source_label": "alternative roots rock",
+      "source_url": "https://everynoise.com/engenremap-alternativerootsrock.html",
+      "suggested_id": "alternative_roots_rock",
+      "allocation_ordinal": 1257
+    },
+    {
+      "source_label": "american post-rock",
+      "source_url": "https://everynoise.com/engenremap-americanpostrock.html",
+      "suggested_id": "american_post_rock",
+      "allocation_ordinal": 1258
+    },
+    {
+      "source_label": "american shoegaze",
+      "source_url": "https://everynoise.com/engenremap-americanshoegaze.html",
+      "suggested_id": "american_shoegaze",
+      "allocation_ordinal": 1259
+    },
+    {
+      "source_label": "argentine alternative rock",
+      "source_url": "https://everynoise.com/engenremap-argentinealternativerock.html",
+      "suggested_id": "argentine_alternative_rock",
+      "allocation_ordinal": 1260
+    },
+    {
+      "source_label": "argentine indie rock",
+      "source_url": "https://everynoise.com/engenremap-argentineindierock.html",
+      "suggested_id": "argentine_indie_rock",
+      "allocation_ordinal": 1261
+    },
+    {
+      "source_label": "atmospheric post-rock",
+      "source_url": "https://everynoise.com/engenremap-atmosphericpostrock.html",
+      "suggested_id": "atmospheric_post_rock",
+      "allocation_ordinal": 1262
+    },
+    {
+      "source_label": "austin rock",
+      "source_url": "https://everynoise.com/engenremap-austinrock.html",
+      "suggested_id": "austin_rock",
+      "allocation_ordinal": 1263
+    },
+    {
+      "source_label": "australian alternative rock",
+      "source_url": "https://everynoise.com/engenremap-australianalternativerock.html",
+      "suggested_id": "australian_alternative_rock",
+      "allocation_ordinal": 1264
+    },
+    {
+      "source_label": "australian indie rock",
+      "source_url": "https://everynoise.com/engenremap-australianindierock.html",
+      "suggested_id": "australian_indie_rock",
+      "allocation_ordinal": 1265
+    },
+    {
+      "source_label": "australian post-rock",
+      "source_url": "https://everynoise.com/engenremap-australianpostrock.html",
+      "suggested_id": "australian_post_rock",
+      "allocation_ordinal": 1266
+    },
+    {
+      "source_label": "australian rockabilly",
+      "source_url": "https://everynoise.com/engenremap-australianrockabilly.html",
+      "suggested_id": "australian_rockabilly",
+      "allocation_ordinal": 1267
+    },
+    {
+      "source_label": "australian shoegaze",
+      "source_url": "https://everynoise.com/engenremap-australianshoegaze.html",
+      "suggested_id": "australian_shoegaze",
+      "allocation_ordinal": 1268
+    },
+    {
+      "source_label": "australian surf rock",
+      "source_url": "https://everynoise.com/engenremap-australiansurfrock.html",
+      "suggested_id": "australian_surf_rock",
+      "allocation_ordinal": 1269
+    },
+    {
+      "source_label": "austrian stoner rock",
+      "source_url": "https://everynoise.com/engenremap-austrianstonerrock.html",
+      "suggested_id": "austrian_stoner_rock",
+      "allocation_ordinal": 1270
+    },
+    {
+      "source_label": "bangladeshi rock",
+      "source_url": "https://everynoise.com/engenremap-bangladeshirock.html",
+      "suggested_id": "bangladeshi_rock",
+      "allocation_ordinal": 1271
+    },
+    {
+      "source_label": "belarusian rock",
+      "source_url": "https://everynoise.com/engenremap-belarusianrock.html",
+      "suggested_id": "belarusian_rock",
+      "allocation_ordinal": 1272
+    },
+    {
+      "source_label": "belgian indie rock",
+      "source_url": "https://everynoise.com/engenremap-belgianindierock.html",
+      "suggested_id": "belgian_indie_rock",
+      "allocation_ordinal": 1273
+    },
+    {
+      "source_label": "belgian post-rock",
+      "source_url": "https://everynoise.com/engenremap-belgianpostrock.html",
+      "suggested_id": "belgian_post_rock",
+      "allocation_ordinal": 1274
+    },
+    {
+      "source_label": "belgian rock",
+      "source_url": "https://everynoise.com/engenremap-belgianrock.html",
+      "suggested_id": "belgian_rock",
+      "allocation_ordinal": 1275
+    }
+  ]
+}

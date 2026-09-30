@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "076",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol"],
+  "entries": [
+    {
+      "source_label": "singer-songwriter pop",
+      "source_url": "https://everynoise.com/engenremap-singersongwriterpop.html",
+      "suggested_id": "singer_songwriter_pop",
+      "allocation_ordinal": 1876
+    },
+    {
+      "source_label": "sirmauri pop",
+      "source_url": "https://everynoise.com/engenremap-sirmauripop.html",
+      "suggested_id": "sirmauri_pop",
+      "allocation_ordinal": 1877
+    },
+    {
+      "source_label": "slovak pop",
+      "source_url": "https://everynoise.com/engenremap-slovakpop.html",
+      "suggested_id": "slovak_pop",
+      "allocation_ordinal": 1878
+    },
+    {
+      "source_label": "slovenian pop",
+      "source_url": "https://everynoise.com/engenremap-slovenianpop.html",
+      "suggested_id": "slovenian_pop",
+      "allocation_ordinal": 1879
+    },
+    {
+      "source_label": "soda pop",
+      "source_url": "https://everynoise.com/engenremap-sodapop.html",
+      "suggested_id": "soda_pop",
+      "allocation_ordinal": 1880
+    },
+    {
+      "source_label": "solomon islands pop",
+      "source_url": "https://everynoise.com/engenremap-solomonislandspop.html",
+      "suggested_id": "solomon_islands_pop",
+      "allocation_ordinal": 1881
+    },
+    {
+      "source_label": "somali pop",
+      "source_url": "https://everynoise.com/engenremap-somalipop.html",
+      "suggested_id": "somali_pop",
+      "allocation_ordinal": 1882
+    },
+    {
+      "source_label": "sorani pop",
+      "source_url": "https://everynoise.com/engenremap-soranipop.html",
+      "suggested_id": "sorani_pop",
+      "allocation_ordinal": 1883
+    },
+    {
+      "source_label": "south african pop dance",
+      "source_url": "https://everynoise.com/engenremap-southafricanpopdance.html",
+      "suggested_id": "south_african_pop_dance",
+      "allocation_ordinal": 1884
+    },
+    {
+      "source_label": "south sudanese pop",
+      "source_url": "https://everynoise.com/engenremap-southsudanesepop.html",
+      "suggested_id": "south_sudanese_pop",
+      "allocation_ordinal": 1885
+    },
+    {
+      "source_label": "spanish indie pop",
+      "source_url": "https://everynoise.com/engenremap-spanishindiepop.html",
+      "suggested_id": "spanish_indie_pop",
+      "allocation_ordinal": 1886
+    },
+    {
+      "source_label": "spanish noise pop",
+      "source_url": "https://everynoise.com/engenremap-spanishnoisepop.html",
+      "suggested_id": "spanish_noise_pop",
+      "allocation_ordinal": 1887
+    },
+    {
+      "source_label": "spanish pop",
+      "source_url": "https://everynoise.com/engenremap-spanishpop.html",
+      "suggested_id": "spanish_pop",
+      "allocation_ordinal": 1888
+    },
+    {
+      "source_label": "stomp pop",
+      "source_url": "https://everynoise.com/engenremap-stomppop.html",
+      "suggested_id": "stomp_pop",
+      "allocation_ordinal": 1889
+    },
+    {
+      "source_label": "sudanese pop",
+      "source_url": "https://everynoise.com/engenremap-sudanesepop.html",
+      "suggested_id": "sudanese_pop",
+      "allocation_ordinal": 1890
+    },
+    {
+      "source_label": "surinamese pop",
+      "source_url": "https://everynoise.com/engenremap-surinamesepop.html",
+      "suggested_id": "surinamese_pop",
+      "allocation_ordinal": 1891
+    },
+    {
+      "source_label": "swazi pop",
+      "source_url": "https://everynoise.com/engenremap-swazipop.html",
+      "suggested_id": "swazi_pop",
+      "allocation_ordinal": 1892
+    },
+    {
+      "source_label": "swedish folk pop",
+      "source_url": "https://everynoise.com/engenremap-swedishfolkpop.html",
+      "suggested_id": "swedish_folk_pop",
+      "allocation_ordinal": 1893
+    },
+    {
+      "source_label": "swedish idol pop",
+      "source_url": "https://everynoise.com/engenremap-swedishidolpop.html",
+      "suggested_id": "swedish_idol_pop",
+      "allocation_ordinal": 1894
+    },
+    {
+      "source_label": "swedish indie pop",
+      "source_url": "https://everynoise.com/engenremap-swedishindiepop.html",
+      "suggested_id": "swedish_indie_pop",
+      "allocation_ordinal": 1895
+    },
+    {
+      "source_label": "swedish pop",
+      "source_url": "https://everynoise.com/engenremap-swedishpop.html",
+      "suggested_id": "swedish_pop",
+      "allocation_ordinal": 1896
+    },
+    {
+      "source_label": "swiss pop",
+      "source_url": "https://everynoise.com/engenremap-swisspop.html",
+      "suggested_id": "swiss_pop",
+      "allocation_ordinal": 1897
+    },
+    {
+      "source_label": "syrian pop",
+      "source_url": "https://everynoise.com/engenremap-syrianpop.html",
+      "suggested_id": "syrian_pop",
+      "allocation_ordinal": 1898
+    },
+    {
+      "source_label": "t-pop girl group",
+      "source_url": "https://everynoise.com/engenremap-tpopgirlgroup.html",
+      "suggested_id": "t_pop_girl_group",
+      "allocation_ordinal": 1899
+    },
+    {
+      "source_label": "taiwan idol pop",
+      "source_url": "https://everynoise.com/engenremap-taiwanidolpop.html",
+      "suggested_id": "taiwan_idol_pop",
+      "allocation_ordinal": 1900
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "151",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "marathi traditional",
+      "source_url": "https://everynoise.com/engenremap-marathitraditional.html",
+      "suggested_id": "marathi_traditional",
+      "allocation_ordinal": 3751
+    },
+    {
+      "source_label": "marcha funebre",
+      "source_url": "https://everynoise.com/engenremap-marchafunebre.html",
+      "suggested_id": "marcha_funebre",
+      "allocation_ordinal": 3752
+    },
+    {
+      "source_label": "marci brijuzi",
+      "source_url": "https://everynoise.com/engenremap-marcibrijuzi.html",
+      "suggested_id": "marci_brijuzi",
+      "allocation_ordinal": 3753
+    },
+    {
+      "source_label": "mariachi cristiano",
+      "source_url": "https://everynoise.com/engenremap-mariachicristiano.html",
+      "suggested_id": "mariachi_cristiano",
+      "allocation_ordinal": 3754
+    },
+    {
+      "source_label": "marsmuziek",
+      "source_url": "https://everynoise.com/engenremap-marsmuziek.html",
+      "suggested_id": "marsmuziek",
+      "allocation_ordinal": 3755
+    },
+    {
+      "source_label": "mashcore",
+      "source_url": "https://everynoise.com/engenremap-mashcore.html",
+      "suggested_id": "mashcore",
+      "allocation_ordinal": 3756
+    },
+    {
+      "source_label": "massage",
+      "source_url": "https://everynoise.com/engenremap-massage.html",
+      "suggested_id": "massage",
+      "allocation_ordinal": 3757
+    },
+    {
+      "source_label": "mathgrind",
+      "source_url": "https://everynoise.com/engenremap-mathgrind.html",
+      "suggested_id": "mathgrind",
+      "allocation_ordinal": 3758
+    },
+    {
+      "source_label": "mecha",
+      "source_url": "https://everynoise.com/engenremap-mecha.html",
+      "suggested_id": "mecha",
+      "allocation_ordinal": 3759
+    },
+    {
+      "source_label": "medieval",
+      "source_url": "https://everynoise.com/engenremap-medieval.html",
+      "suggested_id": "medieval",
+      "allocation_ordinal": 3760
+    },
+    {
+      "source_label": "medieval ensemble",
+      "source_url": "https://everynoise.com/engenremap-medievalensemble.html",
+      "suggested_id": "medieval_ensemble",
+      "allocation_ordinal": 3761
+    },
+    {
+      "source_label": "medimeisterschaften",
+      "source_url": "https://everynoise.com/engenremap-medimeisterschaften.html",
+      "suggested_id": "medimeisterschaften",
+      "allocation_ordinal": 3762
+    },
+    {
+      "source_label": "medway sound",
+      "source_url": "https://everynoise.com/engenremap-medwaysound.html",
+      "suggested_id": "medway_sound",
+      "allocation_ordinal": 3763
+    },
+    {
+      "source_label": "meenawati",
+      "source_url": "https://everynoise.com/engenremap-meenawati.html",
+      "suggested_id": "meenawati",
+      "allocation_ordinal": 3764
+    },
+    {
+      "source_label": "melbourne bounce international",
+      "source_url": "https://everynoise.com/engenremap-melbournebounceinternational.html",
+      "suggested_id": "melbourne_bounce_international",
+      "allocation_ordinal": 3765
+    },
+    {
+      "source_label": "melbourne indie",
+      "source_url": "https://everynoise.com/engenremap-melbourneindie.html",
+      "suggested_id": "melbourne_indie",
+      "allocation_ordinal": 3766
+    },
+    {
+      "source_label": "melodic doom",
+      "source_url": "https://everynoise.com/engenremap-melodicdoom.html",
+      "suggested_id": "melodic_doom",
+      "allocation_ordinal": 3767
+    },
+    {
+      "source_label": "melodic thrash",
+      "source_url": "https://everynoise.com/engenremap-melodicthrash.html",
+      "suggested_id": "melodic_thrash",
+      "allocation_ordinal": 3768
+    },
+    {
+      "source_label": "meme",
+      "source_url": "https://everynoise.com/engenremap-meme.html",
+      "suggested_id": "meme",
+      "allocation_ordinal": 3769
+    },
+    {
+      "source_label": "memphis indie",
+      "source_url": "https://everynoise.com/engenremap-memphisindie.html",
+      "suggested_id": "memphis_indie",
+      "allocation_ordinal": 3770
+    },
+    {
+      "source_label": "men chika",
+      "source_url": "https://everynoise.com/engenremap-menchika.html",
+      "suggested_id": "men_chika",
+      "allocation_ordinal": 3771
+    },
+    {
+      "source_label": "merida indie",
+      "source_url": "https://everynoise.com/engenremap-meridaindie.html",
+      "suggested_id": "merida_indie",
+      "allocation_ordinal": 3772
+    },
+    {
+      "source_label": "messianic praise",
+      "source_url": "https://everynoise.com/engenremap-messianicpraise.html",
+      "suggested_id": "messianic_praise",
+      "allocation_ordinal": 3773
+    },
+    {
+      "source_label": "mestissatge",
+      "source_url": "https://everynoise.com/engenremap-mestissatge.html",
+      "suggested_id": "mestissatge",
+      "allocation_ordinal": 3774
+    },
+    {
+      "source_label": "mexican experimental",
+      "source_url": "https://everynoise.com/engenremap-mexicanexperimental.html",
+      "suggested_id": "mexican_experimental",
+      "allocation_ordinal": 3775
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "119",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "canadian experimental",
+      "source_url": "https://everynoise.com/engenremap-canadianexperimental.html",
+      "suggested_id": "canadian_experimental",
+      "allocation_ordinal": 2951
+    },
+    {
+      "source_label": "canadian indie",
+      "source_url": "https://everynoise.com/engenremap-canadianindie.html",
+      "suggested_id": "canadian_indie",
+      "allocation_ordinal": 2952
+    },
+    {
+      "source_label": "canadian indigenous music",
+      "source_url": "https://everynoise.com/engenremap-canadianindigenousmusic.html",
+      "suggested_id": "canadian_indigenous_music",
+      "allocation_ordinal": 2953
+    },
+    {
+      "source_label": "canadian latin",
+      "source_url": "https://everynoise.com/engenremap-canadianlatin.html",
+      "suggested_id": "canadian_latin",
+      "allocation_ordinal": 2954
+    },
+    {
+      "source_label": "canadian psychedelic",
+      "source_url": "https://everynoise.com/engenremap-canadianpsychedelic.html",
+      "suggested_id": "canadian_psychedelic",
+      "allocation_ordinal": 2955
+    },
+    {
+      "source_label": "canadian soundtrack",
+      "source_url": "https://everynoise.com/engenremap-canadiansoundtrack.html",
+      "suggested_id": "canadian_soundtrack",
+      "allocation_ordinal": 2956
+    },
+    {
+      "source_label": "canberra indie",
+      "source_url": "https://everynoise.com/engenremap-canberraindie.html",
+      "suggested_id": "canberra_indie",
+      "allocation_ordinal": 2957
+    },
+    {
+      "source_label": "cancion infantil latinoamericana",
+      "source_url": "https://everynoise.com/engenremap-cancioninfantillatinoamericana.html",
+      "suggested_id": "cancion_infantil_latinoamericana",
+      "allocation_ordinal": 2958
+    },
+    {
+      "source_label": "cancion infantil mexicana",
+      "source_url": "https://everynoise.com/engenremap-cancioninfantilmexicana.html",
+      "suggested_id": "cancion_infantil_mexicana",
+      "allocation_ordinal": 2959
+    },
+    {
+      "source_label": "cancoes infantis",
+      "source_url": "https://everynoise.com/engenremap-cancoesinfantis.html",
+      "suggested_id": "cancoes_infantis",
+      "allocation_ordinal": 2960
+    },
+    {
+      "source_label": "cantaditas",
+      "source_url": "https://everynoise.com/engenremap-cantaditas.html",
+      "suggested_id": "cantaditas",
+      "allocation_ordinal": 2961
+    },
+    {
+      "source_label": "cantautor catala",
+      "source_url": "https://everynoise.com/engenremap-cantautorcatala.html",
+      "suggested_id": "cantautor_catala",
+      "allocation_ordinal": 2962
+    },
+    {
+      "source_label": "cantautora argentina",
+      "source_url": "https://everynoise.com/engenremap-cantautoraargentina.html",
+      "suggested_id": "cantautora_argentina",
+      "allocation_ordinal": 2963
+    },
+    {
+      "source_label": "cantonese traditional",
+      "source_url": "https://everynoise.com/engenremap-cantonesetraditional.html",
+      "suggested_id": "cantonese_traditional",
+      "allocation_ordinal": 2964
+    },
+    {
+      "source_label": "cantonese worship",
+      "source_url": "https://everynoise.com/engenremap-cantoneseworship.html",
+      "suggested_id": "cantonese_worship",
+      "allocation_ordinal": 2965
+    },
+    {
+      "source_label": "canzone siciliane",
+      "source_url": "https://everynoise.com/engenremap-canzonesiciliane.html",
+      "suggested_id": "canzone_siciliane",
+      "allocation_ordinal": 2966
+    },
+    {
+      "source_label": "cape breton indie",
+      "source_url": "https://everynoise.com/engenremap-capebretonindie.html",
+      "suggested_id": "cape_breton_indie",
+      "allocation_ordinal": 2967
+    },
+    {
+      "source_label": "cape town indie",
+      "source_url": "https://everynoise.com/engenremap-capetownindie.html",
+      "suggested_id": "cape_town_indie",
+      "allocation_ordinal": 2968
+    },
+    {
+      "source_label": "caracas indie",
+      "source_url": "https://everynoise.com/engenremap-caracasindie.html",
+      "suggested_id": "caracas_indie",
+      "allocation_ordinal": 2969
+    },
+    {
+      "source_label": "cardiff indie",
+      "source_url": "https://everynoise.com/engenremap-cardiffindie.html",
+      "suggested_id": "cardiff_indie",
+      "allocation_ordinal": 2970
+    },
+    {
+      "source_label": "carnaval cadiz",
+      "source_url": "https://everynoise.com/engenremap-carnavalcadiz.html",
+      "suggested_id": "carnaval_cadiz",
+      "allocation_ordinal": 2971
+    },
+    {
+      "source_label": "carnaval limburg",
+      "source_url": "https://everynoise.com/engenremap-carnavallimburg.html",
+      "suggested_id": "carnaval_limburg",
+      "allocation_ordinal": 2972
+    },
+    {
+      "source_label": "cartoni animati",
+      "source_url": "https://everynoise.com/engenremap-cartonianimati.html",
+      "suggested_id": "cartoni_animati",
+      "allocation_ordinal": 2973
+    },
+    {
+      "source_label": "cartoon",
+      "source_url": "https://everynoise.com/engenremap-cartoon.html",
+      "suggested_id": "cartoon",
+      "allocation_ordinal": 2974
+    },
+    {
+      "source_label": "cascadia psych",
+      "source_url": "https://everynoise.com/engenremap-cascadiapsych.html",
+      "suggested_id": "cascadia_psych",
+      "allocation_ordinal": 2975
+    }
+  ]
+}

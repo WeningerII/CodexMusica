@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "115",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "bases de freestyle",
+      "source_url": "https://everynoise.com/engenremap-basesdefreestyle.html",
+      "suggested_id": "bases_de_freestyle",
+      "allocation_ordinal": 2851
+    },
+    {
+      "source_label": "batak",
+      "source_url": "https://everynoise.com/engenremap-batak.html",
+      "suggested_id": "batak",
+      "allocation_ordinal": 2852
+    },
+    {
+      "source_label": "bath indie",
+      "source_url": "https://everynoise.com/engenremap-bathindie.html",
+      "suggested_id": "bath_indie",
+      "allocation_ordinal": 2853
+    },
+    {
+      "source_label": "baton rouge indie",
+      "source_url": "https://everynoise.com/engenremap-batonrougeindie.html",
+      "suggested_id": "baton_rouge_indie",
+      "allocation_ordinal": 2854
+    },
+    {
+      "source_label": "batswana traditional",
+      "source_url": "https://everynoise.com/engenremap-batswanatraditional.html",
+      "suggested_id": "batswana_traditional",
+      "allocation_ordinal": 2855
+    },
+    {
+      "source_label": "bay area indie",
+      "source_url": "https://everynoise.com/engenremap-bayareaindie.html",
+      "suggested_id": "bay_area_indie",
+      "allocation_ordinal": 2856
+    },
+    {
+      "source_label": "bboy",
+      "source_url": "https://everynoise.com/engenremap-bboy.html",
+      "suggested_id": "bboy",
+      "allocation_ordinal": 2857
+    },
+    {
+      "source_label": "beat poetry",
+      "source_url": "https://everynoise.com/engenremap-beatpoetry.html",
+      "suggested_id": "beat_poetry",
+      "allocation_ordinal": 2858
+    },
+    {
+      "source_label": "beatboxing",
+      "source_url": "https://everynoise.com/engenremap-beatboxing.html",
+      "suggested_id": "beatboxing",
+      "allocation_ordinal": 2859
+    },
+    {
+      "source_label": "beatdown",
+      "source_url": "https://everynoise.com/engenremap-beatdown.html",
+      "suggested_id": "beatdown",
+      "allocation_ordinal": 2860
+    },
+    {
+      "source_label": "beatlesque",
+      "source_url": "https://everynoise.com/engenremap-beatlesque.html",
+      "suggested_id": "beatlesque",
+      "allocation_ordinal": 2861
+    },
+    {
+      "source_label": "beats",
+      "source_url": "https://everynoise.com/engenremap-beats.html",
+      "suggested_id": "beats",
+      "allocation_ordinal": 2862
+    },
+    {
+      "source_label": "belarusian indie",
+      "source_url": "https://everynoise.com/engenremap-belarusianindie.html",
+      "suggested_id": "belarusian_indie",
+      "allocation_ordinal": 2863
+    },
+    {
+      "source_label": "belfast indie",
+      "source_url": "https://everynoise.com/engenremap-belfastindie.html",
+      "suggested_id": "belfast_indie",
+      "allocation_ordinal": 2864
+    },
+    {
+      "source_label": "belgian experimental",
+      "source_url": "https://everynoise.com/engenremap-belgianexperimental.html",
+      "suggested_id": "belgian_experimental",
+      "allocation_ordinal": 2865
+    },
+    {
+      "source_label": "belgian indie",
+      "source_url": "https://everynoise.com/engenremap-belgianindie.html",
+      "suggested_id": "belgian_indie",
+      "allocation_ordinal": 2866
+    },
+    {
+      "source_label": "belgian new wave",
+      "source_url": "https://everynoise.com/engenremap-belgiannewwave.html",
+      "suggested_id": "belgian_new_wave",
+      "allocation_ordinal": 2867
+    },
+    {
+      "source_label": "bells",
+      "source_url": "https://everynoise.com/engenremap-bells.html",
+      "suggested_id": "bells",
+      "allocation_ordinal": 2868
+    },
+    {
+      "source_label": "belo horizonte indie",
+      "source_url": "https://everynoise.com/engenremap-belohorizonteindie.html",
+      "suggested_id": "belo_horizonte_indie",
+      "allocation_ordinal": 2869
+    },
+    {
+      "source_label": "bemani",
+      "source_url": "https://everynoise.com/engenremap-bemani.html",
+      "suggested_id": "bemani",
+      "allocation_ordinal": 2870
+    },
+    {
+      "source_label": "bergamo indie",
+      "source_url": "https://everynoise.com/engenremap-bergamoindie.html",
+      "suggested_id": "bergamo_indie",
+      "allocation_ordinal": 2871
+    },
+    {
+      "source_label": "bergen indie",
+      "source_url": "https://everynoise.com/engenremap-bergenindie.html",
+      "suggested_id": "bergen_indie",
+      "allocation_ordinal": 2872
+    },
+    {
+      "source_label": "bern indie",
+      "source_url": "https://everynoise.com/engenremap-bernindie.html",
+      "suggested_id": "bern_indie",
+      "allocation_ordinal": 2873
+    },
+    {
+      "source_label": "bernu dziesmas",
+      "source_url": "https://everynoise.com/engenremap-bernudziesmas.html",
+      "suggested_id": "bernu_dziesmas",
+      "allocation_ordinal": 2874
+    },
+    {
+      "source_label": "bgm",
+      "source_url": "https://everynoise.com/engenremap-bgm.html",
+      "suggested_id": "bgm",
+      "allocation_ordinal": 2875
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "073",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol"],
+  "entries": [
+    {
+      "source_label": "melanesian pop",
+      "source_url": "https://everynoise.com/engenremap-melanesianpop.html",
+      "suggested_id": "melanesian_pop",
+      "allocation_ordinal": 1801
+    },
+    {
+      "source_label": "mewati pop",
+      "source_url": "https://everynoise.com/engenremap-mewatipop.html",
+      "suggested_id": "mewati_pop",
+      "allocation_ordinal": 1802
+    },
+    {
+      "source_label": "mising pop",
+      "source_url": "https://everynoise.com/engenremap-misingpop.html",
+      "suggested_id": "mising_pop",
+      "allocation_ordinal": 1803
+    },
+    {
+      "source_label": "mizo pop",
+      "source_url": "https://everynoise.com/engenremap-mizopop.html",
+      "suggested_id": "mizo_pop",
+      "allocation_ordinal": 1804
+    },
+    {
+      "source_label": "modern alternative pop",
+      "source_url": "https://everynoise.com/engenremap-modernalternativepop.html",
+      "suggested_id": "modern_alternative_pop",
+      "allocation_ordinal": 1805
+    },
+    {
+      "source_label": "modern country pop",
+      "source_url": "https://everynoise.com/engenremap-moderncountrypop.html",
+      "suggested_id": "modern_country_pop",
+      "allocation_ordinal": 1806
+    },
+    {
+      "source_label": "modern dream pop",
+      "source_url": "https://everynoise.com/engenremap-moderndreampop.html",
+      "suggested_id": "modern_dream_pop",
+      "allocation_ordinal": 1807
+    },
+    {
+      "source_label": "modern indie pop",
+      "source_url": "https://everynoise.com/engenremap-modernindiepop.html",
+      "suggested_id": "modern_indie_pop",
+      "allocation_ordinal": 1808
+    },
+    {
+      "source_label": "modern jangle pop",
+      "source_url": "https://everynoise.com/engenremap-modernjanglepop.html",
+      "suggested_id": "modern_jangle_pop",
+      "allocation_ordinal": 1809
+    },
+    {
+      "source_label": "modern power pop",
+      "source_url": "https://everynoise.com/engenremap-modernpowerpop.html",
+      "suggested_id": "modern_power_pop",
+      "allocation_ordinal": 1810
+    },
+    {
+      "source_label": "moldovan pop",
+      "source_url": "https://everynoise.com/engenremap-moldovanpop.html",
+      "suggested_id": "moldovan_pop",
+      "allocation_ordinal": 1811
+    },
+    {
+      "source_label": "montenegrin pop",
+      "source_url": "https://everynoise.com/engenremap-montenegrinpop.html",
+      "suggested_id": "montenegrin_pop",
+      "allocation_ordinal": 1812
+    },
+    {
+      "source_label": "nagpuri pop",
+      "source_url": "https://everynoise.com/engenremap-nagpuripop.html",
+      "suggested_id": "nagpuri_pop",
+      "allocation_ordinal": 1813
+    },
+    {
+      "source_label": "namibian pop",
+      "source_url": "https://everynoise.com/engenremap-namibianpop.html",
+      "suggested_id": "namibian_pop",
+      "allocation_ordinal": 1814
+    },
+    {
+      "source_label": "new wave pop",
+      "source_url": "https://everynoise.com/engenremap-newwavepop.html",
+      "suggested_id": "new_wave_pop",
+      "allocation_ordinal": 1815
+    },
+    {
+      "source_label": "norwegian pop",
+      "source_url": "https://everynoise.com/engenremap-norwegianpop.html",
+      "suggested_id": "norwegian_pop",
+      "allocation_ordinal": 1816
+    },
+    {
+      "source_label": "nyc pop",
+      "source_url": "https://everynoise.com/engenremap-nycpop.html",
+      "suggested_id": "nyc_pop",
+      "allocation_ordinal": 1817
+    },
+    {
+      "source_label": "nz pop",
+      "source_url": "https://everynoise.com/engenremap-nzpop.html",
+      "suggested_id": "nz_pop",
+      "allocation_ordinal": 1818
+    },
+    {
+      "source_label": "oromo pop",
+      "source_url": "https://everynoise.com/engenremap-oromopop.html",
+      "suggested_id": "oromo_pop",
+      "allocation_ordinal": 1819
+    },
+    {
+      "source_label": "p-pop",
+      "source_url": "https://everynoise.com/engenremap-ppop.html",
+      "suggested_id": "p_pop",
+      "allocation_ordinal": 1820
+    },
+    {
+      "source_label": "pacific islands pop",
+      "source_url": "https://everynoise.com/engenremap-pacificislandspop.html",
+      "suggested_id": "pacific_islands_pop",
+      "allocation_ordinal": 1821
+    },
+    {
+      "source_label": "pahadi pop",
+      "source_url": "https://everynoise.com/engenremap-pahadipop.html",
+      "suggested_id": "pahadi_pop",
+      "allocation_ordinal": 1822
+    },
+    {
+      "source_label": "palestinian pop",
+      "source_url": "https://everynoise.com/engenremap-palestinianpop.html",
+      "suggested_id": "palestinian_pop",
+      "allocation_ordinal": 1823
+    },
+    {
+      "source_label": "persian pop",
+      "source_url": "https://everynoise.com/engenremap-persianpop.html",
+      "suggested_id": "persian_pop",
+      "allocation_ordinal": 1824
+    },
+    {
+      "source_label": "pinoy city pop",
+      "source_url": "https://everynoise.com/engenremap-pinoycitypop.html",
+      "suggested_id": "pinoy_city_pop",
+      "allocation_ordinal": 1825
+    }
+  ]
+}

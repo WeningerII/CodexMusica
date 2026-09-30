@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "099",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["folk and country names"],
+  "entries": [
+    {
+      "source_label": "german indie folk",
+      "source_url": "https://everynoise.com/engenremap-germanindiefolk.html",
+      "suggested_id": "german_indie_folk",
+      "allocation_ordinal": 2451
+    },
+    {
+      "source_label": "german singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-germansingersongwriter.html",
+      "suggested_id": "german_singer_songwriter",
+      "allocation_ordinal": 2452
+    },
+    {
+      "source_label": "greek folk",
+      "source_url": "https://everynoise.com/engenremap-greekfolk.html",
+      "suggested_id": "greek_folk",
+      "allocation_ordinal": 2453
+    },
+    {
+      "source_label": "icelandic folk",
+      "source_url": "https://everynoise.com/engenremap-icelandicfolk.html",
+      "suggested_id": "icelandic_folk",
+      "allocation_ordinal": 2454
+    },
+    {
+      "source_label": "icelandic singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-icelandicsingersongwriter.html",
+      "suggested_id": "icelandic_singer_songwriter",
+      "allocation_ordinal": 2455
+    },
+    {
+      "source_label": "indian singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-indiansingersongwriter.html",
+      "suggested_id": "indian_singer_songwriter",
+      "allocation_ordinal": 2456
+    },
+    {
+      "source_label": "indie anthem-folk",
+      "source_url": "https://everynoise.com/engenremap-indieanthemfolk.html",
+      "suggested_id": "indie_anthem_folk",
+      "allocation_ordinal": 2457
+    },
+    {
+      "source_label": "indie folk argentino",
+      "source_url": "https://everynoise.com/engenremap-indiefolkargentino.html",
+      "suggested_id": "indie_folk_argentino",
+      "allocation_ordinal": 2458
+    },
+    {
+      "source_label": "indie folk italiano",
+      "source_url": "https://everynoise.com/engenremap-indiefolkitaliano.html",
+      "suggested_id": "indie_folk_italiano",
+      "allocation_ordinal": 2459
+    },
+    {
+      "source_label": "indie singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-indiesingersongwriter.html",
+      "suggested_id": "indie_singer_songwriter",
+      "allocation_ordinal": 2460
+    },
+    {
+      "source_label": "indonesian folk",
+      "source_url": "https://everynoise.com/engenremap-indonesianfolk.html",
+      "suggested_id": "indonesian_folk",
+      "allocation_ordinal": 2461
+    },
+    {
+      "source_label": "indonesian singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-indonesiansingersongwriter.html",
+      "suggested_id": "indonesian_singer_songwriter",
+      "allocation_ordinal": 2462
+    },
+    {
+      "source_label": "irish country",
+      "source_url": "https://everynoise.com/engenremap-irishcountry.html",
+      "suggested_id": "irish_country",
+      "allocation_ordinal": 2463
+    },
+    {
+      "source_label": "irish singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-irishsingersongwriter.html",
+      "suggested_id": "irish_singer_songwriter",
+      "allocation_ordinal": 2464
+    },
+    {
+      "source_label": "israeli folk",
+      "source_url": "https://everynoise.com/engenremap-israelifolk.html",
+      "suggested_id": "israeli_folk",
+      "allocation_ordinal": 2465
+    },
+    {
+      "source_label": "israeli singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-israelisingersongwriter.html",
+      "suggested_id": "israeli_singer_songwriter",
+      "allocation_ordinal": 2466
+    },
+    {
+      "source_label": "italian folk",
+      "source_url": "https://everynoise.com/engenremap-italianfolk.html",
+      "suggested_id": "italian_folk",
+      "allocation_ordinal": 2467
+    },
+    {
+      "source_label": "japanese indie folk",
+      "source_url": "https://everynoise.com/engenremap-japaneseindiefolk.html",
+      "suggested_id": "japanese_indie_folk",
+      "allocation_ordinal": 2468
+    },
+    {
+      "source_label": "japanese singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-japanesesingersongwriter.html",
+      "suggested_id": "japanese_singer_songwriter",
+      "allocation_ordinal": 2469
+    },
+    {
+      "source_label": "kentucky mountain folk",
+      "source_url": "https://everynoise.com/engenremap-kentuckymountainfolk.html",
+      "suggested_id": "kentucky_mountain_folk",
+      "allocation_ordinal": 2470
+    },
+    {
+      "source_label": "korean indie folk",
+      "source_url": "https://everynoise.com/engenremap-koreanindiefolk.html",
+      "suggested_id": "korean_indie_folk",
+      "allocation_ordinal": 2471
+    },
+    {
+      "source_label": "korean singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-koreansingersongwriter.html",
+      "suggested_id": "korean_singer_songwriter",
+      "allocation_ordinal": 2472
+    },
+    {
+      "source_label": "kosovan folk",
+      "source_url": "https://everynoise.com/engenremap-kosovanfolk.html",
+      "suggested_id": "kosovan_folk",
+      "allocation_ordinal": 2473
+    },
+    {
+      "source_label": "kurdish folk",
+      "source_url": "https://everynoise.com/engenremap-kurdishfolk.html",
+      "suggested_id": "kurdish_folk",
+      "allocation_ordinal": 2474
+    },
+    {
+      "source_label": "macedonian folk",
+      "source_url": "https://everynoise.com/engenremap-macedonianfolk.html",
+      "suggested_id": "macedonian_folk",
+      "allocation_ordinal": 2475
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "126",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "danish experimental",
+      "source_url": "https://everynoise.com/engenremap-danishexperimental.html",
+      "suggested_id": "danish_experimental",
+      "allocation_ordinal": 3126
+    },
+    {
+      "source_label": "danish indie",
+      "source_url": "https://everynoise.com/engenremap-danishindie.html",
+      "suggested_id": "danish_indie",
+      "allocation_ordinal": 3127
+    },
+    {
+      "source_label": "dansei seiyu",
+      "source_url": "https://everynoise.com/engenremap-danseiseiyu.html",
+      "suggested_id": "dansei_seiyu",
+      "allocation_ordinal": 3128
+    },
+    {
+      "source_label": "dansk comedy",
+      "source_url": "https://everynoise.com/engenremap-danskcomedy.html",
+      "suggested_id": "dansk_comedy",
+      "allocation_ordinal": 3129
+    },
+    {
+      "source_label": "dansk lovsang",
+      "source_url": "https://everynoise.com/engenremap-dansklovsang.html",
+      "suggested_id": "dansk_lovsang",
+      "allocation_ordinal": 3130
+    },
+    {
+      "source_label": "dansktop",
+      "source_url": "https://everynoise.com/engenremap-dansktop.html",
+      "suggested_id": "dansktop",
+      "allocation_ordinal": 3131
+    },
+    {
+      "source_label": "danspunk",
+      "source_url": "https://everynoise.com/engenremap-danspunk.html",
+      "suggested_id": "danspunk",
+      "allocation_ordinal": 3132
+    },
+    {
+      "source_label": "dark cabaret",
+      "source_url": "https://everynoise.com/engenremap-darkcabaret.html",
+      "suggested_id": "dark_cabaret",
+      "allocation_ordinal": 3133
+    },
+    {
+      "source_label": "dark clubbing",
+      "source_url": "https://everynoise.com/engenremap-darkclubbing.html",
+      "suggested_id": "dark_clubbing",
+      "allocation_ordinal": 3134
+    },
+    {
+      "source_label": "dayton indie",
+      "source_url": "https://everynoise.com/engenremap-daytonindie.html",
+      "suggested_id": "dayton_indie",
+      "allocation_ordinal": 3135
+    },
+    {
+      "source_label": "dc indie",
+      "source_url": "https://everynoise.com/engenremap-dcindie.html",
+      "suggested_id": "dc_indie",
+      "allocation_ordinal": 3136
+    },
+    {
+      "source_label": "death 'n' roll",
+      "source_url": "https://everynoise.com/engenremap-deathnroll.html",
+      "suggested_id": "death_n_roll",
+      "allocation_ordinal": 3137
+    },
+    {
+      "source_label": "death doom",
+      "source_url": "https://everynoise.com/engenremap-deathdoom.html",
+      "suggested_id": "death_doom",
+      "allocation_ordinal": 3138
+    },
+    {
+      "source_label": "deathgrass",
+      "source_url": "https://everynoise.com/engenremap-deathgrass.html",
+      "suggested_id": "deathgrass",
+      "allocation_ordinal": 3139
+    },
+    {
+      "source_label": "deathgrind",
+      "source_url": "https://everynoise.com/engenremap-deathgrind.html",
+      "suggested_id": "deathgrind",
+      "allocation_ordinal": 3140
+    },
+    {
+      "source_label": "deathrash",
+      "source_url": "https://everynoise.com/engenremap-deathrash.html",
+      "suggested_id": "deathrash",
+      "allocation_ordinal": 3141
+    },
+    {
+      "source_label": "deathstep",
+      "source_url": "https://everynoise.com/engenremap-deathstep.html",
+      "suggested_id": "deathstep",
+      "allocation_ordinal": 3142
+    },
+    {
+      "source_label": "decije pesme",
+      "source_url": "https://everynoise.com/engenremap-decijepesme.html",
+      "suggested_id": "decije_pesme",
+      "allocation_ordinal": 3143
+    },
+    {
+      "source_label": "deep adult standards",
+      "source_url": "https://everynoise.com/engenremap-deepadultstandards.html",
+      "suggested_id": "deep_adult_standards",
+      "allocation_ordinal": 3144
+    },
+    {
+      "source_label": "deep big room",
+      "source_url": "https://everynoise.com/engenremap-deepbigroom.html",
+      "suggested_id": "deep_big_room",
+      "allocation_ordinal": 3145
+    },
+    {
+      "source_label": "deep ccm",
+      "source_url": "https://everynoise.com/engenremap-deepccm.html",
+      "suggested_id": "deep_ccm",
+      "allocation_ordinal": 3146
+    },
+    {
+      "source_label": "deep chill",
+      "source_url": "https://everynoise.com/engenremap-deepchill.html",
+      "suggested_id": "deep_chill",
+      "allocation_ordinal": 3147
+    },
+    {
+      "source_label": "deep chill-out",
+      "source_url": "https://everynoise.com/engenremap-deepchillout.html",
+      "suggested_id": "deep_chill_out",
+      "allocation_ordinal": 3148
+    },
+    {
+      "source_label": "deep comedy",
+      "source_url": "https://everynoise.com/engenremap-deepcomedy.html",
+      "suggested_id": "deep_comedy",
+      "allocation_ordinal": 3149
+    },
+    {
+      "source_label": "deep darkpsy",
+      "source_url": "https://everynoise.com/engenremap-deepdarkpsy.html",
+      "suggested_id": "deep_darkpsy",
+      "allocation_ordinal": 3150
+    }
+  ]
+}

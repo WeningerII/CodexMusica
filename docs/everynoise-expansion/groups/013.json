@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "013",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "german viral rap",
+      "source_url": "https://everynoise.com/engenremap-germanviralrap.html",
+      "suggested_id": "german_viral_rap",
+      "allocation_ordinal": 301
+    },
+    {
+      "source_label": "ghanaian hip hop",
+      "source_url": "https://everynoise.com/engenremap-ghanaianhiphop.html",
+      "suggested_id": "ghanaian_hip_hop",
+      "allocation_ordinal": 302
+    },
+    {
+      "source_label": "goa hip hop",
+      "source_url": "https://everynoise.com/engenremap-goahiphop.html",
+      "suggested_id": "goa_hip_hop",
+      "allocation_ordinal": 303
+    },
+    {
+      "source_label": "gospel drill",
+      "source_url": "https://everynoise.com/engenremap-gospeldrill.html",
+      "suggested_id": "gospel_drill",
+      "allocation_ordinal": 304
+    },
+    {
+      "source_label": "gothenburg hip hop",
+      "source_url": "https://everynoise.com/engenremap-gothenburghiphop.html",
+      "suggested_id": "gothenburg_hip_hop",
+      "allocation_ordinal": 305
+    },
+    {
+      "source_label": "greek drill",
+      "source_url": "https://everynoise.com/engenremap-greekdrill.html",
+      "suggested_id": "greek_drill",
+      "allocation_ordinal": 306
+    },
+    {
+      "source_label": "greek fem rap",
+      "source_url": "https://everynoise.com/engenremap-greekfemrap.html",
+      "suggested_id": "greek_fem_rap",
+      "allocation_ordinal": 307
+    },
+    {
+      "source_label": "greek underground rap",
+      "source_url": "https://everynoise.com/engenremap-greekundergroundrap.html",
+      "suggested_id": "greek_underground_rap",
+      "allocation_ordinal": 308
+    },
+    {
+      "source_label": "gulf hip hop",
+      "source_url": "https://everynoise.com/engenremap-gulfhiphop.html",
+      "suggested_id": "gulf_hip_hop",
+      "allocation_ordinal": 309
+    },
+    {
+      "source_label": "hardcore hip hop",
+      "source_url": "https://everynoise.com/engenremap-hardcorehiphop.html",
+      "suggested_id": "hardcore_hip_hop",
+      "allocation_ordinal": 310
+    },
+    {
+      "source_label": "harlem hip hop",
+      "source_url": "https://everynoise.com/engenremap-harlemhiphop.html",
+      "suggested_id": "harlem_hip_hop",
+      "allocation_ordinal": 311
+    },
+    {
+      "source_label": "hindi hip hop",
+      "source_url": "https://everynoise.com/engenremap-hindihiphop.html",
+      "suggested_id": "hindi_hip_hop",
+      "allocation_ordinal": 312
+    },
+    {
+      "source_label": "hip hop boliviano",
+      "source_url": "https://everynoise.com/engenremap-hiphopboliviano.html",
+      "suggested_id": "hip_hop_boliviano",
+      "allocation_ordinal": 313
+    },
+    {
+      "source_label": "hip hop cubano",
+      "source_url": "https://everynoise.com/engenremap-hiphopcubano.html",
+      "suggested_id": "hip_hop_cubano",
+      "allocation_ordinal": 314
+    },
+    {
+      "source_label": "hip hop galsen",
+      "source_url": "https://everynoise.com/engenremap-hiphopgalsen.html",
+      "suggested_id": "hip_hop_galsen",
+      "allocation_ordinal": 315
+    },
+    {
+      "source_label": "hip hop mauritanien",
+      "source_url": "https://everynoise.com/engenremap-hiphopmauritanien.html",
+      "suggested_id": "hip_hop_mauritanien",
+      "allocation_ordinal": 316
+    },
+    {
+      "source_label": "hip hop quebecois",
+      "source_url": "https://everynoise.com/engenremap-hiphopquebecois.html",
+      "suggested_id": "hip_hop_quebecois",
+      "allocation_ordinal": 317
+    },
+    {
+      "source_label": "hip hop reunionnais",
+      "source_url": "https://everynoise.com/engenremap-hiphopreunionnais.html",
+      "suggested_id": "hip_hop_reunionnais",
+      "allocation_ordinal": 318
+    },
+    {
+      "source_label": "hip hop timur",
+      "source_url": "https://everynoise.com/engenremap-hiphoptimur.html",
+      "suggested_id": "hip_hop_timur",
+      "allocation_ordinal": 319
+    },
+    {
+      "source_label": "hip hop tuga",
+      "source_url": "https://everynoise.com/engenremap-hiphoptuga.html",
+      "suggested_id": "hip_hop_tuga",
+      "allocation_ordinal": 320
+    },
+    {
+      "source_label": "hip-hop experimental",
+      "source_url": "https://everynoise.com/engenremap-hiphopexperimental.html",
+      "suggested_id": "hip_hop_experimental",
+      "allocation_ordinal": 321
+    },
+    {
+      "source_label": "hong kong hip hop",
+      "source_url": "https://everynoise.com/engenremap-hongkonghiphop.html",
+      "suggested_id": "hong_kong_hip_hop",
+      "allocation_ordinal": 322
+    },
+    {
+      "source_label": "hungarian hip hop",
+      "source_url": "https://everynoise.com/engenremap-hungarianhiphop.html",
+      "suggested_id": "hungarian_hip_hop",
+      "allocation_ordinal": 323
+    },
+    {
+      "source_label": "hungarian underground rap",
+      "source_url": "https://everynoise.com/engenremap-hungarianundergroundrap.html",
+      "suggested_id": "hungarian_underground_rap",
+      "allocation_ordinal": 324
+    },
+    {
+      "source_label": "icelandic hip hop",
+      "source_url": "https://everynoise.com/engenremap-icelandichiphop.html",
+      "suggested_id": "icelandic_hip_hop",
+      "allocation_ordinal": 325
+    }
+  ]
+}

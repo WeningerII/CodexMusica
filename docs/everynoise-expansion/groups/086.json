@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "086",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["jazz and swing"],
+  "entries": [
+    {
+      "source_label": "jazz boliviano",
+      "source_url": "https://everynoise.com/engenremap-jazzboliviano.html",
+      "suggested_id": "jazz_boliviano",
+      "allocation_ordinal": 2126
+    },
+    {
+      "source_label": "jazz boom bap",
+      "source_url": "https://everynoise.com/engenremap-jazzboombap.html",
+      "suggested_id": "jazz_boom_bap",
+      "allocation_ordinal": 2127
+    },
+    {
+      "source_label": "jazz brass",
+      "source_url": "https://everynoise.com/engenremap-jazzbrass.html",
+      "suggested_id": "jazz_brass",
+      "allocation_ordinal": 2128
+    },
+    {
+      "source_label": "jazz caraibes",
+      "source_url": "https://everynoise.com/engenremap-jazzcaraibes.html",
+      "suggested_id": "jazz_caraibes",
+      "allocation_ordinal": 2129
+    },
+    {
+      "source_label": "jazz catala",
+      "source_url": "https://everynoise.com/engenremap-jazzcatala.html",
+      "suggested_id": "jazz_catala",
+      "allocation_ordinal": 2130
+    },
+    {
+      "source_label": "jazz chileno",
+      "source_url": "https://everynoise.com/engenremap-jazzchileno.html",
+      "suggested_id": "jazz_chileno",
+      "allocation_ordinal": 2131
+    },
+    {
+      "source_label": "jazz clarinet",
+      "source_url": "https://everynoise.com/engenremap-jazzclarinet.html",
+      "suggested_id": "jazz_clarinet",
+      "allocation_ordinal": 2132
+    },
+    {
+      "source_label": "jazz colombiano",
+      "source_url": "https://everynoise.com/engenremap-jazzcolombiano.html",
+      "suggested_id": "jazz_colombiano",
+      "allocation_ordinal": 2133
+    },
+    {
+      "source_label": "jazz composition",
+      "source_url": "https://everynoise.com/engenremap-jazzcomposition.html",
+      "suggested_id": "jazz_composition",
+      "allocation_ordinal": 2134
+    },
+    {
+      "source_label": "jazz cover",
+      "source_url": "https://everynoise.com/engenremap-jazzcover.html",
+      "suggested_id": "jazz_cover",
+      "allocation_ordinal": 2135
+    },
+    {
+      "source_label": "jazz cubano",
+      "source_url": "https://everynoise.com/engenremap-jazzcubano.html",
+      "suggested_id": "jazz_cubano",
+      "allocation_ordinal": 2136
+    },
+    {
+      "source_label": "jazz dominicano",
+      "source_url": "https://everynoise.com/engenremap-jazzdominicano.html",
+      "suggested_id": "jazz_dominicano",
+      "allocation_ordinal": 2137
+    },
+    {
+      "source_label": "jazz drums",
+      "source_url": "https://everynoise.com/engenremap-jazzdrums.html",
+      "suggested_id": "jazz_drums",
+      "allocation_ordinal": 2138
+    },
+    {
+      "source_label": "jazz flute",
+      "source_url": "https://everynoise.com/engenremap-jazzflute.html",
+      "suggested_id": "jazz_flute",
+      "allocation_ordinal": 2139
+    },
+    {
+      "source_label": "jazz guitar",
+      "source_url": "https://everynoise.com/engenremap-jazzguitar.html",
+      "suggested_id": "jazz_guitar",
+      "allocation_ordinal": 2140
+    },
+    {
+      "source_label": "jazz guitar trio",
+      "source_url": "https://everynoise.com/engenremap-jazzguitartrio.html",
+      "suggested_id": "jazz_guitar_trio",
+      "allocation_ordinal": 2141
+    },
+    {
+      "source_label": "jazz harp",
+      "source_url": "https://everynoise.com/engenremap-jazzharp.html",
+      "suggested_id": "jazz_harp",
+      "allocation_ordinal": 2142
+    },
+    {
+      "source_label": "jazz mexicano",
+      "source_url": "https://everynoise.com/engenremap-jazzmexicano.html",
+      "suggested_id": "jazz_mexicano",
+      "allocation_ordinal": 2143
+    },
+    {
+      "source_label": "jazz orchestra",
+      "source_url": "https://everynoise.com/engenremap-jazzorchestra.html",
+      "suggested_id": "jazz_orchestra",
+      "allocation_ordinal": 2144
+    },
+    {
+      "source_label": "jazz organ",
+      "source_url": "https://everynoise.com/engenremap-jazzorgan.html",
+      "suggested_id": "jazz_organ",
+      "allocation_ordinal": 2145
+    },
+    {
+      "source_label": "jazz puertorriqueno",
+      "source_url": "https://everynoise.com/engenremap-jazzpuertorriqueno.html",
+      "suggested_id": "jazz_puertorriqueno",
+      "allocation_ordinal": 2146
+    },
+    {
+      "source_label": "jazz quartet",
+      "source_url": "https://everynoise.com/engenremap-jazzquartet.html",
+      "suggested_id": "jazz_quartet",
+      "allocation_ordinal": 2147
+    },
+    {
+      "source_label": "jazz tico",
+      "source_url": "https://everynoise.com/engenremap-jazztico.html",
+      "suggested_id": "jazz_tico",
+      "allocation_ordinal": 2148
+    },
+    {
+      "source_label": "jazz trio",
+      "source_url": "https://everynoise.com/engenremap-jazztrio.html",
+      "suggested_id": "jazz_trio",
+      "allocation_ordinal": 2149
+    },
+    {
+      "source_label": "jazz trombone",
+      "source_url": "https://everynoise.com/engenremap-jazztrombone.html",
+      "suggested_id": "jazz_trombone",
+      "allocation_ordinal": 2150
+    }
+  ]
+}

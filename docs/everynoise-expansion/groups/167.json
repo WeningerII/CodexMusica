@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "167",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "popwave",
+      "source_url": "https://everynoise.com/engenremap-popwave.html",
+      "suggested_id": "popwave",
+      "allocation_ordinal": 4151
+    },
+    {
+      "source_label": "pornogrind",
+      "source_url": "https://everynoise.com/engenremap-pornogrind.html",
+      "suggested_id": "pornogrind",
+      "allocation_ordinal": 4152
+    },
+    {
+      "source_label": "portland indie",
+      "source_url": "https://everynoise.com/engenremap-portlandindie.html",
+      "suggested_id": "portland_indie",
+      "allocation_ordinal": 4153
+    },
+    {
+      "source_label": "portsmouth indie",
+      "source_url": "https://everynoise.com/engenremap-portsmouthindie.html",
+      "suggested_id": "portsmouth_indie",
+      "allocation_ordinal": 4154
+    },
+    {
+      "source_label": "portuguese early music",
+      "source_url": "https://everynoise.com/engenremap-portugueseearlymusic.html",
+      "suggested_id": "portuguese_early_music",
+      "allocation_ordinal": 4155
+    },
+    {
+      "source_label": "portuguese experimental",
+      "source_url": "https://everynoise.com/engenremap-portugueseexperimental.html",
+      "suggested_id": "portuguese_experimental",
+      "allocation_ordinal": 4156
+    },
+    {
+      "source_label": "portuguese indie",
+      "source_url": "https://everynoise.com/engenremap-portugueseindie.html",
+      "suggested_id": "portuguese_indie",
+      "allocation_ordinal": 4157
+    },
+    {
+      "source_label": "pov: indie",
+      "source_url": "https://everynoise.com/engenremap-povindie.html",
+      "suggested_id": "pov_indie",
+      "allocation_ordinal": 4158
+    },
+    {
+      "source_label": "power thrash",
+      "source_url": "https://everynoise.com/engenremap-powerthrash.html",
+      "suggested_id": "power_thrash",
+      "allocation_ordinal": 4159
+    },
+    {
+      "source_label": "poznan indie",
+      "source_url": "https://everynoise.com/engenremap-poznanindie.html",
+      "suggested_id": "poznan_indie",
+      "allocation_ordinal": 4160
+    },
+    {
+      "source_label": "prague indie",
+      "source_url": "https://everynoise.com/engenremap-pragueindie.html",
+      "suggested_id": "prague_indie",
+      "allocation_ordinal": 4161
+    },
+    {
+      "source_label": "prank",
+      "source_url": "https://everynoise.com/engenremap-prank.html",
+      "suggested_id": "prank",
+      "allocation_ordinal": 4162
+    },
+    {
+      "source_label": "prepared piano",
+      "source_url": "https://everynoise.com/engenremap-preparedpiano.html",
+      "suggested_id": "prepared_piano",
+      "allocation_ordinal": 4163
+    },
+    {
+      "source_label": "previa",
+      "source_url": "https://everynoise.com/engenremap-previa.html",
+      "suggested_id": "previa",
+      "allocation_ordinal": 4164
+    },
+    {
+      "source_label": "prog quebec",
+      "source_url": "https://everynoise.com/engenremap-progquebec.html",
+      "suggested_id": "prog_quebec",
+      "allocation_ordinal": 4165
+    },
+    {
+      "source_label": "progressive alternative",
+      "source_url": "https://everynoise.com/engenremap-progressivealternative.html",
+      "suggested_id": "progressive_alternative",
+      "allocation_ordinal": 4166
+    },
+    {
+      "source_label": "progressive doom",
+      "source_url": "https://everynoise.com/engenremap-progressivedoom.html",
+      "suggested_id": "progressive_doom",
+      "allocation_ordinal": 4167
+    },
+    {
+      "source_label": "progressive sludge",
+      "source_url": "https://everynoise.com/engenremap-progressivesludge.html",
+      "suggested_id": "progressive_sludge",
+      "allocation_ordinal": 4168
+    },
+    {
+      "source_label": "progressive thrash",
+      "source_url": "https://everynoise.com/engenremap-progressivethrash.html",
+      "suggested_id": "progressive_thrash",
+      "allocation_ordinal": 4169
+    },
+    {
+      "source_label": "proto-hyperpop",
+      "source_url": "https://everynoise.com/engenremap-protohyperpop.html",
+      "suggested_id": "proto_hyperpop",
+      "allocation_ordinal": 4170
+    },
+    {
+      "source_label": "psalmen",
+      "source_url": "https://everynoise.com/engenremap-psalmen.html",
+      "suggested_id": "psalmen",
+      "allocation_ordinal": 4171
+    },
+    {
+      "source_label": "psalms",
+      "source_url": "https://everynoise.com/engenremap-psalms.html",
+      "suggested_id": "psalms",
+      "allocation_ordinal": 4172
+    },
+    {
+      "source_label": "psicodelia brasileira",
+      "source_url": "https://everynoise.com/engenremap-psicodeliabrasileira.html",
+      "suggested_id": "psicodelia_brasileira",
+      "allocation_ordinal": 4173
+    },
+    {
+      "source_label": "psicodelia chilena",
+      "source_url": "https://everynoise.com/engenremap-psicodeliachilena.html",
+      "suggested_id": "psicodelia_chilena",
+      "allocation_ordinal": 4174
+    },
+    {
+      "source_label": "psicodelia mexicana",
+      "source_url": "https://everynoise.com/engenremap-psicodeliamexicana.html",
+      "suggested_id": "psicodelia_mexicana",
+      "allocation_ordinal": 4175
+    }
+  ]
+}

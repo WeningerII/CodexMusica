@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "056",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names"],
+  "entries": [
+    {
+      "source_label": "hard stoner rock",
+      "source_url": "https://everynoise.com/engenremap-hardstonerrock.html",
+      "suggested_id": "hard_stoner_rock",
+      "allocation_ordinal": 1376
+    },
+    {
+      "source_label": "heavy gothic rock",
+      "source_url": "https://everynoise.com/engenremap-heavygothicrock.html",
+      "suggested_id": "heavy_gothic_rock",
+      "allocation_ordinal": 1377
+    },
+    {
+      "source_label": "hong kong rock",
+      "source_url": "https://everynoise.com/engenremap-hongkongrock.html",
+      "suggested_id": "hong_kong_rock",
+      "allocation_ordinal": 1378
+    },
+    {
+      "source_label": "hungarian rock",
+      "source_url": "https://everynoise.com/engenremap-hungarianrock.html",
+      "suggested_id": "hungarian_rock",
+      "allocation_ordinal": 1379
+    },
+    {
+      "source_label": "icelandic rock",
+      "source_url": "https://everynoise.com/engenremap-icelandicrock.html",
+      "suggested_id": "icelandic_rock",
+      "allocation_ordinal": 1380
+    },
+    {
+      "source_label": "idol rock",
+      "source_url": "https://everynoise.com/engenremap-idolrock.html",
+      "suggested_id": "idol_rock",
+      "allocation_ordinal": 1381
+    },
+    {
+      "source_label": "indian instrumental rock",
+      "source_url": "https://everynoise.com/engenremap-indianinstrumentalrock.html",
+      "suggested_id": "indian_instrumental_rock",
+      "allocation_ordinal": 1382
+    },
+    {
+      "source_label": "indian rock",
+      "source_url": "https://everynoise.com/engenremap-indianrock.html",
+      "suggested_id": "indian_rock",
+      "allocation_ordinal": 1383
+    },
+    {
+      "source_label": "indie pop rock",
+      "source_url": "https://everynoise.com/engenremap-indiepoprock.html",
+      "suggested_id": "indie_pop_rock",
+      "allocation_ordinal": 1384
+    },
+    {
+      "source_label": "indie psychedelic rock",
+      "source_url": "https://everynoise.com/engenremap-indiepsychedelicrock.html",
+      "suggested_id": "indie_psychedelic_rock",
+      "allocation_ordinal": 1385
+    },
+    {
+      "source_label": "indie rock colombiano",
+      "source_url": "https://everynoise.com/engenremap-indierockcolombiano.html",
+      "suggested_id": "indie_rock_colombiano",
+      "allocation_ordinal": 1386
+    },
+    {
+      "source_label": "indie rock italiano",
+      "source_url": "https://everynoise.com/engenremap-indierockitaliano.html",
+      "suggested_id": "indie_rock_italiano",
+      "allocation_ordinal": 1387
+    },
+    {
+      "source_label": "indie rock mexicano",
+      "source_url": "https://everynoise.com/engenremap-indierockmexicano.html",
+      "suggested_id": "indie_rock_mexicano",
+      "allocation_ordinal": 1388
+    },
+    {
+      "source_label": "indie rock peruano",
+      "source_url": "https://everynoise.com/engenremap-indierockperuano.html",
+      "suggested_id": "indie_rock_peruano",
+      "allocation_ordinal": 1389
+    },
+    {
+      "source_label": "indie shoegaze",
+      "source_url": "https://everynoise.com/engenremap-indieshoegaze.html",
+      "suggested_id": "indie_shoegaze",
+      "allocation_ordinal": 1390
+    },
+    {
+      "source_label": "indonesian alternative rock",
+      "source_url": "https://everynoise.com/engenremap-indonesianalternativerock.html",
+      "suggested_id": "indonesian_alternative_rock",
+      "allocation_ordinal": 1391
+    },
+    {
+      "source_label": "indonesian indie rock",
+      "source_url": "https://everynoise.com/engenremap-indonesianindierock.html",
+      "suggested_id": "indonesian_indie_rock",
+      "allocation_ordinal": 1392
+    },
+    {
+      "source_label": "indonesian pop rock",
+      "source_url": "https://everynoise.com/engenremap-indonesianpoprock.html",
+      "suggested_id": "indonesian_pop_rock",
+      "allocation_ordinal": 1393
+    },
+    {
+      "source_label": "indonesian rock",
+      "source_url": "https://everynoise.com/engenremap-indonesianrock.html",
+      "suggested_id": "indonesian_rock",
+      "allocation_ordinal": 1394
+    },
+    {
+      "source_label": "indonesian shoegaze",
+      "source_url": "https://everynoise.com/engenremap-indonesianshoegaze.html",
+      "suggested_id": "indonesian_shoegaze",
+      "allocation_ordinal": 1395
+    },
+    {
+      "source_label": "instrumental math rock",
+      "source_url": "https://everynoise.com/engenremap-instrumentalmathrock.html",
+      "suggested_id": "instrumental_math_rock",
+      "allocation_ordinal": 1396
+    },
+    {
+      "source_label": "instrumental post-rock",
+      "source_url": "https://everynoise.com/engenremap-instrumentalpostrock.html",
+      "suggested_id": "instrumental_post_rock",
+      "allocation_ordinal": 1397
+    },
+    {
+      "source_label": "instrumental stoner rock",
+      "source_url": "https://everynoise.com/engenremap-instrumentalstonerrock.html",
+      "suggested_id": "instrumental_stoner_rock",
+      "allocation_ordinal": 1398
+    },
+    {
+      "source_label": "irish indie rock",
+      "source_url": "https://everynoise.com/engenremap-irishindierock.html",
+      "suggested_id": "irish_indie_rock",
+      "allocation_ordinal": 1399
+    },
+    {
+      "source_label": "israeli rock",
+      "source_url": "https://everynoise.com/engenremap-israelirock.html",
+      "suggested_id": "israeli_rock",
+      "allocation_ordinal": 1400
+    }
+  ]
+}

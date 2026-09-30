@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "037",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "peruvian death metal",
+      "source_url": "https://everynoise.com/engenremap-peruviandeathmetal.html",
+      "suggested_id": "peruvian_death_metal",
+      "allocation_ordinal": 901
+    },
+    {
+      "source_label": "peruvian metal",
+      "source_url": "https://everynoise.com/engenremap-peruvianmetal.html",
+      "suggested_id": "peruvian_metal",
+      "allocation_ordinal": 902
+    },
+    {
+      "source_label": "pinoy metal",
+      "source_url": "https://everynoise.com/engenremap-pinoymetal.html",
+      "suggested_id": "pinoy_metal",
+      "allocation_ordinal": 903
+    },
+    {
+      "source_label": "pittsburgh metal",
+      "source_url": "https://everynoise.com/engenremap-pittsburghmetal.html",
+      "suggested_id": "pittsburgh_metal",
+      "allocation_ordinal": 904
+    },
+    {
+      "source_label": "polish black metal",
+      "source_url": "https://everynoise.com/engenremap-polishblackmetal.html",
+      "suggested_id": "polish_black_metal",
+      "allocation_ordinal": 905
+    },
+    {
+      "source_label": "polish death metal",
+      "source_url": "https://everynoise.com/engenremap-polishdeathmetal.html",
+      "suggested_id": "polish_death_metal",
+      "allocation_ordinal": 906
+    },
+    {
+      "source_label": "polish folk metal",
+      "source_url": "https://everynoise.com/engenremap-polishfolkmetal.html",
+      "suggested_id": "polish_folk_metal",
+      "allocation_ordinal": 907
+    },
+    {
+      "source_label": "polish metal",
+      "source_url": "https://everynoise.com/engenremap-polishmetal.html",
+      "suggested_id": "polish_metal",
+      "allocation_ordinal": 908
+    },
+    {
+      "source_label": "polish metalcore",
+      "source_url": "https://everynoise.com/engenremap-polishmetalcore.html",
+      "suggested_id": "polish_metalcore",
+      "allocation_ordinal": 909
+    },
+    {
+      "source_label": "polish thrash metal",
+      "source_url": "https://everynoise.com/engenremap-polishthrashmetal.html",
+      "suggested_id": "polish_thrash_metal",
+      "allocation_ordinal": 910
+    },
+    {
+      "source_label": "portland metal",
+      "source_url": "https://everynoise.com/engenremap-portlandmetal.html",
+      "suggested_id": "portland_metal",
+      "allocation_ordinal": 911
+    },
+    {
+      "source_label": "portuguese black metal",
+      "source_url": "https://everynoise.com/engenremap-portugueseblackmetal.html",
+      "suggested_id": "portuguese_black_metal",
+      "allocation_ordinal": 912
+    },
+    {
+      "source_label": "portuguese death metal",
+      "source_url": "https://everynoise.com/engenremap-portuguesedeathmetal.html",
+      "suggested_id": "portuguese_death_metal",
+      "allocation_ordinal": 913
+    },
+    {
+      "source_label": "portuguese metal",
+      "source_url": "https://everynoise.com/engenremap-portuguesemetal.html",
+      "suggested_id": "portuguese_metal",
+      "allocation_ordinal": 914
+    },
+    {
+      "source_label": "post-black metal",
+      "source_url": "https://everynoise.com/engenremap-postblackmetal.html",
+      "suggested_id": "post_black_metal",
+      "allocation_ordinal": 915
+    },
+    {
+      "source_label": "post-doom metal",
+      "source_url": "https://everynoise.com/engenremap-postdoommetal.html",
+      "suggested_id": "post_doom_metal",
+      "allocation_ordinal": 916
+    },
+    {
+      "source_label": "progressive black metal",
+      "source_url": "https://everynoise.com/engenremap-progressiveblackmetal.html",
+      "suggested_id": "progressive_black_metal",
+      "allocation_ordinal": 917
+    },
+    {
+      "source_label": "progressive death metal",
+      "source_url": "https://everynoise.com/engenremap-progressivedeathmetal.html",
+      "suggested_id": "progressive_death_metal",
+      "allocation_ordinal": 918
+    },
+    {
+      "source_label": "progressive deathcore",
+      "source_url": "https://everynoise.com/engenremap-progressivedeathcore.html",
+      "suggested_id": "progressive_deathcore",
+      "allocation_ordinal": 919
+    },
+    {
+      "source_label": "progressive groove metal",
+      "source_url": "https://everynoise.com/engenremap-progressivegroovemetal.html",
+      "suggested_id": "progressive_groove_metal",
+      "allocation_ordinal": 920
+    },
+    {
+      "source_label": "progressive metalcore",
+      "source_url": "https://everynoise.com/engenremap-progressivemetalcore.html",
+      "suggested_id": "progressive_metalcore",
+      "allocation_ordinal": 921
+    },
+    {
+      "source_label": "progressive power metal",
+      "source_url": "https://everynoise.com/engenremap-progressivepowermetal.html",
+      "suggested_id": "progressive_power_metal",
+      "allocation_ordinal": 922
+    },
+    {
+      "source_label": "progressive technical death metal",
+      "source_url": "https://everynoise.com/engenremap-progressivetechnicaldeathmetal.html",
+      "suggested_id": "progressive_technical_death_metal",
+      "allocation_ordinal": 923
+    },
+    {
+      "source_label": "proto-metal",
+      "source_url": "https://everynoise.com/engenremap-protometal.html",
+      "suggested_id": "proto_metal",
+      "allocation_ordinal": 924
+    },
+    {
+      "source_label": "puerto rican metal",
+      "source_url": "https://everynoise.com/engenremap-puertoricanmetal.html",
+      "suggested_id": "puerto_rican_metal",
+      "allocation_ordinal": 925
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "176",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "swiss indie",
+      "source_url": "https://everynoise.com/engenremap-swissindie.html",
+      "suggested_id": "swiss_indie",
+      "allocation_ordinal": 4376
+    },
+    {
+      "source_label": "swiss worship",
+      "source_url": "https://everynoise.com/engenremap-swissworship.html",
+      "suggested_id": "swiss_worship",
+      "allocation_ordinal": 4377
+    },
+    {
+      "source_label": "sydney indie",
+      "source_url": "https://everynoise.com/engenremap-sydneyindie.html",
+      "suggested_id": "sydney_indie",
+      "allocation_ordinal": 4378
+    },
+    {
+      "source_label": "symfonicky orchestr",
+      "source_url": "https://everynoise.com/engenremap-symfonickyorchestr.html",
+      "suggested_id": "symfonicky_orchestr",
+      "allocation_ordinal": 4379
+    },
+    {
+      "source_label": "synthesizer",
+      "source_url": "https://everynoise.com/engenremap-synthesizer.html",
+      "suggested_id": "synthesizer",
+      "allocation_ordinal": 4380
+    },
+    {
+      "source_label": "tabla",
+      "source_url": "https://everynoise.com/engenremap-tabla.html",
+      "suggested_id": "tabla",
+      "allocation_ordinal": 4381
+    },
+    {
+      "source_label": "tagalog worship",
+      "source_url": "https://everynoise.com/engenremap-tagalogworship.html",
+      "suggested_id": "tagalog_worship",
+      "allocation_ordinal": 4382
+    },
+    {
+      "source_label": "taiwan experimental",
+      "source_url": "https://everynoise.com/engenremap-taiwanexperimental.html",
+      "suggested_id": "taiwan_experimental",
+      "allocation_ordinal": 4383
+    },
+    {
+      "source_label": "taiwan graduation song",
+      "source_url": "https://everynoise.com/engenremap-taiwangraduationsong.html",
+      "suggested_id": "taiwan_graduation_song",
+      "allocation_ordinal": 4384
+    },
+    {
+      "source_label": "taiwan indie",
+      "source_url": "https://everynoise.com/engenremap-taiwanindie.html",
+      "suggested_id": "taiwan_indie",
+      "allocation_ordinal": 4385
+    },
+    {
+      "source_label": "taiwan instrumental",
+      "source_url": "https://everynoise.com/engenremap-taiwaninstrumental.html",
+      "suggested_id": "taiwan_instrumental",
+      "allocation_ordinal": 4386
+    },
+    {
+      "source_label": "taiwanese indie",
+      "source_url": "https://everynoise.com/engenremap-taiwaneseindie.html",
+      "suggested_id": "taiwanese_indie",
+      "allocation_ordinal": 4387
+    },
+    {
+      "source_label": "taiwanese indigenous music",
+      "source_url": "https://everynoise.com/engenremap-taiwaneseindigenousmusic.html",
+      "suggested_id": "taiwanese_indigenous_music",
+      "allocation_ordinal": 4388
+    },
+    {
+      "source_label": "talent show",
+      "source_url": "https://everynoise.com/engenremap-talentshow.html",
+      "suggested_id": "talent_show",
+      "allocation_ordinal": 4389
+    },
+    {
+      "source_label": "talentkonkurranse",
+      "source_url": "https://everynoise.com/engenremap-talentkonkurranse.html",
+      "suggested_id": "talentkonkurranse",
+      "allocation_ordinal": 4390
+    },
+    {
+      "source_label": "talentkonkurrence",
+      "source_url": "https://everynoise.com/engenremap-talentkonkurrence.html",
+      "suggested_id": "talentkonkurrence",
+      "allocation_ordinal": 4391
+    },
+    {
+      "source_label": "talentos brasileiros",
+      "source_url": "https://everynoise.com/engenremap-talentosbrasileiros.html",
+      "suggested_id": "talentos_brasileiros",
+      "allocation_ordinal": 4392
+    },
+    {
+      "source_label": "talentschau",
+      "source_url": "https://everynoise.com/engenremap-talentschau.html",
+      "suggested_id": "talentschau",
+      "allocation_ordinal": 4393
+    },
+    {
+      "source_label": "tallava",
+      "source_url": "https://everynoise.com/engenremap-tallava.html",
+      "suggested_id": "tallava",
+      "allocation_ordinal": 4394
+    },
+    {
+      "source_label": "tamaulipas indie",
+      "source_url": "https://everynoise.com/engenremap-tamaulipasindie.html",
+      "suggested_id": "tamaulipas_indie",
+      "allocation_ordinal": 4395
+    },
+    {
+      "source_label": "tamil devotional",
+      "source_url": "https://everynoise.com/engenremap-tamildevotional.html",
+      "suggested_id": "tamil_devotional",
+      "allocation_ordinal": 4396
+    },
+    {
+      "source_label": "tamil indie",
+      "source_url": "https://everynoise.com/engenremap-tamilindie.html",
+      "suggested_id": "tamil_indie",
+      "allocation_ordinal": 4397
+    },
+    {
+      "source_label": "tamil worship",
+      "source_url": "https://everynoise.com/engenremap-tamilworship.html",
+      "suggested_id": "tamil_worship",
+      "allocation_ordinal": 4398
+    },
+    {
+      "source_label": "tampa indie",
+      "source_url": "https://everynoise.com/engenremap-tampaindie.html",
+      "suggested_id": "tampa_indie",
+      "allocation_ordinal": 4399
+    },
+    {
+      "source_label": "tanci",
+      "source_url": "https://everynoise.com/engenremap-tanci.html",
+      "suggested_id": "tanci",
+      "allocation_ordinal": 4400
+    }
+  ]
+}

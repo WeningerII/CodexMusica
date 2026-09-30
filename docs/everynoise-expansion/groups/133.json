@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "133",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "folklore peruano",
+      "source_url": "https://everynoise.com/engenremap-folkloreperuano.html",
+      "suggested_id": "folklore_peruano",
+      "allocation_ordinal": 3301
+    },
+    {
+      "source_label": "folklore quebecois",
+      "source_url": "https://everynoise.com/engenremap-folklorequebecois.html",
+      "suggested_id": "folklore_quebecois",
+      "allocation_ordinal": 3302
+    },
+    {
+      "source_label": "folklore veracruzano",
+      "source_url": "https://everynoise.com/engenremap-folkloreveracruzano.html",
+      "suggested_id": "folklore_veracruzano",
+      "allocation_ordinal": 3303
+    },
+    {
+      "source_label": "football",
+      "source_url": "https://everynoise.com/engenremap-football.html",
+      "suggested_id": "football",
+      "allocation_ordinal": 3304
+    },
+    {
+      "source_label": "forro instrumental",
+      "source_url": "https://everynoise.com/engenremap-forroinstrumental.html",
+      "suggested_id": "forro_instrumental",
+      "allocation_ordinal": 3305
+    },
+    {
+      "source_label": "forro manauara",
+      "source_url": "https://everynoise.com/engenremap-forromanauara.html",
+      "suggested_id": "forro_manauara",
+      "allocation_ordinal": 3306
+    },
+    {
+      "source_label": "fort wayne indie",
+      "source_url": "https://everynoise.com/engenremap-fortwayneindie.html",
+      "suggested_id": "fort_wayne_indie",
+      "allocation_ordinal": 3307
+    },
+    {
+      "source_label": "fort worth indie",
+      "source_url": "https://everynoise.com/engenremap-fortworthindie.html",
+      "suggested_id": "fort_worth_indie",
+      "allocation_ordinal": 3308
+    },
+    {
+      "source_label": "fotbollslatar",
+      "source_url": "https://everynoise.com/engenremap-fotbollslatar.html",
+      "suggested_id": "fotbollslatar",
+      "allocation_ordinal": 3309
+    },
+    {
+      "source_label": "fourth world",
+      "source_url": "https://everynoise.com/engenremap-fourthworld.html",
+      "suggested_id": "fourth_world",
+      "allocation_ordinal": 3310
+    },
+    {
+      "source_label": "frafra",
+      "source_url": "https://everynoise.com/engenremap-frafra.html",
+      "suggested_id": "frafra",
+      "allocation_ordinal": 3311
+    },
+    {
+      "source_label": "frankfurt indie",
+      "source_url": "https://everynoise.com/engenremap-frankfurtindie.html",
+      "suggested_id": "frankfurt_indie",
+      "allocation_ordinal": 3312
+    },
+    {
+      "source_label": "fremantle indie",
+      "source_url": "https://everynoise.com/engenremap-fremantleindie.html",
+      "suggested_id": "fremantle_indie",
+      "allocation_ordinal": 3313
+    },
+    {
+      "source_label": "french indietronica",
+      "source_url": "https://everynoise.com/engenremap-frenchindietronica.html",
+      "suggested_id": "french_indietronica",
+      "allocation_ordinal": 3314
+    },
+    {
+      "source_label": "french movie tunes",
+      "source_url": "https://everynoise.com/engenremap-frenchmovietunes.html",
+      "suggested_id": "french_movie_tunes",
+      "allocation_ordinal": 3315
+    },
+    {
+      "source_label": "french oi",
+      "source_url": "https://everynoise.com/engenremap-frenchoi.html",
+      "suggested_id": "french_oi",
+      "allocation_ordinal": 3316
+    },
+    {
+      "source_label": "french psychedelic",
+      "source_url": "https://everynoise.com/engenremap-frenchpsychedelic.html",
+      "suggested_id": "french_psychedelic",
+      "allocation_ordinal": 3317
+    },
+    {
+      "source_label": "french romanticism",
+      "source_url": "https://everynoise.com/engenremap-frenchromanticism.html",
+      "suggested_id": "french_romanticism",
+      "allocation_ordinal": 3318
+    },
+    {
+      "source_label": "french soundtrack",
+      "source_url": "https://everynoise.com/engenremap-frenchsoundtrack.html",
+      "suggested_id": "french_soundtrack",
+      "allocation_ordinal": 3319
+    },
+    {
+      "source_label": "french worship",
+      "source_url": "https://everynoise.com/engenremap-frenchworship.html",
+      "suggested_id": "french_worship",
+      "allocation_ordinal": 3320
+    },
+    {
+      "source_label": "friese muziek",
+      "source_url": "https://everynoise.com/engenremap-friesemuziek.html",
+      "suggested_id": "friese_muziek",
+      "allocation_ordinal": 3321
+    },
+    {
+      "source_label": "full on groove",
+      "source_url": "https://everynoise.com/engenremap-fullongroove.html",
+      "suggested_id": "full_on_groove",
+      "allocation_ordinal": 3322
+    },
+    {
+      "source_label": "funktronica",
+      "source_url": "https://everynoise.com/engenremap-funktronica.html",
+      "suggested_id": "funktronica",
+      "allocation_ordinal": 3323
+    },
+    {
+      "source_label": "furry",
+      "source_url": "https://everynoise.com/engenremap-furry.html",
+      "suggested_id": "furry",
+      "allocation_ordinal": 3324
+    },
+    {
+      "source_label": "fussball",
+      "source_url": "https://everynoise.com/engenremap-fussball.html",
+      "suggested_id": "fussball",
+      "allocation_ordinal": 3325
+    }
+  ]
+}

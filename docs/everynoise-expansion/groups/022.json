@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "022",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "rap sureno chileno",
+      "source_url": "https://everynoise.com/engenremap-rapsurenochileno.html",
+      "suggested_id": "rap_sureno_chileno",
+      "allocation_ordinal": 526
+    },
+    {
+      "source_label": "rap tico",
+      "source_url": "https://everynoise.com/engenremap-raptico.html",
+      "suggested_id": "rap_tico",
+      "allocation_ordinal": 527
+    },
+    {
+      "source_label": "rap toscana",
+      "source_url": "https://everynoise.com/engenremap-raptoscana.html",
+      "suggested_id": "rap_toscana",
+      "allocation_ordinal": 528
+    },
+    {
+      "source_label": "rap tuga underground",
+      "source_url": "https://everynoise.com/engenremap-raptugaunderground.html",
+      "suggested_id": "rap_tuga_underground",
+      "allocation_ordinal": 529
+    },
+    {
+      "source_label": "rap tunisien",
+      "source_url": "https://everynoise.com/engenremap-raptunisien.html",
+      "suggested_id": "rap_tunisien",
+      "allocation_ordinal": 530
+    },
+    {
+      "source_label": "rap uliczny",
+      "source_url": "https://everynoise.com/engenremap-rapuliczny.html",
+      "suggested_id": "rap_uliczny",
+      "allocation_ordinal": 531
+    },
+    {
+      "source_label": "rap underground argentino",
+      "source_url": "https://everynoise.com/engenremap-rapundergroundargentino.html",
+      "suggested_id": "rap_underground_argentino",
+      "allocation_ordinal": 532
+    },
+    {
+      "source_label": "rap underground colombiano",
+      "source_url": "https://everynoise.com/engenremap-rapundergroundcolombiano.html",
+      "suggested_id": "rap_underground_colombiano",
+      "allocation_ordinal": 533
+    },
+    {
+      "source_label": "rap underground espanol",
+      "source_url": "https://everynoise.com/engenremap-rapundergroundespanol.html",
+      "suggested_id": "rap_underground_espanol",
+      "allocation_ordinal": 534
+    },
+    {
+      "source_label": "rap underground mexicano",
+      "source_url": "https://everynoise.com/engenremap-rapundergroundmexicano.html",
+      "suggested_id": "rap_underground_mexicano",
+      "allocation_ordinal": 535
+    },
+    {
+      "source_label": "rap uruguayo",
+      "source_url": "https://everynoise.com/engenremap-rapuruguayo.html",
+      "suggested_id": "rap_uruguayo",
+      "allocation_ordinal": 536
+    },
+    {
+      "source_label": "rhode island rap",
+      "source_url": "https://everynoise.com/engenremap-rhodeislandrap.html",
+      "suggested_id": "rhode_island_rap",
+      "allocation_ordinal": 537
+    },
+    {
+      "source_label": "romanian rap",
+      "source_url": "https://everynoise.com/engenremap-romanianrap.html",
+      "suggested_id": "romanian_rap",
+      "allocation_ordinal": 538
+    },
+    {
+      "source_label": "romanian trap",
+      "source_url": "https://everynoise.com/engenremap-romaniantrap.html",
+      "suggested_id": "romanian_trap",
+      "allocation_ordinal": 539
+    },
+    {
+      "source_label": "russian drill",
+      "source_url": "https://everynoise.com/engenremap-russiandrill.html",
+      "suggested_id": "russian_drill",
+      "allocation_ordinal": 540
+    },
+    {
+      "source_label": "russian emo rap",
+      "source_url": "https://everynoise.com/engenremap-russianemorap.html",
+      "suggested_id": "russian_emo_rap",
+      "allocation_ordinal": 541
+    },
+    {
+      "source_label": "russian gangster rap",
+      "source_url": "https://everynoise.com/engenremap-russiangangsterrap.html",
+      "suggested_id": "russian_gangster_rap",
+      "allocation_ordinal": 542
+    },
+    {
+      "source_label": "russian hip hop",
+      "source_url": "https://everynoise.com/engenremap-russianhiphop.html",
+      "suggested_id": "russian_hip_hop",
+      "allocation_ordinal": 543
+    },
+    {
+      "source_label": "russian old school hip hop",
+      "source_url": "https://everynoise.com/engenremap-russianoldschoolhiphop.html",
+      "suggested_id": "russian_old_school_hip_hop",
+      "allocation_ordinal": 544
+    },
+    {
+      "source_label": "russian trap",
+      "source_url": "https://everynoise.com/engenremap-russiantrap.html",
+      "suggested_id": "russian_trap",
+      "allocation_ordinal": 545
+    },
+    {
+      "source_label": "russian trap metal",
+      "source_url": "https://everynoise.com/engenremap-russiantrapmetal.html",
+      "suggested_id": "russian_trap_metal",
+      "allocation_ordinal": 546
+    },
+    {
+      "source_label": "russian underground rap",
+      "source_url": "https://everynoise.com/engenremap-russianundergroundrap.html",
+      "suggested_id": "russian_underground_rap",
+      "allocation_ordinal": 547
+    },
+    {
+      "source_label": "russian viral rap",
+      "source_url": "https://everynoise.com/engenremap-russianviralrap.html",
+      "suggested_id": "russian_viral_rap",
+      "allocation_ordinal": 548
+    },
+    {
+      "source_label": "rva drill",
+      "source_url": "https://everynoise.com/engenremap-rvadrill.html",
+      "suggested_id": "rva_drill",
+      "allocation_ordinal": 549
+    },
+    {
+      "source_label": "rwandan hip hop",
+      "source_url": "https://everynoise.com/engenremap-rwandanhiphop.html",
+      "suggested_id": "rwandan_hip_hop",
+      "allocation_ordinal": 550
+    }
+  ]
+}

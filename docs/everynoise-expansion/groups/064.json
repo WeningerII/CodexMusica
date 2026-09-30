@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "064",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names", "pop and idol"],
+  "entries": [
+    {
+      "source_label": "ukrainian rock",
+      "source_url": "https://everynoise.com/engenremap-ukrainianrock.html",
+      "suggested_id": "ukrainian_rock",
+      "allocation_ordinal": 1576
+    },
+    {
+      "source_label": "underground grunge",
+      "source_url": "https://everynoise.com/engenremap-undergroundgrunge.html",
+      "suggested_id": "underground_grunge",
+      "allocation_ordinal": 1577
+    },
+    {
+      "source_label": "varmland rock",
+      "source_url": "https://everynoise.com/engenremap-varmlandrock.html",
+      "suggested_id": "varmland_rock",
+      "allocation_ordinal": 1578
+    },
+    {
+      "source_label": "venezuelan rock",
+      "source_url": "https://everynoise.com/engenremap-venezuelanrock.html",
+      "suggested_id": "venezuelan_rock",
+      "allocation_ordinal": 1579
+    },
+    {
+      "source_label": "vintage rockabilly",
+      "source_url": "https://everynoise.com/engenremap-vintagerockabilly.html",
+      "suggested_id": "vintage_rockabilly",
+      "allocation_ordinal": 1580
+    },
+    {
+      "source_label": "welsh rock",
+      "source_url": "https://everynoise.com/engenremap-welshrock.html",
+      "suggested_id": "welsh_rock",
+      "allocation_ordinal": 1581
+    },
+    {
+      "source_label": "yugoslav rock",
+      "source_url": "https://everynoise.com/engenremap-yugoslavrock.html",
+      "suggested_id": "yugoslav_rock",
+      "allocation_ordinal": 1582
+    },
+    {
+      "source_label": "acoustic pop",
+      "source_url": "https://everynoise.com/engenremap-acousticpop.html",
+      "suggested_id": "acoustic_pop",
+      "allocation_ordinal": 1583
+    },
+    {
+      "source_label": "adivasi pop",
+      "source_url": "https://everynoise.com/engenremap-adivasipop.html",
+      "suggested_id": "adivasi_pop",
+      "allocation_ordinal": 1584
+    },
+    {
+      "source_label": "alt-idol",
+      "source_url": "https://everynoise.com/engenremap-altidol.html",
+      "suggested_id": "alt_idol",
+      "allocation_ordinal": 1585
+    },
+    {
+      "source_label": "alternative pop",
+      "source_url": "https://everynoise.com/engenremap-alternativepop.html",
+      "suggested_id": "alternative_pop",
+      "allocation_ordinal": 1586
+    },
+    {
+      "source_label": "amharic pop",
+      "source_url": "https://everynoise.com/engenremap-amharicpop.html",
+      "suggested_id": "amharic_pop",
+      "allocation_ordinal": 1587
+    },
+    {
+      "source_label": "antiviral pop",
+      "source_url": "https://everynoise.com/engenremap-antiviralpop.html",
+      "suggested_id": "antiviral_pop",
+      "allocation_ordinal": 1588
+    },
+    {
+      "source_label": "assamese pop",
+      "source_url": "https://everynoise.com/engenremap-assamesepop.html",
+      "suggested_id": "assamese_pop",
+      "allocation_ordinal": 1589
+    },
+    {
+      "source_label": "assyrian pop",
+      "source_url": "https://everynoise.com/engenremap-assyrianpop.html",
+      "suggested_id": "assyrian_pop",
+      "allocation_ordinal": 1590
+    },
+    {
+      "source_label": "australian alternative pop",
+      "source_url": "https://everynoise.com/engenremap-australianalternativepop.html",
+      "suggested_id": "australian_alternative_pop",
+      "allocation_ordinal": 1591
+    },
+    {
+      "source_label": "australian pop",
+      "source_url": "https://everynoise.com/engenremap-australianpop.html",
+      "suggested_id": "australian_pop",
+      "allocation_ordinal": 1592
+    },
+    {
+      "source_label": "bahamian pop",
+      "source_url": "https://everynoise.com/engenremap-bahamianpop.html",
+      "suggested_id": "bahamian_pop",
+      "allocation_ordinal": 1593
+    },
+    {
+      "source_label": "balochi pop",
+      "source_url": "https://everynoise.com/engenremap-balochipop.html",
+      "suggested_id": "balochi_pop",
+      "allocation_ordinal": 1594
+    },
+    {
+      "source_label": "bangla pop",
+      "source_url": "https://everynoise.com/engenremap-banglapop.html",
+      "suggested_id": "bangla_pop",
+      "allocation_ordinal": 1595
+    },
+    {
+      "source_label": "banjara pop",
+      "source_url": "https://everynoise.com/engenremap-banjarapop.html",
+      "suggested_id": "banjara_pop",
+      "allocation_ordinal": 1596
+    },
+    {
+      "source_label": "belarusian pop",
+      "source_url": "https://everynoise.com/engenremap-belarusianpop.html",
+      "suggested_id": "belarusian_pop",
+      "allocation_ordinal": 1597
+    },
+    {
+      "source_label": "belgian pop",
+      "source_url": "https://everynoise.com/engenremap-belgianpop.html",
+      "suggested_id": "belgian_pop",
+      "allocation_ordinal": 1598
+    },
+    {
+      "source_label": "beninese pop",
+      "source_url": "https://everynoise.com/engenremap-beninesepop.html",
+      "suggested_id": "beninese_pop",
+      "allocation_ordinal": 1599
+    },
+    {
+      "source_label": "bodo pop",
+      "source_url": "https://everynoise.com/engenremap-bodopop.html",
+      "suggested_id": "bodo_pop",
+      "allocation_ordinal": 1600
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "070",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol"],
+  "entries": [
+    {
+      "source_label": "idol game",
+      "source_url": "https://everynoise.com/engenremap-idolgame.html",
+      "suggested_id": "idol_game",
+      "allocation_ordinal": 1726
+    },
+    {
+      "source_label": "idol kayo",
+      "source_url": "https://everynoise.com/engenremap-idolkayo.html",
+      "suggested_id": "idol_kayo",
+      "allocation_ordinal": 1727
+    },
+    {
+      "source_label": "igbo pop",
+      "source_url": "https://everynoise.com/engenremap-igbopop.html",
+      "suggested_id": "igbo_pop",
+      "allocation_ordinal": 1728
+    },
+    {
+      "source_label": "ilocano pop",
+      "source_url": "https://everynoise.com/engenremap-ilocanopop.html",
+      "suggested_id": "ilocano_pop",
+      "allocation_ordinal": 1729
+    },
+    {
+      "source_label": "indie dream pop",
+      "source_url": "https://everynoise.com/engenremap-indiedreampop.html",
+      "suggested_id": "indie_dream_pop",
+      "allocation_ordinal": 1730
+    },
+    {
+      "source_label": "indie psych-pop",
+      "source_url": "https://everynoise.com/engenremap-indiepsychpop.html",
+      "suggested_id": "indie_psych_pop",
+      "allocation_ordinal": 1731
+    },
+    {
+      "source_label": "indonesian city pop",
+      "source_url": "https://everynoise.com/engenremap-indonesiancitypop.html",
+      "suggested_id": "indonesian_city_pop",
+      "allocation_ordinal": 1732
+    },
+    {
+      "source_label": "indonesian folk pop",
+      "source_url": "https://everynoise.com/engenremap-indonesianfolkpop.html",
+      "suggested_id": "indonesian_folk_pop",
+      "allocation_ordinal": 1733
+    },
+    {
+      "source_label": "indonesian idol pop",
+      "source_url": "https://everynoise.com/engenremap-indonesianidolpop.html",
+      "suggested_id": "indonesian_idol_pop",
+      "allocation_ordinal": 1734
+    },
+    {
+      "source_label": "indonesian indie pop",
+      "source_url": "https://everynoise.com/engenremap-indonesianindiepop.html",
+      "suggested_id": "indonesian_indie_pop",
+      "allocation_ordinal": 1735
+    },
+    {
+      "source_label": "indonesian lo-fi pop",
+      "source_url": "https://everynoise.com/engenremap-indonesianlofipop.html",
+      "suggested_id": "indonesian_lo_fi_pop",
+      "allocation_ordinal": 1736
+    },
+    {
+      "source_label": "indonesian pop",
+      "source_url": "https://everynoise.com/engenremap-indonesianpop.html",
+      "suggested_id": "indonesian_pop",
+      "allocation_ordinal": 1737
+    },
+    {
+      "source_label": "indonesian viral pop",
+      "source_url": "https://everynoise.com/engenremap-indonesianviralpop.html",
+      "suggested_id": "indonesian_viral_pop",
+      "allocation_ordinal": 1738
+    },
+    {
+      "source_label": "industrial pop",
+      "source_url": "https://everynoise.com/engenremap-industrialpop.html",
+      "suggested_id": "industrial_pop",
+      "allocation_ordinal": 1739
+    },
+    {
+      "source_label": "inuit pop",
+      "source_url": "https://everynoise.com/engenremap-inuitpop.html",
+      "suggested_id": "inuit_pop",
+      "allocation_ordinal": 1740
+    },
+    {
+      "source_label": "irish pop",
+      "source_url": "https://everynoise.com/engenremap-irishpop.html",
+      "suggested_id": "irish_pop",
+      "allocation_ordinal": 1741
+    },
+    {
+      "source_label": "italian adult pop",
+      "source_url": "https://everynoise.com/engenremap-italianadultpop.html",
+      "suggested_id": "italian_adult_pop",
+      "allocation_ordinal": 1742
+    },
+    {
+      "source_label": "italian indie pop",
+      "source_url": "https://everynoise.com/engenremap-italianindiepop.html",
+      "suggested_id": "italian_indie_pop",
+      "allocation_ordinal": 1743
+    },
+    {
+      "source_label": "italian pop",
+      "source_url": "https://everynoise.com/engenremap-italianpop.html",
+      "suggested_id": "italian_pop",
+      "allocation_ordinal": 1744
+    },
+    {
+      "source_label": "j-idol",
+      "source_url": "https://everynoise.com/engenremap-jidol.html",
+      "suggested_id": "j_idol",
+      "allocation_ordinal": 1745
+    },
+    {
+      "source_label": "j-pop girl group",
+      "source_url": "https://everynoise.com/engenremap-jpopgirlgroup.html",
+      "suggested_id": "j_pop_girl_group",
+      "allocation_ordinal": 1746
+    },
+    {
+      "source_label": "japanese alternative pop",
+      "source_url": "https://everynoise.com/engenremap-japanesealternativepop.html",
+      "suggested_id": "japanese_alternative_pop",
+      "allocation_ordinal": 1747
+    },
+    {
+      "source_label": "japanese bedroom pop",
+      "source_url": "https://everynoise.com/engenremap-japanesebedroompop.html",
+      "suggested_id": "japanese_bedroom_pop",
+      "allocation_ordinal": 1748
+    },
+    {
+      "source_label": "japanese dance pop",
+      "source_url": "https://everynoise.com/engenremap-japanesedancepop.html",
+      "suggested_id": "japanese_dance_pop",
+      "allocation_ordinal": 1749
+    },
+    {
+      "source_label": "japanese dream pop",
+      "source_url": "https://everynoise.com/engenremap-japanesedreampop.html",
+      "suggested_id": "japanese_dream_pop",
+      "allocation_ordinal": 1750
+    }
+  ]
+}

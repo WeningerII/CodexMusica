@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "117",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "borneo traditional",
+      "source_url": "https://everynoise.com/engenremap-borneotraditional.html",
+      "suggested_id": "borneo_traditional",
+      "allocation_ordinal": 2901
+    },
+    {
+      "source_label": "bornesange",
+      "source_url": "https://everynoise.com/engenremap-bornesange.html",
+      "suggested_id": "bornesange",
+      "allocation_ordinal": 2902
+    },
+    {
+      "source_label": "bosnian indie",
+      "source_url": "https://everynoise.com/engenremap-bosnianindie.html",
+      "suggested_id": "bosnian_indie",
+      "allocation_ordinal": 2903
+    },
+    {
+      "source_label": "bossa nova cover",
+      "source_url": "https://everynoise.com/engenremap-bossanovacover.html",
+      "suggested_id": "bossa_nova_cover",
+      "allocation_ordinal": 2904
+    },
+    {
+      "source_label": "boston indie",
+      "source_url": "https://everynoise.com/engenremap-bostonindie.html",
+      "suggested_id": "boston_indie",
+      "allocation_ordinal": 2905
+    },
+    {
+      "source_label": "bouzouki",
+      "source_url": "https://everynoise.com/engenremap-bouzouki.html",
+      "suggested_id": "bouzouki",
+      "allocation_ordinal": 2906
+    },
+    {
+      "source_label": "boy soprano",
+      "source_url": "https://everynoise.com/engenremap-boysoprano.html",
+      "suggested_id": "boy_soprano",
+      "allocation_ordinal": 2907
+    },
+    {
+      "source_label": "brain waves",
+      "source_url": "https://everynoise.com/engenremap-brainwaves.html",
+      "suggested_id": "brain_waves",
+      "allocation_ordinal": 2908
+    },
+    {
+      "source_label": "braindance",
+      "source_url": "https://everynoise.com/engenremap-braindance.html",
+      "suggested_id": "braindance",
+      "allocation_ordinal": 2909
+    },
+    {
+      "source_label": "brasilia indie",
+      "source_url": "https://everynoise.com/engenremap-brasiliaindie.html",
+      "suggested_id": "brasilia_indie",
+      "allocation_ordinal": 2910
+    },
+    {
+      "source_label": "brass band brasileiro",
+      "source_url": "https://everynoise.com/engenremap-brassbandbrasileiro.html",
+      "suggested_id": "brass_band_brasileiro",
+      "allocation_ordinal": 2911
+    },
+    {
+      "source_label": "brass quintet",
+      "source_url": "https://everynoise.com/engenremap-brassquintet.html",
+      "suggested_id": "brass_quintet",
+      "allocation_ordinal": 2912
+    },
+    {
+      "source_label": "brazilian boogie",
+      "source_url": "https://everynoise.com/engenremap-brazilianboogie.html",
+      "suggested_id": "brazilian_boogie",
+      "allocation_ordinal": 2913
+    },
+    {
+      "source_label": "brazilian ccm",
+      "source_url": "https://everynoise.com/engenremap-brazilianccm.html",
+      "suggested_id": "brazilian_ccm",
+      "allocation_ordinal": 2914
+    },
+    {
+      "source_label": "brazilian experimental",
+      "source_url": "https://everynoise.com/engenremap-brazilianexperimental.html",
+      "suggested_id": "brazilian_experimental",
+      "allocation_ordinal": 2915
+    },
+    {
+      "source_label": "brazilian indie",
+      "source_url": "https://everynoise.com/engenremap-brazilianindie.html",
+      "suggested_id": "brazilian_indie",
+      "allocation_ordinal": 2916
+    },
+    {
+      "source_label": "brazilian percussion",
+      "source_url": "https://everynoise.com/engenremap-brazilianpercussion.html",
+      "suggested_id": "brazilian_percussion",
+      "allocation_ordinal": 2917
+    },
+    {
+      "source_label": "breaks",
+      "source_url": "https://everynoise.com/engenremap-breaks.html",
+      "suggested_id": "breaks",
+      "allocation_ordinal": 2918
+    },
+    {
+      "source_label": "brega",
+      "source_url": "https://everynoise.com/engenremap-brega.html",
+      "suggested_id": "brega",
+      "allocation_ordinal": 2919
+    },
+    {
+      "source_label": "brighton indie",
+      "source_url": "https://everynoise.com/engenremap-brightonindie.html",
+      "suggested_id": "brighton_indie",
+      "allocation_ordinal": 2920
+    },
+    {
+      "source_label": "brisbane indie",
+      "source_url": "https://everynoise.com/engenremap-brisbaneindie.html",
+      "suggested_id": "brisbane_indie",
+      "allocation_ordinal": 2921
+    },
+    {
+      "source_label": "bristol indie",
+      "source_url": "https://everynoise.com/engenremap-bristolindie.html",
+      "suggested_id": "bristol_indie",
+      "allocation_ordinal": 2922
+    },
+    {
+      "source_label": "britcore",
+      "source_url": "https://everynoise.com/engenremap-britcore.html",
+      "suggested_id": "britcore",
+      "allocation_ordinal": 2923
+    },
+    {
+      "source_label": "british children's music",
+      "source_url": "https://everynoise.com/engenremap-britishchildrensmusic.html",
+      "suggested_id": "british_children_s_music",
+      "allocation_ordinal": 2924
+    },
+    {
+      "source_label": "british comedy",
+      "source_url": "https://everynoise.com/engenremap-britishcomedy.html",
+      "suggested_id": "british_comedy",
+      "allocation_ordinal": 2925
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "074",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol"],
+  "entries": [
+    {
+      "source_label": "pinoy idol pop",
+      "source_url": "https://everynoise.com/engenremap-pinoyidolpop.html",
+      "suggested_id": "pinoy_idol_pop",
+      "allocation_ordinal": 1826
+    },
+    {
+      "source_label": "png pop",
+      "source_url": "https://everynoise.com/engenremap-pngpop.html",
+      "suggested_id": "png_pop",
+      "allocation_ordinal": 1827
+    },
+    {
+      "source_label": "polish pop",
+      "source_url": "https://everynoise.com/engenremap-polishpop.html",
+      "suggested_id": "polish_pop",
+      "allocation_ordinal": 1828
+    },
+    {
+      "source_label": "polish viral pop",
+      "source_url": "https://everynoise.com/engenremap-polishviralpop.html",
+      "suggested_id": "polish_viral_pop",
+      "allocation_ordinal": 1829
+    },
+    {
+      "source_label": "pop argentino",
+      "source_url": "https://everynoise.com/engenremap-popargentino.html",
+      "suggested_id": "pop_argentino",
+      "allocation_ordinal": 1830
+    },
+    {
+      "source_label": "pop boliviano",
+      "source_url": "https://everynoise.com/engenremap-popboliviano.html",
+      "suggested_id": "pop_boliviano",
+      "allocation_ordinal": 1831
+    },
+    {
+      "source_label": "pop catracho",
+      "source_url": "https://everynoise.com/engenremap-popcatracho.html",
+      "suggested_id": "pop_catracho",
+      "allocation_ordinal": 1832
+    },
+    {
+      "source_label": "pop chileno",
+      "source_url": "https://everynoise.com/engenremap-popchileno.html",
+      "suggested_id": "pop_chileno",
+      "allocation_ordinal": 1833
+    },
+    {
+      "source_label": "pop costarricense",
+      "source_url": "https://everynoise.com/engenremap-popcostarricense.html",
+      "suggested_id": "pop_costarricense",
+      "allocation_ordinal": 1834
+    },
+    {
+      "source_label": "pop cristiano",
+      "source_url": "https://everynoise.com/engenremap-popcristiano.html",
+      "suggested_id": "pop_cristiano",
+      "allocation_ordinal": 1835
+    },
+    {
+      "source_label": "pop dance",
+      "source_url": "https://everynoise.com/engenremap-popdance.html",
+      "suggested_id": "pop_dance",
+      "allocation_ordinal": 1836
+    },
+    {
+      "source_label": "pop edm",
+      "source_url": "https://everynoise.com/engenremap-popedm.html",
+      "suggested_id": "pop_edm",
+      "allocation_ordinal": 1837
+    },
+    {
+      "source_label": "pop electronico",
+      "source_url": "https://everynoise.com/engenremap-popelectronico.html",
+      "suggested_id": "pop_electronico",
+      "allocation_ordinal": 1838
+    },
+    {
+      "source_label": "pop flamenco",
+      "source_url": "https://everynoise.com/engenremap-popflamenco.html",
+      "suggested_id": "pop_flamenco",
+      "allocation_ordinal": 1839
+    },
+    {
+      "source_label": "pop lgbtq+ brasileira",
+      "source_url": "https://everynoise.com/engenremap-poplgbtqbrasileira.html",
+      "suggested_id": "pop_lgbtq_brasileira",
+      "allocation_ordinal": 1840
+    },
+    {
+      "source_label": "pop minang",
+      "source_url": "https://everynoise.com/engenremap-popminang.html",
+      "suggested_id": "pop_minang",
+      "allocation_ordinal": 1841
+    },
+    {
+      "source_label": "pop nacional",
+      "source_url": "https://everynoise.com/engenremap-popnacional.html",
+      "suggested_id": "pop_nacional",
+      "allocation_ordinal": 1842
+    },
+    {
+      "source_label": "pop nacional antigas",
+      "source_url": "https://everynoise.com/engenremap-popnacionalantigas.html",
+      "suggested_id": "pop_nacional_antigas",
+      "allocation_ordinal": 1843
+    },
+    {
+      "source_label": "pop paraguayo",
+      "source_url": "https://everynoise.com/engenremap-popparaguayo.html",
+      "suggested_id": "pop_paraguayo",
+      "allocation_ordinal": 1844
+    },
+    {
+      "source_label": "pop peruano",
+      "source_url": "https://everynoise.com/engenremap-popperuano.html",
+      "suggested_id": "pop_peruano",
+      "allocation_ordinal": 1845
+    },
+    {
+      "source_label": "pop quebecois",
+      "source_url": "https://everynoise.com/engenremap-popquebecois.html",
+      "suggested_id": "pop_quebecois",
+      "allocation_ordinal": 1846
+    },
+    {
+      "source_label": "pop r&b",
+      "source_url": "https://everynoise.com/engenremap-poprb.html",
+      "suggested_id": "pop_r_and_b",
+      "allocation_ordinal": 1847
+    },
+    {
+      "source_label": "pop reggaeton",
+      "source_url": "https://everynoise.com/engenremap-popreggaeton.html",
+      "suggested_id": "pop_reggaeton",
+      "allocation_ordinal": 1848
+    },
+    {
+      "source_label": "pop romantico",
+      "source_url": "https://everynoise.com/engenremap-popromantico.html",
+      "suggested_id": "pop_romantico",
+      "allocation_ordinal": 1849
+    },
+    {
+      "source_label": "pop teen brasileiro",
+      "source_url": "https://everynoise.com/engenremap-popteenbrasileiro.html",
+      "suggested_id": "pop_teen_brasileiro",
+      "allocation_ordinal": 1850
+    }
+  ]
+}

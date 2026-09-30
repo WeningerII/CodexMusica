@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "159",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "musique tchadienne",
+      "source_url": "https://everynoise.com/engenremap-musiquetchadienne.html",
+      "suggested_id": "musique_tchadienne",
+      "allocation_ordinal": 3951
+    },
+    {
+      "source_label": "musique traditionnelle comorienne",
+      "source_url": "https://everynoise.com/engenremap-musiquetraditionnellecomorienne.html",
+      "suggested_id": "musique_traditionnelle_comorienne",
+      "allocation_ordinal": 3952
+    },
+    {
+      "source_label": "musique traditionnelle congolaise",
+      "source_url": "https://everynoise.com/engenremap-musiquetraditionnellecongolaise.html",
+      "suggested_id": "musique_traditionnelle_congolaise",
+      "allocation_ordinal": 3953
+    },
+    {
+      "source_label": "musique urbaine brazzaville",
+      "source_url": "https://everynoise.com/engenremap-musiqueurbainebrazzaville.html",
+      "suggested_id": "musique_urbaine_brazzaville",
+      "allocation_ordinal": 3954
+    },
+    {
+      "source_label": "musique urbaine kinshasa",
+      "source_url": "https://everynoise.com/engenremap-musiqueurbainekinshasa.html",
+      "suggested_id": "musique_urbaine_kinshasa",
+      "allocation_ordinal": 3955
+    },
+    {
+      "source_label": "muzica ardeleneasca",
+      "source_url": "https://everynoise.com/engenremap-muzicaardeleneasca.html",
+      "suggested_id": "muzica_ardeleneasca",
+      "allocation_ordinal": 3956
+    },
+    {
+      "source_label": "muzica banateana",
+      "source_url": "https://everynoise.com/engenremap-muzicabanateana.html",
+      "suggested_id": "muzica_banateana",
+      "allocation_ordinal": 3957
+    },
+    {
+      "source_label": "muzica bisericeasca",
+      "source_url": "https://everynoise.com/engenremap-muzicabisericeasca.html",
+      "suggested_id": "muzica_bisericeasca",
+      "allocation_ordinal": 3958
+    },
+    {
+      "source_label": "muzica copii",
+      "source_url": "https://everynoise.com/engenremap-muzicacopii.html",
+      "suggested_id": "muzica_copii",
+      "allocation_ordinal": 3959
+    },
+    {
+      "source_label": "muzica crestina",
+      "source_url": "https://everynoise.com/engenremap-muzicacrestina.html",
+      "suggested_id": "muzica_crestina",
+      "allocation_ordinal": 3960
+    },
+    {
+      "source_label": "muzica maramureseana",
+      "source_url": "https://everynoise.com/engenremap-muzicamaramureseana.html",
+      "suggested_id": "muzica_maramureseana",
+      "allocation_ordinal": 3961
+    },
+    {
+      "source_label": "muzica moldoveneasca",
+      "source_url": "https://everynoise.com/engenremap-muzicamoldoveneasca.html",
+      "suggested_id": "muzica_moldoveneasca",
+      "allocation_ordinal": 3962
+    },
+    {
+      "source_label": "muzica usoara",
+      "source_url": "https://everynoise.com/engenremap-muzicausoara.html",
+      "suggested_id": "muzica_usoara",
+      "allocation_ordinal": 3963
+    },
+    {
+      "source_label": "muzika l'yeladim",
+      "source_url": "https://everynoise.com/engenremap-muzikalyeladim.html",
+      "suggested_id": "muzika_l_yeladim",
+      "allocation_ordinal": 3964
+    },
+    {
+      "source_label": "myanmar indie",
+      "source_url": "https://everynoise.com/engenremap-myanmarindie.html",
+      "suggested_id": "myanmar_indie",
+      "allocation_ordinal": 3965
+    },
+    {
+      "source_label": "nadaswaram",
+      "source_url": "https://everynoise.com/engenremap-nadaswaram.html",
+      "suggested_id": "nadaswaram",
+      "allocation_ordinal": 3966
+    },
+    {
+      "source_label": "nagaland indie",
+      "source_url": "https://everynoise.com/engenremap-nagalandindie.html",
+      "suggested_id": "nagaland_indie",
+      "allocation_ordinal": 3967
+    },
+    {
+      "source_label": "nantes indie",
+      "source_url": "https://everynoise.com/engenremap-nantesindie.html",
+      "suggested_id": "nantes_indie",
+      "allocation_ordinal": 3968
+    },
+    {
+      "source_label": "narodnozabavna",
+      "source_url": "https://everynoise.com/engenremap-narodnozabavna.html",
+      "suggested_id": "narodnozabavna",
+      "allocation_ordinal": 3969
+    },
+    {
+      "source_label": "nasheed",
+      "source_url": "https://everynoise.com/engenremap-nasheed.html",
+      "suggested_id": "nasheed",
+      "allocation_ordinal": 3970
+    },
+    {
+      "source_label": "nashville indie",
+      "source_url": "https://everynoise.com/engenremap-nashvilleindie.html",
+      "suggested_id": "nashville_indie",
+      "allocation_ordinal": 3971
+    },
+    {
+      "source_label": "native american contemporary",
+      "source_url": "https://everynoise.com/engenremap-nativeamericancontemporary.html",
+      "suggested_id": "native_american_contemporary",
+      "allocation_ordinal": 3972
+    },
+    {
+      "source_label": "necrogrind",
+      "source_url": "https://everynoise.com/engenremap-necrogrind.html",
+      "suggested_id": "necrogrind",
+      "allocation_ordinal": 3973
+    },
+    {
+      "source_label": "necrotrap",
+      "source_url": "https://everynoise.com/engenremap-necrotrap.html",
+      "suggested_id": "necrotrap",
+      "allocation_ordinal": 3974
+    },
+    {
+      "source_label": "nederlandse hardstyle",
+      "source_url": "https://everynoise.com/engenremap-nederlandsehardstyle.html",
+      "suggested_id": "nederlandse_hardstyle",
+      "allocation_ordinal": 3975
+    }
+  ]
+}

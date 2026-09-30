@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "080",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["electronic and dance names"],
+  "entries": [
+    {
+      "source_label": "deep disco",
+      "source_url": "https://everynoise.com/engenremap-deepdisco.html",
+      "suggested_id": "deep_disco",
+      "allocation_ordinal": 1976
+    },
+    {
+      "source_label": "deep idm",
+      "source_url": "https://everynoise.com/engenremap-deepidm.html",
+      "suggested_id": "deep_idm",
+      "allocation_ordinal": 1977
+    },
+    {
+      "source_label": "deep italo disco",
+      "source_url": "https://everynoise.com/engenremap-deepitalodisco.html",
+      "suggested_id": "deep_italo_disco",
+      "allocation_ordinal": 1978
+    },
+    {
+      "source_label": "deep neo-synthpop",
+      "source_url": "https://everynoise.com/engenremap-deepneosynthpop.html",
+      "suggested_id": "deep_neo_synthpop",
+      "allocation_ordinal": 1979
+    },
+    {
+      "source_label": "dusseldorf electronic",
+      "source_url": "https://everynoise.com/engenremap-dusseldorfelectronic.html",
+      "suggested_id": "dusseldorf_electronic",
+      "allocation_ordinal": 1980
+    },
+    {
+      "source_label": "dutch edm",
+      "source_url": "https://everynoise.com/engenremap-dutchedm.html",
+      "suggested_id": "dutch_edm",
+      "allocation_ordinal": 1981
+    },
+    {
+      "source_label": "dutch experimental electronic",
+      "source_url": "https://everynoise.com/engenremap-dutchexperimentalelectronic.html",
+      "suggested_id": "dutch_experimental_electronic",
+      "allocation_ordinal": 1982
+    },
+    {
+      "source_label": "early synthpop",
+      "source_url": "https://everynoise.com/engenremap-earlysynthpop.html",
+      "suggested_id": "early_synthpop",
+      "allocation_ordinal": 1983
+    },
+    {
+      "source_label": "edm",
+      "source_url": "https://everynoise.com/engenremap-edm.html",
+      "suggested_id": "edm",
+      "allocation_ordinal": 1984
+    },
+    {
+      "source_label": "electro bailando",
+      "source_url": "https://everynoise.com/engenremap-electrobailando.html",
+      "suggested_id": "electro_bailando",
+      "allocation_ordinal": 1985
+    },
+    {
+      "source_label": "electro dub",
+      "source_url": "https://everynoise.com/engenremap-electrodub.html",
+      "suggested_id": "electro_dub",
+      "allocation_ordinal": 1986
+    },
+    {
+      "source_label": "electro trash",
+      "source_url": "https://everynoise.com/engenremap-electrotrash.html",
+      "suggested_id": "electro_trash",
+      "allocation_ordinal": 1987
+    },
+    {
+      "source_label": "electronica argentina",
+      "source_url": "https://everynoise.com/engenremap-electronicaargentina.html",
+      "suggested_id": "electronica_argentina",
+      "allocation_ordinal": 1988
+    },
+    {
+      "source_label": "electronica chilena",
+      "source_url": "https://everynoise.com/engenremap-electronicachilena.html",
+      "suggested_id": "electronica_chilena",
+      "allocation_ordinal": 1989
+    },
+    {
+      "source_label": "electronica cristiana",
+      "source_url": "https://everynoise.com/engenremap-electronicacristiana.html",
+      "suggested_id": "electronica_cristiana",
+      "allocation_ordinal": 1990
+    },
+    {
+      "source_label": "electronica peruana",
+      "source_url": "https://everynoise.com/engenremap-electronicaperuana.html",
+      "suggested_id": "electronica_peruana",
+      "allocation_ordinal": 1991
+    },
+    {
+      "source_label": "electronica venezuela",
+      "source_url": "https://everynoise.com/engenremap-electronicavenezuela.html",
+      "suggested_id": "electronica_venezuela",
+      "allocation_ordinal": 1992
+    },
+    {
+      "source_label": "estonian electronic",
+      "source_url": "https://everynoise.com/engenremap-estonianelectronic.html",
+      "suggested_id": "estonian_electronic",
+      "allocation_ordinal": 1993
+    },
+    {
+      "source_label": "experimental synth",
+      "source_url": "https://everynoise.com/engenremap-experimentalsynth.html",
+      "suggested_id": "experimental_synth",
+      "allocation_ordinal": 1994
+    },
+    {
+      "source_label": "finnish edm",
+      "source_url": "https://everynoise.com/engenremap-finnishedm.html",
+      "suggested_id": "finnish_edm",
+      "allocation_ordinal": 1995
+    },
+    {
+      "source_label": "finnish electro",
+      "source_url": "https://everynoise.com/engenremap-finnishelectro.html",
+      "suggested_id": "finnish_electro",
+      "allocation_ordinal": 1996
+    },
+    {
+      "source_label": "finnish electronic",
+      "source_url": "https://everynoise.com/engenremap-finnishelectronic.html",
+      "suggested_id": "finnish_electronic",
+      "allocation_ordinal": 1997
+    },
+    {
+      "source_label": "frankfurt electronic",
+      "source_url": "https://everynoise.com/engenremap-frankfurtelectronic.html",
+      "suggested_id": "frankfurt_electronic",
+      "allocation_ordinal": 1998
+    },
+    {
+      "source_label": "french synthpop",
+      "source_url": "https://everynoise.com/engenremap-frenchsynthpop.html",
+      "suggested_id": "french_synthpop",
+      "allocation_ordinal": 1999
+    },
+    {
+      "source_label": "georgian electronic",
+      "source_url": "https://everynoise.com/engenremap-georgianelectronic.html",
+      "suggested_id": "georgian_electronic",
+      "allocation_ordinal": 2000
+    }
+  ]
+}

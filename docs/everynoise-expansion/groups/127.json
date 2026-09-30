@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "127",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "deep discofox",
+      "source_url": "https://everynoise.com/engenremap-deepdiscofox.html",
+      "suggested_id": "deep_discofox",
+      "allocation_ordinal": 3151
+    },
+    {
+      "source_label": "deep downtempo fusion",
+      "source_url": "https://everynoise.com/engenremap-deepdowntempofusion.html",
+      "suggested_id": "deep_downtempo_fusion",
+      "allocation_ordinal": 3152
+    },
+    {
+      "source_label": "deep eurodance",
+      "source_url": "https://everynoise.com/engenremap-deepeurodance.html",
+      "suggested_id": "deep_eurodance",
+      "allocation_ordinal": 3153
+    },
+    {
+      "source_label": "deep filthstep",
+      "source_url": "https://everynoise.com/engenremap-deepfilthstep.html",
+      "suggested_id": "deep_filthstep",
+      "allocation_ordinal": 3154
+    },
+    {
+      "source_label": "deep flow",
+      "source_url": "https://everynoise.com/engenremap-deepflow.html",
+      "suggested_id": "deep_flow",
+      "allocation_ordinal": 3155
+    },
+    {
+      "source_label": "deep freestyle",
+      "source_url": "https://everynoise.com/engenremap-deepfreestyle.html",
+      "suggested_id": "deep_freestyle",
+      "allocation_ordinal": 3156
+    },
+    {
+      "source_label": "deep full on",
+      "source_url": "https://everynoise.com/engenremap-deepfullon.html",
+      "suggested_id": "deep_full_on",
+      "allocation_ordinal": 3157
+    },
+    {
+      "source_label": "deep german indie",
+      "source_url": "https://everynoise.com/engenremap-deepgermanindie.html",
+      "suggested_id": "deep_german_indie",
+      "allocation_ordinal": 3158
+    },
+    {
+      "source_label": "deep hardtechno",
+      "source_url": "https://everynoise.com/engenremap-deephardtechno.html",
+      "suggested_id": "deep_hardtechno",
+      "allocation_ordinal": 3159
+    },
+    {
+      "source_label": "deep latin alternative",
+      "source_url": "https://everynoise.com/engenremap-deeplatinalternative.html",
+      "suggested_id": "deep_latin_alternative",
+      "allocation_ordinal": 3160
+    },
+    {
+      "source_label": "deep latin christian",
+      "source_url": "https://everynoise.com/engenremap-deeplatinchristian.html",
+      "suggested_id": "deep_latin_christian",
+      "allocation_ordinal": 3161
+    },
+    {
+      "source_label": "deep liquid",
+      "source_url": "https://everynoise.com/engenremap-deepliquid.html",
+      "suggested_id": "deep_liquid",
+      "allocation_ordinal": 3162
+    },
+    {
+      "source_label": "deep motown",
+      "source_url": "https://everynoise.com/engenremap-deepmotown.html",
+      "suggested_id": "deep_motown",
+      "allocation_ordinal": 3163
+    },
+    {
+      "source_label": "deep neofolk",
+      "source_url": "https://everynoise.com/engenremap-deepneofolk.html",
+      "suggested_id": "deep_neofolk",
+      "allocation_ordinal": 3164
+    },
+    {
+      "source_label": "deep new wave",
+      "source_url": "https://everynoise.com/engenremap-deepnewwave.html",
+      "suggested_id": "deep_new_wave",
+      "allocation_ordinal": 3165
+    },
+    {
+      "source_label": "deep norteno",
+      "source_url": "https://everynoise.com/engenremap-deepnorteno.html",
+      "suggested_id": "deep_norteno",
+      "allocation_ordinal": 3166
+    },
+    {
+      "source_label": "deep orgcore",
+      "source_url": "https://everynoise.com/engenremap-deeporgcore.html",
+      "suggested_id": "deep_orgcore",
+      "allocation_ordinal": 3167
+    },
+    {
+      "source_label": "deep ragga",
+      "source_url": "https://everynoise.com/engenremap-deepragga.html",
+      "suggested_id": "deep_ragga",
+      "allocation_ordinal": 3168
+    },
+    {
+      "source_label": "deep rai",
+      "source_url": "https://everynoise.com/engenremap-deeprai.html",
+      "suggested_id": "deep_rai",
+      "allocation_ordinal": 3169
+    },
+    {
+      "source_label": "deep soundtrack",
+      "source_url": "https://everynoise.com/engenremap-deepsoundtrack.html",
+      "suggested_id": "deep_soundtrack",
+      "allocation_ordinal": 3170
+    },
+    {
+      "source_label": "deep sunset lounge",
+      "source_url": "https://everynoise.com/engenremap-deepsunsetlounge.html",
+      "suggested_id": "deep_sunset_lounge",
+      "allocation_ordinal": 3171
+    },
+    {
+      "source_label": "deep surf music",
+      "source_url": "https://everynoise.com/engenremap-deepsurfmusic.html",
+      "suggested_id": "deep_surf_music",
+      "allocation_ordinal": 3172
+    },
+    {
+      "source_label": "deep talent show",
+      "source_url": "https://everynoise.com/engenremap-deeptalentshow.html",
+      "suggested_id": "deep_talent_show",
+      "allocation_ordinal": 3173
+    },
+    {
+      "source_label": "delaware indie",
+      "source_url": "https://everynoise.com/engenremap-delawareindie.html",
+      "suggested_id": "delaware_indie",
+      "allocation_ordinal": 3174
+    },
+    {
+      "source_label": "denton tx indie",
+      "source_url": "https://everynoise.com/engenremap-dentontxindie.html",
+      "suggested_id": "denton_tx_indie",
+      "allocation_ordinal": 3175
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "019",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "polish viral rap",
+      "source_url": "https://everynoise.com/engenremap-polishviralrap.html",
+      "suggested_id": "polish_viral_rap",
+      "allocation_ordinal": 451
+    },
+    {
+      "source_label": "polynesian hip hop",
+      "source_url": "https://everynoise.com/engenremap-polynesianhiphop.html",
+      "suggested_id": "polynesian_hip_hop",
+      "allocation_ordinal": 452
+    },
+    {
+      "source_label": "pop rap",
+      "source_url": "https://everynoise.com/engenremap-poprap.html",
+      "suggested_id": "pop_rap",
+      "allocation_ordinal": 453
+    },
+    {
+      "source_label": "pop rap brasileiro",
+      "source_url": "https://everynoise.com/engenremap-poprapbrasileiro.html",
+      "suggested_id": "pop_rap_brasileiro",
+      "allocation_ordinal": 454
+    },
+    {
+      "source_label": "portland hip hop",
+      "source_url": "https://everynoise.com/engenremap-portlandhiphop.html",
+      "suggested_id": "portland_hip_hop",
+      "allocation_ordinal": 455
+    },
+    {
+      "source_label": "psychedelic hip hop",
+      "source_url": "https://everynoise.com/engenremap-psychedelichiphop.html",
+      "suggested_id": "psychedelic_hip_hop",
+      "allocation_ordinal": 456
+    },
+    {
+      "source_label": "queens hip hop",
+      "source_url": "https://everynoise.com/engenremap-queenshiphop.html",
+      "suggested_id": "queens_hip_hop",
+      "allocation_ordinal": 457
+    },
+    {
+      "source_label": "rap",
+      "source_url": "https://everynoise.com/engenremap-rap.html",
+      "suggested_id": "rap",
+      "allocation_ordinal": 458
+    },
+    {
+      "source_label": "rap abc paulista",
+      "source_url": "https://everynoise.com/engenremap-rapabcpaulista.html",
+      "suggested_id": "rap_abc_paulista",
+      "allocation_ordinal": 459
+    },
+    {
+      "source_label": "rap alagoano",
+      "source_url": "https://everynoise.com/engenremap-rapalagoano.html",
+      "suggested_id": "rap_alagoano",
+      "allocation_ordinal": 460
+    },
+    {
+      "source_label": "rap angolano",
+      "source_url": "https://everynoise.com/engenremap-rapangolano.html",
+      "suggested_id": "rap_angolano",
+      "allocation_ordinal": 461
+    },
+    {
+      "source_label": "rap anime",
+      "source_url": "https://everynoise.com/engenremap-rapanime.html",
+      "suggested_id": "rap_anime",
+      "allocation_ordinal": 462
+    },
+    {
+      "source_label": "rap antillais",
+      "source_url": "https://everynoise.com/engenremap-rapantillais.html",
+      "suggested_id": "rap_antillais",
+      "allocation_ordinal": 463
+    },
+    {
+      "source_label": "rap baiano",
+      "source_url": "https://everynoise.com/engenremap-rapbaiano.html",
+      "suggested_id": "rap_baiano",
+      "allocation_ordinal": 464
+    },
+    {
+      "source_label": "rap baixada fluminense",
+      "source_url": "https://everynoise.com/engenremap-rapbaixadafluminense.html",
+      "suggested_id": "rap_baixada_fluminense",
+      "allocation_ordinal": 465
+    },
+    {
+      "source_label": "rap boricua",
+      "source_url": "https://everynoise.com/engenremap-rapboricua.html",
+      "suggested_id": "rap_boricua",
+      "allocation_ordinal": 466
+    },
+    {
+      "source_label": "rap burkinabe",
+      "source_url": "https://everynoise.com/engenremap-rapburkinabe.html",
+      "suggested_id": "rap_burkinabe",
+      "allocation_ordinal": 467
+    },
+    {
+      "source_label": "rap capixaba",
+      "source_url": "https://everynoise.com/engenremap-rapcapixaba.html",
+      "suggested_id": "rap_capixaba",
+      "allocation_ordinal": 468
+    },
+    {
+      "source_label": "rap catala",
+      "source_url": "https://everynoise.com/engenremap-rapcatala.html",
+      "suggested_id": "rap_catala",
+      "allocation_ordinal": 469
+    },
+    {
+      "source_label": "rap catarinense",
+      "source_url": "https://everynoise.com/engenremap-rapcatarinense.html",
+      "suggested_id": "rap_catarinense",
+      "allocation_ordinal": 470
+    },
+    {
+      "source_label": "rap cearense",
+      "source_url": "https://everynoise.com/engenremap-rapcearense.html",
+      "suggested_id": "rap_cearense",
+      "allocation_ordinal": 471
+    },
+    {
+      "source_label": "rap chileno",
+      "source_url": "https://everynoise.com/engenremap-rapchileno.html",
+      "suggested_id": "rap_chileno",
+      "allocation_ordinal": 472
+    },
+    {
+      "source_label": "rap chretien",
+      "source_url": "https://everynoise.com/engenremap-rapchretien.html",
+      "suggested_id": "rap_chretien",
+      "allocation_ordinal": 473
+    },
+    {
+      "source_label": "rap congolais",
+      "source_url": "https://everynoise.com/engenremap-rapcongolais.html",
+      "suggested_id": "rap_congolais",
+      "allocation_ordinal": 474
+    },
+    {
+      "source_label": "rap criolo",
+      "source_url": "https://everynoise.com/engenremap-rapcriolo.html",
+      "suggested_id": "rap_criolo",
+      "allocation_ordinal": 475
+    }
+  ]
+}

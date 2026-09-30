@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "008",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["bass and dubstep", "hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "japanese garage rock",
+      "source_url": "https://everynoise.com/engenremap-japanesegaragerock.html",
+      "suggested_id": "japanese_garage_rock",
+      "allocation_ordinal": 176
+    },
+    {
+      "source_label": "jazz double bass",
+      "source_url": "https://everynoise.com/engenremap-jazzdoublebass.html",
+      "suggested_id": "jazz_double_bass",
+      "allocation_ordinal": 177
+    },
+    {
+      "source_label": "kawaii future bass",
+      "source_url": "https://everynoise.com/engenremap-kawaiifuturebass.html",
+      "suggested_id": "kawaii_future_bass",
+      "allocation_ordinal": 178
+    },
+    {
+      "source_label": "minimal dubstep",
+      "source_url": "https://everynoise.com/engenremap-minimaldubstep.html",
+      "suggested_id": "minimal_dubstep",
+      "allocation_ordinal": 179
+    },
+    {
+      "source_label": "neo grime",
+      "source_url": "https://everynoise.com/engenremap-neogrime.html",
+      "suggested_id": "neo_grime",
+      "allocation_ordinal": 180
+    },
+    {
+      "source_label": "russian grime",
+      "source_url": "https://everynoise.com/engenremap-russiangrime.html",
+      "suggested_id": "russian_grime",
+      "allocation_ordinal": 181
+    },
+    {
+      "source_label": "swedish garage rock",
+      "source_url": "https://everynoise.com/engenremap-swedishgaragerock.html",
+      "suggested_id": "swedish_garage_rock",
+      "allocation_ordinal": 182
+    },
+    {
+      "source_label": "ukg revival",
+      "source_url": "https://everynoise.com/engenremap-ukgrevival.html",
+      "suggested_id": "ukg_revival",
+      "allocation_ordinal": 183
+    },
+    {
+      "source_label": "aesthetic rap",
+      "source_url": "https://everynoise.com/engenremap-aestheticrap.html",
+      "suggested_id": "aesthetic_rap",
+      "allocation_ordinal": 184
+    },
+    {
+      "source_label": "afghan rap",
+      "source_url": "https://everynoise.com/engenremap-afghanrap.html",
+      "suggested_id": "afghan_rap",
+      "allocation_ordinal": 185
+    },
+    {
+      "source_label": "afrikaans hip hop",
+      "source_url": "https://everynoise.com/engenremap-afrikaanshiphop.html",
+      "suggested_id": "afrikaans_hip_hop",
+      "allocation_ordinal": 186
+    },
+    {
+      "source_label": "aggressive phonk",
+      "source_url": "https://everynoise.com/engenremap-aggressivephonk.html",
+      "suggested_id": "aggressive_phonk",
+      "allocation_ordinal": 187
+    },
+    {
+      "source_label": "alabama rap",
+      "source_url": "https://everynoise.com/engenremap-alabamarap.html",
+      "suggested_id": "alabama_rap",
+      "allocation_ordinal": 188
+    },
+    {
+      "source_label": "alaska hip hop",
+      "source_url": "https://everynoise.com/engenremap-alaskahiphop.html",
+      "suggested_id": "alaska_hip_hop",
+      "allocation_ordinal": 189
+    },
+    {
+      "source_label": "albanian hip hop",
+      "source_url": "https://everynoise.com/engenremap-albanianhiphop.html",
+      "suggested_id": "albanian_hip_hop",
+      "allocation_ordinal": 190
+    },
+    {
+      "source_label": "alberta hip hop",
+      "source_url": "https://everynoise.com/engenremap-albertahiphop.html",
+      "suggested_id": "alberta_hip_hop",
+      "allocation_ordinal": 191
+    },
+    {
+      "source_label": "anime drill",
+      "source_url": "https://everynoise.com/engenremap-animedrill.html",
+      "suggested_id": "anime_drill",
+      "allocation_ordinal": 192
+    },
+    {
+      "source_label": "anime phonk",
+      "source_url": "https://everynoise.com/engenremap-animephonk.html",
+      "suggested_id": "anime_phonk",
+      "allocation_ordinal": 193
+    },
+    {
+      "source_label": "anime rap",
+      "source_url": "https://everynoise.com/engenremap-animerap.html",
+      "suggested_id": "anime_rap",
+      "allocation_ordinal": 194
+    },
+    {
+      "source_label": "antilliaanse rap",
+      "source_url": "https://everynoise.com/engenremap-antilliaanserap.html",
+      "suggested_id": "antilliaanse_rap",
+      "allocation_ordinal": 195
+    },
+    {
+      "source_label": "arab trap",
+      "source_url": "https://everynoise.com/engenremap-arabtrap.html",
+      "suggested_id": "arab_trap",
+      "allocation_ordinal": 196
+    },
+    {
+      "source_label": "arabic hip hop",
+      "source_url": "https://everynoise.com/engenremap-arabichiphop.html",
+      "suggested_id": "arabic_hip_hop",
+      "allocation_ordinal": 197
+    },
+    {
+      "source_label": "arkansas hip hop",
+      "source_url": "https://everynoise.com/engenremap-arkansashiphop.html",
+      "suggested_id": "arkansas_hip_hop",
+      "allocation_ordinal": 198
+    },
+    {
+      "source_label": "armenian hip hop",
+      "source_url": "https://everynoise.com/engenremap-armenianhiphop.html",
+      "suggested_id": "armenian_hip_hop",
+      "allocation_ordinal": 199
+    },
+    {
+      "source_label": "asian american hip hop",
+      "source_url": "https://everynoise.com/engenremap-asianamericanhiphop.html",
+      "suggested_id": "asian_american_hip_hop",
+      "allocation_ordinal": 200
+    }
+  ]
+}

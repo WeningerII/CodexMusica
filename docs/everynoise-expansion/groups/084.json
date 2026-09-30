@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "084",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["jazz and swing"],
+  "entries": [
+    {
+      "source_label": "arabic jazz",
+      "source_url": "https://everynoise.com/engenremap-arabicjazz.html",
+      "suggested_id": "arabic_jazz",
+      "allocation_ordinal": 2076
+    },
+    {
+      "source_label": "argentine jazz",
+      "source_url": "https://everynoise.com/engenremap-argentinejazz.html",
+      "suggested_id": "argentine_jazz",
+      "allocation_ordinal": 2077
+    },
+    {
+      "source_label": "australian jazz",
+      "source_url": "https://everynoise.com/engenremap-australianjazz.html",
+      "suggested_id": "australian_jazz",
+      "allocation_ordinal": 2078
+    },
+    {
+      "source_label": "austrian jazz",
+      "source_url": "https://everynoise.com/engenremap-austrianjazz.html",
+      "suggested_id": "austrian_jazz",
+      "allocation_ordinal": 2079
+    },
+    {
+      "source_label": "background jazz product",
+      "source_url": "https://everynoise.com/engenremap-backgroundjazzproduct.html",
+      "suggested_id": "background_jazz_product",
+      "allocation_ordinal": 2080
+    },
+    {
+      "source_label": "belgian jazz",
+      "source_url": "https://everynoise.com/engenremap-belgianjazz.html",
+      "suggested_id": "belgian_jazz",
+      "allocation_ordinal": 2081
+    },
+    {
+      "source_label": "belgian modern jazz",
+      "source_url": "https://everynoise.com/engenremap-belgianmodernjazz.html",
+      "suggested_id": "belgian_modern_jazz",
+      "allocation_ordinal": 2082
+    },
+    {
+      "source_label": "bossa nova jazz",
+      "source_url": "https://everynoise.com/engenremap-bossanovajazz.html",
+      "suggested_id": "bossa_nova_jazz",
+      "allocation_ordinal": 2083
+    },
+    {
+      "source_label": "brazilian modern jazz",
+      "source_url": "https://everynoise.com/engenremap-brazilianmodernjazz.html",
+      "suggested_id": "brazilian_modern_jazz",
+      "allocation_ordinal": 2084
+    },
+    {
+      "source_label": "british jazz",
+      "source_url": "https://everynoise.com/engenremap-britishjazz.html",
+      "suggested_id": "british_jazz",
+      "allocation_ordinal": 2085
+    },
+    {
+      "source_label": "canadian modern jazz",
+      "source_url": "https://everynoise.com/engenremap-canadianmodernjazz.html",
+      "suggested_id": "canadian_modern_jazz",
+      "allocation_ordinal": 2086
+    },
+    {
+      "source_label": "chinese jazz",
+      "source_url": "https://everynoise.com/engenremap-chinesejazz.html",
+      "suggested_id": "chinese_jazz",
+      "allocation_ordinal": 2087
+    },
+    {
+      "source_label": "classic japanese jazz",
+      "source_url": "https://everynoise.com/engenremap-classicjapanesejazz.html",
+      "suggested_id": "classic_japanese_jazz",
+      "allocation_ordinal": 2088
+    },
+    {
+      "source_label": "classical jazz fusion",
+      "source_url": "https://everynoise.com/engenremap-classicaljazzfusion.html",
+      "suggested_id": "classical_jazz_fusion",
+      "allocation_ordinal": 2089
+    },
+    {
+      "source_label": "contemporary jazz",
+      "source_url": "https://everynoise.com/engenremap-contemporaryjazz.html",
+      "suggested_id": "contemporary_jazz",
+      "allocation_ordinal": 2090
+    },
+    {
+      "source_label": "contemporary vocal jazz",
+      "source_url": "https://everynoise.com/engenremap-contemporaryvocaljazz.html",
+      "suggested_id": "contemporary_vocal_jazz",
+      "allocation_ordinal": 2091
+    },
+    {
+      "source_label": "czech jazz",
+      "source_url": "https://everynoise.com/engenremap-czechjazz.html",
+      "suggested_id": "czech_jazz",
+      "allocation_ordinal": 2092
+    },
+    {
+      "source_label": "czech swing",
+      "source_url": "https://everynoise.com/engenremap-czechswing.html",
+      "suggested_id": "czech_swing",
+      "allocation_ordinal": 2093
+    },
+    {
+      "source_label": "danish jazz",
+      "source_url": "https://everynoise.com/engenremap-danishjazz.html",
+      "suggested_id": "danish_jazz",
+      "allocation_ordinal": 2094
+    },
+    {
+      "source_label": "danish modern jazz",
+      "source_url": "https://everynoise.com/engenremap-danishmodernjazz.html",
+      "suggested_id": "danish_modern_jazz",
+      "allocation_ordinal": 2095
+    },
+    {
+      "source_label": "deep free jazz",
+      "source_url": "https://everynoise.com/engenremap-deepfreejazz.html",
+      "suggested_id": "deep_free_jazz",
+      "allocation_ordinal": 2096
+    },
+    {
+      "source_label": "deep jazz fusion",
+      "source_url": "https://everynoise.com/engenremap-deepjazzfusion.html",
+      "suggested_id": "deep_jazz_fusion",
+      "allocation_ordinal": 2097
+    },
+    {
+      "source_label": "deep latin jazz",
+      "source_url": "https://everynoise.com/engenremap-deeplatinjazz.html",
+      "suggested_id": "deep_latin_jazz",
+      "allocation_ordinal": 2098
+    },
+    {
+      "source_label": "deep smooth jazz",
+      "source_url": "https://everynoise.com/engenremap-deepsmoothjazz.html",
+      "suggested_id": "deep_smooth_jazz",
+      "allocation_ordinal": 2099
+    },
+    {
+      "source_label": "deep vocal jazz",
+      "source_url": "https://everynoise.com/engenremap-deepvocaljazz.html",
+      "suggested_id": "deep_vocal_jazz",
+      "allocation_ordinal": 2100
+    }
+  ]
+}

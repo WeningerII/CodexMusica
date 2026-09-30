@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "091",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["classical and vocal ensemble names"],
+  "entries": [
+    {
+      "source_label": "classical horn",
+      "source_url": "https://everynoise.com/engenremap-classicalhorn.html",
+      "suggested_id": "classical_horn",
+      "allocation_ordinal": 2251
+    },
+    {
+      "source_label": "classical mandolin",
+      "source_url": "https://everynoise.com/engenremap-classicalmandolin.html",
+      "suggested_id": "classical_mandolin",
+      "allocation_ordinal": 2252
+    },
+    {
+      "source_label": "classical mezzo-soprano",
+      "source_url": "https://everynoise.com/engenremap-classicalmezzosoprano.html",
+      "suggested_id": "classical_mezzo_soprano",
+      "allocation_ordinal": 2253
+    },
+    {
+      "source_label": "classical oboe",
+      "source_url": "https://everynoise.com/engenremap-classicaloboe.html",
+      "suggested_id": "classical_oboe",
+      "allocation_ordinal": 2254
+    },
+    {
+      "source_label": "classical organ",
+      "source_url": "https://everynoise.com/engenremap-classicalorgan.html",
+      "suggested_id": "classical_organ",
+      "allocation_ordinal": 2255
+    },
+    {
+      "source_label": "classical percussion",
+      "source_url": "https://everynoise.com/engenremap-classicalpercussion.html",
+      "suggested_id": "classical_percussion",
+      "allocation_ordinal": 2256
+    },
+    {
+      "source_label": "classical piano",
+      "source_url": "https://everynoise.com/engenremap-classicalpiano.html",
+      "suggested_id": "classical_piano",
+      "allocation_ordinal": 2257
+    },
+    {
+      "source_label": "classical piano duo",
+      "source_url": "https://everynoise.com/engenremap-classicalpianoduo.html",
+      "suggested_id": "classical_piano_duo",
+      "allocation_ordinal": 2258
+    },
+    {
+      "source_label": "classical piano quartet",
+      "source_url": "https://everynoise.com/engenremap-classicalpianoquartet.html",
+      "suggested_id": "classical_piano_quartet",
+      "allocation_ordinal": 2259
+    },
+    {
+      "source_label": "classical piano trio",
+      "source_url": "https://everynoise.com/engenremap-classicalpianotrio.html",
+      "suggested_id": "classical_piano_trio",
+      "allocation_ordinal": 2260
+    },
+    {
+      "source_label": "classical saxophone",
+      "source_url": "https://everynoise.com/engenremap-classicalsaxophone.html",
+      "suggested_id": "classical_saxophone",
+      "allocation_ordinal": 2261
+    },
+    {
+      "source_label": "classical saxophone quartet",
+      "source_url": "https://everynoise.com/engenremap-classicalsaxophonequartet.html",
+      "suggested_id": "classical_saxophone_quartet",
+      "allocation_ordinal": 2262
+    },
+    {
+      "source_label": "classical soprano",
+      "source_url": "https://everynoise.com/engenremap-classicalsoprano.html",
+      "suggested_id": "classical_soprano",
+      "allocation_ordinal": 2263
+    },
+    {
+      "source_label": "classical string trio",
+      "source_url": "https://everynoise.com/engenremap-classicalstringtrio.html",
+      "suggested_id": "classical_string_trio",
+      "allocation_ordinal": 2264
+    },
+    {
+      "source_label": "classical tenor",
+      "source_url": "https://everynoise.com/engenremap-classicaltenor.html",
+      "suggested_id": "classical_tenor",
+      "allocation_ordinal": 2265
+    },
+    {
+      "source_label": "classical trombone",
+      "source_url": "https://everynoise.com/engenremap-classicaltrombone.html",
+      "suggested_id": "classical_trombone",
+      "allocation_ordinal": 2266
+    },
+    {
+      "source_label": "classical trumpet",
+      "source_url": "https://everynoise.com/engenremap-classicaltrumpet.html",
+      "suggested_id": "classical_trumpet",
+      "allocation_ordinal": 2267
+    },
+    {
+      "source_label": "classical tuba",
+      "source_url": "https://everynoise.com/engenremap-classicaltuba.html",
+      "suggested_id": "classical_tuba",
+      "allocation_ordinal": 2268
+    },
+    {
+      "source_label": "contemporary choir",
+      "source_url": "https://everynoise.com/engenremap-contemporarychoir.html",
+      "suggested_id": "contemporary_choir",
+      "allocation_ordinal": 2269
+    },
+    {
+      "source_label": "contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-contemporaryclassical.html",
+      "suggested_id": "contemporary_classical",
+      "allocation_ordinal": 2270
+    },
+    {
+      "source_label": "contemporary classical piano",
+      "source_url": "https://everynoise.com/engenremap-contemporaryclassicalpiano.html",
+      "suggested_id": "contemporary_classical_piano",
+      "allocation_ordinal": 2271
+    },
+    {
+      "source_label": "czech classical",
+      "source_url": "https://everynoise.com/engenremap-czechclassical.html",
+      "suggested_id": "czech_classical",
+      "allocation_ordinal": 2272
+    },
+    {
+      "source_label": "czech classical piano",
+      "source_url": "https://everynoise.com/engenremap-czechclassicalpiano.html",
+      "suggested_id": "czech_classical_piano",
+      "allocation_ordinal": 2273
+    },
+    {
+      "source_label": "czech contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-czechcontemporaryclassical.html",
+      "suggested_id": "czech_contemporary_classical",
+      "allocation_ordinal": 2274
+    },
+    {
+      "source_label": "danish choir",
+      "source_url": "https://everynoise.com/engenremap-danishchoir.html",
+      "suggested_id": "danish_choir",
+      "allocation_ordinal": 2275
+    }
+  ]
+}

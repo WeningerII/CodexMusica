@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "077",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol"],
+  "entries": [
+    {
+      "source_label": "tajik pop",
+      "source_url": "https://everynoise.com/engenremap-tajikpop.html",
+      "suggested_id": "tajik_pop",
+      "allocation_ordinal": 1901
+    },
+    {
+      "source_label": "tanzanian pop",
+      "source_url": "https://everynoise.com/engenremap-tanzanianpop.html",
+      "suggested_id": "tanzanian_pop",
+      "allocation_ordinal": 1902
+    },
+    {
+      "source_label": "tatar pop",
+      "source_url": "https://everynoise.com/engenremap-tatarpop.html",
+      "suggested_id": "tatar_pop",
+      "allocation_ordinal": 1903
+    },
+    {
+      "source_label": "teen pop",
+      "source_url": "https://everynoise.com/engenremap-teenpop.html",
+      "suggested_id": "teen_pop",
+      "allocation_ordinal": 1904
+    },
+    {
+      "source_label": "thai folk pop",
+      "source_url": "https://everynoise.com/engenremap-thaifolkpop.html",
+      "suggested_id": "thai_folk_pop",
+      "allocation_ordinal": 1905
+    },
+    {
+      "source_label": "thai indie pop",
+      "source_url": "https://everynoise.com/engenremap-thaiindiepop.html",
+      "suggested_id": "thai_indie_pop",
+      "allocation_ordinal": 1906
+    },
+    {
+      "source_label": "thai teen pop",
+      "source_url": "https://everynoise.com/engenremap-thaiteenpop.html",
+      "suggested_id": "thai_teen_pop",
+      "allocation_ordinal": 1907
+    },
+    {
+      "source_label": "thai viral pop",
+      "source_url": "https://everynoise.com/engenremap-thaiviralpop.html",
+      "suggested_id": "thai_viral_pop",
+      "allocation_ordinal": 1908
+    },
+    {
+      "source_label": "tibetan folk pop",
+      "source_url": "https://everynoise.com/engenremap-tibetanfolkpop.html",
+      "suggested_id": "tibetan_folk_pop",
+      "allocation_ordinal": 1909
+    },
+    {
+      "source_label": "tibetan pop",
+      "source_url": "https://everynoise.com/engenremap-tibetanpop.html",
+      "suggested_id": "tibetan_pop",
+      "allocation_ordinal": 1910
+    },
+    {
+      "source_label": "tigrigna pop",
+      "source_url": "https://everynoise.com/engenremap-tigrignapop.html",
+      "suggested_id": "tigrigna_pop",
+      "allocation_ordinal": 1911
+    },
+    {
+      "source_label": "togolese pop",
+      "source_url": "https://everynoise.com/engenremap-togolesepop.html",
+      "suggested_id": "togolese_pop",
+      "allocation_ordinal": 1912
+    },
+    {
+      "source_label": "tongan pop",
+      "source_url": "https://everynoise.com/engenremap-tonganpop.html",
+      "suggested_id": "tongan_pop",
+      "allocation_ordinal": 1913
+    },
+    {
+      "source_label": "tunisian pop",
+      "source_url": "https://everynoise.com/engenremap-tunisianpop.html",
+      "suggested_id": "tunisian_pop",
+      "allocation_ordinal": 1914
+    },
+    {
+      "source_label": "turkish alt pop",
+      "source_url": "https://everynoise.com/engenremap-turkishaltpop.html",
+      "suggested_id": "turkish_alt_pop",
+      "allocation_ordinal": 1915
+    },
+    {
+      "source_label": "twee indie pop",
+      "source_url": "https://everynoise.com/engenremap-tweeindiepop.html",
+      "suggested_id": "twee_indie_pop",
+      "allocation_ordinal": 1916
+    },
+    {
+      "source_label": "ugandan pop",
+      "source_url": "https://everynoise.com/engenremap-ugandanpop.html",
+      "suggested_id": "ugandan_pop",
+      "allocation_ordinal": 1917
+    },
+    {
+      "source_label": "uk alternative pop",
+      "source_url": "https://everynoise.com/engenremap-ukalternativepop.html",
+      "suggested_id": "uk_alternative_pop",
+      "allocation_ordinal": 1918
+    },
+    {
+      "source_label": "uk pop",
+      "source_url": "https://everynoise.com/engenremap-ukpop.html",
+      "suggested_id": "uk_pop",
+      "allocation_ordinal": 1919
+    },
+    {
+      "source_label": "ukrainian folk pop",
+      "source_url": "https://everynoise.com/engenremap-ukrainianfolkpop.html",
+      "suggested_id": "ukrainian_folk_pop",
+      "allocation_ordinal": 1920
+    },
+    {
+      "source_label": "ukrainian pop",
+      "source_url": "https://everynoise.com/engenremap-ukrainianpop.html",
+      "suggested_id": "ukrainian_pop",
+      "allocation_ordinal": 1921
+    },
+    {
+      "source_label": "ukrainian viral pop",
+      "source_url": "https://everynoise.com/engenremap-ukrainianviralpop.html",
+      "suggested_id": "ukrainian_viral_pop",
+      "allocation_ordinal": 1922
+    },
+    {
+      "source_label": "underground power pop",
+      "source_url": "https://everynoise.com/engenremap-undergroundpowerpop.html",
+      "suggested_id": "underground_power_pop",
+      "allocation_ordinal": 1923
+    },
+    {
+      "source_label": "uyghur pop",
+      "source_url": "https://everynoise.com/engenremap-uyghurpop.html",
+      "suggested_id": "uyghur_pop",
+      "allocation_ordinal": 1924
+    },
+    {
+      "source_label": "v-pop",
+      "source_url": "https://everynoise.com/engenremap-vpop.html",
+      "suggested_id": "v_pop",
+      "allocation_ordinal": 1925
+    }
+  ]
+}

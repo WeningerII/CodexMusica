@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "038",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "quebec death metal",
+      "source_url": "https://everynoise.com/engenremap-quebecdeathmetal.html",
+      "suggested_id": "quebec_death_metal",
+      "allocation_ordinal": 926
+    },
+    {
+      "source_label": "quebec metal",
+      "source_url": "https://everynoise.com/engenremap-quebecmetal.html",
+      "suggested_id": "quebec_metal",
+      "allocation_ordinal": 927
+    },
+    {
+      "source_label": "raw black metal",
+      "source_url": "https://everynoise.com/engenremap-rawblackmetal.html",
+      "suggested_id": "raw_black_metal",
+      "allocation_ordinal": 928
+    },
+    {
+      "source_label": "retro metal",
+      "source_url": "https://everynoise.com/engenremap-retrometal.html",
+      "suggested_id": "retro_metal",
+      "allocation_ordinal": 929
+    },
+    {
+      "source_label": "romanian black metal",
+      "source_url": "https://everynoise.com/engenremap-romanianblackmetal.html",
+      "suggested_id": "romanian_black_metal",
+      "allocation_ordinal": 930
+    },
+    {
+      "source_label": "romanian metal",
+      "source_url": "https://everynoise.com/engenremap-romanianmetal.html",
+      "suggested_id": "romanian_metal",
+      "allocation_ordinal": 931
+    },
+    {
+      "source_label": "russian black metal",
+      "source_url": "https://everynoise.com/engenremap-russianblackmetal.html",
+      "suggested_id": "russian_black_metal",
+      "allocation_ordinal": 932
+    },
+    {
+      "source_label": "russian death metal",
+      "source_url": "https://everynoise.com/engenremap-russiandeathmetal.html",
+      "suggested_id": "russian_death_metal",
+      "allocation_ordinal": 933
+    },
+    {
+      "source_label": "russian folk metal",
+      "source_url": "https://everynoise.com/engenremap-russianfolkmetal.html",
+      "suggested_id": "russian_folk_metal",
+      "allocation_ordinal": 934
+    },
+    {
+      "source_label": "russian heavy metal",
+      "source_url": "https://everynoise.com/engenremap-russianheavymetal.html",
+      "suggested_id": "russian_heavy_metal",
+      "allocation_ordinal": 935
+    },
+    {
+      "source_label": "russian metal",
+      "source_url": "https://everynoise.com/engenremap-russianmetal.html",
+      "suggested_id": "russian_metal",
+      "allocation_ordinal": 936
+    },
+    {
+      "source_label": "russian metalcore",
+      "source_url": "https://everynoise.com/engenremap-russianmetalcore.html",
+      "suggested_id": "russian_metalcore",
+      "allocation_ordinal": 937
+    },
+    {
+      "source_label": "russian nu metal",
+      "source_url": "https://everynoise.com/engenremap-russiannumetal.html",
+      "suggested_id": "russian_nu_metal",
+      "allocation_ordinal": 938
+    },
+    {
+      "source_label": "russian power metal",
+      "source_url": "https://everynoise.com/engenremap-russianpowermetal.html",
+      "suggested_id": "russian_power_metal",
+      "allocation_ordinal": 939
+    },
+    {
+      "source_label": "russian thrash metal",
+      "source_url": "https://everynoise.com/engenremap-russianthrashmetal.html",
+      "suggested_id": "russian_thrash_metal",
+      "allocation_ordinal": 940
+    },
+    {
+      "source_label": "saxony metal",
+      "source_url": "https://everynoise.com/engenremap-saxonymetal.html",
+      "suggested_id": "saxony_metal",
+      "allocation_ordinal": 941
+    },
+    {
+      "source_label": "sci-fi metal",
+      "source_url": "https://everynoise.com/engenremap-scifimetal.html",
+      "suggested_id": "sci_fi_metal",
+      "allocation_ordinal": 942
+    },
+    {
+      "source_label": "scottish metal",
+      "source_url": "https://everynoise.com/engenremap-scottishmetal.html",
+      "suggested_id": "scottish_metal",
+      "allocation_ordinal": 943
+    },
+    {
+      "source_label": "seattle metal",
+      "source_url": "https://everynoise.com/engenremap-seattlemetal.html",
+      "suggested_id": "seattle_metal",
+      "allocation_ordinal": 944
+    },
+    {
+      "source_label": "serbian metal",
+      "source_url": "https://everynoise.com/engenremap-serbianmetal.html",
+      "suggested_id": "serbian_metal",
+      "allocation_ordinal": 945
+    },
+    {
+      "source_label": "singaporean metal",
+      "source_url": "https://everynoise.com/engenremap-singaporeanmetal.html",
+      "suggested_id": "singaporean_metal",
+      "allocation_ordinal": 946
+    },
+    {
+      "source_label": "slam death metal",
+      "source_url": "https://everynoise.com/engenremap-slamdeathmetal.html",
+      "suggested_id": "slam_death_metal",
+      "allocation_ordinal": 947
+    },
+    {
+      "source_label": "slamming deathcore",
+      "source_url": "https://everynoise.com/engenremap-slammingdeathcore.html",
+      "suggested_id": "slamming_deathcore",
+      "allocation_ordinal": 948
+    },
+    {
+      "source_label": "slavic folk metal",
+      "source_url": "https://everynoise.com/engenremap-slavicfolkmetal.html",
+      "suggested_id": "slavic_folk_metal",
+      "allocation_ordinal": 949
+    },
+    {
+      "source_label": "slavic metal",
+      "source_url": "https://everynoise.com/engenremap-slavicmetal.html",
+      "suggested_id": "slavic_metal",
+      "allocation_ordinal": 950
+    }
+  ]
+}

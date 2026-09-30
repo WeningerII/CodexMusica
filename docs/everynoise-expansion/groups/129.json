@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "129",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "dreamo",
+      "source_url": "https://everynoise.com/engenremap-dreamo.html",
+      "suggested_id": "dreamo",
+      "allocation_ordinal": 3201
+    },
+    {
+      "source_label": "dresden indie",
+      "source_url": "https://everynoise.com/engenremap-dresdenindie.html",
+      "suggested_id": "dresden_indie",
+      "allocation_ordinal": 3202
+    },
+    {
+      "source_label": "drift",
+      "source_url": "https://everynoise.com/engenremap-drift.html",
+      "suggested_id": "drift",
+      "allocation_ordinal": 3203
+    },
+    {
+      "source_label": "drikkelek",
+      "source_url": "https://everynoise.com/engenremap-drikkelek.html",
+      "suggested_id": "drikkelek",
+      "allocation_ordinal": 3204
+    },
+    {
+      "source_label": "dronescape",
+      "source_url": "https://everynoise.com/engenremap-dronescape.html",
+      "suggested_id": "dronescape",
+      "allocation_ordinal": 3205
+    },
+    {
+      "source_label": "dublin indie",
+      "source_url": "https://everynoise.com/engenremap-dublinindie.html",
+      "suggested_id": "dublin_indie",
+      "allocation_ordinal": 3206
+    },
+    {
+      "source_label": "dubsteppe",
+      "source_url": "https://everynoise.com/engenremap-dubsteppe.html",
+      "suggested_id": "dubsteppe",
+      "allocation_ordinal": 3207
+    },
+    {
+      "source_label": "duhovne pjesme",
+      "source_url": "https://everynoise.com/engenremap-duhovnepjesme.html",
+      "suggested_id": "duhovne_pjesme",
+      "allocation_ordinal": 3208
+    },
+    {
+      "source_label": "duluth indie",
+      "source_url": "https://everynoise.com/engenremap-duluthindie.html",
+      "suggested_id": "duluth_indie",
+      "allocation_ordinal": 3209
+    },
+    {
+      "source_label": "dundee indie",
+      "source_url": "https://everynoise.com/engenremap-dundeeindie.html",
+      "suggested_id": "dundee_indie",
+      "allocation_ordinal": 3210
+    },
+    {
+      "source_label": "dunedin indie",
+      "source_url": "https://everynoise.com/engenremap-dunedinindie.html",
+      "suggested_id": "dunedin_indie",
+      "allocation_ordinal": 3211
+    },
+    {
+      "source_label": "dusseldorf indie",
+      "source_url": "https://everynoise.com/engenremap-dusseldorfindie.html",
+      "suggested_id": "dusseldorf_indie",
+      "allocation_ordinal": 3212
+    },
+    {
+      "source_label": "dutch cabaret",
+      "source_url": "https://everynoise.com/engenremap-dutchcabaret.html",
+      "suggested_id": "dutch_cabaret",
+      "allocation_ordinal": 3213
+    },
+    {
+      "source_label": "dutch experimental",
+      "source_url": "https://everynoise.com/engenremap-dutchexperimental.html",
+      "suggested_id": "dutch_experimental",
+      "allocation_ordinal": 3214
+    },
+    {
+      "source_label": "dutch indie",
+      "source_url": "https://everynoise.com/engenremap-dutchindie.html",
+      "suggested_id": "dutch_indie",
+      "allocation_ordinal": 3215
+    },
+    {
+      "source_label": "dutch moombahton",
+      "source_url": "https://everynoise.com/engenremap-dutchmoombahton.html",
+      "suggested_id": "dutch_moombahton",
+      "allocation_ordinal": 3216
+    },
+    {
+      "source_label": "dutch musical",
+      "source_url": "https://everynoise.com/engenremap-dutchmusical.html",
+      "suggested_id": "dutch_musical",
+      "allocation_ordinal": 3217
+    },
+    {
+      "source_label": "dutch prog",
+      "source_url": "https://everynoise.com/engenremap-dutchprog.html",
+      "suggested_id": "dutch_prog",
+      "allocation_ordinal": 3218
+    },
+    {
+      "source_label": "dweilorkest",
+      "source_url": "https://everynoise.com/engenremap-dweilorkest.html",
+      "suggested_id": "dweilorkest",
+      "allocation_ordinal": 3219
+    },
+    {
+      "source_label": "dytyachi pisni",
+      "source_url": "https://everynoise.com/engenremap-dytyachipisni.html",
+      "suggested_id": "dytyachi_pisni",
+      "allocation_ordinal": 3220
+    },
+    {
+      "source_label": "early avant garde",
+      "source_url": "https://everynoise.com/engenremap-earlyavantgarde.html",
+      "suggested_id": "early_avant_garde",
+      "allocation_ordinal": 3221
+    },
+    {
+      "source_label": "early music ensemble",
+      "source_url": "https://everynoise.com/engenremap-earlymusicensemble.html",
+      "suggested_id": "early_music_ensemble",
+      "allocation_ordinal": 3222
+    },
+    {
+      "source_label": "east anglia indie",
+      "source_url": "https://everynoise.com/engenremap-eastangliaindie.html",
+      "suggested_id": "east_anglia_indie",
+      "allocation_ordinal": 3223
+    },
+    {
+      "source_label": "eastern bloc groove",
+      "source_url": "https://everynoise.com/engenremap-easternblocgroove.html",
+      "suggested_id": "eastern_bloc_groove",
+      "allocation_ordinal": 3224
+    },
+    {
+      "source_label": "easycore",
+      "source_url": "https://everynoise.com/engenremap-easycore.html",
+      "suggested_id": "easycore",
+      "allocation_ordinal": 3225
+    }
+  ]
+}

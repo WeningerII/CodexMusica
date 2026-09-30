@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "123",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "classic kollywood",
+      "source_url": "https://everynoise.com/engenremap-classickollywood.html",
+      "suggested_id": "classic_kollywood",
+      "allocation_ordinal": 3051
+    },
+    {
+      "source_label": "classic luk thung",
+      "source_url": "https://everynoise.com/engenremap-classiclukthung.html",
+      "suggested_id": "classic_luk_thung",
+      "allocation_ordinal": 3052
+    },
+    {
+      "source_label": "classic mandopop",
+      "source_url": "https://everynoise.com/engenremap-classicmandopop.html",
+      "suggested_id": "classic_mandopop",
+      "allocation_ordinal": 3053
+    },
+    {
+      "source_label": "classic opm",
+      "source_url": "https://everynoise.com/engenremap-classicopm.html",
+      "suggested_id": "classic_opm",
+      "allocation_ordinal": 3054
+    },
+    {
+      "source_label": "classic praise",
+      "source_url": "https://everynoise.com/engenremap-classicpraise.html",
+      "suggested_id": "classic_praise",
+      "allocation_ordinal": 3055
+    },
+    {
+      "source_label": "classic schlager",
+      "source_url": "https://everynoise.com/engenremap-classicschlager.html",
+      "suggested_id": "classic_schlager",
+      "allocation_ordinal": 3056
+    },
+    {
+      "source_label": "classic sierreno",
+      "source_url": "https://everynoise.com/engenremap-classicsierreno.html",
+      "suggested_id": "classic_sierreno",
+      "allocation_ordinal": 3057
+    },
+    {
+      "source_label": "classic soundtrack",
+      "source_url": "https://everynoise.com/engenremap-classicsoundtrack.html",
+      "suggested_id": "classic_soundtrack",
+      "allocation_ordinal": 3058
+    },
+    {
+      "source_label": "classic tollywood",
+      "source_url": "https://everynoise.com/engenremap-classictollywood.html",
+      "suggested_id": "classic_tollywood",
+      "allocation_ordinal": 3059
+    },
+    {
+      "source_label": "classify",
+      "source_url": "https://everynoise.com/engenremap-classify.html",
+      "suggested_id": "classify",
+      "allocation_ordinal": 3060
+    },
+    {
+      "source_label": "clean comedy",
+      "source_url": "https://everynoise.com/engenremap-cleancomedy.html",
+      "suggested_id": "clean_comedy",
+      "allocation_ordinal": 3061
+    },
+    {
+      "source_label": "cleveland indie",
+      "source_url": "https://everynoise.com/engenremap-clevelandindie.html",
+      "suggested_id": "cleveland_indie",
+      "allocation_ordinal": 3062
+    },
+    {
+      "source_label": "cocuk masallari",
+      "source_url": "https://everynoise.com/engenremap-cocukmasallari.html",
+      "suggested_id": "cocuk_masallari",
+      "allocation_ordinal": 3063
+    },
+    {
+      "source_label": "cocuk sarkilari",
+      "source_url": "https://everynoise.com/engenremap-cocuksarkilari.html",
+      "suggested_id": "cocuk_sarkilari",
+      "allocation_ordinal": 3064
+    },
+    {
+      "source_label": "college a cappella",
+      "source_url": "https://everynoise.com/engenremap-collegeacappella.html",
+      "suggested_id": "college_a_cappella",
+      "allocation_ordinal": 3065
+    },
+    {
+      "source_label": "college marching band",
+      "source_url": "https://everynoise.com/engenremap-collegemarchingband.html",
+      "suggested_id": "college_marching_band",
+      "allocation_ordinal": 3066
+    },
+    {
+      "source_label": "cologne indie",
+      "source_url": "https://everynoise.com/engenremap-cologneindie.html",
+      "suggested_id": "cologne_indie",
+      "allocation_ordinal": 3067
+    },
+    {
+      "source_label": "colombian indie",
+      "source_url": "https://everynoise.com/engenremap-colombianindie.html",
+      "suggested_id": "colombian_indie",
+      "allocation_ordinal": 3068
+    },
+    {
+      "source_label": "color noise",
+      "source_url": "https://everynoise.com/engenremap-colornoise.html",
+      "suggested_id": "color_noise",
+      "allocation_ordinal": 3069
+    },
+    {
+      "source_label": "columbus ohio indie",
+      "source_url": "https://everynoise.com/engenremap-columbusohioindie.html",
+      "suggested_id": "columbus_ohio_indie",
+      "allocation_ordinal": 3070
+    },
+    {
+      "source_label": "combos nacionales",
+      "source_url": "https://everynoise.com/engenremap-combosnacionales.html",
+      "suggested_id": "combos_nacionales",
+      "allocation_ordinal": 3071
+    },
+    {
+      "source_label": "comedia",
+      "source_url": "https://everynoise.com/engenremap-comedia.html",
+      "suggested_id": "comedia",
+      "allocation_ordinal": 3072
+    },
+    {
+      "source_label": "comedie musicale",
+      "source_url": "https://everynoise.com/engenremap-comediemusicale.html",
+      "suggested_id": "comedie_musicale",
+      "allocation_ordinal": 3073
+    },
+    {
+      "source_label": "comedienne",
+      "source_url": "https://everynoise.com/engenremap-comedienne.html",
+      "suggested_id": "comedienne",
+      "allocation_ordinal": 3074
+    },
+    {
+      "source_label": "comic",
+      "source_url": "https://everynoise.com/engenremap-comic.html",
+      "suggested_id": "comic",
+      "allocation_ordinal": 3075
+    }
+  ]
+}

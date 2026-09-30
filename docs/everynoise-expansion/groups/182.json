@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "182",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "vocal ensemble",
+      "source_url": "https://everynoise.com/engenremap-vocalensemble.html",
+      "suggested_id": "vocal_ensemble",
+      "allocation_ordinal": 4526
+    },
+    {
+      "source_label": "voetbal",
+      "source_url": "https://everynoise.com/engenremap-voetbal.html",
+      "suggested_id": "voetbal",
+      "allocation_ordinal": 4527
+    },
+    {
+      "source_label": "vogue",
+      "source_url": "https://everynoise.com/engenremap-vogue.html",
+      "suggested_id": "vogue",
+      "allocation_ordinal": 4528
+    },
+    {
+      "source_label": "voidgaze",
+      "source_url": "https://everynoise.com/engenremap-voidgaze.html",
+      "suggested_id": "voidgaze",
+      "allocation_ordinal": 4529
+    },
+    {
+      "source_label": "voidgrind",
+      "source_url": "https://everynoise.com/engenremap-voidgrind.html",
+      "suggested_id": "voidgrind",
+      "allocation_ordinal": 4530
+    },
+    {
+      "source_label": "volkspop",
+      "source_url": "https://everynoise.com/engenremap-volkspop.html",
+      "suggested_id": "volkspop",
+      "allocation_ordinal": 4531
+    },
+    {
+      "source_label": "volkstumliche musik",
+      "source_url": "https://everynoise.com/engenremap-volkstumlichemusik.html",
+      "suggested_id": "volkstumliche_musik",
+      "allocation_ordinal": 4532
+    },
+    {
+      "source_label": "wagnerian singing",
+      "source_url": "https://everynoise.com/engenremap-wagneriansinging.html",
+      "suggested_id": "wagnerian_singing",
+      "allocation_ordinal": 4533
+    },
+    {
+      "source_label": "waiata mo tamariki",
+      "source_url": "https://everynoise.com/engenremap-waiatamotamariki.html",
+      "suggested_id": "waiata_mo_tamariki",
+      "allocation_ordinal": 4534
+    },
+    {
+      "source_label": "warrington indie",
+      "source_url": "https://everynoise.com/engenremap-warringtonindie.html",
+      "suggested_id": "warrington_indie",
+      "allocation_ordinal": 4535
+    },
+    {
+      "source_label": "washboard",
+      "source_url": "https://everynoise.com/engenremap-washboard.html",
+      "suggested_id": "washboard",
+      "allocation_ordinal": 4536
+    },
+    {
+      "source_label": "washington indie",
+      "source_url": "https://everynoise.com/engenremap-washingtonindie.html",
+      "suggested_id": "washington_indie",
+      "allocation_ordinal": 4537
+    },
+    {
+      "source_label": "water",
+      "source_url": "https://everynoise.com/engenremap-water.html",
+      "suggested_id": "water",
+      "allocation_ordinal": 4538
+    },
+    {
+      "source_label": "weightless",
+      "source_url": "https://everynoise.com/engenremap-weightless.html",
+      "suggested_id": "weightless",
+      "allocation_ordinal": 4539
+    },
+    {
+      "source_label": "wellington indie",
+      "source_url": "https://everynoise.com/engenremap-wellingtonindie.html",
+      "suggested_id": "wellington_indie",
+      "allocation_ordinal": 4540
+    },
+    {
+      "source_label": "welsh indie",
+      "source_url": "https://everynoise.com/engenremap-welshindie.html",
+      "suggested_id": "welsh_indie",
+      "allocation_ordinal": 4541
+    },
+    {
+      "source_label": "west end",
+      "source_url": "https://everynoise.com/engenremap-westend.html",
+      "suggested_id": "west_end",
+      "allocation_ordinal": 4542
+    },
+    {
+      "source_label": "west virginia indie",
+      "source_url": "https://everynoise.com/engenremap-westvirginiaindie.html",
+      "suggested_id": "west_virginia_indie",
+      "allocation_ordinal": 4543
+    },
+    {
+      "source_label": "west yorkshire indie",
+      "source_url": "https://everynoise.com/engenremap-westyorkshireindie.html",
+      "suggested_id": "west_yorkshire_indie",
+      "allocation_ordinal": 4544
+    },
+    {
+      "source_label": "westcoast flow",
+      "source_url": "https://everynoise.com/engenremap-westcoastflow.html",
+      "suggested_id": "westcoast_flow",
+      "allocation_ordinal": 4545
+    },
+    {
+      "source_label": "western mass indie",
+      "source_url": "https://everynoise.com/engenremap-westernmassindie.html",
+      "suggested_id": "western_mass_indie",
+      "allocation_ordinal": 4546
+    },
+    {
+      "source_label": "whale song",
+      "source_url": "https://everynoise.com/engenremap-whalesong.html",
+      "suggested_id": "whale_song",
+      "allocation_ordinal": 4547
+    },
+    {
+      "source_label": "white noise",
+      "source_url": "https://everynoise.com/engenremap-whitenoise.html",
+      "suggested_id": "white_noise",
+      "allocation_ordinal": 4548
+    },
+    {
+      "source_label": "wind quintet",
+      "source_url": "https://everynoise.com/engenremap-windquintet.html",
+      "suggested_id": "wind_quintet",
+      "allocation_ordinal": 4549
+    },
+    {
+      "source_label": "wind symphony",
+      "source_url": "https://everynoise.com/engenremap-windsymphony.html",
+      "suggested_id": "wind_symphony",
+      "allocation_ordinal": 4550
+    }
+  ]
+}

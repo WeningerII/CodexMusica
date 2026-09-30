@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "175",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "string quintet",
+      "source_url": "https://everynoise.com/engenremap-stringquintet.html",
+      "suggested_id": "string_quintet",
+      "allocation_ordinal": 4351
+    },
+    {
+      "source_label": "strut",
+      "source_url": "https://everynoise.com/engenremap-strut.html",
+      "suggested_id": "strut",
+      "allocation_ordinal": 4352
+    },
+    {
+      "source_label": "study beats",
+      "source_url": "https://everynoise.com/engenremap-studybeats.html",
+      "suggested_id": "study_beats",
+      "allocation_ordinal": 4353
+    },
+    {
+      "source_label": "stuttgart indie",
+      "source_url": "https://everynoise.com/engenremap-stuttgartindie.html",
+      "suggested_id": "stuttgart_indie",
+      "allocation_ordinal": 4354
+    },
+    {
+      "source_label": "subliminal product",
+      "source_url": "https://everynoise.com/engenremap-subliminalproduct.html",
+      "suggested_id": "subliminal_product",
+      "allocation_ordinal": 4355
+    },
+    {
+      "source_label": "substep",
+      "source_url": "https://everynoise.com/engenremap-substep.html",
+      "suggested_id": "substep",
+      "allocation_ordinal": 4356
+    },
+    {
+      "source_label": "sufi",
+      "source_url": "https://everynoise.com/engenremap-sufi.html",
+      "suggested_id": "sufi",
+      "allocation_ordinal": 4357
+    },
+    {
+      "source_label": "sulawesi indie",
+      "source_url": "https://everynoise.com/engenremap-sulawesiindie.html",
+      "suggested_id": "sulawesi_indie",
+      "allocation_ordinal": 4358
+    },
+    {
+      "source_label": "sunnlensk tonlist",
+      "source_url": "https://everynoise.com/engenremap-sunnlensktonlist.html",
+      "suggested_id": "sunnlensk_tonlist",
+      "allocation_ordinal": 4359
+    },
+    {
+      "source_label": "sunset lounge",
+      "source_url": "https://everynoise.com/engenremap-sunsetlounge.html",
+      "suggested_id": "sunset_lounge",
+      "allocation_ordinal": 4360
+    },
+    {
+      "source_label": "suomirap",
+      "source_url": "https://everynoise.com/engenremap-suomirap.html",
+      "suggested_id": "suomirap",
+      "allocation_ordinal": 4361
+    },
+    {
+      "source_label": "supergroup",
+      "source_url": "https://everynoise.com/engenremap-supergroup.html",
+      "suggested_id": "supergroup",
+      "allocation_ordinal": 4362
+    },
+    {
+      "source_label": "surabaya indie",
+      "source_url": "https://everynoise.com/engenremap-surabayaindie.html",
+      "suggested_id": "surabaya_indie",
+      "allocation_ordinal": 4363
+    },
+    {
+      "source_label": "svensk indie",
+      "source_url": "https://everynoise.com/engenremap-svenskindie.html",
+      "suggested_id": "svensk_indie",
+      "allocation_ordinal": 4364
+    },
+    {
+      "source_label": "svensk lovsang",
+      "source_url": "https://everynoise.com/engenremap-svensklovsang.html",
+      "suggested_id": "svensk_lovsang",
+      "allocation_ordinal": 4365
+    },
+    {
+      "source_label": "svensk progg",
+      "source_url": "https://everynoise.com/engenremap-svenskprogg.html",
+      "suggested_id": "svensk_progg",
+      "allocation_ordinal": 4366
+    },
+    {
+      "source_label": "swancore",
+      "source_url": "https://everynoise.com/engenremap-swancore.html",
+      "suggested_id": "swancore",
+      "allocation_ordinal": 4367
+    },
+    {
+      "source_label": "swansea indie",
+      "source_url": "https://everynoise.com/engenremap-swanseaindie.html",
+      "suggested_id": "swansea_indie",
+      "allocation_ordinal": 4368
+    },
+    {
+      "source_label": "swazi traditional",
+      "source_url": "https://everynoise.com/engenremap-swazitraditional.html",
+      "suggested_id": "swazi_traditional",
+      "allocation_ordinal": 4369
+    },
+    {
+      "source_label": "swedish ebm",
+      "source_url": "https://everynoise.com/engenremap-swedishebm.html",
+      "suggested_id": "swedish_ebm",
+      "allocation_ordinal": 4370
+    },
+    {
+      "source_label": "swedish electropop",
+      "source_url": "https://everynoise.com/engenremap-swedishelectropop.html",
+      "suggested_id": "swedish_electropop",
+      "allocation_ordinal": 4371
+    },
+    {
+      "source_label": "swedish eurodance",
+      "source_url": "https://everynoise.com/engenremap-swedisheurodance.html",
+      "suggested_id": "swedish_eurodance",
+      "allocation_ordinal": 4372
+    },
+    {
+      "source_label": "swedish experimental",
+      "source_url": "https://everynoise.com/engenremap-swedishexperimental.html",
+      "suggested_id": "swedish_experimental",
+      "allocation_ordinal": 4373
+    },
+    {
+      "source_label": "swedish prog",
+      "source_url": "https://everynoise.com/engenremap-swedishprog.html",
+      "suggested_id": "swedish_prog",
+      "allocation_ordinal": 4374
+    },
+    {
+      "source_label": "swiss experimental",
+      "source_url": "https://everynoise.com/engenremap-swissexperimental.html",
+      "suggested_id": "swiss_experimental",
+      "allocation_ordinal": 4375
+    }
+  ]
+}

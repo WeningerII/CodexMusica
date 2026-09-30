@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "118",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "british electroacoustic",
+      "source_url": "https://everynoise.com/engenremap-britishelectroacoustic.html",
+      "suggested_id": "british_electroacoustic",
+      "allocation_ordinal": 2926
+    },
+    {
+      "source_label": "british experimental",
+      "source_url": "https://everynoise.com/engenremap-britishexperimental.html",
+      "suggested_id": "british_experimental",
+      "allocation_ordinal": 2927
+    },
+    {
+      "source_label": "british industrial",
+      "source_url": "https://everynoise.com/engenremap-britishindustrial.html",
+      "suggested_id": "british_industrial",
+      "allocation_ordinal": 2928
+    },
+    {
+      "source_label": "british soundtrack",
+      "source_url": "https://everynoise.com/engenremap-britishsoundtrack.html",
+      "suggested_id": "british_soundtrack",
+      "allocation_ordinal": 2929
+    },
+    {
+      "source_label": "britpop revival",
+      "source_url": "https://everynoise.com/engenremap-britpoprevival.html",
+      "suggested_id": "britpop_revival",
+      "allocation_ordinal": 2930
+    },
+    {
+      "source_label": "brno indie",
+      "source_url": "https://everynoise.com/engenremap-brnoindie.html",
+      "suggested_id": "brno_indie",
+      "allocation_ordinal": 2931
+    },
+    {
+      "source_label": "broken transmission",
+      "source_url": "https://everynoise.com/engenremap-brokentransmission.html",
+      "suggested_id": "broken_transmission",
+      "allocation_ordinal": 2932
+    },
+    {
+      "source_label": "brooklyn indie",
+      "source_url": "https://everynoise.com/engenremap-brooklynindie.html",
+      "suggested_id": "brooklyn_indie",
+      "allocation_ordinal": 2933
+    },
+    {
+      "source_label": "bruneian indie",
+      "source_url": "https://everynoise.com/engenremap-bruneianindie.html",
+      "suggested_id": "bruneian_indie",
+      "allocation_ordinal": 2934
+    },
+    {
+      "source_label": "bubblegrunge",
+      "source_url": "https://everynoise.com/engenremap-bubblegrunge.html",
+      "suggested_id": "bubblegrunge",
+      "allocation_ordinal": 2935
+    },
+    {
+      "source_label": "buffalo ny indie",
+      "source_url": "https://everynoise.com/engenremap-buffalonyindie.html",
+      "suggested_id": "buffalo_ny_indie",
+      "allocation_ordinal": 2936
+    },
+    {
+      "source_label": "bulgarian experimental",
+      "source_url": "https://everynoise.com/engenremap-bulgarianexperimental.html",
+      "suggested_id": "bulgarian_experimental",
+      "allocation_ordinal": 2937
+    },
+    {
+      "source_label": "bulgarian indie",
+      "source_url": "https://everynoise.com/engenremap-bulgarianindie.html",
+      "suggested_id": "bulgarian_indie",
+      "allocation_ordinal": 2938
+    },
+    {
+      "source_label": "burkinabe traditional",
+      "source_url": "https://everynoise.com/engenremap-burkinabetraditional.html",
+      "suggested_id": "burkinabe_traditional",
+      "allocation_ordinal": 2939
+    },
+    {
+      "source_label": "burundian traditional",
+      "source_url": "https://everynoise.com/engenremap-burundiantraditional.html",
+      "suggested_id": "burundian_traditional",
+      "allocation_ordinal": 2940
+    },
+    {
+      "source_label": "bury st edmunds indie",
+      "source_url": "https://everynoise.com/engenremap-burystedmundsindie.html",
+      "suggested_id": "bury_st_edmunds_indie",
+      "allocation_ordinal": 2941
+    },
+    {
+      "source_label": "c64",
+      "source_url": "https://everynoise.com/engenremap-c64.html",
+      "suggested_id": "c64",
+      "allocation_ordinal": 2942
+    },
+    {
+      "source_label": "calgary indie",
+      "source_url": "https://everynoise.com/engenremap-calgaryindie.html",
+      "suggested_id": "calgary_indie",
+      "allocation_ordinal": 2943
+    },
+    {
+      "source_label": "calming instrumental",
+      "source_url": "https://everynoise.com/engenremap-calminginstrumental.html",
+      "suggested_id": "calming_instrumental",
+      "allocation_ordinal": 2944
+    },
+    {
+      "source_label": "cambridgeshire indie",
+      "source_url": "https://everynoise.com/engenremap-cambridgeshireindie.html",
+      "suggested_id": "cambridgeshire_indie",
+      "allocation_ordinal": 2945
+    },
+    {
+      "source_label": "canadian ccm",
+      "source_url": "https://everynoise.com/engenremap-canadianccm.html",
+      "suggested_id": "canadian_ccm",
+      "allocation_ordinal": 2946
+    },
+    {
+      "source_label": "canadian celtic",
+      "source_url": "https://everynoise.com/engenremap-canadianceltic.html",
+      "suggested_id": "canadian_celtic",
+      "allocation_ordinal": 2947
+    },
+    {
+      "source_label": "canadian children's music",
+      "source_url": "https://everynoise.com/engenremap-canadianchildrensmusic.html",
+      "suggested_id": "canadian_children_s_music",
+      "allocation_ordinal": 2948
+    },
+    {
+      "source_label": "canadian comedy",
+      "source_url": "https://everynoise.com/engenremap-canadiancomedy.html",
+      "suggested_id": "canadian_comedy",
+      "allocation_ordinal": 2949
+    },
+    {
+      "source_label": "canadian electropop",
+      "source_url": "https://everynoise.com/engenremap-canadianelectropop.html",
+      "suggested_id": "canadian_electropop",
+      "allocation_ordinal": 2950
+    }
+  ]
+}

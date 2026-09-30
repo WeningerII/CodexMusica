@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "114",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "banda",
+      "source_url": "https://everynoise.com/engenremap-banda.html",
+      "suggested_id": "banda",
+      "allocation_ordinal": 2826
+    },
+    {
+      "source_label": "banda carnavalera",
+      "source_url": "https://everynoise.com/engenremap-bandacarnavalera.html",
+      "suggested_id": "banda_carnavalera",
+      "allocation_ordinal": 2827
+    },
+    {
+      "source_label": "banda militar",
+      "source_url": "https://everynoise.com/engenremap-bandamilitar.html",
+      "suggested_id": "banda_militar",
+      "allocation_ordinal": 2828
+    },
+    {
+      "source_label": "banda peruana",
+      "source_url": "https://everynoise.com/engenremap-bandaperuana.html",
+      "suggested_id": "banda_peruana",
+      "allocation_ordinal": 2829
+    },
+    {
+      "source_label": "bandinhas",
+      "source_url": "https://everynoise.com/engenremap-bandinhas.html",
+      "suggested_id": "bandinhas",
+      "allocation_ordinal": 2830
+    },
+    {
+      "source_label": "bandolim",
+      "source_url": "https://everynoise.com/engenremap-bandolim.html",
+      "suggested_id": "bandolim",
+      "allocation_ordinal": 2831
+    },
+    {
+      "source_label": "bandoneon",
+      "source_url": "https://everynoise.com/engenremap-bandoneon.html",
+      "suggested_id": "bandoneon",
+      "allocation_ordinal": 2832
+    },
+    {
+      "source_label": "bandung indie",
+      "source_url": "https://everynoise.com/engenremap-bandungindie.html",
+      "suggested_id": "bandung_indie",
+      "allocation_ordinal": 2833
+    },
+    {
+      "source_label": "bandura",
+      "source_url": "https://everynoise.com/engenremap-bandura.html",
+      "suggested_id": "bandura",
+      "allocation_ordinal": 2834
+    },
+    {
+      "source_label": "bangalore indie",
+      "source_url": "https://everynoise.com/engenremap-bangaloreindie.html",
+      "suggested_id": "bangalore_indie",
+      "allocation_ordinal": 2835
+    },
+    {
+      "source_label": "bangla gojol",
+      "source_url": "https://everynoise.com/engenremap-banglagojol.html",
+      "suggested_id": "bangla_gojol",
+      "allocation_ordinal": 2836
+    },
+    {
+      "source_label": "bangladeshi indie",
+      "source_url": "https://everynoise.com/engenremap-bangladeshiindie.html",
+      "suggested_id": "bangladeshi_indie",
+      "allocation_ordinal": 2837
+    },
+    {
+      "source_label": "banjo",
+      "source_url": "https://everynoise.com/engenremap-banjo.html",
+      "suggested_id": "banjo",
+      "allocation_ordinal": 2838
+    },
+    {
+      "source_label": "bansuri",
+      "source_url": "https://everynoise.com/engenremap-bansuri.html",
+      "suggested_id": "bansuri",
+      "allocation_ordinal": 2839
+    },
+    {
+      "source_label": "baoule",
+      "source_url": "https://everynoise.com/engenremap-baoule.html",
+      "suggested_id": "baoule",
+      "allocation_ordinal": 2840
+    },
+    {
+      "source_label": "baps",
+      "source_url": "https://everynoise.com/engenremap-baps.html",
+      "suggested_id": "baps",
+      "allocation_ordinal": 2841
+    },
+    {
+      "source_label": "barcadi",
+      "source_url": "https://everynoise.com/engenremap-barcadi.html",
+      "suggested_id": "barcadi",
+      "allocation_ordinal": 2842
+    },
+    {
+      "source_label": "bard",
+      "source_url": "https://everynoise.com/engenremap-bard.html",
+      "suggested_id": "bard",
+      "allocation_ordinal": 2843
+    },
+    {
+      "source_label": "bardcore",
+      "source_url": "https://everynoise.com/engenremap-bardcore.html",
+      "suggested_id": "bardcore",
+      "allocation_ordinal": 2844
+    },
+    {
+      "source_label": "barnalog",
+      "source_url": "https://everynoise.com/engenremap-barnalog.html",
+      "suggested_id": "barnalog",
+      "allocation_ordinal": 2845
+    },
+    {
+      "source_label": "barnasogur",
+      "source_url": "https://everynoise.com/engenremap-barnasogur.html",
+      "suggested_id": "barnasogur",
+      "allocation_ordinal": 2846
+    },
+    {
+      "source_label": "barnemusikk",
+      "source_url": "https://everynoise.com/engenremap-barnemusikk.html",
+      "suggested_id": "barnemusikk",
+      "allocation_ordinal": 2847
+    },
+    {
+      "source_label": "barnsagor",
+      "source_url": "https://everynoise.com/engenremap-barnsagor.html",
+      "suggested_id": "barnsagor",
+      "allocation_ordinal": 2848
+    },
+    {
+      "source_label": "barockinterpreten",
+      "source_url": "https://everynoise.com/engenremap-barockinterpreten.html",
+      "suggested_id": "barockinterpreten",
+      "allocation_ordinal": 2849
+    },
+    {
+      "source_label": "basel indie",
+      "source_url": "https://everynoise.com/engenremap-baselindie.html",
+      "suggested_id": "basel_indie",
+      "allocation_ordinal": 2850
+    }
+  ]
+}

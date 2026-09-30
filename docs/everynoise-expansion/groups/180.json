@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "180",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "uppsala indie",
+      "source_url": "https://everynoise.com/engenremap-uppsalaindie.html",
+      "suggested_id": "uppsala_indie",
+      "allocation_ordinal": 4476
+    },
+    {
+      "source_label": "urban contemporary",
+      "source_url": "https://everynoise.com/engenremap-urbancontemporary.html",
+      "suggested_id": "urban_contemporary",
+      "allocation_ordinal": 4477
+    },
+    {
+      "source_label": "urbano mexicano",
+      "source_url": "https://everynoise.com/engenremap-urbanomexicano.html",
+      "suggested_id": "urbano_mexicano",
+      "allocation_ordinal": 4478
+    },
+    {
+      "source_label": "uruguayan indie",
+      "source_url": "https://everynoise.com/engenremap-uruguayanindie.html",
+      "suggested_id": "uruguayan_indie",
+      "allocation_ordinal": 4479
+    },
+    {
+      "source_label": "usbm",
+      "source_url": "https://everynoise.com/engenremap-usbm.html",
+      "suggested_id": "usbm",
+      "allocation_ordinal": 4480
+    },
+    {
+      "source_label": "utah indie",
+      "source_url": "https://everynoise.com/engenremap-utahindie.html",
+      "suggested_id": "utah_indie",
+      "allocation_ordinal": 4481
+    },
+    {
+      "source_label": "uwielbienie",
+      "source_url": "https://everynoise.com/engenremap-uwielbienie.html",
+      "suggested_id": "uwielbienie",
+      "allocation_ordinal": 4482
+    },
+    {
+      "source_label": "vaikiskos dainos",
+      "source_url": "https://everynoise.com/engenremap-vaikiskosdainos.html",
+      "suggested_id": "vaikiskos_dainos",
+      "allocation_ordinal": 4483
+    },
+    {
+      "source_label": "vallenato moderno",
+      "source_url": "https://everynoise.com/engenremap-vallenatomoderno.html",
+      "suggested_id": "vallenato_moderno",
+      "allocation_ordinal": 4484
+    },
+    {
+      "source_label": "vancouver indie",
+      "source_url": "https://everynoise.com/engenremap-vancouverindie.html",
+      "suggested_id": "vancouver_indie",
+      "allocation_ordinal": 4485
+    },
+    {
+      "source_label": "vanuatu music",
+      "source_url": "https://everynoise.com/engenremap-vanuatumusic.html",
+      "suggested_id": "vanuatu_music",
+      "allocation_ordinal": 4486
+    },
+    {
+      "source_label": "vbs",
+      "source_url": "https://everynoise.com/engenremap-vbs.html",
+      "suggested_id": "vbs",
+      "allocation_ordinal": 4487
+    },
+    {
+      "source_label": "veena",
+      "source_url": "https://everynoise.com/engenremap-veena.html",
+      "suggested_id": "veena",
+      "allocation_ordinal": 4488
+    },
+    {
+      "source_label": "vegan straight edge",
+      "source_url": "https://everynoise.com/engenremap-veganstraightedge.html",
+      "suggested_id": "vegan_straight_edge",
+      "allocation_ordinal": 4489
+    },
+    {
+      "source_label": "vegas indie",
+      "source_url": "https://everynoise.com/engenremap-vegasindie.html",
+      "suggested_id": "vegas_indie",
+      "allocation_ordinal": 4490
+    },
+    {
+      "source_label": "venezuelan indie",
+      "source_url": "https://everynoise.com/engenremap-venezuelanindie.html",
+      "suggested_id": "venezuelan_indie",
+      "allocation_ordinal": 4491
+    },
+    {
+      "source_label": "veracruz indie",
+      "source_url": "https://everynoise.com/engenremap-veracruzindie.html",
+      "suggested_id": "veracruz_indie",
+      "allocation_ordinal": 4492
+    },
+    {
+      "source_label": "vermont indie",
+      "source_url": "https://everynoise.com/engenremap-vermontindie.html",
+      "suggested_id": "vermont_indie",
+      "allocation_ordinal": 4493
+    },
+    {
+      "source_label": "vgm instrumental",
+      "source_url": "https://everynoise.com/engenremap-vgminstrumental.html",
+      "suggested_id": "vgm_instrumental",
+      "allocation_ordinal": 4494
+    },
+    {
+      "source_label": "vgm remix",
+      "source_url": "https://everynoise.com/engenremap-vgmremix.html",
+      "suggested_id": "vgm_remix",
+      "allocation_ordinal": 4495
+    },
+    {
+      "source_label": "via",
+      "source_url": "https://everynoise.com/engenremap-via.html",
+      "suggested_id": "via",
+      "allocation_ordinal": 4496
+    },
+    {
+      "source_label": "victoria bc indie",
+      "source_url": "https://everynoise.com/engenremap-victoriabcindie.html",
+      "suggested_id": "victoria_bc_indie",
+      "allocation_ordinal": 4497
+    },
+    {
+      "source_label": "victorian britain",
+      "source_url": "https://everynoise.com/engenremap-victorianbritain.html",
+      "suggested_id": "victorian_britain",
+      "allocation_ordinal": 4498
+    },
+    {
+      "source_label": "vienna indie",
+      "source_url": "https://everynoise.com/engenremap-viennaindie.html",
+      "suggested_id": "vienna_indie",
+      "allocation_ordinal": 4499
+    },
+    {
+      "source_label": "viet instrumental",
+      "source_url": "https://everynoise.com/engenremap-vietinstrumental.html",
+      "suggested_id": "viet_instrumental",
+      "allocation_ordinal": 4500
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "108",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["reggae ska and dub"],
+  "entries": [
+    {
+      "source_label": "j-reggae",
+      "source_url": "https://everynoise.com/engenremap-jreggae.html",
+      "suggested_id": "j_reggae",
+      "allocation_ordinal": 2676
+    },
+    {
+      "source_label": "japanese dub",
+      "source_url": "https://everynoise.com/engenremap-japanesedub.html",
+      "suggested_id": "japanese_dub",
+      "allocation_ordinal": 2677
+    },
+    {
+      "source_label": "japanese ska",
+      "source_url": "https://everynoise.com/engenremap-japaneseska.html",
+      "suggested_id": "japanese_ska",
+      "allocation_ordinal": 2678
+    },
+    {
+      "source_label": "latin ska",
+      "source_url": "https://everynoise.com/engenremap-latinska.html",
+      "suggested_id": "latin_ska",
+      "allocation_ordinal": 2679
+    },
+    {
+      "source_label": "minimal dub",
+      "source_url": "https://everynoise.com/engenremap-minimaldub.html",
+      "suggested_id": "minimal_dub",
+      "allocation_ordinal": 2680
+    },
+    {
+      "source_label": "modern reggae",
+      "source_url": "https://everynoise.com/engenremap-modernreggae.html",
+      "suggested_id": "modern_reggae",
+      "allocation_ordinal": 2681
+    },
+    {
+      "source_label": "nz reggae",
+      "source_url": "https://everynoise.com/engenremap-nzreggae.html",
+      "suggested_id": "nz_reggae",
+      "allocation_ordinal": 2682
+    },
+    {
+      "source_label": "pinoy reggae",
+      "source_url": "https://everynoise.com/engenremap-pinoyreggae.html",
+      "suggested_id": "pinoy_reggae",
+      "allocation_ordinal": 2683
+    },
+    {
+      "source_label": "polish reggae",
+      "source_url": "https://everynoise.com/engenremap-polishreggae.html",
+      "suggested_id": "polish_reggae",
+      "allocation_ordinal": 2684
+    },
+    {
+      "source_label": "reggae boliviano",
+      "source_url": "https://everynoise.com/engenremap-reggaeboliviano.html",
+      "suggested_id": "reggae_boliviano",
+      "allocation_ordinal": 2685
+    },
+    {
+      "source_label": "reggae catala",
+      "source_url": "https://everynoise.com/engenremap-reggaecatala.html",
+      "suggested_id": "reggae_catala",
+      "allocation_ordinal": 2686
+    },
+    {
+      "source_label": "reggae cover",
+      "source_url": "https://everynoise.com/engenremap-reggaecover.html",
+      "suggested_id": "reggae_cover",
+      "allocation_ordinal": 2687
+    },
+    {
+      "source_label": "reggae cristao",
+      "source_url": "https://everynoise.com/engenremap-reggaecristao.html",
+      "suggested_id": "reggae_cristao",
+      "allocation_ordinal": 2688
+    },
+    {
+      "source_label": "reggae do maranhao",
+      "source_url": "https://everynoise.com/engenremap-reggaedomaranhao.html",
+      "suggested_id": "reggae_do_maranhao",
+      "allocation_ordinal": 2689
+    },
+    {
+      "source_label": "reggae en espanol",
+      "source_url": "https://everynoise.com/engenremap-reggaeenespanol.html",
+      "suggested_id": "reggae_en_espanol",
+      "allocation_ordinal": 2690
+    },
+    {
+      "source_label": "reggae gaucho",
+      "source_url": "https://everynoise.com/engenremap-reggaegaucho.html",
+      "suggested_id": "reggae_gaucho",
+      "allocation_ordinal": 2691
+    },
+    {
+      "source_label": "reggae maghreb",
+      "source_url": "https://everynoise.com/engenremap-reggaemaghreb.html",
+      "suggested_id": "reggae_maghreb",
+      "allocation_ordinal": 2692
+    },
+    {
+      "source_label": "reggae mexicano",
+      "source_url": "https://everynoise.com/engenremap-reggaemexicano.html",
+      "suggested_id": "reggae_mexicano",
+      "allocation_ordinal": 2693
+    },
+    {
+      "source_label": "reggae peruano",
+      "source_url": "https://everynoise.com/engenremap-reggaeperuano.html",
+      "suggested_id": "reggae_peruano",
+      "allocation_ordinal": 2694
+    },
+    {
+      "source_label": "reggae tico",
+      "source_url": "https://everynoise.com/engenremap-reggaetico.html",
+      "suggested_id": "reggae_tico",
+      "allocation_ordinal": 2695
+    },
+    {
+      "source_label": "reggae tuga",
+      "source_url": "https://everynoise.com/engenremap-reggaetuga.html",
+      "suggested_id": "reggae_tuga",
+      "allocation_ordinal": 2696
+    },
+    {
+      "source_label": "reggae uruguayo",
+      "source_url": "https://everynoise.com/engenremap-reggaeuruguayo.html",
+      "suggested_id": "reggae_uruguayo",
+      "allocation_ordinal": 2697
+    },
+    {
+      "source_label": "reggaeton cristiano",
+      "source_url": "https://everynoise.com/engenremap-reggaetoncristiano.html",
+      "suggested_id": "reggaeton_cristiano",
+      "allocation_ordinal": 2698
+    },
+    {
+      "source_label": "reggaeton flow",
+      "source_url": "https://everynoise.com/engenremap-reggaetonflow.html",
+      "suggested_id": "reggaeton_flow",
+      "allocation_ordinal": 2699
+    },
+    {
+      "source_label": "russian reggae",
+      "source_url": "https://everynoise.com/engenremap-russianreggae.html",
+      "suggested_id": "russian_reggae",
+      "allocation_ordinal": 2700
+    }
+  ]
+}

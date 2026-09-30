@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "067",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol"],
+  "entries": [
+    {
+      "source_label": "classic moroccan pop",
+      "source_url": "https://everynoise.com/engenremap-classicmoroccanpop.html",
+      "suggested_id": "classic_moroccan_pop",
+      "allocation_ordinal": 1651
+    },
+    {
+      "source_label": "classic nepali pop",
+      "source_url": "https://everynoise.com/engenremap-classicnepalipop.html",
+      "suggested_id": "classic_nepali_pop",
+      "allocation_ordinal": 1652
+    },
+    {
+      "source_label": "classic norwegian pop",
+      "source_url": "https://everynoise.com/engenremap-classicnorwegianpop.html",
+      "suggested_id": "classic_norwegian_pop",
+      "allocation_ordinal": 1653
+    },
+    {
+      "source_label": "classic nz pop",
+      "source_url": "https://everynoise.com/engenremap-classicnzpop.html",
+      "suggested_id": "classic_nz_pop",
+      "allocation_ordinal": 1654
+    },
+    {
+      "source_label": "classic pakistani pop",
+      "source_url": "https://everynoise.com/engenremap-classicpakistanipop.html",
+      "suggested_id": "classic_pakistani_pop",
+      "allocation_ordinal": 1655
+    },
+    {
+      "source_label": "classic persian pop",
+      "source_url": "https://everynoise.com/engenremap-classicpersianpop.html",
+      "suggested_id": "classic_persian_pop",
+      "allocation_ordinal": 1656
+    },
+    {
+      "source_label": "classic peruvian pop",
+      "source_url": "https://everynoise.com/engenremap-classicperuvianpop.html",
+      "suggested_id": "classic_peruvian_pop",
+      "allocation_ordinal": 1657
+    },
+    {
+      "source_label": "classic polish pop",
+      "source_url": "https://everynoise.com/engenremap-classicpolishpop.html",
+      "suggested_id": "classic_polish_pop",
+      "allocation_ordinal": 1658
+    },
+    {
+      "source_label": "classic portuguese pop",
+      "source_url": "https://everynoise.com/engenremap-classicportuguesepop.html",
+      "suggested_id": "classic_portuguese_pop",
+      "allocation_ordinal": 1659
+    },
+    {
+      "source_label": "classic punjabi pop",
+      "source_url": "https://everynoise.com/engenremap-classicpunjabipop.html",
+      "suggested_id": "classic_punjabi_pop",
+      "allocation_ordinal": 1660
+    },
+    {
+      "source_label": "classic romanian pop",
+      "source_url": "https://everynoise.com/engenremap-classicromanianpop.html",
+      "suggested_id": "classic_romanian_pop",
+      "allocation_ordinal": 1661
+    },
+    {
+      "source_label": "classic russian pop",
+      "source_url": "https://everynoise.com/engenremap-classicrussianpop.html",
+      "suggested_id": "classic_russian_pop",
+      "allocation_ordinal": 1662
+    },
+    {
+      "source_label": "classic sinhala pop",
+      "source_url": "https://everynoise.com/engenremap-classicsinhalapop.html",
+      "suggested_id": "classic_sinhala_pop",
+      "allocation_ordinal": 1663
+    },
+    {
+      "source_label": "classic sudanese pop",
+      "source_url": "https://everynoise.com/engenremap-classicsudanesepop.html",
+      "suggested_id": "classic_sudanese_pop",
+      "allocation_ordinal": 1664
+    },
+    {
+      "source_label": "classic swedish pop",
+      "source_url": "https://everynoise.com/engenremap-classicswedishpop.html",
+      "suggested_id": "classic_swedish_pop",
+      "allocation_ordinal": 1665
+    },
+    {
+      "source_label": "classic thai pop",
+      "source_url": "https://everynoise.com/engenremap-classicthaipop.html",
+      "suggested_id": "classic_thai_pop",
+      "allocation_ordinal": 1666
+    },
+    {
+      "source_label": "classic tunisian pop",
+      "source_url": "https://everynoise.com/engenremap-classictunisianpop.html",
+      "suggested_id": "classic_tunisian_pop",
+      "allocation_ordinal": 1667
+    },
+    {
+      "source_label": "classic turkish pop",
+      "source_url": "https://everynoise.com/engenremap-classicturkishpop.html",
+      "suggested_id": "classic_turkish_pop",
+      "allocation_ordinal": 1668
+    },
+    {
+      "source_label": "classic uk pop",
+      "source_url": "https://everynoise.com/engenremap-classicukpop.html",
+      "suggested_id": "classic_uk_pop",
+      "allocation_ordinal": 1669
+    },
+    {
+      "source_label": "classic ukrainian pop",
+      "source_url": "https://everynoise.com/engenremap-classicukrainianpop.html",
+      "suggested_id": "classic_ukrainian_pop",
+      "allocation_ordinal": 1670
+    },
+    {
+      "source_label": "classic venezuelan pop",
+      "source_url": "https://everynoise.com/engenremap-classicvenezuelanpop.html",
+      "suggested_id": "classic_venezuelan_pop",
+      "allocation_ordinal": 1671
+    },
+    {
+      "source_label": "collage pop",
+      "source_url": "https://everynoise.com/engenremap-collagepop.html",
+      "suggested_id": "collage_pop",
+      "allocation_ordinal": 1672
+    },
+    {
+      "source_label": "colombian pop",
+      "source_url": "https://everynoise.com/engenremap-colombianpop.html",
+      "suggested_id": "colombian_pop",
+      "allocation_ordinal": 1673
+    },
+    {
+      "source_label": "cook islands pop",
+      "source_url": "https://everynoise.com/engenremap-cookislandspop.html",
+      "suggested_id": "cook_islands_pop",
+      "allocation_ordinal": 1674
+    },
+    {
+      "source_label": "country pop",
+      "source_url": "https://everynoise.com/engenremap-countrypop.html",
+      "suggested_id": "country_pop",
+      "allocation_ordinal": 1675
+    }
+  ]
+}

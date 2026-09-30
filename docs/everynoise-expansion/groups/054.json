@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "054",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names"],
+  "entries": [
+    {
+      "source_label": "deep indie rock",
+      "source_url": "https://everynoise.com/engenremap-deepindierock.html",
+      "suggested_id": "deep_indie_rock",
+      "allocation_ordinal": 1326
+    },
+    {
+      "source_label": "deep melodic hard rock",
+      "source_url": "https://everynoise.com/engenremap-deepmelodichardrock.html",
+      "suggested_id": "deep_melodic_hard_rock",
+      "allocation_ordinal": 1327
+    },
+    {
+      "source_label": "deep progressive rock",
+      "source_url": "https://everynoise.com/engenremap-deepprogressiverock.html",
+      "suggested_id": "deep_progressive_rock",
+      "allocation_ordinal": 1328
+    },
+    {
+      "source_label": "deep psychobilly",
+      "source_url": "https://everynoise.com/engenremap-deeppsychobilly.html",
+      "suggested_id": "deep_psychobilly",
+      "allocation_ordinal": 1329
+    },
+    {
+      "source_label": "deep soft rock",
+      "source_url": "https://everynoise.com/engenremap-deepsoftrock.html",
+      "suggested_id": "deep_soft_rock",
+      "allocation_ordinal": 1330
+    },
+    {
+      "source_label": "deep space rock",
+      "source_url": "https://everynoise.com/engenremap-deepspacerock.html",
+      "suggested_id": "deep_space_rock",
+      "allocation_ordinal": 1331
+    },
+    {
+      "source_label": "deep swedish rock",
+      "source_url": "https://everynoise.com/engenremap-deepswedishrock.html",
+      "suggested_id": "deep_swedish_rock",
+      "allocation_ordinal": 1332
+    },
+    {
+      "source_label": "dutch indie rock",
+      "source_url": "https://everynoise.com/engenremap-dutchindierock.html",
+      "suggested_id": "dutch_indie_rock",
+      "allocation_ordinal": 1333
+    },
+    {
+      "source_label": "dutch rock",
+      "source_url": "https://everynoise.com/engenremap-dutchrock.html",
+      "suggested_id": "dutch_rock",
+      "allocation_ordinal": 1334
+    },
+    {
+      "source_label": "dutch stoner rock",
+      "source_url": "https://everynoise.com/engenremap-dutchstonerrock.html",
+      "suggested_id": "dutch_stoner_rock",
+      "allocation_ordinal": 1335
+    },
+    {
+      "source_label": "ecuadorian alternative rock",
+      "source_url": "https://everynoise.com/engenremap-ecuadorianalternativerock.html",
+      "suggested_id": "ecuadorian_alternative_rock",
+      "allocation_ordinal": 1336
+    },
+    {
+      "source_label": "electronic rock",
+      "source_url": "https://everynoise.com/engenremap-electronicrock.html",
+      "suggested_id": "electronic_rock",
+      "allocation_ordinal": 1337
+    },
+    {
+      "source_label": "english indie rock",
+      "source_url": "https://everynoise.com/engenremap-englishindierock.html",
+      "suggested_id": "english_indie_rock",
+      "allocation_ordinal": 1338
+    },
+    {
+      "source_label": "estonian rock",
+      "source_url": "https://everynoise.com/engenremap-estonianrock.html",
+      "suggested_id": "estonian_rock",
+      "allocation_ordinal": 1339
+    },
+    {
+      "source_label": "euskal rock",
+      "source_url": "https://everynoise.com/engenremap-euskalrock.html",
+      "suggested_id": "euskal_rock",
+      "allocation_ordinal": 1340
+    },
+    {
+      "source_label": "experimental indie rock",
+      "source_url": "https://everynoise.com/engenremap-experimentalindierock.html",
+      "suggested_id": "experimental_indie_rock",
+      "allocation_ordinal": 1341
+    },
+    {
+      "source_label": "faroese rock",
+      "source_url": "https://everynoise.com/engenremap-faroeserock.html",
+      "suggested_id": "faroese_rock",
+      "allocation_ordinal": 1342
+    },
+    {
+      "source_label": "finnish alternative rock",
+      "source_url": "https://everynoise.com/engenremap-finnishalternativerock.html",
+      "suggested_id": "finnish_alternative_rock",
+      "allocation_ordinal": 1343
+    },
+    {
+      "source_label": "finnish hard rock",
+      "source_url": "https://everynoise.com/engenremap-finnishhardrock.html",
+      "suggested_id": "finnish_hard_rock",
+      "allocation_ordinal": 1344
+    },
+    {
+      "source_label": "finnish progressive rock",
+      "source_url": "https://everynoise.com/engenremap-finnishprogressiverock.html",
+      "suggested_id": "finnish_progressive_rock",
+      "allocation_ordinal": 1345
+    },
+    {
+      "source_label": "finnish psychedelic rock",
+      "source_url": "https://everynoise.com/engenremap-finnishpsychedelicrock.html",
+      "suggested_id": "finnish_psychedelic_rock",
+      "allocation_ordinal": 1346
+    },
+    {
+      "source_label": "finnish rockabilly",
+      "source_url": "https://everynoise.com/engenremap-finnishrockabilly.html",
+      "suggested_id": "finnish_rockabilly",
+      "allocation_ordinal": 1347
+    },
+    {
+      "source_label": "flute rock",
+      "source_url": "https://everynoise.com/engenremap-fluterock.html",
+      "suggested_id": "flute_rock",
+      "allocation_ordinal": 1348
+    },
+    {
+      "source_label": "folk rock italiano",
+      "source_url": "https://everynoise.com/engenremap-folkrockitaliano.html",
+      "suggested_id": "folk_rock_italiano",
+      "allocation_ordinal": 1349
+    },
+    {
+      "source_label": "french experimental rock",
+      "source_url": "https://everynoise.com/engenremap-frenchexperimentalrock.html",
+      "suggested_id": "french_experimental_rock",
+      "allocation_ordinal": 1350
+    }
+  ]
+}

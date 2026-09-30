@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "079",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["electronic and dance names"],
+  "entries": [
+    {
+      "source_label": "australian dance",
+      "source_url": "https://everynoise.com/engenremap-australiandance.html",
+      "suggested_id": "australian_dance",
+      "allocation_ordinal": 1951
+    },
+    {
+      "source_label": "belarusian electronic",
+      "source_url": "https://everynoise.com/engenremap-belarusianelectronic.html",
+      "suggested_id": "belarusian_electronic",
+      "allocation_ordinal": 1952
+    },
+    {
+      "source_label": "belgian dance",
+      "source_url": "https://everynoise.com/engenremap-belgiandance.html",
+      "suggested_id": "belgian_dance",
+      "allocation_ordinal": 1953
+    },
+    {
+      "source_label": "belgian edm",
+      "source_url": "https://everynoise.com/engenremap-belgianedm.html",
+      "suggested_id": "belgian_edm",
+      "allocation_ordinal": 1954
+    },
+    {
+      "source_label": "belgian electronic",
+      "source_url": "https://everynoise.com/engenremap-belgianelectronic.html",
+      "suggested_id": "belgian_electronic",
+      "allocation_ordinal": 1955
+    },
+    {
+      "source_label": "belly dance",
+      "source_url": "https://everynoise.com/engenremap-bellydance.html",
+      "suggested_id": "belly_dance",
+      "allocation_ordinal": 1956
+    },
+    {
+      "source_label": "bosnian electronic",
+      "source_url": "https://everynoise.com/engenremap-bosnianelectronic.html",
+      "suggested_id": "bosnian_electronic",
+      "allocation_ordinal": 1957
+    },
+    {
+      "source_label": "boston electronic",
+      "source_url": "https://everynoise.com/engenremap-bostonelectronic.html",
+      "suggested_id": "boston_electronic",
+      "allocation_ordinal": 1958
+    },
+    {
+      "source_label": "brazilian edm",
+      "source_url": "https://everynoise.com/engenremap-brazilianedm.html",
+      "suggested_id": "brazilian_edm",
+      "allocation_ordinal": 1959
+    },
+    {
+      "source_label": "bristol electronic",
+      "source_url": "https://everynoise.com/engenremap-bristolelectronic.html",
+      "suggested_id": "bristol_electronic",
+      "allocation_ordinal": 1960
+    },
+    {
+      "source_label": "bulgarian electronic",
+      "source_url": "https://everynoise.com/engenremap-bulgarianelectronic.html",
+      "suggested_id": "bulgarian_electronic",
+      "allocation_ordinal": 1961
+    },
+    {
+      "source_label": "canadian electronic",
+      "source_url": "https://everynoise.com/engenremap-canadianelectronic.html",
+      "suggested_id": "canadian_electronic",
+      "allocation_ordinal": 1962
+    },
+    {
+      "source_label": "chinese electronic",
+      "source_url": "https://everynoise.com/engenremap-chineseelectronic.html",
+      "suggested_id": "chinese_electronic",
+      "allocation_ordinal": 1963
+    },
+    {
+      "source_label": "christian dance",
+      "source_url": "https://everynoise.com/engenremap-christiandance.html",
+      "suggested_id": "christian_dance",
+      "allocation_ordinal": 1964
+    },
+    {
+      "source_label": "classic disco polo",
+      "source_url": "https://everynoise.com/engenremap-classicdiscopolo.html",
+      "suggested_id": "classic_disco_polo",
+      "allocation_ordinal": 1965
+    },
+    {
+      "source_label": "cologne electronic",
+      "source_url": "https://everynoise.com/engenremap-cologneelectronic.html",
+      "suggested_id": "cologne_electronic",
+      "allocation_ordinal": 1966
+    },
+    {
+      "source_label": "colombian electronic",
+      "source_url": "https://everynoise.com/engenremap-colombianelectronic.html",
+      "suggested_id": "colombian_electronic",
+      "allocation_ordinal": 1967
+    },
+    {
+      "source_label": "comfy synth",
+      "source_url": "https://everynoise.com/engenremap-comfysynth.html",
+      "suggested_id": "comfy_synth",
+      "allocation_ordinal": 1968
+    },
+    {
+      "source_label": "croatian electronic",
+      "source_url": "https://everynoise.com/engenremap-croatianelectronic.html",
+      "suggested_id": "croatian_electronic",
+      "allocation_ordinal": 1969
+    },
+    {
+      "source_label": "cuban electronic",
+      "source_url": "https://everynoise.com/engenremap-cubanelectronic.html",
+      "suggested_id": "cuban_electronic",
+      "allocation_ordinal": 1970
+    },
+    {
+      "source_label": "czech electronic",
+      "source_url": "https://everynoise.com/engenremap-czechelectronic.html",
+      "suggested_id": "czech_electronic",
+      "allocation_ordinal": 1971
+    },
+    {
+      "source_label": "danish electro",
+      "source_url": "https://everynoise.com/engenremap-danishelectro.html",
+      "suggested_id": "danish_electro",
+      "allocation_ordinal": 1972
+    },
+    {
+      "source_label": "danish electronic",
+      "source_url": "https://everynoise.com/engenremap-danishelectronic.html",
+      "suggested_id": "danish_electronic",
+      "allocation_ordinal": 1973
+    },
+    {
+      "source_label": "dark disco",
+      "source_url": "https://everynoise.com/engenremap-darkdisco.html",
+      "suggested_id": "dark_disco",
+      "allocation_ordinal": 1974
+    },
+    {
+      "source_label": "dark synthpop",
+      "source_url": "https://everynoise.com/engenremap-darksynthpop.html",
+      "suggested_id": "dark_synthpop",
+      "allocation_ordinal": 1975
+    }
+  ]
+}

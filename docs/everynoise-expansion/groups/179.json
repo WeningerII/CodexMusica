@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "179",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "tulsa indie",
+      "source_url": "https://everynoise.com/engenremap-tulsaindie.html",
+      "suggested_id": "tulsa_indie",
+      "allocation_ordinal": 4451
+    },
+    {
+      "source_label": "tulum",
+      "source_url": "https://everynoise.com/engenremap-tulum.html",
+      "suggested_id": "tulum",
+      "allocation_ordinal": 4452
+    },
+    {
+      "source_label": "tuna",
+      "source_url": "https://everynoise.com/engenremap-tuna.html",
+      "suggested_id": "tuna",
+      "allocation_ordinal": 4453
+    },
+    {
+      "source_label": "tunisian alternative",
+      "source_url": "https://everynoise.com/engenremap-tunisianalternative.html",
+      "suggested_id": "tunisian_alternative",
+      "allocation_ordinal": 4454
+    },
+    {
+      "source_label": "turin indie",
+      "source_url": "https://everynoise.com/engenremap-turinindie.html",
+      "suggested_id": "turin_indie",
+      "allocation_ordinal": 4455
+    },
+    {
+      "source_label": "turkce remix",
+      "source_url": "https://everynoise.com/engenremap-turkceremix.html",
+      "suggested_id": "turkce_remix",
+      "allocation_ordinal": 4456
+    },
+    {
+      "source_label": "turkish alternative",
+      "source_url": "https://everynoise.com/engenremap-turkishalternative.html",
+      "suggested_id": "turkish_alternative",
+      "allocation_ordinal": 4457
+    },
+    {
+      "source_label": "turkish experimental",
+      "source_url": "https://everynoise.com/engenremap-turkishexperimental.html",
+      "suggested_id": "turkish_experimental",
+      "allocation_ordinal": 4458
+    },
+    {
+      "source_label": "turkish soundtrack",
+      "source_url": "https://everynoise.com/engenremap-turkishsoundtrack.html",
+      "suggested_id": "turkish_soundtrack",
+      "allocation_ordinal": 4459
+    },
+    {
+      "source_label": "twin cities indie",
+      "source_url": "https://everynoise.com/engenremap-twincitiesindie.html",
+      "suggested_id": "twin_cities_indie",
+      "allocation_ordinal": 4460
+    },
+    {
+      "source_label": "tzadik",
+      "source_url": "https://everynoise.com/engenremap-tzadik.html",
+      "suggested_id": "tzadik",
+      "allocation_ordinal": 4461
+    },
+    {
+      "source_label": "uae indie",
+      "source_url": "https://everynoise.com/engenremap-uaeindie.html",
+      "suggested_id": "uae_indie",
+      "allocation_ordinal": 4462
+    },
+    {
+      "source_label": "ugandan traditional",
+      "source_url": "https://everynoise.com/engenremap-ugandantraditional.html",
+      "suggested_id": "ugandan_traditional",
+      "allocation_ordinal": 4463
+    },
+    {
+      "source_label": "uk beatdown",
+      "source_url": "https://everynoise.com/engenremap-ukbeatdown.html",
+      "suggested_id": "uk_beatdown",
+      "allocation_ordinal": 4464
+    },
+    {
+      "source_label": "uk worship",
+      "source_url": "https://everynoise.com/engenremap-ukworship.html",
+      "suggested_id": "uk_worship",
+      "allocation_ordinal": 4465
+    },
+    {
+      "source_label": "ukhc",
+      "source_url": "https://everynoise.com/engenremap-ukhc.html",
+      "suggested_id": "ukhc",
+      "allocation_ordinal": 4466
+    },
+    {
+      "source_label": "ukrainian ccm",
+      "source_url": "https://everynoise.com/engenremap-ukrainianccm.html",
+      "suggested_id": "ukrainian_ccm",
+      "allocation_ordinal": 4467
+    },
+    {
+      "source_label": "ukrainian experimental",
+      "source_url": "https://everynoise.com/engenremap-ukrainianexperimental.html",
+      "suggested_id": "ukrainian_experimental",
+      "allocation_ordinal": 4468
+    },
+    {
+      "source_label": "ukrainian indie",
+      "source_url": "https://everynoise.com/engenremap-ukrainianindie.html",
+      "suggested_id": "ukrainian_indie",
+      "allocation_ordinal": 4469
+    },
+    {
+      "source_label": "ukulele",
+      "source_url": "https://everynoise.com/engenremap-ukulele.html",
+      "suggested_id": "ukulele",
+      "allocation_ordinal": 4470
+    },
+    {
+      "source_label": "ukulele cover",
+      "source_url": "https://everynoise.com/engenremap-ukulelecover.html",
+      "suggested_id": "ukulele_cover",
+      "allocation_ordinal": 4471
+    },
+    {
+      "source_label": "ulkucu sarkilar",
+      "source_url": "https://everynoise.com/engenremap-ulkucusarkilar.html",
+      "suggested_id": "ulkucu_sarkilar",
+      "allocation_ordinal": 4472
+    },
+    {
+      "source_label": "umea indie",
+      "source_url": "https://everynoise.com/engenremap-umeaindie.html",
+      "suggested_id": "umea_indie",
+      "allocation_ordinal": 4473
+    },
+    {
+      "source_label": "underground amapiano",
+      "source_url": "https://everynoise.com/engenremap-undergroundamapiano.html",
+      "suggested_id": "underground_amapiano",
+      "allocation_ordinal": 4474
+    },
+    {
+      "source_label": "underground boom bap",
+      "source_url": "https://everynoise.com/engenremap-undergroundboombap.html",
+      "suggested_id": "underground_boom_bap",
+      "allocation_ordinal": 4475
+    }
+  ]
+}

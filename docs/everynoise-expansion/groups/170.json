@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "170",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "rozpravky",
+      "source_url": "https://everynoise.com/engenremap-rozpravky.html",
+      "suggested_id": "rozpravky",
+      "allocation_ordinal": 4226
+    },
+    {
+      "source_label": "rumba",
+      "source_url": "https://everynoise.com/engenremap-rumba.html",
+      "suggested_id": "rumba",
+      "allocation_ordinal": 4227
+    },
+    {
+      "source_label": "russian ccm",
+      "source_url": "https://everynoise.com/engenremap-russianccm.html",
+      "suggested_id": "russian_ccm",
+      "allocation_ordinal": 4228
+    },
+    {
+      "source_label": "russian drain",
+      "source_url": "https://everynoise.com/engenremap-russiandrain.html",
+      "suggested_id": "russian_drain",
+      "allocation_ordinal": 4229
+    },
+    {
+      "source_label": "russian hyperpop",
+      "source_url": "https://everynoise.com/engenremap-russianhyperpop.html",
+      "suggested_id": "russian_hyperpop",
+      "allocation_ordinal": 4230
+    },
+    {
+      "source_label": "russian indie",
+      "source_url": "https://everynoise.com/engenremap-russianindie.html",
+      "suggested_id": "russian_indie",
+      "allocation_ordinal": 4231
+    },
+    {
+      "source_label": "russian oi",
+      "source_url": "https://everynoise.com/engenremap-russianoi.html",
+      "suggested_id": "russian_oi",
+      "allocation_ordinal": 4232
+    },
+    {
+      "source_label": "russian pixel",
+      "source_url": "https://everynoise.com/engenremap-russianpixel.html",
+      "suggested_id": "russian_pixel",
+      "allocation_ordinal": 4233
+    },
+    {
+      "source_label": "russian plugg",
+      "source_url": "https://everynoise.com/engenremap-russianplugg.html",
+      "suggested_id": "russian_plugg",
+      "allocation_ordinal": 4234
+    },
+    {
+      "source_label": "russian rave",
+      "source_url": "https://everynoise.com/engenremap-russianrave.html",
+      "suggested_id": "russian_rave",
+      "allocation_ordinal": 4235
+    },
+    {
+      "source_label": "russian romanticism",
+      "source_url": "https://everynoise.com/engenremap-russianromanticism.html",
+      "suggested_id": "russian_romanticism",
+      "allocation_ordinal": 4236
+    },
+    {
+      "source_label": "rva indie",
+      "source_url": "https://everynoise.com/engenremap-rvaindie.html",
+      "suggested_id": "rva_indie",
+      "allocation_ordinal": 4237
+    },
+    {
+      "source_label": "rwandan traditional",
+      "source_url": "https://everynoise.com/engenremap-rwandantraditional.html",
+      "suggested_id": "rwandan_traditional",
+      "allocation_ordinal": 4238
+    },
+    {
+      "source_label": "sacramento indie",
+      "source_url": "https://everynoise.com/engenremap-sacramentoindie.html",
+      "suggested_id": "sacramento_indie",
+      "allocation_ordinal": 4239
+    },
+    {
+      "source_label": "sad lo-fi",
+      "source_url": "https://everynoise.com/engenremap-sadlofi.html",
+      "suggested_id": "sad_lo_fi",
+      "allocation_ordinal": 4240
+    },
+    {
+      "source_label": "sad sierreno",
+      "source_url": "https://everynoise.com/engenremap-sadsierreno.html",
+      "suggested_id": "sad_sierreno",
+      "allocation_ordinal": 4241
+    },
+    {
+      "source_label": "salay",
+      "source_url": "https://everynoise.com/engenremap-salay.html",
+      "suggested_id": "salay",
+      "allocation_ordinal": 4242
+    },
+    {
+      "source_label": "salsa cristiana",
+      "source_url": "https://everynoise.com/engenremap-salsacristiana.html",
+      "suggested_id": "salsa_cristiana",
+      "allocation_ordinal": 4243
+    },
+    {
+      "source_label": "salsa international",
+      "source_url": "https://everynoise.com/engenremap-salsainternational.html",
+      "suggested_id": "salsa_international",
+      "allocation_ordinal": 4244
+    },
+    {
+      "source_label": "salzburg indie",
+      "source_url": "https://everynoise.com/engenremap-salzburgindie.html",
+      "suggested_id": "salzburg_indie",
+      "allocation_ordinal": 4245
+    },
+    {
+      "source_label": "samba moderno",
+      "source_url": "https://everynoise.com/engenremap-sambamoderno.html",
+      "suggested_id": "samba_moderno",
+      "allocation_ordinal": 4246
+    },
+    {
+      "source_label": "samba paulista",
+      "source_url": "https://everynoise.com/engenremap-sambapaulista.html",
+      "suggested_id": "samba_paulista",
+      "allocation_ordinal": 4247
+    },
+    {
+      "source_label": "sami",
+      "source_url": "https://everynoise.com/engenremap-sami.html",
+      "suggested_id": "sami",
+      "allocation_ordinal": 4248
+    },
+    {
+      "source_label": "san antonio indie",
+      "source_url": "https://everynoise.com/engenremap-sanantonioindie.html",
+      "suggested_id": "san_antonio_indie",
+      "allocation_ordinal": 4249
+    },
+    {
+      "source_label": "san diego indie",
+      "source_url": "https://everynoise.com/engenremap-sandiegoindie.html",
+      "suggested_id": "san_diego_indie",
+      "allocation_ordinal": 4250
+    }
+  ]
+}

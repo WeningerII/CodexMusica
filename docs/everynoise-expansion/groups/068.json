@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "068",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol"],
+  "entries": [
+    {
+      "source_label": "croatian pop",
+      "source_url": "https://everynoise.com/engenremap-croatianpop.html",
+      "suggested_id": "croatian_pop",
+      "allocation_ordinal": 1676
+    },
+    {
+      "source_label": "cypriot pop",
+      "source_url": "https://everynoise.com/engenremap-cypriotpop.html",
+      "suggested_id": "cypriot_pop",
+      "allocation_ordinal": 1677
+    },
+    {
+      "source_label": "czech pop",
+      "source_url": "https://everynoise.com/engenremap-czechpop.html",
+      "suggested_id": "czech_pop",
+      "allocation_ordinal": 1678
+    },
+    {
+      "source_label": "czsk viral pop",
+      "source_url": "https://everynoise.com/engenremap-czskviralpop.html",
+      "suggested_id": "czsk_viral_pop",
+      "allocation_ordinal": 1679
+    },
+    {
+      "source_label": "danish indie pop",
+      "source_url": "https://everynoise.com/engenremap-danishindiepop.html",
+      "suggested_id": "danish_indie_pop",
+      "allocation_ordinal": 1680
+    },
+    {
+      "source_label": "danish pop",
+      "source_url": "https://everynoise.com/engenremap-danishpop.html",
+      "suggested_id": "danish_pop",
+      "allocation_ordinal": 1681
+    },
+    {
+      "source_label": "dark pop",
+      "source_url": "https://everynoise.com/engenremap-darkpop.html",
+      "suggested_id": "dark_pop",
+      "allocation_ordinal": 1682
+    },
+    {
+      "source_label": "deep acoustic pop",
+      "source_url": "https://everynoise.com/engenremap-deepacousticpop.html",
+      "suggested_id": "deep_acoustic_pop",
+      "allocation_ordinal": 1683
+    },
+    {
+      "source_label": "deep brazilian pop",
+      "source_url": "https://everynoise.com/engenremap-deepbrazilianpop.html",
+      "suggested_id": "deep_brazilian_pop",
+      "allocation_ordinal": 1684
+    },
+    {
+      "source_label": "deep dance pop",
+      "source_url": "https://everynoise.com/engenremap-deepdancepop.html",
+      "suggested_id": "deep_dance_pop",
+      "allocation_ordinal": 1685
+    },
+    {
+      "source_label": "deep indie pop",
+      "source_url": "https://everynoise.com/engenremap-deepindiepop.html",
+      "suggested_id": "deep_indie_pop",
+      "allocation_ordinal": 1686
+    },
+    {
+      "source_label": "deep pop edm",
+      "source_url": "https://everynoise.com/engenremap-deeppopedm.html",
+      "suggested_id": "deep_pop_edm",
+      "allocation_ordinal": 1687
+    },
+    {
+      "source_label": "deep turkish pop",
+      "source_url": "https://everynoise.com/engenremap-deepturkishpop.html",
+      "suggested_id": "deep_turkish_pop",
+      "allocation_ordinal": 1688
+    },
+    {
+      "source_label": "dogri pop",
+      "source_url": "https://everynoise.com/engenremap-dogripop.html",
+      "suggested_id": "dogri_pop",
+      "allocation_ordinal": 1689
+    },
+    {
+      "source_label": "dominican pop",
+      "source_url": "https://everynoise.com/engenremap-dominicanpop.html",
+      "suggested_id": "dominican_pop",
+      "allocation_ordinal": 1690
+    },
+    {
+      "source_label": "dutch idol pop",
+      "source_url": "https://everynoise.com/engenremap-dutchidolpop.html",
+      "suggested_id": "dutch_idol_pop",
+      "allocation_ordinal": 1691
+    },
+    {
+      "source_label": "ecuadorian pop",
+      "source_url": "https://everynoise.com/engenremap-ecuadorianpop.html",
+      "suggested_id": "ecuadorian_pop",
+      "allocation_ordinal": 1692
+    },
+    {
+      "source_label": "electro-pop francais",
+      "source_url": "https://everynoise.com/engenremap-electropopfrancais.html",
+      "suggested_id": "electro_pop_francais",
+      "allocation_ordinal": 1693
+    },
+    {
+      "source_label": "eritrean pop",
+      "source_url": "https://everynoise.com/engenremap-eritreanpop.html",
+      "suggested_id": "eritrean_pop",
+      "allocation_ordinal": 1694
+    },
+    {
+      "source_label": "estonian pop",
+      "source_url": "https://everynoise.com/engenremap-estonianpop.html",
+      "suggested_id": "estonian_pop",
+      "allocation_ordinal": 1695
+    },
+    {
+      "source_label": "ethiopian pop",
+      "source_url": "https://everynoise.com/engenremap-ethiopianpop.html",
+      "suggested_id": "ethiopian_pop",
+      "allocation_ordinal": 1696
+    },
+    {
+      "source_label": "experimental pop",
+      "source_url": "https://everynoise.com/engenremap-experimentalpop.html",
+      "suggested_id": "experimental_pop",
+      "allocation_ordinal": 1697
+    },
+    {
+      "source_label": "faroese pop",
+      "source_url": "https://everynoise.com/engenremap-faroesepop.html",
+      "suggested_id": "faroese_pop",
+      "allocation_ordinal": 1698
+    },
+    {
+      "source_label": "fijian pop",
+      "source_url": "https://everynoise.com/engenremap-fijianpop.html",
+      "suggested_id": "fijian_pop",
+      "allocation_ordinal": 1699
+    },
+    {
+      "source_label": "finnish dance pop",
+      "source_url": "https://everynoise.com/engenremap-finnishdancepop.html",
+      "suggested_id": "finnish_dance_pop",
+      "allocation_ordinal": 1700
+    }
+  ]
+}

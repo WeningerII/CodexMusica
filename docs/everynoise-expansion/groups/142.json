@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "142",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "irish indie",
+      "source_url": "https://everynoise.com/engenremap-irishindie.html",
+      "suggested_id": "irish_indie",
+      "allocation_ordinal": 3526
+    },
+    {
+      "source_label": "irish neo-traditional",
+      "source_url": "https://everynoise.com/engenremap-irishneotraditional.html",
+      "suggested_id": "irish_neo_traditional",
+      "allocation_ordinal": 3527
+    },
+    {
+      "source_label": "isle of man indie",
+      "source_url": "https://everynoise.com/engenremap-isleofmanindie.html",
+      "suggested_id": "isle_of_man_indie",
+      "allocation_ordinal": 3528
+    },
+    {
+      "source_label": "isle of wight indie",
+      "source_url": "https://everynoise.com/engenremap-isleofwightindie.html",
+      "suggested_id": "isle_of_wight_indie",
+      "allocation_ordinal": 3529
+    },
+    {
+      "source_label": "israeli indie",
+      "source_url": "https://everynoise.com/engenremap-israeliindie.html",
+      "suggested_id": "israeli_indie",
+      "allocation_ordinal": 3530
+    },
+    {
+      "source_label": "israeli mediterranean",
+      "source_url": "https://everynoise.com/engenremap-israelimediterranean.html",
+      "suggested_id": "israeli_mediterranean",
+      "allocation_ordinal": 3531
+    },
+    {
+      "source_label": "israeli traditional",
+      "source_url": "https://everynoise.com/engenremap-israelitraditional.html",
+      "suggested_id": "israeli_traditional",
+      "allocation_ordinal": 3532
+    },
+    {
+      "source_label": "italian alternative",
+      "source_url": "https://everynoise.com/engenremap-italianalternative.html",
+      "suggested_id": "italian_alternative",
+      "allocation_ordinal": 3533
+    },
+    {
+      "source_label": "italian baritone",
+      "source_url": "https://everynoise.com/engenremap-italianbaritone.html",
+      "suggested_id": "italian_baritone",
+      "allocation_ordinal": 3534
+    },
+    {
+      "source_label": "italian experimental",
+      "source_url": "https://everynoise.com/engenremap-italianexperimental.html",
+      "suggested_id": "italian_experimental",
+      "allocation_ordinal": 3535
+    },
+    {
+      "source_label": "italian gothic",
+      "source_url": "https://everynoise.com/engenremap-italiangothic.html",
+      "suggested_id": "italian_gothic",
+      "allocation_ordinal": 3536
+    },
+    {
+      "source_label": "italian industrial",
+      "source_url": "https://everynoise.com/engenremap-italianindustrial.html",
+      "suggested_id": "italian_industrial",
+      "allocation_ordinal": 3537
+    },
+    {
+      "source_label": "italian library music",
+      "source_url": "https://everynoise.com/engenremap-italianlibrarymusic.html",
+      "suggested_id": "italian_library_music",
+      "allocation_ordinal": 3538
+    },
+    {
+      "source_label": "italian lounge",
+      "source_url": "https://everynoise.com/engenremap-italianlounge.html",
+      "suggested_id": "italian_lounge",
+      "allocation_ordinal": 3539
+    },
+    {
+      "source_label": "italian mandolin",
+      "source_url": "https://everynoise.com/engenremap-italianmandolin.html",
+      "suggested_id": "italian_mandolin",
+      "allocation_ordinal": 3540
+    },
+    {
+      "source_label": "italian mezzo-soprano",
+      "source_url": "https://everynoise.com/engenremap-italianmezzosoprano.html",
+      "suggested_id": "italian_mezzo_soprano",
+      "allocation_ordinal": 3541
+    },
+    {
+      "source_label": "italian modern prog",
+      "source_url": "https://everynoise.com/engenremap-italianmodernprog.html",
+      "suggested_id": "italian_modern_prog",
+      "allocation_ordinal": 3542
+    },
+    {
+      "source_label": "italian new wave",
+      "source_url": "https://everynoise.com/engenremap-italiannewwave.html",
+      "suggested_id": "italian_new_wave",
+      "allocation_ordinal": 3543
+    },
+    {
+      "source_label": "italian occult psychedelia",
+      "source_url": "https://everynoise.com/engenremap-italianoccultpsychedelia.html",
+      "suggested_id": "italian_occult_psychedelia",
+      "allocation_ordinal": 3544
+    },
+    {
+      "source_label": "italian romanticism",
+      "source_url": "https://everynoise.com/engenremap-italianromanticism.html",
+      "suggested_id": "italian_romanticism",
+      "allocation_ordinal": 3545
+    },
+    {
+      "source_label": "italian soprano",
+      "source_url": "https://everynoise.com/engenremap-italiansoprano.html",
+      "suggested_id": "italian_soprano",
+      "allocation_ordinal": 3546
+    },
+    {
+      "source_label": "italian soundtrack",
+      "source_url": "https://everynoise.com/engenremap-italiansoundtrack.html",
+      "suggested_id": "italian_soundtrack",
+      "allocation_ordinal": 3547
+    },
+    {
+      "source_label": "italian tenor",
+      "source_url": "https://everynoise.com/engenremap-italiantenor.html",
+      "suggested_id": "italian_tenor",
+      "allocation_ordinal": 3548
+    },
+    {
+      "source_label": "italian violin",
+      "source_url": "https://everynoise.com/engenremap-italianviolin.html",
+      "suggested_id": "italian_violin",
+      "allocation_ordinal": 3549
+    },
+    {
+      "source_label": "italo beats",
+      "source_url": "https://everynoise.com/engenremap-italobeats.html",
+      "suggested_id": "italo_beats",
+      "allocation_ordinal": 3550
+    }
+  ]
+}

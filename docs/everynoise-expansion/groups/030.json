@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "030",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "cyber metal",
+      "source_url": "https://everynoise.com/engenremap-cybermetal.html",
+      "suggested_id": "cyber_metal",
+      "allocation_ordinal": 726
+    },
+    {
+      "source_label": "cypriot metal",
+      "source_url": "https://everynoise.com/engenremap-cypriotmetal.html",
+      "suggested_id": "cypriot_metal",
+      "allocation_ordinal": 727
+    },
+    {
+      "source_label": "czech metal",
+      "source_url": "https://everynoise.com/engenremap-czechmetal.html",
+      "suggested_id": "czech_metal",
+      "allocation_ordinal": 728
+    },
+    {
+      "source_label": "czsk black metal",
+      "source_url": "https://everynoise.com/engenremap-czskblackmetal.html",
+      "suggested_id": "czsk_black_metal",
+      "allocation_ordinal": 729
+    },
+    {
+      "source_label": "danish black metal",
+      "source_url": "https://everynoise.com/engenremap-danishblackmetal.html",
+      "suggested_id": "danish_black_metal",
+      "allocation_ordinal": 730
+    },
+    {
+      "source_label": "danish death metal",
+      "source_url": "https://everynoise.com/engenremap-danishdeathmetal.html",
+      "suggested_id": "danish_death_metal",
+      "allocation_ordinal": 731
+    },
+    {
+      "source_label": "danish metal",
+      "source_url": "https://everynoise.com/engenremap-danishmetal.html",
+      "suggested_id": "danish_metal",
+      "allocation_ordinal": 732
+    },
+    {
+      "source_label": "dark black metal",
+      "source_url": "https://everynoise.com/engenremap-darkblackmetal.html",
+      "suggested_id": "dark_black_metal",
+      "allocation_ordinal": 733
+    },
+    {
+      "source_label": "deep folk metal",
+      "source_url": "https://everynoise.com/engenremap-deepfolkmetal.html",
+      "suggested_id": "deep_folk_metal",
+      "allocation_ordinal": 734
+    },
+    {
+      "source_label": "deep melodic death metal",
+      "source_url": "https://everynoise.com/engenremap-deepmelodicdeathmetal.html",
+      "suggested_id": "deep_melodic_death_metal",
+      "allocation_ordinal": 735
+    },
+    {
+      "source_label": "deep melodic metalcore",
+      "source_url": "https://everynoise.com/engenremap-deepmelodicmetalcore.html",
+      "suggested_id": "deep_melodic_metalcore",
+      "allocation_ordinal": 736
+    },
+    {
+      "source_label": "deep metalcore",
+      "source_url": "https://everynoise.com/engenremap-deepmetalcore.html",
+      "suggested_id": "deep_metalcore",
+      "allocation_ordinal": 737
+    },
+    {
+      "source_label": "deep symphonic black metal",
+      "source_url": "https://everynoise.com/engenremap-deepsymphonicblackmetal.html",
+      "suggested_id": "deep_symphonic_black_metal",
+      "allocation_ordinal": 738
+    },
+    {
+      "source_label": "denver metal",
+      "source_url": "https://everynoise.com/engenremap-denvermetal.html",
+      "suggested_id": "denver_metal",
+      "allocation_ordinal": 739
+    },
+    {
+      "source_label": "depressive black metal",
+      "source_url": "https://everynoise.com/engenremap-depressiveblackmetal.html",
+      "suggested_id": "depressive_black_metal",
+      "allocation_ordinal": 740
+    },
+    {
+      "source_label": "downtempo deathcore",
+      "source_url": "https://everynoise.com/engenremap-downtempodeathcore.html",
+      "suggested_id": "downtempo_deathcore",
+      "allocation_ordinal": 741
+    },
+    {
+      "source_label": "dub metal",
+      "source_url": "https://everynoise.com/engenremap-dubmetal.html",
+      "suggested_id": "dub_metal",
+      "allocation_ordinal": 742
+    },
+    {
+      "source_label": "dutch black metal",
+      "source_url": "https://everynoise.com/engenremap-dutchblackmetal.html",
+      "suggested_id": "dutch_black_metal",
+      "allocation_ordinal": 743
+    },
+    {
+      "source_label": "dutch death metal",
+      "source_url": "https://everynoise.com/engenremap-dutchdeathmetal.html",
+      "suggested_id": "dutch_death_metal",
+      "allocation_ordinal": 744
+    },
+    {
+      "source_label": "dutch metal",
+      "source_url": "https://everynoise.com/engenremap-dutchmetal.html",
+      "suggested_id": "dutch_metal",
+      "allocation_ordinal": 745
+    },
+    {
+      "source_label": "edinburgh metal",
+      "source_url": "https://everynoise.com/engenremap-edinburghmetal.html",
+      "suggested_id": "edinburgh_metal",
+      "allocation_ordinal": 746
+    },
+    {
+      "source_label": "electronic djent",
+      "source_url": "https://everynoise.com/engenremap-electronicdjent.html",
+      "suggested_id": "electronic_djent",
+      "allocation_ordinal": 747
+    },
+    {
+      "source_label": "emotional black metal",
+      "source_url": "https://everynoise.com/engenremap-emotionalblackmetal.html",
+      "suggested_id": "emotional_black_metal",
+      "allocation_ordinal": 748
+    },
+    {
+      "source_label": "epic black metal",
+      "source_url": "https://everynoise.com/engenremap-epicblackmetal.html",
+      "suggested_id": "epic_black_metal",
+      "allocation_ordinal": 749
+    },
+    {
+      "source_label": "estonian metal",
+      "source_url": "https://everynoise.com/engenremap-estonianmetal.html",
+      "suggested_id": "estonian_metal",
+      "allocation_ordinal": 750
+    }
+  ]
+}

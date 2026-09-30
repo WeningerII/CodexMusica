@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "100",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["folk and country names"],
+  "entries": [
+    {
+      "source_label": "malagasy folk",
+      "source_url": "https://everynoise.com/engenremap-malagasyfolk.html",
+      "suggested_id": "malagasy_folk",
+      "allocation_ordinal": 2476
+    },
+    {
+      "source_label": "malawian folk",
+      "source_url": "https://everynoise.com/engenremap-malawianfolk.html",
+      "suggested_id": "malawian_folk",
+      "allocation_ordinal": 2477
+    },
+    {
+      "source_label": "manitoba country",
+      "source_url": "https://everynoise.com/engenremap-manitobacountry.html",
+      "suggested_id": "manitoba_country",
+      "allocation_ordinal": 2478
+    },
+    {
+      "source_label": "mazandarani folk",
+      "source_url": "https://everynoise.com/engenremap-mazandaranifolk.html",
+      "suggested_id": "mazandarani_folk",
+      "allocation_ordinal": 2479
+    },
+    {
+      "source_label": "medieval folk",
+      "source_url": "https://everynoise.com/engenremap-medievalfolk.html",
+      "suggested_id": "medieval_folk",
+      "allocation_ordinal": 2480
+    },
+    {
+      "source_label": "memphis americana",
+      "source_url": "https://everynoise.com/engenremap-memphisamericana.html",
+      "suggested_id": "memphis_americana",
+      "allocation_ordinal": 2481
+    },
+    {
+      "source_label": "michigan folk",
+      "source_url": "https://everynoise.com/engenremap-michiganfolk.html",
+      "suggested_id": "michigan_folk",
+      "allocation_ordinal": 2482
+    },
+    {
+      "source_label": "midwest americana",
+      "source_url": "https://everynoise.com/engenremap-midwestamericana.html",
+      "suggested_id": "midwest_americana",
+      "allocation_ordinal": 2483
+    },
+    {
+      "source_label": "modern indie folk",
+      "source_url": "https://everynoise.com/engenremap-modernindiefolk.html",
+      "suggested_id": "modern_indie_folk",
+      "allocation_ordinal": 2484
+    },
+    {
+      "source_label": "modern psychedelic folk",
+      "source_url": "https://everynoise.com/engenremap-modernpsychedelicfolk.html",
+      "suggested_id": "modern_psychedelic_folk",
+      "allocation_ordinal": 2485
+    },
+    {
+      "source_label": "musica folk asturiana",
+      "source_url": "https://everynoise.com/engenremap-musicafolkasturiana.html",
+      "suggested_id": "musica_folk_asturiana",
+      "allocation_ordinal": 2486
+    },
+    {
+      "source_label": "nashville americana",
+      "source_url": "https://everynoise.com/engenremap-nashvilleamericana.html",
+      "suggested_id": "nashville_americana",
+      "allocation_ordinal": 2487
+    },
+    {
+      "source_label": "nashville singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-nashvillesingersongwriter.html",
+      "suggested_id": "nashville_singer_songwriter",
+      "allocation_ordinal": 2488
+    },
+    {
+      "source_label": "neo-singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-neosingersongwriter.html",
+      "suggested_id": "neo_singer_songwriter",
+      "allocation_ordinal": 2489
+    },
+    {
+      "source_label": "new americana",
+      "source_url": "https://everynoise.com/engenremap-newamericana.html",
+      "suggested_id": "new_americana",
+      "allocation_ordinal": 2490
+    },
+    {
+      "source_label": "new england americana",
+      "source_url": "https://everynoise.com/engenremap-newenglandamericana.html",
+      "suggested_id": "new_england_americana",
+      "allocation_ordinal": 2491
+    },
+    {
+      "source_label": "new orleans americana",
+      "source_url": "https://everynoise.com/engenremap-neworleansamericana.html",
+      "suggested_id": "new_orleans_americana",
+      "allocation_ordinal": 2492
+    },
+    {
+      "source_label": "nl folk",
+      "source_url": "https://everynoise.com/engenremap-nlfolk.html",
+      "suggested_id": "nl_folk",
+      "allocation_ordinal": 2493
+    },
+    {
+      "source_label": "norwegian americana",
+      "source_url": "https://everynoise.com/engenremap-norwegianamericana.html",
+      "suggested_id": "norwegian_americana",
+      "allocation_ordinal": 2494
+    },
+    {
+      "source_label": "norwegian country",
+      "source_url": "https://everynoise.com/engenremap-norwegiancountry.html",
+      "suggested_id": "norwegian_country",
+      "allocation_ordinal": 2495
+    },
+    {
+      "source_label": "norwegian singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-norwegiansingersongwriter.html",
+      "suggested_id": "norwegian_singer_songwriter",
+      "allocation_ordinal": 2496
+    },
+    {
+      "source_label": "nz folk",
+      "source_url": "https://everynoise.com/engenremap-nzfolk.html",
+      "suggested_id": "nz_folk",
+      "allocation_ordinal": 2497
+    },
+    {
+      "source_label": "nz singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-nzsingersongwriter.html",
+      "suggested_id": "nz_singer_songwriter",
+      "allocation_ordinal": 2498
+    },
+    {
+      "source_label": "okinawan folk",
+      "source_url": "https://everynoise.com/engenremap-okinawanfolk.html",
+      "suggested_id": "okinawan_folk",
+      "allocation_ordinal": 2499
+    },
+    {
+      "source_label": "oklahoma country",
+      "source_url": "https://everynoise.com/engenremap-oklahomacountry.html",
+      "suggested_id": "oklahoma_country",
+      "allocation_ordinal": 2500
+    }
+  ]
+}

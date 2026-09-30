@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "023",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "sacramento hip hop",
+      "source_url": "https://everynoise.com/engenremap-sacramentohiphop.html",
+      "suggested_id": "sacramento_hip_hop",
+      "allocation_ordinal": 551
+    },
+    {
+      "source_label": "samurai trap",
+      "source_url": "https://everynoise.com/engenremap-samuraitrap.html",
+      "suggested_id": "samurai_trap",
+      "allocation_ordinal": 552
+    },
+    {
+      "source_label": "san antonio rap",
+      "source_url": "https://everynoise.com/engenremap-sanantoniorap.html",
+      "suggested_id": "san_antonio_rap",
+      "allocation_ordinal": 553
+    },
+    {
+      "source_label": "san diego rap",
+      "source_url": "https://everynoise.com/engenremap-sandiegorap.html",
+      "suggested_id": "san_diego_rap",
+      "allocation_ordinal": 554
+    },
+    {
+      "source_label": "schweizer rap",
+      "source_url": "https://everynoise.com/engenremap-schweizerrap.html",
+      "suggested_id": "schweizer_rap",
+      "allocation_ordinal": 555
+    },
+    {
+      "source_label": "scottish drill",
+      "source_url": "https://everynoise.com/engenremap-scottishdrill.html",
+      "suggested_id": "scottish_drill",
+      "allocation_ordinal": 556
+    },
+    {
+      "source_label": "scottish hip hop",
+      "source_url": "https://everynoise.com/engenremap-scottishhiphop.html",
+      "suggested_id": "scottish_hip_hop",
+      "allocation_ordinal": 557
+    },
+    {
+      "source_label": "scouse rap",
+      "source_url": "https://everynoise.com/engenremap-scouserap.html",
+      "suggested_id": "scouse_rap",
+      "allocation_ordinal": 558
+    },
+    {
+      "source_label": "scream rap",
+      "source_url": "https://everynoise.com/engenremap-screamrap.html",
+      "suggested_id": "scream_rap",
+      "allocation_ordinal": 559
+    },
+    {
+      "source_label": "serbian hip hop",
+      "source_url": "https://everynoise.com/engenremap-serbianhiphop.html",
+      "suggested_id": "serbian_hip_hop",
+      "allocation_ordinal": 560
+    },
+    {
+      "source_label": "sesotho hip hop",
+      "source_url": "https://everynoise.com/engenremap-sesothohiphop.html",
+      "suggested_id": "sesotho_hip_hop",
+      "allocation_ordinal": 561
+    },
+    {
+      "source_label": "sichuanese hip hop",
+      "source_url": "https://everynoise.com/engenremap-sichuanesehiphop.html",
+      "suggested_id": "sichuanese_hip_hop",
+      "allocation_ordinal": 562
+    },
+    {
+      "source_label": "singaporean hip hop",
+      "source_url": "https://everynoise.com/engenremap-singaporeanhiphop.html",
+      "suggested_id": "singaporean_hip_hop",
+      "allocation_ordinal": 563
+    },
+    {
+      "source_label": "sinhala rap",
+      "source_url": "https://everynoise.com/engenremap-sinhalarap.html",
+      "suggested_id": "sinhala_rap",
+      "allocation_ordinal": 564
+    },
+    {
+      "source_label": "slovak hip hop",
+      "source_url": "https://everynoise.com/engenremap-slovakhiphop.html",
+      "suggested_id": "slovak_hip_hop",
+      "allocation_ordinal": 565
+    },
+    {
+      "source_label": "slovak trap",
+      "source_url": "https://everynoise.com/engenremap-slovaktrap.html",
+      "suggested_id": "slovak_trap",
+      "allocation_ordinal": 566
+    },
+    {
+      "source_label": "slovenian hip hop",
+      "source_url": "https://everynoise.com/engenremap-slovenianhiphop.html",
+      "suggested_id": "slovenian_hip_hop",
+      "allocation_ordinal": 567
+    },
+    {
+      "source_label": "smutny rap",
+      "source_url": "https://everynoise.com/engenremap-smutnyrap.html",
+      "suggested_id": "smutny_rap",
+      "allocation_ordinal": 568
+    },
+    {
+      "source_label": "south african hip hop",
+      "source_url": "https://everynoise.com/engenremap-southafricanhiphop.html",
+      "suggested_id": "south_african_hip_hop",
+      "allocation_ordinal": 569
+    },
+    {
+      "source_label": "south african trap",
+      "source_url": "https://everynoise.com/engenremap-southafricantrap.html",
+      "suggested_id": "south_african_trap",
+      "allocation_ordinal": 570
+    },
+    {
+      "source_label": "south african underground rap",
+      "source_url": "https://everynoise.com/engenremap-southafricanundergroundrap.html",
+      "suggested_id": "south_african_underground_rap",
+      "allocation_ordinal": 571
+    },
+    {
+      "source_label": "south carolina hip hop",
+      "source_url": "https://everynoise.com/engenremap-southcarolinahiphop.html",
+      "suggested_id": "south_carolina_hip_hop",
+      "allocation_ordinal": 572
+    },
+    {
+      "source_label": "spanish hip hop",
+      "source_url": "https://everynoise.com/engenremap-spanishhiphop.html",
+      "suggested_id": "spanish_hip_hop",
+      "allocation_ordinal": 573
+    },
+    {
+      "source_label": "spiritual hip hop",
+      "source_url": "https://everynoise.com/engenremap-spiritualhiphop.html",
+      "suggested_id": "spiritual_hip_hop",
+      "allocation_ordinal": 574
+    },
+    {
+      "source_label": "st louis drill",
+      "source_url": "https://everynoise.com/engenremap-stlouisdrill.html",
+      "suggested_id": "st_louis_drill",
+      "allocation_ordinal": 575
+    }
+  ]
+}

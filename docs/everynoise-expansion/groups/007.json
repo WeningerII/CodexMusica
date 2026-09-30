@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "007",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["bass and dubstep"],
+  "entries": [
+    {
+      "source_label": "brazilian bass",
+      "source_url": "https://everynoise.com/engenremap-brazilianbass.html",
+      "suggested_id": "brazilian_bass",
+      "allocation_ordinal": 151
+    },
+    {
+      "source_label": "canadian garage rock",
+      "source_url": "https://everynoise.com/engenremap-canadiangaragerock.html",
+      "suggested_id": "canadian_garage_rock",
+      "allocation_ordinal": 152
+    },
+    {
+      "source_label": "cinematic dubstep",
+      "source_url": "https://everynoise.com/engenremap-cinematicdubstep.html",
+      "suggested_id": "cinematic_dubstep",
+      "allocation_ordinal": 153
+    },
+    {
+      "source_label": "classic dubstep",
+      "source_url": "https://everynoise.com/engenremap-classicdubstep.html",
+      "suggested_id": "classic_dubstep",
+      "allocation_ordinal": 154
+    },
+    {
+      "source_label": "classic garage rock",
+      "source_url": "https://everynoise.com/engenremap-classicgaragerock.html",
+      "suggested_id": "classic_garage_rock",
+      "allocation_ordinal": 155
+    },
+    {
+      "source_label": "classical bass",
+      "source_url": "https://everynoise.com/engenremap-classicalbass.html",
+      "suggested_id": "classical_bass",
+      "allocation_ordinal": 156
+    },
+    {
+      "source_label": "deep classic garage rock",
+      "source_url": "https://everynoise.com/engenremap-deepclassicgaragerock.html",
+      "suggested_id": "deep_classic_garage_rock",
+      "allocation_ordinal": 157
+    },
+    {
+      "source_label": "deep dubstep",
+      "source_url": "https://everynoise.com/engenremap-deepdubstep.html",
+      "suggested_id": "deep_dubstep",
+      "allocation_ordinal": 158
+    },
+    {
+      "source_label": "deep liquid bass",
+      "source_url": "https://everynoise.com/engenremap-deepliquidbass.html",
+      "suggested_id": "deep_liquid_bass",
+      "allocation_ordinal": 159
+    },
+    {
+      "source_label": "downtempo bass",
+      "source_url": "https://everynoise.com/engenremap-downtempobass.html",
+      "suggested_id": "downtempo_bass",
+      "allocation_ordinal": 160
+    },
+    {
+      "source_label": "dubstep product",
+      "source_url": "https://everynoise.com/engenremap-dubstepproduct.html",
+      "suggested_id": "dubstep_product",
+      "allocation_ordinal": 161
+    },
+    {
+      "source_label": "electric bass",
+      "source_url": "https://everynoise.com/engenremap-electricbass.html",
+      "suggested_id": "electric_bass",
+      "allocation_ordinal": 162
+    },
+    {
+      "source_label": "experimental bass",
+      "source_url": "https://everynoise.com/engenremap-experimentalbass.html",
+      "suggested_id": "experimental_bass",
+      "allocation_ordinal": 163
+    },
+    {
+      "source_label": "experimental dubstep",
+      "source_url": "https://everynoise.com/engenremap-experimentaldubstep.html",
+      "suggested_id": "experimental_dubstep",
+      "allocation_ordinal": 164
+    },
+    {
+      "source_label": "french garage rock",
+      "source_url": "https://everynoise.com/engenremap-frenchgaragerock.html",
+      "suggested_id": "french_garage_rock",
+      "allocation_ordinal": 165
+    },
+    {
+      "source_label": "gaming dubstep",
+      "source_url": "https://everynoise.com/engenremap-gamingdubstep.html",
+      "suggested_id": "gaming_dubstep",
+      "allocation_ordinal": 166
+    },
+    {
+      "source_label": "garage pop",
+      "source_url": "https://everynoise.com/engenremap-garagepop.html",
+      "suggested_id": "garage_pop",
+      "allocation_ordinal": 167
+    },
+    {
+      "source_label": "garage psych",
+      "source_url": "https://everynoise.com/engenremap-garagepsych.html",
+      "suggested_id": "garage_psych",
+      "allocation_ordinal": 168
+    },
+    {
+      "source_label": "garage punk blues",
+      "source_url": "https://everynoise.com/engenremap-garagepunkblues.html",
+      "suggested_id": "garage_punk_blues",
+      "allocation_ordinal": 169
+    },
+    {
+      "source_label": "garage rock mexicano",
+      "source_url": "https://everynoise.com/engenremap-garagerockmexicano.html",
+      "suggested_id": "garage_rock_mexicano",
+      "allocation_ordinal": 170
+    },
+    {
+      "source_label": "grime brasileiro",
+      "source_url": "https://everynoise.com/engenremap-grimebrasileiro.html",
+      "suggested_id": "grime_brasileiro",
+      "allocation_ordinal": 171
+    },
+    {
+      "source_label": "hard bass",
+      "source_url": "https://everynoise.com/engenremap-hardbass.html",
+      "suggested_id": "hard_bass",
+      "allocation_ordinal": 172
+    },
+    {
+      "source_label": "indie garage rock",
+      "source_url": "https://everynoise.com/engenremap-indiegaragerock.html",
+      "suggested_id": "indie_garage_rock",
+      "allocation_ordinal": 173
+    },
+    {
+      "source_label": "instrumental grime",
+      "source_url": "https://everynoise.com/engenremap-instrumentalgrime.html",
+      "suggested_id": "instrumental_grime",
+      "allocation_ordinal": 174
+    },
+    {
+      "source_label": "italian bass",
+      "source_url": "https://everynoise.com/engenremap-italianbass.html",
+      "suggested_id": "italian_bass",
+      "allocation_ordinal": 175
+    }
+  ]
+}

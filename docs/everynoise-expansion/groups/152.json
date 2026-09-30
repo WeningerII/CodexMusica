@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "152",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "mexican indie",
+      "source_url": "https://everynoise.com/engenremap-mexicanindie.html",
+      "suggested_id": "mexican_indie",
+      "allocation_ordinal": 3776
+    },
+    {
+      "source_label": "mezmur",
+      "source_url": "https://everynoise.com/engenremap-mezmur.html",
+      "suggested_id": "mezmur",
+      "allocation_ordinal": 3777
+    },
+    {
+      "source_label": "miami indie",
+      "source_url": "https://everynoise.com/engenremap-miamiindie.html",
+      "suggested_id": "miami_indie",
+      "allocation_ordinal": 3778
+    },
+    {
+      "source_label": "michigan indie",
+      "source_url": "https://everynoise.com/engenremap-michiganindie.html",
+      "suggested_id": "michigan_indie",
+      "allocation_ordinal": 3779
+    },
+    {
+      "source_label": "middle earth",
+      "source_url": "https://everynoise.com/engenremap-middleearth.html",
+      "suggested_id": "middle_earth",
+      "allocation_ordinal": 3780
+    },
+    {
+      "source_label": "middle eastern traditional",
+      "source_url": "https://everynoise.com/engenremap-middleeasterntraditional.html",
+      "suggested_id": "middle_eastern_traditional",
+      "allocation_ordinal": 3781
+    },
+    {
+      "source_label": "milan indie",
+      "source_url": "https://everynoise.com/engenremap-milanindie.html",
+      "suggested_id": "milan_indie",
+      "allocation_ordinal": 3782
+    },
+    {
+      "source_label": "milwaukee indie",
+      "source_url": "https://everynoise.com/engenremap-milwaukeeindie.html",
+      "suggested_id": "milwaukee_indie",
+      "allocation_ordinal": 3783
+    },
+    {
+      "source_label": "minneapolis indie",
+      "source_url": "https://everynoise.com/engenremap-minneapolisindie.html",
+      "suggested_id": "minneapolis_indie",
+      "allocation_ordinal": 3784
+    },
+    {
+      "source_label": "mississippi indie",
+      "source_url": "https://everynoise.com/engenremap-mississippiindie.html",
+      "suggested_id": "mississippi_indie",
+      "allocation_ordinal": 3785
+    },
+    {
+      "source_label": "missouri indie",
+      "source_url": "https://everynoise.com/engenremap-missouriindie.html",
+      "suggested_id": "missouri_indie",
+      "allocation_ordinal": 3786
+    },
+    {
+      "source_label": "mluvene slovo",
+      "source_url": "https://everynoise.com/engenremap-mluveneslovo.html",
+      "suggested_id": "mluvene_slovo",
+      "allocation_ordinal": 3787
+    },
+    {
+      "source_label": "modern bhajan",
+      "source_url": "https://everynoise.com/engenremap-modernbhajan.html",
+      "suggested_id": "modern_bhajan",
+      "allocation_ordinal": 3788
+    },
+    {
+      "source_label": "modern big band",
+      "source_url": "https://everynoise.com/engenremap-modernbigband.html",
+      "suggested_id": "modern_big_band",
+      "allocation_ordinal": 3789
+    },
+    {
+      "source_label": "modern bollywood",
+      "source_url": "https://everynoise.com/engenremap-modernbollywood.html",
+      "suggested_id": "modern_bollywood",
+      "allocation_ordinal": 3790
+    },
+    {
+      "source_label": "modern cello",
+      "source_url": "https://everynoise.com/engenremap-moderncello.html",
+      "suggested_id": "modern_cello",
+      "allocation_ordinal": 3791
+    },
+    {
+      "source_label": "modern chamber music",
+      "source_url": "https://everynoise.com/engenremap-modernchambermusic.html",
+      "suggested_id": "modern_chamber_music",
+      "allocation_ordinal": 3792
+    },
+    {
+      "source_label": "modern darkwave",
+      "source_url": "https://everynoise.com/engenremap-moderndarkwave.html",
+      "suggested_id": "modern_darkwave",
+      "allocation_ordinal": 3793
+    },
+    {
+      "source_label": "modern downshift",
+      "source_url": "https://everynoise.com/engenremap-moderndownshift.html",
+      "suggested_id": "modern_downshift",
+      "allocation_ordinal": 3794
+    },
+    {
+      "source_label": "modern electroacoustic",
+      "source_url": "https://everynoise.com/engenremap-modernelectroacoustic.html",
+      "suggested_id": "modern_electroacoustic",
+      "allocation_ordinal": 3795
+    },
+    {
+      "source_label": "modern enka",
+      "source_url": "https://everynoise.com/engenremap-modernenka.html",
+      "suggested_id": "modern_enka",
+      "allocation_ordinal": 3796
+    },
+    {
+      "source_label": "modern goth",
+      "source_url": "https://everynoise.com/engenremap-moderngoth.html",
+      "suggested_id": "modern_goth",
+      "allocation_ordinal": 3797
+    },
+    {
+      "source_label": "modern mod",
+      "source_url": "https://everynoise.com/engenremap-modernmod.html",
+      "suggested_id": "modern_mod",
+      "allocation_ordinal": 3798
+    },
+    {
+      "source_label": "modern old-time",
+      "source_url": "https://everynoise.com/engenremap-modernoldtime.html",
+      "suggested_id": "modern_old_time",
+      "allocation_ordinal": 3799
+    },
+    {
+      "source_label": "modern performance",
+      "source_url": "https://everynoise.com/engenremap-modernperformance.html",
+      "suggested_id": "modern_performance",
+      "allocation_ordinal": 3800
+    }
+  ]
+}

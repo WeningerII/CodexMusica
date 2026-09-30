@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "168",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "psybass",
+      "source_url": "https://everynoise.com/engenremap-psybass.html",
+      "suggested_id": "psybass",
+      "allocation_ordinal": 4176
+    },
+    {
+      "source_label": "psych gaze",
+      "source_url": "https://everynoise.com/engenremap-psychgaze.html",
+      "suggested_id": "psych_gaze",
+      "allocation_ordinal": 4177
+    },
+    {
+      "source_label": "psychedelic doom",
+      "source_url": "https://everynoise.com/engenremap-psychedelicdoom.html",
+      "suggested_id": "psychedelic_doom",
+      "allocation_ordinal": 4178
+    },
+    {
+      "source_label": "psychokore",
+      "source_url": "https://everynoise.com/engenremap-psychokore.html",
+      "suggested_id": "psychokore",
+      "allocation_ordinal": 4179
+    },
+    {
+      "source_label": "psytech",
+      "source_url": "https://everynoise.com/engenremap-psytech.html",
+      "suggested_id": "psytech",
+      "allocation_ordinal": 4180
+    },
+    {
+      "source_label": "puerto rican indie",
+      "source_url": "https://everynoise.com/engenremap-puertoricanindie.html",
+      "suggested_id": "puerto_rican_indie",
+      "allocation_ordinal": 4181
+    },
+    {
+      "source_label": "puglia indie",
+      "source_url": "https://everynoise.com/engenremap-pugliaindie.html",
+      "suggested_id": "puglia_indie",
+      "allocation_ordinal": 4182
+    },
+    {
+      "source_label": "pune indie",
+      "source_url": "https://everynoise.com/engenremap-puneindie.html",
+      "suggested_id": "pune_indie",
+      "allocation_ordinal": 4183
+    },
+    {
+      "source_label": "punjabi lo-fi",
+      "source_url": "https://everynoise.com/engenremap-punjabilofi.html",
+      "suggested_id": "punjabi_lo_fi",
+      "allocation_ordinal": 4184
+    },
+    {
+      "source_label": "purple sound",
+      "source_url": "https://everynoise.com/engenremap-purplesound.html",
+      "suggested_id": "purple_sound",
+      "allocation_ordinal": 4185
+    },
+    {
+      "source_label": "pygmy music",
+      "source_url": "https://everynoise.com/engenremap-pygmymusic.html",
+      "suggested_id": "pygmy_music",
+      "allocation_ordinal": 4186
+    },
+    {
+      "source_label": "qanun",
+      "source_url": "https://everynoise.com/engenremap-qanun.html",
+      "suggested_id": "qanun",
+      "allocation_ordinal": 4187
+    },
+    {
+      "source_label": "quartetto d'archi",
+      "source_url": "https://everynoise.com/engenremap-quartettodarchi.html",
+      "suggested_id": "quartetto_d_archi",
+      "allocation_ordinal": 4188
+    },
+    {
+      "source_label": "quatuor a cordes",
+      "source_url": "https://everynoise.com/engenremap-quatuoracordes.html",
+      "suggested_id": "quatuor_a_cordes",
+      "allocation_ordinal": 4189
+    },
+    {
+      "source_label": "quebec indie",
+      "source_url": "https://everynoise.com/engenremap-quebecindie.html",
+      "suggested_id": "quebec_indie",
+      "allocation_ordinal": 4190
+    },
+    {
+      "source_label": "quran",
+      "source_url": "https://everynoise.com/engenremap-quran.html",
+      "suggested_id": "quran",
+      "allocation_ordinal": 4191
+    },
+    {
+      "source_label": "rabm",
+      "source_url": "https://everynoise.com/engenremap-rabm.html",
+      "suggested_id": "rabm",
+      "allocation_ordinal": 4192
+    },
+    {
+      "source_label": "radio symphony",
+      "source_url": "https://everynoise.com/engenremap-radiosymphony.html",
+      "suggested_id": "radio_symphony",
+      "allocation_ordinal": 4193
+    },
+    {
+      "source_label": "rain",
+      "source_url": "https://everynoise.com/engenremap-rain.html",
+      "suggested_id": "rain",
+      "allocation_ordinal": 4194
+    },
+    {
+      "source_label": "rakugo",
+      "source_url": "https://everynoise.com/engenremap-rakugo.html",
+      "suggested_id": "rakugo",
+      "allocation_ordinal": 4195
+    },
+    {
+      "source_label": "ramonescore",
+      "source_url": "https://everynoise.com/engenremap-ramonescore.html",
+      "suggested_id": "ramonescore",
+      "allocation_ordinal": 4196
+    },
+    {
+      "source_label": "rasiya",
+      "source_url": "https://everynoise.com/engenremap-rasiya.html",
+      "suggested_id": "rasiya",
+      "allocation_ordinal": 4197
+    },
+    {
+      "source_label": "raspe",
+      "source_url": "https://everynoise.com/engenremap-raspe.html",
+      "suggested_id": "raspe",
+      "allocation_ordinal": 4198
+    },
+    {
+      "source_label": "rave",
+      "source_url": "https://everynoise.com/engenremap-rave.html",
+      "suggested_id": "rave",
+      "allocation_ordinal": 4199
+    },
+    {
+      "source_label": "reading",
+      "source_url": "https://everynoise.com/engenremap-reading.html",
+      "suggested_id": "reading",
+      "allocation_ordinal": 4200
+    }
+  ]
+}

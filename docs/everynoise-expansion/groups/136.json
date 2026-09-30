@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "136",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "grungegaze",
+      "source_url": "https://everynoise.com/engenremap-grungegaze.html",
+      "suggested_id": "grungegaze",
+      "allocation_ordinal": 3376
+    },
+    {
+      "source_label": "grunneger muziek",
+      "source_url": "https://everynoise.com/engenremap-grunnegermuziek.html",
+      "suggested_id": "grunneger_muziek",
+      "allocation_ordinal": 3377
+    },
+    {
+      "source_label": "gruperas inmortales",
+      "source_url": "https://everynoise.com/engenremap-gruperasinmortales.html",
+      "suggested_id": "gruperas_inmortales",
+      "allocation_ordinal": 3378
+    },
+    {
+      "source_label": "grupero romantico",
+      "source_url": "https://everynoise.com/engenremap-gruperoromantico.html",
+      "suggested_id": "grupero_romantico",
+      "allocation_ordinal": 3379
+    },
+    {
+      "source_label": "guadalajara indie",
+      "source_url": "https://everynoise.com/engenremap-guadalajaraindie.html",
+      "suggested_id": "guadalajara_indie",
+      "allocation_ordinal": 3380
+    },
+    {
+      "source_label": "guam indie",
+      "source_url": "https://everynoise.com/engenremap-guamindie.html",
+      "suggested_id": "guam_indie",
+      "allocation_ordinal": 3381
+    },
+    {
+      "source_label": "guatemalan indie",
+      "source_url": "https://everynoise.com/engenremap-guatemalanindie.html",
+      "suggested_id": "guatemalan_indie",
+      "allocation_ordinal": 3382
+    },
+    {
+      "source_label": "guidance",
+      "source_url": "https://everynoise.com/engenremap-guidance.html",
+      "suggested_id": "guidance",
+      "allocation_ordinal": 3383
+    },
+    {
+      "source_label": "guitar case",
+      "source_url": "https://everynoise.com/engenremap-guitarcase.html",
+      "suggested_id": "guitar_case",
+      "allocation_ordinal": 3384
+    },
+    {
+      "source_label": "guitarra andina",
+      "source_url": "https://everynoise.com/engenremap-guitarraandina.html",
+      "suggested_id": "guitarra_andina",
+      "allocation_ordinal": 3385
+    },
+    {
+      "source_label": "guitarra argentina",
+      "source_url": "https://everynoise.com/engenremap-guitarraargentina.html",
+      "suggested_id": "guitarra_argentina",
+      "allocation_ordinal": 3386
+    },
+    {
+      "source_label": "guitarra clasica",
+      "source_url": "https://everynoise.com/engenremap-guitarraclasica.html",
+      "suggested_id": "guitarra_clasica",
+      "allocation_ordinal": 3387
+    },
+    {
+      "source_label": "guitarra mexicana",
+      "source_url": "https://everynoise.com/engenremap-guitarramexicana.html",
+      "suggested_id": "guitarra_mexicana",
+      "allocation_ordinal": 3388
+    },
+    {
+      "source_label": "gumbe",
+      "source_url": "https://everynoise.com/engenremap-gumbe.html",
+      "suggested_id": "gumbe",
+      "allocation_ordinal": 3389
+    },
+    {
+      "source_label": "gyerekdalok",
+      "source_url": "https://everynoise.com/engenremap-gyerekdalok.html",
+      "suggested_id": "gyerekdalok",
+      "allocation_ordinal": 3390
+    },
+    {
+      "source_label": "gym hardstyle",
+      "source_url": "https://everynoise.com/engenremap-gymhardstyle.html",
+      "suggested_id": "gym_hardstyle",
+      "allocation_ordinal": 3391
+    },
+    {
+      "source_label": "gymcore",
+      "source_url": "https://everynoise.com/engenremap-gymcore.html",
+      "suggested_id": "gymcore",
+      "allocation_ordinal": 3392
+    },
+    {
+      "source_label": "gypsy",
+      "source_url": "https://everynoise.com/engenremap-gypsy.html",
+      "suggested_id": "gypsy",
+      "allocation_ordinal": 3393
+    },
+    {
+      "source_label": "gypsy fusion",
+      "source_url": "https://everynoise.com/engenremap-gypsyfusion.html",
+      "suggested_id": "gypsy_fusion",
+      "allocation_ordinal": 3394
+    },
+    {
+      "source_label": "h8000",
+      "source_url": "https://everynoise.com/engenremap-h8000.html",
+      "suggested_id": "h8000",
+      "allocation_ordinal": 3395
+    },
+    {
+      "source_label": "haitian traditional",
+      "source_url": "https://everynoise.com/engenremap-haitiantraditional.html",
+      "suggested_id": "haitian_traditional",
+      "allocation_ordinal": 3396
+    },
+    {
+      "source_label": "hakkapop",
+      "source_url": "https://everynoise.com/engenremap-hakkapop.html",
+      "suggested_id": "hakkapop",
+      "allocation_ordinal": 3397
+    },
+    {
+      "source_label": "halifax indie",
+      "source_url": "https://everynoise.com/engenremap-halifaxindie.html",
+      "suggested_id": "halifax_indie",
+      "allocation_ordinal": 3398
+    },
+    {
+      "source_label": "halloween",
+      "source_url": "https://everynoise.com/engenremap-halloween.html",
+      "suggested_id": "halloween",
+      "allocation_ordinal": 3399
+    },
+    {
+      "source_label": "hamilton on indie",
+      "source_url": "https://everynoise.com/engenremap-hamiltononindie.html",
+      "suggested_id": "hamilton_on_indie",
+      "allocation_ordinal": 3400
+    }
+  ]
+}

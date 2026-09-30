@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "102",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["folk and country names", "blues soul funk and gospel names"],
+  "entries": [
+    {
+      "source_label": "swedish singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-swedishsingersongwriter.html",
+      "suggested_id": "swedish_singer_songwriter",
+      "allocation_ordinal": 2526
+    },
+    {
+      "source_label": "swiss country",
+      "source_url": "https://everynoise.com/engenremap-swisscountry.html",
+      "suggested_id": "swiss_country",
+      "allocation_ordinal": 2527
+    },
+    {
+      "source_label": "swiss folk",
+      "source_url": "https://everynoise.com/engenremap-swissfolk.html",
+      "suggested_id": "swiss_folk",
+      "allocation_ordinal": 2528
+    },
+    {
+      "source_label": "swiss indie folk",
+      "source_url": "https://everynoise.com/engenremap-swissindiefolk.html",
+      "suggested_id": "swiss_indie_folk",
+      "allocation_ordinal": 2529
+    },
+    {
+      "source_label": "swiss singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-swisssingersongwriter.html",
+      "suggested_id": "swiss_singer_songwriter",
+      "allocation_ordinal": 2530
+    },
+    {
+      "source_label": "taiwan singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-taiwansingersongwriter.html",
+      "suggested_id": "taiwan_singer_songwriter",
+      "allocation_ordinal": 2531
+    },
+    {
+      "source_label": "telugu folk",
+      "source_url": "https://everynoise.com/engenremap-telugufolk.html",
+      "suggested_id": "telugu_folk",
+      "allocation_ordinal": 2532
+    },
+    {
+      "source_label": "texas country",
+      "source_url": "https://everynoise.com/engenremap-texascountry.html",
+      "suggested_id": "texas_country",
+      "allocation_ordinal": 2533
+    },
+    {
+      "source_label": "traditional bluegrass",
+      "source_url": "https://everynoise.com/engenremap-traditionalbluegrass.html",
+      "suggested_id": "traditional_bluegrass",
+      "allocation_ordinal": 2534
+    },
+    {
+      "source_label": "traditional country",
+      "source_url": "https://everynoise.com/engenremap-traditionalcountry.html",
+      "suggested_id": "traditional_country",
+      "allocation_ordinal": 2535
+    },
+    {
+      "source_label": "traditional folk",
+      "source_url": "https://everynoise.com/engenremap-traditionalfolk.html",
+      "suggested_id": "traditional_folk",
+      "allocation_ordinal": 2536
+    },
+    {
+      "source_label": "traditional southern folk",
+      "source_url": "https://everynoise.com/engenremap-traditionalsouthernfolk.html",
+      "suggested_id": "traditional_southern_folk",
+      "allocation_ordinal": 2537
+    },
+    {
+      "source_label": "turkish singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-turkishsingersongwriter.html",
+      "suggested_id": "turkish_singer_songwriter",
+      "allocation_ordinal": 2538
+    },
+    {
+      "source_label": "uk americana",
+      "source_url": "https://everynoise.com/engenremap-ukamericana.html",
+      "suggested_id": "uk_americana",
+      "allocation_ordinal": 2539
+    },
+    {
+      "source_label": "ukrainian folk",
+      "source_url": "https://everynoise.com/engenremap-ukrainianfolk.html",
+      "suggested_id": "ukrainian_folk",
+      "allocation_ordinal": 2540
+    },
+    {
+      "source_label": "vietnamese singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-vietnamesesingersongwriter.html",
+      "suggested_id": "vietnamese_singer_songwriter",
+      "allocation_ordinal": 2541
+    },
+    {
+      "source_label": "viking folk",
+      "source_url": "https://everynoise.com/engenremap-vikingfolk.html",
+      "suggested_id": "viking_folk",
+      "allocation_ordinal": 2542
+    },
+    {
+      "source_label": "vintage country folk",
+      "source_url": "https://everynoise.com/engenremap-vintagecountryfolk.html",
+      "suggested_id": "vintage_country_folk",
+      "allocation_ordinal": 2543
+    },
+    {
+      "source_label": "western americana",
+      "source_url": "https://everynoise.com/engenremap-westernamericana.html",
+      "suggested_id": "western_americana",
+      "allocation_ordinal": 2544
+    },
+    {
+      "source_label": "western saharan folk",
+      "source_url": "https://everynoise.com/engenremap-westernsaharanfolk.html",
+      "suggested_id": "western_saharan_folk",
+      "allocation_ordinal": 2545
+    },
+    {
+      "source_label": "yorkshire folk",
+      "source_url": "https://everynoise.com/engenremap-yorkshirefolk.html",
+      "suggested_id": "yorkshire_folk",
+      "allocation_ordinal": 2546
+    },
+    {
+      "source_label": "african gospel",
+      "source_url": "https://everynoise.com/engenremap-africangospel.html",
+      "suggested_id": "african_gospel",
+      "allocation_ordinal": 2547
+    },
+    {
+      "source_label": "afrikaans gospel",
+      "source_url": "https://everynoise.com/engenremap-afrikaansgospel.html",
+      "suggested_id": "afrikaans_gospel",
+      "allocation_ordinal": 2548
+    },
+    {
+      "source_label": "australian blues",
+      "source_url": "https://everynoise.com/engenremap-australianblues.html",
+      "suggested_id": "australian_blues",
+      "allocation_ordinal": 2549
+    },
+    {
+      "source_label": "australian r&b",
+      "source_url": "https://everynoise.com/engenremap-australianrb.html",
+      "suggested_id": "australian_r_and_b",
+      "allocation_ordinal": 2550
+    }
+  ]
+}

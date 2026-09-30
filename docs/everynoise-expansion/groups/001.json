@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "001",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["ambient and drone", "house"],
+  "entries": [
+    {
+      "source_label": "ambient lo-fi",
+      "source_url": "https://everynoise.com/engenremap-ambientlofi.html",
+      "suggested_id": "ambient_lo_fi",
+      "allocation_ordinal": 1
+    },
+    {
+      "source_label": "ambient trance",
+      "source_url": "https://everynoise.com/engenremap-ambienttrance.html",
+      "suggested_id": "ambient_trance",
+      "allocation_ordinal": 2
+    },
+    {
+      "source_label": "ambient worship",
+      "source_url": "https://everynoise.com/engenremap-ambientworship.html",
+      "suggested_id": "ambient_worship",
+      "allocation_ordinal": 3
+    },
+    {
+      "source_label": "argentine ambient",
+      "source_url": "https://everynoise.com/engenremap-argentineambient.html",
+      "suggested_id": "argentine_ambient",
+      "allocation_ordinal": 4
+    },
+    {
+      "source_label": "australian ambient",
+      "source_url": "https://everynoise.com/engenremap-australianambient.html",
+      "suggested_id": "australian_ambient",
+      "allocation_ordinal": 5
+    },
+    {
+      "source_label": "deep ambient",
+      "source_url": "https://everynoise.com/engenremap-deepambient.html",
+      "suggested_id": "deep_ambient",
+      "allocation_ordinal": 6
+    },
+    {
+      "source_label": "drone",
+      "source_url": "https://everynoise.com/engenremap-drone.html",
+      "suggested_id": "drone",
+      "allocation_ordinal": 7
+    },
+    {
+      "source_label": "drone psych",
+      "source_url": "https://everynoise.com/engenremap-dronepsych.html",
+      "suggested_id": "drone_psych",
+      "allocation_ordinal": 8
+    },
+    {
+      "source_label": "drone rock",
+      "source_url": "https://everynoise.com/engenremap-dronerock.html",
+      "suggested_id": "drone_rock",
+      "allocation_ordinal": 9
+    },
+    {
+      "source_label": "experimental ambient",
+      "source_url": "https://everynoise.com/engenremap-experimentalambient.html",
+      "suggested_id": "experimental_ambient",
+      "allocation_ordinal": 10
+    },
+    {
+      "source_label": "future ambient",
+      "source_url": "https://everynoise.com/engenremap-futureambient.html",
+      "suggested_id": "future_ambient",
+      "allocation_ordinal": 11
+    },
+    {
+      "source_label": "indian ambient",
+      "source_url": "https://everynoise.com/engenremap-indianambient.html",
+      "suggested_id": "indian_ambient",
+      "allocation_ordinal": 12
+    },
+    {
+      "source_label": "j-ambient",
+      "source_url": "https://everynoise.com/engenremap-jambient.html",
+      "suggested_id": "j_ambient",
+      "allocation_ordinal": 13
+    },
+    {
+      "source_label": "nordic ambient",
+      "source_url": "https://everynoise.com/engenremap-nordicambient.html",
+      "suggested_id": "nordic_ambient",
+      "allocation_ordinal": 14
+    },
+    {
+      "source_label": "organic ambient",
+      "source_url": "https://everynoise.com/engenremap-organicambient.html",
+      "suggested_id": "organic_ambient",
+      "allocation_ordinal": 15
+    },
+    {
+      "source_label": "polish ambient",
+      "source_url": "https://everynoise.com/engenremap-polishambient.html",
+      "suggested_id": "polish_ambient",
+      "allocation_ordinal": 16
+    },
+    {
+      "source_label": "pop ambient",
+      "source_url": "https://everynoise.com/engenremap-popambient.html",
+      "suggested_id": "pop_ambient",
+      "allocation_ordinal": 17
+    },
+    {
+      "source_label": "ritual ambient",
+      "source_url": "https://everynoise.com/engenremap-ritualambient.html",
+      "suggested_id": "ritual_ambient",
+      "allocation_ordinal": 18
+    },
+    {
+      "source_label": "warm drone",
+      "source_url": "https://everynoise.com/engenremap-warmdrone.html",
+      "suggested_id": "warm_drone",
+      "allocation_ordinal": 19
+    },
+    {
+      "source_label": "world meditation",
+      "source_url": "https://everynoise.com/engenremap-worldmeditation.html",
+      "suggested_id": "world_meditation",
+      "allocation_ordinal": 20
+    },
+    {
+      "source_label": "afro house angolano",
+      "source_url": "https://everynoise.com/engenremap-afrohouseangolano.html",
+      "suggested_id": "afro_house_angolano",
+      "allocation_ordinal": 21
+    },
+    {
+      "source_label": "australian house",
+      "source_url": "https://everynoise.com/engenremap-australianhouse.html",
+      "suggested_id": "australian_house",
+      "allocation_ordinal": 22
+    },
+    {
+      "source_label": "beach house",
+      "source_url": "https://everynoise.com/engenremap-beachhouse.html",
+      "suggested_id": "beach_house",
+      "allocation_ordinal": 23
+    },
+    {
+      "source_label": "brazilian house",
+      "source_url": "https://everynoise.com/engenremap-brazilianhouse.html",
+      "suggested_id": "brazilian_house",
+      "allocation_ordinal": 24
+    },
+    {
+      "source_label": "brazilian tech house",
+      "source_url": "https://everynoise.com/engenremap-braziliantechhouse.html",
+      "suggested_id": "brazilian_tech_house",
+      "allocation_ordinal": 25
+    }
+  ]
+}

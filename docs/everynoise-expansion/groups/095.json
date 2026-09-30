@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "095",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["classical and vocal ensemble names"],
+  "entries": [
+    {
+      "source_label": "oxford choir",
+      "source_url": "https://everynoise.com/engenremap-oxfordchoir.html",
+      "suggested_id": "oxford_choir",
+      "allocation_ordinal": 2351
+    },
+    {
+      "source_label": "polish choir",
+      "source_url": "https://everynoise.com/engenremap-polishchoir.html",
+      "suggested_id": "polish_choir",
+      "allocation_ordinal": 2352
+    },
+    {
+      "source_label": "polish classical",
+      "source_url": "https://everynoise.com/engenremap-polishclassical.html",
+      "suggested_id": "polish_classical",
+      "allocation_ordinal": 2353
+    },
+    {
+      "source_label": "polish classical piano",
+      "source_url": "https://everynoise.com/engenremap-polishclassicalpiano.html",
+      "suggested_id": "polish_classical_piano",
+      "allocation_ordinal": 2354
+    },
+    {
+      "source_label": "polish contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-polishcontemporaryclassical.html",
+      "suggested_id": "polish_contemporary_classical",
+      "allocation_ordinal": 2355
+    },
+    {
+      "source_label": "pops orchestra",
+      "source_url": "https://everynoise.com/engenremap-popsorchestra.html",
+      "suggested_id": "pops_orchestra",
+      "allocation_ordinal": 2356
+    },
+    {
+      "source_label": "portuguese classical",
+      "source_url": "https://everynoise.com/engenremap-portugueseclassical.html",
+      "suggested_id": "portuguese_classical",
+      "allocation_ordinal": 2357
+    },
+    {
+      "source_label": "portuguese contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-portuguesecontemporaryclassical.html",
+      "suggested_id": "portuguese_contemporary_classical",
+      "allocation_ordinal": 2358
+    },
+    {
+      "source_label": "romanian classical piano",
+      "source_url": "https://everynoise.com/engenremap-romanianclassicalpiano.html",
+      "suggested_id": "romanian_classical_piano",
+      "allocation_ordinal": 2359
+    },
+    {
+      "source_label": "romanian contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-romaniancontemporaryclassical.html",
+      "suggested_id": "romanian_contemporary_classical",
+      "allocation_ordinal": 2360
+    },
+    {
+      "source_label": "russian choir",
+      "source_url": "https://everynoise.com/engenremap-russianchoir.html",
+      "suggested_id": "russian_choir",
+      "allocation_ordinal": 2361
+    },
+    {
+      "source_label": "russian classical piano",
+      "source_url": "https://everynoise.com/engenremap-russianclassicalpiano.html",
+      "suggested_id": "russian_classical_piano",
+      "allocation_ordinal": 2362
+    },
+    {
+      "source_label": "russian contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-russiancontemporaryclassical.html",
+      "suggested_id": "russian_contemporary_classical",
+      "allocation_ordinal": 2363
+    },
+    {
+      "source_label": "russian modern classical",
+      "source_url": "https://everynoise.com/engenremap-russianmodernclassical.html",
+      "suggested_id": "russian_modern_classical",
+      "allocation_ordinal": 2364
+    },
+    {
+      "source_label": "russian orchestra",
+      "source_url": "https://everynoise.com/engenremap-russianorchestra.html",
+      "suggested_id": "russian_orchestra",
+      "allocation_ordinal": 2365
+    },
+    {
+      "source_label": "school choir",
+      "source_url": "https://everynoise.com/engenremap-schoolchoir.html",
+      "suggested_id": "school_choir",
+      "allocation_ordinal": 2366
+    },
+    {
+      "source_label": "sda choir",
+      "source_url": "https://everynoise.com/engenremap-sdachoir.html",
+      "suggested_id": "sda_choir",
+      "allocation_ordinal": 2367
+    },
+    {
+      "source_label": "south african choral",
+      "source_url": "https://everynoise.com/engenremap-southafricanchoral.html",
+      "suggested_id": "south_african_choral",
+      "allocation_ordinal": 2368
+    },
+    {
+      "source_label": "spanish classical",
+      "source_url": "https://everynoise.com/engenremap-spanishclassical.html",
+      "suggested_id": "spanish_classical",
+      "allocation_ordinal": 2369
+    },
+    {
+      "source_label": "spanish classical piano",
+      "source_url": "https://everynoise.com/engenremap-spanishclassicalpiano.html",
+      "suggested_id": "spanish_classical_piano",
+      "allocation_ordinal": 2370
+    },
+    {
+      "source_label": "spanish contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-spanishcontemporaryclassical.html",
+      "suggested_id": "spanish_contemporary_classical",
+      "allocation_ordinal": 2371
+    },
+    {
+      "source_label": "spanish renaissance",
+      "source_url": "https://everynoise.com/engenremap-spanishrenaissance.html",
+      "suggested_id": "spanish_renaissance",
+      "allocation_ordinal": 2372
+    },
+    {
+      "source_label": "string orchestra",
+      "source_url": "https://everynoise.com/engenremap-stringorchestra.html",
+      "suggested_id": "string_orchestra",
+      "allocation_ordinal": 2373
+    },
+    {
+      "source_label": "swedish choir",
+      "source_url": "https://everynoise.com/engenremap-swedishchoir.html",
+      "suggested_id": "swedish_choir",
+      "allocation_ordinal": 2374
+    },
+    {
+      "source_label": "swedish classical",
+      "source_url": "https://everynoise.com/engenremap-swedishclassical.html",
+      "suggested_id": "swedish_classical",
+      "allocation_ordinal": 2375
+    }
+  ]
+}

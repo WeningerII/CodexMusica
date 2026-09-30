@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "042",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["punk and emo"],
+  "entries": [
+    {
+      "source_label": "australian post-hardcore",
+      "source_url": "https://everynoise.com/engenremap-australianposthardcore.html",
+      "suggested_id": "australian_post_hardcore",
+      "allocation_ordinal": 1026
+    },
+    {
+      "source_label": "australian post-punk",
+      "source_url": "https://everynoise.com/engenremap-australianpostpunk.html",
+      "suggested_id": "australian_post_punk",
+      "allocation_ordinal": 1027
+    },
+    {
+      "source_label": "austrian punk",
+      "source_url": "https://everynoise.com/engenremap-austrianpunk.html",
+      "suggested_id": "austrian_punk",
+      "allocation_ordinal": 1028
+    },
+    {
+      "source_label": "balkan post-punk",
+      "source_url": "https://everynoise.com/engenremap-balkanpostpunk.html",
+      "suggested_id": "balkan_post_punk",
+      "allocation_ordinal": 1029
+    },
+    {
+      "source_label": "balkan punk",
+      "source_url": "https://everynoise.com/engenremap-balkanpunk.html",
+      "suggested_id": "balkan_punk",
+      "allocation_ordinal": 1030
+    },
+    {
+      "source_label": "baltic post-punk",
+      "source_url": "https://everynoise.com/engenremap-balticpostpunk.html",
+      "suggested_id": "baltic_post_punk",
+      "allocation_ordinal": 1031
+    },
+    {
+      "source_label": "belarusian punk",
+      "source_url": "https://everynoise.com/engenremap-belarusianpunk.html",
+      "suggested_id": "belarusian_punk",
+      "allocation_ordinal": 1032
+    },
+    {
+      "source_label": "belgian hardcore",
+      "source_url": "https://everynoise.com/engenremap-belgianhardcore.html",
+      "suggested_id": "belgian_hardcore",
+      "allocation_ordinal": 1033
+    },
+    {
+      "source_label": "belgian punk",
+      "source_url": "https://everynoise.com/engenremap-belgianpunk.html",
+      "suggested_id": "belgian_punk",
+      "allocation_ordinal": 1034
+    },
+    {
+      "source_label": "black punk",
+      "source_url": "https://everynoise.com/engenremap-blackpunk.html",
+      "suggested_id": "black_punk",
+      "allocation_ordinal": 1035
+    },
+    {
+      "source_label": "blackened hardcore",
+      "source_url": "https://everynoise.com/engenremap-blackenedhardcore.html",
+      "suggested_id": "blackened_hardcore",
+      "allocation_ordinal": 1036
+    },
+    {
+      "source_label": "blackened screamo",
+      "source_url": "https://everynoise.com/engenremap-blackenedscreamo.html",
+      "suggested_id": "blackened_screamo",
+      "allocation_ordinal": 1037
+    },
+    {
+      "source_label": "boston hardcore",
+      "source_url": "https://everynoise.com/engenremap-bostonhardcore.html",
+      "suggested_id": "boston_hardcore",
+      "allocation_ordinal": 1038
+    },
+    {
+      "source_label": "boston punk",
+      "source_url": "https://everynoise.com/engenremap-bostonpunk.html",
+      "suggested_id": "boston_punk",
+      "allocation_ordinal": 1039
+    },
+    {
+      "source_label": "brazilian emo",
+      "source_url": "https://everynoise.com/engenremap-brazilianemo.html",
+      "suggested_id": "brazilian_emo",
+      "allocation_ordinal": 1040
+    },
+    {
+      "source_label": "brazilian hardcore",
+      "source_url": "https://everynoise.com/engenremap-brazilianhardcore.html",
+      "suggested_id": "brazilian_hardcore",
+      "allocation_ordinal": 1041
+    },
+    {
+      "source_label": "brazilian post-hardcore",
+      "source_url": "https://everynoise.com/engenremap-brazilianposthardcore.html",
+      "suggested_id": "brazilian_post_hardcore",
+      "allocation_ordinal": 1042
+    },
+    {
+      "source_label": "brazilian punk",
+      "source_url": "https://everynoise.com/engenremap-brazilianpunk.html",
+      "suggested_id": "brazilian_punk",
+      "allocation_ordinal": 1043
+    },
+    {
+      "source_label": "brazilian punk rock",
+      "source_url": "https://everynoise.com/engenremap-brazilianpunkrock.html",
+      "suggested_id": "brazilian_punk_rock",
+      "allocation_ordinal": 1044
+    },
+    {
+      "source_label": "brisbane punk",
+      "source_url": "https://everynoise.com/engenremap-brisbanepunk.html",
+      "suggested_id": "brisbane_punk",
+      "allocation_ordinal": 1045
+    },
+    {
+      "source_label": "california hardcore",
+      "source_url": "https://everynoise.com/engenremap-californiahardcore.html",
+      "suggested_id": "california_hardcore",
+      "allocation_ordinal": 1046
+    },
+    {
+      "source_label": "canadian hardcore",
+      "source_url": "https://everynoise.com/engenremap-canadianhardcore.html",
+      "suggested_id": "canadian_hardcore",
+      "allocation_ordinal": 1047
+    },
+    {
+      "source_label": "canadian pop punk",
+      "source_url": "https://everynoise.com/engenremap-canadianpoppunk.html",
+      "suggested_id": "canadian_pop_punk",
+      "allocation_ordinal": 1048
+    },
+    {
+      "source_label": "canadian post-hardcore",
+      "source_url": "https://everynoise.com/engenremap-canadianposthardcore.html",
+      "suggested_id": "canadian_post_hardcore",
+      "allocation_ordinal": 1049
+    },
+    {
+      "source_label": "canadian post-punk",
+      "source_url": "https://everynoise.com/engenremap-canadianpostpunk.html",
+      "suggested_id": "canadian_post_punk",
+      "allocation_ordinal": 1050
+    }
+  ]
+}

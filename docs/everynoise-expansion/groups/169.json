@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "169",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "reading indie",
+      "source_url": "https://everynoise.com/engenremap-readingindie.html",
+      "suggested_id": "reading_indie",
+      "allocation_ordinal": 4201
+    },
+    {
+      "source_label": "recorder",
+      "source_url": "https://everynoise.com/engenremap-recorder.html",
+      "suggested_id": "recorder",
+      "allocation_ordinal": 4202
+    },
+    {
+      "source_label": "redneck",
+      "source_url": "https://everynoise.com/engenremap-redneck.html",
+      "suggested_id": "redneck",
+      "allocation_ordinal": 4203
+    },
+    {
+      "source_label": "regional mexicano femenil",
+      "source_url": "https://everynoise.com/engenremap-regionalmexicanofemenil.html",
+      "suggested_id": "regional_mexicano_femenil",
+      "allocation_ordinal": 4204
+    },
+    {
+      "source_label": "reiki",
+      "source_url": "https://everynoise.com/engenremap-reiki.html",
+      "suggested_id": "reiki",
+      "allocation_ordinal": 4205
+    },
+    {
+      "source_label": "relaxative",
+      "source_url": "https://everynoise.com/engenremap-relaxative.html",
+      "suggested_id": "relaxative",
+      "allocation_ordinal": 4206
+    },
+    {
+      "source_label": "remix product",
+      "source_url": "https://everynoise.com/engenremap-remixproduct.html",
+      "suggested_id": "remix_product",
+      "allocation_ordinal": 4207
+    },
+    {
+      "source_label": "rennes indie",
+      "source_url": "https://everynoise.com/engenremap-rennesindie.html",
+      "suggested_id": "rennes_indie",
+      "allocation_ordinal": 4208
+    },
+    {
+      "source_label": "rhode island indie",
+      "source_url": "https://everynoise.com/engenremap-rhodeislandindie.html",
+      "suggested_id": "rhode_island_indie",
+      "allocation_ordinal": 4209
+    },
+    {
+      "source_label": "rhythm and boogie",
+      "source_url": "https://everynoise.com/engenremap-rhythmandboogie.html",
+      "suggested_id": "rhythm_and_boogie",
+      "allocation_ordinal": 4210
+    },
+    {
+      "source_label": "rhythm game",
+      "source_url": "https://everynoise.com/engenremap-rhythmgame.html",
+      "suggested_id": "rhythm_game",
+      "allocation_ordinal": 4211
+    },
+    {
+      "source_label": "ringtone",
+      "source_url": "https://everynoise.com/engenremap-ringtone.html",
+      "suggested_id": "ringtone",
+      "allocation_ordinal": 4212
+    },
+    {
+      "source_label": "rio grande do sul indie",
+      "source_url": "https://everynoise.com/engenremap-riograndedosulindie.html",
+      "suggested_id": "rio_grande_do_sul_indie",
+      "allocation_ordinal": 4213
+    },
+    {
+      "source_label": "ritmo kombina",
+      "source_url": "https://everynoise.com/engenremap-ritmokombina.html",
+      "suggested_id": "ritmo_kombina",
+      "allocation_ordinal": 4214
+    },
+    {
+      "source_label": "rochester mn indie",
+      "source_url": "https://everynoise.com/engenremap-rochestermnindie.html",
+      "suggested_id": "rochester_mn_indie",
+      "allocation_ordinal": 4215
+    },
+    {
+      "source_label": "rochester ny indie",
+      "source_url": "https://everynoise.com/engenremap-rochesternyindie.html",
+      "suggested_id": "rochester_ny_indie",
+      "allocation_ordinal": 4216
+    },
+    {
+      "source_label": "rogaland indie",
+      "source_url": "https://everynoise.com/engenremap-rogalandindie.html",
+      "suggested_id": "rogaland_indie",
+      "allocation_ordinal": 4217
+    },
+    {
+      "source_label": "rogaland musikk",
+      "source_url": "https://everynoise.com/engenremap-rogalandmusikk.html",
+      "suggested_id": "rogaland_musikk",
+      "allocation_ordinal": 4218
+    },
+    {
+      "source_label": "romanian indie",
+      "source_url": "https://everynoise.com/engenremap-romanianindie.html",
+      "suggested_id": "romanian_indie",
+      "allocation_ordinal": 4219
+    },
+    {
+      "source_label": "romantico",
+      "source_url": "https://everynoise.com/engenremap-romantico.html",
+      "suggested_id": "romantico",
+      "allocation_ordinal": 4220
+    },
+    {
+      "source_label": "rome indie",
+      "source_url": "https://everynoise.com/engenremap-romeindie.html",
+      "suggested_id": "rome_indie",
+      "allocation_ordinal": 4221
+    },
+    {
+      "source_label": "rominimal",
+      "source_url": "https://everynoise.com/engenremap-rominimal.html",
+      "suggested_id": "rominimal",
+      "allocation_ordinal": 4222
+    },
+    {
+      "source_label": "rosario indie",
+      "source_url": "https://everynoise.com/engenremap-rosarioindie.html",
+      "suggested_id": "rosario_indie",
+      "allocation_ordinal": 4223
+    },
+    {
+      "source_label": "rosary",
+      "source_url": "https://everynoise.com/engenremap-rosary.html",
+      "suggested_id": "rosary",
+      "allocation_ordinal": 4224
+    },
+    {
+      "source_label": "rotterdam indie",
+      "source_url": "https://everynoise.com/engenremap-rotterdamindie.html",
+      "suggested_id": "rotterdam_indie",
+      "allocation_ordinal": 4225
+    }
+  ]
+}

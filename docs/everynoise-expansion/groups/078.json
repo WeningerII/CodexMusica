@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "078",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol", "electronic and dance names"],
+  "entries": [
+    {
+      "source_label": "vapor pop",
+      "source_url": "https://everynoise.com/engenremap-vaporpop.html",
+      "suggested_id": "vapor_pop",
+      "allocation_ordinal": 1926
+    },
+    {
+      "source_label": "venda pop",
+      "source_url": "https://everynoise.com/engenremap-vendapop.html",
+      "suggested_id": "venda_pop",
+      "allocation_ordinal": 1927
+    },
+    {
+      "source_label": "vietnamese idol pop",
+      "source_url": "https://everynoise.com/engenremap-vietnameseidolpop.html",
+      "suggested_id": "vietnamese_idol_pop",
+      "allocation_ordinal": 1928
+    },
+    {
+      "source_label": "vietnamese pop",
+      "source_url": "https://everynoise.com/engenremap-vietnamesepop.html",
+      "suggested_id": "vietnamese_pop",
+      "allocation_ordinal": 1929
+    },
+    {
+      "source_label": "vintage cantonese pop",
+      "source_url": "https://everynoise.com/engenremap-vintagecantonesepop.html",
+      "suggested_id": "vintage_cantonese_pop",
+      "allocation_ordinal": 1930
+    },
+    {
+      "source_label": "vintage chinese pop",
+      "source_url": "https://everynoise.com/engenremap-vintagechinesepop.html",
+      "suggested_id": "vintage_chinese_pop",
+      "allocation_ordinal": 1931
+    },
+    {
+      "source_label": "vintage dutch pop",
+      "source_url": "https://everynoise.com/engenremap-vintagedutchpop.html",
+      "suggested_id": "vintage_dutch_pop",
+      "allocation_ordinal": 1932
+    },
+    {
+      "source_label": "vintage italian pop",
+      "source_url": "https://everynoise.com/engenremap-vintageitalianpop.html",
+      "suggested_id": "vintage_italian_pop",
+      "allocation_ordinal": 1933
+    },
+    {
+      "source_label": "vintage norwegian pop",
+      "source_url": "https://everynoise.com/engenremap-vintagenorwegianpop.html",
+      "suggested_id": "vintage_norwegian_pop",
+      "allocation_ordinal": 1934
+    },
+    {
+      "source_label": "vintage spanish pop",
+      "source_url": "https://everynoise.com/engenremap-vintagespanishpop.html",
+      "suggested_id": "vintage_spanish_pop",
+      "allocation_ordinal": 1935
+    },
+    {
+      "source_label": "vintage swedish pop",
+      "source_url": "https://everynoise.com/engenremap-vintageswedishpop.html",
+      "suggested_id": "vintage_swedish_pop",
+      "allocation_ordinal": 1936
+    },
+    {
+      "source_label": "vintage taiwan pop",
+      "source_url": "https://everynoise.com/engenremap-vintagetaiwanpop.html",
+      "suggested_id": "vintage_taiwan_pop",
+      "allocation_ordinal": 1937
+    },
+    {
+      "source_label": "viral pop",
+      "source_url": "https://everynoise.com/engenremap-viralpop.html",
+      "suggested_id": "viral_pop",
+      "allocation_ordinal": 1938
+    },
+    {
+      "source_label": "viral pop brasileiro",
+      "source_url": "https://everynoise.com/engenremap-viralpopbrasileiro.html",
+      "suggested_id": "viral_pop_brasileiro",
+      "allocation_ordinal": 1939
+    },
+    {
+      "source_label": "west bengali pop",
+      "source_url": "https://everynoise.com/engenremap-westbengalipop.html",
+      "suggested_id": "west_bengali_pop",
+      "allocation_ordinal": 1940
+    },
+    {
+      "source_label": "xitsonga pop",
+      "source_url": "https://everynoise.com/engenremap-xitsongapop.html",
+      "suggested_id": "xitsonga_pop",
+      "allocation_ordinal": 1941
+    },
+    {
+      "source_label": "yakut pop",
+      "source_url": "https://everynoise.com/engenremap-yakutpop.html",
+      "suggested_id": "yakut_pop",
+      "allocation_ordinal": 1942
+    },
+    {
+      "source_label": "yemeni pop",
+      "source_url": "https://everynoise.com/engenremap-yemenipop.html",
+      "suggested_id": "yemeni_pop",
+      "allocation_ordinal": 1943
+    },
+    {
+      "source_label": "zambian pop",
+      "source_url": "https://everynoise.com/engenremap-zambianpop.html",
+      "suggested_id": "zambian_pop",
+      "allocation_ordinal": 1944
+    },
+    {
+      "source_label": "zomi pop",
+      "source_url": "https://everynoise.com/engenremap-zomipop.html",
+      "suggested_id": "zomi_pop",
+      "allocation_ordinal": 1945
+    },
+    {
+      "source_label": "abstract idm",
+      "source_url": "https://everynoise.com/engenremap-abstractidm.html",
+      "suggested_id": "abstract_idm",
+      "allocation_ordinal": 1946
+    },
+    {
+      "source_label": "acid idm",
+      "source_url": "https://everynoise.com/engenremap-acididm.html",
+      "suggested_id": "acid_idm",
+      "allocation_ordinal": 1947
+    },
+    {
+      "source_label": "african electronic",
+      "source_url": "https://everynoise.com/engenremap-africanelectronic.html",
+      "suggested_id": "african_electronic",
+      "allocation_ordinal": 1948
+    },
+    {
+      "source_label": "alternative dance",
+      "source_url": "https://everynoise.com/engenremap-alternativedance.html",
+      "suggested_id": "alternative_dance",
+      "allocation_ordinal": 1949
+    },
+    {
+      "source_label": "arab electronic",
+      "source_url": "https://everynoise.com/engenremap-arabelectronic.html",
+      "suggested_id": "arab_electronic",
+      "allocation_ordinal": 1950
+    }
+  ]
+}

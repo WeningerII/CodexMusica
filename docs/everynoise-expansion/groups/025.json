@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "025",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "trap angolano",
+      "source_url": "https://everynoise.com/engenremap-trapangolano.html",
+      "suggested_id": "trap_angolano",
+      "allocation_ordinal": 601
+    },
+    {
+      "source_label": "trap antillais",
+      "source_url": "https://everynoise.com/engenremap-trapantillais.html",
+      "suggested_id": "trap_antillais",
+      "allocation_ordinal": 602
+    },
+    {
+      "source_label": "trap baiano",
+      "source_url": "https://everynoise.com/engenremap-trapbaiano.html",
+      "suggested_id": "trap_baiano",
+      "allocation_ordinal": 603
+    },
+    {
+      "source_label": "trap beats",
+      "source_url": "https://everynoise.com/engenremap-trapbeats.html",
+      "suggested_id": "trap_beats",
+      "allocation_ordinal": 604
+    },
+    {
+      "source_label": "trap boliviano",
+      "source_url": "https://everynoise.com/engenremap-trapboliviano.html",
+      "suggested_id": "trap_boliviano",
+      "allocation_ordinal": 605
+    },
+    {
+      "source_label": "trap carioca",
+      "source_url": "https://everynoise.com/engenremap-trapcarioca.html",
+      "suggested_id": "trap_carioca",
+      "allocation_ordinal": 606
+    },
+    {
+      "source_label": "trap catala",
+      "source_url": "https://everynoise.com/engenremap-trapcatala.html",
+      "suggested_id": "trap_catala",
+      "allocation_ordinal": 607
+    },
+    {
+      "source_label": "trap cristao",
+      "source_url": "https://everynoise.com/engenremap-trapcristao.html",
+      "suggested_id": "trap_cristao",
+      "allocation_ordinal": 608
+    },
+    {
+      "source_label": "trap cristiano",
+      "source_url": "https://everynoise.com/engenremap-trapcristiano.html",
+      "suggested_id": "trap_cristiano",
+      "allocation_ordinal": 609
+    },
+    {
+      "source_label": "trap dominicano",
+      "source_url": "https://everynoise.com/engenremap-trapdominicano.html",
+      "suggested_id": "trap_dominicano",
+      "allocation_ordinal": 610
+    },
+    {
+      "source_label": "trap kreyol",
+      "source_url": "https://everynoise.com/engenremap-trapkreyol.html",
+      "suggested_id": "trap_kreyol",
+      "allocation_ordinal": 611
+    },
+    {
+      "source_label": "trap maroc",
+      "source_url": "https://everynoise.com/engenremap-trapmaroc.html",
+      "suggested_id": "trap_maroc",
+      "allocation_ordinal": 612
+    },
+    {
+      "source_label": "trap metal italiana",
+      "source_url": "https://everynoise.com/engenremap-trapmetalitaliana.html",
+      "suggested_id": "trap_metal_italiana",
+      "allocation_ordinal": 613
+    },
+    {
+      "source_label": "trap peruano",
+      "source_url": "https://everynoise.com/engenremap-trapperuano.html",
+      "suggested_id": "trap_peruano",
+      "allocation_ordinal": 614
+    },
+    {
+      "source_label": "trap pesado",
+      "source_url": "https://everynoise.com/engenremap-trappesado.html",
+      "suggested_id": "trap_pesado",
+      "allocation_ordinal": 615
+    },
+    {
+      "source_label": "trap tuga",
+      "source_url": "https://everynoise.com/engenremap-traptuga.html",
+      "suggested_id": "trap_tuga",
+      "allocation_ordinal": 616
+    },
+    {
+      "source_label": "trap venezolano",
+      "source_url": "https://everynoise.com/engenremap-trapvenezolano.html",
+      "suggested_id": "trap_venezolano",
+      "allocation_ordinal": 617
+    },
+    {
+      "source_label": "turkce kadin rap",
+      "source_url": "https://everynoise.com/engenremap-turkcekadinrap.html",
+      "suggested_id": "turkce_kadin_rap",
+      "allocation_ordinal": 618
+    },
+    {
+      "source_label": "turkce trap metal",
+      "source_url": "https://everynoise.com/engenremap-turkcetrapmetal.html",
+      "suggested_id": "turkce_trap_metal",
+      "allocation_ordinal": 619
+    },
+    {
+      "source_label": "turkish trap pop",
+      "source_url": "https://everynoise.com/engenremap-turkishtrappop.html",
+      "suggested_id": "turkish_trap_pop",
+      "allocation_ordinal": 620
+    },
+    {
+      "source_label": "turkmen hip hop",
+      "source_url": "https://everynoise.com/engenremap-turkmenhiphop.html",
+      "suggested_id": "turkmen_hip_hop",
+      "allocation_ordinal": 621
+    },
+    {
+      "source_label": "ua trap",
+      "source_url": "https://everynoise.com/engenremap-uatrap.html",
+      "suggested_id": "ua_trap",
+      "allocation_ordinal": 622
+    },
+    {
+      "source_label": "ugandan hip hop",
+      "source_url": "https://everynoise.com/engenremap-ugandanhiphop.html",
+      "suggested_id": "ugandan_hip_hop",
+      "allocation_ordinal": 623
+    },
+    {
+      "source_label": "uk christian rap",
+      "source_url": "https://everynoise.com/engenremap-ukchristianrap.html",
+      "suggested_id": "uk_christian_rap",
+      "allocation_ordinal": 624
+    },
+    {
+      "source_label": "uk desi rap",
+      "source_url": "https://everynoise.com/engenremap-ukdesirap.html",
+      "suggested_id": "uk_desi_rap",
+      "allocation_ordinal": 625
+    }
+  ]
+}

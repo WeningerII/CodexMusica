@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "157",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "musica ponta-grossense",
+      "source_url": "https://everynoise.com/engenremap-musicapontagrossense.html",
+      "suggested_id": "musica_ponta_grossense",
+      "allocation_ordinal": 3901
+    },
+    {
+      "source_label": "musica popular amazonense",
+      "source_url": "https://everynoise.com/engenremap-musicapopularamazonense.html",
+      "suggested_id": "musica_popular_amazonense",
+      "allocation_ordinal": 3902
+    },
+    {
+      "source_label": "musica popular mineira",
+      "source_url": "https://everynoise.com/engenremap-musicapopularmineira.html",
+      "suggested_id": "musica_popular_mineira",
+      "allocation_ordinal": 3903
+    },
+    {
+      "source_label": "musica popular paraense",
+      "source_url": "https://everynoise.com/engenremap-musicapopularparaense.html",
+      "suggested_id": "musica_popular_paraense",
+      "allocation_ordinal": 3904
+    },
+    {
+      "source_label": "musica portuguesa contemporanea",
+      "source_url": "https://everynoise.com/engenremap-musicaportuguesacontemporanea.html",
+      "suggested_id": "musica_portuguesa_contemporanea",
+      "allocation_ordinal": 3905
+    },
+    {
+      "source_label": "musica potiguar",
+      "source_url": "https://everynoise.com/engenremap-musicapotiguar.html",
+      "suggested_id": "musica_potiguar",
+      "allocation_ordinal": 3906
+    },
+    {
+      "source_label": "musica potosina",
+      "source_url": "https://everynoise.com/engenremap-musicapotosina.html",
+      "suggested_id": "musica_potosina",
+      "allocation_ordinal": 3907
+    },
+    {
+      "source_label": "musica prehispanica",
+      "source_url": "https://everynoise.com/engenremap-musicaprehispanica.html",
+      "suggested_id": "musica_prehispanica",
+      "allocation_ordinal": 3908
+    },
+    {
+      "source_label": "musica puntana",
+      "source_url": "https://everynoise.com/engenremap-musicapuntana.html",
+      "suggested_id": "musica_puntana",
+      "allocation_ordinal": 3909
+    },
+    {
+      "source_label": "musica queretana",
+      "source_url": "https://everynoise.com/engenremap-musicaqueretana.html",
+      "suggested_id": "musica_queretana",
+      "allocation_ordinal": 3910
+    },
+    {
+      "source_label": "musica quintanarroense",
+      "source_url": "https://everynoise.com/engenremap-musicaquintanarroense.html",
+      "suggested_id": "musica_quintanarroense",
+      "allocation_ordinal": 3911
+    },
+    {
+      "source_label": "musica rapa nui",
+      "source_url": "https://everynoise.com/engenremap-musicarapanui.html",
+      "suggested_id": "musica_rapa_nui",
+      "allocation_ordinal": 3912
+    },
+    {
+      "source_label": "musica rondoniense",
+      "source_url": "https://everynoise.com/engenremap-musicarondoniense.html",
+      "suggested_id": "musica_rondoniense",
+      "allocation_ordinal": 3913
+    },
+    {
+      "source_label": "musica roraimense",
+      "source_url": "https://everynoise.com/engenremap-musicaroraimense.html",
+      "suggested_id": "musica_roraimense",
+      "allocation_ordinal": 3914
+    },
+    {
+      "source_label": "musica sammarinese",
+      "source_url": "https://everynoise.com/engenremap-musicasammarinese.html",
+      "suggested_id": "musica_sammarinese",
+      "allocation_ordinal": 3915
+    },
+    {
+      "source_label": "musica santomense",
+      "source_url": "https://everynoise.com/engenremap-musicasantomense.html",
+      "suggested_id": "musica_santomense",
+      "allocation_ordinal": 3916
+    },
+    {
+      "source_label": "musica sergipana",
+      "source_url": "https://everynoise.com/engenremap-musicasergipana.html",
+      "suggested_id": "musica_sergipana",
+      "allocation_ordinal": 3917
+    },
+    {
+      "source_label": "musica sinaloense",
+      "source_url": "https://everynoise.com/engenremap-musicasinaloense.html",
+      "suggested_id": "musica_sinaloense",
+      "allocation_ordinal": 3918
+    },
+    {
+      "source_label": "musica sinfonica",
+      "source_url": "https://everynoise.com/engenremap-musicasinfonica.html",
+      "suggested_id": "musica_sinfonica",
+      "allocation_ordinal": 3919
+    },
+    {
+      "source_label": "musica sudcaliforniana",
+      "source_url": "https://everynoise.com/engenremap-musicasudcaliforniana.html",
+      "suggested_id": "musica_sudcaliforniana",
+      "allocation_ordinal": 3920
+    },
+    {
+      "source_label": "musica sul-mato-grossense",
+      "source_url": "https://everynoise.com/engenremap-musicasulmatogrossense.html",
+      "suggested_id": "musica_sul_mato_grossense",
+      "allocation_ordinal": 3921
+    },
+    {
+      "source_label": "musica tabasquena",
+      "source_url": "https://everynoise.com/engenremap-musicatabasquena.html",
+      "suggested_id": "musica_tabasquena",
+      "allocation_ordinal": 3922
+    },
+    {
+      "source_label": "musica tamaulipeca",
+      "source_url": "https://everynoise.com/engenremap-musicatamaulipeca.html",
+      "suggested_id": "musica_tamaulipeca",
+      "allocation_ordinal": 3923
+    },
+    {
+      "source_label": "musica timor-leste",
+      "source_url": "https://everynoise.com/engenremap-musicatimorleste.html",
+      "suggested_id": "musica_timor_leste",
+      "allocation_ordinal": 3924
+    },
+    {
+      "source_label": "musica tlaxcalteca",
+      "source_url": "https://everynoise.com/engenremap-musicatlaxcalteca.html",
+      "suggested_id": "musica_tlaxcalteca",
+      "allocation_ordinal": 3925
+    }
+  ]
+}

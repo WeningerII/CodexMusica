@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "045",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["punk and emo"],
+  "entries": [
+    {
+      "source_label": "german hardcore",
+      "source_url": "https://everynoise.com/engenremap-germanhardcore.html",
+      "suggested_id": "german_hardcore",
+      "allocation_ordinal": 1101
+    },
+    {
+      "source_label": "german post-hardcore",
+      "source_url": "https://everynoise.com/engenremap-germanposthardcore.html",
+      "suggested_id": "german_post_hardcore",
+      "allocation_ordinal": 1102
+    },
+    {
+      "source_label": "german post-punk",
+      "source_url": "https://everynoise.com/engenremap-germanpostpunk.html",
+      "suggested_id": "german_post_punk",
+      "allocation_ordinal": 1103
+    },
+    {
+      "source_label": "german punk",
+      "source_url": "https://everynoise.com/engenremap-germanpunk.html",
+      "suggested_id": "german_punk",
+      "allocation_ordinal": 1104
+    },
+    {
+      "source_label": "german punk rock",
+      "source_url": "https://everynoise.com/engenremap-germanpunkrock.html",
+      "suggested_id": "german_punk_rock",
+      "allocation_ordinal": 1105
+    },
+    {
+      "source_label": "german street punk",
+      "source_url": "https://everynoise.com/engenremap-germanstreetpunk.html",
+      "suggested_id": "german_street_punk",
+      "allocation_ordinal": 1106
+    },
+    {
+      "source_label": "glam punk",
+      "source_url": "https://everynoise.com/engenremap-glampunk.html",
+      "suggested_id": "glam_punk",
+      "allocation_ordinal": 1107
+    },
+    {
+      "source_label": "gothic post-punk",
+      "source_url": "https://everynoise.com/engenremap-gothicpostpunk.html",
+      "suggested_id": "gothic_post_punk",
+      "allocation_ordinal": 1108
+    },
+    {
+      "source_label": "greek punk",
+      "source_url": "https://everynoise.com/engenremap-greekpunk.html",
+      "suggested_id": "greek_punk",
+      "allocation_ordinal": 1109
+    },
+    {
+      "source_label": "hardcore punk espanol",
+      "source_url": "https://everynoise.com/engenremap-hardcorepunkespanol.html",
+      "suggested_id": "hardcore_punk_espanol",
+      "allocation_ordinal": 1110
+    },
+    {
+      "source_label": "hawaiian punk",
+      "source_url": "https://everynoise.com/engenremap-hawaiianpunk.html",
+      "suggested_id": "hawaiian_punk",
+      "allocation_ordinal": 1111
+    },
+    {
+      "source_label": "horror punk brasileiro",
+      "source_url": "https://everynoise.com/engenremap-horrorpunkbrasileiro.html",
+      "suggested_id": "horror_punk_brasileiro",
+      "allocation_ordinal": 1112
+    },
+    {
+      "source_label": "hungarian punk",
+      "source_url": "https://everynoise.com/engenremap-hungarianpunk.html",
+      "suggested_id": "hungarian_punk",
+      "allocation_ordinal": 1113
+    },
+    {
+      "source_label": "icelandic post-punk",
+      "source_url": "https://everynoise.com/engenremap-icelandicpostpunk.html",
+      "suggested_id": "icelandic_post_punk",
+      "allocation_ordinal": 1114
+    },
+    {
+      "source_label": "icelandic punk",
+      "source_url": "https://everynoise.com/engenremap-icelandicpunk.html",
+      "suggested_id": "icelandic_punk",
+      "allocation_ordinal": 1115
+    },
+    {
+      "source_label": "indie emo",
+      "source_url": "https://everynoise.com/engenremap-indieemo.html",
+      "suggested_id": "indie_emo",
+      "allocation_ordinal": 1116
+    },
+    {
+      "source_label": "indie emo rock",
+      "source_url": "https://everynoise.com/engenremap-indieemorock.html",
+      "suggested_id": "indie_emo_rock",
+      "allocation_ordinal": 1117
+    },
+    {
+      "source_label": "indie punk",
+      "source_url": "https://everynoise.com/engenremap-indiepunk.html",
+      "suggested_id": "indie_punk",
+      "allocation_ordinal": 1118
+    },
+    {
+      "source_label": "indonesian emo",
+      "source_url": "https://everynoise.com/engenremap-indonesianemo.html",
+      "suggested_id": "indonesian_emo",
+      "allocation_ordinal": 1119
+    },
+    {
+      "source_label": "indonesian hardcore",
+      "source_url": "https://everynoise.com/engenremap-indonesianhardcore.html",
+      "suggested_id": "indonesian_hardcore",
+      "allocation_ordinal": 1120
+    },
+    {
+      "source_label": "indonesian pop punk",
+      "source_url": "https://everynoise.com/engenremap-indonesianpoppunk.html",
+      "suggested_id": "indonesian_pop_punk",
+      "allocation_ordinal": 1121
+    },
+    {
+      "source_label": "indonesian post-hardcore",
+      "source_url": "https://everynoise.com/engenremap-indonesianposthardcore.html",
+      "suggested_id": "indonesian_post_hardcore",
+      "allocation_ordinal": 1122
+    },
+    {
+      "source_label": "indonesian punk",
+      "source_url": "https://everynoise.com/engenremap-indonesianpunk.html",
+      "suggested_id": "indonesian_punk",
+      "allocation_ordinal": 1123
+    },
+    {
+      "source_label": "irish hardcore",
+      "source_url": "https://everynoise.com/engenremap-irishhardcore.html",
+      "suggested_id": "irish_hardcore",
+      "allocation_ordinal": 1124
+    },
+    {
+      "source_label": "irish post-punk",
+      "source_url": "https://everynoise.com/engenremap-irishpostpunk.html",
+      "suggested_id": "irish_post_punk",
+      "allocation_ordinal": 1125
+    }
+  ]
+}

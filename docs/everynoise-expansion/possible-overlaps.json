@@ -1,0 +1,3013 @@
+{
+  "schema_version": 1,
+  "count": 189,
+  "policy": "Separate equivalence-review queue; these labels are not assigned in groups 001-184. Preserve qualifiers and decide from evidence.",
+  "entries": [
+    {
+      "genre": "african metal",
+      "every_noise_url": "https://everynoise.com/engenremap-africanmetal.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "african_heavy_metal",
+          "name": "African Heavy Metal"
+        }
+      ],
+      "note": "Both refer to African metal scenes and share Skinflint/Wrust/Overthrust, but the source includes a wider contemporary mix including Duma and Ohgod. The repository describes a particular NWOBHM/thrash-rooted heavy-metal sound, so full scope equivalence remains unresolved."
+    },
+    {
+      "genre": "album rock",
+      "every_noise_url": "https://everynoise.com/engenremap-albumrock.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "rock",
+          "name": "Rock"
+        }
+      ],
+      "note": "Album rock is a format/style category narrower than the generic Rock record, which mentions the album context."
+    },
+    {
+      "genre": "ambient industrial",
+      "every_noise_url": "https://everynoise.com/engenremap-ambientindustrial.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "dark_ambient_industrial",
+          "name": "Dark ambient (1980s industrial-adjacent menacing drone)"
+        }
+      ],
+      "note": "Industrial ambient and dark ambient overlap historically, but the source preserves both named categories and the repository is specifically the menacing dark-ambient idiom. Do not treat all industrial ambient as that narrower form."
+    },
+    {
+      "genre": "american folk revival",
+      "every_noise_url": "https://everynoise.com/engenremap-americanfolkrevival.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "american_folk_revival_protest",
+          "name": "American folk-revival protest song"
+        }
+      ],
+      "note": "Protest-song subset is narrower than the American folk revival movement."
+    },
+    {
+      "genre": "art song",
+      "every_noise_url": "https://everynoise.com/engenremap-artsong.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "entehno",
+          "name": "Éntekhno"
+        },
+        {
+          "id": "kundiman",
+          "name": "Kundiman"
+        },
+        {
+          "id": "russian_romance",
+          "name": "Russian Romance"
+        }
+      ],
+      "note": "Art song is broader than these individual regional song traditions; their definitions do not establish a generic art-song record."
+    },
+    {
+      "genre": "australian rock",
+      "every_noise_url": "https://everynoise.com/engenremap-australianrock.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "aussie_pub_rock",
+          "name": "Aussie pub rock"
+        }
+      ],
+      "note": "Aussie pub rock is one Australian rock scene and cannot replace the broader national Australian rock category."
+    },
+    {
+      "genre": "austrian pop",
+      "every_noise_url": "https://everynoise.com/engenremap-austrianpop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "austropop",
+          "name": "Austropop"
+        }
+      ],
+      "note": "Austropop is specifically German-language Austrian pop practice; source separately lists Austrian pop and austropop."
+    },
+    {
+      "genre": "avant-rock",
+      "every_noise_url": "https://everynoise.com/engenremap-avantrock.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "rock_in_opposition",
+          "name": "Rock in Opposition"
+        }
+      ],
+      "note": "Rock in Opposition overlaps experimental avant-rock but is a specific movement; the generic avant-rock label remains unresolved."
+    },
+    {
+      "genre": "background jazz",
+      "every_noise_url": "https://everynoise.com/engenremap-backgroundjazz.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "dinner_jazz",
+          "name": "Dinner jazz"
+        }
+      ],
+      "note": "Dinner jazz is a particular acoustic dining-room practice; background jazz may cover a broader functional category."
+    },
+    {
+      "genre": "baglama",
+      "every_noise_url": "https://everynoise.com/engenremap-baglama.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "baglama_asik",
+          "name": "Bağlama (Aşık Saz Tradition)"
+        }
+      ],
+      "note": "The repo is explicitly framed as the aşık/Alevi folk-lute tradition. The source’s instrument-centered bağlama category may include broader solo/reworked repertoire; no equivalence assumed. Aşık saz bard-song practice is narrower than all bağlama instrumental music."
+    },
+    {
+      "genre": "bagpipe",
+      "every_noise_url": "https://everynoise.com/engenremap-bagpipe.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "galician_pipe_solo",
+          "name": "Gaita galega solo"
+        },
+        {
+          "id": "piobaireachd",
+          "name": "Pìobaireachd (Highland classical)"
+        },
+        {
+          "id": "uilleann_pipe_solo",
+          "name": "Uilleann pipe solo"
+        }
+      ],
+      "note": "Bagpipe is a repertoire/instrument category broader than individual Highland, Irish, Iberian and other regional piping traditions."
+    },
+    {
+      "genre": "balafon",
+      "every_noise_url": "https://everynoise.com/engenremap-balafon.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "balafon_mande",
+          "name": "Balafon Music (Mande and Voltaic)"
+        }
+      ],
+      "note": "Balafon Music (Mande and Voltaic) is a geographically scoped balafon tradition; check the EveryNoise instrumental category before equating the broader label."
+    },
+    {
+      "genre": "balalaika",
+      "every_noise_url": "https://everynoise.com/engenremap-balalaika.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "balalaika_orchestra",
+          "name": "Russian balalaika orchestra"
+        },
+        {
+          "id": "russian_folk_balalaika_choir",
+          "name": "Russian folk balalaika and choral"
+        }
+      ],
+      "note": "Balalaika orchestra is an ensemble tradition; a general balalaika category may include solo/chamber repertoire as well."
+    },
+    {
+      "genre": "baptist gospel",
+      "every_noise_url": "https://everynoise.com/engenremap-baptistgospel.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "black_gospel_choir",
+          "name": "Black gospel (choir tradition)"
+        }
+      ],
+      "note": "Black gospel choir is broader than Baptist gospel in denomination and cannot certify denomination-specific representation."
+    },
+    {
+      "genre": "baroque",
+      "every_noise_url": "https://everynoise.com/engenremap-baroque.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "baroque_period",
+          "name": "Baroque period-instrument"
+        }
+      ],
+      "note": "Repo explicitly scopes performance to period instruments. Source baroque may include modern-instrument performances and broader artist classification."
+    },
+    {
+      "genre": "bass music",
+      "every_noise_url": "https://everynoise.com/engenremap-bassmusic.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "dubstep",
+          "name": "Dubstep"
+        },
+        {
+          "id": "glitch_hop",
+          "name": "Glitch Hop"
+        },
+        {
+          "id": "wave_electronic",
+          "name": "Wave (Hardwave)"
+        }
+      ],
+      "note": "Bass music is an umbrella over several electronic/bass styles; these narrower dubstep, wave and regional bass records do not establish it as an entry."
+    },
+    {
+      "genre": "bhangra",
+      "every_noise_url": "https://everynoise.com/engenremap-bhangra.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "bhangra_dhol_folk",
+          "name": "Bhangra (Punjabi harvest dhol dance)"
+        },
+        {
+          "id": "bhangra_modern",
+          "name": "Bhangra (modern)"
+        }
+      ],
+      "note": "Modern electronic bhangra and Punjabi harvest bhangra are explicitly differentiated; retain the broad bhangra label pending scoped alias review. Two separate folk/modern records exist. The source broad bhangra label needs scope review rather than automatic collapse into one branch."
+    },
+    {
+      "genre": "blues rock",
+      "every_noise_url": "https://everynoise.com/engenremap-bluesrock.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "british_invasion_rb",
+          "name": "British R&B and British Invasion (1962–1968)"
+        },
+        {
+          "id": "southern_rock",
+          "name": "Southern rock"
+        }
+      ],
+      "note": "Blues rock is a parent/influence of southern rock, hard rock and related records; those are distinct styles rather than an explicit blues-rock entry."
+    },
+    {
+      "genre": "brass ensemble",
+      "every_noise_url": "https://everynoise.com/engenremap-brassensemble.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "balkan_brass_fanfara",
+          "name": "Balkan brass (fanfara, Roma-Serbian-Macedonian)"
+        }
+      ],
+      "note": "Balkan brass is a regional tradition within the broader brass-ensemble repertoire/ensemble category."
+    },
+    {
+      "genre": "brazilian dnb",
+      "every_noise_url": "https://everynoise.com/engenremap-braziliandnb.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "sambass",
+          "name": "Sambass"
+        },
+        {
+          "id": "sambass_brazilian_dnb",
+          "name": "Sambass (Brazilian drum-and-bass)"
+        }
+      ],
+      "note": "The repo represents Brazilian samba/bossa-fused drum-and-bass. Every Noise separately lists sambass and brazilian dnb, and the latter’s example is L-Side, so the broad national DnB category is not established as the same subtype."
+    },
+    {
+      "genre": "brazilian jazz",
+      "every_noise_url": "https://everynoise.com/engenremap-brazilianjazz.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "samba_jazz",
+          "name": "Samba-jazz"
+        }
+      ],
+      "note": "Samba-jazz is a specific Brazilian jazz hybrid, not the whole national jazz category."
+    },
+    {
+      "genre": "brazilian rock",
+      "every_noise_url": "https://everynoise.com/engenremap-brazilianrock.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "jovem_guarda",
+          "name": "Jovem Guarda"
+        },
+        {
+          "id": "rock_nacional_brasileiro",
+          "name": "Rock nacional brasileiro (BRock)"
+        }
+      ],
+      "note": "BRock is explicitly the 1980s Brazilian rock wave and Jovem Guarda an earlier specific movement; neither covers Brazilian rock as a generic national scene entry."
+    },
+    {
+      "genre": "cabaret",
+      "every_noise_url": "https://everynoise.com/engenremap-cabaret.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "chanson_classique",
+          "name": "Chanson classique"
+        },
+        {
+          "id": "chanson_realiste",
+          "name": "Chanson réaliste (Parisian working-class song)"
+        },
+        {
+          "id": "torch_song",
+          "name": "Torch Song"
+        }
+      ],
+      "note": "Cabaret is a performance/repertoire category spanning these records, not an alias for chanson, standards, torch song or industrial."
+    },
+    {
+      "genre": "cameroonian pop",
+      "every_noise_url": "https://everynoise.com/engenremap-cameroonianpop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "makossa",
+          "name": "Makossa"
+        }
+      ],
+      "note": "Makossa is one Cameroonian popular genre, not the complete Cameroonian pop category."
+    },
+    {
+      "genre": "cantautor",
+      "every_noise_url": "https://everynoise.com/engenremap-cantautor.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "galician_kantautor",
+          "name": "Galician kantautor and folk-pop"
+        }
+      ],
+      "note": "Galician kantautor is one regional singer-songwriter tradition, while cantautor is a broader Spanish-language artist/category label."
+    },
+    {
+      "genre": "carnatic",
+      "every_noise_url": "https://everynoise.com/engenremap-carnatic.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "carnatic_instrumental",
+          "name": "Carnatic instrumental"
+        },
+        {
+          "id": "carnatic_kacheri",
+          "name": "Carnatic kacheri (South Indian concert practice)"
+        },
+        {
+          "id": "carnatic_vocal",
+          "name": "Carnatic vocal"
+        }
+      ],
+      "note": "Carnatic is the broad South Indian classical tradition; vocal, instrumental, concert and individual form records remain narrower entries."
+    },
+    {
+      "genre": "carnaval",
+      "every_noise_url": "https://everynoise.com/engenremap-carnaval.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "bolivian_diablada_oruro",
+          "name": "Bolivian diablada de Oruro (Carnaval de Oruro)"
+        },
+        {
+          "id": "brazilian_samba_school_enredo",
+          "name": "Brazilian samba-school enredo (samba-enredo, Carnaval processional)"
+        },
+        {
+          "id": "murga_uruguaya",
+          "name": "Murga uruguaya"
+        }
+      ],
+      "note": "Carnaval is a cross-regional event/repertoire category; Brazilian samba-enredo, Bolivian diablada and Uruguayan murga are different traditions within it."
+    },
+    {
+      "genre": "celtic",
+      "every_noise_url": "https://everynoise.com/engenremap-celtic.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "celtic_folk_revival",
+          "name": "Celtic Folk (pan-Celtic revival)"
+        },
+        {
+          "id": "cornish_folk",
+          "name": "Cornish folk"
+        },
+        {
+          "id": "welsh_folk",
+          "name": "Welsh folk"
+        }
+      ],
+      "note": "Pan-Celtic revival is a specific arranged acoustic movement and the other candidates are regional or hybrid styles; retain the wider Celtic umbrella."
+    },
+    {
+      "genre": "chamber choir",
+      "every_noise_url": "https://everynoise.com/engenremap-chamberchoir.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "choral",
+          "name": "Choral (Western art choral singing)"
+        }
+      ],
+      "note": "Chamber choir is an ensemble subset within broad Western choral music, not the generic choral record itself."
+    },
+    {
+      "genre": "chaotic hardcore",
+      "every_noise_url": "https://everynoise.com/engenremap-chaotichardcore.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "spazzcore",
+          "name": "Spazzcore"
+        }
+      ],
+      "note": "Spazzcore overlaps chaotic hardcore but is a narrower specific noise/grind-influenced style; equivalence is not established."
+    },
+    {
+      "genre": "children's music",
+      "every_noise_url": "https://everynoise.com/engenremap-childrensmusic.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "preschool_childrens_music",
+          "name": "Preschool Children's Music"
+        }
+      ],
+      "note": "Preschool children's music is explicitly age-specific and cannot replace children's music as a broad category."
+    },
+    {
+      "genre": "chill out",
+      "every_noise_url": "https://everynoise.com/engenremap-chillout.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "ambient_house",
+          "name": "Ambient House"
+        },
+        {
+          "id": "downtempo",
+          "name": "Downtempo"
+        }
+      ],
+      "note": "Chill out overlaps downtempo and ambient house but the record definitions do not establish an explicit chill-out alias."
+    },
+    {
+      "genre": "chinese folk",
+      "every_noise_url": "https://everynoise.com/engenremap-chinesefolk.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "mandarin_tongyao",
+          "name": "Mandarin tóngyáo (童謠, children's rhymes)"
+        }
+      ],
+      "note": "Mandarin children's rhymes are narrower than Chinese folk in region, language and repertoire."
+    },
+    {
+      "genre": "chinese indie",
+      "every_noise_url": "https://everynoise.com/engenremap-chineseindie.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "chinese_minyao",
+          "name": "Chinese Minyao (Mainland Indie Folk)"
+        }
+      ],
+      "note": "Chinese minyao is an indie-folk scene within the broader Chinese indie category."
+    },
+    {
+      "genre": "chinese instrumental",
+      "every_noise_url": "https://everynoise.com/engenremap-chineseinstrumental.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "chinese_traditional",
+          "name": "Chinese Traditional Music (Han Instrumental & Vocal)"
+        }
+      ],
+      "note": "Chinese Traditional Music includes vocal repertoire and does not explicitly equal the Chinese instrumental category."
+    },
+    {
+      "genre": "cimbalom",
+      "every_noise_url": "https://everynoise.com/engenremap-cimbalom.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "hungarian_cimbalom_trad",
+          "name": "Hungarian cimbalom (verbunkos and nóta)"
+        }
+      ],
+      "note": "The cimbalom-centered verbunkos/nóta and Moravian/Romanian ensemble styles are repertoire subsets, not a general cimbalom entry."
+    },
+    {
+      "genre": "classical performance",
+      "every_noise_url": "https://everynoise.com/engenremap-classicalperformance.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "historical_informed_performance",
+          "name": "Historically-informed performance recording"
+        }
+      ],
+      "note": "Historically informed performance is a particular classical performance approach, while ghazal is another tradition; no generic performance category is established."
+    },
+    {
+      "genre": "comedy",
+      "every_noise_url": "https://everynoise.com/engenremap-comedy.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "commedia_lazzi",
+          "name": "Commedia dell'arte lazzi delivery"
+        },
+        {
+          "id": "standup_comedy",
+          "name": "Stand-up comedy"
+        },
+        {
+          "id": "vaudeville",
+          "name": "Vaudeville"
+        }
+      ],
+      "note": "Stand-up, vaudeville and commedia lazzi are distinct comedy forms; the broad Comedy category remains a separate umbrella."
+    },
+    {
+      "genre": "contemporary country",
+      "every_noise_url": "https://everynoise.com/engenremap-contemporarycountry.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "christian_country",
+          "name": "Christian Country"
+        }
+      ],
+      "note": "Christian Country is a religious subset and not equivalent to all contemporary country."
+    },
+    {
+      "genre": "contemporary gospel",
+      "every_noise_url": "https://everynoise.com/engenremap-contemporarygospel.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "contemporary_urban_gospel",
+          "name": "Contemporary urban gospel"
+        }
+      ],
+      "note": "The repo covers African-American urban gospel using R&B/funk/hip-hop production. The source label may also cover other contemporary gospel forms; identical scope is unverified."
+    },
+    {
+      "genre": "cumbia colombiana regia",
+      "every_noise_url": "https://everynoise.com/engenremap-cumbiacolombianaregia.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "cumbia_colombiana",
+          "name": "Cumbia colombiana"
+        }
+      ],
+      "note": "Regia denotes the Monterrey/Mexican adaptation; the Colombian-source tradition is related but different."
+    },
+    {
+      "genre": "cumbia peruana",
+      "every_noise_url": "https://everynoise.com/engenremap-cumbiaperuana.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "cumbia_peruvian",
+          "name": "Cumbia peruana (chicha)"
+        }
+      ],
+      "note": "Repo foregrounds guitar-led chicha/Amazonian/coastal tradition; general Peruvian cumbia can include additional regional and contemporary forms."
+    },
+    {
+      "genre": "czech folk",
+      "every_noise_url": "https://everynoise.com/engenremap-czechfolk.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "czech_pijacka",
+          "name": "Czech pijácká píseň (drinking song)"
+        }
+      ],
+      "note": "Czech drinking songs are one functional subset of Czech folk."
+    },
+    {
+      "genre": "dance pop",
+      "every_noise_url": "https://everynoise.com/engenremap-dancepop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "dance_pop_2010s",
+          "name": "Dance pop (2010s American-European EDM-influenced commercial pop)"
+        },
+        {
+          "id": "eurodance_90s",
+          "name": "90s eurodance"
+        },
+        {
+          "id": "freestyle",
+          "name": "Freestyle (Latin Freestyle)"
+        },
+        {
+          "id": "italo_dance",
+          "name": "Italo dance"
+        }
+      ],
+      "note": "Dance pop is a broader parent/production style than Eurodance, Italo dance, freestyle and the other dance-pop-influenced records. Existing record explicitly restricts the style to 2010s EDM-derived commercial pop."
+    },
+    {
+      "genre": "darbuka",
+      "every_noise_url": "https://everynoise.com/engenremap-darbuka.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "darbuka_solo",
+          "name": "Darbuka solo (goblet-drum virtuoso tradition)"
+        }
+      ],
+      "note": "The source instrument-based cluster includes belly-dance ensembles as well as drum solos. The repository is explicitly a virtuoso solo tradition, so broad cluster versus solo-form scope remains unresolved."
+    },
+    {
+      "genre": "dark electro-industrial",
+      "every_noise_url": "https://everynoise.com/engenremap-darkelectroindustrial.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "dark_electro_aggrotech",
+          "name": "Dark electro / aggrotech"
+        },
+        {
+          "id": "electro_industrial",
+          "name": "Electro-Industrial"
+        }
+      ],
+      "note": "The dark qualifier may indicate a distinct electro-industrial subset. The broad electro-industrial and overlapping aggrotech entries do not establish exact source-label equivalence."
+    },
+    {
+      "genre": "deep house",
+      "every_noise_url": "https://everynoise.com/engenremap-deephouse.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "deep_house_soulful",
+          "name": "Deep house (soulful)"
+        }
+      ],
+      "note": "Soulful deep house is explicitly a deep-house substyle; the other candidates are related/hybrid styles, so retain generic deep house. Soulful is an explicit child-style qualifier."
+    },
+    {
+      "genre": "demoscene",
+      "every_noise_url": "https://everynoise.com/engenremap-demoscene.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "demoscene_music",
+          "name": "Demoscene tracker module music"
+        }
+      ],
+      "note": "The repository specifically models tracker-module music. Every Noise demoscene also includes game composers and later synth/soundtrack music; this may share the cultural scene but full repertoire equivalence is not established."
+    },
+    {
+      "genre": "didgeridoo",
+      "every_noise_url": "https://everynoise.com/engenremap-didgeridoo.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "australian_didgeridoo_yidaki_extended",
+          "name": "Aboriginal didgeridoo solo songlines (extended)"
+        },
+        {
+          "id": "didgeridoo_drone_practice",
+          "name": "Didgeridoo drone practice (yidaki and mago technique)"
+        },
+        {
+          "id": "didgeridoo_yidaki_solo",
+          "name": "Yidaki solo (Aboriginal Australian)"
+        }
+      ],
+      "note": "Yidaki solo, Aboriginal songlines and didgeridoo drone practice have differing repertory/technique scopes; a generic Didgeridoo category remains unresolved."
+    },
+    {
+      "genre": "dombra",
+      "every_noise_url": "https://everynoise.com/engenremap-dombra.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "dombra_kuy",
+          "name": "Dombra Küy"
+        }
+      ],
+      "note": "Every Noise dombra includes songs and performers such as Arslanbek Sultanbekov as well as instrumental kuy. The repository specifically covers the solo Kazakh kuy form, not all dombra music."
+    },
+    {
+      "genre": "doujin",
+      "every_noise_url": "https://everynoise.com/engenremap-doujin.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "denpa_song",
+          "name": "Denpa Song"
+        },
+        {
+          "id": "j_core",
+          "name": "J-Core"
+        },
+        {
+          "id": "touhou_doujin_arrange",
+          "name": "Touhou doujin arrange music"
+        }
+      ],
+      "note": "Doujin is the broad self-published Japanese music scene; denpa, Touhou arrangement and J-core cover narrower parts."
+    },
+    {
+      "genre": "draaiorgel",
+      "every_noise_url": "https://everynoise.com/engenremap-draaiorgel.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "dutch_folk",
+          "name": "Dutch Folk"
+        }
+      ],
+      "note": "Draaiorgel is a Dutch street-organ instrumental tradition, not all Dutch folk music."
+    },
+    {
+      "genre": "drone ambient",
+      "every_noise_url": "https://everynoise.com/engenremap-droneambient.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "drone_dark_ambient",
+          "name": "Drone and dark ambient"
+        }
+      ],
+      "note": "The repo display title includes drone, but combines drone and dark ambient into a genre family. The source’s drone ambient category may be a distinct member rather than the entire family."
+    },
+    {
+      "genre": "east coast hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-eastcoasthiphop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "east_coast_hip_hop_classic",
+          "name": "East Coast hip-hop (classic NY)"
+        }
+      ],
+      "note": "Repo is specifically classic New York; East Coast hip-hop is broader geographically and temporally."
+    },
+    {
+      "genre": "easy listening",
+      "every_noise_url": "https://everynoise.com/engenremap-easylistening.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "easy_listening_orchestral",
+          "name": "Easy listening (orchestral pop)"
+        },
+        {
+          "id": "middle_of_the_road",
+          "name": "Middle of the Road (MOR adult radio pop)"
+        }
+      ],
+      "note": "Orchestral easy listening is one named subform and the lounge/background candidates are related categories; keep generic Easy Listening pending scope review. Orchestral pop is a particular historical branch of easy listening."
+    },
+    {
+      "genre": "electronica",
+      "every_noise_url": "https://everynoise.com/engenremap-electronica.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "electronic",
+          "name": "Electronic"
+        }
+      ],
+      "note": "Electronic is a broader umbrella; electronica is a particular label/subgenre, not automatic word-form equivalence."
+    },
+    {
+      "genre": "environmental",
+      "every_noise_url": "https://everynoise.com/engenremap-environmental.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "environmental_music",
+          "name": "Environmental (Kankyō Ongaku)"
+        }
+      ],
+      "note": "Repo is Japanese Kankyō Ongaku; source environmental may be an international soundscape umbrella. Verify tag scope before removing geography."
+    },
+    {
+      "genre": "eurodance",
+      "every_noise_url": "https://everynoise.com/engenremap-eurodance.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "eurodance_90s",
+          "name": "90s eurodance"
+        }
+      ],
+      "note": "Existing record specifically names 90s eurodance; source eurodance is unqualified and may include later forms."
+    },
+    {
+      "genre": "experimental electronic",
+      "every_noise_url": "https://everynoise.com/engenremap-experimentalelectronic.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "idm",
+          "name": "IDM and experimental electronic"
+        }
+      ],
+      "note": "The display name explicitly includes experimental electronic, but the lineage is scoped to the Warp/IDM tradition. The source example 7038634357 suggests a broader experimental category; no direct alias established."
+    },
+    {
+      "genre": "fingerstyle",
+      "every_noise_url": "https://everynoise.com/engenremap-fingerstyle.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "american_primitive",
+          "name": "American primitive guitar"
+        },
+        {
+          "id": "hawaiian_slack_key",
+          "name": "Hawaiian slack-key (kī hōʻalu)"
+        },
+        {
+          "id": "slack_key_guitar",
+          "name": "Slack-key guitar (kī hōʻalu instrumental)"
+        }
+      ],
+      "note": "Fingerstyle is a guitar technique/repertoire umbrella spanning distinct regional and stylistic traditions."
+    },
+    {
+      "genre": "folk metal",
+      "every_noise_url": "https://everynoise.com/engenremap-folkmetal.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "folk_metal_european",
+          "name": "Folk metal (European)"
+        }
+      ],
+      "note": "European qualifier narrows geography; the global folk-metal umbrella cannot be considered fully represented by one regional record."
+    },
+    {
+      "genre": "folk-pop",
+      "every_noise_url": "https://everynoise.com/engenremap-folkpop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "galician_kantautor",
+          "name": "Galician kantautor and folk-pop"
+        },
+        {
+          "id": "muzica_etno",
+          "name": "Muzică etno"
+        },
+        {
+          "id": "stomp_and_flutter",
+          "name": "Stomp and flutter"
+        }
+      ],
+      "note": "Folk-pop is a broad hybrid; the regional and stylistic candidates are narrower examples, not explicit aliases."
+    },
+    {
+      "genre": "folklore nuevo argentino",
+      "every_noise_url": "https://everynoise.com/engenremap-folklorenuevoargentino.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "nuevo_folklore_argentino",
+          "name": "Nuevo Folklore Argentino"
+        }
+      ],
+      "note": "The terms differ only in word order and both relate to Argentine folk renewal, but Every Noise maintains both labels separately; its separate cluster distinction is not represented explicitly in repo metadata."
+    },
+    {
+      "genre": "forro",
+      "every_noise_url": "https://everynoise.com/engenremap-forro.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "forro_brasileiro",
+          "name": "Forró brasileiro"
+        }
+      ],
+      "note": "Repo mainly describes the traditional pé-de-serra ensemble, though its lineage acknowledges electronic forró; general forró may be broader."
+    },
+    {
+      "genre": "french hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-frenchhiphop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "rap_conscient",
+          "name": "Rap conscient (French conscious rap)"
+        },
+        {
+          "id": "rap_marseille",
+          "name": "Rap Marseillais"
+        }
+      ],
+      "note": "Algerian rap is a different national scene, while rap conscient and Marseille rap are French subcategories; retain broad French hip hop."
+    },
+    {
+      "genre": "funk pop",
+      "every_noise_url": "https://everynoise.com/engenremap-funkpop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "minneapolis_synth_funk_pop",
+          "name": "Minneapolis synth-funk-pop"
+        }
+      ],
+      "note": "Minneapolis synth-funk-pop and Korean city pop are particular hybrids; neither equals generic funk pop."
+    },
+    {
+      "genre": "funk rock",
+      "every_noise_url": "https://everynoise.com/engenremap-funkrock.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "minneapolis_sound",
+          "name": "Minneapolis Sound"
+        }
+      ],
+      "note": "The Minneapolis Sound is a specific funk dialect and golden-age hip hop a different genre; neither is the broad funk-rock category."
+    },
+    {
+      "genre": "garage punk",
+      "every_noise_url": "https://everynoise.com/engenremap-garagepunk.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "garage_punk_60s",
+          "name": "Garage punk (60s American)"
+        }
+      ],
+      "note": "The repo is explicitly the mid-1960s American/Nuggets tradition; the source can include later garage-punk revival scenes. 60s American subset excludes later global garage-punk practice."
+    },
+    {
+      "genre": "gayageum",
+      "every_noise_url": "https://everynoise.com/engenremap-gayageum.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "gayageum_byeongchang",
+          "name": "Gayageum byeongchang (self-accompanied gayageum song)"
+        }
+      ],
+      "note": "Sanjo solo and gayageum byeongchang cover different Korean repertories, not a general Gayageum instrument entry."
+    },
+    {
+      "genre": "georgian folk",
+      "every_noise_url": "https://everynoise.com/engenremap-georgianfolk.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "georgian_polyphony",
+          "name": "Georgian Polyphony"
+        },
+        {
+          "id": "georgian_three_voice_polyphony",
+          "name": "Georgian three-voice polyphony"
+        }
+      ],
+      "note": "Georgian folk includes more than the documented three-voice polyphonic tradition; regional instrumental or other vocal repertoire can fall outside these entries."
+    },
+    {
+      "genre": "german hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-germanhiphop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "frauenrap",
+          "name": "Frauenrap (German women's rap)"
+        }
+      ],
+      "note": "Frauenrap is a gender/scene subset of German hip hop, not the whole national scene."
+    },
+    {
+      "genre": "german indie",
+      "every_noise_url": "https://everynoise.com/engenremap-germanindie.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "hamburger_schule",
+          "name": "Hamburger Schule"
+        }
+      ],
+      "note": "Hamburger Schule is the historical Hamburg indie-rock movement, narrower than generic German indie."
+    },
+    {
+      "genre": "gospel rap",
+      "every_noise_url": "https://everynoise.com/engenremap-gospelrap.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "christian_hip_hop",
+          "name": "Christian hip-hop"
+        }
+      ],
+      "note": "The names are sometimes interchangeable, but Every Noise lists gospel rap and christian hip hop separately; the repo record does not document the distinction."
+    },
+    {
+      "genre": "greek hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-greekhiphop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "low_bap",
+          "name": "Low Bap"
+        }
+      ],
+      "note": "Low Bap is one Greek hip-hop subgenre/scene, not all Greek hip hop."
+    },
+    {
+      "genre": "gujarati garba",
+      "every_noise_url": "https://everynoise.com/engenremap-gujaratigarba.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "indian_folk_lok_geet",
+          "name": "Indian folk (pan-regional lok geet)"
+        }
+      ],
+      "note": "Generic Indian folk/lok geet is broader than the specifically Gujarati garba tradition and does not supply its own entry."
+    },
+    {
+      "genre": "haitian dance",
+      "every_noise_url": "https://everynoise.com/engenremap-haitiandance.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "kompa",
+          "name": "Kompa"
+        },
+        {
+          "id": "kompa_gouyad",
+          "name": "Kompa Gouyad"
+        },
+        {
+          "id": "meringue_haitian",
+          "name": "Méringue (Haitian salon and carnival)"
+        }
+      ],
+      "note": "Kompa/compas, meringue and gouyad are different Haitian dance forms; the umbrella Haitian Dance category remains unresolved."
+    },
+    {
+      "genre": "hamburg indie",
+      "every_noise_url": "https://everynoise.com/engenremap-hamburgindie.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "hamburger_schule",
+          "name": "Hamburger Schule"
+        }
+      ],
+      "note": "Hamburger Schule is a historical movement in Hamburg, not necessarily all Hamburg indie."
+    },
+    {
+      "genre": "hammered dulcimer",
+      "every_noise_url": "https://everynoise.com/engenremap-hammereddulcimer.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "santur_persian",
+          "name": "Santur (Persian Hammered Dulcimer)"
+        }
+      ],
+      "note": "Persian santur and Alpine Ländler/Volksmusik are particular traditions within the broader hammered-dulcimer repertoire category."
+    },
+    {
+      "genre": "hard techno",
+      "every_noise_url": "https://everynoise.com/engenremap-hardtechno.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "hard_techno_2020s",
+          "name": "Hard techno (2020s revival)"
+        }
+      ],
+      "note": "The repo explicitly restricts its record to the early-2020s revival; the unqualified source genre may encompass earlier hard-techno styles. 2020s revival subset excludes earlier hard-techno traditions."
+    },
+    {
+      "genre": "hardcore",
+      "every_noise_url": "https://everynoise.com/engenremap-hardcore.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "hardcore_punk",
+          "name": "Hardcore punk"
+        }
+      ],
+      "note": "Source separately has hardcore and hardcore punk; hardcore also names electronic subgenres. Avoid bare-word collapse."
+    },
+    {
+      "genre": "hardcore breaks",
+      "every_noise_url": "https://everynoise.com/engenremap-hardcorebreaks.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "uk_hardcore_breakbeat",
+          "name": "UK hardcore (pre-jungle 91-93)"
+        }
+      ],
+      "note": "Both concern breakbeat hardcore, but the repository is specifically the 1990-1993 pre-jungle era. Hardcore breaks can denote a later revival, which requires separate verification."
+    },
+    {
+      "genre": "hardcore techno",
+      "every_noise_url": "https://everynoise.com/engenremap-hardcoretechno.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "doomcore",
+          "name": "Doomcore"
+        },
+        {
+          "id": "gabber",
+          "name": "Gabber"
+        },
+        {
+          "id": "terrorcore",
+          "name": "Terrorcore"
+        }
+      ],
+      "note": "Gabber, terrorcore, doomcore and other hardcore derivatives are distinct narrower electronic styles; none is an explicit generic Hardcore Techno entry."
+    },
+    {
+      "genre": "hawaiian",
+      "every_noise_url": "https://everynoise.com/engenremap-hawaiian.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "hawaiian_oli_mele",
+          "name": "Hawaiian mele oli sacred-chant"
+        },
+        {
+          "id": "hawaiian_slack_key",
+          "name": "Hawaiian slack-key (kī hōʻalu)"
+        },
+        {
+          "id": "vintage_hawaiian",
+          "name": "Vintage Hawaiian (hapa haole steel-guitar era)"
+        }
+      ],
+      "note": "Hawaiian is a broad national/cultural music category spanning slack key, chant, hapa haole and modern styles; no union of those entries is treated as a single umbrella entry."
+    },
+    {
+      "genre": "healing",
+      "every_noise_url": "https://everynoise.com/engenremap-healing.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "juhoansi_healing_nom",
+          "name": "Ju|'hoansi healing songs (Kalahari)"
+        },
+        {
+          "id": "navajo_healing_chantways",
+          "name": "Navajo healing chantways"
+        },
+        {
+          "id": "shipibo_icaros",
+          "name": "Shipibo-Conibo icaros healing songs"
+        }
+      ],
+      "note": "Healing is a functional music category shared by distinct ritual and wellness genres, not equivalent to any one listed tradition."
+    },
+    {
+      "genre": "hindustani instrumental",
+      "every_noise_url": "https://everynoise.com/engenremap-hindustaniinstrumental.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "hindustani_sarod",
+          "name": "Hindustani classical (sarod-led)"
+        },
+        {
+          "id": "indian_instrumental",
+          "name": "Indian Instrumental (raga instrumental recital)"
+        }
+      ],
+      "note": "The instrumental record spans both Hindustani and Carnatic, while the sarod record is an instrument-specific Hindustani branch. The requested whole Hindustani instrumental category has no exact generic record."
+    },
+    {
+      "genre": "hk-pop",
+      "every_noise_url": "https://everynoise.com/engenremap-hkpop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "cantopop",
+          "name": "Cantopop"
+        }
+      ],
+      "note": "Hong Kong pop and Cantonese-language pop overlap, but region and language scopes differ."
+    },
+    {
+      "genre": "hula",
+      "every_noise_url": "https://everynoise.com/engenremap-hula.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "hula_mele",
+          "name": "Hula (mele hula dance-chant)"
+        }
+      ],
+      "note": "Record lineage specifically defines hula kahiko dance-chant; broader hula includes modern hula auana song."
+    },
+    {
+      "genre": "indian jazz",
+      "every_noise_url": "https://everynoise.com/engenremap-indianjazz.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "indo_jazz",
+          "name": "Indo Jazz"
+        }
+      ],
+      "note": "Jazz made by Indian artists is not necessarily the defined Hindustani/Carnatic-jazz fusion genre. The repository is explicitly Indo-Jazz fusion; source category equivalence remains unconfirmed."
+    },
+    {
+      "genre": "indie electronica",
+      "every_noise_url": "https://everynoise.com/engenremap-indieelectronica.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "indietronica",
+          "name": "Indietronica"
+        }
+      ],
+      "note": "The repo’s Morr Music/Ghostly laptop-and-indie hybrid fits indie electronica closely, but Every Noise lists indie electronica and indietronica separately; their exact scene boundary is undocumented."
+    },
+    {
+      "genre": "indie pop",
+      "every_noise_url": "https://everynoise.com/engenremap-indiepop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "bedroom_pop",
+          "name": "Bedroom pop"
+        },
+        {
+          "id": "indie_pop_modern",
+          "name": "Indie pop (modern)"
+        },
+        {
+          "id": "twee_pop",
+          "name": "Twee pop"
+        }
+      ],
+      "note": "Modern indie pop is explicitly the post-2000/streaming-era branch and the remaining candidates are subgenres; retain the generic Indie Pop umbrella. Modern streaming-era subset excludes the older indie-pop tradition."
+    },
+    {
+      "genre": "instrumental hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-instrumentalhiphop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "glitch_hop",
+          "name": "Glitch Hop"
+        },
+        {
+          "id": "lofi_beats",
+          "name": "Lo-fi beats"
+        },
+        {
+          "id": "lofi_hiphop",
+          "name": "Lo-fi hip hop (chillhop)"
+        }
+      ],
+      "note": "Lo-fi hip hop, lo-fi beats and glitch hop are instrumental-friendly substyles but not the whole Instrumental Hip Hop category."
+    },
+    {
+      "genre": "instrumental rock",
+      "every_noise_url": "https://everynoise.com/engenremap-instrumentalrock.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "surf_rock",
+          "name": "Surf rock"
+        }
+      ],
+      "note": "Surf rock is one historical instrumental-rock form, narrower than Instrumental Rock generally."
+    },
+    {
+      "genre": "irish folk",
+      "every_noise_url": "https://everynoise.com/engenremap-irishfolk.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "celtic_irish_trad",
+          "name": "Irish trad session"
+        }
+      ],
+      "note": "Irish trad session is a practice/ensemble subset of Irish folk music, not a complete geographic genre alias."
+    },
+    {
+      "genre": "irish gaelic folk",
+      "every_noise_url": "https://everynoise.com/engenremap-irishgaelicfolk.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "celtic_irish_trad",
+          "name": "Irish trad session"
+        },
+        {
+          "id": "irish_caoineadh",
+          "name": "Irish caoineadh (keening)"
+        },
+        {
+          "id": "irish_suantrai",
+          "name": "Irish suantraí (Irish-Gaelic lullaby)"
+        }
+      ],
+      "note": "The repository has Irish Gaelic lullaby/keening forms and an instrumental session tradition, but no confirmed entry covering the complete Irish Gaelic folk-song umbrella."
+    },
+    {
+      "genre": "islamic recitation",
+      "every_noise_url": "https://everynoise.com/engenremap-islamicrecitation.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "islamic_recitation_mujawwad",
+          "name": "Islamic recitation (adhān and mujawwad tilāwa)"
+        }
+      ],
+      "note": "Repo specifically covers adhān and ornate mujawwad tilāwa, which excludes other recitation registers such as murattal."
+    },
+    {
+      "genre": "italian trance",
+      "every_noise_url": "https://everynoise.com/engenremap-italiantrance.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "dream_house",
+          "name": "Dream House"
+        }
+      ],
+      "note": "Dream house is one Italian-associated dream-dance style, not all Italian trance."
+    },
+    {
+      "genre": "j-pop",
+      "every_noise_url": "https://everynoise.com/engenremap-jpop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "j_pop_classic",
+          "name": "J-pop (classic mainstream)"
+        }
+      ],
+      "note": "Repo specifically says classic mainstream 1980s-1990s. Source has separate j-pop and classic j-pop labels; do not erase the qualifier to cover modern/general j-pop."
+    },
+    {
+      "genre": "jamaican ska",
+      "every_noise_url": "https://everynoise.com/engenremap-jamaicanska.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "jamaican_ska_vocal",
+          "name": "Jamaican Ska (vocal sound-system style)"
+        },
+        {
+          "id": "traditional_ska",
+          "name": "Traditional Ska (early-60s instrumental)"
+        }
+      ],
+      "note": "The repo splits first-wave Jamaican ska between its vocal and instrumental branches. Those branches jointly cover much of the category, but neither alone is an exact whole-category alias. Vocal sound-system branch excludes instrumental ska."
+    },
+    {
+      "genre": "japanese folk",
+      "every_noise_url": "https://everynoise.com/engenremap-japanesefolk.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "japanese_warabe_uta",
+          "name": "Japanese warabe-uta (童歌, children's play-songs)"
+        }
+      ],
+      "note": "Japanese warabe uta are children's songs, narrower than Japanese folk music."
+    },
+    {
+      "genre": "japanese hardcore",
+      "every_noise_url": "https://everynoise.com/engenremap-japanesehardcore.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "j_core",
+          "name": "J-Core"
+        }
+      ],
+      "note": "J-core is specifically electronic Japanese hardcore and J-punk is punk; the umbrella Japanese Hardcore scope remains unresolved."
+    },
+    {
+      "genre": "jazz house",
+      "every_noise_url": "https://everynoise.com/engenremap-jazzhouse.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "deep_house_soulful",
+          "name": "Deep house (soulful)"
+        }
+      ],
+      "note": "Soulful deep house overlaps jazz house but the definition treats a specific soul/gospel deep-house idiom, without an explicit Jazz House alias."
+    },
+    {
+      "genre": "jazz rock",
+      "every_noise_url": "https://everynoise.com/engenremap-jazzrock.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "fusion",
+          "name": "Fusion"
+        },
+        {
+          "id": "jazz_fusion",
+          "name": "Jazz Fusion (electric jazz-rock idiom)"
+        }
+      ],
+      "note": "The repo calls its jazz-fusion entry an electric jazz-rock idiom, but EveryNoise separately catalogs Jazz Fusion and Jazz Rock; keep this ambiguous alias for scoped verification."
+    },
+    {
+      "genre": "kantele",
+      "every_noise_url": "https://everynoise.com/engenremap-kantele.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "finnish_kantele_folk",
+          "name": "Finnish kantele folk and Kalevala-recitation"
+        },
+        {
+          "id": "kantele_music",
+          "name": "Kantele music"
+        }
+      ],
+      "note": "Kantele Music is an explicit instrumental entry but includes particular Finnish traditions; generic Kantele scope needs checking rather than borrowing pagan metal's instrument use."
+    },
+    {
+      "genre": "karneval",
+      "every_noise_url": "https://everynoise.com/engenremap-karneval.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "cologne_karneval",
+          "name": "Cologne Karneval (Kölner Karneval)"
+        }
+      ],
+      "note": "Cologne Karneval is one local Karneval tradition and cannot automatically replace the broader German carnival category."
+    },
+    {
+      "genre": "keroncong",
+      "every_noise_url": "https://everynoise.com/engenremap-keroncong.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "keroncong_asli",
+          "name": "Keroncong asli (Indonesian kroncong classic form)"
+        }
+      ],
+      "note": "The repo specifically covers the 28-bar keroncong asli form; keroncong may include langgam and other forms. Requires a taxonomy scope decision."
+    },
+    {
+      "genre": "latin worship",
+      "every_noise_url": "https://everynoise.com/engenremap-latinworship.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "rock_cristiano",
+          "name": "Rock Cristiano"
+        }
+      ],
+      "note": "Rock Cristiano is one Spanish-language Christian rock genre, not all Latin worship music."
+    },
+    {
+      "genre": "latinx alternative",
+      "every_noise_url": "https://everynoise.com/engenremap-latinxalternative.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "latin_alternative",
+          "name": "Latin alternative"
+        }
+      ],
+      "note": "Source separately lists Latin alternative and Latinx alternative; potential diaspora/identity scope distinction."
+    },
+    {
+      "genre": "lebanese pop",
+      "every_noise_url": "https://everynoise.com/engenremap-lebanesepop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "lebanese_pop_tarab",
+          "name": "Lebanese tarab-pop"
+        }
+      ],
+      "note": "Repo specifically says Lebanese tarab-pop; general Lebanese pop is broader."
+    },
+    {
+      "genre": "lullaby",
+      "every_noise_url": "https://everynoise.com/engenremap-lullaby.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "arabic_tahwidah",
+          "name": "Arabic tahwidah (تهويدة, cradle song)"
+        },
+        {
+          "id": "irish_suantrai",
+          "name": "Irish suantraí (Irish-Gaelic lullaby)"
+        }
+      ],
+      "note": "Irish, Arabic, Yiddish and Corsican cradle-song examples are narrower than the general Lullaby category."
+    },
+    {
+      "genre": "mantra",
+      "every_noise_url": "https://everynoise.com/engenremap-mantra.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "hare_krishna",
+          "name": "Hare Krishna Kirtan (ISKCON)"
+        },
+        {
+          "id": "tibetan_mantra_recitation",
+          "name": "Tibetan mantra recitation (mani and vajra mantra)"
+        }
+      ],
+      "note": "Hare Krishna and Tibetan mantra recitation are different particular mantra traditions; retain the generic mantra category."
+    },
+    {
+      "genre": "marimba",
+      "every_noise_url": "https://everynoise.com/engenremap-marimba.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "marimba_de_guatemala",
+          "name": "Marimba de Guatemala"
+        },
+        {
+          "id": "marimba_mexicana",
+          "name": "Marimba mexicana (Chiapas)"
+        },
+        {
+          "id": "marimba_orquesta",
+          "name": "Marimba orquesta"
+        },
+        {
+          "id": "maya_marimba",
+          "name": "Maya marimba (Guatemalan Highland)"
+        }
+      ],
+      "note": "Instrument-based source genre may encompass several national and ensemble forms; the existing Guatemalan/Chiapas and orchestra entries overlap but do not prove equivalence to the entire marimba label."
+    },
+    {
+      "genre": "mashup",
+      "every_noise_url": "https://everynoise.com/engenremap-mashup.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "dariacore",
+          "name": "Dariacore"
+        }
+      ],
+      "note": "Dariacore is a particular online mashup/collage style, not all Mashup music."
+    },
+    {
+      "genre": "mbira",
+      "every_noise_url": "https://everynoise.com/engenremap-mbira.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "mbira_dzavadzimu_ceremony",
+          "name": "Mbira dzaVadzimu Ceremonial Music"
+        },
+        {
+          "id": "mbira_tradition",
+          "name": "Mbira tradition"
+        },
+        {
+          "id": "shona_mbira_praise",
+          "name": "Shona mbira praise music (Zimbabwe)"
+        }
+      ],
+      "note": "Every Noise mbira includes contemporary artists Jah Prayzah, Oliver Mtukudzi and Thomas Mapfumo alongside ritual mbira performers. Repository entries are specifically ancestral ritual/praise forms; the broad source cluster is not confirmed fully equivalent."
+    },
+    {
+      "genre": "meditation",
+      "every_noise_url": "https://everynoise.com/engenremap-meditation.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "guided_meditation",
+          "name": "Guided meditation"
+        },
+        {
+          "id": "new_age",
+          "name": "New Age"
+        }
+      ],
+      "note": "Guided meditation and new age overlap the broad functional Meditation category but have distinct spoken/generic music scopes."
+    },
+    {
+      "genre": "melodic rap",
+      "every_noise_url": "https://everynoise.com/engenremap-melodicrap.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "vietnamese_melodic_rap",
+          "name": "Vietnamese Melodic Rap"
+        }
+      ],
+      "note": "Puerto Rican trap and Vietnamese melodic rap are region-specific styles, not the broad Melodic Rap category."
+    },
+    {
+      "genre": "memphis hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-memphishiphop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "memphis_hip_hop_tape",
+          "name": "Memphis hip-hop (Bluff City tape scene)"
+        },
+        {
+          "id": "memphis_rap",
+          "name": "Memphis rap (Bluff City lineage)"
+        }
+      ],
+      "note": "Both records center the historical cassette scene; source label may include later and broader Memphis hip-hop."
+    },
+    {
+      "genre": "mevlevi sufi",
+      "every_noise_url": "https://everynoise.com/engenremap-mevlevisufi.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "turkish_makam",
+          "name": "Turkish makam (classical)"
+        }
+      ],
+      "note": "Turkish makam is the broader art-music modal tradition; Mevlevi Sufi music requires a specific ritual/order repertoire entry."
+    },
+    {
+      "genre": "military band",
+      "every_noise_url": "https://everynoise.com/engenremap-militaryband.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "marching_band",
+          "name": "Marching Band"
+        }
+      ],
+      "note": "Military band is a functional ensemble category; banda, Balkan brass and marching band overlap but are not scoped synonyms."
+    },
+    {
+      "genre": "mindfulness",
+      "every_noise_url": "https://everynoise.com/engenremap-mindfulness.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "guided_meditation",
+          "name": "Guided meditation"
+        }
+      ],
+      "note": "Guided meditation is one spoken wellness form within the broader Mindfulness category."
+    },
+    {
+      "genre": "musica antigua",
+      "every_noise_url": "https://everynoise.com/engenremap-musicaantigua.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "early_music",
+          "name": "Early Music"
+        }
+      ],
+      "note": "The Spanish words translate as early music, but Every Noise separately maintains musica antigua and early music clusters, with the former centered on Iberian artists. Translation alone does not establish that this catalog distinction is already covered."
+    },
+    {
+      "genre": "musica nortena chilena",
+      "every_noise_url": "https://everynoise.com/engenremap-musicanortenachilena.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "musica_andina_chilena",
+          "name": "Música andina chilena (Norte Grande / nueva canción Andean)"
+        }
+      ],
+      "note": "Northern Chilean music can overlap the Chilean Andean tradition, but the repository definition also encompasses a particular Norte Grande / nueva cancion Andean lineage. No exact synonym relationship is established."
+    },
+    {
+      "genre": "musica pernambucana",
+      "every_noise_url": "https://everynoise.com/engenremap-musicapernambucana.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "nova_musica_pernambucana",
+          "name": "Nova Música Pernambucana"
+        }
+      ],
+      "note": "Musica pernambucana is the broader Pernambuco music label; Nova Musica Pernambucana identifies a particular new regional movement. The prefix cannot be silently discarded."
+    },
+    {
+      "genre": "musica popular uruguaya",
+      "every_noise_url": "https://everynoise.com/engenremap-musicapopularuruguaya.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "canto_popular_uruguayo",
+          "name": "Canto popular uruguayo"
+        }
+      ],
+      "note": "The repo names the late-1960s-to-1985 canto popular movement. Every Noise separately lists canto popular uruguayo and musica popular uruguaya, so the latter cannot safely be treated as a simple alias."
+    },
+    {
+      "genre": "musique ancienne",
+      "every_noise_url": "https://everynoise.com/engenremap-musiqueancienne.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "early_music",
+          "name": "Early Music"
+        }
+      ],
+      "note": "The French words translate as early music, but Every Noise separately maintains the French-artist musique ancienne cluster. This could be a translated label or a narrower scene distinction; no automatic equivalence is claimed."
+    },
+    {
+      "genre": "musique soninke",
+      "every_noise_url": "https://everynoise.com/engenremap-musiquesoninke.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "soninke_music",
+          "name": "Musique soninke (Soninke griot song)"
+        }
+      ],
+      "note": "Soninke hereditary griot song is a particular practice within broader Soninke music."
+    },
+    {
+      "genre": "native american flute",
+      "every_noise_url": "https://everynoise.com/engenremap-nativeamericanflute.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "native_american_flute_music",
+          "name": "Native American courting flute music"
+        }
+      ],
+      "note": "The repo describes the courting/personal-song tradition and its Nakai-era revival, while the source artist map also includes modern ambient and ensemble performers. Broad label versus historical-function scope needs review."
+    },
+    {
+      "genre": "native american spiritual",
+      "every_noise_url": "https://everynoise.com/engenremap-nativeamericanspiritual.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "native_american_traditional",
+          "name": "Native American traditional music (pan-tribal)"
+        }
+      ],
+      "note": "Spiritual Native American repertoire is related to the pan-tribal traditional entry, but spiritual purpose identifies a narrower source category and the scopes are not shown equivalent."
+    },
+    {
+      "genre": "navajo",
+      "every_noise_url": "https://everynoise.com/engenremap-navajo.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "navajo_blessingway",
+          "name": "Navajo Blessingway (Hózhǫ́ǫ́jí) recitation"
+        },
+        {
+          "id": "navajo_dine_song",
+          "name": "Navajo traditional song (Diné)"
+        },
+        {
+          "id": "navajo_healing_chantways",
+          "name": "Navajo healing chantways"
+        }
+      ],
+      "note": "Navajo traditional song is the closest broad Diné repertoire record but the catalog's Navajo label may include contemporary music; retain scope uncertainty rather than unioning chantways."
+    },
+    {
+      "genre": "neo metal",
+      "every_noise_url": "https://everynoise.com/engenremap-neometal.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "nu_metal_korn_limp",
+          "name": "Nu metal"
+        }
+      ],
+      "note": "Néo-metal can be used for nu metal, but Every Noise retains separate nu metal and neo metal labels; its neo metal example is French band Pleymo, while repo lineage is the American Korn/Limp Bizkit scene."
+    },
+    {
+      "genre": "new isolationism",
+      "every_noise_url": "https://everynoise.com/engenremap-newisolationism.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "isolationism",
+          "name": "Isolationism"
+        }
+      ],
+      "note": "The repo covers the 1994 Kevin Martin/Virgin isolationist ambient lineage; the source’s new isolationism may designate a later scene rather than just a renamed identical genre."
+    },
+    {
+      "genre": "new york drill",
+      "every_noise_url": "https://everynoise.com/engenremap-newyorkdrill.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "bronx_drill",
+          "name": "Bronx drill (sample drill)"
+        }
+      ],
+      "note": "Bronx sample drill is a specific New York branch and Florida drill another regional scene; New York Drill remains a broader category."
+    },
+    {
+      "genre": "nigerian pop",
+      "every_noise_url": "https://everynoise.com/engenremap-nigerianpop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "alte_nigeria",
+          "name": "Alté"
+        }
+      ],
+      "note": "Alté is a particular Nigerian alternative-pop scene, not all Nigerian pop."
+    },
+    {
+      "genre": "noisecore",
+      "every_noise_url": "https://everynoise.com/engenremap-noisecore.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "spazzcore",
+          "name": "Spazzcore"
+        }
+      ],
+      "note": "Spazzcore is a particular noise/grind/hardcore style; noisecore is not established as its alternate name."
+    },
+    {
+      "genre": "norwegian space disco",
+      "every_noise_url": "https://everynoise.com/engenremap-norwegianspacedisco.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "nu_disco",
+          "name": "Nu Disco"
+        }
+      ],
+      "note": "Nu disco is a broad international revival genre, not the geographically specific Norwegian space-disco scene."
+    },
+    {
+      "genre": "nursery",
+      "every_noise_url": "https://everynoise.com/engenremap-nursery.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "english_nursery_rhyme",
+          "name": "English nursery rhyme"
+        },
+        {
+          "id": "muziek_voor_kinderen",
+          "name": "Muziek voor Kinderen (Dutch children's song)"
+        },
+        {
+          "id": "preschool_childrens_music",
+          "name": "Preschool Children's Music"
+        }
+      ],
+      "note": "Nursery is a general childhood repertoire category; individual language/age-specific song traditions and toytown techno are not explicit synonyms."
+    },
+    {
+      "genre": "panpipe",
+      "every_noise_url": "https://everynoise.com/engenremap-panpipe.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "papua_new_guinean_polyphony",
+          "name": "Papua New Guinean panpipe and polyphonic singing"
+        },
+        {
+          "id": "solomon_islands_panpipe",
+          "name": "Solomon Islands panpipe ensemble"
+        }
+      ],
+      "note": "Panpipe is an instrumental/repertoire category shared by Andean and Oceanian traditions; those regional genres remain distinct."
+    },
+    {
+      "genre": "persian poetry",
+      "every_noise_url": "https://everynoise.com/engenremap-persianpoetry.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "ghazal",
+          "name": "Ghazal"
+        }
+      ],
+      "note": "Ghazal is a particular poetic/song form within Persian poetry and broader Persianate traditions, not the full Persian Poetry category."
+    },
+    {
+      "genre": "political hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-politicalhiphop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "american_political_hip_hop",
+          "name": "American political hip-hop and conscious rap"
+        }
+      ],
+      "note": "Repo explicitly says American; source political hip-hop may include other geographic traditions."
+    },
+    {
+      "genre": "polyphony",
+      "every_noise_url": "https://everynoise.com/engenremap-polyphony.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "albanian_iso_polyphony",
+          "name": "Albanian iso-polyphony"
+        },
+        {
+          "id": "georgian_polyphony",
+          "name": "Georgian Polyphony"
+        },
+        {
+          "id": "sardinian_polyphony",
+          "name": "Sardinian polyphony (cantu a tenore)"
+        }
+      ],
+      "note": "Polyphony is a texture/ensemble umbrella spanning many distinct regional and historical traditions, not a single equivalent record."
+    },
+    {
+      "genre": "pop folk",
+      "every_noise_url": "https://everynoise.com/engenremap-popfolk.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "balkan_pop",
+          "name": "Balkan Pop"
+        },
+        {
+          "id": "chalga",
+          "name": "Chalga"
+        }
+      ],
+      "note": "Pop folk is a broad hybrid designation; Balkan chalga/pop and interior-confessional songwriting are particular scene/style entries."
+    },
+    {
+      "genre": "pop soul",
+      "every_noise_url": "https://everynoise.com/engenremap-popsoul.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "northern_soul_motown",
+          "name": "Northern soul and Motown"
+        }
+      ],
+      "note": "Northern soul and Motown are historical soul traditions; Pop Soul is a wider pop/soul crossover category."
+    },
+    {
+      "genre": "portuguese pop",
+      "every_noise_url": "https://everynoise.com/engenremap-portuguesepop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "portuguese_pop_modern",
+          "name": "Portuguese pop (modern)"
+        }
+      ],
+      "note": "Modern qualifier potentially excludes vintage Portuguese pop; source has both portuguese pop and classic portuguese pop."
+    },
+    {
+      "genre": "post-grunge",
+      "every_noise_url": "https://everynoise.com/engenremap-postgrunge.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "grunk",
+          "name": "Grunk"
+        }
+      ],
+      "note": "Grunk is a particular genre/category associated with grunge-derived rock, not an explicit general Post-Grunge entry."
+    },
+    {
+      "genre": "power metal",
+      "every_noise_url": "https://everynoise.com/engenremap-powermetal.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "power_metal_european",
+          "name": "Power metal (European)"
+        }
+      ],
+      "note": "European power metal is explicitly distinguished from American power metal; it cannot replace the generic Power Metal umbrella. European branch is geographically/stylistically more specific than global power metal."
+    },
+    {
+      "genre": "praise",
+      "every_noise_url": "https://everynoise.com/engenremap-praise.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "praise_and_worship",
+          "name": "Praise and Worship"
+        }
+      ],
+      "note": "Praise is a broad devotional functional category; Praise and Worship is one particular Christian popular tradition rather than every praise-song practice."
+    },
+    {
+      "genre": "rajasthani folk",
+      "every_noise_url": "https://everynoise.com/engenremap-rajasthanifolk.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "rajasthani_folk_thar",
+          "name": "Rajasthani folk (Thar desert hereditary-musician song)"
+        },
+        {
+          "id": "rajasthani_manganiyar",
+          "name": "Rajasthani Manganiyar tradition"
+        }
+      ],
+      "note": "The source regional umbrella may be wider than the repository Thar-desert Manganiyar/Langa hereditary-musician repertoire. The narrower community entries cannot certify complete coverage of all Rajasthani folk. Thar hereditary Manganiyar/Langa musician repertoire is a regional/caste subset of Rajasthani folk."
+    },
+    {
+      "genre": "reggae fusion",
+      "every_noise_url": "https://everynoise.com/engenremap-reggaefusion.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "reggae_fusion_modern",
+          "name": "Reggae fusion (modern)"
+        }
+      ],
+      "note": "Repo starts in the late 1990s; reggae fusion also describes older mixtures, so modern qualifier may be substantive."
+    },
+    {
+      "genre": "renaissance",
+      "every_noise_url": "https://everynoise.com/engenremap-renaissance.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "renaissance_madrigal",
+          "name": "Renaissance madrigal (Italian, English)"
+        },
+        {
+          "id": "renaissance_sacred_polyphony",
+          "name": "Renaissance sacred polyphony (1450-1600)"
+        }
+      ],
+      "note": "Renaissance sacred polyphony and madrigal are particular Renaissance repertoires; the broader period category remains unrepresented as its own entry."
+    },
+    {
+      "genre": "riddim",
+      "every_noise_url": "https://everynoise.com/engenremap-riddim.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "jamaican_dancehall",
+          "name": "Jamaican dancehall"
+        },
+        {
+          "id": "riddim_dubstep",
+          "name": "Riddim dubstep (mid-2010s American minimal-bass dubstep)"
+        }
+      ],
+      "note": "Riddim can mean Jamaican backing tracks or the distinct dubstep branch; the candidate records have differing scopes and cannot be assigned without catalog-specific disambiguation."
+    },
+    {
+      "genre": "rock-and-roll",
+      "every_noise_url": "https://everynoise.com/engenremap-rockandroll.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "early_rock_and_roll_50s",
+          "name": "Early rock-and-roll (1954–1958)"
+        }
+      ],
+      "note": "The early rock-and-roll record is explicitly limited to 1954–1958; other rockabilly/garage records are distinct styles, so retain generic Rock-and-Roll pending scope review."
+    },
+    {
+      "genre": "ruta destroy",
+      "every_noise_url": "https://everynoise.com/engenremap-rutadestroy.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "makina",
+          "name": "Makina"
+        }
+      ],
+      "note": "Ruta Destroy is the Valencian historical club movement while Makina is a particular Spanish dance-music style; they are not blanket synonyms."
+    },
+    {
+      "genre": "ryukyu ongaku",
+      "every_noise_url": "https://everynoise.com/engenremap-ryukyuongaku.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "ryukyu_koten_ongaku",
+          "name": "Ryukyu koten ongaku (Okinawan classical court music)"
+        }
+      ],
+      "note": "The repo represents Okinawan/Ryukyuan classical court music (koten ongaku), while an unqualified Ryukyu music label can include folk/popular traditions."
+    },
+    {
+      "genre": "salsa",
+      "every_noise_url": "https://everynoise.com/engenremap-salsa.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "salsa_nuyorican",
+          "name": "Salsa (Nuyorican)"
+        }
+      ],
+      "note": "Nuyorican is a specific regional salsa tradition."
+    },
+    {
+      "genre": "salsa cubana",
+      "every_noise_url": "https://everynoise.com/engenremap-salsacubana.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "salsa_cubana_timba",
+          "name": "Salsa cubana (timba)"
+        }
+      ],
+      "note": "The repo identifies salsa cubana with the 1990s timba evolution. Every Noise lists salsa cubana and timba separately, so Cuban salsa may be broader than this record. Timba is a specific Cuban salsa development, not all Cuban salsa."
+    },
+    {
+      "genre": "samba reggae",
+      "every_noise_url": "https://everynoise.com/engenremap-sambareggae.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "bloco_afro",
+          "name": "Bloco afro (Salvador carnival)"
+        }
+      ],
+      "note": "Axé and bloco afro draw on samba-reggae but are related broader/hybrid traditions; they do not supply a specific Samba Reggae entry."
+    },
+    {
+      "genre": "sanfona",
+      "every_noise_url": "https://everynoise.com/engenremap-sanfona.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "sanfona_nordestina",
+          "name": "Sanfona nordestina (Brazilian accordion tradition)"
+        }
+      ],
+      "note": "Sanfona nordestina is explicitly the northeastern Brazilian accordion tradition, while Sanfona is the instrument/repertoire category; retain scope uncertainty."
+    },
+    {
+      "genre": "santur",
+      "every_noise_url": "https://everynoise.com/engenremap-santur.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "santur_persian",
+          "name": "Santur (Persian Hammered Dulcimer)"
+        }
+      ],
+      "note": "Santur (Persian Hammered Dulcimer) is explicitly Iranian and distinguishes Iraqi/Indian related traditions; generic Santur scope needs verification. Persian repertoire does not automatically cover all santur traditions, including South Asian and other instrument variants."
+    },
+    {
+      "genre": "scratch",
+      "every_noise_url": "https://everynoise.com/engenremap-scratch.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "turntablism",
+          "name": "Turntablism"
+        }
+      ],
+      "note": "Turntablism includes scratching but is broader, and scratch references in dub/art punk are incidental; keep the narrower Scratch category."
+    },
+    {
+      "genre": "sefardi",
+      "every_noise_url": "https://everynoise.com/engenremap-sefardi.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "sefardi_romancero",
+          "name": "Sefardi Song (Judeo-Spanish Romancero)"
+        }
+      ],
+      "note": "Sefardi Romancero explicitly represents secular Ladino song; Sefardi could also include liturgical and other repertoire, so retain the broader label."
+    },
+    {
+      "genre": "shakuhachi",
+      "every_noise_url": "https://everynoise.com/engenremap-shakuhachi.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "shakuhachi_honkyoku",
+          "name": "Shakuhachi honkyoku"
+        },
+        {
+          "id": "shakuhachi_sankyoku",
+          "name": "Shakuhachi (sankyoku ensemble repertoire)"
+        }
+      ],
+      "note": "Shakuhachi honkyoku and sankyoku are differentiated solo/ensemble repertoires, not a generic Shakuhachi category record. Sankyoku ensemble repertoire excludes solo honkyoku and other shakuhachi practices."
+    },
+    {
+      "genre": "shamanic",
+      "every_noise_url": "https://everynoise.com/engenremap-shamanic.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "korean_sinawi",
+          "name": "Korean sinawi (shaman ensemble improvisation)"
+        },
+        {
+          "id": "norse_seidr",
+          "name": "Old Norse seiðr ritual vocalization"
+        },
+        {
+          "id": "shipibo_icaros",
+          "name": "Shipibo-Conibo icaros healing songs"
+        }
+      ],
+      "note": "Shamanic is a cross-cultural ritual category; Shipibo, Korean, Norse and Selk'nam practices are distinct traditions within it."
+    },
+    {
+      "genre": "shamisen",
+      "every_noise_url": "https://everynoise.com/engenremap-shamisen.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "shamisen_tsugaru",
+          "name": "Tsugaru-jamisen"
+        }
+      ],
+      "note": "Tsugaru-jamisen is a regional virtuoso shamisen style and the remaining candidates only use shamisen; no generic Shamisen repertoire entry is established."
+    },
+    {
+      "genre": "ska revival",
+      "every_noise_url": "https://everynoise.com/engenremap-skarevival.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "ska_revival_2tone",
+          "name": "2-Tone ska revival"
+        }
+      ],
+      "note": "Two-Tone is one particular ska revival phase; later revivals and third-wave ska are distinct."
+    },
+    {
+      "genre": "soundtrack",
+      "every_noise_url": "https://everynoise.com/engenremap-soundtrack.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "japanese_soundtrack",
+          "name": "Japanese soundtrack scoring"
+        },
+        {
+          "id": "orchestral_soundtrack",
+          "name": "Orchestral Soundtrack (symphonic film score)"
+        },
+        {
+          "id": "screen_soundtrack_hybrid",
+          "name": "Soundtrack (hybrid screen scoring)"
+        }
+      ],
+      "note": "Orchestral and Japanese soundtrack records are particular scoring types/national traditions; the generic Soundtrack umbrella is wider. Hybrid screen scoring is a particular production subset of soundtrack music."
+    },
+    {
+      "genre": "southern soul blues",
+      "every_noise_url": "https://everynoise.com/engenremap-southernsoulblues.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "soul_blues",
+          "name": "Soul Blues"
+        }
+      ],
+      "note": "The soul_blues record has the Memphis/Muscle Shoals/Malaco lineage associated with Southern soul blues, but Every Noise retains soul blues and southern soul blues separately; identical scope needs review."
+    },
+    {
+      "genre": "sped up",
+      "every_noise_url": "https://everynoise.com/engenremap-spedup.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "nightcore",
+          "name": "Nightcore"
+        }
+      ],
+      "note": "Nightcore is one sped-up remix scene and other records describe fast music; retain the generic Sped Up release-format category."
+    },
+    {
+      "genre": "spoken word",
+      "every_noise_url": "https://everynoise.com/engenremap-spokenword.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "dub_poetry",
+          "name": "Dub poetry"
+        },
+        {
+          "id": "rapso",
+          "name": "Rapso"
+        }
+      ],
+      "note": "Dub poetry and rapso are specific spoken-word-derived traditions, not an explicit general Spoken Word category entry."
+    },
+    {
+      "genre": "steel guitar",
+      "every_noise_url": "https://everynoise.com/engenremap-steelguitar.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "sacred_steel",
+          "name": "Sacred steel"
+        },
+        {
+          "id": "vintage_hawaiian",
+          "name": "Vintage Hawaiian (hapa haole steel-guitar era)"
+        }
+      ],
+      "note": "Sacred steel and vintage Hawaiian are particular steel-guitar traditions; Franco-country only uses the instrument. Generic Steel Guitar remains separate."
+    },
+    {
+      "genre": "stubenmusik",
+      "every_noise_url": "https://everynoise.com/engenremap-stubenmusik.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "german_folk",
+          "name": "German Folk (Volksmusik)"
+        }
+      ],
+      "note": "Stubenmusik is a specific Alpine chamber-folk instrumentation/repertoire subset of broader German Volksmusik."
+    },
+    {
+      "genre": "sufi chant",
+      "every_noise_url": "https://everynoise.com/engenremap-sufichant.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "sufi_zikr_chant",
+          "name": "Sufi zikr chant (dhikr recitation)"
+        }
+      ],
+      "note": "Sufi chant source artists include devotional songs and naat performers, while the repository is explicitly congregational dhikr/zikr repetition. Chant and zikr are not automatically coextensive."
+    },
+    {
+      "genre": "swedish hardcore",
+      "every_noise_url": "https://everynoise.com/engenremap-swedishhardcore.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "d_beat_swedish",
+          "name": "D-beat (Swedish hardcore)"
+        }
+      ],
+      "note": "The repo explicitly represents Swedish D-beat/kängpunk; Swedish hardcore can also include non-D-beat forms, so a countrywide hardcore category is not an exact alias."
+    },
+    {
+      "genre": "taiko",
+      "every_noise_url": "https://everynoise.com/engenremap-taiko.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "japanese_matsuri_taiko",
+          "name": "Japanese matsuri festival drumming (祭, matsuri-bayashi)"
+        },
+        {
+          "id": "japanese_taiko_ensemble",
+          "name": "Japanese kumi-daiko (modern taiko ensemble)"
+        },
+        {
+          "id": "taiko_north_american",
+          "name": "Taiko (North American kumi-daiko)"
+        }
+      ],
+      "note": "Exact-name candidate is specifically North American kumi-daiko. Japanese ensemble/festival traditions also exist, but a generic umbrella equivalence should be reviewed."
+    },
+    {
+      "genre": "taiwanese pop",
+      "every_noise_url": "https://everynoise.com/engenremap-taiwanesepop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "taiwan_pop",
+          "name": "Taiwanese Mandopop (Taipei ballad industry)"
+        }
+      ],
+      "note": "Every Noise distinguishes taiwan pop from taiwanese pop; the latter contains Taiwanese-language artists including Shallow Levee and Chen Bai Tan. The repository taiwan_pop explicitly describes Mandarin Mandopop, so the two source labels must not be merged on geography alone."
+    },
+    {
+      "genre": "tar",
+      "every_noise_url": "https://everynoise.com/engenremap-tar.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "tar_persian_classical",
+          "name": "Tar (Persian Classical Lute)"
+        }
+      ],
+      "note": "Persian classical-lute repertoire is narrower than all tar traditions, including Azerbaijani variants."
+    },
+    {
+      "genre": "tennessee hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-tennesseehiphop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "memphis_rap_horrorcore",
+          "name": "Memphis rap (mid-1990s through 2000s Tennessee horrorcore)"
+        }
+      ],
+      "note": "Memphis rap is one Tennessee hip-hop scene, not the entire state's category."
+    },
+    {
+      "genre": "tibetan traditional",
+      "every_noise_url": "https://everynoise.com/engenremap-tibetantraditional.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "tibetan_traditional_secular",
+          "name": "Tibetan traditional secular song (nangma-töshé and dranyen song)"
+        }
+      ],
+      "note": "The repository explicitly limits itself to secular nangma-toshe and dranyen song. A broad Tibetan traditional label can include monastic and ritual forms, so it is not an exact synonym."
+    },
+    {
+      "genre": "traditional british folk",
+      "every_noise_url": "https://everynoise.com/engenremap-traditionalbritishfolk.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "english_traditional_folk",
+          "name": "Traditional English folk"
+        }
+      ],
+      "note": "The repo covers traditional English folk specifically. British folk can also encompass Scottish and Welsh traditions, so geography prevents an automatic alias."
+    },
+    {
+      "genre": "traditional scottish folk",
+      "every_noise_url": "https://everynoise.com/engenremap-traditionalscottishfolk.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "orkney_shetland_folk",
+          "name": "Orkney and Shetland folk"
+        },
+        {
+          "id": "scottish_gaelic_folk",
+          "name": "Scottish Gaelic folk song"
+        }
+      ],
+      "note": "Existing regional or Gaelic-language traditions are parts of Scottish folk; neither alone equals the full traditional Scottish folk label."
+    },
+    {
+      "genre": "turkish instrumental",
+      "every_noise_url": "https://everynoise.com/engenremap-turkishinstrumental.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "oyun_havasi",
+          "name": "Oyun Havası"
+        }
+      ],
+      "note": "Oyun Havası is a Turkish dance repertoire tradition, not all Turkish instrumental music."
+    },
+    {
+      "genre": "uk bass",
+      "every_noise_url": "https://everynoise.com/engenremap-ukbass.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "dubstep",
+          "name": "Dubstep"
+        }
+      ],
+      "note": "Dubstep is one style in the broader UK Bass electronic umbrella."
+    },
+    {
+      "genre": "underground hip hop",
+      "every_noise_url": "https://everynoise.com/engenremap-undergroundhiphop.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "cloud_rap",
+          "name": "Cloud rap"
+        }
+      ],
+      "note": "Cloud rap is one rap style that can be underground, not the broad Underground Hip Hop category."
+    },
+    {
+      "genre": "underground rap",
+      "every_noise_url": "https://everynoise.com/engenremap-undergroundrap.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "drumless_hip_hop",
+          "name": "Drumless Hip Hop"
+        },
+        {
+          "id": "sigilkore",
+          "name": "Sigilkore"
+        }
+      ],
+      "note": "Sigilkore and drumless hip hop are particular underground styles, not the entire Underground Rap category."
+    },
+    {
+      "genre": "villancicos",
+      "every_noise_url": "https://everynoise.com/engenremap-villancicos.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "spanish_baroque",
+          "name": "Spanish Baroque"
+        }
+      ],
+      "note": "Villancicos are a specific Spanish/Latin vocal form; generic Spanish Baroque is a wider period/tradition and mentions it only as repertoire."
+    },
+    {
+      "genre": "vocal harmony group",
+      "every_noise_url": "https://everynoise.com/engenremap-vocalharmonygroup.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "doo_wop",
+          "name": "Doo-wop"
+        }
+      ],
+      "note": "Doo-wop is a particular vocal-harmony genre, narrower than Vocal Harmony Group as a category."
+    },
+    {
+      "genre": "wave",
+      "every_noise_url": "https://everynoise.com/engenremap-wave.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "wave_electronic",
+          "name": "Wave (Hardwave)"
+        }
+      ],
+      "note": "Repo label says Wave (Hardwave), while source separately has wave and hardwave. Lineage discusses both; review category scope."
+    },
+    {
+      "genre": "west coast rap",
+      "every_noise_url": "https://everynoise.com/engenremap-westcoastrap.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "chicano_rap",
+          "name": "Chicano rap"
+        }
+      ],
+      "note": "Chicano rap is one West Coast-associated cultural scene; West Coast Rap is geographically broader."
+    },
+    {
+      "genre": "women's choir",
+      "every_noise_url": "https://everynoise.com/engenremap-womenschoir.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "bulgarian_womens_choir",
+          "name": "Bulgarian women's choir"
+        }
+      ],
+      "note": "Bulgarian women's choir is one regional vocal tradition, narrower than generic Women's Choir."
+    },
+    {
+      "genre": "worship",
+      "every_noise_url": "https://everynoise.com/engenremap-worship.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "contemporary_worship",
+          "name": "Contemporary Worship"
+        },
+        {
+          "id": "praise_and_worship",
+          "name": "Praise and Worship"
+        },
+        {
+          "id": "world_worship",
+          "name": "World worship (global contemporary worship)"
+        }
+      ],
+      "note": "Contemporary Worship is a particular modern Christian form and other religious candidates have distinct scopes; retain general Worship."
+    },
+    {
+      "genre": "zither",
+      "every_noise_url": "https://everynoise.com/engenremap-zither.html",
+      "status": "possible_overlap",
+      "match_basis": "",
+      "repo_matches": [],
+      "possible_repo_matches": [
+        {
+          "id": "guqin",
+          "name": "Gǔqín"
+        },
+        {
+          "id": "kantele_music",
+          "name": "Kantele music"
+        },
+        {
+          "id": "koto",
+          "name": "Koto"
+        }
+      ],
+      "note": "Zither is an instrument-family repertoire category spanning guqin, koto, kantele, qanun and other traditions; individual cultures are not synonyms of the umbrella."
+    }
+  ]
+}

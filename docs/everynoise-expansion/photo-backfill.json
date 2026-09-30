@@ -1,0 +1,422 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "count": 50,
+  "policy": "These genre definitions are already merged. Add researched, licensed, attributed tradition photos only; do not recreate their genres or count them among new allocations.",
+  "jobs": [
+    {
+      "job_id": "BF01",
+      "count": 25,
+      "ids": [
+        "ambient_country",
+        "ambient_folk",
+        "ambient_guitar",
+        "ambient_pop",
+        "ambient_post_rock",
+        "bass_house",
+        "g_house",
+        "ambient_dub_techno",
+        "hypnotic_techno",
+        "modular_techno",
+        "abstract_hip_hop",
+        "alternative_hip_hop",
+        "comedy_rap",
+        "dark_trap",
+        "christian_trap",
+        "action_rock",
+        "alternative_metal",
+        "black_speed_metal",
+        "atmospheric_post_metal",
+        "ambient_black_metal",
+        "afghan_pop",
+        "albanian_pop",
+        "armenian_pop",
+        "azeri_pop",
+        "burmese_pop"
+      ]
+    },
+    {
+      "job_id": "BF02",
+      "count": 25,
+      "ids": [
+        "ambient_idm",
+        "ambient_fusion",
+        "ambient_psychill",
+        "ambient_synth",
+        "space_ambient",
+        "detroit_house",
+        "piano_house",
+        "organic_house",
+        "speed_house",
+        "deep_disco_house",
+        "experimental_hip_hop",
+        "industrial_hip_hop",
+        "chill_abstract_hip_hop",
+        "trap_soul",
+        "uk_alternative_hip_hop",
+        "avant_garde_black_metal",
+        "dissonant_death_metal",
+        "cavernous_death_metal",
+        "cosmic_black_metal",
+        "folk_black_metal",
+        "georgian_pop",
+        "kazakh_pop",
+        "mongolian_pop",
+        "uzbek_pop",
+        "kyrgyz_pop"
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "id": "ambient_country",
+      "source_label": "ambient country",
+      "source_url": "https://everynoise.com/engenremap-ambientcountry.html",
+      "historical_ledger": "docs/everynoise-pilot/ambient.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "ambient_folk",
+      "source_label": "ambient folk",
+      "source_url": "https://everynoise.com/engenremap-ambientfolk.html",
+      "historical_ledger": "docs/everynoise-pilot/ambient.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "ambient_guitar",
+      "source_label": "ambient guitar",
+      "source_url": "https://everynoise.com/engenremap-ambientguitar.html",
+      "historical_ledger": "docs/everynoise-pilot/ambient.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "ambient_pop",
+      "source_label": "ambient pop",
+      "source_url": "https://everynoise.com/engenremap-ambientpop.html",
+      "historical_ledger": "docs/everynoise-pilot/ambient.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "ambient_post_rock",
+      "source_label": "ambient post-rock",
+      "source_url": "https://everynoise.com/engenremap-ambientpostrock.html",
+      "historical_ledger": "docs/everynoise-pilot/ambient.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "bass_house",
+      "source_label": "bass house",
+      "source_url": "https://everynoise.com/engenremap-basshouse.html",
+      "historical_ledger": "docs/everynoise-pilot/club.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "g_house",
+      "source_label": "g-house",
+      "source_url": "https://everynoise.com/engenremap-ghouse.html",
+      "historical_ledger": "docs/everynoise-pilot/club.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "ambient_dub_techno",
+      "source_label": "ambient dub techno",
+      "source_url": "https://everynoise.com/engenremap-ambientdubtechno.html",
+      "historical_ledger": "docs/everynoise-pilot/club.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "hypnotic_techno",
+      "source_label": "hypnotic techno",
+      "source_url": "https://everynoise.com/engenremap-hypnotictechno.html",
+      "historical_ledger": "docs/everynoise-pilot/club.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "modular_techno",
+      "source_label": "modular techno",
+      "source_url": "https://everynoise.com/engenremap-modulartechno.html",
+      "historical_ledger": "docs/everynoise-pilot/club.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "abstract_hip_hop",
+      "source_label": "abstract hip hop",
+      "source_url": "https://everynoise.com/engenremap-abstracthiphop.html",
+      "historical_ledger": "docs/everynoise-pilot/hiphop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "alternative_hip_hop",
+      "source_label": "alternative hip hop",
+      "source_url": "https://everynoise.com/engenremap-alternativehiphop.html",
+      "historical_ledger": "docs/everynoise-pilot/hiphop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "comedy_rap",
+      "source_label": "comedy rap",
+      "source_url": "https://everynoise.com/engenremap-comedyrap.html",
+      "historical_ledger": "docs/everynoise-pilot/hiphop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "dark_trap",
+      "source_label": "dark trap",
+      "source_url": "https://everynoise.com/engenremap-darktrap.html",
+      "historical_ledger": "docs/everynoise-pilot/hiphop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "christian_trap",
+      "source_label": "christian trap",
+      "source_url": "https://everynoise.com/engenremap-christiantrap.html",
+      "historical_ledger": "docs/everynoise-pilot/hiphop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "action_rock",
+      "source_label": "action rock",
+      "source_url": "https://everynoise.com/engenremap-actionrock.html",
+      "historical_ledger": "docs/everynoise-pilot/metal.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "alternative_metal",
+      "source_label": "alternative metal",
+      "source_url": "https://everynoise.com/engenremap-alternativemetal.html",
+      "historical_ledger": "docs/everynoise-pilot/metal.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "black_speed_metal",
+      "source_label": "black speed metal",
+      "source_url": "https://everynoise.com/engenremap-blackspeedmetal.html",
+      "historical_ledger": "docs/everynoise-pilot/metal.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "atmospheric_post_metal",
+      "source_label": "atmospheric post-metal",
+      "source_url": "https://everynoise.com/engenremap-atmosphericpostmetal.html",
+      "historical_ledger": "docs/everynoise-pilot/metal.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "ambient_black_metal",
+      "source_label": "ambient black metal",
+      "source_url": "https://everynoise.com/engenremap-ambientblackmetal.html",
+      "historical_ledger": "docs/everynoise-pilot/metal.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "afghan_pop",
+      "source_label": "afghan pop",
+      "source_url": "https://everynoise.com/engenremap-afghanpop.html",
+      "historical_ledger": "docs/everynoise-pilot/regional-pop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "albanian_pop",
+      "source_label": "albanian pop",
+      "source_url": "https://everynoise.com/engenremap-albanianpop.html",
+      "historical_ledger": "docs/everynoise-pilot/regional-pop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "armenian_pop",
+      "source_label": "armenian pop",
+      "source_url": "https://everynoise.com/engenremap-armenianpop.html",
+      "historical_ledger": "docs/everynoise-pilot/regional-pop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "azeri_pop",
+      "source_label": "azeri pop",
+      "source_url": "https://everynoise.com/engenremap-azeripop.html",
+      "historical_ledger": "docs/everynoise-pilot/regional-pop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "burmese_pop",
+      "source_label": "burmese pop",
+      "source_url": "https://everynoise.com/engenremap-burmesepop.html",
+      "historical_ledger": "docs/everynoise-pilot/regional-pop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "ambient_idm",
+      "source_label": "ambient idm",
+      "source_url": "https://everynoise.com/engenremap-ambientidm.html",
+      "historical_ledger": "docs/everynoise-batch-02/ambient.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "ambient_fusion",
+      "source_label": "ambient fusion",
+      "source_url": "https://everynoise.com/engenremap-ambientfusion.html",
+      "historical_ledger": "docs/everynoise-batch-02/ambient.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "ambient_psychill",
+      "source_label": "ambient psychill",
+      "source_url": "https://everynoise.com/engenremap-ambientpsychill.html",
+      "historical_ledger": "docs/everynoise-batch-02/ambient.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "ambient_synth",
+      "source_label": "ambient synth",
+      "source_url": "https://everynoise.com/engenremap-ambientsynth.html",
+      "historical_ledger": "docs/everynoise-batch-02/ambient.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "space_ambient",
+      "source_label": "space ambient",
+      "source_url": "https://everynoise.com/engenremap-spaceambient.html",
+      "historical_ledger": "docs/everynoise-batch-02/ambient.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "detroit_house",
+      "source_label": "detroit house",
+      "source_url": "https://everynoise.com/engenremap-detroithouse.html",
+      "historical_ledger": "docs/everynoise-batch-02/club.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "piano_house",
+      "source_label": "piano house",
+      "source_url": "https://everynoise.com/engenremap-pianohouse.html",
+      "historical_ledger": "docs/everynoise-batch-02/club.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "organic_house",
+      "source_label": "organic house",
+      "source_url": "https://everynoise.com/engenremap-organichouse.html",
+      "historical_ledger": "docs/everynoise-batch-02/club.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "speed_house",
+      "source_label": "speed house",
+      "source_url": "https://everynoise.com/engenremap-speedhouse.html",
+      "historical_ledger": "docs/everynoise-batch-02/club.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "deep_disco_house",
+      "source_label": "deep disco house",
+      "source_url": "https://everynoise.com/engenremap-deepdiscohouse.html",
+      "historical_ledger": "docs/everynoise-batch-02/club.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "experimental_hip_hop",
+      "source_label": "experimental hip hop",
+      "source_url": "https://everynoise.com/engenremap-experimentalhiphop.html",
+      "historical_ledger": "docs/everynoise-batch-02/hiphop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "industrial_hip_hop",
+      "source_label": "industrial hip hop",
+      "source_url": "https://everynoise.com/engenremap-industrialhiphop.html",
+      "historical_ledger": "docs/everynoise-batch-02/hiphop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "chill_abstract_hip_hop",
+      "source_label": "chill abstract hip hop",
+      "source_url": "https://everynoise.com/engenremap-chillabstracthiphop.html",
+      "historical_ledger": "docs/everynoise-batch-02/hiphop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "trap_soul",
+      "source_label": "trap soul",
+      "source_url": "https://everynoise.com/engenremap-trapsoul.html",
+      "historical_ledger": "docs/everynoise-batch-02/hiphop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "uk_alternative_hip_hop",
+      "source_label": "uk alternative hip hop",
+      "source_url": "https://everynoise.com/engenremap-ukalternativehiphop.html",
+      "historical_ledger": "docs/everynoise-batch-02/hiphop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "avant_garde_black_metal",
+      "source_label": "avant-garde black metal",
+      "source_url": "https://everynoise.com/engenremap-avantgardeblackmetal.html",
+      "historical_ledger": "docs/everynoise-batch-02/metal.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "dissonant_death_metal",
+      "source_label": "dissonant death metal",
+      "source_url": "https://everynoise.com/engenremap-dissonantdeathmetal.html",
+      "historical_ledger": "docs/everynoise-batch-02/metal.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "cavernous_death_metal",
+      "source_label": "cavernous death metal",
+      "source_url": "https://everynoise.com/engenremap-cavernousdeathmetal.html",
+      "historical_ledger": "docs/everynoise-batch-02/metal.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "cosmic_black_metal",
+      "source_label": "cosmic black metal",
+      "source_url": "https://everynoise.com/engenremap-cosmicblackmetal.html",
+      "historical_ledger": "docs/everynoise-batch-02/metal.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "folk_black_metal",
+      "source_label": "folk black metal",
+      "source_url": "https://everynoise.com/engenremap-folkblackmetal.html",
+      "historical_ledger": "docs/everynoise-batch-02/metal.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "georgian_pop",
+      "source_label": "georgian pop",
+      "source_url": "https://everynoise.com/engenremap-georgianpop.html",
+      "historical_ledger": "docs/everynoise-batch-02/regional-pop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "kazakh_pop",
+      "source_label": "kazakh pop",
+      "source_url": "https://everynoise.com/engenremap-kazakhpop.html",
+      "historical_ledger": "docs/everynoise-batch-02/regional-pop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "mongolian_pop",
+      "source_label": "mongolian pop",
+      "source_url": "https://everynoise.com/engenremap-mongolianpop.html",
+      "historical_ledger": "docs/everynoise-batch-02/regional-pop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "uzbek_pop",
+      "source_label": "uzbek pop",
+      "source_url": "https://everynoise.com/engenremap-uzbekpop.html",
+      "historical_ledger": "docs/everynoise-batch-02/regional-pop.json",
+      "photo_present_at_baseline": false
+    },
+    {
+      "id": "kyrgyz_pop",
+      "source_label": "kyrgyz pop",
+      "source_url": "https://everynoise.com/engenremap-kyrgyzpop.html",
+      "historical_ledger": "docs/everynoise-batch-02/regional-pop.json",
+      "photo_present_at_baseline": false
+    }
+  ]
+}

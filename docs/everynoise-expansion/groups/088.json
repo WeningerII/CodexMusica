@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "088",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["jazz and swing", "classical and vocal ensemble names"],
+  "entries": [
+    {
+      "source_label": "spanish jazz",
+      "source_url": "https://everynoise.com/engenremap-spanishjazz.html",
+      "suggested_id": "spanish_jazz",
+      "allocation_ordinal": 2176
+    },
+    {
+      "source_label": "swedish jazz",
+      "source_url": "https://everynoise.com/engenremap-swedishjazz.html",
+      "suggested_id": "swedish_jazz",
+      "allocation_ordinal": 2177
+    },
+    {
+      "source_label": "swedish jazz orkester",
+      "source_url": "https://everynoise.com/engenremap-swedishjazzorkester.html",
+      "suggested_id": "swedish_jazz_orkester",
+      "allocation_ordinal": 2178
+    },
+    {
+      "source_label": "swing",
+      "source_url": "https://everynoise.com/engenremap-swing.html",
+      "suggested_id": "swing",
+      "allocation_ordinal": 2179
+    },
+    {
+      "source_label": "swing italiano",
+      "source_url": "https://everynoise.com/engenremap-swingitaliano.html",
+      "suggested_id": "swing_italiano",
+      "allocation_ordinal": 2180
+    },
+    {
+      "source_label": "swiss jazz",
+      "source_url": "https://everynoise.com/engenremap-swissjazz.html",
+      "suggested_id": "swiss_jazz",
+      "allocation_ordinal": 2181
+    },
+    {
+      "source_label": "trad jazz catala",
+      "source_url": "https://everynoise.com/engenremap-tradjazzcatala.html",
+      "suggested_id": "trad_jazz_catala",
+      "allocation_ordinal": 2182
+    },
+    {
+      "source_label": "turkish jazz",
+      "source_url": "https://everynoise.com/engenremap-turkishjazz.html",
+      "suggested_id": "turkish_jazz",
+      "allocation_ordinal": 2183
+    },
+    {
+      "source_label": "turkish modern jazz",
+      "source_url": "https://everynoise.com/engenremap-turkishmodernjazz.html",
+      "suggested_id": "turkish_modern_jazz",
+      "allocation_ordinal": 2184
+    },
+    {
+      "source_label": "uk contemporary jazz",
+      "source_url": "https://everynoise.com/engenremap-ukcontemporaryjazz.html",
+      "suggested_id": "uk_contemporary_jazz",
+      "allocation_ordinal": 2185
+    },
+    {
+      "source_label": "vintage finnish jazz",
+      "source_url": "https://everynoise.com/engenremap-vintagefinnishjazz.html",
+      "suggested_id": "vintage_finnish_jazz",
+      "allocation_ordinal": 2186
+    },
+    {
+      "source_label": "vintage jazz",
+      "source_url": "https://everynoise.com/engenremap-vintagejazz.html",
+      "suggested_id": "vintage_jazz",
+      "allocation_ordinal": 2187
+    },
+    {
+      "source_label": "vocal jazz",
+      "source_url": "https://everynoise.com/engenremap-vocaljazz.html",
+      "suggested_id": "vocal_jazz",
+      "allocation_ordinal": 2188
+    },
+    {
+      "source_label": "21st century classical",
+      "source_url": "https://everynoise.com/engenremap-21stcenturyclassical.html",
+      "suggested_id": "21st_century_classical",
+      "allocation_ordinal": 2189
+    },
+    {
+      "source_label": "african-american classical",
+      "source_url": "https://everynoise.com/engenremap-africanamericanclassical.html",
+      "suggested_id": "african_american_classical",
+      "allocation_ordinal": 2190
+    },
+    {
+      "source_label": "american 21st century classical",
+      "source_url": "https://everynoise.com/engenremap-american21stcenturyclassical.html",
+      "suggested_id": "american_21st_century_classical",
+      "allocation_ordinal": 2191
+    },
+    {
+      "source_label": "american choir",
+      "source_url": "https://everynoise.com/engenremap-americanchoir.html",
+      "suggested_id": "american_choir",
+      "allocation_ordinal": 2192
+    },
+    {
+      "source_label": "american classical piano",
+      "source_url": "https://everynoise.com/engenremap-americanclassicalpiano.html",
+      "suggested_id": "american_classical_piano",
+      "allocation_ordinal": 2193
+    },
+    {
+      "source_label": "american contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-americancontemporaryclassical.html",
+      "suggested_id": "american_contemporary_classical",
+      "allocation_ordinal": 2194
+    },
+    {
+      "source_label": "american modern classical",
+      "source_url": "https://everynoise.com/engenremap-americanmodernclassical.html",
+      "suggested_id": "american_modern_classical",
+      "allocation_ordinal": 2195
+    },
+    {
+      "source_label": "american orchestra",
+      "source_url": "https://everynoise.com/engenremap-americanorchestra.html",
+      "suggested_id": "american_orchestra",
+      "allocation_ordinal": 2196
+    },
+    {
+      "source_label": "andalusian classical",
+      "source_url": "https://everynoise.com/engenremap-andalusianclassical.html",
+      "suggested_id": "andalusian_classical",
+      "allocation_ordinal": 2197
+    },
+    {
+      "source_label": "australian choir",
+      "source_url": "https://everynoise.com/engenremap-australianchoir.html",
+      "suggested_id": "australian_choir",
+      "allocation_ordinal": 2198
+    },
+    {
+      "source_label": "australian classical",
+      "source_url": "https://everynoise.com/engenremap-australianclassical.html",
+      "suggested_id": "australian_classical",
+      "allocation_ordinal": 2199
+    },
+    {
+      "source_label": "australian classical piano",
+      "source_url": "https://everynoise.com/engenremap-australianclassicalpiano.html",
+      "suggested_id": "australian_classical_piano",
+      "allocation_ordinal": 2200
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "101",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["folk and country names"],
+  "entries": [
+    {
+      "source_label": "pakistani folk",
+      "source_url": "https://everynoise.com/engenremap-pakistanifolk.html",
+      "suggested_id": "pakistani_folk",
+      "allocation_ordinal": 2501
+    },
+    {
+      "source_label": "pinoy singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-pinoysingersongwriter.html",
+      "suggested_id": "pinoy_singer_songwriter",
+      "allocation_ordinal": 2502
+    },
+    {
+      "source_label": "protest folk",
+      "source_url": "https://everynoise.com/engenremap-protestfolk.html",
+      "suggested_id": "protest_folk",
+      "allocation_ordinal": 2503
+    },
+    {
+      "source_label": "puerto rican folk",
+      "source_url": "https://everynoise.com/engenremap-puertoricanfolk.html",
+      "suggested_id": "puerto_rican_folk",
+      "allocation_ordinal": 2504
+    },
+    {
+      "source_label": "queer country",
+      "source_url": "https://everynoise.com/engenremap-queercountry.html",
+      "suggested_id": "queer_country",
+      "allocation_ordinal": 2505
+    },
+    {
+      "source_label": "rez country",
+      "source_url": "https://everynoise.com/engenremap-rezcountry.html",
+      "suggested_id": "rez_country",
+      "allocation_ordinal": 2506
+    },
+    {
+      "source_label": "romanian folk",
+      "source_url": "https://everynoise.com/engenremap-romanianfolk.html",
+      "suggested_id": "romanian_folk",
+      "allocation_ordinal": 2507
+    },
+    {
+      "source_label": "roots americana",
+      "source_url": "https://everynoise.com/engenremap-rootsamericana.html",
+      "suggested_id": "roots_americana",
+      "allocation_ordinal": 2508
+    },
+    {
+      "source_label": "rune folk",
+      "source_url": "https://everynoise.com/engenremap-runefolk.html",
+      "suggested_id": "rune_folk",
+      "allocation_ordinal": 2509
+    },
+    {
+      "source_label": "scottish americana",
+      "source_url": "https://everynoise.com/engenremap-scottishamericana.html",
+      "suggested_id": "scottish_americana",
+      "allocation_ordinal": 2510
+    },
+    {
+      "source_label": "scottish folk",
+      "source_url": "https://everynoise.com/engenremap-scottishfolk.html",
+      "suggested_id": "scottish_folk",
+      "allocation_ordinal": 2511
+    },
+    {
+      "source_label": "scottish indie folk",
+      "source_url": "https://everynoise.com/engenremap-scottishindiefolk.html",
+      "suggested_id": "scottish_indie_folk",
+      "allocation_ordinal": 2512
+    },
+    {
+      "source_label": "scottish singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-scottishsingersongwriter.html",
+      "suggested_id": "scottish_singer_songwriter",
+      "allocation_ordinal": 2513
+    },
+    {
+      "source_label": "serbian folk",
+      "source_url": "https://everynoise.com/engenremap-serbianfolk.html",
+      "suggested_id": "serbian_folk",
+      "allocation_ordinal": 2514
+    },
+    {
+      "source_label": "singaporean singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-singaporeansingersongwriter.html",
+      "suggested_id": "singaporean_singer_songwriter",
+      "allocation_ordinal": 2515
+    },
+    {
+      "source_label": "slovak folk",
+      "source_url": "https://everynoise.com/engenremap-slovakfolk.html",
+      "suggested_id": "slovak_folk",
+      "allocation_ordinal": 2516
+    },
+    {
+      "source_label": "slovenian folk",
+      "source_url": "https://everynoise.com/engenremap-slovenianfolk.html",
+      "suggested_id": "slovenian_folk",
+      "allocation_ordinal": 2517
+    },
+    {
+      "source_label": "south african country",
+      "source_url": "https://everynoise.com/engenremap-southafricancountry.html",
+      "suggested_id": "south_african_country",
+      "allocation_ordinal": 2518
+    },
+    {
+      "source_label": "southern americana",
+      "source_url": "https://everynoise.com/engenremap-southernamericana.html",
+      "suggested_id": "southern_americana",
+      "allocation_ordinal": 2519
+    },
+    {
+      "source_label": "spanish folk",
+      "source_url": "https://everynoise.com/engenremap-spanishfolk.html",
+      "suggested_id": "spanish_folk",
+      "allocation_ordinal": 2520
+    },
+    {
+      "source_label": "spanish indie folk",
+      "source_url": "https://everynoise.com/engenremap-spanishindiefolk.html",
+      "suggested_id": "spanish_indie_folk",
+      "allocation_ordinal": 2521
+    },
+    {
+      "source_label": "string folk",
+      "source_url": "https://everynoise.com/engenremap-stringfolk.html",
+      "suggested_id": "string_folk",
+      "allocation_ordinal": 2522
+    },
+    {
+      "source_label": "swedish americana",
+      "source_url": "https://everynoise.com/engenremap-swedishamericana.html",
+      "suggested_id": "swedish_americana",
+      "allocation_ordinal": 2523
+    },
+    {
+      "source_label": "swedish country",
+      "source_url": "https://everynoise.com/engenremap-swedishcountry.html",
+      "suggested_id": "swedish_country",
+      "allocation_ordinal": 2524
+    },
+    {
+      "source_label": "swedish indie folk",
+      "source_url": "https://everynoise.com/engenremap-swedishindiefolk.html",
+      "suggested_id": "swedish_indie_folk",
+      "allocation_ordinal": 2525
+    }
+  ]
+}

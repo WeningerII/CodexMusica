@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "024",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "st louis rap",
+      "source_url": "https://everynoise.com/engenremap-stlouisrap.html",
+      "suggested_id": "st_louis_rap",
+      "allocation_ordinal": 576
+    },
+    {
+      "source_label": "sudanese hip hop",
+      "source_url": "https://everynoise.com/engenremap-sudanesehiphop.html",
+      "suggested_id": "sudanese_hip_hop",
+      "allocation_ordinal": 577
+    },
+    {
+      "source_label": "surinamese hip hop",
+      "source_url": "https://everynoise.com/engenremap-surinamesehiphop.html",
+      "suggested_id": "surinamese_hip_hop",
+      "allocation_ordinal": 578
+    },
+    {
+      "source_label": "swazi hip hop",
+      "source_url": "https://everynoise.com/engenremap-swazihiphop.html",
+      "suggested_id": "swazi_hip_hop",
+      "allocation_ordinal": 579
+    },
+    {
+      "source_label": "swedish drill",
+      "source_url": "https://everynoise.com/engenremap-swedishdrill.html",
+      "suggested_id": "swedish_drill",
+      "allocation_ordinal": 580
+    },
+    {
+      "source_label": "swedish gangsta rap",
+      "source_url": "https://everynoise.com/engenremap-swedishgangstarap.html",
+      "suggested_id": "swedish_gangsta_rap",
+      "allocation_ordinal": 581
+    },
+    {
+      "source_label": "swedish hip hop",
+      "source_url": "https://everynoise.com/engenremap-swedishhiphop.html",
+      "suggested_id": "swedish_hip_hop",
+      "allocation_ordinal": 582
+    },
+    {
+      "source_label": "swedish pop rap",
+      "source_url": "https://everynoise.com/engenremap-swedishpoprap.html",
+      "suggested_id": "swedish_pop_rap",
+      "allocation_ordinal": 583
+    },
+    {
+      "source_label": "swedish trap",
+      "source_url": "https://everynoise.com/engenremap-swedishtrap.html",
+      "suggested_id": "swedish_trap",
+      "allocation_ordinal": 584
+    },
+    {
+      "source_label": "swedish trap pop",
+      "source_url": "https://everynoise.com/engenremap-swedishtrappop.html",
+      "suggested_id": "swedish_trap_pop",
+      "allocation_ordinal": 585
+    },
+    {
+      "source_label": "swedish underground rap",
+      "source_url": "https://everynoise.com/engenremap-swedishundergroundrap.html",
+      "suggested_id": "swedish_underground_rap",
+      "allocation_ordinal": 586
+    },
+    {
+      "source_label": "swiss hip hop",
+      "source_url": "https://everynoise.com/engenremap-swisshiphop.html",
+      "suggested_id": "swiss_hip_hop",
+      "allocation_ordinal": 587
+    },
+    {
+      "source_label": "swiss trap",
+      "source_url": "https://everynoise.com/engenremap-swisstrap.html",
+      "suggested_id": "swiss_trap",
+      "allocation_ordinal": 588
+    },
+    {
+      "source_label": "syrian hip hop",
+      "source_url": "https://everynoise.com/engenremap-syrianhiphop.html",
+      "suggested_id": "syrian_hip_hop",
+      "allocation_ordinal": 589
+    },
+    {
+      "source_label": "taiwan hip hop",
+      "source_url": "https://everynoise.com/engenremap-taiwanhiphop.html",
+      "suggested_id": "taiwan_hip_hop",
+      "allocation_ordinal": 590
+    },
+    {
+      "source_label": "tamaulipas rap",
+      "source_url": "https://everynoise.com/engenremap-tamaulipasrap.html",
+      "suggested_id": "tamaulipas_rap",
+      "allocation_ordinal": 591
+    },
+    {
+      "source_label": "tamil hip hop",
+      "source_url": "https://everynoise.com/engenremap-tamilhiphop.html",
+      "suggested_id": "tamil_hip_hop",
+      "allocation_ordinal": 592
+    },
+    {
+      "source_label": "tanzanian hip hop",
+      "source_url": "https://everynoise.com/engenremap-tanzanianhiphop.html",
+      "suggested_id": "tanzanian_hip_hop",
+      "allocation_ordinal": 593
+    },
+    {
+      "source_label": "telugu hip hop",
+      "source_url": "https://everynoise.com/engenremap-teluguhiphop.html",
+      "suggested_id": "telugu_hip_hop",
+      "allocation_ordinal": 594
+    },
+    {
+      "source_label": "texas latin rap",
+      "source_url": "https://everynoise.com/engenremap-texaslatinrap.html",
+      "suggested_id": "texas_latin_rap",
+      "allocation_ordinal": 595
+    },
+    {
+      "source_label": "thai hip hop",
+      "source_url": "https://everynoise.com/engenremap-thaihiphop.html",
+      "suggested_id": "thai_hip_hop",
+      "allocation_ordinal": 596
+    },
+    {
+      "source_label": "thai pop rap",
+      "source_url": "https://everynoise.com/engenremap-thaipoprap.html",
+      "suggested_id": "thai_pop_rap",
+      "allocation_ordinal": 597
+    },
+    {
+      "source_label": "thai trap",
+      "source_url": "https://everynoise.com/engenremap-thaitrap.html",
+      "suggested_id": "thai_trap",
+      "allocation_ordinal": 598
+    },
+    {
+      "source_label": "tibetan hip hop",
+      "source_url": "https://everynoise.com/engenremap-tibetanhiphop.html",
+      "suggested_id": "tibetan_hip_hop",
+      "allocation_ordinal": 599
+    },
+    {
+      "source_label": "toronto rap",
+      "source_url": "https://everynoise.com/engenremap-torontorap.html",
+      "suggested_id": "toronto_rap",
+      "allocation_ordinal": 600
+    }
+  ]
+}

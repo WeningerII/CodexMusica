@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "128",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "denver indie",
+      "source_url": "https://everynoise.com/engenremap-denverindie.html",
+      "suggested_id": "denver_indie",
+      "allocation_ordinal": 3176
+    },
+    {
+      "source_label": "derby indie",
+      "source_url": "https://everynoise.com/engenremap-derbyindie.html",
+      "suggested_id": "derby_indie",
+      "allocation_ordinal": 3177
+    },
+    {
+      "source_label": "derry indie",
+      "source_url": "https://everynoise.com/engenremap-derryindie.html",
+      "suggested_id": "derry_indie",
+      "allocation_ordinal": 3178
+    },
+    {
+      "source_label": "dessin anime",
+      "source_url": "https://everynoise.com/engenremap-dessinanime.html",
+      "suggested_id": "dessin_anime",
+      "allocation_ordinal": 3179
+    },
+    {
+      "source_label": "detroit indie",
+      "source_url": "https://everynoise.com/engenremap-detroitindie.html",
+      "suggested_id": "detroit_indie",
+      "allocation_ordinal": 3180
+    },
+    {
+      "source_label": "detske pesnicky",
+      "source_url": "https://everynoise.com/engenremap-detskepesnicky.html",
+      "suggested_id": "detske_pesnicky",
+      "allocation_ordinal": 3181
+    },
+    {
+      "source_label": "detske pisnicky",
+      "source_url": "https://everynoise.com/engenremap-detskepisnicky.html",
+      "suggested_id": "detske_pisnicky",
+      "allocation_ordinal": 3182
+    },
+    {
+      "source_label": "detski pesnichki",
+      "source_url": "https://everynoise.com/engenremap-detskipesnichki.html",
+      "suggested_id": "detski_pesnichki",
+      "allocation_ordinal": 3183
+    },
+    {
+      "source_label": "detskie pesni",
+      "source_url": "https://everynoise.com/engenremap-detskiepesni.html",
+      "suggested_id": "detskie_pesni",
+      "allocation_ordinal": 3184
+    },
+    {
+      "source_label": "detskie rasskazy",
+      "source_url": "https://everynoise.com/engenremap-detskierasskazy.html",
+      "suggested_id": "detskie_rasskazy",
+      "allocation_ordinal": 3185
+    },
+    {
+      "source_label": "devon indie",
+      "source_url": "https://everynoise.com/engenremap-devonindie.html",
+      "suggested_id": "devon_indie",
+      "allocation_ordinal": 3186
+    },
+    {
+      "source_label": "dicsoites",
+      "source_url": "https://everynoise.com/engenremap-dicsoites.html",
+      "suggested_id": "dicsoites",
+      "allocation_ordinal": 3187
+    },
+    {
+      "source_label": "discofox",
+      "source_url": "https://everynoise.com/engenremap-discofox.html",
+      "suggested_id": "discofox",
+      "allocation_ordinal": 3188
+    },
+    {
+      "source_label": "djecje pjesme",
+      "source_url": "https://everynoise.com/engenremap-djecjepjesme.html",
+      "suggested_id": "djecje_pjesme",
+      "allocation_ordinal": 3189
+    },
+    {
+      "source_label": "djembe",
+      "source_url": "https://everynoise.com/engenremap-djembe.html",
+      "suggested_id": "djembe",
+      "allocation_ordinal": 3190
+    },
+    {
+      "source_label": "dominican indie",
+      "source_url": "https://everynoise.com/engenremap-dominicanindie.html",
+      "suggested_id": "dominican_indie",
+      "allocation_ordinal": 3191
+    },
+    {
+      "source_label": "dong-yo",
+      "source_url": "https://everynoise.com/engenremap-dongyo.html",
+      "suggested_id": "dong_yo",
+      "allocation_ordinal": 3192
+    },
+    {
+      "source_label": "doomgaze",
+      "source_url": "https://everynoise.com/engenremap-doomgaze.html",
+      "suggested_id": "doomgaze",
+      "allocation_ordinal": 3193
+    },
+    {
+      "source_label": "dortmund indie",
+      "source_url": "https://everynoise.com/engenremap-dortmundindie.html",
+      "suggested_id": "dortmund_indie",
+      "allocation_ordinal": 3194
+    },
+    {
+      "source_label": "double drumming",
+      "source_url": "https://everynoise.com/engenremap-doubledrumming.html",
+      "suggested_id": "double_drumming",
+      "allocation_ordinal": 3195
+    },
+    {
+      "source_label": "downtempo fusion",
+      "source_url": "https://everynoise.com/engenremap-downtempofusion.html",
+      "suggested_id": "downtempo_fusion",
+      "allocation_ordinal": 3196
+    },
+    {
+      "source_label": "draga",
+      "source_url": "https://everynoise.com/engenremap-draga.html",
+      "suggested_id": "draga",
+      "allocation_ordinal": 3197
+    },
+    {
+      "source_label": "dragspel",
+      "source_url": "https://everynoise.com/engenremap-dragspel.html",
+      "suggested_id": "dragspel",
+      "allocation_ordinal": 3198
+    },
+    {
+      "source_label": "drama",
+      "source_url": "https://everynoise.com/engenremap-drama.html",
+      "suggested_id": "drama",
+      "allocation_ordinal": 3199
+    },
+    {
+      "source_label": "dreamgaze",
+      "source_url": "https://everynoise.com/engenremap-dreamgaze.html",
+      "suggested_id": "dreamgaze",
+      "allocation_ordinal": 3200
+    }
+  ]
+}

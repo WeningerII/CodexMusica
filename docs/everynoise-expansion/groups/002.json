@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "002",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["house"],
+  "entries": [
+    {
+      "source_label": "canadian house",
+      "source_url": "https://everynoise.com/engenremap-canadianhouse.html",
+      "suggested_id": "canadian_house",
+      "allocation_ordinal": 26
+    },
+    {
+      "source_label": "chill house",
+      "source_url": "https://everynoise.com/engenremap-chillhouse.html",
+      "suggested_id": "chill_house",
+      "allocation_ordinal": 27
+    },
+    {
+      "source_label": "classic house",
+      "source_url": "https://everynoise.com/engenremap-classichouse.html",
+      "suggested_id": "classic_house",
+      "allocation_ordinal": 28
+    },
+    {
+      "source_label": "classic progressive house",
+      "source_url": "https://everynoise.com/engenremap-classicprogressivehouse.html",
+      "suggested_id": "classic_progressive_house",
+      "allocation_ordinal": 29
+    },
+    {
+      "source_label": "dark progressive house",
+      "source_url": "https://everynoise.com/engenremap-darkprogressivehouse.html",
+      "suggested_id": "dark_progressive_house",
+      "allocation_ordinal": 30
+    },
+    {
+      "source_label": "deep deep house",
+      "source_url": "https://everynoise.com/engenremap-deepdeephouse.html",
+      "suggested_id": "deep_deep_house",
+      "allocation_ordinal": 31
+    },
+    {
+      "source_label": "deep deep tech house",
+      "source_url": "https://everynoise.com/engenremap-deepdeeptechhouse.html",
+      "suggested_id": "deep_deep_tech_house",
+      "allocation_ordinal": 32
+    },
+    {
+      "source_label": "deep euro house",
+      "source_url": "https://everynoise.com/engenremap-deepeurohouse.html",
+      "suggested_id": "deep_euro_house",
+      "allocation_ordinal": 33
+    },
+    {
+      "source_label": "deep funk house",
+      "source_url": "https://everynoise.com/engenremap-deepfunkhouse.html",
+      "suggested_id": "deep_funk_house",
+      "allocation_ordinal": 34
+    },
+    {
+      "source_label": "deep groove house",
+      "source_url": "https://everynoise.com/engenremap-deepgroovehouse.html",
+      "suggested_id": "deep_groove_house",
+      "allocation_ordinal": 35
+    },
+    {
+      "source_label": "deep progressive house",
+      "source_url": "https://everynoise.com/engenremap-deepprogressivehouse.html",
+      "suggested_id": "deep_progressive_house",
+      "allocation_ordinal": 36
+    },
+    {
+      "source_label": "deep soul house",
+      "source_url": "https://everynoise.com/engenremap-deepsoulhouse.html",
+      "suggested_id": "deep_soul_house",
+      "allocation_ordinal": 37
+    },
+    {
+      "source_label": "deep tech house",
+      "source_url": "https://everynoise.com/engenremap-deeptechhouse.html",
+      "suggested_id": "deep_tech_house",
+      "allocation_ordinal": 38
+    },
+    {
+      "source_label": "deep tropical house",
+      "source_url": "https://everynoise.com/engenremap-deeptropicalhouse.html",
+      "suggested_id": "deep_tropical_house",
+      "allocation_ordinal": 39
+    },
+    {
+      "source_label": "deep vocal house",
+      "source_url": "https://everynoise.com/engenremap-deepvocalhouse.html",
+      "suggested_id": "deep_vocal_house",
+      "allocation_ordinal": 40
+    },
+    {
+      "source_label": "dutch tech house",
+      "source_url": "https://everynoise.com/engenremap-dutchtechhouse.html",
+      "suggested_id": "dutch_tech_house",
+      "allocation_ordinal": 41
+    },
+    {
+      "source_label": "experimental house",
+      "source_url": "https://everynoise.com/engenremap-experimentalhouse.html",
+      "suggested_id": "experimental_house",
+      "allocation_ordinal": 42
+    },
+    {
+      "source_label": "french tech house",
+      "source_url": "https://everynoise.com/engenremap-frenchtechhouse.html",
+      "suggested_id": "french_tech_house",
+      "allocation_ordinal": 43
+    },
+    {
+      "source_label": "funky tech house",
+      "source_url": "https://everynoise.com/engenremap-funkytechhouse.html",
+      "suggested_id": "funky_tech_house",
+      "allocation_ordinal": 44
+    },
+    {
+      "source_label": "german house",
+      "source_url": "https://everynoise.com/engenremap-germanhouse.html",
+      "suggested_id": "german_house",
+      "allocation_ordinal": 45
+    },
+    {
+      "source_label": "german tech house",
+      "source_url": "https://everynoise.com/engenremap-germantechhouse.html",
+      "suggested_id": "german_tech_house",
+      "allocation_ordinal": 46
+    },
+    {
+      "source_label": "greek house",
+      "source_url": "https://everynoise.com/engenremap-greekhouse.html",
+      "suggested_id": "greek_house",
+      "allocation_ordinal": 47
+    },
+    {
+      "source_label": "house argentino",
+      "source_url": "https://everynoise.com/engenremap-houseargentino.html",
+      "suggested_id": "house_argentino",
+      "allocation_ordinal": 48
+    },
+    {
+      "source_label": "italian tech house",
+      "source_url": "https://everynoise.com/engenremap-italiantechhouse.html",
+      "suggested_id": "italian_tech_house",
+      "allocation_ordinal": 49
+    },
+    {
+      "source_label": "japanese house",
+      "source_url": "https://everynoise.com/engenremap-japanesehouse.html",
+      "suggested_id": "japanese_house",
+      "allocation_ordinal": 50
+    }
+  ]
+}

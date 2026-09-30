@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "059",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names"],
+  "entries": [
+    {
+      "source_label": "panamanian rock",
+      "source_url": "https://everynoise.com/engenremap-panamanianrock.html",
+      "suggested_id": "panamanian_rock",
+      "allocation_ordinal": 1451
+    },
+    {
+      "source_label": "paraguayan rock",
+      "source_url": "https://everynoise.com/engenremap-paraguayanrock.html",
+      "suggested_id": "paraguayan_rock",
+      "allocation_ordinal": 1452
+    },
+    {
+      "source_label": "persian rock",
+      "source_url": "https://everynoise.com/engenremap-persianrock.html",
+      "suggested_id": "persian_rock",
+      "allocation_ordinal": 1453
+    },
+    {
+      "source_label": "peruvian rock",
+      "source_url": "https://everynoise.com/engenremap-peruvianrock.html",
+      "suggested_id": "peruvian_rock",
+      "allocation_ordinal": 1454
+    },
+    {
+      "source_label": "pinoy alternative rock",
+      "source_url": "https://everynoise.com/engenremap-pinoyalternativerock.html",
+      "suggested_id": "pinoy_alternative_rock",
+      "allocation_ordinal": 1455
+    },
+    {
+      "source_label": "pinoy indie rock",
+      "source_url": "https://everynoise.com/engenremap-pinoyindierock.html",
+      "suggested_id": "pinoy_indie_rock",
+      "allocation_ordinal": 1456
+    },
+    {
+      "source_label": "pinoy rock",
+      "source_url": "https://everynoise.com/engenremap-pinoyrock.html",
+      "suggested_id": "pinoy_rock",
+      "allocation_ordinal": 1457
+    },
+    {
+      "source_label": "pinoy shoegaze",
+      "source_url": "https://everynoise.com/engenremap-pinoyshoegaze.html",
+      "suggested_id": "pinoy_shoegaze",
+      "allocation_ordinal": 1458
+    },
+    {
+      "source_label": "pittsburgh indie rock",
+      "source_url": "https://everynoise.com/engenremap-pittsburghindierock.html",
+      "suggested_id": "pittsburgh_indie_rock",
+      "allocation_ordinal": 1459
+    },
+    {
+      "source_label": "pittsburgh rock",
+      "source_url": "https://everynoise.com/engenremap-pittsburghrock.html",
+      "suggested_id": "pittsburgh_rock",
+      "allocation_ordinal": 1460
+    },
+    {
+      "source_label": "polish alternative rock",
+      "source_url": "https://everynoise.com/engenremap-polishalternativerock.html",
+      "suggested_id": "polish_alternative_rock",
+      "allocation_ordinal": 1461
+    },
+    {
+      "source_label": "polish indie rock",
+      "source_url": "https://everynoise.com/engenremap-polishindierock.html",
+      "suggested_id": "polish_indie_rock",
+      "allocation_ordinal": 1462
+    },
+    {
+      "source_label": "polish noise rock",
+      "source_url": "https://everynoise.com/engenremap-polishnoiserock.html",
+      "suggested_id": "polish_noise_rock",
+      "allocation_ordinal": 1463
+    },
+    {
+      "source_label": "polish post-rock",
+      "source_url": "https://everynoise.com/engenremap-polishpostrock.html",
+      "suggested_id": "polish_post_rock",
+      "allocation_ordinal": 1464
+    },
+    {
+      "source_label": "polish rock",
+      "source_url": "https://everynoise.com/engenremap-polishrock.html",
+      "suggested_id": "polish_rock",
+      "allocation_ordinal": 1465
+    },
+    {
+      "source_label": "pop rock",
+      "source_url": "https://everynoise.com/engenremap-poprock.html",
+      "suggested_id": "pop_rock",
+      "allocation_ordinal": 1466
+    },
+    {
+      "source_label": "pop rock brasileiro",
+      "source_url": "https://everynoise.com/engenremap-poprockbrasileiro.html",
+      "suggested_id": "pop_rock_brasileiro",
+      "allocation_ordinal": 1467
+    },
+    {
+      "source_label": "portuguese indie rock",
+      "source_url": "https://everynoise.com/engenremap-portugueseindierock.html",
+      "suggested_id": "portuguese_indie_rock",
+      "allocation_ordinal": 1468
+    },
+    {
+      "source_label": "portuguese post-rock",
+      "source_url": "https://everynoise.com/engenremap-portuguesepostrock.html",
+      "suggested_id": "portuguese_post_rock",
+      "allocation_ordinal": 1469
+    },
+    {
+      "source_label": "portuguese rock",
+      "source_url": "https://everynoise.com/engenremap-portugueserock.html",
+      "suggested_id": "portuguese_rock",
+      "allocation_ordinal": 1470
+    },
+    {
+      "source_label": "post-rock latinoamericano",
+      "source_url": "https://everynoise.com/engenremap-postrocklatinoamericano.html",
+      "suggested_id": "post_rock_latinoamericano",
+      "allocation_ordinal": 1471
+    },
+    {
+      "source_label": "power blues-rock",
+      "source_url": "https://everynoise.com/engenremap-powerbluesrock.html",
+      "suggested_id": "power_blues_rock",
+      "allocation_ordinal": 1472
+    },
+    {
+      "source_label": "psychedelic blues-rock",
+      "source_url": "https://everynoise.com/engenremap-psychedelicbluesrock.html",
+      "suggested_id": "psychedelic_blues_rock",
+      "allocation_ordinal": 1473
+    },
+    {
+      "source_label": "psychedelic folk rock",
+      "source_url": "https://everynoise.com/engenremap-psychedelicfolkrock.html",
+      "suggested_id": "psychedelic_folk_rock",
+      "allocation_ordinal": 1474
+    },
+    {
+      "source_label": "psychedelic space rock",
+      "source_url": "https://everynoise.com/engenremap-psychedelicspacerock.html",
+      "suggested_id": "psychedelic_space_rock",
+      "allocation_ordinal": 1475
+    }
+  ]
+}

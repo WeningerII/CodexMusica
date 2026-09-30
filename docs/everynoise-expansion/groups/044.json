@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "044",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["punk and emo"],
+  "entries": [
+    {
+      "source_label": "deep hardcore",
+      "source_url": "https://everynoise.com/engenremap-deephardcore.html",
+      "suggested_id": "deep_hardcore",
+      "allocation_ordinal": 1076
+    },
+    {
+      "source_label": "deep hardcore punk",
+      "source_url": "https://everynoise.com/engenremap-deephardcorepunk.html",
+      "suggested_id": "deep_hardcore_punk",
+      "allocation_ordinal": 1077
+    },
+    {
+      "source_label": "deep pop emo",
+      "source_url": "https://everynoise.com/engenremap-deeppopemo.html",
+      "suggested_id": "deep_pop_emo",
+      "allocation_ordinal": 1078
+    },
+    {
+      "source_label": "deep power-pop punk",
+      "source_url": "https://everynoise.com/engenremap-deeppowerpoppunk.html",
+      "suggested_id": "deep_power_pop_punk",
+      "allocation_ordinal": 1079
+    },
+    {
+      "source_label": "deep punk rock",
+      "source_url": "https://everynoise.com/engenremap-deeppunkrock.html",
+      "suggested_id": "deep_punk_rock",
+      "allocation_ordinal": 1080
+    },
+    {
+      "source_label": "diy emo",
+      "source_url": "https://everynoise.com/engenremap-diyemo.html",
+      "suggested_id": "diy_emo",
+      "allocation_ordinal": 1081
+    },
+    {
+      "source_label": "diy pop punk",
+      "source_url": "https://everynoise.com/engenremap-diypoppunk.html",
+      "suggested_id": "diy_pop_punk",
+      "allocation_ordinal": 1082
+    },
+    {
+      "source_label": "dub punk",
+      "source_url": "https://everynoise.com/engenremap-dubpunk.html",
+      "suggested_id": "dub_punk",
+      "allocation_ordinal": 1083
+    },
+    {
+      "source_label": "dutch punk",
+      "source_url": "https://everynoise.com/engenremap-dutchpunk.html",
+      "suggested_id": "dutch_punk",
+      "allocation_ordinal": 1084
+    },
+    {
+      "source_label": "dutch punk rock",
+      "source_url": "https://everynoise.com/engenremap-dutchpunkrock.html",
+      "suggested_id": "dutch_punk_rock",
+      "allocation_ordinal": 1085
+    },
+    {
+      "source_label": "early french punk",
+      "source_url": "https://everynoise.com/engenremap-earlyfrenchpunk.html",
+      "suggested_id": "early_french_punk",
+      "allocation_ordinal": 1086
+    },
+    {
+      "source_label": "early us punk",
+      "source_url": "https://everynoise.com/engenremap-earlyuspunk.html",
+      "suggested_id": "early_us_punk",
+      "allocation_ordinal": 1087
+    },
+    {
+      "source_label": "emo mexicano",
+      "source_url": "https://everynoise.com/engenremap-emomexicano.html",
+      "suggested_id": "emo_mexicano",
+      "allocation_ordinal": 1088
+    },
+    {
+      "source_label": "emo punk",
+      "source_url": "https://everynoise.com/engenremap-emopunk.html",
+      "suggested_id": "emo_punk",
+      "allocation_ordinal": 1089
+    },
+    {
+      "source_label": "fast melodic punk",
+      "source_url": "https://everynoise.com/engenremap-fastmelodicpunk.html",
+      "suggested_id": "fast_melodic_punk",
+      "allocation_ordinal": 1090
+    },
+    {
+      "source_label": "finnish hardcore",
+      "source_url": "https://everynoise.com/engenremap-finnishhardcore.html",
+      "suggested_id": "finnish_hardcore",
+      "allocation_ordinal": 1091
+    },
+    {
+      "source_label": "finnish pop punk",
+      "source_url": "https://everynoise.com/engenremap-finnishpoppunk.html",
+      "suggested_id": "finnish_pop_punk",
+      "allocation_ordinal": 1092
+    },
+    {
+      "source_label": "finnish post-punk",
+      "source_url": "https://everynoise.com/engenremap-finnishpostpunk.html",
+      "suggested_id": "finnish_post_punk",
+      "allocation_ordinal": 1093
+    },
+    {
+      "source_label": "finnish punk",
+      "source_url": "https://everynoise.com/engenremap-finnishpunk.html",
+      "suggested_id": "finnish_punk",
+      "allocation_ordinal": 1094
+    },
+    {
+      "source_label": "florida hardcore",
+      "source_url": "https://everynoise.com/engenremap-floridahardcore.html",
+      "suggested_id": "florida_hardcore",
+      "allocation_ordinal": 1095
+    },
+    {
+      "source_label": "freeform hardcore",
+      "source_url": "https://everynoise.com/engenremap-freeformhardcore.html",
+      "suggested_id": "freeform_hardcore",
+      "allocation_ordinal": 1096
+    },
+    {
+      "source_label": "french emo",
+      "source_url": "https://everynoise.com/engenremap-frenchemo.html",
+      "suggested_id": "french_emo",
+      "allocation_ordinal": 1097
+    },
+    {
+      "source_label": "french hardcore",
+      "source_url": "https://everynoise.com/engenremap-frenchhardcore.html",
+      "suggested_id": "french_hardcore",
+      "allocation_ordinal": 1098
+    },
+    {
+      "source_label": "french post-punk",
+      "source_url": "https://everynoise.com/engenremap-frenchpostpunk.html",
+      "suggested_id": "french_post_punk",
+      "allocation_ordinal": 1099
+    },
+    {
+      "source_label": "french punk",
+      "source_url": "https://everynoise.com/engenremap-frenchpunk.html",
+      "suggested_id": "french_punk",
+      "allocation_ordinal": 1100
+    }
+  ]
+}

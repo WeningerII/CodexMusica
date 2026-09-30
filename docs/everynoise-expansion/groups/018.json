@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "018",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "old school hip hop",
+      "source_url": "https://everynoise.com/engenremap-oldschoolhiphop.html",
+      "suggested_id": "old_school_hip_hop",
+      "allocation_ordinal": 426
+    },
+    {
+      "source_label": "old school rap francais",
+      "source_url": "https://everynoise.com/engenremap-oldschoolrapfrancais.html",
+      "suggested_id": "old_school_rap_francais",
+      "allocation_ordinal": 427
+    },
+    {
+      "source_label": "old school uk hip hop",
+      "source_url": "https://everynoise.com/engenremap-oldschoolukhiphop.html",
+      "suggested_id": "old_school_uk_hip_hop",
+      "allocation_ordinal": 428
+    },
+    {
+      "source_label": "ottawa rap",
+      "source_url": "https://everynoise.com/engenremap-ottawarap.html",
+      "suggested_id": "ottawa_rap",
+      "allocation_ordinal": 429
+    },
+    {
+      "source_label": "outer hip hop",
+      "source_url": "https://everynoise.com/engenremap-outerhiphop.html",
+      "suggested_id": "outer_hip_hop",
+      "allocation_ordinal": 430
+    },
+    {
+      "source_label": "pakistani hip hop",
+      "source_url": "https://everynoise.com/engenremap-pakistanihiphop.html",
+      "suggested_id": "pakistani_hip_hop",
+      "allocation_ordinal": 431
+    },
+    {
+      "source_label": "palestinian hip hop",
+      "source_url": "https://everynoise.com/engenremap-palestinianhiphop.html",
+      "suggested_id": "palestinian_hip_hop",
+      "allocation_ordinal": 432
+    },
+    {
+      "source_label": "persian drill",
+      "source_url": "https://everynoise.com/engenremap-persiandrill.html",
+      "suggested_id": "persian_drill",
+      "allocation_ordinal": 433
+    },
+    {
+      "source_label": "persian hip hop",
+      "source_url": "https://everynoise.com/engenremap-persianhiphop.html",
+      "suggested_id": "persian_hip_hop",
+      "allocation_ordinal": 434
+    },
+    {
+      "source_label": "persian melodic rap",
+      "source_url": "https://everynoise.com/engenremap-persianmelodicrap.html",
+      "suggested_id": "persian_melodic_rap",
+      "allocation_ordinal": 435
+    },
+    {
+      "source_label": "persian sad rap",
+      "source_url": "https://everynoise.com/engenremap-persiansadrap.html",
+      "suggested_id": "persian_sad_rap",
+      "allocation_ordinal": 436
+    },
+    {
+      "source_label": "persian trap",
+      "source_url": "https://everynoise.com/engenremap-persiantrap.html",
+      "suggested_id": "persian_trap",
+      "allocation_ordinal": 437
+    },
+    {
+      "source_label": "persian underground hip hop",
+      "source_url": "https://everynoise.com/engenremap-persianundergroundhiphop.html",
+      "suggested_id": "persian_underground_hip_hop",
+      "allocation_ordinal": 438
+    },
+    {
+      "source_label": "perth hip hop",
+      "source_url": "https://everynoise.com/engenremap-perthhiphop.html",
+      "suggested_id": "perth_hip_hop",
+      "allocation_ordinal": 439
+    },
+    {
+      "source_label": "peruvian hip hop",
+      "source_url": "https://everynoise.com/engenremap-peruvianhiphop.html",
+      "suggested_id": "peruvian_hip_hop",
+      "allocation_ordinal": 440
+    },
+    {
+      "source_label": "philly drill",
+      "source_url": "https://everynoise.com/engenremap-phillydrill.html",
+      "suggested_id": "philly_drill",
+      "allocation_ordinal": 441
+    },
+    {
+      "source_label": "pinoy alternative rap",
+      "source_url": "https://everynoise.com/engenremap-pinoyalternativerap.html",
+      "suggested_id": "pinoy_alternative_rap",
+      "allocation_ordinal": 442
+    },
+    {
+      "source_label": "pinoy drill",
+      "source_url": "https://everynoise.com/engenremap-pinoydrill.html",
+      "suggested_id": "pinoy_drill",
+      "allocation_ordinal": 443
+    },
+    {
+      "source_label": "pinoy hip hop",
+      "source_url": "https://everynoise.com/engenremap-pinoyhiphop.html",
+      "suggested_id": "pinoy_hip_hop",
+      "allocation_ordinal": 444
+    },
+    {
+      "source_label": "polish alternative rap",
+      "source_url": "https://everynoise.com/engenremap-polishalternativerap.html",
+      "suggested_id": "polish_alternative_rap",
+      "allocation_ordinal": 445
+    },
+    {
+      "source_label": "polish drill",
+      "source_url": "https://everynoise.com/engenremap-polishdrill.html",
+      "suggested_id": "polish_drill",
+      "allocation_ordinal": 446
+    },
+    {
+      "source_label": "polish hip hop",
+      "source_url": "https://everynoise.com/engenremap-polishhiphop.html",
+      "suggested_id": "polish_hip_hop",
+      "allocation_ordinal": 447
+    },
+    {
+      "source_label": "polish old school hip hop",
+      "source_url": "https://everynoise.com/engenremap-polisholdschoolhiphop.html",
+      "suggested_id": "polish_old_school_hip_hop",
+      "allocation_ordinal": 448
+    },
+    {
+      "source_label": "polish trap",
+      "source_url": "https://everynoise.com/engenremap-polishtrap.html",
+      "suggested_id": "polish_trap",
+      "allocation_ordinal": 449
+    },
+    {
+      "source_label": "polish underground rap",
+      "source_url": "https://everynoise.com/engenremap-polishundergroundrap.html",
+      "suggested_id": "polish_underground_rap",
+      "allocation_ordinal": 450
+    }
+  ]
+}

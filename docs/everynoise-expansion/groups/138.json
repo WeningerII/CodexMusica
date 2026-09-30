@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "138",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "hindi worship",
+      "source_url": "https://everynoise.com/engenremap-hindiworship.html",
+      "suggested_id": "hindi_worship",
+      "allocation_ordinal": 3426
+    },
+    {
+      "source_label": "hinos ccb",
+      "source_url": "https://everynoise.com/engenremap-hinosccb.html",
+      "suggested_id": "hinos_ccb",
+      "allocation_ordinal": 3427
+    },
+    {
+      "source_label": "hipco",
+      "source_url": "https://everynoise.com/engenremap-hipco.html",
+      "suggested_id": "hipco",
+      "allocation_ordinal": 3428
+    },
+    {
+      "source_label": "histoire pour enfants",
+      "source_url": "https://everynoise.com/engenremap-histoirepourenfants.html",
+      "suggested_id": "histoire_pour_enfants",
+      "allocation_ordinal": 3429
+    },
+    {
+      "source_label": "historic piano performance",
+      "source_url": "https://everynoise.com/engenremap-historicpianoperformance.html",
+      "suggested_id": "historic_piano_performance",
+      "allocation_ordinal": 3430
+    },
+    {
+      "source_label": "historical keyboard",
+      "source_url": "https://everynoise.com/engenremap-historicalkeyboard.html",
+      "suggested_id": "historical_keyboard",
+      "allocation_ordinal": 3431
+    },
+    {
+      "source_label": "hjemmesnekk",
+      "source_url": "https://everynoise.com/engenremap-hjemmesnekk.html",
+      "suggested_id": "hjemmesnekk",
+      "allocation_ordinal": 3432
+    },
+    {
+      "source_label": "ho munda",
+      "source_url": "https://everynoise.com/engenremap-homunda.html",
+      "suggested_id": "ho_munda",
+      "allocation_ordinal": 3433
+    },
+    {
+      "source_label": "hoerspiel",
+      "source_url": "https://everynoise.com/engenremap-hoerspiel.html",
+      "suggested_id": "hoerspiel",
+      "allocation_ordinal": 3434
+    },
+    {
+      "source_label": "hokkaido indie",
+      "source_url": "https://everynoise.com/engenremap-hokkaidoindie.html",
+      "suggested_id": "hokkaido_indie",
+      "allocation_ordinal": 3435
+    },
+    {
+      "source_label": "hollywood",
+      "source_url": "https://everynoise.com/engenremap-hollywood.html",
+      "suggested_id": "hollywood",
+      "allocation_ordinal": 3436
+    },
+    {
+      "source_label": "hong kong indie",
+      "source_url": "https://everynoise.com/engenremap-hongkongindie.html",
+      "suggested_id": "hong_kong_indie",
+      "allocation_ordinal": 3437
+    },
+    {
+      "source_label": "hong kong tv drama",
+      "source_url": "https://everynoise.com/engenremap-hongkongtvdrama.html",
+      "suggested_id": "hong_kong_tv_drama",
+      "allocation_ordinal": 3438
+    },
+    {
+      "source_label": "honky-tonk piano",
+      "source_url": "https://everynoise.com/engenremap-honkytonkpiano.html",
+      "suggested_id": "honky_tonk_piano",
+      "allocation_ordinal": 3439
+    },
+    {
+      "source_label": "hopebeat",
+      "source_url": "https://everynoise.com/engenremap-hopebeat.html",
+      "suggested_id": "hopebeat",
+      "allocation_ordinal": 3440
+    },
+    {
+      "source_label": "houston indie",
+      "source_url": "https://everynoise.com/engenremap-houstonindie.html",
+      "suggested_id": "houston_indie",
+      "allocation_ordinal": 3441
+    },
+    {
+      "source_label": "hull indie",
+      "source_url": "https://everynoise.com/engenremap-hullindie.html",
+      "suggested_id": "hull_indie",
+      "allocation_ordinal": 3442
+    },
+    {
+      "source_label": "humour francais",
+      "source_url": "https://everynoise.com/engenremap-humourfrancais.html",
+      "suggested_id": "humour_francais",
+      "allocation_ordinal": 3443
+    },
+    {
+      "source_label": "hungarian indie",
+      "source_url": "https://everynoise.com/engenremap-hungarianindie.html",
+      "suggested_id": "hungarian_indie",
+      "allocation_ordinal": 3444
+    },
+    {
+      "source_label": "hurdy-gurdy",
+      "source_url": "https://everynoise.com/engenremap-hurdygurdy.html",
+      "suggested_id": "hurdy_gurdy",
+      "allocation_ordinal": 3445
+    },
+    {
+      "source_label": "huzunlu sarkilar",
+      "source_url": "https://everynoise.com/engenremap-huzunlusarkilar.html",
+      "suggested_id": "huzunlu_sarkilar",
+      "allocation_ordinal": 3446
+    },
+    {
+      "source_label": "hyperpop brasileiro",
+      "source_url": "https://everynoise.com/engenremap-hyperpopbrasileiro.html",
+      "suggested_id": "hyperpop_brasileiro",
+      "allocation_ordinal": 3447
+    },
+    {
+      "source_label": "hyperpop en espanol",
+      "source_url": "https://everynoise.com/engenremap-hyperpopenespanol.html",
+      "suggested_id": "hyperpop_en_espanol",
+      "allocation_ordinal": 3448
+    },
+    {
+      "source_label": "hyperpop francais",
+      "source_url": "https://everynoise.com/engenremap-hyperpopfrancais.html",
+      "suggested_id": "hyperpop_francais",
+      "allocation_ordinal": 3449
+    },
+    {
+      "source_label": "hyperpop italiano",
+      "source_url": "https://everynoise.com/engenremap-hyperpopitaliano.html",
+      "suggested_id": "hyperpop_italiano",
+      "allocation_ordinal": 3450
+    }
+  ]
+}

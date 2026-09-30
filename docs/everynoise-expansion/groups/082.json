@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "082",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["electronic and dance names"],
+  "entries": [
+    {
+      "source_label": "luxembourgian electronic",
+      "source_url": "https://everynoise.com/engenremap-luxembourgianelectronic.html",
+      "suggested_id": "luxembourgian_electronic",
+      "allocation_ordinal": 2026
+    },
+    {
+      "source_label": "macedonian electronic",
+      "source_url": "https://everynoise.com/engenremap-macedonianelectronic.html",
+      "suggested_id": "macedonian_electronic",
+      "allocation_ordinal": 2027
+    },
+    {
+      "source_label": "magyar retro dance",
+      "source_url": "https://everynoise.com/engenremap-magyarretrodance.html",
+      "suggested_id": "magyar_retro_dance",
+      "allocation_ordinal": 2028
+    },
+    {
+      "source_label": "mexican edm",
+      "source_url": "https://everynoise.com/engenremap-mexicanedm.html",
+      "suggested_id": "mexican_edm",
+      "allocation_ordinal": 2029
+    },
+    {
+      "source_label": "mexican electronic",
+      "source_url": "https://everynoise.com/engenremap-mexicanelectronic.html",
+      "suggested_id": "mexican_electronic",
+      "allocation_ordinal": 2030
+    },
+    {
+      "source_label": "modular synth",
+      "source_url": "https://everynoise.com/engenremap-modularsynth.html",
+      "suggested_id": "modular_synth",
+      "allocation_ordinal": 2031
+    },
+    {
+      "source_label": "munich electronic",
+      "source_url": "https://everynoise.com/engenremap-munichelectronic.html",
+      "suggested_id": "munich_electronic",
+      "allocation_ordinal": 2032
+    },
+    {
+      "source_label": "neo-synthpop",
+      "source_url": "https://everynoise.com/engenremap-neosynthpop.html",
+      "suggested_id": "neo_synthpop",
+      "allocation_ordinal": 2033
+    },
+    {
+      "source_label": "nu electro",
+      "source_url": "https://everynoise.com/engenremap-nuelectro.html",
+      "suggested_id": "nu_electro",
+      "allocation_ordinal": 2034
+    },
+    {
+      "source_label": "nz electronic",
+      "source_url": "https://everynoise.com/engenremap-nzelectronic.html",
+      "suggested_id": "nz_electronic",
+      "allocation_ordinal": 2035
+    },
+    {
+      "source_label": "organic electronic",
+      "source_url": "https://everynoise.com/engenremap-organicelectronic.html",
+      "suggested_id": "organic_electronic",
+      "allocation_ordinal": 2036
+    },
+    {
+      "source_label": "pakistani electronic",
+      "source_url": "https://everynoise.com/engenremap-pakistanielectronic.html",
+      "suggested_id": "pakistani_electronic",
+      "allocation_ordinal": 2037
+    },
+    {
+      "source_label": "persian electronic",
+      "source_url": "https://everynoise.com/engenremap-persianelectronic.html",
+      "suggested_id": "persian_electronic",
+      "allocation_ordinal": 2038
+    },
+    {
+      "source_label": "pinoy edm",
+      "source_url": "https://everynoise.com/engenremap-pinoyedm.html",
+      "suggested_id": "pinoy_edm",
+      "allocation_ordinal": 2039
+    },
+    {
+      "source_label": "polish electronica",
+      "source_url": "https://everynoise.com/engenremap-polishelectronica.html",
+      "suggested_id": "polish_electronica",
+      "allocation_ordinal": 2040
+    },
+    {
+      "source_label": "polish experimental electronic",
+      "source_url": "https://everynoise.com/engenremap-polishexperimentalelectronic.html",
+      "suggested_id": "polish_experimental_electronic",
+      "allocation_ordinal": 2041
+    },
+    {
+      "source_label": "polish synthpop",
+      "source_url": "https://everynoise.com/engenremap-polishsynthpop.html",
+      "suggested_id": "polish_synthpop",
+      "allocation_ordinal": 2042
+    },
+    {
+      "source_label": "post-disco soul",
+      "source_url": "https://everynoise.com/engenremap-postdiscosoul.html",
+      "suggested_id": "post_disco_soul",
+      "allocation_ordinal": 2043
+    },
+    {
+      "source_label": "romanian electronic",
+      "source_url": "https://everynoise.com/engenremap-romanianelectronic.html",
+      "suggested_id": "romanian_electronic",
+      "allocation_ordinal": 2044
+    },
+    {
+      "source_label": "russian dance",
+      "source_url": "https://everynoise.com/engenremap-russiandance.html",
+      "suggested_id": "russian_dance",
+      "allocation_ordinal": 2045
+    },
+    {
+      "source_label": "russian edm",
+      "source_url": "https://everynoise.com/engenremap-russianedm.html",
+      "suggested_id": "russian_edm",
+      "allocation_ordinal": 2046
+    },
+    {
+      "source_label": "russian electronic",
+      "source_url": "https://everynoise.com/engenremap-russianelectronic.html",
+      "suggested_id": "russian_electronic",
+      "allocation_ordinal": 2047
+    },
+    {
+      "source_label": "russian experimental electronic",
+      "source_url": "https://everynoise.com/engenremap-russianexperimentalelectronic.html",
+      "suggested_id": "russian_experimental_electronic",
+      "allocation_ordinal": 2048
+    },
+    {
+      "source_label": "russian synthpop",
+      "source_url": "https://everynoise.com/engenremap-russiansynthpop.html",
+      "suggested_id": "russian_synthpop",
+      "allocation_ordinal": 2049
+    },
+    {
+      "source_label": "scottish electronic",
+      "source_url": "https://everynoise.com/engenremap-scottishelectronic.html",
+      "suggested_id": "scottish_electronic",
+      "allocation_ordinal": 2050
+    }
+  ]
+}

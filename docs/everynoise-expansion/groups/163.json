@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "163",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "nuevo tango",
+      "source_url": "https://everynoise.com/engenremap-nuevotango.html",
+      "suggested_id": "nuevo_tango",
+      "allocation_ordinal": 4051
+    },
+    {
+      "source_label": "nwocr",
+      "source_url": "https://everynoise.com/engenremap-nwocr.html",
+      "suggested_id": "nwocr",
+      "allocation_ordinal": 4052
+    },
+    {
+      "source_label": "nwothm",
+      "source_url": "https://everynoise.com/engenremap-nwothm.html",
+      "suggested_id": "nwothm",
+      "allocation_ordinal": 4053
+    },
+    {
+      "source_label": "ny roots",
+      "source_url": "https://everynoise.com/engenremap-nyroots.html",
+      "suggested_id": "ny_roots",
+      "allocation_ordinal": 4054
+    },
+    {
+      "source_label": "nyhc",
+      "source_url": "https://everynoise.com/engenremap-nyhc.html",
+      "suggested_id": "nyhc",
+      "allocation_ordinal": 4055
+    },
+    {
+      "source_label": "nz children's music",
+      "source_url": "https://everynoise.com/engenremap-nzchildrensmusic.html",
+      "suggested_id": "nz_children_s_music",
+      "allocation_ordinal": 4056
+    },
+    {
+      "source_label": "nz christian",
+      "source_url": "https://everynoise.com/engenremap-nzchristian.html",
+      "suggested_id": "nz_christian",
+      "allocation_ordinal": 4057
+    },
+    {
+      "source_label": "nz indie",
+      "source_url": "https://everynoise.com/engenremap-nzindie.html",
+      "suggested_id": "nz_indie",
+      "allocation_ordinal": 4058
+    },
+    {
+      "source_label": "oakland indie",
+      "source_url": "https://everynoise.com/engenremap-oaklandindie.html",
+      "suggested_id": "oakland_indie",
+      "allocation_ordinal": 4059
+    },
+    {
+      "source_label": "oaxaca indie",
+      "source_url": "https://everynoise.com/engenremap-oaxacaindie.html",
+      "suggested_id": "oaxaca_indie",
+      "allocation_ordinal": 4060
+    },
+    {
+      "source_label": "oc indie",
+      "source_url": "https://everynoise.com/engenremap-ocindie.html",
+      "suggested_id": "oc_indie",
+      "allocation_ordinal": 4061
+    },
+    {
+      "source_label": "ocean",
+      "source_url": "https://everynoise.com/engenremap-ocean.html",
+      "suggested_id": "ocean",
+      "allocation_ordinal": 4062
+    },
+    {
+      "source_label": "oceania soundtrack",
+      "source_url": "https://everynoise.com/engenremap-oceaniasoundtrack.html",
+      "suggested_id": "oceania_soundtrack",
+      "allocation_ordinal": 4063
+    },
+    {
+      "source_label": "odia bhajan",
+      "source_url": "https://everynoise.com/engenremap-odiabhajan.html",
+      "suggested_id": "odia_bhajan",
+      "allocation_ordinal": 4064
+    },
+    {
+      "source_label": "oeteldonk",
+      "source_url": "https://everynoise.com/engenremap-oeteldonk.html",
+      "suggested_id": "oeteldonk",
+      "allocation_ordinal": 4065
+    },
+    {
+      "source_label": "ohio indie",
+      "source_url": "https://everynoise.com/engenremap-ohioindie.html",
+      "suggested_id": "ohio_indie",
+      "allocation_ordinal": 4066
+    },
+    {
+      "source_label": "ok indie",
+      "source_url": "https://everynoise.com/engenremap-okindie.html",
+      "suggested_id": "ok_indie",
+      "allocation_ordinal": 4067
+    },
+    {
+      "source_label": "okc indie",
+      "source_url": "https://everynoise.com/engenremap-okcindie.html",
+      "suggested_id": "okc_indie",
+      "allocation_ordinal": 4068
+    },
+    {
+      "source_label": "oktoberfest",
+      "source_url": "https://everynoise.com/engenremap-oktoberfest.html",
+      "suggested_id": "oktoberfest",
+      "allocation_ordinal": 4069
+    },
+    {
+      "source_label": "old school bassline",
+      "source_url": "https://everynoise.com/engenremap-oldschoolbassline.html",
+      "suggested_id": "old_school_bassline",
+      "allocation_ordinal": 4070
+    },
+    {
+      "source_label": "old school ebm",
+      "source_url": "https://everynoise.com/engenremap-oldschoolebm.html",
+      "suggested_id": "old_school_ebm",
+      "allocation_ordinal": 4071
+    },
+    {
+      "source_label": "old school nederhop",
+      "source_url": "https://everynoise.com/engenremap-oldschoolnederhop.html",
+      "suggested_id": "old_school_nederhop",
+      "allocation_ordinal": 4072
+    },
+    {
+      "source_label": "old school thrash",
+      "source_url": "https://everynoise.com/engenremap-oldschoolthrash.html",
+      "suggested_id": "old_school_thrash",
+      "allocation_ordinal": 4073
+    },
+    {
+      "source_label": "oldschool deutschrap",
+      "source_url": "https://everynoise.com/engenremap-oldschooldeutschrap.html",
+      "suggested_id": "oldschool_deutschrap",
+      "allocation_ordinal": 4074
+    },
+    {
+      "source_label": "olympia wa indie",
+      "source_url": "https://everynoise.com/engenremap-olympiawaindie.html",
+      "suggested_id": "olympia_wa_indie",
+      "allocation_ordinal": 4075
+    }
+  ]
+}

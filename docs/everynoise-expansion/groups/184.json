@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "group_id": "184",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 11,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "yugoslav new wave",
+      "source_url": "https://everynoise.com/engenremap-yugoslavnewwave.html",
+      "suggested_id": "yugoslav_new_wave",
+      "allocation_ordinal": 4576
+    },
+    {
+      "source_label": "yunnan traditional",
+      "source_url": "https://everynoise.com/engenremap-yunnantraditional.html",
+      "suggested_id": "yunnan_traditional",
+      "allocation_ordinal": 4577
+    },
+    {
+      "source_label": "yuri",
+      "source_url": "https://everynoise.com/engenremap-yuri.html",
+      "suggested_id": "yuri",
+      "allocation_ordinal": 4578
+    },
+    {
+      "source_label": "zcc",
+      "source_url": "https://everynoise.com/engenremap-zcc.html",
+      "suggested_id": "zcc",
+      "allocation_ordinal": 4579
+    },
+    {
+      "source_label": "zen",
+      "source_url": "https://everynoise.com/engenremap-zen.html",
+      "suggested_id": "zen",
+      "allocation_ordinal": 4580
+    },
+    {
+      "source_label": "zespol dzieciecy",
+      "source_url": "https://everynoise.com/engenremap-zespoldzieciecy.html",
+      "suggested_id": "zespol_dzieciecy",
+      "allocation_ordinal": 4581
+    },
+    {
+      "source_label": "zhenskiy rep",
+      "source_url": "https://everynoise.com/engenremap-zhenskiyrep.html",
+      "suggested_id": "zhenskiy_rep",
+      "allocation_ordinal": 4582
+    },
+    {
+      "source_label": "zillertal",
+      "source_url": "https://everynoise.com/engenremap-zillertal.html",
+      "suggested_id": "zillertal",
+      "allocation_ordinal": 4583
+    },
+    {
+      "source_label": "zolo",
+      "source_url": "https://everynoise.com/engenremap-zolo.html",
+      "suggested_id": "zolo",
+      "allocation_ordinal": 4584
+    },
+    {
+      "source_label": "zurich indie",
+      "source_url": "https://everynoise.com/engenremap-zurichindie.html",
+      "suggested_id": "zurich_indie",
+      "allocation_ordinal": 4585
+    },
+    {
+      "source_label": "zxc",
+      "source_url": "https://everynoise.com/engenremap-zxc.html",
+      "suggested_id": "zxc",
+      "allocation_ordinal": 4586
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "124",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "commons",
+      "source_url": "https://everynoise.com/engenremap-commons.html",
+      "suggested_id": "commons",
+      "allocation_ordinal": 3076
+    },
+    {
+      "source_label": "comptine africaine",
+      "source_url": "https://everynoise.com/engenremap-comptineafricaine.html",
+      "suggested_id": "comptine_africaine",
+      "allocation_ordinal": 3077
+    },
+    {
+      "source_label": "concepcion indie",
+      "source_url": "https://everynoise.com/engenremap-concepcionindie.html",
+      "suggested_id": "concepcion_indie",
+      "allocation_ordinal": 3078
+    },
+    {
+      "source_label": "concertina",
+      "source_url": "https://everynoise.com/engenremap-concertina.html",
+      "suggested_id": "concertina",
+      "allocation_ordinal": 3079
+    },
+    {
+      "source_label": "concurso de talentos argentino",
+      "source_url": "https://everynoise.com/engenremap-concursodetalentosargentino.html",
+      "suggested_id": "concurso_de_talentos_argentino",
+      "allocation_ordinal": 3080
+    },
+    {
+      "source_label": "connecticut indie",
+      "source_url": "https://everynoise.com/engenremap-connecticutindie.html",
+      "suggested_id": "connecticut_indie",
+      "allocation_ordinal": 3081
+    },
+    {
+      "source_label": "contrabass",
+      "source_url": "https://everynoise.com/engenremap-contrabass.html",
+      "suggested_id": "contrabass",
+      "allocation_ordinal": 3082
+    },
+    {
+      "source_label": "convent",
+      "source_url": "https://everynoise.com/engenremap-convent.html",
+      "suggested_id": "convent",
+      "allocation_ordinal": 3083
+    },
+    {
+      "source_label": "cork indie",
+      "source_url": "https://everynoise.com/engenremap-corkindie.html",
+      "suggested_id": "cork_indie",
+      "allocation_ordinal": 3084
+    },
+    {
+      "source_label": "cornetas y tambores",
+      "source_url": "https://everynoise.com/engenremap-cornetasytambores.html",
+      "suggested_id": "cornetas_y_tambores",
+      "allocation_ordinal": 3085
+    },
+    {
+      "source_label": "cornwall indie",
+      "source_url": "https://everynoise.com/engenremap-cornwallindie.html",
+      "suggested_id": "cornwall_indie",
+      "allocation_ordinal": 3086
+    },
+    {
+      "source_label": "corridos adictivos",
+      "source_url": "https://everynoise.com/engenremap-corridosadictivos.html",
+      "suggested_id": "corridos_adictivos",
+      "allocation_ordinal": 3087
+    },
+    {
+      "source_label": "corridos cristianos",
+      "source_url": "https://everynoise.com/engenremap-corridoscristianos.html",
+      "suggested_id": "corridos_cristianos",
+      "allocation_ordinal": 3088
+    },
+    {
+      "source_label": "corrosion",
+      "source_url": "https://everynoise.com/engenremap-corrosion.html",
+      "suggested_id": "corrosion",
+      "allocation_ordinal": 3089
+    },
+    {
+      "source_label": "cosmic american",
+      "source_url": "https://everynoise.com/engenremap-cosmicamerican.html",
+      "suggested_id": "cosmic_american",
+      "allocation_ordinal": 3090
+    },
+    {
+      "source_label": "countrygaze",
+      "source_url": "https://everynoise.com/engenremap-countrygaze.html",
+      "suggested_id": "countrygaze",
+      "allocation_ordinal": 3091
+    },
+    {
+      "source_label": "coventry indie",
+      "source_url": "https://everynoise.com/engenremap-coventryindie.html",
+      "suggested_id": "coventry_indie",
+      "allocation_ordinal": 3092
+    },
+    {
+      "source_label": "cover acustico",
+      "source_url": "https://everynoise.com/engenremap-coveracustico.html",
+      "suggested_id": "cover_acustico",
+      "allocation_ordinal": 3093
+    },
+    {
+      "source_label": "coverchill",
+      "source_url": "https://everynoise.com/engenremap-coverchill.html",
+      "suggested_id": "coverchill",
+      "allocation_ordinal": 3094
+    },
+    {
+      "source_label": "covertrance",
+      "source_url": "https://everynoise.com/engenremap-covertrance.html",
+      "suggested_id": "covertrance",
+      "allocation_ordinal": 3095
+    },
+    {
+      "source_label": "covertronica",
+      "source_url": "https://everynoise.com/engenremap-covertronica.html",
+      "suggested_id": "covertronica",
+      "allocation_ordinal": 3096
+    },
+    {
+      "source_label": "crank wave",
+      "source_url": "https://everynoise.com/engenremap-crankwave.html",
+      "suggested_id": "crank_wave",
+      "allocation_ordinal": 3097
+    },
+    {
+      "source_label": "cristiana para ninos",
+      "source_url": "https://everynoise.com/engenremap-cristianaparaninos.html",
+      "suggested_id": "cristiana_para_ninos",
+      "allocation_ordinal": 3098
+    },
+    {
+      "source_label": "croatian indie",
+      "source_url": "https://everynoise.com/engenremap-croatianindie.html",
+      "suggested_id": "croatian_indie",
+      "allocation_ordinal": 3099
+    },
+    {
+      "source_label": "crossover prog",
+      "source_url": "https://everynoise.com/engenremap-crossoverprog.html",
+      "suggested_id": "crossover_prog",
+      "allocation_ordinal": 3100
+    }
+  ]
+}

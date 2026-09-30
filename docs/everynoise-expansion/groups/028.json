@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "028",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "blackened deathcore",
+      "source_url": "https://everynoise.com/engenremap-blackeneddeathcore.html",
+      "suggested_id": "blackened_deathcore",
+      "allocation_ordinal": 676
+    },
+    {
+      "source_label": "bolivian metal",
+      "source_url": "https://everynoise.com/engenremap-bolivianmetal.html",
+      "suggested_id": "bolivian_metal",
+      "allocation_ordinal": 677
+    },
+    {
+      "source_label": "boston metal",
+      "source_url": "https://everynoise.com/engenremap-bostonmetal.html",
+      "suggested_id": "boston_metal",
+      "allocation_ordinal": 678
+    },
+    {
+      "source_label": "brazilian black metal",
+      "source_url": "https://everynoise.com/engenremap-brazilianblackmetal.html",
+      "suggested_id": "brazilian_black_metal",
+      "allocation_ordinal": 679
+    },
+    {
+      "source_label": "brazilian death metal",
+      "source_url": "https://everynoise.com/engenremap-braziliandeathmetal.html",
+      "suggested_id": "brazilian_death_metal",
+      "allocation_ordinal": 680
+    },
+    {
+      "source_label": "brazilian doom metal",
+      "source_url": "https://everynoise.com/engenremap-braziliandoommetal.html",
+      "suggested_id": "brazilian_doom_metal",
+      "allocation_ordinal": 681
+    },
+    {
+      "source_label": "brazilian grindcore",
+      "source_url": "https://everynoise.com/engenremap-braziliangrindcore.html",
+      "suggested_id": "brazilian_grindcore",
+      "allocation_ordinal": 682
+    },
+    {
+      "source_label": "brazilian groove metal",
+      "source_url": "https://everynoise.com/engenremap-braziliangroovemetal.html",
+      "suggested_id": "brazilian_groove_metal",
+      "allocation_ordinal": 683
+    },
+    {
+      "source_label": "brazilian heavy metal",
+      "source_url": "https://everynoise.com/engenremap-brazilianheavymetal.html",
+      "suggested_id": "brazilian_heavy_metal",
+      "allocation_ordinal": 684
+    },
+    {
+      "source_label": "brazilian metal",
+      "source_url": "https://everynoise.com/engenremap-brazilianmetal.html",
+      "suggested_id": "brazilian_metal",
+      "allocation_ordinal": 685
+    },
+    {
+      "source_label": "brazilian metalcore",
+      "source_url": "https://everynoise.com/engenremap-brazilianmetalcore.html",
+      "suggested_id": "brazilian_metalcore",
+      "allocation_ordinal": 686
+    },
+    {
+      "source_label": "brazilian power metal",
+      "source_url": "https://everynoise.com/engenremap-brazilianpowermetal.html",
+      "suggested_id": "brazilian_power_metal",
+      "allocation_ordinal": 687
+    },
+    {
+      "source_label": "brazilian progressive metal",
+      "source_url": "https://everynoise.com/engenremap-brazilianprogressivemetal.html",
+      "suggested_id": "brazilian_progressive_metal",
+      "allocation_ordinal": 688
+    },
+    {
+      "source_label": "brazilian thrash metal",
+      "source_url": "https://everynoise.com/engenremap-brazilianthrashmetal.html",
+      "suggested_id": "brazilian_thrash_metal",
+      "allocation_ordinal": 689
+    },
+    {
+      "source_label": "british black metal",
+      "source_url": "https://everynoise.com/engenremap-britishblackmetal.html",
+      "suggested_id": "british_black_metal",
+      "allocation_ordinal": 690
+    },
+    {
+      "source_label": "british death metal",
+      "source_url": "https://everynoise.com/engenremap-britishdeathmetal.html",
+      "suggested_id": "british_death_metal",
+      "allocation_ordinal": 691
+    },
+    {
+      "source_label": "british grindcore",
+      "source_url": "https://everynoise.com/engenremap-britishgrindcore.html",
+      "suggested_id": "british_grindcore",
+      "allocation_ordinal": 692
+    },
+    {
+      "source_label": "british power metal",
+      "source_url": "https://everynoise.com/engenremap-britishpowermetal.html",
+      "suggested_id": "british_power_metal",
+      "allocation_ordinal": 693
+    },
+    {
+      "source_label": "brutal deathcore",
+      "source_url": "https://everynoise.com/engenremap-brutaldeathcore.html",
+      "suggested_id": "brutal_deathcore",
+      "allocation_ordinal": 694
+    },
+    {
+      "source_label": "buffalo ny metal",
+      "source_url": "https://everynoise.com/engenremap-buffalonymetal.html",
+      "suggested_id": "buffalo_ny_metal",
+      "allocation_ordinal": 695
+    },
+    {
+      "source_label": "bulgarian metal",
+      "source_url": "https://everynoise.com/engenremap-bulgarianmetal.html",
+      "suggested_id": "bulgarian_metal",
+      "allocation_ordinal": 696
+    },
+    {
+      "source_label": "canadian black metal",
+      "source_url": "https://everynoise.com/engenremap-canadianblackmetal.html",
+      "suggested_id": "canadian_black_metal",
+      "allocation_ordinal": 697
+    },
+    {
+      "source_label": "canadian death metal",
+      "source_url": "https://everynoise.com/engenremap-canadiandeathmetal.html",
+      "suggested_id": "canadian_death_metal",
+      "allocation_ordinal": 698
+    },
+    {
+      "source_label": "canadian metal",
+      "source_url": "https://everynoise.com/engenremap-canadianmetal.html",
+      "suggested_id": "canadian_metal",
+      "allocation_ordinal": 699
+    },
+    {
+      "source_label": "canadian metalcore",
+      "source_url": "https://everynoise.com/engenremap-canadianmetalcore.html",
+      "suggested_id": "canadian_metalcore",
+      "allocation_ordinal": 700
+    }
+  ]
+}

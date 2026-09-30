@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "072",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol"],
+  "entries": [
+    {
+      "source_label": "kumaoni pop",
+      "source_url": "https://everynoise.com/engenremap-kumaonipop.html",
+      "suggested_id": "kumaoni_pop",
+      "allocation_ordinal": 1776
+    },
+    {
+      "source_label": "kurdish pop",
+      "source_url": "https://everynoise.com/engenremap-kurdishpop.html",
+      "suggested_id": "kurdish_pop",
+      "allocation_ordinal": 1777
+    },
+    {
+      "source_label": "la pop",
+      "source_url": "https://everynoise.com/engenremap-lapop.html",
+      "suggested_id": "la_pop",
+      "allocation_ordinal": 1778
+    },
+    {
+      "source_label": "ladakhi pop",
+      "source_url": "https://everynoise.com/engenremap-ladakhipop.html",
+      "suggested_id": "ladakhi_pop",
+      "allocation_ordinal": 1779
+    },
+    {
+      "source_label": "lao pop",
+      "source_url": "https://everynoise.com/engenremap-laopop.html",
+      "suggested_id": "lao_pop",
+      "allocation_ordinal": 1780
+    },
+    {
+      "source_label": "latin arena pop",
+      "source_url": "https://everynoise.com/engenremap-latinarenapop.html",
+      "suggested_id": "latin_arena_pop",
+      "allocation_ordinal": 1781
+    },
+    {
+      "source_label": "latin pop",
+      "source_url": "https://everynoise.com/engenremap-latinpop.html",
+      "suggested_id": "latin_pop",
+      "allocation_ordinal": 1782
+    },
+    {
+      "source_label": "latin viral pop",
+      "source_url": "https://everynoise.com/engenremap-latinviralpop.html",
+      "suggested_id": "latin_viral_pop",
+      "allocation_ordinal": 1783
+    },
+    {
+      "source_label": "latvian pop",
+      "source_url": "https://everynoise.com/engenremap-latvianpop.html",
+      "suggested_id": "latvian_pop",
+      "allocation_ordinal": 1784
+    },
+    {
+      "source_label": "liberian pop",
+      "source_url": "https://everynoise.com/engenremap-liberianpop.html",
+      "suggested_id": "liberian_pop",
+      "allocation_ordinal": 1785
+    },
+    {
+      "source_label": "libyan pop",
+      "source_url": "https://everynoise.com/engenremap-libyanpop.html",
+      "suggested_id": "libyan_pop",
+      "allocation_ordinal": 1786
+    },
+    {
+      "source_label": "lithuanian pop",
+      "source_url": "https://everynoise.com/engenremap-lithuanianpop.html",
+      "suggested_id": "lithuanian_pop",
+      "allocation_ordinal": 1787
+    },
+    {
+      "source_label": "luxembourgian pop",
+      "source_url": "https://everynoise.com/engenremap-luxembourgianpop.html",
+      "suggested_id": "luxembourgian_pop",
+      "allocation_ordinal": 1788
+    },
+    {
+      "source_label": "macau pop",
+      "source_url": "https://everynoise.com/engenremap-macaupop.html",
+      "suggested_id": "macau_pop",
+      "allocation_ordinal": 1789
+    },
+    {
+      "source_label": "macedonian pop",
+      "source_url": "https://everynoise.com/engenremap-macedonianpop.html",
+      "suggested_id": "macedonian_pop",
+      "allocation_ordinal": 1790
+    },
+    {
+      "source_label": "malagasy pop",
+      "source_url": "https://everynoise.com/engenremap-malagasypop.html",
+      "suggested_id": "malagasy_pop",
+      "allocation_ordinal": 1791
+    },
+    {
+      "source_label": "malawian pop",
+      "source_url": "https://everynoise.com/engenremap-malawianpop.html",
+      "suggested_id": "malawian_pop",
+      "allocation_ordinal": 1792
+    },
+    {
+      "source_label": "malayalam pop",
+      "source_url": "https://everynoise.com/engenremap-malayalampop.html",
+      "suggested_id": "malayalam_pop",
+      "allocation_ordinal": 1793
+    },
+    {
+      "source_label": "malaysian tamil pop",
+      "source_url": "https://everynoise.com/engenremap-malaysiantamilpop.html",
+      "suggested_id": "malaysian_tamil_pop",
+      "allocation_ordinal": 1794
+    },
+    {
+      "source_label": "maltese pop",
+      "source_url": "https://everynoise.com/engenremap-maltesepop.html",
+      "suggested_id": "maltese_pop",
+      "allocation_ordinal": 1795
+    },
+    {
+      "source_label": "maluku pop",
+      "source_url": "https://everynoise.com/engenremap-malukupop.html",
+      "suggested_id": "maluku_pop",
+      "allocation_ordinal": 1796
+    },
+    {
+      "source_label": "manipuri pop",
+      "source_url": "https://everynoise.com/engenremap-manipuripop.html",
+      "suggested_id": "manipuri_pop",
+      "allocation_ordinal": 1797
+    },
+    {
+      "source_label": "marathi pop",
+      "source_url": "https://everynoise.com/engenremap-marathipop.html",
+      "suggested_id": "marathi_pop",
+      "allocation_ordinal": 1798
+    },
+    {
+      "source_label": "marwadi pop",
+      "source_url": "https://everynoise.com/engenremap-marwadipop.html",
+      "suggested_id": "marwadi_pop",
+      "allocation_ordinal": 1799
+    },
+    {
+      "source_label": "math pop",
+      "source_url": "https://everynoise.com/engenremap-mathpop.html",
+      "suggested_id": "math_pop",
+      "allocation_ordinal": 1800
+    }
+  ]
+}

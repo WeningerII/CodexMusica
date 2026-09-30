@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "089",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["classical and vocal ensemble names"],
+  "entries": [
+    {
+      "source_label": "austrian choir",
+      "source_url": "https://everynoise.com/engenremap-austrianchoir.html",
+      "suggested_id": "austrian_choir",
+      "allocation_ordinal": 2201
+    },
+    {
+      "source_label": "austrian classical piano",
+      "source_url": "https://everynoise.com/engenremap-austrianclassicalpiano.html",
+      "suggested_id": "austrian_classical_piano",
+      "allocation_ordinal": 2202
+    },
+    {
+      "source_label": "austrian contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-austriancontemporaryclassical.html",
+      "suggested_id": "austrian_contemporary_classical",
+      "allocation_ordinal": 2203
+    },
+    {
+      "source_label": "austrian orchestra",
+      "source_url": "https://everynoise.com/engenremap-austrianorchestra.html",
+      "suggested_id": "austrian_orchestra",
+      "allocation_ordinal": 2204
+    },
+    {
+      "source_label": "balkan classical piano",
+      "source_url": "https://everynoise.com/engenremap-balkanclassicalpiano.html",
+      "suggested_id": "balkan_classical_piano",
+      "allocation_ordinal": 2205
+    },
+    {
+      "source_label": "baltic choir",
+      "source_url": "https://everynoise.com/engenremap-balticchoir.html",
+      "suggested_id": "baltic_choir",
+      "allocation_ordinal": 2206
+    },
+    {
+      "source_label": "baltic classical",
+      "source_url": "https://everynoise.com/engenremap-balticclassical.html",
+      "suggested_id": "baltic_classical",
+      "allocation_ordinal": 2207
+    },
+    {
+      "source_label": "baltic classical piano",
+      "source_url": "https://everynoise.com/engenremap-balticclassicalpiano.html",
+      "suggested_id": "baltic_classical_piano",
+      "allocation_ordinal": 2208
+    },
+    {
+      "source_label": "baroque brass",
+      "source_url": "https://everynoise.com/engenremap-baroquebrass.html",
+      "suggested_id": "baroque_brass",
+      "allocation_ordinal": 2209
+    },
+    {
+      "source_label": "baroque cello",
+      "source_url": "https://everynoise.com/engenremap-baroquecello.html",
+      "suggested_id": "baroque_cello",
+      "allocation_ordinal": 2210
+    },
+    {
+      "source_label": "baroque ensemble",
+      "source_url": "https://everynoise.com/engenremap-baroqueensemble.html",
+      "suggested_id": "baroque_ensemble",
+      "allocation_ordinal": 2211
+    },
+    {
+      "source_label": "baroque singing",
+      "source_url": "https://everynoise.com/engenremap-baroquesinging.html",
+      "suggested_id": "baroque_singing",
+      "allocation_ordinal": 2212
+    },
+    {
+      "source_label": "baroque violin",
+      "source_url": "https://everynoise.com/engenremap-baroqueviolin.html",
+      "suggested_id": "baroque_violin",
+      "allocation_ordinal": 2213
+    },
+    {
+      "source_label": "baroque woodwind",
+      "source_url": "https://everynoise.com/engenremap-baroquewoodwind.html",
+      "suggested_id": "baroque_woodwind",
+      "allocation_ordinal": 2214
+    },
+    {
+      "source_label": "belgian classical piano",
+      "source_url": "https://everynoise.com/engenremap-belgianclassicalpiano.html",
+      "suggested_id": "belgian_classical_piano",
+      "allocation_ordinal": 2215
+    },
+    {
+      "source_label": "belgian contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-belgiancontemporaryclassical.html",
+      "suggested_id": "belgian_contemporary_classical",
+      "allocation_ordinal": 2216
+    },
+    {
+      "source_label": "bohemian baroque",
+      "source_url": "https://everynoise.com/engenremap-bohemianbaroque.html",
+      "suggested_id": "bohemian_baroque",
+      "allocation_ordinal": 2217
+    },
+    {
+      "source_label": "brazilian classical",
+      "source_url": "https://everynoise.com/engenremap-brazilianclassical.html",
+      "suggested_id": "brazilian_classical",
+      "allocation_ordinal": 2218
+    },
+    {
+      "source_label": "brazilian classical piano",
+      "source_url": "https://everynoise.com/engenremap-brazilianclassicalpiano.html",
+      "suggested_id": "brazilian_classical_piano",
+      "allocation_ordinal": 2219
+    },
+    {
+      "source_label": "brazilian contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-braziliancontemporaryclassical.html",
+      "suggested_id": "brazilian_contemporary_classical",
+      "allocation_ordinal": 2220
+    },
+    {
+      "source_label": "british choir",
+      "source_url": "https://everynoise.com/engenremap-britishchoir.html",
+      "suggested_id": "british_choir",
+      "allocation_ordinal": 2221
+    },
+    {
+      "source_label": "british classical piano",
+      "source_url": "https://everynoise.com/engenremap-britishclassicalpiano.html",
+      "suggested_id": "british_classical_piano",
+      "allocation_ordinal": 2222
+    },
+    {
+      "source_label": "british contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-britishcontemporaryclassical.html",
+      "suggested_id": "british_contemporary_classical",
+      "allocation_ordinal": 2223
+    },
+    {
+      "source_label": "british modern classical",
+      "source_url": "https://everynoise.com/engenremap-britishmodernclassical.html",
+      "suggested_id": "british_modern_classical",
+      "allocation_ordinal": 2224
+    },
+    {
+      "source_label": "british orchestra",
+      "source_url": "https://everynoise.com/engenremap-britishorchestra.html",
+      "suggested_id": "british_orchestra",
+      "allocation_ordinal": 2225
+    }
+  ]
+}

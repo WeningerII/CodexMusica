@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "035",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "metal cristao",
+      "source_url": "https://everynoise.com/engenremap-metalcristao.html",
+      "suggested_id": "metal_cristao",
+      "allocation_ordinal": 851
+    },
+    {
+      "source_label": "metal ecuatoriano",
+      "source_url": "https://everynoise.com/engenremap-metalecuatoriano.html",
+      "suggested_id": "metal_ecuatoriano",
+      "allocation_ordinal": 852
+    },
+    {
+      "source_label": "metal galego",
+      "source_url": "https://everynoise.com/engenremap-metalgalego.html",
+      "suggested_id": "metal_galego",
+      "allocation_ordinal": 853
+    },
+    {
+      "source_label": "metal gaucho",
+      "source_url": "https://everynoise.com/engenremap-metalgaucho.html",
+      "suggested_id": "metal_gaucho",
+      "allocation_ordinal": 854
+    },
+    {
+      "source_label": "metal gotico",
+      "source_url": "https://everynoise.com/engenremap-metalgotico.html",
+      "suggested_id": "metal_gotico",
+      "allocation_ordinal": 855
+    },
+    {
+      "source_label": "metal guitar",
+      "source_url": "https://everynoise.com/engenremap-metalguitar.html",
+      "suggested_id": "metal_guitar",
+      "allocation_ordinal": 856
+    },
+    {
+      "source_label": "metal mineiro",
+      "source_url": "https://everynoise.com/engenremap-metalmineiro.html",
+      "suggested_id": "metal_mineiro",
+      "allocation_ordinal": 857
+    },
+    {
+      "source_label": "metal noir quebecois",
+      "source_url": "https://everynoise.com/engenremap-metalnoirquebecois.html",
+      "suggested_id": "metal_noir_quebecois",
+      "allocation_ordinal": 858
+    },
+    {
+      "source_label": "metal nortista",
+      "source_url": "https://everynoise.com/engenremap-metalnortista.html",
+      "suggested_id": "metal_nortista",
+      "allocation_ordinal": 859
+    },
+    {
+      "source_label": "metal paraguayo",
+      "source_url": "https://everynoise.com/engenremap-metalparaguayo.html",
+      "suggested_id": "metal_paraguayo",
+      "allocation_ordinal": 860
+    },
+    {
+      "source_label": "metal paranaense",
+      "source_url": "https://everynoise.com/engenremap-metalparanaense.html",
+      "suggested_id": "metal_paranaense",
+      "allocation_ordinal": 861
+    },
+    {
+      "source_label": "metal pernambucano",
+      "source_url": "https://everynoise.com/engenremap-metalpernambucano.html",
+      "suggested_id": "metal_pernambucano",
+      "allocation_ordinal": 862
+    },
+    {
+      "source_label": "metal piauiense",
+      "source_url": "https://everynoise.com/engenremap-metalpiauiense.html",
+      "suggested_id": "metal_piauiense",
+      "allocation_ordinal": 863
+    },
+    {
+      "source_label": "metal salvadoreno",
+      "source_url": "https://everynoise.com/engenremap-metalsalvadoreno.html",
+      "suggested_id": "metal_salvadoreno",
+      "allocation_ordinal": 864
+    },
+    {
+      "source_label": "metal tico",
+      "source_url": "https://everynoise.com/engenremap-metaltico.html",
+      "suggested_id": "metal_tico",
+      "allocation_ordinal": 865
+    },
+    {
+      "source_label": "metal uruguayo",
+      "source_url": "https://everynoise.com/engenremap-metaluruguayo.html",
+      "suggested_id": "metal_uruguayo",
+      "allocation_ordinal": 866
+    },
+    {
+      "source_label": "metalcore",
+      "source_url": "https://everynoise.com/engenremap-metalcore.html",
+      "suggested_id": "metalcore",
+      "allocation_ordinal": 867
+    },
+    {
+      "source_label": "metalcore espanol",
+      "source_url": "https://everynoise.com/engenremap-metalcoreespanol.html",
+      "suggested_id": "metalcore_espanol",
+      "allocation_ordinal": 868
+    },
+    {
+      "source_label": "mexican black metal",
+      "source_url": "https://everynoise.com/engenremap-mexicanblackmetal.html",
+      "suggested_id": "mexican_black_metal",
+      "allocation_ordinal": 869
+    },
+    {
+      "source_label": "mexican death metal",
+      "source_url": "https://everynoise.com/engenremap-mexicandeathmetal.html",
+      "suggested_id": "mexican_death_metal",
+      "allocation_ordinal": 870
+    },
+    {
+      "source_label": "mexican metal",
+      "source_url": "https://everynoise.com/engenremap-mexicanmetal.html",
+      "suggested_id": "mexican_metal",
+      "allocation_ordinal": 871
+    },
+    {
+      "source_label": "mexican power metal",
+      "source_url": "https://everynoise.com/engenremap-mexicanpowermetal.html",
+      "suggested_id": "mexican_power_metal",
+      "allocation_ordinal": 872
+    },
+    {
+      "source_label": "mexican thrash metal",
+      "source_url": "https://everynoise.com/engenremap-mexicanthrashmetal.html",
+      "suggested_id": "mexican_thrash_metal",
+      "allocation_ordinal": 873
+    },
+    {
+      "source_label": "miami metal",
+      "source_url": "https://everynoise.com/engenremap-miamimetal.html",
+      "suggested_id": "miami_metal",
+      "allocation_ordinal": 874
+    },
+    {
+      "source_label": "minneapolis metal",
+      "source_url": "https://everynoise.com/engenremap-minneapolismetal.html",
+      "suggested_id": "minneapolis_metal",
+      "allocation_ordinal": 875
+    }
+  ]
+}

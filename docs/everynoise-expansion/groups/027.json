@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "027",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "american grindcore",
+      "source_url": "https://everynoise.com/engenremap-americangrindcore.html",
+      "suggested_id": "american_grindcore",
+      "allocation_ordinal": 651
+    },
+    {
+      "source_label": "american melodeath",
+      "source_url": "https://everynoise.com/engenremap-americanmelodeath.html",
+      "suggested_id": "american_melodeath",
+      "allocation_ordinal": 652
+    },
+    {
+      "source_label": "arab metal",
+      "source_url": "https://everynoise.com/engenremap-arabmetal.html",
+      "suggested_id": "arab_metal",
+      "allocation_ordinal": 653
+    },
+    {
+      "source_label": "argentine heavy metal",
+      "source_url": "https://everynoise.com/engenremap-argentineheavymetal.html",
+      "suggested_id": "argentine_heavy_metal",
+      "allocation_ordinal": 654
+    },
+    {
+      "source_label": "argentine metal",
+      "source_url": "https://everynoise.com/engenremap-argentinemetal.html",
+      "suggested_id": "argentine_metal",
+      "allocation_ordinal": 655
+    },
+    {
+      "source_label": "arkansas metal",
+      "source_url": "https://everynoise.com/engenremap-arkansasmetal.html",
+      "suggested_id": "arkansas_metal",
+      "allocation_ordinal": 656
+    },
+    {
+      "source_label": "atlanta metal",
+      "source_url": "https://everynoise.com/engenremap-atlantametal.html",
+      "suggested_id": "atlanta_metal",
+      "allocation_ordinal": 657
+    },
+    {
+      "source_label": "austin metal",
+      "source_url": "https://everynoise.com/engenremap-austinmetal.html",
+      "suggested_id": "austin_metal",
+      "allocation_ordinal": 658
+    },
+    {
+      "source_label": "australian black metal",
+      "source_url": "https://everynoise.com/engenremap-australianblackmetal.html",
+      "suggested_id": "australian_black_metal",
+      "allocation_ordinal": 659
+    },
+    {
+      "source_label": "australian death metal",
+      "source_url": "https://everynoise.com/engenremap-australiandeathmetal.html",
+      "suggested_id": "australian_death_metal",
+      "allocation_ordinal": 660
+    },
+    {
+      "source_label": "australian metal",
+      "source_url": "https://everynoise.com/engenremap-australianmetal.html",
+      "suggested_id": "australian_metal",
+      "allocation_ordinal": 661
+    },
+    {
+      "source_label": "australian metalcore",
+      "source_url": "https://everynoise.com/engenremap-australianmetalcore.html",
+      "suggested_id": "australian_metalcore",
+      "allocation_ordinal": 662
+    },
+    {
+      "source_label": "australian thrash metal",
+      "source_url": "https://everynoise.com/engenremap-australianthrashmetal.html",
+      "suggested_id": "australian_thrash_metal",
+      "allocation_ordinal": 663
+    },
+    {
+      "source_label": "austrian black metal",
+      "source_url": "https://everynoise.com/engenremap-austrianblackmetal.html",
+      "suggested_id": "austrian_black_metal",
+      "allocation_ordinal": 664
+    },
+    {
+      "source_label": "austrian metal",
+      "source_url": "https://everynoise.com/engenremap-austrianmetal.html",
+      "suggested_id": "austrian_metal",
+      "allocation_ordinal": 665
+    },
+    {
+      "source_label": "autonomous black metal",
+      "source_url": "https://everynoise.com/engenremap-autonomousblackmetal.html",
+      "suggested_id": "autonomous_black_metal",
+      "allocation_ordinal": 666
+    },
+    {
+      "source_label": "balkan folk metal",
+      "source_url": "https://everynoise.com/engenremap-balkanfolkmetal.html",
+      "suggested_id": "balkan_folk_metal",
+      "allocation_ordinal": 667
+    },
+    {
+      "source_label": "baltic black metal",
+      "source_url": "https://everynoise.com/engenremap-balticblackmetal.html",
+      "suggested_id": "baltic_black_metal",
+      "allocation_ordinal": 668
+    },
+    {
+      "source_label": "belarusian metal",
+      "source_url": "https://everynoise.com/engenremap-belarusianmetal.html",
+      "suggested_id": "belarusian_metal",
+      "allocation_ordinal": 669
+    },
+    {
+      "source_label": "belfast metal",
+      "source_url": "https://everynoise.com/engenremap-belfastmetal.html",
+      "suggested_id": "belfast_metal",
+      "allocation_ordinal": 670
+    },
+    {
+      "source_label": "belgian black metal",
+      "source_url": "https://everynoise.com/engenremap-belgianblackmetal.html",
+      "suggested_id": "belgian_black_metal",
+      "allocation_ordinal": 671
+    },
+    {
+      "source_label": "belgian death metal",
+      "source_url": "https://everynoise.com/engenremap-belgiandeathmetal.html",
+      "suggested_id": "belgian_death_metal",
+      "allocation_ordinal": 672
+    },
+    {
+      "source_label": "belgian metal",
+      "source_url": "https://everynoise.com/engenremap-belgianmetal.html",
+      "suggested_id": "belgian_metal",
+      "allocation_ordinal": 673
+    },
+    {
+      "source_label": "birmingham metal",
+      "source_url": "https://everynoise.com/engenremap-birminghammetal.html",
+      "suggested_id": "birmingham_metal",
+      "allocation_ordinal": 674
+    },
+    {
+      "source_label": "black metal argentino",
+      "source_url": "https://everynoise.com/engenremap-blackmetalargentino.html",
+      "suggested_id": "black_metal_argentino",
+      "allocation_ordinal": 675
+    }
+  ]
+}

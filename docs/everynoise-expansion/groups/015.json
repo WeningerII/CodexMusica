@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "015",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "japanese drill",
+      "source_url": "https://everynoise.com/engenremap-japanesedrill.html",
+      "suggested_id": "japanese_drill",
+      "allocation_ordinal": 351
+    },
+    {
+      "source_label": "japanese old school hip hop",
+      "source_url": "https://everynoise.com/engenremap-japaneseoldschoolhiphop.html",
+      "suggested_id": "japanese_old_school_hip_hop",
+      "allocation_ordinal": 352
+    },
+    {
+      "source_label": "japanese pop rap",
+      "source_url": "https://everynoise.com/engenremap-japanesepoprap.html",
+      "suggested_id": "japanese_pop_rap",
+      "allocation_ordinal": 353
+    },
+    {
+      "source_label": "japanese trap",
+      "source_url": "https://everynoise.com/engenremap-japanesetrap.html",
+      "suggested_id": "japanese_trap",
+      "allocation_ordinal": 354
+    },
+    {
+      "source_label": "japanese underground rap",
+      "source_url": "https://everynoise.com/engenremap-japaneseundergroundrap.html",
+      "suggested_id": "japanese_underground_rap",
+      "allocation_ordinal": 355
+    },
+    {
+      "source_label": "jewish hip hop",
+      "source_url": "https://everynoise.com/engenremap-jewishhiphop.html",
+      "suggested_id": "jewish_hip_hop",
+      "allocation_ordinal": 356
+    },
+    {
+      "source_label": "josei rap",
+      "source_url": "https://everynoise.com/engenremap-joseirap.html",
+      "suggested_id": "josei_rap",
+      "allocation_ordinal": 357
+    },
+    {
+      "source_label": "kannada hip hop",
+      "source_url": "https://everynoise.com/engenremap-kannadahiphop.html",
+      "suggested_id": "kannada_hip_hop",
+      "allocation_ordinal": 358
+    },
+    {
+      "source_label": "kansas city hip hop",
+      "source_url": "https://everynoise.com/engenremap-kansascityhiphop.html",
+      "suggested_id": "kansas_city_hip_hop",
+      "allocation_ordinal": 359
+    },
+    {
+      "source_label": "kansas hip hop",
+      "source_url": "https://everynoise.com/engenremap-kansashiphop.html",
+      "suggested_id": "kansas_hip_hop",
+      "allocation_ordinal": 360
+    },
+    {
+      "source_label": "kashmiri hip hop",
+      "source_url": "https://everynoise.com/engenremap-kashmirihiphop.html",
+      "suggested_id": "kashmiri_hip_hop",
+      "allocation_ordinal": 361
+    },
+    {
+      "source_label": "kasi rap",
+      "source_url": "https://everynoise.com/engenremap-kasirap.html",
+      "suggested_id": "kasi_rap",
+      "allocation_ordinal": 362
+    },
+    {
+      "source_label": "kazakh hip hop",
+      "source_url": "https://everynoise.com/engenremap-kazakhhiphop.html",
+      "suggested_id": "kazakh_hip_hop",
+      "allocation_ordinal": 363
+    },
+    {
+      "source_label": "kentucky hip hop",
+      "source_url": "https://everynoise.com/engenremap-kentuckyhiphop.html",
+      "suggested_id": "kentucky_hip_hop",
+      "allocation_ordinal": 364
+    },
+    {
+      "source_label": "kenyan hip hop",
+      "source_url": "https://everynoise.com/engenremap-kenyanhiphop.html",
+      "suggested_id": "kenyan_hip_hop",
+      "allocation_ordinal": 365
+    },
+    {
+      "source_label": "khmer hip hop",
+      "source_url": "https://everynoise.com/engenremap-khmerhiphop.html",
+      "suggested_id": "khmer_hip_hop",
+      "allocation_ordinal": 366
+    },
+    {
+      "source_label": "kids hip hop",
+      "source_url": "https://everynoise.com/engenremap-kidshiphop.html",
+      "suggested_id": "kids_hip_hop",
+      "allocation_ordinal": 367
+    },
+    {
+      "source_label": "korean drill",
+      "source_url": "https://everynoise.com/engenremap-koreandrill.html",
+      "suggested_id": "korean_drill",
+      "allocation_ordinal": 368
+    },
+    {
+      "source_label": "korean old school hip hop",
+      "source_url": "https://everynoise.com/engenremap-koreanoldschoolhiphop.html",
+      "suggested_id": "korean_old_school_hip_hop",
+      "allocation_ordinal": 369
+    },
+    {
+      "source_label": "korean trap",
+      "source_url": "https://everynoise.com/engenremap-koreantrap.html",
+      "suggested_id": "korean_trap",
+      "allocation_ordinal": 370
+    },
+    {
+      "source_label": "korean underground rap",
+      "source_url": "https://everynoise.com/engenremap-koreanundergroundrap.html",
+      "suggested_id": "korean_underground_rap",
+      "allocation_ordinal": 371
+    },
+    {
+      "source_label": "kurdish hip hop",
+      "source_url": "https://everynoise.com/engenremap-kurdishhiphop.html",
+      "suggested_id": "kurdish_hip_hop",
+      "allocation_ordinal": 372
+    },
+    {
+      "source_label": "kyrgyz hip hop",
+      "source_url": "https://everynoise.com/engenremap-kyrgyzhiphop.html",
+      "suggested_id": "kyrgyz_hip_hop",
+      "allocation_ordinal": 373
+    },
+    {
+      "source_label": "lao hip hop",
+      "source_url": "https://everynoise.com/engenremap-laohiphop.html",
+      "suggested_id": "lao_hip_hop",
+      "allocation_ordinal": 374
+    },
+    {
+      "source_label": "lapland hip hop",
+      "source_url": "https://everynoise.com/engenremap-laplandhiphop.html",
+      "suggested_id": "lapland_hip_hop",
+      "allocation_ordinal": 375
+    }
+  ]
+}

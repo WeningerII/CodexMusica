@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "104",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["blues soul funk and gospel names"],
+  "entries": [
+    {
+      "source_label": "deep southern soul",
+      "source_url": "https://everynoise.com/engenremap-deepsouthernsoul.html",
+      "suggested_id": "deep_southern_soul",
+      "allocation_ordinal": 2576
+    },
+    {
+      "source_label": "dutch blues",
+      "source_url": "https://everynoise.com/engenremap-dutchblues.html",
+      "suggested_id": "dutch_blues",
+      "allocation_ordinal": 2577
+    },
+    {
+      "source_label": "dutch r&b",
+      "source_url": "https://everynoise.com/engenremap-dutchrb.html",
+      "suggested_id": "dutch_r_and_b",
+      "allocation_ordinal": 2578
+    },
+    {
+      "source_label": "experimental r&b",
+      "source_url": "https://everynoise.com/engenremap-experimentalrb.html",
+      "suggested_id": "experimental_r_and_b",
+      "allocation_ordinal": 2579
+    },
+    {
+      "source_label": "family gospel",
+      "source_url": "https://everynoise.com/engenremap-familygospel.html",
+      "suggested_id": "family_gospel",
+      "allocation_ordinal": 2580
+    },
+    {
+      "source_label": "finnish blues",
+      "source_url": "https://everynoise.com/engenremap-finnishblues.html",
+      "suggested_id": "finnish_blues",
+      "allocation_ordinal": 2581
+    },
+    {
+      "source_label": "finnish soul",
+      "source_url": "https://everynoise.com/engenremap-finnishsoul.html",
+      "suggested_id": "finnish_soul",
+      "allocation_ordinal": 2582
+    },
+    {
+      "source_label": "funk das antigas",
+      "source_url": "https://everynoise.com/engenremap-funkdasantigas.html",
+      "suggested_id": "funk_das_antigas",
+      "allocation_ordinal": 2583
+    },
+    {
+      "source_label": "funk evangelico",
+      "source_url": "https://everynoise.com/engenremap-funkevangelico.html",
+      "suggested_id": "funk_evangelico",
+      "allocation_ordinal": 2584
+    },
+    {
+      "source_label": "funk mexicano",
+      "source_url": "https://everynoise.com/engenremap-funkmexicano.html",
+      "suggested_id": "funk_mexicano",
+      "allocation_ordinal": 2585
+    },
+    {
+      "source_label": "german blues",
+      "source_url": "https://everynoise.com/engenremap-germanblues.html",
+      "suggested_id": "german_blues",
+      "allocation_ordinal": 2586
+    },
+    {
+      "source_label": "german r&b",
+      "source_url": "https://everynoise.com/engenremap-germanrb.html",
+      "suggested_id": "german_r_and_b",
+      "allocation_ordinal": 2587
+    },
+    {
+      "source_label": "ghanaian gospel",
+      "source_url": "https://everynoise.com/engenremap-ghanaiangospel.html",
+      "suggested_id": "ghanaian_gospel",
+      "allocation_ordinal": 2588
+    },
+    {
+      "source_label": "gospel amapiano",
+      "source_url": "https://everynoise.com/engenremap-gospelamapiano.html",
+      "suggested_id": "gospel_amapiano",
+      "allocation_ordinal": 2589
+    },
+    {
+      "source_label": "gospel antigas",
+      "source_url": "https://everynoise.com/engenremap-gospelantigas.html",
+      "suggested_id": "gospel_antigas",
+      "allocation_ordinal": 2590
+    },
+    {
+      "source_label": "gospel italiano",
+      "source_url": "https://everynoise.com/engenremap-gospelitaliano.html",
+      "suggested_id": "gospel_italiano",
+      "allocation_ordinal": 2591
+    },
+    {
+      "source_label": "gospel papiamento",
+      "source_url": "https://everynoise.com/engenremap-gospelpapiamento.html",
+      "suggested_id": "gospel_papiamento",
+      "allocation_ordinal": 2592
+    },
+    {
+      "source_label": "gospel r&b",
+      "source_url": "https://everynoise.com/engenremap-gospelrb.html",
+      "suggested_id": "gospel_r_and_b",
+      "allocation_ordinal": 2593
+    },
+    {
+      "source_label": "gospel reggae",
+      "source_url": "https://everynoise.com/engenremap-gospelreggae.html",
+      "suggested_id": "gospel_reggae",
+      "allocation_ordinal": 2594
+    },
+    {
+      "source_label": "gospel singers",
+      "source_url": "https://everynoise.com/engenremap-gospelsingers.html",
+      "suggested_id": "gospel_singers",
+      "allocation_ordinal": 2595
+    },
+    {
+      "source_label": "gospel soul",
+      "source_url": "https://everynoise.com/engenremap-gospelsoul.html",
+      "suggested_id": "gospel_soul",
+      "allocation_ordinal": 2596
+    },
+    {
+      "source_label": "groove gospel",
+      "source_url": "https://everynoise.com/engenremap-groovegospel.html",
+      "suggested_id": "groove_gospel",
+      "allocation_ordinal": 2597
+    },
+    {
+      "source_label": "haitian gospel",
+      "source_url": "https://everynoise.com/engenremap-haitiangospel.html",
+      "suggested_id": "haitian_gospel",
+      "allocation_ordinal": 2598
+    },
+    {
+      "source_label": "indie r&b",
+      "source_url": "https://everynoise.com/engenremap-indierb.html",
+      "suggested_id": "indie_r_and_b",
+      "allocation_ordinal": 2599
+    },
+    {
+      "source_label": "indie soul",
+      "source_url": "https://everynoise.com/engenremap-indiesoul.html",
+      "suggested_id": "indie_soul",
+      "allocation_ordinal": 2600
+    }
+  ]
+}

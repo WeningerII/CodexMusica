@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "016",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "latin hip hop",
+      "source_url": "https://everynoise.com/engenremap-latinhiphop.html",
+      "suggested_id": "latin_hip_hop",
+      "allocation_ordinal": 376
+    },
+    {
+      "source_label": "latin viral rap",
+      "source_url": "https://everynoise.com/engenremap-latinviralrap.html",
+      "suggested_id": "latin_viral_rap",
+      "allocation_ordinal": 377
+    },
+    {
+      "source_label": "latvian hip hop",
+      "source_url": "https://everynoise.com/engenremap-latvianhiphop.html",
+      "suggested_id": "latvian_hip_hop",
+      "allocation_ordinal": 378
+    },
+    {
+      "source_label": "lgbtq+ hip hop",
+      "source_url": "https://everynoise.com/engenremap-lgbtqhiphop.html",
+      "suggested_id": "lgbtq_hip_hop",
+      "allocation_ordinal": 379
+    },
+    {
+      "source_label": "libyan hip hop",
+      "source_url": "https://everynoise.com/engenremap-libyanhiphop.html",
+      "suggested_id": "libyan_hip_hop",
+      "allocation_ordinal": 380
+    },
+    {
+      "source_label": "lithuanian hip hop",
+      "source_url": "https://everynoise.com/engenremap-lithuanianhiphop.html",
+      "suggested_id": "lithuanian_hip_hop",
+      "allocation_ordinal": 381
+    },
+    {
+      "source_label": "lithuanian trap",
+      "source_url": "https://everynoise.com/engenremap-lithuaniantrap.html",
+      "suggested_id": "lithuanian_trap",
+      "allocation_ordinal": 382
+    },
+    {
+      "source_label": "lo-fi rap",
+      "source_url": "https://everynoise.com/engenremap-lofirap.html",
+      "suggested_id": "lo_fi_rap",
+      "allocation_ordinal": 383
+    },
+    {
+      "source_label": "luxembourgian hip hop",
+      "source_url": "https://everynoise.com/engenremap-luxembourgianhiphop.html",
+      "suggested_id": "luxembourgian_hip_hop",
+      "allocation_ordinal": 384
+    },
+    {
+      "source_label": "macedonian hip hop",
+      "source_url": "https://everynoise.com/engenremap-macedonianhiphop.html",
+      "suggested_id": "macedonian_hip_hop",
+      "allocation_ordinal": 385
+    },
+    {
+      "source_label": "maga rap",
+      "source_url": "https://everynoise.com/engenremap-magarap.html",
+      "suggested_id": "maga_rap",
+      "allocation_ordinal": 386
+    },
+    {
+      "source_label": "magyar trap",
+      "source_url": "https://everynoise.com/engenremap-magyartrap.html",
+      "suggested_id": "magyar_trap",
+      "allocation_ordinal": 387
+    },
+    {
+      "source_label": "maine hip hop",
+      "source_url": "https://everynoise.com/engenremap-mainehiphop.html",
+      "suggested_id": "maine_hip_hop",
+      "allocation_ordinal": 388
+    },
+    {
+      "source_label": "malawian hip hop",
+      "source_url": "https://everynoise.com/engenremap-malawianhiphop.html",
+      "suggested_id": "malawian_hip_hop",
+      "allocation_ordinal": 389
+    },
+    {
+      "source_label": "malay rap",
+      "source_url": "https://everynoise.com/engenremap-malayrap.html",
+      "suggested_id": "malay_rap",
+      "allocation_ordinal": 390
+    },
+    {
+      "source_label": "malayalam hip hop",
+      "source_url": "https://everynoise.com/engenremap-malayalamhiphop.html",
+      "suggested_id": "malayalam_hip_hop",
+      "allocation_ordinal": 391
+    },
+    {
+      "source_label": "malaysian hip hop",
+      "source_url": "https://everynoise.com/engenremap-malaysianhiphop.html",
+      "suggested_id": "malaysian_hip_hop",
+      "allocation_ordinal": 392
+    },
+    {
+      "source_label": "malaysian tamil rap",
+      "source_url": "https://everynoise.com/engenremap-malaysiantamilrap.html",
+      "suggested_id": "malaysian_tamil_rap",
+      "allocation_ordinal": 393
+    },
+    {
+      "source_label": "maltese hip hop",
+      "source_url": "https://everynoise.com/engenremap-maltesehiphop.html",
+      "suggested_id": "maltese_hip_hop",
+      "allocation_ordinal": 394
+    },
+    {
+      "source_label": "manchester hip hop",
+      "source_url": "https://everynoise.com/engenremap-manchesterhiphop.html",
+      "suggested_id": "manchester_hip_hop",
+      "allocation_ordinal": 395
+    },
+    {
+      "source_label": "marathi hip hop",
+      "source_url": "https://everynoise.com/engenremap-marathihiphop.html",
+      "suggested_id": "marathi_hip_hop",
+      "allocation_ordinal": 396
+    },
+    {
+      "source_label": "melbourne hip hop",
+      "source_url": "https://everynoise.com/engenremap-melbournehiphop.html",
+      "suggested_id": "melbourne_hip_hop",
+      "allocation_ordinal": 397
+    },
+    {
+      "source_label": "melodic drill",
+      "source_url": "https://everynoise.com/engenremap-melodicdrill.html",
+      "suggested_id": "melodic_drill",
+      "allocation_ordinal": 398
+    },
+    {
+      "source_label": "meme rap",
+      "source_url": "https://everynoise.com/engenremap-memerap.html",
+      "suggested_id": "meme_rap",
+      "allocation_ordinal": 399
+    },
+    {
+      "source_label": "miami hip hop",
+      "source_url": "https://everynoise.com/engenremap-miamihiphop.html",
+      "suggested_id": "miami_hip_hop",
+      "allocation_ordinal": 400
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "062",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names"],
+  "entries": [
+    {
+      "source_label": "russian folk rock",
+      "source_url": "https://everynoise.com/engenremap-russianfolkrock.html",
+      "suggested_id": "russian_folk_rock",
+      "allocation_ordinal": 1526
+    },
+    {
+      "source_label": "russian indie rock",
+      "source_url": "https://everynoise.com/engenremap-russianindierock.html",
+      "suggested_id": "russian_indie_rock",
+      "allocation_ordinal": 1527
+    },
+    {
+      "source_label": "russian post-rock",
+      "source_url": "https://everynoise.com/engenremap-russianpostrock.html",
+      "suggested_id": "russian_post_rock",
+      "allocation_ordinal": 1528
+    },
+    {
+      "source_label": "russian shoegaze",
+      "source_url": "https://everynoise.com/engenremap-russianshoegaze.html",
+      "suggested_id": "russian_shoegaze",
+      "allocation_ordinal": 1529
+    },
+    {
+      "source_label": "scottish indie rock",
+      "source_url": "https://everynoise.com/engenremap-scottishindierock.html",
+      "suggested_id": "scottish_indie_rock",
+      "allocation_ordinal": 1530
+    },
+    {
+      "source_label": "serbian alternative rock",
+      "source_url": "https://everynoise.com/engenremap-serbianalternativerock.html",
+      "suggested_id": "serbian_alternative_rock",
+      "allocation_ordinal": 1531
+    },
+    {
+      "source_label": "shoegaze brasileiro",
+      "source_url": "https://everynoise.com/engenremap-shoegazebrasileiro.html",
+      "suggested_id": "shoegaze_brasileiro",
+      "allocation_ordinal": 1532
+    },
+    {
+      "source_label": "shoegaze chileno",
+      "source_url": "https://everynoise.com/engenremap-shoegazechileno.html",
+      "suggested_id": "shoegaze_chileno",
+      "allocation_ordinal": 1533
+    },
+    {
+      "source_label": "sleaze rock",
+      "source_url": "https://everynoise.com/engenremap-sleazerock.html",
+      "suggested_id": "sleaze_rock",
+      "allocation_ordinal": 1534
+    },
+    {
+      "source_label": "slovak rock",
+      "source_url": "https://everynoise.com/engenremap-slovakrock.html",
+      "suggested_id": "slovak_rock",
+      "allocation_ordinal": 1535
+    },
+    {
+      "source_label": "slovenian rock",
+      "source_url": "https://everynoise.com/engenremap-slovenianrock.html",
+      "suggested_id": "slovenian_rock",
+      "allocation_ordinal": 1536
+    },
+    {
+      "source_label": "soft rock",
+      "source_url": "https://everynoise.com/engenremap-softrock.html",
+      "suggested_id": "soft_rock",
+      "allocation_ordinal": 1537
+    },
+    {
+      "source_label": "south african rock",
+      "source_url": "https://everynoise.com/engenremap-southafricanrock.html",
+      "suggested_id": "south_african_rock",
+      "allocation_ordinal": 1538
+    },
+    {
+      "source_label": "southeast asian post-rock",
+      "source_url": "https://everynoise.com/engenremap-southeastasianpostrock.html",
+      "suggested_id": "southeast_asian_post_rock",
+      "allocation_ordinal": 1539
+    },
+    {
+      "source_label": "spanish folk rock",
+      "source_url": "https://everynoise.com/engenremap-spanishfolkrock.html",
+      "suggested_id": "spanish_folk_rock",
+      "allocation_ordinal": 1540
+    },
+    {
+      "source_label": "spanish indie rock",
+      "source_url": "https://everynoise.com/engenremap-spanishindierock.html",
+      "suggested_id": "spanish_indie_rock",
+      "allocation_ordinal": 1541
+    },
+    {
+      "source_label": "spanish modern rock",
+      "source_url": "https://everynoise.com/engenremap-spanishmodernrock.html",
+      "suggested_id": "spanish_modern_rock",
+      "allocation_ordinal": 1542
+    },
+    {
+      "source_label": "spanish pop rock",
+      "source_url": "https://everynoise.com/engenremap-spanishpoprock.html",
+      "suggested_id": "spanish_pop_rock",
+      "allocation_ordinal": 1543
+    },
+    {
+      "source_label": "spanish post-rock",
+      "source_url": "https://everynoise.com/engenremap-spanishpostrock.html",
+      "suggested_id": "spanish_post_rock",
+      "allocation_ordinal": 1544
+    },
+    {
+      "source_label": "spanish progressive rock",
+      "source_url": "https://everynoise.com/engenremap-spanishprogressiverock.html",
+      "suggested_id": "spanish_progressive_rock",
+      "allocation_ordinal": 1545
+    },
+    {
+      "source_label": "spanish psychedelic rock",
+      "source_url": "https://everynoise.com/engenremap-spanishpsychedelicrock.html",
+      "suggested_id": "spanish_psychedelic_rock",
+      "allocation_ordinal": 1546
+    },
+    {
+      "source_label": "spanish rockabilly",
+      "source_url": "https://everynoise.com/engenremap-spanishrockabilly.html",
+      "suggested_id": "spanish_rockabilly",
+      "allocation_ordinal": 1547
+    },
+    {
+      "source_label": "spanish stoner rock",
+      "source_url": "https://everynoise.com/engenremap-spanishstonerrock.html",
+      "suggested_id": "spanish_stoner_rock",
+      "allocation_ordinal": 1548
+    },
+    {
+      "source_label": "swedish alternative rock",
+      "source_url": "https://everynoise.com/engenremap-swedishalternativerock.html",
+      "suggested_id": "swedish_alternative_rock",
+      "allocation_ordinal": 1549
+    },
+    {
+      "source_label": "swedish hard rock",
+      "source_url": "https://everynoise.com/engenremap-swedishhardrock.html",
+      "suggested_id": "swedish_hard_rock",
+      "allocation_ordinal": 1550
+    }
+  ]
+}

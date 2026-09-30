@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "012",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "dutch drill",
+      "source_url": "https://everynoise.com/engenremap-dutchdrill.html",
+      "suggested_id": "dutch_drill",
+      "allocation_ordinal": 276
+    },
+    {
+      "source_label": "dutch hip hop",
+      "source_url": "https://everynoise.com/engenremap-dutchhiphop.html",
+      "suggested_id": "dutch_hip_hop",
+      "allocation_ordinal": 277
+    },
+    {
+      "source_label": "dutch rap pop",
+      "source_url": "https://everynoise.com/engenremap-dutchrappop.html",
+      "suggested_id": "dutch_rap_pop",
+      "allocation_ordinal": 278
+    },
+    {
+      "source_label": "dutch trap",
+      "source_url": "https://everynoise.com/engenremap-dutchtrap.html",
+      "suggested_id": "dutch_trap",
+      "allocation_ordinal": 279
+    },
+    {
+      "source_label": "dutch underground hip hop",
+      "source_url": "https://everynoise.com/engenremap-dutchundergroundhiphop.html",
+      "suggested_id": "dutch_underground_hip_hop",
+      "allocation_ordinal": 280
+    },
+    {
+      "source_label": "egyptian hip hop",
+      "source_url": "https://everynoise.com/engenremap-egyptianhiphop.html",
+      "suggested_id": "egyptian_hip_hop",
+      "allocation_ordinal": 281
+    },
+    {
+      "source_label": "egyptian trap",
+      "source_url": "https://everynoise.com/engenremap-egyptiantrap.html",
+      "suggested_id": "egyptian_trap",
+      "allocation_ordinal": 282
+    },
+    {
+      "source_label": "electronic trap",
+      "source_url": "https://everynoise.com/engenremap-electronictrap.html",
+      "suggested_id": "electronic_trap",
+      "allocation_ordinal": 283
+    },
+    {
+      "source_label": "emo rap italiano",
+      "source_url": "https://everynoise.com/engenremap-emorapitaliano.html",
+      "suggested_id": "emo_rap_italiano",
+      "allocation_ordinal": 284
+    },
+    {
+      "source_label": "emo trap en espanol",
+      "source_url": "https://everynoise.com/engenremap-emotrapenespanol.html",
+      "suggested_id": "emo_trap_en_espanol",
+      "allocation_ordinal": 285
+    },
+    {
+      "source_label": "emo trap italiana",
+      "source_url": "https://everynoise.com/engenremap-emotrapitaliana.html",
+      "suggested_id": "emo_trap_italiana",
+      "allocation_ordinal": 286
+    },
+    {
+      "source_label": "estonian hip hop",
+      "source_url": "https://everynoise.com/engenremap-estonianhiphop.html",
+      "suggested_id": "estonian_hip_hop",
+      "allocation_ordinal": 287
+    },
+    {
+      "source_label": "ethiopian hip hop",
+      "source_url": "https://everynoise.com/engenremap-ethiopianhiphop.html",
+      "suggested_id": "ethiopian_hip_hop",
+      "allocation_ordinal": 288
+    },
+    {
+      "source_label": "finnish drill",
+      "source_url": "https://everynoise.com/engenremap-finnishdrill.html",
+      "suggested_id": "finnish_drill",
+      "allocation_ordinal": 289
+    },
+    {
+      "source_label": "finnish hip hop",
+      "source_url": "https://everynoise.com/engenremap-finnishhiphop.html",
+      "suggested_id": "finnish_hip_hop",
+      "allocation_ordinal": 290
+    },
+    {
+      "source_label": "finnish trap",
+      "source_url": "https://everynoise.com/engenremap-finnishtrap.html",
+      "suggested_id": "finnish_trap",
+      "allocation_ordinal": 291
+    },
+    {
+      "source_label": "flint hip hop",
+      "source_url": "https://everynoise.com/engenremap-flinthiphop.html",
+      "suggested_id": "flint_hip_hop",
+      "allocation_ordinal": 292
+    },
+    {
+      "source_label": "florida rap",
+      "source_url": "https://everynoise.com/engenremap-floridarap.html",
+      "suggested_id": "florida_rap",
+      "allocation_ordinal": 293
+    },
+    {
+      "source_label": "gambian hip hop",
+      "source_url": "https://everynoise.com/engenremap-gambianhiphop.html",
+      "suggested_id": "gambian_hip_hop",
+      "allocation_ordinal": 294
+    },
+    {
+      "source_label": "georgian hip hop",
+      "source_url": "https://everynoise.com/engenremap-georgianhiphop.html",
+      "suggested_id": "georgian_hip_hop",
+      "allocation_ordinal": 295
+    },
+    {
+      "source_label": "german alternative rap",
+      "source_url": "https://everynoise.com/engenremap-germanalternativerap.html",
+      "suggested_id": "german_alternative_rap",
+      "allocation_ordinal": 296
+    },
+    {
+      "source_label": "german cloud rap",
+      "source_url": "https://everynoise.com/engenremap-germancloudrap.html",
+      "suggested_id": "german_cloud_rap",
+      "allocation_ordinal": 297
+    },
+    {
+      "source_label": "german jazz rap",
+      "source_url": "https://everynoise.com/engenremap-germanjazzrap.html",
+      "suggested_id": "german_jazz_rap",
+      "allocation_ordinal": 298
+    },
+    {
+      "source_label": "german trap",
+      "source_url": "https://everynoise.com/engenremap-germantrap.html",
+      "suggested_id": "german_trap",
+      "allocation_ordinal": 299
+    },
+    {
+      "source_label": "german underground rap",
+      "source_url": "https://everynoise.com/engenremap-germanundergroundrap.html",
+      "suggested_id": "german_underground_rap",
+      "allocation_ordinal": 300
+    }
+  ]
+}

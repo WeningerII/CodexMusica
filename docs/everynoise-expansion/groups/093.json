@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "093",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["classical and vocal ensemble names"],
+  "entries": [
+    {
+      "source_label": "historic classical performance",
+      "source_url": "https://everynoise.com/engenremap-historicclassicalperformance.html",
+      "suggested_id": "historic_classical_performance",
+      "allocation_ordinal": 2301
+    },
+    {
+      "source_label": "historic orchestral performance",
+      "source_url": "https://everynoise.com/engenremap-historicorchestralperformance.html",
+      "suggested_id": "historic_orchestral_performance",
+      "allocation_ordinal": 2302
+    },
+    {
+      "source_label": "historic string quartet",
+      "source_url": "https://everynoise.com/engenremap-historicstringquartet.html",
+      "suggested_id": "historic_string_quartet",
+      "allocation_ordinal": 2303
+    },
+    {
+      "source_label": "hungarian choir",
+      "source_url": "https://everynoise.com/engenremap-hungarianchoir.html",
+      "suggested_id": "hungarian_choir",
+      "allocation_ordinal": 2304
+    },
+    {
+      "source_label": "hungarian classical performance",
+      "source_url": "https://everynoise.com/engenremap-hungarianclassicalperformance.html",
+      "suggested_id": "hungarian_classical_performance",
+      "allocation_ordinal": 2305
+    },
+    {
+      "source_label": "hungarian classical piano",
+      "source_url": "https://everynoise.com/engenremap-hungarianclassicalpiano.html",
+      "suggested_id": "hungarian_classical_piano",
+      "allocation_ordinal": 2306
+    },
+    {
+      "source_label": "hungarian contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-hungariancontemporaryclassical.html",
+      "suggested_id": "hungarian_contemporary_classical",
+      "allocation_ordinal": 2307
+    },
+    {
+      "source_label": "icelandic choir",
+      "source_url": "https://everynoise.com/engenremap-icelandicchoir.html",
+      "suggested_id": "icelandic_choir",
+      "allocation_ordinal": 2308
+    },
+    {
+      "source_label": "icelandic classical",
+      "source_url": "https://everynoise.com/engenremap-icelandicclassical.html",
+      "suggested_id": "icelandic_classical",
+      "allocation_ordinal": 2309
+    },
+    {
+      "source_label": "indian classical",
+      "source_url": "https://everynoise.com/engenremap-indianclassical.html",
+      "suggested_id": "indian_classical",
+      "allocation_ordinal": 2310
+    },
+    {
+      "source_label": "irish classical",
+      "source_url": "https://everynoise.com/engenremap-irishclassical.html",
+      "suggested_id": "irish_classical",
+      "allocation_ordinal": 2311
+    },
+    {
+      "source_label": "irish contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-irishcontemporaryclassical.html",
+      "suggested_id": "irish_contemporary_classical",
+      "allocation_ordinal": 2312
+    },
+    {
+      "source_label": "israeli classical",
+      "source_url": "https://everynoise.com/engenremap-israeliclassical.html",
+      "suggested_id": "israeli_classical",
+      "allocation_ordinal": 2313
+    },
+    {
+      "source_label": "israeli classical piano",
+      "source_url": "https://everynoise.com/engenremap-israeliclassicalpiano.html",
+      "suggested_id": "israeli_classical_piano",
+      "allocation_ordinal": 2314
+    },
+    {
+      "source_label": "italian baroque ensemble",
+      "source_url": "https://everynoise.com/engenremap-italianbaroqueensemble.html",
+      "suggested_id": "italian_baroque_ensemble",
+      "allocation_ordinal": 2315
+    },
+    {
+      "source_label": "italian choir",
+      "source_url": "https://everynoise.com/engenremap-italianchoir.html",
+      "suggested_id": "italian_choir",
+      "allocation_ordinal": 2316
+    },
+    {
+      "source_label": "italian classical guitar",
+      "source_url": "https://everynoise.com/engenremap-italianclassicalguitar.html",
+      "suggested_id": "italian_classical_guitar",
+      "allocation_ordinal": 2317
+    },
+    {
+      "source_label": "italian classical piano",
+      "source_url": "https://everynoise.com/engenremap-italianclassicalpiano.html",
+      "suggested_id": "italian_classical_piano",
+      "allocation_ordinal": 2318
+    },
+    {
+      "source_label": "italian contemporary classical",
+      "source_url": "https://everynoise.com/engenremap-italiancontemporaryclassical.html",
+      "suggested_id": "italian_contemporary_classical",
+      "allocation_ordinal": 2319
+    },
+    {
+      "source_label": "italian opera",
+      "source_url": "https://everynoise.com/engenremap-italianopera.html",
+      "suggested_id": "italian_opera",
+      "allocation_ordinal": 2320
+    },
+    {
+      "source_label": "italian orchestra",
+      "source_url": "https://everynoise.com/engenremap-italianorchestra.html",
+      "suggested_id": "italian_orchestra",
+      "allocation_ordinal": 2321
+    },
+    {
+      "source_label": "italian renaissance",
+      "source_url": "https://everynoise.com/engenremap-italianrenaissance.html",
+      "suggested_id": "italian_renaissance",
+      "allocation_ordinal": 2322
+    },
+    {
+      "source_label": "japanese choir",
+      "source_url": "https://everynoise.com/engenremap-japanesechoir.html",
+      "suggested_id": "japanese_choir",
+      "allocation_ordinal": 2323
+    },
+    {
+      "source_label": "japanese classical",
+      "source_url": "https://everynoise.com/engenremap-japaneseclassical.html",
+      "suggested_id": "japanese_classical",
+      "allocation_ordinal": 2324
+    },
+    {
+      "source_label": "japanese classical performance",
+      "source_url": "https://everynoise.com/engenremap-japaneseclassicalperformance.html",
+      "suggested_id": "japanese_classical_performance",
+      "allocation_ordinal": 2325
+    }
+  ]
+}

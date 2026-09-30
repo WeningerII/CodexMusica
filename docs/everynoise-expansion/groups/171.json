@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "171",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "san marcos tx indie",
+      "source_url": "https://everynoise.com/engenremap-sanmarcostxindie.html",
+      "suggested_id": "san_marcos_tx_indie",
+      "allocation_ordinal": 4251
+    },
+    {
+      "source_label": "sandalwood",
+      "source_url": "https://everynoise.com/engenremap-sandalwood.html",
+      "suggested_id": "sandalwood",
+      "allocation_ordinal": 4252
+    },
+    {
+      "source_label": "santa fe indie",
+      "source_url": "https://everynoise.com/engenremap-santafeindie.html",
+      "suggested_id": "santa_fe_indie",
+      "allocation_ordinal": 4253
+    },
+    {
+      "source_label": "santoor",
+      "source_url": "https://everynoise.com/engenremap-santoor.html",
+      "suggested_id": "santoor",
+      "allocation_ordinal": 4254
+    },
+    {
+      "source_label": "sarangi",
+      "source_url": "https://everynoise.com/engenremap-sarangi.html",
+      "suggested_id": "sarangi",
+      "allocation_ordinal": 4255
+    },
+    {
+      "source_label": "sardinia indie",
+      "source_url": "https://everynoise.com/engenremap-sardiniaindie.html",
+      "suggested_id": "sardinia_indie",
+      "allocation_ordinal": 4256
+    },
+    {
+      "source_label": "sarod",
+      "source_url": "https://everynoise.com/engenremap-sarod.html",
+      "suggested_id": "sarod",
+      "allocation_ordinal": 4257
+    },
+    {
+      "source_label": "saskatchewan indie",
+      "source_url": "https://everynoise.com/engenremap-saskatchewanindie.html",
+      "suggested_id": "saskatchewan_indie",
+      "allocation_ordinal": 4258
+    },
+    {
+      "source_label": "sasscore",
+      "source_url": "https://everynoise.com/engenremap-sasscore.html",
+      "suggested_id": "sasscore",
+      "allocation_ordinal": 4259
+    },
+    {
+      "source_label": "saxophone trio",
+      "source_url": "https://everynoise.com/engenremap-saxophonetrio.html",
+      "suggested_id": "saxophone_trio",
+      "allocation_ordinal": 4260
+    },
+    {
+      "source_label": "school ensemble",
+      "source_url": "https://everynoise.com/engenremap-schoolensemble.html",
+      "suggested_id": "school_ensemble",
+      "allocation_ordinal": 4261
+    },
+    {
+      "source_label": "schrammelmusik",
+      "source_url": "https://everynoise.com/engenremap-schrammelmusik.html",
+      "suggested_id": "schrammelmusik",
+      "allocation_ordinal": 4262
+    },
+    {
+      "source_label": "scottish hush",
+      "source_url": "https://everynoise.com/engenremap-scottishhush.html",
+      "suggested_id": "scottish_hush",
+      "allocation_ordinal": 4263
+    },
+    {
+      "source_label": "scottish indie",
+      "source_url": "https://everynoise.com/engenremap-scottishindie.html",
+      "suggested_id": "scottish_indie",
+      "allocation_ordinal": 4264
+    },
+    {
+      "source_label": "scottish new wave",
+      "source_url": "https://everynoise.com/engenremap-scottishnewwave.html",
+      "suggested_id": "scottish_new_wave",
+      "allocation_ordinal": 4265
+    },
+    {
+      "source_label": "screamocore",
+      "source_url": "https://everynoise.com/engenremap-screamocore.html",
+      "suggested_id": "screamocore",
+      "allocation_ordinal": 4266
+    },
+    {
+      "source_label": "sda a cappella",
+      "source_url": "https://everynoise.com/engenremap-sdaacappella.html",
+      "suggested_id": "sda_a_cappella",
+      "allocation_ordinal": 4267
+    },
+    {
+      "source_label": "seattle indie",
+      "source_url": "https://everynoise.com/engenremap-seattleindie.html",
+      "suggested_id": "seattle_indie",
+      "allocation_ordinal": 4268
+    },
+    {
+      "source_label": "sega mauricien",
+      "source_url": "https://everynoise.com/engenremap-segamauricien.html",
+      "suggested_id": "sega_mauricien",
+      "allocation_ordinal": 4269
+    },
+    {
+      "source_label": "seinen",
+      "source_url": "https://everynoise.com/engenremap-seinen.html",
+      "suggested_id": "seinen",
+      "allocation_ordinal": 4270
+    },
+    {
+      "source_label": "seiyu",
+      "source_url": "https://everynoise.com/engenremap-seiyu.html",
+      "suggested_id": "seiyu",
+      "allocation_ordinal": 4271
+    },
+    {
+      "source_label": "semarang indie",
+      "source_url": "https://everynoise.com/engenremap-semarangindie.html",
+      "suggested_id": "semarang_indie",
+      "allocation_ordinal": 4272
+    },
+    {
+      "source_label": "senegalese traditional",
+      "source_url": "https://everynoise.com/engenremap-senegalesetraditional.html",
+      "suggested_id": "senegalese_traditional",
+      "allocation_ordinal": 4273
+    },
+    {
+      "source_label": "serbian indie",
+      "source_url": "https://everynoise.com/engenremap-serbianindie.html",
+      "suggested_id": "serbian_indie",
+      "allocation_ordinal": 4274
+    },
+    {
+      "source_label": "sertanejo tradicional",
+      "source_url": "https://everynoise.com/engenremap-sertanejotradicional.html",
+      "suggested_id": "sertanejo_tradicional",
+      "allocation_ordinal": 4275
+    }
+  ]
+}

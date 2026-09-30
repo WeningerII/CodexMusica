@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "043",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["punk and emo"],
+  "entries": [
+    {
+      "source_label": "canadian punk",
+      "source_url": "https://everynoise.com/engenremap-canadianpunk.html",
+      "suggested_id": "canadian_punk",
+      "allocation_ordinal": 1051
+    },
+    {
+      "source_label": "chain punk",
+      "source_url": "https://everynoise.com/engenremap-chainpunk.html",
+      "suggested_id": "chain_punk",
+      "allocation_ordinal": 1052
+    },
+    {
+      "source_label": "chicago hardcore",
+      "source_url": "https://everynoise.com/engenremap-chicagohardcore.html",
+      "suggested_id": "chicago_hardcore",
+      "allocation_ordinal": 1053
+    },
+    {
+      "source_label": "chicago pop punk",
+      "source_url": "https://everynoise.com/engenremap-chicagopoppunk.html",
+      "suggested_id": "chicago_pop_punk",
+      "allocation_ordinal": 1054
+    },
+    {
+      "source_label": "chicago punk",
+      "source_url": "https://everynoise.com/engenremap-chicagopunk.html",
+      "suggested_id": "chicago_punk",
+      "allocation_ordinal": 1055
+    },
+    {
+      "source_label": "chicano punk",
+      "source_url": "https://everynoise.com/engenremap-chicanopunk.html",
+      "suggested_id": "chicano_punk",
+      "allocation_ordinal": 1056
+    },
+    {
+      "source_label": "chilean hardcore",
+      "source_url": "https://everynoise.com/engenremap-chileanhardcore.html",
+      "suggested_id": "chilean_hardcore",
+      "allocation_ordinal": 1057
+    },
+    {
+      "source_label": "chinese post-punk",
+      "source_url": "https://everynoise.com/engenremap-chinesepostpunk.html",
+      "suggested_id": "chinese_post_punk",
+      "allocation_ordinal": 1058
+    },
+    {
+      "source_label": "chinese punk",
+      "source_url": "https://everynoise.com/engenremap-chinesepunk.html",
+      "suggested_id": "chinese_punk",
+      "allocation_ordinal": 1059
+    },
+    {
+      "source_label": "christian hardcore",
+      "source_url": "https://everynoise.com/engenremap-christianhardcore.html",
+      "suggested_id": "christian_hardcore",
+      "allocation_ordinal": 1060
+    },
+    {
+      "source_label": "christian punk",
+      "source_url": "https://everynoise.com/engenremap-christianpunk.html",
+      "suggested_id": "christian_punk",
+      "allocation_ordinal": 1061
+    },
+    {
+      "source_label": "colombian hardcore",
+      "source_url": "https://everynoise.com/engenremap-colombianhardcore.html",
+      "suggested_id": "colombian_hardcore",
+      "allocation_ordinal": 1062
+    },
+    {
+      "source_label": "colorado hardcore",
+      "source_url": "https://everynoise.com/engenremap-coloradohardcore.html",
+      "suggested_id": "colorado_hardcore",
+      "allocation_ordinal": 1063
+    },
+    {
+      "source_label": "connecticut hardcore",
+      "source_url": "https://everynoise.com/engenremap-connecticuthardcore.html",
+      "suggested_id": "connecticut_hardcore",
+      "allocation_ordinal": 1064
+    },
+    {
+      "source_label": "czech hardcore",
+      "source_url": "https://everynoise.com/engenremap-czechhardcore.html",
+      "suggested_id": "czech_hardcore",
+      "allocation_ordinal": 1065
+    },
+    {
+      "source_label": "czech punk",
+      "source_url": "https://everynoise.com/engenremap-czechpunk.html",
+      "suggested_id": "czech_punk",
+      "allocation_ordinal": 1066
+    },
+    {
+      "source_label": "danish hardcore",
+      "source_url": "https://everynoise.com/engenremap-danishhardcore.html",
+      "suggested_id": "danish_hardcore",
+      "allocation_ordinal": 1067
+    },
+    {
+      "source_label": "danish post-punk",
+      "source_url": "https://everynoise.com/engenremap-danishpostpunk.html",
+      "suggested_id": "danish_post_punk",
+      "allocation_ordinal": 1068
+    },
+    {
+      "source_label": "danish punk",
+      "source_url": "https://everynoise.com/engenremap-danishpunk.html",
+      "suggested_id": "danish_punk",
+      "allocation_ordinal": 1069
+    },
+    {
+      "source_label": "dark hardcore",
+      "source_url": "https://everynoise.com/engenremap-darkhardcore.html",
+      "suggested_id": "dark_hardcore",
+      "allocation_ordinal": 1070
+    },
+    {
+      "source_label": "dark post-punk",
+      "source_url": "https://everynoise.com/engenremap-darkpostpunk.html",
+      "suggested_id": "dark_post_punk",
+      "allocation_ordinal": 1071
+    },
+    {
+      "source_label": "dc hardcore",
+      "source_url": "https://everynoise.com/engenremap-dchardcore.html",
+      "suggested_id": "dc_hardcore",
+      "allocation_ordinal": 1072
+    },
+    {
+      "source_label": "deep german punk",
+      "source_url": "https://everynoise.com/engenremap-deepgermanpunk.html",
+      "suggested_id": "deep_german_punk",
+      "allocation_ordinal": 1073
+    },
+    {
+      "source_label": "deep gothic post-punk",
+      "source_url": "https://everynoise.com/engenremap-deepgothicpostpunk.html",
+      "suggested_id": "deep_gothic_post_punk",
+      "allocation_ordinal": 1074
+    },
+    {
+      "source_label": "deep happy hardcore",
+      "source_url": "https://everynoise.com/engenremap-deephappyhardcore.html",
+      "suggested_id": "deep_happy_hardcore",
+      "allocation_ordinal": 1075
+    }
+  ]
+}

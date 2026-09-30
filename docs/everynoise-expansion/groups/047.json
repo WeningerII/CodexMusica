@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "047",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["punk and emo"],
+  "entries": [
+    {
+      "source_label": "malang punk",
+      "source_url": "https://everynoise.com/engenremap-malangpunk.html",
+      "suggested_id": "malang_punk",
+      "allocation_ordinal": 1151
+    },
+    {
+      "source_label": "malaysian hardcore",
+      "source_url": "https://everynoise.com/engenremap-malaysianhardcore.html",
+      "suggested_id": "malaysian_hardcore",
+      "allocation_ordinal": 1152
+    },
+    {
+      "source_label": "malaysian punk",
+      "source_url": "https://everynoise.com/engenremap-malaysianpunk.html",
+      "suggested_id": "malaysian_punk",
+      "allocation_ordinal": 1153
+    },
+    {
+      "source_label": "melbourne punk",
+      "source_url": "https://everynoise.com/engenremap-melbournepunk.html",
+      "suggested_id": "melbourne_punk",
+      "allocation_ordinal": 1154
+    },
+    {
+      "source_label": "melodic hardcore",
+      "source_url": "https://everynoise.com/engenremap-melodichardcore.html",
+      "suggested_id": "melodic_hardcore",
+      "allocation_ordinal": 1155
+    },
+    {
+      "source_label": "metallic hardcore",
+      "source_url": "https://everynoise.com/engenremap-metallichardcore.html",
+      "suggested_id": "metallic_hardcore",
+      "allocation_ordinal": 1156
+    },
+    {
+      "source_label": "mexican hardcore",
+      "source_url": "https://everynoise.com/engenremap-mexicanhardcore.html",
+      "suggested_id": "mexican_hardcore",
+      "allocation_ordinal": 1157
+    },
+    {
+      "source_label": "mexican pop punk",
+      "source_url": "https://everynoise.com/engenremap-mexicanpoppunk.html",
+      "suggested_id": "mexican_pop_punk",
+      "allocation_ordinal": 1158
+    },
+    {
+      "source_label": "minneapolis punk",
+      "source_url": "https://everynoise.com/engenremap-minneapolispunk.html",
+      "suggested_id": "minneapolis_punk",
+      "allocation_ordinal": 1159
+    },
+    {
+      "source_label": "modern hardcore",
+      "source_url": "https://everynoise.com/engenremap-modernhardcore.html",
+      "suggested_id": "modern_hardcore",
+      "allocation_ordinal": 1160
+    },
+    {
+      "source_label": "modern melodic hardcore",
+      "source_url": "https://everynoise.com/engenremap-modernmelodichardcore.html",
+      "suggested_id": "modern_melodic_hardcore",
+      "allocation_ordinal": 1161
+    },
+    {
+      "source_label": "modern ska punk",
+      "source_url": "https://everynoise.com/engenremap-modernskapunk.html",
+      "suggested_id": "modern_ska_punk",
+      "allocation_ordinal": 1162
+    },
+    {
+      "source_label": "neon pop punk",
+      "source_url": "https://everynoise.com/engenremap-neonpoppunk.html",
+      "suggested_id": "neon_pop_punk",
+      "allocation_ordinal": 1163
+    },
+    {
+      "source_label": "new england emo",
+      "source_url": "https://everynoise.com/engenremap-newenglandemo.html",
+      "suggested_id": "new_england_emo",
+      "allocation_ordinal": 1164
+    },
+    {
+      "source_label": "new england hardcore",
+      "source_url": "https://everynoise.com/engenremap-newenglandhardcore.html",
+      "suggested_id": "new_england_hardcore",
+      "allocation_ordinal": 1165
+    },
+    {
+      "source_label": "new jersey hardcore",
+      "source_url": "https://everynoise.com/engenremap-newjerseyhardcore.html",
+      "suggested_id": "new_jersey_hardcore",
+      "allocation_ordinal": 1166
+    },
+    {
+      "source_label": "new jersey punk",
+      "source_url": "https://everynoise.com/engenremap-newjerseypunk.html",
+      "suggested_id": "new_jersey_punk",
+      "allocation_ordinal": 1167
+    },
+    {
+      "source_label": "noise punk",
+      "source_url": "https://everynoise.com/engenremap-noisepunk.html",
+      "suggested_id": "noise_punk",
+      "allocation_ordinal": 1168
+    },
+    {
+      "source_label": "north carolina emo",
+      "source_url": "https://everynoise.com/engenremap-northcarolinaemo.html",
+      "suggested_id": "north_carolina_emo",
+      "allocation_ordinal": 1169
+    },
+    {
+      "source_label": "northern irish punk",
+      "source_url": "https://everynoise.com/engenremap-northernirishpunk.html",
+      "suggested_id": "northern_irish_punk",
+      "allocation_ordinal": 1170
+    },
+    {
+      "source_label": "norwegian hardcore",
+      "source_url": "https://everynoise.com/engenremap-norwegianhardcore.html",
+      "suggested_id": "norwegian_hardcore",
+      "allocation_ordinal": 1171
+    },
+    {
+      "source_label": "norwegian punk",
+      "source_url": "https://everynoise.com/engenremap-norwegianpunk.html",
+      "suggested_id": "norwegian_punk",
+      "allocation_ordinal": 1172
+    },
+    {
+      "source_label": "norwegian punk rock",
+      "source_url": "https://everynoise.com/engenremap-norwegianpunkrock.html",
+      "suggested_id": "norwegian_punk_rock",
+      "allocation_ordinal": 1173
+    },
+    {
+      "source_label": "nz hardcore",
+      "source_url": "https://everynoise.com/engenremap-nzhardcore.html",
+      "suggested_id": "nz_hardcore",
+      "allocation_ordinal": 1174
+    },
+    {
+      "source_label": "nz punk",
+      "source_url": "https://everynoise.com/engenremap-nzpunk.html",
+      "suggested_id": "nz_punk",
+      "allocation_ordinal": 1175
+    }
+  ]
+}

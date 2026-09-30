@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "166",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "pink noise",
+      "source_url": "https://everynoise.com/engenremap-pinknoise.html",
+      "suggested_id": "pink_noise",
+      "allocation_ordinal": 4126
+    },
+    {
+      "source_label": "pinoy indie",
+      "source_url": "https://everynoise.com/engenremap-pinoyindie.html",
+      "suggested_id": "pinoy_indie",
+      "allocation_ordinal": 4127
+    },
+    {
+      "source_label": "pinoy praise",
+      "source_url": "https://everynoise.com/engenremap-pinoypraise.html",
+      "suggested_id": "pinoy_praise",
+      "allocation_ordinal": 4128
+    },
+    {
+      "source_label": "pinoy traditional",
+      "source_url": "https://everynoise.com/engenremap-pinoytraditional.html",
+      "suggested_id": "pinoy_traditional",
+      "allocation_ordinal": 4129
+    },
+    {
+      "source_label": "pirate",
+      "source_url": "https://everynoise.com/engenremap-pirate.html",
+      "suggested_id": "pirate",
+      "allocation_ordinal": 4130
+    },
+    {
+      "source_label": "piratenmuziek",
+      "source_url": "https://everynoise.com/engenremap-piratenmuziek.html",
+      "suggested_id": "piratenmuziek",
+      "allocation_ordinal": 4131
+    },
+    {
+      "source_label": "pittsburgh indie",
+      "source_url": "https://everynoise.com/engenremap-pittsburghindie.html",
+      "suggested_id": "pittsburgh_indie",
+      "allocation_ordinal": 4132
+    },
+    {
+      "source_label": "pixel",
+      "source_url": "https://everynoise.com/engenremap-pixel.html",
+      "suggested_id": "pixel",
+      "allocation_ordinal": 4133
+    },
+    {
+      "source_label": "plena uruguaya",
+      "source_url": "https://everynoise.com/engenremap-plenauruguaya.html",
+      "suggested_id": "plena_uruguaya",
+      "allocation_ordinal": 4134
+    },
+    {
+      "source_label": "plug brasileiro",
+      "source_url": "https://everynoise.com/engenremap-plugbrasileiro.html",
+      "suggested_id": "plug_brasileiro",
+      "allocation_ordinal": 4135
+    },
+    {
+      "source_label": "plugg en espanol",
+      "source_url": "https://everynoise.com/engenremap-pluggenespanol.html",
+      "suggested_id": "plugg_en_espanol",
+      "allocation_ordinal": 4136
+    },
+    {
+      "source_label": "plugg francais",
+      "source_url": "https://everynoise.com/engenremap-pluggfrancais.html",
+      "suggested_id": "plugg_francais",
+      "allocation_ordinal": 4137
+    },
+    {
+      "source_label": "poetry",
+      "source_url": "https://everynoise.com/engenremap-poetry.html",
+      "suggested_id": "poetry",
+      "allocation_ordinal": 4138
+    },
+    {
+      "source_label": "pohadky",
+      "source_url": "https://everynoise.com/engenremap-pohadky.html",
+      "suggested_id": "pohadky",
+      "allocation_ordinal": 4139
+    },
+    {
+      "source_label": "police band",
+      "source_url": "https://everynoise.com/engenremap-policeband.html",
+      "suggested_id": "police_band",
+      "allocation_ordinal": 4140
+    },
+    {
+      "source_label": "polish alternative",
+      "source_url": "https://everynoise.com/engenremap-polishalternative.html",
+      "suggested_id": "polish_alternative",
+      "allocation_ordinal": 4141
+    },
+    {
+      "source_label": "polish early music",
+      "source_url": "https://everynoise.com/engenremap-polishearlymusic.html",
+      "suggested_id": "polish_early_music",
+      "allocation_ordinal": 4142
+    },
+    {
+      "source_label": "polish experimental",
+      "source_url": "https://everynoise.com/engenremap-polishexperimental.html",
+      "suggested_id": "polish_experimental",
+      "allocation_ordinal": 4143
+    },
+    {
+      "source_label": "polish indie",
+      "source_url": "https://everynoise.com/engenremap-polishindie.html",
+      "suggested_id": "polish_indie",
+      "allocation_ordinal": 4144
+    },
+    {
+      "source_label": "polish prog",
+      "source_url": "https://everynoise.com/engenremap-polishprog.html",
+      "suggested_id": "polish_prog",
+      "allocation_ordinal": 4145
+    },
+    {
+      "source_label": "polish psychedelia",
+      "source_url": "https://everynoise.com/engenremap-polishpsychedelia.html",
+      "suggested_id": "polish_psychedelia",
+      "allocation_ordinal": 4146
+    },
+    {
+      "source_label": "polka nortena",
+      "source_url": "https://everynoise.com/engenremap-polkanortena.html",
+      "suggested_id": "polka_nortena",
+      "allocation_ordinal": 4147
+    },
+    {
+      "source_label": "pontianak indie",
+      "source_url": "https://everynoise.com/engenremap-pontianakindie.html",
+      "suggested_id": "pontianak_indie",
+      "allocation_ordinal": 4148
+    },
+    {
+      "source_label": "popgaze",
+      "source_url": "https://everynoise.com/engenremap-popgaze.html",
+      "suggested_id": "popgaze",
+      "allocation_ordinal": 4149
+    },
+    {
+      "source_label": "popping",
+      "source_url": "https://everynoise.com/engenremap-popping.html",
+      "suggested_id": "popping",
+      "allocation_ordinal": 4150
+    }
+  ]
+}

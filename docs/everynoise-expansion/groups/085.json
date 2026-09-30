@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "085",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["jazz and swing"],
+  "entries": [
+    {
+      "source_label": "dutch jazz",
+      "source_url": "https://everynoise.com/engenremap-dutchjazz.html",
+      "suggested_id": "dutch_jazz",
+      "allocation_ordinal": 2101
+    },
+    {
+      "source_label": "estonian jazz",
+      "source_url": "https://everynoise.com/engenremap-estonianjazz.html",
+      "suggested_id": "estonian_jazz",
+      "allocation_ordinal": 2102
+    },
+    {
+      "source_label": "experimental jazz",
+      "source_url": "https://everynoise.com/engenremap-experimentaljazz.html",
+      "suggested_id": "experimental_jazz",
+      "allocation_ordinal": 2103
+    },
+    {
+      "source_label": "faroese jazz",
+      "source_url": "https://everynoise.com/engenremap-faroesejazz.html",
+      "suggested_id": "faroese_jazz",
+      "allocation_ordinal": 2104
+    },
+    {
+      "source_label": "finnish jazz",
+      "source_url": "https://everynoise.com/engenremap-finnishjazz.html",
+      "suggested_id": "finnish_jazz",
+      "allocation_ordinal": 2105
+    },
+    {
+      "source_label": "finnish modern jazz",
+      "source_url": "https://everynoise.com/engenremap-finnishmodernjazz.html",
+      "suggested_id": "finnish_modern_jazz",
+      "allocation_ordinal": 2106
+    },
+    {
+      "source_label": "french jazz",
+      "source_url": "https://everynoise.com/engenremap-frenchjazz.html",
+      "suggested_id": "french_jazz",
+      "allocation_ordinal": 2107
+    },
+    {
+      "source_label": "galician jazz",
+      "source_url": "https://everynoise.com/engenremap-galicianjazz.html",
+      "suggested_id": "galician_jazz",
+      "allocation_ordinal": 2108
+    },
+    {
+      "source_label": "german jazz",
+      "source_url": "https://everynoise.com/engenremap-germanjazz.html",
+      "suggested_id": "german_jazz",
+      "allocation_ordinal": 2109
+    },
+    {
+      "source_label": "greek jazz",
+      "source_url": "https://everynoise.com/engenremap-greekjazz.html",
+      "suggested_id": "greek_jazz",
+      "allocation_ordinal": 2110
+    },
+    {
+      "source_label": "greek swing",
+      "source_url": "https://everynoise.com/engenremap-greekswing.html",
+      "suggested_id": "greek_swing",
+      "allocation_ordinal": 2111
+    },
+    {
+      "source_label": "harmonica jazz",
+      "source_url": "https://everynoise.com/engenremap-harmonicajazz.html",
+      "suggested_id": "harmonica_jazz",
+      "allocation_ordinal": 2112
+    },
+    {
+      "source_label": "icelandic jazz",
+      "source_url": "https://everynoise.com/engenremap-icelandicjazz.html",
+      "suggested_id": "icelandic_jazz",
+      "allocation_ordinal": 2113
+    },
+    {
+      "source_label": "indie jazz",
+      "source_url": "https://everynoise.com/engenremap-indiejazz.html",
+      "suggested_id": "indie_jazz",
+      "allocation_ordinal": 2114
+    },
+    {
+      "source_label": "indonesian jazz",
+      "source_url": "https://everynoise.com/engenremap-indonesianjazz.html",
+      "suggested_id": "indonesian_jazz",
+      "allocation_ordinal": 2115
+    },
+    {
+      "source_label": "irish modern jazz",
+      "source_url": "https://everynoise.com/engenremap-irishmodernjazz.html",
+      "suggested_id": "irish_modern_jazz",
+      "allocation_ordinal": 2116
+    },
+    {
+      "source_label": "israeli jazz",
+      "source_url": "https://everynoise.com/engenremap-israelijazz.html",
+      "suggested_id": "israeli_jazz",
+      "allocation_ordinal": 2117
+    },
+    {
+      "source_label": "italian contemporary jazz",
+      "source_url": "https://everynoise.com/engenremap-italiancontemporaryjazz.html",
+      "suggested_id": "italian_contemporary_jazz",
+      "allocation_ordinal": 2118
+    },
+    {
+      "source_label": "italian jazz",
+      "source_url": "https://everynoise.com/engenremap-italianjazz.html",
+      "suggested_id": "italian_jazz",
+      "allocation_ordinal": 2119
+    },
+    {
+      "source_label": "italian jazz fusion",
+      "source_url": "https://everynoise.com/engenremap-italianjazzfusion.html",
+      "suggested_id": "italian_jazz_fusion",
+      "allocation_ordinal": 2120
+    },
+    {
+      "source_label": "japanese jazz",
+      "source_url": "https://everynoise.com/engenremap-japanesejazz.html",
+      "suggested_id": "japanese_jazz",
+      "allocation_ordinal": 2121
+    },
+    {
+      "source_label": "japanese jazz fusion",
+      "source_url": "https://everynoise.com/engenremap-japanesejazzfusion.html",
+      "suggested_id": "japanese_jazz_fusion",
+      "allocation_ordinal": 2122
+    },
+    {
+      "source_label": "japanese vocal jazz",
+      "source_url": "https://everynoise.com/engenremap-japanesevocaljazz.html",
+      "suggested_id": "japanese_vocal_jazz",
+      "allocation_ordinal": 2123
+    },
+    {
+      "source_label": "jazz accordion",
+      "source_url": "https://everynoise.com/engenremap-jazzaccordion.html",
+      "suggested_id": "jazz_accordion",
+      "allocation_ordinal": 2124
+    },
+    {
+      "source_label": "jazz blues",
+      "source_url": "https://everynoise.com/engenremap-jazzblues.html",
+      "suggested_id": "jazz_blues",
+      "allocation_ordinal": 2125
+    }
+  ]
+}

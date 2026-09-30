@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "161",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "new hampshire indie",
+      "source_url": "https://everynoise.com/engenremap-newhampshireindie.html",
+      "suggested_id": "new_hampshire_indie",
+      "allocation_ordinal": 4001
+    },
+    {
+      "source_label": "new jack smooth",
+      "source_url": "https://everynoise.com/engenremap-newjacksmooth.html",
+      "suggested_id": "new_jack_smooth",
+      "allocation_ordinal": 4002
+    },
+    {
+      "source_label": "new jersey indie",
+      "source_url": "https://everynoise.com/engenremap-newjerseyindie.html",
+      "suggested_id": "new_jersey_indie",
+      "allocation_ordinal": 4003
+    },
+    {
+      "source_label": "new orleans indie",
+      "source_url": "https://everynoise.com/engenremap-neworleansindie.html",
+      "suggested_id": "new_orleans_indie",
+      "allocation_ordinal": 4004
+    },
+    {
+      "source_label": "new tribe",
+      "source_url": "https://everynoise.com/engenremap-newtribe.html",
+      "suggested_id": "new_tribe",
+      "allocation_ordinal": 4005
+    },
+    {
+      "source_label": "new wave of osdm",
+      "source_url": "https://everynoise.com/engenremap-newwaveofosdm.html",
+      "suggested_id": "new_wave_of_osdm",
+      "allocation_ordinal": 4006
+    },
+    {
+      "source_label": "new weird finland",
+      "source_url": "https://everynoise.com/engenremap-newweirdfinland.html",
+      "suggested_id": "new_weird_finland",
+      "allocation_ordinal": 4007
+    },
+    {
+      "source_label": "newcastle indie",
+      "source_url": "https://everynoise.com/engenremap-newcastleindie.html",
+      "suggested_id": "newcastle_indie",
+      "allocation_ordinal": 4008
+    },
+    {
+      "source_label": "newcastle nsw indie",
+      "source_url": "https://everynoise.com/engenremap-newcastlenswindie.html",
+      "suggested_id": "newcastle_nsw_indie",
+      "allocation_ordinal": 4009
+    },
+    {
+      "source_label": "newfoundland indie",
+      "source_url": "https://everynoise.com/engenremap-newfoundlandindie.html",
+      "suggested_id": "newfoundland_indie",
+      "allocation_ordinal": 4010
+    },
+    {
+      "source_label": "ney",
+      "source_url": "https://everynoise.com/engenremap-ney.html",
+      "suggested_id": "ney",
+      "allocation_ordinal": 4011
+    },
+    {
+      "source_label": "ngoni",
+      "source_url": "https://everynoise.com/engenremap-ngoni.html",
+      "suggested_id": "ngoni",
+      "allocation_ordinal": 4012
+    },
+    {
+      "source_label": "nice indie",
+      "source_url": "https://everynoise.com/engenremap-niceindie.html",
+      "suggested_id": "nice_indie",
+      "allocation_ordinal": 4013
+    },
+    {
+      "source_label": "nightrun",
+      "source_url": "https://everynoise.com/engenremap-nightrun.html",
+      "suggested_id": "nightrun",
+      "allocation_ordinal": 4014
+    },
+    {
+      "source_label": "no beat",
+      "source_url": "https://everynoise.com/engenremap-nobeat.html",
+      "suggested_id": "no_beat",
+      "allocation_ordinal": 4015
+    },
+    {
+      "source_label": "noel quebecois",
+      "source_url": "https://everynoise.com/engenremap-noelquebecois.html",
+      "suggested_id": "noel_quebecois",
+      "allocation_ordinal": 4016
+    },
+    {
+      "source_label": "noise",
+      "source_url": "https://everynoise.com/engenremap-noise.html",
+      "suggested_id": "noise",
+      "allocation_ordinal": 4017
+    },
+    {
+      "source_label": "nordic soundtrack",
+      "source_url": "https://everynoise.com/engenremap-nordicsoundtrack.html",
+      "suggested_id": "nordic_soundtrack",
+      "allocation_ordinal": 4018
+    },
+    {
+      "source_label": "nordnorsk musikk",
+      "source_url": "https://everynoise.com/engenremap-nordnorskmusikk.html",
+      "suggested_id": "nordnorsk_musikk",
+      "allocation_ordinal": 4019
+    },
+    {
+      "source_label": "nordnorsk ponk",
+      "source_url": "https://everynoise.com/engenremap-nordnorskponk.html",
+      "suggested_id": "nordnorsk_ponk",
+      "allocation_ordinal": 4020
+    },
+    {
+      "source_label": "normal indie",
+      "source_url": "https://everynoise.com/engenremap-normalindie.html",
+      "suggested_id": "normal_indie",
+      "allocation_ordinal": 4021
+    },
+    {
+      "source_label": "norman ok indie",
+      "source_url": "https://everynoise.com/engenremap-normanokindie.html",
+      "suggested_id": "norman_ok_indie",
+      "allocation_ordinal": 4022
+    },
+    {
+      "source_label": "norrbotten indie",
+      "source_url": "https://everynoise.com/engenremap-norrbottenindie.html",
+      "suggested_id": "norrbotten_indie",
+      "allocation_ordinal": 4023
+    },
+    {
+      "source_label": "norsk lovsang",
+      "source_url": "https://everynoise.com/engenremap-norsklovsang.html",
+      "suggested_id": "norsk_lovsang",
+      "allocation_ordinal": 4024
+    },
+    {
+      "source_label": "norske viser",
+      "source_url": "https://everynoise.com/engenremap-norskeviser.html",
+      "suggested_id": "norske_viser",
+      "allocation_ordinal": 4025
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "021",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["hip hop and rap"],
+  "entries": [
+    {
+      "source_label": "rap maromba",
+      "source_url": "https://everynoise.com/engenremap-rapmaromba.html",
+      "suggested_id": "rap_maromba",
+      "allocation_ordinal": 501
+    },
+    {
+      "source_label": "rap metal espanol",
+      "source_url": "https://everynoise.com/engenremap-rapmetalespanol.html",
+      "suggested_id": "rap_metal_espanol",
+      "allocation_ordinal": 502
+    },
+    {
+      "source_label": "rap metalcore",
+      "source_url": "https://everynoise.com/engenremap-rapmetalcore.html",
+      "suggested_id": "rap_metalcore",
+      "allocation_ordinal": 503
+    },
+    {
+      "source_label": "rap mineiro",
+      "source_url": "https://everynoise.com/engenremap-rapmineiro.html",
+      "suggested_id": "rap_mineiro",
+      "allocation_ordinal": 504
+    },
+    {
+      "source_label": "rap mocambicana",
+      "source_url": "https://everynoise.com/engenremap-rapmocambicana.html",
+      "suggested_id": "rap_mocambicana",
+      "allocation_ordinal": 505
+    },
+    {
+      "source_label": "rap moldovenesc",
+      "source_url": "https://everynoise.com/engenremap-rapmoldovenesc.html",
+      "suggested_id": "rap_moldovenesc",
+      "allocation_ordinal": 506
+    },
+    {
+      "source_label": "rap montrealais",
+      "source_url": "https://everynoise.com/engenremap-rapmontrealais.html",
+      "suggested_id": "rap_montrealais",
+      "allocation_ordinal": 507
+    },
+    {
+      "source_label": "rap motywacja",
+      "source_url": "https://everynoise.com/engenremap-rapmotywacja.html",
+      "suggested_id": "rap_motywacja",
+      "allocation_ordinal": 508
+    },
+    {
+      "source_label": "rap nacional antigo",
+      "source_url": "https://everynoise.com/engenremap-rapnacionalantigo.html",
+      "suggested_id": "rap_nacional_antigo",
+      "allocation_ordinal": 509
+    },
+    {
+      "source_label": "rap nica",
+      "source_url": "https://everynoise.com/engenremap-rapnica.html",
+      "suggested_id": "rap_nica",
+      "allocation_ordinal": 510
+    },
+    {
+      "source_label": "rap norteno chileno",
+      "source_url": "https://everynoise.com/engenremap-rapnortenochileno.html",
+      "suggested_id": "rap_norteno_chileno",
+      "allocation_ordinal": 511
+    },
+    {
+      "source_label": "rap nortista",
+      "source_url": "https://everynoise.com/engenremap-rapnortista.html",
+      "suggested_id": "rap_nortista",
+      "allocation_ordinal": 512
+    },
+    {
+      "source_label": "rap paraense",
+      "source_url": "https://everynoise.com/engenremap-rapparaense.html",
+      "suggested_id": "rap_paraense",
+      "allocation_ordinal": 513
+    },
+    {
+      "source_label": "rap paraguayo",
+      "source_url": "https://everynoise.com/engenremap-rapparaguayo.html",
+      "suggested_id": "rap_paraguayo",
+      "allocation_ordinal": 514
+    },
+    {
+      "source_label": "rap paranaense",
+      "source_url": "https://everynoise.com/engenremap-rapparanaense.html",
+      "suggested_id": "rap_paranaense",
+      "allocation_ordinal": 515
+    },
+    {
+      "source_label": "rap pernambucano",
+      "source_url": "https://everynoise.com/engenremap-rappernambucano.html",
+      "suggested_id": "rap_pernambucano",
+      "allocation_ordinal": 516
+    },
+    {
+      "source_label": "rap portuense",
+      "source_url": "https://everynoise.com/engenremap-rapportuense.html",
+      "suggested_id": "rap_portuense",
+      "allocation_ordinal": 517
+    },
+    {
+      "source_label": "rap potiguar",
+      "source_url": "https://everynoise.com/engenremap-rappotiguar.html",
+      "suggested_id": "rap_potiguar",
+      "allocation_ordinal": 518
+    },
+    {
+      "source_label": "rap regio",
+      "source_url": "https://everynoise.com/engenremap-rapregio.html",
+      "suggested_id": "rap_regio",
+      "allocation_ordinal": 519
+    },
+    {
+      "source_label": "rap rock",
+      "source_url": "https://everynoise.com/engenremap-raprock.html",
+      "suggested_id": "rap_rock",
+      "allocation_ordinal": 520
+    },
+    {
+      "source_label": "rap romantico",
+      "source_url": "https://everynoise.com/engenremap-rapromantico.html",
+      "suggested_id": "rap_romantico",
+      "allocation_ordinal": 521
+    },
+    {
+      "source_label": "rap salvadoreno",
+      "source_url": "https://everynoise.com/engenremap-rapsalvadoreno.html",
+      "suggested_id": "rap_salvadoreno",
+      "allocation_ordinal": 522
+    },
+    {
+      "source_label": "rap sardegna",
+      "source_url": "https://everynoise.com/engenremap-rapsardegna.html",
+      "suggested_id": "rap_sardegna",
+      "allocation_ordinal": 523
+    },
+    {
+      "source_label": "rap sergipano",
+      "source_url": "https://everynoise.com/engenremap-rapsergipano.html",
+      "suggested_id": "rap_sergipano",
+      "allocation_ordinal": 524
+    },
+    {
+      "source_label": "rap siciliano",
+      "source_url": "https://everynoise.com/engenremap-rapsiciliano.html",
+      "suggested_id": "rap_siciliano",
+      "allocation_ordinal": 525
+    }
+  ]
+}

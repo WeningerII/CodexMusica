@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "121",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "chattanooga indie",
+      "source_url": "https://everynoise.com/engenremap-chattanoogaindie.html",
+      "suggested_id": "chattanooga_indie",
+      "allocation_ordinal": 3001
+    },
+    {
+      "source_label": "chennai indie",
+      "source_url": "https://everynoise.com/engenremap-chennaiindie.html",
+      "suggested_id": "chennai_indie",
+      "allocation_ordinal": 3002
+    },
+    {
+      "source_label": "chicago indie",
+      "source_url": "https://everynoise.com/engenremap-chicagoindie.html",
+      "suggested_id": "chicago_indie",
+      "allocation_ordinal": 3003
+    },
+    {
+      "source_label": "chicago mexican",
+      "source_url": "https://everynoise.com/engenremap-chicagomexican.html",
+      "suggested_id": "chicago_mexican",
+      "allocation_ordinal": 3004
+    },
+    {
+      "source_label": "chihuahua indie",
+      "source_url": "https://everynoise.com/engenremap-chihuahuaindie.html",
+      "suggested_id": "chihuahua_indie",
+      "allocation_ordinal": 3005
+    },
+    {
+      "source_label": "children's story",
+      "source_url": "https://everynoise.com/engenremap-childrensstory.html",
+      "suggested_id": "children_s_story",
+      "allocation_ordinal": 3006
+    },
+    {
+      "source_label": "chilean indie",
+      "source_url": "https://everynoise.com/engenremap-chileanindie.html",
+      "suggested_id": "chilean_indie",
+      "allocation_ordinal": 3007
+    },
+    {
+      "source_label": "chill baile",
+      "source_url": "https://everynoise.com/engenremap-chillbaile.html",
+      "suggested_id": "chill_baile",
+      "allocation_ordinal": 3008
+    },
+    {
+      "source_label": "chill beats",
+      "source_url": "https://everynoise.com/engenremap-chillbeats.html",
+      "suggested_id": "chill_beats",
+      "allocation_ordinal": 3009
+    },
+    {
+      "source_label": "chill groove",
+      "source_url": "https://everynoise.com/engenremap-chillgroove.html",
+      "suggested_id": "chill_groove",
+      "allocation_ordinal": 3010
+    },
+    {
+      "source_label": "chill guitar",
+      "source_url": "https://everynoise.com/engenremap-chillguitar.html",
+      "suggested_id": "chill_guitar",
+      "allocation_ordinal": 3011
+    },
+    {
+      "source_label": "chill lounge",
+      "source_url": "https://everynoise.com/engenremap-chilllounge.html",
+      "suggested_id": "chill_lounge",
+      "allocation_ordinal": 3012
+    },
+    {
+      "source_label": "chillsynth",
+      "source_url": "https://everynoise.com/engenremap-chillsynth.html",
+      "suggested_id": "chillsynth",
+      "allocation_ordinal": 3013
+    },
+    {
+      "source_label": "chinderlieder",
+      "source_url": "https://everynoise.com/engenremap-chinderlieder.html",
+      "suggested_id": "chinderlieder",
+      "allocation_ordinal": 3014
+    },
+    {
+      "source_label": "chinese audiophile",
+      "source_url": "https://everynoise.com/engenremap-chineseaudiophile.html",
+      "suggested_id": "chinese_audiophile",
+      "allocation_ordinal": 3015
+    },
+    {
+      "source_label": "chinese bgm",
+      "source_url": "https://everynoise.com/engenremap-chinesebgm.html",
+      "suggested_id": "chinese_bgm",
+      "allocation_ordinal": 3016
+    },
+    {
+      "source_label": "chinese drama ost",
+      "source_url": "https://everynoise.com/engenremap-chinesedramaost.html",
+      "suggested_id": "chinese_drama_ost",
+      "allocation_ordinal": 3017
+    },
+    {
+      "source_label": "chinese electropop",
+      "source_url": "https://everynoise.com/engenremap-chineseelectropop.html",
+      "suggested_id": "chinese_electropop",
+      "allocation_ordinal": 3018
+    },
+    {
+      "source_label": "chinese experimental",
+      "source_url": "https://everynoise.com/engenremap-chineseexperimental.html",
+      "suggested_id": "chinese_experimental",
+      "allocation_ordinal": 3019
+    },
+    {
+      "source_label": "chinese manyao",
+      "source_url": "https://everynoise.com/engenremap-chinesemanyao.html",
+      "suggested_id": "chinese_manyao",
+      "allocation_ordinal": 3020
+    },
+    {
+      "source_label": "chinese new year",
+      "source_url": "https://everynoise.com/engenremap-chinesenewyear.html",
+      "suggested_id": "chinese_new_year",
+      "allocation_ordinal": 3021
+    },
+    {
+      "source_label": "chinese soundtrack",
+      "source_url": "https://everynoise.com/engenremap-chinesesoundtrack.html",
+      "suggested_id": "chinese_soundtrack",
+      "allocation_ordinal": 3022
+    },
+    {
+      "source_label": "chinese talent show",
+      "source_url": "https://everynoise.com/engenremap-chinesetalentshow.html",
+      "suggested_id": "chinese_talent_show",
+      "allocation_ordinal": 3023
+    },
+    {
+      "source_label": "chinese wind",
+      "source_url": "https://everynoise.com/engenremap-chinesewind.html",
+      "suggested_id": "chinese_wind",
+      "allocation_ordinal": 3024
+    },
+    {
+      "source_label": "chinese worship",
+      "source_url": "https://everynoise.com/engenremap-chineseworship.html",
+      "suggested_id": "chinese_worship",
+      "allocation_ordinal": 3025
+    }
+  ]
+}

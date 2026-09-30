@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "131",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "essex indie",
+      "source_url": "https://everynoise.com/engenremap-essexindie.html",
+      "suggested_id": "essex_indie",
+      "allocation_ordinal": 3251
+    },
+    {
+      "source_label": "estonian indie",
+      "source_url": "https://everynoise.com/engenremap-estonianindie.html",
+      "suggested_id": "estonian_indie",
+      "allocation_ordinal": 3252
+    },
+    {
+      "source_label": "ethereal gothic",
+      "source_url": "https://everynoise.com/engenremap-etherealgothic.html",
+      "suggested_id": "ethereal_gothic",
+      "allocation_ordinal": 3253
+    },
+    {
+      "source_label": "ethiopian traditional",
+      "source_url": "https://everynoise.com/engenremap-ethiopiantraditional.html",
+      "suggested_id": "ethiopian_traditional",
+      "allocation_ordinal": 3254
+    },
+    {
+      "source_label": "ethnomusicology",
+      "source_url": "https://everynoise.com/engenremap-ethnomusicology.html",
+      "suggested_id": "ethnomusicology",
+      "allocation_ordinal": 3255
+    },
+    {
+      "source_label": "ethnotronica",
+      "source_url": "https://everynoise.com/engenremap-ethnotronica.html",
+      "suggested_id": "ethnotronica",
+      "allocation_ordinal": 3256
+    },
+    {
+      "source_label": "eugene indie",
+      "source_url": "https://everynoise.com/engenremap-eugeneindie.html",
+      "suggested_id": "eugene_indie",
+      "allocation_ordinal": 3257
+    },
+    {
+      "source_label": "euphonium",
+      "source_url": "https://everynoise.com/engenremap-euphonium.html",
+      "suggested_id": "euphonium",
+      "allocation_ordinal": 3258
+    },
+    {
+      "source_label": "euphoric hardstyle",
+      "source_url": "https://everynoise.com/engenremap-euphorichardstyle.html",
+      "suggested_id": "euphoric_hardstyle",
+      "allocation_ordinal": 3259
+    },
+    {
+      "source_label": "euroska",
+      "source_url": "https://everynoise.com/engenremap-euroska.html",
+      "suggested_id": "euroska",
+      "allocation_ordinal": 3260
+    },
+    {
+      "source_label": "euskal indie",
+      "source_url": "https://everynoise.com/engenremap-euskalindie.html",
+      "suggested_id": "euskal_indie",
+      "allocation_ordinal": 3261
+    },
+    {
+      "source_label": "euskal musica",
+      "source_url": "https://everynoise.com/engenremap-euskalmusica.html",
+      "suggested_id": "euskal_musica",
+      "allocation_ordinal": 3262
+    },
+    {
+      "source_label": "eventyr",
+      "source_url": "https://everynoise.com/engenremap-eventyr.html",
+      "suggested_id": "eventyr",
+      "allocation_ordinal": 3263
+    },
+    {
+      "source_label": "experimental",
+      "source_url": "https://everynoise.com/engenremap-experimental.html",
+      "suggested_id": "experimental",
+      "allocation_ordinal": 3264
+    },
+    {
+      "source_label": "experimental big band",
+      "source_url": "https://everynoise.com/engenremap-experimentalbigband.html",
+      "suggested_id": "experimental_big_band",
+      "allocation_ordinal": 3265
+    },
+    {
+      "source_label": "experimental club",
+      "source_url": "https://everynoise.com/engenremap-experimentalclub.html",
+      "suggested_id": "experimental_club",
+      "allocation_ordinal": 3266
+    },
+    {
+      "source_label": "experimental guitar",
+      "source_url": "https://everynoise.com/engenremap-experimentalguitar.html",
+      "suggested_id": "experimental_guitar",
+      "allocation_ordinal": 3267
+    },
+    {
+      "source_label": "experimental indie",
+      "source_url": "https://everynoise.com/engenremap-experimentalindie.html",
+      "suggested_id": "experimental_indie",
+      "allocation_ordinal": 3268
+    },
+    {
+      "source_label": "experimental percussion",
+      "source_url": "https://everynoise.com/engenremap-experimentalpercussion.html",
+      "suggested_id": "experimental_percussion",
+      "allocation_ordinal": 3269
+    },
+    {
+      "source_label": "experimental poetry",
+      "source_url": "https://everynoise.com/engenremap-experimentalpoetry.html",
+      "suggested_id": "experimental_poetry",
+      "allocation_ordinal": 3270
+    },
+    {
+      "source_label": "experimental psych",
+      "source_url": "https://everynoise.com/engenremap-experimentalpsych.html",
+      "suggested_id": "experimental_psych",
+      "allocation_ordinal": 3271
+    },
+    {
+      "source_label": "experimental vocal",
+      "source_url": "https://everynoise.com/engenremap-experimentalvocal.html",
+      "suggested_id": "experimental_vocal",
+      "allocation_ordinal": 3272
+    },
+    {
+      "source_label": "fado instrumental",
+      "source_url": "https://everynoise.com/engenremap-fadoinstrumental.html",
+      "suggested_id": "fado_instrumental",
+      "allocation_ordinal": 3273
+    },
+    {
+      "source_label": "fake",
+      "source_url": "https://everynoise.com/engenremap-fake.html",
+      "suggested_id": "fake",
+      "allocation_ordinal": 3274
+    },
+    {
+      "source_label": "fallen angel",
+      "source_url": "https://everynoise.com/engenremap-fallenangel.html",
+      "suggested_id": "fallen_angel",
+      "allocation_ordinal": 3275
+    }
+  ]
+}

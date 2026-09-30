@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "006",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["trance", "drum and bass and jungle", "bass and dubstep"],
+  "entries": [
+    {
+      "source_label": "progressive uplifting trance",
+      "source_url": "https://everynoise.com/engenremap-progressiveupliftingtrance.html",
+      "suggested_id": "progressive_uplifting_trance",
+      "allocation_ordinal": 126
+    },
+    {
+      "source_label": "russian trance",
+      "source_url": "https://everynoise.com/engenremap-russiantrance.html",
+      "suggested_id": "russian_trance",
+      "allocation_ordinal": 127
+    },
+    {
+      "source_label": "trance",
+      "source_url": "https://everynoise.com/engenremap-trance.html",
+      "suggested_id": "trance",
+      "allocation_ordinal": 128
+    },
+    {
+      "source_label": "trance brasileiro",
+      "source_url": "https://everynoise.com/engenremap-trancebrasileiro.html",
+      "suggested_id": "trance_brasileiro",
+      "allocation_ordinal": 129
+    },
+    {
+      "source_label": "trance mexicano",
+      "source_url": "https://everynoise.com/engenremap-trancemexicano.html",
+      "suggested_id": "trance_mexicano",
+      "allocation_ordinal": 130
+    },
+    {
+      "source_label": "austrian dnb",
+      "source_url": "https://everynoise.com/engenremap-austriandnb.html",
+      "suggested_id": "austrian_dnb",
+      "allocation_ordinal": 131
+    },
+    {
+      "source_label": "belgian dnb",
+      "source_url": "https://everynoise.com/engenremap-belgiandnb.html",
+      "suggested_id": "belgian_dnb",
+      "allocation_ordinal": 132
+    },
+    {
+      "source_label": "breakbeat",
+      "source_url": "https://everynoise.com/engenremap-breakbeat.html",
+      "suggested_id": "breakbeat",
+      "allocation_ordinal": 133
+    },
+    {
+      "source_label": "chill breakcore",
+      "source_url": "https://everynoise.com/engenremap-chillbreakcore.html",
+      "suggested_id": "chill_breakcore",
+      "allocation_ordinal": 134
+    },
+    {
+      "source_label": "deep breakcore",
+      "source_url": "https://everynoise.com/engenremap-deepbreakcore.html",
+      "suggested_id": "deep_breakcore",
+      "allocation_ordinal": 135
+    },
+    {
+      "source_label": "deep dnb",
+      "source_url": "https://everynoise.com/engenremap-deepdnb.html",
+      "suggested_id": "deep_dnb",
+      "allocation_ordinal": 136
+    },
+    {
+      "source_label": "dutch dnb",
+      "source_url": "https://everynoise.com/engenremap-dutchdnb.html",
+      "suggested_id": "dutch_dnb",
+      "allocation_ordinal": 137
+    },
+    {
+      "source_label": "french dnb",
+      "source_url": "https://everynoise.com/engenremap-frenchdnb.html",
+      "suggested_id": "french_dnb",
+      "allocation_ordinal": 138
+    },
+    {
+      "source_label": "german dnb",
+      "source_url": "https://everynoise.com/engenremap-germandnb.html",
+      "suggested_id": "german_dnb",
+      "allocation_ordinal": 139
+    },
+    {
+      "source_label": "jazzy dnb",
+      "source_url": "https://everynoise.com/engenremap-jazzydnb.html",
+      "suggested_id": "jazzy_dnb",
+      "allocation_ordinal": 140
+    },
+    {
+      "source_label": "minimal dnb",
+      "source_url": "https://everynoise.com/engenremap-minimaldnb.html",
+      "suggested_id": "minimal_dnb",
+      "allocation_ordinal": 141
+    },
+    {
+      "source_label": "modern jungle",
+      "source_url": "https://everynoise.com/engenremap-modernjungle.html",
+      "suggested_id": "modern_jungle",
+      "allocation_ordinal": 142
+    },
+    {
+      "source_label": "nz dnb",
+      "source_url": "https://everynoise.com/engenremap-nzdnb.html",
+      "suggested_id": "nz_dnb",
+      "allocation_ordinal": 143
+    },
+    {
+      "source_label": "russian dnb",
+      "source_url": "https://everynoise.com/engenremap-russiandnb.html",
+      "suggested_id": "russian_dnb",
+      "allocation_ordinal": 144
+    },
+    {
+      "source_label": "south african dnb",
+      "source_url": "https://everynoise.com/engenremap-southafricandnb.html",
+      "suggested_id": "south_african_dnb",
+      "allocation_ordinal": 145
+    },
+    {
+      "source_label": "stateside dnb",
+      "source_url": "https://everynoise.com/engenremap-statesidednb.html",
+      "suggested_id": "stateside_dnb",
+      "allocation_ordinal": 146
+    },
+    {
+      "source_label": "uk dnb",
+      "source_url": "https://everynoise.com/engenremap-ukdnb.html",
+      "suggested_id": "uk_dnb",
+      "allocation_ordinal": 147
+    },
+    {
+      "source_label": "australian garage punk",
+      "source_url": "https://everynoise.com/engenremap-australiangaragepunk.html",
+      "suggested_id": "australian_garage_punk",
+      "allocation_ordinal": 148
+    },
+    {
+      "source_label": "bass trip",
+      "source_url": "https://everynoise.com/engenremap-basstrip.html",
+      "suggested_id": "bass_trip",
+      "allocation_ordinal": 149
+    },
+    {
+      "source_label": "birmingham grime",
+      "source_url": "https://everynoise.com/engenremap-birminghamgrime.html",
+      "suggested_id": "birmingham_grime",
+      "allocation_ordinal": 150
+    }
+  ]
+}

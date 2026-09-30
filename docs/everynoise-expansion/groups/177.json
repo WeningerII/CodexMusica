@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "177",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "tango cancion",
+      "source_url": "https://everynoise.com/engenremap-tangocancion.html",
+      "suggested_id": "tango_cancion",
+      "allocation_ordinal": 4401
+    },
+    {
+      "source_label": "tanzanian traditional",
+      "source_url": "https://everynoise.com/engenremap-tanzaniantraditional.html",
+      "suggested_id": "tanzanian_traditional",
+      "allocation_ordinal": 4402
+    },
+    {
+      "source_label": "tanzlmusi",
+      "source_url": "https://everynoise.com/engenremap-tanzlmusi.html",
+      "suggested_id": "tanzlmusi",
+      "allocation_ordinal": 4403
+    },
+    {
+      "source_label": "tanzorchester",
+      "source_url": "https://everynoise.com/engenremap-tanzorchester.html",
+      "suggested_id": "tanzorchester",
+      "allocation_ordinal": 4404
+    },
+    {
+      "source_label": "tape club",
+      "source_url": "https://everynoise.com/engenremap-tapeclub.html",
+      "suggested_id": "tape_club",
+      "allocation_ordinal": 4405
+    },
+    {
+      "source_label": "taraneem",
+      "source_url": "https://everynoise.com/engenremap-taraneem.html",
+      "suggested_id": "taraneem",
+      "allocation_ordinal": 4406
+    },
+    {
+      "source_label": "tassie indie",
+      "source_url": "https://everynoise.com/engenremap-tassieindie.html",
+      "suggested_id": "tassie_indie",
+      "allocation_ordinal": 4407
+    },
+    {
+      "source_label": "tavern",
+      "source_url": "https://everynoise.com/engenremap-tavern.html",
+      "suggested_id": "tavern",
+      "allocation_ordinal": 4408
+    },
+    {
+      "source_label": "tearout",
+      "source_url": "https://everynoise.com/engenremap-tearout.html",
+      "suggested_id": "tearout",
+      "allocation_ordinal": 4409
+    },
+    {
+      "source_label": "technical thrash",
+      "source_url": "https://everynoise.com/engenremap-technicalthrash.html",
+      "suggested_id": "technical_thrash",
+      "allocation_ordinal": 4410
+    },
+    {
+      "source_label": "tekno",
+      "source_url": "https://everynoise.com/engenremap-tekno.html",
+      "suggested_id": "tekno",
+      "allocation_ordinal": 4411
+    },
+    {
+      "source_label": "telugu devotional",
+      "source_url": "https://everynoise.com/engenremap-telugudevotional.html",
+      "suggested_id": "telugu_devotional",
+      "allocation_ordinal": 4412
+    },
+    {
+      "source_label": "telugu indie",
+      "source_url": "https://everynoise.com/engenremap-teluguindie.html",
+      "suggested_id": "telugu_indie",
+      "allocation_ordinal": 4413
+    },
+    {
+      "source_label": "telugu remix",
+      "source_url": "https://everynoise.com/engenremap-teluguremix.html",
+      "suggested_id": "telugu_remix",
+      "allocation_ordinal": 4414
+    },
+    {
+      "source_label": "telugu worship",
+      "source_url": "https://everynoise.com/engenremap-teluguworship.html",
+      "suggested_id": "telugu_worship",
+      "allocation_ordinal": 4415
+    },
+    {
+      "source_label": "tempe indie",
+      "source_url": "https://everynoise.com/engenremap-tempeindie.html",
+      "suggested_id": "tempe_indie",
+      "allocation_ordinal": 4416
+    },
+    {
+      "source_label": "tennessee experimental",
+      "source_url": "https://everynoise.com/engenremap-tennesseeexperimental.html",
+      "suggested_id": "tennessee_experimental",
+      "allocation_ordinal": 4417
+    },
+    {
+      "source_label": "thai bl ost",
+      "source_url": "https://everynoise.com/engenremap-thaiblost.html",
+      "suggested_id": "thai_bl_ost",
+      "allocation_ordinal": 4418
+    },
+    {
+      "source_label": "thai indie",
+      "source_url": "https://everynoise.com/engenremap-thaiindie.html",
+      "suggested_id": "thai_indie",
+      "allocation_ordinal": 4419
+    },
+    {
+      "source_label": "thai instrumental",
+      "source_url": "https://everynoise.com/engenremap-thaiinstrumental.html",
+      "suggested_id": "thai_instrumental",
+      "allocation_ordinal": 4420
+    },
+    {
+      "source_label": "thai ost",
+      "source_url": "https://everynoise.com/engenremap-thaiost.html",
+      "suggested_id": "thai_ost",
+      "allocation_ordinal": 4421
+    },
+    {
+      "source_label": "thai worship",
+      "source_url": "https://everynoise.com/engenremap-thaiworship.html",
+      "suggested_id": "thai_worship",
+      "allocation_ordinal": 4422
+    },
+    {
+      "source_label": "thall",
+      "source_url": "https://everynoise.com/engenremap-thall.html",
+      "suggested_id": "thall",
+      "allocation_ordinal": 4423
+    },
+    {
+      "source_label": "theme",
+      "source_url": "https://everynoise.com/engenremap-theme.html",
+      "suggested_id": "theme",
+      "allocation_ordinal": 4424
+    },
+    {
+      "source_label": "therapy",
+      "source_url": "https://everynoise.com/engenremap-therapy.html",
+      "suggested_id": "therapy",
+      "allocation_ordinal": 4425
+    }
+  ]
+}

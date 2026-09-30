@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "172",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "sevilla indie",
+      "source_url": "https://everynoise.com/engenremap-sevillaindie.html",
+      "suggested_id": "sevilla_indie",
+      "allocation_ordinal": 4276
+    },
+    {
+      "source_label": "shanghai indie",
+      "source_url": "https://everynoise.com/engenremap-shanghaiindie.html",
+      "suggested_id": "shanghai_indie",
+      "allocation_ordinal": 4277
+    },
+    {
+      "source_label": "sheffield indie",
+      "source_url": "https://everynoise.com/engenremap-sheffieldindie.html",
+      "suggested_id": "sheffield_indie",
+      "allocation_ordinal": 4278
+    },
+    {
+      "source_label": "shehnai",
+      "source_url": "https://everynoise.com/engenremap-shehnai.html",
+      "suggested_id": "shehnai",
+      "allocation_ordinal": 4279
+    },
+    {
+      "source_label": "shib",
+      "source_url": "https://everynoise.com/engenremap-shib.html",
+      "suggested_id": "shib",
+      "allocation_ordinal": 4280
+    },
+    {
+      "source_label": "shimmer psych",
+      "source_url": "https://everynoise.com/engenremap-shimmerpsych.html",
+      "suggested_id": "shimmer_psych",
+      "allocation_ordinal": 4281
+    },
+    {
+      "source_label": "shojo",
+      "source_url": "https://everynoise.com/engenremap-shojo.html",
+      "suggested_id": "shojo",
+      "allocation_ordinal": 4282
+    },
+    {
+      "source_label": "shonen",
+      "source_url": "https://everynoise.com/engenremap-shonen.html",
+      "suggested_id": "shonen",
+      "allocation_ordinal": 4283
+    },
+    {
+      "source_label": "show tunes",
+      "source_url": "https://everynoise.com/engenremap-showtunes.html",
+      "suggested_id": "show_tunes",
+      "allocation_ordinal": 4284
+    },
+    {
+      "source_label": "shred",
+      "source_url": "https://everynoise.com/engenremap-shred.html",
+      "suggested_id": "shred",
+      "allocation_ordinal": 4285
+    },
+    {
+      "source_label": "shush",
+      "source_url": "https://everynoise.com/engenremap-shush.html",
+      "suggested_id": "shush",
+      "allocation_ordinal": 4286
+    },
+    {
+      "source_label": "sinaloa indie",
+      "source_url": "https://everynoise.com/engenremap-sinaloaindie.html",
+      "suggested_id": "sinaloa_indie",
+      "allocation_ordinal": 4287
+    },
+    {
+      "source_label": "singaporean indie",
+      "source_url": "https://everynoise.com/engenremap-singaporeanindie.html",
+      "suggested_id": "singaporean_indie",
+      "allocation_ordinal": 4288
+    },
+    {
+      "source_label": "singaporean mandopop",
+      "source_url": "https://everynoise.com/engenremap-singaporeanmandopop.html",
+      "suggested_id": "singaporean_mandopop",
+      "allocation_ordinal": 4289
+    },
+    {
+      "source_label": "singing bowl",
+      "source_url": "https://everynoise.com/engenremap-singingbowl.html",
+      "suggested_id": "singing_bowl",
+      "allocation_ordinal": 4290
+    },
+    {
+      "source_label": "sinhala indie",
+      "source_url": "https://everynoise.com/engenremap-sinhalaindie.html",
+      "suggested_id": "sinhala_indie",
+      "allocation_ordinal": 4291
+    },
+    {
+      "source_label": "sinogaze",
+      "source_url": "https://everynoise.com/engenremap-sinogaze.html",
+      "suggested_id": "sinogaze",
+      "allocation_ordinal": 4292
+    },
+    {
+      "source_label": "sitar",
+      "source_url": "https://everynoise.com/engenremap-sitar.html",
+      "suggested_id": "sitar",
+      "allocation_ordinal": 4293
+    },
+    {
+      "source_label": "skansk musik",
+      "source_url": "https://everynoise.com/engenremap-skanskmusik.html",
+      "suggested_id": "skansk_musik",
+      "allocation_ordinal": 4294
+    },
+    {
+      "source_label": "skinhead oi",
+      "source_url": "https://everynoise.com/engenremap-skinheadoi.html",
+      "suggested_id": "skinhead_oi",
+      "allocation_ordinal": 4295
+    },
+    {
+      "source_label": "sky room",
+      "source_url": "https://everynoise.com/engenremap-skyroom.html",
+      "suggested_id": "sky_room",
+      "allocation_ordinal": 4296
+    },
+    {
+      "source_label": "slam poetry",
+      "source_url": "https://everynoise.com/engenremap-slampoetry.html",
+      "suggested_id": "slam_poetry",
+      "allocation_ordinal": 4297
+    },
+    {
+      "source_label": "slaskie piosenki",
+      "source_url": "https://everynoise.com/engenremap-slaskiepiosenki.html",
+      "suggested_id": "slaskie_piosenki",
+      "allocation_ordinal": 4298
+    },
+    {
+      "source_label": "slayer",
+      "source_url": "https://everynoise.com/engenremap-slayer.html",
+      "suggested_id": "slayer",
+      "allocation_ordinal": 4299
+    },
+    {
+      "source_label": "slc indie",
+      "source_url": "https://everynoise.com/engenremap-slcindie.html",
+      "suggested_id": "slc_indie",
+      "allocation_ordinal": 4300
+    }
+  ]
+}

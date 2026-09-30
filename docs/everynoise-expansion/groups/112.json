@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "112",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "antideutsche",
+      "source_url": "https://everynoise.com/engenremap-antideutsche.html",
+      "suggested_id": "antideutsche",
+      "allocation_ordinal": 2776
+    },
+    {
+      "source_label": "antilliaanse folklore",
+      "source_url": "https://everynoise.com/engenremap-antilliaansefolklore.html",
+      "suggested_id": "antilliaanse_folklore",
+      "allocation_ordinal": 2777
+    },
+    {
+      "source_label": "apostolic worship",
+      "source_url": "https://everynoise.com/engenremap-apostolicworship.html",
+      "suggested_id": "apostolic_worship",
+      "allocation_ordinal": 2778
+    },
+    {
+      "source_label": "arab alternative",
+      "source_url": "https://everynoise.com/engenremap-arabalternative.html",
+      "suggested_id": "arab_alternative",
+      "allocation_ordinal": 2779
+    },
+    {
+      "source_label": "arab experimental",
+      "source_url": "https://everynoise.com/engenremap-arabexperimental.html",
+      "suggested_id": "arab_experimental",
+      "allocation_ordinal": 2780
+    },
+    {
+      "source_label": "arab groove",
+      "source_url": "https://everynoise.com/engenremap-arabgroove.html",
+      "suggested_id": "arab_groove",
+      "allocation_ordinal": 2781
+    },
+    {
+      "source_label": "arabic instrumental",
+      "source_url": "https://everynoise.com/engenremap-arabicinstrumental.html",
+      "suggested_id": "arabic_instrumental",
+      "allocation_ordinal": 2782
+    },
+    {
+      "source_label": "argentine indie",
+      "source_url": "https://everynoise.com/engenremap-argentineindie.html",
+      "suggested_id": "argentine_indie",
+      "allocation_ordinal": 2783
+    },
+    {
+      "source_label": "argentine telepop",
+      "source_url": "https://everynoise.com/engenremap-argentinetelepop.html",
+      "suggested_id": "argentine_telepop",
+      "allocation_ordinal": 2784
+    },
+    {
+      "source_label": "arkansas indie",
+      "source_url": "https://everynoise.com/engenremap-arkansasindie.html",
+      "suggested_id": "arkansas_indie",
+      "allocation_ordinal": 2785
+    },
+    {
+      "source_label": "armenian indie",
+      "source_url": "https://everynoise.com/engenremap-armenianindie.html",
+      "suggested_id": "armenian_indie",
+      "allocation_ordinal": 2786
+    },
+    {
+      "source_label": "arunachal indie",
+      "source_url": "https://everynoise.com/engenremap-arunachalindie.html",
+      "suggested_id": "arunachal_indie",
+      "allocation_ordinal": 2787
+    },
+    {
+      "source_label": "asbury park indie",
+      "source_url": "https://everynoise.com/engenremap-asburyparkindie.html",
+      "suggested_id": "asbury_park_indie",
+      "allocation_ordinal": 2788
+    },
+    {
+      "source_label": "asheville indie",
+      "source_url": "https://everynoise.com/engenremap-ashevilleindie.html",
+      "suggested_id": "asheville_indie",
+      "allocation_ordinal": 2789
+    },
+    {
+      "source_label": "asmr",
+      "source_url": "https://everynoise.com/engenremap-asmr.html",
+      "suggested_id": "asmr",
+      "allocation_ordinal": 2790
+    },
+    {
+      "source_label": "athens indie",
+      "source_url": "https://everynoise.com/engenremap-athensindie.html",
+      "suggested_id": "athens_indie",
+      "allocation_ordinal": 2791
+    },
+    {
+      "source_label": "atlanta indie",
+      "source_url": "https://everynoise.com/engenremap-atlantaindie.html",
+      "suggested_id": "atlanta_indie",
+      "allocation_ordinal": 2792
+    },
+    {
+      "source_label": "atmosphere",
+      "source_url": "https://everynoise.com/engenremap-atmosphere.html",
+      "suggested_id": "atmosphere",
+      "allocation_ordinal": 2793
+    },
+    {
+      "source_label": "atmospheric doom",
+      "source_url": "https://everynoise.com/engenremap-atmosphericdoom.html",
+      "suggested_id": "atmospheric_doom",
+      "allocation_ordinal": 2794
+    },
+    {
+      "source_label": "atmospheric sludge",
+      "source_url": "https://everynoise.com/engenremap-atmosphericsludge.html",
+      "suggested_id": "atmospheric_sludge",
+      "allocation_ordinal": 2795
+    },
+    {
+      "source_label": "auckland indie",
+      "source_url": "https://everynoise.com/engenremap-aucklandindie.html",
+      "suggested_id": "auckland_indie",
+      "allocation_ordinal": 2796
+    },
+    {
+      "source_label": "audiophile vocal",
+      "source_url": "https://everynoise.com/engenremap-audiophilevocal.html",
+      "suggested_id": "audiophile_vocal",
+      "allocation_ordinal": 2797
+    },
+    {
+      "source_label": "austindie",
+      "source_url": "https://everynoise.com/engenremap-austindie.html",
+      "suggested_id": "austindie",
+      "allocation_ordinal": 2798
+    },
+    {
+      "source_label": "australian children's music",
+      "source_url": "https://everynoise.com/engenremap-australianchildrensmusic.html",
+      "suggested_id": "australian_children_s_music",
+      "allocation_ordinal": 2799
+    },
+    {
+      "source_label": "australian comedy",
+      "source_url": "https://everynoise.com/engenremap-australiancomedy.html",
+      "suggested_id": "australian_comedy",
+      "allocation_ordinal": 2800
+    }
+  ]
+}

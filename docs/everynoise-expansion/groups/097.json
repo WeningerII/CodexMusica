@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "097",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["folk and country names"],
+  "entries": [
+    {
+      "source_label": "australian americana",
+      "source_url": "https://everynoise.com/engenremap-australianamericana.html",
+      "suggested_id": "australian_americana",
+      "allocation_ordinal": 2401
+    },
+    {
+      "source_label": "australian country",
+      "source_url": "https://everynoise.com/engenremap-australiancountry.html",
+      "suggested_id": "australian_country",
+      "allocation_ordinal": 2402
+    },
+    {
+      "source_label": "australian indie folk",
+      "source_url": "https://everynoise.com/engenremap-australianindiefolk.html",
+      "suggested_id": "australian_indie_folk",
+      "allocation_ordinal": 2403
+    },
+    {
+      "source_label": "australian singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-australiansingersongwriter.html",
+      "suggested_id": "australian_singer_songwriter",
+      "allocation_ordinal": 2404
+    },
+    {
+      "source_label": "bahamian folk",
+      "source_url": "https://everynoise.com/engenremap-bahamianfolk.html",
+      "suggested_id": "bahamian_folk",
+      "allocation_ordinal": 2405
+    },
+    {
+      "source_label": "baltic folk",
+      "source_url": "https://everynoise.com/engenremap-balticfolk.html",
+      "suggested_id": "baltic_folk",
+      "allocation_ordinal": 2406
+    },
+    {
+      "source_label": "belgian singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-belgiansingersongwriter.html",
+      "suggested_id": "belgian_singer_songwriter",
+      "allocation_ordinal": 2407
+    },
+    {
+      "source_label": "bhojpuri folk",
+      "source_url": "https://everynoise.com/engenremap-bhojpurifolk.html",
+      "suggested_id": "bhojpuri_folk",
+      "allocation_ordinal": 2408
+    },
+    {
+      "source_label": "black americana",
+      "source_url": "https://everynoise.com/engenremap-blackamericana.html",
+      "suggested_id": "black_americana",
+      "allocation_ordinal": 2409
+    },
+    {
+      "source_label": "bluegrass fiddle",
+      "source_url": "https://everynoise.com/engenremap-bluegrassfiddle.html",
+      "suggested_id": "bluegrass_fiddle",
+      "allocation_ordinal": 2410
+    },
+    {
+      "source_label": "boston folk",
+      "source_url": "https://everynoise.com/engenremap-bostonfolk.html",
+      "suggested_id": "boston_folk",
+      "allocation_ordinal": 2411
+    },
+    {
+      "source_label": "british country",
+      "source_url": "https://everynoise.com/engenremap-britishcountry.html",
+      "suggested_id": "british_country",
+      "allocation_ordinal": 2412
+    },
+    {
+      "source_label": "british folk",
+      "source_url": "https://everynoise.com/engenremap-britishfolk.html",
+      "suggested_id": "british_folk",
+      "allocation_ordinal": 2413
+    },
+    {
+      "source_label": "british singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-britishsingersongwriter.html",
+      "suggested_id": "british_singer_songwriter",
+      "allocation_ordinal": 2414
+    },
+    {
+      "source_label": "canadian americana",
+      "source_url": "https://everynoise.com/engenremap-canadianamericana.html",
+      "suggested_id": "canadian_americana",
+      "allocation_ordinal": 2415
+    },
+    {
+      "source_label": "canadian contemporary country",
+      "source_url": "https://everynoise.com/engenremap-canadiancontemporarycountry.html",
+      "suggested_id": "canadian_contemporary_country",
+      "allocation_ordinal": 2416
+    },
+    {
+      "source_label": "canadian country",
+      "source_url": "https://everynoise.com/engenremap-canadiancountry.html",
+      "suggested_id": "canadian_country",
+      "allocation_ordinal": 2417
+    },
+    {
+      "source_label": "canadian folk",
+      "source_url": "https://everynoise.com/engenremap-canadianfolk.html",
+      "suggested_id": "canadian_folk",
+      "allocation_ordinal": 2418
+    },
+    {
+      "source_label": "canadian indie folk",
+      "source_url": "https://everynoise.com/engenremap-canadianindiefolk.html",
+      "suggested_id": "canadian_indie_folk",
+      "allocation_ordinal": 2419
+    },
+    {
+      "source_label": "canadian singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-canadiansingersongwriter.html",
+      "suggested_id": "canadian_singer_songwriter",
+      "allocation_ordinal": 2420
+    },
+    {
+      "source_label": "cape verdean folk",
+      "source_url": "https://everynoise.com/engenremap-capeverdeanfolk.html",
+      "suggested_id": "cape_verdean_folk",
+      "allocation_ordinal": 2421
+    },
+    {
+      "source_label": "children's folk",
+      "source_url": "https://everynoise.com/engenremap-childrensfolk.html",
+      "suggested_id": "children_s_folk",
+      "allocation_ordinal": 2422
+    },
+    {
+      "source_label": "chinese singer-songwriter",
+      "source_url": "https://everynoise.com/engenremap-chinesesingersongwriter.html",
+      "suggested_id": "chinese_singer_songwriter",
+      "allocation_ordinal": 2423
+    },
+    {
+      "source_label": "classic australian country",
+      "source_url": "https://everynoise.com/engenremap-classicaustraliancountry.html",
+      "suggested_id": "classic_australian_country",
+      "allocation_ordinal": 2424
+    },
+    {
+      "source_label": "classic nz country",
+      "source_url": "https://everynoise.com/engenremap-classicnzcountry.html",
+      "suggested_id": "classic_nz_country",
+      "allocation_ordinal": 2425
+    }
+  ]
+}

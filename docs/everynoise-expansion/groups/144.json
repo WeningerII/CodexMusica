@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "144",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "jaw harp",
+      "source_url": "https://everynoise.com/engenremap-jawharp.html",
+      "suggested_id": "jaw_harp",
+      "allocation_ordinal": 3576
+    },
+    {
+      "source_label": "jawaiian",
+      "source_url": "https://everynoise.com/engenremap-jawaiian.html",
+      "suggested_id": "jawaiian",
+      "allocation_ordinal": 3577
+    },
+    {
+      "source_label": "jesus movement",
+      "source_url": "https://everynoise.com/engenremap-jesusmovement.html",
+      "suggested_id": "jesus_movement",
+      "allocation_ordinal": 3578
+    },
+    {
+      "source_label": "jewish a capella",
+      "source_url": "https://everynoise.com/engenremap-jewishacapella.html",
+      "suggested_id": "jewish_a_capella",
+      "allocation_ordinal": 3579
+    },
+    {
+      "source_label": "jewish cantorial",
+      "source_url": "https://everynoise.com/engenremap-jewishcantorial.html",
+      "suggested_id": "jewish_cantorial",
+      "allocation_ordinal": 3580
+    },
+    {
+      "source_label": "jirai kei",
+      "source_url": "https://everynoise.com/engenremap-jiraikei.html",
+      "suggested_id": "jirai_kei",
+      "allocation_ordinal": 3581
+    },
+    {
+      "source_label": "judaica",
+      "source_url": "https://everynoise.com/engenremap-judaica.html",
+      "suggested_id": "judaica",
+      "allocation_ordinal": 3582
+    },
+    {
+      "source_label": "jugendchor",
+      "source_url": "https://everynoise.com/engenremap-jugendchor.html",
+      "suggested_id": "jugendchor",
+      "allocation_ordinal": 3583
+    },
+    {
+      "source_label": "jumptek",
+      "source_url": "https://everynoise.com/engenremap-jumptek.html",
+      "suggested_id": "jumptek",
+      "allocation_ordinal": 3584
+    },
+    {
+      "source_label": "junior songfestival",
+      "source_url": "https://everynoise.com/engenremap-juniorsongfestival.html",
+      "suggested_id": "junior_songfestival",
+      "allocation_ordinal": 3585
+    },
+    {
+      "source_label": "kabarett",
+      "source_url": "https://everynoise.com/engenremap-kabarett.html",
+      "suggested_id": "kabarett",
+      "allocation_ordinal": 3586
+    },
+    {
+      "source_label": "kabyle moderne",
+      "source_url": "https://everynoise.com/engenremap-kabylemoderne.html",
+      "suggested_id": "kabyle_moderne",
+      "allocation_ordinal": 3587
+    },
+    {
+      "source_label": "kalmar indie",
+      "source_url": "https://everynoise.com/engenremap-kalmarindie.html",
+      "suggested_id": "kalmar_indie",
+      "allocation_ordinal": 3588
+    },
+    {
+      "source_label": "kannada bhava geethe",
+      "source_url": "https://everynoise.com/engenremap-kannadabhavageethe.html",
+      "suggested_id": "kannada_bhava_geethe",
+      "allocation_ordinal": 3589
+    },
+    {
+      "source_label": "kannada indie",
+      "source_url": "https://everynoise.com/engenremap-kannadaindie.html",
+      "suggested_id": "kannada_indie",
+      "allocation_ordinal": 3590
+    },
+    {
+      "source_label": "kansai indie",
+      "source_url": "https://everynoise.com/engenremap-kansaiindie.html",
+      "suggested_id": "kansai_indie",
+      "allocation_ordinal": 3591
+    },
+    {
+      "source_label": "kansas indie",
+      "source_url": "https://everynoise.com/engenremap-kansasindie.html",
+      "suggested_id": "kansas_indie",
+      "allocation_ordinal": 3592
+    },
+    {
+      "source_label": "karaoke",
+      "source_url": "https://everynoise.com/engenremap-karaoke.html",
+      "suggested_id": "karaoke",
+      "allocation_ordinal": 3593
+    },
+    {
+      "source_label": "karntner volksmusik",
+      "source_url": "https://everynoise.com/engenremap-karntnervolksmusik.html",
+      "suggested_id": "karntner_volksmusik",
+      "allocation_ordinal": 3594
+    },
+    {
+      "source_label": "kavkaz",
+      "source_url": "https://everynoise.com/engenremap-kavkaz.html",
+      "suggested_id": "kavkaz",
+      "allocation_ordinal": 3595
+    },
+    {
+      "source_label": "kazakh indie",
+      "source_url": "https://everynoise.com/engenremap-kazakhindie.html",
+      "suggested_id": "kazakh_indie",
+      "allocation_ordinal": 3596
+    },
+    {
+      "source_label": "kc indie",
+      "source_url": "https://everynoise.com/engenremap-kcindie.html",
+      "suggested_id": "kc_indie",
+      "allocation_ordinal": 3597
+    },
+    {
+      "source_label": "kelowna bc indie",
+      "source_url": "https://everynoise.com/engenremap-kelownabcindie.html",
+      "suggested_id": "kelowna_bc_indie",
+      "allocation_ordinal": 3598
+    },
+    {
+      "source_label": "kent indie",
+      "source_url": "https://everynoise.com/engenremap-kentindie.html",
+      "suggested_id": "kent_indie",
+      "allocation_ordinal": 3599
+    },
+    {
+      "source_label": "kentucky indie",
+      "source_url": "https://everynoise.com/engenremap-kentuckyindie.html",
+      "suggested_id": "kentucky_indie",
+      "allocation_ordinal": 3600
+    }
+  ]
+}

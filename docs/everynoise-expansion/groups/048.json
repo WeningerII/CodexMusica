@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "048",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["punk and emo"],
+  "entries": [
+    {
+      "source_label": "ohio hardcore",
+      "source_url": "https://everynoise.com/engenremap-ohiohardcore.html",
+      "suggested_id": "ohio_hardcore",
+      "allocation_ordinal": 1176
+    },
+    {
+      "source_label": "pennsylvania hardcore",
+      "source_url": "https://everynoise.com/engenremap-pennsylvaniahardcore.html",
+      "suggested_id": "pennsylvania_hardcore",
+      "allocation_ordinal": 1177
+    },
+    {
+      "source_label": "peruvian punk",
+      "source_url": "https://everynoise.com/engenremap-peruvianpunk.html",
+      "suggested_id": "peruvian_punk",
+      "allocation_ordinal": 1178
+    },
+    {
+      "source_label": "pinoy pop punk",
+      "source_url": "https://everynoise.com/engenremap-pinoypoppunk.html",
+      "suggested_id": "pinoy_pop_punk",
+      "allocation_ordinal": 1179
+    },
+    {
+      "source_label": "polish hardcore",
+      "source_url": "https://everynoise.com/engenremap-polishhardcore.html",
+      "suggested_id": "polish_hardcore",
+      "allocation_ordinal": 1180
+    },
+    {
+      "source_label": "polish post-punk",
+      "source_url": "https://everynoise.com/engenremap-polishpostpunk.html",
+      "suggested_id": "polish_post_punk",
+      "allocation_ordinal": 1181
+    },
+    {
+      "source_label": "polish punk",
+      "source_url": "https://everynoise.com/engenremap-polishpunk.html",
+      "suggested_id": "polish_punk",
+      "allocation_ordinal": 1182
+    },
+    {
+      "source_label": "pop emo",
+      "source_url": "https://everynoise.com/engenremap-popemo.html",
+      "suggested_id": "pop_emo",
+      "allocation_ordinal": 1183
+    },
+    {
+      "source_label": "portland punk",
+      "source_url": "https://everynoise.com/engenremap-portlandpunk.html",
+      "suggested_id": "portland_punk",
+      "allocation_ordinal": 1184
+    },
+    {
+      "source_label": "portuguese hardcore",
+      "source_url": "https://everynoise.com/engenremap-portuguesehardcore.html",
+      "suggested_id": "portuguese_hardcore",
+      "allocation_ordinal": 1185
+    },
+    {
+      "source_label": "post-post-hardcore",
+      "source_url": "https://everynoise.com/engenremap-postposthardcore.html",
+      "suggested_id": "post_post_hardcore",
+      "allocation_ordinal": 1186
+    },
+    {
+      "source_label": "post-punk brasileiro",
+      "source_url": "https://everynoise.com/engenremap-postpunkbrasileiro.html",
+      "suggested_id": "post_punk_brasileiro",
+      "allocation_ordinal": 1187
+    },
+    {
+      "source_label": "post-punk colombiano",
+      "source_url": "https://everynoise.com/engenremap-postpunkcolombiano.html",
+      "suggested_id": "post_punk_colombiano",
+      "allocation_ordinal": 1188
+    },
+    {
+      "source_label": "post-punk latinoamericano",
+      "source_url": "https://everynoise.com/engenremap-postpunklatinoamericano.html",
+      "suggested_id": "post_punk_latinoamericano",
+      "allocation_ordinal": 1189
+    },
+    {
+      "source_label": "post-punk mexicano",
+      "source_url": "https://everynoise.com/engenremap-postpunkmexicano.html",
+      "suggested_id": "post_punk_mexicano",
+      "allocation_ordinal": 1190
+    },
+    {
+      "source_label": "post-screamo",
+      "source_url": "https://everynoise.com/engenremap-postscreamo.html",
+      "suggested_id": "post_screamo",
+      "allocation_ordinal": 1191
+    },
+    {
+      "source_label": "power-pop punk",
+      "source_url": "https://everynoise.com/engenremap-powerpoppunk.html",
+      "suggested_id": "power_pop_punk",
+      "allocation_ordinal": 1192
+    },
+    {
+      "source_label": "progressive post-hardcore",
+      "source_url": "https://everynoise.com/engenremap-progressiveposthardcore.html",
+      "suggested_id": "progressive_post_hardcore",
+      "allocation_ordinal": 1193
+    },
+    {
+      "source_label": "psychedelic punk",
+      "source_url": "https://everynoise.com/engenremap-psychedelicpunk.html",
+      "suggested_id": "psychedelic_punk",
+      "allocation_ordinal": 1194
+    },
+    {
+      "source_label": "punk 'n' roll",
+      "source_url": "https://everynoise.com/engenremap-punknroll.html",
+      "suggested_id": "punk_n_roll",
+      "allocation_ordinal": 1195
+    },
+    {
+      "source_label": "punk catala",
+      "source_url": "https://everynoise.com/engenremap-punkcatala.html",
+      "suggested_id": "punk_catala",
+      "allocation_ordinal": 1196
+    },
+    {
+      "source_label": "punk chileno",
+      "source_url": "https://everynoise.com/engenremap-punkchileno.html",
+      "suggested_id": "punk_chileno",
+      "allocation_ordinal": 1197
+    },
+    {
+      "source_label": "punk colombiano",
+      "source_url": "https://everynoise.com/engenremap-punkcolombiano.html",
+      "suggested_id": "punk_colombiano",
+      "allocation_ordinal": 1198
+    },
+    {
+      "source_label": "punk cover",
+      "source_url": "https://everynoise.com/engenremap-punkcover.html",
+      "suggested_id": "punk_cover",
+      "allocation_ordinal": 1199
+    },
+    {
+      "source_label": "punk ecuatoriano",
+      "source_url": "https://everynoise.com/engenremap-punkecuatoriano.html",
+      "suggested_id": "punk_ecuatoriano",
+      "allocation_ordinal": 1200
+    }
+  ]
+}

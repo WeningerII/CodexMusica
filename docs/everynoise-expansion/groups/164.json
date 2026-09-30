@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "164",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "omaha indie",
+      "source_url": "https://everynoise.com/engenremap-omahaindie.html",
+      "suggested_id": "omaha_indie",
+      "allocation_ordinal": 4076
+    },
+    {
+      "source_label": "one-person band",
+      "source_url": "https://everynoise.com/engenremap-onepersonband.html",
+      "suggested_id": "one_person_band",
+      "allocation_ordinal": 4077
+    },
+    {
+      "source_label": "ontario indie",
+      "source_url": "https://everynoise.com/engenremap-ontarioindie.html",
+      "suggested_id": "ontario_indie",
+      "allocation_ordinal": 4078
+    },
+    {
+      "source_label": "operetta",
+      "source_url": "https://everynoise.com/engenremap-operetta.html",
+      "suggested_id": "operetta",
+      "allocation_ordinal": 4079
+    },
+    {
+      "source_label": "oratory",
+      "source_url": "https://everynoise.com/engenremap-oratory.html",
+      "suggested_id": "oratory",
+      "allocation_ordinal": 4080
+    },
+    {
+      "source_label": "orebro indie",
+      "source_url": "https://everynoise.com/engenremap-orebroindie.html",
+      "suggested_id": "orebro_indie",
+      "allocation_ordinal": 4081
+    },
+    {
+      "source_label": "orgcore",
+      "source_url": "https://everynoise.com/engenremap-orgcore.html",
+      "suggested_id": "orgcore",
+      "allocation_ordinal": 4082
+    },
+    {
+      "source_label": "orkiestra symfoniczna",
+      "source_url": "https://everynoise.com/engenremap-orkiestrasymfoniczna.html",
+      "suggested_id": "orkiestra_symfoniczna",
+      "allocation_ordinal": 4083
+    },
+    {
+      "source_label": "orlando indie",
+      "source_url": "https://everynoise.com/engenremap-orlandoindie.html",
+      "suggested_id": "orlando_indie",
+      "allocation_ordinal": 4084
+    },
+    {
+      "source_label": "orquesta cubana",
+      "source_url": "https://everynoise.com/engenremap-orquestacubana.html",
+      "suggested_id": "orquesta_cubana",
+      "allocation_ordinal": 4085
+    },
+    {
+      "source_label": "orquesta tipica",
+      "source_url": "https://everynoise.com/engenremap-orquestatipica.html",
+      "suggested_id": "orquesta_tipica",
+      "allocation_ordinal": 4086
+    },
+    {
+      "source_label": "orquesta tropical",
+      "source_url": "https://everynoise.com/engenremap-orquestatropical.html",
+      "suggested_id": "orquesta_tropical",
+      "allocation_ordinal": 4087
+    },
+    {
+      "source_label": "orquestas de galicia",
+      "source_url": "https://everynoise.com/engenremap-orquestasdegalicia.html",
+      "suggested_id": "orquestas_de_galicia",
+      "allocation_ordinal": 4088
+    },
+    {
+      "source_label": "oslo indie",
+      "source_url": "https://everynoise.com/engenremap-osloindie.html",
+      "suggested_id": "oslo_indie",
+      "allocation_ordinal": 4089
+    },
+    {
+      "source_label": "ostschlager",
+      "source_url": "https://everynoise.com/engenremap-ostschlager.html",
+      "suggested_id": "ostschlager",
+      "allocation_ordinal": 4090
+    },
+    {
+      "source_label": "otacore",
+      "source_url": "https://everynoise.com/engenremap-otacore.html",
+      "suggested_id": "otacore",
+      "allocation_ordinal": 4091
+    },
+    {
+      "source_label": "oth indie",
+      "source_url": "https://everynoise.com/engenremap-othindie.html",
+      "suggested_id": "oth_indie",
+      "allocation_ordinal": 4092
+    },
+    {
+      "source_label": "otroske pesmice",
+      "source_url": "https://everynoise.com/engenremap-otroskepesmice.html",
+      "suggested_id": "otroske_pesmice",
+      "allocation_ordinal": 4093
+    },
+    {
+      "source_label": "ottawa indie",
+      "source_url": "https://everynoise.com/engenremap-ottawaindie.html",
+      "suggested_id": "ottawa_indie",
+      "allocation_ordinal": 4094
+    },
+    {
+      "source_label": "oud",
+      "source_url": "https://everynoise.com/engenremap-oud.html",
+      "suggested_id": "oud",
+      "allocation_ordinal": 4095
+    },
+    {
+      "source_label": "oulu indie",
+      "source_url": "https://everynoise.com/engenremap-ouluindie.html",
+      "suggested_id": "oulu_indie",
+      "allocation_ordinal": 4096
+    },
+    {
+      "source_label": "outsider",
+      "source_url": "https://everynoise.com/engenremap-outsider.html",
+      "suggested_id": "outsider",
+      "allocation_ordinal": 4097
+    },
+    {
+      "source_label": "oxford indie",
+      "source_url": "https://everynoise.com/engenremap-oxfordindie.html",
+      "suggested_id": "oxford_indie",
+      "allocation_ordinal": 4098
+    },
+    {
+      "source_label": "pagode baiano",
+      "source_url": "https://everynoise.com/engenremap-pagodebaiano.html",
+      "suggested_id": "pagode_baiano",
+      "allocation_ordinal": 4099
+    },
+    {
+      "source_label": "pagode novo",
+      "source_url": "https://everynoise.com/engenremap-pagodenovo.html",
+      "suggested_id": "pagode_novo",
+      "allocation_ordinal": 4100
+    }
+  ]
+}

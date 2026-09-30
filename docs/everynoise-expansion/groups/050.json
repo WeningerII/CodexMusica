@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "050",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["punk and emo"],
+  "entries": [
+    {
+      "source_label": "south african punk",
+      "source_url": "https://everynoise.com/engenremap-southafricanpunk.html",
+      "suggested_id": "south_african_punk",
+      "allocation_ordinal": 1226
+    },
+    {
+      "source_label": "spanish post-punk",
+      "source_url": "https://everynoise.com/engenremap-spanishpostpunk.html",
+      "suggested_id": "spanish_post_punk",
+      "allocation_ordinal": 1227
+    },
+    {
+      "source_label": "spanish punk",
+      "source_url": "https://everynoise.com/engenremap-spanishpunk.html",
+      "suggested_id": "spanish_punk",
+      "allocation_ordinal": 1228
+    },
+    {
+      "source_label": "street punk espanol",
+      "source_url": "https://everynoise.com/engenremap-streetpunkespanol.html",
+      "suggested_id": "street_punk_espanol",
+      "allocation_ordinal": 1229
+    },
+    {
+      "source_label": "surf punk",
+      "source_url": "https://everynoise.com/engenremap-surfpunk.html",
+      "suggested_id": "surf_punk",
+      "allocation_ordinal": 1230
+    },
+    {
+      "source_label": "swedish emo",
+      "source_url": "https://everynoise.com/engenremap-swedishemo.html",
+      "suggested_id": "swedish_emo",
+      "allocation_ordinal": 1231
+    },
+    {
+      "source_label": "swedish pop punk",
+      "source_url": "https://everynoise.com/engenremap-swedishpoppunk.html",
+      "suggested_id": "swedish_pop_punk",
+      "allocation_ordinal": 1232
+    },
+    {
+      "source_label": "swedish post-hardcore",
+      "source_url": "https://everynoise.com/engenremap-swedishposthardcore.html",
+      "suggested_id": "swedish_post_hardcore",
+      "allocation_ordinal": 1233
+    },
+    {
+      "source_label": "swedish post-punk",
+      "source_url": "https://everynoise.com/engenremap-swedishpostpunk.html",
+      "suggested_id": "swedish_post_punk",
+      "allocation_ordinal": 1234
+    },
+    {
+      "source_label": "swedish punk",
+      "source_url": "https://everynoise.com/engenremap-swedishpunk.html",
+      "suggested_id": "swedish_punk",
+      "allocation_ordinal": 1235
+    },
+    {
+      "source_label": "swiss punk",
+      "source_url": "https://everynoise.com/engenremap-swisspunk.html",
+      "suggested_id": "swiss_punk",
+      "allocation_ordinal": 1236
+    },
+    {
+      "source_label": "taiwan punk",
+      "source_url": "https://everynoise.com/engenremap-taiwanpunk.html",
+      "suggested_id": "taiwan_punk",
+      "allocation_ordinal": 1237
+    },
+    {
+      "source_label": "texas hardcore",
+      "source_url": "https://everynoise.com/engenremap-texashardcore.html",
+      "suggested_id": "texas_hardcore",
+      "allocation_ordinal": 1238
+    },
+    {
+      "source_label": "texas pop punk",
+      "source_url": "https://everynoise.com/engenremap-texaspoppunk.html",
+      "suggested_id": "texas_pop_punk",
+      "allocation_ordinal": 1239
+    },
+    {
+      "source_label": "texas punk",
+      "source_url": "https://everynoise.com/engenremap-texaspunk.html",
+      "suggested_id": "texas_punk",
+      "allocation_ordinal": 1240
+    },
+    {
+      "source_label": "turkish hardcore",
+      "source_url": "https://everynoise.com/engenremap-turkishhardcore.html",
+      "suggested_id": "turkish_hardcore",
+      "allocation_ordinal": 1241
+    },
+    {
+      "source_label": "turkish post-punk",
+      "source_url": "https://everynoise.com/engenremap-turkishpostpunk.html",
+      "suggested_id": "turkish_post_punk",
+      "allocation_ordinal": 1242
+    },
+    {
+      "source_label": "turkish punk",
+      "source_url": "https://everynoise.com/engenremap-turkishpunk.html",
+      "suggested_id": "turkish_punk",
+      "allocation_ordinal": 1243
+    },
+    {
+      "source_label": "uk diy punk",
+      "source_url": "https://everynoise.com/engenremap-ukdiypunk.html",
+      "suggested_id": "uk_diy_punk",
+      "allocation_ordinal": 1244
+    },
+    {
+      "source_label": "uk pop punk",
+      "source_url": "https://everynoise.com/engenremap-ukpoppunk.html",
+      "suggested_id": "uk_pop_punk",
+      "allocation_ordinal": 1245
+    },
+    {
+      "source_label": "uk post-hardcore",
+      "source_url": "https://everynoise.com/engenremap-ukposthardcore.html",
+      "suggested_id": "uk_post_hardcore",
+      "allocation_ordinal": 1246
+    },
+    {
+      "source_label": "uk post-punk",
+      "source_url": "https://everynoise.com/engenremap-ukpostpunk.html",
+      "suggested_id": "uk_post_punk",
+      "allocation_ordinal": 1247
+    },
+    {
+      "source_label": "uk post-punk revival",
+      "source_url": "https://everynoise.com/engenremap-ukpostpunkrevival.html",
+      "suggested_id": "uk_post_punk_revival",
+      "allocation_ordinal": 1248
+    },
+    {
+      "source_label": "ukrainian post-punk",
+      "source_url": "https://everynoise.com/engenremap-ukrainianpostpunk.html",
+      "suggested_id": "ukrainian_post_punk",
+      "allocation_ordinal": 1249
+    },
+    {
+      "source_label": "umea hardcore",
+      "source_url": "https://everynoise.com/engenremap-umeahardcore.html",
+      "suggested_id": "umea_hardcore",
+      "allocation_ordinal": 1250
+    }
+  ]
+}

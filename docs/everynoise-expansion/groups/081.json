@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "081",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["electronic and dance names"],
+  "entries": [
+    {
+      "source_label": "german dance",
+      "source_url": "https://everynoise.com/engenremap-germandance.html",
+      "suggested_id": "german_dance",
+      "allocation_ordinal": 2001
+    },
+    {
+      "source_label": "german electronica",
+      "source_url": "https://everynoise.com/engenremap-germanelectronica.html",
+      "suggested_id": "german_electronica",
+      "allocation_ordinal": 2002
+    },
+    {
+      "source_label": "hamburg electronic",
+      "source_url": "https://everynoise.com/engenremap-hamburgelectronic.html",
+      "suggested_id": "hamburg_electronic",
+      "allocation_ordinal": 2003
+    },
+    {
+      "source_label": "horror synth",
+      "source_url": "https://everynoise.com/engenremap-horrorsynth.html",
+      "suggested_id": "horror_synth",
+      "allocation_ordinal": 2004
+    },
+    {
+      "source_label": "hungarian edm",
+      "source_url": "https://everynoise.com/engenremap-hungarianedm.html",
+      "suggested_id": "hungarian_edm",
+      "allocation_ordinal": 2005
+    },
+    {
+      "source_label": "icelandic electronic",
+      "source_url": "https://everynoise.com/engenremap-icelandicelectronic.html",
+      "suggested_id": "icelandic_electronic",
+      "allocation_ordinal": 2006
+    },
+    {
+      "source_label": "indian edm",
+      "source_url": "https://everynoise.com/engenremap-indianedm.html",
+      "suggested_id": "indian_edm",
+      "allocation_ordinal": 2007
+    },
+    {
+      "source_label": "indian electronic",
+      "source_url": "https://everynoise.com/engenremap-indianelectronic.html",
+      "suggested_id": "indian_electronic",
+      "allocation_ordinal": 2008
+    },
+    {
+      "source_label": "indonesian edm",
+      "source_url": "https://everynoise.com/engenremap-indonesianedm.html",
+      "suggested_id": "indonesian_edm",
+      "allocation_ordinal": 2009
+    },
+    {
+      "source_label": "indonesian electronic",
+      "source_url": "https://everynoise.com/engenremap-indonesianelectronic.html",
+      "suggested_id": "indonesian_electronic",
+      "allocation_ordinal": 2010
+    },
+    {
+      "source_label": "irish dance",
+      "source_url": "https://everynoise.com/engenremap-irishdance.html",
+      "suggested_id": "irish_dance",
+      "allocation_ordinal": 2011
+    },
+    {
+      "source_label": "irish electronic",
+      "source_url": "https://everynoise.com/engenremap-irishelectronic.html",
+      "suggested_id": "irish_electronic",
+      "allocation_ordinal": 2012
+    },
+    {
+      "source_label": "irish experimental electronic",
+      "source_url": "https://everynoise.com/engenremap-irishexperimentalelectronic.html",
+      "suggested_id": "irish_experimental_electronic",
+      "allocation_ordinal": 2013
+    },
+    {
+      "source_label": "italian electronica",
+      "source_url": "https://everynoise.com/engenremap-italianelectronica.html",
+      "suggested_id": "italian_electronica",
+      "allocation_ordinal": 2014
+    },
+    {
+      "source_label": "japanese edm",
+      "source_url": "https://everynoise.com/engenremap-japaneseedm.html",
+      "suggested_id": "japanese_edm",
+      "allocation_ordinal": 2015
+    },
+    {
+      "source_label": "japanese electronic",
+      "source_url": "https://everynoise.com/engenremap-japaneseelectronic.html",
+      "suggested_id": "japanese_electronic",
+      "allocation_ordinal": 2016
+    },
+    {
+      "source_label": "japanese idm",
+      "source_url": "https://everynoise.com/engenremap-japaneseidm.html",
+      "suggested_id": "japanese_idm",
+      "allocation_ordinal": 2017
+    },
+    {
+      "source_label": "kawaii edm",
+      "source_url": "https://everynoise.com/engenremap-kawaiiedm.html",
+      "suggested_id": "kawaii_edm",
+      "allocation_ordinal": 2018
+    },
+    {
+      "source_label": "keller synth",
+      "source_url": "https://everynoise.com/engenremap-kellersynth.html",
+      "suggested_id": "keller_synth",
+      "allocation_ordinal": 2019
+    },
+    {
+      "source_label": "kids dance party",
+      "source_url": "https://everynoise.com/engenremap-kidsdanceparty.html",
+      "suggested_id": "kids_dance_party",
+      "allocation_ordinal": 2020
+    },
+    {
+      "source_label": "korean electronic",
+      "source_url": "https://everynoise.com/engenremap-koreanelectronic.html",
+      "suggested_id": "korean_electronic",
+      "allocation_ordinal": 2021
+    },
+    {
+      "source_label": "latvian electronic",
+      "source_url": "https://everynoise.com/engenremap-latvianelectronic.html",
+      "suggested_id": "latvian_electronic",
+      "allocation_ordinal": 2022
+    },
+    {
+      "source_label": "leipzig electronic",
+      "source_url": "https://everynoise.com/engenremap-leipzigelectronic.html",
+      "suggested_id": "leipzig_electronic",
+      "allocation_ordinal": 2023
+    },
+    {
+      "source_label": "lithuanian edm",
+      "source_url": "https://everynoise.com/engenremap-lithuanianedm.html",
+      "suggested_id": "lithuanian_edm",
+      "allocation_ordinal": 2024
+    },
+    {
+      "source_label": "lithuanian electronic",
+      "source_url": "https://everynoise.com/engenremap-lithuanianelectronic.html",
+      "suggested_id": "lithuanian_electronic",
+      "allocation_ordinal": 2025
+    }
+  ]
+}

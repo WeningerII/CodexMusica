@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "140",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "indie electropop",
+      "source_url": "https://everynoise.com/engenremap-indieelectropop.html",
+      "suggested_id": "indie_electropop",
+      "allocation_ordinal": 3476
+    },
+    {
+      "source_label": "indie extremena",
+      "source_url": "https://everynoise.com/engenremap-indieextremena.html",
+      "suggested_id": "indie_extremena",
+      "allocation_ordinal": 3477
+    },
+    {
+      "source_label": "indie fuzzpop",
+      "source_url": "https://everynoise.com/engenremap-indiefuzzpop.html",
+      "suggested_id": "indie_fuzzpop",
+      "allocation_ordinal": 3478
+    },
+    {
+      "source_label": "indie game soundtrack",
+      "source_url": "https://everynoise.com/engenremap-indiegamesoundtrack.html",
+      "suggested_id": "indie_game_soundtrack",
+      "allocation_ordinal": 3479
+    },
+    {
+      "source_label": "indie hidalguense",
+      "source_url": "https://everynoise.com/engenremap-indiehidalguense.html",
+      "suggested_id": "indie_hidalguense",
+      "allocation_ordinal": 3480
+    },
+    {
+      "source_label": "indie hidrocalido",
+      "source_url": "https://everynoise.com/engenremap-indiehidrocalido.html",
+      "suggested_id": "indie_hidrocalido",
+      "allocation_ordinal": 3481
+    },
+    {
+      "source_label": "indie liguria",
+      "source_url": "https://everynoise.com/engenremap-indieliguria.html",
+      "suggested_id": "indie_liguria",
+      "allocation_ordinal": 3482
+    },
+    {
+      "source_label": "indie michoacano",
+      "source_url": "https://everynoise.com/engenremap-indiemichoacano.html",
+      "suggested_id": "indie_michoacano",
+      "allocation_ordinal": 3483
+    },
+    {
+      "source_label": "indie napoletano",
+      "source_url": "https://everynoise.com/engenremap-indienapoletano.html",
+      "suggested_id": "indie_napoletano",
+      "allocation_ordinal": 3484
+    },
+    {
+      "source_label": "indie nica",
+      "source_url": "https://everynoise.com/engenremap-indienica.html",
+      "suggested_id": "indie_nica",
+      "allocation_ordinal": 3485
+    },
+    {
+      "source_label": "indie nordeste argentino",
+      "source_url": "https://everynoise.com/engenremap-indienordesteargentino.html",
+      "suggested_id": "indie_nordeste_argentino",
+      "allocation_ordinal": 3486
+    },
+    {
+      "source_label": "indie paraense",
+      "source_url": "https://everynoise.com/engenremap-indieparaense.html",
+      "suggested_id": "indie_paraense",
+      "allocation_ordinal": 3487
+    },
+    {
+      "source_label": "indie platense",
+      "source_url": "https://everynoise.com/engenremap-indieplatense.html",
+      "suggested_id": "indie_platense",
+      "allocation_ordinal": 3488
+    },
+    {
+      "source_label": "indie poblano",
+      "source_url": "https://everynoise.com/engenremap-indiepoblano.html",
+      "suggested_id": "indie_poblano",
+      "allocation_ordinal": 3489
+    },
+    {
+      "source_label": "indie poptimism",
+      "source_url": "https://everynoise.com/engenremap-indiepoptimism.html",
+      "suggested_id": "indie_poptimism",
+      "allocation_ordinal": 3490
+    },
+    {
+      "source_label": "indie quebecois",
+      "source_url": "https://everynoise.com/engenremap-indiequebecois.html",
+      "suggested_id": "indie_quebecois",
+      "allocation_ordinal": 3491
+    },
+    {
+      "source_label": "indie queretano",
+      "source_url": "https://everynoise.com/engenremap-indiequeretano.html",
+      "suggested_id": "indie_queretano",
+      "allocation_ordinal": 3492
+    },
+    {
+      "source_label": "indie rockism",
+      "source_url": "https://everynoise.com/engenremap-indierockism.html",
+      "suggested_id": "indie_rockism",
+      "allocation_ordinal": 3493
+    },
+    {
+      "source_label": "indie salvadoreno",
+      "source_url": "https://everynoise.com/engenremap-indiesalvadoreno.html",
+      "suggested_id": "indie_salvadoreno",
+      "allocation_ordinal": 3494
+    },
+    {
+      "source_label": "indie siciliano",
+      "source_url": "https://everynoise.com/engenremap-indiesiciliano.html",
+      "suggested_id": "indie_siciliano",
+      "allocation_ordinal": 3495
+    },
+    {
+      "source_label": "indie sudcaliforniano",
+      "source_url": "https://everynoise.com/engenremap-indiesudcaliforniano.html",
+      "suggested_id": "indie_sudcaliforniano",
+      "allocation_ordinal": 3496
+    },
+    {
+      "source_label": "indie surf",
+      "source_url": "https://everynoise.com/engenremap-indiesurf.html",
+      "suggested_id": "indie_surf",
+      "allocation_ordinal": 3497
+    },
+    {
+      "source_label": "indie tabasqueno",
+      "source_url": "https://everynoise.com/engenremap-indietabasqueno.html",
+      "suggested_id": "indie_tabasqueno",
+      "allocation_ordinal": 3498
+    },
+    {
+      "source_label": "indie tico",
+      "source_url": "https://everynoise.com/engenremap-indietico.html",
+      "suggested_id": "indie_tico",
+      "allocation_ordinal": 3499
+    },
+    {
+      "source_label": "indie triste",
+      "source_url": "https://everynoise.com/engenremap-indietriste.html",
+      "suggested_id": "indie_triste",
+      "allocation_ordinal": 3500
+    }
+  ]
+}

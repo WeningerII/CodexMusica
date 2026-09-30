@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "103",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["blues soul funk and gospel names"],
+  "entries": [
+    {
+      "source_label": "bedroom soul",
+      "source_url": "https://everynoise.com/engenremap-bedroomsoul.html",
+      "suggested_id": "bedroom_soul",
+      "allocation_ordinal": 2551
+    },
+    {
+      "source_label": "belgian blues",
+      "source_url": "https://everynoise.com/engenremap-belgianblues.html",
+      "suggested_id": "belgian_blues",
+      "allocation_ordinal": 2552
+    },
+    {
+      "source_label": "blues band",
+      "source_url": "https://everynoise.com/engenremap-bluesband.html",
+      "suggested_id": "blues_band",
+      "allocation_ordinal": 2553
+    },
+    {
+      "source_label": "blues latinoamericano",
+      "source_url": "https://everynoise.com/engenremap-blueslatinoamericano.html",
+      "suggested_id": "blues_latinoamericano",
+      "allocation_ordinal": 2554
+    },
+    {
+      "source_label": "blues mexicano",
+      "source_url": "https://everynoise.com/engenremap-bluesmexicano.html",
+      "suggested_id": "blues_mexicano",
+      "allocation_ordinal": 2555
+    },
+    {
+      "source_label": "brazilian blues",
+      "source_url": "https://everynoise.com/engenremap-brazilianblues.html",
+      "suggested_id": "brazilian_blues",
+      "allocation_ordinal": 2556
+    },
+    {
+      "source_label": "brazilian soul",
+      "source_url": "https://everynoise.com/engenremap-braziliansoul.html",
+      "suggested_id": "brazilian_soul",
+      "allocation_ordinal": 2557
+    },
+    {
+      "source_label": "bulgarian r&b",
+      "source_url": "https://everynoise.com/engenremap-bulgarianrb.html",
+      "suggested_id": "bulgarian_r_and_b",
+      "allocation_ordinal": 2558
+    },
+    {
+      "source_label": "canadian blues",
+      "source_url": "https://everynoise.com/engenremap-canadianblues.html",
+      "suggested_id": "canadian_blues",
+      "allocation_ordinal": 2559
+    },
+    {
+      "source_label": "canadian contemporary r&b",
+      "source_url": "https://everynoise.com/engenremap-canadiancontemporaryrb.html",
+      "suggested_id": "canadian_contemporary_r_and_b",
+      "allocation_ordinal": 2560
+    },
+    {
+      "source_label": "chill r&b",
+      "source_url": "https://everynoise.com/engenremap-chillrb.html",
+      "suggested_id": "chill_r_and_b",
+      "allocation_ordinal": 2561
+    },
+    {
+      "source_label": "chinese r&b",
+      "source_url": "https://everynoise.com/engenremap-chineserb.html",
+      "suggested_id": "chinese_r_and_b",
+      "allocation_ordinal": 2562
+    },
+    {
+      "source_label": "classic soul",
+      "source_url": "https://everynoise.com/engenremap-classicsoul.html",
+      "suggested_id": "classic_soul",
+      "allocation_ordinal": 2563
+    },
+    {
+      "source_label": "congolese gospel",
+      "source_url": "https://everynoise.com/engenremap-congolesegospel.html",
+      "suggested_id": "congolese_gospel",
+      "allocation_ordinal": 2564
+    },
+    {
+      "source_label": "coral gospel",
+      "source_url": "https://everynoise.com/engenremap-coralgospel.html",
+      "suggested_id": "coral_gospel",
+      "allocation_ordinal": 2565
+    },
+    {
+      "source_label": "cuban funk",
+      "source_url": "https://everynoise.com/engenremap-cubanfunk.html",
+      "suggested_id": "cuban_funk",
+      "allocation_ordinal": 2566
+    },
+    {
+      "source_label": "cumbia funk",
+      "source_url": "https://everynoise.com/engenremap-cumbiafunk.html",
+      "suggested_id": "cumbia_funk",
+      "allocation_ordinal": 2567
+    },
+    {
+      "source_label": "dark r&b",
+      "source_url": "https://everynoise.com/engenremap-darkrb.html",
+      "suggested_id": "dark_r_and_b",
+      "allocation_ordinal": 2568
+    },
+    {
+      "source_label": "deep delta blues",
+      "source_url": "https://everynoise.com/engenremap-deepdeltablues.html",
+      "suggested_id": "deep_delta_blues",
+      "allocation_ordinal": 2569
+    },
+    {
+      "source_label": "deep funk",
+      "source_url": "https://everynoise.com/engenremap-deepfunk.html",
+      "suggested_id": "deep_funk",
+      "allocation_ordinal": 2570
+    },
+    {
+      "source_label": "deep funk ostentacao",
+      "source_url": "https://everynoise.com/engenremap-deepfunkostentacao.html",
+      "suggested_id": "deep_funk_ostentacao",
+      "allocation_ordinal": 2571
+    },
+    {
+      "source_label": "deep g funk",
+      "source_url": "https://everynoise.com/engenremap-deepgfunk.html",
+      "suggested_id": "deep_g_funk",
+      "allocation_ordinal": 2572
+    },
+    {
+      "source_label": "deep northern soul",
+      "source_url": "https://everynoise.com/engenremap-deepnorthernsoul.html",
+      "suggested_id": "deep_northern_soul",
+      "allocation_ordinal": 2573
+    },
+    {
+      "source_label": "deep r&b",
+      "source_url": "https://everynoise.com/engenremap-deeprb.html",
+      "suggested_id": "deep_r_and_b",
+      "allocation_ordinal": 2574
+    },
+    {
+      "source_label": "deep smooth r&b",
+      "source_url": "https://everynoise.com/engenremap-deepsmoothrb.html",
+      "suggested_id": "deep_smooth_r_and_b",
+      "allocation_ordinal": 2575
+    }
+  ]
+}

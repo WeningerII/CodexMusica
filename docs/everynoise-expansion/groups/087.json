@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "087",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["jazz and swing"],
+  "entries": [
+    {
+      "source_label": "jazz tuba",
+      "source_url": "https://everynoise.com/engenremap-jazztuba.html",
+      "suggested_id": "jazz_tuba",
+      "allocation_ordinal": 2151
+    },
+    {
+      "source_label": "jazz venezolano",
+      "source_url": "https://everynoise.com/engenremap-jazzvenezolano.html",
+      "suggested_id": "jazz_venezolano",
+      "allocation_ordinal": 2152
+    },
+    {
+      "source_label": "jazz vibraphone",
+      "source_url": "https://everynoise.com/engenremap-jazzvibraphone.html",
+      "suggested_id": "jazz_vibraphone",
+      "allocation_ordinal": 2153
+    },
+    {
+      "source_label": "jazz violin",
+      "source_url": "https://everynoise.com/engenremap-jazzviolin.html",
+      "suggested_id": "jazz_violin",
+      "allocation_ordinal": 2154
+    },
+    {
+      "source_label": "jazz worship",
+      "source_url": "https://everynoise.com/engenremap-jazzworship.html",
+      "suggested_id": "jazz_worship",
+      "allocation_ordinal": 2155
+    },
+    {
+      "source_label": "korean jazz",
+      "source_url": "https://everynoise.com/engenremap-koreanjazz.html",
+      "suggested_id": "korean_jazz",
+      "allocation_ordinal": 2156
+    },
+    {
+      "source_label": "lithuanian jazz",
+      "source_url": "https://everynoise.com/engenremap-lithuanianjazz.html",
+      "suggested_id": "lithuanian_jazz",
+      "allocation_ordinal": 2157
+    },
+    {
+      "source_label": "modern free jazz",
+      "source_url": "https://everynoise.com/engenremap-modernfreejazz.html",
+      "suggested_id": "modern_free_jazz",
+      "allocation_ordinal": 2158
+    },
+    {
+      "source_label": "modern jazz piano",
+      "source_url": "https://everynoise.com/engenremap-modernjazzpiano.html",
+      "suggested_id": "modern_jazz_piano",
+      "allocation_ordinal": 2159
+    },
+    {
+      "source_label": "modern jazz trio",
+      "source_url": "https://everynoise.com/engenremap-modernjazztrio.html",
+      "suggested_id": "modern_jazz_trio",
+      "allocation_ordinal": 2160
+    },
+    {
+      "source_label": "modern swing",
+      "source_url": "https://everynoise.com/engenremap-modernswing.html",
+      "suggested_id": "modern_swing",
+      "allocation_ordinal": 2161
+    },
+    {
+      "source_label": "neo soul-jazz",
+      "source_url": "https://everynoise.com/engenremap-neosouljazz.html",
+      "suggested_id": "neo_soul_jazz",
+      "allocation_ordinal": 2162
+    },
+    {
+      "source_label": "norwegian contemporary jazz",
+      "source_url": "https://everynoise.com/engenremap-norwegiancontemporaryjazz.html",
+      "suggested_id": "norwegian_contemporary_jazz",
+      "allocation_ordinal": 2163
+    },
+    {
+      "source_label": "norwegian jazz",
+      "source_url": "https://everynoise.com/engenremap-norwegianjazz.html",
+      "suggested_id": "norwegian_jazz",
+      "allocation_ordinal": 2164
+    },
+    {
+      "source_label": "nz jazz",
+      "source_url": "https://everynoise.com/engenremap-nzjazz.html",
+      "suggested_id": "nz_jazz",
+      "allocation_ordinal": 2165
+    },
+    {
+      "source_label": "polish free jazz",
+      "source_url": "https://everynoise.com/engenremap-polishfreejazz.html",
+      "suggested_id": "polish_free_jazz",
+      "allocation_ordinal": 2166
+    },
+    {
+      "source_label": "polish jazz",
+      "source_url": "https://everynoise.com/engenremap-polishjazz.html",
+      "suggested_id": "polish_jazz",
+      "allocation_ordinal": 2167
+    },
+    {
+      "source_label": "polish modern jazz",
+      "source_url": "https://everynoise.com/engenremap-polishmodernjazz.html",
+      "suggested_id": "polish_modern_jazz",
+      "allocation_ordinal": 2168
+    },
+    {
+      "source_label": "portuguese jazz",
+      "source_url": "https://everynoise.com/engenremap-portuguesejazz.html",
+      "suggested_id": "portuguese_jazz",
+      "allocation_ordinal": 2169
+    },
+    {
+      "source_label": "progressive jazz fusion",
+      "source_url": "https://everynoise.com/engenremap-progressivejazzfusion.html",
+      "suggested_id": "progressive_jazz_fusion",
+      "allocation_ordinal": 2170
+    },
+    {
+      "source_label": "psychedelic jazz fusion",
+      "source_url": "https://everynoise.com/engenremap-psychedelicjazzfusion.html",
+      "suggested_id": "psychedelic_jazz_fusion",
+      "allocation_ordinal": 2171
+    },
+    {
+      "source_label": "russian jazz",
+      "source_url": "https://everynoise.com/engenremap-russianjazz.html",
+      "suggested_id": "russian_jazz",
+      "allocation_ordinal": 2172
+    },
+    {
+      "source_label": "russian modern jazz",
+      "source_url": "https://everynoise.com/engenremap-russianmodernjazz.html",
+      "suggested_id": "russian_modern_jazz",
+      "allocation_ordinal": 2173
+    },
+    {
+      "source_label": "scottish jazz",
+      "source_url": "https://everynoise.com/engenremap-scottishjazz.html",
+      "suggested_id": "scottish_jazz",
+      "allocation_ordinal": 2174
+    },
+    {
+      "source_label": "south african modern jazz",
+      "source_url": "https://everynoise.com/engenremap-southafricanmodernjazz.html",
+      "suggested_id": "south_african_modern_jazz",
+      "allocation_ordinal": 2175
+    }
+  ]
+}

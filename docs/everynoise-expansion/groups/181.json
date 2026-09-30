@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "181",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "viet lo-fi",
+      "source_url": "https://everynoise.com/engenremap-vietlofi.html",
+      "suggested_id": "viet_lo_fi",
+      "allocation_ordinal": 4501
+    },
+    {
+      "source_label": "viet remix",
+      "source_url": "https://everynoise.com/engenremap-vietremix.html",
+      "suggested_id": "viet_remix",
+      "allocation_ordinal": 4502
+    },
+    {
+      "source_label": "vinahouse",
+      "source_url": "https://everynoise.com/engenremap-vinahouse.html",
+      "suggested_id": "vinahouse",
+      "allocation_ordinal": 4503
+    },
+    {
+      "source_label": "vintage broadway",
+      "source_url": "https://everynoise.com/engenremap-vintagebroadway.html",
+      "suggested_id": "vintage_broadway",
+      "allocation_ordinal": 4504
+    },
+    {
+      "source_label": "vintage chanson",
+      "source_url": "https://everynoise.com/engenremap-vintagechanson.html",
+      "suggested_id": "vintage_chanson",
+      "allocation_ordinal": 4505
+    },
+    {
+      "source_label": "vintage french psychedelic",
+      "source_url": "https://everynoise.com/engenremap-vintagefrenchpsychedelic.html",
+      "suggested_id": "vintage_french_psychedelic",
+      "allocation_ordinal": 4506
+    },
+    {
+      "source_label": "vintage hollywood",
+      "source_url": "https://everynoise.com/engenremap-vintagehollywood.html",
+      "suggested_id": "vintage_hollywood",
+      "allocation_ordinal": 4507
+    },
+    {
+      "source_label": "vintage italian soundtrack",
+      "source_url": "https://everynoise.com/engenremap-vintageitaliansoundtrack.html",
+      "suggested_id": "vintage_italian_soundtrack",
+      "allocation_ordinal": 4508
+    },
+    {
+      "source_label": "vintage old-time",
+      "source_url": "https://everynoise.com/engenremap-vintageoldtime.html",
+      "suggested_id": "vintage_old_time",
+      "allocation_ordinal": 4509
+    },
+    {
+      "source_label": "vintage radio show",
+      "source_url": "https://everynoise.com/engenremap-vintageradioshow.html",
+      "suggested_id": "vintage_radio_show",
+      "allocation_ordinal": 4510
+    },
+    {
+      "source_label": "vintage schlager",
+      "source_url": "https://everynoise.com/engenremap-vintageschlager.html",
+      "suggested_id": "vintage_schlager",
+      "allocation_ordinal": 4511
+    },
+    {
+      "source_label": "vintage swoon",
+      "source_url": "https://everynoise.com/engenremap-vintageswoon.html",
+      "suggested_id": "vintage_swoon",
+      "allocation_ordinal": 4512
+    },
+    {
+      "source_label": "vintage tango",
+      "source_url": "https://everynoise.com/engenremap-vintagetango.html",
+      "suggested_id": "vintage_tango",
+      "allocation_ordinal": 4513
+    },
+    {
+      "source_label": "vintage tollywood",
+      "source_url": "https://everynoise.com/engenremap-vintagetollywood.html",
+      "suggested_id": "vintage_tollywood",
+      "allocation_ordinal": 4514
+    },
+    {
+      "source_label": "vintage western",
+      "source_url": "https://everynoise.com/engenremap-vintagewestern.html",
+      "suggested_id": "vintage_western",
+      "allocation_ordinal": 4515
+    },
+    {
+      "source_label": "viola",
+      "source_url": "https://everynoise.com/engenremap-viola.html",
+      "suggested_id": "viola",
+      "allocation_ordinal": 4516
+    },
+    {
+      "source_label": "viola da gamba",
+      "source_url": "https://everynoise.com/engenremap-violadagamba.html",
+      "suggested_id": "viola_da_gamba",
+      "allocation_ordinal": 4517
+    },
+    {
+      "source_label": "violao",
+      "source_url": "https://everynoise.com/engenremap-violao.html",
+      "suggested_id": "violao",
+      "allocation_ordinal": 4518
+    },
+    {
+      "source_label": "violao classico",
+      "source_url": "https://everynoise.com/engenremap-violaoclassico.html",
+      "suggested_id": "violao_classico",
+      "allocation_ordinal": 4519
+    },
+    {
+      "source_label": "violin",
+      "source_url": "https://everynoise.com/engenremap-violin.html",
+      "suggested_id": "violin",
+      "allocation_ordinal": 4520
+    },
+    {
+      "source_label": "viral afropop",
+      "source_url": "https://everynoise.com/engenremap-viralafropop.html",
+      "suggested_id": "viral_afropop",
+      "allocation_ordinal": 4521
+    },
+    {
+      "source_label": "virginia indie",
+      "source_url": "https://everynoise.com/engenremap-virginiaindie.html",
+      "suggested_id": "virginia_indie",
+      "allocation_ordinal": 4522
+    },
+    {
+      "source_label": "visor",
+      "source_url": "https://everynoise.com/engenremap-visor.html",
+      "suggested_id": "visor",
+      "allocation_ordinal": 4523
+    },
+    {
+      "source_label": "vlaamse cabaret",
+      "source_url": "https://everynoise.com/engenremap-vlaamsecabaret.html",
+      "suggested_id": "vlaamse_cabaret",
+      "allocation_ordinal": 4524
+    },
+    {
+      "source_label": "vlaamse kinderliedje",
+      "source_url": "https://everynoise.com/engenremap-vlaamsekinderliedje.html",
+      "suggested_id": "vlaamse_kinderliedje",
+      "allocation_ordinal": 4525
+    }
+  ]
+}

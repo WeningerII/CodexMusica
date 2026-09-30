@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "107",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["reggae ska and dub"],
+  "entries": [
+    {
+      "source_label": "argentine reggae",
+      "source_url": "https://everynoise.com/engenremap-argentinereggae.html",
+      "suggested_id": "argentine_reggae",
+      "allocation_ordinal": 2651
+    },
+    {
+      "source_label": "australian reggae fusion",
+      "source_url": "https://everynoise.com/engenremap-australianreggaefusion.html",
+      "suggested_id": "australian_reggae_fusion",
+      "allocation_ordinal": 2652
+    },
+    {
+      "source_label": "australian ska",
+      "source_url": "https://everynoise.com/engenremap-australianska.html",
+      "suggested_id": "australian_ska",
+      "allocation_ordinal": 2653
+    },
+    {
+      "source_label": "brazilian ska",
+      "source_url": "https://everynoise.com/engenremap-brazilianska.html",
+      "suggested_id": "brazilian_ska",
+      "allocation_ordinal": 2654
+    },
+    {
+      "source_label": "chinese reggae",
+      "source_url": "https://everynoise.com/engenremap-chinesereggae.html",
+      "suggested_id": "chinese_reggae",
+      "allocation_ordinal": 2655
+    },
+    {
+      "source_label": "czsk reggae",
+      "source_url": "https://everynoise.com/engenremap-czskreggae.html",
+      "suggested_id": "czsk_reggae",
+      "allocation_ordinal": 2656
+    },
+    {
+      "source_label": "dancehall chileno",
+      "source_url": "https://everynoise.com/engenremap-dancehallchileno.html",
+      "suggested_id": "dancehall_chileno",
+      "allocation_ordinal": 2657
+    },
+    {
+      "source_label": "dancehall colombiano",
+      "source_url": "https://everynoise.com/engenremap-dancehallcolombiano.html",
+      "suggested_id": "dancehall_colombiano",
+      "allocation_ordinal": 2658
+    },
+    {
+      "source_label": "dancehall guyanaise",
+      "source_url": "https://everynoise.com/engenremap-dancehallguyanaise.html",
+      "suggested_id": "dancehall_guyanaise",
+      "allocation_ordinal": 2659
+    },
+    {
+      "source_label": "dancehall mauricien",
+      "source_url": "https://everynoise.com/engenremap-dancehallmauricien.html",
+      "suggested_id": "dancehall_mauricien",
+      "allocation_ordinal": 2660
+    },
+    {
+      "source_label": "dub brasileiro",
+      "source_url": "https://everynoise.com/engenremap-dubbrasileiro.html",
+      "suggested_id": "dub_brasileiro",
+      "allocation_ordinal": 2661
+    },
+    {
+      "source_label": "dub product",
+      "source_url": "https://everynoise.com/engenremap-dubproduct.html",
+      "suggested_id": "dub_product",
+      "allocation_ordinal": 2662
+    },
+    {
+      "source_label": "dub reggae",
+      "source_url": "https://everynoise.com/engenremap-dubreggae.html",
+      "suggested_id": "dub_reggae",
+      "allocation_ordinal": 2663
+    },
+    {
+      "source_label": "east coast reggae",
+      "source_url": "https://everynoise.com/engenremap-eastcoastreggae.html",
+      "suggested_id": "east_coast_reggae",
+      "allocation_ordinal": 2664
+    },
+    {
+      "source_label": "euskal reggae",
+      "source_url": "https://everynoise.com/engenremap-euskalreggae.html",
+      "suggested_id": "euskal_reggae",
+      "allocation_ordinal": 2665
+    },
+    {
+      "source_label": "experimental dub",
+      "source_url": "https://everynoise.com/engenremap-experimentaldub.html",
+      "suggested_id": "experimental_dub",
+      "allocation_ordinal": 2666
+    },
+    {
+      "source_label": "finnish reggae",
+      "source_url": "https://everynoise.com/engenremap-finnishreggae.html",
+      "suggested_id": "finnish_reggae",
+      "allocation_ordinal": 2667
+    },
+    {
+      "source_label": "french dub",
+      "source_url": "https://everynoise.com/engenremap-frenchdub.html",
+      "suggested_id": "french_dub",
+      "allocation_ordinal": 2668
+    },
+    {
+      "source_label": "french reggae",
+      "source_url": "https://everynoise.com/engenremap-frenchreggae.html",
+      "suggested_id": "french_reggae",
+      "allocation_ordinal": 2669
+    },
+    {
+      "source_label": "german reggae",
+      "source_url": "https://everynoise.com/engenremap-germanreggae.html",
+      "suggested_id": "german_reggae",
+      "allocation_ordinal": 2670
+    },
+    {
+      "source_label": "german ska",
+      "source_url": "https://everynoise.com/engenremap-germanska.html",
+      "suggested_id": "german_ska",
+      "allocation_ordinal": 2671
+    },
+    {
+      "source_label": "indonesian reggae",
+      "source_url": "https://everynoise.com/engenremap-indonesianreggae.html",
+      "suggested_id": "indonesian_reggae",
+      "allocation_ordinal": 2672
+    },
+    {
+      "source_label": "indonesian ska",
+      "source_url": "https://everynoise.com/engenremap-indonesianska.html",
+      "suggested_id": "indonesian_ska",
+      "allocation_ordinal": 2673
+    },
+    {
+      "source_label": "italian reggae",
+      "source_url": "https://everynoise.com/engenremap-italianreggae.html",
+      "suggested_id": "italian_reggae",
+      "allocation_ordinal": 2674
+    },
+    {
+      "source_label": "italian ska",
+      "source_url": "https://everynoise.com/engenremap-italianska.html",
+      "suggested_id": "italian_ska",
+      "allocation_ordinal": 2675
+    }
+  ]
+}

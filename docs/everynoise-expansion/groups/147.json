@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "147",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "lagu karo",
+      "source_url": "https://everynoise.com/engenremap-lagukaro.html",
+      "suggested_id": "lagu_karo",
+      "allocation_ordinal": 3651
+    },
+    {
+      "source_label": "lagu lampung",
+      "source_url": "https://everynoise.com/engenremap-lagulampung.html",
+      "suggested_id": "lagu_lampung",
+      "allocation_ordinal": 3652
+    },
+    {
+      "source_label": "lagu madura",
+      "source_url": "https://everynoise.com/engenremap-lagumadura.html",
+      "suggested_id": "lagu_madura",
+      "allocation_ordinal": 3653
+    },
+    {
+      "source_label": "lagu maluku",
+      "source_url": "https://everynoise.com/engenremap-lagumaluku.html",
+      "suggested_id": "lagu_maluku",
+      "allocation_ordinal": 3654
+    },
+    {
+      "source_label": "lagu manado",
+      "source_url": "https://everynoise.com/engenremap-lagumanado.html",
+      "suggested_id": "lagu_manado",
+      "allocation_ordinal": 3655
+    },
+    {
+      "source_label": "lagu sabahan",
+      "source_url": "https://everynoise.com/engenremap-lagusabahan.html",
+      "suggested_id": "lagu_sabahan",
+      "allocation_ordinal": 3656
+    },
+    {
+      "source_label": "lagu sasak",
+      "source_url": "https://everynoise.com/engenremap-lagusasak.html",
+      "suggested_id": "lagu_sasak",
+      "allocation_ordinal": 3657
+    },
+    {
+      "source_label": "lagu tarling",
+      "source_url": "https://everynoise.com/engenremap-lagutarling.html",
+      "suggested_id": "lagu_tarling",
+      "allocation_ordinal": 3658
+    },
+    {
+      "source_label": "lagu timur",
+      "source_url": "https://everynoise.com/engenremap-lagutimur.html",
+      "suggested_id": "lagu_timur",
+      "allocation_ordinal": 3659
+    },
+    {
+      "source_label": "lai hla",
+      "source_url": "https://everynoise.com/engenremap-laihla.html",
+      "suggested_id": "lai_hla",
+      "allocation_ordinal": 3660
+    },
+    {
+      "source_label": "lampung indie",
+      "source_url": "https://everynoise.com/engenremap-lampungindie.html",
+      "suggested_id": "lampung_indie",
+      "allocation_ordinal": 3661
+    },
+    {
+      "source_label": "lancashire indie",
+      "source_url": "https://everynoise.com/engenremap-lancashireindie.html",
+      "suggested_id": "lancashire_indie",
+      "allocation_ordinal": 3662
+    },
+    {
+      "source_label": "lancaster pa indie",
+      "source_url": "https://everynoise.com/engenremap-lancasterpaindie.html",
+      "suggested_id": "lancaster_pa_indie",
+      "allocation_ordinal": 3663
+    },
+    {
+      "source_label": "language",
+      "source_url": "https://everynoise.com/engenremap-language.html",
+      "suggested_id": "language",
+      "allocation_ordinal": 3664
+    },
+    {
+      "source_label": "lastelaulud",
+      "source_url": "https://everynoise.com/engenremap-lastelaulud.html",
+      "suggested_id": "lastelaulud",
+      "allocation_ordinal": 3665
+    },
+    {
+      "source_label": "lasten satuja",
+      "source_url": "https://everynoise.com/engenremap-lastensatuja.html",
+      "suggested_id": "lasten_satuja",
+      "allocation_ordinal": 3666
+    },
+    {
+      "source_label": "lata",
+      "source_url": "https://everynoise.com/engenremap-lata.html",
+      "suggested_id": "lata",
+      "allocation_ordinal": 3667
+    },
+    {
+      "source_label": "latin afrobeat",
+      "source_url": "https://everynoise.com/engenremap-latinafrobeat.html",
+      "suggested_id": "latin_afrobeat",
+      "allocation_ordinal": 3668
+    },
+    {
+      "source_label": "latin american heavy psych",
+      "source_url": "https://everynoise.com/engenremap-latinamericanheavypsych.html",
+      "suggested_id": "latin_american_heavy_psych",
+      "allocation_ordinal": 3669
+    },
+    {
+      "source_label": "latin christian",
+      "source_url": "https://everynoise.com/engenremap-latinchristian.html",
+      "suggested_id": "latin_christian",
+      "allocation_ordinal": 3670
+    },
+    {
+      "source_label": "latin soundtrack",
+      "source_url": "https://everynoise.com/engenremap-latinsoundtrack.html",
+      "suggested_id": "latin_soundtrack",
+      "allocation_ordinal": 3671
+    },
+    {
+      "source_label": "latin talent show",
+      "source_url": "https://everynoise.com/engenremap-latintalentshow.html",
+      "suggested_id": "latin_talent_show",
+      "allocation_ordinal": 3672
+    },
+    {
+      "source_label": "latincore",
+      "source_url": "https://everynoise.com/engenremap-latincore.html",
+      "suggested_id": "latincore",
+      "allocation_ordinal": 3673
+    },
+    {
+      "source_label": "latino comedy",
+      "source_url": "https://everynoise.com/engenremap-latinocomedy.html",
+      "suggested_id": "latino_comedy",
+      "allocation_ordinal": 3674
+    },
+    {
+      "source_label": "latintronica",
+      "source_url": "https://everynoise.com/engenremap-latintronica.html",
+      "suggested_id": "latintronica",
+      "allocation_ordinal": 3675
+    }
+  ]
+}

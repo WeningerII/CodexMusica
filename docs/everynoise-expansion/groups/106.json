@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "106",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["blues soul funk and gospel names", "reggae ska and dub"],
+  "entries": [
+    {
+      "source_label": "r&b argentino",
+      "source_url": "https://everynoise.com/engenremap-rbargentino.html",
+      "suggested_id": "r_and_b_argentino",
+      "allocation_ordinal": 2626
+    },
+    {
+      "source_label": "r&b brasileiro",
+      "source_url": "https://everynoise.com/engenremap-rbbrasileiro.html",
+      "suggested_id": "r_and_b_brasileiro",
+      "allocation_ordinal": 2627
+    },
+    {
+      "source_label": "r&b italiano",
+      "source_url": "https://everynoise.com/engenremap-rbitaliano.html",
+      "suggested_id": "r_and_b_italiano",
+      "allocation_ordinal": 2628
+    },
+    {
+      "source_label": "rebel blues",
+      "source_url": "https://everynoise.com/engenremap-rebelblues.html",
+      "suggested_id": "rebel_blues",
+      "allocation_ordinal": 2629
+    },
+    {
+      "source_label": "retro soul",
+      "source_url": "https://everynoise.com/engenremap-retrosoul.html",
+      "suggested_id": "retro_soul",
+      "allocation_ordinal": 2630
+    },
+    {
+      "source_label": "rwandan gospel",
+      "source_url": "https://everynoise.com/engenremap-rwandangospel.html",
+      "suggested_id": "rwandan_gospel",
+      "allocation_ordinal": 2631
+    },
+    {
+      "source_label": "samba gospel",
+      "source_url": "https://everynoise.com/engenremap-sambagospel.html",
+      "suggested_id": "samba_gospel",
+      "allocation_ordinal": 2632
+    },
+    {
+      "source_label": "scandinavian r&b",
+      "source_url": "https://everynoise.com/engenremap-scandinavianrb.html",
+      "suggested_id": "scandinavian_r_and_b",
+      "allocation_ordinal": 2633
+    },
+    {
+      "source_label": "sertanejo gospel",
+      "source_url": "https://everynoise.com/engenremap-sertanejogospel.html",
+      "suggested_id": "sertanejo_gospel",
+      "allocation_ordinal": 2634
+    },
+    {
+      "source_label": "smooth soul",
+      "source_url": "https://everynoise.com/engenremap-smoothsoul.html",
+      "suggested_id": "smooth_soul",
+      "allocation_ordinal": 2635
+    },
+    {
+      "source_label": "soul flow",
+      "source_url": "https://everynoise.com/engenremap-soulflow.html",
+      "suggested_id": "soul_flow",
+      "allocation_ordinal": 2636
+    },
+    {
+      "source_label": "south african gospel",
+      "source_url": "https://everynoise.com/engenremap-southafricangospel.html",
+      "suggested_id": "south_african_gospel",
+      "allocation_ordinal": 2637
+    },
+    {
+      "source_label": "south african r&b",
+      "source_url": "https://everynoise.com/engenremap-southafricanrb.html",
+      "suggested_id": "south_african_r_and_b",
+      "allocation_ordinal": 2638
+    },
+    {
+      "source_label": "spanish blues",
+      "source_url": "https://everynoise.com/engenremap-spanishblues.html",
+      "suggested_id": "spanish_blues",
+      "allocation_ordinal": 2639
+    },
+    {
+      "source_label": "swahili gospel",
+      "source_url": "https://everynoise.com/engenremap-swahiligospel.html",
+      "suggested_id": "swahili_gospel",
+      "allocation_ordinal": 2640
+    },
+    {
+      "source_label": "swedish blues",
+      "source_url": "https://everynoise.com/engenremap-swedishblues.html",
+      "suggested_id": "swedish_blues",
+      "allocation_ordinal": 2641
+    },
+    {
+      "source_label": "swedish soul",
+      "source_url": "https://everynoise.com/engenremap-swedishsoul.html",
+      "suggested_id": "swedish_soul",
+      "allocation_ordinal": 2642
+    },
+    {
+      "source_label": "traditional blues",
+      "source_url": "https://everynoise.com/engenremap-traditionalblues.html",
+      "suggested_id": "traditional_blues",
+      "allocation_ordinal": 2643
+    },
+    {
+      "source_label": "traditional soul",
+      "source_url": "https://everynoise.com/engenremap-traditionalsoul.html",
+      "suggested_id": "traditional_soul",
+      "allocation_ordinal": 2644
+    },
+    {
+      "source_label": "ugandan gospel",
+      "source_url": "https://everynoise.com/engenremap-ugandangospel.html",
+      "suggested_id": "ugandan_gospel",
+      "allocation_ordinal": 2645
+    },
+    {
+      "source_label": "uk contemporary r&b",
+      "source_url": "https://everynoise.com/engenremap-ukcontemporaryrb.html",
+      "suggested_id": "uk_contemporary_r_and_b",
+      "allocation_ordinal": 2646
+    },
+    {
+      "source_label": "vintage gospel",
+      "source_url": "https://everynoise.com/engenremap-vintagegospel.html",
+      "suggested_id": "vintage_gospel",
+      "allocation_ordinal": 2647
+    },
+    {
+      "source_label": "zambian gospel",
+      "source_url": "https://everynoise.com/engenremap-zambiangospel.html",
+      "suggested_id": "zambian_gospel",
+      "allocation_ordinal": 2648
+    },
+    {
+      "source_label": "zim gospel",
+      "source_url": "https://everynoise.com/engenremap-zimgospel.html",
+      "suggested_id": "zim_gospel",
+      "allocation_ordinal": 2649
+    },
+    {
+      "source_label": "african reggae",
+      "source_url": "https://everynoise.com/engenremap-africanreggae.html",
+      "suggested_id": "african_reggae",
+      "allocation_ordinal": 2650
+    }
+  ]
+}

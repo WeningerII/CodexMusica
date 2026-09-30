@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "113",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "australian electropop",
+      "source_url": "https://everynoise.com/engenremap-australianelectropop.html",
+      "suggested_id": "australian_electropop",
+      "allocation_ordinal": 2801
+    },
+    {
+      "source_label": "australian experimental",
+      "source_url": "https://everynoise.com/engenremap-australianexperimental.html",
+      "suggested_id": "australian_experimental",
+      "allocation_ordinal": 2802
+    },
+    {
+      "source_label": "australian indie",
+      "source_url": "https://everynoise.com/engenremap-australianindie.html",
+      "suggested_id": "australian_indie",
+      "allocation_ordinal": 2803
+    },
+    {
+      "source_label": "australian psych",
+      "source_url": "https://everynoise.com/engenremap-australianpsych.html",
+      "suggested_id": "australian_psych",
+      "allocation_ordinal": 2804
+    },
+    {
+      "source_label": "australian talent show",
+      "source_url": "https://everynoise.com/engenremap-australiantalentshow.html",
+      "suggested_id": "australian_talent_show",
+      "allocation_ordinal": 2805
+    },
+    {
+      "source_label": "austrian indie",
+      "source_url": "https://everynoise.com/engenremap-austrianindie.html",
+      "suggested_id": "austrian_indie",
+      "allocation_ordinal": 2806
+    },
+    {
+      "source_label": "austro-german modernism",
+      "source_url": "https://everynoise.com/engenremap-austrogermanmodernism.html",
+      "suggested_id": "austro_german_modernism",
+      "allocation_ordinal": 2807
+    },
+    {
+      "source_label": "auteur-compositeur-interprete quebecois",
+      "source_url": "https://everynoise.com/engenremap-auteurcompositeurinterpretequebecois.html",
+      "suggested_id": "auteur_compositeur_interprete_quebecois",
+      "allocation_ordinal": 2808
+    },
+    {
+      "source_label": "autoharp",
+      "source_url": "https://everynoise.com/engenremap-autoharp.html",
+      "suggested_id": "autoharp",
+      "allocation_ordinal": 2809
+    },
+    {
+      "source_label": "avant-garde",
+      "source_url": "https://everynoise.com/engenremap-avantgarde.html",
+      "suggested_id": "avant_garde",
+      "allocation_ordinal": 2810
+    },
+    {
+      "source_label": "azeri alternative",
+      "source_url": "https://everynoise.com/engenremap-azerialternative.html",
+      "suggested_id": "azeri_alternative",
+      "allocation_ordinal": 2811
+    },
+    {
+      "source_label": "bachchon ke geet",
+      "source_url": "https://everynoise.com/engenremap-bachchonkegeet.html",
+      "suggested_id": "bachchon_ke_geet",
+      "allocation_ordinal": 2812
+    },
+    {
+      "source_label": "background music",
+      "source_url": "https://everynoise.com/engenremap-backgroundmusic.html",
+      "suggested_id": "background_music",
+      "allocation_ordinal": 2813
+    },
+    {
+      "source_label": "background piano",
+      "source_url": "https://everynoise.com/engenremap-backgroundpiano.html",
+      "suggested_id": "background_piano",
+      "allocation_ordinal": 2814
+    },
+    {
+      "source_label": "backing track",
+      "source_url": "https://everynoise.com/engenremap-backingtrack.html",
+      "suggested_id": "backing_track",
+      "allocation_ordinal": 2815
+    },
+    {
+      "source_label": "bagpipe marching band",
+      "source_url": "https://everynoise.com/engenremap-bagpipemarchingband.html",
+      "suggested_id": "bagpipe_marching_band",
+      "allocation_ordinal": 2816
+    },
+    {
+      "source_label": "bahai",
+      "source_url": "https://everynoise.com/engenremap-bahai.html",
+      "suggested_id": "bahai",
+      "allocation_ordinal": 2817
+    },
+    {
+      "source_label": "baja indie",
+      "source_url": "https://everynoise.com/engenremap-bajaindie.html",
+      "suggested_id": "baja_indie",
+      "allocation_ordinal": 2818
+    },
+    {
+      "source_label": "bajki",
+      "source_url": "https://everynoise.com/engenremap-bajki.html",
+      "suggested_id": "bajki",
+      "allocation_ordinal": 2819
+    },
+    {
+      "source_label": "bali indie",
+      "source_url": "https://everynoise.com/engenremap-baliindie.html",
+      "suggested_id": "bali_indie",
+      "allocation_ordinal": 2820
+    },
+    {
+      "source_label": "balikpapan indie",
+      "source_url": "https://everynoise.com/engenremap-balikpapanindie.html",
+      "suggested_id": "balikpapan_indie",
+      "allocation_ordinal": 2821
+    },
+    {
+      "source_label": "balkan beats",
+      "source_url": "https://everynoise.com/engenremap-balkanbeats.html",
+      "suggested_id": "balkan_beats",
+      "allocation_ordinal": 2822
+    },
+    {
+      "source_label": "ballet class",
+      "source_url": "https://everynoise.com/engenremap-balletclass.html",
+      "suggested_id": "ballet_class",
+      "allocation_ordinal": 2823
+    },
+    {
+      "source_label": "baltimore indie",
+      "source_url": "https://everynoise.com/engenremap-baltimoreindie.html",
+      "suggested_id": "baltimore_indie",
+      "allocation_ordinal": 2824
+    },
+    {
+      "source_label": "band organ",
+      "source_url": "https://everynoise.com/engenremap-bandorgan.html",
+      "suggested_id": "band_organ",
+      "allocation_ordinal": 2825
+    }
+  ]
+}

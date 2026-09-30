@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "183",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["other names in alphabetical order"],
+  "entries": [
+    {
+      "source_label": "windsor on indie",
+      "source_url": "https://everynoise.com/engenremap-windsoronindie.html",
+      "suggested_id": "windsor_on_indie",
+      "allocation_ordinal": 4551
+    },
+    {
+      "source_label": "wisconsin indie",
+      "source_url": "https://everynoise.com/engenremap-wisconsinindie.html",
+      "suggested_id": "wisconsin_indie",
+      "allocation_ordinal": 4552
+    },
+    {
+      "source_label": "women's music",
+      "source_url": "https://everynoise.com/engenremap-womensmusic.html",
+      "suggested_id": "women_s_music",
+      "allocation_ordinal": 4553
+    },
+    {
+      "source_label": "worcester ma indie",
+      "source_url": "https://everynoise.com/engenremap-worcestermaindie.html",
+      "suggested_id": "worcester_ma_indie",
+      "allocation_ordinal": 4554
+    },
+    {
+      "source_label": "workout product",
+      "source_url": "https://everynoise.com/engenremap-workoutproduct.html",
+      "suggested_id": "workout_product",
+      "allocation_ordinal": 4555
+    },
+    {
+      "source_label": "world",
+      "source_url": "https://everynoise.com/engenremap-world.html",
+      "suggested_id": "world",
+      "allocation_ordinal": 4556
+    },
+    {
+      "source_label": "world chill",
+      "source_url": "https://everynoise.com/engenremap-worldchill.html",
+      "suggested_id": "world_chill",
+      "allocation_ordinal": 4557
+    },
+    {
+      "source_label": "world devotional",
+      "source_url": "https://everynoise.com/engenremap-worlddevotional.html",
+      "suggested_id": "world_devotional",
+      "allocation_ordinal": 4558
+    },
+    {
+      "source_label": "world fusion",
+      "source_url": "https://everynoise.com/engenremap-worldfusion.html",
+      "suggested_id": "world_fusion",
+      "allocation_ordinal": 4559
+    },
+    {
+      "source_label": "wrestling",
+      "source_url": "https://everynoise.com/engenremap-wrestling.html",
+      "suggested_id": "wrestling",
+      "allocation_ordinal": 4560
+    },
+    {
+      "source_label": "writing",
+      "source_url": "https://everynoise.com/engenremap-writing.html",
+      "suggested_id": "writing",
+      "allocation_ordinal": 4561
+    },
+    {
+      "source_label": "wrock",
+      "source_url": "https://everynoise.com/engenremap-wrock.html",
+      "suggested_id": "wrock",
+      "allocation_ordinal": 4562
+    },
+    {
+      "source_label": "wu fam",
+      "source_url": "https://everynoise.com/engenremap-wufam.html",
+      "suggested_id": "wu_fam",
+      "allocation_ordinal": 4563
+    },
+    {
+      "source_label": "wuhan indie",
+      "source_url": "https://everynoise.com/engenremap-wuhanindie.html",
+      "suggested_id": "wuhan_indie",
+      "allocation_ordinal": 4564
+    },
+    {
+      "source_label": "wyoming indie",
+      "source_url": "https://everynoise.com/engenremap-wyomingindie.html",
+      "suggested_id": "wyoming_indie",
+      "allocation_ordinal": 4565
+    },
+    {
+      "source_label": "wyoming roots",
+      "source_url": "https://everynoise.com/engenremap-wyomingroots.html",
+      "suggested_id": "wyoming_roots",
+      "allocation_ordinal": 4566
+    },
+    {
+      "source_label": "xhosa",
+      "source_url": "https://everynoise.com/engenremap-xhosa.html",
+      "suggested_id": "xhosa",
+      "allocation_ordinal": 4567
+    },
+    {
+      "source_label": "yaoi",
+      "source_url": "https://everynoise.com/engenremap-yaoi.html",
+      "suggested_id": "yaoi",
+      "allocation_ordinal": 4568
+    },
+    {
+      "source_label": "yemeni traditional",
+      "source_url": "https://everynoise.com/engenremap-yemenitraditional.html",
+      "suggested_id": "yemeni_traditional",
+      "allocation_ordinal": 4569
+    },
+    {
+      "source_label": "yoga",
+      "source_url": "https://everynoise.com/engenremap-yoga.html",
+      "suggested_id": "yoga",
+      "allocation_ordinal": 4570
+    },
+    {
+      "source_label": "yogyakarta indie",
+      "source_url": "https://everynoise.com/engenremap-yogyakartaindie.html",
+      "suggested_id": "yogyakarta_indie",
+      "allocation_ordinal": 4571
+    },
+    {
+      "source_label": "yoik",
+      "source_url": "https://everynoise.com/engenremap-yoik.html",
+      "suggested_id": "yoik",
+      "allocation_ordinal": 4572
+    },
+    {
+      "source_label": "york indie",
+      "source_url": "https://everynoise.com/engenremap-yorkindie.html",
+      "suggested_id": "york_indie",
+      "allocation_ordinal": 4573
+    },
+    {
+      "source_label": "yoruba worship",
+      "source_url": "https://everynoise.com/engenremap-yorubaworship.html",
+      "suggested_id": "yoruba_worship",
+      "allocation_ordinal": 4574
+    },
+    {
+      "source_label": "yu-mex",
+      "source_url": "https://everynoise.com/engenremap-yumex.html",
+      "suggested_id": "yu_mex",
+      "allocation_ordinal": 4575
+    }
+  ]
+}

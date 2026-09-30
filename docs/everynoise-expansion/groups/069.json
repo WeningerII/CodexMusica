@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "069",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol"],
+  "entries": [
+    {
+      "source_label": "finnish idol pop",
+      "source_url": "https://everynoise.com/engenremap-finnishidolpop.html",
+      "suggested_id": "finnish_idol_pop",
+      "allocation_ordinal": 1701
+    },
+    {
+      "source_label": "finnish pop",
+      "source_url": "https://everynoise.com/engenremap-finnishpop.html",
+      "suggested_id": "finnish_pop",
+      "allocation_ordinal": 1702
+    },
+    {
+      "source_label": "french folk pop",
+      "source_url": "https://everynoise.com/engenremap-frenchfolkpop.html",
+      "suggested_id": "french_folk_pop",
+      "allocation_ordinal": 1703
+    },
+    {
+      "source_label": "french indie pop",
+      "source_url": "https://everynoise.com/engenremap-frenchindiepop.html",
+      "suggested_id": "french_indie_pop",
+      "allocation_ordinal": 1704
+    },
+    {
+      "source_label": "french pop",
+      "source_url": "https://everynoise.com/engenremap-frenchpop.html",
+      "suggested_id": "french_pop",
+      "allocation_ordinal": 1705
+    },
+    {
+      "source_label": "gabonese pop",
+      "source_url": "https://everynoise.com/engenremap-gabonesepop.html",
+      "suggested_id": "gabonese_pop",
+      "allocation_ordinal": 1706
+    },
+    {
+      "source_label": "gaddiyali pop",
+      "source_url": "https://everynoise.com/engenremap-gaddiyalipop.html",
+      "suggested_id": "gaddiyali_pop",
+      "allocation_ordinal": 1707
+    },
+    {
+      "source_label": "gambian pop",
+      "source_url": "https://everynoise.com/engenremap-gambianpop.html",
+      "suggested_id": "gambian_pop",
+      "allocation_ordinal": 1708
+    },
+    {
+      "source_label": "garhwali pop",
+      "source_url": "https://everynoise.com/engenremap-garhwalipop.html",
+      "suggested_id": "garhwali_pop",
+      "allocation_ordinal": 1709
+    },
+    {
+      "source_label": "garo pop",
+      "source_url": "https://everynoise.com/engenremap-garopop.html",
+      "suggested_id": "garo_pop",
+      "allocation_ordinal": 1710
+    },
+    {
+      "source_label": "german indie pop",
+      "source_url": "https://everynoise.com/engenremap-germanindiepop.html",
+      "suggested_id": "german_indie_pop",
+      "allocation_ordinal": 1711
+    },
+    {
+      "source_label": "german pop",
+      "source_url": "https://everynoise.com/engenremap-germanpop.html",
+      "suggested_id": "german_pop",
+      "allocation_ordinal": 1712
+    },
+    {
+      "source_label": "ghanaian pop",
+      "source_url": "https://everynoise.com/engenremap-ghanaianpop.html",
+      "suggested_id": "ghanaian_pop",
+      "allocation_ordinal": 1713
+    },
+    {
+      "source_label": "greek pop",
+      "source_url": "https://everynoise.com/engenremap-greekpop.html",
+      "suggested_id": "greek_pop",
+      "allocation_ordinal": 1714
+    },
+    {
+      "source_label": "greenlandic pop",
+      "source_url": "https://everynoise.com/engenremap-greenlandicpop.html",
+      "suggested_id": "greenlandic_pop",
+      "allocation_ordinal": 1715
+    },
+    {
+      "source_label": "guatemalan pop",
+      "source_url": "https://everynoise.com/engenremap-guatemalanpop.html",
+      "suggested_id": "guatemalan_pop",
+      "allocation_ordinal": 1716
+    },
+    {
+      "source_label": "guinean pop",
+      "source_url": "https://everynoise.com/engenremap-guineanpop.html",
+      "suggested_id": "guinean_pop",
+      "allocation_ordinal": 1717
+    },
+    {
+      "source_label": "guyanese pop",
+      "source_url": "https://everynoise.com/engenremap-guyanesepop.html",
+      "suggested_id": "guyanese_pop",
+      "allocation_ordinal": 1718
+    },
+    {
+      "source_label": "hausa pop",
+      "source_url": "https://everynoise.com/engenremap-hausapop.html",
+      "suggested_id": "hausa_pop",
+      "allocation_ordinal": 1719
+    },
+    {
+      "source_label": "hazaragi pop",
+      "source_url": "https://everynoise.com/engenremap-hazaragipop.html",
+      "suggested_id": "hazaragi_pop",
+      "allocation_ordinal": 1720
+    },
+    {
+      "source_label": "himachali pop",
+      "source_url": "https://everynoise.com/engenremap-himachalipop.html",
+      "suggested_id": "himachali_pop",
+      "allocation_ordinal": 1721
+    },
+    {
+      "source_label": "hmong pop",
+      "source_url": "https://everynoise.com/engenremap-hmongpop.html",
+      "suggested_id": "hmong_pop",
+      "allocation_ordinal": 1722
+    },
+    {
+      "source_label": "hungarian pop",
+      "source_url": "https://everynoise.com/engenremap-hungarianpop.html",
+      "suggested_id": "hungarian_pop",
+      "allocation_ordinal": 1723
+    },
+    {
+      "source_label": "icelandic pop",
+      "source_url": "https://everynoise.com/engenremap-icelandicpop.html",
+      "suggested_id": "icelandic_pop",
+      "allocation_ordinal": 1724
+    },
+    {
+      "source_label": "idol",
+      "source_url": "https://everynoise.com/engenremap-idol.html",
+      "suggested_id": "idol",
+      "allocation_ordinal": 1725
+    }
+  ]
+}

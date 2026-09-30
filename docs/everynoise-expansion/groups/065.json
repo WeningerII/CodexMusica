@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "065",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["pop and idol"],
+  "entries": [
+    {
+      "source_label": "bosnian pop",
+      "source_url": "https://everynoise.com/engenremap-bosnianpop.html",
+      "suggested_id": "bosnian_pop",
+      "allocation_ordinal": 1601
+    },
+    {
+      "source_label": "botswana pop",
+      "source_url": "https://everynoise.com/engenremap-botswanapop.html",
+      "suggested_id": "botswana_pop",
+      "allocation_ordinal": 1602
+    },
+    {
+      "source_label": "bow pop",
+      "source_url": "https://everynoise.com/engenremap-bowpop.html",
+      "suggested_id": "bow_pop",
+      "allocation_ordinal": 1603
+    },
+    {
+      "source_label": "boy pop",
+      "source_url": "https://everynoise.com/engenremap-boypop.html",
+      "suggested_id": "boy_pop",
+      "allocation_ordinal": 1604
+    },
+    {
+      "source_label": "brass band pop",
+      "source_url": "https://everynoise.com/engenremap-brassbandpop.html",
+      "suggested_id": "brass_band_pop",
+      "allocation_ordinal": 1605
+    },
+    {
+      "source_label": "bruneian pop",
+      "source_url": "https://everynoise.com/engenremap-bruneianpop.html",
+      "suggested_id": "bruneian_pop",
+      "allocation_ordinal": 1606
+    },
+    {
+      "source_label": "bulgarian pop",
+      "source_url": "https://everynoise.com/engenremap-bulgarianpop.html",
+      "suggested_id": "bulgarian_pop",
+      "allocation_ordinal": 1607
+    },
+    {
+      "source_label": "burkinabe pop",
+      "source_url": "https://everynoise.com/engenremap-burkinabepop.html",
+      "suggested_id": "burkinabe_pop",
+      "allocation_ordinal": 1608
+    },
+    {
+      "source_label": "burundian pop",
+      "source_url": "https://everynoise.com/engenremap-burundianpop.html",
+      "suggested_id": "burundian_pop",
+      "allocation_ordinal": 1609
+    },
+    {
+      "source_label": "c-pop girl group",
+      "source_url": "https://everynoise.com/engenremap-cpopgirlgroup.html",
+      "suggested_id": "c_pop_girl_group",
+      "allocation_ordinal": 1610
+    },
+    {
+      "source_label": "cambodian pop",
+      "source_url": "https://everynoise.com/engenremap-cambodianpop.html",
+      "suggested_id": "cambodian_pop",
+      "allocation_ordinal": 1611
+    },
+    {
+      "source_label": "canadian pop",
+      "source_url": "https://everynoise.com/engenremap-canadianpop.html",
+      "suggested_id": "canadian_pop",
+      "allocation_ordinal": 1612
+    },
+    {
+      "source_label": "candy pop",
+      "source_url": "https://everynoise.com/engenremap-candypop.html",
+      "suggested_id": "candy_pop",
+      "allocation_ordinal": 1613
+    },
+    {
+      "source_label": "chakma pop",
+      "source_url": "https://everynoise.com/engenremap-chakmapop.html",
+      "suggested_id": "chakma_pop",
+      "allocation_ordinal": 1614
+    },
+    {
+      "source_label": "chamorro pop",
+      "source_url": "https://everynoise.com/engenremap-chamorropop.html",
+      "suggested_id": "chamorro_pop",
+      "allocation_ordinal": 1615
+    },
+    {
+      "source_label": "channel pop",
+      "source_url": "https://everynoise.com/engenremap-channelpop.html",
+      "suggested_id": "channel_pop",
+      "allocation_ordinal": 1616
+    },
+    {
+      "source_label": "chechen pop",
+      "source_url": "https://everynoise.com/engenremap-chechenpop.html",
+      "suggested_id": "chechen_pop",
+      "allocation_ordinal": 1617
+    },
+    {
+      "source_label": "chhattisgarhi pop",
+      "source_url": "https://everynoise.com/engenremap-chhattisgarhipop.html",
+      "suggested_id": "chhattisgarhi_pop",
+      "allocation_ordinal": 1618
+    },
+    {
+      "source_label": "chill dream pop",
+      "source_url": "https://everynoise.com/engenremap-chilldreampop.html",
+      "suggested_id": "chill_dream_pop",
+      "allocation_ordinal": 1619
+    },
+    {
+      "source_label": "chill pop",
+      "source_url": "https://everynoise.com/engenremap-chillpop.html",
+      "suggested_id": "chill_pop",
+      "allocation_ordinal": 1620
+    },
+    {
+      "source_label": "chinese idol pop",
+      "source_url": "https://everynoise.com/engenremap-chineseidolpop.html",
+      "suggested_id": "chinese_idol_pop",
+      "allocation_ordinal": 1621
+    },
+    {
+      "source_label": "chinese indie pop",
+      "source_url": "https://everynoise.com/engenremap-chineseindiepop.html",
+      "suggested_id": "chinese_indie_pop",
+      "allocation_ordinal": 1622
+    },
+    {
+      "source_label": "chinese viral pop",
+      "source_url": "https://everynoise.com/engenremap-chineseviralpop.html",
+      "suggested_id": "chinese_viral_pop",
+      "allocation_ordinal": 1623
+    },
+    {
+      "source_label": "christian pop",
+      "source_url": "https://everynoise.com/engenremap-christianpop.html",
+      "suggested_id": "christian_pop",
+      "allocation_ordinal": 1624
+    },
+    {
+      "source_label": "classic arab pop",
+      "source_url": "https://everynoise.com/engenremap-classicarabpop.html",
+      "suggested_id": "classic_arab_pop",
+      "allocation_ordinal": 1625
+    }
+  ]
+}

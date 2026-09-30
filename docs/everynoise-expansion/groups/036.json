@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "036",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["metal and related names"],
+  "entries": [
+    {
+      "source_label": "minnesota metal",
+      "source_url": "https://everynoise.com/engenremap-minnesotametal.html",
+      "suggested_id": "minnesota_metal",
+      "allocation_ordinal": 876
+    },
+    {
+      "source_label": "montana metal",
+      "source_url": "https://everynoise.com/engenremap-montanametal.html",
+      "suggested_id": "montana_metal",
+      "allocation_ordinal": 877
+    },
+    {
+      "source_label": "native american black metal",
+      "source_url": "https://everynoise.com/engenremap-nativeamericanblackmetal.html",
+      "suggested_id": "native_american_black_metal",
+      "allocation_ordinal": 878
+    },
+    {
+      "source_label": "native american metal",
+      "source_url": "https://everynoise.com/engenremap-nativeamericanmetal.html",
+      "suggested_id": "native_american_metal",
+      "allocation_ordinal": 879
+    },
+    {
+      "source_label": "neo-trad doom metal",
+      "source_url": "https://everynoise.com/engenremap-neotraddoommetal.html",
+      "suggested_id": "neo_trad_doom_metal",
+      "allocation_ordinal": 880
+    },
+    {
+      "source_label": "neo-trad metal",
+      "source_url": "https://everynoise.com/engenremap-neotradmetal.html",
+      "suggested_id": "neo_trad_metal",
+      "allocation_ordinal": 881
+    },
+    {
+      "source_label": "new england metal",
+      "source_url": "https://everynoise.com/engenremap-newenglandmetal.html",
+      "suggested_id": "new_england_metal",
+      "allocation_ordinal": 882
+    },
+    {
+      "source_label": "new wave of glam metal",
+      "source_url": "https://everynoise.com/engenremap-newwaveofglammetal.html",
+      "suggested_id": "new_wave_of_glam_metal",
+      "allocation_ordinal": 883
+    },
+    {
+      "source_label": "new wave of speed metal",
+      "source_url": "https://everynoise.com/engenremap-newwaveofspeedmetal.html",
+      "suggested_id": "new_wave_of_speed_metal",
+      "allocation_ordinal": 884
+    },
+    {
+      "source_label": "new wave of thrash metal",
+      "source_url": "https://everynoise.com/engenremap-newwaveofthrashmetal.html",
+      "suggested_id": "new_wave_of_thrash_metal",
+      "allocation_ordinal": 885
+    },
+    {
+      "source_label": "new york death metal",
+      "source_url": "https://everynoise.com/engenremap-newyorkdeathmetal.html",
+      "suggested_id": "new_york_death_metal",
+      "allocation_ordinal": 886
+    },
+    {
+      "source_label": "nordic folk metal",
+      "source_url": "https://everynoise.com/engenremap-nordicfolkmetal.html",
+      "suggested_id": "nordic_folk_metal",
+      "allocation_ordinal": 887
+    },
+    {
+      "source_label": "north carolina metal",
+      "source_url": "https://everynoise.com/engenremap-northcarolinametal.html",
+      "suggested_id": "north_carolina_metal",
+      "allocation_ordinal": 888
+    },
+    {
+      "source_label": "norwegian black metal",
+      "source_url": "https://everynoise.com/engenremap-norwegianblackmetal.html",
+      "suggested_id": "norwegian_black_metal",
+      "allocation_ordinal": 889
+    },
+    {
+      "source_label": "norwegian death metal",
+      "source_url": "https://everynoise.com/engenremap-norwegiandeathmetal.html",
+      "suggested_id": "norwegian_death_metal",
+      "allocation_ordinal": 890
+    },
+    {
+      "source_label": "norwegian doom metal",
+      "source_url": "https://everynoise.com/engenremap-norwegiandoommetal.html",
+      "suggested_id": "norwegian_doom_metal",
+      "allocation_ordinal": 891
+    },
+    {
+      "source_label": "norwegian metal",
+      "source_url": "https://everynoise.com/engenremap-norwegianmetal.html",
+      "suggested_id": "norwegian_metal",
+      "allocation_ordinal": 892
+    },
+    {
+      "source_label": "nu-metalcore",
+      "source_url": "https://everynoise.com/engenremap-numetalcore.html",
+      "suggested_id": "nu_metalcore",
+      "allocation_ordinal": 893
+    },
+    {
+      "source_label": "nyc metal",
+      "source_url": "https://everynoise.com/engenremap-nycmetal.html",
+      "suggested_id": "nyc_metal",
+      "allocation_ordinal": 894
+    },
+    {
+      "source_label": "nz metal",
+      "source_url": "https://everynoise.com/engenremap-nzmetal.html",
+      "suggested_id": "nz_metal",
+      "allocation_ordinal": 895
+    },
+    {
+      "source_label": "occult black metal",
+      "source_url": "https://everynoise.com/engenremap-occultblackmetal.html",
+      "suggested_id": "occult_black_metal",
+      "allocation_ordinal": 896
+    },
+    {
+      "source_label": "opera metal",
+      "source_url": "https://everynoise.com/engenremap-operametal.html",
+      "suggested_id": "opera_metal",
+      "allocation_ordinal": 897
+    },
+    {
+      "source_label": "oriental metal",
+      "source_url": "https://everynoise.com/engenremap-orientalmetal.html",
+      "suggested_id": "oriental_metal",
+      "allocation_ordinal": 898
+    },
+    {
+      "source_label": "oulu metal",
+      "source_url": "https://everynoise.com/engenremap-oulumetal.html",
+      "suggested_id": "oulu_metal",
+      "allocation_ordinal": 899
+    },
+    {
+      "source_label": "pagan black metal",
+      "source_url": "https://everynoise.com/engenremap-paganblackmetal.html",
+      "suggested_id": "pagan_black_metal",
+      "allocation_ordinal": 900
+    }
+  ]
+}

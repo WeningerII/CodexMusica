@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "061",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names"],
+  "entries": [
+    {
+      "source_label": "rock gospel brasileiro",
+      "source_url": "https://everynoise.com/engenremap-rockgospelbrasileiro.html",
+      "suggested_id": "rock_gospel_brasileiro",
+      "allocation_ordinal": 1501
+    },
+    {
+      "source_label": "rock gotico",
+      "source_url": "https://everynoise.com/engenremap-rockgotico.html",
+      "suggested_id": "rock_gotico",
+      "allocation_ordinal": 1502
+    },
+    {
+      "source_label": "rock independant francais",
+      "source_url": "https://everynoise.com/engenremap-rockindependantfrancais.html",
+      "suggested_id": "rock_independant_francais",
+      "allocation_ordinal": 1503
+    },
+    {
+      "source_label": "rock kapak",
+      "source_url": "https://everynoise.com/engenremap-rockkapak.html",
+      "suggested_id": "rock_kapak",
+      "allocation_ordinal": 1504
+    },
+    {
+      "source_label": "rock keyboard",
+      "source_url": "https://everynoise.com/engenremap-rockkeyboard.html",
+      "suggested_id": "rock_keyboard",
+      "allocation_ordinal": 1505
+    },
+    {
+      "source_label": "rock mineiro",
+      "source_url": "https://everynoise.com/engenremap-rockmineiro.html",
+      "suggested_id": "rock_mineiro",
+      "allocation_ordinal": 1506
+    },
+    {
+      "source_label": "rock nacional feminino",
+      "source_url": "https://everynoise.com/engenremap-rocknacionalfeminino.html",
+      "suggested_id": "rock_nacional_feminino",
+      "allocation_ordinal": 1507
+    },
+    {
+      "source_label": "rock nica",
+      "source_url": "https://everynoise.com/engenremap-rocknica.html",
+      "suggested_id": "rock_nica",
+      "allocation_ordinal": 1508
+    },
+    {
+      "source_label": "rock noise",
+      "source_url": "https://everynoise.com/engenremap-rocknoise.html",
+      "suggested_id": "rock_noise",
+      "allocation_ordinal": 1509
+    },
+    {
+      "source_label": "rock of gibraltar",
+      "source_url": "https://everynoise.com/engenremap-rockofgibraltar.html",
+      "suggested_id": "rock_of_gibraltar",
+      "allocation_ordinal": 1510
+    },
+    {
+      "source_label": "rock paraense",
+      "source_url": "https://everynoise.com/engenremap-rockparaense.html",
+      "suggested_id": "rock_paraense",
+      "allocation_ordinal": 1511
+    },
+    {
+      "source_label": "rock paraibano",
+      "source_url": "https://everynoise.com/engenremap-rockparaibano.html",
+      "suggested_id": "rock_paraibano",
+      "allocation_ordinal": 1512
+    },
+    {
+      "source_label": "rock pernambucano",
+      "source_url": "https://everynoise.com/engenremap-rockpernambucano.html",
+      "suggested_id": "rock_pernambucano",
+      "allocation_ordinal": 1513
+    },
+    {
+      "source_label": "rock piauiense",
+      "source_url": "https://everynoise.com/engenremap-rockpiauiense.html",
+      "suggested_id": "rock_piauiense",
+      "allocation_ordinal": 1514
+    },
+    {
+      "source_label": "rock potiguar",
+      "source_url": "https://everynoise.com/engenremap-rockpotiguar.html",
+      "suggested_id": "rock_potiguar",
+      "allocation_ordinal": 1515
+    },
+    {
+      "source_label": "rock progresivo mexicano",
+      "source_url": "https://everynoise.com/engenremap-rockprogresivomexicano.html",
+      "suggested_id": "rock_progresivo_mexicano",
+      "allocation_ordinal": 1516
+    },
+    {
+      "source_label": "rock progressif francais",
+      "source_url": "https://everynoise.com/engenremap-rockprogressiffrancais.html",
+      "suggested_id": "rock_progressif_francais",
+      "allocation_ordinal": 1517
+    },
+    {
+      "source_label": "rock quebecois",
+      "source_url": "https://everynoise.com/engenremap-rockquebecois.html",
+      "suggested_id": "rock_quebecois",
+      "allocation_ordinal": 1518
+    },
+    {
+      "source_label": "rock sergipano",
+      "source_url": "https://everynoise.com/engenremap-rocksergipano.html",
+      "suggested_id": "rock_sergipano",
+      "allocation_ordinal": 1519
+    },
+    {
+      "source_label": "rock sul-mato-grossense",
+      "source_url": "https://everynoise.com/engenremap-rocksulmatogrossense.html",
+      "suggested_id": "rock_sul_mato_grossense",
+      "allocation_ordinal": 1520
+    },
+    {
+      "source_label": "rock tico",
+      "source_url": "https://everynoise.com/engenremap-rocktico.html",
+      "suggested_id": "rock_tico",
+      "allocation_ordinal": 1521
+    },
+    {
+      "source_label": "rock viet",
+      "source_url": "https://everynoise.com/engenremap-rockviet.html",
+      "suggested_id": "rock_viet",
+      "allocation_ordinal": 1522
+    },
+    {
+      "source_label": "rockabilly en espanol",
+      "source_url": "https://everynoise.com/engenremap-rockabillyenespanol.html",
+      "suggested_id": "rockabilly_en_espanol",
+      "allocation_ordinal": 1523
+    },
+    {
+      "source_label": "romanian rock",
+      "source_url": "https://everynoise.com/engenremap-romanianrock.html",
+      "suggested_id": "romanian_rock",
+      "allocation_ordinal": 1524
+    },
+    {
+      "source_label": "russian alternative rock",
+      "source_url": "https://everynoise.com/engenremap-russianalternativerock.html",
+      "suggested_id": "russian_alternative_rock",
+      "allocation_ordinal": 1525
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "group_id": "057",
+  "allocation_baseline_commit": "fe1e5769628da43a8700dcfa2fa7df92fdacbe88",
+  "expected_count": 25,
+  "work_hints": ["rock and related names"],
+  "entries": [
+    {
+      "source_label": "italian pop rock",
+      "source_url": "https://everynoise.com/engenremap-italianpoprock.html",
+      "suggested_id": "italian_pop_rock",
+      "allocation_ordinal": 1401
+    },
+    {
+      "source_label": "italian post-rock",
+      "source_url": "https://everynoise.com/engenremap-italianpostrock.html",
+      "suggested_id": "italian_post_rock",
+      "allocation_ordinal": 1402
+    },
+    {
+      "source_label": "italian progressive rock",
+      "source_url": "https://everynoise.com/engenremap-italianprogressiverock.html",
+      "suggested_id": "italian_progressive_rock",
+      "allocation_ordinal": 1403
+    },
+    {
+      "source_label": "italian rockabilly",
+      "source_url": "https://everynoise.com/engenremap-italianrockabilly.html",
+      "suggested_id": "italian_rockabilly",
+      "allocation_ordinal": 1404
+    },
+    {
+      "source_label": "italian stoner rock",
+      "source_url": "https://everynoise.com/engenremap-italianstonerrock.html",
+      "suggested_id": "italian_stoner_rock",
+      "allocation_ordinal": 1405
+    },
+    {
+      "source_label": "jangle rock",
+      "source_url": "https://everynoise.com/engenremap-janglerock.html",
+      "suggested_id": "jangle_rock",
+      "allocation_ordinal": 1406
+    },
+    {
+      "source_label": "japanese alternative rock",
+      "source_url": "https://everynoise.com/engenremap-japanesealternativerock.html",
+      "suggested_id": "japanese_alternative_rock",
+      "allocation_ordinal": 1407
+    },
+    {
+      "source_label": "japanese indie rock",
+      "source_url": "https://everynoise.com/engenremap-japaneseindierock.html",
+      "suggested_id": "japanese_indie_rock",
+      "allocation_ordinal": 1408
+    },
+    {
+      "source_label": "japanese math rock",
+      "source_url": "https://everynoise.com/engenremap-japanesemathrock.html",
+      "suggested_id": "japanese_math_rock",
+      "allocation_ordinal": 1409
+    },
+    {
+      "source_label": "japanese post-rock",
+      "source_url": "https://everynoise.com/engenremap-japanesepostrock.html",
+      "suggested_id": "japanese_post_rock",
+      "allocation_ordinal": 1410
+    },
+    {
+      "source_label": "japanese psychedelic rock",
+      "source_url": "https://everynoise.com/engenremap-japanesepsychedelicrock.html",
+      "suggested_id": "japanese_psychedelic_rock",
+      "allocation_ordinal": 1411
+    },
+    {
+      "source_label": "japanese rockabilly",
+      "source_url": "https://everynoise.com/engenremap-japaneserockabilly.html",
+      "suggested_id": "japanese_rockabilly",
+      "allocation_ordinal": 1412
+    },
+    {
+      "source_label": "japanese shoegaze",
+      "source_url": "https://everynoise.com/engenremap-japaneseshoegaze.html",
+      "suggested_id": "japanese_shoegaze",
+      "allocation_ordinal": 1413
+    },
+    {
+      "source_label": "k-rock",
+      "source_url": "https://everynoise.com/engenremap-krock.html",
+      "suggested_id": "k_rock",
+      "allocation_ordinal": 1414
+    },
+    {
+      "source_label": "kindie rock",
+      "source_url": "https://everynoise.com/engenremap-kindierock.html",
+      "suggested_id": "kindie_rock",
+      "allocation_ordinal": 1415
+    },
+    {
+      "source_label": "kiwi rock",
+      "source_url": "https://everynoise.com/engenremap-kiwirock.html",
+      "suggested_id": "kiwi_rock",
+      "allocation_ordinal": 1416
+    },
+    {
+      "source_label": "korean indie rock",
+      "source_url": "https://everynoise.com/engenremap-koreanindierock.html",
+      "suggested_id": "korean_indie_rock",
+      "allocation_ordinal": 1417
+    },
+    {
+      "source_label": "korean shoegaze",
+      "source_url": "https://everynoise.com/engenremap-koreanshoegaze.html",
+      "suggested_id": "korean_shoegaze",
+      "allocation_ordinal": 1418
+    },
+    {
+      "source_label": "kurdish rock",
+      "source_url": "https://everynoise.com/engenremap-kurdishrock.html",
+      "suggested_id": "kurdish_rock",
+      "allocation_ordinal": 1419
+    },
+    {
+      "source_label": "latin shoegaze",
+      "source_url": "https://everynoise.com/engenremap-latinshoegaze.html",
+      "suggested_id": "latin_shoegaze",
+      "allocation_ordinal": 1420
+    },
+    {
+      "source_label": "latin surf rock",
+      "source_url": "https://everynoise.com/engenremap-latinsurfrock.html",
+      "suggested_id": "latin_surf_rock",
+      "allocation_ordinal": 1421
+    },
+    {
+      "source_label": "latvian rock",
+      "source_url": "https://everynoise.com/engenremap-latvianrock.html",
+      "suggested_id": "latvian_rock",
+      "allocation_ordinal": 1422
+    },
+    {
+      "source_label": "lithuanian rock",
+      "source_url": "https://everynoise.com/engenremap-lithuanianrock.html",
+      "suggested_id": "lithuanian_rock",
+      "allocation_ordinal": 1423
+    },
+    {
+      "source_label": "little rock indie",
+      "source_url": "https://everynoise.com/engenremap-littlerockindie.html",
+      "suggested_id": "little_rock_indie",
+      "allocation_ordinal": 1424
+    },
+    {
+      "source_label": "macedonian rock",
+      "source_url": "https://everynoise.com/engenremap-macedonianrock.html",
+      "suggested_id": "macedonian_rock",
+      "allocation_ordinal": 1425
+    }
+  ]
+}
