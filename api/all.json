@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-01",
-  "count": 3438,
+  "count": 3538,
   "items": [
     {
       "id": "honky_tonk",
@@ -435,8 +435,8 @@
       "id": "hard_rock",
       "name": "Hard rock",
       "family": "rock_punk",
-      "recipe": "classic Northern European 1967-1969 hard rock, distorted Rock, classic branch, nwobhm metal. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb dallas arbiter fuzz face MXR phase 90 ibanez tube screamer TS9 / TS808.",
-      "recipe_chars": 721
+      "recipe": "classic Northern European 1967-1969 hard rock, distorted Rock, classic branch, nwobhm metal metal paranaense mexican metal. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb dallas arbiter fuzz face MXR phase 90 ibanez tube screamer TS9 / TS808.",
+      "recipe_chars": 744
     },
     {
       "id": "surf_rock",
@@ -456,8 +456,8 @@
       "id": "hair_metal",
       "name": "Hair metal",
       "family": "rock",
-      "recipe": "classic North American mid-1980s hair metal, distorted Rock, late analog major branch, nwobhm metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, string machine. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808 MXR phase 90.",
-      "recipe_chars": 694
+      "recipe": "classic North American mid-1980s hair metal, distorted Rock, late analog major branch, nwobhm metal metal paranaense mexican metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, string machine. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808 MXR phase 90.",
+      "recipe_chars": 683
     },
     {
       "id": "aor",
@@ -477,8 +477,8 @@
       "id": "doom",
       "name": "Doom metal",
       "family": "rock",
-      "recipe": "classic Midwestern American mid-1970s doom metal, distorted Rock, doom branch, sludge metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
-      "recipe_chars": 648
+      "recipe": "classic Midwestern American mid-1970s doom metal, distorted Rock, doom branch, sludge metal louisiana metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
+      "recipe_chars": 664
     },
     {
       "id": "black_metal",
@@ -519,8 +519,8 @@
       "id": "grunge",
       "name": "Grunge",
       "family": "rock_punk",
-      "recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal. thick, larynx lowered, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
-      "recipe_chars": 651
+      "recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal louisiana metal. thick, larynx lowered, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
+      "recipe_chars": 667
     },
     {
       "id": "chicago_house",
@@ -1359,15 +1359,15 @@
       "id": "sludge_metal",
       "name": "Sludge metal",
       "family": "rock",
-      "recipe": "classic Midwestern American 1987-1989 sludge metal, distorted Rock, sludge branch, doom metal stoner metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple ebony humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 520
+      "recipe": "classic Midwestern American 1987-1989 sludge metal, distorted Rock, sludge branch, doom metal metal mineiro stoner metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 534
     },
     {
       "id": "stoner_metal",
       "name": "Stoner metal",
       "family": "rock",
-      "recipe": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
-      "recipe_chars": 550
+      "recipe": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal louisiana metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+      "recipe_chars": 566
     },
     {
       "id": "post_metal",
@@ -1380,8 +1380,8 @@
       "id": "deathcore",
       "name": "Deathcore",
       "family": "rock",
-      "recipe": "classic 2004-2006 deathcore, distorted Rock, death branch, thrash metal australian thrash metal brazilian thrash metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 547
+      "recipe": "classic 2004-2006 deathcore, distorted Rock, death branch, thrash metal german thrash metal indonesian thrash metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 541
     },
     {
       "id": "mathcore",
@@ -1408,8 +1408,8 @@
       "id": "melodic_death_metal",
       "name": "Melodic death metal",
       "family": "rock",
-      "recipe": "classic Northern European 1990-1993 melodic death metal, distorted Rock, death branch, power metal brazilian power metal finnish power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 697
+      "recipe": "classic Northern European 1990-1993 melodic death metal, distorted Rock, death branch, power metal brazilian power metal finnish power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 688
     },
     {
       "id": "footwork",
@@ -2619,8 +2619,8 @@
       "id": "traditional_doom",
       "name": "Traditional doom",
       "family": "global",
-      "recipe": "classic Midwestern American early-1970s traditional doom, distorted Rock, doom branch, nwobhm metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 557
+      "recipe": "classic Midwestern American early-1970s traditional doom, distorted Rock, doom branch, nwobhm metal metal paranaense. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 574
     },
     {
       "id": "funeral_doom",
@@ -2633,8 +2633,8 @@
       "id": "technical_death_metal",
       "name": "Technical death metal",
       "family": "global",
-      "recipe": "classic North American early-1990s technical death metal, distorted Rock, death branch, prog metal progressive metal arab metal. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 624
+      "recipe": "classic North American early-1990s technical death metal, distorted Rock, death branch, prog metal progressive metal melodic progressive metal. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 630
     },
     {
       "id": "brutal_death_metal",
@@ -5300,8 +5300,8 @@
       "id": "screamo_skramz",
       "name": "Scramz / screamo",
       "family": "rock_punk",
-      "recipe": "classic mid-1990s scramz / screamo, distorted Rock, emo branch, thrash metal groove metal speed metal. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
-      "recipe_chars": 631
+      "recipe": "classic mid-1990s scramz / screamo, distorted Rock, emo branch, thrash metal groove metal speed metal. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+      "recipe_chars": 628
     },
     {
       "id": "folk_punk",
@@ -5412,15 +5412,15 @@
       "id": "stoner_rock",
       "name": "Stoner rock",
       "family": "rock_punk",
-      "recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
-      "recipe_chars": 586
+      "recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal louisiana metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
+      "recipe_chars": 602
     },
     {
       "id": "desert_rock_palm",
       "name": "Desert rock (Palm Desert scene)",
       "family": "rock_punk",
-      "recipe": "classic Midwestern American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal. thick, larynx lowered, straight note core, interlocked note trading. orange amp British heavy crunch basswood alnico power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
-      "recipe_chars": 536
+      "recipe": "classic Midwestern American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal louisiana metal. thick, larynx lowered, straight note core, interlocked note trading. orange amp British heavy crunch basswood alnico power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
+      "recipe_chars": 552
     },
     {
       "id": "space_rock",
@@ -5454,8 +5454,8 @@
       "id": "rap_metal",
       "name": "Rap metal (early-1990s hip-hop-and-metal hybrid)",
       "family": "rock_punk",
-      "recipe": "classic Los Angeles rap metal, distorted Rock, avant branch, us hip hop conscious rap conscious hip-hop jazz rap. thick, rap, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape digitech whammy.",
-      "recipe_chars": 630
+      "recipe": "classic Los Angeles rap metal, distorted Rock, avant branch, us hip hop conscious rap conscious hip-hop jazz rap. thick, rap, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape digitech whammy.",
+      "recipe_chars": 625
     },
     {
       "id": "funk_metal",
@@ -5692,8 +5692,8 @@
       "id": "big_room_house",
       "name": "Big room house (EDM festival)",
       "family": "electronic",
-      "recipe": "classic 2010-2013 big room house, electronic Dance, house branch, thrash metal djent. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, pad like analog synth. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-      "recipe_chars": 410
+      "recipe": "classic 2010-2013 big room house, electronic Dance, house branch, thrash metal djent. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, analog synth. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+      "recipe_chars": 401
     },
     {
       "id": "future_house",
@@ -5923,8 +5923,8 @@
       "id": "dark_electro_aggrotech",
       "name": "Dark electro / aggrotech",
       "family": "electronic",
-      "recipe": "classic mid-1990s dark electro / aggrotech, experimental Elec, industrial noise branch, thrash metal australian thrash metal brazilian thrash metal. thick, breath veiled tone, pure, interlocked note trading. analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. no single room 2015-present distributed distributed production. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-      "recipe_chars": 484
+      "recipe": "classic mid-1990s dark electro / aggrotech, experimental Elec, industrial noise branch, thrash metal australian thrash metal brazilian thrash metal. thick, breath veiled tone, fast rate, interlocked note trading. analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. no single room 2015-present distributed distributed production. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+      "recipe_chars": 489
     },
     {
       "id": "witch_house_2010s",
@@ -8898,8 +8898,8 @@
       "id": "acid_rock",
       "name": "Acid Rock",
       "family": "rock",
-      "recipe": "classic Los Angeles 1966-1970 acid rock, distorted Rock, classic branch, experimental distorted rock, doom metal, jam free improv on frame doom blues. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch lower tension down tuning power chord single coil electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 834
+      "recipe": "classic Los Angeles 1966-1970 acid rock, distorted Rock, classic branch, experimental distorted rock, doom metal, jam free improv on frame jamgrass jam bands. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, oil filled sticks backbeat drum kit, psychedelic foregrounded organ driven rock Leslie rotary combo Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 822
     },
     {
       "id": "rap_df",
@@ -11285,8 +11285,8 @@
       "id": "grunk",
       "name": "Grunk",
       "family": "hip_hop",
-      "recipe": "classic 2004-2007 grunk, mc Rhythm, southern branch, metal distorted rock, alternative distorted rock post-metal medieval rock. thick, rap, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, TR-808, melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 641
+      "recipe": "classic 2004-2007 grunk, mc Rhythm, southern branch, metal distorted rock, alternative distorted rock medieval rock mathcore. thick, rap, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, behringer rd 8 modern clone analog circuit reproduction TR-808, melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 683
     },
     {
       "id": "crunkcore",
@@ -12055,8 +12055,8 @@
       "id": "african_heavy_metal",
       "name": "African Heavy Metal",
       "family": "rock",
-      "recipe": "classic Southern African 1987-1989 african heavy metal, distorted Rock, metal branch, thrash metal, regional distorted rock canadian rock chinese indie rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-      "recipe_chars": 706
+      "recipe": "classic Southern African 1987-1989 african heavy metal, distorted Rock, metal branch, thrash metal, regional distorted rock metal paraguayo canadian rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+      "recipe_chars": 703
     },
     {
       "id": "apala",
@@ -17340,8 +17340,8 @@
       "id": "emoviolence",
       "name": "Emoviolence",
       "family": "rock_punk",
-      "recipe": "classic North American 1994-1996 emoviolence, distorted Rock, emo branch, punk distorted rock, sludge metal. thick, larynx lowered, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 527
+      "recipe": "classic North American 1994-1996 emoviolence, distorted Rock, emo branch, punk distorted rock, sludge metal mincecore. thick, larynx lowered, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 534
     },
     {
       "id": "street_punk",
@@ -18166,8 +18166,8 @@
       "id": "alternative_metal",
       "name": "Alternative metal",
       "family": "rock_punk",
-      "recipe": "classic 1987-1989 alternative metal, distorted Rock, alternative branch, metal distorted rock, funk percussive groove percussion nwobhm medieval rock. register break ornamental, interlocked note trading, equal tempered, modern pop training. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany stainless steel roundwound electric bass, sticks backbeat drum kit, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter chorus.",
-      "recipe_chars": 651
+      "recipe": "classic 1987-1989 alternative metal, distorted Rock, alternative branch, metal distorted rock, funk percussive groove percussion drone metal mathcore. balanced, register break ornamental, interlocked note trading, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany stainless steel roundwound electric bass, sticks backbeat drum kit, sustained pad analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter chorus.",
+      "recipe_chars": 654
     },
     {
       "id": "black_speed_metal",
@@ -18432,8 +18432,8 @@
       "id": "folk_black_metal",
       "name": "Folk black metal",
       "family": "rock_punk",
-      "recipe": "classic mid-2000s folk black metal, distorted Rock, black branch, folk metal metal, modal electric drone modal medieval rock pagan metal. interlocked note trading, equal tempered, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany electric bass, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 598
+      "recipe": "classic mid-2000s folk black metal, distorted Rock, black branch, folk metal metal, modal electric drone modal italian folk metal german pagan metal. interlocked note trading, equal tempered, solo with instrumental accompaniment, plate reverb medium decay vocal classic. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier humbucker electric guitar, ampeg svt amp rock bass amp electric bass, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 595
     },
     {
       "id": "georgian_pop",
@@ -19580,22 +19580,22 @@
       "id": "atlanta_metal",
       "name": "Atlanta metal",
       "family": "rock_punk",
-      "recipe": "classic modern atlanta metal, distorted Rock, prog branch. equal tempered, one note per syllable, solo with instrumental accompaniment. modern metal basswood humbucker electric guitar, twelve string electric, electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 394
+      "recipe": "classic modern atlanta metal, distorted Rock, prog branch. equal tempered, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. modern metal basswood humbucker electric guitar, twelve string electric, electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 432
     },
     {
       "id": "brazilian_power_metal",
       "name": "Brazilian power metal",
       "family": "rock_punk",
-      "recipe": "classic modern brazilian power metal, distorted Rock, power branch. equal tempered, one note per syllable, solo with instrumental accompaniment. modern metal basswood humbucker electric guitar, electric bass, sticks backbeat drum kit, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 389
+      "recipe": "classic modern brazilian power metal, distorted Rock, power branch. equal tempered, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. modern metal basswood humbucker electric guitar, electric bass, sticks backbeat drum kit, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 427
     },
     {
       "id": "brazilian_progressive_metal",
       "name": "Brazilian progressive metal",
       "family": "rock_punk",
-      "recipe": "classic modern brazilian progressive metal, distorted Rock, prog branch. equal tempered, one note per syllable, solo with instrumental accompaniment. modern metal basswood humbucker electric guitar, electric bass, sticks backbeat drum kit, loaded metal salt loaded hard rock maple cello. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 433
+      "recipe": "classic modern brazilian progressive metal, distorted Rock, prog branch. equal tempered, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. modern metal basswood humbucker electric guitar, electric bass, sticks backbeat drum kit, loaded metal salt loaded hard rock maple cello. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 471
     },
     {
       "id": "brazilian_heavy_metal",
@@ -19972,8 +19972,8 @@
       "id": "brazilian_thrash_metal",
       "name": "Brazilian thrash metal",
       "family": "rock_punk",
-      "recipe": "classic modern brazilian thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment. basswood alnico palm muted humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 393
+      "recipe": "classic modern brazilian thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment, single lead single track no stacking. basswood alnico palm muted humbucker electric guitar, alder electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 392
     },
     {
       "id": "brazilian_groove_metal",
@@ -20021,8 +20021,8 @@
       "id": "australian_thrash_metal",
       "name": "Australian thrash metal",
       "family": "rock_punk",
-      "recipe": "classic modern australian thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 397
+      "recipe": "classic modern australian thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment, single lead single track no stacking. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 435
     },
     {
       "id": "canadian_death_metal",
@@ -20168,8 +20168,8 @@
       "id": "blackened_deathcore",
       "name": "Blackened deathcore",
       "family": "rock_punk",
-      "recipe": "classic modern blackened deathcore, distorted Rock, death branch, black metal, symphonic metal christian symphonic metal gothic metal. solo with instrumental accompaniment. drop a seven string electric, ampeg svt amp rock bass amp stainless steel roundwound electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, melodic orchestral imitation pitched sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
-      "recipe_chars": 563
+      "recipe": "classic modern blackened deathcore, distorted Rock, death branch, black metal, symphonic metal christian symphonic metal autonomous black metal. solo with instrumental accompaniment, unprocessed natural acoustic. drop a seven string electric, ampeg svt amp rock bass amp stainless steel roundwound electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, melodic orchestral imitation pitched sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+      "recipe_chars": 603
     },
     {
       "id": "baltic_black_metal",
@@ -23997,8 +23997,8 @@
       "id": "german_black_metal",
       "name": "German black metal",
       "family": "rock_punk",
-      "recipe": "classic german black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 399
+      "recipe": "classic german black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 401
     },
     {
       "id": "german_heavy_metal",
@@ -24025,8 +24025,8 @@
       "id": "fantasy_metal",
       "name": "Fantasy metal",
       "family": "rock_punk",
-      "recipe": "classic fantasy metal, distorted Rock, power branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation, a cappella small 3 to 8 one per part choir ensemble. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 607
+      "recipe": "classic fantasy metal, distorted Rock, power branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation, a cappella small 3 to 8 one per part choir ensemble. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 645
     },
     {
       "id": "french_black_metal",
@@ -24069,6 +24069,706 @@
       "family": "rock_punk",
       "recipe": "classic german metalcore, distorted Rock, metal branch. solo with instrumental accompaniment, single lead single track no stacking. basswood palm muted humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
       "recipe_chars": 347
+    },
+    {
+      "id": "trap_boliviano",
+      "name": "Trap boliviano",
+      "family": "hip_hop",
+      "recipe": "classic modern trap boliviano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 286
+    },
+    {
+      "id": "turkish_trap_pop",
+      "name": "Turkish trap pop",
+      "family": "hip_hop",
+      "recipe": "classic modern turkish trap pop, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment, single lead single track no stacking. TR-808, plucked short envelope digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 328
+    },
+    {
+      "id": "cyber_metal",
+      "name": "Cyber metal",
+      "family": "rock_punk",
+      "recipe": "classic modern cyber metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 455
+    },
+    {
+      "id": "cypriot_metal",
+      "name": "Cypriot metal",
+      "family": "rock_punk",
+      "recipe": "classic modern cypriot metal, distorted Rock, power branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 421
+    },
+    {
+      "id": "deep_folk_metal",
+      "name": "Deep folk metal",
+      "family": "rock_punk",
+      "recipe": "classic modern deep folk metal, distorted Rock, folk metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 464
+    },
+    {
+      "id": "deep_melodic_death_metal",
+      "name": "Deep melodic death metal",
+      "family": "rock_punk",
+      "recipe": "classic modern deep melodic death metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 452
+    },
+    {
+      "id": "deep_symphonic_black_metal",
+      "name": "Deep symphonic black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern deep symphonic black metal, distorted Rock, symphonic branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 460
+    },
+    {
+      "id": "depressive_black_metal",
+      "name": "Depressive black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern depressive black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 466
+    },
+    {
+      "id": "downtempo_deathcore",
+      "name": "Downtempo deathcore",
+      "family": "rock_punk",
+      "recipe": "classic modern downtempo deathcore, distorted Rock, death branch. basswood palm muted humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 318
+    },
+    {
+      "id": "edinburgh_metal",
+      "name": "Edinburgh metal",
+      "family": "rock_punk",
+      "recipe": "classic modern edinburgh metal, distorted Rock, post metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 426
+    },
+    {
+      "id": "emotional_black_metal",
+      "name": "Emotional black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern emotional black metal, distorted Rock, black branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 516
+    },
+    {
+      "id": "experimental_black_metal",
+      "name": "Experimental black metal",
+      "family": "rock_punk",
+      "recipe": "classic experimental black metal, distorted Rock, avant branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 426
+    },
+    {
+      "id": "finnish_black_metal",
+      "name": "Finnish black metal",
+      "family": "rock_punk",
+      "recipe": "classic finnish black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 402
+    },
+    {
+      "id": "folk_metal_latinoamericano",
+      "name": "Folk metal latinoamericano",
+      "family": "rock_punk",
+      "recipe": "classic folk metal latinoamericano, distorted Rock, folk metal branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, melodic highland bagpipes. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 500
+    },
+    {
+      "id": "forest_black_metal",
+      "name": "Forest black metal",
+      "family": "rock_punk",
+      "recipe": "classic forest black metal, distorted Rock, black branch. solo with instrumental accompaniment, unprocessed natural acoustic. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, tin whistle, uilleann pipes, loaded metal salt loaded hard rock maple liebenzeller metal infused cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 535
+    },
+    {
+      "id": "german_grindcore",
+      "name": "German grindcore",
+      "family": "rock_punk",
+      "recipe": "classic german grindcore, distorted Rock, metal branch. solo with instrumental accompaniment. modern metal basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 295
+    },
+    {
+      "id": "german_pagan_metal",
+      "name": "German pagan metal",
+      "family": "rock_punk",
+      "recipe": "classic modern german pagan metal, distorted Rock, folk metal branch, black metal, post metal metal greek black metal hungarian black metal. group vocals. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 573
+    },
+    {
+      "id": "german_thrash_metal",
+      "name": "German thrash metal",
+      "family": "rock_punk",
+      "recipe": "classic modern german thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 490
+    },
+    {
+      "id": "gothenburg_metal",
+      "name": "Gothenburg metal",
+      "family": "rock_punk",
+      "recipe": "classic modern gothenburg metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 519
+    },
+    {
+      "id": "gothic_black_metal",
+      "name": "Gothic black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern gothic black metal, distorted Rock, black branch, symphonic metal christian symphonic metal deep symphonic black metal. duet. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension drum kit, melodic band keyboard rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 564
+    },
+    {
+      "id": "gothic_symphonic_metal",
+      "name": "Gothic symphonic metal",
+      "family": "rock_punk",
+      "recipe": "classic modern gothic symphonic metal, distorted Rock, symphonic branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit, rompler workstation, norway spruce European alpine European maple sycamore maple oil varnish violin orchestral, homophonic chordal rhythm aligned choir ensemble. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 614
+    },
+    {
+      "id": "greek_black_metal",
+      "name": "Greek black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern greek black metal, distorted Rock, black branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 413
+    },
+    {
+      "id": "greek_metal",
+      "name": "Greek metal",
+      "family": "rock_punk",
+      "recipe": "classic modern greek metal, distorted Rock, metal branch, power metal italian power metal japanese power metal. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 597
+    },
+    {
+      "id": "guatemalan_metal",
+      "name": "Guatemalan metal",
+      "family": "rock_punk",
+      "recipe": "classic modern guatemalan metal, distorted Rock, metal branch, thrash metal, death metal german thrash metal indonesian thrash metal. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 548
+    },
+    {
+      "id": "hungarian_black_metal",
+      "name": "Hungarian black metal",
+      "family": "rock_punk",
+      "recipe": "classic early-1990s hungarian black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, blast beat drum kit, analog poly synth, yellow brass canonical 70 30 bach 42 standard bass trombone trombone. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 544
+    },
+    {
+      "id": "hungarian_metal",
+      "name": "Hungarian metal",
+      "family": "rock_punk",
+      "recipe": "classic modern hungarian metal, distorted Rock, metal branch, thrash metal german thrash metal indonesian thrash metal. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 550
+    },
+    {
+      "id": "icelandic_black_metal",
+      "name": "Icelandic black metal",
+      "family": "rock_punk",
+      "recipe": "classic early-2010s icelandic black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, blast beat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 455
+    },
+    {
+      "id": "icelandic_metal",
+      "name": "Icelandic metal",
+      "family": "rock_punk",
+      "recipe": "classic modern icelandic metal, distorted Rock, metal branch, post metal metal atmospheric post-metal post-metal. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 565
+    },
+    {
+      "id": "indian_metal",
+      "name": "Indian metal",
+      "family": "rock_punk",
+      "recipe": "classic modern indian metal, distorted Rock, metal branch, death metal, symphonic metal gothenburg metal christian symphonic metal. solo with instrumental accompaniment, no specific ornament system, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, kevlar aramid extreme tension drum kit, melodic band keyboard rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 669
+    },
+    {
+      "id": "indonesian_black_metal",
+      "name": "Indonesian black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern indonesian black metal, distorted Rock, black branch. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, blast beat drum kit, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 426
+    },
+    {
+      "id": "indonesian_death_metal",
+      "name": "Indonesian death metal",
+      "family": "rock_punk",
+      "recipe": "classic modern indonesian death metal, distorted Rock, death branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 428
+    },
+    {
+      "id": "indonesian_deathcore",
+      "name": "Indonesian deathcore",
+      "family": "rock_punk",
+      "recipe": "classic modern indonesian deathcore, distorted Rock, death branch, punk distorted rock, symphonic metal hardcore punk post-punk. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 467
+    },
+    {
+      "id": "indonesian_metal",
+      "name": "Indonesian metal",
+      "family": "rock_punk",
+      "recipe": "classic modern indonesian metal, distorted Rock, metal branch, punk distorted rock hardcore punk afro-punk. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 536
+    },
+    {
+      "id": "indonesian_thrash_metal",
+      "name": "Indonesian thrash metal",
+      "family": "rock_punk",
+      "recipe": "classic modern indonesian thrash metal, distorted Rock, thrash branch. single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 428
+    },
+    {
+      "id": "industrial_black_metal",
+      "name": "Industrial black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern industrial black metal, distorted Rock, black branch. duet. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sampler drum machine, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 456
+    },
+    {
+      "id": "instrumental_black_metal",
+      "name": "Instrumental black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern instrumental black metal, distorted Rock, black branch, post metal metal lithuanian metal atmospheric post-metal. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, drum kit, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 498
+    },
+    {
+      "id": "instrumental_death_metal",
+      "name": "Instrumental death metal",
+      "family": "rock_punk",
+      "recipe": "classic modern instrumental death metal, distorted Rock, death branch, prog metal instrumental djent instrumental progressive metal. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 483
+    },
+    {
+      "id": "instrumental_djent",
+      "name": "Instrumental djent",
+      "family": "rock_punk",
+      "recipe": "classic modern instrumental djent, distorted Rock, prog branch. percussive djent chug eight string electric, sticks backbeat drum kit, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 298
+    },
+    {
+      "id": "instrumental_progressive_metal",
+      "name": "Instrumental progressive metal",
+      "family": "rock_punk",
+      "recipe": "classic modern instrumental progressive metal, distorted Rock, prog branch. eight string electric, sticks backbeat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 279
+    },
+    {
+      "id": "iranian_metal",
+      "name": "Iranian metal",
+      "family": "rock_punk",
+      "recipe": "classic modern iranian metal, distorted Rock, metal branch. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 420
+    },
+    {
+      "id": "irish_black_metal",
+      "name": "Irish black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern irish black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, blast beat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 473
+    },
+    {
+      "id": "irish_death_metal",
+      "name": "Irish death metal",
+      "family": "rock_punk",
+      "recipe": "classic modern irish death metal, distorted Rock, death branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 386
+    },
+    {
+      "id": "irish_metal",
+      "name": "Irish metal",
+      "family": "rock_punk",
+      "recipe": "classic modern irish metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 434
+    },
+    {
+      "id": "israeli_metal",
+      "name": "Israeli metal",
+      "family": "rock_punk",
+      "recipe": "classic modern israeli metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, mulberry eastern alternative bouzouki, carpathian spruce hard rock maple acer saccharum liebenzeller metal infused violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 570
+    },
+    {
+      "id": "italian_black_metal",
+      "name": "Italian black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern italian black metal, distorted Rock, black branch. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 444
+    },
+    {
+      "id": "italian_death_metal",
+      "name": "Italian death metal",
+      "family": "rock_punk",
+      "recipe": "classic modern italian death metal, distorted Rock, death branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 388
+    },
+    {
+      "id": "italian_doom_metal",
+      "name": "Italian doom metal",
+      "family": "rock_punk",
+      "recipe": "classic modern italian doom metal, distorted Rock, doom branch. orange amp British heavy crunch basswood low output no compression riff driven humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 451
+    },
+    {
+      "id": "italian_folk_metal",
+      "name": "Italian folk metal",
+      "family": "rock_punk",
+      "recipe": "classic modern italian folk metal, distorted Rock, folk metal branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, Italian alpine spruce val di fiemme hard rock maple acer saccharum liebenzeller violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 613
+    },
+    {
+      "id": "italian_gothic_metal",
+      "name": "Italian gothic metal",
+      "family": "rock_punk",
+      "recipe": "classic modern italian gothic metal, distorted Rock, metal branch. duet. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 413
+    },
+    {
+      "id": "italian_heavy_metal",
+      "name": "Italian heavy metal",
+      "family": "rock_punk",
+      "recipe": "classic modern italian heavy metal, distorted Rock, metal branch. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 474
+    },
+    {
+      "id": "italian_metal",
+      "name": "Italian metal",
+      "family": "rock_punk",
+      "recipe": "classic modern italian metal, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit, soft felt lacquer voiced 17 ply hard rock maple a 441 grand piano, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 492
+    },
+    {
+      "id": "italian_metalcore",
+      "name": "Italian metalcore",
+      "family": "rock_punk",
+      "recipe": "classic modern italian metalcore, distorted Rock, metal branch. single lead single track no stacking. basswood palm muted humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth, saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 382
+    },
+    {
+      "id": "italian_power_metal",
+      "name": "Italian power metal",
+      "family": "rock_punk",
+      "recipe": "classic modern italian power metal, distorted Rock, power branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 526
+    },
+    {
+      "id": "italian_progressive_metal",
+      "name": "Italian progressive metal",
+      "family": "rock_punk",
+      "recipe": "classic modern italian progressive metal, distorted Rock, prog branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 492
+    },
+    {
+      "id": "j_metal",
+      "name": "J-metal",
+      "family": "rock_punk",
+      "recipe": "classic modern j-metal, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 417
+    },
+    {
+      "id": "japanese_black_metal",
+      "name": "Japanese black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern japanese black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, yamaha modern Japanese mid to premium flute, madake bamboo phyllostachys canonical Japanese root section shakuhachi, Hammond a 100 built in Leslie home spinet tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 621
+    },
+    {
+      "id": "japanese_death_metal",
+      "name": "Japanese death metal",
+      "family": "rock_punk",
+      "recipe": "classic modern japanese death metal, distorted Rock, death branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 465
+    },
+    {
+      "id": "japanese_heavy_metal",
+      "name": "Japanese heavy metal",
+      "family": "rock_punk",
+      "recipe": "classic modern japanese heavy metal, distorted Rock, metal branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 536
+    },
+    {
+      "id": "japanese_metalcore",
+      "name": "Japanese metalcore",
+      "family": "rock_punk",
+      "recipe": "classic modern japanese metalcore, distorted Rock, metal branch. solo with instrumental accompaniment. marshall plexi amp British rock amp basswood palm muted humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 417
+    },
+    {
+      "id": "japanese_power_metal",
+      "name": "Japanese power metal",
+      "family": "rock_punk",
+      "recipe": "classic modern japanese power metal, distorted Rock, power branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 511
+    },
+    {
+      "id": "kentucky_metal",
+      "name": "Kentucky metal",
+      "family": "rock_punk",
+      "recipe": "classic modern kentucky metal, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 418
+    },
+    {
+      "id": "korean_metal",
+      "name": "Korean metal",
+      "family": "rock_punk",
+      "recipe": "classic modern korean metal, distorted Rock, metal branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 498
+    },
+    {
+      "id": "lapland_metal",
+      "name": "Lapland metal",
+      "family": "rock_punk",
+      "recipe": "classic modern lapland metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 507
+    },
+    {
+      "id": "metal_ecuatoriano",
+      "name": "Metal ecuatoriano",
+      "family": "rock_punk",
+      "recipe": "classic modern metal ecuatoriano, distorted Rock, metal branch. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 440
+    },
+    {
+      "id": "metal_galego",
+      "name": "Metal galego",
+      "family": "rock_punk",
+      "recipe": "classic modern metal galego, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, kevlar aramid extreme tension drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 451
+    },
+    {
+      "id": "metal_gaucho",
+      "name": "Metal gaúcho",
+      "family": "rock_punk",
+      "recipe": "classic modern metal gaúcho, distorted Rock, death branch. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 421
+    },
+    {
+      "id": "metal_mineiro",
+      "name": "Metal mineiro",
+      "family": "rock_punk",
+      "recipe": "classic modern metal mineiro, distorted Rock, doom branch. orange amp British heavy crunch basswood riff driven humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 365
+    },
+    {
+      "id": "metal_nortista",
+      "name": "Metal nortista",
+      "family": "rock_punk",
+      "recipe": "classic modern metal nortista, distorted Rock, death branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig mahogany ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 452
+    },
+    {
+      "id": "metal_paraguayo",
+      "name": "Metal paraguayo",
+      "family": "rock_punk",
+      "recipe": "classic modern metal paraguayo, distorted Rock, thrash branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, alder ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 424
+    },
+    {
+      "id": "metal_paranaense",
+      "name": "Metal paranaense",
+      "family": "rock_punk",
+      "recipe": "classic modern metal paranaense, distorted Rock, nwobhm branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 404
+    },
+    {
+      "id": "metal_pernambucano",
+      "name": "Metal pernambucano",
+      "family": "rock_punk",
+      "recipe": "classic modern metal pernambucano, distorted Rock, metal branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 479
+    },
+    {
+      "id": "metal_piauiense",
+      "name": "Metal piauiense",
+      "family": "rock_punk",
+      "recipe": "classic modern metal piauiense, distorted Rock, death branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 460
+    },
+    {
+      "id": "metal_salvadoreno",
+      "name": "Metal salvadoreño",
+      "family": "rock_punk",
+      "recipe": "classic modern metal salvadoreño, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, rapid alternating kick snare blast beat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 464
+    },
+    {
+      "id": "metal_tico",
+      "name": "Metal tico",
+      "family": "rock_punk",
+      "recipe": "classic modern metal tico, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 395
+    },
+    {
+      "id": "metal_noir_quebecois",
+      "name": "Métal noir québécois",
+      "family": "rock_punk",
+      "recipe": "classic modern métal noir québécois, distorted Rock, black branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 391
+    },
+    {
+      "id": "metal_uruguayo",
+      "name": "Metal uruguayo",
+      "family": "rock_punk",
+      "recipe": "classic modern metal uruguayo, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 439
+    },
+    {
+      "id": "mexican_black_metal",
+      "name": "Mexican black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern mexican black metal, distorted Rock, black branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, rapid alternating kick snare blast beat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 430
+    },
+    {
+      "id": "mexican_death_metal",
+      "name": "Mexican death metal",
+      "family": "rock_punk",
+      "recipe": "classic modern mexican death metal, distorted Rock, death branch. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 426
+    },
+    {
+      "id": "mexican_metal",
+      "name": "Mexican metal",
+      "family": "rock_punk",
+      "recipe": "classic modern mexican metal, distorted Rock, nwobhm branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 401
+    },
+    {
+      "id": "mexican_power_metal",
+      "name": "Mexican power metal",
+      "family": "rock_punk",
+      "recipe": "classic modern mexican power metal, distorted Rock, power branch. Fender champ amp low wattage studio grit basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 367
+    },
+    {
+      "id": "mexican_thrash_metal",
+      "name": "Mexican thrash metal",
+      "family": "rock_punk",
+      "recipe": "classic modern mexican thrash metal, distorted Rock, thrash branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 378
+    },
+    {
+      "id": "miami_metal",
+      "name": "Miami metal",
+      "family": "rock_punk",
+      "recipe": "classic modern miami metal, distorted Rock, black branch. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 420
+    },
+    {
+      "id": "minneapolis_metal",
+      "name": "Minneapolis metal",
+      "family": "rock_punk",
+      "recipe": "classic modern minneapolis metal, distorted Rock, prog branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 403
+    },
+    {
+      "id": "metalcore_espanol",
+      "name": "Metalcore español",
+      "family": "rock_punk",
+      "recipe": "classic modern metalcore español, distorted Rock, metal branch. basswood palm muted humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 298
+    },
+    {
+      "id": "metal_cristao",
+      "name": "Metal cristão",
+      "family": "rock_punk",
+      "recipe": "classic modern metal cristão, distorted Rock, death branch. solo with instrumental accompaniment, unprocessed natural acoustic. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 450
+    },
+    {
+      "id": "metal_gotico",
+      "name": "Metal gótico",
+      "family": "rock_punk",
+      "recipe": "classic 2018-2019 metal gótico, distorted Rock, metal branch. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 438
+    },
+    {
+      "id": "metal_guitar",
+      "name": "Metal guitar",
+      "family": "rock_punk",
+      "recipe": "classic modern metal guitar, distorted Rock, prog branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 417
+    },
+    {
+      "id": "metalcore",
+      "name": "Metalcore",
+      "family": "rock_punk",
+      "recipe": "classic modern metalcore, distorted Rock, metal branch. basswood palm muted humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 306
+    },
+    {
+      "id": "latin_metal",
+      "name": "Latin metal",
+      "family": "rock_punk",
+      "recipe": "classic latin metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, open slap hand drum congas. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 420
+    },
+    {
+      "id": "latvian_metal",
+      "name": "Latvian metal",
+      "family": "rock_punk",
+      "recipe": "classic latvian metal, distorted Rock, folk metal branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, maple lime canonical latvian kokle. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 503
+    },
+    {
+      "id": "lithuanian_metal",
+      "name": "Lithuanian metal",
+      "family": "rock_punk",
+      "recipe": "classic lithuanian metal, distorted Rock, post metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 404
+    },
+    {
+      "id": "louisiana_metal",
+      "name": "Louisiana metal",
+      "family": "rock_punk",
+      "recipe": "classic louisiana metal, distorted Rock, sludge branch. solo with instrumental accompaniment. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 365
+    },
+    {
+      "id": "macedonian_metal",
+      "name": "Macedonian metal",
+      "family": "rock_punk",
+      "recipe": "classic macedonian metal, distorted Rock, folk metal branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, tapan, darbuka, melodic kaval. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 471
+    },
+    {
+      "id": "melodic_metal",
+      "name": "Melodic metal",
+      "family": "rock_punk",
+      "recipe": "classic melodic metal, distorted Rock, metal branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 552
+    },
+    {
+      "id": "melodic_power_metal",
+      "name": "Melodic power metal",
+      "family": "rock_punk",
+      "recipe": "classic melodic power metal, distorted Rock, power branch. one note per syllable, solo with instrumental accompaniment. Fender champ amp low wattage studio grit basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 502
+    },
+    {
+      "id": "melodic_progressive_metal",
+      "name": "Melodic progressive metal",
+      "family": "rock_punk",
+      "recipe": "classic melodic progressive metal, distorted Rock, prog branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 565
+    },
+    {
+      "id": "lovecraftian_metal",
+      "name": "Lovecraftian metal",
+      "family": "rock_punk",
+      "recipe": "classic lovecraftian metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, blast beat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 396
+    },
+    {
+      "id": "luxembourgian_metal",
+      "name": "Luxembourgian metal",
+      "family": "rock_punk",
+      "recipe": "classic luxembourgian metal, distorted Rock, prog branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 439
+    },
+    {
+      "id": "mainland_se_asia_metal",
+      "name": "Mainland se asia metal",
+      "family": "rock_punk",
+      "recipe": "classic mainland se asia metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 422
+    },
+    {
+      "id": "malaysian_metal",
+      "name": "Malaysian metal",
+      "family": "rock_punk",
+      "recipe": "classic malaysian metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 380
     }
   ]
 }

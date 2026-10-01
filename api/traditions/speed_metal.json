@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s heavy-metal subgenre emphasizing extreme tempo and virtuoso guitar-playing while retaining melodic-vocal lines and traditional heavy-metal song-structure (vs the simultaneously-emerging thrash metal's harsher vocal-and-rhythmic-aggression). Motörhead's 1979-onward catalog inaugurated the style; Helloween (Hamburg, 1984-onward), Iced Earth, and (especially in 1990s extension) the Italian power-metal scene continued the lineage. Distinguished from thrash metal by speed metal's retention of melodic-vocal lines and traditional metal harmonic-vocabulary.",
   "recipe": "classic North American modern speed metal, distorted Rock, thrash branch, power metal brazilian power metal british power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 707,
-  "score": 347.925,
+  "score": 346.945,
   "config": {
     "traditions": [
       "speed_metal",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 9.036499999999995,
+          "voice_register": 8.899999999999995,
           "voice_quality": 8.645,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.42,
           "voice_articulation": 10.14,
           "voice_microtone": 9.75,
-          "voice_tradition": 6.386,
-          "voice_mechanism_compound": 46.91600000000002,
-          "voice_estill_quality": 3.1950000000000003,
+          "voice_tradition": 6.695,
+          "voice_mechanism_compound": 46.835000000000015,
+          "voice_estill_quality": 3.3300000000000005,
           "voice_speech_song": 12.219999999999995,
           "voice_ensemble_config": 13.909999999999995,
           "voice_ornament_system": 3.1500000000000004,
-          "voice_pitch_organization": 1.345,
-          "voice_processing_chain": 4.208,
-          "voice_multitrack_stack": 8.911
+          "voice_pitch_organization": 1.39,
+          "voice_processing_chain": 4.19,
+          "voice_multitrack_stack": 9.145
         }
       },
       {
@@ -65,23 +65,23 @@
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
+          "string_gauge": "g_11_hum",
+          "finish": "poly_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 55.17250000000001,
+          "electric_technique": 56.35000000000001,
           "amp_make": 22.620000000000005,
           "body_wood": 22.815000000000005,
-          "neck_wood": 1.678,
-          "fretboard": 1.625,
-          "pickup_magnet": 0.573,
+          "neck_wood": 1.3,
+          "fretboard": 1.25,
+          "pickup_magnet": 0.24,
           "pickup_winding": 0.105,
-          "string_material": 0.1365,
-          "bridge": 1.678,
+          "string_material": 0.09,
+          "bridge": 1.3,
           "scale_length": 21.125000000000004,
-          "string_gauge": 1.69,
-          "finish": 0,
+          "string_gauge": 1.3,
+          "finish": 0.045,
           "string_tuning": 32.370000000000005
         }
       },
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 5.720000000000001,
-          "body_wood": 1.69,
+          "body_wood": 1.54,
           "pickup_config": 0.65,
-          "string_type": 11.941,
-          "scale_length_b": 1.678,
+          "string_type": 11.965,
+          "scale_length_b": 1.3,
           "fretted_or_not": 0.195,
           "bass_technique": 9.83,
           "electric_bass_string_configuration": 0
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 10.009999999999998,
-          "drumhead": 1.69,
+          "drumhead": 1.405,
           "drum_kit_kick_pedal": 0
         }
       }

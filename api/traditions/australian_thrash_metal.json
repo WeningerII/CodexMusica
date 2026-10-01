@@ -3,9 +3,9 @@
   "name": "Australian thrash metal",
   "family": "rock_punk",
   "lineage": "Australian scene-origin scope, represented by the documented Melbourne beginnings of Deströyer 666 and their black/thrash crossover. Later membership and residence are multinational.",
-  "recipe": "classic modern australian thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 397,
-  "score": 30.766,
+  "recipe": "classic modern australian thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment, single lead single track no stacking. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 435,
+  "score": 31.585,
   "config": {
     "traditions": [
       "australian_thrash_metal"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.927249999999999,
+          "electric_technique": 7.978999999999999,
           "amp_make": 0,
-          "body_wood": 0.5947499999999999,
+          "body_wood": 0.5459999999999999,
           "neck_wood": 0.1365,
-          "fretboard": 0.48974999999999996,
+          "fretboard": 0.5039999999999999,
           "pickup_magnet": 0.18,
           "pickup_winding": 0.1785,
           "string_material": 0.1365,
-          "bridge": 0.5947499999999999,
+          "bridge": 0.5459999999999999,
           "scale_length": 0,
-          "string_gauge": 0,
+          "string_gauge": 0.1785,
           "finish": 0,
-          "string_tuning": 0.2025
+          "string_tuning": 0.29700000000000004
         }
       },
       {
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5947499999999999,
+          "body_wood": 0.5459999999999999,
           "pickup_config": 0,
           "string_type": 0.315,
-          "scale_length_b": 0.32549999999999996,
-          "fretted_or_not": 0.222,
-          "bass_technique": 3.7855000000000003,
+          "scale_length_b": 0.29699999999999993,
+          "fretted_or_not": 0.2535,
+          "bass_technique": 3.817,
           "electric_bass_string_configuration": 0
         }
       },
@@ -87,12 +87,12 @@
           "drumhead": 0.39,
           "drum_kit_kick_pedal": 0.78,
           "shell_wood": 0.39,
-          "shell_thickness": 0.08549999999999999,
+          "shell_thickness": 0.11699999999999999,
           "bearing_edges": 0.315,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 3.7355000000000005,
+          "cymbal_lathing": 3.7670000000000003,
           "cymbal_finish": 0
         }
       },
@@ -128,11 +128,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.71775,
-          "voice_ornament_system": 0.063,
+          "voice_ensemble_config": 0.861,
+          "voice_ornament_system": 0.126,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.045,
-          "voice_multitrack_stack": 0.19949999999999998
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.567
         }
       }
     ],

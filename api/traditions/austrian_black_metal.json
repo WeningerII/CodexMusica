@@ -5,7 +5,7 @@
   "lineage": "Austrian geographic metal scope represented by Salzburg’s Belphegor, who explicitly combine black- and death-metal practice. The selected low-tuned configurations are representative authored branches, not a universal national formula.",
   "recipe": "classic modern austrian black metal, distorted Rock, black branch. solo with instrumental accompaniment. mahogany ebony humbucker electric guitar, low mid rich spectrum woody mahogany electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 434,
-  "score": 32.893,
+  "score": 32.962,
   "config": {
     "traditions": [
       "austrian_black_metal"
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.231
+          "string_tuning": 0.28500000000000003
         }
       },
       {
@@ -63,7 +63,7 @@
           "string_type": 0.4095,
           "scale_length_b": 1.3315000000000001,
           "fretted_or_not": 0,
-          "bass_technique": 4.2115,
+          "bass_technique": 4.2655,
           "electric_bass_string_configuration": 0
         }
       },
@@ -83,7 +83,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.813,
+          "drum_technique": 3.7815,
           "drumhead": 1.69,
           "drum_kit_kick_pedal": 0.78,
           "shell_wood": 0.4095,
@@ -92,7 +92,7 @@
           "snare_wires": 0,
           "cymbal_alloy": 0.13000000000000003,
           "cymbal_hammering": 3.6500000000000004,
-          "cymbal_lathing": 3.8915,
+          "cymbal_lathing": 3.7550000000000003,
           "cymbal_finish": 0
         }
       },
@@ -128,11 +128,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2045,
+          "voice_ensemble_config": 1.2794999999999999,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.0945
+          "voice_multitrack_stack": 0.1485
         }
       }
     ],

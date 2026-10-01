@@ -5,7 +5,7 @@
   "lineage": "Spatially dense death-metal production and composition aesthetic represented here by Finnish Krypts’ Cadaver Circulation (2019). Dark Descent describes reverberant atmosphere, unsettling chords and deep harsh vocals, and gives guitar, drums, bass/vocal and in-house recording credits. The selected down-tuned chordal model pairs heavy decay with slow weight while retaining the death-metal band frame.",
   "recipe": "classic late-2010s cavernous death metal, distorted Rock, death branch, doom metal brazilian doom metal. interlocked note trading, equal tempered, solo with instrumental accompaniment, hall reverb long decay cinematic. orange amp British heavy crunch mahogany ebony low output no compression humbucker electric guitar, orange amp British heavy crunch mahogany electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 541,
-  "score": 175.361,
+  "score": 175.29,
   "config": {
     "traditions": [
       "cavernous_death_metal",
@@ -31,11 +31,11 @@
           "string_tuning": "c_standard"
         },
         "scores": {
-          "electric_technique": 36.628437500000004,
-          "amp_make": 29.536875000000002,
+          "electric_technique": 36.605000000000004,
+          "amp_make": 29.520000000000003,
           "body_wood": 1.3649999999999998,
           "neck_wood": 1.3649999999999998,
-          "fretboard": 2.6828125,
+          "fretboard": 2.6799999999999997,
           "pickup_magnet": 0,
           "pickup_winding": 1.3649999999999998,
           "string_material": 0.195,
@@ -59,11 +59,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 29.536875000000002,
+          "amp_make": 29.520000000000003,
           "body_wood": 1.3649999999999998,
           "pickup_config": 0,
           "string_type": 0.195,
-          "scale_length_b": 3.3184375,
+          "scale_length_b": 3.3099999999999996,
           "fretted_or_not": 0.39,
           "bass_technique": 12.620000000000001,
           "electric_bass_string_configuration": 0
@@ -117,7 +117,7 @@
           "voice_ensemble_config": 2.4699999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.045,
-          "voice_processing_chain": 2.1278125,
+          "voice_processing_chain": 2.125,
           "voice_multitrack_stack": 0.195
         }
       }

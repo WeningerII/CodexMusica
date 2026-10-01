@@ -5,7 +5,7 @@
   "lineage": "Los Angeles Sunset Strip hard-rock style codified 1981-1987 by Mötley Crüe, Ratt, Bon Jovi and Poison out of Van Halen and NWOBHM — mid-tempo 4/4 at 110-140 BPM with big backbeat snare and gated drum reverb, pentatonic power-chord riffs with tapped and whammy-bar lead breaks, stacked gang-vocal choruses in thirds, one obligatory piano-or-clean-guitar power ballad per album, and a high, grainy belted lead voice.",
   "recipe": "classic Los Angeles mid-1980s glam metal, distorted Rock, glam rock branch, nwobhm metal, classic distorted rock, late analog major distorted rock deutschrock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 891,
-  "score": 551.08,
+  "score": 550.465,
   "config": {
     "traditions": [
       "glam_metal",
@@ -31,7 +31,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 24.5,
+          "electric_technique": 24.56,
           "amp_make": 21.58,
           "body_wood": 10.529999999999998,
           "neck_wood": 4.29,
@@ -62,10 +62,10 @@
           "amp_make": 18.72,
           "body_wood": 4.29,
           "pickup_config": 0.045,
-          "string_type": 38.255,
+          "string_type": 37.655,
           "scale_length_b": 4.484999999999999,
           "fretted_or_not": 0,
-          "bass_technique": 35.08,
+          "bass_technique": 35.17,
           "electric_bass_string_configuration": 0
         }
       },
@@ -111,14 +111,14 @@
           "voice_articulation": 17.549999999999994,
           "voice_microtone": 33.05000000000001,
           "voice_tradition": 4.030000000000001,
-          "voice_mechanism_compound": 20.879999999999995,
+          "voice_mechanism_compound": 20.714999999999996,
           "voice_estill_quality": 3.185,
           "voice_speech_song": 18.199999999999992,
           "voice_ensemble_config": 21.38499999999999,
           "voice_ornament_system": 1.0499999999999998,
           "voice_pitch_organization": 3.0550000000000006,
-          "voice_processing_chain": 12.219999999999999,
-          "voice_multitrack_stack": 10.945
+          "voice_processing_chain": 12.099999999999998,
+          "voice_multitrack_stack": 10.75
         }
       },
       {
@@ -130,7 +130,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 5.075,
+          "electronic_technique": 5.12,
           "poly_archetypes": 16.445,
           "poly_voices": 0.895,
           "poly_maker_lineage": 3.7049999999999996
@@ -150,7 +150,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.2800000000000002,
+          "keyboard_technique": 3.37,
           "grand_piano_size": 4.29,
           "grand_piano_brand": 4.29,
           "piano_hammer": 20.085,
@@ -171,8 +171,8 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 3.2800000000000002,
-          "string_tuning": 4.675000000000001,
+          "acoustic_technique": 3.37,
+          "string_tuning": 4.765000000000001,
           "top_wood": 4.29,
           "back_sides": 0.635,
           "string_acoustic": 4.29

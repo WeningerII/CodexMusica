@@ -3,14 +3,14 @@
   "name": "Blackened deathcore",
   "family": "rock_punk",
   "lineage": "Blackened/symphonic deathcore represented by Lorna Shore’s documented orchestral arrangements, distorted riff writing and extreme-metal rhythm section. The model is an authored extended-range studio branch rather than a replica of one current live rig.",
-  "recipe": "classic modern blackened deathcore, distorted Rock, death branch, black metal, symphonic metal christian symphonic metal gothic metal. solo with instrumental accompaniment. drop a seven string electric, ampeg svt amp rock bass amp stainless steel roundwound electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, melodic orchestral imitation pitched sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
-  "recipe_chars": 563,
-  "score": 87.929,
+  "recipe": "classic modern blackened deathcore, distorted Rock, death branch, black metal, symphonic metal christian symphonic metal autonomous black metal. solo with instrumental accompaniment, unprocessed natural acoustic. drop a seven string electric, ampeg svt amp rock bass amp stainless steel roundwound electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, melodic orchestral imitation pitched sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+  "recipe_chars": 603,
+  "score": 77.509,
   "config": {
     "traditions": [
       "blackened_deathcore",
       "christian_symphonic_metal",
-      "gothic_metal"
+      "autonomous_black_metal"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "seven_string_technique": "seven_string_djent_palm_mute"
         },
         "scores": {
-          "seven_string_tuning": 4.29,
+          "seven_string_tuning": 6.175,
           "seven_string_technique": 0.3
         }
       },
@@ -37,13 +37,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.995,
+          "amp_make": 6.4350000000000005,
           "body_wood": 0.8725,
           "pickup_config": 0,
           "string_type": 1.3,
           "scale_length_b": 0.345,
           "fretted_or_not": 0.3,
-          "bass_technique": 15.243749999999999,
+          "bass_technique": 11.868749999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -63,16 +63,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 14.42,
+          "drum_technique": 11.045,
           "drumhead": 0.39,
-          "drum_kit_kick_pedal": 0.585,
+          "drum_kit_kick_pedal": 0.78,
           "shell_wood": 1.3,
           "shell_thickness": 0,
           "bearing_edges": 1.3,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 14.274999999999999,
-          "cymbal_lathing": 14.492499999999998,
+          "cymbal_hammering": 10.899999999999999,
+          "cymbal_lathing": 11.2675,
           "cymbal_finish": 0
         }
       },
@@ -108,10 +108,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 1.8199999999999998,
           "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
+          "voice_processing_chain": 0.585,
           "voice_multitrack_stack": 0.39
         }
       },

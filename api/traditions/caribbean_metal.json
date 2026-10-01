@@ -5,7 +5,7 @@
   "lineage": "A Caribbean regional discovery category, represented by the San Juan progressive-metal practice of MOTHS. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern caribbean metal, distorted Rock, prog branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, sequential lineage canonical prophet 5 1978 san jose ca analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 476,
-  "score": 48.532,
+  "score": 50.717,
   "config": {
     "traditions": [
       "caribbean_metal"
@@ -70,19 +70,19 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 10.25025,
+          "electric_technique": 10.325999999999999,
           "amp_make": 5.135,
           "body_wood": 5.329999999999999,
-          "neck_wood": 0.21075000000000002,
-          "fretboard": 0.21075000000000002,
-          "pickup_magnet": 0.0315,
-          "pickup_winding": 0.106125,
-          "string_material": 0.21075000000000002,
-          "bridge": 0.174,
+          "neck_wood": 0.33599999999999997,
+          "fretboard": 0.33599999999999997,
+          "pickup_magnet": 0.168,
+          "pickup_winding": 0.252,
+          "string_material": 0.33599999999999997,
+          "bridge": 0.651,
           "scale_length": 5.329999999999999,
-          "string_gauge": 0.149625,
+          "string_gauge": 0.42,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0.39
         }
       },
       {
@@ -90,20 +90,20 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.6650000000000005,
-          "body_wood": 0.138,
-          "pickup_config": 0.037125,
+          "body_wood": 0.252,
+          "pickup_config": 0.1365,
           "string_type": 4.875,
-          "scale_length_b": 0.12337499999999998,
-          "fretted_or_not": 0.18525000000000003,
+          "scale_length_b": 0.3885,
+          "fretted_or_not": 0.1365,
           "bass_technique": 3.7315,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 3.855,
-          "drumhead": 0.35025,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,10 +130,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.094375,
+          "electronic_technique": -0.07,
           "poly_archetypes": 1.95,
-          "poly_voices": 1.0615,
-          "poly_maker_lineage": 1.3415
+          "poly_voices": 1.2415,
+          "poly_maker_lineage": 1.2815
         }
       }
     ],

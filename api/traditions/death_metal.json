@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s onward extreme metal subgenre characterized by down-tuned humbucker guitar, palm-muted chug riffs, blast-beat drumming, growl-vocal delivery, and morbid thematic content — codified through Florida-tampa-bay (Death — Scream Bloody Gore 1987, Morbid Angel — Altars of Madness 1989, Obituary, Deicide), and Stockholm (Entombed — Left Hand Path 1990, Dismember, Grave) with the genre splitting into technical, brutal, and melodic substreams by the mid-1990s",
   "recipe": "classic North American 1984-1986 death metal, distorted Rock, death branch, thrash metal black speed metal. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. concrete basement. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 613,
-  "score": 369.781,
+  "score": 369.802,
   "config": {
     "traditions": [
       "death_metal",
@@ -16,7 +16,7 @@
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_power_chord",
+          "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
@@ -31,15 +31,15 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 35.579,
+          "electric_technique": 35.637499999999996,
           "amp_make": 19.759999999999998,
           "body_wood": 20.345,
-          "neck_wood": 4.54775,
-          "fretboard": 4.49775,
+          "neck_wood": 4.505,
+          "fretboard": 4.455,
           "pickup_magnet": 3.185,
           "pickup_winding": 0.65,
           "string_material": 1.1775,
-          "bridge": 4.54775,
+          "bridge": 4.505,
           "scale_length": 16.509999999999998,
           "string_gauge": 5.654999999999999,
           "finish": 0,
@@ -62,8 +62,8 @@
           "amp_make": 6.890000000000001,
           "body_wood": 6.5649999999999995,
           "pickup_config": 2.535,
-          "string_type": 15.40375,
-          "scale_length_b": 4.54775,
+          "string_type": 15.415000000000001,
+          "scale_length_b": 4.505,
           "fretted_or_not": 0.585,
           "bass_technique": 16.39,
           "electric_bass_string_configuration": 0
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 14.689999999999996,
-          "drumhead": 4.59275,
+          "drumhead": 4.654999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -100,7 +100,7 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 12.244999999999994,
@@ -111,14 +111,14 @@
           "voice_articulation": 14.819999999999993,
           "voice_microtone": 15.209999999999992,
           "voice_tradition": 5.590000000000001,
-          "voice_mechanism_compound": 38.51625,
+          "voice_mechanism_compound": 38.527499999999996,
           "voice_estill_quality": 3.1200000000000006,
           "voice_speech_song": 17.874999999999996,
           "voice_ensemble_config": 15.209999999999994,
           "voice_ornament_system": 0.6499999999999999,
-          "voice_pitch_organization": 1.2377499999999997,
+          "voice_pitch_organization": 1.2399999999999998,
           "voice_processing_chain": 6.695,
-          "voice_multitrack_stack": 6.045
+          "voice_multitrack_stack": 6.0925
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Late-1990s-and-early-2000s American heavy-rock subgenre integrating hip-hop rhythmic-vocal influence, down-tuned-seven-string-guitar metal aesthetic, and confessional-aggressive-personal-trauma lyrical content. Korn (Bakersfield, 1993-onward), Deftones, Limp Bizkit, Slipknot, and Linkin Park constitute the canonical roster. The 1998 Family Values Tour consolidated the genre's commercial peak.",
   "recipe": "classic Los Angeles modern nu metal, distorted Rock, avant branch, us hip hop gangsta. thick, rap, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, jazz-trained brushes-and-sticks drum kit, sampled chopped turntable. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 610,
-  "score": 219.539,
+  "score": 219.74,
   "config": {
     "traditions": [
       "nu_metal_korn_limp",
@@ -40,8 +40,8 @@
           "voice_vibrato": 3.6075000000000004,
           "voice_articulation": 10.074999999999998,
           "voice_microtone": 9.879999999999999,
-          "voice_tradition": 8.935,
-          "voice_mechanism_compound": 12.893499999999998,
+          "voice_tradition": 8.966500000000002,
+          "voice_mechanism_compound": 12.994749999999998,
           "voice_estill_quality": 0.7799999999999998,
           "voice_speech_song": 13.755250000000002,
           "voice_ensemble_config": 10.204999999999997,
@@ -64,12 +64,12 @@
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 14.770249999999999,
+          "electric_technique": 14.8715,
           "amp_make": 7.605,
           "body_wood": 7.475,
           "neck_wood": 0.845,
@@ -97,7 +97,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.2575,
+          "amp_make": 4.2245,
           "body_wood": 0.845,
           "pickup_config": 0.105,
           "string_type": 9.099999999999998,

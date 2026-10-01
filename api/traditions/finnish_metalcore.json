@@ -5,7 +5,7 @@
   "lineage": "Finnish metalcore is represented here by One Morning Left. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic finnish metalcore, distorted Rock, metal branch. solo with instrumental accompaniment. basswood palm muted humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 329,
-  "score": 37.983,
+  "score": 37.054,
   "config": {
     "traditions": [
       "finnish_metalcore"
@@ -18,7 +18,7 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "pure_nickel_h",
@@ -29,13 +29,13 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 4.234,
+          "electric_technique": 4.198,
           "amp_make": 1.8199999999999998,
           "body_wood": 1.95,
-          "neck_wood": 0.7335,
-          "fretboard": 0.32399999999999995,
-          "pickup_magnet": 0.264,
-          "pickup_winding": 0.48299999999999993,
+          "neck_wood": 0.5775,
+          "fretboard": 0.315,
+          "pickup_magnet": 0.301125,
+          "pickup_winding": 0.32699999999999996,
           "string_material": 0.105,
           "bridge": 1.3,
           "scale_length": 1.95,
@@ -51,18 +51,18 @@
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.467,
+          "body_wood": 1.155,
           "pickup_config": 0.21,
           "string_type": 4.875,
-          "scale_length_b": 0.738,
-          "fretted_or_not": 0.1365,
+          "scale_length_b": 0.5775,
+          "fretted_or_not": 0.105,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.7335,
+          "drumhead": 0.5775,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.054,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.38099999999999995
+          "voice_multitrack_stack": 0.4608749999999999
         }
       },
       {
@@ -128,7 +128,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "poly_archetypes": 1.95,
           "poly_voices": 0.39,
           "poly_maker_lineage": -0.035

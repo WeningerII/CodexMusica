@@ -3,14 +3,14 @@
   "name": "Deathcore",
   "family": "rock",
   "lineage": "Mid-2000s onward American extreme metal subgenre fusing death-metal's growl-vocal-and-blast-beat vocabulary with metalcore's breakdown-section conventions and pig-squeal / inhale-scream vocal techniques — codified through Suicide Silence (The Cleansing 2007), Whitechapel (This Is Exile 2008), Job for a Cowboy (Doom EP 2005), Carnifex, Despised Icon (The Healing Process 2005), Thy Art Is Murder",
-  "recipe": "classic 2004-2006 deathcore, distorted Rock, death branch, thrash metal australian thrash metal brazilian thrash metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 547,
-  "score": 258.279,
+  "recipe": "classic 2004-2006 deathcore, distorted Rock, death branch, thrash metal german thrash metal indonesian thrash metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 541,
+  "score": 282.122,
   "config": {
     "traditions": [
       "deathcore",
-      "australian_thrash_metal",
-      "brazilian_thrash_metal"
+      "german_thrash_metal",
+      "indonesian_thrash_metal"
     ],
     "instruments": [
       {
@@ -21,36 +21,36 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "high_wind",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 28.567249999999998,
-          "amp_make": 14.777249999999999,
-          "body_wood": 13.584999999999999,
+          "electric_technique": 30.194999999999997,
+          "amp_make": 16.154999999999998,
+          "body_wood": 14.494999999999997,
           "neck_wood": 2.47,
           "fretboard": 2.4050000000000002,
-          "pickup_magnet": 0.65,
-          "pickup_winding": 0.39,
-          "string_material": 0.232125,
-          "bridge": 2.47,
-          "scale_length": 11.504999999999997,
+          "pickup_magnet": 0.975,
+          "pickup_winding": 0.705,
+          "string_material": 0.195,
+          "bridge": 2.795,
+          "scale_length": 12.414999999999996,
           "string_gauge": 2.6650000000000005,
           "finish": 0,
-          "string_tuning": 17.419999999999998
+          "string_tuning": 18.33
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.4350000000000005,
-          "body_wood": 2.47,
-          "pickup_config": 0.845,
-          "string_type": 14.827250000000001,
+          "amp_make": 7.280000000000001,
+          "body_wood": 2.6649999999999996,
+          "pickup_config": 0.585,
+          "string_type": 14.855,
           "scale_length_b": 2.47,
           "fretted_or_not": 0.3,
-          "bass_technique": 12.814250000000001,
+          "bass_technique": 13.122500000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 11.75,
-          "drumhead": 3.575,
+          "drumhead": 4.29,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -104,21 +104,21 @@
         },
         "scores": {
           "voice_register": 11.444999999999995,
-          "voice_quality": 4.030000000000001,
+          "voice_quality": 6.110000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.5999999999999996,
-          "voice_articulation": 8.579999999999998,
-          "voice_microtone": 11.799999999999999,
-          "voice_tradition": 5.85,
-          "voice_mechanism_compound": 31.572249999999993,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 9.165,
-          "voice_ensemble_config": 7.734999999999999,
-          "voice_ornament_system": 0.09,
-          "voice_pitch_organization": 0.7149999999999997,
-          "voice_processing_chain": 4.185,
-          "voice_multitrack_stack": 5.75375
+          "voice_articulation": 9.099999999999998,
+          "voice_microtone": 11.649999999999999,
+          "voice_tradition": 6.955000000000001,
+          "voice_mechanism_compound": 33.199999999999996,
+          "voice_estill_quality": 3.315000000000001,
+          "voice_speech_song": 9.684999999999999,
+          "voice_ensemble_config": 8.645,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 3.8400000000000003,
+          "voice_processing_chain": 5.1899999999999995,
+          "voice_multitrack_stack": 5.630000000000001
         }
       }
     ],

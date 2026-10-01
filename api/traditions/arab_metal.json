@@ -5,7 +5,7 @@
   "lineage": "Arab-world metal discovery scope represented by Myrath’s specifically Tunisian melodic/progressive branch. Primary musicians distinguish their Tunisian tunes, quarter-step vocal inflection and guitar/bass/drum/keyboard core from generic exotic-instrument accumulation.",
   "recipe": "classic modern arab metal, distorted Rock, prog branch. neutral third half flat, many notes per syllable, solo with instrumental accompaniment, single lead single track no stacking. prog lead seven string electric, ampeg svt amp rock bass amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit, rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
   "recipe_chars": 538,
-  "score": 32.464,
+  "score": 33.17,
   "config": {
     "traditions": [
       "arab_metal"
@@ -36,12 +36,12 @@
         },
         "scores": {
           "amp_make": 3.575,
-          "body_wood": 0.08549999999999999,
+          "body_wood": 0.252,
           "pickup_config": 0,
           "string_type": 0.39,
-          "scale_length_b": 0.054,
-          "fretted_or_not": 0,
-          "bass_technique": 3.7390000000000003,
+          "scale_length_b": 0.29400000000000004,
+          "fretted_or_not": 0.063,
+          "bass_technique": 3.7315,
           "electric_bass_string_configuration": 0
         }
       },
@@ -62,15 +62,15 @@
         },
         "scores": {
           "drum_technique": 3.855,
-          "drumhead": 0.11624999999999999,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0.39,
           "shell_thickness": 0,
           "bearing_edges": 0.39,
-          "snare_wires": 0,
+          "snare_wires": 0.0315,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 3.9815,
-          "cymbal_lathing": 3.744,
+          "cymbal_hammering": 4.013,
+          "cymbal_lathing": 3.7130000000000005,
           "cymbal_finish": 0
         }
       },
@@ -107,9 +107,9 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0.78,
           "voice_ensemble_config": 1.17,
-          "voice_ornament_system": 0.3315,
+          "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0.3315,
-          "voice_processing_chain": 0.39,
+          "voice_processing_chain": 0.363,
           "voice_multitrack_stack": 0.78
         }
       },
@@ -122,10 +122,10 @@
           "rompler_lineage": "rompler_korg_m1_canonical"
         },
         "scores": {
-          "electronic_technique": -0.09250000000000001,
-          "rompler_preset_bank": -0.035,
+          "electronic_technique": -0.07,
+          "rompler_preset_bank": -0.05,
           "rompler_context": 0,
-          "rompler_lineage": -1.8984999999999999
+          "rompler_lineage": -1.882
         }
       }
     ],

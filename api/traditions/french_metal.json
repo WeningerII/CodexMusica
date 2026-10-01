@@ -5,7 +5,7 @@
   "lineage": "French metal is represented here by Dagoba. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic french metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 412,
-  "score": 55.099,
+  "score": 54.405,
   "config": {
     "traditions": [
       "french_metal"
@@ -18,7 +18,7 @@
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "pure_nickel_h",
@@ -29,11 +29,11 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 9.984,
+          "electric_technique": 9.947999999999999,
           "amp_make": 5.785,
           "body_wood": 5.329999999999999,
-          "neck_wood": 0.7335,
-          "fretboard": 0.32399999999999995,
+          "neck_wood": 0.5775,
+          "fretboard": 0.315,
           "pickup_magnet": 0.39,
           "pickup_winding": 0.39,
           "string_material": 0.105,
@@ -58,11 +58,11 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.467,
-          "pickup_config": 0.3,
+          "body_wood": 1.155,
+          "pickup_config": 0.337125,
           "string_type": 4.875,
-          "scale_length_b": 0.7335,
-          "fretted_or_not": 0.1365,
+          "scale_length_b": 0.5775,
+          "fretted_or_not": 0.105,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
@@ -128,7 +128,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "poly_archetypes": 1.95,
           "poly_voices": 0.39,
           "poly_maker_lineage": -0.035

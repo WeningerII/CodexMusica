@@ -5,7 +5,7 @@
   "lineage": "British working-class punk of 1979-84 — the Exploited, GBH, Discharge and Blitz — stripping first-wave punk to a 180-220 BPM d-beat or straight-eighths pulse, buzzsaw distorted downstroked guitars in root-fifth power chords, gang-shouted terrace-chant choruses, barked hoarse lead vocal and cheap fast recordings for Secret, Clay and No Future.",
   "recipe": "classic British late-1970s street punk, distorted Rock, punk branch, thrash metal, pop punk distorted rock crossover thrash skate punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 625,
-  "score": 369.37,
+  "score": 368.45,
   "config": {
     "traditions": [
       "street_punk",
@@ -23,7 +23,7 @@
           "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_sob",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -38,18 +38,18 @@
           "voice_quality": 4.745000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.035,
+          "voice_vibrato": 3.1400000000000006,
           "voice_articulation": 13.974999999999994,
           "voice_microtone": 19.324999999999996,
-          "voice_tradition": 5.330000000000001,
-          "voice_mechanism_compound": 27.279999999999994,
+          "voice_tradition": 4.875000000000001,
+          "voice_mechanism_compound": 27.024999999999995,
           "voice_estill_quality": 1.5599999999999996,
           "voice_speech_song": 13.974999999999994,
-          "voice_ensemble_config": 33.595,
-          "voice_ornament_system": 1.09,
+          "voice_ensemble_config": 33.699999999999996,
+          "voice_ornament_system": 1.135,
           "voice_pitch_organization": 1.69,
           "voice_processing_chain": 3.640000000000001,
-          "voice_multitrack_stack": 4.015
+          "voice_multitrack_stack": 3.9699999999999998
         }
       },
       {
@@ -70,13 +70,13 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 35.68,
-          "amp_make": 40.31,
+          "electric_technique": 35.769999999999996,
+          "amp_make": 40.055,
           "body_wood": 6.5,
           "neck_wood": 1.17,
           "fretboard": 2.0799999999999996,
           "pickup_magnet": 1.885,
-          "pickup_winding": 1.15,
+          "pickup_winding": 1.1949999999999998,
           "string_material": 0.195,
           "bridge": 2.0799999999999996,
           "scale_length": 5.525,
@@ -101,9 +101,9 @@
           "amp_make": 9.555,
           "body_wood": 2.8600000000000003,
           "pickup_config": 1.885,
-          "string_type": 18.705000000000002,
+          "string_type": 18.405,
           "scale_length_b": 1.17,
-          "fretted_or_not": 0.32999999999999996,
+          "fretted_or_not": 0.285,
           "bass_technique": 37.215,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 21.84,
-          "drumhead": 4.995,
+          "drumhead": 5.04,
           "drum_kit_kick_pedal": 0
         }
       }

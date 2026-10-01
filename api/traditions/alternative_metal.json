@@ -3,14 +3,14 @@
   "name": "Alternative metal",
   "family": "rock_punk",
   "lineage": "Late-1980s onward metal and alternative-rock crossover, represented here by Faith No More and the 1989 album The Real Thing. Heavy guitar riffing shares the arrangement with a rhythmically active bass, keyboards and an elastic sung vocal. The selected model emphasizes contrasts of riff, keyboard color and vocal register; funk bass and rap delivery are possible influences, not requirements of the entire genre.",
-  "recipe": "classic 1987-1989 alternative metal, distorted Rock, alternative branch, metal distorted rock, funk percussive groove percussion nwobhm medieval rock. register break ornamental, interlocked note trading, equal tempered, modern pop training. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany stainless steel roundwound electric bass, sticks backbeat drum kit, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter chorus.",
-  "recipe_chars": 651,
-  "score": 184.018,
+  "recipe": "classic 1987-1989 alternative metal, distorted Rock, alternative branch, metal distorted rock, funk percussive groove percussion drone metal mathcore. balanced, register break ornamental, interlocked note trading, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany stainless steel roundwound electric bass, sticks backbeat drum kit, sustained pad analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter chorus.",
+  "recipe_chars": 654,
+  "score": 172.502,
   "config": {
     "traditions": [
       "alternative_metal",
-      "nwobhm",
-      "medieval_rock"
+      "drone_metal",
+      "mathcore"
     ],
     "instruments": [
       {
@@ -20,30 +20,30 @@
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "mahogany_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 24.054999999999996,
-          "amp_make": 13.649999999999995,
-          "body_wood": 2.145,
-          "neck_wood": 2.145,
-          "fretboard": 2.0799999999999996,
-          "pickup_magnet": 0.6950000000000001,
+          "electric_technique": 22.754999999999995,
+          "amp_make": 12.674999999999995,
+          "body_wood": 1.23,
+          "neck_wood": 1.1400000000000001,
+          "fretboard": 1.3,
+          "pickup_magnet": 0.045,
           "pickup_winding": 1.69,
-          "string_material": 0.65,
-          "bridge": 2.145,
-          "scale_length": 2.145,
-          "string_gauge": 2.535,
+          "string_material": 0.9900000000000001,
+          "bridge": 1.1400000000000001,
+          "scale_length": 2.37,
+          "string_gauge": 1.23,
           "finish": 0.09,
-          "string_tuning": 20.8
+          "string_tuning": 21.189999999999998
         }
       },
       {
@@ -59,8 +59,8 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 14.105,
-          "body_wood": 2.145,
+          "amp_make": 13.064999999999998,
+          "body_wood": 1.23,
           "pickup_config": 0,
           "string_type": 1.04,
           "scale_length_b": 0.585,
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.275000000000002,
-          "drumhead": 3.51,
+          "drum_technique": 18.75,
+          "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -91,10 +91,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 0.26,
-          "poly_archetypes": 10.14,
-          "poly_voices": 0.39,
-          "poly_maker_lineage": 0.3249999999999998
+          "electronic_technique": 3.3099999999999996,
+          "poly_archetypes": 9.75,
+          "poly_voices": 3.1349999999999993,
+          "poly_maker_lineage": -1.225
         }
       },
       {
@@ -118,22 +118,22 @@
           "voice_multitrack_stack": "voice_multitrack_octave_double_self"
         },
         "scores": {
-          "voice_register": 0.28500000000000003,
+          "voice_register": 2.1849999999999996,
           "voice_quality": 1.1849999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 15.729999999999995,
-          "voice_microtone": 21.025,
-          "voice_tradition": 2.9225,
+          "voice_articulation": 16.119999999999997,
+          "voice_microtone": 18.999999999999996,
+          "voice_tradition": 2.3725,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.195,
-          "voice_ensemble_config": 2.275,
-          "voice_ornament_system": 1.45,
-          "voice_pitch_organization": 0.135,
+          "voice_speech_song": 0.785,
+          "voice_ensemble_config": 3.3149999999999995,
+          "voice_ornament_system": 1.3,
+          "voice_pitch_organization": 0.195,
           "voice_processing_chain": 0.45500000000000007,
-          "voice_multitrack_stack": 0.9950000000000001
+          "voice_multitrack_stack": 0.78
         }
       }
     ],

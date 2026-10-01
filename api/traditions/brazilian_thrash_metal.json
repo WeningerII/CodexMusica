@@ -3,9 +3,9 @@
   "name": "Brazilian thrash metal",
   "family": "rock_punk",
   "lineage": "Brazilian thrash scenes represented by Sepultura’s early amplified guitar-band phase. Direct musician accounts distinguish this faster riff-led history from their subsequent groove-focused work.",
-  "recipe": "classic modern brazilian thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment. basswood alnico palm muted humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 393,
-  "score": 29.774,
+  "recipe": "classic modern brazilian thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment, single lead single track no stacking. basswood alnico palm muted humbucker electric guitar, alder electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 392,
+  "score": 30.523,
   "config": {
     "traditions": [
       "brazilian_thrash_metal"
@@ -29,26 +29,26 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.927249999999999,
+          "electric_technique": 7.978999999999999,
           "amp_make": 0,
           "body_wood": 3.6399999999999997,
-          "neck_wood": 0.5947499999999999,
-          "fretboard": 0.48974999999999996,
+          "neck_wood": 0.5459999999999999,
+          "fretboard": 0.5039999999999999,
           "pickup_magnet": 1,
           "pickup_winding": 0.1785,
           "string_material": 0.1365,
-          "bridge": 0.5947499999999999,
+          "bridge": 0.5459999999999999,
           "scale_length": 0,
-          "string_gauge": 0.92175,
+          "string_gauge": 0.9045,
           "finish": 0,
-          "string_tuning": 0.6945
+          "string_tuning": 0.78
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.1895000000000004,
+          "body_wood": 1.2720000000000002,
           "pickup_config": 0,
           "string_type": 0.315,
-          "scale_length_b": 1.3915,
+          "scale_length_b": 1.363,
           "fretted_or_not": 0.39,
-          "bass_technique": 4.0315,
+          "bass_technique": 4.063,
           "electric_bass_string_configuration": 0
         }
       },
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.6487499999999999,
+          "drumhead": 0.747,
           "drum_kit_kick_pedal": 0.78
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.71775,
-          "voice_ornament_system": 0.063,
+          "voice_ensemble_config": 0.861,
+          "voice_ornament_system": 0.126,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.045,
-          "voice_multitrack_stack": 0.19949999999999998
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.567
         }
       }
     ],

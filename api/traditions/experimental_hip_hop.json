@@ -5,7 +5,7 @@
   "lineage": "Hip-hop organized around experimentation with sound, form and performance rather than one compulsory lyric style. The Seattle Shabazz Palaces strand, represented by Black Up and Lese Majesty, anchors this selected electronic studio model: fragmented sample layers, changing electronic textures and a foreground MC. It is a broad practice designation, not a synonym for associative lyric writing or a requirement for industrial abrasion.",
   "recipe": "classic modern experimental hip hop, mc Rhythm, experimental branch, idm glitch experimental electric, us hip hop MC rhythm cloud rap gangsta rap. thick, rap, narrative, equal tempered. glitched textural sampler, sustained pad analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 391,
-  "score": 96.382,
+  "score": 95.957,
   "config": {
     "traditions": [
       "experimental_hip_hop",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 1.4,
-          "voice_quality": 22.276249999999997,
+          "voice_quality": 21.935,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.135,
+          "voice_vibrato": 0.18,
           "voice_articulation": 12.7,
           "voice_microtone": 0.9999999999999999,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.39,
+          "voice_mechanism_compound": 0.3,
           "voice_estill_quality": 0.15,
-          "voice_speech_song": 20.764062499999998,
+          "voice_speech_song": 20.869999999999997,
           "voice_ensemble_config": 3.77,
-          "voice_ornament_system": 0.51,
+          "voice_ornament_system": 0.66,
           "voice_pitch_organization": 0.39,
           "voice_processing_chain": 0.24,
           "voice_multitrack_stack": 0.3
@@ -63,8 +63,8 @@
         },
         "scores": {
           "electronic_technique": 11.945,
-          "sampler_archetypes": 0.975,
-          "sampler_bit_depth": 0.975,
+          "sampler_archetypes": 0.855,
+          "sampler_bit_depth": 0.96,
           "sampler_workflow": 11.75,
           "sampler_classic_context": 3.12
         }
@@ -78,9 +78,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 3.3678125,
+          "electronic_technique": 3.32,
           "poly_archetypes": 0,
-          "poly_voices": 0.6115625,
+          "poly_voices": 0.5,
           "poly_maker_lineage": -0.7875000000000001
         }
       }
