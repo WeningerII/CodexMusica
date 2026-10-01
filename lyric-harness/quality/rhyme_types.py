@@ -2302,6 +2302,99 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
     # without this the fall-through would answer False for an unreadable
     # member.  `quality/test_mandate_relation.py` caught exactly that when
     # this block was first written, which is the check doing its job.
+    #
+    # THE ANY-READING RULE (owner ruling 2026-10-01) wraps all of the above:
+    # the pair stands in the named type if ONE whole dictionary reading of
+    # each member's words puts it there. Each combination is classified on
+    # its own -- pinned, so no channel holds a set and no reading is stitched
+    # from pieces of two -- by `_named_verdict`, which is the block above.
+    base_a, base_b = member_phons or (phon, phon)
+    combos, complete = _member_reading_combos(a, b, base_a, base_b)
+    saw_none, refused = not complete, None
+    for pins in combos:
+        try:
+            v = _named_verdict(canon, a, b, phon, preset, position, pins)
+        except RelationRefused as e:
+            refused = refused or e
+            continue
+        if v is True:
+            return True
+        if v is None:
+            saw_none = True
+    if saw_none:
+        return None
+    if refused is not None:
+        raise refused
+    return False
+
+
+#: How many whole-reading combinations a named-type pair may try. Past it the
+#: pair is undecided and says so, rather than passing on a sample.
+MEMBER_READING_CAP = 64
+
+
+class _PinnedReading:
+    """A phonology that answers ONE whole reading per pinned token.
+
+    `classify_pair` reads a member through `syllabify` (one token) or
+    `for_token(i).syllabify` (several); this answers the pinned parse there
+    and delegates everything else to the phonology it wraps.
+    """
+
+    def __init__(self, base, pins, token=0):
+        self._base, self._pins, self._token = base, pins, token
+
+    def syllabify(self, word):
+        p = self._pins.get(self._token)
+        return list(p) if p is not None else self._base.syllabify(word)
+
+    def parses(self, word):
+        p = self._pins.get(self._token)
+        return [list(p)] if p is not None else self._base.parses(word)
+
+    def for_token(self, i):
+        b = (self._base.for_token(i) if hasattr(self._base, "for_token")
+             else self._base)
+        return _PinnedReading(b, self._pins, token=i)
+
+    def __getattr__(self, name):
+        return getattr(self._base, name)
+
+
+def _member_readings(text, phon):
+    """-> [{token: parse}], one per combination of the member's readings."""
+    toks = str(text).split()
+    if not toks or (len(toks) > 1 and hasattr(phon, "scan_pada")) \
+            or not hasattr(phon, "parses"):
+        return [{}]
+    per = []
+    for i, t in enumerate(toks):
+        tp = (phon.for_token(i) if len(toks) > 1 and hasattr(phon, "for_token")
+              else phon)
+        seen, opts = set(), []
+        for p in tp.parses(t):
+            if not p:
+                continue
+            key = tuple((x.onset, x.nucleus, x.coda, x.prominence) for x in p)
+            if key not in seen:
+                seen.add(key)
+                opts.append((i, p))
+        per.append(opts or [None])
+    return [{i: p for c in combo if c is not None for i, p in [c]}
+            for combo in itertools.product(*per)]
+
+
+def _member_reading_combos(a, b, pa, pb, cap=MEMBER_READING_CAP):
+    """-> ([(phon_a, phon_b)], complete) over both members' readings."""
+    ra, rb = _member_readings(a, pa), _member_readings(b, pb)
+    pairs = list(itertools.islice(itertools.product(ra, rb), cap))
+    return ([(_PinnedReading(pa, x) if x else pa,
+              _PinnedReading(pb, y) if y else pb) for x, y in pairs],
+            len(ra) * len(rb) <= cap)
+
+
+def _named_verdict(canon, a, b, phon, preset, position, member_phons):
+    """`satisfies_relation`'s NAMED-type answer for one pinned reading."""
     try:
         readable = classify_pair(a, b, phon, member_phons=member_phons,
                                  **({"preset": preset} if preset else {}))
@@ -2479,14 +2572,26 @@ __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
 
 def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
                               profile=None, promote=False, min_score=None,
-                              member_lexicons=None, per_relation=False):
-    """Unanimous endpoint-pronunciation verdict with the existing scorer.
+                              member_lexicons=None, per_relation=False,
+                              quantifier="any"):
+    """The endpoint-pronunciation verdict with the existing scorer, over
+    every combination of the two end words' WHOLE dictionary readings.
 
     Each pronunciation still gets the scorer's declared anchor-span search.
-    Dictionary ordering and maximizing over different readings cannot turn an
-    unresolved homograph into a certified rhyme. ``relation`` is a canonical
-    coarse class (or a set of them: any member satisfies), or None for the
-    declaration's admissibility predicate.
+    ``relation`` is a canonical coarse class (or a set of them: any member
+    satisfies), or None for the declaration's admissibility predicate.
+
+    ``quantifier`` says which readings must hold it (owner ruling 2026-10-01:
+    the checker asks whether a pronunciation WORKS, not which one):
+
+      * ``"any"`` (the default) -- an OBLIGATION, such as a mandated rhyme:
+        True when some combination of readings holds it, False when none
+        does.  None only when an end word cannot be read at all.
+      * ``"all"`` -- a PROHIBITION, such as an unintended collision: True
+        only when every combination holds it, because a singer can avoid a
+        collision any one reading escapes.
+      * ``"unanimous"`` -- the measurement instruments' rule: True / False
+        when every combination agrees, None when they split.
 
     ``per_relation=True`` returns {relation: True/False/None} for EVERY
     relation in ``decl.admit``, each at its own declared cut and each
@@ -2503,16 +2608,27 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
         key = lh.fold_apostrophes(words[-1]).lower().strip("'\".,;:!?()[]")
         end_reader = reader.for_token(len(words) - 1) if hasattr(reader, "for_token") else reader
         prons = end_reader.entries.get(key)
+        # A small end word sung weak and sung stressed are two readings too
+        # (owner ruling 2026-10-01), so each is its own candidate.
+        ends = (("weak", "stressed")
+                if lh.weak_token(end_reader, key, phrase_final=True) else (None,))
         if not prons:
-            ancs, label, _ = lh.line_anchors(reader, line, promote=promote)
-            return [(ancs, label)] if ancs else []
+            out = []
+            for end in ends:
+                ancs, label, _ = lh.line_anchors(reader, line, promote=promote,
+                                                small_end=end)
+                if ancs:
+                    out.append((ancs, label))
+            return out
         out = []
         for pron in prons:
-            ancs, label, _ = lh.line_anchors(reader, line, promote=promote,
-                                            endpoint_pronunciations=[pron])
-            if not ancs:
-                return []
-            out.append((ancs, label))
+            for end in ends:
+                ancs, label, _ = lh.line_anchors(
+                    reader, line, promote=promote,
+                    endpoint_pronunciations=[pron], small_end=end)
+                if not ancs:
+                    return []
+                out.append((ancs, label))
         return out
     la, lb = member_lexicons or (lex, lex)
     aa, bb = candidates(line_a, la), candidates(line_b, lb)
@@ -2533,6 +2649,9 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
                 for n, v in seen.items()}
     if not aa or not bb:
         return None
+    if quantifier not in ("any", "all", "unanimous"):
+        raise ValueError(f"quantifier {quantifier!r} is not one of "
+                         f"'any', 'all', 'unanimous'")
     values = set()
     for (anc_a, word_a), (anc_b, word_b) in itertools.product(aa, bb):
         score = lh.best_score(anc_a, anc_b, decl, word_a, word_b, profile=profile)
@@ -2547,7 +2666,11 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
             value = lh.admits_decl(score, decl)
         if min_score is not None:
             value = value and score['total'] >= min_score
+        if quantifier == "any" and value:
+            return True
+        if quantifier == "all" and not value:
+            return False
         values.add(value)
-        if len(values) > 1:
+        if quantifier == "unanimous" and len(values) > 1:
             return None
     return next(iter(values))

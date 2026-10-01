@@ -1100,6 +1100,32 @@ class Reviser:
         self._anchor_cache = {}
         self._pronunciation_origin = None
 
+    def _collides_however_sung(self, lines, i, j, s, profile):
+        """A COLLISION IS A PROHIBITION (owner ruling 2026-10-01): it is
+        charged only when every way of singing the two end words collides.
+        The matrix score maximises over readings, which is right for a rhyme
+        the song must have and wrong for one it must avoid, so a pair whose
+        end words have several readings (or end on a small word that may be
+        sung weak) is asked again with every combination required."""
+        from lyric_harness import fold_apostrophes, line_tokens, weak_token
+        ambiguous = False
+        for text in (lines[i], lines[j]):
+            words = line_tokens(text, strip_parens=self.lex.strip_parens)
+            if not words:
+                continue
+            key = fold_apostrophes(words[-1]).lower().strip("'\".,;:!?()[]")
+            if (len(self.lex.entries.get(key, ())) > 1
+                    or weak_token(self.lex, key, phrase_final=True)):
+                ambiguous = True
+        if not ambiguous:
+            return True
+        from quality.rhyme_types import coarse_relation_consensus
+        return coarse_relation_consensus(
+            self.lex, lines[i], lines[j], self.decl,
+            relation=s["relations"], min_score=THETA_COLLISION,
+            profile=profile, promote=self._promote(),
+            quantifier="all") is not False
+
     def for_revision(self, lines):
         """Scope retirement to this input without changing its readings or caller."""
         if not getattr(self.lex, 'pronunciations', ()):
@@ -1749,6 +1775,24 @@ class Reviser:
         # stream, and takes the byte-identical old path — the same lazy
         # discipline the structure and named-relation routes above take.
         _sch_pairs, _stream, _R_ref = {}, None, None
+        _stream_marks, _pinned_build = [], {}
+
+        def _reading_build(_RRm):
+            # THE ANY-READING RULE's rebuild (owner, 2026-10-01): the same
+            # stream as `_grade_stream`, refrain-tail mark and all, under a
+            # phonology that pins one whole reading per cause token.
+            if "b" not in _pinned_build:
+                def _b(ph):
+                    st = _RRm.build_stream(
+                        lines, ph, sections=sections,
+                        stanzas=_RRm.stanzas_from_sections(sections),
+                        stanza_source="declared_sections" if sections else "",
+                        declaration={"language": "eng"})
+                    for _bl in _stream_marks:
+                        _RRm.mark_refrain_tail(st, lines=_bl)
+                    return st
+                _pinned_build["b"] = _RRm.cached_builder(_b)
+            return _pinned_build["b"]
 
         def _grade_stream(_RRm):
             # ONE stream builder for BOTH schema routes — the declared route
@@ -1800,6 +1844,7 @@ class Reviser:
                                        if 1 <= ln <= len(lines)})
                     if _bearing:
                         _R_mod.mark_refrain_tail(_stream, lines=_bearing)
+                        _stream_marks.append(_bearing)
                 for w in _schemas:
                     # Slotted pairs call pair_satisfies below. Enumerating a
                     # whole-song figure for those pairs was unused work (and
@@ -2008,9 +2053,10 @@ class Reviser:
                             unknown.add((j, k))
                             _refused_here = True
                             break
-                        _out = _R_ref.pair_satisfies(
+                        _out, _rwit = _R_ref.pair_satisfies_any(
                             _R_ref.REGISTRY[_sch_name], _stream,
-                            (i - 1, _ti), (j - 1, _tj))
+                            (i - 1, _ti), (j - 1, _tj),
+                            _reading_build(_R_ref))
                         if isinstance(_out, _R_ref.Refusal):
                             refusals.append({
                                 "lines": (i, j),
@@ -2035,6 +2081,12 @@ class Reviser:
                                 position=_SL.position_of(slot_i or i),
                                 lines=(i, j), instances=_sch_pairs.get(want),
                                 member_phons=member_phons)
+                            if (ok is None and _sch_name and _stream is not None
+                                    and hasattr(_sch_pairs.get(want), "verdict")):
+                                ok, _rwit = _R_ref.resolve_line_pair(
+                                    _R_ref.declared_pair_schema(
+                                        _R_ref.REGISTRY[_sch_name]),
+                                    _stream, (i, j), _reading_build(_R_ref))
                         except _RT.RelationRefused as e:
                             refusals.append({
                                 "lines": (i, j),
@@ -2259,6 +2311,24 @@ class Reviser:
                                               or ())
                                   if _RF.REGISTRY[n].normative
                                   not in ("forbidden", "deprecated")]
+                    if _undecided and hasattr(_wvp, "resolve_readings"):
+                        # THE ANY-READING RULE (owner, 2026-10-01): an
+                        # undecided satisfier holds if some whole reading of
+                        # the words involved holds it; the readings are
+                        # recorded. What stays open is open for a reason
+                        # that is not a reading.
+                        _rsat, _undecided = _wvp.resolve_readings(
+                            v["lines"], _undecided)
+                        if _rsat:
+                            v["schemas"] = sorted(set(v["schemas"]) | set(_rsat))
+                            v["relations"] = sorted(set(v["relations"])
+                                                    | set(_rsat))
+                            v["satisfied_by"] = sorted(set(v["satisfied_by"])
+                                                       | set(v["admitted"])
+                                                       | set(_rsat))
+                            v["readings"] = _rsat
+                            v["why"] = None
+                            continue
                     if _undecided:
                         i, j = v["lines"]
                         k = v["group"]
@@ -2455,7 +2525,8 @@ class Reviser:
                 if set(m.groups_of(i + 1)) & set(m.groups_of(j + 1)):
                     continue
                 s = matrix[i][j]
-                if s["total"] >= THETA_COLLISION:
+                if s["total"] >= THETA_COLLISION and self._collides_however_sung(
+                        lines, i, j, s, profile):
                     # The CLASSIFICATION comes from `requirement()` — the
                     # mandate's own five-value answer, so this loop and the
                     # grader cannot drift about what UNDECLARED means. The
@@ -3017,6 +3088,36 @@ class Reviser:
             complete = not refused and bool(lu.units)
             fs = []
             prom_certain = complete and not undecided
+            _opts = getattr(lu, "prominence_options", None)
+            if _opts:
+                # THE ANY-READING RULE (owner ruling 2026-10-01): the line
+                # passes when ONE way of singing it -- each word in any of
+                # its own readings, each small word stressed or not -- lands
+                # in the band, and is flagged only when none can.
+                _in = [c for c in sorted(_opts) if p_lo <= c <= p_hi]
+                if coverage_out is not None:
+                    coverage_out.append(
+                        {"id": f"prominence:L{ln}", "layer": "prominence",
+                         "line": ln, "status": "answered"})
+                if runs_out is not None:
+                    runs_out[ln] = lu.prominence_runs
+                if not _in:
+                    _rp, _rw = lu.prominence_runs
+                    _lo_c, _hi_c = min(_opts), max(_opts)
+                    per[ln] = [Finding(
+                        "PROMINENCE_OUT_OF_BAND", "flag",
+                        (f"{_lo_c} prominent syllable(s) at the fewest" if _lo_c > p_hi
+                         else f"{_hi_c} prominent syllable(s) at the most")
+                        + f" — outside the calibrated [{p_lo}, {p_hi}] band "
+                          f"for a sung English line however its words are "
+                          f"sung",
+                        f"{basis}. Every reading of every word was tried, and "
+                        f"each small word both stressed and unstressed; no "
+                        f"way of singing the line lands in the band. "
+                        f"Adjacency, disclosed and uncalibrated: longest "
+                        f"stress run {_rp}, longest weak run {_rw} (M-115).",
+                        [ln])]
+                continue
             if coverage_out is not None:
                 coverage_out.append(
                     {"id": f"prominence:L{ln}", "layer": "prominence", "line": ln,

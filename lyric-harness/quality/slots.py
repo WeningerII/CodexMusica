@@ -657,12 +657,23 @@ def resolve(lex, line_text, member, promote=False):
         lo, hi = runs[want]
 
     st = _anchor_index(smap, lo, hi, rule.anchor)
+    sung = None
+    if st is None and rule.anchor == "last_stressed":
+        # A SMALL WORD SUNG STRESSED (owner ruling 2026-10-01): where the
+        # locus holds no stress except a small word's own dictionary stress
+        # (`I`, `on`, `by` -- demoted by default), that stress is the anchor.
+        for i in range(hi, lo - 1, -1):
+            if smap[i].get("weak_stress") in (1, 2):
+                st, sung = i, smap[i]["weak_stress"]
+                break
     if st is None:
         return [], "", []
     a, b = _cut(st, hi, rule.magnitude)
     if b <= a:
         return [], "", []
     anchor = [dict(s) for s in smap[a:b]]
+    if sung is not None:
+        anchor[st - a]["stress"] = sung
     return [anchor], _label_for(anchor), []
 
 

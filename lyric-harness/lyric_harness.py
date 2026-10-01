@@ -966,6 +966,16 @@ class _DictionaryOnlyLexicon:
         return [], True
 
 
+#: Spellings the pinned CMUdict files under a different headword: alias ->
+#: the headword whose readings it shares. `mic` is in the dictionary only as
+#: M IH1 K ("mick"); its everyday reading is filed under `mike`.
+SPELLING_ALIASES = {
+    "mic": "mike",
+    "mics": "mikes",
+    "mic's": "mike's",
+}
+
+
 class Lexicon:
     def __init__(self, fallback=None, strip_parens=True, pronunciations=None):
         """`fallback` is a DECLARED coordinate, `None` by default -- omitting
@@ -1022,6 +1032,16 @@ class Lexicon:
                 word = re.sub(r"\(\d+\)$", "", parts[0]).lower()
                 phones = parts[1:]
                 self.entries.setdefault(word, []).append(phones)
+        # SPELLING ALIASES (owner, 2026-10-01: "add mic"). A word CMUdict
+        # files under another spelling gains that headword's own readings,
+        # APPENDED, so its existing first reading -- and every number read
+        # off it -- stays put. No phone is written by hand: the readings are
+        # the dictionary's, copied from the headword named.
+        for alias, headword in SPELLING_ALIASES.items():
+            have = self.entries.setdefault(alias, [])
+            for phones in self.entries.get(headword, ()):
+                if phones not in have:
+                    have.append(list(phones))
         _KNOWN_WORDS.update(self.entries.keys())
         # data/opensubtitles_en_50k.tsv: `# ...` provenance comments, then a
         # literal `word\tcount\trank` header, then data rows in descending-
@@ -2655,7 +2675,8 @@ def _tag_span_words(sylls, phones, owners, words, lex=None):
             if 0 <= idx < len(owners) and owners[idx] == w)
 
 
-def line_anchors(lex, text, promote=False, endpoint_pronunciations=None):
+def line_anchors(lex, text, promote=False, endpoint_pronunciations=None,
+                 small_end=None):
     """All anchor readings of a line: the last word cycles through its
     dictionary pronunciation variants (homographs: live, wind, read).
     promote=True adds the metrically-promoted bare-final-syllable variant —
@@ -2713,11 +2734,27 @@ def line_anchors(lex, text, promote=False, endpoint_pronunciations=None):
         if unread_final_piece(end_reader, last)[0] is not None:
             variants = []
     anchors = []
-    for var in variants:
+    # A SMALL END WORD MAY BE SUNG STRESSED (owner ruling 2026-10-01): its
+    # demoted readings come first, so `anchors[0]` -- what the calibrated
+    # measurements read -- does not move, and its dictionary-stressed
+    # readings follow as further hypotheses for `best_score`.
+    # `small_end` asks for ONE of the two ("weak" or "stressed") so a caller
+    # enumerating ways of singing the line can treat them as separate
+    # readings; None (the default) offers both.
+    _demote = weak_token(end_reader, lw, phrase_final=True)
+    if _demote and small_end == "stressed":
+        readings = [(var, False) for var in variants]
+    elif _demote and small_end == "weak":
+        readings = [(var, True) for var in variants]
+    else:
+        readings = [(var, _demote) for var in variants]
+        if _demote:
+            readings += [(var, False) for var in variants]
+    for var, demote in readings:
         v = list(var)
         if not syllabify(v):
             continue  # a vowelless final token cannot borrow the prefix nucleus
-        if weak_token(end_reader, lw, phrase_final=True):
+        if demote:
             v = [re.sub(r"[12]$", "0", ph) for ph in v]
         full = pre_phones + v
         sylls = syllabify(full)
@@ -4313,11 +4350,15 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
             if (not records[i]["final_unreadable"] and
                     not records[j]["final_unreadable"] and
                     (same or s["total"] >= THETA_COLLISION)):
+                # A mandated pair is an OBLIGATION (any reading may hold
+                # it); a collision is a PROHIBITION (charged only when every
+                # reading collides). Owner ruling 2026-10-01.
                 reading_verdict = coarse_relation_consensus(
                     lex, lines[i], lines[j], decl, profile=profile,
                     promote=decl.final_promotion,
                     relation=None if same else s["relations"],
-                    min_score=None if same else THETA_COLLISION)
+                    min_score=None if same else THETA_COLLISION,
+                    quantifier="any" if same else "all")
             s["reading_verdict"] = reading_verdict
             if same:
                 if (i + 1, j + 1) in refused:
@@ -4428,12 +4469,26 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
             elif admit_is_default(decl) and [
                     n for n in _wvp.undecided.get(pr, ())
                     if _REG[n].normative not in ("forbidden", "deprecated")]:
-                # Refused only when an undecided schema could SATISFY the
-                # pair (the same rule as `Reviser.grade`); a disowned one
-                # cannot, and with every satisfier decided False it fails.
+                # An undecided schema that could SATISFY the pair (the same
+                # rule as `Reviser.grade`) is asked under the ANY-READING
+                # RULE (owner, 2026-10-01): it holds if some whole reading of
+                # the words involved holds it, and the readings are named.
+                # Refused only where a reason other than a reading leaves it
+                # open; failed where every reading fails it.
                 names = [n for n in _wvp.undecided[pr]
                          if _REG[n].normative not in ("forbidden",
                                                       "deprecated")]
+                _sat, names = _wvp.resolve_readings(pr, names)
+                if _sat:
+                    schema_satisfied.append({"lines": pr,
+                                             "satisfied_by": sorted(_sat),
+                                             "readings": _sat})
+                    pair_schemas[pr] = sorted(set(pair_schemas.get(pr, ()))
+                                              | set(_sat))
+                    continue
+                if not names:
+                    _kept.append(v)
+                    continue
                 refusals.append({"lines": pr,
                     "endwords": (endwords[v[0]-1], endwords[v[1]-1]),
                     "unreadable": [], "schemas": sorted(names),
@@ -4864,7 +4919,14 @@ def word_syllable_map(lex, text):
             phones.extend(p)
         lw = fold_apostrophes(w).lower().strip("'\".,;:!?()[]")
         final = (k == len(words) - 1)
+        # A SMALL WORD MAY BE SUNG STRESSED (owner ruling 2026-10-01): the
+        # demoted stress stays the reading every count is calibrated on, and
+        # the dictionary's own stress is kept beside it as `weak_stress` so a
+        # slot that needs a stressed syllable here can still find one.
+        dict_stress = None
         if weak_token(reader, lw, phrase_final=final):
+            dict_stress = [int(ph[-1]) for ph in phones if ph[-1:] in "012"
+                           and ph[-1:].isdigit()]
             phones = [re.sub(r"[12]$", "0", ph) for ph in phones]
         # The hyphen halves, read exactly as `_tag_span_words` reads them:
         # a span may name a token that is only partly the string it was built
@@ -4885,6 +4947,8 @@ def word_syllable_map(lex, text):
             s["word_syllables"] = len(sylls)
             s["word_read"] = tuple(rd) if rd is not None else ()
             s["word_unread"] = tuple(un) if un is not None else ()
+            if dict_stress is not None and n < len(dict_stress):
+                s["weak_stress"] = dict_stress[n]
             out.append(s)
     return out
 
@@ -6229,11 +6293,19 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
             # determinate requested cell; keep the broad refusal intact.
             if relation is not None:
                 if _schema is not None:
-                    _stream = _RL.build_stream(
-                        [_SCREEN_CARRIERS[0].format(w=a),
-                         _SCREEN_CARRIERS[1].format(w=b)], _phon)
-                    _ans = _RL.pair_satisfies(_schema, _stream,
-                                              (0, -1), (1, -1))
+                    _carriers = [_SCREEN_CARRIERS[0].format(w=a),
+                                 _SCREEN_CARRIERS[1].format(w=b)]
+                    _stream = _RL.build_stream(_carriers, _phon)
+                    # THE ANY-READING RULE (owner, 2026-10-01): a pair whose
+                    # words have several readings is answered by whether one
+                    # whole reading of each holds it, and the readings used
+                    # are reported.
+                    _ans, _wit = _RL.pair_satisfies_any(
+                        _schema, _stream, (0, -1), (1, -1),
+                        _RL.cached_builder(
+                            lambda ph: _RL.build_stream(_carriers, ph)))
+                    if _wit:
+                        row["named_readings"] = _wit
                     if isinstance(_ans, _RL.Refusal):
                         row["named"] = None
                         row["named_reason"] = str(
@@ -6254,8 +6326,9 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                         relation=_canon, promote=rv._promote())
                     if row["named"] is None:
                         row["named_reason"] = (
-                            "the requested class cannot be resolved across "
-                            "the available endpoint pronunciation readings")
+                            "an end word has no reading the dictionary or its "
+                            "declared derivations supply, so the requested "
+                            "class cannot be judged — a refusal, not a no")
                 else:
                     try:
                         row["named"] = _RT.satisfies_relation(
