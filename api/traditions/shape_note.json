@@ -5,7 +5,7 @@
   "lineage": "American singing-school practice begun with Little and Smith's The Easy Instructor (1801), which assigned four notated head-shapes to fa-sol-la-mi so rural congregations could sight-read; carried south and west through The Southern Harmony (1835), The Sacred Harp (1844) and the seven-shape Christian Harmony and Stamps-Baxter books, sung a cappella in a hollow square at loud open-throated chest voice, one loud beat-marking arm stroke per singer, dispersed harmony with open fifths and octaves, fuging-tune imitative entries, and the syllables sung through once before the words.",
   "recipe": "classic early-1800s shape-note singing, ritual Devotional, sacred harp branch, christian gospel southern gospel, American sacred ritual devotional southern gospel quartet bluegrass gospel. thick, declaimed, straight note core, multi note runs per syllable. shape note voice, choir sacred harp. country church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 372,
-  "score": 276.48,
+  "score": 277.825,
   "config": {
     "traditions": [
       "shape_note",
@@ -62,15 +62,15 @@
           "voice_effort": 0,
           "voice_vibrato": 4.7124999999999995,
           "voice_articulation": 33.578895833333334,
-          "voice_microtone": 15.046854166666662,
-          "voice_tradition": 31.995104166666664,
+          "voice_microtone": 15.144999999999992,
+          "voice_tradition": 32.83510416666667,
           "voice_mechanism_compound": 4.4774375,
           "voice_estill_quality": 29.589999999999996,
           "voice_speech_song": 21.124999999999996,
-          "voice_ensemble_config": 27.96395833333333,
+          "voice_ensemble_config": 28.15895833333333,
           "voice_ornament_system": 11.775,
           "voice_pitch_organization": 4.687000000000001,
-          "voice_processing_chain": 7.1982083333333335,
+          "voice_processing_chain": 7.41,
           "voice_multitrack_stack": 11.309999999999997
         }
       }

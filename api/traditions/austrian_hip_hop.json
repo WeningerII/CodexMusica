@@ -5,7 +5,7 @@
   "lineage": "Austrian hip-hop scenes; selected Linz producer Flip / Texta branch",
   "recipe": "classic modern austrian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. chopped sampler, sampled chopped turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 290,
-  "score": 58.878,
+  "score": 58.884,
   "config": {
     "traditions": [
       "austrian_hip_hop"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.337125
+          "voice_multitrack_stack": 0.3
         }
       },
       {
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 5.8854999999999995,
           "sampler_archetypes": 9.1,
-          "sampler_bit_depth": 0.105,
+          "sampler_bit_depth": 0.14775,
           "sampler_workflow": 5.95,
           "sampler_classic_context": 7.6049999999999995
         }

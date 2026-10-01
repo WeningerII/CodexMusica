@@ -3,14 +3,14 @@
   "name": "G-funk",
   "family": "hip_hop",
   "lineage": "Early-1990s Los Angeles gangsta-funk hip-hop subgenre codified by Dr. Dre on The Chronic (1992) and Snoop Doggy Doggs Doggystyle (1993), built on Parliament-Funkadelic samples, talkbox lead, high-pitched synth lead lines, and slow-tempo (90-100 BPM) syncopated drum machine programming",
-  "recipe": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion cuban funk. thick, rap, straight onset, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, talkbox. west la 1968-present major-flagship the village recorder west la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 536,
-  "score": 185.522,
+  "recipe": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion deep funk cuban funk. thick, rap, straight onset, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, ampeg svt amp rock bass amp mahogany thomastik infeld low tension electric bass, talkbox. west la 1968-present major-flagship the village recorder west la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 534,
+  "score": 193.9,
   "config": {
     "traditions": [
       "g_funk",
-      "cuban_funk",
-      "funk"
+      "deep_funk",
+      "cuban_funk"
     ],
     "instruments": [
       {
@@ -25,46 +25,46 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 5.165,
-          "voice_quality": 8.295,
+          "voice_register": 3.440000000000001,
+          "voice_quality": 7.345,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.334999999999999,
-          "voice_articulation": 12.674999999999994,
-          "voice_microtone": 11.89499999999999,
-          "voice_tradition": 12.415000000000001,
-          "voice_mechanism_compound": 1.4299999999999997,
-          "voice_estill_quality": 2.4400000000000004,
-          "voice_speech_song": 12.934999999999995,
-          "voice_ensemble_config": 13.714999999999991,
-          "voice_ornament_system": 2.3400000000000003,
+          "voice_articulation": 10.529999999999992,
+          "voice_microtone": 10.334999999999992,
+          "voice_tradition": 13.714999999999998,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 11.374999999999993,
+          "voice_ensemble_config": 12.154999999999992,
+          "voice_ornament_system": 1.5599999999999996,
           "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 18.939999999999994,
-          "voice_multitrack_stack": 5.07
+          "voice_processing_chain": 25.09,
+          "voice_multitrack_stack": 5.51
         }
       },
       {
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twelve_bit",
+          "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
           "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": 5.245,
-          "sample_bitdepth": 0.585,
+          "sample_bitdepth": 1.085,
           "sample_swing": 7.609999999999999,
-          "sample_processing": 0.39
+          "sample_processing": 1.2349999999999999
         }
       },
       {
@@ -77,18 +77,18 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 7.375,
+          "electronic_technique": 8.525,
           "oscillator": 4.38,
-          "filter_topology": 1.4300000000000002,
-          "envelope": 3.445,
+          "filter_topology": 2.925,
+          "envelope": 4.095000000000001,
           "modulation": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
@@ -97,24 +97,24 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.7050000000000005,
-          "body_wood": 1.065,
-          "pickup_config": 0.195,
-          "string_type": 4.615,
-          "scale_length_b": 0.78,
-          "fretted_or_not": 3.055,
-          "bass_technique": 22.444999999999997,
+          "amp_make": 3.3150000000000004,
+          "body_wood": 1.2349999999999999,
+          "pickup_config": 0.24,
+          "string_type": 5.459999999999999,
+          "scale_length_b": 1.625,
+          "fretted_or_not": 2.8600000000000003,
+          "bass_technique": 27.294999999999998,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "talkbox",
         "slots": {
-          "talkbox_use": "talkbox_rock",
+          "talkbox_use": "talkbox_funk",
           "talkbox_construction": "talkbox_tube"
         },
         "scores": {
-          "talkbox_use": 0.375,
+          "talkbox_use": 0,
           "talkbox_construction": 0.345
         }
       }

@@ -3,9 +3,9 @@
   "name": "Afghan pop",
   "family": "pop",
   "lineage": "Selected 2010s Dari-language commercial pop shared between Kabul television and Afghan diaspora circuits, represented by Aryana Sayeed and the keyboard-and-tabla pop practice documented in European Afghan communities. This is a vocal song-and-dance branch, not a national summary or a replacement for Kabuli klasik, regional folk repertoires, Pashto pop or every diaspora production.",
-  "recipe": "classic mid-2010s afghan pop, functional Song, south Asian pop branch, mid east n African pop functional song, pop rock functional song new wave yacht rock. straight note core, multi note runs per syllable, note connecting slide, modern pop training. regional style kit party arranger korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, tabla, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 791,
-  "score": 298.866,
+  "recipe": "classic mid-2010s afghan pop, functional Song, south Asian pop branch, mid east n African pop functional song, pop rock functional song new wave yacht rock. straight note core, multi note runs per syllable, note connecting slide, modern pop training. regional style kit party arranger korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, sustaining copper tabla, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 809,
+  "score": 295.965,
   "config": {
     "traditions": [
       "afghan_pop",
@@ -41,14 +41,14 @@
           "voice_vibrato": 0.9749999999999996,
           "voice_articulation": 1.375,
           "voice_microtone": 2.9450000000000003,
-          "voice_tradition": 45.93625000000001,
-          "voice_mechanism_compound": 0.500625,
+          "voice_tradition": 45.25000000000001,
+          "voice_mechanism_compound": 0.44999999999999996,
           "voice_estill_quality": 1.3649999999999998,
-          "voice_speech_song": 0.10124999999999999,
+          "voice_speech_song": 0,
           "voice_ensemble_config": 2.145,
           "voice_ornament_system": 0.14250000000000002,
           "voice_pitch_organization": 0.3,
-          "voice_processing_chain": 3.65125,
+          "voice_processing_chain": 3.4825,
           "voice_multitrack_stack": 0.195
         }
       },
@@ -61,7 +61,7 @@
           "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
-          "electronic_technique": 36.728125000000006,
+          "electronic_technique": 36.67750000000001,
           "rompler_preset_bank": 2.08,
           "rompler_context": 36.870000000000005,
           "rompler_lineage": 2.795
@@ -76,7 +76,7 @@
         },
         "scores": {
           "tabla_dayan": -0.035,
-          "tabla_bayan": 0.93,
+          "tabla_bayan": 1.23,
           "tabla_syahi": 0
         }
       },
@@ -97,18 +97,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 38.575625,
-          "amp_make": 13.712499999999997,
+          "electric_technique": 38.525000000000006,
+          "amp_make": 13.239999999999997,
           "body_wood": 3.185,
           "neck_wood": 3.185,
           "fretboard": 3.1200000000000006,
           "pickup_magnet": 0.44999999999999996,
           "string_material": 0.44999999999999996,
           "string_gauge": 3.835,
-          "bridge": 0.550625,
+          "bridge": 0.5,
           "scale_length": 3.185,
           "finish": 0,
-          "string_tuning": 11.263124999999999
+          "string_tuning": 10.739999999999998
         }
       },
       {
@@ -124,13 +124,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.660624999999998,
+          "amp_make": 9.1375,
           "body_wood": 3.185,
           "pickup_config": 0.195,
-          "string_type": 22.2375,
+          "string_type": 21.765,
           "scale_length_b": 3.185,
           "fretted_or_not": 0,
-          "bass_technique": 0.32562499999999994,
+          "bass_technique": 0.27499999999999997,
           "electric_bass_string_configuration": 0
         }
       },

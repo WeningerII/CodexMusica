@@ -3,14 +3,14 @@
   "name": "Abstract hip hop",
   "family": "hip_hop",
   "lineage": "Late-1990s and 2000s independent hip-hop emphasizing associative imagery and densely constructed MC writing. Aesop Rock and Blockhead’s Labor Days (2001), issued through Definitive Jux, anchors the selected New York sample-based strand. Abstract describes the writing and approach, rather than a single production technology; this authored studio recipe selects an articulate solo flow and chopped sample bed.",
-  "recipe": "classic 1997-1999 abstract hip hop, mc Rhythm, experimental branch, us hip hop east coast mafioso rap boom bap. thick, rap, narrative, equal tempered. sampled chopped sampler drum machine, chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 351,
-  "score": 190.825,
+  "recipe": "classic 1997-1999 abstract hip hop, mc Rhythm, experimental branch, us hip hop east coast mafioso rap harlem hip hop. thick, rap, narrative, equal tempered. sampled chopped sampler drum machine, chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 357,
+  "score": 168.743,
   "config": {
     "traditions": [
       "abstract_hip_hop",
       "mafioso_rap",
-      "boom_bap"
+      "harlem_hip_hop"
     ],
     "instruments": [
       {
@@ -34,18 +34,18 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 11.115,
-          "voice_quality": 24.94,
+          "voice_register": 5.690000000000001,
+          "voice_quality": 24.49,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.345,
-          "voice_articulation": 16.185,
-          "voice_microtone": 5.9700000000000015,
+          "voice_articulation": 13.01,
+          "voice_microtone": 3.045000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 1.09,
+          "voice_mechanism_compound": 1.24,
           "voice_estill_quality": 0,
-          "voice_speech_song": 21.474999999999998,
-          "voice_ensemble_config": 4.095,
+          "voice_speech_song": 21.175,
+          "voice_ensemble_config": 3.5100000000000002,
           "voice_ornament_system": 0.15,
           "voice_pitch_organization": 0.045,
           "voice_processing_chain": 0,
@@ -61,9 +61,9 @@
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 12.334999999999999,
+          "electronic_technique": 11.51,
           "sample_bitdepth": 0.195,
-          "sample_swing": 17.419999999999998,
+          "sample_swing": 16.25,
           "sample_processing": -0.05
         }
       },
@@ -77,11 +77,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 12.334999999999999,
-          "sampler_archetypes": 17.419999999999998,
+          "electronic_technique": 11.51,
+          "sampler_archetypes": 16.25,
           "sampler_bit_depth": 0.195,
-          "sampler_workflow": 13.594999999999999,
-          "sampler_classic_context": 31.459999999999994
+          "sampler_workflow": 11.795,
+          "sampler_classic_context": 27.202499999999997
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Polish blues includes locally established blues bands and their vernacular song repertories. Dżem exemplifies the Tychy blues-rock branch through sung songs, guitars and an electric rhythm section.",
   "recipe": "classic modern polish blues, functional Song, blues electric branch. blues inflected, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 456,
-  "score": 20.261,
+  "score": 18.048,
   "config": {
     "traditions": [
       "polish_blues"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.029,
-          "voice_ensemble_config": 1.113,
+          "voice_speech_song": 0.6997500000000001,
+          "voice_ensemble_config": 1.0425,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21000000000000002,
-          "voice_multitrack_stack": 1.5435
+          "voice_multitrack_stack": 0.7140000000000001
         }
       },
       {
@@ -68,16 +68,16 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.1100000000000003,
+          "electric_technique": 2.2952500000000002,
           "amp_make": 0,
-          "body_wood": 0.27299999999999996,
-          "neck_wood": 0.3045,
+          "body_wood": 0.063,
+          "neck_wood": 0.0945,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "pickup_winding": 0.22049999999999997,
+          "pickup_winding": 0.147,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.609,
+          "scale_length": 0.189,
           "string_gauge": 0.0315,
           "finish": 0,
           "string_tuning": 0.063
@@ -97,12 +97,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.27299999999999996,
+          "body_wood": 0.063,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.0945,
           "fretted_or_not": 0.063,
-          "bass_technique": -0.10500000000000001,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },

@@ -1,0 +1,72 @@
+{
+  "id": "quarteto_gospel",
+  "name": "Quarteto gospel",
+  "family": "blues_gospel",
+  "lineage": "Brazilian gospel quartet centers Christian text in four male vocal roles. Arautos do Rei anchors the Adventist broadcast and concert branch, adapting quartet spiritual repertory and performing both accompanied and unaccompanied harmony. The authored unaccompanied small-ensemble branch uses chordal harmony; the two-tenor, baritone and bass roles are vocal parts, not an instrumental bass chair.",
+  "recipe": "classic modern quarteto gospel, ritual Devotional, christian gospel branch. a cappella small 3 to 8 one per part homophonic chordal rhythm aligned sacred liturgical global choir ensemble. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 391,
+  "score": 7.636,
+  "config": {
+    "traditions": [
+      "quarteto_gospel"
+    ],
+    "instruments": [
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+          "choir_regional_canonical_configuration": "choir_regional_none",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 1.69,
+          "choir_polyphonic_configuration": 1.3,
+          "choir_regional_canonical_configuration": 0,
+          "choir_ensemble_repertoire": 2.121
+        }
+      }
+    ],
+    "pinned": {
+      "choir_ensemble": [
+        "choir_size",
+        "choir_polyphonic_configuration",
+        "choir_regional_canonical_configuration",
+        "choir_ensemble_repertoire"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "choir_size": "a_cappella_small_ensemble_3_8",
+      "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+      "choir_regional_canonical_configuration": "choir_regional_none",
+      "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": []
+  }
+}

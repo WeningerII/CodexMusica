@@ -5,7 +5,7 @@
   "lineage": "Newark, New Jersey club style built from roughly 1999 by DJ Tameil and the Brick Bandits after importing Baltimore club records, running 130-140 BPM tracks on a five-kick triplet-into-four pattern, the ubiquitous Lyn Collins 'Think' break, bed-squeak samples and chopped a cappella vocal stabs, arranged as short DJ tools rather than songs.",
   "recipe": "classic late-1990s brick city club, electronic Dance, garage house u s branch, footwork electronic dance, Afro-diasporic MC rhythm jersey club. vocal fry, breath veiled tone, straight onset, interlocked note trading. sampled chopped turntable, sampled chopped sampler drum machine, TR-808, analog poly synth, la bella flats Detroit soul bass canon sub heavy electric bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 480,
-  "score": 151.696,
+  "score": 151.382,
   "config": {
     "traditions": [
       "brick_city_club",
@@ -21,7 +21,7 @@
         },
         "scores": {
           "electronic_technique": 5.0375000000000005,
-          "turntable_technique": 1.4599999999999997
+          "turntable_technique": 1.505
         }
       },
       {
@@ -36,7 +36,7 @@
           "electronic_technique": 5.0375000000000005,
           "sample_bitdepth": 0.45499999999999996,
           "sample_swing": 14.25,
-          "sample_processing": 0.4515
+          "sample_processing": 0.42
         }
       },
       {
@@ -48,7 +48,7 @@
         },
         "scores": {
           "tr808_voice": 1.5274999999999999,
-          "drum_machine_808_context": 9.7115,
+          "drum_machine_808_context": 9.679999999999998,
           "tr808_production_origin": 0.45499999999999996
         }
       },
@@ -86,9 +86,9 @@
           "voice_speech_song": 11.829999999999995,
           "voice_ensemble_config": 13.454999999999993,
           "voice_ornament_system": 1.1699999999999993,
-          "voice_pitch_organization": 2.0815,
-          "voice_processing_chain": 16.715,
-          "voice_multitrack_stack": 11.434500000000002
+          "voice_pitch_organization": 2.05,
+          "voice_processing_chain": 16.655,
+          "voice_multitrack_stack": 11.280000000000001
         }
       },
       {
@@ -120,12 +120,12 @@
         },
         "scores": {
           "amp_make": 0.9749999999999999,
-          "body_wood": 0.903,
+          "body_wood": 0.8400000000000001,
           "pickup_config": 0.45499999999999996,
           "string_type": 1.2999999999999998,
           "scale_length_b": 0.45499999999999996,
           "fretted_or_not": 0,
-          "bass_technique": 1.5814999999999997,
+          "bass_technique": 1.5949999999999998,
           "electric_bass_string_configuration": 0
         }
       }

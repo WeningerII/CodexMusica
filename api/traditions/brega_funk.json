@@ -5,7 +5,7 @@
   "lineage": "Recife hybrid formed around 2015-2018 by Shevchenko e Elloco, MC Troia and Japãozin, fusing Pernambucan brega with Rio funk — 128-135 BPM tamborzão-derived programmed beat with a swung, off-grid snare, cheap sampled brass and synth stabs, deep 808 sub, and rapid-fire half-sung MC delivery over two- or four-bar loops, choreographed for viral passinho dance videos.",
   "recipe": "classic South American 2015-2018 brega funk, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm, Brazilian song functional song arrochadeira brega and tecnobrega. kargyraa, breath veiled tone, slow rate, interlocked note trading. melodic pitched sampler, TR-808, sub bass analog poly synth, timbal brasileiro, alder pyramid pure nickel bass British mid 60s era electric bass. recife brazilian northeast forro house. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 529,
-  "score": 166.132,
+  "score": 163.885,
   "config": {
     "traditions": [
       "brega_funk",
@@ -28,13 +28,13 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.0956249999999998,
+          "voice_register": 0.9006249999999999,
           "voice_quality": 6.825000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -46,10 +46,10 @@
           "voice_estill_quality": 5.525,
           "voice_speech_song": 18.459999999999994,
           "voice_ensemble_config": 15.404999999999992,
-          "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 1.6300000000000001,
+          "voice_ornament_system": 1.4299999999999995,
+          "voice_pitch_organization": 1.435,
           "voice_processing_chain": 11.149999999999995,
-          "voice_multitrack_stack": 7.767500000000001
+          "voice_multitrack_stack": 7.4
         }
       },
       {
@@ -63,9 +63,9 @@
         },
         "scores": {
           "electronic_technique": 2.3075,
-          "sampler_archetypes": 4.01,
-          "sampler_bit_depth": 2.27,
-          "sampler_workflow": 1.5599999999999998,
+          "sampler_archetypes": 4.1450000000000005,
+          "sampler_bit_depth": 2.12,
+          "sampler_workflow": 1.65,
           "sampler_classic_context": 15.274999999999995
         }
       },
@@ -78,8 +78,8 @@
         },
         "scores": {
           "tr808_voice": 3.4125,
-          "drum_machine_808_context": 3.965,
-          "tr808_production_origin": 0.245625
+          "drum_machine_808_context": 3.95,
+          "tr808_production_origin": 0.09562499999999999
         }
       },
       {
@@ -92,9 +92,9 @@
         },
         "scores": {
           "electronic_technique": 3.2825000000000006,
-          "poly_archetypes": 0.845,
+          "poly_archetypes": 0.6950000000000001,
           "poly_voices": 0.15,
-          "poly_maker_lineage": -1.435
+          "poly_maker_lineage": -2.05
         }
       },
       {
@@ -123,12 +123,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.625,
-          "body_wood": 2.8256250000000005,
+          "amp_make": 1.52,
+          "body_wood": 2.630625,
           "pickup_config": 1.0006249999999999,
           "string_type": 2.7950000000000004,
-          "scale_length_b": 1.8850000000000002,
-          "fretted_or_not": 0.15,
+          "scale_length_b": 1.7200000000000002,
+          "fretted_or_not": 0.045,
           "bass_technique": 10.749999999999996,
           "electric_bass_string_configuration": 0
         }

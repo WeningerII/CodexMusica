@@ -5,7 +5,7 @@
   "lineage": "Early-1960s teen-pop female-vocal-group genre centered on the Brill Building songwriter ecosystem — codified through The Shirelles (\"Will You Love Me Tomorrow\" 1960, Goffin-King), The Ronettes (\"Be My Baby\" 1963, Phil Spector-Wall of Sound), The Crystals, The Marvelettes, Martha and the Vandellas; characterized by lead-and-backing-vocal arrangements, professional-songwriter material, and small-studio production aesthetic of the era",
   "recipe": "classic Los Angeles 1960s girl group, functional Song, girl group branch, soul R&B doowop doo-wop souldies. thick, breath veiled tone, slow rate, interlocked note trading. choir doo wop group, Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, Hammond a 100 built in Leslie home spinet block chord slow chorale tonewheel organ, low fundamental tuning professional rosewood castanets. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 968,
-  "score": 520.324,
+  "score": 520.426,
   "config": {
     "traditions": [
       "girl_group_60s",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 32.825,
-          "voice_quality": 28.783250000000024,
+          "voice_quality": 28.734500000000022,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.8199999999999996,
-          "voice_articulation": 23.733499999999992,
-          "voice_microtone": 22.443499999999997,
-          "voice_tradition": 15.959124999999995,
+          "voice_articulation": 23.745874999999995,
+          "voice_microtone": 22.455874999999995,
+          "voice_tradition": 16.020249999999997,
           "voice_mechanism_compound": 3.51,
-          "voice_estill_quality": 14.189999999999998,
+          "voice_estill_quality": 14.195624999999998,
           "voice_speech_song": 30.419999999999995,
-          "voice_ensemble_config": 24.013499999999997,
+          "voice_ensemble_config": 24.025875,
           "voice_ornament_system": 1.15,
           "voice_pitch_organization": 2.7131250000000007,
           "voice_processing_chain": 11.978999999999997,
-          "voice_multitrack_stack": 12.595499999999998
+          "voice_multitrack_stack": 12.550499999999998
         }
       },
       {
@@ -71,7 +71,7 @@
           "body_wood": "alder",
           "neck_wood": "mahogany_neck",
           "fretboard": "maple_fb",
-          "pickup_magnet": "alnico_2",
+          "pickup_magnet": "alnico_3",
           "string_material": "pure_nickel",
           "string_gauge": "g_12",
           "bridge": "hardtail",
@@ -80,13 +80,13 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 16.624999999999996,
-          "amp_make": 15.538124999999999,
+          "electric_technique": 16.630624999999995,
+          "amp_make": 15.54375,
           "body_wood": 0.3,
           "neck_wood": 0.195,
           "fretboard": 0.49499999999999994,
-          "pickup_magnet": 0,
-          "string_material": 0.0045,
+          "pickup_magnet": 0.005625,
+          "string_material": 0.005625,
           "string_gauge": 1.8849999999999996,
           "bridge": 0,
           "scale_length": 0.195,
@@ -107,10 +107,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 20.269125,
+          "amp_make": 20.271,
           "body_wood": 0.195,
           "pickup_config": 0,
-          "string_type": 19.9675,
+          "string_type": 19.969375,
           "scale_length_b": 0.195,
           "fretted_or_not": 0.39,
           "bass_technique": 11.7,
@@ -125,7 +125,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.732,
+          "drum_technique": 22.744374999999998,
           "drumhead": 14.894999999999996,
           "drum_kit_kick_pedal": 0
         }
@@ -152,7 +152,7 @@
           "piano_soundboard": 14.699999999999996,
           "piano_pinblock": -0.05,
           "piano_plate": 2.1181249999999996,
-          "piano_pitch_standard": 3.4438750000000002
+          "piano_pitch_standard": 3.4450000000000003
         }
       },
       {
@@ -167,7 +167,7 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 13.229499999999998,
+          "wind_articulation": 13.268124999999998,
           "sax_size": 11.745,
           "sax_reed": 0,
           "sax_body_alloy": -0.035,
@@ -190,7 +190,7 @@
           "keyboard_technique": 16.615,
           "drawbar_setting": 6.1450000000000005,
           "rotary_speed": 12.664375,
-          "percussion_setting": 2.48525,
+          "percussion_setting": 2.502875,
           "tonewheel_model": 6.175,
           "leslie_cabinet_model": 0.845
         }

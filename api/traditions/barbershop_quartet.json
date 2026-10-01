@@ -5,7 +5,7 @@
   "lineage": "American close-harmony unaccompanied male-vocal quartet tradition codified through the SPEBSQSA (Society for the Preservation and Encouragement of Barber Shop Quartet Singing in America, founded 1938 Tulsa Oklahoma, renamed Barbershop Harmony Society 2004) — descended from late-19th-century African-American barbershop-and-saloon harmony singing, with the chord structure of tenor (above melody-lead), lead, baritone, bass; codified canon includes the Buffalo Bills, the Suntones, the Vocal Majority, the modern continuation through the international annual contest circuit",
   "recipe": "classic North American late-1930s american barbershop quartet, functional Song, crooners branch, christian gospel southern gospel, country functional song country rock bluegrass gospel. thick, breath veiled tone, straight note core, multi note runs per syllable. choir barbershop quartet. us uk civic amateur band hall. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
   "recipe_chars": 385,
-  "score": 202.68,
+  "score": 202.635,
   "config": {
     "traditions": [
       "barbershop_quartet",
@@ -38,18 +38,18 @@
           "voice_quality": 18.459999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.974999999999994,
+          "voice_vibrato": 13.929999999999996,
           "voice_articulation": 14.184999999999999,
           "voice_microtone": 12.764999999999997,
           "voice_tradition": 16.542499999999997,
           "voice_mechanism_compound": 2.275,
-          "voice_estill_quality": 14.774999999999995,
+          "voice_estill_quality": 14.594999999999995,
           "voice_speech_song": 18.134999999999994,
-          "voice_ensemble_config": 12.719999999999999,
+          "voice_ensemble_config": 12.915,
           "voice_ornament_system": 3.5249999999999995,
-          "voice_pitch_organization": 10.164999999999997,
+          "voice_pitch_organization": 10.119999999999997,
           "voice_processing_chain": 7.442500000000002,
-          "voice_multitrack_stack": 9.28
+          "voice_multitrack_stack": 9.294999999999998
         }
       },
       {
@@ -59,7 +59,7 @@
           "choir_barbershop_quartet_context": "choir_barbershop_quartet_contemporary"
         },
         "scores": {
-          "voices": 6.095,
+          "voices": 6.109999999999999,
           "choir_barbershop_quartet_context": 1.95
         }
       }

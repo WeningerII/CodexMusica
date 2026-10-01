@@ -5,7 +5,7 @@
   "lineage": "Short-lived Athenian movement of 1960-67 centred on the Plaka boîtes, combining French chanson phrasing with éntekhno lyricism — soft mid-range voices, nylon-string guitar as the primary accompaniment with double bass and occasional string quartet, tempered Western harmony rather than dromoi, slow to moderate 4/4 and 3/4, and intimate close-miked delivery to small seated audiences",
   "recipe": "classic Southern European early-1960s néo kýma, ballad Poetry, Greek entechno branch, chanson fado classic chanson, anglo singer song confessional60s chanson classique. extended whistle, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, lyon twisted plain Baroque setup lighter bass bar no endpin double bass, cold pressed weikert felt birch laminated maple laminated Asian spruce grand piano, sitka spruce bigleaf maple western maple French Polish shellac pad violin orchestral. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 714,
-  "score": 197.248,
+  "score": 197.26,
   "config": {
     "traditions": [
       "neo_kyma",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 4.571875,
+          "voice_register": 4.60375,
           "voice_quality": 14.429999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.1449999999999996,
           "voice_pitch_organization": 1.6900000000000002,
           "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 6.452250000000001
+          "voice_multitrack_stack": 6.43275
         }
       },
       {

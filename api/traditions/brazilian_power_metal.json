@@ -5,7 +5,7 @@
   "lineage": "Brazilian metal practice documented by Angra’s own musicians, with this entry selecting the power metal branch rather than treating all national metal as one sound.",
   "recipe": "classic modern brazilian power metal, distorted Rock, power branch. equal tempered, one note per syllable, solo with instrumental accompaniment. modern metal basswood humbucker electric guitar, electric bass, sticks backbeat drum kit, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 389,
-  "score": 27.07,
+  "score": 27.233,
   "config": {
     "traditions": [
       "brazilian_power_metal"
@@ -29,9 +29,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.21125000000000002,
+          "electric_technique": 0.24375000000000002,
           "amp_make": 0,
-          "body_wood": 7.498749999999999,
+          "body_wood": 7.54,
           "neck_wood": 0.01125,
           "fretboard": 0.11624999999999999,
           "pickup_magnet": 0.273,
@@ -111,11 +111,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.45525,
-          "voice_ensemble_config": 1.628875,
-          "voice_ornament_system": 0.007499999999999999,
+          "voice_speech_song": 1.4877500000000001,
+          "voice_ensemble_config": 1.6445,
+          "voice_ornament_system": 0.04,
           "voice_pitch_organization": 0.014999999999999998,
-          "voice_processing_chain": 0.06149999999999999,
+          "voice_processing_chain": 0.094,
           "voice_multitrack_stack": 0.40725000000000006
         }
       },
@@ -129,7 +129,7 @@
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": 0.285625,
+          "electronic_technique": 0.26125,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.39,
           "sampler_workflow": 0.7149999999999999,

@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-09-30",
-  "count": 3038,
+  "count": 3138,
   "items": [
     {
       "id": "honky_tonk",
@@ -85,8 +85,8 @@
       "id": "delta_blues",
       "name": "Delta blues",
       "family": "blues_gospel",
-      "recipe": "classic late-1920s delta blues, ballad Poetry, delta narrative branch, vocal drone modal, blues acoustic functional song, American south field work piedmont blues traditional blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 488
+      "recipe": "classic late-1920s delta blues, ballad Poetry, delta narrative branch, vocal drone modal, blues acoustic functional song, American south field work piedmont blues belgian blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 484
     },
     {
       "id": "piedmont_blues",
@@ -225,8 +225,8 @@
       "id": "gangsta_rap",
       "name": "Gangsta rap",
       "family": "hip_hop",
-      "recipe": "classic North American 1984-1986 gangsta rap, mc Rhythm, gangsta branch, us hip hop west coast, us hip hop east coast bay area hyphy g-funk. thick, rap, slow rate, narrative. sampled chopped sampler drum machine, pitched chopped sampler, low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. treated studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 488
+      "recipe": "classic North American 1984-1986 gangsta rap, mc Rhythm, gangsta branch, us hip hop west coast, us hip hop east coast bronx hip hop buffalo hip hop. thick, rap, straight onset, narrative. sampled chopped sampler drum machine, chopped sampler, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass. treated studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 479
     },
     {
       "id": "conscious_hip_hop",
@@ -589,15 +589,15 @@
       "id": "boom_bap",
       "name": "Boom bap",
       "family": "hip_hop",
-      "recipe": "classic North American mid-1990s boom bap, mc Rhythm, east coast branch, soul R&B functional song doo-wop souldies. thick, breath veiled tone, straight onset, interlocked note trading. sampled chopped sampler drum machine, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sampled chopped turntable. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 509
+      "recipe": "classic North American mid-1990s boom bap, mc Rhythm, east coast branch, soul R&B functional song gospel soul doo-wop. thick, blues-shouter, straight onset, narrative. sampled chopped sampler drum machine, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sampled chopped turntable. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 492
     },
     {
       "id": "g_funk",
       "name": "G-funk",
       "family": "hip_hop",
-      "recipe": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion cuban funk. thick, rap, straight onset, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, talkbox. west la 1968-present major-flagship the village recorder west la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 536
+      "recipe": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion deep funk cuban funk. thick, rap, straight onset, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, ampeg svt amp rock bass amp mahogany thomastik infeld low tension electric bass, talkbox. west la 1968-present major-flagship the village recorder west la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 534
     },
     {
       "id": "southern_trap",
@@ -736,8 +736,8 @@
       "id": "funk",
       "name": "Funk",
       "family": "blues_gospel",
-      "recipe": "classic Midwestern American mid-1960s funk, groove Percussion, funk percussive branch, soul R&B functional song doo-wop southern soul. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet ostinato full spectrum slow chorale tonewheel organ, tenor ensemble honking attack saxophone, bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, hohner d6 canonical 1971 1981 funk era ostinato clavinet. cincinnati 1943-1971 indie-commercial king records studios cincinnati. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 977
+      "recipe": "classic Midwestern American mid-1960s funk, groove Percussion, funk percussive branch, soul R&B functional song gospel soul doo-wop. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet ostinato full spectrum slow chorale tonewheel organ, tenor ensemble honking attack saxophone, bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, hohner d6 canonical 1971 1981 funk era ostinato clavinet. cincinnati 1943-1971 indie-commercial king records studios cincinnati. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 975
     },
     {
       "id": "southern_soul",
@@ -981,8 +981,8 @@
       "id": "hiplife",
       "name": "Hiplife",
       "family": "global",
-      "recipe": "classic West African mid-1990s hiplife, groove Percussion, west African branch, Afro-diasporic MC rhythm kwaito merenrap. vocal fry, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, basswood maple pau ferro alnico nickel plated steel humbucker electric guitar, synthetic remo fiberskyn modern stable siam oak mid tier modern open slap hand drum congas. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
-      "recipe_chars": 610
+      "recipe": "classic West African mid-1990s hiplife, groove Percussion, west African branch, Afro-diasporic MC rhythm kwaito ghanaian hip hop. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, basswood maple pau ferro alnico nickel plated steel humbucker electric guitar, synthetic remo fiberskyn modern stable siam oak mid tier modern open slap hand drum congas. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+      "recipe_chars": 614
     },
     {
       "id": "afrobeats_naija",
@@ -1044,8 +1044,8 @@
       "id": "gqom",
       "name": "Gqom",
       "family": "global",
-      "recipe": "classic Southern African 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm merenrap merengue de calle. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-      "recipe_chars": 375
+      "recipe": "classic Southern African 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm merenrap ghanaian hip hop. vocal fry, rap, straight note core, interlocked note trading. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+      "recipe_chars": 359
     },
     {
       "id": "amapiano",
@@ -1450,8 +1450,8 @@
       "id": "uk_drill",
       "name": "UK drill",
       "family": "hip_hop",
-      "recipe": "classic 2014-2016 uk drill, mc Rhythm, drill branch, intl hip hop MC rhythm brazilian hip hop cumbia rap. vocal fry, rap, breath pulsed, interlocked note trading. TR-808, sub bass monosynth acid bass, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 383
+      "recipe": "classic 2014-2016 uk drill, mc Rhythm, drill branch, intl hip hop MC rhythm afrikaans hip hop australian underground hip hop. vocal fry, rap, breath pulsed, interlocked note trading. TR-808, sub bass monosynth acid bass, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 403
     },
     {
       "id": "french_rap",
@@ -1590,8 +1590,8 @@
       "id": "zydeco",
       "name": "Zydeco",
       "family": "global",
-      "recipe": "classic Southern American mid-1950s zydeco, groove Percussion, Caribbean branch, blues electric functional song blues band chicago blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. castagnari Italian premium folk music chordal accordion, frottoir. lafayette louisiana zydeco dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 408
+      "recipe": "classic Southern American mid-1950s zydeco, groove Percussion, Caribbean branch, blues electric functional song blues band blues mexicano. thick, breath veiled tone, wide pitch sway, interlocked note trading. castagnari Italian premium folk music chordal accordion, frottoir. lafayette louisiana zydeco dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 409
     },
     {
       "id": "inuit_katajjaq",
@@ -2017,8 +2017,8 @@
       "id": "tropical_bass",
       "name": "Global bass",
       "family": "global",
-      "recipe": "classic early-2010s global bass, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm merenrap kwaito. sampler, TR-808, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 308
+      "recipe": "classic early-2010s global bass, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm merenrap ghanaian hip hop. melodic pitched sampler, TR-808, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 334
     },
     {
       "id": "eurodance_90s",
@@ -2066,8 +2066,8 @@
       "id": "dubstep_140",
       "name": "Dubstep (140 bass-music)",
       "family": "global",
-      "recipe": "classic British 2004-2006 dubstep, bass System, uk soundsystem branch, intl hip hop MC rhythm trap funk uk grime. chopped sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass. treated studio. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3 high-gain distortion hall reverb.",
-      "recipe_chars": 375
+      "recipe": "classic British 2004-2006 dubstep, bass System, uk soundsystem branch, intl hip hop MC rhythm bc underground hip hop trap funk. pitched chopped sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass. treated studio. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3 high-gain distortion hall reverb.",
+      "recipe_chars": 397
     },
     {
       "id": "lovers_rock",
@@ -2409,8 +2409,8 @@
       "id": "piedmont_fingerpicking",
       "name": "Piedmont fingerpicking blues",
       "family": "global",
-      "recipe": "classic Midwestern American mid-1930s piedmont fingerpicking blues, ballad Poetry, piedmont narrative branch, blues acoustic functional song piedmont blues st. louis blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, narrative fingerpicked mountain dulcimer. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 531
+      "recipe": "classic Midwestern American mid-1930s piedmont fingerpicking blues, ballad Poetry, piedmont narrative branch, blues acoustic functional song belgian blues piedmont blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, narrative fingerpicked mountain dulcimer. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 529
     },
     {
       "id": "parchman_prison_song",
@@ -2521,8 +2521,8 @@
       "id": "garage_house_paradise",
       "name": "Garage house",
       "family": "global",
-      "recipe": "classic Asian mid-1980s garage house, electronic Dance, garage house u s branch, soul R&B functional song british soul doo-wop. thick, blues-shouter, slow rate, narrative. Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum slow chorale tonewheel organ, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead digital subtractive, TR-909. jazz club. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-      "recipe_chars": 562
+      "recipe": "classic Asian mid-1980s garage house, electronic Dance, garage house u s branch, soul R&B functional song british soul classic soul. thick, blues-shouter, slow rate, narrative. Hammond a 100 built in Leslie home spinet gospel runs full spectrum slow chorale tonewheel organ, cold pressed weikert felt 18 ply hard rock maple vintage production grand piano, digital subtractive, TR-909. jazz club. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+      "recipe_chars": 529
     },
     {
       "id": "lofi_house_aesthetic",
@@ -2647,8 +2647,8 @@
       "id": "gospel_quartet_male",
       "name": "Gospel quartet (male)",
       "family": "global",
-      "recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel southern gospel piano-bass. thick, declaimed, straight note core, multi note runs per syllable. a cappella small 3 to 8 one per part five voice polyphonic regional andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 948
+      "recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 945
     },
     {
       "id": "contemporary_urban_gospel",
@@ -2787,8 +2787,8 @@
       "id": "early_rock_and_roll_50s",
       "name": "Early rock-and-roll (1954–1958)",
       "family": "vernacular",
-      "recipe": "classic North American early rock-and-roll, distorted Rock, classic branch, blues electric functional song blues band chicago blues. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright acoustic leaning laminated maple archtop, upright bass, pre muffled edge muffled brushes-and-sticks drum kit, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, selmer mark vi canonical 1954 1974 jazz paris saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 654
+      "recipe": "classic North American early rock-and-roll, distorted Rock, classic branch, blues electric functional song blues band blues mexicano. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright acoustic leaning laminated maple archtop, growly gut upright bass, pre muffled edge muffled brushes-and-sticks drum kit, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 708
     },
     {
       "id": "rockabilly_50s",
@@ -2801,8 +2801,8 @@
       "id": "pre_sampling_hip_hop_1979_1985",
       "name": "Pre-sampling hip-hop (1979-1985)",
       "family": "vernacular",
-      "recipe": "classic North American pre-sampling hip-hop, mc Rhythm, east coast branch, soul R&B functional song contemporary r&b afro soul. thick, rap, straight onset, narrative. sampled chopped turntable, pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, drum machine 606, cheap paired with 303 chicago foundational TR-707. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 764
+      "recipe": "classic North American pre-sampling hip-hop, mc Rhythm, east coast branch, soul R&B functional song contemporary r&b doo-wop. thick, rap, straight onset, narrative. sampled chopped turntable, pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, drum machine 606, cheap paired with 303 chicago foundational TR-707. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 762
     },
     {
       "id": "golden_age_hip_hop_1986_1991",
@@ -2850,8 +2850,8 @@
       "id": "british_invasion_rb",
       "name": "British R&B and British Invasion (1962–1968)",
       "family": "vernacular",
-      "recipe": "classic British british r&b and british invasion, distorted Rock, classic branch, blues electric functional song blues band blues-rock guitar. thick, breath veiled tone, wide pitch sway, interlocked note trading. slow-build minor-key ballad in 6 8, descending bass walk, slow build dynamic envelope, mid song instrumental break. marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric guitar, selmer amp British 60s amp acoustic leaning pressed spruce mid tier archtop, marshall plexi amp British rock amp Rickenbacker dual p90 British invasion semi hollow, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ, marshall plexi amp British rock amp alder ernie ball slinky electric marshall plexi amp British rock amp hofner blade dual blade la bella flat short scale marshall plexi amp British rock amp Gibson eb2 epiphone rivoli semi hollow archtop semi hollow bass, sticks backbeat drum kit.",
-      "recipe_chars": 967
+      "recipe": "classic British british r&b and british invasion, distorted Rock, classic branch, blues electric functional song blues band blues mexicano. thick, blues-shouter, wide pitch sway, interlocked note trading. slow-build minor-key ballad in 6 8, descending bass walk, slow build dynamic envelope, mid song instrumental break. marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric guitar, selmer amp British 60s amp acoustic leaning laminated maple es 175 canon archtop, marshall plexi amp British rock amp Rickenbacker dual p90 flatwound semi hollow, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ, marshall plexi amp British rock amp alder ernie ball slinky electric marshall plexi amp British rock amp hofner blade dual blade la bella flat short scale marshall plexi amp British rock amp Gibson eb2 epiphone rivoli semi hollow archtop semi hollow bass, vintage ambassador asymmetric brushes-and-sticks drum kit.",
+      "recipe_chars": 990
     },
     {
       "id": "khayal",
@@ -2983,8 +2983,8 @@
       "id": "embolada",
       "name": "Embolada",
       "family": "global",
-      "recipe": "classic South American mid-1930s embolada, groove Percussion, Brazilian branch, Afro-diasporic MC rhythm kwaito trinibad. vocal fry, rap, fast rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro. recife brazilian northeast forro house. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 431
+      "recipe": "classic South American mid-1930s embolada, groove Percussion, Brazilian branch, Afro-diasporic MC rhythm cameroonian hip hop hip hop galsen. vocal fry, rap, fast rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro. recife brazilian northeast forro house. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 450
     },
     {
       "id": "jongo",
@@ -3865,8 +3865,8 @@
       "id": "sabar_drumming_wolof",
       "name": "Sabar drumming (Senegalese Wolof)",
       "family": "global",
-      "recipe": "classic West African modern sabar drumming, groove Percussion, west African branch, Afro-diasporic MC rhythm merenrap kwaito. vocal fry, breath veiled tone, slow rate, interlocked note trading. iroko alternative west African antelope hide premium senegambian tama talking drum, mbalax dimba canonical Senegalese single hollowed trunk goat skin wooden pegs canonical wolof family canonical Senegalese mbalax sabar. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 566
+      "recipe": "classic West African modern sabar drumming, groove Percussion, west African branch, Afro-diasporic MC rhythm hip hop galsen cameroonian hip hop. vocal fry, breath veiled tone, slow rate, interlocked note trading. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, mbalax dimba canonical Senegalese single hollowed trunk goat skin wooden pegs canonical wolof family canonical Senegalese mbalax sabar. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 602
     },
     {
       "id": "donsongoni_hunter_harp",
@@ -3900,15 +3900,15 @@
       "id": "coupe_decale_ivorian",
       "name": "Coupé-décalé (Ivorian dance music)",
       "family": "global",
-      "recipe": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm merenrap kwaito. extended whistle, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, plucked short envelope analog synth, alder pyramid pure nickel bass British mid 60s era electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 576
+      "recipe": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm hip hop galsen merenrap. extended whistle, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, plucked short envelope analog synth, mahogany pyramid pure nickel bass British mid 60s era electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 587
     },
     {
       "id": "zouglou_ivorian",
       "name": "Zouglou (Ivorian student music)",
       "family": "global",
-      "recipe": "classic West African early-1990s zouglou, functional Song, African pop branch, Afro-diasporic MC rhythm kwaito merenrap. extended whistle, breath veiled tone, straight onset, interlocked note trading. TR-808, electric bass, clean strummed single coil electric guitar. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 478
+      "recipe": "classic West African early-1990s zouglou, functional Song, African pop branch, Afro-diasporic MC rhythm hip hop galsen ghanaian hip hop. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, pyramid pure nickel bass British mid 60s era electric bass, clean strummed single coil electric guitar. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 543
     },
     {
       "id": "singeli_tanzanian",
@@ -4754,8 +4754,8 @@
       "id": "salsa_dura",
       "name": "Salsa dura (hard 70s NY salsa)",
       "family": "global",
-      "recipe": "classic North American mid-1970s salsa dura, groove Percussion, son salsa branch, Afro-diasporic MC rhythm merenrap kwaito. extended whistle, rap, fast rate, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator grand piano, electric bass, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor trombone, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 866
+      "recipe": "classic North American mid-1970s salsa dura, groove Percussion, son salsa branch, Afro-diasporic MC rhythm hip hop galsen merenrap. extended whistle, rap, fast rate, interlocked note trading. cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano, electric bass, bach stradivarius 180 canonical American orchestral trumpet, bach 42 canonical American orchestral tenor trombone, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 825
     },
     {
       "id": "salsa_romantica",
@@ -4768,8 +4768,8 @@
       "id": "salsa_colombiana",
       "name": "Salsa colombiana (Cali)",
       "family": "global",
-      "recipe": "classic Andean early-1980s salsa colombiana, groove Percussion, son salsa branch, Afro-diasporic MC rhythm merenrap kwaito. vocal fry, rap, slow rate, interlocked note trading. grand piano, fast-attack-transient mid rich alder electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, steady pulse cencerro. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
-      "recipe_chars": 658
+      "recipe": "classic Andean early-1980s salsa colombiana, groove Percussion, son salsa branch, Afro-diasporic MC rhythm hip hop galsen merenrap. rap, breath pulsed, interlocked note trading, neutral third half flat. grand piano, fast-attack-transient mid rich alder electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, steady pulse cencerro. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+      "recipe_chars": 684
     },
     {
       "id": "merengue_urbano",
@@ -4873,8 +4873,8 @@
       "id": "champeta_cartagenera",
       "name": "Champeta (Cartagena Afro-Colombian)",
       "family": "global",
-      "recipe": "classic Andean mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm merenrap kwaito. thick, rap, straight onset, interlocked note trading. clean strummed humbucker electric guitar, electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 396
+      "recipe": "classic Andean mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm hip hop galsen merenrap. thick, rap, straight note core, interlocked note trading. clean strummed humbucker electric guitar, electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 408
     },
     {
       "id": "sertanejo_universitario",
@@ -5496,8 +5496,8 @@
       "id": "west_coast_hip_hop_classic",
       "name": "West Coast hip-hop (classic LA)",
       "family": "hip_hop",
-      "recipe": "classic Los Angeles 1987-1989 west coast hip-hop, mc Rhythm, west coast branch, us hip hop gangsta. thick, rap, straight onset, narrative. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 444
+      "recipe": "classic Los Angeles 1987-1989 west coast hip-hop, mc Rhythm, west coast branch, us hip hop gangsta. thick, rap, straight onset, narrative. pitched chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 452
     },
     {
       "id": "southern_hip_hop_classic",
@@ -5734,8 +5734,8 @@
       "id": "jackin_house",
       "name": "Jackin' house",
       "family": "electronic",
-      "recipe": "classic 2007-2009 jackin' house, electronic Dance, house branch, funk percussive groove percussion future funk cuban funk. thick, breath veiled tone, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, fast decay focused low sub bass analog synth. no single room 2015-present distributed distributed production. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-      "recipe_chars": 500
+      "recipe": "classic 2007-2009 jackin' house, electronic Dance, house branch, funk percussive groove percussion future funk deep funk. thick, breath veiled tone, slow rate, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, fast decay focused low sub bass analog synth. no single room 2015-present distributed distributed production. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+      "recipe_chars": 494
     },
     {
       "id": "schranz_hard_techno",
@@ -10095,8 +10095,8 @@
       "id": "folk_blues",
       "name": "Folk Blues",
       "family": "blues_gospel",
-      "recipe": "classic Northern European mid-1950s folk blues, ballad Poetry, blues narrative branch, anglo singer song britfolk, anglo American protest song, blues acoustic functional song traditional blues st. louis blues. thick, blues-shouter, wide pitch sway, interlocked note trading. open tuning 12 string acoustic guitar 12 string, open d tuning bronze fingerpicked dreadnought acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, upright bass. uk folk revival club 60s. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 632
+      "recipe": "classic Northern European mid-1950s folk blues, ballad Poetry, blues narrative branch, anglo singer song britfolk, anglo American protest song, blues acoustic functional song traditional blues british folk revival. thick, breath veiled tone, wide pitch sway, interlocked note trading. open tuning 12 string acoustic guitar 12 string, dadgad tuning bronze fingerpicked dreadnought acoustic guitar, reed pearwood marine band tradition brass traditional harmonica, upright bass. uk folk revival club 60s. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 596
     },
     {
       "id": "gospel_blues",
@@ -11355,8 +11355,8 @@
       "id": "turntablism",
       "name": "Turntablism",
       "family": "hip_hop",
-      "recipe": "classic North American 1974-1976 turntablism, mc Rhythm, experimental branch, us hip hop east coast, musique concrete experimental electric, us hip hop west coast boom bap g-funk. thick, rap, slow rate, interlocked note trading. sampled chopped turntable, chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
-      "recipe_chars": 722
+      "recipe": "classic North American 1974-1976 turntablism, mc Rhythm, experimental branch, us hip hop east coast, musique concrete experimental electric, us hip hop west coast harlem hip hop boom bap. thick, rap, slow rate, interlocked note trading. sampled chopped turntable, chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+      "recipe_chars": 727
     },
     {
       "id": "aggrotech",
@@ -11579,8 +11579,8 @@
       "id": "samba_rock",
       "name": "Samba Rock",
       "family": "global",
-      "recipe": "classic Southern American 1964-1966 samba rock, groove Percussion, Brazilian branch, Brazilian song functional song, funk percussive groove percussion p-funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright dual p90 clean semi hollow, ampeg b15 amp American 60s bass amp flip top character alder ernie ball slinky electric bass, jazz-trained ride-driven brushes-and-sticks drum kit, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian cuica, nylon canonical rio carnival surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, Hammond a 100 built in Leslie home spinet ostinato fast tremolo tonewheel organ. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu.",
-      "recipe_chars": 979
+      "recipe": "classic Southern American 1964-1966 samba rock, groove Percussion, Brazilian branch, Brazilian song functional song, funk percussive groove percussion deep funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright dual p90 clean semi hollow, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian cuica, nylon canonical rio carnival surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, Hammond a 100 built in Leslie home spinet ostinato fast tremolo tonewheel organ. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ.",
+      "recipe_chars": 999
     },
     {
       "id": "zouk_lambada",
@@ -12307,15 +12307,15 @@
       "id": "funk_mandelao",
       "name": "Funk Mandelão",
       "family": "electronic",
-      "recipe": "classic Southern American 2020-2022 funk mandelão, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm funk consciente merenrap. vocal fry, rap, straight note core, interlocked note trading. TR-808, melodic pitched sampler, monosynth acid bass, analog mono synth. rio favela home baile funk. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
-      "recipe_chars": 399
+      "recipe": "classic Southern American 2020-2022 funk mandelão, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm ghanaian hip hop funk consciente. vocal fry, rap, straight note core, interlocked note trading. TR-808, melodic pitched sampler, sub bass monosynth acid bass, sub bass analog mono synth. rio favela home baile funk. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
+      "recipe_chars": 425
     },
     {
       "id": "funk_capixaba",
       "name": "Funk Capixaba",
       "family": "electronic",
-      "recipe": "classic Southern American late-2010s funk capixaba, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm funk consciente merengue de calle. vocal fry, rap, slow rate, interlocked note trading. TR-808, melodic orchestral imitation pitched sampler, low sub bass analog poly synth, low sub bass monosynth acid bass. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 452
+      "recipe": "classic Southern American late-2010s funk capixaba, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm funk consciente cameroonian hip hop. vocal fry, rap, slow rate, interlocked note trading. TR-808, melodic pitched sampler, low sub bass analog poly synth, low sub bass monosynth acid bass. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 433
     },
     {
       "id": "funk_mtg",
@@ -13210,8 +13210,8 @@
       "id": "zimdancehall",
       "name": "Zimdancehall",
       "family": "global",
-      "recipe": "classic Southern African 2010-2012 zimdancehall, bass System, reggae diaspora branch, Afro-diasporic MC rhythm, African dance electronic dance azonto bolobedu house. extended whistle, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampler drum machine, organ preset yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios sub bass rompler workstation, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon thumb muted electric bass, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-      "recipe_chars": 731
+      "recipe": "classic Southern African 2010-2012 zimdancehall, bass System, reggae diaspora branch, Afro-diasporic MC rhythm, African dance electronic dance azonto bolobedu house. thick, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampler drum machine, organ preset yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios sub bass rompler workstation, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon thumb muted electric bass, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+      "recipe_chars": 720
     },
     {
       "id": "vincy_soca",
@@ -16066,8 +16066,8 @@
       "id": "proto_rap",
       "name": "Proto-Rap",
       "family": "hip_hop",
-      "recipe": "classic North American 1968-1971 proto-rap, mc Rhythm, us hip hop branch, us hip hop east coast, Jamaican bass system bronx hip hop new jersey rap. thick, rap, straight onset, narrative. sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, hand clap. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-      "recipe_chars": 552
+      "recipe": "classic North American 1968-1971 proto-rap, mc Rhythm, us hip hop branch, us hip hop east coast, Jamaican bass system bronx hip hop buffalo hip hop. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, mahogany thomastik infeld low tension jazz warm electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, hand clap. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "recipe_chars": 540
     },
     {
       "id": "golden_age_hip_hop",
@@ -16122,8 +16122,8 @@
       "id": "halftime_dnb",
       "name": "Halftime Drum & Bass",
       "family": "electronic",
-      "recipe": "classic 2012-2015 halftime drum & bass, bass System, bass descendants branch, uk soundsystem bass system, us hip hop southern dirty south rap phonk. thick, rap, straight note core, interlocked note trading. chopped sampler, sampled chopped sampler drum machine, sub bass analog mono sub bass wavetable granular synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 521
+      "recipe": "classic 2012-2015 halftime drum & bass, bass System, bass descendants branch, uk soundsystem bass system, us hip hop southern darkside jungle darkcore. vocal fry, breath veiled tone, fast rate, interlocked note trading. chopped sampler, sampled chopped sampler drum machine, sub bass analog mono sub bass wavetable granular synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 534
     },
     {
       "id": "digital_hardcore",
@@ -18194,8 +18194,8 @@
       "id": "abstract_hip_hop",
       "name": "Abstract hip hop",
       "family": "hip_hop",
-      "recipe": "classic 1997-1999 abstract hip hop, mc Rhythm, experimental branch, us hip hop east coast mafioso rap boom bap. thick, rap, narrative, equal tempered. sampled chopped sampler drum machine, chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 351
+      "recipe": "classic 1997-1999 abstract hip hop, mc Rhythm, experimental branch, us hip hop east coast mafioso rap harlem hip hop. thick, rap, narrative, equal tempered. sampled chopped sampler drum machine, chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 357
     },
     {
       "id": "alternative_hip_hop",
@@ -18264,8 +18264,8 @@
       "id": "afghan_pop",
       "name": "Afghan pop",
       "family": "pop",
-      "recipe": "classic mid-2010s afghan pop, functional Song, south Asian pop branch, mid east n African pop functional song, pop rock functional song new wave yacht rock. straight note core, multi note runs per syllable, note connecting slide, modern pop training. regional style kit party arranger korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, tabla, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 791
+      "recipe": "classic mid-2010s afghan pop, functional Song, south Asian pop branch, mid east n African pop functional song, pop rock functional song new wave yacht rock. straight note core, multi note runs per syllable, note connecting slide, modern pop training. regional style kit party arranger korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, sustaining copper tabla, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 809
     },
     {
       "id": "albanian_pop",
@@ -18397,8 +18397,8 @@
       "id": "uk_alternative_hip_hop",
       "name": "UK alternative hip hop",
       "family": "hip_hop",
-      "recipe": "classic late-2010s uk alternative hip hop, mc Rhythm, intl hip hop branch, experimental MC rhythm, soul R&B functional song contemporary r&b doo-wop. thick, rap, pure, narrative. ampeg b15 amp American 60s bass amp flip top character flatwound fingerstyle electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, bronze bell bronze sticks pocket drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 562
+      "recipe": "classic late-2010s uk alternative hip hop, mc Rhythm, intl hip hop branch, experimental MC rhythm, soul R&B functional song contemporary r&b gospel soul. thick, rap, pure, narrative. ampeg b15 amp American 60s bass amp flip top character flatwound fingerstyle electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, bronze bell bronze sticks pocket drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 566
     },
     {
       "id": "avant_garde_black_metal",
@@ -20924,8 +20924,8 @@
       "id": "electro_pop_francais",
       "name": "Electro-pop francais",
       "family": "pop",
-      "recipe": "classic modern electro-pop francais, functional Song, europop branch. solo with instrumental accompaniment. singing lead analog poly synth, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 307
+      "recipe": "classic modern electro-pop francais, functional Song, europop branch. one note per syllable, solo with instrumental accompaniment. singing lead analog poly synth, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 330
     },
     {
       "id": "danish_indie_pop",
@@ -21050,8 +21050,8 @@
       "id": "smooth_soul",
       "name": "Smooth soul",
       "family": "blues_gospel",
-      "recipe": "classic 1970-1973 smooth soul, functional Song, soul R&B branch. solo with instrumental accompaniment, single lead single track no stacking. clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 470
+      "recipe": "classic 1970-1973 smooth soul, functional Song, soul R&B branch. one note per syllable, solo with instrumental accompaniment. clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 455
     },
     {
       "id": "instrumental_funk",
@@ -21141,8 +21141,8 @@
       "id": "dutch_r_and_b",
       "name": "Dutch r&b",
       "family": "blues_gospel",
-      "recipe": "classic modern dutch r&b, functional Song, soul R&B branch. equal tempered, solo with instrumental accompaniment, single lead single track no stacking. single coil electric guitar, pocket fingerstyle locked electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 435
+      "recipe": "classic modern dutch r&b, functional Song, soul R&B branch. equal tempered, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. single coil electric guitar, pocket fingerstyle locked electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 458
     },
     {
       "id": "alberta_hip_hop",
@@ -21269,6 +21269,706 @@
       "family": "hip_hop",
       "recipe": "classic modern chinese hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
       "recipe_chars": 280
+    },
+    {
+      "id": "danish_hip_hop",
+      "name": "Danish hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern danish hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler, sampled chopped turntable, vocal percussion ensemble layer vocal percussion voice, clean strummed single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 462
+    },
+    {
+      "id": "bulgarian_hip_hop",
+      "name": "Bulgarian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern bulgarian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler, sub bass analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 323
+    },
+    {
+      "id": "chicago_rap",
+      "name": "Chicago rap",
+      "family": "hip_hop",
+      "recipe": "classic modern chicago rap, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 284
+    },
+    {
+      "id": "denver_rap",
+      "name": "Denver rap",
+      "family": "hip_hop",
+      "recipe": "classic modern denver rap, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, duet, live take. clean strummed single coil electric guitar, violin orchestral, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 318
+    },
+    {
+      "id": "dmv_rap",
+      "name": "DMV rap",
+      "family": "hip_hop",
+      "recipe": "classic modern dmv rap, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, duet, live take. drum kit, congas, electric bass, single coil electric guitar, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 325
+    },
+    {
+      "id": "classic_polish_pop",
+      "name": "Classic polish pop",
+      "family": "pop",
+      "recipe": "classic 1964-1966 classic polish pop, functional Song, pop rock branch. group vocals, live take. mahogany rosewood soft down tuning clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 433
+    },
+    {
+      "id": "danish_pop",
+      "name": "Danish pop",
+      "family": "pop",
+      "recipe": "classic modern danish pop, functional Song, europop branch. one note per syllable, duet, live take. singing lead rompler workstation, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 301
+    },
+    {
+      "id": "bosnian_pop",
+      "name": "Bosnian pop",
+      "family": "pop",
+      "recipe": "classic modern bosnian pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, singing lead analog poly synth, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 530
+    },
+    {
+      "id": "finnish_dance_pop",
+      "name": "Finnish dance pop",
+      "family": "pop",
+      "recipe": "classic modern finnish dance pop, functional Song, europop branch. one note per syllable, solo with instrumental accompaniment, lead plus third fifth harmony stack 3 part. plucked short envelope wavetable synth, sampler drum machine, hand clap. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 390
+    },
+    {
+      "id": "colombian_pop",
+      "name": "Colombian pop",
+      "family": "pop",
+      "recipe": "classic modern colombian pop, functional Song, pop rock branch. one note per syllable, group vocals. clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, pre muffled edge muffled sticks backbeat drum kit, schilke chicago lead bright lead trumpet ensemble trumpet, bach 42 canonical American orchestral tenor student commercial trombone, round tenor saxophone, congas. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 656
+    },
+    {
+      "id": "classic_czech_pop",
+      "name": "Classic czech pop",
+      "family": "pop",
+      "recipe": "classic early-1970s classic czech pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment. hard rock maple acer saccharum brazilwood student tier bowed violin orchestral. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 359
+    },
+    {
+      "id": "croatian_pop",
+      "name": "Croatian pop",
+      "family": "pop",
+      "recipe": "classic modern croatian pop, functional Song, pop rock branch. solo with instrumental accompaniment. dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, pre muffled edge muffled brushes-and-sticks drum kit, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 442
+    },
+    {
+      "id": "spanish_blues",
+      "name": "Spanish blues",
+      "family": "blues_gospel",
+      "recipe": "classic modern spanish blues, functional Song, blues electric branch. blues inflected, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, drum kit, a 440 modern pitch us standard grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 485
+    },
+    {
+      "id": "modern_blues",
+      "name": "Modern blues",
+      "family": "blues_gospel",
+      "recipe": "classic modern modern blues, functional Song, blues electric branch. blues inflected, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 440
+    },
+    {
+      "id": "swedish_blues",
+      "name": "Swedish blues",
+      "family": "blues_gospel",
+      "recipe": "classic modern swedish blues, functional Song, blues electric branch. blues inflected, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. single coil electric guitar, electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 443
+    },
+    {
+      "id": "norwegian_blues",
+      "name": "Norwegian blues",
+      "family": "blues_gospel",
+      "recipe": "classic modern norwegian blues, functional Song, blues electric branch. blues inflected, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. single coil electric guitar, electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 461
+    },
+    {
+      "id": "arabic_hip_hop",
+      "name": "Arabic hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern arabic hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler, sub bass rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 299
+    },
+    {
+      "id": "asian_american_hip_hop",
+      "name": "Asian-American hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern asian-american hip hop, mc Rhythm, west coast branch. rap, retune speed 0ms hard correction robot effect, single lead single track no stacking. sampled chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 329
+    },
+    {
+      "id": "afrikaans_hip_hop",
+      "name": "Afrikaans hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern afrikaans hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic, rhythmic spoken flow no pitch, solo with instrumental accompaniment. acoustic guitar, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 322
+    },
+    {
+      "id": "atl_hip_hop",
+      "name": "ATL hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern atl hip hop, mc Rhythm, southern branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine, pocket fingerstyle locked electric bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 439
+    },
+    {
+      "id": "desi_hip_hop",
+      "name": "Desi hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern desi hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 333
+    },
+    {
+      "id": "central_asian_hip_hop",
+      "name": "Central Asian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern central asian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampler, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 271
+    },
+    {
+      "id": "dfw_rap",
+      "name": "DFW rap",
+      "family": "hip_hop",
+      "recipe": "classic modern dfw rap, mc Rhythm, southern branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 268
+    },
+    {
+      "id": "cologne_hip_hop",
+      "name": "Cologne hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern cologne hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. chopped sampler, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 355
+    },
+    {
+      "id": "christlicher_rap",
+      "name": "Christlicher Rap",
+      "family": "hip_hop",
+      "recipe": "classic modern christlicher rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sticks backbeat drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 283
+    },
+    {
+      "id": "croatian_hip_hop",
+      "name": "Croatian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern croatian hip hop, mc Rhythm, intl hip hop branch. rap, group vocals, live take. single coil electric guitar, ernie ball slinky fingerstyle locked electric bass, sticks backbeat drum kit, sub bass rompler workstation, sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 392
+    },
+    {
+      "id": "minimal_dubstep",
+      "name": "Minimal dubstep",
+      "family": "electronic",
+      "recipe": "classic modern minimal dubstep, bass System, uk soundsystem branch. sampler, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 252
+    },
+    {
+      "id": "ukg_revival",
+      "name": "UKG revival",
+      "family": "electronic",
+      "recipe": "classic 2010-2013 ukg revival, bass System, uk soundsystem branch. sampler, sampler drum machine, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 322
+    },
+    {
+      "id": "aggressive_phonk",
+      "name": "Aggressive phonk",
+      "family": "hip_hop",
+      "recipe": "classic modern aggressive phonk, mc Rhythm, southern branch. melodic pitched sampler, roland tr 8s modern aira digital recreation TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+      "recipe_chars": 362
+    },
+    {
+      "id": "australian_trap",
+      "name": "Australian trap",
+      "family": "hip_hop",
+      "recipe": "classic modern australian trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. melodic pitched sampler, low sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 304
+    },
+    {
+      "id": "australian_underground_hip_hop",
+      "name": "Australian underground hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern australian underground hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, duet. sampled chopped sampler, sampled chopped turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 318
+    },
+    {
+      "id": "balkan_hip_hop",
+      "name": "Balkan hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern balkan hip hop, mc Rhythm, intl hip hop branch. duet. sampled chopped sampler, sub bass rompler workstation, clean strummed single coil electric guitar, electric bass, full lathed both sides lathed drum kit, saxophone. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 378
+    },
+    {
+      "id": "baltimore_hip_hop",
+      "name": "Baltimore hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern baltimore hip hop, mc Rhythm, east coast branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler, sub bass digital subtractive. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 331
+    },
+    {
+      "id": "bayerischer_rap",
+      "name": "Bayerischer rap",
+      "family": "hip_hop",
+      "recipe": "classic modern bayerischer rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, duet. sampler, turntable, yellow brass canonical orchestral tuba, yellow brass canonical 70 30 bach stradivarius ensemble trumpet. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 375
+    },
+    {
+      "id": "bc_underground_hip_hop",
+      "name": "BC underground hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern bc underground hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler, sub bass analog synth, single coil electric guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 329
+    },
+    {
+      "id": "birmingham_hip_hop",
+      "name": "Birmingham hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern birmingham hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 273
+    },
+    {
+      "id": "buffalo_hip_hop",
+      "name": "Buffalo hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern buffalo hip hop, mc Rhythm, east coast branch. rap, rhythmic spoken flow no pitch, echo word punctuation. sampled chopped sampler, sampled chopped sampler drum machine, soft down tuning humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 363
+    },
+    {
+      "id": "cali_rap",
+      "name": "Cali rap",
+      "family": "hip_hop",
+      "recipe": "classic modern cali rap, mc Rhythm, west coast branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, echo word punctuation. TR-808, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 304
+    },
+    {
+      "id": "cameroonian_hip_hop",
+      "name": "Cameroonian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern cameroonian hip hop, mc Rhythm, Afro-diasporic branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 304
+    },
+    {
+      "id": "cypriot_hip_hop",
+      "name": "Cypriot hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern cypriot hip hop, mc Rhythm, intl hip hop branch. rap, echo word punctuation. pitched chopped sampler, low mid rich spectrum cedar classical nylon-string guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 311
+    },
+    {
+      "id": "czech_alternative_rap",
+      "name": "Czech alternative rap",
+      "family": "hip_hop",
+      "recipe": "classic modern czech alternative rap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, single lead single track no stacking. analog synth, single coil electric guitar, sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 346
+    },
+    {
+      "id": "deep_southern_trap",
+      "name": "Deep southern trap",
+      "family": "hip_hop",
+      "recipe": "classic modern deep southern trap, mc Rhythm, southern branch. rap, solo with instrumental accompaniment, echo word punctuation. TR-808, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 286
+    },
+    {
+      "id": "deep_underground_hip_hop",
+      "name": "Deep underground hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern deep underground hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler, TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 313
+    },
+    {
+      "id": "drill_italiana",
+      "name": "Drill italiana",
+      "family": "hip_hop",
+      "recipe": "classic modern drill italiana, mc Rhythm, drill branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 294
+    },
+    {
+      "id": "finnish_hip_hop",
+      "name": "Finnish hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern finnish hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. rompler workstation, clean strummed single coil electric guitar, electric bass, drum kit, saxophone, flute. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 391
+    },
+    {
+      "id": "german_jazz_rap",
+      "name": "German jazz rap",
+      "family": "hip_hop",
+      "recipe": "classic late-2010s german jazz rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. clean strummed single coil electric guitar, rompler workstation, pocket fingerstyle locked electric bass, bronze bell bronze hand hammered random pattern asymmetric drum kit, round tenor saxophone, trumpet, turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 505
+    },
+    {
+      "id": "german_underground_rap",
+      "name": "German underground rap",
+      "family": "hip_hop",
+      "recipe": "classic modern german underground rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. chopped sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 270
+    },
+    {
+      "id": "ghanaian_hip_hop",
+      "name": "Ghanaian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern ghanaian hip hop, mc Rhythm, Afro-diasporic branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 354
+    },
+    {
+      "id": "hardcore_hip_hop",
+      "name": "Hardcore hip hop",
+      "family": "hip_hop",
+      "recipe": "classic 1987-1989 hardcore hip hop, mc Rhythm, east coast branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler, sampled chopped turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 337
+    },
+    {
+      "id": "hip_hop_cubano",
+      "name": "Hip hop cubano",
+      "family": "hip_hop",
+      "recipe": "classic modern hip hop cubano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 269
+    },
+    {
+      "id": "hip_hop_galsen",
+      "name": "Hip hop galsen",
+      "family": "hip_hop",
+      "recipe": "classic modern hip hop galsen, mc Rhythm, Afro-diasporic branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. clean strummed single coil electric guitar, sub bass rompler workstation, electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 382
+    },
+    {
+      "id": "hip_hop_quebecois",
+      "name": "Hip hop québécois",
+      "family": "hip_hop",
+      "recipe": "classic modern hip hop québécois, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler, sub bass rompler workstation, trumpet. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 311
+    },
+    {
+      "id": "indonesian_hip_hop",
+      "name": "Indonesian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern indonesian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampled chopped sampler, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 308
+    },
+    {
+      "id": "irish_hip_hop",
+      "name": "Irish hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern irish hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. sampled chopped sampler, flute. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 288
+    },
+    {
+      "id": "j_rap",
+      "name": "J-rap",
+      "family": "hip_hop",
+      "recipe": "classic modern j-rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 268
+    },
+    {
+      "id": "japanese_old_school_hip_hop",
+      "name": "Japanese old school hip hop",
+      "family": "hip_hop",
+      "recipe": "classic mid-1990s japanese old school hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. sampled chopped sampler, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 325
+    },
+    {
+      "id": "japanese_underground_rap",
+      "name": "Japanese underground rap",
+      "family": "hip_hop",
+      "recipe": "classic modern japanese underground rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 329
+    },
+    {
+      "id": "jewish_hip_hop",
+      "name": "Jewish hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern jewish hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. vocal percussion voice. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 332
+    },
+    {
+      "id": "josei_rap",
+      "name": "Josei rap",
+      "family": "hip_hop",
+      "recipe": "classic modern josei rap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampler, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 266
+    },
+    {
+      "id": "kansas_city_hip_hop",
+      "name": "Kansas City hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern kansas city hip hop, mc Rhythm, us hip hop branch. rap, solo with instrumental accompaniment. layered chopped sampler, TR-808, digital subtractive, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 319
+    },
+    {
+      "id": "kazakh_hip_hop",
+      "name": "Kazakh hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern kazakh hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampler, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 264
+    },
+    {
+      "id": "kentucky_hip_hop",
+      "name": "Kentucky hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern kentucky hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler, TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 305
+    },
+    {
+      "id": "kenyan_hip_hop",
+      "name": "Kenyan hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern kenyan hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine, TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 318
+    },
+    {
+      "id": "cascadian_black_metal",
+      "name": "Cascadian black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern cascadian black metal, distorted Rock, black branch. overdriven subglottal pressure, solo with instrumental accompaniment, hall reverb long decay cinematic. humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sustained pad analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter hall reverb.",
+      "recipe_chars": 489
+    },
+    {
+      "id": "christian_metal",
+      "name": "Christian metal",
+      "family": "rock_punk",
+      "recipe": "classic modern christian metal, distorted Rock, metal branch. equal tempered, one note per syllable, aurally tuned, plate reverb medium decay vocal classic. conventional tuning standard pitch power chord humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 484
+    },
+    {
+      "id": "czech_metal",
+      "name": "Czech metal",
+      "family": "rock_punk",
+      "recipe": "classic modern czech metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. b standard five semitones down palm muted humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 472
+    },
+    {
+      "id": "danish_black_metal",
+      "name": "Danish black metal",
+      "family": "rock_punk",
+      "recipe": "classic modern danish black metal, distorted Rock, black branch. equal tempered, one note per syllable, solo with instrumental accompaniment, no specific ornament system. humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit, soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+      "recipe_chars": 530
+    },
+    {
+      "id": "danish_death_metal",
+      "name": "Danish death metal",
+      "family": "rock_punk",
+      "recipe": "classic late-2000s danish death metal, distorted Rock, death branch. unrestrained, solo with instrumental accompaniment. ebony palm muted humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 418
+    },
+    {
+      "id": "danish_metal",
+      "name": "Danish metal",
+      "family": "rock_punk",
+      "recipe": "classic modern danish metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation conventional tuning humbucker electric guitar, ampeg svt amp rock bass amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 566
+    },
+    {
+      "id": "dutch_death_metal",
+      "name": "Dutch death metal",
+      "family": "rock_punk",
+      "recipe": "classic modern dutch death metal, distorted Rock, death branch. unrestrained, solo with instrumental accompaniment, plate reverb medium decay vocal classic. ebony lower tension down tuning humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 469
+    },
+    {
+      "id": "bow_pop",
+      "name": "Bow pop",
+      "family": "pop",
+      "recipe": "classic modern bow pop, functional Song, pop rock branch. sitka spruce hard rock maple acer saccharum modern setup longer neck violin orchestral, hard rock maple modern setup pirastro cellisto cello specific bowed cello, modern setup heavier bass bar nyman jazz bass canon bowed double bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 437
+    },
+    {
+      "id": "c_pop_girl_group",
+      "name": "C-pop girl group",
+      "family": "pop",
+      "recipe": "classic modern c-pop girl group, functional Song, pop rock branch. lead plus third fifth 3 part stack 2000s elastic pitch edited stack multitrack vocal stack, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, analog poly synth, sampler drum machine, dreadnought acoustic guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 465
+    },
+    {
+      "id": "classic_country_pop",
+      "name": "Classic country pop",
+      "family": "pop",
+      "recipe": "classic 1967-1969 classic country pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. acoustic guitar 12 string, Fender blackface amp American 60s amp spring reverb bright soft down tuning single coil electric guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 441
+    },
+    {
+      "id": "classic_icelandic_pop",
+      "name": "Classic icelandic pop",
+      "family": "pop",
+      "recipe": "classic modern classic icelandic pop, functional Song, pop rock branch. one note per syllable, duet. block chord electric piano tine, ampeg svt amp rock bass amp ernie ball slinky electric bass, saxophone, soft down tuning clean strummed single coil electric guitar, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 463
+    },
+    {
+      "id": "classic_konkani_pop",
+      "name": "Classic konkani pop",
+      "family": "pop",
+      "recipe": "classic mid-1960s classic konkani pop, functional Song, pop rock branch. solo with instrumental accompaniment. lead trumpet trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 512
+    },
+    {
+      "id": "classic_nz_pop",
+      "name": "Classic nz pop",
+      "family": "pop",
+      "recipe": "classic 1960-1963 classic nz pop, functional Song, pop rock branch. solo with instrumental accompaniment. Fender blackface amp American 60s amp spring reverb bright soft down tuning clean single coil electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 494
+    },
+    {
+      "id": "classic_persian_pop",
+      "name": "Classic persian pop",
+      "family": "pop",
+      "recipe": "classic late-1970s classic persian pop, functional Song, mid east n African pop branch. countertenor developed head, solo with instrumental accompaniment. pirastro cellisto cello specific cello, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 431
+    },
+    {
+      "id": "classic_peruvian_pop",
+      "name": "Classic peruvian pop",
+      "family": "pop",
+      "recipe": "classic 1987-1989 classic peruvian pop, functional Song, pop rock branch. solo with instrumental accompaniment. marshall plexi amp British rock amp soft down tuning clean strummed single coil electric guitar, analog poly synth, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 485
+    },
+    {
+      "id": "classic_uk_pop",
+      "name": "Classic uk pop",
+      "family": "pop",
+      "recipe": "classic modern classic uk pop, functional Song, pop rock branch. solo with instrumental accompaniment, single lead single track no stacking. classic rock soft down tuning single coil electric strummed open chord ringing overtones dreadnought acoustic guitar, ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 491
+    },
+    {
+      "id": "classic_venezuelan_pop",
+      "name": "Classic venezuelan pop",
+      "family": "pop",
+      "recipe": "classic mid-1980s classic venezuelan pop, functional Song, pop rock branch. solo with instrumental accompaniment. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 350
+    },
+    {
+      "id": "dominican_pop",
+      "name": "Dominican pop",
+      "family": "pop",
+      "recipe": "classic modern dominican pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. dreadnought acoustic single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, electric piano tine, pre muffled edge muffled sticks backbeat drum kit, bongos, shallow cup lead trumpet ensemble trumpet, student commercial trombone, saxophone. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 574
+    },
+    {
+      "id": "ecuadorian_pop",
+      "name": "Ecuadorian pop",
+      "family": "pop",
+      "recipe": "classic modern ecuadorian pop, functional Song, pop rock branch. solo with instrumental accompaniment. single coil electric guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 419
+    },
+    {
+      "id": "faroese_pop",
+      "name": "Faroese pop",
+      "family": "pop",
+      "recipe": "classic modern faroese pop, functional Song, pop rock branch. solo with instrumental accompaniment. sitka spruce hard rock maple acer saccharum violin orchestral, hard rock maple viola classical, hard rock maple cello. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 364
+    },
+    {
+      "id": "belgian_blues",
+      "name": "Belgian blues",
+      "family": "blues_gospel",
+      "recipe": "classic modern belgian blues, functional Song, blues acoustic branch. equal tempered, one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. fingerpicked acoustic guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 410
+    },
+    {
+      "id": "blues_mexicano",
+      "name": "Blues mexicano",
+      "family": "blues_gospel",
+      "recipe": "classic modern blues mexicano, functional Song, blues electric branch. equal tempered, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, clean strummed single coil electric guitar, walking fingerstyle electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 605
+    },
+    {
+      "id": "classic_soul",
+      "name": "Classic soul",
+      "family": "blues_gospel",
+      "recipe": "classic modern classic soul, functional Song, soul R&B branch. one note per syllable, group vocals, live take. single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, tonewheel organ, congas. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 433
+    },
+    {
+      "id": "congolese_gospel",
+      "name": "Congolese gospel",
+      "family": "blues_gospel",
+      "recipe": "classic mid-2020s congolese gospel, ritual Devotional, christian gospel branch. one note per syllable, solo with instrumental accompaniment, no specific ornament system, equal tempered 12 fixed pitch. electric piano tine, single coil electric guitar, electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 479
+    },
+    {
+      "id": "coral_gospel",
+      "name": "Coral gospel",
+      "family": "blues_gospel",
+      "recipe": "classic modern coral gospel, ritual Devotional, christian gospel branch. one note per syllable, no specific ornament system, unprocessed natural acoustic. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 358
+    },
+    {
+      "id": "deep_funk",
+      "name": "Deep funk",
+      "family": "blues_gospel",
+      "recipe": "classic modern deep funk, groove Percussion, funk percussive branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. rosewood alnico chicken-scratch single coil electric guitar, pocket fingerstyle locked electric bass, drum kit, low overtone rich traditional rubber saxophone, horn section ensemble trumpet. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 562
+    },
+    {
+      "id": "family_gospel",
+      "name": "Family gospel",
+      "family": "blues_gospel",
+      "recipe": "classic modern family gospel, ritual Devotional, southern gospel branch. one note per syllable, group vocals, unprocessed natural acoustic, live take. dreadnought acoustic guitar, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, fiddle. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 472
+    },
+    {
+      "id": "ghanaian_gospel",
+      "name": "Ghanaian gospel",
+      "family": "blues_gospel",
+      "recipe": "classic modern ghanaian gospel, ritual Devotional, christian gospel branch. one note per syllable, no specific ornament system. single coil electric guitar, electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 385
+    },
+    {
+      "id": "gospel_reggae",
+      "name": "Gospel reggae",
+      "family": "blues_gospel",
+      "recipe": "classic modern gospel reggae, ritual Devotional, christian gospel branch. one note per syllable, solo with instrumental accompaniment, no specific ornament system, single lead single track no stacking. single coil electric guitar, electric bass, rim clicks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard full spectrum fast tremolo tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 571
+    },
+    {
+      "id": "gospel_soul",
+      "name": "Gospel soul",
+      "family": "blues_gospel",
+      "recipe": "classic modern gospel soul, functional Song, soul R&B branch. one note per syllable, single leader group response. midrange-forward clean chicken-scratch single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched full spectrum fast tremolo tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 609
+    },
+    {
+      "id": "haitian_gospel",
+      "name": "Haitian gospel",
+      "family": "blues_gospel",
+      "recipe": "classic modern haitian gospel, ritual Devotional, christian gospel branch. one note per syllable, solo with instrumental accompaniment, no specific ornament system, single lead single track no stacking. upright piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 421
+    },
+    {
+      "id": "instrumental_soul",
+      "name": "Instrumental soul",
+      "family": "blues_gospel",
+      "recipe": "classic modern instrumental soul, functional Song, soul R&B branch. clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, bach stradivarius 180 canonical American orchestral trumpet, saxophone, tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 469
+    },
+    {
+      "id": "neapolitan_funk",
+      "name": "Neapolitan funk",
+      "family": "blues_gospel",
+      "recipe": "classic mid-1970s neapolitan funk, groove Percussion, funk percussive branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, fast decay focused low analog synth, pocket fingerstyle locked electric bass, midrange-forward clean chicken-scratch single coil electric guitar, drum kit, saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 623
+    },
+    {
+      "id": "pre_war_blues",
+      "name": "Pre-war blues",
+      "family": "blues_gospel",
+      "recipe": "classic modern pre-war blues, functional Song, blues acoustic branch. blues inflected, one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. open g tuning slide acoustic guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 418
+    },
+    {
+      "id": "quarteto_gospel",
+      "name": "Quarteto gospel",
+      "family": "blues_gospel",
+      "recipe": "classic modern quarteto gospel, ritual Devotional, christian gospel branch. a cappella small 3 to 8 one per part homophonic chordal rhythm aligned sacred liturgical global choir ensemble. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 391
+    },
+    {
+      "id": "dutch_hip_hop",
+      "name": "Dutch hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern dutch hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sub bass analog synth, drum machine analog. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 287
+    },
+    {
+      "id": "harlem_hip_hop",
+      "name": "Harlem hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern harlem hip hop, mc Rhythm, east coast branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 260
     }
   ]
 }
