@@ -3,14 +3,14 @@
   "name": "Black speed metal",
   "family": "rock_punk",
   "lineage": "Black-metal and speed/thrash-metal intersection represented by the Scottish solo recording project Hellripper, whose own account identifies black/speed metal and documents DIY recording of Coagulating Darkness in 2016-2017. Fast riffs, active lead guitar and harsh vocal attack retain the forward motion and compact song orientation of speed metal. The modern chain below is a reproducible authored model, not the equipment of that session.",
-  "recipe": "classic 2016-2017 black speed metal, distorted Rock, thrash branch, black metal, punk distorted rock chicago hardcore. thick, interlocked note trading, equal tempered, modern pop training. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp stainless steel roundwound electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
-  "recipe_chars": 629,
-  "score": 119.763,
+  "recipe": "classic 2016-2017 black speed metal, distorted Rock, thrash branch, black metal, punk distorted rock malaysian hardcore. thick, interlocked note trading, equal tempered, modern pop training. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp stainless steel roundwound electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+  "recipe_chars": 631,
+  "score": 119.638,
   "config": {
     "traditions": [
       "black_speed_metal",
       "black_metal",
-      "chicago_hardcore"
+      "malaysian_hardcore"
     ],
     "instruments": [
       {
@@ -32,7 +32,7 @@
         },
         "scores": {
           "electric_technique": 1.1049999999999998,
-          "amp_make": 17.387499999999996,
+          "amp_make": 17.612499999999997,
           "body_wood": 0.39,
           "neck_wood": 1.235,
           "fretboard": 2.3,
@@ -59,7 +59,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.890000000000001,
+          "amp_make": 7.085,
           "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 2.535,
@@ -108,7 +108,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 10.789999999999996,
+          "voice_articulation": 9.945,
           "voice_microtone": 11.669999999999996,
           "voice_tradition": 4.444,
           "voice_mechanism_compound": 0,

@@ -3,14 +3,14 @@
   "name": "Russian estrada",
   "family": "global",
   "lineage": "Soviet-era (1940s-1991) and post-Soviet (1991-onward) Russian-language commercial-stage popular song — Edita Piekha, Joseph Kobzon, Lev Leshchenko, Alla Pugacheva (Pesnya goda annual TV festival regular), Sofia Rotaru, Filipp Kirkorov; characterized by sentimental minor-key lyrical content, orchestrated arrangements with strings and brass, and the centralized State-controlled distribution through Melodiya / Soviet TV / Radio infrastructure",
-  "recipe": "classic Eastern European modern russian estrada, functional Song, europop branch, pop rock functional song new wave folk rock. thick, breath veiled tone, straight note core, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, b system buttons stradella bass Russian tradition estrada stage Soviet era bayan russian, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, steel modern alternative Soviet orchestra canon strummed balalaika, rhythmic dance rhythm strummed domra. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 912,
-  "score": 487.382,
+  "recipe": "classic Eastern European modern russian estrada, functional Song, europop branch, pop rock functional song folk rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. soft felt lacquer voiced birch laminated maple laminated Asian spruce grand piano, b system buttons stradella bass Russian tradition estrada stage Soviet era bayan russian, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles global traditional polyphonic choir ensemble, bass foundation Soviet orchestra canon strummed balalaika, orchestral bass rare strummed domra. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 927,
+  "score": 470.305,
   "config": {
     "traditions": [
       "russian_estrada",
-      "new_wave",
-      "folk_rock"
+      "folk_rock",
+      "skiffle"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 50.125000000000014,
-          "voice_quality": 10.724999999999993,
+          "voice_register": 53.4,
+          "voice_quality": 9.489999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3475,
-          "voice_articulation": 18.39499999999999,
-          "voice_microtone": 37.82500000000001,
-          "voice_tradition": 24.244999999999997,
-          "voice_mechanism_compound": 4.030000000000001,
-          "voice_estill_quality": 7.1825,
-          "voice_speech_song": 27.852499999999992,
-          "voice_ensemble_config": 18.52499999999999,
-          "voice_ornament_system": 0.9799999999999998,
-          "voice_pitch_organization": 2.0699999999999994,
-          "voice_processing_chain": 9.265,
-          "voice_multitrack_stack": 8.6125
+          "voice_vibrato": 6.759999999999999,
+          "voice_articulation": 19.434999999999995,
+          "voice_microtone": 33.475,
+          "voice_tradition": 26.624999999999986,
+          "voice_mechanism_compound": 4.485,
+          "voice_estill_quality": 7.6,
+          "voice_speech_song": 26.84499999999999,
+          "voice_ensemble_config": 19.75999999999999,
+          "voice_ornament_system": 0.8299999999999998,
+          "voice_pitch_organization": 1.6199999999999999,
+          "voice_processing_chain": 9.36,
+          "voice_multitrack_stack": 8.709999999999999
         }
       },
       {
@@ -58,7 +58,7 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "japanese_1980s_hammer",
+          "piano_hammer": "steinway_original_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 17.544999999999998,
-          "grand_piano_size": 2.08,
-          "grand_piano_brand": 2.6649999999999996,
-          "piano_hammer": 17.08,
-          "piano_rim": 19.285,
-          "piano_soundboard": 16.795,
-          "piano_pinblock": 1.455,
-          "piano_plate": 1.4625,
-          "piano_pitch_standard": 2.6975
+          "keyboard_technique": 10.77,
+          "grand_piano_size": 1.4300000000000002,
+          "grand_piano_brand": 2.015,
+          "piano_hammer": 10.854999999999997,
+          "piano_rim": 12.235000000000001,
+          "piano_soundboard": 9.895000000000001,
+          "piano_pinblock": 0.9099999999999999,
+          "piano_plate": 0.9099999999999999,
+          "piano_pitch_standard": 1.885
         }
       },
       {
@@ -86,17 +86,17 @@
           "bayan_russian_reed_voicing": "bayan_russian_dry_unison"
         },
         "scores": {
-          "free_reed_technique": 12.624999999999996,
-          "bayan_russian_model": 6.979999999999999,
-          "bayan_russian_context": 12.639999999999999,
+          "free_reed_technique": 19.074999999999996,
+          "bayan_russian_model": 7.629999999999999,
+          "bayan_russian_context": 12.79,
           "bayan_russian_reed_voicing": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -105,26 +105,26 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.439999999999998,
-          "body_wood": 2.08,
-          "pickup_config": 0.195,
-          "string_type": 27.7875,
-          "scale_length_b": 2.47,
+          "amp_make": 12.122499999999997,
+          "body_wood": 1.235,
+          "pickup_config": 0.375,
+          "string_type": 24.862499999999997,
+          "scale_length_b": 1.4300000000000002,
           "fretted_or_not": 0.195,
-          "bass_technique": 25.615,
+          "bass_technique": 19.314999999999998,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.42,
-          "drumhead": 17.84,
+          "drum_technique": 23.269999999999992,
+          "drumhead": 10.940000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -133,14 +133,14 @@
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
-          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
-          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+          "choir_regional_canonical_configuration": "choir_regional_andean_three_voice_parallel_thirds",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 2.795,
-          "choir_polyphonic_configuration": 2.145,
-          "choir_regional_canonical_configuration": 0.975,
-          "choir_ensemble_repertoire": 1.8200000000000003
+          "choir_size": 2.5349999999999997,
+          "choir_polyphonic_configuration": 2.34,
+          "choir_regional_canonical_configuration": 0.78,
+          "choir_ensemble_repertoire": 1.3
         }
       },
       {
@@ -148,14 +148,14 @@
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
           "balalaika_size": "bass_balalaika",
-          "balalaika_strings": "steel_balalaika",
+          "balalaika_strings": "gut_balalaika",
           "balalaika_body_wood": "balalaika_spruce_maple",
           "balalaika_tradition": "balalaika_soviet_orchestra"
         },
         "scores": {
-          "plucked_traditional_technique": 10.764999999999999,
-          "balalaika_size": 0.39,
-          "balalaika_strings": 1.2349999999999999,
+          "plucked_traditional_technique": 17.164999999999992,
+          "balalaika_size": 1.625,
+          "balalaika_strings": 0.325,
           "balalaika_body_wood": 0,
           "balalaika_tradition": 6.449999999999998
         }
@@ -165,16 +165,16 @@
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
           "domra_courses": "three_string_domra",
-          "domra_size": "domra_prima",
+          "domra_size": "domra_bass",
           "domra_body_wood": "domra_spruce_maple",
           "domra_strings": "domra_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 10.764999999999999,
-          "domra_courses": 5.134999999999998,
-          "domra_size": 0.66,
+          "plucked_traditional_technique": 17.164999999999992,
+          "domra_courses": 8.449999999999996,
+          "domra_size": 1.235,
           "domra_body_wood": 0,
-          "domra_strings": 0.39
+          "domra_strings": 0.195
         }
       }
     ],

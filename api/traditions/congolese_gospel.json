@@ -5,7 +5,7 @@
   "lineage": "Congolese gospel includes Christian devotional song cultivated in Congo and circulated through international Francophone and Lingala-speaking networks. The selected Dena Mwana branch links her Kinshasa church-choir background with a documented 2025 Guadeloupe worship concert accompanied by local keyboard, guitar, bass and drum players. This authored reduced live-band model represents that touring practice; it does not claim the Guadeloupe players or equipment are a fixed Congolese tradition.",
   "recipe": "classic mid-2020s congolese gospel, ritual Devotional, christian gospel branch. one note per syllable, solo with instrumental accompaniment, no specific ornament system, equal tempered 12 fixed pitch. electric piano tine, single coil electric guitar, electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 479,
-  "score": 6.393,
+  "score": 6.224,
   "config": {
     "traditions": [
       "congolese_gospel"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0.6825000000000001,
           "voice_pitch_organization": 1.3,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.16899999999999998
+          "voice_multitrack_stack": 0
         }
       },
       {

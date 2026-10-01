@@ -3,14 +3,14 @@
   "name": "Uchina pop (Okinawan pop)",
   "family": "global",
   "lineage": "Okinawan popular-music hybrid launched by Kina Shoukichi and Champloose's 1977 'Haisai Ojisan' and consolidated through the 1990s by Rinken Band, Nenes and BEGIN, setting the ryukyu scale and sanshin against electric guitar, bass, drum kit and synthesizers at mid-tempo rock and reggae pulses, retaining hayashi calls, kachashi double-time codas and Okinawan-language refrains inside verse-chorus pop structures.",
-  "recipe": "classic East Asian mid-1990s uchina pop, functional Song, east Asian pop branch, pop rock functional song, east Asian field work new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. island song accompaniment sanshin, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, paranku, sen castor aralia mid tier kodo sado island lineage taiko drum. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
-  "recipe_chars": 835,
-  "score": 541.235,
+  "recipe": "classic East Asian mid-1990s uchina pop, functional Song, east Asian pop branch, pop rock functional song, east Asian field work yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. island song accompaniment sanshin, marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, paranku, sen castor aralia mid tier kodo sado island lineage taiko drum. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 801,
+  "score": 481.005,
   "config": {
     "traditions": [
       "uchinaa_pop",
-      "new_wave",
-      "yacht_rock"
+      "yacht_rock",
+      "skiffle"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "sanshin_kata": 0.18,
           "sanshin_repertoire": 7.085,
           "sanshin_skin": 0,
-          "sanshin_plectrum": 0.39
+          "sanshin_plectrum": 0.28500000000000003
         }
       },
       {
@@ -45,58 +45,58 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 57.17500000000001,
-          "voice_quality": 13.032499999999992,
+          "voice_register": 60.40000000000001,
+          "voice_quality": 11.439999999999989,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.67,
-          "voice_articulation": 20.604999999999997,
-          "voice_microtone": 55.375,
-          "voice_tradition": 37.605,
-          "voice_mechanism_compound": 2.145,
-          "voice_estill_quality": 1.3649999999999998,
-          "voice_speech_song": 28.144999999999996,
-          "voice_ensemble_config": 20.344999999999995,
+          "voice_vibrato": 11.62,
+          "voice_articulation": 21.644999999999996,
+          "voice_microtone": 50.97500000000001,
+          "voice_tradition": 29.054999999999996,
+          "voice_mechanism_compound": 2.6,
+          "voice_estill_quality": 1.8199999999999998,
+          "voice_speech_song": 27.495000000000005,
+          "voice_ensemble_config": 21.580000000000002,
           "voice_ornament_system": 3.335000000000001,
-          "voice_pitch_organization": 2.0699999999999994,
-          "voice_processing_chain": 11.89,
-          "voice_multitrack_stack": 8.84
+          "voice_pitch_organization": 1.6199999999999999,
+          "voice_processing_chain": 8.38,
+          "voice_multitrack_stack": 4.42
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "locking_trem",
+          "bridge": "vintage_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 30.454999999999995,
-          "amp_make": 17.679999999999996,
-          "body_wood": 3.575,
-          "neck_wood": 3.575,
-          "fretboard": 3.5100000000000002,
-          "pickup_magnet": 0.585,
-          "string_material": 0.585,
-          "string_gauge": 4.21,
-          "bridge": 0.65,
-          "scale_length": 3.575,
-          "finish": 0.09,
-          "string_tuning": 14.625,
+          "electric_technique": 22.805,
+          "amp_make": 13.682499999999997,
+          "body_wood": 2.925,
+          "neck_wood": 2.925,
+          "fretboard": 2.47,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 2.535,
+          "bridge": 0.39,
+          "scale_length": 2.535,
+          "finish": 0.39,
+          "string_tuning": 12.48,
           "single_coil_pickup_construction": 0
         }
       },
@@ -113,26 +113,26 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.909999999999998,
-          "body_wood": 3.575,
-          "pickup_config": 0.585,
-          "string_type": 31.049999999999997,
-          "scale_length_b": 3.56,
+          "amp_make": 13.78,
+          "body_wood": 2.73,
+          "pickup_config": 0.39,
+          "string_type": 28.7625,
+          "scale_length_b": 2.535,
           "fretted_or_not": 0.045,
-          "bass_technique": 28.465,
+          "bass_technique": 22.165,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24.42,
-          "drumhead": 28.589999999999993,
+          "drum_technique": 24.830000000000002,
+          "drumhead": 21.689999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -142,13 +142,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 29.334999999999994,
-          "poly_archetypes": 12.675,
-          "poly_voices": 1.3850000000000002,
-          "poly_maker_lineage": 0.19499999999999967
+          "electronic_technique": 23.009999999999998,
+          "poly_archetypes": 11.504999999999999,
+          "poly_voices": 1.235,
+          "poly_maker_lineage": -0.8050000000000002
         }
       },
       {
@@ -158,7 +158,7 @@
           "paranku_stroke": "paranku_hand"
         },
         "scores": {
-          "paranku_size": 0.65,
+          "paranku_size": 0.195,
           "paranku_stroke": 0.195
         }
       },
@@ -173,10 +173,10 @@
         },
         "scores": {
           "taiko_size": 0.3,
-          "taiko_skin": 0.845,
-          "taiko_shell_wood": 3.56,
-          "taiko_lineage": 1.17,
-          "taiko_technique": 0.195
+          "taiko_skin": 0.51,
+          "taiko_shell_wood": 2.535,
+          "taiko_lineage": 2.0149999999999997,
+          "taiko_technique": 0.32999999999999996
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Indonesian metal",
   "family": "rock_punk",
   "lineage": "Indonesian metal is a broad national discovery field represented by Burgerkill’s Bandung underground-metal practice and the core ensemble documented in the band’s Adamantine release account.",
-  "recipe": "classic modern indonesian metal, distorted Rock, metal branch, punk distorted rock alabama hardcore alternative hardcore. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 523,
-  "score": 105.671,
+  "recipe": "classic modern indonesian metal, distorted Rock, metal branch, punk distorted rock dark hardcore finnish punk. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 550,
+  "score": 108.257,
   "config": {
     "traditions": [
       "indonesian_metal",
-      "alabama_hardcore",
-      "alternative_hardcore"
+      "dark_hardcore",
+      "finnish_punk"
     ],
     "instruments": [
       {
@@ -32,15 +32,15 @@
         },
         "scores": {
           "electric_technique": 19.109,
-          "amp_make": 14.657500000000002,
+          "amp_make": 15.502500000000001,
           "body_wood": 6.24,
           "neck_wood": 0.585,
-          "fretboard": 0.39,
-          "pickup_magnet": 0.39,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.585,
           "pickup_winding": 0.39,
           "string_material": 0.09,
-          "bridge": 2.21,
-          "scale_length": 6.629999999999999,
+          "bridge": 2.3659999999999997,
+          "scale_length": 6.24,
           "string_gauge": 1.826,
           "finish": 0.195,
           "string_tuning": 6.24
@@ -51,7 +51,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
@@ -65,7 +65,7 @@
           "string_type": 12.025,
           "scale_length_b": 0.585,
           "fretted_or_not": 0.045,
-          "bass_technique": 14.795,
+          "bass_technique": 16.42,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,8 +117,8 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.15,
-          "voice_multitrack_stack": 0.354
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.504
         }
       }
     ],

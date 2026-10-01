@@ -1,0 +1,1319 @@
+{
+  "required_predecessor": "035660ccfc41af896dfbb50eddd06328be5882af",
+  "expected_additions": 100,
+  "expected_traditions": 3838,
+  "expected_instruments": 1467,
+  "ids": [
+    "colorado_hardcore",
+    "connecticut_hardcore",
+    "czech_hardcore",
+    "czech_punk",
+    "danish_hardcore",
+    "danish_post_punk",
+    "danish_punk",
+    "dark_hardcore",
+    "dark_post_punk",
+    "dc_hardcore",
+    "dutch_punk_rock",
+    "fast_melodic_punk",
+    "finnish_hardcore",
+    "finnish_punk",
+    "finnish_pop_punk",
+    "florida_hardcore",
+    "french_punk",
+    "dub_punk",
+    "early_french_punk",
+    "early_us_punk",
+    "emo_mexicano",
+    "emo_punk",
+    "finnish_post_punk",
+    "french_emo",
+    "french_hardcore",
+    "french_post_punk",
+    "deep_hardcore_punk",
+    "deep_pop_emo",
+    "deep_power_pop_punk",
+    "deep_punk_rock",
+    "freeform_hardcore",
+    "german_hardcore",
+    "german_post_hardcore",
+    "german_post_punk",
+    "german_punk",
+    "german_punk_rock",
+    "german_street_punk",
+    "glam_punk",
+    "gothic_post_punk",
+    "greek_punk",
+    "hardcore_punk_espanol",
+    "hawaiian_punk",
+    "horror_punk_brasileiro",
+    "hungarian_punk",
+    "icelandic_post_punk",
+    "icelandic_punk",
+    "indie_emo",
+    "indie_emo_rock",
+    "indie_punk",
+    "indonesian_emo",
+    "indonesian_hardcore",
+    "indonesian_pop_punk",
+    "indonesian_post_hardcore",
+    "indonesian_punk",
+    "irish_hardcore",
+    "irish_post_punk",
+    "irish_punk",
+    "israeli_punk",
+    "italian_hardcore",
+    "italian_pop_punk",
+    "italian_post_hardcore",
+    "italian_post_punk",
+    "italian_punk",
+    "italian_screamo",
+    "italian_emo",
+    "japanese_emo",
+    "japanese_girl_punk",
+    "japanese_melodic_hardcore",
+    "japanese_melodic_punk",
+    "japanese_pop_punk",
+    "japanese_post_hardcore",
+    "japanese_post_punk",
+    "japanese_punk_rock",
+    "japanese_screamo",
+    "kentucky_punk",
+    "korean_hardcore",
+    "korean_punk",
+    "lion_city_hardcore",
+    "lo_fi_emo",
+    "long_island_punk",
+    "lowlands_hardcore",
+    "malang_punk",
+    "malaysian_hardcore",
+    "malaysian_punk",
+    "melbourne_punk",
+    "melodic_hardcore",
+    "metallic_hardcore",
+    "mexican_pop_punk",
+    "minneapolis_punk",
+    "modern_hardcore",
+    "modern_melodic_hardcore",
+    "mexican_hardcore",
+    "new_england_emo",
+    "new_england_hardcore",
+    "new_jersey_hardcore",
+    "new_jersey_punk",
+    "noise_punk",
+    "north_carolina_emo",
+    "northern_irish_punk",
+    "norwegian_hardcore"
+  ],
+  "baseline_sha256": {
+    "references/05_traditions.js": "c1f0769c32d9c18ce16e712779daf62f9989cd05cf36588f8cb09db4230a124e",
+    "references/06_extras.js": "71b76a42a5798b1a51a464e91bb12f2fb97c25d83fdd138501ca442a2f953678",
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "91e79df3b90cc2fcb0de1c10866e0fbd8ccab5dad987137a0a470196c23e6db8",
+    "references/03_rooms_chains_tunings.js": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7",
+    "references/04_tree.js": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90",
+    "references/_tradition_signatures.json": "168a08ad10883f56bdd04531adbcb6f80a8df7a9ad91aa8d0d75ea15aaf766e0",
+    "references/_image_manifest.json": "aba74bb99ebacc4d59416c0ebb14690eb35cc0620f181f6e95d65f14b4b5a08a",
+    "references/_soundword_vocab.json": "20085d26b1667e1daee7cb6ceda6d27107f19bccfa83e7ac61ffc3afbd228a48",
+    "references/_signature_rulings.json": "b3500c3e6f237a8576fb05cc9aef9d08b9b17f415596bd7a219904618e1579cc",
+    "data/geo.json": "dff6ebc3510aab90344757e5add961ba77177fa954eaf7913916975c64cd3d91",
+    "tests/regression_snapshot.json": "ced73fd8b19c1cb03ed894d0bd1c381747d7938dd59cc10bb601f6696f48fd3c"
+  },
+  "source_sha256": {
+    "references/05_traditions.js": "1917e5f634215ffbcf5c2f875e6c86b8793a40c4d7e67cf645be928951a2775b",
+    "references/06_extras.js": "e51f10d13984324bd6f65a99035e79571e004b9505d1962486fbdc81e185f7a4",
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "91e79df3b90cc2fcb0de1c10866e0fbd8ccab5dad987137a0a470196c23e6db8",
+    "references/03_rooms_chains_tunings.js": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7",
+    "references/04_tree.js": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90",
+    "references/_tradition_signatures.json": "e1a984b4812f2d3709c0167cc993275a8585674e2bbf0ded78c9b059e5dbb1ac",
+    "references/_image_manifest.json": "91dfd762a910df340cc9c8bea1cfd9550f0652b9ff8b45b989e76cff7670f5cf",
+    "references/_soundword_vocab.json": "20085d26b1667e1daee7cb6ceda6d27107f19bccfa83e7ac61ffc3afbd228a48",
+    "references/_signature_rulings.json": "b3500c3e6f237a8576fb05cc9aef9d08b9b17f415596bd7a219904618e1579cc",
+    "data/geo.json": "37dc82661dd96f485806362803d3a54b4e47577064e5c655e43fe71b76a83ddf",
+    "tests/regression_snapshot.json": "fd5a451b38a9513f3d832baa7bc74b4d57c4148856b6c00c9cf61e7124386da1"
+  },
+  "scope": "Existing-schema genre data and generated artifacts only. Original engine, compiler, pipeline, UI behavior, test logic and workflows unchanged.",
+  "validation_status": "DRAFT: all requested available local source/build checks passed, including primary full3838 API and final1149/1149 recipe regression after24 individually reviewed expectations. Required exact-head CI independent artifact freshness and browser checks remain pending; this is not merge approval.",
+  "candidate_entry_sha256": {
+    "colorado_hardcore": "de3bc703f5ae11f70109140e4d726af29c2db8a4141531dc9d034a7ececb6f80",
+    "connecticut_hardcore": "5a568ff4fe35df455d41f199d67b62902a61c346a6c9ffcbf430a487a3059166",
+    "czech_hardcore": "05e6590f93f8ca85293db9cc984d44f26c9d7d7acf97914b2e3eff1aaeee3452",
+    "czech_punk": "cdcdfa464c8a9c05b64b0ee1516195345d20a0fc18cb14b220e70b0c25c0f87c",
+    "danish_hardcore": "92e4f8126732a5408f0196e3b0e6b4fb6e891206bf81b5e17bd2668ad9b44f6d",
+    "danish_post_punk": "93c4919e09a4767d61f8f9b5945960469d05105f88cea4511b5997368c6b8b31",
+    "danish_punk": "a3316a27a5b5b91329be331f59ab0bc0334ec8fa740d20dc2bb305c73c192a13",
+    "dark_hardcore": "821aac376b276bff05b7fcf57d897f76d57e8f81888d403a99b06265630c6663",
+    "dark_post_punk": "ca0299d157da01e0ae0a90ee4ee6334d8360dde8c2e8954e2e73a682ce00ed69",
+    "dc_hardcore": "1179c38e1178dbfde4fa562f004baa0b567562e866018b3dc64debb443ae3a36",
+    "dutch_punk_rock": "1ea48acd58f9926832a0febcb0098982a3e5f2ede75a6e103c8df0d289185dec",
+    "fast_melodic_punk": "0be42aec956abe87642393e40a45c1a84713945e23cc597ade13c8e6cfc33b0c",
+    "finnish_hardcore": "25deeef510072098ea9c48e8d932e1efa805df65122c699d398cf6df613895c8",
+    "finnish_punk": "278e2adcd0e881aea2ffbd42ae2491d26bca638a4bbda8a872fbe7fbb0ff0d39",
+    "finnish_pop_punk": "e5d47391d036ea15392a7e73e67b33bb0144902e4625da7f4bd371ba8b0434a5",
+    "florida_hardcore": "aeca7cd09f9e63d18f5cd0d482130a193be7a4bec4eac7f7ca3334b6e5010965",
+    "french_punk": "51cdc15b199f68d76e74284f250d935d418e3ea61dcd9c6fde4eb23273b2bef8",
+    "dub_punk": "06eb6325eda452f03ca04c304182229ef25a21d5e8c28a5297cbdd8e1d5a2a69",
+    "early_french_punk": "cfda93adbafa276121e44d48565f9373a7ced76555e558bde4bdcfd0a71518b0",
+    "early_us_punk": "4523535456ae31a31ad0d196cfab2ceea66756d85e88a90a524abf5fbe504112",
+    "emo_mexicano": "a4762b581681815d1a6035748fc0d7625a208a8b78e23287e37fb83ac4f75af4",
+    "emo_punk": "80f1c117124535cd77b6f10b2cf97bc0f7b712a4e2fe516d9cd4b16680c3bfc9",
+    "finnish_post_punk": "b1cc866c75e6b41456eb17bc52dcf96684f7f0f4eb4e3e69550a0e339a2b4470",
+    "french_emo": "df3b4742260f9348f1edd665ffc4ea17c3ad6fff1b5a751a9f1d878b94a56ee3",
+    "french_hardcore": "2a8ab387db20e26008ecdb0cf58a4e54a1102d35994a24180e47414ee5413306",
+    "french_post_punk": "3e36a4ee823b7e2d827c4965753213bd59e33352f50f77732a321d6e0b0cd894",
+    "deep_hardcore_punk": "b9b73d80426357fad22a015e07647c92c754909c85cf864b758f61cc199e34e4",
+    "deep_pop_emo": "99d805e2cb4a05cf6d1173cd4bbe815d4c2d7b6fac37c878c812d034f3bb2d2e",
+    "deep_power_pop_punk": "e1ef9d7bb874a5e4f3054a3042e1d9ef960af69524617d94708bd1f0aa6eda46",
+    "deep_punk_rock": "fe03e6a7d8c27879d72e0ee195f52358dc4dc14da1a4d29845f121393492945c",
+    "freeform_hardcore": "a9f355c3dccb985bb71b155fec821cecc7785ff17a3b568e62d7a9ecb6c50e39",
+    "german_hardcore": "e95ac6a56bf555eca1afff7db8ae5a1ca1737257dc6532eb0b4e738367724a84",
+    "german_post_hardcore": "f2db19f9dcb8322c9180aed507b69996de7f41040a696a6c6ca0f606109ac548",
+    "german_post_punk": "35c6eb13d57ab2da545cc2345367fccbabb6ab2dd9abdb8c0b3e259c36ca6fd6",
+    "german_punk": "5e3db0fb97aea3e016666c3138d495c96fbe5c6c28e4a7bc1723c7d45acda6fb",
+    "german_punk_rock": "ad4f98dda60e300476c0dbe1c77f8a664a1a59e15657f8ede8d29878de19fd66",
+    "german_street_punk": "cb1703b7d6bc01288e17d2f1d49b35a7a31bd38e2b7bf076fad757c86c823db8",
+    "glam_punk": "129edd837087492e5193df5e699f29d020314a5b189e233bfc4fd24faaf3234a",
+    "gothic_post_punk": "480cdf342e1979525927f3ed6a225af695547fbb195f16eff434d888c948ff3a",
+    "greek_punk": "35b76155e1f53ff49c36399a3ef9279b6e9c80a61249ed3e87b67cfe595aa031",
+    "hardcore_punk_espanol": "d5f01c49f0b6e5d51f0fc7e672ca15fd0b4307aec3e22e65629c8ef6586695f2",
+    "hawaiian_punk": "40788439bdc0e9ac1a3a20da4e058305ce71d63e5986a7fa16cc9b562947419b",
+    "horror_punk_brasileiro": "9d37746e304479da2c45fd6d79bc2d982cd1eafae626b927a6ce9779fe9d881f",
+    "hungarian_punk": "efdff0ab1950cdaaa0d2d2e30daa68d806abd5ad2ba8434789b90fd83b1b0aa5",
+    "icelandic_post_punk": "8fcf8a6d6f22b379b2783f92953f8172471c7d8d66d7d57187a408ccbfa16ac2",
+    "icelandic_punk": "0f341682035e9ddc20be630f0f70860924acc2c389c4a5156374128a58e85f23",
+    "indie_emo": "1be3d41660843cbbc4fb685df59bbe4ce00749a1fd5835447462a4c31ff1148d",
+    "indie_emo_rock": "bf4db72ff2ec0d438ed224094707ef082e0fb5b01d311b5f28342ffb7f6044f3",
+    "indie_punk": "39c50d774a6d38241786d802818c53ee0efb4ccc52ec99d60023e415ad536ef1",
+    "indonesian_emo": "2fc3cb9b90d5148bad02bc87af1bd8b37c8090f15f8cd84c55a5e33588cb068d",
+    "indonesian_hardcore": "0af0b3b65cd43e28dad092044e8aceae1b95903dda08df3d33b7b35fabecf84d",
+    "indonesian_pop_punk": "91c24de7c5e48f765d6053c039efe52a41860a468edefa29f3705544a414a001",
+    "indonesian_post_hardcore": "93667ea32b405df1ae4fdd317352b4f4025c63e6090a83bb78ffdec467f2b29c",
+    "indonesian_punk": "a2302dc06101c1f1999ed4dcfa03b63090a1da9597a6d7cc5ba21de2d66e7bb9",
+    "irish_hardcore": "f36584b87b34feb89d6d2e3c1342906d10e189e7d017b6bf9a1d23ade1faab73",
+    "irish_post_punk": "db0be189fd0035ba5a6bb00f98c0f771a8db2b1f7a4255706053f8f0419737dc",
+    "irish_punk": "26ed0927fa88c1587cb09fbfd32cce1e5a76f9b4d2a7e91bc9c9642c806ee84a",
+    "israeli_punk": "67a0efaaf6c56a2622d02c2fab36e59055d70744f78b5bb710562864e97e6a87",
+    "italian_hardcore": "a78b138077ae0ff7f68999a5e8fd0fbaf01e1ec9f82193290d2474745d617eb9",
+    "italian_pop_punk": "d2d46865d3a2fa3ac2f21444b121fd0606bcddce2bf35b004b1b7ad55be0bbdb",
+    "italian_post_hardcore": "c93540f37796c588b24bc2346155d71dfd8d2124cb275e47359542e5e682ed33",
+    "italian_post_punk": "a1901f8c26f91a3c8a87dff2b512b161d53de64f9593a1638c2786a3c599eaeb",
+    "italian_punk": "6d36659d0fa20fb872de1f83d3d497be68df309c6345b901435c66c3d0359cba",
+    "italian_screamo": "5f4bea6842c712a589c3b991cab2f59772b55f0c31bc88802f19a79cedd37bdd",
+    "italian_emo": "622052463a08ed27594fae78709bae2d7cd233ce86be0a0e990c9b284f4a2c71",
+    "japanese_emo": "54bfe5dc63f5465e228f905fdaa2504f15a7d1f50cc87cfa81f478732864c659",
+    "japanese_girl_punk": "994caa72b40186ac78a2efbc3e8f86af8e17949e303babdd79d455e250687134",
+    "japanese_melodic_hardcore": "7f8543ff628cdf4919ee6d71358b14a488a8a727212882ece6ef9310c05503ec",
+    "japanese_melodic_punk": "6cd321587347cef3bf5fad6d671378708dcf6a11806251fcd91f4adae6bb614a",
+    "japanese_pop_punk": "6fb1590c0b62f46227c623773150bfe20a9e0337e8e550e1aff866eb4c4ec590",
+    "japanese_post_hardcore": "8cab4f5e7322bb1aa192ab814981aa85514d30e45bfbf2b00870391663e9f5c9",
+    "japanese_post_punk": "0723c4ea74b875d549cf2fa867a98f3334f7d1fa7dbe335a32d5c2c2ff06196e",
+    "japanese_punk_rock": "53f6e6c64fc81f04ac0d15aaf99bd56142428e402083e4f4889bae2a66f167c2",
+    "japanese_screamo": "2c2ff486d2e2572ce9de4f3c32f68e2315768398b820ecb23ffc3ca2e1000787",
+    "kentucky_punk": "a960d4a097e7a013a1bdfb787b69d3f57f0073fda01e437cefe12b71d87b7006",
+    "korean_hardcore": "ebba48ca8da50b4e8625e4df649608f0e4f806c28b20f15b471855e501b54113",
+    "korean_punk": "a80effbd37c376cd080fe40963762ad02e0ec2941a42ad7cc443a2ca78f185de",
+    "lion_city_hardcore": "04dae0cd6a7f5fd937f257bb8dc8c6aee1b76b3f45b922e15d83cfe4fbadc270",
+    "lo_fi_emo": "8d41dd19f21847abbb06fb26e991cae1e3d19b9deca2368ece30081fe80e33f6",
+    "long_island_punk": "aa1c0a98e141fda9c53572c6770ea2e61012390d1938eb063b0d9756ec1aa810",
+    "lowlands_hardcore": "7b1f3bef6d3979606182dbba48e3a0ce1d3ed851aa0706b6bbe5096175eef5a1",
+    "malang_punk": "892e0882f81f994b9e7da487ca6dfe2766b25f76af27880f4994bf78d55ad3dd",
+    "malaysian_hardcore": "916652978357c7cd8abb3b3d452edfbb2c6435f86dabf8cad2690cf5bf4ea274",
+    "malaysian_punk": "5f0c9939208e9b9ba210017336633e3239b9fe1782b89d89680e676c19e5de36",
+    "melbourne_punk": "f5e3d3cd304ac023fa630622190f4093f2e03f983a931107a6794d675e1e4c71",
+    "melodic_hardcore": "68bffb0da5498220b25aa0312b00693b9f801ea9d3792d679f8c9bdec4f06635",
+    "metallic_hardcore": "931525668cbbe6e699b9fb3dd92c83d8159f44694aaec9ad51ebcca942e9bb05",
+    "mexican_pop_punk": "8deb759bb1e73366267c18132ef5f786b16d2373b33a1e4c44fa6e064a6bcd29",
+    "minneapolis_punk": "1b5fa6a9230ce1b492e1749c1d56bb839f89104fc7d2216958f15f68c8b7216d",
+    "modern_hardcore": "598e7c7e1d2e627c9dffbf324d14b3687e0af821aedd5986cd3363f4bffefe95",
+    "modern_melodic_hardcore": "d0cba0d8c5791f61bf1e68184d9a1bb6ae7a79f3f84ea5dd8b9978712fedbfd6",
+    "mexican_hardcore": "5654e91a3e9a4c007e6d4ea432b06c57575e38015406e460a4315c5e5ce340c6",
+    "new_england_emo": "5023a85a77ba083ffeba369cf48a868315134f3daed3021a4aa9c7bdc7620522",
+    "new_england_hardcore": "a8aa0b94a74c8a0828b1f944e70a42afb7d3dca7656bcc544df08770fea16e05",
+    "new_jersey_hardcore": "770afc31fd71eceacc84e4ff13d8f033bf87c2fb7d139330be00bd81d1c7b125",
+    "new_jersey_punk": "bdb3b18e1bcd438ee28b6bf6a5fae2e25f3da8b3fd4282edce068ac1e873c10a",
+    "noise_punk": "fafa3f16d33941cc2c6c353dda80872d2dd0681b15788376f26b0975df095d8f",
+    "north_carolina_emo": "da680bcb6c879fdfe7698a45a70622c4e34234da925bccb378018e49da7347cf",
+    "northern_irish_punk": "7b9cc2a0cfbba1f98945cc28d322d6c2197b97b40e52c70cd8cd46421ba7d583",
+    "norwegian_hardcore": "94e0223e8f0e40839ab13eebc2a5b371d665aec9da141ddeaf4c65ca35ad55f7"
+  },
+  "predecessor_note": "Verified remote batch011 commit with identical validated tree ac5b50c27a6f8c990bf4dffbf65e5935dc35ef3a. Local checkpoint baseline differs only in commit ancestry, not source/tree.",
+  "local_checks": {
+    "canonical_refs": "PASS 3838 traditions / 1467 instruments",
+    "primary_full_api": "PASS 3838 compiled / 0 failed / all recipes <=1000 characters / all IDs resolve",
+    "api_contract": "PASS",
+    "atlas": "PASS 3838 placed / 0 unplaced",
+    "descriptor_df": "PASS 97.14%, frozen table unchanged",
+    "signatures": "PASS",
+    "duplicate_gate": "PASS 0 unruled collisions; 1 pre-existing unresolved; 328 advisory pairs",
+    "prefaces": "PASS 79/79",
+    "slots": "PASS 4/4",
+    "app_recipes": "PASS 56/56",
+    "equivalence": "PASS 8/8",
+    "docs": "PASS 13 executable commands and 8 behaviors; public count-only replacements verified byte-for-byte",
+    "lint": "PASS",
+    "format": "PASS",
+    "structural_ui": "PASS geometry/workbench/chat counter",
+    "initial_recipe_regression": "1125/1149 matched; all24 changed expectations individually reviewed and selectively updated; three blend fixtures independently rebuilt on prior source tree",
+    "final_full_local_regression": "PASS 1149/1149 using unchanged default parallel pool with no concurrent API compiler",
+    "independent_freshness": "PENDING required exact-head CI; no second local full compile was run",
+    "browser_checks": "PENDING required exact-head CI; local Chromium unavailable; no install or bypass"
+  },
+  "append_only_source_proof": {
+    "issues": [],
+    "entries": [
+      {
+        "path": "data/geo.json",
+        "all_prior_values_unchanged": true,
+        "old_count": 3738,
+        "new_count": 3838,
+        "added": 100
+      },
+      {
+        "path": "references/_tradition_signatures.json",
+        "all_prior_values_unchanged": true,
+        "old_count": 1716,
+        "new_count": 1816,
+        "added": 100
+      },
+      {
+        "path": "references/_image_manifest.json",
+        "old_image_records_unchanged": true,
+        "old_count": 5155,
+        "new_count": 5255,
+        "added": 100
+      },
+      {
+        "path": "references/05_traditions.js",
+        "all_prior_literal_bytes_unchanged": true,
+        "appended_lines": 100
+      },
+      {
+        "path": "references/06_extras.js",
+        "all_prior_literal_bytes_unchanged": true,
+        "appended_lines": 100
+      }
+    ]
+  },
+  "frozen_candidate_packet_sha256": "e22e2b756a81a2902b4a5bc19f3cd95c2ee187e0d0f3d316366b17acaac4b478",
+  "frozen_candidate_entry_sha256_canonical": {
+    "colorado_hardcore": "b16feafd3cd39d8d89266013669fd2a75c445660ef704769cbb14ecf5bb33c87",
+    "connecticut_hardcore": "622504f06c593db2ca0848adb59356ae11706ab8f3663d8c87f5296622ebbd71",
+    "czech_hardcore": "75eecb9f0b38b48d8f206cfa1ce1568e86d7911545c9f2d80586012945b3d8df",
+    "czech_punk": "6d4fccb6bced6e5ecf42ae7c925cf53f8a02acd2af9af8fdd77953c0ee7d0e83",
+    "danish_hardcore": "d8bd2a18fe8dedc9ed8c47371219de9aef3bd238677c1e4434b1051b47ca466d",
+    "danish_post_punk": "77a183858d9f14ba7072a2b2faed69691f8f5e058321d0c885143d87c05a1fa6",
+    "danish_punk": "49b8c446b0503e106fabc1e9f5415d0a9c0a204e843cbdca868df3ce14174f6d",
+    "dark_hardcore": "42ef92575424de2c4ae37773e0c9ed0dab9523dbc8af290ce22a6952a27643fe",
+    "dark_post_punk": "04fcdcd64b8bb6fd1fcbbc0753187c865da30c3b5f01ac0e3bf33d3370ea09ca",
+    "dc_hardcore": "e2b74c1c7be4e1f2427f739707dc7ef76959557b57b29322b8a77b32ede59c97",
+    "dutch_punk_rock": "8c625fa08424889dbaba823441c8b67ef7fe38b7f3fcda7eef529d6a3064d63a",
+    "fast_melodic_punk": "c9bfc19c6a69f7a5a354f16fd93558303a2e9bbeceb62342d26328408bcefb54",
+    "finnish_hardcore": "e854a1c8d186e61899d210512e82e0298bd4e08f75b50a5b29ac10ae25efab97",
+    "finnish_punk": "96198f93aa2c20293ab44d86e70d39a0dc93b386eca80b971ac7d0dd5aab017b",
+    "finnish_pop_punk": "d208c9ffab5066693e5f85c575bd51dbda9c36adf68e16111e9189d1f18c2931",
+    "florida_hardcore": "08e14a5bebcc442a1a22863af4593d61b8d67fd6a21d03bb0ffbc071f81dc72f",
+    "french_punk": "f0ca28c6569fda42e96e000495f3cfe4bdcaee0a02db0f9f6f5c46aa9683d998",
+    "dub_punk": "691d09a5e81023a23d51944a6bf5d1783dea6ce03073e99c2eac2eb00f47c319",
+    "early_french_punk": "76c497d481c7ea5bed3d3e6b9a5654c7864eb2b677d740433e35f6069f2cd7cd",
+    "early_us_punk": "83a8c00b201f37b347fa3586706142bf8e771788c6913bfdf3da5a6c1018e99b",
+    "emo_mexicano": "9a5b8d9053a879615d78b1f9c403a6a095b30acfb76fa88f1929584f0ac0b462",
+    "emo_punk": "1ff5da5fcc588ef9cd761dc44f0f627980287e512a819e258de478cb6901a8eb",
+    "finnish_post_punk": "caa7d580a9d3ec3592db3f146722c32cbb108d20ca800224fe01d4ea5cd3b4fd",
+    "french_emo": "b67854a1ff718472887bb95ab30331dbf833f5a49c610fb46247f63c8fbf9a2e",
+    "french_hardcore": "3e7dc8961ee46a617a47c7eb8c105a3c87f6579e24a69c4491719fd1d3b13492",
+    "french_post_punk": "b5f6124c0cede16544540c7a7fb065472f4fb94f6d4b401590bbb12328f1b72b",
+    "deep_hardcore_punk": "f154c8bb9df11ff3cad01c4c1cf9f248108f02ab702308e394f3ce489db44be8",
+    "deep_pop_emo": "1f56cff635df2cd886d95688e3df38335e3cb3293685e4503780585a063a7341",
+    "deep_power_pop_punk": "0214638830e08c83e6bb03fc81a06eb3663fc8957722e19118220f7d4a367972",
+    "deep_punk_rock": "bffbf69a6b7164b0de8c39499177248f121fb9d5b8635193c8876a39e7398d87",
+    "freeform_hardcore": "7ba15f425eec398e02a243677e5a98788d9f40a2643c16467b8ab16d10411c67",
+    "german_hardcore": "910cc789a45ff3b94c536f306ce68329f38ff9238f36d38e3f118fe3f3632604",
+    "german_post_hardcore": "be6d97a513106d4afed0285148da817840c160153b8a39d01eb9e54607e48bc7",
+    "german_post_punk": "7b04128859dd83885fe19c0ebb63204b75c8e2d691b6d2498d59bfec37e706a3",
+    "german_punk": "1934f2f2ba1558088f054c606ecd4fb4cf25db9a5bcdbabbcfa32567ad4418a5",
+    "german_punk_rock": "76e8a15edd69eb3796f4467ad5366b8b3c793f4e47be08d50ec507b257995e28",
+    "german_street_punk": "91fbf8dcb8f147eeb99d9bb226ddb496e77f4c38aebe61e1e8184be79912ae7d",
+    "glam_punk": "2b0559f7a593e012791fcef0842e7bd697ae10fe56c7a8b356a4abe0f05165b0",
+    "gothic_post_punk": "ad0b842bdd11b985de877033e30b7974662a68b80880f37351e0cf9b10bbb068",
+    "greek_punk": "fd78480ec5bae498d4df843e6ebadf876ff260c43f7f799f3dd21d9b50607c29",
+    "hardcore_punk_espanol": "30abe2eaaeb309fce8ec11c9b20071a8c813294439cdc524cfb3f29544480263",
+    "hawaiian_punk": "c0eb5c268f60d30944adb8cf9dd5f60b495c3a913f29c111f6065a55f751c941",
+    "horror_punk_brasileiro": "2d7f74215e94fb19fb18fa46296be5d8c1f6ba867351f9d3b15567894e8b97ca",
+    "hungarian_punk": "f6fb5d9be99f6f89d21c14c58868318eade2c5682023ecf2c4120bc8d92a3a96",
+    "icelandic_post_punk": "1bca6112677a5c0e028949f442df0b12d9b4eb1ac96c108361794ff976e80d69",
+    "icelandic_punk": "7467615ad25445cea41415802d0d1a392bf3c6b92b9b603ee71798ee5fb3e63f",
+    "indie_emo": "ad21236ba1864aae862c3d59ba80d12df3bd72bd2e32979c30c57d2b0cbbce3c",
+    "indie_emo_rock": "a6fbc2b38f5b611ddd3f2e42936ef27212a694061d7b96d9cab12306f677c37a",
+    "indie_punk": "31ffc4756c3e964c238870d429ca942e928de15770beea0a0965fd8765285ee9",
+    "indonesian_emo": "5750b3345e2590b263bfbec13c98526df398b04a3d5c7f6025ce1a98f95c1e23",
+    "indonesian_hardcore": "5a9e6fdf9044713df9ee9917784809dea228b87ae1d4bf82e6b308520d6ca9d8",
+    "indonesian_pop_punk": "7ad0538fd1bda21a13365c9267ef83ae9acd55f8bad637f08ff348dcd09a0770",
+    "indonesian_post_hardcore": "745541c46dba73e18307ebec3b4a626a575ea2a29b130cda1058af2d789eba84",
+    "indonesian_punk": "36a68429efb12dcc1be163cb8adfc7962fb6ae1a4f64fec4728a070b5b46ed4c",
+    "irish_hardcore": "8f09040acfc2ecd5568daa182c9fbe0061a6b4899548929b0d261e268aa28236",
+    "irish_post_punk": "74068a10834ebd69a4e98f7c6d7322eecba66ecc9c4956cd6d522c8e5ac731f8",
+    "irish_punk": "28396f588dd72c3fe858a719820d11ce7b250788bd16a78a8570c9629647bf75",
+    "israeli_punk": "f7c514c153c121850fc2350c92f10f72c73033d0c14b84d50b72c6c65a8d8276",
+    "italian_hardcore": "60e35cffe9cf8b996fd810825bc74674eedf8be9087a0986ccdbe961d232b165",
+    "italian_pop_punk": "45974374933120e924164c6368a82235460dd55efc2fdb099f41bc3f94ac36fd",
+    "italian_post_hardcore": "1ba92971383d5be15e8c3204a82637581970b96d47bcf8f82926cade085c8cc2",
+    "italian_post_punk": "0d089f089cf519b97b971dcfd3316453f7796aca0af2c27bad827d1c2f4b5552",
+    "italian_punk": "58d1cfdcd7dbf597f3ed8081361eb9434d20b7f316d5ed5bbc4c85ca372ef30a",
+    "italian_screamo": "efd0d6dae3b43aca025fd9e57bc117c1f95d81b2c2fc32e23513b356d5f6b833",
+    "italian_emo": "b62273753a83c38557bffbce551e0fe06e8513bbd6e90c63c4b41a81dc3d7f15",
+    "japanese_emo": "1c00aebaacfe1bfed9d51fb5b3375fe6690604684c1cdc9ddca22aa94eba6f74",
+    "japanese_girl_punk": "a142876ab1120d42289be856989ac4f86f09772fe7c88fbb99d051e695320def",
+    "japanese_melodic_hardcore": "c16fc3a5f330e9e6c6413821336827641005bbcdd7b80b593312208c0257862e",
+    "japanese_melodic_punk": "6656a4f30573d98c8f815380d6ddda19683515259ccb33128328e72f58dafea5",
+    "japanese_pop_punk": "0e1c0ae489d3795cb0f8a487022966aa171e8f0308286de91717d03a009b1529",
+    "japanese_post_hardcore": "74663fbb4836d8da06882972f3ec1f078dbd16b6d79eef6dddc2195e99479a2a",
+    "japanese_post_punk": "fc205e846cb510e8b4fb9a917c06cb2e9775f475e20367af1afc214db3329b75",
+    "japanese_punk_rock": "0dfae811826c0bfc62e2bb54c1437c896d2b6ddb7fc019c018b753ab5827eae4",
+    "japanese_screamo": "313d4e0f5f44ab9ed7902ee8c466b99a4b4d94cdb0b5d06df883ca5dbc960471",
+    "kentucky_punk": "25a7777a55e5a5502e0d119bd7ebc0816f04d676781b434c49088f104c9f43a5",
+    "korean_hardcore": "233bae0491b8dadbe368ebb558c25c6bd0c6da61716f23f4a78f7748a69e8943",
+    "korean_punk": "69d0392d3379ca97d3b4b931ae6deb0958102545cc242be1f8393363c4fdc58b",
+    "lion_city_hardcore": "0d62f05ad2ca6a9a07bb7f282ce3753f5cf746040c962df8702dd87cf31e7182",
+    "lo_fi_emo": "f23b0fe6334f983f804652cefe066e837433146801019a6aa9f958089182e213",
+    "long_island_punk": "bcc8941c9ce4c4d53df32f7fae74563a516ce90c79f754e9704f41165cef35c8",
+    "lowlands_hardcore": "a2d0c2395079c68312bd51a3e14dee3bedf928f130319e186aaa5a21dd5a10e3",
+    "malang_punk": "5b511cbf4538bf6c69706d43acd2d37cdb3c7a3f48c1a20929b3c6cd00a54d08",
+    "malaysian_hardcore": "5034173bd0650a8707deb144f67e4d0a820b639aaba780217679b933172333c0",
+    "malaysian_punk": "e5bb7076150f3706b862fc8c2f3f944e293ade30e76a2f05e6ef54bff0d1e4c4",
+    "melbourne_punk": "dd5c87f8b55c1134c23d1894efddc8e8619f601f3391cff636b8148cfabc6544",
+    "melodic_hardcore": "efbfc875e9e086cca5daeca20bc5274e12d3bc12a260f25d29ddc3d7ec5ade74",
+    "metallic_hardcore": "34645696ac88cec1d410538d55c313466724e6a046a64d38f2e50c3b5afd3b18",
+    "mexican_pop_punk": "c341941d38832bba0adb2d2d30b3809f60d2bb1d8b38676991074eb4f6af23da",
+    "minneapolis_punk": "2048f237cf6b9ef06a13c2e9b4793d98cde97a6b34f4e5a532a6e7090633190b",
+    "modern_hardcore": "23e1f9691129d5aff389accb6b5dc73b831d74e30463706a1ab22087d30e79c3",
+    "modern_melodic_hardcore": "8e14baa5f034a78e2879f91c4982c0afcaea1d0fc06fdb8cd5e6c24eaf71200c",
+    "mexican_hardcore": "14da90ac1a32658f75d8283aa251288af46a5e3572ec6e968c363def931c0f17",
+    "new_england_emo": "ec46010c3c0c2a7eca3df1c6cbb75f2bbe774a652d6ae08549e41ec1b53fa987",
+    "new_england_hardcore": "30d957be294893ad631846aa705a6974184d968d096d7e011238a0c305515f8e",
+    "new_jersey_hardcore": "72dd414f50bf54d01ad740dad6bd83ef3cf9bf80733a655a16f7b7a6766b733c",
+    "new_jersey_punk": "923c4defc0bbe15baa55df2150d710f48008e7a9d3556305f3177bbf7a735869",
+    "noise_punk": "6853d0808517f1875796a8166c18b282ea2322e3d810e70ed072685adbab27f4",
+    "north_carolina_emo": "80e635de53a78de892dc9886fb5dd0d5aa26761a71779ae8ca8ab442d8a5ed1a",
+    "northern_irish_punk": "dcca471b32e2daf2c1a80c5a571c927898adbd1cff637ee27d00e15ffaa534b8",
+    "norwegian_hardcore": "633e2d68e10ee5cf4c8b735218efb688a1acb1f7ac6ba16615b36dcf9bf290a9"
+  },
+  "candidate_hash_note": "candidate_entry_sha256 uses integration-helper JSON serialization after image-license normalization; separate frozen and final canonical entry hashes preserve both exact records.",
+  "scope_audit": {
+    "sourceCounts": {
+      "baseline": 3738,
+      "current": 3838,
+      "additions": 100,
+      "instruments": 1467
+    },
+    "prior_tradition_and_extras_records_unchanged": true,
+    "prior_instrument_room_tree_vocabulary_bytes_unchanged": true,
+    "app_logic_unchanged_outside_generated_signature_data": true,
+    "prohibited_changed_paths": [],
+    "issues": []
+  },
+  "full_api_config_audit": {
+    "changed_existing_api_tradition_files": 107,
+    "recipes_changed": 61,
+    "slot_maps_changed": 70,
+    "changed_slot_values": 389,
+    "all_sources_roles_environment_preserved": true,
+    "all_explicit_pinned_parts_preserved": true,
+    "issues": [],
+    "entries": [
+      {
+        "id": "5th_wave_emo",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "adelaide_punk",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "adult_standards",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "afghan_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "alabama_hardcore",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "alternative_emo",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "american_grindcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "arena_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "argentine_hardcore",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "argentine_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "arizona_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "armenian_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "atlanta_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "australian_hardcore",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "australian_metalcore",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "bedroom_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "black_speed_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "blackened_screamo",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "bosnian_pop",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "bosstown_sound",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "boston_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "brazilian_grindcore",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "brazilian_metalcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "brill_building_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "british_grindcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "british_soul",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "brutal_deathcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "buffalo_ny_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "canadian_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "cantopop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "chain_punk",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "chicago_hardcore",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "chicago_pop_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "chicago_punk",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "chicano_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "chilean_hardcore",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "christian_hardcore",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "christian_power_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "christian_punk",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "congolese_gospel",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "country_pop_crossover",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "cypriot_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "dark_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "deathrock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "diva_house",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "diy_emo",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "diy_pop_punk",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "doo_wop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "dutch_pop",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "dutch_punk",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "dutch_trance",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "ectofolk",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "german_metalcore",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "german_trance",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "goth",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "gothic_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "grindcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "hi_nrg",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "hip_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "horror_punk",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "hot_country_2010s",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "hyperpop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "hypnagogic_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "indie_folk_2000s",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "indonesian_deathcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "indonesian_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "indorock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "j_pop_classic",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "lithuanian_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "lounge_music",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "malaysian_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "mandopop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "martial_industrial",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "neofolk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "new_romantic",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "new_tejano",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "nova_mpb",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "opera_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "philly_soul_intl",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "pinoy_rnb",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "polish_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "progressive_deathcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "progressive_metalcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "rock_en_espanol",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "russian_estrada",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "scandi_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "scottish_hip_hop",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "shiver_pop",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "sinhala_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "slamming_deathcore",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "smooth_jazz_80s",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "south_asian_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "space_age_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "spanish_hip_hop",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "surf_music",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "symphonic_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "synthpop",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "synthwave",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "thrash_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "traditional_pop_music",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "trinidad_road_march",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "two_tone_ska",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "uchinaa_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "uplifting_trance",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "visual_kei",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "wisconsin_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "worldbeat_80s",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      }
+    ]
+  },
+  "review_artifact": "docs/everynoise-integrations/data-only-012-snapshot-review.json",
+  "count_only_public_docs_proof": {
+    "scope": "Unchanged original check_docs --fix only; numeric catalog count substitutions, no instructions, behavior, listings, price or publication scope altered",
+    "entries": [
+      {
+        "path": "AGENTS.md",
+        "exact_count_replacement_only": true,
+        "before_count": 3738,
+        "after_count": 3838,
+        "patch": "--- before/AGENTS.md\n+++ after/AGENTS.md\n@@ -1,7 +1,7 @@\n # Codex Musica — guide for AI agents\n \n This repository publishes a **static, server-free \"API\"**: pre-compiled recording\n-**recipes** for **3738 recorded-music traditions** and data for **1467 instruments**.\n+**recipes** for **3838 recorded-music traditions** and data for **1467 instruments**.\n There is no server to call, no API key, and no rate limit — every \"endpoint\" is just a\n plain JSON file you fetch and read.\n \n@@ -19,7 +19,7 @@\n \n Base URL: `https://codexmusica.com`\n \n-**Fastest path — one fetch for everything:** `…/api/all.json` returns all 3738\n+**Fastest path — one fetch for everything:** `…/api/all.json` returns all 3838\n traditions with their `recipe` strings in a single file (~1.9 MB). Fetch it once and you\n have the whole catalog; no per-id requests needed. <!-- @promise: all-traditions-one-fetch -->\n \n"
+      },
+      {
+        "path": "README.md",
+        "exact_count_replacement_only": true,
+        "before_count": 3738,
+        "after_count": 3838,
+        "patch": "--- before/README.md\n+++ after/README.md\n@@ -3,7 +3,7 @@\n A structured catalog of recorded-music traditions in 13-dimensional parameter space,\n and an engine that turns a song specification into a tightly compressed structural\n **recipe** — a descriptor stack that tells you how to record it. The catalog spans\n-**3,738 traditions** and **1467 instruments** (with per-part variant decomposition),\n+**3,838 traditions** and **1467 instruments** (with per-part variant decomposition),\n **256 rooms**, **84 chain archetypes**, and **122 tunings**.\n \n The headline operation is recipe generation; the same catalog also supports tradition\n"
+      },
+      {
+        "path": "SKILL.md",
+        "exact_count_replacement_only": true,
+        "before_count": 3738,
+        "after_count": 3838,
+        "patch": "--- before/SKILL.md\n+++ after/SKILL.md\n@@ -1,6 +1,6 @@\n ---\n name: codex-music-tool\n-description: Query, compose, validate, and mutate the Codex Musica dataset — 3738 recorded-music traditions (in a 317-node genre tree, 13-axis space), 1467 instruments across 11 families with shared parts/variants, 256 rooms, 84 chain archetypes, 21 production aesthetics, 122 tunings, and a 740-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack \"recipe\", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.\n+description: Query, compose, validate, and mutate the Codex Musica dataset — 3838 recorded-music traditions (in a 317-node genre tree, 13-axis space), 1467 instruments across 11 families with shared parts/variants, 256 rooms, 84 chain archetypes, 21 production aesthetics, 122 tunings, and a 740-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack \"recipe\", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.\n license: UNLICENSED\n ---\n \n@@ -57,8 +57,8 @@\n | arrangement templates | 5 | bare slug | `ARRANGEMENTS` (array) |\n | tunings | 122 | bare slug, e.g. `twelve_tet` | `TUNINGS` (array) |\n | tree nodes | 317 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |\n-| traditions | 3738 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |\n-| tradition extras | 3738 | keyed by tradition id | `TRADITION_EXTRAS` (object) |\n+| traditions | 3838 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |\n+| tradition extras | 3838 | keyed by tradition id | `TRADITION_EXTRAS` (object) |\n | voice/preface lexicon | 740 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |\n | axis definitions | 13 (trad) / 9 (inst) | bare slug, e.g. `harm` | `AXIS_DEFINITIONS`, `INSTRUMENT_AXIS_DEFINITIONS` |\n \n@@ -130,7 +130,7 @@\n - **`instrument.family`** ∈ the 11-value `INSTRUMENT_FAMILIES` table (always resolves).\n   **`tradition.family`** is a *different* 12-value vocabulary (`global, classical,\n   rock_punk, electronic, hip_hop, vernacular, jazz, pop, blues_gospel, rock, country,\n-  pop_rock`; `global` dominates at 1262/3738) — a top-level genre bucket, NOT an\n+  pop_rock`; `global` dominates at 1262/3838) — a top-level genre bucket, NOT an\n   instrument family.\n - **Tree-node ids are full dotted paths.** 292 of 317 ids contain dots\n   (`functionalSong.country.honkyTonkEra`); `extras.parent`/`crossRefs` hold such ids and\n@@ -179,7 +179,7 @@\n ```bash\n CODEX_REF=\"$PWD/references\" node -e 'const T=require(\"./load.js\");\n console.log(\"loaded:\",T.INSTRUMENTS.length,\"insts,\",T.TRADITIONS.length,\"trads\")'\n-# → loaded: 1467 insts, 3738 trads\n+# → loaded: 1467 insts, 3838 trads\n ```\n \n ### B. `require` for the preface lexicon only (it has `module.exports`)\n@@ -854,7 +854,7 @@\n - Load once with `q.js`; reuse `db.by*` and `db.partsFor`. Never re-parse the 1–2 MB\n   bundles per query.\n - Project to `{id,name}` and `slice`/`head` before printing — never dump a full table\n-  (1467 instruments / 3738 traditions — a lot of tokens).\n+  (1467 instruments / 3838 traditions — a lot of tokens).\n - Prefer counts/samples while exploring; pull full records only for the few ids that\n   land in the output.\n - For a single name lookup, `grep -oE \"name: '…'\"` beats spinning up node.\n"
+      },
+      {
+        "path": "atlas.html",
+        "exact_count_replacement_only": true,
+        "before_count": 3738,
+        "after_count": 3838,
+        "patch": "--- before/atlas.html\n+++ after/atlas.html\n@@ -6,7 +6,7 @@\n     <title>Traditions Atlas — Codex Musica</title>\n     <meta\n       name=\"description\"\n-      content=\"An atlas of 3738 music traditions, coloured by the catalog's own taxonomy rather than by geography. Every pin opens its recording recipe in Codex Musica.\"\n+      content=\"An atlas of 3838 music traditions, coloured by the catalog's own taxonomy rather than by geography. Every pin opens its recording recipe in Codex Musica.\"\n     />\n     <link rel=\"canonical\" href=\"./atlas.html\" />\n     <link rel=\"icon\" href=\"assets/favicon-32.png\" sizes=\"32x32\" type=\"image/png\" />\n@@ -19,7 +19,7 @@\n     <script src=\"src/theme.js\"></script>\n     <meta property=\"og:type\" content=\"website\" />\n     <meta property=\"og:title\" content=\"Traditions Atlas — Codex Musica\" />\n-    <meta property=\"og:description\" content=\"3738 music traditions, mapped by sound rather than by border.\" />\n+    <meta property=\"og:description\" content=\"3838 music traditions, mapped by sound rather than by border.\" />\n     <meta property=\"og:url\" content=\"https://codexmusica.com/atlas.html\" />\n     <style>\n       /* Base only. Every colour, size and component style is in src/map.css,\n"
+      },
+      {
+        "path": "docs/connector-directory-submission.md",
+        "exact_count_replacement_only": true,
+        "before_count": 3738,
+        "after_count": 3838,
+        "patch": "--- before/docs/connector-directory-submission.md\n+++ after/docs/connector-directory-submission.md\n@@ -44,14 +44,14 @@\n instrument — into a precise, structured recording recipe: the instruments,\n materials, room, signal chain, and per-instrument *prefaces* (named\n aesthetic/technique signatures) that define how to record it. Backed by a\n-structured catalog spanning 3738 traditions and 1467 instruments, plus a\n+structured catalog spanning 3838 traditions and 1467 instruments, plus a\n separate songwriting pipeline that plans and grades lyrics the caller writes. No\n account; no external calls.\n \n ### Long description (≈120 words)\n \n CodexMusica is a recording-arrangement engine exposed as MCP tools. Its\n-catalog places **3738 recorded-music traditions** in a 13-dimensional parameter\n+catalog places **3838 recorded-music traditions** in a 13-dimensional parameter\n space alongside **1467 instruments** (decomposed into per-part variants), **256\n rooms**, **122 tunings**, and **740 \"prefaces\"** — named aesthetic/technique/\n delivery signatures (e.g. `satirical`, `keening`, `jhala-cascading`) that map\n"
+      },
+      {
+        "path": "docs/connector.md",
+        "exact_count_replacement_only": true,
+        "before_count": 3738,
+        "after_count": 3838,
+        "patch": "--- before/docs/connector.md\n+++ after/docs/connector.md\n@@ -8,7 +8,7 @@\n naming the instruments, materials, room, signal chain, and per-instrument\n *prefaces* that tell you how to record it.\n \n-- **Catalog:** 3738 traditions · 1467 instruments (with per-part variants) ·\n+- **Catalog:** 3838 traditions · 1467 instruments (with per-part variants) ·\n   256 rooms · 122 tunings · 740 prefaces, placed in a 13-dimensional parameter space.\n - **Browser app:** <https://codexmusica.com/codex.html>\n - **Endpoint:** `https://mcp.codexmusica.com/mcp` · health: `/health`\n"
+      },
+      {
+        "path": "index.html",
+        "exact_count_replacement_only": true,
+        "before_count": 3738,
+        "after_count": 3838,
+        "patch": "--- before/index.html\n+++ after/index.html\n@@ -6,7 +6,7 @@\n     <title>Codex Musica</title>\n     <meta\n       name=\"description\"\n-      content=\"Codex Musica — recording recipes for 3738 music traditions and 1467 instruments. Human app at codex.html; machine-readable recipes at api/all.json (one fetch, all recipes). No server, no key.\"\n+      content=\"Codex Musica — recording recipes for 3838 music traditions and 1467 instruments. Human app at codex.html; machine-readable recipes at api/all.json (one fetch, all recipes). No server, no key.\"\n     />\n     <link rel=\"canonical\" href=\"./codex.html\" />\n     <link rel=\"icon\" href=\"assets/favicon-32.png\" sizes=\"32x32\" type=\"image/png\" />\n@@ -65,7 +65,7 @@\n   <body>\n     <main>\n       <h1>Codex Musica</h1>\n-      <p>Recording recipes for <strong>3738 music traditions</strong> and 1467 instruments.</p>\n+      <p>Recording recipes for <strong>3838 music traditions</strong> and 1467 instruments.</p>\n       <p><a class=\"launch\" href=\"./codex.html\">Launch the app →</a></p>\n       <p style=\"margin-top: 0.5rem\"><a href=\"./atlas.html\">Browse the traditions atlas →</a></p>\n \n"
+      },
+      {
+        "path": "llms.txt",
+        "exact_count_replacement_only": true,
+        "before_count": 3738,
+        "after_count": 3838,
+        "patch": "--- before/llms.txt\n+++ after/llms.txt\n@@ -1,6 +1,6 @@\n # Codex Musica\n \n-> A static, server-free catalog of recording \"recipes\" for 3738 recorded-music\n+> A static, server-free catalog of recording \"recipes\" for 3838 recorded-music\n > traditions and 1467 instruments. Each tradition resolves to a compressed\n > descriptor-stack recipe (how to record a song in that style) plus a structured\n > arrangement (ensemble, room, signal chain, tuning). All data is plain JSON served as\n@@ -49,7 +49,7 @@\n NOT a snapshot of what start_recipe returns. These recipes come from a search over the\n axis space, the connector's from seeding a workspace and rendering it, so the two describe\n the same tradition in different words. If you need the string a user would see in the app,\n-call the connector; if you need 3738 recipes in one fetch, this is the only thing that\n+call the connector; if you need 3838 recipes in one fetch, this is the only thing that\n does that.\n - ALL default recipes in one fetch: https://codexmusica.com/api/all.json\n - List of traditions: https://codexmusica.com/api/traditions/index.json\n"
+      },
+      {
+        "path": "package.json",
+        "exact_count_replacement_only": true,
+        "before_count": 3738,
+        "after_count": 3838,
+        "patch": "--- before/package.json\n+++ after/package.json\n@@ -2,7 +2,7 @@\n   \"name\": \"codex-music-tool\",\n   \"version\": \"2.0.0\",\n   \"private\": true,\n-  \"description\": \"Compressed song-recipe descriptor engine over a 3738-tradition / 1467-instrument music codex. Generates structural production blueprints, blends traditions, matches axis profiles, and ships a lazy-loading browseable HTML catalog app over a static, server-free JSON API.\",\n+  \"description\": \"Compressed song-recipe descriptor engine over a 3838-tradition / 1467-instrument music codex. Generates structural production blueprints, blends traditions, matches axis profiles, and ships a lazy-loading browseable HTML catalog app over a static, server-free JSON API.\",\n   \"license\": \"UNLICENSED\",\n   \"author\": \"CodexMusica\",\n   \"type\": \"commonjs\",\n"
+      },
+      {
+        "path": "server.json",
+        "exact_count_replacement_only": true,
+        "before_count": 3738,
+        "after_count": 3838,
+        "patch": "--- before/server.json\n+++ after/server.json\n@@ -2,7 +2,7 @@\n   \"$schema\": \"https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json\",\n   \"name\": \"io.github.weningerii/codex-musica\",\n   \"title\": \"Codex Musica\",\n-  \"description\": \"Recording recipes over 3738 traditions and a separate lyrics planning, grading and revision pipeline. Recipe tools are deterministic. Lyrics tools plan and grade; the caller writes every line, and revision stores private run state.\",\n+  \"description\": \"Recording recipes over 3838 traditions and a separate lyrics planning, grading and revision pipeline. Recipe tools are deterministic. Lyrics tools plan and grade; the caller writes every line, and revision stores private run state.\",\n   \"version\": \"3.2.0\",\n   \"websiteUrl\": \"https://codexmusica.com\",\n   \"repository\": {\n"
+      }
+    ]
+  },
+  "publication_schedule": "Draft publication with all available local checks passed and required exact-head CI still pending. No independent second full local API compile. Merge requires all existing required CI checks.",
+  "local_resource_measurements": {
+    "primary_api": {
+      "command": ["node", "scripts/build_static_api.js", "--jobs=8"],
+      "returncode": 0,
+      "wall_seconds": 242.086,
+      "peak_rss": 3672668,
+      "peak_rss_unit": "KiB",
+      "user_cpu_seconds": 1507.234578,
+      "system_cpu_seconds": 15.382226,
+      "platform": "Linux",
+      "scope": "Task-local timing wrapper over unchanged repository command"
+    },
+    "initial_regression": {
+      "command": ["env", "-u", "REGRESSION_SERIAL", "node", "scripts/regression_recipes.js"],
+      "returncode": 1,
+      "wall_seconds": 80.47,
+      "peak_rss": 3497064,
+      "peak_rss_unit": "KiB",
+      "user_cpu_seconds": 526.623432,
+      "system_cpu_seconds": 6.472691,
+      "platform": "Linux",
+      "scope": "Task-local timing wrapper over unchanged repository command"
+    },
+    "final_regression": {
+      "command": ["env", "-u", "REGRESSION_SERIAL", "node", "scripts/regression_recipes.js"],
+      "returncode": 0,
+      "wall_seconds": 70.026,
+      "peak_rss": 3440128,
+      "peak_rss_unit": "KiB",
+      "user_cpu_seconds": 497.800588,
+      "system_cpu_seconds": 3.532438,
+      "platform": "Linux",
+      "scope": "Task-local timing wrapper over unchanged repository command"
+    }
+  },
+  "final_entry_sha256_canonical": {
+    "colorado_hardcore": "b16feafd3cd39d8d89266013669fd2a75c445660ef704769cbb14ecf5bb33c87",
+    "connecticut_hardcore": "622504f06c593db2ca0848adb59356ae11706ab8f3663d8c87f5296622ebbd71",
+    "czech_hardcore": "75eecb9f0b38b48d8f206cfa1ce1568e86d7911545c9f2d80586012945b3d8df",
+    "czech_punk": "6d4fccb6bced6e5ecf42ae7c925cf53f8a02acd2af9af8fdd77953c0ee7d0e83",
+    "danish_hardcore": "d8bd2a18fe8dedc9ed8c47371219de9aef3bd238677c1e4434b1051b47ca466d",
+    "danish_post_punk": "77a183858d9f14ba7072a2b2faed69691f8f5e058321d0c885143d87c05a1fa6",
+    "danish_punk": "49b8c446b0503e106fabc1e9f5415d0a9c0a204e843cbdca868df3ce14174f6d",
+    "dark_hardcore": "42ef92575424de2c4ae37773e0c9ed0dab9523dbc8af290ce22a6952a27643fe",
+    "dark_post_punk": "04fcdcd64b8bb6fd1fcbbc0753187c865da30c3b5f01ac0e3bf33d3370ea09ca",
+    "dc_hardcore": "e2b74c1c7be4e1f2427f739707dc7ef76959557b57b29322b8a77b32ede59c97",
+    "dutch_punk_rock": "8c625fa08424889dbaba823441c8b67ef7fe38b7f3fcda7eef529d6a3064d63a",
+    "fast_melodic_punk": "c9bfc19c6a69f7a5a354f16fd93558303a2e9bbeceb62342d26328408bcefb54",
+    "finnish_hardcore": "e854a1c8d186e61899d210512e82e0298bd4e08f75b50a5b29ac10ae25efab97",
+    "finnish_punk": "96198f93aa2c20293ab44d86e70d39a0dc93b386eca80b971ac7d0dd5aab017b",
+    "finnish_pop_punk": "d208c9ffab5066693e5f85c575bd51dbda9c36adf68e16111e9189d1f18c2931",
+    "florida_hardcore": "08e14a5bebcc442a1a22863af4593d61b8d67fd6a21d03bb0ffbc071f81dc72f",
+    "french_punk": "f0ca28c6569fda42e96e000495f3cfe4bdcaee0a02db0f9f6f5c46aa9683d998",
+    "dub_punk": "691d09a5e81023a23d51944a6bf5d1783dea6ce03073e99c2eac2eb00f47c319",
+    "early_french_punk": "76c497d481c7ea5bed3d3e6b9a5654c7864eb2b677d740433e35f6069f2cd7cd",
+    "early_us_punk": "83a8c00b201f37b347fa3586706142bf8e771788c6913bfdf3da5a6c1018e99b",
+    "emo_mexicano": "9a5b8d9053a879615d78b1f9c403a6a095b30acfb76fa88f1929584f0ac0b462",
+    "emo_punk": "1ff5da5fcc588ef9cd761dc44f0f627980287e512a819e258de478cb6901a8eb",
+    "finnish_post_punk": "caa7d580a9d3ec3592db3f146722c32cbb108d20ca800224fe01d4ea5cd3b4fd",
+    "french_emo": "b67854a1ff718472887bb95ab30331dbf833f5a49c610fb46247f63c8fbf9a2e",
+    "french_hardcore": "3e7dc8961ee46a617a47c7eb8c105a3c87f6579e24a69c4491719fd1d3b13492",
+    "french_post_punk": "b5f6124c0cede16544540c7a7fb065472f4fb94f6d4b401590bbb12328f1b72b",
+    "deep_hardcore_punk": "f154c8bb9df11ff3cad01c4c1cf9f248108f02ab702308e394f3ce489db44be8",
+    "deep_pop_emo": "1f56cff635df2cd886d95688e3df38335e3cb3293685e4503780585a063a7341",
+    "deep_power_pop_punk": "0214638830e08c83e6bb03fc81a06eb3663fc8957722e19118220f7d4a367972",
+    "deep_punk_rock": "bffbf69a6b7164b0de8c39499177248f121fb9d5b8635193c8876a39e7398d87",
+    "freeform_hardcore": "2b933e56b985db24258158082228ca5ea467fbc1782fb8ad1634a3db7213d036",
+    "german_hardcore": "910cc789a45ff3b94c536f306ce68329f38ff9238f36d38e3f118fe3f3632604",
+    "german_post_hardcore": "be6d97a513106d4afed0285148da817840c160153b8a39d01eb9e54607e48bc7",
+    "german_post_punk": "7b04128859dd83885fe19c0ebb63204b75c8e2d691b6d2498d59bfec37e706a3",
+    "german_punk": "1934f2f2ba1558088f054c606ecd4fb4cf25db9a5bcdbabbcfa32567ad4418a5",
+    "german_punk_rock": "76e8a15edd69eb3796f4467ad5366b8b3c793f4e47be08d50ec507b257995e28",
+    "german_street_punk": "91fbf8dcb8f147eeb99d9bb226ddb496e77f4c38aebe61e1e8184be79912ae7d",
+    "glam_punk": "2b0559f7a593e012791fcef0842e7bd697ae10fe56c7a8b356a4abe0f05165b0",
+    "gothic_post_punk": "ad0b842bdd11b985de877033e30b7974662a68b80880f37351e0cf9b10bbb068",
+    "greek_punk": "fd78480ec5bae498d4df843e6ebadf876ff260c43f7f799f3dd21d9b50607c29",
+    "hardcore_punk_espanol": "30abe2eaaeb309fce8ec11c9b20071a8c813294439cdc524cfb3f29544480263",
+    "hawaiian_punk": "c0eb5c268f60d30944adb8cf9dd5f60b495c3a913f29c111f6065a55f751c941",
+    "horror_punk_brasileiro": "2d7f74215e94fb19fb18fa46296be5d8c1f6ba867351f9d3b15567894e8b97ca",
+    "hungarian_punk": "f6fb5d9be99f6f89d21c14c58868318eade2c5682023ecf2c4120bc8d92a3a96",
+    "icelandic_post_punk": "1bca6112677a5c0e028949f442df0b12d9b4eb1ac96c108361794ff976e80d69",
+    "icelandic_punk": "7467615ad25445cea41415802d0d1a392bf3c6b92b9b603ee71798ee5fb3e63f",
+    "indie_emo": "ad21236ba1864aae862c3d59ba80d12df3bd72bd2e32979c30c57d2b0cbbce3c",
+    "indie_emo_rock": "a6fbc2b38f5b611ddd3f2e42936ef27212a694061d7b96d9cab12306f677c37a",
+    "indie_punk": "31ffc4756c3e964c238870d429ca942e928de15770beea0a0965fd8765285ee9",
+    "indonesian_emo": "5750b3345e2590b263bfbec13c98526df398b04a3d5c7f6025ce1a98f95c1e23",
+    "indonesian_hardcore": "5a9e6fdf9044713df9ee9917784809dea228b87ae1d4bf82e6b308520d6ca9d8",
+    "indonesian_pop_punk": "7ad0538fd1bda21a13365c9267ef83ae9acd55f8bad637f08ff348dcd09a0770",
+    "indonesian_post_hardcore": "745541c46dba73e18307ebec3b4a626a575ea2a29b130cda1058af2d789eba84",
+    "indonesian_punk": "36a68429efb12dcc1be163cb8adfc7962fb6ae1a4f64fec4728a070b5b46ed4c",
+    "irish_hardcore": "8f09040acfc2ecd5568daa182c9fbe0061a6b4899548929b0d261e268aa28236",
+    "irish_post_punk": "74068a10834ebd69a4e98f7c6d7322eecba66ecc9c4956cd6d522c8e5ac731f8",
+    "irish_punk": "28396f588dd72c3fe858a719820d11ce7b250788bd16a78a8570c9629647bf75",
+    "israeli_punk": "f7c514c153c121850fc2350c92f10f72c73033d0c14b84d50b72c6c65a8d8276",
+    "italian_hardcore": "60e35cffe9cf8b996fd810825bc74674eedf8be9087a0986ccdbe961d232b165",
+    "italian_pop_punk": "45974374933120e924164c6368a82235460dd55efc2fdb099f41bc3f94ac36fd",
+    "italian_post_hardcore": "1ba92971383d5be15e8c3204a82637581970b96d47bcf8f82926cade085c8cc2",
+    "italian_post_punk": "0d089f089cf519b97b971dcfd3316453f7796aca0af2c27bad827d1c2f4b5552",
+    "italian_punk": "58d1cfdcd7dbf597f3ed8081361eb9434d20b7f316d5ed5bbc4c85ca372ef30a",
+    "italian_screamo": "efd0d6dae3b43aca025fd9e57bc117c1f95d81b2c2fc32e23513b356d5f6b833",
+    "italian_emo": "b62273753a83c38557bffbce551e0fe06e8513bbd6e90c63c4b41a81dc3d7f15",
+    "japanese_emo": "1c00aebaacfe1bfed9d51fb5b3375fe6690604684c1cdc9ddca22aa94eba6f74",
+    "japanese_girl_punk": "a142876ab1120d42289be856989ac4f86f09772fe7c88fbb99d051e695320def",
+    "japanese_melodic_hardcore": "c16fc3a5f330e9e6c6413821336827641005bbcdd7b80b593312208c0257862e",
+    "japanese_melodic_punk": "6656a4f30573d98c8f815380d6ddda19683515259ccb33128328e72f58dafea5",
+    "japanese_pop_punk": "0e1c0ae489d3795cb0f8a487022966aa171e8f0308286de91717d03a009b1529",
+    "japanese_post_hardcore": "74663fbb4836d8da06882972f3ec1f078dbd16b6d79eef6dddc2195e99479a2a",
+    "japanese_post_punk": "fc205e846cb510e8b4fb9a917c06cb2e9775f475e20367af1afc214db3329b75",
+    "japanese_punk_rock": "0dfae811826c0bfc62e2bb54c1437c896d2b6ddb7fc019c018b753ab5827eae4",
+    "japanese_screamo": "313d4e0f5f44ab9ed7902ee8c466b99a4b4d94cdb0b5d06df883ca5dbc960471",
+    "kentucky_punk": "25a7777a55e5a5502e0d119bd7ebc0816f04d676781b434c49088f104c9f43a5",
+    "korean_hardcore": "233bae0491b8dadbe368ebb558c25c6bd0c6da61716f23f4a78f7748a69e8943",
+    "korean_punk": "69d0392d3379ca97d3b4b931ae6deb0958102545cc242be1f8393363c4fdc58b",
+    "lion_city_hardcore": "0d62f05ad2ca6a9a07bb7f282ce3753f5cf746040c962df8702dd87cf31e7182",
+    "lo_fi_emo": "f23b0fe6334f983f804652cefe066e837433146801019a6aa9f958089182e213",
+    "long_island_punk": "bcc8941c9ce4c4d53df32f7fae74563a516ce90c79f754e9704f41165cef35c8",
+    "lowlands_hardcore": "a2d0c2395079c68312bd51a3e14dee3bedf928f130319e186aaa5a21dd5a10e3",
+    "malang_punk": "5b511cbf4538bf6c69706d43acd2d37cdb3c7a3f48c1a20929b3c6cd00a54d08",
+    "malaysian_hardcore": "5034173bd0650a8707deb144f67e4d0a820b639aaba780217679b933172333c0",
+    "malaysian_punk": "e5bb7076150f3706b862fc8c2f3f944e293ade30e76a2f05e6ef54bff0d1e4c4",
+    "melbourne_punk": "dd5c87f8b55c1134c23d1894efddc8e8619f601f3391cff636b8148cfabc6544",
+    "melodic_hardcore": "efbfc875e9e086cca5daeca20bc5274e12d3bc12a260f25d29ddc3d7ec5ade74",
+    "metallic_hardcore": "34645696ac88cec1d410538d55c313466724e6a046a64d38f2e50c3b5afd3b18",
+    "mexican_pop_punk": "c341941d38832bba0adb2d2d30b3809f60d2bb1d8b38676991074eb4f6af23da",
+    "minneapolis_punk": "2048f237cf6b9ef06a13c2e9b4793d98cde97a6b34f4e5a532a6e7090633190b",
+    "modern_hardcore": "23e1f9691129d5aff389accb6b5dc73b831d74e30463706a1ab22087d30e79c3",
+    "modern_melodic_hardcore": "8e14baa5f034a78e2879f91c4982c0afcaea1d0fc06fdb8cd5e6c24eaf71200c",
+    "mexican_hardcore": "14da90ac1a32658f75d8283aa251288af46a5e3572ec6e968c363def931c0f17",
+    "new_england_emo": "ec46010c3c0c2a7eca3df1c6cbb75f2bbe774a652d6ae08549e41ec1b53fa987",
+    "new_england_hardcore": "30d957be294893ad631846aa705a6974184d968d096d7e011238a0c305515f8e",
+    "new_jersey_hardcore": "72dd414f50bf54d01ad740dad6bd83ef3cf9bf80733a655a16f7b7a6766b733c",
+    "new_jersey_punk": "923c4defc0bbe15baa55df2150d710f48008e7a9d3556305f3177bbf7a735869",
+    "noise_punk": "6853d0808517f1875796a8166c18b282ea2322e3d810e70ed072685adbab27f4",
+    "north_carolina_emo": "80e635de53a78de892dc9886fb5dd0d5aa26761a71779ae8ca8ab442d8a5ed1a",
+    "northern_irish_punk": "dcca471b32e2daf2c1a80c5a571c927898adbd1cff637ee27d00e15ffaa534b8",
+    "norwegian_hardcore": "633e2d68e10ee5cf4c8b735218efb688a1acb1f7ac6ba16615b36dcf9bf290a9"
+  },
+  "final_entry_hash_method": "SHA256 exact entry sorted keys compact separators ensure_ascii=false UTF-8",
+  "verification_log_sha256": {
+    "batch012-api-configs.log": "73eb86fd5a25e9ccc161d85a5856742a73dae579e21536f285ebec9c93d95652",
+    "batch012-api-diff.log": "e2482bebd424bef68a3b3c7db18eb9f431cbe34dab844d8c6b45c8927f82fb4e",
+    "batch012-api.log": "2e3ade71995a4b7013d2f36945b0635276513bd9063a98be210b6ad813c8aef9",
+    "batch012-app-recipes.log": "cc8550683f15c657bdbacca46781c3ded94a2e5ff7c26d56b01089d0fdb06602",
+    "batch012-atlas-final.log": "dd1a9b0efd600ce02cf3f156cb58a3e930a8a8c778509ebbbe60e3ebfa20f6b2",
+    "batch012-atlas.log": "4cd582a4cd81bb7dc293d88ba0cad591172babc601797acee30a1759fc26c52d",
+    "batch012-chat-counter.log": "9b64a503a550bb20954d0a3b9f2969760b2714bd054a3e11c9c5d8f9d3a20c7a",
+    "batch012-check-api.log": "13b4ccc0a5c499c6631b34a17d3c9f5b283d5c9bd8a6850fd595593a5e03dc4a",
+    "batch012-check-docs.log": "a55029206e695995f43a810bc7c8c44286b0e5f786f1e091366a0630e208c631",
+    "batch012-df.log": "a8a6e53e2279c9b9f427633d8df08fcbb535c04e1b9edef9e8af5124a047b2f2",
+    "batch012-discovery.log": "4d2f5eb23e2dbe3b7fcae22230d3df3015de4ccd2b0661d17b2640f8a7c33c7e",
+    "batch012-docs-counts.log": "392d4353ee8b0183dd8218ffde00fc51d3d19d8ccaa6dbf0c14095612d4c0ab6",
+    "batch012-docs-fix.log": "37791ca56eab51981f5e8e739a954346796c7a0b79b9b61757b8541c454eee16",
+    "batch012-duplicates.log": "9244b0be2b3f4ad85c0a46cfd23354b049c2a4dba460c6aab6f3baa4cb399e42",
+    "batch012-equivalence.log": "049b9f70bfd7662c8076ba0225fa267f9cb42e4323810aa270c05b033730d94d",
+    "batch012-format-check.log": "cc002c9970c60a473fb318bcb9fb7937ca47c7e397f00d657b1c7976982979fc",
+    "batch012-html.log": "ed54fa2ef6c72126407eee2c9f32575f78a2d7e837ecbe5642c15ad6faa3bf46",
+    "batch012-integration.log": "ac612887d72e4bbeb241d0e920b37cad35e05678c0156d100b3a6efb71ece5e8",
+    "batch012-layout-geometry.log": "9a5aca9c6359cfc1ac045712cad002564872dbe1445c012d5e9c1cb4fa7375b5",
+    "batch012-lint.log": "d91fa2ab8f5fe2530065db17cade8c940bb9c7a88c35f49ce9583fe342541462",
+    "batch012-preface-lexicon.log": "5c5257fd3122987b1eb4637fb6b437ebfb4527f09849c5989ffc4a7b631cf1cf",
+    "batch012-prefaces.log": "bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc",
+    "batch012-preflight.log": "e1e0201104b90ca7a1061113258d1aec84befcbef79be8c07f638f12dc440859",
+    "batch012-regression-final.log": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18",
+    "batch012-regression.log": "8b17d356fabd2a6d16eb84e749dc56462a0190bb846c9f82a4507a1217b5482e",
+    "batch012-review.log": "075cb55aab4b4c9077004c3b65b99642c140356769f54813eef63b0177188163",
+    "batch012-scope-final.log": "18356c66ea20c17728305a3ffd023953edbca36ab6363099d19f0cb029bfa60f",
+    "batch012-scope.log": "18356c66ea20c17728305a3ffd023953edbca36ab6363099d19f0cb029bfa60f",
+    "batch012-signatures-final.log": "543c1f511c2fd489b81b69f32bf66869038ba3310c4326c5d78022c5647c862b",
+    "batch012-signatures.log": "e62fb5fd36eb75d9edd3483d3fa282eb697bb0a5442a3891b698f45a03bdb41a",
+    "batch012-slots.log": "6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56",
+    "batch012-validate-final.log": "47efaf8b8297d444220ed8cd9ce1cc1bb7dcafd2b627315d19fab9367abe6a30",
+    "batch012-validate.log": "47efaf8b8297d444220ed8cd9ce1cc1bb7dcafd2b627315d19fab9367abe6a30",
+    "batch012-workbench.log": "24f5250da7e32fb2e62ae73917488b9c3222a4879abf14d8c107cec0225aa0ef"
+  }
+}

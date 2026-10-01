@@ -3,14 +3,14 @@
   "name": "Nova MPB",
   "family": "global",
   "lineage": "Brazilian singer-songwriter revival that formed in São Paulo, Rio and Brasília from roughly 2008 onward on independent labels and streaming platforms, codified by Tiago Iorc, Silva, Tulipa Ruiz, Marcelo Jeneci and Anavitória — nylon-string guitar and Rhodes-or-piano harmony carrying bossa and samba-derived voicings at relaxed 75-105 BPM, light pandeiro and brushed kit, discreet synth pads and programmed textures, and close-miked breathy Portuguese vocals with conversational phrasing.",
-  "recipe": "classic late-2000s nova mpb, functional Song, Brazilian song branch, Latin am troubadour ballad poetry, pop rock functional song new wave skiffle. thick, breath veiled tone, straight onset, interlocked note trading. cedar nylon strummed open chord ringing overtones classical nylon-string guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 874,
-  "score": 472.935,
+  "recipe": "classic late-2000s nova mpb, functional Song, Brazilian song branch, Latin am troubadour ballad poetry, pop rock functional song skiffle metropopolis. thick, breath veiled tone, straight onset, interlocked note trading. cedar nylon strummed open chord ringing overtones classical nylon-string guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 872,
+  "score": 414.722,
   "config": {
     "traditions": [
       "nova_mpb",
-      "new_wave",
-      "skiffle"
+      "skiffle",
+      "metropopolis"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 47.140000000000015,
-          "voice_quality": 30.7125,
+          "voice_register": 37.964999999999996,
+          "voice_quality": 28.502499999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.099999999999999,
-          "voice_articulation": 23.985,
-          "voice_microtone": 36.72500000000001,
-          "voice_tradition": 14.879999999999999,
-          "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 2.7300000000000004,
-          "voice_speech_song": 33.345,
-          "voice_ensemble_config": 25.805,
+          "voice_vibrato": 5.449999999999998,
+          "voice_articulation": 25.740000000000002,
+          "voice_microtone": 28.349999999999994,
+          "voice_tradition": 14.699999999999998,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 32.955,
+          "voice_ensemble_config": 27.495000000000005,
           "voice_ornament_system": 1.0899999999999999,
-          "voice_pitch_organization": 1.45,
-          "voice_processing_chain": 7.11,
-          "voice_multitrack_stack": 7.8325000000000005
+          "voice_pitch_organization": 1.15,
+          "voice_processing_chain": 5.85,
+          "voice_multitrack_stack": 10.549999999999999
         }
       },
       {
@@ -58,16 +58,16 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
-          "bracing_classical": "double_top_cl",
+          "bracing_classical": "fan_torres_cl",
           "string_classical": "nylon_normal_cl",
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
-          "acoustic_technique": 16.875,
+          "acoustic_technique": 13.274999999999999,
           "string_tuning": 0,
-          "top_wood_classical": 5.525,
-          "bracing_classical": 0.43499999999999994,
-          "string_classical": 2.6650000000000005,
+          "top_wood_classical": 4.680000000000001,
+          "bracing_classical": 0.845,
+          "string_classical": 1.8199999999999998,
           "attack_technique_cl": 3.25
         }
       },
@@ -76,7 +76,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -85,15 +85,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 15.524999999999999,
-          "grand_piano_size": 1.4300000000000002,
-          "grand_piano_brand": 1.4300000000000002,
-          "piano_hammer": 14.549999999999999,
-          "piano_rim": 16.979999999999997,
-          "piano_soundboard": 14.399999999999999,
+          "keyboard_technique": 12.375,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 0.65,
+          "piano_hammer": 12.05,
+          "piano_rim": 14.33,
+          "piano_soundboard": 11.399999999999999,
           "piano_pinblock": 0.4149999999999999,
-          "piano_plate": 0.42249999999999993,
-          "piano_pitch_standard": 2.9575
+          "piano_plate": 0.6174999999999999,
+          "piano_pitch_standard": 3.9974999999999996
         }
       },
       {
@@ -101,21 +101,21 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.024999999999999,
-          "body_wood": 1.235,
-          "pickup_config": 0.195,
-          "string_type": 18.595,
-          "scale_length_b": 1.04,
-          "fretted_or_not": 0.435,
-          "bass_technique": 22.445,
+          "amp_make": 7.525,
+          "body_wood": 0.39,
+          "pickup_config": 1.04,
+          "string_type": 13.22,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0.65,
+          "bass_technique": 13.02,
           "electric_bass_string_configuration": 0
         }
       },
@@ -127,8 +127,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 27.235000000000003,
-          "drumhead": 14.639999999999999,
+          "drum_technique": 27.43,
+          "drumhead": 11.639999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -138,13 +138,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 14.364999999999997,
-          "poly_archetypes": 7.344999999999999,
+          "electronic_technique": 12.364999999999998,
+          "poly_archetypes": 5.195,
           "poly_voices": 0.24,
-          "poly_maker_lineage": 0.7799999999999992
+          "poly_maker_lineage": -0.21
         }
       },
       {
@@ -158,9 +158,9 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 2.0749999999999997,
+          "percussion_technique": 1.6999999999999997,
           "pandeiro_size": 1.69,
-          "pandeiro_context": 0.845,
+          "pandeiro_context": 0.195,
           "pandeiro_head": 4.029999999999999,
           "pandeiro_shell_wood": 4.029999999999999,
           "pandeiro_jingles": 4.225

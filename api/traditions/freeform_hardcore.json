@@ -1,0 +1,112 @@
+{
+  "id": "freeform_hardcore",
+  "name": "Freeform hardcore",
+  "family": "electronic",
+  "lineage": "Freeform hardcore is represented here by Kevin Energy with Desire. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic freeform hardcore, electronic Dance, trance branch. digital subtractive, rompler workstation, sampler drum machine. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 203,
+  "score": 9.47,
+  "config": {
+    "traditions": [
+      "freeform_hardcore"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "va_archetypes": 1.95,
+          "digital_subtractive_context": 1.56
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "rompler_preset_bank": "rompler_preset_piano_orchestral",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_lineage_unspecified"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "rompler_preset_bank": -0.05,
+          "rompler_context": -0.035,
+          "rompler_lineage": 0
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0,
+          "sample_swing": 6.25,
+          "sample_processing": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "rompler_workstation": [
+        "electronic_technique",
+        "rompler_preset_bank",
+        "rompler_context",
+        "rompler_lineage"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance",
+      "rompler_preset_bank": "rompler_preset_piano_orchestral",
+      "rompler_context": "rompler_context_pop_workstation",
+      "rompler_lineage": "rompler_lineage_unspecified",
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "chopped_break"
+    },
+    "pin_parts": true,
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

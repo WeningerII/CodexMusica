@@ -5,7 +5,7 @@
   "lineage": "German trance production network, represented by Paul van Dyk’s melodic club recordings and his documented Roland-machine lineage. This default selects a classic hardware-inspired arpeggio, acid-bass and programmed-kick arrangement.",
   "recipe": "classic modern german trance, electronic Dance, trance branch. analog synth, classic acid monosynth acid bass, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 322,
-  "score": 16.038,
+  "score": 15.876,
   "config": {
     "traditions": [
       "german_trance"
@@ -22,10 +22,10 @@
         },
         "scores": {
           "electronic_technique": -0.035,
-          "oscillator": 10.7915,
+          "oscillator": 10.686499999999999,
           "filter_topology": 1.21825,
-          "envelope": 0,
-          "modulation": 0.0315
+          "envelope": 0.1425,
+          "modulation": 0
         }
       },
       {
@@ -39,8 +39,8 @@
         "scores": {
           "electronic_technique": -0.035,
           "wave_acid": 0.26649999999999996,
-          "filter_acid": 2.999,
-          "accent_acid": 1.5310000000000001
+          "filter_acid": 2.9675000000000002,
+          "accent_acid": 1.3945
         }
       },
       {

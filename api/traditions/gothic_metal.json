@@ -5,7 +5,7 @@
   "lineage": "Early-1990s heavy-metal subgenre emerging in northern Europe (UK, Netherlands, Norway) integrating doom-metal slow tempi, gothic-rock atmospheric register, and male-female contrasting-vocal dual-presentation (operatic-female vs growled-male). Paradise Lost's Gothic (1991), My Dying Bride, Anathema, the Theatre of Tragedy (Norway, 1993-onward), and the Type O Negative (NYC, 1989-2010) anchored the canonical roster.",
   "recipe": "classic North American mid-2000s gothic metal, distorted Rock, symphonic branch, gothic rock distorted rock darkwave dark rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, oil filled sticks backbeat drum kit, analog synth. denver gothic basement studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 612,
-  "score": 279.054,
+  "score": 276.75,
   "config": {
     "traditions": [
       "gothic_metal",
@@ -40,15 +40,15 @@
           "voice_effort": 0,
           "voice_vibrato": 1.8199999999999998,
           "voice_articulation": 8.06,
-          "voice_microtone": 19.1185,
+          "voice_microtone": 19.045,
           "voice_tradition": 4.8100000000000005,
-          "voice_mechanism_compound": 19.171499999999998,
+          "voice_mechanism_compound": 19.275,
           "voice_estill_quality": 2.34,
           "voice_speech_song": 8.255,
           "voice_ensemble_config": 9.49,
           "voice_ornament_system": 0.52,
-          "voice_pitch_organization": 3.7600000000000007,
-          "voice_processing_chain": 3.2914999999999996,
+          "voice_pitch_organization": 3.805000000000001,
+          "voice_processing_chain": 3.26,
           "voice_multitrack_stack": 2.827500000000001
         }
       },
@@ -70,16 +70,16 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 22.363,
+          "electric_technique": 22.435000000000002,
           "amp_make": 13.617499999999996,
-          "body_wood": 9.36,
+          "body_wood": 8.295,
           "neck_wood": 0.195,
           "fretboard": 0.195,
           "pickup_magnet": 0.495,
           "pickup_winding": 0.195,
           "string_material": 0.195,
           "bridge": 0.65,
-          "scale_length": 9.366,
+          "scale_length": 8.295,
           "string_gauge": 1.885,
           "finish": 0.195,
           "string_tuning": 19.565
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
@@ -99,8 +99,8 @@
         },
         "scores": {
           "amp_make": 11.569999999999999,
-          "body_wood": 0.5085000000000001,
-          "pickup_config": 0.21,
+          "body_wood": 0.43500000000000005,
+          "pickup_config": 0,
           "string_type": 25.025,
           "scale_length_b": 0.195,
           "fretted_or_not": 0.65,
@@ -127,7 +127,7 @@
           "electronic_technique": "electronic_lead_line",
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
-          "envelope": "pad_env",
+          "envelope": "sustain_env",
           "modulation": "no_mod"
         },
         "scores": {

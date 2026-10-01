@@ -3,14 +3,14 @@
   "name": "Boston metal",
   "family": "rock_punk",
   "lineage": "Boston-area geographic metal scope represented by Andover-founded Converge and their metallic-hardcore practice, collaborative rhythmic writing and self-produced recordings.",
-  "recipe": "classic modern boston metal, distorted Rock, metal branch, punk distorted rock alabama hardcore alternative hardcore. solo with instrumental accompaniment, unprocessed natural acoustic. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter low-gain overdrive.",
-  "recipe_chars": 493,
-  "score": 66.25,
+  "recipe": "classic modern boston metal, distorted Rock, metal branch, punk distorted rock modern hardcore alabama hardcore. solo with instrumental accompaniment, unprocessed natural acoustic. palm muted humbucker electric guitar, stainless steel roundwound electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter low-gain overdrive.",
+  "recipe_chars": 515,
+  "score": 73.87,
   "config": {
     "traditions": [
       "boston_metal",
-      "alabama_hardcore",
-      "alternative_hardcore"
+      "modern_hardcore",
+      "alabama_hardcore"
     ],
     "instruments": [
       {
@@ -37,7 +37,7 @@
           "neck_wood": 0.09,
           "fretboard": 0.39,
           "pickup_magnet": 0,
-          "pickup_winding": 0.39,
+          "pickup_winding": 1.145,
           "string_material": 0.09,
           "bridge": 0.585,
           "scale_length": 0,
@@ -62,7 +62,7 @@
           "amp_make": 0,
           "body_wood": 0.585,
           "pickup_config": 0,
-          "string_type": 0.39,
+          "string_type": 1.2349999999999999,
           "scale_length_b": 0,
           "fretted_or_not": 0,
           "bass_technique": 14.795,
@@ -90,11 +90,11 @@
           "drum_kit_kick_pedal": 0.78,
           "shell_wood": 0.135,
           "shell_thickness": 0,
-          "bearing_edges": 0.39,
+          "bearing_edges": 1.2349999999999999,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 10.34,
-          "cymbal_lathing": 9.95,
+          "cymbal_hammering": 11.965,
+          "cymbal_lathing": 11.575,
           "cymbal_finish": 0
         }
       },

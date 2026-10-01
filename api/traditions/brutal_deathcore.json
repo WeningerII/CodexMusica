@@ -3,14 +3,14 @@
   "name": "Brutal deathcore",
   "family": "rock_punk",
   "lineage": "Exact EveryNoise brutal-deathcore roster includes Fit For An Autopsy. Primary practitioner and label accounts support a seven-string, rhythmically precise modern deathcore branch; the label is a discovery cluster rather than a claim of uniform technique.",
-  "recipe": "classic modern brutal deathcore, distorted Rock, death branch, punk distorted rock alabama hardcore australian hardcore. solo with instrumental accompaniment, unprocessed natural acoustic. brutal drop a seven string electric, ampeg svt amp rock bass amp stainless steel roundwound electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
-  "recipe_chars": 552,
-  "score": 73.885,
+  "recipe": "classic modern brutal deathcore, distorted Rock, death branch, punk distorted rock korean hardcore finnish punk. solo with instrumental accompaniment. brutal drop a seven string electric, ampeg svt amp rock bass amp stainless steel roundwound electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+  "recipe_chars": 514,
+  "score": 75.365,
   "config": {
     "traditions": [
       "brutal_deathcore",
-      "alabama_hardcore",
-      "australian_hardcore"
+      "korean_hardcore",
+      "finnish_punk"
     ],
     "instruments": [
       {
@@ -38,12 +38,12 @@
         },
         "scores": {
           "amp_make": 5.915,
-          "body_wood": 0.9750000000000001,
+          "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 1.585,
           "scale_length_b": 0.3,
           "fretted_or_not": 0,
-          "bass_technique": 15.395000000000001,
+          "bass_technique": 17.020000000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -111,7 +111,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.585,
+          "voice_processing_chain": 0.3,
           "voice_multitrack_stack": 0
         }
       }

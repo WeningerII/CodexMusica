@@ -3,14 +3,14 @@
   "name": "New Romanticism (New Romantic)",
   "family": "pop",
   "lineage": "British club-born movement of 1979-1983, incubated at the Blitz in Covent Garden and codified by Visage, Duran Duran, Spandau Ballet, Ultravox and Japan — 110-130 BPM four-on-the-floor or LinnDrum-driven pop with sequenced analogue synth bass and arpeggios, chorused fretless or slap electric bass, gated reverb on the snare, sweeping polysynth pads, fretless-toned lead lines and a theatrical crooning baritone delivered with deliberate glamour.",
-  "recipe": "classic British 1979-1983 new romanticism, functional Song, synthpop branch, pop rock new wave, eurodance electronic dance neue deutsche welle. thick, breath veiled tone, breath pulsed, interlocked note trading. oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, classic source linn lm 1 1980 1982 earliest sample based drum machine 5000 production only linndrum, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, keilwerth German boutique saxophone, string machine. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 866,
-  "score": 403.69,
+  "recipe": "classic British 1979-1983 new romanticism, functional Song, synthpop branch, pop rock new wave, eurodance electronic dance italian post-punk japanese post-punk. thick, breath veiled tone, breath pulsed, interlocked note trading. singing lead analog poly synth, classic source linn electronics lm 2 linndrum canonical 1982 1984 8 bit sample rom linndrum, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation lower tension down tuning single coil electric guitar, saxophone, string machine. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 811,
+  "score": 251.245,
   "config": {
     "traditions": [
       "new_romantic",
-      "new_wave",
-      "neue_deutsche_welle"
+      "italian_post_punk",
+      "japanese_post_punk"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 42.78000000000002,
-          "voice_quality": 10.789999999999994,
+          "voice_register": 24.684999999999995,
+          "voice_quality": 5.265000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.52,
-          "voice_articulation": 19.434999999999995,
-          "voice_microtone": 40.80000000000001,
-          "voice_tradition": 29.14,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 2.990000000000001,
-          "voice_speech_song": 26.84499999999999,
-          "voice_ensemble_config": 21.96999999999999,
-          "voice_ornament_system": 0.6499999999999998,
-          "voice_pitch_organization": 1.2999999999999998,
-          "voice_processing_chain": 7.025,
-          "voice_multitrack_stack": 8.575000000000001
+          "voice_vibrato": 4.16,
+          "voice_articulation": 10.27,
+          "voice_microtone": 24.049999999999997,
+          "voice_tradition": 21.694999999999997,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 4.095000000000001,
+          "voice_speech_song": 15.274999999999995,
+          "voice_ensemble_config": 12.804999999999994,
+          "voice_ornament_system": 1.5250000000000001,
+          "voice_pitch_organization": 0.7799999999999998,
+          "voice_processing_chain": 7.35,
+          "voice_multitrack_stack": 4.485000000000001
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 26.11,
-          "poly_archetypes": 8.954999999999998,
-          "poly_voices": 0.195,
-          "poly_maker_lineage": 1.6899999999999995
+          "electronic_technique": 17.015,
+          "poly_archetypes": 4.8100000000000005,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": 0.325
         }
       },
       {
@@ -72,12 +72,12 @@
         "slots": {
           "linndrum_voice": "linndrum_snare",
           "linndrum_context": "linndrum_hiphop_sample",
-          "linndrum_production_origin": "linndrum_lm_1_earlier"
+          "linndrum_production_origin": "linndrum_lm_2_canonical"
         },
         "scores": {
-          "linndrum_voice": 3.625,
-          "linndrum_context": 4.16,
-          "linndrum_production_origin": 2.8600000000000003
+          "linndrum_voice": 3.25,
+          "linndrum_context": 1.69,
+          "linndrum_production_origin": 1.625
         }
       },
       {
@@ -93,13 +93,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.284999999999997,
-          "body_wood": 1.04,
-          "pickup_config": 0.195,
-          "string_type": 19.304999999999996,
-          "scale_length_b": 1.04,
+          "amp_make": 8.905,
+          "body_wood": 1.0500000000000003,
+          "pickup_config": 0.28500000000000003,
+          "string_type": 11.754999999999999,
+          "scale_length_b": 0.5249999999999999,
           "fretted_or_not": 0.045,
-          "bass_technique": 22.614999999999995,
+          "bass_technique": 13.34,
           "electric_bass_string_configuration": 0
         }
       },
@@ -110,51 +110,51 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d",
+          "string_tuning": "d_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 25.945,
-          "amp_make": 15.859999999999996,
-          "body_wood": 1.04,
-          "neck_wood": 1.04,
-          "fretboard": 0.975,
-          "pickup_magnet": 0.39,
-          "string_material": 0.39,
-          "string_gauge": 1.69,
-          "bridge": 0.65,
-          "scale_length": 1.04,
-          "finish": 0.195,
-          "string_tuning": 10.139999999999999,
+          "electric_technique": 15.795,
+          "amp_make": 11.835,
+          "body_wood": 0.5249999999999999,
+          "neck_wood": 0.5249999999999999,
+          "fretboard": 0.18,
+          "pickup_magnet": 0.18,
+          "string_material": 0.18,
+          "string_gauge": 1.3,
+          "bridge": 0.15,
+          "scale_length": 1.0500000000000003,
+          "finish": 0.045,
+          "string_tuning": 5.2,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_ska_skank_stab",
+          "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "gold_brass_sax",
+          "sax_body_alloy": "rose_brass_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_bebop_runs",
-          "sax_maker_school": "sax_keilwerth_german"
+          "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 1.6599999999999997,
-          "sax_size": 1.04,
-          "sax_reed": 0.39,
-          "sax_body_alloy": 0.715,
-          "sax_mouthpiece": 0.39,
-          "sax_technique": 1.17,
-          "sax_maker_school": 1.8849999999999996
+          "wind_articulation": 0.19500000000000003,
+          "sax_size": 0.5249999999999999,
+          "sax_reed": 0.18,
+          "sax_body_alloy": -0.035,
+          "sax_mouthpiece": 0.18,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.845
         }
       },
       {
@@ -166,10 +166,10 @@
           "sm_voicing": "sm_violins"
         },
         "scores": {
-          "electronic_technique": 0.06499999999999999,
-          "sm_voice_count": 1.3,
-          "sm_chorus": 1.235,
-          "sm_voicing": 0.24
+          "electronic_technique": -0.07,
+          "sm_voice_count": 1.4949999999999999,
+          "sm_chorus": 0.5700000000000001,
+          "sm_voicing": 0.09
         }
       }
     ],

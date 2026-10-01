@@ -3,14 +3,14 @@
   "name": "Indorock",
   "family": "rock",
   "lineage": "Rock and roll style created by Indo-Dutch (Indische) repatriates in The Hague between roughly 1957 and 1964 — the Tielman Brothers, the Blue Diamonds, the Crazy Rockers and the Black Dynamites — combining fast 4/4 rock and roll and Hawaiian-derived guitar lines with kroncong-inflected melody, twin lead electric guitars using rapid tremolo picking and heavy spring reverb, slap-driven bass, straight backbeat drums, and acrobatic stage guitar technique.",
-  "recipe": "classic British late-1950s indorock, distorted Rock, regional branch, surf rock distorted rock, pop rock functional song, classic distorted rock new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric cedar phosphor bronze bronze strummed open chord ringing overtones parlor acoustic guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb.",
-  "recipe_chars": 716,
-  "score": 532.763,
+  "recipe": "classic British late-1950s indorock, distorted Rock, regional branch, surf rock distorted rock, pop rock functional song, classic distorted rock yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany ebony soft down tuning single coil electric cedar parlor classic steel silk strummed parlor acoustic guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb.",
+  "recipe_chars": 669,
+  "score": 477.707,
   "config": {
     "traditions": [
       "indorock",
-      "new_wave",
-      "yacht_rock"
+      "yacht_rock",
+      "skiffle"
     ],
     "instruments": [
       {
@@ -23,72 +23,72 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 59.945000000000014,
-          "voice_quality": 16.152499999999993,
+          "voice_register": 63.445000000000014,
+          "voice_quality": 14.559999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.02,
-          "voice_articulation": 22.424999999999997,
-          "voice_microtone": 57.25,
-          "voice_tradition": 19.304999999999993,
-          "voice_mechanism_compound": 4.485000000000001,
-          "voice_estill_quality": 2.665000000000001,
-          "voice_speech_song": 27.235,
-          "voice_ensemble_config": 21.254999999999995,
-          "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 2.565,
-          "voice_processing_chain": 10.690000000000001,
-          "voice_multitrack_stack": 8.4175
+          "voice_vibrato": 10.834999999999999,
+          "voice_articulation": 23.464999999999996,
+          "voice_microtone": 53.12500000000001,
+          "voice_tradition": 12.187499999999998,
+          "voice_mechanism_compound": 4.030000000000001,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 26.585,
+          "voice_ensemble_config": 22.489999999999995,
+          "voice_ornament_system": 0.22499999999999998,
+          "voice_pitch_organization": 2.2649999999999997,
+          "voice_processing_chain": 7.465000000000001,
+          "voice_multitrack_stack": 5.265
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "fretboard": "ebony_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d",
+          "string_tuning": "eb_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 17.014999999999997,
-          "amp_make": 26.129999999999995,
-          "body_wood": 2.275,
-          "neck_wood": 2.275,
-          "fretboard": 2.21,
-          "pickup_magnet": 0.585,
-          "string_material": 0.975,
-          "string_gauge": 2.925,
-          "bridge": 1.69,
-          "scale_length": 2.275,
-          "finish": 0.09,
-          "string_tuning": 22.294999999999998,
+          "electric_technique": 9.364999999999998,
+          "amp_make": 22.132500000000004,
+          "body_wood": 1.625,
+          "neck_wood": 1.625,
+          "fretboard": 1.8399999999999999,
+          "pickup_magnet": 0.39,
+          "string_material": 0.78,
+          "string_gauge": 1.235,
+          "bridge": 1.8399999999999999,
+          "scale_length": 1.235,
+          "finish": 0.39,
+          "string_tuning": 20.28,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 21.58,
-          "body_wood": 3.965,
-          "pickup_config": 1.69,
-          "string_type": 47.345,
-          "scale_length_b": 2.275,
+          "amp_make": 22.132500000000004,
+          "body_wood": 3.12,
+          "pickup_config": 1.885,
+          "string_type": 45.095,
+          "scale_length_b": 1.235,
           "fretted_or_not": 0.045,
-          "bass_technique": 43.305,
+          "bass_technique": 37.005,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 40.275,
-          "drumhead": 15.884999999999996,
+          "drum_technique": 38.025,
+          "drumhead": 8.984999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -125,17 +125,17 @@
         "id": "acoustic_guitar_parlor",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "drop_d",
+          "string_tuning": "eb_standard",
           "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "mahogany_bs_p",
-          "string_acoustic_parlor": "phosphor_p"
+          "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 16.424999999999997,
-          "string_tuning": 0.35749999999999993,
-          "top_wood_parlor": 2.275,
+          "acoustic_technique": 10.324999999999998,
+          "string_tuning": 0.925,
+          "top_wood_parlor": 1.235,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 2.275
+          "string_acoustic_parlor": 1.4949999999999999
         }
       }
     ],

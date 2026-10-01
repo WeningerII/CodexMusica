@@ -3,29 +3,29 @@
   "name": "Hyperpop",
   "family": "electronic",
   "lineage": "Late-2010s onward maximalist pop subgenre fusing the production language of EDM-Bigroom, mainstream-pop, online-fandom-internet-culture, and bedroom-DAW-production aesthetics — codified through the PC Music label (A.G. Cook, SOPHIE), 100 gecs (1000 gecs 2019), Charli XCX (Pop 2 2017, how i'm feeling now 2020), Dorian Electra, Hannah Diamond, and the broader Discord-and-SoundCloud-distributed scene",
-  "recipe": "classic 2017-2019 hyperpop, experimental Elec, pop experimental branch, pop rock functional song new wave 1960s girl group. thick, breath veiled tone, straight onset, interlocked note trading. drum machine analog, plucked short envelope wavetable synth, sampler drum machine, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 560,
-  "score": 286.532,
+  "recipe": "classic 2017-2019 hyperpop, experimental Elec, pop experimental branch, pop rock functional song 1960s girl group yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. drum machine analog, plucked short envelope wavetable synth, sampler drum machine, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 562,
+  "score": 270.185,
   "config": {
     "traditions": [
       "hyperpop",
-      "new_wave",
-      "girl_group_60s"
+      "girl_group_60s",
+      "yacht_rock"
     ],
     "instruments": [
       {
         "id": "drum_machine_analog",
         "slots": {
-          "kick_voice": "fm_pair_kick",
+          "kick_voice": "sine_burst_kick",
           "snare_voice": "two_oscillator_snare",
           "hat_voice": "square_summed_hat",
           "shuffle_quantize": "shuffle_high"
         },
         "scores": {
-          "kick_voice": 0.195,
-          "snare_voice": 0.195,
+          "kick_voice": 0.45499999999999996,
+          "snare_voice": 0.24,
           "hat_voice": 0,
-          "shuffle_quantize": 1.515
+          "shuffle_quantize": 1.4300000000000002
         }
       },
       {
@@ -37,10 +37,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 33.115,
+          "electronic_technique": 27.84,
           "wt_position": 1.69,
-          "wt_family": 0.78,
-          "wt_polyphony": 1.04
+          "wt_family": 0.585,
+          "wt_polyphony": 1.625
         }
       },
       {
@@ -53,9 +53,9 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0.78,
+          "sample_bitdepth": 0.39,
           "sample_swing": 3.25,
-          "sample_processing": 1.4300000000000002
+          "sample_processing": 1.625
         }
       },
       {
@@ -73,28 +73,28 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 45.12500000000001,
+          "voice_register": 43.82500000000001,
           "voice_quality": 4.680000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.5425,
-          "voice_articulation": 18.849999999999994,
-          "voice_microtone": 42.325,
-          "voice_tradition": 39.30499999999999,
-          "voice_mechanism_compound": 2.145,
+          "voice_vibrato": 8.395,
+          "voice_articulation": 17.419999999999995,
+          "voice_microtone": 41.10000000000001,
+          "voice_tradition": 33.99499999999999,
+          "voice_mechanism_compound": 2.34,
           "voice_estill_quality": 1.805,
-          "voice_speech_song": 25.67499999999999,
-          "voice_ensemble_config": 19.56499999999999,
-          "voice_ornament_system": 0.45499999999999996,
-          "voice_pitch_organization": 1.4699999999999998,
-          "voice_processing_chain": 8.855,
-          "voice_multitrack_stack": 13.877500000000001
+          "voice_speech_song": 21.904999999999998,
+          "voice_ensemble_config": 17.939999999999994,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 9.155000000000001,
+          "voice_multitrack_stack": 13.909999999999998
         }
       },
       {
@@ -105,9 +105,9 @@
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 1.04,
-          "multitrack_stack_era_aesthetic": 4.1925,
-          "multitrack_stack_processing": 4.16
+          "multitrack_stack_density": 1.2349999999999999,
+          "multitrack_stack_era_aesthetic": 5.817500000000001,
+          "multitrack_stack_processing": 3.4125
         }
       }
     ],

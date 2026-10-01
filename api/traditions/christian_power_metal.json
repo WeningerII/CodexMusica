@@ -5,7 +5,7 @@
   "lineage": "Christian power metal is represented by Theocracy’s Athens-based melodic/progressive power-metal practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern christian power metal, distorted Rock, power branch. Fender champ amp low wattage studio grit basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 350,
-  "score": 42.507,
+  "score": 42.201,
   "config": {
     "traditions": [
       "christian_power_metal"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.13724999999999998,
+          "voice_processing_chain": 0.0945,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -74,13 +74,13 @@
           "amp_make": 8.515,
           "body_wood": 7.409999999999999,
           "neck_wood": 0.063,
-          "fretboard": 0.21074999999999997,
-          "pickup_magnet": 0.310125,
+          "fretboard": 0.168,
+          "pickup_magnet": 0.3045,
           "pickup_winding": 0.0735,
           "string_material": 0.063,
-          "bridge": 0.6367499999999999,
+          "bridge": 0.5565,
           "scale_length": 7.409999999999999,
-          "string_gauge": 0.5309999999999999,
+          "string_gauge": 0.49349999999999994,
           "finish": 0.0315,
           "string_tuning": 0.39
         }
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 2.4050000000000002,
-          "body_wood": 0.21074999999999997,
-          "pickup_config": 0.21074999999999997,
+          "body_wood": 0.168,
+          "pickup_config": 0.168,
           "string_type": 4.875,
           "scale_length_b": 0.063,
-          "fretted_or_not": 0.06862499999999999,
-          "bass_technique": 4.041625,
+          "fretted_or_not": 0.063,
+          "bass_technique": 4.0360000000000005,
           "electric_bass_string_configuration": 0
         }
       },

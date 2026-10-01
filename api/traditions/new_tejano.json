@@ -3,14 +3,14 @@
   "name": "New Tejano",
   "family": "global",
   "lineage": "Post-1990 South Texas revitalization of Tejano music led from San Antonio and Corpus Christi, blending the accordion-and-bajo-sexto conjunto core with DX7-era synth pads, slap electric bass, programmed and live drums, and cumbia rather than polka as the default groove at 95–110 BPM, with polished bilingual lead vocals and pop-song forms modeled on contemporary US radio production.",
-  "recipe": "classic North American early-1990s new tejano, functional Song, tejano border branch, tejano border ranchera, Mexican functional song, pop rock functional song new wave skiffle. thick, breath veiled tone, straight onset, interlocked note trading. castagnari Italian premium folk music chordal accordion, cedar nickel wound modern tejano strummed bajo sexto, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 884,
-  "score": 415.425,
+  "recipe": "classic North American early-1990s new tejano, functional Song, tejano border branch, tejano border ranchera, Mexican functional song, pop rock functional song skiffle yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. castagnari Italian premium folk music chordal accordion, cedar nickel wound modern tejano strummed bajo sexto, singing lead analog poly synth, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 822,
+  "score": 394.88,
   "config": {
     "traditions": [
       "new_tejano",
-      "new_wave",
-      "skiffle"
+      "skiffle",
+      "yacht_rock"
     ],
     "instruments": [
       {
@@ -21,17 +21,17 @@
           "musette_offset": "dry_tuning",
           "reed_config": "lm_only",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 12.85,
-          "accordion_reed_material": 1.04,
-          "musette_offset": 0.645,
-          "reed_config": 1.8999999999999995,
+          "free_reed_technique": 12.35,
+          "accordion_reed_material": 1.19,
+          "musette_offset": 0.345,
+          "reed_config": 2.9999999999999996,
           "bellows": 0.3,
-          "voicing_chamber": 0.3,
-          "accordion_maker_school": 5.109999999999999
+          "voicing_chamber": 0.345,
+          "accordion_maker_school": 5.259999999999999
         }
       },
       {
@@ -41,14 +41,14 @@
           "bajo_courses": "twelve_string_bajo",
           "bajo_top": "cedar_bj",
           "bajo_strings": "bajo_nickel_wound",
-          "bajo_back_wood": "bajo_maple_back"
+          "bajo_back_wood": "bajo_mahogany_back"
         },
         "scores": {
-          "plucked_traditional_technique": 9.379999999999997,
-          "bajo_courses": 12.495,
-          "bajo_top": 1.04,
-          "bajo_strings": 6.4350000000000005,
-          "bajo_back_wood": 0.65
+          "plucked_traditional_technique": 9.104999999999997,
+          "bajo_courses": 12.344999999999999,
+          "bajo_top": 1.34,
+          "bajo_strings": 6.24,
+          "bajo_back_wood": 0
         }
       },
       {
@@ -57,13 +57,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 19.544999999999995,
-          "poly_archetypes": 6.999999999999998,
-          "poly_voices": 1,
-          "poly_maker_lineage": 1.6899999999999995
+          "electronic_technique": 14.719999999999999,
+          "poly_archetypes": 7.549999999999999,
+          "poly_voices": 1.3,
+          "poly_maker_lineage": 0.7149999999999999
         }
       },
       {
@@ -79,13 +79,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.769999999999998,
-          "body_wood": 1.235,
-          "pickup_config": 0.195,
-          "string_type": 17.499999999999993,
-          "scale_length_b": 1.04,
+          "amp_make": 10.319999999999999,
+          "body_wood": 1.4300000000000002,
+          "pickup_config": 0.39,
+          "string_type": 18.875,
+          "scale_length_b": 1.19,
           "fretted_or_not": 0.15,
-          "bass_technique": 21.694999999999993,
+          "bass_technique": 19.02,
           "electric_bass_string_configuration": 0
         }
       },
@@ -97,8 +97,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.774999999999995,
-          "drumhead": 17.845,
+          "drum_technique": 20.669999999999995,
+          "drumhead": 12.294999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -123,22 +123,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 49.47000000000001,
-          "voice_quality": 14.59249999999999,
+          "voice_register": 48.07000000000001,
+          "voice_quality": 11.829999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.9799999999999995,
-          "voice_articulation": 18.524999999999995,
-          "voice_microtone": 40.54500000000001,
-          "voice_tradition": 20.03,
-          "voice_mechanism_compound": 4.615,
+          "voice_vibrato": 11.679999999999998,
+          "voice_articulation": 17.094999999999995,
+          "voice_microtone": 39.27,
+          "voice_tradition": 15.079999999999998,
+          "voice_mechanism_compound": 4.81,
           "voice_estill_quality": 4.42,
-          "voice_speech_song": 29.054999999999996,
-          "voice_ensemble_config": 18.654999999999994,
+          "voice_speech_song": 25.284999999999993,
+          "voice_ensemble_config": 17.029999999999994,
           "voice_ornament_system": 1.885,
-          "voice_pitch_organization": 0.39,
-          "voice_processing_chain": 5.955,
-          "voice_multitrack_stack": 5.734999999999999
+          "voice_pitch_organization": 0.8449999999999998,
+          "voice_processing_chain": 6.255000000000001,
+          "voice_multitrack_stack": 4.940000000000001
         }
       },
       {
@@ -147,19 +147,19 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "nickel_silver_sax",
+          "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 1.5924999999999998,
-          "sax_size": 1.04,
-          "sax_reed": 0.15,
-          "sax_body_alloy": 5.169999999999998,
+          "wind_articulation": 0.39,
+          "sax_size": 1.19,
+          "sax_reed": 0.3,
+          "sax_body_alloy": 7.499999999999998,
           "sax_mouthpiece": 0.3,
-          "sax_technique": 4.749999999999998,
-          "sax_maker_school": 4.2349999999999985
+          "sax_technique": 7.499999999999998,
+          "sax_maker_school": 6.9849999999999985
         }
       }
     ],

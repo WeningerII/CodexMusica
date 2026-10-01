@@ -3,14 +3,14 @@
   "name": "Scandi pop",
   "family": "global",
   "lineage": "Nordic mainstream pop production school codified through Stockholm-based Cheiron Studios (Max Martin, Denniz PoP) starting mid-1990s — supplying Britney Spears, Backstreet Boys, NSYNC era global pop; later evolving through MNEK, Robyn, Lykke Li, and the broader Swedish songwriter-and-producer export to international pop markets",
-  "recipe": "classic 1994-1996 scandi pop, functional Song, europop branch, pop rock functional song new wave 1960s girl group. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, singing lead digital subtractive, sampler, TR-808. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 407,
-  "score": 328.545,
+  "recipe": "classic 1994-1996 scandi pop, functional Song, europop branch, pop rock functional song 1960s girl group yé-yé. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog poly synth, singing lead digital subtractive, sampler, TR-808. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 413,
+  "score": 290.025,
   "config": {
     "traditions": [
       "scandi_pop",
-      "new_wave",
-      "girl_group_60s"
+      "girl_group_60s",
+      "ye_ye"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 45.35000000000001,
+          "voice_register": 34.92500000000002,
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 14.429999999999996,
-          "voice_microtone": 42.550000000000004,
-          "voice_tradition": 39.504999999999995,
-          "voice_mechanism_compound": 1.755,
-          "voice_estill_quality": 1.8849999999999996,
-          "voice_speech_song": 22.034999999999993,
-          "voice_ensemble_config": 14.754999999999995,
-          "voice_ornament_system": 0.45499999999999996,
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 16.575,
+          "voice_microtone": 32.92500000000001,
+          "voice_tradition": 35.705,
+          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_estill_quality": 2.2749999999999995,
+          "voice_speech_song": 22.295,
+          "voice_ensemble_config": 16.249999999999996,
+          "voice_ornament_system": 0.6499999999999998,
           "voice_pitch_organization": 1.6249999999999998,
-          "voice_processing_chain": 6.415,
-          "voice_multitrack_stack": 4.192500000000001
+          "voice_processing_chain": 5.199999999999999,
+          "voice_multitrack_stack": 4.0299999999999985
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 31.534999999999997,
-          "poly_archetypes": 6.564999999999999,
-          "poly_voices": 0.195,
-          "poly_maker_lineage": 0.38999999999999957
+          "electronic_technique": 28.159999999999997,
+          "poly_archetypes": 3.3149999999999995,
+          "poly_voices": 0.28500000000000003,
+          "poly_maker_lineage": -0.91
         }
       },
       {
@@ -75,9 +75,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 31.534999999999997,
+          "electronic_technique": 28.159999999999997,
           "va_archetypes": 0.195,
-          "digital_subtractive_context": 15.275
+          "digital_subtractive_context": 16.575000000000003
         }
       },
       {
@@ -86,28 +86,28 @@
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": 1.25,
-          "sampler_bit_depth": 2.405,
+          "sampler_bit_depth": 1.17,
           "sampler_workflow": 0.7149999999999999,
-          "sampler_classic_context": 30.514999999999997
+          "sampler_classic_context": 26.989999999999995
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
-          "tr808_voice": "tr808_clap",
-          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0,
-          "drum_machine_808_context": 4.9075,
-          "tr808_production_origin": 0.78
+          "tr808_voice": 0.585,
+          "drum_machine_808_context": 3.9,
+          "tr808_production_origin": 0.39
         }
       }
     ],

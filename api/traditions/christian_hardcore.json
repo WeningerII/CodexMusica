@@ -5,7 +5,7 @@
   "lineage": "Christian hardcore is represented here by Focused. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic christian hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 379,
-  "score": 48.706,
+  "score": 47.574,
   "config": {
     "traditions": [
       "christian_hardcore"
@@ -18,7 +18,7 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
@@ -29,18 +29,18 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.7,
+          "electric_technique": 3.754,
           "amp_make": 9.620000000000001,
-          "body_wood": 1.722,
-          "neck_wood": 0.40950000000000003,
-          "fretboard": 0.1365,
+          "body_wood": 1.1655,
+          "neck_wood": 0.273,
+          "fretboard": 0.063,
           "pickup_magnet": 1.3315000000000001,
           "pickup_winding": 0.147,
           "string_material": 0.063,
-          "bridge": 2.7965,
-          "scale_length": 1.398,
+          "bridge": 2.9899999999999998,
+          "scale_length": 0.978,
           "string_gauge": 1.3,
-          "finish": 0.1365,
+          "finish": 0.1905,
           "string_tuning": 0.39
         }
       },
@@ -58,8 +58,8 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.8190000000000002,
-          "pickup_config": 1.4365,
+          "body_wood": 0.546,
+          "pickup_config": 1.3,
           "string_type": 4.875,
           "scale_length_b": 1.4905,
           "fretted_or_not": 0.0315,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.7080000000000002,
+          "drumhead": 1.816,
           "drum_kit_kick_pedal": 0.231
         }
       },
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.108
+          "voice_multitrack_stack": 0.162
         }
       }
     ],
